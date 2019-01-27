@@ -1,0 +1,112 @@
+description: a collection of subset, type, slot and class definitions
+display_name: !!python/object/new:biolinkml.meta.ClassDefinitionName [schema definition]
+document_category: !!python/object/new:biolinkml.meta.ClassDefinitionName [schema
+    definition]
+fields:
+- description: the unique name of the element within the context of the schema
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName [name]
+  id: name
+- description: a description of the element's purpose and use
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName [schema definition_description]
+  id: description
+- description: Description of why and when this element will no longer be used
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName [deprecated]
+  id: deprecated
+- cardinality: multi
+  description: editorial notes about an element intended for internal consumption
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName [notes]
+  id: notes
+- cardinality: multi
+  description: notes and comments about an element intended for external consumption
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName [comments]
+  id: comments
+- cardinality: multi
+  description: example usages of an element
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName [examples]
+  id: examples
+- cardinality: multi
+  description: used to indicate membership of a term in a defined subset of biolink
+    terms used for a particular domain or application (e.g. the translator_minimal
+    subset holding the minimal set of predicates used in a translator knowledge graph)
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName [in_subset]
+  id: in_subset
+- description: id of the schema that defined the element
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName [from_schema]
+  id: from_schema
+- cardinality: multi
+  description: a reference
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName [see_also]
+  id: see_also
+- cardinality: multi
+  description: a list of Curie prefixes that are used in the representation of instances
+    of the model.  All prefixes in this list are added to the prefix sections of the
+    target models.
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName [id_prefixes]
+  id: id_prefixes
+- description: a globally unique schema identifier
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName [id]
+  id: id
+- description: the official title of the schema
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName [title]
+  id: title
+- description: particular version of schema
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName [version]
+  id: version
+- cardinality: multi
+  description: other schemas that are included in this schema
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName [imports]
+  id: imports
+- description: license for the schema
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName [license]
+  id: license
+- cardinality: multi
+  description: prefix / URI definitions to be added to the context beyond those fetched
+    from prefixcommons in id_prefixes
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName [prefixes]
+  id: prefixes
+- cardinality: multi
+  description: ordered list of prefixcommon biocontexts to be fetched to resolve id_prefixes
+    and inline prefix variables
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName [default_curi_maps]
+  id: default_curi_maps
+- description: default and base prefix -- used for ':' identifiers, @base and @vocab
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName [default_prefix]
+  id: default_prefix
+- description: default slot range to be used if range element is omitted from a slot
+    definition
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName [default_range]
+  id: default_range
+- cardinality: multi
+  description: list of subsets referenced in this model
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName [subsets]
+  id: subsets
+- cardinality: multi
+  description: data types used in the model
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName [types]
+  id: types
+- cardinality: multi
+  description: slot definitions
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName [slot definitions]
+  id: slots
+- cardinality: multi
+  description: class definitions
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName [classes]
+  id: classes
+- description: Version of the metamodel used to load the schema
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName [metamodel_version]
+  id: metamodel_version
+- description: name, uri or description of the source of the schema
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName [source_file]
+  id: source_file
+- description: modification date of the source of the schema
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName [source_file_date]
+  id: source_file_date
+- description: size in bytes of the source of the schema
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName [source_file_size]
+  id: source_file_size
+- description: date and time that the schema was loaded/generated
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName [generation_date]
+  id: generation_date
+id: schema_definition
+schema_generating: true
+weight: 20

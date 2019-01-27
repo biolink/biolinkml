@@ -1,0 +1,11 @@
+id: http://example.org/synopsis/synopsis1
+name: synopsis1
+
+default_range: string
+
+types:
+    string:
+        base: str
+
+slots:
+    s1:

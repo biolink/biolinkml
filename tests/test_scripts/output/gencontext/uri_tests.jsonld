@@ -1,0 +1,23 @@
+{
+   "comments": "Auto generated from uri_tests.yaml by jsonldcontextgen.py version: 0.0.2\nGeneration date: 2019-01-26 13:32\nSchema: uri_tests\n\nid: http://example.org/example/uri_tests\ndescription: \nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
+   "@context": {
+      "OIO": "http://www.geneontology.org/formats/oboInOwl#",
+      "metatype": "http://w3id.org/biolink/biolinkml/types/",
+      "skos": "http://www.w3.org/2004/02/skos/core#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "@vocab": "http://w3id.org/biolink/biolinkml/meta/",
+      "sc": {
+         "@id": "skos:prefLabel"
+      },
+      "su": {
+         "@id": "http://example.org/slot/su"
+      },
+      "Cc": {
+         "@id": "skos:Concept"
+      },
+      "Cu": {
+         "@id": "http://example.org/class/cu"
+      }
+   }
+}
+

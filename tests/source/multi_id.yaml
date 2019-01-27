@@ -1,0 +1,38 @@
+id: http://example.org/example/multi_id
+name: multi_id
+
+default_range: uri
+
+types:
+  uri:
+    base: Uri
+
+  identifier type:
+    typeof: uri
+
+slots:
+  node property:
+    domain: named thing
+    range: identifier type
+
+  not overridden:
+    domain: named thing
+    range: identifier type
+
+  id:
+    is_a: node property
+    identifier: true
+    domain: named thing
+    range: uri
+
+classes:
+  named thing:
+
+
+  sequence variant:
+    is_a: named thing
+    slot_usage:
+      id:
+        description: no significant change
+      node property:
+        description: none here either

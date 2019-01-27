@@ -1,0 +1,27 @@
+id: http://example.org/tests/timepoint
+name: timepoint
+
+
+imports:
+  - includes/types
+
+
+types:
+  time type:
+    typeof: time
+
+slots:
+  k:
+    domain: geographic location
+    key: true
+
+  timepoint:
+    domain: geographic location at time
+    range: time type
+
+
+classes:
+  geographic location:
+
+  geographic location at time:
+    is_a: geographic location

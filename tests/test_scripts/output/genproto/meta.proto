@@ -1,0 +1,137 @@
+// the definition of a class or interface
+message ClassDefinition
+ {
+  optional name None = 1
+  optional description None = 2
+  optional deprecated None = 3
+  repeated notes None = 4
+  repeated comments None = 5
+  repeated examples None = 6
+  repeated inSubset None = 7
+  optional fromSchema None = 8
+  repeated seeAlso None = 9
+  repeated idPrefixes None = 10
+  optional isA None = 11
+  optional abstract None = 12
+  repeated localNames None = 13
+  optional mixin None = 14
+  repeated mixins None = 15
+  repeated applyTo None = 16
+  repeated valuesFrom None = 17
+  repeated slots None = 18
+  repeated slotUsage None = 19
+  optional classUri None = 20
+  repeated definingSlots None = 21
+  optional subclassOf None = 22
+ }
+// usage example and description
+message Example
+ {
+  optional value None = 1
+  optional description None = 2
+ }
+// prefix URI tuple
+message Prefix
+ {
+  optional localName None = 1
+  prefixUri None = 2
+ }
+// a collection of subset, type, slot and class definitions
+message SchemaDefinition
+ {
+  optional name None = 1
+  optional description None = 2
+  optional deprecated None = 3
+  repeated notes None = 4
+  repeated comments None = 5
+  repeated examples None = 6
+  repeated inSubset None = 7
+  optional fromSchema None = 8
+  repeated seeAlso None = 9
+  repeated idPrefixes None = 10
+  id None = 11
+  optional title None = 12
+  optional version None = 13
+  repeated imports None = 14
+  optional license None = 15
+  repeated prefixes None = 16
+  repeated defaultCuriMaps None = 17
+  optional defaultPrefix None = 18
+  optional defaultRange None = 19
+  repeated subsets None = 20
+  repeated types None = 21
+  repeated slots None = 22
+  repeated classes None = 23
+  optional metamodelVersion None = 24
+  optional sourceFile None = 25
+  optional sourceFileDate None = 26
+  optional sourceFileSize None = 27
+  optional generationDate None = 28
+ }
+// the definition of a property or a slot
+message SlotDefinition
+ {
+  optional name None = 1
+  optional description None = 2
+  optional deprecated None = 3
+  repeated notes None = 4
+  repeated comments None = 5
+  repeated examples None = 6
+  repeated inSubset None = 7
+  optional fromSchema None = 8
+  repeated seeAlso None = 9
+  repeated idPrefixes None = 10
+  optional isA None = 11
+  optional abstract None = 12
+  repeated localNames None = 13
+  optional mixin None = 14
+  repeated mixins None = 15
+  repeated applyTo None = 16
+  repeated valuesFrom None = 17
+  domain None = 18
+  optional range None = 19
+  optional slotUri None = 20
+  optional multivalued None = 21
+  optional inherited None = 22
+  optional readonly None = 23
+  optional ifabsent None = 24
+  optional required None = 25
+  optional inlined None = 26
+  optional key None = 27
+  optional identifier None = 28
+  optional alias None = 29
+  optional subclassOf None = 30
+  optional inverse None = 31
+ }
+// the name and description of a subset
+message SubsetDefinition
+ {
+  optional name None = 1
+  optional description None = 2
+  optional deprecated None = 3
+  repeated notes None = 4
+  repeated comments None = 5
+  repeated examples None = 6
+  repeated inSubset None = 7
+  optional fromSchema None = 8
+  repeated seeAlso None = 9
+  repeated idPrefixes None = 10
+ }
+// A data type definition.
+message TypeDefinition
+ {
+  optional name None = 1
+  optional description None = 2
+  optional deprecated None = 3
+  repeated notes None = 4
+  repeated comments None = 5
+  repeated examples None = 6
+  repeated inSubset None = 7
+  optional fromSchema None = 8
+  repeated seeAlso None = 9
+  repeated idPrefixes None = 10
+  optional typeof None = 11
+  optional base None = 12
+  optional uri None = 13
+ }
+

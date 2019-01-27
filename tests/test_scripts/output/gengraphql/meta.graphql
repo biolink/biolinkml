@@ -1,0 +1,172 @@
+type ClassDefinition
+  {
+    name: String!
+    description: String
+    deprecated: String
+    notes: [String]
+    comments: [String]
+    examples: [Example]
+    inSubset: [SubsetDefinition]
+    fromSchema: SchemaDefinition
+    seeAlso: [Uri]
+    idPrefixes: [Ncname]
+    isA: ClassDefinition
+    abstract: Boolean
+    localNames: [String]
+    mixin: Boolean
+    mixins: [ClassDefinition]
+    applyTo: [ClassDefinition]
+    valuesFrom: [Uri]
+    slots: [SlotDefinition]
+    slotUsage: [SlotDefinition]
+    classUri: Uri
+    definingSlots: [SlotDefinition]
+    subclassOf: Uri
+  }
+
+interface Definition
+  {
+    name: String!
+    description: String
+    deprecated: String
+    notes: [String]
+    comments: [String]
+    examples: [Example]
+    inSubset: [SubsetDefinition]
+    fromSchema: SchemaDefinition
+    seeAlso: [Uri]
+    idPrefixes: [Ncname]
+    isA: Definition
+    abstract: Boolean
+    localNames: [String]
+    mixin: Boolean
+    mixins: [Definition]
+    applyTo: [Definition]
+    valuesFrom: [Uri]
+  }
+
+interface Element
+  {
+    name: String!
+    description: String
+    deprecated: String
+    notes: [String]
+    comments: [String]
+    examples: [Example]
+    inSubset: [SubsetDefinition]
+    fromSchema: SchemaDefinition
+    seeAlso: [Uri]
+    idPrefixes: [Ncname]
+  }
+
+type Example
+  {
+    value: String
+    description: String
+  }
+
+type Prefix
+  {
+    localName: Ncname!
+    prefixUri: Uri!
+  }
+
+type SchemaDefinition
+  {
+    name: String!
+    description: String
+    deprecated: String
+    notes: [String]
+    comments: [String]
+    examples: [Example]
+    inSubset: [SubsetDefinition]
+    fromSchema: SchemaDefinition
+    seeAlso: [Uri]
+    idPrefixes: [Ncname]
+    id: Uri!
+    title: String
+    version: String
+    imports: [Uri]
+    license: String
+    prefixes: [Prefix]
+    defaultCuriMaps: [String]
+    defaultPrefix: String
+    defaultRange: Definition
+    subsets: [SubsetDefinition]
+    types: [TypeDefinition]
+    slots: [SlotDefinition]
+    classes: [ClassDefinition]
+    metamodelVersion: String
+    sourceFile: String
+    sourceFileDate: Datetime
+    sourceFileSize: Integer
+    generationDate: Datetime
+  }
+
+type SlotDefinition
+  {
+    name: String!
+    description: String
+    deprecated: String
+    notes: [String]
+    comments: [String]
+    examples: [Example]
+    inSubset: [SubsetDefinition]
+    fromSchema: SchemaDefinition
+    seeAlso: [Uri]
+    idPrefixes: [Ncname]
+    isA: SlotDefinition
+    abstract: Boolean
+    localNames: [String]
+    mixin: Boolean
+    mixins: [SlotDefinition]
+    applyTo: [SlotDefinition]
+    valuesFrom: [Uri]
+    domain: ClassDefinition!
+    range: Element
+    slotUri: Uri
+    multivalued: Boolean
+    inherited: Boolean
+    readonly: String
+    ifabsent: String
+    required: Boolean
+    inlined: Boolean
+    key: Boolean
+    identifier: Boolean
+    alias: String
+    subclassOf: Uri
+    inverse: SlotDefinition
+  }
+
+type SubsetDefinition
+  {
+    name: String!
+    description: String
+    deprecated: String
+    notes: [String]
+    comments: [String]
+    examples: [Example]
+    inSubset: [SubsetDefinition]
+    fromSchema: SchemaDefinition
+    seeAlso: [Uri]
+    idPrefixes: [Ncname]
+  }
+
+type TypeDefinition
+  {
+    name: String!
+    description: String
+    deprecated: String
+    notes: [String]
+    comments: [String]
+    examples: [Example]
+    inSubset: [SubsetDefinition]
+    fromSchema: SchemaDefinition
+    seeAlso: [Uri]
+    idPrefixes: [Ncname]
+    typeof: TypeDefinition
+    base: String
+    uri: Uri
+  }
+
+

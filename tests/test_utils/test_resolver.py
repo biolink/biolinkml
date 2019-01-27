@@ -1,0 +1,57 @@
+import os
+import unittest
+from typing import Dict
+
+from jsonasobj import as_dict
+
+from biolinkml.utils.schemaloader import SchemaLoader
+from tests.test_utils import datadir
+
+
+
+yaml4 = '''
+
+'''
+
+
+class ResolverTestCase(unittest.TestCase):
+
+    def test_default_range(self):
+        """ Validate default slot range settings """
+        schema = SchemaLoader(os.path.join(datadir, 'resolver1.yaml')).resolve()
+        self.assertEqual({'s1':'t1', 's2':'t2'}, {slot.name: slot.range for slot in schema.slots.values()})
+        schema = SchemaLoader(os.path.join(datadir, 'resolver2.yaml')).resolve()
+        self.assertEqual({'s1': 'string', 's2': 't2'}, {slot.name: slot.range for slot in schema.slots.values()})
+
+    def test_type_uri(self):
+        """ Validate type URI's and the fact that they aren't inherited """
+        schema = SchemaLoader(os.path.join(datadir, 'resolver2.yaml')).resolve()
+        self.assertEqual({'string': None, 't1': 'xsd:string', 't2': 'xsd:int', 't3': None},
+                         {t.name: t.uri for t in schema.types.values()})
+
+    def test_element_slots(self):
+        """ Test all element slots and their inheritence """
+        schema = SchemaLoader(os.path.join(datadir, 'resolver3.yaml')).resolve()
+        x = {k:v for k, v in as_dict(schema.slots['s1']).items() if v is not None and v != []}
+        self.assertEqual(
+            {'comments': ["I'm a little comment"],
+             'description': 'this is s1 it is good',
+             'domain': 'c1',
+             'examples': [{'description': 'an example', 'value': 'test: foo'},
+                          {'description': None, 'value': 17}],
+             'from_schema': 'http://example.org/yaml4',
+             'id_prefixes': ['p1', 'P2'],
+             'in_subset': ['subset1', 'subset 2'],
+             'inlined': True,
+             'name': 's1',
+             'notes': ['Pay attention here', 'Something might be happening'],
+             'range': 'c2',
+             'required': False,
+             'see_also': ['http://example.org/e1', 'ex:e2'],
+             'slot_uri': 'http://example.org/yaml4/s1'}, x)
+
+
+
+
+if __name__ == '__main__':
+    unittest.main()

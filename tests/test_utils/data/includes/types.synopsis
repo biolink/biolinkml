@@ -1,0 +1,44 @@
+
+Classes: 0
+	Referenced by: 0 classes, 0 slots, 0 types 
+	Root: 0
+	Leaf: 0
+	Standalone: 0
+	Declared mixin: 0
+	Undeclared mixin: 0
+	Abstract: 0
+
+Slots: 0
+	Referenced by: 0 classes, 0 slots, 0 types 
+	Root: 0
+	Leaf: 0
+	Standalone: 0
+	Declared mixin: 0
+	Undeclared mixin: 0
+	Abstract: 0
+	Ranges:
+		Type:
+		Class:
+
+Types: 10
+	Referenced by: 0 classes, 0 slots, 0 types 
+	Bases:
+		Bool:
+			boolean
+		NCName:
+			ncname
+		URI:
+			uri
+		datetime.date:
+			date
+		datetime.datetime:
+			datetime
+		datetime.time:
+			time
+		float:
+			float
+			double
+		int:
+			integer
+		str:
+			string

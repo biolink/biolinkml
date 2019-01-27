@@ -1,0 +1,3 @@
+name: YAML with duplicate key
+f1: yaml1.yaml
+f1: 17

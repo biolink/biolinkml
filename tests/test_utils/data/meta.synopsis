@@ -1,0 +1,59 @@
+
+Classes: 9
+	Referenced by: 6 classes, 68 slots, 0 types 
+	Root: 3
+	Leaf: 7
+	Standalone: 8
+	Declared mixin: 0
+	Undeclared mixin: 0
+	Abstract: 2
+
+Slots: 68
+	Referenced by: 9 classes, 7 slots, 0 types 
+	Root: 61
+	Leaf: 64
+	Standalone: 67
+	Declared mixin: 0
+	Undeclared mixin: 0
+	Abstract: 0
+	Ranges:
+		Type:
+			boolean: 8
+			datetime: 2
+			integer: 1
+			ncname: 2
+			string: 20
+			uri: 10
+		Class:
+			class definition: 5
+			definition: 4
+			element: 1
+			example: 1
+			prefix: 1
+			schema definition: 1
+			slot definition: 8
+			subset definition: 2
+			type definition: 2
+
+Types: 10
+	Referenced by: 0 classes, 43 slots, 0 types 
+	Bases:
+		Bool:
+			boolean
+		NCName:
+			ncname
+		Uri:
+			uri
+		datetime.date:
+			date
+		datetime.datetime:
+			datetime
+		datetime.time:
+			time
+		float:
+			double
+			float
+		int:
+			integer
+		str:
+			string

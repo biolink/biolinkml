@@ -1,0 +1,35 @@
+schema1:
+  id: "http://example.org/schema1"
+
+  subsets:
+    s1:
+
+  default_range: t1
+
+  types:
+    t1:
+      base: str
+
+  slots:
+    s1:
+      domain: c1
+
+  classes:
+    c1:
+
+schema2:
+  id: "http://example.org/schema2"
+
+  subsets:
+    s2:
+
+  types:
+    t2:
+      base: Bool
+
+  slots:
+    s2:
+      domain: c2
+
+  classes:
+    c2:

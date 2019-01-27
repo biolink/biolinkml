@@ -1,0 +1,519 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix shex: <http://www.w3.org/ns/shex#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://w3id.org/biolink/biolinkml/meta/Date> a shex:NodeConstraint ;
+    shex:datatype xsd:dateTime .
+
+<http://w3id.org/biolink/biolinkml/meta/Double> a shex:NodeConstraint ;
+    shex:datatype xsd:double .
+
+<http://w3id.org/biolink/biolinkml/meta/Float> a shex:NodeConstraint ;
+    shex:datatype xsd:float .
+
+<http://w3id.org/biolink/biolinkml/meta/Time> a shex:NodeConstraint ;
+    shex:datatype xsd:dateTime .
+
+<http://w3id.org/biolink/biolinkml/meta/Example> a shex:Shape ;
+    shex:closed true ;
+    shex:expression [ a shex:EachOf ;
+            shex:expressions ( [ a shex:TripleConstraint ;
+                        shex:max 1 ;
+                        shex:min 0 ;
+                        shex:predicate <http://w3id.org/biolink/biolinkml/meta/value> ;
+                        shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/String> ] [ a shex:TripleConstraint ;
+                        shex:max 1 ;
+                        shex:min 0 ;
+                        shex:predicate <http://w3id.org/biolink/biolinkml/meta/description> ;
+                        shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/String> ] ) ] .
+
+<http://w3id.org/biolink/biolinkml/meta/Integer> a shex:NodeConstraint ;
+    shex:datatype xsd:integer .
+
+<http://w3id.org/biolink/biolinkml/meta/Prefix> a shex:Shape ;
+    shex:closed true ;
+    shex:expression [ a shex:EachOf ;
+            shex:expressions ( [ a shex:TripleConstraint ;
+                        shex:max 1 ;
+                        shex:min 1 ;
+                        shex:predicate <http://w3id.org/biolink/biolinkml/meta/local_name> ;
+                        shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/Ncname> ] [ a shex:TripleConstraint ;
+                        shex:max 1 ;
+                        shex:min 1 ;
+                        shex:predicate <http://w3id.org/biolink/biolinkml/meta/prefix_uri> ;
+                        shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/Uri> ] ) ] .
+
+<http://w3id.org/biolink/biolinkml/meta/SchemaDefinition> a shex:ShapeAnd ;
+    shex:shapeExprs ( <http://w3id.org/biolink/biolinkml/meta/Element> [ a shex:Shape ;
+                shex:closed true ;
+                shex:expression [ a shex:EachOf ;
+                        shex:expressions ( [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://purl.org/dc/terms/description> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/String> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 1 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/id> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/Uri> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://purl.org/dc/terms/title> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/String> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://purl.org/pav/version> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/String> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/imports> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/Uri__List> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://purl.org/dc/terms/license> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/String> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/prefixes> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/Prefix__List> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/default_curi_maps> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/String__List> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/default_prefix> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/String> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/default_range> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/Definition> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/subsets> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/SubsetDefinition__List> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/types> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/TypeDefinition__List> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/slots> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/SlotDefinition__List> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/classes> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/ClassDefinition__List> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/metamodel_version> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/String> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/source_file> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/String> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/source_file_date> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/Datetime> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/source_file_size> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/Integer> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/generation_date> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/Datetime> ] ) ] ] ) .
+
+<http://w3id.org/biolink/biolinkml/meta/SubsetDefinition> a shex:ShapeAnd ;
+    shex:shapeExprs ( <http://w3id.org/biolink/biolinkml/meta/Element> [ a shex:Shape ;
+                shex:closed true ] ) .
+
+<http://w3id.org/biolink/biolinkml/meta/Datetime> a shex:NodeConstraint ;
+    shex:datatype xsd:dateTime .
+
+<http://w3id.org/biolink/biolinkml/meta/Example__List> a shex:Shape ;
+    shex:closed true ;
+    shex:expression [ a shex:EachOf ;
+            shex:expressions ( [ a shex:TripleConstraint ;
+                        shex:max 1 ;
+                        shex:min 0 ;
+                        shex:predicate rdf:first ;
+                        shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/Example> ] [ a shex:TripleConstraint ;
+                        shex:predicate rdf:rest ;
+                        shex:valueExpr [ a shex:ShapeOr ;
+                                shex:shapeExprs ( [ a shex:NodeConstraint ;
+                                            shex:values ( () ) ] <http://w3id.org/biolink/biolinkml/meta/Example__List> ) ] ] ) ] .
+
+<http://w3id.org/biolink/biolinkml/meta/Ncname> a shex:NodeConstraint ;
+    shex:datatype xsd:string .
+
+<http://w3id.org/biolink/biolinkml/meta/Ncname__List> a shex:Shape ;
+    shex:closed true ;
+    shex:expression [ a shex:EachOf ;
+            shex:expressions ( [ a shex:TripleConstraint ;
+                        shex:max 1 ;
+                        shex:min 0 ;
+                        shex:predicate rdf:first ;
+                        shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/Ncname> ] [ a shex:TripleConstraint ;
+                        shex:predicate rdf:rest ;
+                        shex:valueExpr [ a shex:ShapeOr ;
+                                shex:shapeExprs ( [ a shex:NodeConstraint ;
+                                            shex:values ( () ) ] <http://w3id.org/biolink/biolinkml/meta/Ncname__List> ) ] ] ) ] .
+
+<http://w3id.org/biolink/biolinkml/meta/Prefix__List> a shex:Shape ;
+    shex:closed true ;
+    shex:expression [ a shex:EachOf ;
+            shex:expressions ( [ a shex:TripleConstraint ;
+                        shex:max 1 ;
+                        shex:min 0 ;
+                        shex:predicate rdf:first ;
+                        shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/Prefix> ] [ a shex:TripleConstraint ;
+                        shex:predicate rdf:rest ;
+                        shex:valueExpr [ a shex:ShapeOr ;
+                                shex:shapeExprs ( [ a shex:NodeConstraint ;
+                                            shex:values ( () ) ] <http://w3id.org/biolink/biolinkml/meta/Prefix__List> ) ] ] ) ] .
+
+<http://w3id.org/biolink/biolinkml/meta/TypeDefinition> a shex:ShapeAnd ;
+    shex:shapeExprs ( <http://w3id.org/biolink/biolinkml/meta/Element> [ a shex:Shape ;
+                shex:closed true ;
+                shex:expression [ a shex:EachOf ;
+                        shex:expressions ( [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/typeof> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/TypeDefinition> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/base> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/String> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/uri> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/Uri> ] ) ] ] ) .
+
+<http://w3id.org/biolink/biolinkml/meta/TypeDefinition__List> a shex:Shape ;
+    shex:closed true ;
+    shex:expression [ a shex:EachOf ;
+            shex:expressions ( [ a shex:TripleConstraint ;
+                        shex:max 1 ;
+                        shex:min 0 ;
+                        shex:predicate rdf:first ;
+                        shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/TypeDefinition> ] [ a shex:TripleConstraint ;
+                        shex:predicate rdf:rest ;
+                        shex:valueExpr [ a shex:ShapeOr ;
+                                shex:shapeExprs ( [ a shex:NodeConstraint ;
+                                            shex:values ( () ) ] <http://w3id.org/biolink/biolinkml/meta/TypeDefinition__List> ) ] ] ) ] .
+
+<http://w3id.org/biolink/biolinkml/meta/ClassDefinition> a shex:ShapeAnd ;
+    shex:shapeExprs ( <http://w3id.org/biolink/biolinkml/meta/Definition> [ a shex:Shape ;
+                shex:closed true ;
+                shex:expression [ a shex:EachOf ;
+                        shex:expressions ( [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/is_a> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/ClassDefinition> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/mixins> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/ClassDefinition__List> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/apply_to> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/ClassDefinition__List> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/slots> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/SlotDefinition__List> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/slot_usage> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/SlotDefinition__List> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/class_uri> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/Uri> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/defining_slots> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/SlotDefinition__List> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate rdfs:subClassOf ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/Uri> ] ) ] ] ) .
+
+<http://w3id.org/biolink/biolinkml/meta/Definition__List> a shex:Shape ;
+    shex:closed true ;
+    shex:expression [ a shex:EachOf ;
+            shex:expressions ( [ a shex:TripleConstraint ;
+                        shex:max 1 ;
+                        shex:min 0 ;
+                        shex:predicate rdf:first ;
+                        shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/Definition> ] [ a shex:TripleConstraint ;
+                        shex:predicate rdf:rest ;
+                        shex:valueExpr [ a shex:ShapeOr ;
+                                shex:shapeExprs ( [ a shex:NodeConstraint ;
+                                            shex:values ( () ) ] <http://w3id.org/biolink/biolinkml/meta/Definition__List> ) ] ] ) ] .
+
+<http://w3id.org/biolink/biolinkml/meta/SlotDefinition> a shex:ShapeAnd ;
+    shex:shapeExprs ( <http://w3id.org/biolink/biolinkml/meta/Definition> [ a shex:Shape ;
+                shex:closed true ;
+                shex:expression [ a shex:EachOf ;
+                        shex:expressions ( [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/is_a> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/SlotDefinition> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/mixins> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/SlotDefinition__List> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/apply_to> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/SlotDefinition__List> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 1 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/domain> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/ClassDefinition> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/range> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/Element> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/slot_uri> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/Uri> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/multivalued> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/Boolean> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/inherited> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/Boolean> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/readonly> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/String> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/ifabsent> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/String> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/required> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/Boolean> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/inlined> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/Boolean> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/key> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/Boolean> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/identifier> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/Boolean> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/alias> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/String> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/subclass_of> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/Uri> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate owl:inverseOf ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/SlotDefinition> ] ) ] ] ) .
+
+<http://w3id.org/biolink/biolinkml/meta/SubsetDefinition__List> a shex:Shape ;
+    shex:closed true ;
+    shex:expression [ a shex:EachOf ;
+            shex:expressions ( [ a shex:TripleConstraint ;
+                        shex:max 1 ;
+                        shex:min 0 ;
+                        shex:predicate rdf:first ;
+                        shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/SubsetDefinition> ] [ a shex:TripleConstraint ;
+                        shex:predicate rdf:rest ;
+                        shex:valueExpr [ a shex:ShapeOr ;
+                                shex:shapeExprs ( [ a shex:NodeConstraint ;
+                                            shex:values ( () ) ] <http://w3id.org/biolink/biolinkml/meta/SubsetDefinition__List> ) ] ] ) ] .
+
+<http://w3id.org/biolink/biolinkml/meta/ClassDefinition__List> a shex:Shape ;
+    shex:closed true ;
+    shex:expression [ a shex:EachOf ;
+            shex:expressions ( [ a shex:TripleConstraint ;
+                        shex:max 1 ;
+                        shex:min 0 ;
+                        shex:predicate rdf:first ;
+                        shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/ClassDefinition> ] [ a shex:TripleConstraint ;
+                        shex:predicate rdf:rest ;
+                        shex:valueExpr [ a shex:ShapeOr ;
+                                shex:shapeExprs ( [ a shex:NodeConstraint ;
+                                            shex:values ( () ) ] <http://w3id.org/biolink/biolinkml/meta/ClassDefinition__List> ) ] ] ) ] .
+
+<http://w3id.org/biolink/biolinkml/meta/Uri__List> a shex:Shape ;
+    shex:closed true ;
+    shex:expression [ a shex:EachOf ;
+            shex:expressions ( [ a shex:TripleConstraint ;
+                        shex:max 1 ;
+                        shex:min 0 ;
+                        shex:predicate rdf:first ;
+                        shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/Uri> ] [ a shex:TripleConstraint ;
+                        shex:predicate rdf:rest ;
+                        shex:valueExpr [ a shex:ShapeOr ;
+                                shex:shapeExprs ( [ a shex:NodeConstraint ;
+                                            shex:values ( () ) ] <http://w3id.org/biolink/biolinkml/meta/Uri__List> ) ] ] ) ] .
+
+<http://w3id.org/biolink/biolinkml/meta/Definition> a shex:ShapeAnd ;
+    shex:shapeExprs ( <http://w3id.org/biolink/biolinkml/meta/Element> [ a shex:Shape ;
+                shex:expression [ a shex:EachOf ;
+                        shex:expressions ( [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/is_a> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/Definition> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/abstract> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/Boolean> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/local_names> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/String__List> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/mixin> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/Boolean> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/mixins> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/Definition__List> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/apply_to> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/Definition__List> ] [ a shex:TripleConstraint ;
+                                    shex:max 1 ;
+                                    shex:min 0 ;
+                                    shex:predicate <http://w3id.org/biolink/biolinkml/meta/values_from> ;
+                                    shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/Uri__List> ] ) ] ] ) .
+
+<http://w3id.org/biolink/biolinkml/meta/Element> a shex:Shape ;
+    shex:expression [ a shex:EachOf ;
+            shex:expressions ( [ a shex:TripleConstraint ;
+                        shex:max 1 ;
+                        shex:min 1 ;
+                        shex:predicate rdfs:label ;
+                        shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/String> ] [ a shex:TripleConstraint ;
+                        shex:max 1 ;
+                        shex:min 0 ;
+                        shex:predicate <http://www.w3.org/2004/02/skos/core#definition> ;
+                        shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/String> ] [ a shex:TripleConstraint ;
+                        shex:max 1 ;
+                        shex:min 0 ;
+                        shex:predicate <http://w3id.org/biolink/biolinkml/meta/deprecated> ;
+                        shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/String> ] [ a shex:TripleConstraint ;
+                        shex:max 1 ;
+                        shex:min 0 ;
+                        shex:predicate <http://www.w3.org/2004/02/skos/core#editorialNote> ;
+                        shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/String__List> ] [ a shex:TripleConstraint ;
+                        shex:max 1 ;
+                        shex:min 0 ;
+                        shex:predicate <http://www.w3.org/2004/02/skos/core#note> ;
+                        shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/String__List> ] [ a shex:TripleConstraint ;
+                        shex:max 1 ;
+                        shex:min 0 ;
+                        shex:predicate <http://www.w3.org/2004/02/skos/core#example> ;
+                        shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/Example__List> ] [ a shex:TripleConstraint ;
+                        shex:max 1 ;
+                        shex:min 0 ;
+                        shex:predicate <http://www.geneontology.org/formats/oboInOwl#inSubset> ;
+                        shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/SubsetDefinition__List> ] [ a shex:TripleConstraint ;
+                        shex:max 1 ;
+                        shex:min 0 ;
+                        shex:predicate <http://www.w3.org/2004/02/skos/core#inScheme> ;
+                        shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/SchemaDefinition> ] [ a shex:TripleConstraint ;
+                        shex:max 1 ;
+                        shex:min 0 ;
+                        shex:predicate rdfs:seeAlso ;
+                        shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/Uri__List> ] [ a shex:TripleConstraint ;
+                        shex:max 1 ;
+                        shex:min 0 ;
+                        shex:predicate <http://w3id.org/biolink/biolinkml/meta/id_prefixes> ;
+                        shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/Ncname__List> ] ) ] .
+
+<http://w3id.org/biolink/biolinkml/meta/String__List> a shex:Shape ;
+    shex:closed true ;
+    shex:expression [ a shex:EachOf ;
+            shex:expressions ( [ a shex:TripleConstraint ;
+                        shex:max 1 ;
+                        shex:min 0 ;
+                        shex:predicate rdf:first ;
+                        shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/String> ] [ a shex:TripleConstraint ;
+                        shex:predicate rdf:rest ;
+                        shex:valueExpr [ a shex:ShapeOr ;
+                                shex:shapeExprs ( [ a shex:NodeConstraint ;
+                                            shex:values ( () ) ] <http://w3id.org/biolink/biolinkml/meta/String__List> ) ] ] ) ] .
+
+<http://w3id.org/biolink/biolinkml/meta/SlotDefinition__List> a shex:Shape ;
+    shex:closed true ;
+    shex:expression [ a shex:EachOf ;
+            shex:expressions ( [ a shex:TripleConstraint ;
+                        shex:max 1 ;
+                        shex:min 0 ;
+                        shex:predicate rdf:first ;
+                        shex:valueExpr <http://w3id.org/biolink/biolinkml/meta/SlotDefinition> ] [ a shex:TripleConstraint ;
+                        shex:predicate rdf:rest ;
+                        shex:valueExpr [ a shex:ShapeOr ;
+                                shex:shapeExprs ( [ a shex:NodeConstraint ;
+                                            shex:values ( () ) ] <http://w3id.org/biolink/biolinkml/meta/SlotDefinition__List> ) ] ] ) ] .
+
+<http://w3id.org/biolink/biolinkml/meta/Boolean> a shex:NodeConstraint ;
+    shex:datatype xsd:boolean .
+
+<http://w3id.org/biolink/biolinkml/meta/Uri> a shex:NodeConstraint ;
+    shex:nodeKind shex:nonliteral .
+
+<http://w3id.org/biolink/biolinkml/meta/String> a shex:NodeConstraint ;
+    shex:datatype xsd:string .
+
+[] a shex:Schema ;
+    shex:shapes <http://w3id.org/biolink/biolinkml/meta/Boolean>,
+        <http://w3id.org/biolink/biolinkml/meta/ClassDefinition>,
+        <http://w3id.org/biolink/biolinkml/meta/ClassDefinition__List>,
+        <http://w3id.org/biolink/biolinkml/meta/Date>,
+        <http://w3id.org/biolink/biolinkml/meta/Datetime>,
+        <http://w3id.org/biolink/biolinkml/meta/Definition>,
+        <http://w3id.org/biolink/biolinkml/meta/Definition__List>,
+        <http://w3id.org/biolink/biolinkml/meta/Double>,
+        <http://w3id.org/biolink/biolinkml/meta/Element>,
+        <http://w3id.org/biolink/biolinkml/meta/Example>,
+        <http://w3id.org/biolink/biolinkml/meta/Example__List>,
+        <http://w3id.org/biolink/biolinkml/meta/Float>,
+        <http://w3id.org/biolink/biolinkml/meta/Integer>,
+        <http://w3id.org/biolink/biolinkml/meta/Ncname>,
+        <http://w3id.org/biolink/biolinkml/meta/Ncname__List>,
+        <http://w3id.org/biolink/biolinkml/meta/Prefix>,
+        <http://w3id.org/biolink/biolinkml/meta/Prefix__List>,
+        <http://w3id.org/biolink/biolinkml/meta/SchemaDefinition>,
+        <http://w3id.org/biolink/biolinkml/meta/SlotDefinition>,
+        <http://w3id.org/biolink/biolinkml/meta/SlotDefinition__List>,
+        <http://w3id.org/biolink/biolinkml/meta/String>,
+        <http://w3id.org/biolink/biolinkml/meta/String__List>,
+        <http://w3id.org/biolink/biolinkml/meta/SubsetDefinition>,
+        <http://w3id.org/biolink/biolinkml/meta/SubsetDefinition__List>,
+        <http://w3id.org/biolink/biolinkml/meta/Time>,
+        <http://w3id.org/biolink/biolinkml/meta/TypeDefinition>,
+        <http://w3id.org/biolink/biolinkml/meta/TypeDefinition__List>,
+        <http://w3id.org/biolink/biolinkml/meta/Uri>,
+        <http://w3id.org/biolink/biolinkml/meta/Uri__List> .
+
+
+

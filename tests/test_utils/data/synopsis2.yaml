@@ -1,0 +1,22 @@
+id: http://example.org/synopsis/synopsis2
+name: synopsis2
+
+default_range: string
+
+types:
+    string:
+        base: str
+
+slots:
+    s1:
+      domain: c1
+
+    s2:
+      domain: c2
+
+classes:
+  c1:
+    apply_to: c2
+
+  c2:
+    apply_to: c1

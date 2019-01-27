@@ -1,0 +1,137 @@
+
+<http://w3id.org/biolink/biolinkml/meta/String> <http://www.w3.org/2001/XMLSchema#string>
+
+<http://w3id.org/biolink/biolinkml/meta/Integer> <http://www.w3.org/2001/XMLSchema#integer>
+
+<http://w3id.org/biolink/biolinkml/meta/Boolean> <http://www.w3.org/2001/XMLSchema#boolean>
+
+<http://w3id.org/biolink/biolinkml/meta/Float> <http://www.w3.org/2001/XMLSchema#float>
+
+<http://w3id.org/biolink/biolinkml/meta/Double> <http://www.w3.org/2001/XMLSchema#double>
+
+<http://w3id.org/biolink/biolinkml/meta/Time> <http://www.w3.org/2001/XMLSchema#dateTime>
+
+<http://w3id.org/biolink/biolinkml/meta/Date> <http://www.w3.org/2001/XMLSchema#dateTime>
+
+<http://w3id.org/biolink/biolinkml/meta/Datetime> <http://www.w3.org/2001/XMLSchema#dateTime>
+
+<http://w3id.org/biolink/biolinkml/meta/Uri> NONLITERAL
+
+<http://w3id.org/biolink/biolinkml/meta/Ncname> <http://www.w3.org/2001/XMLSchema#string>
+
+<http://w3id.org/biolink/biolinkml/meta/ClassDefinition>  (
+    @<http://w3id.org/biolink/biolinkml/meta/Definition> AND CLOSED {
+       (  <http://w3id.org/biolink/biolinkml/meta/is_a> @<http://w3id.org/biolink/biolinkml/meta/ClassDefinition> ? ;
+          <http://w3id.org/biolink/biolinkml/meta/mixins> @<http://w3id.org/biolink/biolinkml/meta/ClassDefinition> * ;
+          <http://w3id.org/biolink/biolinkml/meta/apply_to> @<http://w3id.org/biolink/biolinkml/meta/ClassDefinition> * ;
+          <http://w3id.org/biolink/biolinkml/meta/slots> @<http://w3id.org/biolink/biolinkml/meta/SlotDefinition> * ;
+          <http://w3id.org/biolink/biolinkml/meta/slot_usage> @<http://w3id.org/biolink/biolinkml/meta/SlotDefinition> * ;
+          <http://w3id.org/biolink/biolinkml/meta/class_uri> @<http://w3id.org/biolink/biolinkml/meta/Uri> ? ;
+          <http://w3id.org/biolink/biolinkml/meta/defining_slots> @<http://w3id.org/biolink/biolinkml/meta/SlotDefinition> * ;
+          <http://www.w3.org/2000/01/rdf-schema#subClassOf> @<http://w3id.org/biolink/biolinkml/meta/Uri> ?
+       )
+    }
+)
+
+<http://w3id.org/biolink/biolinkml/meta/Definition>  (
+    @<http://w3id.org/biolink/biolinkml/meta/Element> AND {
+       (  <http://w3id.org/biolink/biolinkml/meta/is_a> @<http://w3id.org/biolink/biolinkml/meta/Definition> ? ;
+          <http://w3id.org/biolink/biolinkml/meta/abstract> @<http://w3id.org/biolink/biolinkml/meta/Boolean> ? ;
+          <http://w3id.org/biolink/biolinkml/meta/local_names> @<http://w3id.org/biolink/biolinkml/meta/String> * ;
+          <http://w3id.org/biolink/biolinkml/meta/mixin> @<http://w3id.org/biolink/biolinkml/meta/Boolean> ? ;
+          <http://w3id.org/biolink/biolinkml/meta/mixins> @<http://w3id.org/biolink/biolinkml/meta/Definition> * ;
+          <http://w3id.org/biolink/biolinkml/meta/apply_to> @<http://w3id.org/biolink/biolinkml/meta/Definition> * ;
+          <http://w3id.org/biolink/biolinkml/meta/values_from> @<http://w3id.org/biolink/biolinkml/meta/Uri> *
+       )
+    }
+)
+
+<http://w3id.org/biolink/biolinkml/meta/Element> {
+    (  <http://www.w3.org/2000/01/rdf-schema#label> @<http://w3id.org/biolink/biolinkml/meta/String> ;
+       <http://www.w3.org/2004/02/skos/core#definition> @<http://w3id.org/biolink/biolinkml/meta/String> ? ;
+       <http://w3id.org/biolink/biolinkml/meta/deprecated> @<http://w3id.org/biolink/biolinkml/meta/String> ? ;
+       <http://www.w3.org/2004/02/skos/core#editorialNote> @<http://w3id.org/biolink/biolinkml/meta/String> * ;
+       <http://www.w3.org/2004/02/skos/core#note> @<http://w3id.org/biolink/biolinkml/meta/String> * ;
+       <http://www.w3.org/2004/02/skos/core#example> @<http://w3id.org/biolink/biolinkml/meta/Example> * ;
+       <http://www.geneontology.org/formats/oboInOwl#inSubset> @<http://w3id.org/biolink/biolinkml/meta/SubsetDefinition> * ;
+       <http://www.w3.org/2004/02/skos/core#inScheme> @<http://w3id.org/biolink/biolinkml/meta/SchemaDefinition> ? ;
+       <http://www.w3.org/2000/01/rdf-schema#seeAlso> @<http://w3id.org/biolink/biolinkml/meta/Uri> * ;
+       <http://w3id.org/biolink/biolinkml/meta/id_prefixes> @<http://w3id.org/biolink/biolinkml/meta/Ncname> *
+    )
+}
+
+<http://w3id.org/biolink/biolinkml/meta/Example> CLOSED {
+    (  <http://w3id.org/biolink/biolinkml/meta/value> @<http://w3id.org/biolink/biolinkml/meta/String> ? ;
+       <http://w3id.org/biolink/biolinkml/meta/description> @<http://w3id.org/biolink/biolinkml/meta/String> ?
+    )
+}
+
+<http://w3id.org/biolink/biolinkml/meta/Prefix> CLOSED {
+    (  <http://w3id.org/biolink/biolinkml/meta/local_name> @<http://w3id.org/biolink/biolinkml/meta/Ncname> ;
+       <http://w3id.org/biolink/biolinkml/meta/prefix_uri> @<http://w3id.org/biolink/biolinkml/meta/Uri>
+    )
+}
+
+<http://w3id.org/biolink/biolinkml/meta/SchemaDefinition>  (
+    @<http://w3id.org/biolink/biolinkml/meta/Element> AND CLOSED {
+       (  <http://purl.org/dc/terms/description> @<http://w3id.org/biolink/biolinkml/meta/String> ? ;
+          <http://w3id.org/biolink/biolinkml/meta/id> @<http://w3id.org/biolink/biolinkml/meta/Uri> ;
+          <http://purl.org/dc/terms/title> @<http://w3id.org/biolink/biolinkml/meta/String> ? ;
+          <http://purl.org/pav/version> @<http://w3id.org/biolink/biolinkml/meta/String> ? ;
+          <http://w3id.org/biolink/biolinkml/meta/imports> @<http://w3id.org/biolink/biolinkml/meta/Uri> * ;
+          <http://purl.org/dc/terms/license> @<http://w3id.org/biolink/biolinkml/meta/String> ? ;
+          <http://w3id.org/biolink/biolinkml/meta/prefixes> @<http://w3id.org/biolink/biolinkml/meta/Prefix> * ;
+          <http://w3id.org/biolink/biolinkml/meta/default_curi_maps> @<http://w3id.org/biolink/biolinkml/meta/String> * ;
+          <http://w3id.org/biolink/biolinkml/meta/default_prefix> @<http://w3id.org/biolink/biolinkml/meta/String> ? ;
+          <http://w3id.org/biolink/biolinkml/meta/default_range> @<http://w3id.org/biolink/biolinkml/meta/Definition> ? ;
+          <http://w3id.org/biolink/biolinkml/meta/subsets> @<http://w3id.org/biolink/biolinkml/meta/SubsetDefinition> * ;
+          <http://w3id.org/biolink/biolinkml/meta/types> @<http://w3id.org/biolink/biolinkml/meta/TypeDefinition> * ;
+          <http://w3id.org/biolink/biolinkml/meta/slots> @<http://w3id.org/biolink/biolinkml/meta/SlotDefinition> * ;
+          <http://w3id.org/biolink/biolinkml/meta/classes> @<http://w3id.org/biolink/biolinkml/meta/ClassDefinition> * ;
+          <http://w3id.org/biolink/biolinkml/meta/metamodel_version> @<http://w3id.org/biolink/biolinkml/meta/String> ? ;
+          <http://w3id.org/biolink/biolinkml/meta/source_file> @<http://w3id.org/biolink/biolinkml/meta/String> ? ;
+          <http://w3id.org/biolink/biolinkml/meta/source_file_date> @<http://w3id.org/biolink/biolinkml/meta/Datetime> ? ;
+          <http://w3id.org/biolink/biolinkml/meta/source_file_size> @<http://w3id.org/biolink/biolinkml/meta/Integer> ? ;
+          <http://w3id.org/biolink/biolinkml/meta/generation_date> @<http://w3id.org/biolink/biolinkml/meta/Datetime> ?
+       )
+    }
+)
+
+<http://w3id.org/biolink/biolinkml/meta/SlotDefinition>  (
+    @<http://w3id.org/biolink/biolinkml/meta/Definition> AND CLOSED {
+       (  <http://w3id.org/biolink/biolinkml/meta/is_a> @<http://w3id.org/biolink/biolinkml/meta/SlotDefinition> ? ;
+          <http://w3id.org/biolink/biolinkml/meta/mixins> @<http://w3id.org/biolink/biolinkml/meta/SlotDefinition> * ;
+          <http://w3id.org/biolink/biolinkml/meta/apply_to> @<http://w3id.org/biolink/biolinkml/meta/SlotDefinition> * ;
+          <http://w3id.org/biolink/biolinkml/meta/domain> @<http://w3id.org/biolink/biolinkml/meta/ClassDefinition> ;
+          <http://w3id.org/biolink/biolinkml/meta/range> @<http://w3id.org/biolink/biolinkml/meta/Element> ? ;
+          <http://w3id.org/biolink/biolinkml/meta/slot_uri> @<http://w3id.org/biolink/biolinkml/meta/Uri> ? ;
+          <http://w3id.org/biolink/biolinkml/meta/multivalued> @<http://w3id.org/biolink/biolinkml/meta/Boolean> ? ;
+          <http://w3id.org/biolink/biolinkml/meta/inherited> @<http://w3id.org/biolink/biolinkml/meta/Boolean> ? ;
+          <http://w3id.org/biolink/biolinkml/meta/readonly> @<http://w3id.org/biolink/biolinkml/meta/String> ? ;
+          <http://w3id.org/biolink/biolinkml/meta/ifabsent> @<http://w3id.org/biolink/biolinkml/meta/String> ? ;
+          <http://w3id.org/biolink/biolinkml/meta/required> @<http://w3id.org/biolink/biolinkml/meta/Boolean> ? ;
+          <http://w3id.org/biolink/biolinkml/meta/inlined> @<http://w3id.org/biolink/biolinkml/meta/Boolean> ? ;
+          <http://w3id.org/biolink/biolinkml/meta/key> @<http://w3id.org/biolink/biolinkml/meta/Boolean> ? ;
+          <http://w3id.org/biolink/biolinkml/meta/identifier> @<http://w3id.org/biolink/biolinkml/meta/Boolean> ? ;
+          <http://w3id.org/biolink/biolinkml/meta/alias> @<http://w3id.org/biolink/biolinkml/meta/String> ? ;
+          <http://w3id.org/biolink/biolinkml/meta/subclass_of> @<http://w3id.org/biolink/biolinkml/meta/Uri> ? ;
+          <http://www.w3.org/2002/07/owl#inverseOf> @<http://w3id.org/biolink/biolinkml/meta/SlotDefinition> ?
+       )
+    }
+)
+
+<http://w3id.org/biolink/biolinkml/meta/SubsetDefinition>  (
+    @<http://w3id.org/biolink/biolinkml/meta/Element> AND CLOSED { }
+)
+
+<http://w3id.org/biolink/biolinkml/meta/TypeDefinition>  (
+    @<http://w3id.org/biolink/biolinkml/meta/Element> AND CLOSED {
+       (  <http://w3id.org/biolink/biolinkml/meta/typeof> @<http://w3id.org/biolink/biolinkml/meta/TypeDefinition> ? ;
+          <http://w3id.org/biolink/biolinkml/meta/base> @<http://w3id.org/biolink/biolinkml/meta/String> ? ;
+          <http://w3id.org/biolink/biolinkml/meta/uri> @<http://w3id.org/biolink/biolinkml/meta/Uri> ?
+       )
+    }
+)
+
+
+

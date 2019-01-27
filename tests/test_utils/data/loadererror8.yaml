@@ -1,0 +1,19 @@
+id: http://example.org/example/loaderror8
+name: loaderror8
+description: Slot both a id and a key
+
+default_range: string
+
+types:
+  string:
+    base: str
+
+slots:
+  key1:
+    domain: c1
+    key: true
+    identifier: true
+
+
+classes:
+  c1:

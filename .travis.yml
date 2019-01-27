@@ -1,0 +1,26 @@
+dist: trusty
+sudo: false
+
+language: python
+python:
+  - "3.7"
+
+env:
+  - COLUMNS=80
+
+# command to install dependencies
+install:
+  - pipenv install
+
+# command to run tests
+script: 
+  - pipenv run python -m unittest discover -p 'test_*.py'
+
+#deploy:
+#   provider: releases
+#   skip-cleanup: true
+#   api_key: "GITHUB OATH TOKEN
+#   keep-history: true
+#   on:
+#     branch: master
+

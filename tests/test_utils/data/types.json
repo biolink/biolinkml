@@ -1,0 +1,105 @@
+{
+   "name": "types",
+   "description": "Shared type definitions",
+   "id_prefixes": [
+      "xsd"
+   ],
+   "id": "http://w3id.org/biolink/metamodel/includes/types",
+   "title": "Core Biolink model types",
+   "version": "1.0.0",
+   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "prefixes": [
+      {
+         "local_name": "meta",
+         "prefix_uri": "http://w3id.org/biolink/metamodel/"
+      },
+      {
+         "local_name": "xsd",
+         "prefix_uri": "http://www.w3.org/2001/XMLSchema#"
+      }
+   ],
+   "default_prefix": "meta",
+   "default_range": "str",
+   "types": [
+      {
+         "name": "string",
+         "from_schema": "types",
+         "base": "str",
+         "uri": "xsd:string",
+         "@id": "string"
+      },
+      {
+         "name": "integer",
+         "from_schema": "types",
+         "base": "int",
+         "uri": "xsd:integer",
+         "@id": "integer"
+      },
+      {
+         "name": "boolean",
+         "description": "A binary (true or false) value",
+         "from_schema": "types",
+         "base": "Bool",
+         "uri": "xsd:boolean",
+         "@id": "boolean"
+      },
+      {
+         "name": "float",
+         "from_schema": "types",
+         "base": "float",
+         "uri": "xsd:float",
+         "@id": "float"
+      },
+      {
+         "name": "double",
+         "from_schema": "types",
+         "base": "float",
+         "uri": "xsd:double",
+         "@id": "double"
+      },
+      {
+         "name": "time",
+         "description": "A time object represents a (local) time of day, independent of any particular day",
+         "from_schema": "types",
+         "base": "datetime.time",
+         "uri": "xsd:time",
+         "@id": "time"
+      },
+      {
+         "name": "date",
+         "description": "a date (year, month and day) in an idealized calendar",
+         "from_schema": "types",
+         "base": "datetime.date",
+         "uri": "xsd:date",
+         "@id": "date"
+      },
+      {
+         "name": "datetime",
+         "from_schema": "types",
+         "base": "datetime.datetime",
+         "uri": "xsd:datetime",
+         "@id": "datetime"
+      },
+      {
+         "name": "uri",
+         "description": "a URI or a CURIE",
+         "from_schema": "types",
+         "base": "URI",
+         "uri": "xsd:anyURI",
+         "@id": "uri"
+      },
+      {
+         "name": "ncname",
+         "description": "Prefix part of CURIE",
+         "from_schema": "types",
+         "base": "NCName",
+         "uri": "xsd:string",
+         "@id": "ncname"
+      }
+   ],
+   "metamodel_version": "0.5.0",
+   "source_file": "types.yaml",
+   "source_file_date": "Wed Jan  2 15:11:59 2019",
+   "source_file_size": 259,
+   "generation_date": "2018-12-31 17:23"
+}

@@ -1,0 +1,32 @@
+id: "http://example.org/base"
+title: Base for import test
+name: base
+
+prefixes:
+  meta: http://w3id.org/biolink/biolinkml/meta/
+  skos: http://www.w3.org/2004/02/skos/core#
+  OIO: http://www.geneontology.org/formats/oboInOwl#
+
+default_prefix: meta
+
+default_curi_maps:
+    - semweb_context
+
+id_prefixes:
+  - meta
+  - rdf
+  - rdfs
+  - skos
+  - dcterms
+  - OIO
+  - pav
+
+imports:
+  - includes/types
+
+types:
+  extended:
+    typeof: boolean
+
+  double_extended:
+    typeof: extended

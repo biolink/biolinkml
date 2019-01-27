@@ -1,0 +1,11 @@
+id	mappings	description
+class_definition		the definition of a class or interface
+definition		base class for definitions
+element		a named element in the model
+example		usage example and description
+prefix		prefix URI tuple
+schema_definition		a collection of subset, type, slot and class definitions
+slot_definition		the definition of a property or a slot
+subset_definition		the name and description of a subset
+type_definition		A data type definition.
+

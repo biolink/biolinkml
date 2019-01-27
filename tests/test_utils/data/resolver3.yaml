@@ -1,0 +1,46 @@
+id: "http://example.org/yaml4"
+
+types:
+   string:
+      base: str
+
+slots:
+  s1:
+    domain: c1
+    range: c2
+    description: >-
+        this is s1
+        it is good
+    notes:
+        - "Pay attention here"
+        - >-
+            Something might be happening
+
+    comments:
+        - "I'm a little comment"
+
+    examples:
+        - value: >-
+                test: foo
+          description: "an example"
+        - value: 17
+
+    in_subset:
+        - subset1
+        - subset 2
+
+    see_also:
+        - http://example.org/e1
+        - ex:e2
+
+    id_prefixes:
+        - p1
+        - P2
+
+    required: false
+    inlined: false
+
+classes:
+    c1:
+    c2:
+        is_a: c1

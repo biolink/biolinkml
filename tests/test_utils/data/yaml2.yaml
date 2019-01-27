@@ -1,0 +1,6 @@
+name: YAML with inner duplicate key
+f1: yaml1.yaml
+f2:
+  f3: abc
+  f4: def
+  f3: 17
