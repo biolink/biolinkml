@@ -113,7 +113,7 @@ class ShExGenerator(Generator):
             self.list_shapes.append(list_shape_id)
         return list_shape_id
 
-    def end_schema(self, output: Optional[str], **_) -> None:
+    def end_schema(self, output: Optional[str]=None, **_) -> None:
         self.shex.shapes = self.shapes
         shex = as_json(self.shex)
         if self.format == 'rdf':

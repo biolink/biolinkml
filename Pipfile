@@ -21,7 +21,6 @@ PyShEx = ">=0.5.12"
 PyYAML = ">=3.13"
 tox-pipenv = "*"
 pbr = "*"
-biolinkml = {editable = true,path = "."}
 
 [requires]
 python_version = "3.7"

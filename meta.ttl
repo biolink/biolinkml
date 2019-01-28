@@ -747,7 +747,7 @@ implicitly asserts Y is an instance of C2
     :default_curi_maps ( "semweb_context" ) ;
     :default_prefix "meta" ;
     :default_range :string ;
-    :generation_date "2019-01-27 17:27"^^xsd:dateTime ;
+    :generation_date "2019-01-27 20:27"^^xsd:dateTime ;
     :id <http://w3id.org/biolink/biolinkml/meta> ;
     :id_prefixes ( "meta" "rdf" "rdfs" "xsd" "skos" "dcterms" "OIO" "owl" "pav" ) ;
     :imports ( <http://w3id.org/biolink/biolinkml/meta/includes/types> ) ;

@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "c7f0eccdfa0b0bbe3ae2434af8873fcf5338863ebf9e91e0f21ab330a51d3289"
+            "sha256": "43275182c73910499ed10222b57c2d84e37597dc7e531bc22e8fd3ed37d46387"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -28,10 +28,6 @@
                 "sha256:e9535b8c84dc9571a48999094fda7f33e63c3f1b74f3e5f3ac0105a58405bb65"
             ],
             "version": "==0.26.2"
-        },
-        "biolinkml": {
-            "editable": true,
-            "path": "."
         },
         "cachier": {
             "hashes": [

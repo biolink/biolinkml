@@ -18,7 +18,8 @@ class PythonGenerator(Generator):
     visit_all_class_slots = False
     builtinnames = dir(builtins)
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], fmt: str, emit_metadata: bool) -> None:
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], fmt: str=valid_formats[0],
+                 emit_metadata: bool=True) -> None:
         self.sourcefile = schema
         super().__init__(schema, fmt, emit_metadata)
         if not self.schema.source_file and isinstance(self.sourcefile, str) and '\n' not in self.sourcefile:

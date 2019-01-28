@@ -30,7 +30,7 @@ regen-mm:  biolinkml/meta.py
 # Install package into build environment
 # ----------------------------------------
 env.lock:
-	pipenv install -e .
+	pipenv install -d -e .
 	cp /dev/null env.lock
 
 
