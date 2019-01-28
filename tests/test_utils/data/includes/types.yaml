@@ -67,7 +67,7 @@ types:
 
   uri:
     uri: xsd:anyURI
-    base: Uri
+    base: URIorCURIE
     description: a URI or a CURIE
 
   ncname:

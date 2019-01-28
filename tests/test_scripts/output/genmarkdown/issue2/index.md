@@ -24,7 +24,7 @@ A metamodel for defining biolink related schemas
 
  * **Bool**
  * **NCName**
- * **Uri**
+ * **URIorCURIE**
  * **datetime.date**
  * **datetime.datetime**
  * **datetime.time**

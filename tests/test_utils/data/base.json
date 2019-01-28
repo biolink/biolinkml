@@ -130,7 +130,7 @@
          "name": "uri",
          "description": "a URI or a CURIE",
          "from_schema": "http://w3id.org/biolink/biolinkml/types",
-         "base": "Uri",
+         "base": "URIorCURIE",
          "uri": "xsd:anyURI",
          "@id": "uri"
       },

@@ -130,7 +130,7 @@
       "name": "uri",
       "description": "a URI or a CURIE",
       "from_schema": "http://w3id.org/biolink/biolinkml/types",
-      "base": "Uri",
+      "base": "URIorCURIE",
       "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
       "@id": "uri"
     },
@@ -1166,7 +1166,7 @@
   "source_file": "meta.yaml",
   "source_file_date": "Sat Jan 26 11:40:36 2019",
   "source_file_size": 19963,
-  "generation_date": "2019-01-26 13:32",
+  "generation_date": "2019-01-28 17:04",
   "@context": [
     "file:///Users/solbrig/git/biolink/biolinkml/tests/test_scripts/output/gencontext/meta.jsonld",
     {

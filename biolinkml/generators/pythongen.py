@@ -48,9 +48,8 @@ metamodel_version = "{self.schema.version}"
 {self.gen_inherited()}
 
 
-# Type names
+# Types
 {self.gen_typedefs()}
-
 # Class references
 {self.gen_references()}
 
@@ -109,13 +108,16 @@ metamodel_version = "{self.schema.version}"
         """ Generate python type declarations for all defined types """
         rval = []
         for typ in self.schema.types.values():
-            typname = self.formatted_element_name(typ.name, is_range_name=True)
+            typname = camelcase(typ.name)
+            desc = f'\n\t""" {typ.description} """' if typ.description else ''
+
             if typ.typeof:
-                parent_typename = self.formatted_element_name(typ.typeof, is_range_name=True)
+                parent_typename = camelcase(typ.typeof)
+                rval.append(f'class {typname}({parent_typename}):{desc}\n\tpass\n\n')
+            else:
                 base_base = typ.base.rsplit('.')[-1]
-                parent = f"Union[{base_base}, {parent_typename}]"
-                rval.append(f'class {typname}({parent}):\n\tpass\n\n')
-        return '\n'.join(rval) + ('\n' if rval else '')
+                rval.append(f'class {typname}({base_base}):{desc}\n\tpass\n\n')
+        return '\n'.join(rval)
 
     def gen_classdefs(self) -> str:
         """ Create class definitions for all non-mixin classes in the model

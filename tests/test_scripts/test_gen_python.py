@@ -72,6 +72,10 @@ types:
         """ Test an issue with the biolink-model timepoint rendering """
         self.gen_and_comp_python('timepoint')
 
+    def test_type_inheritence(self):
+        """ Make sure that typeof's get represented correctly """
+        self.gen_and_comp_python('testtypes')
+
 
 if __name__ == '__main__':
     unittest.main()

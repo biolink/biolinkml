@@ -91,6 +91,11 @@ def load_raw_schema(data: Union[str, TextIO],
             check_is_dict(e)
 
         fix_multiples('classes', 'apply_to')
+        for e in ['imports']:
+            for body in schema_body:
+                if e in body:
+                    if isinstance(body[e], str):
+                        body[e] = [body[e]]
 
         # Add the implicit domain to the slot usages
         for body in schema_body:

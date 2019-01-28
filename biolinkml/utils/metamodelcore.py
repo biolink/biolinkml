@@ -31,8 +31,15 @@ class NCName(str):
         return bool(cls.ncname_pattern.match(v))
 
 
-class Uri(str):
-    # TODO: Implement this
+# TODO: Implement this
+class URIorCURIE(str):
+    """ A URI represented as a URI or a CURIE """
+    pass
+
+
+# TODO: Implement this
+class URI(str):
+    """ A strict URI """
     pass
 
 

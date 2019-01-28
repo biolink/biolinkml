@@ -685,7 +685,7 @@ implicitly asserts Y is an instance of C2
     skos:definition "a list of Curie prefixes that are used in the representation of instances of the model.  All prefixes in this list are added to the prefix sections of the target models." .
 
 :uri rdfs:label "uri" ;
-    :base "Uri" ;
+    :base "URIorCURIE" ;
     :from_schema <http://w3id.org/biolink/biolinkml/types> ;
     :uri xsd:anyURI ;
     skos:definition "a URI or a CURIE" .
@@ -762,7 +762,7 @@ implicitly asserts Y is an instance of C2
     :default_curi_maps ( "semweb_context" ) ;
     :default_prefix "meta" ;
     :default_range :string ;
-    :generation_date "2019-01-28 15:46"^^xsd:dateTime ;
+    :generation_date "2019-01-28 17:17"^^xsd:dateTime ;
     :id <http://w3id.org/biolink/biolinkml/meta> ;
     :id_prefixes ( "meta" "rdf" "rdfs" "xsd" "skos" "dcterms" "OIO" "owl" "pav" ) ;
     :imports ( <http://w3id.org/biolink/biolinkml/meta/includes/types> ) ;
@@ -776,7 +776,7 @@ implicitly asserts Y is an instance of C2
                 :prefix_uri xsd: ] ) ;
     :slots ( :name :description :aliases :mappings :deprecated :notes :comments :examples :in_subset :from_schema :see_also :id_prefixes :is_a :abstract :local_names :mixin :mixins :apply_to :values_from :id :title :version :imports :license :prefixes :default_curi_maps :default_prefix :default_range :subsets :types :slot_definitions :classes :metamodel_version :source_file :source_file_date :source_file_size :generation_date :slots :slot_usage :class_uri :defining_slots :subclass_of :domain :range :slot_uri :multivalued :inherited :readonly :ifabsent :required :inlined :key :identifier :alias :range_subclass :inverse :typeof :base :type_uri :value :value_description :local_name :prefix_uri :schema_definition_description :slot_definition_is_a :slot_definition_mixins :slot_definition_apply_to :class_definition_is_a :class_definition_mixins :class_definition_apply_to ) ;
     :source_file "meta.yaml" ;
-    :source_file_date "Mon Jan 28 15:22:10 2019"^^xsd:dateTime ;
+    :source_file_date "Mon Jan 28 17:17:14 2019"^^xsd:dateTime ;
     :source_file_size 20395 ;
     :subsets ( [ rdfs:label "owl" ;
                 :from_schema <http://w3id.org/biolink/biolinkml/meta> ;

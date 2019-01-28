@@ -42,7 +42,7 @@ Types: 10
 			boolean
 		NCName:
 			ncname
-		Uri:
+		URIorCURIE:
 			uri
 		datetime.date:
 			date

@@ -1,0 +1,22 @@
+id: http://example.org/tests/types
+name: types
+
+prefixes:
+  metatype: http://w3id.org/biolink/biolinkml/types/
+  xsd: http://www.w3.org/2001/XMLSchema#
+
+
+types:
+  string:
+    uri: xsd:string
+    base: str
+
+  boolean:
+    uri: xsd:boolean
+    base: Bool
+
+  boolean type:
+    typeof: boolean
+
+  string type:
+    typeof: string

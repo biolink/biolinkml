@@ -8,7 +8,7 @@ prefixes:
 
 types:
   uri:
-    base: Uri
+    base: URIorCURIE
     uri: xsd:anyURI
 
   identifier type:

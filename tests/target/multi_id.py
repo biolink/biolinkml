@@ -7,22 +7,24 @@ from typing import Optional, List, Union, Dict
 from dataclasses import dataclass
 from biolinkml.utils.metamodelcore import empty_list, empty_dict
 from biolinkml.utils.yamlutils import YAMLRoot
-from biolinkml.utils.metamodelcore import Uri
+from biolinkml.utils.metamodelcore import URIorCURIE
 
 metamodel_version = "None"
 
 inherited_slots: List[str] = []
 
 
-# Type names
-class IdentifierType(Union[Uri, Uri]):
+# Types
+class Uri(URIorCURIE):
     pass
 
 
+class IdentifierType(Uri):
+    pass
 
 
 # Class references
-class NamedThingId(Uri):
+class NamedThingId(URIorCURIE):
     pass
 
 
@@ -34,9 +36,9 @@ class SequenceVariantId(NamedThingId):
 class NamedThing(YAMLRoot):
 
     # === named thing ===
-    id: Uri
-    node_property: Optional[Union[Uri, IdentifierType]] = None
-    not_overridden: Optional[Union[Uri, IdentifierType]] = None
+    id: URIorCURIE
+    node_property: Optional[Union[URIorCURIE, IdentifierType]] = None
+    not_overridden: Optional[Union[URIorCURIE, IdentifierType]] = None
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -50,11 +52,11 @@ class NamedThing(YAMLRoot):
 class SequenceVariant(NamedThing):
 
     # === named thing ===
-    not_overridden: Optional[Union[Uri, IdentifierType]] = None
+    not_overridden: Optional[Union[URIorCURIE, IdentifierType]] = None
 
     # === sequence variant ===
-    id: Uri = None
-    node_property: Optional[Union[Uri, IdentifierType]] = None
+    id: URIorCURIE = None
+    node_property: Optional[Union[URIorCURIE, IdentifierType]] = None
 
     def _fix_elements(self):
         super()._fix_elements()

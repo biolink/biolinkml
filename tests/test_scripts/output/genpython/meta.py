@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by pythongen.py version: 0.1.0
-# Generation date: 2019-01-26 13:32
+# Generation date: 2019-01-28 17:08
 # Schema: metamodel
 #
 # id: http://w3id.org/biolink/biolinkml/meta
@@ -10,7 +10,7 @@ from typing import Optional, List, Union, Dict
 from dataclasses import dataclass
 from biolinkml.utils.metamodelcore import empty_list, empty_dict
 from biolinkml.utils.yamlutils import YAMLRoot
-from biolinkml.utils.metamodelcore import Bool, Uri, NCName
+from biolinkml.utils.metamodelcore import Bool, URIorCURIE, NCName
 from datetime import time, date, datetime
 
 metamodel_version = "0.6.0"
@@ -19,7 +19,50 @@ inherited_slots: List[str] = ["domain", "range", "multivalued", "inherited", "re
                               "inlined", "key", "identifier"]
 
 
-# Type names
+# Types
+class String(str):
+    pass
+
+
+class Integer(int):
+    pass
+
+
+class Boolean(Bool):
+    """ A binary (true or false) value """
+    pass
+
+
+class Float(float):
+    pass
+
+
+class Double(float):
+    pass
+
+
+class Time(time):
+    """ A time object represents a (local) time of day, independent of any particular day """
+    pass
+
+
+class Date(date):
+    """ a date (year, month and day) in an idealized calendar """
+    pass
+
+
+class Datetime(datetime):
+    pass
+
+
+class Uri(URIorCURIE):
+    """ a URI or a CURIE """
+    pass
+
+
+class Ncname(NCName):
+    """ Prefix part of CURIE """
+    pass
 
 
 # Class references
@@ -70,7 +113,7 @@ class Element(YAMLRoot):
     examples: List[Union[dict, "Example"]] = empty_list()
     in_subset: List[Union[str, SubsetDefinitionName]] = empty_list()
     from_schema: Optional[Union[str, SchemaDefinitionName]] = None
-    see_also: List[Uri] = empty_list()
+    see_also: List[URIorCURIE] = empty_list()
     id_prefixes: List[NCName] = empty_list()
 
     def _fix_elements(self):
@@ -99,15 +142,15 @@ class SchemaDefinition(Element):
     examples: List[Union[dict, "Example"]] = empty_list()
     in_subset: List[Union[str, SubsetDefinitionName]] = empty_list()
     from_schema: Optional[Union[str, SchemaDefinitionName]] = None
-    see_also: List[Uri] = empty_list()
+    see_also: List[URIorCURIE] = empty_list()
     id_prefixes: List[NCName] = empty_list()
 
     # === schema definition ===
-    id: Uri = None
+    id: URIorCURIE = None
     description: Optional[str] = None
     title: Optional[str] = None
     version: Optional[str] = None
-    imports: List[Uri] = empty_list()
+    imports: List[URIorCURIE] = empty_list()
     license: Optional[str] = None
     prefixes: Union[dict, "Prefix"] = empty_dict()
     default_curi_maps: List[str] = empty_list()
@@ -161,13 +204,13 @@ class TypeDefinition(Element):
     examples: List[Union[dict, "Example"]] = empty_list()
     in_subset: List[Union[str, SubsetDefinitionName]] = empty_list()
     from_schema: Optional[Union[str, SchemaDefinitionName]] = None
-    see_also: List[Uri] = empty_list()
+    see_also: List[URIorCURIE] = empty_list()
     id_prefixes: List[NCName] = empty_list()
 
     # === type definition ===
     typeof: Optional[Union[str, TypeDefinitionName]] = None
     base: Optional[str] = None
-    uri: Optional[Uri] = None
+    uri: Optional[URIorCURIE] = None
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -192,7 +235,7 @@ class SubsetDefinition(Element):
     examples: List[Union[dict, "Example"]] = empty_list()
     in_subset: List[Union[str, SubsetDefinitionName]] = empty_list()
     from_schema: Optional[Union[str, SchemaDefinitionName]] = None
-    see_also: List[Uri] = empty_list()
+    see_also: List[URIorCURIE] = empty_list()
     id_prefixes: List[NCName] = empty_list()
 
     # === subset definition ===
@@ -218,7 +261,7 @@ class Definition(Element):
     examples: List[Union[dict, "Example"]] = empty_list()
     in_subset: List[Union[str, SubsetDefinitionName]] = empty_list()
     from_schema: Optional[Union[str, SchemaDefinitionName]] = None
-    see_also: List[Uri] = empty_list()
+    see_also: List[URIorCURIE] = empty_list()
     id_prefixes: List[NCName] = empty_list()
 
     # === definition ===
@@ -228,7 +271,7 @@ class Definition(Element):
     mixin: Optional[Bool] = None
     mixins: List[Union[str, DefinitionName]] = empty_list()
     apply_to: List[Union[str, DefinitionName]] = empty_list()
-    values_from: List[Uri] = empty_list()
+    values_from: List[URIorCURIE] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -255,14 +298,14 @@ class SlotDefinition(Definition):
     examples: List[Union[dict, "Example"]] = empty_list()
     in_subset: List[Union[str, SubsetDefinitionName]] = empty_list()
     from_schema: Optional[Union[str, SchemaDefinitionName]] = None
-    see_also: List[Uri] = empty_list()
+    see_also: List[URIorCURIE] = empty_list()
     id_prefixes: List[NCName] = empty_list()
 
     # === definition ===
     abstract: Optional[Bool] = None
     local_names: List[str] = empty_list()
     mixin: Optional[Bool] = None
-    values_from: List[Uri] = empty_list()
+    values_from: List[URIorCURIE] = empty_list()
 
     # === slot definition ===
     domain: Union[str, ClassDefinitionName] = None
@@ -270,7 +313,7 @@ class SlotDefinition(Definition):
     mixins: List[Union[str, SlotDefinitionName]] = empty_list()
     apply_to: List[Union[str, SlotDefinitionName]] = empty_list()
     range: Optional[Union[str, ElementName]] = None
-    slot_uri: Optional[Uri] = None
+    slot_uri: Optional[URIorCURIE] = None
     multivalued: Optional[Bool] = None
     inherited: Optional[Bool] = None
     readonly: Optional[str] = None
@@ -280,7 +323,7 @@ class SlotDefinition(Definition):
     key: Optional[Bool] = None
     identifier: Optional[Bool] = None
     alias: Optional[str] = None
-    subclass_of: Optional[Uri] = None
+    subclass_of: Optional[URIorCURIE] = None
     inverse: Optional[Union[str, SlotDefinitionName]] = None
 
     def _fix_elements(self):
@@ -316,14 +359,14 @@ class ClassDefinition(Definition):
     examples: List[Union[dict, "Example"]] = empty_list()
     in_subset: List[Union[str, SubsetDefinitionName]] = empty_list()
     from_schema: Optional[Union[str, SchemaDefinitionName]] = None
-    see_also: List[Uri] = empty_list()
+    see_also: List[URIorCURIE] = empty_list()
     id_prefixes: List[NCName] = empty_list()
 
     # === definition ===
     abstract: Optional[Bool] = None
     local_names: List[str] = empty_list()
     mixin: Optional[Bool] = None
-    values_from: List[Uri] = empty_list()
+    values_from: List[URIorCURIE] = empty_list()
 
     # === class definition ===
     is_a: Optional[Union[str, ClassDefinitionName]] = None
@@ -331,9 +374,9 @@ class ClassDefinition(Definition):
     apply_to: List[Union[str, ClassDefinitionName]] = empty_list()
     slots: List[Union[str, SlotDefinitionName]] = empty_list()
     slot_usage: Dict[Union[str, SlotDefinitionName], Union[dict, SlotDefinition]] = empty_dict()
-    class_uri: Optional[Uri] = None
+    class_uri: Optional[URIorCURIE] = None
     defining_slots: List[Union[str, SlotDefinitionName]] = empty_list()
-    subclass_of: Optional[Uri] = None
+    subclass_of: Optional[URIorCURIE] = None
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -362,7 +405,7 @@ class Prefix(YAMLRoot):
 
     # === prefix ===
     local_name: Union[NCName, PrefixLocalName]
-    prefix_uri: Uri
+    prefix_uri: URIorCURIE
 
     def _fix_elements(self):
         super()._fix_elements()

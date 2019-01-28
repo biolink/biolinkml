@@ -670,7 +670,7 @@ implicitly asserts Y is an instance of C2
     skos:definition "a list of Curie prefixes that are used in the representation of instances of the model.  All prefixes in this list are added to the prefix sections of the target models." .
 
 :uri rdfs:label "uri" ;
-    :base "Uri" ;
+    :base "URIorCURIE" ;
     :from_schema <http://w3id.org/biolink/biolinkml/types> ;
     :uri xsd:anyURI ;
     skos:definition "a URI or a CURIE" .
@@ -747,7 +747,7 @@ implicitly asserts Y is an instance of C2
     :default_curi_maps ( "semweb_context" ) ;
     :default_prefix "meta" ;
     :default_range :string ;
-    :generation_date "2019-01-26 13:32"^^xsd:dateTime ;
+    :generation_date "2019-01-28 17:07"^^xsd:dateTime ;
     :id <http://w3id.org/biolink/biolinkml/meta> ;
     :id_prefixes ( "meta" "rdf" "rdfs" "xsd" "skos" "dcterms" "OIO" "owl" "pav" ) ;
     :imports ( <http://w3id.org/biolink/biolinkml/meta/includes/types> ) ;

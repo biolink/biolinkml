@@ -92,7 +92,7 @@ A metamodel for defining biolink related schemas
 
  * **Bool**
  * **NCName**
- * **Uri**
+ * **URIorCURIE**
  * **datetime.date**
  * **datetime.datetime**
  * **datetime.time**
@@ -110,4 +110,4 @@ A metamodel for defining biolink related schemas
  * [Ncname](Ncname.md)  (**NCName**)  - Prefix part of CURIE
  * [String](String.md)  (**str**) 
  * [Time](Time.md)  (**datetime.time**)  - A time object represents a (local) time of day, independent of any particular day
- * [Uri](Uri.md)  (**Uri**)  - a URI or a CURIE
+ * [Uri](Uri.md)  (**URIorCURIE**)  - a URI or a CURIE
