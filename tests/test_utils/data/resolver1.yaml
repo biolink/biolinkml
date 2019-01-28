@@ -2,6 +2,9 @@ id: "http://example.org/yaml2"
 
 default_range: t1
 
+prefixes:
+  xsd: http://www.w3.org/2001/XMLSchema#
+
 types:
   t1:
     uri: xsd:string

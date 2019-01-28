@@ -1,8 +1,12 @@
 id: "http://example.org/yaml4"
 
+prefixes:
+  xsd: http://www.w3.org/2001/XMLSchema#
+
 types:
    string:
       base: str
+      uri: xsd:string
 
 slots:
   s1:

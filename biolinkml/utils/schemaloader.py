@@ -143,6 +143,8 @@ class SchemaLoader:
         for typ in self.schema.types.values():
             if not typ.base and not typ.typeof:
                 self.raise_value_error(f'type "{typ.name}" must declare a type base or parent (typeof)')
+            if not typ.typeof and not typ.uri:
+                self.raise_value_error(f'type "{typ.name}" does not declare a URI')
             self.merge_type(typ, merged_types)
             if not typ.from_schema:
                 typ.from_schema = self.schema.id

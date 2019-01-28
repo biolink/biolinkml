@@ -1,12 +1,17 @@
 id: http://example.org/test/ownalltest
 name: ownalltest
 
+prefixes:
+  xsd: http://www.w3.org/2001/XMLSchema#
+
 types:
   string:
     base: str
+    uri: xsd:string
 
   t1:
     base: int
+    uri: xsd:integer
 
   t2:
     typeof: t1
@@ -16,12 +21,14 @@ types:
 
   t4:
     base: Bool
+    uri: xsd:bool
 
   t5:
     typeof: t4
 
   t7:
     base: datetime.time
+    uri: xsd:dateTime
 
 slots:
     s1:

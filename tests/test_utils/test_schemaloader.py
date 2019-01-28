@@ -81,6 +81,14 @@ class SchemaLoaderTestCase(Base):
         with self.assertRaises(ValueError, msg="A slot cannot be both a key and identifier"):
             _ = SchemaLoader(fn).resolve()
 
+    def test_missing_type_uri(self):
+        """ A type with neither a typeof or uri is an error """
+        fn = os.path.join(datadir, 'loadererror10.yaml')
+        with self.assertRaises(ValueError, msg="A non-typeof type has to have a URI"):
+            _ = SchemaLoader(fn).resolve()
+        fn = os.path.join(datadir, 'loaderpass11.yaml')
+        _ = SchemaLoader(fn).resolve()
+
     @unittest.skipIf(True, "Needs to be implemente3d")
     def test_undefined_subset(self):
         """ Throw an error on an undefined subset reference """

@@ -52,9 +52,12 @@ description: Metamodel for biolink schema
 license: https://creativecommons.org/publicdomain/zero/1.0/
 version: 0.4.0
 default_range: string
+prefixes:
+    xsd: http://www.w3.org/2001/XMLSchema#
 types:
    string:
-      base: str'''
+      base: str
+      uri: xsd:string'''
         output = PythonGenerator(yaml, "py", emit_metadata=True).serialize()
         self.assertTrue(output.startswith(f'# Auto generated from None by pythongen.py version: '
                                           f'{PythonGenerator.generatorversion}'))

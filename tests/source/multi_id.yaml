@@ -3,9 +3,13 @@ name: multi_id
 
 default_range: uri
 
+prefixes:
+    xsd: http://www.w3.org/2001/XMLSchema#
+
 types:
   uri:
     base: Uri
+    uri: xsd:anyURI
 
   identifier type:
     typeof: uri

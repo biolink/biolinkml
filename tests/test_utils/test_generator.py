@@ -350,8 +350,10 @@ default_range: string
 types:
     string:
         base: str
+        uri: xsd:string
 
 prefixes:
+    xsd: http://www.w3.org/2001/XMLSchema#
     AAA: http://example.org/test/aaa/
     BBB: http://example.org/test/bbb/
 """
@@ -396,6 +398,9 @@ classes:
 id: http://example.org/test/t1
 name: t1
 
+prefixes:
+    xsd: http://www.w3.org/2001/XMLSchema#
+
 subsets:
     dup name:
     subset ss1:
@@ -405,10 +410,13 @@ default_range: dup name
 types:
     str:
         base: str
+        uri: xsd:string
     dup name:
         base: int
+        uri: xsd:integer
     type t1:
         base: int
+        uri: xsd:integer
     
         
 slots:
@@ -515,11 +523,15 @@ Warning: Shared type and subset names: dup name""", errfile.getvalue().strip())
 id: http://example.org/test/t1
 name: t1
 
+prefixes:
+  xsd: http://www.w3.org/2001/XMLSchema#
+
 default_range: string
 
 types:
     string:
         base: str
+        uri: xsd:string
 
 slots:
     slot s1:
@@ -558,10 +570,14 @@ classes:
 id: http://example.org/test/t1
 name: t1
 
+prefixes:
+  xsd: http://www.w3.org/2001/XMLSchema#
+
 default_range: type 1
 types:
     type 1:
         base: int
+        uri: xsd:integer
         
     type 2:
         typeof: type 1
@@ -580,9 +596,13 @@ types:
 id: http://example.org/test/t1
 name: t1
 
+prefixes:
+    xsd: http://www.w3.org/2001/XMLSchema#
+    
 types:
     string:
         base: str
+        uri: xsd:string
         
 slots:
     s1:

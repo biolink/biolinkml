@@ -2,6 +2,9 @@ id: "http://example.org/generator1"
 title: Generator Test
 name: generator1
 
+prefixes:
+  xsd: http://www.w3.org/2001/XMLSchema#
+
 subsets:
   ss2:
     description: Desc ss2
@@ -13,10 +16,12 @@ types:
   t2:
     description: Type t2
     base: int
+    uri: xsd:integer
 
   t1:
     description: Type t1
     base: str
+    uri: xsd:string
 
 default_range: t1
 
