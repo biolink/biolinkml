@@ -7,7 +7,7 @@ version: 1.0.0
 
 prefixes:
   meta: http://w3id.org/biolink/biolinkml/meta/
-  metatype: http://w3id.org/biolink/biolinkml/types/
+  metatype: http://w3id.org/biolink/biolinkml/type/
   xsd: http://www.w3.org/2001/XMLSchema#
 
 default_prefix: metatype

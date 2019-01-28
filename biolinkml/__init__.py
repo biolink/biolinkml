@@ -75,7 +75,7 @@ METATYPE_LOCAL_NAME = 'metatype'
 
 # Namespace for metamodel elements
 METAMODEL_NAMESPACE = Namespace(METAMODEL_URI + '/')
-METATYPE_NAMESPACE = Namespace(METATYPE_URI + '/')
+METATYPE_NAMESPACE = Namespace(META_BASE_URI + '/type/')
 
 # Metamodel Context URI
 METAMODEL_CONTEXT_URI = META_BASE_URI + '/context.jsonld'
