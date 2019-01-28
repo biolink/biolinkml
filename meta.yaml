@@ -60,6 +60,22 @@ slots:
     in_subset:
       - owl
 
+  aliases:
+    domain: element
+    range: string
+    multivalued: true
+    slot_uri: skos:altLabel
+
+  mappings:
+    domain: element
+    range: uri
+    multivalued: true
+    description: >-
+      A list of terms from different schemas or terminology systems that have comparable meaning.
+      These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically
+      related but not equivalent from a strict ontological perspective.
+    slot_uri: skos:mappingRelation
+
 #
 #  alt_descriptions:
 #    multivalued: true

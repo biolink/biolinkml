@@ -13,11 +13,11 @@
     rdfs:label "metamodel" ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "Biolink Schema Metamodel" ;
-    meta:generation_date "2019-01-27 17:27" ;
+    meta:generation_date "2019-01-28 15:46" ;
     meta:metamodel_version "0.6.0" ;
     meta:source_file "meta.yaml" ;
-    meta:source_file_date "Sun Jan 27 17:24:41 2019" ;
-    meta:source_file_size 19881 ;
+    meta:source_file_date "Mon Jan 28 15:22:10 2019" ;
+    meta:source_file_size 20395 ;
     skos:definition "A metamodel for defining biolink related schemas" .
 
 meta:class_definition_apply_to a meta:SlotDefinition,
@@ -152,6 +152,12 @@ meta:alias a meta:SlotDefinition,
     rdfs:domain meta:SlotDefinition ;
     rdfs:range meta:string ;
     skos:definition "the name used for a slot in the context of its owning class.  If present, this is used instead of the actual slot name." .
+
+meta:aliases a meta:SlotDefinition,
+        owl:AnnotationProperty ;
+    rdfs:label "aliases" ;
+    rdfs:domain meta:Element ;
+    rdfs:range meta:string .
 
 meta:base a meta:SlotDefinition,
         owl:AnnotationProperty ;
@@ -348,6 +354,13 @@ meta:local_names a meta:SlotDefinition,
     rdfs:range meta:string ;
     skos:definition "map from local identifier to slot" ;
     skos:editorialNote "get this properly documented -- it is a map from an identifier to a slot name" .
+
+meta:mappings a meta:SlotDefinition,
+        owl:AnnotationProperty ;
+    rdfs:label "mappings" ;
+    rdfs:domain meta:Element ;
+    rdfs:range meta:uri ;
+    skos:definition "A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective." .
 
 meta:metamodel_version a meta:SlotDefinition,
         owl:AnnotationProperty ;
@@ -620,36 +633,6 @@ meta:mixins a meta:SlotDefinition,
 meta:topValue a owl:DatatypeProperty ;
     rdfs:label "value" .
 
-meta:Element a meta:ClassDefinition,
-        owl:Class ;
-    rdfs:label "element" ;
-    rdfs:subClassOf [ owl:unionOf ( [ a owl:Restriction ;
-                        owl:allValuesFrom meta:string ;
-                        owl:onProperty meta:comments ] [ a owl:Restriction ;
-                        owl:allValuesFrom meta:string ;
-                        owl:maxCardinality 1 ;
-                        owl:onProperty meta:deprecated ] [ a owl:Restriction ;
-                        owl:allValuesFrom meta:string ;
-                        owl:maxCardinality 1 ;
-                        owl:onProperty meta:description ] [ a owl:Restriction ;
-                        owl:allValuesFrom meta:Example ;
-                        owl:onProperty meta:examples ] [ a owl:Restriction ;
-                        owl:allValuesFrom meta:SchemaDefinition ;
-                        owl:maxCardinality 1 ;
-                        owl:onProperty meta:from_schema ] [ a owl:Restriction ;
-                        owl:allValuesFrom meta:ncname ;
-                        owl:onProperty meta:id_prefixes ] [ a owl:Restriction ;
-                        owl:allValuesFrom meta:SubsetDefinition ;
-                        owl:onProperty meta:in_subset ] [ a owl:Restriction ;
-                        owl:cardinality 1 ;
-                        owl:onProperty meta:name ;
-                        owl:someValuesFrom meta:string ] [ a owl:Restriction ;
-                        owl:allValuesFrom meta:string ;
-                        owl:onProperty meta:notes ] [ a owl:Restriction ;
-                        owl:allValuesFrom meta:uri ;
-                        owl:onProperty meta:see_also ] ) ] ;
-    skos:definition "a named element in the model" .
-
 meta:boolean a meta:TypeDefinition,
         owl:Class ;
     rdfs:label "boolean" ;
@@ -698,6 +681,40 @@ meta:TypeDefinition a meta:ClassDefinition,
                         owl:onProperty meta:typeof ] ) ],
         meta:Element ;
     skos:definition "A data type definition." .
+
+meta:Element a meta:ClassDefinition,
+        owl:Class ;
+    rdfs:label "element" ;
+    rdfs:subClassOf [ owl:unionOf ( [ a owl:Restriction ;
+                        owl:allValuesFrom meta:string ;
+                        owl:onProperty meta:aliases ] [ a owl:Restriction ;
+                        owl:allValuesFrom meta:string ;
+                        owl:onProperty meta:comments ] [ a owl:Restriction ;
+                        owl:allValuesFrom meta:string ;
+                        owl:maxCardinality 1 ;
+                        owl:onProperty meta:deprecated ] [ a owl:Restriction ;
+                        owl:allValuesFrom meta:string ;
+                        owl:maxCardinality 1 ;
+                        owl:onProperty meta:description ] [ a owl:Restriction ;
+                        owl:allValuesFrom meta:Example ;
+                        owl:onProperty meta:examples ] [ a owl:Restriction ;
+                        owl:allValuesFrom meta:SchemaDefinition ;
+                        owl:maxCardinality 1 ;
+                        owl:onProperty meta:from_schema ] [ a owl:Restriction ;
+                        owl:allValuesFrom meta:ncname ;
+                        owl:onProperty meta:id_prefixes ] [ a owl:Restriction ;
+                        owl:allValuesFrom meta:SubsetDefinition ;
+                        owl:onProperty meta:in_subset ] [ a owl:Restriction ;
+                        owl:allValuesFrom meta:uri ;
+                        owl:onProperty meta:mappings ] [ a owl:Restriction ;
+                        owl:cardinality 1 ;
+                        owl:onProperty meta:name ;
+                        owl:someValuesFrom meta:string ] [ a owl:Restriction ;
+                        owl:allValuesFrom meta:string ;
+                        owl:onProperty meta:notes ] [ a owl:Restriction ;
+                        owl:allValuesFrom meta:uri ;
+                        owl:onProperty meta:see_also ] ) ] ;
+    skos:definition "a named element in the model" .
 
 meta:SchemaDefinition a meta:ClassDefinition,
         owl:Class ;

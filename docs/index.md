@@ -20,6 +20,7 @@ A metamodel for defining biolink related schemas
 
  * [abstract](abstract.md) - an abstract class is a high level class or slot that is typically used to group common slots together and cannot be directly instantiated.
  * [alias](alias.md) - the name used for a slot in the context of its owning class.  If present, this is used instead of the actual slot name.
+ * [aliases](aliases.md)
  * [apply_to](apply_to.md) - Used to extend class or slot definitions. For example, if we have a core schema where a gene has two slots for identifier and symbol, and we have a specialized schema for my_organism where we wish to add a slot systematic_name, we can avoid subclassing by defining a class gene_my_organism, adding the slot to this class, and then adding an apply_to pointing to the gene class. The new slot will be 'injected into' the gene class.
     * [class definition.apply_to](class_definition_apply_to.md)
     * [slot definition.apply_to](slot_definition_apply_to.md)
@@ -54,6 +55,7 @@ A metamodel for defining biolink related schemas
  * [license](license.md) *subsets*: (owl) - license for the schema
  * [local name](local_name.md) - the nsname (sans ':' for a given prefix)
  * [local_names](local_names.md) - map from local identifier to slot
+ * [mappings](mappings.md) - A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective.
  * [metamodel_version](metamodel_version.md) *subsets*: (owl) - Version of the metamodel used to load the schema
  * [mixin](mixin.md) - this slot or class can only be used as a mixin -- equivalent to abstract
  * [mixins](mixins.md) - List of definitions to be mixed in. Targets may be any definition of the same type

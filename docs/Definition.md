@@ -24,6 +24,9 @@ URI: [http://w3id.org/biolink/biolinkml/meta/Definition](http://w3id.org/biolink
  * [abstract](abstract.md)<sub>opt</sub>
     * Description: an abstract class is a high level class or slot that is typically used to group common slots together and cannot be directly instantiated.
     * range: [Boolean](Boolean.md)
+ * [aliases](aliases.md)<sub>opt</sub>
+    * range: [[String](String.md)]
+    * inherited from: [Element](Element.md)
  * [apply_to](apply_to.md)<sub>opt</sub>
     * Description: Used to extend class or slot definitions. For example, if we have a core schema where a gene has two slots for identifier and symbol, and we have a specialized schema for my_organism where we wish to add a slot systematic_name, we can avoid subclassing by defining a class gene_my_organism, adding the slot to this class, and then adding an apply_to pointing to the gene class. The new slot will be 'injected into' the gene class.
     * range: [[Definition](Definition.md)]
@@ -61,6 +64,10 @@ URI: [http://w3id.org/biolink/biolinkml/meta/Definition](http://w3id.org/biolink
  * [local_names](local_names.md)<sub>opt</sub>
     * Description: map from local identifier to slot
     * range: [[String](String.md)]
+ * [mappings](mappings.md)<sub>opt</sub>
+    * Description: A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective.
+    * range: [[Uri](Uri.md)]
+    * inherited from: [Element](Element.md)
  * [mixin](mixin.md)<sub>opt</sub>
     * Description: this slot or class can only be used as a mixin -- equivalent to abstract
     * range: [Boolean](Boolean.md)

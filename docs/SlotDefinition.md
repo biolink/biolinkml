@@ -30,6 +30,9 @@ URI: [http://w3id.org/biolink/biolinkml/meta/SlotDefinition](http://w3id.org/bio
  * [alias](alias.md)<sub>opt</sub>
     * Description: the name used for a slot in the context of its owning class.  If present, this is used instead of the actual slot name.
     * range: [String](String.md)
+ * [aliases](aliases.md)<sub>opt</sub>
+    * range: [[String](String.md)]
+    * inherited from: [Element](Element.md)
  * [comments](comments.md) *subsets*: (owl)<sub>opt</sub>
     * Description: notes and comments about an element intended for external consumption
     * range: [[String](String.md)]
@@ -92,6 +95,10 @@ implicitly asserts that X is an instance of C1
     * Description: map from local identifier to slot
     * range: [[String](String.md)]
     * inherited from: [Definition](Definition.md)
+ * [mappings](mappings.md)<sub>opt</sub>
+    * Description: A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective.
+    * range: [[Uri](Uri.md)]
+    * inherited from: [Element](Element.md)
  * [mixin](mixin.md)<sub>opt</sub>
     * Description: this slot or class can only be used as a mixin -- equivalent to abstract
     * range: [Boolean](Boolean.md)

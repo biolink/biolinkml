@@ -49,6 +49,8 @@
 <http://w3id.org/biolink/biolinkml/meta/Element> {
     (  <http://www.w3.org/2000/01/rdf-schema#label> @<http://w3id.org/biolink/biolinkml/meta/String> ;
        <http://www.w3.org/2004/02/skos/core#definition> @<http://w3id.org/biolink/biolinkml/meta/String> ? ;
+       <http://www.w3.org/2004/02/skos/core#altLabel> @<http://w3id.org/biolink/biolinkml/meta/String> * ;
+       <http://www.w3.org/2004/02/skos/core#mappingRelation> @<http://w3id.org/biolink/biolinkml/meta/Uri> * ;
        <http://w3id.org/biolink/biolinkml/meta/deprecated> @<http://w3id.org/biolink/biolinkml/meta/String> ? ;
        <http://www.w3.org/2004/02/skos/core#editorialNote> @<http://w3id.org/biolink/biolinkml/meta/String> * ;
        <http://www.w3.org/2004/02/skos/core#note> @<http://w3id.org/biolink/biolinkml/meta/String> * ;

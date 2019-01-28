@@ -16,6 +16,9 @@ URI: [http://w3id.org/biolink/biolinkml/meta/SchemaDefinition](http://w3id.org/b
  *  **[Element](Element.md)** *[from_schema](from_schema.md)<sub>opt</sub>*  **[SchemaDefinition](SchemaDefinition.md)**
 ## Fields
 
+ * [aliases](aliases.md)<sub>opt</sub>
+    * range: [[String](String.md)]
+    * inherited from: [Element](Element.md)
  * [classes](classes.md)<sub>opt</sub>
     * Description: class definitions
     * range: [[ClassDefinition](ClassDefinition.md)]
@@ -64,6 +67,10 @@ URI: [http://w3id.org/biolink/biolinkml/meta/SchemaDefinition](http://w3id.org/b
  * [license](license.md) *subsets*: (owl)<sub>opt</sub>
     * Description: license for the schema
     * range: [String](String.md)
+ * [mappings](mappings.md)<sub>opt</sub>
+    * Description: A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective.
+    * range: [[Uri](Uri.md)]
+    * inherited from: [Element](Element.md)
  * [metamodel_version](metamodel_version.md) *subsets*: (owl)<sub>opt</sub>
     * Description: Version of the metamodel used to load the schema
     * range: [String](String.md)

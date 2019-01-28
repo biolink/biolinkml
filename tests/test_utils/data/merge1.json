@@ -1,0 +1,77 @@
+{
+   "name": "schema1",
+   "id": "http://example.org/schema1",
+   "prefixes": [
+      {
+         "local_name": "xsd",
+         "prefix_uri": "http://www.w3.org/2001/XMLSchema#"
+      }
+   ],
+   "default_prefix": "http://example.org/schema1",
+   "default_range": "t1",
+   "subsets": [
+      {
+         "name": "s1",
+         "from_schema": "http://example.org/schema1"
+      }
+   ],
+   "types": [
+      {
+         "name": "t1",
+         "from_schema": "http://example.org/schema1",
+         "base": "str",
+         "uri": "xsd:string",
+         "@id": "t1"
+      },
+      {
+         "name": "t2",
+         "from_schema": "http://example.org/schema2",
+         "base": "Bool",
+         "uri": "xsd:boolean",
+         "@id": "t2"
+      }
+   ],
+   "slots": [
+      {
+         "name": "s1",
+         "from_schema": "http://example.org/schema1",
+         "domain": "c1",
+         "range": "t1",
+         "slot_uri": "http://example.org/schema1/s1",
+         "@id": "s1"
+      },
+      {
+         "name": "s2",
+         "from_schema": "http://example.org/schema2",
+         "domain": "c2",
+         "range": "t1",
+         "slot_uri": "http://example.org/schema1/s2",
+         "@id": "s2"
+      }
+   ],
+   "classes": [
+      {
+         "name": "c1",
+         "from_schema": "http://example.org/schema1",
+         "slots": [
+            "s1"
+         ],
+         "class_uri": "http://example.org/schema1/C1",
+         "@id": "C1"
+      },
+      {
+         "name": "c2",
+         "from_schema": "http://example.org/schema2",
+         "slots": [
+            "s2"
+         ],
+         "class_uri": "http://example.org/schema1/C2",
+         "@id": "C2"
+      }
+   ],
+   "metamodel_version": "0.5.0",
+   "source_file": "merge1.yaml",
+   "source_file_date": "2018-12-31 17:23",
+   "source_file_size": 259,
+   "generation_date": "2018-12-31 17:23"
+}

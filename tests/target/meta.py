@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by pythongen.py version: 0.1.0
-# Generation date: 2019-01-27 17:33
+# Generation date: 2019-01-28 15:44
 # Schema: metamodel
 #
 # id: http://w3id.org/biolink/biolinkml/meta
@@ -64,6 +64,8 @@ class Element(YAMLRoot):
     # === element ===
     name: Union[str, ElementName]
     description: Optional[str] = None
+    aliases: List[str] = empty_list()
+    mappings: List[Uri] = empty_list()
     deprecated: Optional[str] = None
     notes: List[str] = empty_list()
     comments: List[str] = empty_list()
@@ -93,6 +95,8 @@ class SchemaDefinition(Element):
 
     # === element ===
     name: Union[str, SchemaDefinitionName]
+    aliases: List[str] = empty_list()
+    mappings: List[Uri] = empty_list()
     deprecated: Optional[str] = None
     notes: List[str] = empty_list()
     comments: List[str] = empty_list()
@@ -155,6 +159,8 @@ class TypeDefinition(Element):
     # === element ===
     name: Union[str, TypeDefinitionName]
     description: Optional[str] = None
+    aliases: List[str] = empty_list()
+    mappings: List[Uri] = empty_list()
     deprecated: Optional[str] = None
     notes: List[str] = empty_list()
     comments: List[str] = empty_list()
@@ -186,6 +192,8 @@ class SubsetDefinition(Element):
     # === element ===
     name: Union[str, SubsetDefinitionName]
     description: Optional[str] = None
+    aliases: List[str] = empty_list()
+    mappings: List[Uri] = empty_list()
     deprecated: Optional[str] = None
     notes: List[str] = empty_list()
     comments: List[str] = empty_list()
@@ -212,6 +220,8 @@ class Definition(Element):
     # === element ===
     name: Union[str, DefinitionName]
     description: Optional[str] = None
+    aliases: List[str] = empty_list()
+    mappings: List[Uri] = empty_list()
     deprecated: Optional[str] = None
     notes: List[str] = empty_list()
     comments: List[str] = empty_list()
@@ -249,6 +259,8 @@ class SlotDefinition(Definition):
     # === element ===
     name: Union[str, SlotDefinitionName]
     description: Optional[str] = None
+    aliases: List[str] = empty_list()
+    mappings: List[Uri] = empty_list()
     deprecated: Optional[str] = None
     notes: List[str] = empty_list()
     comments: List[str] = empty_list()
@@ -310,6 +322,8 @@ class ClassDefinition(Definition):
     # === element ===
     name: Union[str, ClassDefinitionName]
     description: Optional[str] = None
+    aliases: List[str] = empty_list()
+    mappings: List[Uri] = empty_list()
     deprecated: Optional[str] = None
     notes: List[str] = empty_list()
     comments: List[str] = empty_list()

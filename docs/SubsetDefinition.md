@@ -17,6 +17,9 @@ URI: [http://w3id.org/biolink/biolinkml/meta/SubsetDefinition](http://w3id.org/b
  *  **[SchemaDefinition](SchemaDefinition.md)** *[subsets](subsets.md)<sub>opt</sub>*  **[[SubsetDefinition](SubsetDefinition.md)]**
 ## Fields
 
+ * [aliases](aliases.md)<sub>opt</sub>
+    * range: [[String](String.md)]
+    * inherited from: [Element](Element.md)
  * [comments](comments.md) *subsets*: (owl)<sub>opt</sub>
     * Description: notes and comments about an element intended for external consumption
     * range: [[String](String.md)]
@@ -44,6 +47,10 @@ URI: [http://w3id.org/biolink/biolinkml/meta/SubsetDefinition](http://w3id.org/b
  * [in_subset](in_subset.md)<sub>opt</sub>
     * Description: used to indicate membership of a term in a defined subset of biolink terms used for a particular domain or application (e.g. the translator_minimal subset holding the minimal set of predicates used in a translator knowledge graph)
     * range: [[SubsetDefinition](SubsetDefinition.md)]
+    * inherited from: [Element](Element.md)
+ * [mappings](mappings.md)<sub>opt</sub>
+    * Description: A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective.
+    * range: [[Uri](Uri.md)]
     * inherited from: [Element](Element.md)
  * [name](name.md) *subsets*: (owl)
     * Description: the unique name of the element within the context of the schema
