@@ -21,6 +21,7 @@ PyShEx = ">=0.5.12"
 tox-pipenv = "*"
 pbr = "*"
 pyyaml = "==4.2b4"
+cachier = "*"
 
 [requires]
 python_version = "3.7"

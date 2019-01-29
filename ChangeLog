@@ -1,7 +1,22 @@
 CHANGES
 =======
 
-v0.5.0
+
+v0.5.2
+------
+
+* Emit all type definitions in Python
+* Re-add aliases and mappings for modeling use
+* Require a URI on a non typeof type
+* Fix URI of metamodel type element
+* Set theme jekyll-theme-dinky
+* More README cleanup - we need a new one
+* Remove DOI from README
+* Fix PyYAML issue in requirements files
+* Fix PyHAML vunerability
+* Checkpoint
+
+v0.5.1
 ------
 
 * Initial drop
