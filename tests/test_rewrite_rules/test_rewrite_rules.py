@@ -7,8 +7,8 @@ import requests
 
 from rdflib import Namespace, URIRef
 
-DEFAULT_SERVER = "http://w3id.org/"
-# DEFAULT_SERVER = "http://localhost:8084/"
+# DEFAULT_SERVER = "http://w3id.org/"
+DEFAULT_SERVER = "http://localhost:8084/"
 
 # Taken from Firefox network.http.accept.default
 default_header = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
@@ -28,7 +28,7 @@ class TestLists:
             server += '/pipenv run python ../test_rewrite_rules/test_rewrite_rules.pypipenv run python ../test_rewrite_rules/test_rewrite_rules.py'
         self.biolink = server + 'biolink/'
         self.biolinkml = self.biolink + 'biolinkml/'
-        self.types = Namespace(self.biolinkml + 'includes/types')
+        self.types = Namespace(self.biolinkml + 'types')
         self.metas = Namespace(self.biolinkml + 'meta')
         self.type = Namespace(self.biolinkml + 'type/')
         self.meta = Namespace(self.biolinkml + 'meta/')

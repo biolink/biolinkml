@@ -8,6 +8,11 @@ RewriteRule ^meta\/(.*)$ docs
 # type/ --> docs/types
 RewriteRule ^type\/(.*)$ docs/types
 
+# types --> includes/types
+RewriteRule ^types(\/?)$ includes/types
+
+# types.sfx --> includes/types.sfx
+RewriteRule ^(types\.)(.+)$ includes/types.$2
 
 
 # Poor man's conneg
@@ -44,9 +49,3 @@ RewriteRule ^(meta)$ meta.shex [L]
 
 # Rewrite Base URL
 RewriteRule ^(.*)$ https://biolink.github.io/biolinkml/$1 [R=302,L]
-
-
-
-
-
-
