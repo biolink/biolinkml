@@ -15,15 +15,14 @@ IMGFLAGS?=-i
 # TOP LEVEL TARGETS
 # ----------------------------------------
 
-all: pipenv ldcontext shex rdf owl docs
+all: env.lock context.jsonld shex rdf owl docs clean
 
-ldcontext:  context.jsonld
 shex:  meta.shex metanc.shex
 rdf: meta.ttl
 owl:  meta.owl
 docs:  docs/index.md
 
-pipenv: env.lock
+# Regenerate the metamodel -- do this with care.
 regen-mm:  biolinkml/meta.py
 
 # ----------------------------------------
@@ -43,7 +42,10 @@ requirements.txt: env.lock
 # ----------------------------------------
 # Regenerate meta.py - the master source file
 # ----------------------------------------
-biolinkml/meta.py:  meta.yaml env.lock
+biolinkml/meta.py:  meta.yaml includes/types.py env.lock
+	pipenv run gen-py-classes $< > tmp.py && pipenv run python tmp.py && touch $@ && (pipenv run comparefiles tmp.py $@ && cp $@ $@-PREV && cp tmp.py $@ && echo $@  updated); touch $@; rm tmp.py
+
+includes/types.py:  includes/types.yaml env.lock
 	pipenv run gen-py-classes $< > tmp.py && pipenv run python tmp.py && touch $@ && (pipenv run comparefiles tmp.py $@ && cp $@ $@-PREV && cp tmp.py $@ && echo $@  updated); touch $@; rm tmp.py
 
 # ----------------------------------------
@@ -78,6 +80,8 @@ meta.shex: meta.yaml
 # ----------------------------------------
 docs/index.md: meta.yaml env.lock
 	rm -rf docs/*
+	mkdir docs/types
+	pipenv run gen-markdown --dir docs/types $(IMGFLAGS) includes/types.yaml
 	pipenv run gen-markdown --dir docs $(IMGFLAGS) $<
 
 # ------------------
@@ -123,5 +127,5 @@ wheels: requirements
 	pipenv run python setup.py bdist_wheel
 
 clean:
-	pipenv --rm
+	pipenv clean
 	rm env.lock

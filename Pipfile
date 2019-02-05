@@ -4,9 +4,9 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-PyShEx = ">=0.6.1"
 pipenv-to-requirements = "*"
 unittest2 = "*"
+biolinkml = {editable = true,path = "."}
 
 [packages]
 click = ">=7.0"
@@ -17,11 +17,11 @@ prefixcommons = ">=0.1.7"
 rdflib-jsonld = ">=0.4.0"
 rdflib = ">=4.2.2"
 requests = "*"
-PyShEx = ">=0.5.12"
 tox-pipenv = "*"
 pbr = "*"
 pyyaml = "==4.2b4"
 cachier = "*"
+pyshex = "*"
 
 [requires]
 python_version = "3.7"
