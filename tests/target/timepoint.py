@@ -7,15 +7,18 @@ from typing import Optional, List, Union, Dict
 from dataclasses import dataclass
 from biolinkml.utils.metamodelcore import empty_list, empty_dict
 from biolinkml.utils.yamlutils import YAMLRoot
-from includes.types import TimeType, String, Integer, Boolean, Float, Double, Time, Date, Datetime, Uri, Ncname
-from biolinkml.utils.metamodelcore import Bool, XSDTime, XSDDateTime, XSDDate, URIorCURIE, NCName
+from includes.types import String, Time
 
-metamodel_version = "None"
+metamodel_version = "1.0.1"
 
 inherited_slots: List[str] = []
 
 
 # Types
+class TimeType(Time):
+    """ A time object represents a (local) time of day, independent of any particular day """
+    pass
+
 
 # Class references
 class GeographicLocationK(str):

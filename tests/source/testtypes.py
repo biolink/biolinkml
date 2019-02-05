@@ -9,7 +9,7 @@ from biolinkml.utils.metamodelcore import empty_list, empty_dict
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.metamodelcore import Bool
 
-metamodel_version = "None"
+metamodel_version = "1.0.1"
 
 inherited_slots: List[str] = []
 

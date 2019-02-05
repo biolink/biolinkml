@@ -1,5 +1,5 @@
 # Auto generated from types.yaml by pythongen.py version: 0.2.0
-# Generation date: 2019-02-05 09:00
+# Generation date: 2019-02-05 15:54
 # Schema: types
 #
 # id: http://w3id.org/biolink/biolinkml/types
@@ -10,7 +10,7 @@ from typing import Optional, List, Union, Dict
 from dataclasses import dataclass
 from biolinkml.utils.metamodelcore import empty_list, empty_dict
 from biolinkml.utils.yamlutils import YAMLRoot
-from biolinkml.utils.metamodelcore import Bool, XSDTime, XSDDateTime, XSDDate, URIorCURIE, NCName
+from biolinkml.utils.metamodelcore import Bool, NCName, URIorCURIE, XSDDate, XSDDateTime, XSDTime
 
 metamodel_version = "1.0.1"
 
@@ -64,3 +64,5 @@ class Ncname(NCName):
 
 
 # Class references
+
+

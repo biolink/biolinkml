@@ -1,12 +1,12 @@
 import os
 import re
-from typing import Optional, Tuple, List, Union, TextIO, Callable, Dict, Iterator, cast
+from typing import Optional, Tuple, List, Union, TextIO, Callable, Dict, Iterator, cast, Set
 
 import click
 
 from biolinkml.generators import PYTHON_GEN_VERSION
 from biolinkml.meta import SchemaDefinition, SlotDefinition, ClassDefinition, ClassDefinitionName, \
-    SlotDefinitionName, DefinitionName
+    SlotDefinitionName, DefinitionName, Element, TypeDefinition
 from biolinkml.utils.formatutils import camelcase, underscore, be, wrapped_annotation, split_line
 from biolinkml.utils.generator import Generator
 from biolinkml.utils.metamodelcore import builtinnames
@@ -43,7 +43,7 @@ from biolinkml.utils.metamodelcore import empty_list, empty_dict
 from biolinkml.utils.yamlutils import YAMLRoot
 {self.gen_imports()}
 
-metamodel_version = "{self.schema.version}"
+metamodel_version = "{self.schema.metamodel_version}"
 
 {self.gen_inherited()}
 
@@ -76,19 +76,56 @@ metamodel_version = "{self.schema.version}"
 
         :return: source file followed by elements to import
         """
-        rval = dict()
-        for typ in self.schema.types.values():
-            if typ.imported_from:
-                path, ref = typ.imported_from.replace('/', '.'),  camelcase(typ.name)
-                rval.setdefault(path, []).append(ref)
-            if not typ.typeof and typ.base and typ.base not in builtinnames:
-                if typ.base and '.' in typ.base:
-                    path, ref = typ.base.rsplit('.')
-                else:
-                    path, ref = 'biolinkml.utils.metamodelcore', typ.base
-                rval.setdefault(path, []).append(ref)
+        class ImportList:
+            def __init__(self):
+                self.v: Dict[str, Set[str]] = {}
 
-        return rval
+            def add_element(self, e: Element) -> None:
+                if e.imported_from:
+                    self.v.setdefault(e.imported_from.replace('/', '.'), set()).add(camelcase(e.name))
+
+            def add_entry(self, path: str, name: str) -> None:
+                self.v.setdefault(path.replace('/', '.'), set()).add(name)
+
+            def values(self) -> Dict[str, List[str]]:
+                return {k: sorted(self.v[k]) for k in sorted(self.v.keys())}
+
+        def add_type_ref(typ: TypeDefinition) -> None:
+            if not typ.typeof and typ.base and typ.base not in builtinnames:
+                if '.' in typ.base:
+                    rval.add_entry(*typ.base.rsplit('.'))
+                else:
+                    rval.add_entry('biolinkml.utils.metamodelcore', typ.base)
+            if typ.typeof:
+                rval.add_element(self.schema.types[typ.typeof])
+            rval.add_element(typ)
+
+        rval = ImportList()
+        for typ in self.schema.types.values():
+            if not typ.imported_from:
+                add_type_ref(typ)
+        for cls in self.schema.classes.values():
+            if not cls.imported_from:
+                if cls.is_a:
+                    parent = self.schema.classes[cls.is_a]
+                    if parent.imported_from:
+                        rval.add_element(self.schema.classes[cls.is_a])
+                        if self.definition_key(parent):
+                            rval.add_entry(parent.imported_from, self.class_identifier_path(parent, False)[-1])
+                for slotname in cls.slots:
+                    slot = self.schema.slots[slotname]
+                    if slot.range:
+                        if slot.range in self.schema.types:
+                            add_type_ref(self.schema.types[slot.range])
+                        else:
+                            cls = self.schema.classes[slot.range]
+                            if cls.imported_from:
+                                if self.definition_key(cls):
+                                    rval.add_entry(cls.imported_from, self.class_identifier_path(cls, False)[-1])
+                                if slot.inlined:
+                                    rval.add_element(cls)
+
+        return rval.values()
 
     def gen_references(self) -> str:
         """ Generate python type declarations for all identifiers (primary keys)
@@ -96,16 +133,17 @@ metamodel_version = "{self.schema.version}"
         """
         rval = []
         for cls in self.schema.classes.values():
-            pkeys = self.primary_keys_for(cls)
-            if pkeys:
-                for pk in pkeys:
-                    classname = camelcase(cls.name) + camelcase(self.aliased_slot_name(pk))
-                    if cls.is_a:
-                        parents = self.class_identifier_path(cls.is_a, False)
-                    else:
-                        parents = self.slot_type_path(self.schema.slots[pk])
-                    rval.append(f'class {classname}({parents[-1]}):\n\tpass')
-                    break       # We only do the first primary key
+            if not cls.imported_from:
+                pkeys = self.primary_keys_for(cls)
+                if pkeys:
+                    for pk in pkeys:
+                        classname = camelcase(cls.name) + camelcase(self.aliased_slot_name(pk))
+                        if cls.is_a and self.definition_key(cls.is_a):
+                            parents = self.class_identifier_path(cls.is_a, False)
+                        else:
+                            parents = self.slot_type_path(self.schema.slots[pk])
+                        rval.append(f'class {classname}({parents[-1]}):\n\tpass')
+                        break       # We only do the first primary key
         return '\n\n\n'.join(rval)
 
     def gen_typedefs(self) -> str:
@@ -128,7 +166,8 @@ metamodel_version = "{self.schema.version}"
         """ Create class definitions for all non-mixin classes in the model
             Note that apply_to classes are transformed to mixins
         """
-        return '\n'.join([self.gen_classdef(v) for v in self.schema.classes.values() if not v.mixin])
+        return '\n'.join([self.gen_classdef(v) for v in self.schema.classes.values()
+                          if not v.mixin and not v.imported_from])
 
     def gen_classdef(self, cls: ClassDefinition) -> str:
         """ Generate python definition for class cls """
@@ -402,9 +441,10 @@ class {self.class_or_type_name(cls.name)}{parentref}:{wrapped_description}
         else:
             return f"Union[{cidpath[0]}, {cidpath[-1]}]"
 
-
     def forward_reference(self, slot_range: str, owning_class: str) -> bool:
         """ Determine whether slot_range is a forward reference """
+        if slot_range in self.schema.classes and self.schema.classes[slot_range].imported_from:
+            return False
         for cname in self.schema.classes:
             if cname == owning_class:
                 return True             # Occurs on or after

@@ -316,7 +316,7 @@ class SchemaLoader:
                 if typ.typeof in self.schema.types:
                     reftyp = self.schema.types[cast(TypeDefinitionName, typ.typeof)]
                     self.merge_type(reftyp, merged_types)
-                    merge_slots(typ, reftyp)
+                    merge_slots(typ, reftyp, ['imported_from'])
                 else:
                     self.raise_value_error(f'Type: "{typ.name}" - unknown typeof reference: {typ.typeof}')
             merged_types.append(typ.name)

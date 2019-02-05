@@ -3229,7 +3229,7 @@
         ],
         "http://w3id.org/biolink/biolinkml/meta/metamodel_version": [
           {
-            "@value": "0.6.0"
+            "@value": "1.0.1"
           }
         ],
         "http://w3id.org/biolink/biolinkml/meta/source_file": [

@@ -1,6 +1,15 @@
 CHANGES
 =======
 
+v0.5.3
+------
+
+* Uses imports in python
+* Several files missed in previous commit
+* removed 'include' from model types identifier in mod\_rewrite
+* Clarification in the httpd README
+* Adds w3id rewrite rules and corresponding tester
+* Upgrade to new cachier without the annoying mongodb message
 
 v0.5.2
 ------

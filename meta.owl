@@ -13,10 +13,10 @@
     rdfs:label "metamodel" ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "Biolink Schema Metamodel" ;
-    meta:generation_date "2019-02-05 10:55" ;
-    meta:metamodel_version "0.6.0" ;
+    meta:generation_date "2019-02-05 16:35" ;
+    meta:metamodel_version "1.0.1" ;
     meta:source_file "meta.yaml" ;
-    meta:source_file_date "Tue Feb  5 10:08:53 2019" ;
+    meta:source_file_date "Tue Feb  5 15:54:12 2019" ;
     meta:source_file_size 20737 ;
     skos:definition "A metamodel for defining biolink related schemas" .
 

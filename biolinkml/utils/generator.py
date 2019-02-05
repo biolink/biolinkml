@@ -355,9 +355,10 @@ class Generator(metaclass=abc.ABCMeta):
         # We're dealing with a reference
         pathname = camelcase(cls.name + ' ' + self.aliased_slot_name(identifier_slot))
         if cls.is_a:
-            return self.class_identifier_path(cls.is_a, False) + [pathname]
-        else:
-            return self.slot_type_path(identifier_slot) + [pathname]
+            parent_identifier_slot = self.definition_key(cls.is_a)
+            if parent_identifier_slot:
+                return self.class_identifier_path(cls.is_a, False) + [pathname]
+        return self.slot_type_path(identifier_slot) + [pathname]
 
     def slot_type_path(self, slot_or_name: Union[str, SlotDefinition]) -> List[str]:
         """

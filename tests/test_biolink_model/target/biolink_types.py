@@ -1,5 +1,5 @@
-# Auto generated from .yaml by pythongen.py version:
-# Generation date:
+# Auto generated from biolink_types.yaml by pythongen.py version: 0.2.0
+# Generation date: 2019-02-05 16:34
 # Schema: types for use in the biolink model
 #
 # id: http://w3id.org/biolink/biolinkmodel/types
@@ -10,8 +10,7 @@ from typing import Optional, List, Union, Dict
 from dataclasses import dataclass
 from biolinkml.utils.metamodelcore import empty_list, empty_dict
 from biolinkml.utils.yamlutils import YAMLRoot
-from includes.types import String, Integer, Boolean, Float, Double, Time, Date, Datetime, Uri, Ncname
-from biolinkml.utils.metamodelcore import Bool, XSDTime, XSDDateTime, XSDDate, URIorCURIE, NCName
+from includes.types import Double, String, Time, Uri
 
 metamodel_version = "1.0.1"
 
@@ -73,3 +72,5 @@ class BiologicalSequence(String):
 
 
 # Class references
+
+

@@ -13,7 +13,7 @@
    ],
    "id": "http://w3id.org/biolink/biolinkml/metamodel",
    "title": "Biolink Schema Metamodel",
-   "version": "0.6.0",
+   "version": "1.0.1",
    "imports": [
       "includes/types"
    ],

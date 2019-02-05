@@ -13,7 +13,7 @@ from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.metamodelcore import Bool, Uri, NCName
 from datetime import time, date, datetime
 
-metamodel_version = "0.6.0"
+metamodel_version = "1.0.1"
 
 inherited_slots: List[str] = ["domain", "range", "multivalued", "inherited", "readonly", "ifabsent", "required",
                               "inlined", "key", "identifier"]

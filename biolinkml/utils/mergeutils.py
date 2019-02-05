@@ -1,8 +1,9 @@
 import dataclasses
 from copy import deepcopy
-from typing import Dict, Optional, Union, cast
+from typing import Dict, Optional, Union, cast, List
 
-from biolinkml.meta import SchemaDefinition, Element, SlotDefinition, ClassDefinition, TypeDefinition, SlotDefinitionName
+from biolinkml.meta import SchemaDefinition, Element, SlotDefinition, ClassDefinition, TypeDefinition, \
+    SlotDefinitionName, TypeDefinitionName
 from biolinkml.utils.namespaces import Namespaces
 
 
@@ -57,10 +58,14 @@ def merge_dicts(target: Dict[str, Element], source: Dict[str, Element], imported
         target[k].imported_from = imported_from
 
 
-def merge_slots(target: Union[SlotDefinition, TypeDefinition], source: Union[SlotDefinition, TypeDefinition]) -> None:
+def merge_slots(target: Union[SlotDefinition, TypeDefinition], source: Union[SlotDefinition, TypeDefinition],
+                skip: List[Union[SlotDefinitionName, TypeDefinitionName]] = None) -> None:
+    if skip is None:
+        skip = []
     for k, v in dataclasses.asdict(source).items():
-        if v is not None and getattr(target, k, None) is None:
+        if k not in skip and v is not None and getattr(target, k, None) is None:
             setattr(target, k, deepcopy(v))
+
 
 def slot_usage_name(usage_name: SlotDefinitionName, owning_class: ClassDefinition) -> SlotDefinitionName:
     """
@@ -72,10 +77,12 @@ def slot_usage_name(usage_name: SlotDefinitionName, owning_class: ClassDefinitio
     """
     return SlotDefinitionName(owning_class.name + '_' + usage_name)
 
+
 def alias_root(schema: SchemaDefinition, slotname: SlotDefinitionName) -> Optional[SlotDefinitionName]:
     """ Return the ultimate alias of a slot """
     alias = schema.slots[slotname].alias if slotname in schema.slots else None
     return alias_root(schema, cast(SlotDefinitionName, alias)) if alias else slotname
+
 
 def merge_classes(schema: SchemaDefinition, target: ClassDefinition, source: ClassDefinition,
                   at_end: bool = False) -> None:

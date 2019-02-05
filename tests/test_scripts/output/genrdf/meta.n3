@@ -757,7 +757,7 @@ implicitly asserts Y is an instance of C2
 <http://w3id.org/biolink/biolinkml/meta> rdfs:label "metamodel" ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "Biolink Schema Metamodel" ;
-    pav:version "0.6.0" ;
+    pav:version "1.0.1" ;
     :classes ( :Element :SchemaDefinition :TypeDefinition :SubsetDefinition :Definition :SlotDefinition :ClassDefinition :Prefix :Example ) ;
     :default_curi_maps ( "semweb_context" ) ;
     :default_prefix "meta" ;
@@ -766,7 +766,7 @@ implicitly asserts Y is an instance of C2
     :id <http://w3id.org/biolink/biolinkml/meta> ;
     :id_prefixes ( "meta" "rdf" "rdfs" "xsd" "skos" "dcterms" "OIO" "owl" "pav" ) ;
     :imports ( <http://w3id.org/biolink/biolinkml/meta/includes/types> ) ;
-    :metamodel_version "0.6.0" ;
+    :metamodel_version "1.0.1" ;
     :prefixes ( [ :local_name "meta" ;
                 :prefix_uri : ] [ :local_name "skos" ;
                 :prefix_uri skos: ] [ :local_name "OIO" ;

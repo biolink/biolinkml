@@ -1,5 +1,5 @@
 # Auto generated from tests.test_biolink_model.biolink_metamodel.biolink_association .yaml by pythongen.py version: 0.2.0
-# Generation date: 2019-02-05 16:03
+# Generation date: 2019-02-05 16:34
 # Schema: biolink association
 #
 # id: http://w3id.org/biolink/biolink-model/association

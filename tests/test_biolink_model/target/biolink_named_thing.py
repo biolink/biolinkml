@@ -1,5 +1,5 @@
 # Auto generated from biolink_named_thing.yaml by pythongen.py version: 0.2.0
-# Generation date: 2019-02-05 14:59
+# Generation date: 2019-02-05 16:34
 # Schema: biolink named thing
 #
 # id: http://w3id.org/biolink/biolink-model/named-thing
