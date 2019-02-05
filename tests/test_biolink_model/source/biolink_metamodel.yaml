@@ -1,0 +1,104 @@
+id: http://w3id.org/biolink/biolink-model/model
+name: biolink model
+description: Model of a container for life sciences data
+license: https://creativecommons.org/publicdomain/zero/1.0/
+
+prefixes:
+  biolink: http://w3id.org/biolink/vocab/
+
+default_prefix: biolink
+
+default_curi_maps:
+  - obo_context
+  - monarch_context
+  - idot_context
+  - semweb_context
+
+id_prefixes:
+  - rdf
+  - rdfs
+  - xsd
+  - skos
+
+imports:
+  - biolink_named_thing
+  - biolink_association
+
+
+slots:
+
+  # -----------------------------------
+  # Slots for complex type prefix
+  # -----------------------------------
+  local name:
+    domain: prefix
+    range: ncname
+    key: true
+    description: the nsname (sans ':' for a given prefix)
+
+  prefix uri:
+    domain: prefix
+    range: uri
+    required: true
+    description: A URI associated with a given prefix
+
+  # -----------------------------------
+  # Slots for model
+  # -----------------------------------
+  license:
+    domain: model
+    description: license for the model
+    slot_uri: dcterms:license
+
+  prefixes:
+    multivalued: true
+    domain: model
+    range: prefix
+    inlined: true
+    description: prefix / URI definitions to be added to the context beyond those fetched from prefixcommons in id_prefixes
+
+
+  default_curi_maps:
+    multivalued: true
+    domain: model
+    description: ordered list of prefixcommon biocontexts to be fetched to resolve id_prefixes and inline prefix variables
+
+  default_prefix:
+    domain: model
+    range: string
+    description: default and base prefix -- used for ':' identifiers, @base and @vocab
+
+
+  providers:
+    domain: model
+    range: provider
+    multivalued: true
+    inlined: true
+
+  relationship_types:
+    domain: model
+    range: relationship type
+    multivalued: true
+    inlined: true
+
+  associations:
+    domain: model
+    range: association
+    multivalued: true
+    inlined: true
+
+  ontology classes:
+    domain: model
+    range: ontology class
+    multivalued: true
+    inlined: true
+
+
+
+
+classes:
+  prefix:
+    description: prefix URI tuple
+
+  model:
+    is_a: named thing

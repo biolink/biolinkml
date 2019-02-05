@@ -1,22 +1,22 @@
-import builtins
 import os
 import re
 from typing import Optional, Tuple, List, Union, TextIO, Callable, Dict, Iterator, cast
 
 import click
 
+from biolinkml.generators import PYTHON_GEN_VERSION
 from biolinkml.meta import SchemaDefinition, SlotDefinition, ClassDefinition, ClassDefinitionName, \
     SlotDefinitionName, DefinitionName
 from biolinkml.utils.formatutils import camelcase, underscore, be, wrapped_annotation, split_line
 from biolinkml.utils.generator import Generator
+from biolinkml.utils.metamodelcore import builtinnames
 
 
 class PythonGenerator(Generator):
     generatorname = os.path.basename(__file__)
-    generatorversion = "0.1.0"
+    generatorversion = PYTHON_GEN_VERSION
     valid_formats = ['py']
     visit_all_class_slots = False
-    builtinnames = dir(builtins)
 
     def __init__(self, schema: Union[str, TextIO, SchemaDefinition], fmt: str=valid_formats[0],
                  emit_metadata: bool=True) -> None:
@@ -78,12 +78,16 @@ metamodel_version = "{self.schema.version}"
         """
         rval = dict()
         for typ in self.schema.types.values():
-            if not typ.typeof and typ.base and typ.base not in self.builtinnames:
+            if typ.imported_from:
+                path, ref = typ.imported_from.replace('/', '.'),  camelcase(typ.name)
+                rval.setdefault(path, []).append(ref)
+            if not typ.typeof and typ.base and typ.base not in builtinnames:
                 if typ.base and '.' in typ.base:
                     path, ref = typ.base.rsplit('.')
                 else:
                     path, ref = 'biolinkml.utils.metamodelcore', typ.base
                 rval.setdefault(path, []).append(ref)
+
         return rval
 
     def gen_references(self) -> str:
@@ -108,15 +112,16 @@ metamodel_version = "{self.schema.version}"
         """ Generate python type declarations for all defined types """
         rval = []
         for typ in self.schema.types.values():
-            typname = camelcase(typ.name)
-            desc = f'\n\t""" {typ.description} """' if typ.description else ''
+            if not typ.imported_from:
+                typname = camelcase(typ.name)
+                desc = f'\n\t""" {typ.description} """' if typ.description else ''
 
-            if typ.typeof:
-                parent_typename = camelcase(typ.typeof)
-                rval.append(f'class {typname}({parent_typename}):{desc}\n\tpass\n\n')
-            else:
-                base_base = typ.base.rsplit('.')[-1]
-                rval.append(f'class {typname}({base_base}):{desc}\n\tpass\n\n')
+                if typ.typeof:
+                    parent_typename = camelcase(typ.typeof)
+                    rval.append(f'class {typname}({parent_typename}):{desc}\n\tpass\n\n')
+                else:
+                    base_base = typ.base.rsplit('.')[-1]
+                    rval.append(f'class {typname}({base_base}):{desc}\n\tpass\n\n')
         return '\n'.join(rval)
 
     def gen_classdefs(self) -> str:

@@ -47,6 +47,10 @@ URI: [http://w3id.org/biolink/biolinkml/meta/TypeDefinition](http://w3id.org/bio
     * Description: a list of Curie prefixes that are used in the representation of instances of the model.  All prefixes in this list are added to the prefix sections of the target models.
     * range: [[Ncname](Ncname.md)]
     * inherited from: [Element](Element.md)
+ * [imported_from](imported_from.md)<sub>opt</sub>
+    * Description: the imports entry that this element was derived from.  Empty means primary source
+    * range: [String](String.md)
+    * inherited from: [Element](Element.md)
  * [in_subset](in_subset.md)<sub>opt</sub>
     * Description: used to indicate membership of a term in a defined subset of biolink terms used for a particular domain or application (e.g. the translator_minimal subset holding the minimal set of predicates used in a translator knowledge graph)
     * range: [[SubsetDefinition](SubsetDefinition.md)]
@@ -63,6 +67,9 @@ URI: [http://w3id.org/biolink/biolinkml/meta/TypeDefinition](http://w3id.org/bio
     * Description: editorial notes about an element intended for internal consumption
     * range: [[String](String.md)]
     * inherited from: [Element](Element.md)
+ * [repr](repr.md)<sub>opt</sub>
+    * Description: the python representation of this type if different than the base type
+    * range: [String](String.md)
  * [see_also](see_also.md) *subsets*: (owl)<sub>opt</sub>
     * Description: a reference
     * range: [[Uri](Uri.md)]

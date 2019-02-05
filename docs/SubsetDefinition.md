@@ -44,6 +44,10 @@ URI: [http://w3id.org/biolink/biolinkml/meta/SubsetDefinition](http://w3id.org/b
     * Description: a list of Curie prefixes that are used in the representation of instances of the model.  All prefixes in this list are added to the prefix sections of the target models.
     * range: [[Ncname](Ncname.md)]
     * inherited from: [Element](Element.md)
+ * [imported_from](imported_from.md)<sub>opt</sub>
+    * Description: the imports entry that this element was derived from.  Empty means primary source
+    * range: [String](String.md)
+    * inherited from: [Element](Element.md)
  * [in_subset](in_subset.md)<sub>opt</sub>
     * Description: used to indicate membership of a term in a defined subset of biolink terms used for a particular domain or application (e.g. the translator_minimal subset holding the minimal set of predicates used in a translator knowledge graph)
     * range: [[SubsetDefinition](SubsetDefinition.md)]

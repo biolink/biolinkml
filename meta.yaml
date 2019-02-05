@@ -131,6 +131,12 @@ slots:
     description: id of the schema that defined the element
     slot_uri: skos:inScheme
 
+  imported_from:
+    domain: element
+    range: string
+    readonly: supplied by the schema loader
+    description: the imports entry that this element was derived from.  Empty means primary source
+
   see_also:
     multivalued: true
     domain: element
@@ -615,6 +621,11 @@ slots:
     range: uri
     alias: uri
     description: the URI to be used for the type in semantic web mappings
+
+  repr:
+    domain: type definition
+    range: string
+    description: the python representation of this type if different than the base type
 
 
   # -----------------------------------

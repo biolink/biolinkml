@@ -75,6 +75,10 @@ implicitly asserts that X is an instance of C1
  * [ifabsent](ifabsent.md)<sub>opt</sub>
     * Description: description of special behavior if the slot is absent
     * range: [String](String.md)
+ * [imported_from](imported_from.md)<sub>opt</sub>
+    * Description: the imports entry that this element was derived from.  Empty means primary source
+    * range: [String](String.md)
+    * inherited from: [Element](Element.md)
  * [in_subset](in_subset.md)<sub>opt</sub>
     * Description: used to indicate membership of a term in a defined subset of biolink terms used for a particular domain or application (e.g. the translator_minimal subset holding the minimal set of predicates used in a translator knowledge graph)
     * range: [[SubsetDefinition](SubsetDefinition.md)]

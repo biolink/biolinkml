@@ -43,6 +43,7 @@ A metamodel for defining biolink related schemas
  * [id_prefixes](id_prefixes.md) - a list of Curie prefixes that are used in the representation of instances of the model.  All prefixes in this list are added to the prefix sections of the target models.
  * [identifier](identifier.md) - True means that this slot must be unique across the collection of slots
  * [ifabsent](ifabsent.md) - description of special behavior if the slot is absent
+ * [imported_from](imported_from.md) - the imports entry that this element was derived from.  Empty means primary source
  * [imports](imports.md) - other schemas that are included in this schema
  * [in_subset](in_subset.md) - used to indicate membership of a term in a defined subset of biolink terms used for a particular domain or application (e.g. the translator_minimal subset holding the minimal set of predicates used in a translator knowledge graph)
  * [inherited](inherited.md) - true means that the *value* of a slot is inherited by subclasses
@@ -69,6 +70,7 @@ A metamodel for defining biolink related schemas
  * [range](range.md) - defines the type of the object of the slot.  Given the following slot definition
  * [slot definition.subclass_of](range_subclass.md) - Constraint on the range of a property
  * [readonly](readonly.md) - If present, slot is read only.  Text explains why
+ * [repr](repr.md) - the python representation of this type if different than the base type
  * [required](required.md) - true means that the slot must be present in the loaded definition
  * [see_also](see_also.md) *subsets*: (owl) - a reference
  * [schema definition.slots](slot_definitions.md) - slot definitions
@@ -95,21 +97,21 @@ A metamodel for defining biolink related schemas
  * **Bool**
  * **NCName**
  * **URIorCURIE**
- * **datetime.date**
- * **datetime.datetime**
- * **datetime.time**
+ * **XSDDate**
+ * **XSDDateTime**
+ * **XSDTime**
  * **float**
  * **int**
  * **str**
 #### Defined
 
  * [Boolean](Boolean.md)  (**Bool**)  - A binary (true or false) value
- * [Date](Date.md)  (**datetime.date**)  - a date (year, month and day) in an idealized calendar
- * [Datetime](Datetime.md)  (**datetime.datetime**) 
+ * [Date](Date.md)  (**XSDDateTime**)  - a date (year, month and day) in an idealized calendar
+ * [Datetime](Datetime.md)  (**XSDDate**) 
  * [Double](Double.md)  (**float**) 
  * [Float](Float.md)  (**float**) 
  * [Integer](Integer.md)  (**int**) 
  * [Ncname](Ncname.md)  (**NCName**)  - Prefix part of CURIE
  * [String](String.md)  (**str**) 
- * [Time](Time.md)  (**datetime.time**)  - A time object represents a (local) time of day, independent of any particular day
+ * [Time](Time.md)  (**XSDTime**)  - A time object represents a (local) time of day, independent of any particular day
  * [Uri](Uri.md)  (**URIorCURIE**)  - a URI or a CURIE

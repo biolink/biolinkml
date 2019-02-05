@@ -1,6 +1,8 @@
+import builtins
 import re
-
 from dataclasses import field
+
+from rdflib import Literal, XSD
 
 
 def empty_list():
@@ -13,6 +15,9 @@ def empty_dict():
 
 def empty_set():
     return field(default_factory=set)
+
+
+builtinnames = dir(builtins)
 
 
 class NCName(str):
@@ -56,3 +61,24 @@ class Bool:
         if cls.bool_false.match(str(v)):
             return False
         raise ValueError(f"{v}: Must be a boolean value")
+
+
+class XSDTime(str):
+    """ Wrapper for time class """
+    def __init__(self, value: str) -> None:
+        super().__init__()
+        self = Literal(value, datatype=XSD.time).value
+
+
+class XSDDate(str):
+    """ Wrapper for date class """
+    def __init__(self, value: str) -> None:
+        super().__init__()
+        self = Literal(value, datatype=XSD.date).value
+
+
+class XSDDateTime(str):
+    """ Wrapper for date class """
+    def __init__(self, value: str) -> None:
+        super().__init__()
+        self = Literal(value, datatype=XSD.dateTime).value

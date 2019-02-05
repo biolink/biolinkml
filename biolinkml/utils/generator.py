@@ -310,6 +310,8 @@ class Generator(metaclass=abc.ABCMeta):
         formatted_typ_name = self.class_or_type_name(typ.name)
         if typ.typeof:
             return self.range_type_path(self.schema.types[cast(TypeDefinitionName, typ.typeof)]) + [formatted_typ_name]
+        elif typ.repr:
+            return [typ.repr, formatted_typ_name]
         else:
             return [formatted_typ_name]
 

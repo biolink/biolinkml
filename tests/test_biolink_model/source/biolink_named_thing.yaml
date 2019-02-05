@@ -1,0 +1,197 @@
+id: http://w3id.org/biolink/biolink-model/named-thing
+name: biolink named thing
+description: Basic entity for taxonomy and data model for life-sciences data
+license: https://creativecommons.org/publicdomain/zero/1.0/
+
+prefixes:
+  biolink: http://w3id.org/biolink/vocab/
+  OBAN: http://purl.org/oban/
+  SIO: http://semanticscience.org/resource/SIO_
+  wgs: http://www.w3.org/2003/01/geo/wgs84_pos
+
+default_prefix: biolink
+
+default_curi_maps:
+  - obo_context
+  - monarch_context
+  - idot_context
+  - semweb_context
+
+id_prefixes:
+  - rdf
+  - rdfs
+  - xsd
+  - skos
+  - OIO
+
+
+subsets:
+  translator_mimimal:
+
+imports:
+  biolink_types
+
+
+slots:
+  #=============================================
+  # Slots for thing
+  #=============================================
+  related to:
+    description: >-
+      A grouping for any relationship type that holds between any two things
+    domain: thing
+    range: thing
+    slot_uri: owl:ObjectProperty
+    mappings:
+      - SEMMEDDB:ASSOCIATED_WITH
+
+  iri:
+    description: An IRI for the node. This is determined by the id using expansion rules.
+    readonly: URI representation of id
+    in_subset:
+      - translator_minimal
+    domain: thing
+    range: uri type
+
+  name:
+    aliases: ['label', 'display name']
+    domain: thing
+    range: label type
+    description: A human-readable name for a thing
+    in_subset:
+      - translator_minimal
+    slot_uri: rdfs:label
+
+  category:
+    domain: thing
+    range: thing
+    description: >-
+      Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
+      In a neo4j database this MAY correspond to the neo4j label tag
+#    is_class_field: true
+    multivalued: true
+    in_subset:
+      - translator_minimal
+    slot_uri: rdfs:subClassOf
+
+  full name:
+    domain: thing
+    range: label type
+    description: a long-form human readable name for a thing
+
+  description:
+    domain: thing
+    range: narrative text
+    description: >-
+      a human-readable description of a thing
+    in_subset:
+      - translator_minimal
+    slot_uri: dcterms:description
+
+  creation date:
+    domain: thing
+    range: date
+    description: >-
+      date on which thing was created. This can be applied to nodes or edges
+    slot_uri: dcterms:created
+
+  update date:
+    domain: thing
+    range: date
+    description: date on which thing was updated. This can be applied to nodes or edges
+    slot_uri: dcterms:updated
+
+  aggregate statistic:
+    domain: thing
+    abstract: true
+
+  has count:
+    description: number of things with a particular property
+    is_a: aggregate statistic
+    range: integer
+
+  has total:
+    description: total number of things in a particular reference set
+    is_a: aggregate statistic
+    range: integer
+
+  has quotient:
+    is_a: aggregate statistic
+    range: double
+
+  has percentage:
+    description: equivalent to has quotient multiplied by 100
+    is_a: aggregate statistic
+    range: double
+
+  timepoint:
+    domain: thing
+    range: time type
+    description: a point in time
+
+  #=============================================
+  # Slots for named thing
+  #=============================================
+  id:
+    key: true
+    description: A unique identifier for a thing.  Must be either a CURIE shorthand for a URI or a complete URI
+    in_subset:
+      - translator_minimal
+    domain: named thing
+    range: identifier type
+    slot_uri: rdf:id
+
+classes:
+  thing:
+    description: "Top level class for both associations and named things"
+    class_uri: owl:Thing
+    abstract: True
+
+  named thing:
+    is_a: thing
+    description: "a databased entity or concept/class"
+    subclass_of: BFO:0000001
+    abstract: true
+    mappings:
+      - UMLSSG:OBJC
+      - WD:Q35120
+
+  information content entity:
+    aliases: ['information', 'information artefact', 'information entity']
+    abstract: true
+    is_a: named thing
+    description: a piece of information that typically describes some piece of biology or is used as support.
+    class_uri: IAO:0000030
+    mappings:
+      - "UMLSSG:CONC"
+
+  publication:
+    is_a: information content entity
+    aliases: ['reference']
+    description: >-
+      Any published piece of information. Can refer to a whole publication,
+      or to a part of it (e.g. a figure, figure legend, or section highlighted by NLP).
+      The scope is intended to be general and include information published on the web as well as journals.
+    mappings:
+      - "IAO:0000311"
+    id_prefixes:
+      - PMID
+
+  ontology class:
+    is_a: named thing
+    description: "a concept or class in an ontology, vocabulary or thesaurus"
+
+  relationship type:
+    is_a: ontology class
+    description: An OWL property used as an edge label
+
+  administrative entity:
+    is_a: named thing
+    abstract: true
+
+  provider:
+    is_a: administrative entity
+    aliases: ['agent', 'group']
+    description: person, group, organization or project that provides a piece of information
+    mappings:
+      - UMLSSG:ORGA

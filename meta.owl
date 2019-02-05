@@ -13,11 +13,11 @@
     rdfs:label "metamodel" ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "Biolink Schema Metamodel" ;
-    meta:generation_date "2019-01-28 15:46" ;
+    meta:generation_date "2019-02-05 10:55" ;
     meta:metamodel_version "0.6.0" ;
     meta:source_file "meta.yaml" ;
-    meta:source_file_date "Mon Jan 28 15:22:10 2019" ;
-    meta:source_file_size 20395 ;
+    meta:source_file_date "Tue Feb  5 10:08:53 2019" ;
+    meta:source_file_size 20737 ;
     skos:definition "A metamodel for defining biolink related schemas" .
 
 meta:class_definition_apply_to a meta:SlotDefinition,
@@ -288,6 +288,13 @@ meta:ifabsent a meta:SlotDefinition,
     rdfs:range meta:string ;
     skos:definition "description of special behavior if the slot is absent" .
 
+meta:imported_from a meta:SlotDefinition,
+        owl:AnnotationProperty ;
+    rdfs:label "imported_from" ;
+    rdfs:domain meta:Element ;
+    rdfs:range meta:string ;
+    skos:definition "the imports entry that this element was derived from.  Empty means primary source" .
+
 meta:imports a meta:SlotDefinition,
         owl:AnnotationProperty ;
     rdfs:label "imports" ;
@@ -433,6 +440,13 @@ meta:readonly a meta:SlotDefinition,
     rdfs:domain meta:SlotDefinition ;
     rdfs:range meta:string ;
     skos:definition "If present, slot is read only.  Text explains why" .
+
+meta:repr a meta:SlotDefinition,
+        owl:AnnotationProperty ;
+    rdfs:label "repr" ;
+    rdfs:domain meta:TypeDefinition ;
+    rdfs:range meta:string ;
+    skos:definition "the python representation of this type if different than the base type" .
 
 meta:required a meta:SlotDefinition,
         owl:ObjectProperty ;
@@ -673,6 +687,9 @@ meta:TypeDefinition a meta:ClassDefinition,
                         owl:allValuesFrom meta:string ;
                         owl:maxCardinality 1 ;
                         owl:onProperty meta:base ] [ a owl:Restriction ;
+                        owl:allValuesFrom meta:string ;
+                        owl:maxCardinality 1 ;
+                        owl:onProperty meta:repr ] [ a owl:Restriction ;
                         owl:allValuesFrom meta:uri ;
                         owl:maxCardinality 1 ;
                         owl:onProperty meta:uri ] [ a owl:Restriction ;
@@ -703,6 +720,9 @@ meta:Element a meta:ClassDefinition,
                         owl:onProperty meta:from_schema ] [ a owl:Restriction ;
                         owl:allValuesFrom meta:ncname ;
                         owl:onProperty meta:id_prefixes ] [ a owl:Restriction ;
+                        owl:allValuesFrom meta:string ;
+                        owl:maxCardinality 1 ;
+                        owl:onProperty meta:imported_from ] [ a owl:Restriction ;
                         owl:allValuesFrom meta:SubsetDefinition ;
                         owl:onProperty meta:in_subset ] [ a owl:Restriction ;
                         owl:allValuesFrom meta:uri ;

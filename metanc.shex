@@ -57,6 +57,7 @@
        <http://www.w3.org/2004/02/skos/core#example> @<http://w3id.org/biolink/biolinkml/meta/Example> * ;
        <http://www.geneontology.org/formats/oboInOwl#inSubset> @<http://w3id.org/biolink/biolinkml/meta/SubsetDefinition> * ;
        <http://www.w3.org/2004/02/skos/core#inScheme> @<http://w3id.org/biolink/biolinkml/meta/SchemaDefinition> ? ;
+       <http://w3id.org/biolink/biolinkml/meta/imported_from> @<http://w3id.org/biolink/biolinkml/meta/String> ? ;
        <http://www.w3.org/2000/01/rdf-schema#seeAlso> @<http://w3id.org/biolink/biolinkml/meta/Uri> * ;
        <http://w3id.org/biolink/biolinkml/meta/id_prefixes> @<http://w3id.org/biolink/biolinkml/meta/Ncname> *
     )
@@ -130,7 +131,8 @@
     @<http://w3id.org/biolink/biolinkml/meta/Element> AND CLOSED {
        (  <http://w3id.org/biolink/biolinkml/meta/typeof> @<http://w3id.org/biolink/biolinkml/meta/TypeDefinition> ? ;
           <http://w3id.org/biolink/biolinkml/meta/base> @<http://w3id.org/biolink/biolinkml/meta/String> ? ;
-          <http://w3id.org/biolink/biolinkml/meta/uri> @<http://w3id.org/biolink/biolinkml/meta/Uri> ?
+          <http://w3id.org/biolink/biolinkml/meta/uri> @<http://w3id.org/biolink/biolinkml/meta/Uri> ? ;
+          <http://w3id.org/biolink/biolinkml/meta/repr> @<http://w3id.org/biolink/biolinkml/meta/String> ?
        )
     }
 )

@@ -1,0 +1,21 @@
+id: http://w3id.org/biolink/biolink-model/model
+name: biolink model
+description: Model of a container for life sciences data
+license: https://creativecommons.org/publicdomain/zero/1.0/
+
+prefixes:
+  biolink: http://w3id.org/biolink/vocab/
+
+default_prefix: biolink
+
+
+associations:
+  genotype to genotype part association:
+    subject: genotype
+    relation: has variant part
+    object: genotype
+    defining_slots:
+      - subject
+      - object
+    description: >-
+      Any association between one genotype and a genotypic entity that is a sub-component of it

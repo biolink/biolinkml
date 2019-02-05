@@ -1,12 +1,14 @@
 import dataclasses
 from copy import deepcopy
-from typing import Dict, Optional, Union
+from typing import Dict, Optional, Union, cast
 
 from biolinkml.meta import SchemaDefinition, Element, SlotDefinition, ClassDefinition, TypeDefinition, SlotDefinitionName
 from biolinkml.utils.namespaces import Namespaces
 
 
-def merge_schemas(target: SchemaDefinition, mergee: SchemaDefinition, namespaces: Optional[Namespaces] = None) -> None:
+def merge_schemas(target: SchemaDefinition, mergee: SchemaDefinition, imported_from: Optional[str] = None,
+                  namespaces: Optional[Namespaces] = None) -> None:
+    """ Merge mergee into target """
     assert target.name is not None, "Schema name must be supplied"
     if target.license is None:
         target.license = mergee.license
@@ -17,9 +19,9 @@ def merge_schemas(target: SchemaDefinition, mergee: SchemaDefinition, namespaces
     if namespaces:
         merge_namespaces(target, mergee, namespaces)
 
-    merge_dicts(target.classes, mergee.classes)
-    merge_dicts(target.slots, mergee.slots)
-    merge_dicts(target.types, mergee.types)
+    merge_dicts(target.classes, mergee.classes, imported_from)
+    merge_dicts(target.slots, mergee.slots, imported_from)
+    merge_dicts(target.types, mergee.types, imported_from)
 
 
 def merge_namespaces(target: SchemaDefinition, mergee: SchemaDefinition, namespaces) -> None:
@@ -47,11 +49,12 @@ def set_from_schema(schema: SchemaDefinition) -> None:
             t[k].from_schema = schema.id
 
 
-def merge_dicts(target: Dict[str, Element], source: Dict[str, Element]) -> None:
+def merge_dicts(target: Dict[str, Element], source: Dict[str, Element], imported_from: str) -> None:
     for k, v in source.items():
         if k in target:
             raise ValueError(f"Conflicting definitions for {k}")
         target[k] = deepcopy(v)
+        target[k].imported_from = imported_from
 
 
 def merge_slots(target: Union[SlotDefinition, TypeDefinition], source: Union[SlotDefinition, TypeDefinition]) -> None:
@@ -72,7 +75,7 @@ def slot_usage_name(usage_name: SlotDefinitionName, owning_class: ClassDefinitio
 def alias_root(schema: SchemaDefinition, slotname: SlotDefinitionName) -> Optional[SlotDefinitionName]:
     """ Return the ultimate alias of a slot """
     alias = schema.slots[slotname].alias if slotname in schema.slots else None
-    return alias_root(schema, alias) if alias else slotname
+    return alias_root(schema, cast(SlotDefinitionName, alias)) if alias else slotname
 
 def merge_classes(schema: SchemaDefinition, target: ClassDefinition, source: ClassDefinition,
                   at_end: bool = False) -> None:

@@ -1,0 +1,80 @@
+id: http://w3id.org/biolink/biolinkmodel/types
+name: types for use in the biolink model
+description: Type definitions for the biolink model definitions
+license: https://creativecommons.org/publicdomain/zero/1.0/
+
+prefixes:
+  types: http://w3id.org/biolink/biolinkmodel/type/
+  OBAN: http://purl.org/oban/
+  SIO: http://semanticscience.org/resource/SIO_
+  wgs: http://www.w3.org/2003/01/geo/wgs84_pos
+
+default_prefix: types
+
+default_curi_maps:
+  - obo_context
+  - monarch_context
+  - idot_context
+  - semweb_context
+
+id_prefixes:
+  - rdf
+  - rdfs
+  - xsd
+  - skos
+  - OIO
+  - U0
+
+imports:
+  - includes/types
+
+
+types:
+  identifier type:
+    typeof: uri
+    description: A URI or CURIE that uniquely identifies the named thing
+
+  uri type:
+    typeof: uri
+    description: The URI that uniquely identifies the named thing
+
+  label type:
+    typeof: string
+    description: A string that provides a human-readable name for a thing
+
+  narrative text:
+    typeof: string
+    description:  A string that provides a human-readable description of something
+
+  symbol type:
+    typeof: string
+
+  chemical formula type:
+    typeof: string
+
+  frequency value:
+    typeof: string
+    mappings:
+      - UO:0000105
+
+  perecentage frequency value:
+    typeof: double
+    mappings:
+      - UO:0000187
+
+  quotient:
+    aliases: ['ratio']
+    typeof: double
+    mappings:
+      - UO:0010006
+
+  unit:
+    typeof: string
+    mappings:
+      - UO:0000000
+
+  time type:
+    typeof: time
+
+  biological sequence:
+    typeof: string

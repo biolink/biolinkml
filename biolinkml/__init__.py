@@ -15,6 +15,8 @@ Physical layout:
         +------ includes/
         |          |
         |          +--- types.yaml
+        |          |
+        |          +--- types.py
         |
         +------ biolinkml/
         |          |
@@ -54,10 +56,12 @@ URI Maps:
 
 METAMODEL_FILE_NAME = 'meta.yaml'
 METAMODEL_LDCONTEXT_NAME = 'context.jsonld'
+TYPES_FILE_NAME = 'types.yaml'
 
 
-# Location of meta.yaml
+# Location of meta.yaml and types.yaml
 LOCAL_YAML_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', METAMODEL_FILE_NAME))
+LOCAL_TYPES_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'includes', TYPES_FILE_NAME))
 
 # Location of metamodel context.jsonld
 LOCAL_CONTEXT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', METAMODEL_LDCONTEXT_NAME))

@@ -86,6 +86,7 @@ class TestLists:
 FAIL_ON_ERROR = True
 
 
+@unittest.skipIf(True, "Only works if the server is up and running")
 class RewriteRuleTestCase(unittest.TestCase):
     SERVER = DEFAULT_SERVER         # Can be overwritten with a startup parameter
 

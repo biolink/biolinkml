@@ -1,9 +1,9 @@
 {
-   "comments": "Auto generated from meta.yaml by jsonldcontextgen.py version: 0.0.2\nGeneration date: 2019-01-26 13:32\nSchema: metamodel\n\nid: http://w3id.org/biolink/biolinkml/meta\ndescription: A metamodel for defining biolink related schemas\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
+   "comments": "Auto generated from meta.yaml by jsonldcontextgen.py version: 0.0.2\nGeneration date: 2019-02-05 10:22\nSchema: metamodel\n\nid: http://w3id.org/biolink/biolinkml/meta\ndescription: A metamodel for defining biolink related schemas\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
    "@context": {
       "OIO": "http://www.geneontology.org/formats/oboInOwl#",
       "dcterms": "http://purl.org/dc/terms/",
-      "metatype": "http://w3id.org/biolink/biolinkml/types/",
+      "metatype": "http://w3id.org/biolink/biolinkml/type/",
       "owl": "http://www.w3.org/2002/07/owl#",
       "pav": "http://purl.org/pav/",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",

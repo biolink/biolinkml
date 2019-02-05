@@ -65,7 +65,8 @@ class SchemaLoader:
         for sname in self.schema.imports:
             if sname not in self.loaded:
                 self.loaded.add(sname)
-                merge_schemas(self.schema, load_raw_schema(sname + '.yaml', base_dir=self.base_dir), self.namespaces)
+                merge_schemas(self.schema, load_raw_schema(sname + '.yaml', base_dir=self.base_dir), sname,
+                              self.namespaces)
 
         # Massage initial set of slots
         for slot in self.schema.slots.values():

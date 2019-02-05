@@ -2,7 +2,7 @@ import os
 import unittest
 
 from biolinkml import LOCAL_YAML_PATH, METAMODEL_URI, METAMODEL_LOCAL_NAME, LOCAL_CONTEXT_PATH, METAMODEL_NAMESPACE, \
-    METAMODEL_FILE_NAME, METATYPE_NAMESPACE, METATYPE_LOCAL_NAME, METATYPE_URI
+    METAMODEL_FILE_NAME, METATYPE_NAMESPACE, METATYPE_LOCAL_NAME, METATYPE_URI, LOCAL_TYPES_PATH
 from biolinkml.utils.rawloader import load_raw_schema
 
 
@@ -21,7 +21,7 @@ class ModelURITestCase(unittest.TestCase):
         meta_yaml = load_raw_schema(LOCAL_YAML_PATH)
         self.validate_yaml_content(meta_yaml, False)
 
-        types_yaml = load_raw_schema(os.path.join(os.path.dirname(LOCAL_YAML_PATH), 'includes', 'types.yaml'))
+        types_yaml = load_raw_schema(LOCAL_TYPES_PATH)
         self.assertEqual(METATYPE_LOCAL_NAME, types_yaml.default_prefix)
         self.assertEqual(METATYPE_URI, types_yaml.id)
         self.assertEqual(METATYPE_LOCAL_NAME, types_yaml.default_prefix)

@@ -44,11 +44,11 @@ Types: 10
 			ncname
 		URIorCURIE:
 			uri
-		datetime.date:
-			date
-		datetime.datetime:
+		XSDDate:
 			datetime
-		datetime.time:
+		XSDDateTime:
+			date
+		XSDTime:
 			time
 		float:
 			double

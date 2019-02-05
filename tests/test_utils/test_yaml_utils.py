@@ -70,7 +70,7 @@ class YamlUtilTestCase(Base):
         schema = self.fix_schema_metadata(load_raw_schema(os.path.join(datadir, 'schema4.yaml')))
 
         self.assertEqual("""generation_date: 2018-12-31 17:23
-id: http://example.org/schema4
+id: !!python/object/new:biolinkml.utils.metamodelcore.URIorCURIE ['http://example.org/schema4']
 metamodel_version: 0.5.0
 name: !!python/object/new:biolinkml.meta.SchemaDefinitionName [schema4]
 source_file: schema4.yaml
@@ -80,11 +80,11 @@ title: Load Raw Schema Test
 types:
   integer:
     base: int
-    from_schema: http://example.org/schema5
+    from_schema: !!python/object/new:biolinkml.utils.metamodelcore.URIorCURIE ['http://example.org/schema5']
     name: !!python/object/new:biolinkml.meta.TypeDefinitionName [integer]
   string:
     base: str
-    from_schema: http://example.org/schema4
+    from_schema: !!python/object/new:biolinkml.utils.metamodelcore.URIorCURIE ['http://example.org/schema4']
     name: !!python/object/new:biolinkml.meta.TypeDefinitionName [string]
 """, as_yaml(schema))
 
