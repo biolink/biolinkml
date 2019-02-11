@@ -410,8 +410,10 @@ slots:
     description: list of slot names that are applicable to a class
     comments:
       - >-
-        the preferred way for defining slots is through the slot domain. The final list of slots for a class is the
+        This defines the set of slots that are allowed to be used for a given class.
+        The final list of slots for a class is the
         combination of the parent (is_a) slots, mixins slots, apply_to slots minus the slot_usage entries.
+        Formally, 
 
   slot_usage:
     multivalued: true
