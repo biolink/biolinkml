@@ -1,23 +1,24 @@
 # Auto generated from tests.test_biolink_model.biolink_metamodel.biolink_association .yaml by pythongen.py version: 0.2.0
-# Generation date: 2019-02-05 16:34
+# Generation date: 2019-02-12 09:07
 # Schema: biolink association
 #
 # id: http://w3id.org/biolink/biolink-model/association
-# description: Reified association model for life-sciences data
+# description: A model of the biolink reified association class
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 
 from typing import Optional, List, Union, Dict
 from dataclasses import dataclass
 from biolinkml.utils.metamodelcore import empty_list, empty_dict
 from biolinkml.utils.yamlutils import YAMLRoot
-from tests.test_biolink_model.biolink_metamodel.biolink_named_thing import InformationContentEntity, InformationContentEntityId, NamedThingId, OntologyClassId, ProviderId, PublicationId, RelationshipTypeId, Thing
-from tests.test_biolink_model.biolink_metamodel.includes.biolink_types import IdentifierType, LabelType, NarrativeText, TimeType, UriType
-from biolinkml.utils.metamodelcore import Bool, XSDDateTime
-from includes.types import Boolean, Date, String, Time, Uri
+from tests.test_biolink_model.biolink_metamodel.biolink_named_thing import AltDescription, Example, InformationContentEntity, InformationContentEntityId, NamedThingId, NodeTypeId, PropertyDefinition, PropertyDefinitionId, ProviderId, QualifierTypeId, RelationshipTypeId, SubsetDefinitionId, Thing
+from tests.test_biolink_model.biolink_metamodel.includes.biolink_types import BooleanType, FileName, IdentifierType, LabelType, NarrativeText, UriType
+from biolinkml.utils.metamodelcore import Bool, NCName, URIorCURIE, XSDDate
+from includes.types import Boolean, Datetime, Ncname, String, Uri
 
-metamodel_version = "1.0.1"
+metamodel_version = "1.0.2"
 
-inherited_slots: List[str] = []
+inherited_slots: List[str] = ["qualifier_definitions", "slot_class_range", "slot_relation_range", "definitional",
+                              "slots"]
 
 
 # Types
@@ -27,90 +28,107 @@ class AssociationAssociationId(IdentifierType):
     pass
 
 
-class ConfidenceLevelId(InformationContentEntityId):
-    pass
-
-
 class EvidenceTypeId(InformationContentEntityId):
     pass
 
 
+class ConfidenceLevelId(InformationContentEntityId):
+    pass
+
+
+class PublicationId(InformationContentEntityId):
+    pass
+
+
+class AssocPropertyDefinitionId(PropertyDefinitionId):
+    pass
+
+
 @dataclass
-class Association(YAMLRoot):
+class Association(Thing):
     """
-    A typed association between two entities, supported by evidence
+    A relation between two entities, supported by evidence.
     """
 
+    # === thing ===
+    name: Optional[Union[str, LabelType]] = None
+    iri: Optional[Union[str, UriType]] = None
+    full_name: Optional[Union[str, LabelType]] = None
+    local_names: List[Union[str, LabelType]] = empty_list()
+    description: Optional[Union[str, NarrativeText]] = None
+    alt_descriptions: List[Union[dict, AltDescription]] = empty_list()
+    aliases: List[Union[str, LabelType]] = empty_list()
+    comments: List[Union[str, NarrativeText]] = empty_list()
+    notes: List[Union[str, NarrativeText]] = empty_list()
+    examples: List[Union[dict, Example]] = empty_list()
+    deprecated: Optional[str] = None
+    in_subset: List[Union[str, SubsetDefinitionId]] = empty_list()
+    see_also: List[Union[str, IdentifierType]] = empty_list()
+    id_prefixes: List[Union[str, NCName]] = empty_list()
+    creation_date: Optional[Union[str, XSDDate]] = None
+    update_date: Optional[Union[str, XSDDate]] = None
+    from_model: Optional[Union[str, UriType]] = None
+    source_file: Optional[Union[str, FileName]] = None
+    mixin: Optional[Union[Bool, BooleanType]] = None
+    abstract: Optional[Union[Bool, BooleanType]] = None
+    mappings: List[Union[str, UriType]] = empty_list()
+
     # === association ===
-    association_id: Union[str, AssociationAssociationId]
-    subject: Union[str, NamedThingId]
-    object: Union[str, NamedThingId]
-    relation: Union[str, RelationshipTypeId]
-    association_slot: Optional[str] = None
+    association_id: Union[str, AssociationAssociationId] = None
+    association_type: Optional[Union[str, RelationshipTypeId]] = None
+    subject: Optional[Union[dict, "SlotClassDescription"]] = None
+    relation: Optional[Union[dict, "SlotRelationDescription"]] = None
+    object: Optional[Union[dict, "SlotClassDescription"]] = None
+    is_a: Optional[Union[str, AssociationAssociationId]] = None
     edge_label: Optional[Union[str, LabelType]] = None
-    negated: Optional[Bool] = None
+    negated: Optional[Union[Bool, BooleanType]] = None
     has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
-    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    has_evidence: List[Union[str, EvidenceTypeId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
-    association_type: Optional[Union[str, OntologyClassId]] = None
-    qualifiers: List[Union[str, OntologyClassId]] = empty_list()
+    qualifiers: List[Union[str, QualifierTypeId]] = empty_list()
     publications: List[Union[str, PublicationId]] = empty_list()
+    mixins: List[Union[str, AssociationAssociationId]] = empty_list()
+    apply_to: List[Union[str, AssociationAssociationId]] = empty_list()
+    slots: Dict[Union[str, AssocPropertyDefinitionId], Union[dict, "AssocPropertyDefinition"]] = empty_dict()
+    association_slot: List[Union[dict, "SlotDescription"]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
         if not isinstance(self.association_id, AssociationAssociationId):
             self.association_id = AssociationAssociationId(self.association_id)
-        if not isinstance(self.subject, NamedThingId):
-            self.subject = NamedThingId(self.subject)
-        if not isinstance(self.object, NamedThingId):
-            self.object = NamedThingId(self.object)
+        if self.association_type and not isinstance(self.association_type, RelationshipTypeId):
+            self.association_type = RelationshipTypeId(self.association_type)
+        if self.subject and not isinstance(self.subject, SlotClassDescription):
+            self.subject = SlotClassDescription(**self.subject)
+        if self.relation and not isinstance(self.relation, SlotRelationDescription):
+            self.relation = SlotRelationDescription(**self.relation)
+        if self.object and not isinstance(self.object, SlotClassDescription):
+            self.object = SlotClassDescription(**self.object)
+        if self.is_a and not isinstance(self.is_a, AssociationAssociationId):
+            self.is_a = AssociationAssociationId(self.is_a)
         if self.edge_label and not isinstance(self.edge_label, LabelType):
             self.edge_label = LabelType(self.edge_label)
-        if not isinstance(self.relation, RelationshipTypeId):
-            self.relation = RelationshipTypeId(self.relation)
+        if self.negated and not isinstance(self.negated, BooleanType):
+            self.negated = BooleanType(self.negated)
         if self.has_confidence_level and not isinstance(self.has_confidence_level, ConfidenceLevelId):
             self.has_confidence_level = ConfidenceLevelId(self.has_confidence_level)
-        if self.has_evidence and not isinstance(self.has_evidence, EvidenceTypeId):
-            self.has_evidence = EvidenceTypeId(self.has_evidence)
+        self.has_evidence = [v if isinstance(v, EvidenceTypeId)
+                             else EvidenceTypeId(v) for v in self.has_evidence]
         if self.provided_by and not isinstance(self.provided_by, ProviderId):
             self.provided_by = ProviderId(self.provided_by)
-        if self.association_type and not isinstance(self.association_type, OntologyClassId):
-            self.association_type = OntologyClassId(self.association_type)
-        self.qualifiers = [v if isinstance(v, OntologyClassId)
-                           else OntologyClassId(v) for v in self.qualifiers]
+        self.qualifiers = [v if isinstance(v, QualifierTypeId)
+                           else QualifierTypeId(v) for v in self.qualifiers]
         self.publications = [v if isinstance(v, PublicationId)
                              else PublicationId(v) for v in self.publications]
-
-
-@dataclass
-class ConfidenceLevel(InformationContentEntity):
-    """
-    Level of confidence in a statement
-    """
-
-    # === thing ===
-    related_to: Optional[Union[dict, Thing]] = None
-    iri: Optional[Union[str, UriType]] = None
-    name: Optional[Union[str, LabelType]] = None
-    category: List[Union[dict, Thing]] = empty_list()
-    full_name: Optional[Union[str, LabelType]] = None
-    description: Optional[Union[str, NarrativeText]] = None
-    creation_date: Optional[Union[str, XSDDateTime]] = None
-    update_date: Optional[Union[str, XSDDateTime]] = None
-    aggregate_statistic: Optional[str] = None
-    timepoint: Optional[Union[str, TimeType]] = None
-
-    # === named thing ===
-    id: Union[str, ConfidenceLevelId] = None
-
-    # === information content entity ===
-
-    # === confidence level ===
-
-    def _fix_elements(self):
-        super()._fix_elements()
-        if self.id and not isinstance(self.id, ConfidenceLevelId):
-            self.id = ConfidenceLevelId(self.id)
+        self.mixins = [v if isinstance(v, AssociationAssociationId)
+                       else AssociationAssociationId(v) for v in self.mixins]
+        self.apply_to = [v if isinstance(v, AssociationAssociationId)
+                         else AssociationAssociationId(v) for v in self.apply_to]
+        for k, v in self.slots.items():
+            if not isinstance(v, AssocPropertyDefinition):
+                self.slots[k] = AssocPropertyDefinition(id=k, **({} if v is None else v))
+        self.association_slot = [v if isinstance(v, SlotDescription)
+                                 else SlotDescription(**v) for v in self.association_slot]
 
 
 @dataclass
@@ -120,25 +138,315 @@ class EvidenceType(InformationContentEntity):
     """
 
     # === thing ===
-    related_to: Optional[Union[dict, Thing]] = None
-    iri: Optional[Union[str, UriType]] = None
     name: Optional[Union[str, LabelType]] = None
-    category: List[Union[dict, Thing]] = empty_list()
+    iri: Optional[Union[str, UriType]] = None
     full_name: Optional[Union[str, LabelType]] = None
+    local_names: List[Union[str, LabelType]] = empty_list()
     description: Optional[Union[str, NarrativeText]] = None
-    creation_date: Optional[Union[str, XSDDateTime]] = None
-    update_date: Optional[Union[str, XSDDateTime]] = None
-    aggregate_statistic: Optional[str] = None
-    timepoint: Optional[Union[str, TimeType]] = None
+    alt_descriptions: List[Union[dict, AltDescription]] = empty_list()
+    aliases: List[Union[str, LabelType]] = empty_list()
+    comments: List[Union[str, NarrativeText]] = empty_list()
+    notes: List[Union[str, NarrativeText]] = empty_list()
+    examples: List[Union[dict, Example]] = empty_list()
+    deprecated: Optional[str] = None
+    in_subset: List[Union[str, SubsetDefinitionId]] = empty_list()
+    see_also: List[Union[str, IdentifierType]] = empty_list()
+    id_prefixes: List[Union[str, NCName]] = empty_list()
+    creation_date: Optional[Union[str, XSDDate]] = None
+    update_date: Optional[Union[str, XSDDate]] = None
+    from_model: Optional[Union[str, UriType]] = None
+    source_file: Optional[Union[str, FileName]] = None
+    mixin: Optional[Union[Bool, BooleanType]] = None
+    abstract: Optional[Union[Bool, BooleanType]] = None
+    mappings: List[Union[str, UriType]] = empty_list()
 
-    # === named thing ===
+    # === named_thing ===
     id: Union[str, EvidenceTypeId] = None
+    category: List[Union[str, NamedThingId]] = empty_list()
+    is_a: Optional[Union[str, NamedThingId]] = None
+    mixins: List[Union[str, NamedThingId]] = empty_list()
+    apply_to: List[Union[str, NamedThingId]] = empty_list()
 
-    # === information content entity ===
+    # === information_content_entity ===
 
-    # === evidence type ===
+    # === evidence_type ===
 
     def _fix_elements(self):
         super()._fix_elements()
-        if self.id and not isinstance(self.id, EvidenceTypeId):
+        if not isinstance(self.id, EvidenceTypeId):
             self.id = EvidenceTypeId(self.id)
+
+
+@dataclass
+class ConfidenceLevel(InformationContentEntity):
+    """
+    Level of confidence in a statement
+    """
+
+    # === thing ===
+    name: Optional[Union[str, LabelType]] = None
+    iri: Optional[Union[str, UriType]] = None
+    full_name: Optional[Union[str, LabelType]] = None
+    local_names: List[Union[str, LabelType]] = empty_list()
+    description: Optional[Union[str, NarrativeText]] = None
+    alt_descriptions: List[Union[dict, AltDescription]] = empty_list()
+    aliases: List[Union[str, LabelType]] = empty_list()
+    comments: List[Union[str, NarrativeText]] = empty_list()
+    notes: List[Union[str, NarrativeText]] = empty_list()
+    examples: List[Union[dict, Example]] = empty_list()
+    deprecated: Optional[str] = None
+    in_subset: List[Union[str, SubsetDefinitionId]] = empty_list()
+    see_also: List[Union[str, IdentifierType]] = empty_list()
+    id_prefixes: List[Union[str, NCName]] = empty_list()
+    creation_date: Optional[Union[str, XSDDate]] = None
+    update_date: Optional[Union[str, XSDDate]] = None
+    from_model: Optional[Union[str, UriType]] = None
+    source_file: Optional[Union[str, FileName]] = None
+    mixin: Optional[Union[Bool, BooleanType]] = None
+    abstract: Optional[Union[Bool, BooleanType]] = None
+    mappings: List[Union[str, UriType]] = empty_list()
+
+    # === named_thing ===
+    id: Union[str, ConfidenceLevelId] = None
+    category: List[Union[str, NamedThingId]] = empty_list()
+    is_a: Optional[Union[str, NamedThingId]] = None
+    mixins: List[Union[str, NamedThingId]] = empty_list()
+    apply_to: List[Union[str, NamedThingId]] = empty_list()
+
+    # === information_content_entity ===
+
+    # === confidence_level ===
+
+    def _fix_elements(self):
+        super()._fix_elements()
+        if not isinstance(self.id, ConfidenceLevelId):
+            self.id = ConfidenceLevelId(self.id)
+
+
+@dataclass
+class Publication(InformationContentEntity):
+    """
+    Any published piece of information. Can refer to a whole publication, or to a part of it (e.g. a figure, figure
+    legend, or section highlighted by NLP). The scope is intended to be general and include information published on
+    the web as well as journals.
+    """
+
+    # === thing ===
+    name: Optional[Union[str, LabelType]] = None
+    iri: Optional[Union[str, UriType]] = None
+    full_name: Optional[Union[str, LabelType]] = None
+    local_names: List[Union[str, LabelType]] = empty_list()
+    description: Optional[Union[str, NarrativeText]] = None
+    alt_descriptions: List[Union[dict, AltDescription]] = empty_list()
+    aliases: List[Union[str, LabelType]] = empty_list()
+    comments: List[Union[str, NarrativeText]] = empty_list()
+    notes: List[Union[str, NarrativeText]] = empty_list()
+    examples: List[Union[dict, Example]] = empty_list()
+    deprecated: Optional[str] = None
+    in_subset: List[Union[str, SubsetDefinitionId]] = empty_list()
+    see_also: List[Union[str, IdentifierType]] = empty_list()
+    id_prefixes: List[Union[str, NCName]] = empty_list()
+    creation_date: Optional[Union[str, XSDDate]] = None
+    update_date: Optional[Union[str, XSDDate]] = None
+    from_model: Optional[Union[str, UriType]] = None
+    source_file: Optional[Union[str, FileName]] = None
+    mixin: Optional[Union[Bool, BooleanType]] = None
+    abstract: Optional[Union[Bool, BooleanType]] = None
+    mappings: List[Union[str, UriType]] = empty_list()
+
+    # === named_thing ===
+    id: Union[str, PublicationId] = None
+    category: List[Union[str, NamedThingId]] = empty_list()
+    is_a: Optional[Union[str, NamedThingId]] = None
+    mixins: List[Union[str, NamedThingId]] = empty_list()
+    apply_to: List[Union[str, NamedThingId]] = empty_list()
+
+    # === information_content_entity ===
+
+    # === publication ===
+
+    def _fix_elements(self):
+        super()._fix_elements()
+        if not isinstance(self.id, PublicationId):
+            self.id = PublicationId(self.id)
+
+
+@dataclass
+class SlotDescription(Thing):
+    """
+    Additional documentation and information accompanying an association_slot
+    """
+
+    # === thing ===
+    name: Optional[Union[str, LabelType]] = None
+    iri: Optional[Union[str, UriType]] = None
+    full_name: Optional[Union[str, LabelType]] = None
+    local_names: List[Union[str, LabelType]] = empty_list()
+    description: Optional[Union[str, NarrativeText]] = None
+    alt_descriptions: List[Union[dict, AltDescription]] = empty_list()
+    aliases: List[Union[str, LabelType]] = empty_list()
+    comments: List[Union[str, NarrativeText]] = empty_list()
+    notes: List[Union[str, NarrativeText]] = empty_list()
+    examples: List[Union[dict, Example]] = empty_list()
+    deprecated: Optional[str] = None
+    in_subset: List[Union[str, SubsetDefinitionId]] = empty_list()
+    see_also: List[Union[str, IdentifierType]] = empty_list()
+    id_prefixes: List[Union[str, NCName]] = empty_list()
+    creation_date: Optional[Union[str, XSDDate]] = None
+    update_date: Optional[Union[str, XSDDate]] = None
+    from_model: Optional[Union[str, UriType]] = None
+    source_file: Optional[Union[str, FileName]] = None
+    mixin: Optional[Union[Bool, BooleanType]] = None
+    abstract: Optional[Union[Bool, BooleanType]] = None
+    mappings: List[Union[str, UriType]] = empty_list()
+
+    # === slot_description ===
+    definitional: Optional[Bool] = None
+    values_from: List[Union[str, URIorCURIE]] = empty_list()
+
+    def _fix_elements(self):
+        super()._fix_elements()
+        self.values_from = [v if isinstance(v, URIorCURIE)
+                            else URIorCURIE(v) for v in self.values_from]
+
+
+@dataclass
+class SlotClassDescription(SlotDescription):
+    """
+    The description of the link between an association and its subject or object
+    """
+
+    # === thing ===
+    name: Optional[Union[str, LabelType]] = None
+    iri: Optional[Union[str, UriType]] = None
+    full_name: Optional[Union[str, LabelType]] = None
+    local_names: List[Union[str, LabelType]] = empty_list()
+    description: Optional[Union[str, NarrativeText]] = None
+    alt_descriptions: List[Union[dict, AltDescription]] = empty_list()
+    aliases: List[Union[str, LabelType]] = empty_list()
+    comments: List[Union[str, NarrativeText]] = empty_list()
+    notes: List[Union[str, NarrativeText]] = empty_list()
+    examples: List[Union[dict, Example]] = empty_list()
+    deprecated: Optional[str] = None
+    in_subset: List[Union[str, SubsetDefinitionId]] = empty_list()
+    see_also: List[Union[str, IdentifierType]] = empty_list()
+    id_prefixes: List[Union[str, NCName]] = empty_list()
+    creation_date: Optional[Union[str, XSDDate]] = None
+    update_date: Optional[Union[str, XSDDate]] = None
+    from_model: Optional[Union[str, UriType]] = None
+    source_file: Optional[Union[str, FileName]] = None
+    mixin: Optional[Union[Bool, BooleanType]] = None
+    abstract: Optional[Union[Bool, BooleanType]] = None
+    mappings: List[Union[str, UriType]] = empty_list()
+
+    # === slot_description ===
+    definitional: Optional[Bool] = None
+    values_from: List[Union[str, URIorCURIE]] = empty_list()
+
+    # === slot_class_description ===
+    range: Union[str, NodeTypeId] = None
+    subclass_of: Optional[Union[str, IdentifierType]] = None
+
+    def _fix_elements(self):
+        super()._fix_elements()
+        if self.subclass_of and not isinstance(self.subclass_of, IdentifierType):
+            self.subclass_of = IdentifierType(self.subclass_of)
+        if not isinstance(self.range, NodeTypeId):
+            self.range = NodeTypeId(self.range)
+
+
+@dataclass
+class SlotRelationDescription(SlotDescription):
+    """
+    The description of the link between an association and its relation
+    """
+
+    # === thing ===
+    name: Optional[Union[str, LabelType]] = None
+    iri: Optional[Union[str, UriType]] = None
+    full_name: Optional[Union[str, LabelType]] = None
+    local_names: List[Union[str, LabelType]] = empty_list()
+    description: Optional[Union[str, NarrativeText]] = None
+    alt_descriptions: List[Union[dict, AltDescription]] = empty_list()
+    aliases: List[Union[str, LabelType]] = empty_list()
+    comments: List[Union[str, NarrativeText]] = empty_list()
+    notes: List[Union[str, NarrativeText]] = empty_list()
+    examples: List[Union[dict, Example]] = empty_list()
+    deprecated: Optional[str] = None
+    in_subset: List[Union[str, SubsetDefinitionId]] = empty_list()
+    see_also: List[Union[str, IdentifierType]] = empty_list()
+    id_prefixes: List[Union[str, NCName]] = empty_list()
+    creation_date: Optional[Union[str, XSDDate]] = None
+    update_date: Optional[Union[str, XSDDate]] = None
+    from_model: Optional[Union[str, UriType]] = None
+    source_file: Optional[Union[str, FileName]] = None
+    mixin: Optional[Union[Bool, BooleanType]] = None
+    abstract: Optional[Union[Bool, BooleanType]] = None
+    mappings: List[Union[str, UriType]] = empty_list()
+
+    # === slot_description ===
+    definitional: Optional[Bool] = None
+    values_from: List[Union[str, URIorCURIE]] = empty_list()
+
+    # === slot_relation_description ===
+    range: Union[str, RelationshipTypeId] = None
+    subproperty_of: Optional[Union[str, IdentifierType]] = None
+
+    def _fix_elements(self):
+        super()._fix_elements()
+        if self.subproperty_of and not isinstance(self.subproperty_of, IdentifierType):
+            self.subproperty_of = IdentifierType(self.subproperty_of)
+        if not isinstance(self.range, RelationshipTypeId):
+            self.range = RelationshipTypeId(self.range)
+
+
+@dataclass
+class AssocPropertyDefinition(PropertyDefinition):
+    """
+    An additional property for a association
+    """
+
+    # === thing ===
+    name: Optional[Union[str, LabelType]] = None
+    iri: Optional[Union[str, UriType]] = None
+    full_name: Optional[Union[str, LabelType]] = None
+    local_names: List[Union[str, LabelType]] = empty_list()
+    description: Optional[Union[str, NarrativeText]] = None
+    alt_descriptions: List[Union[dict, AltDescription]] = empty_list()
+    aliases: List[Union[str, LabelType]] = empty_list()
+    comments: List[Union[str, NarrativeText]] = empty_list()
+    notes: List[Union[str, NarrativeText]] = empty_list()
+    examples: List[Union[dict, Example]] = empty_list()
+    deprecated: Optional[str] = None
+    in_subset: List[Union[str, SubsetDefinitionId]] = empty_list()
+    see_also: List[Union[str, IdentifierType]] = empty_list()
+    id_prefixes: List[Union[str, NCName]] = empty_list()
+    creation_date: Optional[Union[str, XSDDate]] = None
+    update_date: Optional[Union[str, XSDDate]] = None
+    from_model: Optional[Union[str, UriType]] = None
+    source_file: Optional[Union[str, FileName]] = None
+    mixin: Optional[Union[Bool, BooleanType]] = None
+    abstract: Optional[Union[Bool, BooleanType]] = None
+    mappings: List[Union[str, UriType]] = empty_list()
+
+    # === named_thing ===
+    id: Union[str, AssocPropertyDefinitionId] = None
+    category: List[Union[str, NamedThingId]] = empty_list()
+    is_a: Optional[Union[str, NamedThingId]] = None
+    mixins: List[Union[str, NamedThingId]] = empty_list()
+    apply_to: List[Union[str, NamedThingId]] = empty_list()
+
+    # === property_definition ===
+    domain: Optional[Union[str, IdentifierType]] = None
+    range: Optional[Union[str, NamedThingId]] = None
+    path: Optional[str] = None
+    multivalued: Optional[Bool] = None
+    required: Optional[Bool] = None
+    inherited: Optional[Bool] = None
+
+    # === assoc_property_definition ===
+
+    def _fix_elements(self):
+        super()._fix_elements()
+        if not isinstance(self.id, AssocPropertyDefinitionId):
+            self.id = AssocPropertyDefinitionId(self.id)

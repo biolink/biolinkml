@@ -1,0 +1,1102 @@
+id: http://w3id.org/biolink/biolink-model/relations
+name: biolink model relation definitions
+description: Relation ontology for use in biolink model
+license: https://creativecommons.org/publicdomain/zero/1.0/
+
+prefixes:
+  biolink: http://w3id.org/biolink/model/
+
+default_prefix: biolink
+# Organized by domain with the exception of inverses, which appear together
+
+
+relations:
+  # --------------------------------
+  # domain not specified
+  # --------------------------------
+  affects:
+    description: >-
+      describes an entity that has a direct affect on the state or quality of another existing entity.
+      Use of the 'affects' predicate implies that the affected entity already exists, unlike predicates s
+      uch as 'affects risk for' and 'prevents, where the outcome is something that may or may not come to be.
+    in_subset:
+      - translator_minimal
+    mappings:
+      - SEMMEDDB:AFFECTS
+
+  # affects <-- disrupts
+  disrupts:
+    is_a: affects
+    description: >-
+      describes a relationship where one entity degrades or interferes with the structure, function, or occurrence of another.
+    in_subset:
+      - translator_minimal
+    mappings:
+      - SEMMEDDB:DISRUPTS
+
+  # affects <-- regulates
+  regulates:
+    is_a: affects
+    comments:
+      - This is a grouping for process-process and entity-entity relations
+    mixin: true
+    abstract: true
+    mappings:
+      - WD:P128
+
+
+  # affects <-- regulates <- positively regulates
+  positively regulates:
+    comments:
+      - This is a grouping for process-process and entity-entity relations
+    is_a: regulates
+    mixin: true
+    abstract: true
+
+  # affects <-- regulates <- positively regulates <--   positively regulates, process to process
+  positively regulates, process to process:
+    is_a: positively regulates
+    mixins:
+      - regulates, process to process
+    mappings:
+      - RO:0002213
+
+  # affects <-- regulates <- positively regulates <-- positively regulates, entity to entity
+  positively regulates, entity to entity:
+    aliases: ['activity directly positively regulates activity of']
+    is_a: regulates, entity to entity
+    mixins:
+      - positively regulates
+    local_names:
+      translator: positively regulates
+      ro: activity directly positively regulates activity of
+    in_subset:
+      - translator_minimal
+    mappings:
+      - RO:0002450
+
+  # affects <-- regulates <- negatively regulates
+  negatively regulates:
+    comments:
+      - This is a grouping for process-process and entity-entity relations
+    is_a: regulates
+    mixin: true
+    abstract: true
+
+  # affects <-- regulates <- negatively regulates <--   negatively regulates, process to process
+  negatively regulates, process to process:
+    is_a: negatively regulates
+    mixins:
+      - regulates, process to process
+    mappings:
+      - RO:0002212
+
+  # affects <-- regulates <- negatively regulates <--   negatively regulates, entity to entity
+  negatively regulates, entity to entity:
+    aliases: ['activity directly negatively regulates activity of']
+    is_a: negatively regulates
+    mixins:
+      - regulates, entity to entity
+    local_names:
+      translator: negatively regulates
+      ro: activity directly negatively regulates activity of
+    in_subset:
+      - translator_minimal
+    mappings:
+      - RO:0002449
+      - SEMMEDDB:INHIBITS
+
+  affects risk for:
+    description: holds between two entities where exposure to one entity alters the chance of developing the other
+    in_subset:
+      - translator_minimal
+
+  # affects risk for <-- predisposes
+  predisposes:
+    is_a: affects risk for
+    description: holds between two entities where exposure to one entity increases the chance of developing the other
+    in_subset:
+      - translator_minimal
+    mappings:
+      - SEMMEDDB:PREDISPOSES
+
+  # affects risk for <-- prevents
+  prevents :
+    is_a: affects risk for
+    description: >-
+      holds between an entity whose application or use reduces the likelihood of a potential outcome.
+      Typically used to associate a chemical substance, exposure, activity, or medical intervention that can prevent
+      the onset a disease or phenotypic feature.
+    in_subset:
+      - translator_minimal
+    mappings:
+      - RO:0002599
+      - SEMMEDDB:PREVENTS
+
+  contributes to:
+    description: >-
+      holds between two entities where the occurrence, existence, or activity of one causes or contributes
+      to the occurrence or generation of the other
+    in_subset:
+      - translator_minimal
+    mappings:
+      - RO:0002326
+
+  # contributes to <-- causes
+  causes:
+    description: >-
+      holds between two entities where the occurrence, existence, or activity of one causes the occurrence or
+      generation of the other
+    is_a: contributes to
+    in_subset:
+      - translator_minimal
+    mappings:
+      - RO:0002410
+      - SEMMEDDB:CAUSES
+      - WD:P1542
+
+  correlated with:
+    description: a positive or negative correlation
+    abstract: true
+    in_subset:
+      - translator_minimal
+    mappings:
+      - RO:0002610
+
+  coexists with:
+    description: >-
+      holds between two entities that are co-located in the same aggregate object, process, or spatio-temporal region
+    in_subset:
+      - translator_minimal
+    mappings:
+      - SEMMEDDB:COEXISTS_WITH
+
+  # coexists with <-- co-localizes with
+  co-localizes with:
+    description: holds between two entities that are observed to be located in the same place.
+    is_a: coexists with
+    in_subset:
+      - translator_minimal
+    mappings:
+      - RO:00002325
+
+  derives into:
+    description: >-
+      holds between two distinct material entities, the old entity and the new entity, in which the new entity
+      begins to exist when the old entity ceases to exist, and the new entity inherits the significant portion of
+      the matter of the old entity
+    in_subset:
+      - translator_minimal
+    inverse: derives from
+    mappings:
+      - RO:0001001
+      - SEMMEDDB:CONVERTS_TO
+
+  derives from:
+    description: >-
+      holds between two distinct material entities, the new entity and the old entity, in which the new entity begin
+      s to exist when the old entity ceases to exist, and the new entity inherits the significant portion of the
+      matter of the old entity
+    in_subset:
+      - translator_minimal
+    inverse: derives into
+    mappings:
+      - RO:0001000
+
+  homologous to:
+    aliases: ['in homology relationship with']
+    symmetric: true
+    description: >-
+      holds between two biological entities that have common evolutionary origin
+    comments:
+      - typically used to describe homology relationships between genes or gene products
+    in_subset:
+      - translator_minimal
+    mappings:
+      - RO:HOM0000001
+      - SIO:010302
+
+  # homologous to <-- orthologous to
+  orthologous to:
+    is_a: homologous to
+    description: >-
+      a homology relationship between entities (typically genes) that diverged after a speciation event.
+    in_subset:
+      - translator_minimal
+    mappings:
+      - RO:HOM0000017
+      - WD:P684
+
+  # homologous to <-- paralogous to
+  paralogous to:
+    is_a: homologous to
+    description: >-
+      a homology relationship that holds between entities (typically genes) that diverged after a duplication event.
+    in_subset:
+      - translator_minimal
+    mappings:
+      - RO:HOM0000011
+
+  # homologous to <-- xenologous to
+  xenologous to:
+    is_a: homologous to
+    description: >-
+      a homology relationship characterized by an interspecies (horizontal) transfer since the common ancestor.
+    in_subset:
+      - translator_minimal
+    mappings:
+      - RO:HOM0000018
+
+  interacts with:
+    description: holds between any two entities that directly or indirectly interact with each other
+    in_subset:
+      - translator_minimal
+    symmetric: true
+    mappings:
+      - RO:0002434
+
+  # interacts_with <-- physically interacts with
+  physically interacts with:
+    is_a: interacts with
+    description: >-
+      holds between two entities that make physical contact as part of some interaction
+    in_subset:
+      - translator_minimal
+    symmetric: true
+    mappings:
+      - WD:P129
+      - SEMMEDDB:INTERACTS_WITH
+
+  located in:
+    description: >-
+      holds between a material entity and a material entity or site within which it is located (but of which it
+      is not considered a part)
+    in_subset:
+      - translator_minimal
+    inverse: location of
+    mappings:
+      - RO:0001025
+
+  location of:
+    description: >-
+      holds between material entity or site and a material entity that is located within it (but not considered
+      a part of it)
+    in_subset:
+      - translator_minimal
+    inverse: located in
+    mappings:
+      - RO:0001015
+      - SEMMEDDB:LOCATION_OF
+      - WD:276
+
+  manifestation of:
+    description: used in SemMedDB for linking things like dysfunctions and processes to some disease or syndrome
+    range: disease
+    in_subset:
+      - translator_minimal
+    mappings:
+      - SEMMEDDB:MANIFESTATION_OF
+      - WD:P1557
+
+  model of:
+    description: >-
+      holds between an entity and some other entity it approximates for purposes of scientific study, in virtue of
+      its exibiting similar features of the studied entity.
+    in_subset:
+      - translator_minimal
+    mappings:
+      - RO:0003301
+
+  occurs in:
+    description: holds between a process and a material entity or site within which the process occurs
+    in_subset:
+      - translator_minimal
+    mappings:
+      - BFO:0000066
+      - SEMMEDDB:OCCURS_IN
+      - SEMMEDDB:PROCESS_OF
+
+  overlaps:
+    description: >-
+      holds between entties that overlap in their extents (materials or processes)
+    symmetric: true
+    in_subset:
+      - translator_minimal
+    mappings:
+      - RO:0002131
+
+  # overlaps <-- part of
+  part of:
+    is_a: overlaps
+    description: >-
+      holds between parts and wholes (material entities or processes)
+    in_subset:
+      - translator_minimal
+    inverse: has part
+    mappings:
+      - BFO:0000050
+      - SEMMEDDB:PART_OF
+      - WD:P361
+
+  # overlaps <-- has part
+  has part:
+    is_a: overlaps
+    description: >-
+      holds between wholes and their parts (material entities or processes)
+    in_subset:
+      - translator_minimal
+    inverse: part of
+    mappings:
+      - BFO:0000051
+      - WD:P527
+
+  produces:
+    description: >-
+      holds between a material entity and a product that is generated through the intentional actions
+      or functioning of the material entity
+    in_subset:
+      - translator_minimal
+    mappings:
+      - RO:0003000
+      - WD:P1056
+      - SEMMEDDB:PRODUCES
+
+  same as:
+    description: holds between two entities that are considered equivalent to each other
+    in_subset:
+      - translator_minimal
+    mappings:
+      - owl:equivalentClass
+      - owl:sameAs
+      - skos:exactMatch
+      - WD:P2888
+
+  # ------------------
+  # Anatomical Entity
+  # ------------------
+  expresses:
+    description: >-
+      holds between an anatomical entity and gene or gene product that is expressed there
+    domain: anatomical entity
+    range: gene or gene product
+    in_subset:
+      - translator_minimal
+    inverse: expressed in
+    mappings:
+      - RO:0002292
+
+  # ------------------
+  # BiologicalEntity
+  # ------------------
+  has phenotype:
+    description: >-
+      holds between a biological entity and a phenotype, where a phenotype is construed broadly as any kind of
+      quality of an organism part, a collection of these qualities, or a change in quality or qualities
+      (e.g. abnormally increased temperature).
+    domain: biological entity
+    range: phenotype
+    in_subset:
+      - translator_minimal
+    mappings:
+      - RO:0002200
+
+  has biomarker:
+    is_a: correlated with
+    description: >-
+      holds between a disease or phenotypic feature and a measurable molecular entity that is used as an indicator of
+      the presence or state of the disease or feature.
+    domain: disease or phenotypic feature
+    range: molecular entity
+    in_subset:
+      - translator_minimal
+    inverse: biomarker for
+
+  biomarker for:
+    is_a: correlated with
+    description: >-
+      holds between a measurable molecular entity and a disease or phenotypic feature, where the entity is used as an indicator of the presence or state of the disease or feature.
+    domain: molecular entity
+    range: disease or phenotypic feature
+    in_subset:
+      - translator_minimal
+    inverse: has biomarker
+    mappings:
+      - RO:0002607
+
+  # ------------------
+  # DiseaseOrPhenotypicFeature
+  # ------------------
+  treated by:
+    description: >-
+      holds between a disease or phenotypic feature and a therapeutic process or chemical substance that is used to treat the condition
+    domain: disease or phenotypic feature
+    range: treatment
+    in_subset:
+      - translator_minimal
+    inverse: treats
+    mappings:
+      - RO:0002302
+      - WD:P2176
+
+  # ------------------
+  # Gene
+  # ------------------
+  genetically interacts with:
+    is_a: interacts with
+    description: >-
+      holds between two genes whose phenotypic effects are dependent on each other in some way - such that their combined phenotypic effects are the result of some interaction between the activity of their gene products. Examples include epistasis and synthetic lethality.
+    domain: gene
+    range: gene
+    in_subset:
+      - translator_minimal
+    mappings:
+      - RO:0002435
+
+  gene associated with condition:
+    description: >-
+      holds between a gene and a disease or phenotypic feature that the gene or its alleles/products may influence, contribute to, or correlate with
+    domain: gene
+    range: disease or phenotypic feature
+    in_subset:
+      - translator_minimal
+    mappings:
+      - WD:P2293
+
+  has gene product:
+    description: holds between a gene and a transcribed and/or translated product generated from it
+    domain: gene
+    range: gene product
+    in_subset:
+      - translator_minimal
+    mappings:
+      - RO:0002205
+      - WD:P688
+
+
+  # ------------------
+  # GeneOrGeneProduct
+  # ------------------
+  expressed in:
+    description: holds between a gene or gene product and an anatomical entity in which it is expressed
+    domain: gene or gene product
+    range: anatomical entity
+    in_subset:
+      - translator_minimal
+    inverse: expresses
+    mappings:
+      - RO:0002206
+
+  in pathway with:
+    description: holds between two genes or gene products that are part of in the same biological pathway
+    is_a: coexists with
+    domain: gene or gene product
+    range: gene or gene product
+    in_subset:
+      - translator_minimal
+
+  in complex with:
+    description: >-
+      holds between two genes or gene products that are part of (or code for products that are part of)
+      in the same macromolecular complex
+    is_a: coexists with
+    domain: gene or gene product
+    range: gene or gene product
+    in_subset:
+      - translator_minimal
+
+  in cell population with:
+    description: >-
+      holds between two genes or gene products that are expressed in the same cell type or population
+    is_a: coexists with
+    domain: gene or gene product
+    range: gene or gene product
+    in_subset:
+      - translator_minimal
+
+
+  # ------------------
+  # MolecularEntity
+  # ------------------
+  affects abundance of:
+    description: >-
+      holds between two molecular entities where the action or effect of one changes the amount of the other
+      within a system of interest
+    is_a: affects
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  increases abundance of:
+    description: >-
+      holds between two molecular entities where the action or effect of one increases the amount of the other within a system of interest
+    is_a: affects abundance of
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  decreases abundance of:
+    description: >-
+      holds between two molecular entities where the action or effect of one decreases the amount of the other within a system of interest
+    is_a: affects abundance of
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  affects activity of:
+    description: >-
+      holds between two molecular entities where the action or effect of one changes the activity of the other within a system of interest
+    is_a: affects
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  increases activity of:
+    description: >-
+      holds between two molecular entities where the action or effect of one increases the activity of the other within a system of interest
+    is_a: affects activity of
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  decreases activity of:
+    description: >-
+      holds between two molecular entities where the action or effect of one decreases the activity of the other within a system of interest
+    is_a: affects activity of
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  affects expression of:
+    description: >-
+      holds between two molecular entities where the action or effect of one changes the level of expression of the other within a system of interest
+    is_a: affects
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: genomic entity
+
+  increases expression of:
+    description: >-
+      holds between two molecular entities where the action or effect of one increases the level of expression of the other within a system of interest
+    is_a: affects expression of
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: genomic entity
+
+  decreases expression of:
+    description: >-
+      holds between two molecular entities where the action or effect of one decreases the level of expression of the other within a system of interest
+    is_a: affects expression of
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: genomic entity
+
+  affects folding of:
+    description: >-
+      holds between two molecular entities where the action or effect of one changes the rate or quality of folding of the other
+    is_a: affects
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  increases folding of:
+    description: >-
+      holds between two molecular entities where the action or effect of one increases the rate or quality of folding of the other
+    is_a: affects folding of
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  decreases folding of:
+    description: >-
+      holds between two molecular entities where the action or effect of one decreases the rate or quality of folding of the other
+    is_a: affects folding of
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  affects localization of:
+    description: >-
+      holds between two molecular entities where the action or effect of one changes the localization of the other within a system of interest
+    is_a: affects
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  increases localization of:
+    description: >-
+      holds between two molecular entities where the action or effect of one increases the proper localization of the other within a system of interest
+    is_a: affects localization of
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  decreases localization of:
+    description: >-
+      holds between two molecular entities where the action or effect of one decreases the proper localization of the other within a system of interest
+    is_a: affects localization of
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  affects metabolic processing of:
+    description: >-
+      holds between two molecular entities where the action or effect of one impacts the metabolic processing of the other within a system of interest
+    is_a: affects
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  increases metabolic processing of:
+    description: >-
+      holds between two molecular entities where the action or effect of one increases the rate of metabolic processing of the other within a system of interest
+    is_a: affects metabolic processing of
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  decreases metabolic processing of:
+    description: >-
+      holds between two molecular entities where the action or effect of one decreases the rate of metabolic processing of the other within a system of interest
+    is_a: affects metabolic processing of
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  affects molecular modification of:
+    description: >-
+      holds between two molecular entities where the action or effect of one leads changes in the molecular modification(s) of the other (e.g. via post-translational modifications of proteins such as the addition of phosphoryl group, or via redox reaction that adds or subtracts electrons)
+    is_a: affects
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  increases molecular modification of:
+    description: >-
+      holds between two molecular entities where the action or effect of one leads to increased molecular modification(s) of the other (e.g. via post-translational modifications of proteins such as the addition of phosphoryl group, or via redox reaction that adds or subtracts electrons)
+    is_a: affects molecular modification of
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  decreases molecular modification of:
+    description: >-
+      holds between two molecular entities where the action or effect of one leads to decreased molecular modification(s) of the other (e.g. via post-translational modifications of proteins such as the addition of phosphoryl group, or via redox reaction that adds or subtracts electrons)
+    is_a: affects molecular modification of
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  affects synthesis of:
+    description: >-
+      holds between two molecular entities where the action or effect of one impacts the rate of chemical synthesis of the other
+    is_a: affects
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  increases synthesis of:
+    description: >-
+      holds between two molecular entities where the action or effect of one increases the rate of chemical synthesis of the other
+    is_a: affects synthesis of
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  decreases synthesis of:
+    description: >-
+      holds between two molecular entities where the action or effect of one decreases the rate of chemical synthesis of the other
+    is_a: affects synthesis of
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  affects degradation of:
+    description: >-
+      holds between two molecular entities where the action or effect of one impacts the rate of degradation of the other within a system of interest
+    is_a: affects
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  increases degradation of:
+    description: >-
+      holds between two molecular entities where the action or effect of one increases the rate of degradation of the other within a system of interest
+    is_a: affects degradation of
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  decreases degradation of:
+    description: >-
+      holds between two molecular entities where the action or effect of one decreases the rate of degradation of the other within a system of interest
+    is_a: affects degradation of
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  affects mutation rate of:
+    description: >-
+      holds between a molecular entity and a genomic entity where the action or effect of the molecular entity impacts the rate of mutation of the genomic entity within a system of interest
+    is_a: affects
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: genomic entity
+
+  increases mutation rate of:
+    description: >-
+      holds between a molecular entity and a genomic entity where the action or effect of the molecular entity increases the rate of mutation of the genomic entity within a system of interest
+    is_a: affects mutation rate of
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: genomic entity
+
+  decreases mutation rate of:
+    description: >-
+      holds between a molecular entity and a genomic entity where the action or effect of the molecular entity decreases the rate of mutation of the genomic entity within a system of interest
+    is_a: affects mutation rate of
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: genomic entity
+
+  affects response to:
+    description: >-
+      holds between two molecular entities where the action or effect of one impacts the susceptibility of a biological entity or system (e.g. an organism, cell, cellular component, macromolecular machine, biological or pathological process) to the other
+    is_a: affects
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  increases response to:
+    description: >-
+      holds between two molecular entities where the action or effect of one increases the susceptibility of a biological entity or system (e.g. an organism, cell, cellular component, macromolecular machine, biological or pathological process) to the other
+    is_a: affects response to
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  decreases response to:
+    description: >-
+      holds between two molecular entities where the action or effect of one decreases the susceptibility of a biological entity or system (e.g. an organism, cell, cellular component, macromolecular machine, biological or pathological process) to the other
+    is_a: affects response to
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  affects splicing of:
+    description: >-
+      holds between a molecular entity and an mRNA where the action or effect of the molecular entity impacts the splicing of the mRNA
+    is_a: affects
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: transcript
+
+  increases splicing of:
+    description: >-
+      holds between a molecular entity and an mRNA where the action or effect of the molecular entity increases the proper splicing of the mRNA
+    is_a: affects splicing of
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: transcript
+
+  decreases splicing of:
+    description: >-
+      holds between a molecular entity and an mRNA where the action or effect of the molecular entity decreases the proper splicing of the mRNA
+    is_a: affects splicing of
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: transcript
+
+  affects stability of:
+    description: >-
+      holds between two molecular entities where the action or effect of one impacts the stability of the other within a system of interest
+    is_a: affects
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  increases stability of:
+    description: >-
+      holds between two molecular entities where the action or effect of one increases the stability of the other within a system of interest
+    is_a: affects stability of
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  decreases stability of:
+    description: >-
+      holds between two molecular entities where the action or effect of one decreases the stability of the other within a system of interest
+    is_a: affects stability of
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  affects transport of:
+    description: >-
+      holds between two molecular entities where the action or effect of one impacts the rate of transport of the other across some boundary in a system of interest
+    is_a: affects
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  increases transport of:
+    description: >-
+      holds between two molecular entities where the action or effect of one increases the rate of transport of the other across some boundary in a system of interest
+    is_a: affects transport of
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  decreases transport of:
+    description: >-
+      holds between two molecular entities where the action or effect of one decreases the rate of transport of the other across some boundary in a system of interest
+    is_a: affects transport of
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  affects secretion of:
+    description: >-
+      holds between two molecular entities where the action or effect of one impacts the rate of secretion of the other out of a cell, gland, or organ
+    is_a: affects
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  increases secretion of:
+    description: >-
+      holds between two molecular entities where the action or effect of one increases the rate of secretion of the other out of a cell, gland, or organ
+    is_a: affects secretion of
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  decreases secretion of:
+    description: >-
+      holds between two molecular entities where the action or effect of one decreases the rate of secretion of the other out of a cell, gland, or organ
+    is_a: affects secretion of
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  affects uptake of:
+    description: >-
+      holds between two molecular entities where the action or effect of one impacts the rate of uptake of the other into of a cell, gland, or organ
+    is_a: affects
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  increases uptake of:
+    description: >-
+      holds between two molecular entities where the action or effect of one increases the rate of uptake of the other into of a cell, gland, or organ
+    is_a: affects uptake of
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  decreases uptake of:
+    description: >-
+      holds between two molecular entities where the action or effect of one decreases the rate of uptake of the other into of a cell, gland, or organ
+    is_a: affects uptake of
+    in_subset:
+      - translator_minimal
+    domain: molecular entity
+    range: molecular entity
+
+  molecularly interacts with:
+    is_a: physically interacts with
+    domain: molecular entity
+    range: molecular entity
+    values_from:
+      - ro
+      - mi
+    in_subset:
+      - translator_minimal
+    mappings:
+      - RO:0002436
+
+  regulates, entity to entity:
+    aliases: ['activity directly regulates activity of']
+    is_a: regulates
+    domain: molecular entity
+    range: molecular entity
+    local_names:
+      translator: regulates
+      ro: activity directly regulates activity of
+    in_subset:
+      - translator_minimal
+    mappings:
+      - RO:0002448
+
+
+  # ------------------
+  # Occurrent slots
+  # ------------------
+  has participant:
+    is_a: related to
+    description: holds between a process and a continuant, where the continuant is somehow involved in the process
+    domain: occurrent
+    in_subset:
+      - translator_minimal
+    inverse: participates in
+    mappings:
+      - RO:0000057
+      - WD:P2283
+
+  has input:
+    is_a: has participant
+    description: >-
+      holds between a process and a continuant, where the continuant is an input into the process
+    domain: occurrent
+    in_subset:
+      - translator_minimal
+    mappings:
+      - RO:0002233
+      - SEMMEDDB:USES
+
+  participates in:
+    description: holds between a continuant and a process, where the continuant is somehow involved in the process
+    range: occurrent
+    in_subset:
+      - translator_minimal
+    inverse: has participant
+    mappings:
+      - RO:0000056
+
+  actively involved in:
+    is_a: participates in
+    description: >-
+      holds between a continuant and a process or function, where the continuant actively contributes to
+      part or all of the process or function it realizes
+    range: occurrent
+    in_subset:
+      - translator_minimal
+    mappings:
+      - RO:0002331
+
+  capable of:
+    is_a: actively involved in
+    description: >-
+      holds between a continuant and process or function, where the continuant alone has the ability to carry out the process or function.
+    range: occurrent
+    in_subset:
+      - translator_minimal
+    mappings:
+      - RO:0002215
+
+
+  precedes:
+    is_a: related to
+    description: >-
+      holds between two processes, where one completes before the other begins
+    domain: occurrent
+    range: occurrent
+    in_subset:
+      - translator_minimal
+    mappings:
+      - BFO:0000063
+      - SEMMEDDB:PRECEDES
+      - WD:P156
+
+  regulates, process to process:
+    is_a: regulates
+    domain: occurrent
+    range: occurrent
+    mappings:
+      - RO:0002211
+
+  # ------------------
+  # Ontology Class Slots
+  # ------------------
+  subclass of:
+    is_a: related to
+    description: >-
+      holds between two classes where the domain class is a specialization of the range class
+    domain: ontology class
+    range: ontology class
+    in_subset:
+      - translator_minimal
+    mappings:
+      - rdfs:subClassOf
+      - SEMMEDDB:IS_A
+      - WD:P279
+
+  # ------------------
+  # Thing with tqxon Slots
+  # ------------------
+  in taxon:
+    is_a: related to
+    domain: thing with taxon
+    range: organism taxon
+    description: connects a thing to a class representing a taxon
+    in_subset:
+      - translator_minimal
+    mappings:
+      - RO:0002162
+      - WD:P703
+
+  # ------------------
+  # Treatment slots
+  # ------------------
+  treats:
+    aliases: ['is substance that treats']
+    is_a: affects
+    description: >-
+      holds between a therapeutic procedure or chemical substance and a disease or phenotypic feature that it is used to treat
+    domain: treatment
+    range: disease or phenotypic feature
+    in_subset:
+      - translator_minimal
+    inverse: treated by
+    mappings:
+      - RO:0002606
+      - RO:0003307
+      - SEMMEDDB:TREATS
+      - WD:P2175

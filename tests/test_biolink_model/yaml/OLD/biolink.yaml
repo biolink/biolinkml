@@ -408,33 +408,6 @@ classes:
       - "HP:0003674"
     is_a: attribute
 
-  relationship quantifier:
-    abstract: true
-    mixin: true
-
-  senstivity quantifier:
-    is_a: relationship quantifier
-    mixin: true
-
-  specificity quantifier:
-    is_a: relationship quantifier
-    mixin: true
-
-  pathognomonicity quantifier:
-    is_a: specificity quantifier
-    description: >-
-      A relationship quantifier between a variant or symptom and a disease, which is
-      high when the presence of the feature implies the existence of the disease
-    mixin: true
-
-  frequency quantifier:
-    is_a: relationship quantifier
-    mixin: true
-    slots:
-      - has count
-      - has total
-      - has quotient
-      - has percentage
 
   named thing:
     description: "a databased entity or concept/class"
@@ -463,14 +436,6 @@ classes:
     is_a: ontology class
     flags:
       - testing
-
-  thing with taxon:
-    abstract: true
-    mixin: true
-    description: >-
-      A mixin that can be used on any entity with a taxon
-    slots:
-      - in taxon
 
   organism taxon:
     is_a: ontology class
@@ -901,12 +866,6 @@ classes:
       - PR
       - Reactome
 
-  gene grouping:
-    abstract: true
-    mixin: true
-    description: >-
-      any grouping of multiple genes or gene products
-
   gene family:
     is_a: molecular entity
     mappings:
@@ -1170,45 +1129,6 @@ classes:
           homology relationship type
         definitional: true
 
-
-  pairwise interaction association:
-    is_a: association
-    mixin: true
-    abstract: true
-    description: >-
-      An interaction at the molecular level between two physical entities
-    slot_usage:
-      subject:
-        range: molecular entity
-      id:
-        description: >-
-          identifier for the interaction. This may come from an interaction database such as IMEX.
-        examples:
-          - value: WB:WBInteraction000538741
-        values_from:
-          - IMEX
-          - BioGRID
-      relation:
-        subproperty_of: molecularly interacts with
-#        range: molecularly interacts with
-        values_from:
-          - ro
-          - mi
-        description: "interaction relationship type"
-        definitional: true
-        examples:
-          - value: RO:0002447
-            description: the subject molecular phosphorylates the object molecule
-      object:
-        range: molecular entity
-      interacting molecules category:
-        # TODO: Is this correct?
-        range: ontology class
-        subclass_of: "MI:1046"
-        examples:
-          - value: MI:1048
-            description: smallmolecule-protein
-
   pairwise gene to gene interaction:
     is_a: gene to gene association
     defining_slots:
@@ -1362,20 +1282,7 @@ classes:
       An association between a biosample and a disease or phenotype
         definitional: true
 
-  frequency qualifier:
-    mixin: true
-    description: >-
-      Qualifier for freqency type associations
 
-  entity to feature or disease qualifiers:
-    abstract: true
-    mixin: true
-    is_a: frequency qualifier
-    description: >-
-      Qualifiers for entity to disease or phenotype associations
-    slots:
-      - severity qualifier
-      - onset qualifier
 
   entity to phenotypic feature association:
     abstract: true
@@ -1404,24 +1311,6 @@ classes:
             description: abnormal circulating bilirubin level
     slots:
       - sex qualifier
-
-  entity to disease association:
-    description: >-
-      mixin class for any association whose object (target node) is a disease
-    abstract: true
-    mixin: true
-    is_a: entity to feature or disease qualifiers
-    defining_slots:
-      - object
-    slot_usage:
-      object:
-        range: disease
-        description: "disease"
-        definitional: true
-        subclass_of: MONDO:0000001
-        examples:
-          - value: MONDO:0020066
-            description: "Ehlers-Danlos syndrome"
 
 
   disease or phenotypic feature association to thing association:
@@ -1551,24 +1440,7 @@ classes:
         range: gene or gene product
         description: "gene that is the subject of the association"
 
-  variant to thing association:
-    is_a: association
-    local_names:
-      ga4gh: variant annotation
-    defining_slots:
-      - subject
-    abstract: true
-    mixin: true
-    slot_usage:
-      subject:
-        range: sequence variant
-        description: >-
-          a sequence variant in which the allele state is associated with some other entity
-        examples:
-          - value: ClinVar:38077
-            description: "ClinVar representation of NM_000059.3(BRCA2):c.7007G>A (p.Arg2336His)"
-          - value: ClinGen:CA024716
-            description: "chr13:g.32921033G>C (hg19) in ClinGen"
+
 
   gene to phenotypic feature association:
     is_a: association
@@ -1714,21 +1586,6 @@ classes:
           - value: MONDO:0016419
             description: hereditary breast cancer
 
-  model to disease mixin:
-    mixin: true
-    abstract: true
-    description: >-
-      This mixin is used for any association class for which the subject (source node) plays the role of a 'model', in that it recapitulates some
-      features of the disease in a way that is useful for studying the disease outside a patient carrying the disease
-    slot_usage:
-      subject:
-        description: >-
-          The entity that serves as the model of the disease. This may be an organism, a strain of organism, a genotype or variant that exhibits
-          similar features, or a gene that when mutated exhibits features of the disease
-      relation:
-        subproperty_of: model of
-        description: >-
-          The relationship to the disease
 
   gene as a model of disease association:
     is_a: gene to disease association

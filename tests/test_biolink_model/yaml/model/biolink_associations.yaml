@@ -1,0 +1,931 @@
+id: http://w3id.org/biolink/biolink-model/relations
+name: biolink model relation definitions
+description: Relation ontology for use in biolink model
+license: https://creativecommons.org/publicdomain/zero/1.0/
+
+prefixes:
+  biolink: http://w3id.org/biolink/model/
+
+default_prefix: biolink
+
+
+#====================
+#  Properties
+#====================
+assoc_properties:
+  stage qualifier:
+    domain: gene to expression site association
+    range: life stage
+    path: "object/during"
+    description: stage at which expression takes place
+    examples:
+      - value: UBERON:0000069
+        description: larval stage
+
+  quantifier qualifier:
+    description: can be used to indicate magnitude, or also ranking
+
+associations:
+
+  model to disease mixin:
+    mixin: true
+    abstract: true
+    description: >-
+      This mixin is used for any association class for which the subject (source node) plays the role of a 'model',
+      in that it recapitulates some features of the disease in a way that is useful for studying the disease outside
+      a patient carrying the disease
+    subject:
+      description: >-
+        The entity that serves as the model of the disease. This may be an organism, a strain of organism, a genotype
+        or variant that exhibits similar features, or a gene that when mutated exhibits features of the disease
+    relation:
+      range: model of
+      subproperty_of: model of
+      description: The relationship to the disease
+    object:
+      range: node_type
+
+  # -----------------------------------------------
+  # AnatomicalEntityToAnatomicalEntity association
+  #------------------------------------------------
+  anatomical entity to anatomical entity association:
+    subject:
+      range: anatomical entity
+      definitional: true
+    object:
+      range: anatomical entity
+      definitional: true
+
+  # anatomical entity to anatomical entity association <-- anatomical entity to anatomical entity part of association
+  anatomical entity to anatomical entity part of association:
+    #      schema: gocam
+    is_a: anatomical entity to anatomical entity association
+    description: >-
+      A relationship between two anatomical entities where the relationship is mereological, i.e
+      the two entities are related by parthood. This includes relationships between cellular components
+      and cells, between cells and tissues, tissues and whole organisms
+    subject:
+      range: anatomical entity
+      description: >-
+        the part
+    object:
+      range: anatomical entity
+      description: >-
+        the whole
+    relation:
+      subproperty_of: part of
+      definitional: true
+
+  # anatomical entity to anatomical entity association <-- anatomical entity to anatomical entity ontogenic association
+  anatomical entity to anatomical entity ontogenic association:
+    is_a: anatomical entity to anatomical entity association
+    description: >-
+      A relationship between two anatomical entities where the relationship is ontogenic, i.e
+      the two entities are related by development. A number of different relationship types
+      can be used to specify the precise nature of the relationship
+    subject:
+      range: anatomical entity
+      description: >-
+        the structure at a later time
+    object:
+      range: anatomical entity
+      description: >-
+        the structure at an earlier time
+    relation:
+      definitional: true
+      subproperty_of: develops from
+
+
+  biosample to thing association:
+    abstract: true
+    description: >-
+      An association between a biosample and something
+    subject:
+      range: biosample
+      description: the biosample being described
+      definitional: true
+
+  biosample to disease or phenotypic feature association:
+    mixins:
+      - biosample to thing association
+      - thing to disease or phenotypic feature association
+    description: >-
+      An association between a biosample and a disease or phenotype
+        definitional: true
+    subject:
+      definitional: true
+    object:
+      definitional: true
+
+  cell line to thing association:
+    abstract: true
+    description: >-
+      An relationship between a cell line and another entity
+    subject:
+      range: cell line
+      definitional: true
+
+  # TODO: figure out what gives with subject ange
+  cell line to disease or phenotypic feature association:
+    mixins:
+      - cell line to thing association
+      - thing to disease or phenotypic feature association
+    description: >-
+      An relationship between a cell line and a disease or a phenotype, where the cell line is derived from an individual with that disease or phenotype
+    subject:
+      range: disease or phenotypic feature
+
+  chemical to thing association:
+    abstract: true
+    description: >-
+      An interaction between a chemical entity and another entity
+    subject:
+      range: chemical substance
+      description: the chemical substance or entity that is an interactor
+      definitional: true
+
+  case to thing association:
+    abstract: true
+    description: >-
+      An abstract association for use where the case is the subject=
+    subject:
+      range: case
+      description: "the case (e.g. patient) that has the property"
+      definitional: true
+
+  chemical to disease or phenotypic feature association:
+    mappings:
+      - SIO:000993
+    mixins:
+      - chemical to thing association
+      - thing to disease or phenotypic feature association
+    description: >-
+      An interaction between a chemical entity and a phenotype or disease, where the presence of the chemical gives rise to
+      or exacerbates the phenotype
+    subject:
+      definitional: true
+    object:
+      range: disease or phenotypic feature
+      description: "the disease or phenotype that is affected by the chemical"
+      definitional: true
+
+  chemical to pathway association:
+    mappings:
+      - SIO:001250
+    mixins:
+      - chemical to thing association
+    description: >-
+      An interaction between a chemical entity and a biological process or pathway
+    object:
+      range: pathway
+      description: "the pathway that is affected by the chemical"
+      definitional: true
+    subject:
+      definitional: true
+
+  chemical to gene association:
+    mappings:
+      - SIO:001257
+    mixins:
+      - chemical to thing association
+    description: >-
+      An interaction between a chemical entity and a gene or gene product
+    object:
+      range: gene or gene product
+      description: "the gene or gene product that is affected by the chemical"
+      definitional: true
+
+  disease or phenotypic feature association to thing association:
+    abstract: true
+    subject:
+      range: disease or phenotypic feature
+      description: "disease or phenotype"
+      definitional: true
+      examples:
+        - value: MONDO:0017314
+          description: "Ehlers-Danlos syndrome, vascular type"
+        - value: MP:0013229
+          description: "abnormal brain ventricle size"
+
+  disease or phenotypic feature association to location association:
+    is_a: disease or phenotypic feature association to thing association
+    description: >-
+      An association between either a disease or a phenotypic feature and an anatomical entity,
+      where the disease/feature manifests in that site.
+    mappings:
+      - NCIT:R100
+    object:
+      range: anatomical entity
+      description: "anatomical entity in which the disease or feature is found"
+      examples:
+        - value: UBERON:0002048
+          description: "lung"
+
+  frequency qualifier:
+    mixin: true
+    description: >-
+      Qualifier for freqency type associations
+
+  entity to feature or disease qualifiers:
+    abstract: true
+    mixin: true
+    is_a: frequency qualifier
+    description: >-
+      Qualifiers for entity to disease or phenotype associations
+    slots:
+
+      severity qualifier:
+        description: >-
+          a qualifier used in a phenotypic association to state how severe the phenotype is in the subject
+        is_a: association slot
+        range: severity value
+
+      onset qualifier:
+        description: >-
+          a qualifier used in a phenotypic association to state when the phenotype appears is in the subject
+        is_a: association slot
+        range: onset
+
+
+  entity to phenotypic feature association:
+    abstract: true
+    mixins:
+      - entity to feature or disease qualifiers
+# TODO: Figure out what was intended here
+#  slot_usage:
+#    description:
+    description: >-
+      A description of specific aspects of this phenotype, not otherwise
+      covered by the phenotype ontology class
+    object:
+      range: phenotypic feature
+      description: "phenotypic class"
+      definitional: true
+      values_from: ['upheno', 'hp', 'mp', 'wbphenotypic feature']
+      subclass_of: UPHENO:0001001
+      examples:
+        - value: HP:0002487
+          description: Hyperkinesis
+        - value: WBPhenotype:0000180
+          description: axon morphology variant
+        - value: MP:0001569
+          description: abnormal circulating bilirubin level
+    slots:
+      sex qualifier:
+        description: >-
+          a qualifier used in a phenotypic association to state whether the association is specific to a particular sex.
+        is_a: association slot
+        range: biological sex
+
+  entity to disease association:
+    description: >-
+      mixin class for any association whose object (target node) is a disease
+    abstract: true
+    mixin: true
+    is_a: entity to feature or disease qualifiers
+    object:
+      range: disease
+      description: "disease"
+      definitional: true
+      subclass_of: MONDO:0000001
+      examples:
+        - value: MONDO:0020066
+          description: "Ehlers-Danlos syndrome"
+
+  # -----------------------------------------------
+  # FunctionalAssociation association
+  #------------------------------------------------
+  functional association:
+    description: >-
+      An association between a macromolecular machine (gene, gene product or complex of gene products) and
+      either a molecular activity, a biological process or a cellular location in which a function is executed
+    subject:
+      range: macromolecular machine
+# TODO: What is this supposed to be doing
+#          aliases:
+#            bioentity:
+#              schema: amigo
+      description: "gene, product or macromolecular complex that has the function associated with the GO term"
+      examples:
+        - value: ZFIN:ZDB-GENE-050417-357
+          description: twist1b
+    object:
+      range: gene ontology class
+# TODO: What is this supposed to be doing
+#          aliases:
+#            class:
+#              schema: amigo
+      description: "class describing the activity, process or localization of the gene product"
+      values_from:
+        - go
+      examples:
+        - value: GO:0016301
+          description: kinase activity
+        - value: GO:0045211
+          description: postsynaptic membrane
+
+  # functional association <-- macromolecular machine to molecular activity association
+  macromolecular machine to molecular activity association:
+    is_a: functional association
+    description: >-
+      A functional association between a macromolecular machine (gene, gene product or complex) and
+      a molecular activity (as represented in the GO molecular function branch), where the entity
+      carries out the activity, or contributes to its execution
+    object:
+      range: molecular activity
+
+  # functional association <-- macromolecular machine to biological process association
+  macromolecular machine to biological process association:
+    is_a: functional association
+    description: >-
+      A functional association between a macromolecular machine (gene, gene product or complex) and
+      a biological process or pathway (as represented in the GO biological process branch), where the entity
+      carries out some part of the process, regulates it, or acts upstream of it
+    object:
+      range: biological process
+
+  # functional association <--  macromolecular machine to cellular component association
+  macromolecular machine to cellular component association:
+    is_a: functional association
+    description: >-
+      A functional association between a macromolecular machine (gene, gene product or complex) and
+      a cellular component (as represented in the GO cellular component branch), where the entity
+      carries out its function in the cellular component
+    object:
+      range: cellular component
+
+  # functional association <-- gene to go term association
+  gene to go term association:
+    aliases: ['functional association']
+    is_a: functional association
+    mappings:
+      - http://bio2rdf.org/wormbase_vocabulary:Gene-GO-Association
+    subject:
+      range: molecular entity
+      definitional: true
+#          aliases:
+#            bioentity:
+#              schema: amigo
+      description: "gene, product or macromolecular complex that has the function associated with the GO term"
+      examples:
+        - value: ZFIN:ZDB-GENE-050417-357
+          description: twist1b
+    object:
+      range: gene ontology class
+      definitional: true
+#          aliases:
+#            class:
+#              schema: amigo
+      description: "class describing the activity, process or localization of the gene product"
+      values_from:
+        - go
+      examples:
+        - value: GO:0016301
+          description: kinase activity
+
+  # -----------------------------------------------
+  # GeneToDiseaseAssociation association
+  #------------------------------------------------
+  gene to disease association:
+    comments:
+      - NCIT:R176 refers to the inverse relationship
+    mappings:
+      - SIO:000983
+    mixins:
+      - entity to disease association
+      - gene to thing association
+    subject:
+      range: gene or gene product
+      definitional: true
+      description: >-
+        gene in which variation is correlated with the disease - may be protective or causative or associative,
+        or as a model
+    object:
+      definitional: true
+
+  # gene to disease association <--  gene as a model of disease association
+  gene as a model of disease association:
+    is_a: gene to disease association
+    mixins:
+      - model to disease mixin
+      - entity to disease association
+    subject:
+      range: gene or gene product
+      definitional: true
+      description: >-
+        A gene that has a role in modeling the disease. This may be a model organism ortholog of a known disease gene,
+        or it may be a gene whose mutants recapitulate core features of the disease.
+    relation:
+      definitional: true
+    object:
+      definitional: true
+
+
+  # gene to disease association <--  gene has variant that contributes to disease association
+  gene has variant that contributes to disease association:
+    is_a: gene to disease association
+    slots:
+      - sequence variant qualifier
+    subject:
+      range: gene or gene product
+      definitional: true
+      description: >-
+        A gene that has a role in modeling the disease. This may be a model organism ortholog of a known disease gene,
+        or it may be a gene whose mutants recapitulate core features of the disease.
+    relation:
+      definitional: true
+    object:
+      definitional: true
+
+  # -----------------------------------------------
+  # GeneToExpressionSiteAssociation association
+  #------------------------------------------------
+  gene to expression site association:
+    description: >-
+      An association between a gene and an expression site, possibly qualified by stage/timing info.
+    notes:
+      - TBD: introduce subclasses for distinction between wild-type and experimental conditions?
+    see_also: "https://github.com/monarch-initiative/ingest-artifacts/tree/master/sources/BGee"
+    subject:
+      range: gene or gene product
+      definitional: true
+      description: "gene in which variation is correlated with the phenotypic feature"
+    object:
+      range: anatomical entity
+      definitional: true
+      description: "location in which the gene is expressed"
+      subclass_of: UBERON:0001062
+      examples:
+        - value: UBERON:0002037
+          description: cerebellum
+    relation:
+      description: "expression relationship"
+      definitional: true
+      subproperty_of: expressed in
+
+
+  # -----------------------------------------------
+  # GeneToPhenotypicFeatureAssociation association
+  #------------------------------------------------
+  gene to phenotypic feature association:
+    mappings:
+      - http://bio2rdf.org/wormbase_vocabulary:Gene-Phenotype-Association
+    mixins:
+      - entity to phenotypic feature association
+      - gene to thing association
+    subject:
+      range: gene or gene product
+      definitional: true
+      description: "gene in which variation is correlated with the phenotypic feature"
+      examples:
+        - value: HGNC:2197
+          description: "COL1A1 (Human)"
+    object:
+      definitional: true
+
+  # -----------------------------------------------
+  # GenomicSequenceLocalization association
+  #------------------------------------------------
+  genomic sequence localization:
+    description: >-
+      A relationship between a sequence feature and an entity it is localized to. The reference entity may be
+      a chromosome, chromosome region or information entity such as a contig
+    subject:
+      aliases: ['sequence feature']
+      range: genomic entity  ## todo protein
+    object:
+      aliases: ['reference']
+      range: genomic entity ## typically a chromosomel use monochrom
+    slots:
+      - start interbase coordinate
+      - end interbase coordinate
+      - genome build
+      - phase
+    mappings:
+      - faldo:location
+
+  # -----------------------------------------------
+  # GenotypeToThingAssociation association
+  #------------------------------------------------
+  genotype to thing association:
+    abstract: true
+    subject:
+      range: genotype
+      definitional: true
+      description: "genotype that is the subject of the association"
+
+  genotype to genotype part association:
+    description: >-
+      Any association between one genotype and a genotypic entity that is a sub-component of it
+    relation:
+       subproperty_of: has variant part
+    subject:
+      range: genotype
+      definitional: true
+      description: >-
+        parent genotype
+    object:
+      range: genotype
+      description: >-
+        child genotype
+      definitional: true
+
+  genotype to gene association:
+    description: >-
+      Any association between a genotype and a gene.
+      The genotype have have multiple variants in that gene or a single one. There is no assumption of cardinality
+    relation:
+      description: >-
+        the relationship type used to connect genotype to gene
+    subject:
+      range: genotype
+      description: >-
+        parent genotype
+      definitional: true
+    object:
+      range: gene
+      description: >-
+        gene implicated in genotype
+      definitional: true
+
+  genotype to variant association:
+    description: >-
+      Any association between a genotype and a sequence variant.
+    relation:
+      description: >-
+        the relationship type used to connect genotype to gene
+    subject:
+      range: genotype
+      description: >-
+        parent genotype
+      definitional: true
+    object:
+      range: sequence variant
+      description: >-
+        gene implicated in genotype
+      definitional: true
+
+  gene to gene association:
+    aliases: ['molecular or genetic interaction']
+    abstract: true
+    description: >-
+      abstract parent class for different kinds of gene-gene or gene product to gene product relationships.
+      Includes homology and interaction.
+    subject:
+      range: gene or gene product
+      description: >-
+        the subject gene in the association. If the relation is symmetric, subject vs object is arbitrary.
+        We allow a gene product to stand as proxy for the gene or vice versa
+      definitional: true
+    object:
+      range: gene or gene product
+      description: >-
+        the object gene in the association. If the relation is symmetric, subject vs object is arbitrary.
+        We allow a gene product to stand as proxy for the gene or vice versa
+      definitional: true
+
+  # gene to gene association <-- gene to gene homology association
+  gene to gene homology association:
+    is_a: gene to gene association
+    description: >-
+      A homology association between two genes. May be orthology (in which case the species of subject and object
+      should differ) or paralogy (in which case the species may be the same)
+    subject:
+      definitional: true
+    relation:
+      range: homologous to
+      description: homology relationship type
+      definitional: true
+    object:
+      definitional: true
+
+  # -----------------------------------------------
+  # GeneRegulatoryRelationship association
+  #------------------------------------------------
+  gene regulatory relationship:
+    description: A regulatory relationship between two genes
+    relation:
+      description: >-
+        the direction is always from regulator to regulated
+    subject:
+      range: gene or gene product
+      role: regulatory gene
+    object:
+      range: gene or gene product
+      role: regulated gene
+
+  pairwise interaction association:
+    mixin: true
+    abstract: true
+    description: An interaction at the molecular level between two physical entities
+    subject:
+      range: molecular entity
+    id:
+      description: >-
+        identifier for the interaction. This may come from an interaction database such as IMEX.
+      examples:
+        - value: WB:WBInteraction000538741
+      values_from:
+        - IMEX
+        - BioGRID
+    relation:
+      subproperty_of: molecularly interacts with
+      range: molecularly interacts with
+      description: "interaction relationship type"
+      definitional: true
+      examples:
+        - value: RO:0002447
+          description: the subject molecular phosphorylates the object molecule
+    object:
+      range: molecular entity
+    interacting molecules category:
+      # TODO: Is this correct?
+      range: ontology class
+      subclass_of: "MI:1046"
+      examples:
+        - value: MI:1048
+          description: smallmolecule-protein
+
+  pairwise gene to gene interaction:
+    is_a: gene to gene association
+    mixins:
+      - pairwise interaction association
+    description: >-
+      An interaction between two genes or two gene products.
+      May be physical (e.g. protein binding) or genetic (between genes).
+      May be symmetric (e.g. protein interaction) or directed (e.g. phosphorylation)
+    subject:
+      definitional: true
+    relation:
+      subproperty_of: molecularly interacts with
+      range: molecularly interacts with
+      description: interaction relationship type
+      definitional: true
+    object:
+      definitional: true
+
+  # -----------------------------------------------
+  # PopulationToPopulationAssociation association
+  #------------------------------------------------
+  population to population association:
+    description: >-
+      An association between a two populations
+    subject:
+      range: population of individual organisms
+      definitional: true
+      description: >-
+        the population that form the subject of the association
+    object:
+      range: population of individual organisms
+      definitional: true
+      description: >-
+        the population that form the object of the association
+    relation:
+      description: >-
+        A relationship type that holds between the subject and object populations. Standard mereological
+        relations can be used. E.g. subject part-of object, subject overlaps object. Derivation relationships
+
+  # -----------------------------------------------
+  # SequenceFeatureRelationship association
+  #------------------------------------------------
+  sequence feature relationship:
+    examples:
+      - A particular exon is part of a particular transcript or gene
+    subject:
+      range: genomic entity   ## todo protein
+    object:
+      range: genomic entity   ## typically a chromosome
+
+  # sequence feature relationship <-- transcript to gene relationship
+  transcript to gene relationship:
+    is_a: sequence feature relationship
+    description: >-
+      A gene is a collection of transcripts
+    subject:
+      range: transcript
+      definitional: true
+    object:
+      range: gene
+      definitional: true
+
+  # sequence feature relationship <-- gene to gene product relationship
+  gene to gene product relationship:
+    is_a: sequence feature relationship
+    description: A gene is transcribed and potentially translated to a gene product
+    subject:
+      range: gene
+      definitional: true
+    object:
+      range: gene product
+      definitional: true
+    relation:
+      subproperty_of: has gene product
+
+  # sequence feature relationship <-- exon to transcript relationship
+  exon to transcript relationship:
+    is_a: sequence feature relationship
+    description: A transcript is formed from multiple exons
+    subject:
+      range: exon
+      definitional: true
+    object:
+      range: transcript
+      definitional: true
+
+  # -----------------------------------------------
+  # SequenceVariantModulatesTreatmentAssociation association
+  #------------------------------------------------
+  sequence variant modulates treatment association:
+    description: >-
+      An association between a sequence variant and a treatment or health intervention.
+      The treatment object itself encompasses both the disease and the drug used.
+    comments:
+      - An alternate way to model the same information could be via a qualifier
+    abstract: true
+    subject:
+      range: sequence variant
+      description: "variant that modulates the treatment of some disease"
+      definitional: true
+    object:
+      range: treatment
+      description: "treatment whose efficacy is modulated by the subject variant"
+      definitional: true
+
+  # -----------------------------------------------
+  # VariantToDisesaseAssociation association
+  #------------------------------------------------
+  variant to disease association:
+    notes:
+      - TODO decide no how to model pathogenicity
+    mixins:
+      - variant to thing association
+      - entity to disease association
+    subject:
+      description: >-
+        a sequence variant in which the allele state is associated in some way with the disease state
+      definitional: true
+      examples:
+        - value: ClinVar:52241
+          description: "NM_000059.3(BRCA2):c.7007G>C (p.Arg2336Pro)"
+    relation:
+      description: E.g. is pathogenic for
+      subproperty_of: related condition
+    object:
+      description: a disease that is associated with that variant
+      definitional: true
+      examples:
+        - value: MONDO:0016419
+          description: hereditary breast cancer
+
+  # -----------------------------------------------
+  # VariantToPhenotypicFeatureAssociation association
+  #------------------------------------------------
+  variant to phenotypic feature association:
+    mixins:
+      - variant to thing association
+      - entity to phenotypic feature association
+    subject:
+      range: sequence variant
+      definitional: true
+      description: >-
+        a sequence variant in which the allele state is associated in some way with the phenotype state
+    object:
+      definitional: true
+
+  # -----------------------------------------------
+  # VariantToPopulationAssociation association
+  #------------------------------------------------
+  variant to population association:
+    description: >-
+      An association between a variant and a population, where the variant has particular frequency in the population
+    mixins:
+      - variant to thing association
+      - frequency quantifier
+      - frequency qualifier
+    subject:
+      range: sequence variant
+      definitional: true
+      description: >-
+        an allele that has a certain frequency in a given population
+      examples:
+        - value: "NC_000017.11:g.43051071A>T"
+          description: >-
+            17:41203088 A/C in gnomad
+    object:
+      range: population of individual organisms
+      definitional: true
+      description: >-
+        the population that is observed to have the frequency
+      examples:
+        - value: HANCESTRO:0010
+          description: African
+    has quotient:
+      description: >-
+        frequency of allele in population, expressed as a number with allele divided by number in reference population, aka allele frequency
+      examples:
+        - value: "0.0001666"
+    has count:
+      description: >-
+        number in object population that carry a particular allele, aka allele count
+      examples:
+        - value: "4"
+          description: 4 individuals in gnomad set
+    has total:
+      description: >-
+        number all populations that carry a particular allele, aka allele number
+      examples:
+        - value: "24014"
+          description: 24014 individuals in gnomad set
+
+  thing to disease or phenotypic feature association:
+    abstract: true
+    object:
+      range: disease or phenotypic feature
+      description: "disease or phenotype"
+      definitional: true
+      examples:
+        - value: MONDO:0017314
+          description: "Ehlers-Danlos syndrome, vascular type"
+        - value: MP:0013229
+          description: "abnormal brain ventricle size"
+
+  disease to thing association:
+    abstract: true
+    subject:
+      range: disease
+      description: "disease class"
+      definitional: true
+      values_from: ['mondo', 'omim', 'orphanet', 'ncit', 'doid']
+      subclass_of: MONDO:0000001
+      examples:
+        - value: MONDO:0017314
+          description: "Ehlers-Danlos syndrome, vascular type"
+
+  genotype to phenotypic feature association:
+    description: >-
+      Any association between one genotype and a phenotypic feature, where having the genotype confers the phenotype,
+      either in isolation or through environment
+    mixins:
+      - entity to phenotypic feature association
+      - genotype to thing association
+    relation:
+      subproperty_of: has phenotype
+    subject:
+      range: genotype
+      definitional: true
+      description: genotype that is associated with the phenotypic
+    object:
+      definitional: true
+
+  environment to phenotypic feature association:
+    description: >-
+      Any association between an environment and a phenotypic feature, where being in the environment influences the phenotype
+    mixins:
+      - entity to phenotypic feature association
+    subject:
+      range: environment
+      definitional: true
+    object:
+      definitional:
+
+  disease to phenotypic feature association:
+    description: "An association between a disease and a phenotypic feature in which the phenotypic feature is associated with the disease in some way"
+    mixins:
+      - entity to phenotypic feature association
+      - disease to thing association
+    subject:
+      definitional: true
+    object:
+      definitional: true
+
+  case to phenotypic feature association:
+    description: "An association between a case (e.g. individual patient) and a phenotypic feature in which the individual has or has had the phenotype"
+    mixins:
+      - entity to phenotypic feature association
+      - case to thing association
+    subject:
+      definitional: true
+    object:
+      definitional: true
+
+  gene to thing association:
+    abstract: true
+    subject:
+      range: gene or gene product
+      definitional: true
+      description: "gene that is the subject of the association"
+
+  variant to thing association:
+    local_names:
+      ga4gh: variant annotation
+    abstract: true
+    mixin: true
+    subject:
+      range: sequence variant
+      definitional: true
+      description: a sequence variant in which the allele state is associated with some other entity
+      examples:
+        - value: ClinVar:38077
+          description: "ClinVar representation of NM_000059.3(BRCA2):c.7007G>A (p.Arg2336His)"
+        - value: ClinGen:CA024716
+          description: "chr13:g.32921033G>C (hg19) in ClinGen"

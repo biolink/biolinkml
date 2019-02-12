@@ -11,6 +11,8 @@ prefixes:
 
 default_prefix: types
 
+default_range: string
+
 default_curi_maps:
   - obo_context
   - monarch_context
@@ -77,4 +79,11 @@ types:
     typeof: time
 
   biological sequence:
+    typeof: string
+
+  boolean type:
+    description: A true/false value with absent (None) meaning not specified
+    typeof: boolean
+
+  file name:
     typeof: string

@@ -1,0 +1,687 @@
+id: http://w3id.org/biolink/biolink-model/named-thing
+name: biolink named_thing
+description: Basic entity for taxonomy and data model for life-sciences data
+license: https://creativecommons.org/publicdomain/zero/1.0/
+
+prefixes:
+  biolink: http://w3id.org/biolink/vocab/
+  OBAN: http://purl.org/oban/
+  SIO: http://semanticscience.org/resource/SIO_
+  wgs: http://www.w3.org/2003/01/geo/wgs84_pos
+
+default_prefix: biolink
+
+default_range: string
+
+default_curi_maps:
+  - obo_context
+  - monarch_context
+  - idot_context
+  - semweb_context
+
+id_prefixes:
+  - rdf
+  - rdfs
+  - xsd
+  - skos
+  - OIO
+
+
+subsets:
+  translator_mimimal:
+
+imports:
+  biolink_types
+
+
+slots:
+  #=============================================
+  # Thing slots
+  #=============================================
+  # Note that thing cannot be the range of a slot, as it has no identity
+  name:
+    aliases: ['label', 'display name']
+    domain: thing
+    range: label type
+    description: A human-readable name for a thing
+    in_subset:
+      - translator_minimal
+    slot_uri: rdfs:label
+
+  iri:
+    description: An IRI for the node. This is determined by the id using expansion rules.
+    readonly: URI representation of id
+    in_subset:
+      - translator_minimal
+    domain: thing
+    range: uri type
+
+  full_name:
+    domain: thing
+    range: label type
+    description: a long-form human readable name for a thing
+
+  local_names:
+      multivalued: true
+      domain: thing
+      range: label type
+      description: >-
+        map from local identifier to slot
+
+  description:
+    domain: thing
+    range: narrative text
+    description: >-
+      a human-readable description of a thing
+    in_subset:
+      - translator_minimal
+    slot_uri: dcterms:description
+
+  alt_descriptions:
+    multivalued: true
+    domain: thing
+    range: alt description
+    description: alternative descriptions and names for an element, which may be attributed to a source
+
+  aliases:
+    domain: thing
+    range: label type
+    multivalued: true
+    slot_uri: skos:altLabel
+
+  comments:
+    multivalued: true
+    domain: thing
+    range: narrative text
+    description: notes and comments about an element intended for external consumption
+    slot_uri: skos:note
+
+  notes:
+    multivalued: true
+    domain: thing
+    range: narrative text
+    description: editorial notes about an element intended for internal consumption
+    slot_uri: skos:editorialNote
+
+  examples:
+    multivalued: true
+    domain: thing
+    range: example
+    inlined: true
+    description: example usages of an element
+    slot_uri: skos:example
+    in_subset:
+      - owl
+
+  deprecated:
+    domain: thing
+    range: string
+    description: Description of why and when this element will no longer be used
+
+  in_subset:
+    multivalued: true
+    domain: thing
+    range: subset_definition
+    description: >-
+      used to indicate membership of a term in a defined subset of biolink terms used for a particular domain
+      or application (e.g. the translator_minimal subset holding the minimal set of predicates used in a
+      translator knowledge graph)
+    slot_uri: OIO:inSubset
+
+  see_also:
+    multivalued: true
+    domain: thing
+    range: identifier type
+    description: a reference
+    slot_uri: rdfs:seeAlso
+    in_subset:
+      - owl
+
+  id_prefixes:
+    multivalued: true
+    domain: thing
+    range: ncname
+    description: >-
+        a list of Curie prefixes that are used in the representation of instances of the model.  All prefixes in
+        this list are added to the prefix sections of the target models.
+
+  creation_date:
+    domain: thing
+    range: datetime
+    description: >-
+      date on which thing was created. This can be applied to nodes or edges
+    slot_uri: dcterms:created
+
+  update_date:
+    domain: thing
+    range: datetime
+    description: date on which thing was updated. This can be applied to nodes or edges
+    slot_uri: dcterms:updated
+
+  from_model:
+    domain: thing
+    range: uri type
+    description: the uri of the model that defined the thing
+    readonly: supplied by the model loader
+    slot_uri: skos:inScheme
+
+  source_file:
+    domain: thing
+    range: file name
+    readonly: supplied by the model loader
+    description: the name of the file that this element was defined in
+
+  mixin:
+    domain: thing
+    range: boolean type
+    description: this slot or class can only be used as a mixin -- equivalent to abstract
+
+  abstract:
+    domain: thing
+    range: boolean type
+    description: >-
+      an abstract class is a high level class or slot that is typically used to group common slots together and cannot
+      be directly instantiated.
+
+  mappings:
+    multivalued: true
+    domain: thing
+    range: uri type
+    description: >-
+      a list of terms from different schemas or terminology systems that have comparable meaning. These may include
+      terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not
+      equivalent from a strict ontological perspective.
+    slot_uri: skos:mappingRelation
+
+
+  #=============================================
+  # Named thing slots
+  #=============================================
+  id:
+    key: true
+    description: A unique identifier for a thing.  Must be either a CURIE shorthand for a URI or a complete URI
+    in_subset:
+      - translator_minimal
+    domain: named_thing
+    range: identifier type
+    slot_uri: rdf:id
+    
+  category:
+    domain: named_thing
+    range: named_thing
+    description: >-
+      Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the
+      biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
+    multivalued: true
+    in_subset:
+      - translator_minimal
+    slot_uri: rdfs:subClassOf
+
+  is_a_named_thing:
+    domain: named_thing
+    range: named_thing
+    alias: is_a
+    description: >-
+      specifies single-inheritance between classes or slots.
+      While multiple inheritance is not allowed, mixins can be provided effectively providing the same thing.
+      The semantics are the same when translated to formalisms that allow MI (e.g. RDFS/OWL). When translating to a SI
+      framework (e.g. java classes, python classes) then is_a is used.
+      When translating a framework without polymorphism (e.g. json-schema, solr document schema) then is_a and mixins
+      are recursively unfolded
+    slot_uri: rdfs:subClassOf
+
+  named_thing_mixins:
+    multivalued: true
+    domain: named_thing
+    range: named_thing
+    alias: mixins
+    description: List of definitions to be mixed in. Targets may be any definition of the same type
+
+  apply_to_named_thing:
+    multivalued: true
+    domain: named_thing
+    range: named_thing
+    alias: apply_to
+    description: >-
+      Used to extend class or slot definitions. For example, if we have a core schema where a gene has two slots for
+      identifier and symbol, and we have a specialized schema for my_organism where we wish to add a slot
+      systematic_name, we can avoid subclassing by defining a class gene_my_organism, adding the slot to this class,
+      and then adding an apply_to pointing to the gene class. The new slot will be 'injected into' the gene class.
+
+
+  #=============================================
+  # Ontological Class slots
+  #=============================================
+  subclass_of:
+    domain: ontological_class
+    range: uri type
+    description: The external ontology element that this is a subclass of
+    multivalued: true
+
+  exact_matches:
+    multivalued: true
+    domain: ontological_class
+    range: uri type
+    description: a list of terms from different schemas or terminology systems that have strictly equivalent meanings.
+    slot_uri: skos:exactMatch
+
+  broader_matches:
+    multivalued: true
+    domain: ontological_class
+    range: uri type
+    description: >-
+      a list of terms from different schemas or terminology systems that have a broader, more general meaning. Broader
+      terms are typically shown as parents in a hierarchy or tree.
+    slot_uri: skos:broadMatch
+
+  narrower_matches:
+    multivalued: true
+    domain: ontological_class
+    range: uri type
+    description: >-
+      a list of terms from different schemas or terminology systems that have a narrower, more specific meaning.
+      Narrower terms are typically shown as children in a hierarchy or tree.
+    slot_uri: skos:narrowMatch
+
+  close_matches:
+    multivalued: true
+    domain: ontological_class
+    range: uri type
+    description: >-
+      a list of terms from different schemas or terminology systems that have a semantically similar but not strictly
+      equivalent, broader, or narrower meaning. Such terms often describe the same general concept from different
+      ontological perspectives (e.g. drug as a type of chemical entity versus drug as a type of role borne by a
+      chemical entity).
+    slot_uri: skos:closeMatch
+
+  slots:
+    multivalued: true
+    domain: ontological_class
+    range: node_property_definition
+    inlined: true
+    inherited: true
+    description: >-
+      property definitions that are included in the containing entity and all of its descendants
+
+  properties:
+    multivalued: true
+    domain: ontological_class
+    description: property instances that correspond to slots
+
+
+  # -----------------------------------
+  # relationship_type slots
+  # -----------------------------------
+
+  inverse:
+    domain: relationship_type
+    range: relationship_type
+    description: inverse relationship
+
+  symmetric:
+    domain: relationship_type
+    range: relationship_type
+
+  domain:
+    domain: relationship_type
+    range: node_type
+
+  range:
+    domain: relationship_type
+    range: node_type
+
+  # -----------------------------------
+  # node_type slots
+  # -----------------------------------
+  union_of:
+    domain: node_type
+    range: node_type
+    multivalued: true
+
+
+  # -----------------------------------
+  # Property_definition slots
+  # -----------------------------------
+  property_domain:
+    domain: property_definition
+    range: identifier type
+    alias: domain
+    abstract: true
+    
+  property_range:
+    domain: property_definition
+    range: named_thing
+    alias: range
+    
+  property_path:
+    domain: property_definition
+    range: string
+    alias: path
+    description: For any denormalized slot, this represents the tree or graph path used to generate the denormalized form
+
+  multivalued:
+    domain: property_definition
+    range: boolean
+    description: True means that more than one property may be present
+
+  required:
+    domain: property_definition
+    range: boolean
+    description: True means that property must be present in an owner instant
+
+  inherited:
+    domain: property_definition
+    range: boolean
+    description: True means that property values from a parent class or relation are passed to the child
+
+  # -----------------------------------
+  # Type Definition Slots
+  # -----------------------------------
+  typeof:
+    domain: type definition
+    range: type definition
+    description: supertype
+
+  base:
+    domain: type definition
+    range: string
+    description: python base type that implements this type definition
+
+  type uri:
+    domain: type definition
+    range: identifier type
+    alias: uri
+    description: the URI to be used for the type in semantic web mappings
+
+  repr:
+    domain: type definition
+    range: string
+    description: the python representation of this type if different than the base type
+
+  # -----------------------------------
+  # Slots for valueset definition
+  # -----------------------------------
+  values_from:
+    multivalued: true
+    domain: valueset definition
+    range: identifier type
+    description: defines the set of URI's that can fill the range of a slot
+    comments:
+      - >-
+        When a slot range references a class with a value_from element, the possible values of the slot range are
+        considered to be all URI's which satisfy the values_from target.  Typically this identifies URI's in a
+        given ontology or any subclass of a given node.
+
+  possible_values:
+    multivalued: true
+    domain: valueset definition
+    range: possible_value
+    inlined: true
+    description: an allowable value in a value set
+
+  # -----------------------------------
+  # Slots for possible value definition
+  # -----------------------------------
+  possible_value_value:
+    domain: possible_value
+    range: label type
+    required: true
+    key: true
+    description: a permissible value for the range of a property
+
+  possible_value_description:
+    domain: possible_value
+    range: narrative text
+    description: the purpose or meaning of the possible value
+
+
+  # -----------------------------------
+  # Slots for complex type example
+  # -----------------------------------
+  value:
+    domain: example
+    range: narrative text
+    description: An example of a model element
+
+
+  value_description:
+    domain: example
+    range: narrative text
+    description: A description of an example value or an abstract description of use
+    alias: description
+
+  # -----------------------------------
+  # slots for complex type alt description
+  # -----------------------------------
+  alt_description_text:
+    domain: alt description
+    range: narrative text
+    required: true
+    description: text of an alternate description
+    alias: description
+    slot_uri: skos:definition
+
+  alt_description_source:
+    domain: alt description
+    range: uri type
+    description:
+      the source of description or other element
+    alias: source
+    slot_uri: dcterms:source
+
+
+
+
+# =====================================
+# Class definitions
+# =====================================
+classes:
+  # -----------------------------------
+  # Complex types
+  # -----------------------------------
+  alt description:
+    description: attributed definition or description
+    slots:
+      - alt_description_source
+      - alt_description_text
+
+  example:
+    description: usage example and/or accompanying description
+    slots:
+      - value
+      - value_description
+
+  possible_value:
+    description: a possible value for a value set
+    slots:
+      - possible_value_value
+      - possible_value_description
+
+  # ------------------------------------
+  # Thing - the root class of everything
+  # ------------------------------------
+  thing:
+    description: Abstract base class for everything in a model
+    class_uri: owl:Thing
+    abstract: true
+    slots:
+      - name
+      - iri
+      - full_name
+      - local_names
+      - description
+      - alt_descriptions
+      - aliases
+      - comments
+      - notes
+      - examples
+      - deprecated
+      - in_subset
+      - see_also
+      - id_prefixes
+      - creation_date
+      - update_date
+      - from_model
+      - source_file
+      - mixin
+      - abstract
+      - mappings
+
+  # -------------------------------------------
+  # Named Thing - everything except association
+  # -------------------------------------------
+  named_thing:
+    is_a: thing
+    description: all non-association things
+    subclass_of: BFO:0000001
+    abstract: true
+    mappings:
+      - UMLSSG:OBJC
+      - WD:Q35120
+    slots:
+      - id
+      - category
+      - is_a_named_thing
+      - named_thing_mixins
+      - apply_to_named_thing
+
+  # -------------------------------------------
+  # type definition
+  # -------------------------------------------
+  type definition:
+    is_a: named_thing
+    description: the range of a literal target of a model_slot or association_slot
+    slots:
+      - typeof
+      - base
+      - type uri
+      - repr
+
+  # -------------------------------------------
+  # valueset definition
+  # -------------------------------------------
+  valueset definition:
+    is_a: named_thing
+    description: a discrete set of possible literals or URI's
+    slots:
+      - values_from
+      - possible_values
+
+
+  # -------------------------------------------
+  # Ontological Class - named things that comprise "ontology"
+  # -------------------------------------------
+  ontological_class:
+    is_a: named_thing
+    abstract: true
+    description: named things that belong in the ontological space
+    slots:
+      - subclass_of
+      - exact_matches
+      - broader_matches
+      - narrower_matches
+      - close_matches
+
+  #-------------------------------------------------
+  # Node Type - independent continuants
+  #-------------------------------------------------
+  node_type:
+    is_a: ontological_class
+    description: the subject or object of a biolink association
+
+
+  #-------------------------------------------------
+  # Relationship Type - occurrants
+  #-------------------------------------------------
+  relationship_type:
+    is_a: ontological_class
+    description: the predicate or relationship of a biolink association
+    slots:
+      - domain
+      - range
+      - inverse
+      - symmetric
+
+  #--------------------------------------------
+  # Property Type - dependent continuants
+  #--------------------------------------------
+  property_type:
+    is_a: ontological_class
+    description: elements that inhere in nodes
+
+  # -------------------------------------------
+  # Information Content Entities -- instances
+  # -------------------------------------------
+  information_content_entity:
+    aliases: ['information', 'information artifact', 'information entity']
+    abstract: true
+    is_a: named_thing
+    description: a piece of information that typically describes some piece of biology or is used as support.
+    class_uri: IAO:0000030
+    mappings:
+      - "UMLSSG:CONC"
+
+  # ------------------------------------------
+  # Abstractions -- groups, organizations, ...
+  # ------------------------------------------
+  administrative_entity:
+    is_a: named_thing
+    abstract: true
+
+  provider:
+    is_a: administrative_entity
+    aliases: ['agent', 'group']
+    description: person, group, organization or project that provides a piece of information
+    mappings:
+      - UMLSSG:ORGA
+
+  # ---------------------------------------
+  # Subsets
+  # ---------------------------------------
+  subset_definition:
+    description: the name and description of a subset used to classify or categorize things
+    is_a: named_thing
+
+  # ----------------------------------------
+  # Relationship quantifiers
+  # -----------------------------------------
+  relationship_quantifier:
+    description: A quantifier over an association
+    is_a: named_thing
+    examples:
+      - value: some
+        description: at least one instance of source has relation R with object
+      - value: only
+        description: ever instance of source has relation R with object
+
+  # ------------------------------------------
+  # Properties - extensions to the model.  These are always inlined
+  # ------------------------------------------
+  property_definition:
+    description: An extension property for a node or association
+    is_a: named_thing
+    abstract: true
+    slots:
+      - property_domain
+      - property_range
+      - property_path
+      - multivalued
+      - required
+      - inherited
+    
+  node_property_definition:
+    description: An additional property for a node
+    is_a: property_definition
+    abstract: true
+    slot_usage:
+      property_domain:
+        range: node_type
+
+  # association_property_definition appears in biolink_associations module
+
+  #-------------------------------------------
+  # Qualifiers - elements that modify the meaning or intent of an association
+  # ------------------------------------------
+  qualifier_type:
+    is_a: named_thing
+    description: information that modifies or qualifies the meaning of a biolink association

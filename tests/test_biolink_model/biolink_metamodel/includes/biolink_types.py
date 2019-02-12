@@ -1,5 +1,5 @@
 # Auto generated from biolink_types.yaml by pythongen.py version: 0.2.0
-# Generation date: 2019-02-05 14:59
+# Generation date: 2019-02-11 16:16
 # Schema: types for use in the biolink model
 #
 # id: http://w3id.org/biolink/biolinkmodel/types
@@ -10,9 +10,10 @@ from typing import Optional, List, Union, Dict
 from dataclasses import dataclass
 from biolinkml.utils.metamodelcore import empty_list, empty_dict
 from biolinkml.utils.yamlutils import YAMLRoot
-from includes.types import Double, String, Time, Uri
+from biolinkml.utils.metamodelcore import Bool, URIorCURIE, XSDTime
+from includes.types import Boolean, Double, String, Time, Uri
 
-metamodel_version = "1.0.1"
+metamodel_version = "1.0.2"
 
 inherited_slots: List[str] = []
 
@@ -63,7 +64,6 @@ class Unit(String):
 
 
 class TimeType(Time):
-    """ A time object represents a (local) time of day, independent of any particular day """
     pass
 
 
@@ -71,4 +71,15 @@ class BiologicalSequence(String):
     pass
 
 
+class BooleanType(Boolean):
+    """ A true/false value with absent (None) meaning not specified """
+    pass
+
+
+class FileName(String):
+    pass
+
+
 # Class references
+
+

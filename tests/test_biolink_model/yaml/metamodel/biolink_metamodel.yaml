@@ -8,6 +8,8 @@ prefixes:
 
 default_prefix: biolink
 
+default_range: string
+
 default_curi_maps:
   - obo_context
   - monarch_context
@@ -50,13 +52,18 @@ slots:
     description: license for the model
     slot_uri: dcterms:license
 
+  imports:
+    domain: model
+    range: uri
+    multivalued: true
+    description: other models that are included in this model
+
   prefixes:
     multivalued: true
     domain: model
     range: prefix
     inlined: true
     description: prefix / URI definitions to be added to the context beyond those fetched from prefixcommons in id_prefixes
-
 
   default_curi_maps:
     multivalued: true
@@ -68,6 +75,53 @@ slots:
     range: string
     description: default and base prefix -- used for ':' identifiers, @base and @vocab
 
+  types:
+    domain: model
+    range: type definition
+    multivalued: true
+    inlined: true
+    description: Defines the range of a Literal target of a model_slot or association_slot
+
+  valuesets:
+    domain: model
+    range: valueset definition
+    multivalued: true
+    inlined: true
+    description: The value sets defined by the model
+
+  subsets:
+    domain: model
+    range: subset_definition
+    multivalued: true
+    inlined: true
+    description: list of subsets referenced in this model
+
+  associations:
+    domain: model
+    range: association
+    description: the set of associations defined in the model
+    multivalued: true
+    inlined: true
+
+  nodes:
+    domain: model
+    range: node_type
+    description: the subjects and objects of the associations
+    multivalued: true
+    inlined: true
+
+  relations:
+    domain: model
+    range: relationship_type
+    multivalued: true
+    inlined: true
+
+  evidence:
+    domain: model
+    range: evidence_type
+    description: supporting evidence for associations
+    multivalued: true
+    inlined: true
 
   providers:
     domain: model
@@ -75,30 +129,34 @@ slots:
     multivalued: true
     inlined: true
 
-  relationship_types:
+  publications:
     domain: model
-    range: relationship type
+    range: publication
+    description: supporting publications for associations
     multivalued: true
     inlined: true
-
-  associations:
-    domain: model
-    range: association
-    multivalued: true
-    inlined: true
-
-  ontology classes:
-    domain: model
-    range: ontology class
-    multivalued: true
-    inlined: true
-
-
 
 
 classes:
+  model:
+    is_a: named_thing
+    slots:
+      - license
+      - prefixes
+      - default_curi_maps
+      - default_prefix
+      - types
+      - subsets
+      - valuesets
+      - associations
+      - nodes
+      - relations
+      - evidence
+      - providers
+      - publications
+
   prefix:
     description: prefix URI tuple
-
-  model:
-    is_a: named thing
+    slots:
+      - local name
+      - prefix uri

@@ -10,9 +10,12 @@ from tests import targetdir
 from tests.test_scripts.clicktestcase import metadata_filter
 
 cwd = os.path.abspath(os.path.join(os.path.dirname(__file__)))
-default_yaml_path = os.path.join(cwd, 'source')
+default_yaml_path = os.path.join(cwd, 'yaml', 'metamodel')
 default_target_path = os.path.join(cwd, 'target')
 default_master_path = os.path.join(cwd, 'biolink_metamodel')
+
+# TODO: be careful with this
+update_master = True
 
 
 class BiolinkModelTestCase(unittest.TestCase):
@@ -38,10 +41,15 @@ class BiolinkModelTestCase(unittest.TestCase):
                 olddat = metadata_filter(oldf.read())
                 self.maxDiff = None
         if olddat != newdat:
-            print("-" * 80)
-            print(pydata)
-            print('-' * 80)
-        self.assertEqual(olddat, newdat, f'\n{master_python} does not match output -- run "make regen-mm"?')
+            # print("-" * 80)
+            # print(pydata)
+            # print('-' * 80)
+            if update_master:
+                with open(master_python, 'w') as masterf:
+                    masterf.write(pydata)
+                print(f"{master_python} updated!")
+            else:
+                self.assertEqual(olddat, newdat, f'\n{master_python} does not match output -- run "make regen-mm"?')
 
     def test_biolink_types(self):
         """ Test biolink_types generator """
