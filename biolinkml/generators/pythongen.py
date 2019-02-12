@@ -97,7 +97,7 @@ metamodel_version = "{self.schema.metamodel_version}"
                 else:
                     rval.add_entry('biolinkml.utils.metamodelcore', typ.base)
             if typ.typeof:
-                rval.add_element(self.schema.types[typ.typeof])
+                add_type_ref(self.schema.types[typ.typeof])
             rval.add_element(typ)
 
         rval = ImportList()
@@ -372,7 +372,10 @@ class {self.class_or_type_name(cls.name)}{parentref}:{wrapped_description}
             indent = len(f'self.{slotname} = [') * ' '
             if not slot.multivalued:
                 if not single_typed:
-                    rlines.append(f'if self.{slotname} and not isinstance(self.{slotname}, {base_type_name}):')
+                    if not slot.required:
+                        rlines.append(f'if self.{slotname} and not isinstance(self.{slotname}, {base_type_name}):')
+                    else:
+                        rlines.append(f'if not isinstance(self.{slotname}, {base_type_name}):')
                     # Another really wierd case -- a class that has no properties
                     if slot.range in self.schema.classes and not self.schema.classes[slot.range].slots:
                         rlines.append(f'\tself.{slotname} = {base_type_name}()')

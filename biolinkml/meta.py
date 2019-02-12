@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by pythongen.py version: 0.2.0
-# Generation date: 2019-02-05 15:54
+# Generation date: 2019-02-08 09:11
 # Schema: metamodel
 #
 # id: http://w3id.org/biolink/biolinkml/meta
@@ -13,7 +13,7 @@ from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.metamodelcore import Bool, NCName, URIorCURIE, XSDDate
 from includes.types import Boolean, Datetime, Integer, Ncname, String, Uri
 
-metamodel_version = "1.0.1"
+metamodel_version = "1.0.2"
 
 inherited_slots: List[str] = ["domain", "range", "multivalued", "inherited", "readonly", "ifabsent", "required",
                               "inlined", "key", "identifier"]
@@ -313,6 +313,7 @@ class SlotDefinition(Definition):
     ifabsent: Optional[str] = None
     required: Optional[Bool] = None
     inlined: Optional[Bool] = None
+    definitional: Optional[Bool] = None
     key: Optional[Bool] = None
     identifier: Optional[Bool] = None
     alias: Optional[str] = None
