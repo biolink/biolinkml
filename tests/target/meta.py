@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by pythongen.py version: 0.2.0
-# Generation date: 2019-02-05 16:34
+# Generation date: 2019-02-11 08:47
 # Schema: metamodel
 #
 # id: http://w3id.org/biolink/biolinkml/meta
@@ -13,7 +13,7 @@ from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.metamodelcore import Bool, NCName, URIorCURIE, XSDDate
 from includes.types import Boolean, Datetime, Integer, Ncname, String, Uri
 
-metamodel_version = "1.0.1"
+metamodel_version = "1.0.2"
 
 inherited_slots: List[str] = ["domain", "range", "multivalued", "inherited", "readonly", "ifabsent", "required",
                               "inlined", "key", "identifier"]
@@ -136,9 +136,9 @@ class SchemaDefinition(Element):
 
     def _fix_elements(self):
         super()._fix_elements()
-        if self.name and not isinstance(self.name, SchemaDefinitionName):
+        if not isinstance(self.name, SchemaDefinitionName):
             self.name = SchemaDefinitionName(self.name)
-        if self.id and not isinstance(self.id, URIorCURIE):
+        if not isinstance(self.id, URIorCURIE):
             self.id = URIorCURIE(self.id)
         self.imports = [v if isinstance(v, URIorCURIE)
                         else URIorCURIE(v) for v in self.imports]
@@ -194,7 +194,7 @@ class TypeDefinition(Element):
 
     def _fix_elements(self):
         super()._fix_elements()
-        if self.name and not isinstance(self.name, TypeDefinitionName):
+        if not isinstance(self.name, TypeDefinitionName):
             self.name = TypeDefinitionName(self.name)
         if self.typeof and not isinstance(self.typeof, TypeDefinitionName):
             self.typeof = TypeDefinitionName(self.typeof)
@@ -227,7 +227,7 @@ class SubsetDefinition(Element):
 
     def _fix_elements(self):
         super()._fix_elements()
-        if self.name and not isinstance(self.name, SubsetDefinitionName):
+        if not isinstance(self.name, SubsetDefinitionName):
             self.name = SubsetDefinitionName(self.name)
 
 
@@ -321,7 +321,7 @@ class SlotDefinition(Definition):
 
     def _fix_elements(self):
         super()._fix_elements()
-        if self.name and not isinstance(self.name, SlotDefinitionName):
+        if not isinstance(self.name, SlotDefinitionName):
             self.name = SlotDefinitionName(self.name)
         if self.is_a and not isinstance(self.is_a, SlotDefinitionName):
             self.is_a = SlotDefinitionName(self.is_a)
@@ -329,7 +329,7 @@ class SlotDefinition(Definition):
                        else SlotDefinitionName(v) for v in self.mixins]
         self.apply_to = [v if isinstance(v, SlotDefinitionName)
                          else SlotDefinitionName(v) for v in self.apply_to]
-        if self.domain and not isinstance(self.domain, ClassDefinitionName):
+        if not isinstance(self.domain, ClassDefinitionName):
             self.domain = ClassDefinitionName(self.domain)
         if self.range and not isinstance(self.range, ElementName):
             self.range = ElementName(self.range)
@@ -380,7 +380,7 @@ class ClassDefinition(Definition):
 
     def _fix_elements(self):
         super()._fix_elements()
-        if self.name and not isinstance(self.name, ClassDefinitionName):
+        if not isinstance(self.name, ClassDefinitionName):
             self.name = ClassDefinitionName(self.name)
         if self.is_a and not isinstance(self.is_a, ClassDefinitionName):
             self.is_a = ClassDefinitionName(self.is_a)

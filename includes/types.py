@@ -12,7 +12,7 @@ from biolinkml.utils.metamodelcore import empty_list, empty_dict
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.metamodelcore import Bool, NCName, URIorCURIE, XSDDate, XSDDateTime, XSDTime
 
-metamodel_version = "1.0.1"
+metamodel_version = "1.0.2"
 
 inherited_slots: List[str] = []
 

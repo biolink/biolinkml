@@ -3,7 +3,7 @@ from copy import deepcopy
 from typing import Dict, Optional, Union, cast, List
 
 from biolinkml.meta import SchemaDefinition, Element, SlotDefinition, ClassDefinition, TypeDefinition, \
-    SlotDefinitionName, TypeDefinitionName
+    SlotDefinitionName, TypeDefinitionName, inherited_slots
 from biolinkml.utils.namespaces import Namespaces
 
 
@@ -64,7 +64,10 @@ def merge_slots(target: Union[SlotDefinition, TypeDefinition], source: Union[Slo
         skip = []
     for k, v in dataclasses.asdict(source).items():
         if k not in skip and v is not None and getattr(target, k, None) is None:
-            setattr(target, k, deepcopy(v))
+            if k in inherited_slots:
+                setattr(target, k, deepcopy(v))
+            else:
+                setattr(target, k, None)
 
 
 def slot_usage_name(usage_name: SlotDefinitionName, owning_class: ClassDefinition) -> SlotDefinitionName:

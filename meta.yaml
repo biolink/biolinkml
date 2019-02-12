@@ -76,13 +76,6 @@ slots:
       related but not equivalent from a strict ontological perspective.
     slot_uri: skos:mappingRelation
 
-#
-#  alt_descriptions:
-#    multivalued: true
-#    domain: element
-#    range: alt description
-#    description: alternative descriptions and names for an element, which may be attributed to a source
-
   deprecated:
     domain: element
     range: string
@@ -182,11 +175,6 @@ slots:
     notes:
       - get this properly documented -- it is a map from an identifier to a slot name
 
-#  flags:
-#      multivalued: true
-#      domain: element
-#      description: State information and other details
-
   mixin:
     domain: definition
     range: boolean
@@ -207,73 +195,17 @@ slots:
       identifier and symbol, and we have a specialized schema for my_organism where we wish to add a slot
       systematic_name, we can avoid subclassing by defining a class gene_my_organism, adding the slot to this class,
       and then adding an apply_to pointing to the gene class. The new slot will be 'injected into' the gene class.
-#
-#  union_of:
-#    multivalued: true
-#    domain: definition
-#    range: definition
-#    description: list of class or slot definitions that are combined to create the union class
-#    slot_uri:
-#      owl:unionOf
 
-  values_from:
-    multivalued: true
-    domain: definition
-    range: uri
-    description: identifies the possible uri's of the range
-
-#  mappings:
+#  values_from:
 #    multivalued: true
 #    domain: definition
 #    range: uri
-#    description: >-
-#      a list of terms from different schemas or terminology systems that have comparable meaning. These may include
-#      terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not
-#      equivalent from a strict ontological perspective.
-#    slot_uri: skos:mappingRelation
-
-#  symmetric:
-#    domain: definition
-#    range: boolean
-#    description: indicates that a slot or reified association is symmetric
-
-#  exact_matches:
-#    multivalued: true
-#    domain: definition
-#    range: uri
-#    inlined: false
-#    description: a list of terms from different schemas or terminology systems that have strictly equivalent meanings.
-#    slot_uri: skos:exactMatch
-#
-#  broader_matches:
-#    multivalued: true
-#    domain: definition
-#    range: uri
-#    inlined: false
-#    description: >-
-#      a list of terms from different schemas or terminology systems that have a broader, more general meaning. Broader
-#      terms are typically shown as parents in a hierarchy or tree.
-#    slot_uri: skos:broadMatch
-#
-#  narrower_matches:
-#    multivalued: true
-#    domain: definition
-#    range: uri
-#    description: >-
-#      a list of terms from different schemas or terminology systems that have a narrower, more specific meaning.
-#      Narrower terms are typically shown as children in a hierarchy or tree.
-#    slot_uri: skos:narrowMatch
-#
-#  close_matches:
-#    multivalued: true
-#    domain: definition
-#    range: uri
-#    description: >-
-#      a list of terms from different schemas or terminology systems that have a semantically similar but not strictly
-#      equivalent, broader, or narrower meaning. Such terms often describe the same general concept from different
-#      ontological perspectives (e.g. drug as a type of chemical entity versus drug as a type of role borne by a
-#      chemical entity).
-#    slot_uri: skos:closeMatch
+#    description: defines the set of URI's that can fill the range of a slot
+#    comments:
+#      - >-
+#        When a slot range references a class with a value_from element, the possible values of the slot range are
+#        considered to be all URI's which satisfy the values_from target.  Typically this identifies URI's in a
+#        given ontology or any subclass of a given node.
 
   # -----------------------------------
   # Schema definition slots
@@ -566,10 +498,6 @@ slots:
     description: >-
       the name used for a slot in the context of its owning class.  If present, this is used instead of the actual
       slot name.
-#
-#  path:
-#    domain: slot definition
-#    description: For any denormalized slot, this represents the tree or graph path used to generate the denormalized form
 
 #  subproperty_of:
 #    domain: slot definition
@@ -653,26 +581,6 @@ slots:
     required: true
     description: A URI associated with a given prefix
 
-  # -----------------------------------
-  # slots for complex type alt description
-  # -----------------------------------
-#  alt_description_text:
-#    domain: alt description
-#    required: true
-#    description: text of an alternate description
-#    alias: description
-#    slot_uri: skos:definition
-#
-#  alt_description_source:
-#    domain: alt description
-#    range: uri
-#    description:
-#      the source of description or other element
-#    alias: source
-#    slot_uri: dcterms:source
-
-
-
 #==================================
 # Classes                         #
 #==================================
@@ -722,9 +630,6 @@ classes:
         range: class definition
       apply_to:
         range: class definition
-#
-#  alt description:
-#    description: attributed definition or description
 
   prefix:
     description: prefix URI tuple

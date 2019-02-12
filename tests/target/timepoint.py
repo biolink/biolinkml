@@ -9,14 +9,13 @@ from biolinkml.utils.metamodelcore import empty_list, empty_dict
 from biolinkml.utils.yamlutils import YAMLRoot
 from includes.types import String, Time
 
-metamodel_version = "1.0.1"
+metamodel_version = "1.0.2"
 
 inherited_slots: List[str] = []
 
 
 # Types
 class TimeType(Time):
-    """ A time object represents a (local) time of day, independent of any particular day """
     pass
 
 
@@ -52,7 +51,7 @@ class GeographicLocationAtTime(GeographicLocation):
 
     def _fix_elements(self):
         super()._fix_elements()
-        if self.k and not isinstance(self.k, GeographicLocationAtTimeK):
+        if not isinstance(self.k, GeographicLocationAtTimeK):
             self.k = GeographicLocationAtTimeK(self.k)
         if self.timepoint and not isinstance(self.timepoint, TimeType):
             self.timepoint = TimeType(self.timepoint)
