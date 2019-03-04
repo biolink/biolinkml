@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by pythongen.py version: 0.2.0
-# Generation date: 2019-02-08 09:11
+# Generation date: 2019-02-13 17:41
 # Schema: metamodel
 #
 # id: http://w3id.org/biolink/biolinkml/meta
@@ -16,7 +16,7 @@ from includes.types import Boolean, Datetime, Integer, Ncname, String, Uri
 metamodel_version = "1.0.2"
 
 inherited_slots: List[str] = ["domain", "range", "multivalued", "inherited", "readonly", "ifabsent", "required",
-                              "inlined", "key", "identifier"]
+                              "inlined", "key", "identifier", "base", "type_uri", "repr"]
 
 
 # Types
@@ -85,7 +85,7 @@ class Element(YAMLRoot):
                          else Example(**v) for v in self.examples]
         self.in_subset = [v if isinstance(v, SubsetDefinitionName)
                           else SubsetDefinitionName(v) for v in self.in_subset]
-        if self.from_schema and not isinstance(self.from_schema, SchemaDefinitionName):
+        if self.from_schema is not None and not isinstance(self.from_schema, SchemaDefinitionName):
             self.from_schema = SchemaDefinitionName(self.from_schema)
         self.see_also = [v if isinstance(v, URIorCURIE)
                          else URIorCURIE(v) for v in self.see_also]
@@ -136,16 +136,16 @@ class SchemaDefinition(Element):
 
     def _fix_elements(self):
         super()._fix_elements()
-        if self.name and not isinstance(self.name, SchemaDefinitionName):
+        if self.name is not None and not isinstance(self.name, SchemaDefinitionName):
             self.name = SchemaDefinitionName(self.name)
-        if self.id and not isinstance(self.id, URIorCURIE):
+        if self.id is not None and not isinstance(self.id, URIorCURIE):
             self.id = URIorCURIE(self.id)
         self.imports = [v if isinstance(v, URIorCURIE)
                         else URIorCURIE(v) for v in self.imports]
         for k, v in self.prefixes.items():
             if not isinstance(v, Prefix):
                 self.prefixes[k] = Prefix(k, v)
-        if self.default_range and not isinstance(self.default_range, DefinitionName):
+        if self.default_range is not None and not isinstance(self.default_range, DefinitionName):
             self.default_range = DefinitionName(self.default_range)
         for k, v in self.subsets.items():
             if not isinstance(v, SubsetDefinition):
@@ -159,9 +159,9 @@ class SchemaDefinition(Element):
         for k, v in self.classes.items():
             if not isinstance(v, ClassDefinition):
                 self.classes[k] = ClassDefinition(name=k, **({} if v is None else v))
-        if self.source_file_date and not isinstance(self.source_file_date, XSDDate):
+        if self.source_file_date is not None and not isinstance(self.source_file_date, XSDDate):
             self.source_file_date = XSDDate(self.source_file_date)
-        if self.generation_date and not isinstance(self.generation_date, XSDDate):
+        if self.generation_date is not None and not isinstance(self.generation_date, XSDDate):
             self.generation_date = XSDDate(self.generation_date)
 
 
@@ -194,11 +194,11 @@ class TypeDefinition(Element):
 
     def _fix_elements(self):
         super()._fix_elements()
-        if self.name and not isinstance(self.name, TypeDefinitionName):
+        if self.name is not None and not isinstance(self.name, TypeDefinitionName):
             self.name = TypeDefinitionName(self.name)
-        if self.typeof and not isinstance(self.typeof, TypeDefinitionName):
+        if self.typeof is not None and not isinstance(self.typeof, TypeDefinitionName):
             self.typeof = TypeDefinitionName(self.typeof)
-        if self.uri and not isinstance(self.uri, URIorCURIE):
+        if self.uri is not None and not isinstance(self.uri, URIorCURIE):
             self.uri = URIorCURIE(self.uri)
 
 
@@ -227,7 +227,7 @@ class SubsetDefinition(Element):
 
     def _fix_elements(self):
         super()._fix_elements()
-        if self.name and not isinstance(self.name, SubsetDefinitionName):
+        if self.name is not None and not isinstance(self.name, SubsetDefinitionName):
             self.name = SubsetDefinitionName(self.name)
 
 
@@ -259,18 +259,15 @@ class Definition(Element):
     mixin: Optional[Bool] = None
     mixins: List[Union[str, DefinitionName]] = empty_list()
     apply_to: List[Union[str, DefinitionName]] = empty_list()
-    values_from: List[Union[str, URIorCURIE]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
-        if self.is_a and not isinstance(self.is_a, DefinitionName):
+        if self.is_a is not None and not isinstance(self.is_a, DefinitionName):
             self.is_a = DefinitionName(self.is_a)
         self.mixins = [v if isinstance(v, DefinitionName)
                        else DefinitionName(v) for v in self.mixins]
         self.apply_to = [v if isinstance(v, DefinitionName)
                          else DefinitionName(v) for v in self.apply_to]
-        self.values_from = [v if isinstance(v, URIorCURIE)
-                            else URIorCURIE(v) for v in self.values_from]
 
 
 @dataclass
@@ -298,7 +295,6 @@ class SlotDefinition(Definition):
     abstract: Optional[Bool] = None
     local_names: List[str] = empty_list()
     mixin: Optional[Bool] = None
-    values_from: List[Union[str, URIorCURIE]] = empty_list()
 
     # === slot definition ===
     domain: Union[str, ClassDefinitionName] = None
@@ -313,7 +309,6 @@ class SlotDefinition(Definition):
     ifabsent: Optional[str] = None
     required: Optional[Bool] = None
     inlined: Optional[Bool] = None
-    definitional: Optional[Bool] = None
     key: Optional[Bool] = None
     identifier: Optional[Bool] = None
     alias: Optional[str] = None
@@ -322,23 +317,23 @@ class SlotDefinition(Definition):
 
     def _fix_elements(self):
         super()._fix_elements()
-        if self.name and not isinstance(self.name, SlotDefinitionName):
+        if self.name is not None and not isinstance(self.name, SlotDefinitionName):
             self.name = SlotDefinitionName(self.name)
-        if self.is_a and not isinstance(self.is_a, SlotDefinitionName):
+        if self.is_a is not None and not isinstance(self.is_a, SlotDefinitionName):
             self.is_a = SlotDefinitionName(self.is_a)
         self.mixins = [v if isinstance(v, SlotDefinitionName)
                        else SlotDefinitionName(v) for v in self.mixins]
         self.apply_to = [v if isinstance(v, SlotDefinitionName)
                          else SlotDefinitionName(v) for v in self.apply_to]
-        if self.domain and not isinstance(self.domain, ClassDefinitionName):
+        if self.domain is not None and not isinstance(self.domain, ClassDefinitionName):
             self.domain = ClassDefinitionName(self.domain)
-        if self.range and not isinstance(self.range, ElementName):
+        if self.range is not None and not isinstance(self.range, ElementName):
             self.range = ElementName(self.range)
-        if self.slot_uri and not isinstance(self.slot_uri, URIorCURIE):
+        if self.slot_uri is not None and not isinstance(self.slot_uri, URIorCURIE):
             self.slot_uri = URIorCURIE(self.slot_uri)
-        if self.subclass_of and not isinstance(self.subclass_of, URIorCURIE):
+        if self.subclass_of is not None and not isinstance(self.subclass_of, URIorCURIE):
             self.subclass_of = URIorCURIE(self.subclass_of)
-        if self.inverse and not isinstance(self.inverse, SlotDefinitionName):
+        if self.inverse is not None and not isinstance(self.inverse, SlotDefinitionName):
             self.inverse = SlotDefinitionName(self.inverse)
 
 
@@ -367,7 +362,6 @@ class ClassDefinition(Definition):
     abstract: Optional[Bool] = None
     local_names: List[str] = empty_list()
     mixin: Optional[Bool] = None
-    values_from: List[Union[str, URIorCURIE]] = empty_list()
 
     # === class definition ===
     is_a: Optional[Union[str, ClassDefinitionName]] = None
@@ -381,9 +375,9 @@ class ClassDefinition(Definition):
 
     def _fix_elements(self):
         super()._fix_elements()
-        if self.name and not isinstance(self.name, ClassDefinitionName):
+        if self.name is not None and not isinstance(self.name, ClassDefinitionName):
             self.name = ClassDefinitionName(self.name)
-        if self.is_a and not isinstance(self.is_a, ClassDefinitionName):
+        if self.is_a is not None and not isinstance(self.is_a, ClassDefinitionName):
             self.is_a = ClassDefinitionName(self.is_a)
         self.mixins = [v if isinstance(v, ClassDefinitionName)
                        else ClassDefinitionName(v) for v in self.mixins]
@@ -394,11 +388,11 @@ class ClassDefinition(Definition):
         for k, v in self.slot_usage.items():
             if not isinstance(v, SlotDefinition):
                 self.slot_usage[k] = SlotDefinition(name=k, **({} if v is None else v))
-        if self.class_uri and not isinstance(self.class_uri, URIorCURIE):
+        if self.class_uri is not None and not isinstance(self.class_uri, URIorCURIE):
             self.class_uri = URIorCURIE(self.class_uri)
         self.defining_slots = [v if isinstance(v, SlotDefinitionName)
                                else SlotDefinitionName(v) for v in self.defining_slots]
-        if self.subclass_of and not isinstance(self.subclass_of, URIorCURIE):
+        if self.subclass_of is not None and not isinstance(self.subclass_of, URIorCURIE):
             self.subclass_of = URIorCURIE(self.subclass_of)
 
 

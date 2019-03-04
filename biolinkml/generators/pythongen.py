@@ -372,10 +372,8 @@ class {self.class_or_type_name(cls.name)}{parentref}:{wrapped_description}
             indent = len(f'self.{slotname} = [') * ' '
             if not slot.multivalued:
                 if not single_typed:
-                    if not slot.required:
-                        rlines.append(f'if self.{slotname} and not isinstance(self.{slotname}, {base_type_name}):')
-                    else:
-                        rlines.append(f'if not isinstance(self.{slotname}, {base_type_name}):')
+                    rlines.append(f'if self.{slotname} is not None and '
+                                  f'not isinstance(self.{slotname}, {base_type_name}):')
                     # Another really wierd case -- a class that has no properties
                     if slot.range in self.schema.classes and not self.schema.classes[slot.range].slots:
                         rlines.append(f'\tself.{slotname} = {base_type_name}()')

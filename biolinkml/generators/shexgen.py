@@ -53,7 +53,7 @@ class ShExGenerator(Generator):
                     self.shapes.append(NodeConstraint(id=self._shape_iri(typ.name),
                                                       datatype=self.namespaces.uri_for(typ.uri)))
             else:
-                self.shapes.append(ShapeAnd(id=self._shape_iri(typ.name), shapeExprs=[self._shape_iri(typ.typeof)]))
+                self.shapes.append(Shape(id=self._shape_iri(typ.name), expression=self._shape_iri(typ.typeof)))
 
     def _shape_iri(self, name: ElementName) -> IRIREF:
         return IRIREF(self.base[camelcase(name)])

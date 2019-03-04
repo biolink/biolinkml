@@ -1,3 +1,4 @@
+import copy
 import os
 import time
 from datetime import datetime
@@ -14,7 +15,7 @@ from biolinkml.utils.mergeutils import merge_schemas, set_from_schema
 from biolinkml.utils.yamlutils import DupCheckYamlLoader
 
 
-def load_raw_schema(data: Union[str, TextIO],
+def load_raw_schema(data: Union[str, dict, TextIO],
                     source_file: Optional[str] = None,
                     source_file_date: Optional[str] = None,
                     source_file_size: Optional[int] = None,
@@ -59,7 +60,7 @@ def load_raw_schema(data: Union[str, TextIO],
             with open(fname) as f:
                 return load_raw_schema(f, fname, time.ctime(os.path.getmtime(fname)), os.path.getsize(fname), base_dir)
     else:
-        schemadefs = yaml.load(data, DupCheckYamlLoader)
+        schemadefs = yaml.load(data, DupCheckYamlLoader) if isinstance(data, TextIO) else copy.deepcopy(data)
 
         # Convert the schema into a "name: definition" form
         if not all(isinstance(e, dict) for e in schemadefs.values()):

@@ -14,13 +14,13 @@ from biolinkml.utils.schemasynopsis import SchemaSynopsis
 
 class SchemaLoader:
     def __init__(self,
-                 data: Union[str, TextIO, SchemaDefinition],
+                 data: Union[str, TextIO, SchemaDefinition, dict],
                  base_dir: Optional[str]=None,
                  namespaces: Optional[Namespaces] = None) \
             -> None:
         """ Constructor - load and process a YAML or pre-processed schema
 
-        :param data: YAML schema text, URL, file name, open file or SchemaDefinition
+        :param data: YAML schema text, python dict loaded from yaml,  URL, file name, open file or SchemaDefinition
         :param base_dir: base directory or URL where Schema came from
         :param namespaces: namespaces collector
         """
@@ -302,8 +302,6 @@ class SchemaLoader:
                     if child_name in cls.slots:
                         del cls.slots[cls.slots.index(child_name)]
                     cls.slots[cls.slots.index(parent_slot.name)] = child_name
-
-
 
     def merge_type(self, typ: TypeDefinition, merged_types: List[TypeDefinitionName]) -> None:
         """

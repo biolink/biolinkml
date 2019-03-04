@@ -74,7 +74,7 @@ def as_yaml(schema: YAMLRoot) -> str:
     return yaml.dump(schema)
 
 
-class DupCheckYamlLoader(yaml.loader.Loader):
+class DupCheckYamlLoader(yaml.loader.SafeLoader):
     """
     A YAML loader that throws an error when the same key appears twice
     """

@@ -52,7 +52,6 @@ class Generator(metaclass=abc.ABCMeta):
             self.namespaces = loader.namespaces
             self.base_dir = loader.base_dir
 
-
     def serialize(self, **kwargs) -> str:
         """
         Generate output in the required format
@@ -210,7 +209,8 @@ class Generator(metaclass=abc.ABCMeta):
                     seen.add(sname_base)
             return sorted(rval, key=lambda s: s.name) if self.sort_class_slots else rval
 
-    def parent(self, element: Union[ClassDefinition, SlotDefinition]) -> Optional[Union[ClassDefinition, SlotDefinition]]:
+    def parent(self, element: Union[ClassDefinition, SlotDefinition]) \
+            -> Optional[Union[ClassDefinition, SlotDefinition]]:
         """ Return the parent of element, if any """
         return \
             None if element.is_a is None else \
@@ -376,7 +376,6 @@ class Generator(metaclass=abc.ABCMeta):
             # Class
             return self.class_identifier_path(slot.range, bool(slot.inlined))
 
-
     def aliased_slot_name(self, slot: Union[SlotDefinitionName, SlotDefinition]) -> SlotDefinitionName:
         """ Return the overloaded slot name -- the alias if one exists otherwise the actual name
 
@@ -411,9 +410,9 @@ class Generator(metaclass=abc.ABCMeta):
         slot = self.schema.slots.get(name)
         return underscore(self.aliased_slot_name(slot) if slot else ("unknown " + name))
 
+
     def subset_name(self, name: str) -> str:
         return ('' if name in self.schema.subsets else "Unknown_") + camelcase(name)
-
 
     def formatted_element_name(self, el_or_elname: Union[ElementName, Element],
                                is_range_name: bool = False) -> Optional[str]:
@@ -445,7 +444,6 @@ class Generator(metaclass=abc.ABCMeta):
             return self.subset_name(el_or_elname.name)
         else:
             return None
-
 
     def default_prefix(self) -> Optional[str]:
         """ Return the default prefix for the schema

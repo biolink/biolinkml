@@ -217,7 +217,7 @@ class MarkdownGenerator(Generator):
         # if slot.subproperty_of:
         #     self.bullet(f'edge label: {self.slot_link(slot.subproperty_of)}', level=1)
         for example in slot.examples:
-            self.bullet(f'Example: {self.xlink(example.value)} {example.description}', level=1)
+            self.bullet(f'Example: {example.value} {example.description}', level=1)
         if slot.name not in self.own_slot_names(cls):
             self.bullet(f'inherited from: {self.class_link(slot.domain)}', level=1)
 
@@ -340,9 +340,9 @@ class MarkdownGenerator(Generator):
         else:
             return self.type_link(ref, after_link=after_link, use_desc=use_desc, add_subset=add_subset)
 
-
     def xlink(self, id_: str) -> str:
         return f'[{id_}]({self.id_to_url(id_)})'
+
 
     @staticmethod
     def id_to_url(id_: str) -> str:

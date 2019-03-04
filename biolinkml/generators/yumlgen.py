@@ -51,9 +51,10 @@ class YumlGenerator(Generator):
                      load_image: bool=True) -> None:
         if directory:
             os.makedirs(directory, exist_ok=True)
-        for cls in classes:
-            if cls not in self.schema.classes:
-                raise ValueError("Unknown class name: {cls}")
+        if classes is not None:
+            for cls in classes:
+                if cls not in self.schema.classes:
+                    raise ValueError("Unknown class name: {cls}")
         self.box_generated = set()
         self.associations_generated = set()
         self.focus_classes = classes
@@ -123,9 +124,12 @@ class YumlGenerator(Generator):
 
             # Slots that reference other classes
             for slot in self.filtered_cls_slots(cn, False, lambda s: s.range in self.schema.classes)[::-1]:
-                assocs.append(self.class_box(cn) + (yuml_inline if slot.inlined else yuml_ref) +
+                # Swap the two boxes because, in the case of self reference, the last definition wins
+                rhs = self.class_box(cn)
+                lhs = self.class_box(cast(ClassDefinitionName, slot.range))
+                assocs.append(lhs + (yuml_inline if slot.inlined else yuml_ref) +
                               self.aliased_slot_name(slot) + self.prop_modifier(cls, slot) +
-                              self.cardinality(slot) + '>' + self.class_box(cast(ClassDefinitionName, slot.range)))
+                              self.cardinality(slot) + '>' + rhs)
 
             # Slots in other classes that reference this
             for slotname in sorted(self.synopsis.rangerefs.get(cn, [])):
