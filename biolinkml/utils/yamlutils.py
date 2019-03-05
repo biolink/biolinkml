@@ -1,5 +1,7 @@
-import yaml
 from dataclasses import dataclass
+from typing import Optional, Union
+
+import yaml
 from jsonasobj import JsonObj
 
 from biolinkml.utils.formatutils import camelcase, underscore
@@ -72,6 +74,17 @@ def as_yaml(schema: YAMLRoot) -> str:
     :return: Stringified representation
     """
     return yaml.dump(schema)
+
+
+def as_json(schema: YAMLRoot, context: Optional[Union[JsonObj, dict]] = None) -> JsonObj:
+    rval = JsonObj(**schema.__dict__)
+    rval.a = schema.__class__.__name__
+    if context:
+        if isinstance(context, JsonObj):
+            context = context.__dict__
+        for k, v in context.items():
+            rval[k] = JsonObj(**v) if isinstance(v, dict) else v
+    return rval
 
 
 class DupCheckYamlLoader(yaml.loader.SafeLoader):
