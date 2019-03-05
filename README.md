@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/biolink/biolinkml.svg?branch=master)](https://travis-ci.org/biolink/biolinkml)
 
+[Binder Link](https://mybinder.org/v2/gh/biolink/biolinkml/master?filepath=notebooks)
 # biolinkml - biolink modeling language
 
 Quickstart docs:
@@ -46,6 +47,37 @@ an object model.
 
 Currently as far as we know there is no existing reference datamodel
 that is flexible enough to be used here.
+
+
+## Biolink Modeling Language
+
+### Type Definitions
+typeof:
+    domain: type definition
+    range: type definition
+    description: supertype
+
+  base:
+    domain: type definition
+    description: python base type that implements this type definition
+    inherited: true
+
+  type uri:
+    domain: type definition
+    range: uri
+    alias: uri
+    description: the URI to be used for the type in semantic web mappings
+
+  repr:
+    domain: type definition
+    range: string
+    description: the python representation of this type if different than the base type
+    inherited: true
+
+
+
+### Slot Definitions
+
 
 
 
