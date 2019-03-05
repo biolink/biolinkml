@@ -58,13 +58,14 @@ id: {self.schema.id}
 description: {be(self.schema.description)}
 license: {be(self.schema.license)}
 '''
-        context = JsonObj(comments=comments)
-        context_content = dict()
-        # if base:
-        #     self.context_body['@base'] = base
-        # elif '://' not in self.context_body['@base']:
-        #     self.context_body['@base'] = os.path.relpath(self.context_body['@base'],
-        #                                                  os.path.dirname(self.schema.source_file))
+        context = JsonObj()
+        context["_comments"] = comments
+        context_content = {"_comments": None, "a": "@type"}
+        if base:
+            if '://' not in base:
+                self.context_body['@base'] = os.path.relpath(base, os.path.dirname(self.schema.source_file))
+            else:
+                self.context_body['@base'] = base
         for prefix in sorted(self.emit_prefixes):
             if self.namespaces[prefix] != self.context_body['@vocab']:
                 context_content[prefix] = self.namespaces[prefix]
@@ -95,33 +96,34 @@ license: {be(self.schema.license)}
         return False
 
     def visit_slot(self, aliased_slot_name: str, slot: SlotDefinition) -> None:
-        slot_def = {}
-
-        self.add_id_prefixes(slot)
-        # TODO: clean up slot_usage items and figure out what we want to do here
-        # Proxy for a slot_usage entry for the moment
-        if not slot.is_a:
-            if slot.range in self.schema.classes:
-                if not slot.inlined:
-                    slot_def['@type'] = '@id'
-            else:
-                range_type = self.schema.types[slot.range]
-                if self.namespaces.uri_for(range_type.uri) == XSD.string:
-                    pass
-                elif self.namespaces.uri_for(range_type.uri) == XSD.anyURI:
-                    slot_def['@type'] = '@id'
+        if slot.key or slot.identifier:
+            slot_def = '@id'
+        else:
+            slot_def = {}
+            self.add_id_prefixes(slot)
+            # TODO: clean up slot_usage items and figure out what we want to do here
+            # Proxy for a slot_usage entry for the moment
+            if not slot.is_a:
+                if slot.range in self.schema.classes:
+                    if slot.identifier or slot.key:
+                        slot_def['@type'] = '@id'
                 else:
-                    slot_def['@type'] = range_type.uri
-                slot_prefix = self.namespaces.prefix_for(slot.slot_uri)
-                if not self.default_ns or not slot_prefix or slot_prefix != self.default_ns:
-                    slot_def['@id'] = slot.slot_uri
-                    if slot_prefix:
-                        self.emit_prefixes.add(slot_prefix)
-            if slot.multivalued:
-                slot_def['@container'] = '@list'
+                    range_type = self.schema.types[slot.range]
+                    if self.namespaces.uri_for(range_type.uri) == XSD.string:
+                        pass
+                    elif self.namespaces.uri_for(range_type.uri) == XSD.anyURI:
+                        slot_def['@type'] = '@id'
+                    else:
+                        slot_def['@type'] = range_type.uri
+                    slot_prefix = self.namespaces.prefix_for(slot.slot_uri)
+                    if not self.default_ns or not slot_prefix or slot_prefix != self.default_ns:
+                        slot_def['@id'] = slot.slot_uri
+                        if slot_prefix:
+                            self.emit_prefixes.add(slot_prefix)
+                # if slot.multivalued:
+                #     slot_def['@container'] = '@list'
         if slot_def:
             self.context_body[underscore(aliased_slot_name)] = slot_def
-
 
     def add_prefix(self, ncname: str) -> None:
         """ Add a prefix to the list of prefixes to emit
