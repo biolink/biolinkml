@@ -60,7 +60,8 @@ def load_raw_schema(data: Union[str, dict, TextIO],
             with open(fname) as f:
                 return load_raw_schema(f, fname, time.ctime(os.path.getmtime(fname)), os.path.getsize(fname), base_dir)
     else:
-        schemadefs = yaml.load(data, DupCheckYamlLoader) if isinstance(data, TextIO) else copy.deepcopy(data)
+        schemadefs = yaml.load(data, DupCheckYamlLoader) \
+            if isinstance(data, (TextIO, StringIO)) else copy.deepcopy(data)
 
         # Convert the schema into a "name: definition" form
         if not all(isinstance(e, dict) for e in schemadefs.values()):
