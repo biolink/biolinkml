@@ -32,7 +32,7 @@ class GraphqlGenerator(Generator):
         slotrange = camelcase(slot.range) if slot.range in self.schema.classes or slot.range in self.schema.types else "String"
         if slot.multivalued:
             slotrange = f"[{slotrange}]"
-        if slot.required or slot.key:
+        if slot.required:
             slotrange = slotrange + '!'
         print(f"    {lcamelcase(aliased_slot_name)}: {slotrange}")
 
