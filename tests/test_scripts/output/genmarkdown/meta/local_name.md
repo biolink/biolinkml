@@ -1,4 +1,4 @@
-# Slot: local name
+# Slot: local_name
 
 
 the nsname (sans ':' for a given prefix)

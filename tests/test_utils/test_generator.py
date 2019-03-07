@@ -5,11 +5,12 @@ from io import StringIO
 from pprint import pprint
 from typing import Union, TextIO
 
-from jsonasobj import as_json
 
+from biolinkml import LOCAL_YAML_PATH
 from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, TypeDefinition, SubsetDefinition
 from biolinkml.utils.generator import Generator
 from biolinkml.utils.typereferences import References
+from tests import source_yaml_path
 from tests.test_utils import datadir
 
 
@@ -516,7 +517,6 @@ Warning: Shared type and subset names: dup name""", errfile.getvalue().strip())
         self.assertEqual({'s1': ['int'], 's3': ['int', 'T2', 'T3']},
                          {s.name: gen.slot_type_path(s) for s in gen.all_slots('c1')})
 
-
     def test_ancestors(self):
         """ Test ancestors function and duplicate name detection """
         model = """
@@ -535,6 +535,7 @@ types:
 
 slots:
     slot s1:
+        domain: class c2
 
     slot s2:
         is_a: slot s1
@@ -624,17 +625,17 @@ classes:
 
     def test_meta_neighborhood(self):
         """ Test the neighborhood function in the metamodel """
-        gen = GeneratorTest(os.path.join(datadir, 'meta.yaml'))
+        gen = GeneratorTest(LOCAL_YAML_PATH)
         errfile = StringIO()
         with redirect_stderr(errfile):
             gen.neighborhood(['Definition'])
         self.assertEqual("Warning: neighborhood(Definition) - Definition is undefined", errfile.getvalue().strip())
         pprint(gen.neighborhood('definition'))
         self.assertEqual(References(
-            classrefs={'definition', 'element', 'slot definition', 'schema definition', 'example', 'class definition',
-                       'subset definition'},
+            classrefs={'definition', 'element', 'slot_definition', 'schema_definition', 'example', 'class_definition',
+                       'subset_definition'},
             slotrefs={'is_a', 'apply_to', 'mixins', 'default_range'},
-            typerefs={'ncname', 'string', 'boolean', 'uri'}, subsetrefs=set()), gen.neighborhood('definition'))
+            typerefs={'uriorcuri', 'string', 'boolean', 'uri'}, subsetrefs=set()), gen.neighborhood('definition'))
 
 
 

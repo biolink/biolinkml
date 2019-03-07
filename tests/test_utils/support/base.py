@@ -43,8 +43,8 @@ class Base(unittest.TestCase):
             self.assertEqual(expected, actual)
         self.assertFalse(file_created, f"{file_path}: Created new file image -- rerun")
 
-    def eval_loader(self, base_name: str, is_sourcedir: bool=False) -> None:
-        fn = os.path.join(sourcedir if is_sourcedir else datadir, base_name + '.yaml')
+    def eval_loader(self, base_name: str, is_sourcedir: bool=False, source: Optional[str]=None) -> None:
+        fn = os.path.join(sourcedir if is_sourcedir else datadir, base_name + '.yaml') if not source else source
         loader = SchemaLoader(fn)
         schema = as_json(self.fix_schema_metadata(loader.resolve()))
         self.eval_output(schema, base_name + '.json', loads)

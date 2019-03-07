@@ -1,9 +1,10 @@
-id: http://w3id.org/biolink/biolinkml/types
 title: Core Biolink metamodel types
 name: types
+id: http://w3id.org/biolink/biolinkml/types
+
 description: Shared type definitions
 license: https://creativecommons.org/publicdomain/zero/1.0/
-version: 1.0.1
+version: 1.0.2
 
 prefixes:
   meta: http://w3id.org/biolink/biolinkml/meta/
@@ -11,7 +12,6 @@ prefixes:
   xsd: http://www.w3.org/2001/XMLSchema#
 
 default_prefix: metatype
-
 default_range: string
 
 
@@ -67,11 +67,17 @@ types:
     repr: str
     base: XSDDate
 
-  uri:
+  uriorcuri:
     uri: xsd:anyURI
     base: URIorCURIE
     repr: str
     description: a URI or a CURIE
+
+  uri:
+    uri: xsd:anyURI
+    base: URI
+    repr: str
+    description: a complete URI
 
   ncname:
     uri: xsd:string

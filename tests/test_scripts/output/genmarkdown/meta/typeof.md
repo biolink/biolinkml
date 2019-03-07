@@ -1,7 +1,7 @@
 # Slot: typeof
 
 
-supertype
+Names a parent type
 
 URI: [http://w3id.org/biolink/biolinkml/meta/typeof](slot_uri)
 ## Domain and Range

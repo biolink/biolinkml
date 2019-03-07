@@ -1,7 +1,8 @@
 import os
 import unittest
-from typing import Union, List
+from typing import Union, List, Optional
 
+from biolinkml import LOCAL_YAML_PATH
 from biolinkml.utils.schemaloader import SchemaLoader
 from tests import sourcedir, skip_biolink_model
 from tests.test_utils import datadir
@@ -18,8 +19,8 @@ class SchemaSynopsisTestCase(Base):
         self.loader.resolve()
 
     """ Tests for various parts of the schema synopsis file """
-    def eval_synopsis(self, base_name: str, *,  is_sourcedir: bool=False) -> None:
-        fn = os.path.join(sourcedir if is_sourcedir else datadir, base_name + '.yaml')
+    def eval_synopsis(self, base_name: str, *,  is_sourcedir: bool=False, source: Optional[str]=None) -> None:
+        fn = os.path.join(sourcedir if is_sourcedir else datadir, base_name + '.yaml') if not source else source
         self.loadit(fn)
         errors = '\n'.join(self.loader.synopsis.errors())
         self.eval_output(errors, base_name + '.errs')
@@ -38,7 +39,7 @@ class SchemaSynopsisTestCase(Base):
 
     def test_meta_synopsis(self):
         """ Summarize a static image of the meta model """
-        self.eval_synopsis('meta')
+        self.eval_synopsis('meta', source=LOCAL_YAML_PATH)
 
     def test_unitialized_domain(self):
         self.loadit(os.path.join(datadir, 'synopsis1.yaml'))

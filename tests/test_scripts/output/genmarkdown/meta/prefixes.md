@@ -1,7 +1,7 @@
 # Slot: prefixes
 
 
-prefix / URI definitions to be added to the context beyond those fetched from prefixcommons in id_prefixes
+prefix / URI definitions to be added to the context beyond those fetched from prefixcommons in id prefixes
 
 URI: [http://w3id.org/biolink/biolinkml/meta/prefixes](slot_uri)
 ## Domain and Range

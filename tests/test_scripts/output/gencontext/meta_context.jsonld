@@ -1,6 +1,8 @@
 {
-   "comments": "Auto generated from meta.yaml by jsonldcontextgen.py version: 0.0.2\nGeneration date: 2019-02-05 10:22\nSchema: metamodel\n\nid: http://w3id.org/biolink/biolinkml/meta\ndescription: A metamodel for defining biolink related schemas\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
+   "_comments": "Auto generated from meta.yaml by jsonldcontextgen.py version: 0.0.2\nGeneration date: 2019-03-07 11:05\nSchema: metamodel\n\nid: http://w3id.org/biolink/biolinkml/meta\ndescription: A metamodel for defining biolink related schemas\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
    "@context": {
+      "_comments": null,
+      "type": "@type",
       "OIO": "http://www.geneontology.org/formats/oboInOwl#",
       "dcterms": "http://purl.org/dc/terms/",
       "metatype": "http://w3id.org/biolink/biolinkml/type/",
@@ -14,29 +16,23 @@
       "abstract": {
          "@type": "xsd:boolean"
       },
+      "aliases": {
+         "@id": "skos:altLabel"
+      },
       "apply_to": {
-         "@type": "@id",
-         "@container": "@list"
+         "@type": "@id"
       },
       "class_uri": {
          "@type": "@id"
       },
       "classes": {
-         "@container": "@list"
+         "@type": "@id"
       },
       "comments": {
-         "@id": "skos:note",
-         "@container": "@list"
-      },
-      "default_curi_maps": {
-         "@container": "@list"
+         "@id": "skos:note"
       },
       "default_range": {
          "@type": "@id"
-      },
-      "defining_slots": {
-         "@type": "@id",
-         "@container": "@list"
       },
       "description": {
          "@id": "skos:definition"
@@ -45,7 +41,7 @@
          "@type": "@id"
       },
       "examples": {
-         "@container": "@list"
+         "@type": "@id"
       },
       "from_schema": {
          "@type": "@id"
@@ -56,28 +52,20 @@
       "id": {
          "@type": "@id"
       },
-      "id_prefixes": {
-         "@container": "@list"
-      },
       "identifier": {
          "@type": "xsd:boolean"
       },
       "imports": {
-         "@type": "@id",
-         "@container": "@list"
+         "@type": "@id"
       },
       "in_subset": {
-         "@type": "@id",
-         "@container": "@list"
+         "@type": "@id"
       },
       "inherited": {
          "@type": "xsd:boolean"
       },
       "inlined": {
          "@type": "xsd:boolean"
-      },
-      "inverse": {
-         "@type": "@id"
       },
       "is_a": {
          "@type": "@id"
@@ -88,56 +76,50 @@
       "license": {
          "@id": "dcterms:license"
       },
-      "local_names": {
-         "@container": "@list"
+      "mappings": {
+         "@type": "@id",
+         "@id": "skos:mappingRelation"
       },
       "mixin": {
          "@type": "xsd:boolean"
       },
       "mixins": {
-         "@type": "@id",
-         "@container": "@list"
+         "@type": "@id"
       },
       "multivalued": {
          "@type": "xsd:boolean"
       },
-      "name": {
-         "@id": "rdfs:label"
-      },
+      "name": "@id",
       "notes": {
-         "@id": "skos:editorialNote",
-         "@container": "@list"
+         "@id": "skos:editorialNote"
       },
       "prefix_uri": {
          "@type": "@id"
       },
       "prefixes": {
-         "@container": "@list"
+         "@type": "@id"
       },
       "range": {
          "@type": "@id"
-      },
-      "subclass_of": {
-         "@type": "@id",
-         "@id": "rdfs:subClassOf"
       },
       "required": {
          "@type": "xsd:boolean"
       },
       "see_also": {
          "@type": "@id",
-         "@id": "rdfs:seeAlso",
-         "@container": "@list"
+         "@id": "rdfs:seeAlso"
+      },
+      "singular_name": {
+         "@id": "skos:altLabel"
       },
       "slots": {
-         "@type": "@id",
-         "@container": "@list"
+         "@type": "@id"
       },
       "slot_uri": {
          "@type": "@id"
       },
       "slot_usage": {
-         "@container": "@list"
+         "@type": "@id"
       },
       "source_file_date": {
          "@type": "xsd:dateTime"
@@ -146,7 +128,7 @@
          "@type": "xsd:integer"
       },
       "subsets": {
-         "@container": "@list"
+         "@type": "@id"
       },
       "title": {
          "@id": "dcterms:title"
@@ -158,11 +140,7 @@
          "@type": "@id"
       },
       "types": {
-         "@container": "@list"
-      },
-      "values_from": {
-         "@type": "@id",
-         "@container": "@list"
+         "@type": "@id"
       },
       "version": {
          "@id": "pav:version"

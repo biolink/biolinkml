@@ -2,7 +2,7 @@ id: http://example.org/example/uri_tests
 name: uri_tests
 
 imports:
-  - includes/types
+  - ../../includes/types
 
 prefixes:
   meta: http://w3id.org/biolink/biolinkml/meta/

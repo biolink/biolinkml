@@ -11,8 +11,8 @@ URI: [http://w3id.org/biolink/biolinkml/meta/apply_to](slot_uri)
 
 ## Children
 
- *  [class definition.apply_to](class_definition_apply_to.md)
- *  [slot definition.apply_to](slot_definition_apply_to.md)
+ *  [class_definition.apply_to](class_definition_apply_to.md)
+ *  [slot_definition.apply_to](slot_definition_apply_to.md)
 ## Used by
 
  * [ClassDefinition](ClassDefinition.md)

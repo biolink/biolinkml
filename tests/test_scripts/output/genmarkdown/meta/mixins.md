@@ -11,8 +11,8 @@ URI: [http://w3id.org/biolink/biolinkml/meta/mixins](slot_uri)
 
 ## Children
 
- *  [class definition.mixins](class_definition_mixins.md)
- *  [slot definition.mixins](slot_definition_mixins.md)
+ *  [class_definition.mixins](class_definition_mixins.md)
+ *  [slot_definition.mixins](slot_definition_mixins.md)
 ## Used by
 
  * [ClassDefinition](ClassDefinition.md)

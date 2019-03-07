@@ -8,7 +8,7 @@ import requests
 from rdflib import Namespace, URIRef
 
 # DEFAULT_SERVER = "http://w3id.org/"
-DEFAULT_SERVER = "http://localhost:8084/"
+DEFAULT_SERVER = "http://localhost:8188/"
 
 # Taken from Firefox network.http.accept.default
 default_header = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
@@ -86,13 +86,14 @@ class TestLists:
 FAIL_ON_ERROR = True
 
 
-@unittest.skipIf(True, "Only works if the server is up and running")
+@unittest.skipIf(False, "Only works if the server is up and running")
 class RewriteRuleTestCase(unittest.TestCase):
     SERVER = DEFAULT_SERVER         # Can be overwritten with a startup parameter
 
     @classmethod
     def setUpClass(cls):
         cls.tests = TestLists(cls.SERVER)
+        print(f"Server: {cls.SERVER}")
 
     def rule_test(self, entries: List[TestEntry]) -> None:
 

@@ -1,11 +1,11 @@
-# Class: type definition
+# Class: type_definition
 
 
 A data type definition.
 
 URI: [http://w3id.org/biolink/biolinkml/meta/TypeDefinition](http://w3id.org/biolink/biolinkml/meta/TypeDefinition)
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[TypeDefinition|base:string%20%3F;uri:uri%20%3F;name(pk)(i):string;description(i):string%20%3F;deprecated(i):string%20%3F;notes(i):string%20*;comments(i):string%20*;see_also(i):uri%20*;id_prefixes(i):ncname%20*]-%20from_schema(i)%20%3F>\[SchemaDefinition],%20\[TypeDefinition]-%20in_subset(i)%20*>\[SubsetDefinition],%20\[TypeDefinition]++-%20examples(i)%20*>\[Example],%20\[TypeDefinition]-%20typeof%20%3F>\[TypeDefinition],%20\[SchemaDefinition]++-%20types%20*>\[TypeDefinition],%20\[Element]^-\[TypeDefinition])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[SchemaDefinition]<from_schema(i)%20%3F-%20\[TypeDefinition|base:string%20%3F;uri:uri%20%3F;repr:string%20%3F;name(pk)(i):string;singular_name(i):string%20%3F;aliases(i):string%20*;mappings(i):uriorcuri%20*;description(i):string%20%3F;deprecated(i):string%20%3F;todos(i):string%20*;notes(i):string%20*;comments(i):string%20*;imported_from(i):string%20%3F;see_also(i):uri%20*],%20\[SubsetDefinition]<in_subset(i)%20*-%20\[TypeDefinition],%20\[Example]<examples(i)%20*-++\[TypeDefinition],%20\[TypeDefinition]<typeof%20%3F-%20\[TypeDefinition],%20\[SchemaDefinition]++-%20types%20*>\[TypeDefinition],%20\[Element]^-\[TypeDefinition])
 ## Inheritance
 
  *  is_a: [Element](Element.md) - a named element in the model
@@ -17,6 +17,9 @@ URI: [http://w3id.org/biolink/biolinkml/meta/TypeDefinition](http://w3id.org/bio
  *  **[SchemaDefinition](SchemaDefinition.md)** *[types](types.md)<sub>opt</sub>*  **[[TypeDefinition](TypeDefinition.md)]**
 ## Fields
 
+ * [aliases](aliases.md)<sub>opt</sub>
+    * range: [[String](String.md)]
+    * inherited from: [Element](Element.md)
  * [base](base.md)<sub>opt</sub>
     * Description: python base type that implements this type definition
     * range: [String](String.md)
@@ -40,29 +43,44 @@ URI: [http://w3id.org/biolink/biolinkml/meta/TypeDefinition](http://w3id.org/bio
     * Description: id of the schema that defined the element
     * range: [SchemaDefinition](SchemaDefinition.md)
     * inherited from: [Element](Element.md)
- * [id_prefixes](id_prefixes.md)<sub>opt</sub>
-    * Description: a list of Curie prefixes that are used in the representation of instances of the model.  All prefixes in this list are added to the prefix sections of the target models.
-    * range: [[Ncname](Ncname.md)]
+ * [imported_from](imported_from.md)<sub>opt</sub>
+    * Description: the imports entry that this element was derived from.  Empty means primary source
+    * range: [String](String.md)
     * inherited from: [Element](Element.md)
  * [in_subset](in_subset.md)<sub>opt</sub>
     * Description: used to indicate membership of a term in a defined subset of biolink terms used for a particular domain or application (e.g. the translator_minimal subset holding the minimal set of predicates used in a translator knowledge graph)
     * range: [[SubsetDefinition](SubsetDefinition.md)]
     * inherited from: [Element](Element.md)
+ * [mappings](mappings.md)<sub>opt</sub>
+    * Description: A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective.
+    * range: [[Uriorcuri](Uriorcuri.md)]
+    * inherited from: [Element](Element.md)
  * [name](name.md) *subsets*: (owl)
-    * Description: the unique name of the element within the context of the schema
+    * Description: the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class.
     * range: [String](String.md)
     * inherited from: [Element](Element.md)
  * [notes](notes.md) *subsets*: (owl)<sub>opt</sub>
     * Description: editorial notes about an element intended for internal consumption
     * range: [[String](String.md)]
     * inherited from: [Element](Element.md)
+ * [repr](repr.md)<sub>opt</sub>
+    * Description: the name of the python object that implements this type definition
+    * range: [String](String.md)
  * [see_also](see_also.md) *subsets*: (owl)<sub>opt</sub>
     * Description: a reference
     * range: [[Uri](Uri.md)]
     * inherited from: [Element](Element.md)
- * [type definition.uri](type_uri.md)<sub>opt</sub>
-    * Description: the URI to be used for the type in semantic web mappings
+ * [singular_name](singular_name.md)<sub>opt</sub>
+    * Description: a name that is used in the singular form
+    * range: [String](String.md)
+    * inherited from: [Element](Element.md)
+ * [todos](todos.md)<sub>opt</sub>
+    * Description: Outstanding issue that needs resolution
+    * range: [[String](String.md)]
+    * inherited from: [Element](Element.md)
+ * [type_definition.uri](type_uri.md)<sub>opt</sub>
+    * Description: The uri that defines the possible values for the type definition
     * range: [Uri](Uri.md)
  * [typeof](typeof.md)<sub>opt</sub>
-    * Description: supertype
+    * Description: Names a parent type
     * range: [TypeDefinition](TypeDefinition.md)

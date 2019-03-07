@@ -1,7 +1,7 @@
 # Slot: id
 
 
-a globally unique schema identifier
+The official schema URI
 
 URI: [http://w3id.org/biolink/biolinkml/meta/id](slot_uri)
 ## Domain and Range

@@ -25,7 +25,7 @@ class Generator(metaclass=abc.ABCMeta):
 
     def __init__(self,
                  schema: Union[str, TextIO, SchemaDefinition, "Generator"],
-                 fmt: str,
+                 fmt: Optional[str] = None,
                  emit_metadata: bool = False) -> None:
         """
         Constructor
@@ -35,6 +35,8 @@ class Generator(metaclass=abc.ABCMeta):
         :param fmt: expected output format
         :param emit_metadata: True means include date, generator, etc. information in source header if appropriate
         """
+        if fmt is None:
+            fmt = self.valid_formats[0]
         assert fmt in self.valid_formats, f"Unrecognized format: {fmt}"
         self.format = fmt
         self.emit_metadata = emit_metadata
@@ -315,9 +317,14 @@ class Generator(metaclass=abc.ABCMeta):
         else:
             return [formatted_typ_name]
 
-    def definition_key(self, def_or_name: Union[str, ClassDefinition, TypeDefinition]) -> Optional[SlotDefinitionName]:
+    def class_identifier(self, def_or_name: Union[str, ClassDefinition, TypeDefinition], keys_count: bool=False) \
+            -> Optional[SlotDefinitionName]:
         """
-        Return the slot key
+        Return the class identifier if any
+
+        :param def_or_name: class name or definition
+        :param keys_count: True means treat keys AND identifiers as identifiers
+        :return: name of class identifier (or key) if one exists
         """
         if isinstance(def_or_name, ClassDefinition):
             cls = def_or_name
@@ -327,7 +334,7 @@ class Generator(metaclass=abc.ABCMeta):
             return None
         for slotname in cls.slots:
             slot = self.schema.slots[slotname]
-            if slot.key or slot.identifier:
+            if slot.identifier or (keys_count and slot.key):
                 return slotname
         return None
 
@@ -346,7 +353,7 @@ class Generator(metaclass=abc.ABCMeta):
         # Determine whether the class has a key
         identifier_slot = None
         if not force_non_key:
-            identifier_slot = self.definition_key(cls)
+            identifier_slot = self.class_identifier(cls, keys_count=True)
 
         # No key or inlined, its closure is a dictionary
         if identifier_slot is None:
@@ -355,7 +362,7 @@ class Generator(metaclass=abc.ABCMeta):
         # We're dealing with a reference
         pathname = camelcase(cls.name + ' ' + self.aliased_slot_name(identifier_slot))
         if cls.is_a:
-            parent_identifier_slot = self.definition_key(cls.is_a)
+            parent_identifier_slot = self.class_identifier(cls.is_a, keys_count=True)
             if parent_identifier_slot:
                 return self.class_identifier_path(cls.is_a, False) + [pathname]
         return self.slot_type_path(identifier_slot) + [pathname]

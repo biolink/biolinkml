@@ -13,7 +13,7 @@ default_range: string
 default_curi_maps:
   - obo_context
 
-id_prefixes:
+emit_prefixes:
   - rdf
   - rdfs
   - xsd
@@ -168,6 +168,7 @@ slots:
     domain: association
     multivalued: true
     range: qualifier_type
+    inlined: true
     description: connects an association to qualifiers that modify or qualify the meaning of that association
     local_names:
       ga4gh: annotation qualifier
@@ -179,15 +180,15 @@ slots:
     range: publication
     alias: publications
 
-  qualifier_definitions:
-    multivalued: true
-    domain: association
-    range: assoc_property_definition
-    alias: slots
-    inlined: true
-    inherited: true
-    description: >-
-      property definitions that are included in the containing entity and all of its descendants
+#  qualifier_definitions:
+#    multivalued: true
+#    domain: association
+#    range: assoc_property_definition
+#    alias: slots
+#    inlined: true
+#    inherited: true
+#    description: >-
+#      property definitions that are included in the containing entity and all of its descendants
 
 
   # -----------------------------------
@@ -266,7 +267,6 @@ classes:
       - supporting_publications
       - association_mixins
       - apply_to_association
-      - qualifier_definitions
     class_uri: rdf:Statement
     mappings:
       - OBAN:association

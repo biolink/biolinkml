@@ -25,7 +25,8 @@ class PythonGenTestCase(unittest.TestCase):
             print("-" * 80)
             print(pydata)
             print('-' * 80)
-        self.assertEqual(olddat, newdat, f'\n{master_python} does not match output -- run "make regen-mm"?')
+        self.assertEqual(olddat, newdat,
+                         f'\n{master_python} does not match output -- Latest output is in tests/target directory')
 
     def test_metamodel(self):
         """ Generate a new metamodel and verify that it matches what we used to build it """

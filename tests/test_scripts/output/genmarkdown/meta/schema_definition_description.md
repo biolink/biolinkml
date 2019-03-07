@@ -1,7 +1,7 @@
 # Slot: description
 
 
-a description of the element's purpose and use
+
 
 URI: [http://w3id.org/biolink/biolinkml/meta/schema_definition_description](slot_uri)
 ## Domain and Range

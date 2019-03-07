@@ -12,7 +12,7 @@ default_prefix: meta
 default_curi_maps:
     - semweb_context
 
-id_prefixes:
+emit_prefixes:
   - meta
   - rdf
   - rdfs
@@ -22,7 +22,7 @@ id_prefixes:
   - pav
 
 imports:
-  - includes/types
+  - ../../../includes/types
 
 types:
   extended:

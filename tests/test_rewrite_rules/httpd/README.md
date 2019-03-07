@@ -13,39 +13,24 @@ follows:
 | context.jsonld | context.jsonld | metamodel context.jsonld for converting json instances to RDF | http://w3id.org/biolink/biolinkml/context.jsonld --> http://biolink.github.io/biolinkml/context.jsonld |
 
 ## Testing the rewrite rules
-1. **Fork or clone the w3id.org [perma-id](https://github.com/perma-id/w3id.org) repository to the tests/httpd directory **
+
 ```bash
-# In a directory of your choice:
-> git clone git@github.com:perma-id/w3id.org.git
-> cd biolink/biolinkml/tests/httpd
-> ln -s <path to>w3id.org
-```
-2. ** Copy the local rewrite rules across (Optional) **
-```bash
-> cp -R biolink w3id.org
-```
-3. **Build the local httpd server docker image**
-```bash
-> ./build.sh
-```
-4. ** Start the httpd server docker image, pointing the document root at the cloned repository **
-```bash
-> ./start.sh <port>
-```
-5. ** Run the `test_rewrite_rules.py` unit test **
-```bash
+> cd httpd
+> docker image build . -t http_test
+> docker run --rm -d -p <port>:80 --name http_test http_test
+> cd ../..
+> pipenv install
+> cd tests/test_rewrite_rules
 > export SERVER="http://localhost:<port>"
-$ pipenv run python ../test_rewrite_rules/test_rewrite_rules.py
+> python test_rewrite_rules.py
 ......
 ----------------------------------------------------------------------
 Ran 6 tests in 0.423s
 
 OK
-```
-6. ** Teardown the docker server **
-```bash
 > docker stop httptest
 ```
+
 7. ** If necessary, make a pull request to w3id.org w/ changes **
 
 

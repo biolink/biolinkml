@@ -22,6 +22,7 @@ yuml_uses = 'uses -.->'
 yuml_injected = '< -.- inject'
 yuml_slot_type = ':'
 yuml_inline = '++- '
+yuml_rev_inline = '-++'
 yuml_ref = '- '
 
 yuml_base = 'http://yuml.me/diagram/nofunky'
@@ -54,7 +55,7 @@ class YumlGenerator(Generator):
         if classes is not None:
             for cls in classes:
                 if cls not in self.schema.classes:
-                    raise ValueError("Unknown class name: {cls}")
+                    raise ValueError(f"Unknown class name: {cls}")
         self.box_generated = set()
         self.associations_generated = set()
         self.focus_classes = classes
@@ -127,9 +128,9 @@ class YumlGenerator(Generator):
                 # Swap the two boxes because, in the case of self reference, the last definition wins
                 rhs = self.class_box(cn)
                 lhs = self.class_box(cast(ClassDefinitionName, slot.range))
-                assocs.append(lhs + (yuml_inline if slot.inlined else yuml_ref) +
+                assocs.append(lhs + '<' +
                               self.aliased_slot_name(slot) + self.prop_modifier(cls, slot) +
-                              self.cardinality(slot) + '>' + rhs)
+                              self.cardinality(slot) + (yuml_rev_inline if slot.inlined else yuml_ref) + rhs)
 
             # Slots in other classes that reference this
             for slotname in sorted(self.synopsis.rangerefs.get(cn, [])):
@@ -169,9 +170,9 @@ class YumlGenerator(Generator):
     @staticmethod
     def cardinality(slot: SlotDefinition) -> str:
         if slot.multivalued:
-            return ' +' if slot.key or slot.required else ' *'
+            return ' +' if slot.required else ' *'
         else:
-            return '' if slot.key or slot.required else ' %3F'
+            return '' if slot.required else ' %3F'
 
     def filtered_cls_slots(self,
                            cn: ClassDefinitionName,

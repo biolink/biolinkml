@@ -37,7 +37,8 @@ class ContextGenerator(Generator):
             self.emit_prefixes.add(prefix.local_name)
 
         # Add any prefixes explicitly declared
-        self.add_id_prefixes(self.schema)
+        for pfx in self.schema.emit_prefixes:
+            self.add_prefix(pfx)
 
         # Add the default prefix
         if self.schema.default_prefix:
@@ -60,7 +61,7 @@ license: {be(self.schema.license)}
 '''
         context = JsonObj()
         context["_comments"] = comments
-        context_content = {"_comments": None, "a": "@type"}
+        context_content = {"_comments": None, "type": "@type"}
         if base:
             if '://' not in base:
                 self.context_body['@base'] = os.path.relpath(base, os.path.dirname(self.schema.source_file))
@@ -83,7 +84,6 @@ license: {be(self.schema.license)}
     def visit_class(self, cls: ClassDefinition) -> bool:
         class_def = {}
         cn = camelcase(cls.name)
-        self.add_id_prefixes(cls)
         cls_prefix = self.namespaces.prefix_for(cls.class_uri)
         if not self.default_ns or not cls_prefix or cls_prefix != self.default_ns:
             class_def['@id'] = cls.class_uri
@@ -96,17 +96,15 @@ license: {be(self.schema.license)}
         return False
 
     def visit_slot(self, aliased_slot_name: str, slot: SlotDefinition) -> None:
-        if slot.key or slot.identifier:
+        if slot.identifier:
             slot_def = '@id'
         else:
             slot_def = {}
-            self.add_id_prefixes(slot)
             # TODO: clean up slot_usage items and figure out what we want to do here
             # Proxy for a slot_usage entry for the moment
             if not slot.is_a:
                 if slot.range in self.schema.classes:
-                    if slot.identifier or slot.key:
-                        slot_def['@type'] = '@id'
+                    slot_def['@type'] = '@id'
                 else:
                     range_type = self.schema.types[slot.range]
                     if self.namespaces.uri_for(range_type.uri) == XSD.string:
@@ -134,10 +132,6 @@ license: {be(self.schema.license)}
             print(f"Unrecognized prefix: {ncname}", file=sys.stderr)
             self.namespaces[ncname] = f"http://example.org/UNKNOWN/{ncname}/"
         self.emit_prefixes.add(ncname)
-
-    def add_id_prefixes(self, element: Element) -> None:
-        for id_prefix in element.id_prefixes:
-            self.add_prefix(id_prefix)
 
 
 

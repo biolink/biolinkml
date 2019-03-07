@@ -1,7 +1,7 @@
 # Slot: uri
 
 
-the URI to be used for the type in semantic web mappings
+The uri that defines the possible values for the type definition
 
 URI: [http://w3id.org/biolink/biolinkml/meta/type_uri](slot_uri)
 ## Domain and Range

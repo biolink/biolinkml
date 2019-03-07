@@ -1,7 +1,7 @@
 # Slot: value
 
 
-
+example value
 
 URI: [http://w3id.org/biolink/biolinkml/meta/value](slot_uri)
 ## Domain and Range

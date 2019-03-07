@@ -1,62 +1,68 @@
 type ClassDefinition
   {
     name: String!
+    singularName: String
+    aliases: [String]
+    mappings: [Uriorcuri]
     description: String
     deprecated: String
-    notes: [String]
+    todos: [String]
     comments: [String]
+    notes: [String]
     examples: [Example]
     inSubset: [SubsetDefinition]
     fromSchema: SchemaDefinition
+    importedFrom: String
     seeAlso: [Uri]
-    idPrefixes: [Ncname]
     isA: ClassDefinition
     abstract: Boolean
-    localNames: [String]
     mixin: Boolean
     mixins: [ClassDefinition]
     applyTo: [ClassDefinition]
-    valuesFrom: [Uri]
     slots: [SlotDefinition]
     slotUsage: [SlotDefinition]
     classUri: Uri
-    definingSlots: [SlotDefinition]
-    subclassOf: Uri
   }
 
 interface Definition
   {
     name: String!
+    singularName: String
+    aliases: [String]
+    mappings: [Uriorcuri]
     description: String
     deprecated: String
-    notes: [String]
+    todos: [String]
     comments: [String]
+    notes: [String]
     examples: [Example]
     inSubset: [SubsetDefinition]
     fromSchema: SchemaDefinition
+    importedFrom: String
     seeAlso: [Uri]
-    idPrefixes: [Ncname]
     isA: Definition
     abstract: Boolean
-    localNames: [String]
     mixin: Boolean
     mixins: [Definition]
     applyTo: [Definition]
-    valuesFrom: [Uri]
   }
 
 interface Element
   {
     name: String!
+    singularName: String
+    aliases: [String]
+    mappings: [Uriorcuri]
     description: String
     deprecated: String
+    todos: [String]
     notes: [String]
     comments: [String]
     examples: [Example]
     inSubset: [SubsetDefinition]
     fromSchema: SchemaDefinition
+    importedFrom: String
     seeAlso: [Uri]
-    idPrefixes: [Ncname]
   }
 
 type Example
@@ -74,21 +80,26 @@ type Prefix
 type SchemaDefinition
   {
     name: String!
+    singularName: String
+    aliases: [String]
+    mappings: [Uriorcuri]
     description: String
     deprecated: String
-    notes: [String]
+    todos: [String]
     comments: [String]
+    notes: [String]
     examples: [Example]
     inSubset: [SubsetDefinition]
     fromSchema: SchemaDefinition
+    importedFrom: String
     seeAlso: [Uri]
-    idPrefixes: [Ncname]
     id: Uri!
     title: String
     version: String
     imports: [Uri]
     license: String
     prefixes: [Prefix]
+    emitPrefixes: [Ncname]
     defaultCuriMaps: [String]
     defaultPrefix: String
     defaultRange: Definition
@@ -106,22 +117,24 @@ type SchemaDefinition
 type SlotDefinition
   {
     name: String!
+    singularName: String
+    aliases: [String]
+    mappings: [Uriorcuri]
     description: String
     deprecated: String
-    notes: [String]
+    todos: [String]
     comments: [String]
+    notes: [String]
     examples: [Example]
     inSubset: [SubsetDefinition]
     fromSchema: SchemaDefinition
+    importedFrom: String
     seeAlso: [Uri]
-    idPrefixes: [Ncname]
     isA: SlotDefinition
     abstract: Boolean
-    localNames: [String]
     mixin: Boolean
     mixins: [SlotDefinition]
     applyTo: [SlotDefinition]
-    valuesFrom: [Uri]
     domain: ClassDefinition!
     range: Element
     slotUri: Uri
@@ -134,39 +147,46 @@ type SlotDefinition
     key: Boolean
     identifier: Boolean
     alias: String
-    subclassOf: Uri
-    inverse: SlotDefinition
   }
 
 type SubsetDefinition
   {
     name: String!
+    singularName: String
+    aliases: [String]
+    mappings: [Uriorcuri]
     description: String
     deprecated: String
-    notes: [String]
+    todos: [String]
     comments: [String]
+    notes: [String]
     examples: [Example]
     inSubset: [SubsetDefinition]
     fromSchema: SchemaDefinition
+    importedFrom: String
     seeAlso: [Uri]
-    idPrefixes: [Ncname]
   }
 
 type TypeDefinition
   {
     name: String!
+    singularName: String
+    aliases: [String]
+    mappings: [Uriorcuri]
     description: String
     deprecated: String
-    notes: [String]
+    todos: [String]
     comments: [String]
+    notes: [String]
     examples: [Example]
     inSubset: [SubsetDefinition]
     fromSchema: SchemaDefinition
+    importedFrom: String
     seeAlso: [Uri]
-    idPrefixes: [Ncname]
     typeof: TypeDefinition
     base: String
     uri: Uri
+    repr: String
   }
 
 

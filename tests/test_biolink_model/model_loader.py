@@ -476,7 +476,8 @@ class ModelLoader:
                 process_slot_class_description(assoc.object)
             if assoc.is_a and assoc.is_a not in self.model.associations:
                 unknown(assoc, 'is_a', assoc.is_a)
-            if assoc.has_confidence_level and assoc.has_confidence_level not in self.model.???
+            if assoc.has_confidence_level and assoc.has_confidence_level not in self.model.valuesets:
+                unknown(assoc, 'has_confidence_level', assoc.has_confidence_level)
             for ev in assoc.has_evidence:
                 if ev not in self.model.evidence:
                     unknown(assoc, 'evidence', ev)
@@ -484,7 +485,8 @@ class ModelLoader:
                 if prov not in self.model.providers:
                     unknown(assoc, 'provided_by', prov)
             for q in assoc.qualifiers:
-                if q not in self.model.???
+                if q not in self.model.valuesets:
+                    unknown(assoc, 'qualifiers', q)
             for pub in assoc.publications:
                 if pub not in self.model.publications:
                     unknown(assoc, 'publications', pub)
@@ -494,11 +496,11 @@ class ModelLoader:
             for apply_to in assoc.apply_to:
                 if apply_to not in self.model.associations:
                     unknown(assoc, 'apply_to', apply_to)
-            for slot in assoc.slots:
-                if slot not in self.model.association_slots:
-                    ???
-                    for ass_slot in assoc.association_slot:
-                        if ass_slot not in self.model.???
+            # for slot in assoc.slots:
+            #     if slot not in self.model.association_slots:
+            #         ???
+            #         for ass_slot in assoc.association_slot:
+            #             if ass_slot not in self.model.???
 
                 for node in self.model.nodes.values():
                     process_ontological_class(node)

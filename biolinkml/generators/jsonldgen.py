@@ -5,11 +5,11 @@ import os
 from typing import Any, Optional
 
 import click
-from jsonasobj import as_json, loads
+from jsonasobj import as_json
 
 from biolinkml import METAMODEL_CONTEXT_URI
 from biolinkml.meta import ClassDefinitionName, SlotDefinitionName, TypeDefinitionName, \
-    ElementName, SlotDefinition, ClassDefinition, TypeDefinition
+    ElementName, SlotDefinition, ClassDefinition, TypeDefinition, SubsetDefinitionName, SubsetDefinition
 from biolinkml.utils.formatutils import camelcase, underscore
 from biolinkml.utils.generator import Generator
 from biolinkml.utils.yamlutils import YAMLRoot
@@ -20,10 +20,16 @@ class JSONLDGenerator(Generator):
     generatorversion = "0.0.2"
     valid_formats = ['jsonld']
 
+    def _add_type(self, node: YAMLRoot) -> dict:
+        typ = node.__class__.__name__
+        node = node.__dict__
+        node['type'] = typ
+        return node
+
     def _visit(self, node: Any) -> Optional[Any]:
         if isinstance(node, (YAMLRoot, dict)):
             if isinstance(node, YAMLRoot):
-                node = node.__dict__
+                node = self._add_type(node)
             for k, v in list(node.items()):
                 if v:
                     new_v = self._visit(v)
@@ -46,9 +52,12 @@ class JSONLDGenerator(Generator):
             return SlotDefinitionName(underscore(node))
         elif isinstance(node, TypeDefinitionName):
             return TypeDefinitionName(underscore(node))
+        elif isinstance(node, SubsetDefinitionName):
+            return SubsetDefinitionName(underscore(node))
         elif isinstance(node, ElementName):
             return ClassDefinitionName(camelcase(node)) if node in self.schema.classes else \
                 SlotDefinitionName(underscore(node)) if node in self.schema.slots else \
+                SubsetDefinitionName(camelcase(node)) if node in self.schema.subsets else \
                 TypeDefinitionName(underscore(node)) if node in self.schema.types else None
         return None
 
@@ -63,9 +72,9 @@ class JSONLDGenerator(Generator):
 
     def visit_class(self, cls: ClassDefinition) -> bool:
         self._visit(cls)
-        for slot_usage in cls.slot_usage.values():
-            self.adjust_slot(slot_usage)
         cls.class_uri = self.namespaces.uri_for(cls.class_uri)
+        # Slot usage is a construction artifact
+        cls.slot_usage = []
         return False
 
     def visit_slot(self, aliased_slot_name: str, slot: SlotDefinition) -> None:
@@ -73,12 +82,15 @@ class JSONLDGenerator(Generator):
         self.adjust_slot(slot)
 
     def visit_type(self, typ: TypeDefinition) -> None:
+        self._visit(typ)
         typ.uri = self.namespaces.uri_for(typ.uri)
 
+    def visit_subset(self, ss: SubsetDefinition) -> None:
+        self._visit(ss)
+
     def end_schema(self, context: str = None) -> None:
-        # self._visit(self.schema)
-        json_str = as_json(self.schema)
-        json_obj = loads(json_str)
+        self._add_type(self.schema)
+        json_obj = self.schema
         base_prefix = self.default_prefix()
 
         # JSON LD adjusts context reference using '@base'.  If context is supplied and not a URI, generate an
@@ -89,7 +101,7 @@ class JSONLDGenerator(Generator):
             context = 'file://' + os.path.abspath(os.path.join(os.getcwd(), context))
 
         json_obj["@context"] = [context, {'@base': base_prefix}] if base_prefix else context
-        json_obj["@id"] = self.schema.id
+        # json_obj["@id"] = self.schema.id
         print(as_json(json_obj, indent="  "))
 
 

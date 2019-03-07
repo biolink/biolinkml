@@ -1,0 +1,1373 @@
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/RelationshipType> {
+    &<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Uri>
+}
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/RelationshipSubject> {
+    &<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Uri>
+}
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/RelationshipObject> {
+    &<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Uri>
+}
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Phenotype> {
+    &<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String>
+}
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/EvidenceInstance> {
+    &<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String>
+}
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ChemicalFormulaValue> {
+    &<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String>
+}
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/IdentifierType> {
+    &<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Uri>
+}
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/IriType> {
+    &<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String>
+}
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/LabelType> {
+    &<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String>
+}
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/NarrativeText> {
+    &<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String>
+}
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/SymbolType> {
+    &<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String>
+}
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ChemicalFormulaType> {
+    &<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String>
+}
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/PerecentageFrequencyValue> {
+    &<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Double>
+}
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Quotient> {
+    &<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Double>
+}
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Unit> {
+    &<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String>
+}
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/TimeType> {
+    &<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Time>
+}
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/BiologicalSequence> {
+    &<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String>
+}
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String> <http://www.w3.org/2001/XMLSchema#string>
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Integer> <http://www.w3.org/2001/XMLSchema#integer>
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Boolean> <http://www.w3.org/2001/XMLSchema#boolean>
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Float> <http://www.w3.org/2001/XMLSchema#float>
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Double> <http://www.w3.org/2001/XMLSchema#double>
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Time> <http://www.w3.org/2001/XMLSchema#dateTime>
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Date> <http://www.w3.org/2001/XMLSchema#dateTime>
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Datetime> <http://www.w3.org/2001/XMLSchema#dateTime>
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Uri> NONLITERAL
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Ncname> <http://www.w3.org/2001/XMLSchema#string>
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ActivityAndBehavior>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Occurrent> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/AdministrativeEntity> { }
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/AnatomicalEntity>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/OrganismalEntity> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ThingWithTaxon> AND CLOSED {
+       (  <http://w3id.org/biolink/vocab/expresses>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneOrGeneProduct> ? ;
+          <http://w3id.org/biolink/vocab/in_taxon> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/OrganismTaxon> ?
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/AnatomicalEntityToAnatomicalEntityAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND CLOSED {
+       (  <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/AnatomicalEntity> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/AnatomicalEntity>
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/AnatomicalEntityToAnatomicalEntityOntogenicAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/AnatomicalEntityToAnatomicalEntityAssociation> AND CLOSED {
+       (  <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/AnatomicalEntity> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/RelationshipType> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/AnatomicalEntity>
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/AnatomicalEntityToAnatomicalEntityPartOfAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/AnatomicalEntityToAnatomicalEntityAssociation> AND CLOSED {
+       (  <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/AnatomicalEntity> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/RelationshipType> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/AnatomicalEntity>
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/OntologyClass__List> CLOSED {
+    (  <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+       @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/OntologyClass> ? ;
+       <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>  (
+          [ <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> ]
+          OR @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/OntologyClass__List>
+       )
+    )
+}
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Publication__List> CLOSED {
+    (  <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+       @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Publication> ? ;
+       <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>  (
+          [ <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> ]
+          OR @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Publication__List>
+       )
+    )
+}
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/InformationContentEntity> AND CLOSED {
+       (  <http://w3id.org/biolink/vocab/association_type>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/OntologyClass> ? ;
+          <http://w3id.org/biolink/vocab/subject>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/RelationshipSubject> ;
+          <http://w3id.org/biolink/vocab/negated> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Boolean> ? ;
+          <http://w3id.org/biolink/vocab/relation> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/RelationshipType>
+          ;
+          <http://w3id.org/biolink/vocab/object> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/RelationshipObject>
+          ;
+          <http://w3id.org/biolink/vocab/qualifiers>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/OntologyClass__List> ? ;
+          <http://w3id.org/biolink/vocab/publications>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Publication__List> ? ;
+          <http://w3id.org/biolink/vocab/provided_by> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Provider> ? ;
+          <http://w3id.org/biolink/vocab/association_slot> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String> ?
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/IriType__List> CLOSED {
+    (  <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/IriType> ?
+       ;
+       <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>  (
+          [ <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> ]
+          OR @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/IriType__List>
+       )
+    )
+}
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Attribute>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/OntologyClass> AND CLOSED {
+       (  <http://w3id.org/biolink/vocab/id> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/IdentifierType> ;
+          <http://w3id.org/biolink/vocab/name> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/LabelType> ? ;
+          <http://w3id.org/biolink/vocab/category> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/IriType__List> ?
+          ;
+          <http://w3id.org/biolink/vocab/related_to> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/NamedThing> ? ;
+          <http://w3id.org/biolink/vocab/node_property> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String> ? ;
+          <http://w3id.org/biolink/vocab/iri> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/IriType> ? ;
+          <http://w3id.org/biolink/vocab/full_name> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/LabelType> ? ;
+          <http://w3id.org/biolink/vocab/description> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/NarrativeText>
+          ? ;
+          <http://w3id.org/biolink/vocab/systematic_synonym>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/LabelType> ? ;
+          <http://w3id.org/biolink/vocab/subclass_of> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/OntologyClass>
+          ?
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/BiologicalEntity>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/NamedThing> AND {
+       <http://w3id.org/biolink/vocab/has_phenotype> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Phenotype> ?
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/BiologicalProcess>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/BiologicalProcessOrActivity> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Occurrent> AND CLOSED {
+       (  <http://w3id.org/biolink/vocab/regulates_process_to_process>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Occurrent> ? ;
+          <http://w3id.org/biolink/vocab/has_participant> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String> ?
+          ;
+          <http://w3id.org/biolink/vocab/has_input> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String> ? ;
+          <http://w3id.org/biolink/vocab/precedes> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Occurrent> ?
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/BiologicalProcessOrActivity>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/BiologicalEntity> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/BiologicalSex>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Attribute> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Biosample>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/OrganismalEntity> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ThingWithTaxon> AND CLOSED {
+       <http://w3id.org/biolink/vocab/in_taxon> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/OrganismTaxon> ?
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/BiosampleToDiseaseOrPhenotypicFeatureAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/BiosampleToThingAssociation> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ThingToDiseaseOrPhenotypicFeatureAssociation> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/BiosampleToThingAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND {
+       <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+       @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Biosample>
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Case>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/IndividualOrganism> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/CaseToPhenotypicFeatureAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/EntityToPhenotypicFeatureAssociation> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/CaseToThingAssociation> AND CLOSED {
+       (  <http://w3id.org/biolink/vocab/sex_qualifier>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/BiologicalSex> ? ;
+          <http://w3id.org/biolink/vocab/severity_qualifier>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/SeverityValue> ? ;
+          <http://w3id.org/biolink/vocab/onset_qualifier> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Onset> ?
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/CaseToThingAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND {
+       <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+       @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Case>
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Cell>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/AnatomicalEntity> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/CellLine>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Biosample> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/CellLineToDiseaseOrPhenotypicFeatureAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/CellLineToThingAssociation> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ThingToDiseaseOrPhenotypicFeatureAssociation> AND CLOSED {
+       <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+       @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/DiseaseOrPhenotypicFeature>
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/CellLineToThingAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND {
+       <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+       @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/CellLine>
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/CellularComponent>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/AnatomicalEntity> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ChemicalSubstance>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ChemicalToDiseaseOrPhenotypicFeatureAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ChemicalToThingAssociation> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ThingToDiseaseOrPhenotypicFeatureAssociation> AND CLOSED {
+       <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+       @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/DiseaseOrPhenotypicFeature>
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ChemicalToGeneAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ChemicalToThingAssociation> AND CLOSED {
+       <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+       @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneOrGeneProduct>
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ChemicalToPathwayAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ChemicalToThingAssociation> AND CLOSED {
+       <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+       @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Pathway>
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ChemicalToThingAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND {
+       <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+       @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ChemicalSubstance>
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ClinicalEntity>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/NamedThing> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ClinicalIntervention>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ClinicalEntity> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ClinicalModifier>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Attribute> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ClinicalTrial>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ClinicalEntity> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/CodingSequence>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GenomicEntity> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ConfidenceLevel>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/InformationContentEntity> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Device>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/NamedThing> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Disease>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/DiseaseOrPhenotypicFeature> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/DiseaseOrPhenotypicFeature>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/BiologicalEntity> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ThingWithTaxon> AND CLOSED {
+       (  <http://w3id.org/biolink/vocab/correlated_with>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/has_biomarker>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/treated_by> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String> ? ;
+          <http://w3id.org/biolink/vocab/in_taxon> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/OrganismTaxon> ?
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/DiseaseOrPhenotypicFeatureAssociationToLocationAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/DiseaseOrPhenotypicFeatureAssociationToThingAssociation> AND
+    CLOSED {
+       <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+       @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/AnatomicalEntity>
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/DiseaseOrPhenotypicFeatureAssociationToThingAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND {
+       <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+       @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/DiseaseOrPhenotypicFeature>
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/DiseaseToPhenotypicFeatureAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/EntityToPhenotypicFeatureAssociation> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/DiseaseToThingAssociation> AND CLOSED {
+       (  <http://w3id.org/biolink/vocab/sex_qualifier>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/BiologicalSex> ? ;
+          <http://w3id.org/biolink/vocab/severity_qualifier>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/SeverityValue> ? ;
+          <http://w3id.org/biolink/vocab/onset_qualifier> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Onset> ?
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/DiseaseToThingAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND {
+       <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+       @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Disease>
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Drug>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ChemicalSubstance> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/DrugExposure>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Environment> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/EntityToDiseaseAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/EntityToFeatureOrDiseaseQualifiers> AND { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/EntityToFeatureOrDiseaseQualifiers>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/FrequencyQualifier> AND {
+       (  <http://w3id.org/biolink/vocab/severity_qualifier>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/SeverityValue> ? ;
+          <http://w3id.org/biolink/vocab/onset_qualifier> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Onset> ?
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/EntityToPhenotypicFeatureAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/EntityToFeatureOrDiseaseQualifiers> AND {
+       (  <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/NarrativeText> ? ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/PhenotypicFeature> ;
+          <http://w3id.org/biolink/vocab/sex_qualifier>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/BiologicalSex> ? ;
+          <http://w3id.org/biolink/vocab/severity_qualifier>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/SeverityValue> ? ;
+          <http://w3id.org/biolink/vocab/onset_qualifier> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Onset> ?
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Environment>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/BiologicalEntity> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/EnvironmentToPhenotypicFeatureAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/EntityToPhenotypicFeatureAssociation> AND CLOSED {
+       (  <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Environment> ;
+          <http://w3id.org/biolink/vocab/sex_qualifier>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/BiologicalSex> ? ;
+          <http://w3id.org/biolink/vocab/severity_qualifier>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/SeverityValue> ? ;
+          <http://w3id.org/biolink/vocab/onset_qualifier> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Onset> ?
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/EnvironmentalFeature>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/PlanetaryEntity> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/EnvironmentalProcess>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/PlanetaryEntity> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Occurrent> AND CLOSED {
+       (  <http://w3id.org/biolink/vocab/regulates_process_to_process>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Occurrent> ? ;
+          <http://w3id.org/biolink/vocab/has_participant> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String> ?
+          ;
+          <http://w3id.org/biolink/vocab/has_input> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String> ? ;
+          <http://w3id.org/biolink/vocab/precedes> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Occurrent> ?
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/EvidenceType>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/InformationContentEntity> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Exon>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GenomicEntity> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ExonToTranscriptRelationship>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/SequenceFeatureRelationship> AND CLOSED {
+       (  <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Exon> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Transcript>
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/FrequencyQualifier> { }
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/FrequencyQuantifier>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/RelationshipQuantifier> AND {
+       (  <http://w3id.org/biolink/vocab/has_count> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Integer> ? ;
+          <http://w3id.org/biolink/vocab/has_total> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Integer> ? ;
+          <http://w3id.org/biolink/vocab/has_quotient> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Double> ? ;
+          <http://w3id.org/biolink/vocab/has_percentage> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Double> ?
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/FrequencyValue>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Attribute> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/FunctionalAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND CLOSED {
+       (  <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MacromolecularMachine> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneOntologyClass>
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Gene>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneOrGeneProduct> AND CLOSED {
+       (  <http://w3id.org/biolink/vocab/genetically_interacts_with>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Gene> ? ;
+          <http://w3id.org/biolink/vocab/has_gene_product>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneProduct> ? ;
+          <http://w3id.org/biolink/vocab/gene_associated_with_condition>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/DiseaseOrPhenotypicFeature> ?
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneAsAModelOfDiseaseAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneToDiseaseAssociation> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ModelToDiseaseMixin> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/EntityToDiseaseAssociation> AND CLOSED {
+       <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+       @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneOrGeneProduct>
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneFamily>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneGrouping> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneGrouping> { }
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneHasVariantThatContributesToDiseaseAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneToDiseaseAssociation> AND CLOSED {
+       (  <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneOrGeneProduct> ;
+          <http://w3id.org/biolink/vocab/sequence_variant_qualifier>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/SequenceVariant> ?
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneOntologyClass>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/OntologyClass> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneOrGeneProduct>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MacromolecularMachine> AND CLOSED {
+       (  <http://w3id.org/biolink/vocab/in_pathway_with>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneOrGeneProduct> ? ;
+          <http://w3id.org/biolink/vocab/in_complex_with>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneOrGeneProduct> ? ;
+          <http://w3id.org/biolink/vocab/in_cell_population_with>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneOrGeneProduct> ? ;
+          <http://w3id.org/biolink/vocab/expressed_in>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/AnatomicalEntity> ?
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneProduct>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneOrGeneProduct> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneProductIsoform>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneProduct> AND { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneRegulatoryRelationship>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND CLOSED {
+       (  <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneOrGeneProduct> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/RelationshipType> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneOrGeneProduct>
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneToDiseaseAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/EntityToDiseaseAssociation> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneToThingAssociation> AND CLOSED {
+       (  <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneOrGeneProduct> ;
+          <http://w3id.org/biolink/vocab/severity_qualifier>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/SeverityValue> ? ;
+          <http://w3id.org/biolink/vocab/onset_qualifier> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Onset> ?
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneToExpressionSiteAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND CLOSED {
+       (  <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneOrGeneProduct> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/RelationshipType> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/AnatomicalEntity> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/LifeStage> ? ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/OntologyClass> ?
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneToGeneAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND {
+       (  <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneOrGeneProduct> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneOrGeneProduct>
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneToGeneHomologyAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneToGeneAssociation> AND CLOSED {
+       <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+       @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/RelationshipType>
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneToGeneProductRelationship>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/SequenceFeatureRelationship> AND CLOSED {
+       (  <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Gene> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/RelationshipType> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneProduct>
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneToGoTermAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/FunctionalAssociation> AND CLOSED {
+       (  <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneOntologyClass>
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneToPhenotypicFeatureAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/EntityToPhenotypicFeatureAssociation> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneToThingAssociation> AND CLOSED {
+       (  <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneOrGeneProduct> ;
+          <http://w3id.org/biolink/vocab/sex_qualifier>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/BiologicalSex> ? ;
+          <http://w3id.org/biolink/vocab/severity_qualifier>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/SeverityValue> ? ;
+          <http://w3id.org/biolink/vocab/onset_qualifier> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Onset> ?
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneToThingAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND {
+       <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+       @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneOrGeneProduct>
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Genome>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GenomicEntity> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GenomicEntity>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> AND CLOSED {
+       <http://w3id.org/biolink/vocab/has_biological_sequence>
+       @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/BiologicalSequence> ?
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GenomicSequenceLocalization>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND CLOSED {
+       (  <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GenomicEntity> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GenomicEntity> ;
+          <http://w3id.org/biolink/vocab/start_interbase_coordinate>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String> ? ;
+          <http://w3id.org/biolink/vocab/end_interbase_coordinate>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String> ? ;
+          <http://w3id.org/biolink/vocab/genome_build> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String> ? ;
+          <http://w3id.org/biolink/vocab/phase> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String> ?
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Genotype>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GenomicEntity> AND CLOSED {
+       <http://w3id.org/biolink/vocab/has_zygosity> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Zygosity> ?
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GenotypeToGeneAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND CLOSED {
+       (  <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Genotype> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/RelationshipType> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Gene>
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GenotypeToGenotypePartAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND CLOSED {
+       (  <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Genotype> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/RelationshipType> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Genotype>
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GenotypeToPhenotypicFeatureAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/EntityToPhenotypicFeatureAssociation> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GenotypeToThingAssociation> AND CLOSED {
+       (  <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Genotype> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/RelationshipType> ;
+          <http://w3id.org/biolink/vocab/sex_qualifier>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/BiologicalSex> ? ;
+          <http://w3id.org/biolink/vocab/severity_qualifier>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/SeverityValue> ? ;
+          <http://w3id.org/biolink/vocab/onset_qualifier> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Onset> ?
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GenotypeToThingAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND {
+       <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+       @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Genotype>
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GenotypeToVariantAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND CLOSED {
+       (  <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Genotype> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/RelationshipType> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/SequenceVariant>
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GenotypicSex>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/BiologicalSex> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeographicLocation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/PlanetaryEntity> AND CLOSED {
+       (  <http://w3id.org/biolink/vocab/latitude> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Float> ? ;
+          <http://w3id.org/biolink/vocab/longitude> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Float> ?
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeographicLocationAtTime>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeographicLocation> AND CLOSED {
+       <http://w3id.org/biolink/vocab/timepoint> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/TimeType> ?
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GrossAnatomicalStructure>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/AnatomicalEntity> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Haplotype>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GenomicEntity> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/IndividualOrganism>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/OrganismalEntity> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ThingWithTaxon> AND CLOSED {
+       <http://w3id.org/biolink/vocab/in_taxon> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/OrganismTaxon> ?
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/InformationContentEntity>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/NamedThing> AND { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Prefix__List> CLOSED {
+    (  <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Prefix> ?
+       ;
+       <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>  (
+          [ <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> ]
+          OR @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Prefix__List>
+       )
+    )
+}
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String__List> CLOSED {
+    (  <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String> ?
+       ;
+       <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>  (
+          [ <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> ]
+          OR @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String__List>
+       )
+    )
+}
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/NamedThing__List> CLOSED {
+    (  <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+       @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/NamedThing> ? ;
+       <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>  (
+          [ <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> ]
+          OR @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/NamedThing__List>
+       )
+    )
+}
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association__List> CLOSED {
+    (  <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+       @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> ? ;
+       <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>  (
+          [ <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> ]
+          OR @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association__List>
+       )
+    )
+}
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/KnowledgeGraph> CLOSED {
+    (  <http://w3id.org/biolink/vocab/id> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String> ;
+       <http://w3id.org/biolink/vocab/prefixes> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Prefix__List> ? ;
+       <http://w3id.org/biolink/vocab/default_curi_maps>
+       @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String__List> ? ;
+       <http://w3id.org/biolink/vocab/default_prefix> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String> ? ;
+       <http://w3id.org/biolink/vocab/entities> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/NamedThing__List> ?
+       ;
+       <http://w3id.org/biolink/vocab/relationship_types>
+       @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association__List> ? ;
+       <http://w3id.org/biolink/vocab/kg_version> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String> ? ;
+       <http://w3id.org/biolink/vocab/kg_source> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String> ? ;
+       <http://w3id.org/biolink/vocab/kg_source_version> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Integer> ?
+       ;
+       <http://w3id.org/biolink/vocab/generation_date> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Date> ?
+    )
+}
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/LifeStage>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/OrganismalEntity> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ThingWithTaxon> AND CLOSED {
+       <http://w3id.org/biolink/vocab/in_taxon> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/OrganismTaxon> ?
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MacromolecularComplex>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MacromolecularMachine> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MacromolecularMachine>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GenomicEntity> AND CLOSED {
+       <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+       @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/SymbolType> ?
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MacromolecularMachineToBiologicalProcessAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/FunctionalAssociation> AND CLOSED {
+       <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+       @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/BiologicalProcess>
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MacromolecularMachineToCellularComponentAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/FunctionalAssociation> AND CLOSED {
+       <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+       @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/CellularComponent>
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MacromolecularMachineToMolecularActivityAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/FunctionalAssociation> AND CLOSED {
+       <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+       @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularActivity>
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Metabolite>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ChemicalSubstance> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MicroRNA>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/NoncodingRNAProduct> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ModelToDiseaseMixin> { }
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularActivity>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/BiologicalProcessOrActivity> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Occurrent> AND CLOSED {
+       (  <http://w3id.org/biolink/vocab/regulates_process_to_process>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Occurrent> ? ;
+          <http://w3id.org/biolink/vocab/has_participant> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String> ?
+          ;
+          <http://w3id.org/biolink/vocab/has_input> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String> ? ;
+          <http://w3id.org/biolink/vocab/precedes> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Occurrent> ?
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/BiologicalEntity> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ThingWithTaxon> AND CLOSED {
+       (  <http://w3id.org/biolink/vocab/molecularly_interacts_with>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/affects_abundance_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/increases_abundance_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/decreases_abundance_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/affects_activity_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/increases_activity_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/decreases_activity_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/affects_expression_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GenomicEntity> ? ;
+          <http://w3id.org/biolink/vocab/increases_expression_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GenomicEntity> ? ;
+          <http://w3id.org/biolink/vocab/decreases_expression_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GenomicEntity> ? ;
+          <http://w3id.org/biolink/vocab/affects_folding_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/increases_folding_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/decreases_folding_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/affects_localization_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/increases_localization_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/decreases_localization_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/affects_metabolic_processing_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/increases_metabolic_processing_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/decreases_metabolic_processing_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/affects_molecular_modification_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/increases_molecular_modification_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/decreases_molecular_modification_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/affects_synthesis_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/increases_synthesis_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/decreases_synthesis_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/affects_degradation_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/increases_degradation_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/decreases_degradation_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/affects_mutation_rate_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GenomicEntity> ? ;
+          <http://w3id.org/biolink/vocab/increases_mutation_rate_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GenomicEntity> ? ;
+          <http://w3id.org/biolink/vocab/decreases_mutation_rate_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GenomicEntity> ? ;
+          <http://w3id.org/biolink/vocab/affects_response_to>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/increases_response_to>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/decreases_response_to>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/affects_splicing_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Transcript> ? ;
+          <http://w3id.org/biolink/vocab/increases_splicing_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Transcript> ? ;
+          <http://w3id.org/biolink/vocab/decreases_splicing_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Transcript> ? ;
+          <http://w3id.org/biolink/vocab/affects_stability_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/increases_stability_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/decreases_stability_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/affects_transport_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/increases_transport_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/decreases_transport_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/affects_secretion_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/increases_secretion_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/decreases_secretion_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/affects_uptake_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/increases_uptake_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/decreases_uptake_of>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/regulates_entity_to_entity>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ? ;
+          <http://w3id.org/biolink/vocab/biomarker_for>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/DiseaseOrPhenotypicFeature> ? ;
+          <http://w3id.org/biolink/vocab/in_taxon> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/OrganismTaxon> ?
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/NamedThing> CLOSED {
+    (  <http://w3id.org/biolink/vocab/id> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/IdentifierType> ;
+       <http://w3id.org/biolink/vocab/name> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/LabelType> ? ;
+       <http://w3id.org/biolink/vocab/category> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/IriType__List> ? ;
+       <http://w3id.org/biolink/vocab/related_to> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/NamedThing> ? ;
+       <http://w3id.org/biolink/vocab/node_property> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String> ? ;
+       <http://w3id.org/biolink/vocab/iri> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/IriType> ? ;
+       <http://w3id.org/biolink/vocab/full_name> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/LabelType> ? ;
+       <http://w3id.org/biolink/vocab/description> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/NarrativeText> ?
+       ;
+       <http://w3id.org/biolink/vocab/systematic_synonym> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/LabelType>
+       ?
+    )
+}
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/NoncodingRNAProduct>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/RNAProduct> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Occurrent>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/NamedThing> AND {
+       (  <http://w3id.org/biolink/vocab/regulates_process_to_process>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Occurrent> ? ;
+          <http://w3id.org/biolink/vocab/has_participant> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String> ?
+          ;
+          <http://w3id.org/biolink/vocab/has_input> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String> ? ;
+          <http://w3id.org/biolink/vocab/precedes> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Occurrent> ?
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Onset>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Attribute> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/OntologyClass>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/NamedThing> AND {
+       <http://w3id.org/biolink/vocab/subclass_of> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/OntologyClass> ?
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/OrganismTaxon>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/OntologyClass> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/OrganismalEntity>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/BiologicalEntity> AND { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/PairwiseGeneToGeneInteraction>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneToGeneAssociation> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/PairwiseInteractionAssociation> AND CLOSED {
+       <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+       @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/RelationshipType>
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/PairwiseInteractionAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND {
+       (  <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/IdentifierType> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/RelationshipType> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/MolecularEntity>
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/PathognomonicityQuantifier>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/SpecificityQuantifier> AND { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Pathway>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/BiologicalProcess> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Phenomenon>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Occurrent> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/PhenotypicFeature>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/DiseaseOrPhenotypicFeature> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/PhenotypicSex>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/BiologicalSex> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/PhysiologicalProcess>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/BiologicalProcess> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/PlanetaryEntity>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/NamedThing> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/PopulationOfIndividualOrganisms>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/OrganismalEntity> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ThingWithTaxon> AND CLOSED {
+       <http://w3id.org/biolink/vocab/in_taxon> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/OrganismTaxon> ?
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/PopulationToPopulationAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND CLOSED {
+       (  <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/PopulationOfIndividualOrganisms> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/RelationshipType> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/PopulationOfIndividualOrganisms>
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Prefix> CLOSED {
+    (  <http://w3id.org/biolink/vocab/local_name> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String> ;
+       <http://w3id.org/biolink/vocab/prefix_uri> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/String> ?
+    )
+}
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Procedure>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Occurrent> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Protein>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneProduct> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ProteinIsoform>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Protein> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneProductIsoform> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Provider>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/AdministrativeEntity> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Publication>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/InformationContentEntity> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/RelationshipQuantifier> { }
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/RNAProduct>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneProduct> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/RNAProductIsoform>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/RNAProduct> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GeneProductIsoform> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/SenstivityQuantifier>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/RelationshipQuantifier> AND { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/SequenceFeatureRelationship>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND CLOSED {
+       (  <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GenomicEntity> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GenomicEntity>
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Gene__List> CLOSED {
+    (  <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Gene> ? ;
+       <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>  (
+          [ <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> ]
+          OR @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Gene__List>
+       )
+    )
+}
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/SequenceVariant>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GenomicEntity> AND CLOSED {
+       (  <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/IdentifierType> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/BiologicalSequence> ? ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Gene__List> ?
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/SequenceVariantModulatesTreatmentAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND {
+       (  <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/SequenceVariant> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Treatment>
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/SeverityValue>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Attribute> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/SpecificityQuantifier>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/RelationshipQuantifier> AND { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ThingToDiseaseOrPhenotypicFeatureAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND {
+       <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+       @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/DiseaseOrPhenotypicFeature>
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/ThingWithTaxon> {
+    <http://w3id.org/biolink/vocab/in_taxon> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/OrganismTaxon> ?
+}
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Transcript>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/GenomicEntity> AND CLOSED { }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/TranscriptToGeneRelationship>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/SequenceFeatureRelationship> AND CLOSED {
+       (  <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Transcript> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Gene>
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Treatment>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Environment> AND CLOSED {
+       <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+       @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/DiseaseOrPhenotypicFeature>
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/VariantToDiseaseAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/VariantToThingAssociation> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/EntityToDiseaseAssociation> AND CLOSED {
+       (  <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/RelationshipSubject> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/RelationshipType> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/RelationshipObject> ;
+          <http://w3id.org/biolink/vocab/severity_qualifier>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/SeverityValue> ? ;
+          <http://w3id.org/biolink/vocab/onset_qualifier> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Onset> ?
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/VariantToPhenotypicFeatureAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/VariantToThingAssociation> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/EntityToPhenotypicFeatureAssociation> AND CLOSED {
+       (  <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/SequenceVariant> ;
+          <http://w3id.org/biolink/vocab/sex_qualifier>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/BiologicalSex> ? ;
+          <http://w3id.org/biolink/vocab/severity_qualifier>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/SeverityValue> ? ;
+          <http://w3id.org/biolink/vocab/onset_qualifier> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Onset> ?
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/VariantToPopulationAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/VariantToThingAssociation> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/FrequencyQuantifier> AND
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/FrequencyQualifier> AND CLOSED {
+       (  <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/SequenceVariant> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/PopulationOfIndividualOrganisms> ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Integer> ? ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Integer> ? ;
+          <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+          @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Double> ? ;
+          <http://w3id.org/biolink/vocab/has_percentage> @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Double> ?
+       )
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/VariantToThingAssociation>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Association> AND {
+       <https://biolink.github.io/biolink-model/ontology/biolink.ttl/None>
+       @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/SequenceVariant>
+    }
+)
+
+<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Zygosity>  (
+    @<https://biolink.github.io/biolink-model/ontology/biolink.ttl/Attribute> AND CLOSED { }
+)
+
+
+

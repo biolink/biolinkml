@@ -1,5 +1,5 @@
 # Auto generated from biolink_named_thing.yaml by pythongen.py version: 0.2.0
-# Generation date: 2019-02-12 09:07
+# Generation date: 2019-03-05 09:14
 # Schema: biolink named_thing
 #
 # id: http://w3id.org/biolink/biolink-model/named-thing
@@ -98,7 +98,7 @@ class AltDescription(YAMLRoot):
 
     def _fix_elements(self):
         super()._fix_elements()
-        if self.source and not isinstance(self.source, UriType):
+        if self.source is not None and not isinstance(self.source, UriType):
             self.source = UriType(self.source)
         if not isinstance(self.description, NarrativeText):
             self.description = NarrativeText(self.description)
@@ -116,9 +116,9 @@ class Example(YAMLRoot):
 
     def _fix_elements(self):
         super()._fix_elements()
-        if self.value and not isinstance(self.value, NarrativeText):
+        if self.value is not None and not isinstance(self.value, NarrativeText):
             self.value = NarrativeText(self.value)
-        if self.description and not isinstance(self.description, NarrativeText):
+        if self.description is not None and not isinstance(self.description, NarrativeText):
             self.description = NarrativeText(self.description)
 
 
@@ -136,7 +136,7 @@ class PossibleValue(YAMLRoot):
         super()._fix_elements()
         if not isinstance(self.possible_value_value, PossibleValuePossibleValueValue):
             self.possible_value_value = PossibleValuePossibleValueValue(self.possible_value_value)
-        if self.possible_value_description and not isinstance(self.possible_value_description, NarrativeText):
+        if self.possible_value_description is not None and not isinstance(self.possible_value_description, NarrativeText):
             self.possible_value_description = NarrativeText(self.possible_value_description)
 
 
@@ -171,15 +171,15 @@ class Thing(YAMLRoot):
 
     def _fix_elements(self):
         super()._fix_elements()
-        if self.name and not isinstance(self.name, LabelType):
+        if self.name is not None and not isinstance(self.name, LabelType):
             self.name = LabelType(self.name)
-        if self.iri and not isinstance(self.iri, UriType):
+        if self.iri is not None and not isinstance(self.iri, UriType):
             self.iri = UriType(self.iri)
-        if self.full_name and not isinstance(self.full_name, LabelType):
+        if self.full_name is not None and not isinstance(self.full_name, LabelType):
             self.full_name = LabelType(self.full_name)
         self.local_names = [v if isinstance(v, LabelType)
                             else LabelType(v) for v in self.local_names]
-        if self.description and not isinstance(self.description, NarrativeText):
+        if self.description is not None and not isinstance(self.description, NarrativeText):
             self.description = NarrativeText(self.description)
         self.alt_descriptions = [v if isinstance(v, AltDescription)
                                  else AltDescription(**v) for v in self.alt_descriptions]
@@ -197,17 +197,17 @@ class Thing(YAMLRoot):
                          else IdentifierType(v) for v in self.see_also]
         self.id_prefixes = [v if isinstance(v, NCName)
                             else NCName(v) for v in self.id_prefixes]
-        if self.creation_date and not isinstance(self.creation_date, XSDDate):
+        if self.creation_date is not None and not isinstance(self.creation_date, XSDDate):
             self.creation_date = XSDDate(self.creation_date)
-        if self.update_date and not isinstance(self.update_date, XSDDate):
+        if self.update_date is not None and not isinstance(self.update_date, XSDDate):
             self.update_date = XSDDate(self.update_date)
-        if self.from_model and not isinstance(self.from_model, UriType):
+        if self.from_model is not None and not isinstance(self.from_model, UriType):
             self.from_model = UriType(self.from_model)
-        if self.source_file and not isinstance(self.source_file, FileName):
+        if self.source_file is not None and not isinstance(self.source_file, FileName):
             self.source_file = FileName(self.source_file)
-        if self.mixin and not isinstance(self.mixin, BooleanType):
+        if self.mixin is not None and not isinstance(self.mixin, BooleanType):
             self.mixin = BooleanType(self.mixin)
-        if self.abstract and not isinstance(self.abstract, BooleanType):
+        if self.abstract is not None and not isinstance(self.abstract, BooleanType):
             self.abstract = BooleanType(self.abstract)
         self.mappings = [v if isinstance(v, UriType)
                          else UriType(v) for v in self.mappings]
@@ -251,11 +251,11 @@ class NamedThing(Thing):
 
     def _fix_elements(self):
         super()._fix_elements()
-        if not isinstance(self.id, NamedThingId):
+        if self.id is not None and not isinstance(self.id, NamedThingId):
             self.id = NamedThingId(self.id)
         self.category = [v if isinstance(v, NamedThingId)
                          else NamedThingId(v) for v in self.category]
-        if self.is_a and not isinstance(self.is_a, NamedThingId):
+        if self.is_a is not None and not isinstance(self.is_a, NamedThingId):
             self.is_a = NamedThingId(self.is_a)
         self.mixins = [v if isinstance(v, NamedThingId)
                        else NamedThingId(v) for v in self.mixins]
@@ -307,11 +307,11 @@ class TypeDefinition(NamedThing):
 
     def _fix_elements(self):
         super()._fix_elements()
-        if not isinstance(self.id, TypeDefinitionId):
+        if self.id is not None and not isinstance(self.id, TypeDefinitionId):
             self.id = TypeDefinitionId(self.id)
-        if self.typeof and not isinstance(self.typeof, TypeDefinitionId):
+        if self.typeof is not None and not isinstance(self.typeof, TypeDefinitionId):
             self.typeof = TypeDefinitionId(self.typeof)
-        if self.uri and not isinstance(self.uri, IdentifierType):
+        if self.uri is not None and not isinstance(self.uri, IdentifierType):
             self.uri = IdentifierType(self.uri)
 
 
@@ -357,7 +357,7 @@ class ValuesetDefinition(NamedThing):
 
     def _fix_elements(self):
         super()._fix_elements()
-        if not isinstance(self.id, ValuesetDefinitionId):
+        if self.id is not None and not isinstance(self.id, ValuesetDefinitionId):
             self.id = ValuesetDefinitionId(self.id)
         self.values_from = [v if isinstance(v, IdentifierType)
                             else IdentifierType(v) for v in self.values_from]
@@ -478,7 +478,7 @@ class NodeType(OntologicalClass):
 
     def _fix_elements(self):
         super()._fix_elements()
-        if not isinstance(self.id, NodeTypeId):
+        if self.id is not None and not isinstance(self.id, NodeTypeId):
             self.id = NodeTypeId(self.id)
         self.union_of = [v if isinstance(v, NodeTypeId)
                          else NodeTypeId(v) for v in self.union_of]
@@ -537,15 +537,15 @@ class RelationshipType(OntologicalClass):
 
     def _fix_elements(self):
         super()._fix_elements()
-        if not isinstance(self.id, RelationshipTypeId):
+        if self.id is not None and not isinstance(self.id, RelationshipTypeId):
             self.id = RelationshipTypeId(self.id)
-        if self.domain and not isinstance(self.domain, NodeTypeId):
+        if self.domain is not None and not isinstance(self.domain, NodeTypeId):
             self.domain = NodeTypeId(self.domain)
-        if self.range and not isinstance(self.range, NodeTypeId):
+        if self.range is not None and not isinstance(self.range, NodeTypeId):
             self.range = NodeTypeId(self.range)
-        if self.inverse and not isinstance(self.inverse, RelationshipTypeId):
+        if self.inverse is not None and not isinstance(self.inverse, RelationshipTypeId):
             self.inverse = RelationshipTypeId(self.inverse)
-        if self.symmetric and not isinstance(self.symmetric, RelationshipTypeId):
+        if self.symmetric is not None and not isinstance(self.symmetric, RelationshipTypeId):
             self.symmetric = RelationshipTypeId(self.symmetric)
 
 
@@ -598,7 +598,7 @@ class PropertyType(OntologicalClass):
 
     def _fix_elements(self):
         super()._fix_elements()
-        if not isinstance(self.id, PropertyTypeId):
+        if self.id is not None and not isinstance(self.id, PropertyTypeId):
             self.id = PropertyTypeId(self.id)
 
 
@@ -719,7 +719,7 @@ class Provider(AdministrativeEntity):
 
     def _fix_elements(self):
         super()._fix_elements()
-        if not isinstance(self.id, ProviderId):
+        if self.id is not None and not isinstance(self.id, ProviderId):
             self.id = ProviderId(self.id)
 
 
@@ -763,7 +763,7 @@ class SubsetDefinition(NamedThing):
 
     def _fix_elements(self):
         super()._fix_elements()
-        if not isinstance(self.id, SubsetDefinitionId):
+        if self.id is not None and not isinstance(self.id, SubsetDefinitionId):
             self.id = SubsetDefinitionId(self.id)
 
 
@@ -807,7 +807,7 @@ class RelationshipQuantifier(NamedThing):
 
     def _fix_elements(self):
         super()._fix_elements()
-        if not isinstance(self.id, RelationshipQuantifierId):
+        if self.id is not None and not isinstance(self.id, RelationshipQuantifierId):
             self.id = RelationshipQuantifierId(self.id)
 
 
@@ -857,9 +857,9 @@ class PropertyDefinition(NamedThing):
 
     def _fix_elements(self):
         super()._fix_elements()
-        if self.domain and not isinstance(self.domain, IdentifierType):
+        if self.domain is not None and not isinstance(self.domain, IdentifierType):
             self.domain = IdentifierType(self.domain)
-        if self.range and not isinstance(self.range, NamedThingId):
+        if self.range is not None and not isinstance(self.range, NamedThingId):
             self.range = NamedThingId(self.range)
 
 
@@ -950,5 +950,5 @@ class QualifierType(NamedThing):
 
     def _fix_elements(self):
         super()._fix_elements()
-        if not isinstance(self.id, QualifierTypeId):
+        if self.id is not None and not isinstance(self.id, QualifierTypeId):
             self.id = QualifierTypeId(self.id)

@@ -41,9 +41,9 @@
 <polygon fill="#0000ff" stroke="#0000ff" points="116.2014,-46.2178 118.1109,-35.7964 110.1193,-42.7524 116.2014,-46.2178"/>
 <text text-anchor="middle" x="137.3543" y="-56.8" font-family="Times,serif" font-size="14.00" fill="#000000">description</text>
 </g>
-<!-- value description -->
+<!-- value_description -->
 <g id="node4" class="node">
-<title>value description</title>
+<title>value_description</title>
 <ellipse fill="none" stroke="#0000ff" cx="167.2507" cy="-104" rx="30.0035" ry="18"/>
 <text text-anchor="middle" x="167.2507" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">string</text>
 </g>

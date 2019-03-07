@@ -27,7 +27,7 @@ class GenYUMLTestCase(ClickTestCase):
         self.do_test(source_yaml_path + ' -c noclass', 'definition.yuml', error=ValueError)
 
         tmp_dir = self.temp_directory('meta')
-        self.do_test([source_yaml_path, '-c', 'schema definition', '-d', tmp_dir], dirbase='meta')
+        self.do_test([source_yaml_path, '-c', 'schema_definition', '-d', tmp_dir], dirbase='meta')
         tmp_dir = self.temp_directory('meta1')
         self.do_test([source_yaml_path, '-c', 'definition', '-d', tmp_dir], dirbase='meta1')
         tmp_dir = self.temp_directory('meta2')
@@ -37,7 +37,7 @@ class GenYUMLTestCase(ClickTestCase):
         for fmt in YumlGenerator.valid_formats:
             if fmt != 'yuml':
                 tmp_dir = self.temp_directory('meta_' + fmt)
-                self.do_test([source_yaml_path, '-f', fmt, '-c', 'schema definition', '-d', tmp_dir],
+                self.do_test([source_yaml_path, '-f', fmt, '-c', 'schema_definition', '-d', tmp_dir],
                              dirbase='meta_' + fmt)
 
 

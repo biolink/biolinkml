@@ -20,15 +20,13 @@
          "name": "t1",
          "from_schema": "http://example.org/schema1",
          "base": "str",
-         "uri": "xsd:string",
-         "@id": "t1"
+         "uri": "xsd:string"
       },
       {
          "name": "t2",
          "from_schema": "http://example.org/schema2",
          "base": "Bool",
-         "uri": "xsd:boolean",
-         "@id": "t2"
+         "uri": "xsd:boolean"
       }
    ],
    "slots": [
@@ -37,16 +35,14 @@
          "from_schema": "http://example.org/schema1",
          "domain": "c1",
          "range": "t1",
-         "slot_uri": "http://example.org/schema1/s1",
-         "@id": "s1"
+         "slot_uri": "http://example.org/schema1/s1"
       },
       {
          "name": "s2",
          "from_schema": "http://example.org/schema2",
          "domain": "c2",
          "range": "t1",
-         "slot_uri": "http://example.org/schema1/s2",
-         "@id": "s2"
+         "slot_uri": "http://example.org/schema1/s2"
       }
    ],
    "classes": [
@@ -56,8 +52,7 @@
          "slots": [
             "s1"
          ],
-         "class_uri": "http://example.org/schema1/C1",
-         "@id": "C1"
+         "class_uri": "http://example.org/schema1/C1"
       },
       {
          "name": "c2",
@@ -65,8 +60,7 @@
          "slots": [
             "s2"
          ],
-         "class_uri": "http://example.org/schema1/C2",
-         "@id": "C2"
+         "class_uri": "http://example.org/schema1/C2"
       }
    ],
    "metamodel_version": "0.5.0",

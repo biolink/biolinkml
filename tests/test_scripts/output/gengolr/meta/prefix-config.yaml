@@ -3,10 +3,10 @@ display_name: !!python/object/new:biolinkml.meta.ClassDefinitionName [prefix]
 document_category: !!python/object/new:biolinkml.meta.ClassDefinitionName [prefix]
 fields:
 - description: the nsname (sans ':' for a given prefix)
-  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName [local name]
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName [local_name]
   id: local_name
 - description: A URI associated with a given prefix
-  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName [prefix uri]
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName [prefix_uri]
   id: prefix_uri
 id: prefix
 schema_generating: true

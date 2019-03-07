@@ -28,7 +28,7 @@ class GraphvizTestCase(ClickTestCase):
         outdir = os.path.join(self.tmpdir_path, 'meta2')
         self.do_test(source_yaml_path + f" -d {outdir} -c definition", dirbase='meta2')
         outdir = os.path.join(self.tmpdir_path, 'meta3')
-        self.do_test([source_yaml_path, "-d", outdir, "-c", "class definition", "-c", "element"], dirbase='meta3')
+        self.do_test([source_yaml_path, "-d", outdir, "-c", "class_definition", "-c", "element"], dirbase='meta3')
         self.do_test([source_yaml_path, "-c", "nada"], error=ValueError)
 
 

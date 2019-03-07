@@ -1,5 +1,5 @@
 # Auto generated from biolink_types.yaml by pythongen.py version: 0.2.0
-# Generation date: 2019-02-12 09:07
+# Generation date: 2019-03-05 09:14
 # Schema: types for use in the biolink model
 #
 # id: http://w3id.org/biolink/biolinkmodel/types

@@ -16,6 +16,8 @@ URI: [http://w3id.org/biolink/biolinkml/meta/Example](http://w3id.org/biolink/bi
 ## Fields
 
  * value<sub>opt</sub>
+    * Description: example value
     * range: [String](String.md)
- * value description<sub>opt</sub>
+ * value_description<sub>opt</sub>
+    * Description: description of what the value is doing
     * range: [String](String.md)

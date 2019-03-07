@@ -9,7 +9,7 @@ from biolinkml.utils.metamodelcore import empty_list, empty_dict
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.metamodelcore import URIorCURIE
 
-metamodel_version = "1.0.2"
+metamodel_version = "1.1.1"
 
 inherited_slots: List[str] = []
 
@@ -36,15 +36,17 @@ class SequenceVariantId(NamedThingId):
 class NamedThing(YAMLRoot):
 
     # === named thing ===
-    id: URIorCURIE
+    id: Union[URIorCURIE, NamedThingId]
     node_property: Optional[Union[URIorCURIE, IdentifierType]] = None
     not_overridden: Optional[Union[URIorCURIE, IdentifierType]] = None
 
     def _fix_elements(self):
         super()._fix_elements()
-        if self.node_property and not isinstance(self.node_property, IdentifierType):
+        if not isinstance(self.id, NamedThingId):
+            self.id = NamedThingId(self.id)
+        if self.node_property is not None and not isinstance(self.node_property, IdentifierType):
             self.node_property = IdentifierType(self.node_property)
-        if self.not_overridden and not isinstance(self.not_overridden, IdentifierType):
+        if self.not_overridden is not None and not isinstance(self.not_overridden, IdentifierType):
             self.not_overridden = IdentifierType(self.not_overridden)
 
 
@@ -55,10 +57,12 @@ class SequenceVariant(NamedThing):
     not_overridden: Optional[Union[URIorCURIE, IdentifierType]] = None
 
     # === sequence variant ===
-    id: URIorCURIE = None
+    id: Union[URIorCURIE, SequenceVariantId] = None
     node_property: Optional[Union[URIorCURIE, IdentifierType]] = None
 
     def _fix_elements(self):
         super()._fix_elements()
-        if self.node_property and not isinstance(self.node_property, IdentifierType):
+        if self.id is not None and not isinstance(self.id, SequenceVariantId):
+            self.id = SequenceVariantId(self.id)
+        if self.node_property is not None and not isinstance(self.node_property, IdentifierType):
             self.node_property = IdentifierType(self.node_property)

@@ -3,7 +3,7 @@
    "description": "Shared type definitions",
    "id": "http://w3id.org/biolink/biolinkml/types",
    "title": "Core Biolink metamodel types",
-   "version": "1.0.1",
+   "version": "1.0.2",
    "license": "https://creativecommons.org/publicdomain/zero/1.0/",
    "prefixes": [
       {
@@ -26,37 +26,32 @@
          "name": "string",
          "from_schema": "http://w3id.org/biolink/biolinkml/types",
          "base": "str",
-         "uri": "xsd:string",
-         "@id": "string"
+         "uri": "xsd:string"
       },
       {
          "name": "integer",
          "from_schema": "http://w3id.org/biolink/biolinkml/types",
          "base": "int",
-         "uri": "xsd:integer",
-         "@id": "integer"
+         "uri": "xsd:integer"
       },
       {
          "name": "boolean",
          "description": "A binary (true or false) value",
          "from_schema": "http://w3id.org/biolink/biolinkml/types",
          "base": "Bool",
-         "uri": "xsd:boolean",
-         "@id": "boolean"
+         "uri": "xsd:boolean"
       },
       {
          "name": "float",
          "from_schema": "http://w3id.org/biolink/biolinkml/types",
          "base": "float",
-         "uri": "xsd:float",
-         "@id": "float"
+         "uri": "xsd:float"
       },
       {
          "name": "double",
          "from_schema": "http://w3id.org/biolink/biolinkml/types",
          "base": "float",
-         "uri": "xsd:double",
-         "@id": "double"
+         "uri": "xsd:double"
       },
       {
          "name": "time",
@@ -67,8 +62,7 @@
          "from_schema": "http://w3id.org/biolink/biolinkml/types",
          "base": "XSDTime",
          "uri": "xsd:dateTime",
-         "repr": "str",
-         "@id": "time"
+         "repr": "str"
       },
       {
          "name": "date",
@@ -79,25 +73,30 @@
          "from_schema": "http://w3id.org/biolink/biolinkml/types",
          "base": "XSDDateTime",
          "uri": "xsd:dateTime",
-         "repr": "str",
-         "@id": "date"
+         "repr": "str"
       },
       {
          "name": "datetime",
          "from_schema": "http://w3id.org/biolink/biolinkml/types",
          "base": "XSDDate",
          "uri": "xsd:dateTime",
-         "repr": "str",
-         "@id": "datetime"
+         "repr": "str"
       },
       {
-         "name": "uri",
+         "name": "uriorcuri",
          "description": "a URI or a CURIE",
          "from_schema": "http://w3id.org/biolink/biolinkml/types",
          "base": "URIorCURIE",
          "uri": "xsd:anyURI",
-         "repr": "str",
-         "@id": "uri"
+         "repr": "str"
+      },
+      {
+         "name": "uri",
+         "description": "a complete URI",
+         "from_schema": "http://w3id.org/biolink/biolinkml/types",
+         "base": "URI",
+         "uri": "xsd:anyURI",
+         "repr": "str"
       },
       {
          "name": "ncname",
@@ -105,8 +104,7 @@
          "from_schema": "http://w3id.org/biolink/biolinkml/types",
          "base": "NCName",
          "uri": "xsd:string",
-         "repr": "str",
-         "@id": "ncname"
+         "repr": "str"
       }
    ],
    "metamodel_version": "0.5.0",

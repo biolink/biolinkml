@@ -1,23 +1,9 @@
 {
   "name": "metamodel",
   "description": "A metamodel for defining biolink related schemas",
-  "notes": [
-    "This is a static copy of biolinkml/meta.yaml.  Update when appropriate"
-  ],
-  "id_prefixes": [
-    "meta",
-    "rdf",
-    "rdfs",
-    "xsd",
-    "skos",
-    "dcterms",
-    "OIO",
-    "owl",
-    "pav"
-  ],
   "id": "http://w3id.org/biolink/biolinkml/meta",
   "title": "Biolink Schema Metamodel",
-  "version": "1.0.1",
+  "version": "1.1.1",
   "imports": [
     "includes/types"
   ],
@@ -48,6 +34,17 @@
       "prefix_uri": "http://www.w3.org/2001/XMLSchema#"
     }
   ],
+  "emit_prefixes": [
+    "meta",
+    "rdf",
+    "rdfs",
+    "xsd",
+    "skos",
+    "dcterms",
+    "OIO",
+    "owl",
+    "pav"
+  ],
   "default_curi_maps": [
     "semweb_context"
   ],
@@ -57,7 +54,8 @@
     {
       "name": "owl",
       "description": "Set of slots that appear in the OWL representation of a model",
-      "from_schema": "http://w3id.org/biolink/biolinkml/meta"
+      "from_schema": "http://w3id.org/biolink/biolinkml/meta",
+      "type": "SubsetDefinition"
     }
   ],
   "types": [
@@ -67,7 +65,7 @@
       "imported_from": "includes/types",
       "base": "str",
       "uri": "http://www.w3.org/2001/XMLSchema#string",
-      "@id": "string"
+      "type": "TypeDefinition"
     },
     {
       "name": "integer",
@@ -75,7 +73,7 @@
       "imported_from": "includes/types",
       "base": "int",
       "uri": "http://www.w3.org/2001/XMLSchema#integer",
-      "@id": "integer"
+      "type": "TypeDefinition"
     },
     {
       "name": "boolean",
@@ -84,7 +82,7 @@
       "imported_from": "includes/types",
       "base": "Bool",
       "uri": "http://www.w3.org/2001/XMLSchema#boolean",
-      "@id": "boolean"
+      "type": "TypeDefinition"
     },
     {
       "name": "float",
@@ -92,7 +90,7 @@
       "imported_from": "includes/types",
       "base": "float",
       "uri": "http://www.w3.org/2001/XMLSchema#float",
-      "@id": "float"
+      "type": "TypeDefinition"
     },
     {
       "name": "double",
@@ -100,7 +98,7 @@
       "imported_from": "includes/types",
       "base": "float",
       "uri": "http://www.w3.org/2001/XMLSchema#double",
-      "@id": "double"
+      "type": "TypeDefinition"
     },
     {
       "name": "time",
@@ -113,7 +111,7 @@
       "base": "XSDTime",
       "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
       "repr": "str",
-      "@id": "time"
+      "type": "TypeDefinition"
     },
     {
       "name": "date",
@@ -126,7 +124,7 @@
       "base": "XSDDateTime",
       "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
       "repr": "str",
-      "@id": "date"
+      "type": "TypeDefinition"
     },
     {
       "name": "datetime",
@@ -135,17 +133,27 @@
       "base": "XSDDate",
       "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
       "repr": "str",
-      "@id": "datetime"
+      "type": "TypeDefinition"
     },
     {
-      "name": "uri",
+      "name": "uriorcuri",
       "description": "a URI or a CURIE",
       "from_schema": "http://w3id.org/biolink/biolinkml/types",
       "imported_from": "includes/types",
       "base": "URIorCURIE",
       "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
       "repr": "str",
-      "@id": "uri"
+      "type": "TypeDefinition"
+    },
+    {
+      "name": "uri",
+      "description": "a complete URI",
+      "from_schema": "http://w3id.org/biolink/biolinkml/types",
+      "imported_from": "includes/types",
+      "base": "URI",
+      "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
+      "repr": "str",
+      "type": "TypeDefinition"
     },
     {
       "name": "ncname",
@@ -155,13 +163,13 @@
       "base": "NCName",
       "uri": "http://www.w3.org/2001/XMLSchema#string",
       "repr": "str",
-      "@id": "ncname"
+      "type": "TypeDefinition"
     }
   ],
   "slots": [
     {
       "name": "name",
-      "description": "the unique name of the element within the context of the schema",
+      "description": "the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class.",
       "in_subset": [
         "owl"
       ],
@@ -171,7 +179,8 @@
       "slot_uri": "http://www.w3.org/2000/01/rdf-schema#label",
       "required": true,
       "key": true,
-      "@id": "name"
+      "identifier": true,
+      "type": "SlotDefinition"
     },
     {
       "name": "description",
@@ -183,7 +192,26 @@
       "domain": "Element",
       "range": "string",
       "slot_uri": "http://www.w3.org/2004/02/skos/core#definition",
-      "@id": "description"
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "aliases",
+      "from_schema": "http://w3id.org/biolink/biolinkml/meta",
+      "domain": "Element",
+      "range": "string",
+      "slot_uri": "http://www.w3.org/2004/02/skos/core#altLabel",
+      "multivalued": true,
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "mappings",
+      "description": "A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective.",
+      "from_schema": "http://w3id.org/biolink/biolinkml/meta",
+      "domain": "Element",
+      "range": "uriorcuri",
+      "slot_uri": "http://www.w3.org/2004/02/skos/core#mappingRelation",
+      "multivalued": true,
+      "type": "SlotDefinition"
     },
     {
       "name": "deprecated",
@@ -192,7 +220,17 @@
       "domain": "Element",
       "range": "string",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/deprecated",
-      "@id": "deprecated"
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "todos",
+      "description": "Outstanding issue that needs resolution",
+      "from_schema": "http://w3id.org/biolink/biolinkml/meta",
+      "domain": "Element",
+      "range": "string",
+      "slot_uri": "http://w3id.org/biolink/biolinkml/meta/todos",
+      "multivalued": true,
+      "type": "SlotDefinition"
     },
     {
       "name": "notes",
@@ -205,7 +243,7 @@
       "range": "string",
       "slot_uri": "http://www.w3.org/2004/02/skos/core#editorialNote",
       "multivalued": true,
-      "@id": "notes"
+      "type": "SlotDefinition"
     },
     {
       "name": "comments",
@@ -218,7 +256,7 @@
       "range": "string",
       "slot_uri": "http://www.w3.org/2004/02/skos/core#note",
       "multivalued": true,
-      "@id": "comments"
+      "type": "SlotDefinition"
     },
     {
       "name": "examples",
@@ -232,7 +270,7 @@
       "slot_uri": "http://www.w3.org/2004/02/skos/core#example",
       "multivalued": true,
       "inlined": true,
-      "@id": "examples"
+      "type": "SlotDefinition"
     },
     {
       "name": "in_subset",
@@ -242,7 +280,7 @@
       "range": "SubsetDefinition",
       "slot_uri": "http://www.geneontology.org/formats/oboInOwl#inSubset",
       "multivalued": true,
-      "@id": "in_subset"
+      "type": "SlotDefinition"
     },
     {
       "name": "from_schema",
@@ -252,7 +290,17 @@
       "range": "SchemaDefinition",
       "slot_uri": "http://www.w3.org/2004/02/skos/core#inScheme",
       "readonly": "supplied by the schema loader",
-      "@id": "from_schema"
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "imported_from",
+      "description": "the imports entry that this element was derived from.  Empty means primary source",
+      "from_schema": "http://w3id.org/biolink/biolinkml/meta",
+      "domain": "Element",
+      "range": "string",
+      "slot_uri": "http://w3id.org/biolink/biolinkml/meta/imported_from",
+      "readonly": "supplied by the schema loader",
+      "type": "SlotDefinition"
     },
     {
       "name": "see_also",
@@ -265,26 +313,17 @@
       "range": "uri",
       "slot_uri": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
       "multivalued": true,
-      "@id": "see_also"
-    },
-    {
-      "name": "id_prefixes",
-      "description": "a list of Curie prefixes that are used in the representation of instances of the model.  All prefixes in this list are added to the prefix sections of the target models.",
-      "from_schema": "http://w3id.org/biolink/biolinkml/meta",
-      "domain": "Element",
-      "range": "ncname",
-      "slot_uri": "http://w3id.org/biolink/biolinkml/meta/id_prefixes",
-      "multivalued": true,
-      "@id": "id_prefixes"
+      "type": "SlotDefinition"
     },
     {
       "name": "is_a",
-      "description": "specifies single-inheritance between classes or slots. While multiple inheritance is not allowed, mixins can be provided effectively providing the same thing. The semantics are the same when translated to formalisms that allow MI (e.g. RDFS/OWL). When translating to a SI framework (e.g. java classes, python classes) then is_a is used. When translating a framework without polymorphism (e.g. json-schema, solr document schema) then is_a and mixins are recursively unfolded",
+      "description": "specifies single-inheritance between classes or slots. While multiple inheritance is not allowed, mixins can be provided effectively providing the same thing. The semantics are the same when translated to formalisms that allow MI (e.g. RDFS/OWL). When translating to a SI framework (e.g. java classes, python classes) then is a is used. When translating a framework without polymorphism (e.g. json-schema, solr document schema) then is a and mixins are recursively unfolded",
       "from_schema": "http://w3id.org/biolink/biolinkml/meta",
+      "abstract": true,
       "domain": "Definition",
       "range": "Definition",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/is_a",
-      "@id": "is_a"
+      "type": "SlotDefinition"
     },
     {
       "name": "abstract",
@@ -293,20 +332,7 @@
       "domain": "Definition",
       "range": "boolean",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/abstract",
-      "@id": "abstract"
-    },
-    {
-      "name": "local_names",
-      "description": "map from local identifier to slot",
-      "notes": [
-        "get this properly documented -- it is a map from an identifier to a slot name"
-      ],
-      "from_schema": "http://w3id.org/biolink/biolinkml/meta",
-      "domain": "Definition",
-      "range": "string",
-      "slot_uri": "http://w3id.org/biolink/biolinkml/meta/local_names",
-      "multivalued": true,
-      "@id": "local_names"
+      "type": "SlotDefinition"
     },
     {
       "name": "mixin",
@@ -315,7 +341,7 @@
       "domain": "Definition",
       "range": "boolean",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/mixin",
-      "@id": "mixin"
+      "type": "SlotDefinition"
     },
     {
       "name": "mixins",
@@ -325,7 +351,7 @@
       "range": "Definition",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/mixins",
       "multivalued": true,
-      "@id": "mixins"
+      "type": "SlotDefinition"
     },
     {
       "name": "apply_to",
@@ -335,28 +361,27 @@
       "range": "Definition",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/apply_to",
       "multivalued": true,
-      "@id": "apply_to"
-    },
-    {
-      "name": "values_from",
-      "description": "identifies the possible uri's of the range",
-      "from_schema": "http://w3id.org/biolink/biolinkml/meta",
-      "domain": "Definition",
-      "range": "uri",
-      "slot_uri": "http://w3id.org/biolink/biolinkml/meta/values_from",
-      "multivalued": true,
-      "@id": "values_from"
+      "type": "SlotDefinition"
     },
     {
       "name": "id",
-      "description": "a globally unique schema identifier",
+      "description": "The official schema URI",
       "from_schema": "http://w3id.org/biolink/biolinkml/meta",
       "domain": "SchemaDefinition",
       "range": "uri",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/id",
       "required": true,
-      "identifier": true,
-      "@id": "id"
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "emit_prefixes",
+      "description": "a list of Curie prefixes that are used in the representation of instances of the model.  All prefixes in this list are added to the prefix sections of the target models.",
+      "from_schema": "http://w3id.org/biolink/biolinkml/meta",
+      "domain": "SchemaDefinition",
+      "range": "ncname",
+      "slot_uri": "http://w3id.org/biolink/biolinkml/meta/emit_prefixes",
+      "multivalued": true,
+      "type": "SlotDefinition"
     },
     {
       "name": "title",
@@ -368,7 +393,7 @@
       "domain": "SchemaDefinition",
       "range": "string",
       "slot_uri": "http://purl.org/dc/terms/title",
-      "@id": "title"
+      "type": "SlotDefinition"
     },
     {
       "name": "version",
@@ -377,7 +402,7 @@
       "domain": "SchemaDefinition",
       "range": "string",
       "slot_uri": "http://purl.org/pav/version",
-      "@id": "version"
+      "type": "SlotDefinition"
     },
     {
       "name": "imports",
@@ -387,7 +412,7 @@
       "range": "uri",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/imports",
       "multivalued": true,
-      "@id": "imports"
+      "type": "SlotDefinition"
     },
     {
       "name": "license",
@@ -399,28 +424,28 @@
       "domain": "SchemaDefinition",
       "range": "string",
       "slot_uri": "http://purl.org/dc/terms/license",
-      "@id": "license"
+      "type": "SlotDefinition"
     },
     {
       "name": "prefixes",
-      "description": "prefix / URI definitions to be added to the context beyond those fetched from prefixcommons in id_prefixes",
+      "description": "prefix / URI definitions to be added to the context beyond those fetched from prefixcommons in id prefixes",
       "from_schema": "http://w3id.org/biolink/biolinkml/meta",
       "domain": "SchemaDefinition",
       "range": "Prefix",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/prefixes",
       "multivalued": true,
       "inlined": true,
-      "@id": "prefixes"
+      "type": "SlotDefinition"
     },
     {
       "name": "default_curi_maps",
-      "description": "ordered list of prefixcommon biocontexts to be fetched to resolve id_prefixes and inline prefix variables",
+      "description": "ordered list of prefixcommon biocontexts to be fetched to resolve id prefixes and inline prefix variables",
       "from_schema": "http://w3id.org/biolink/biolinkml/meta",
       "domain": "SchemaDefinition",
       "range": "string",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/default_curi_maps",
       "multivalued": true,
-      "@id": "default_curi_maps"
+      "type": "SlotDefinition"
     },
     {
       "name": "default_prefix",
@@ -429,7 +454,7 @@
       "domain": "SchemaDefinition",
       "range": "string",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/default_prefix",
-      "@id": "default_prefix"
+      "type": "SlotDefinition"
     },
     {
       "name": "default_range",
@@ -438,7 +463,7 @@
       "domain": "SchemaDefinition",
       "range": "Definition",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/default_range",
-      "@id": "default_range"
+      "type": "SlotDefinition"
     },
     {
       "name": "subsets",
@@ -449,7 +474,7 @@
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/subsets",
       "multivalued": true,
       "inlined": true,
-      "@id": "subsets"
+      "type": "SlotDefinition"
     },
     {
       "name": "types",
@@ -460,7 +485,7 @@
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/types",
       "multivalued": true,
       "inlined": true,
-      "@id": "types"
+      "type": "SlotDefinition"
     },
     {
       "name": "slot_definitions",
@@ -472,7 +497,7 @@
       "multivalued": true,
       "inlined": true,
       "alias": "slots",
-      "@id": "slot_definitions"
+      "type": "SlotDefinition"
     },
     {
       "name": "classes",
@@ -483,7 +508,7 @@
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/classes",
       "multivalued": true,
       "inlined": true,
-      "@id": "classes"
+      "type": "SlotDefinition"
     },
     {
       "name": "metamodel_version",
@@ -496,7 +521,7 @@
       "range": "string",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/metamodel_version",
       "readonly": "supplied by the schema loader",
-      "@id": "metamodel_version"
+      "type": "SlotDefinition"
     },
     {
       "name": "source_file",
@@ -509,7 +534,7 @@
       "range": "string",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/source_file",
       "readonly": "suppplied by the schema loader",
-      "@id": "source_file"
+      "type": "SlotDefinition"
     },
     {
       "name": "source_file_date",
@@ -522,7 +547,7 @@
       "range": "datetime",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/source_file_date",
       "readonly": "supplied by the loader",
-      "@id": "source_file_date"
+      "type": "SlotDefinition"
     },
     {
       "name": "source_file_size",
@@ -535,7 +560,7 @@
       "range": "integer",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/source_file_size",
       "readonly": "supplied by the schema loader",
-      "@id": "source_file_size"
+      "type": "SlotDefinition"
     },
     {
       "name": "generation_date",
@@ -548,26 +573,26 @@
       "range": "datetime",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/generation_date",
       "readonly": "supplied by the schema loader",
-      "@id": "generation_date"
+      "type": "SlotDefinition"
     },
     {
       "name": "slots",
       "description": "list of slot names that are applicable to a class",
       "comments": [
-        "the preferred way for defining slots is through the slot domain. The final list of slots for a class is the combination of the parent (is_a) slots, mixins slots, apply_to slots minus the slot_usage entries."
+        "This defines the set of slots that are allowed to be used for a given class. The final list of slots for a class is the combination of the parent (is a) slots, mixins slots, apply to slots minus the slot usage entries. Formally, "
       ],
       "from_schema": "http://w3id.org/biolink/biolinkml/meta",
       "domain": "ClassDefinition",
       "range": "SlotDefinition",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/slots",
       "multivalued": true,
-      "@id": "slots"
+      "type": "SlotDefinition"
     },
     {
       "name": "slot_usage",
       "description": "the redefinition of a slot in the context of the containing class definition.",
       "comments": [
-        "Many slots may be re-used across different classes, but the meaning of the slot may be refined by context. For example, a generic association model may use slots subject/predicate/object with generic semantics and minimal constraints. When this is subclasses, e.g. to disease-phenotype associations then slot_usage may specify both local naming (e.g. subject=disease) and local constraints"
+        "Many slots may be re-used across different classes, but the meaning of the slot may be refined by context. For example, a generic association model may use slots subject/predicate/object with generic semantics and minimal constraints. When this is subclasses, e.g. to disease-phenotype associations then slot usage may specify both local naming (e.g. subject=disease) and local constraints"
       ],
       "from_schema": "http://w3id.org/biolink/biolinkml/meta",
       "domain": "ClassDefinition",
@@ -575,7 +600,7 @@
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/slot_usage",
       "multivalued": true,
       "inlined": true,
-      "@id": "slot_usage"
+      "type": "SlotDefinition"
     },
     {
       "name": "class_uri",
@@ -584,27 +609,8 @@
       "domain": "ClassDefinition",
       "range": "uri",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/class_uri",
-      "ifabsent": "set to <default_prefix>:<class_name>",
-      "@id": "class_uri"
-    },
-    {
-      "name": "defining_slots",
-      "description": "The combination of is_a plus defining slots form a genus-differentia definition, or the set of necessary and sufficient conditions that can be transformed into an OWL equivalence axiom",
-      "from_schema": "http://w3id.org/biolink/biolinkml/meta",
-      "domain": "ClassDefinition",
-      "range": "SlotDefinition",
-      "slot_uri": "http://w3id.org/biolink/biolinkml/meta/defining_slots",
-      "multivalued": true,
-      "@id": "defining_slots"
-    },
-    {
-      "name": "subclass_of",
-      "description": "instances of this class are considered/required to be sub classes of the target URI",
-      "from_schema": "http://w3id.org/biolink/biolinkml/meta",
-      "domain": "ClassDefinition",
-      "range": "uri",
-      "slot_uri": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
-      "@id": "subclass_of"
+      "ifabsent": "set to <default prefix>:<class name>",
+      "type": "SlotDefinition"
     },
     {
       "name": "domain",
@@ -615,7 +621,7 @@
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/domain",
       "inherited": true,
       "required": true,
-      "@id": "domain"
+      "type": "SlotDefinition"
     },
     {
       "name": "range",
@@ -625,8 +631,8 @@
       "range": "Element",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/range",
       "inherited": true,
-      "ifabsent": "set to default_range",
-      "@id": "range"
+      "ifabsent": "set to default range",
+      "type": "SlotDefinition"
     },
     {
       "name": "slot_uri",
@@ -635,8 +641,8 @@
       "domain": "SlotDefinition",
       "range": "uri",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/slot_uri",
-      "ifabsent": "set to <default_prefix>:<slot_name>",
-      "@id": "slot_uri"
+      "ifabsent": "set to <default prefix>:<slot name>",
+      "type": "SlotDefinition"
     },
     {
       "name": "multivalued",
@@ -646,7 +652,7 @@
       "range": "boolean",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/multivalued",
       "inherited": true,
-      "@id": "multivalued"
+      "type": "SlotDefinition"
     },
     {
       "name": "inherited",
@@ -659,7 +665,7 @@
       "range": "boolean",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/inherited",
       "inherited": true,
-      "@id": "inherited"
+      "type": "SlotDefinition"
     },
     {
       "name": "readonly",
@@ -669,7 +675,7 @@
       "range": "string",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/readonly",
       "inherited": true,
-      "@id": "readonly"
+      "type": "SlotDefinition"
     },
     {
       "name": "ifabsent",
@@ -679,7 +685,16 @@
       "range": "string",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/ifabsent",
       "inherited": true,
-      "@id": "ifabsent"
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "singular_name",
+      "description": "a name that is used in the singular form",
+      "from_schema": "http://w3id.org/biolink/biolinkml/meta",
+      "domain": "Element",
+      "range": "string",
+      "slot_uri": "http://www.w3.org/2004/02/skos/core#altLabel",
+      "type": "SlotDefinition"
     },
     {
       "name": "required",
@@ -689,7 +704,7 @@
       "range": "boolean",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/required",
       "inherited": true,
-      "@id": "required"
+      "type": "SlotDefinition"
     },
     {
       "name": "inlined",
@@ -699,34 +714,37 @@
       "range": "boolean",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/inlined",
       "inherited": true,
-      "@id": "inlined"
+      "type": "SlotDefinition"
     },
     {
       "name": "key",
-      "description": "true means that the slot uniquely identifies the element within the context of its container",
+      "description": "true means that the slot uniquely identifies the element within the context of its container.  Key slots are NOT identifiers - they do not serve as subjects",
       "notes": [
+        "key is inherited",
         "a given domain can have at most one key",
-        "key slots default to required"
+        "key slots are always required"
       ],
       "from_schema": "http://w3id.org/biolink/biolinkml/meta",
       "domain": "SlotDefinition",
       "range": "boolean",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/key",
       "inherited": true,
-      "@id": "key"
+      "type": "SlotDefinition"
     },
     {
       "name": "identifier",
-      "description": "True means that this slot must be unique across the collection of slots",
+      "description": "true means that this slot is the subject of a set of assertions.  Identifiers do not appear as predicates in the model",
       "comments": [
-        "keys and identifiers must be inherited."
+        "identifier is inherited",
+        "identifier slots are always required",
+        "a given domain can have at most one identifier"
       ],
       "from_schema": "http://w3id.org/biolink/biolinkml/meta",
       "domain": "SlotDefinition",
       "range": "boolean",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/identifier",
       "inherited": true,
-      "@id": "identifier"
+      "type": "SlotDefinition"
     },
     {
       "name": "alias",
@@ -735,71 +753,81 @@
       "domain": "SlotDefinition",
       "range": "string",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/alias",
-      "@id": "alias"
-    },
-    {
-      "name": "range_subclass",
-      "description": "Constraint on the range of a property",
-      "from_schema": "http://w3id.org/biolink/biolinkml/meta",
-      "domain": "SlotDefinition",
-      "range": "uri",
-      "slot_uri": "http://w3id.org/biolink/biolinkml/meta/subclass_of",
-      "alias": "subclass_of",
-      "@id": "range_subclass"
-    },
-    {
-      "name": "inverse",
-      "description": "used to indicate the inverse of a slot (e.g. 'expresses' is the inverse predicate of 'expressed in')",
-      "from_schema": "http://w3id.org/biolink/biolinkml/meta",
-      "domain": "SlotDefinition",
-      "range": "SlotDefinition",
-      "slot_uri": "http://www.w3.org/2002/07/owl#inverseOf",
-      "@id": "inverse"
+      "type": "SlotDefinition"
     },
     {
       "name": "typeof",
-      "description": "supertype",
+      "description": "Names a parent type",
+      "comments": [
+        "the target type definition of the typeof slot is referred to as the \"parent type\"",
+        "the type definition containing the typeof slot is referred to as the \"child type\"",
+        "type definitions without a typeof slot are referred to as a \"root type\""
+      ],
       "from_schema": "http://w3id.org/biolink/biolinkml/meta",
       "domain": "TypeDefinition",
       "range": "TypeDefinition",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/typeof",
-      "@id": "typeof"
+      "type": "SlotDefinition"
     },
     {
       "name": "base",
       "description": "python base type that implements this type definition",
+      "comments": [
+        "every root type must have a base",
+        "the base is inherited by child types but may be overriden.  Base compatibility is not checked."
+      ],
       "from_schema": "http://w3id.org/biolink/biolinkml/meta",
       "domain": "TypeDefinition",
       "range": "string",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/base",
-      "@id": "base"
+      "inherited": true,
+      "type": "SlotDefinition"
     },
     {
       "name": "type_uri",
-      "description": "the URI to be used for the type in semantic web mappings",
+      "description": "The uri that defines the possible values for the type definition",
+      "comments": [
+        "uri is typically drawn from the set of URI's defined in OWL (https://www.w3.org/TR/2012/REC-owl2-syntax-20121211/#Datatype_Maps)",
+        "every root type must have a type uri"
+      ],
       "from_schema": "http://w3id.org/biolink/biolinkml/meta",
       "domain": "TypeDefinition",
       "range": "uri",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/uri",
       "alias": "uri",
-      "@id": "type_uri"
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "repr",
+      "description": "the name of the python object that implements this type definition",
+      "comments": [
+        "if not supplied, the model d"
+      ],
+      "from_schema": "http://w3id.org/biolink/biolinkml/meta",
+      "domain": "TypeDefinition",
+      "range": "string",
+      "slot_uri": "http://w3id.org/biolink/biolinkml/meta/repr",
+      "inherited": true,
+      "type": "SlotDefinition"
     },
     {
       "name": "value",
+      "description": "example value",
       "from_schema": "http://w3id.org/biolink/biolinkml/meta",
       "domain": "Example",
       "range": "string",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/value",
-      "@id": "value"
+      "type": "SlotDefinition"
     },
     {
       "name": "value_description",
+      "description": "description of what the value is doing",
       "from_schema": "http://w3id.org/biolink/biolinkml/meta",
       "domain": "Example",
       "range": "string",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/description",
       "alias": "description",
-      "@id": "value_description"
+      "type": "SlotDefinition"
     },
     {
       "name": "local_name",
@@ -810,7 +838,7 @@
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/local_name",
       "required": true,
       "key": true,
-      "@id": "local_name"
+      "type": "SlotDefinition"
     },
     {
       "name": "prefix_uri",
@@ -820,88 +848,74 @@
       "range": "uri",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/prefix_uri",
       "required": true,
-      "@id": "prefix_uri"
+      "type": "SlotDefinition"
     },
     {
       "name": "schema_definition_description",
-      "description": "a description of the element's purpose and use",
-      "from_schema": "http://w3id.org/biolink/biolinkml/meta",
       "is_a": "description",
       "domain": "SchemaDefinition",
       "range": "string",
-      "slot_uri": "http://purl.org/dc/terms/description",
+      "slot_uri": "http://w3id.org/biolink/biolinkml/meta/description",
       "alias": "description",
-      "@id": "schema_definition_description"
+      "type": "SlotDefinition"
     },
     {
       "name": "slot_definition_is_a",
-      "description": "specifies single-inheritance between classes or slots. While multiple inheritance is not allowed, mixins can be provided effectively providing the same thing. The semantics are the same when translated to formalisms that allow MI (e.g. RDFS/OWL). When translating to a SI framework (e.g. java classes, python classes) then is_a is used. When translating a framework without polymorphism (e.g. json-schema, solr document schema) then is_a and mixins are recursively unfolded",
-      "from_schema": "http://w3id.org/biolink/biolinkml/meta",
       "is_a": "is_a",
       "domain": "SlotDefinition",
       "range": "SlotDefinition",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/is_a",
       "alias": "is_a",
-      "@id": "slot_definition_is_a"
+      "type": "SlotDefinition"
     },
     {
       "name": "slot_definition_mixins",
-      "description": "List of definitions to be mixed in. Targets may be any definition of the same type",
-      "from_schema": "http://w3id.org/biolink/biolinkml/meta",
       "is_a": "mixins",
       "domain": "SlotDefinition",
       "range": "SlotDefinition",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/mixins",
       "multivalued": true,
       "alias": "mixins",
-      "@id": "slot_definition_mixins"
+      "type": "SlotDefinition"
     },
     {
       "name": "slot_definition_apply_to",
-      "description": "Used to extend class or slot definitions. For example, if we have a core schema where a gene has two slots for identifier and symbol, and we have a specialized schema for my_organism where we wish to add a slot systematic_name, we can avoid subclassing by defining a class gene_my_organism, adding the slot to this class, and then adding an apply_to pointing to the gene class. The new slot will be 'injected into' the gene class.",
-      "from_schema": "http://w3id.org/biolink/biolinkml/meta",
       "is_a": "apply_to",
       "domain": "SlotDefinition",
       "range": "SlotDefinition",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/apply_to",
       "multivalued": true,
       "alias": "apply_to",
-      "@id": "slot_definition_apply_to"
+      "type": "SlotDefinition"
     },
     {
       "name": "class_definition_is_a",
-      "description": "specifies single-inheritance between classes or slots. While multiple inheritance is not allowed, mixins can be provided effectively providing the same thing. The semantics are the same when translated to formalisms that allow MI (e.g. RDFS/OWL). When translating to a SI framework (e.g. java classes, python classes) then is_a is used. When translating a framework without polymorphism (e.g. json-schema, solr document schema) then is_a and mixins are recursively unfolded",
-      "from_schema": "http://w3id.org/biolink/biolinkml/meta",
       "is_a": "is_a",
       "domain": "ClassDefinition",
       "range": "ClassDefinition",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/is_a",
       "alias": "is_a",
-      "@id": "class_definition_is_a"
+      "type": "SlotDefinition"
     },
     {
       "name": "class_definition_mixins",
-      "description": "List of definitions to be mixed in. Targets may be any definition of the same type",
-      "from_schema": "http://w3id.org/biolink/biolinkml/meta",
       "is_a": "mixins",
       "domain": "ClassDefinition",
       "range": "ClassDefinition",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/mixins",
       "multivalued": true,
       "alias": "mixins",
-      "@id": "class_definition_mixins"
+      "type": "SlotDefinition"
     },
     {
       "name": "class_definition_apply_to",
-      "description": "Used to extend class or slot definitions. For example, if we have a core schema where a gene has two slots for identifier and symbol, and we have a specialized schema for my_organism where we wish to add a slot systematic_name, we can avoid subclassing by defining a class gene_my_organism, adding the slot to this class, and then adding an apply_to pointing to the gene class. The new slot will be 'injected into' the gene class.",
-      "from_schema": "http://w3id.org/biolink/biolinkml/meta",
       "is_a": "apply_to",
       "domain": "ClassDefinition",
       "range": "ClassDefinition",
       "slot_uri": "http://w3id.org/biolink/biolinkml/meta/apply_to",
       "multivalued": true,
       "alias": "apply_to",
-      "@id": "class_definition_apply_to"
+      "type": "SlotDefinition"
     }
   ],
   "classes": [
@@ -912,18 +926,23 @@
       "abstract": true,
       "slots": [
         "name",
+        "singular_name",
+        "aliases",
+        "mappings",
         "description",
         "deprecated",
+        "todos",
         "notes",
         "comments",
+        "notes",
         "examples",
         "in_subset",
         "from_schema",
-        "see_also",
-        "id_prefixes"
+        "imported_from",
+        "see_also"
       ],
       "class_uri": "http://w3id.org/biolink/biolinkml/meta/Element",
-      "@id": "Element"
+      "type": "ClassDefinition"
     },
     {
       "name": "SchemaDefinition",
@@ -932,21 +951,26 @@
       "is_a": "Element",
       "slots": [
         "name",
+        "singular_name",
+        "aliases",
+        "mappings",
         "schema_definition_description",
         "deprecated",
-        "notes",
+        "todos",
         "comments",
+        "notes",
         "examples",
         "in_subset",
         "from_schema",
+        "imported_from",
         "see_also",
-        "id_prefixes",
         "id",
         "title",
         "version",
         "imports",
         "license",
         "prefixes",
+        "emit_prefixes",
         "default_curi_maps",
         "default_prefix",
         "default_range",
@@ -960,15 +984,8 @@
         "source_file_size",
         "generation_date"
       ],
-      "slot_usage": [
-        {
-          "name": "description",
-          "domain": "SchemaDefinition",
-          "slot_uri": "http://purl.org/dc/terms/description"
-        }
-      ],
       "class_uri": "http://w3id.org/biolink/biolinkml/meta/SchemaDefinition",
-      "@id": "SchemaDefinition"
+      "type": "ClassDefinition"
     },
     {
       "name": "TypeDefinition",
@@ -977,21 +994,26 @@
       "is_a": "Element",
       "slots": [
         "name",
+        "singular_name",
+        "aliases",
+        "mappings",
         "description",
         "deprecated",
-        "notes",
+        "todos",
         "comments",
+        "notes",
         "examples",
         "in_subset",
         "from_schema",
+        "imported_from",
         "see_also",
-        "id_prefixes",
         "typeof",
         "base",
-        "type_uri"
+        "type_uri",
+        "repr"
       ],
       "class_uri": "http://w3id.org/biolink/biolinkml/meta/TypeDefinition",
-      "@id": "TypeDefinition"
+      "type": "ClassDefinition"
     },
     {
       "name": "SubsetDefinition",
@@ -1000,18 +1022,22 @@
       "is_a": "Element",
       "slots": [
         "name",
+        "singular_name",
+        "aliases",
+        "mappings",
         "description",
         "deprecated",
-        "notes",
+        "todos",
         "comments",
+        "notes",
         "examples",
         "in_subset",
         "from_schema",
-        "see_also",
-        "id_prefixes"
+        "imported_from",
+        "see_also"
       ],
       "class_uri": "http://w3id.org/biolink/biolinkml/meta/SubsetDefinition",
-      "@id": "SubsetDefinition"
+      "type": "ClassDefinition"
     },
     {
       "name": "Definition",
@@ -1021,25 +1047,27 @@
       "abstract": true,
       "slots": [
         "name",
+        "singular_name",
+        "aliases",
+        "mappings",
         "description",
         "deprecated",
-        "notes",
+        "todos",
         "comments",
+        "notes",
         "examples",
         "in_subset",
         "from_schema",
+        "imported_from",
         "see_also",
-        "id_prefixes",
         "is_a",
         "abstract",
-        "local_names",
         "mixin",
         "mixins",
-        "apply_to",
-        "values_from"
+        "apply_to"
       ],
       "class_uri": "http://w3id.org/biolink/biolinkml/meta/Definition",
-      "@id": "Definition"
+      "type": "ClassDefinition"
     },
     {
       "name": "SlotDefinition",
@@ -1048,22 +1076,24 @@
       "is_a": "Definition",
       "slots": [
         "name",
+        "singular_name",
+        "aliases",
+        "mappings",
         "description",
         "deprecated",
-        "notes",
+        "todos",
         "comments",
+        "notes",
         "examples",
         "in_subset",
         "from_schema",
+        "imported_from",
         "see_also",
-        "id_prefixes",
         "slot_definition_is_a",
         "abstract",
-        "local_names",
         "mixin",
         "slot_definition_mixins",
         "slot_definition_apply_to",
-        "values_from",
         "domain",
         "range",
         "slot_uri",
@@ -1075,32 +1105,10 @@
         "inlined",
         "key",
         "identifier",
-        "alias",
-        "range_subclass",
-        "inverse"
-      ],
-      "slot_usage": [
-        {
-          "name": "is_a",
-          "domain": "SlotDefinition",
-          "range": "SlotDefinition",
-          "slot_uri": "http://w3id.org/biolink/biolinkml/meta/None"
-        },
-        {
-          "name": "mixins",
-          "domain": "SlotDefinition",
-          "range": "SlotDefinition",
-          "slot_uri": "http://w3id.org/biolink/biolinkml/meta/None"
-        },
-        {
-          "name": "apply_to",
-          "domain": "SlotDefinition",
-          "range": "SlotDefinition",
-          "slot_uri": "http://w3id.org/biolink/biolinkml/meta/None"
-        }
+        "alias"
       ],
       "class_uri": "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
-      "@id": "SlotDefinition"
+      "type": "ClassDefinition"
     },
     {
       "name": "ClassDefinition",
@@ -1109,50 +1117,30 @@
       "is_a": "Definition",
       "slots": [
         "name",
+        "singular_name",
+        "aliases",
+        "mappings",
         "description",
         "deprecated",
-        "notes",
+        "todos",
         "comments",
+        "notes",
         "examples",
         "in_subset",
         "from_schema",
+        "imported_from",
         "see_also",
-        "id_prefixes",
         "class_definition_is_a",
         "abstract",
-        "local_names",
         "mixin",
         "class_definition_mixins",
         "class_definition_apply_to",
-        "values_from",
         "slots",
         "slot_usage",
-        "class_uri",
-        "defining_slots",
-        "subclass_of"
-      ],
-      "slot_usage": [
-        {
-          "name": "is_a",
-          "domain": "ClassDefinition",
-          "range": "ClassDefinition",
-          "slot_uri": "http://w3id.org/biolink/biolinkml/meta/None"
-        },
-        {
-          "name": "mixins",
-          "domain": "ClassDefinition",
-          "range": "ClassDefinition",
-          "slot_uri": "http://w3id.org/biolink/biolinkml/meta/None"
-        },
-        {
-          "name": "apply_to",
-          "domain": "ClassDefinition",
-          "range": "ClassDefinition",
-          "slot_uri": "http://w3id.org/biolink/biolinkml/meta/None"
-        }
+        "class_uri"
       ],
       "class_uri": "http://w3id.org/biolink/biolinkml/meta/ClassDefinition",
-      "@id": "ClassDefinition"
+      "type": "ClassDefinition"
     },
     {
       "name": "Prefix",
@@ -1163,7 +1151,7 @@
         "prefix_uri"
       ],
       "class_uri": "http://w3id.org/biolink/biolinkml/meta/Prefix",
-      "@id": "Prefix"
+      "type": "ClassDefinition"
     },
     {
       "name": "Example",
@@ -1174,20 +1162,20 @@
         "value_description"
       ],
       "class_uri": "http://w3id.org/biolink/biolinkml/meta/Example",
-      "@id": "Example"
+      "type": "ClassDefinition"
     }
   ],
-  "metamodel_version": "1.0.1",
+  "metamodel_version": "1.1.1",
   "source_file": "meta.yaml",
-  "source_file_date": "Wed Jan 30 16:49:26 2019",
-  "source_file_size": 19963,
-  "generation_date": "2019-02-05 10:22",
+  "source_file_date": "Thu Mar  7 10:44:08 2019",
+  "source_file_size": 18592,
+  "generation_date": "2019-03-07 11:01",
+  "type": "SchemaDefinition",
   "@context": [
     "file:///Users/solbrig/git/biolink/biolinkml/tests/test_scripts/output/gencontext/meta.jsonld",
     {
       "@base": "http://w3id.org/biolink/biolinkml/meta/"
     }
-  ],
-  "@id": "http://w3id.org/biolink/biolinkml/meta"
+  ]
 }
 

@@ -1,4 +1,4 @@
-# Slot: prefix uri
+# Slot: prefix_uri
 
 
 A URI associated with a given prefix

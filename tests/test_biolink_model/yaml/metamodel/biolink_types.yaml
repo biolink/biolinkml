@@ -19,13 +19,13 @@ default_curi_maps:
   - idot_context
   - semweb_context
 
-id_prefixes:
+emit_prefixes:
   - rdf
   - rdfs
   - xsd
   - skos
   - OIO
-  - U0
+  - UO
 
 imports:
   - includes/types
@@ -56,23 +56,23 @@ types:
 
   frequency value:
     typeof: string
-    mappings:
+    see_also:
       - UO:0000105
 
   perecentage frequency value:
     typeof: double
-    mappings:
+    see_also:
       - UO:0000187
 
   quotient:
     aliases: ['ratio']
     typeof: double
-    mappings:
+    see_also:
       - UO:0010006
 
   unit:
     typeof: string
-    mappings:
+    see_also:
       - UO:0000000
 
   time type:

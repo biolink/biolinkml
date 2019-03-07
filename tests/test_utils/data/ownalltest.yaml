@@ -34,7 +34,7 @@ slots:
     s1:
       domain: c1
       range: t1
-      key: true
+      identifier: true
 
     s2:
       domain: c2

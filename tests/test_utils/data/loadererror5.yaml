@@ -1,7 +1,7 @@
 id: "https://example.org/examples/loaderror5"
 
 imports:
-  - includes/types
+  - ../../../includes/types
 
 types:
 

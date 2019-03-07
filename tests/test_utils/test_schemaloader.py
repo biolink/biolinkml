@@ -3,6 +3,7 @@ import unittest
 from contextlib import redirect_stderr
 from io import StringIO
 
+from biolinkml import LOCAL_YAML_PATH, LOCAL_TYPES_PATH
 from biolinkml.utils.schemaloader import SchemaLoader
 from tests import skip_biolink_model
 from tests.test_utils import datadir
@@ -28,10 +29,10 @@ class SchemaLoaderTestCase(Base):
 
         Note: you may want to periodically refresh the metamodel in the data section """
         self.maxDiff = None
-        self.eval_loader('meta')
+        self.eval_loader('meta', source=LOCAL_YAML_PATH)
 
     def test_types(self):
-        self.eval_loader('includes/types')
+        self.eval_loader('includes/types', source=LOCAL_TYPES_PATH)
 
     def test_imports(self):
         self.eval_loader('base')
@@ -89,7 +90,7 @@ class SchemaLoaderTestCase(Base):
         fn = os.path.join(datadir, 'loaderpass11.yaml')
         _ = SchemaLoader(fn).resolve()
 
-    @unittest.skipIf(True, "Needs to be implemente3d")
+    @unittest.skipIf(True, "Needs to be implemented")
     def test_undefined_subset(self):
         """ Throw an error on an undefined subset reference """
         self.assertTrue(False, "Implemement me")

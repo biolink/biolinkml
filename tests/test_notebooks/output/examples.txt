@@ -1,0 +1,161 @@
+# Auto generated from None by pythongen.py version: 0.2.0
+# Generation date: 2019-03-07 11:19
+# Schema: synopsis2
+#
+# id: http://example.org/sample/example1
+# description:
+# license:
+
+from typing import Optional, List, Union, Dict
+from dataclasses import dataclass
+from biolinkml.utils.metamodelcore import empty_list, empty_dict
+from biolinkml.utils.yamlutils import YAMLRoot
+from biolinkml.utils.metamodelcore import Bool
+
+metamodel_version = "1.1.1"
+
+inherited_slots: List[str] = []
+
+
+# Types
+class String(str):
+    pass
+
+
+class Int(int):
+    pass
+
+
+class Boolean(Bool):
+    pass
+
+
+# Class references
+class PersonId(str):
+    pass
+
+
+@dataclass
+class Person(YAMLRoot):
+    """
+    A person, living or dead
+    """
+
+    # === person ===
+    id: Union[str, PersonId]
+    last_name: str
+    first_name: List[str] = empty_list()
+    age: Optional[int] = None
+    living: Optional[Bool] = None
+    knows: List[Union[str, PersonId]] = empty_list()
+
+    def _fix_elements(self):
+        super()._fix_elements()
+        if not isinstance(self.id, PersonId):
+            self.id = PersonId(self.id)
+        self.knows = [v if isinstance(v, PersonId)
+                      else PersonId(v) for v in self.knows]
+
+<img src="http://yuml.me/diagram/nofunky;dir:TB/class/[Person]<knows *- [Person|id:string;first_name:string *;last_name:string;age:int %3F;living:boolean %3F]"/>
+{
+   "_comments": "Auto generated from None by jsonldcontextgen.py version: 0.0.2\nGeneration date: 2019-03-07 11:19\nSchema: synopsis2\n\nid: http://example.org/sample/example1\ndescription: \nlicense: \n",
+   "@context": {
+      "_comments": null,
+      "type": "@type",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "@vocab": "http://example.org/model/",
+      "age": {
+         "@type": "xsd:integer",
+         "@id": "foaf:age"
+      },
+      "first_name": {
+         "@id": "foaf:firstName"
+      },
+      "id": "@id",
+      "knows": {
+         "@type": "@id"
+      },
+      "last_name": {
+         "@id": "foaf:lastName"
+      },
+      "living": {
+         "@type": "xsd:boolean"
+      },
+      "@base": "http://example.org/context/"
+   }
+}
+
+<http://example.org/sample/example1/String> <http://www.w3.org/2001/XMLSchema#string>
+
+<http://example.org/sample/example1/Int> <http://www.w3.org/2001/XMLSchema#integer>
+
+<http://example.org/sample/example1/Boolean> <http://www.w3.org/2001/XMLSchema#boolean>
+
+<http://example.org/sample/example1/Person> EXTRA <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> CLOSED {
+    (  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> [ <http://example.org/model/Person> ]
+       ;
+       <http://xmlns.com/foaf/0.1/firstName> @<http://example.org/sample/example1/String> * ;
+       <http://xmlns.com/foaf/0.1/lastName> @<http://example.org/sample/example1/String> ;
+       <http://xmlns.com/foaf/0.1/age> @<http://example.org/sample/example1/Int> ? ;
+       <http://example.org/model/living> @<http://example.org/sample/example1/Boolean> ? ;
+       <http://xmlns.com/foaf/0.1/knows> @<http://example.org/sample/example1/Person> *
+    )
+}
+
+
+
+Person(id='42', last_name='smith', first_name=['Joe', 'Bob'], age=43, living=None, knows=[])
+{
+   "id": "42",
+   "last_name": "smith",
+   "first_name": [
+      "Joe",
+      "Bob"
+   ],
+   "age": 43,
+   "living": null,
+   "knows": [],
+   "type": "Person",
+   "_comments": "Auto generated from None by jsonldcontextgen.py version: 0.0.2\nGeneration date: 2019-03-07 11:19\nSchema: synopsis2\n\nid: http://example.org/sample/example1\ndescription: \nlicense: \n",
+   "@context": {
+      "_comments": null,
+      "type": "@type",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "@vocab": "http://example.org/model/",
+      "age": {
+         "@type": "xsd:integer",
+         "@id": "foaf:age"
+      },
+      "first_name": {
+         "@id": "foaf:firstName"
+      },
+      "id": "@id",
+      "knows": {
+         "@type": "@id"
+      },
+      "last_name": {
+         "@id": "foaf:lastName"
+      },
+      "living": {
+         "@type": "xsd:boolean"
+      },
+      "@base": "http://example.org/context/"
+   }
+}
+@prefix : <http://example.org/model/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/context/42> a :Person ;
+    foaf:age 43 ;
+    foaf:firstName "Bob",
+        "Joe" ;
+    foaf:lastName "smith" .
+
+
+(True, '')

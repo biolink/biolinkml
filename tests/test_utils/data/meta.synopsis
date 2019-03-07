@@ -15,35 +15,38 @@ Slots: 68
 	Standalone: 67
 	Declared mixin: 0
 	Undeclared mixin: 0
-	Abstract: 0
+	Abstract: 1
 	Ranges:
 		Type:
 			boolean: 8
 			datetime: 2
 			integer: 1
 			ncname: 2
-			string: 20
-			uri: 10
+			string: 24
+			uri: 7
+			uriorcuri: 1
 		Class:
-			class definition: 5
+			class_definition: 5
 			definition: 4
 			element: 1
 			example: 1
 			prefix: 1
-			schema definition: 1
-			slot definition: 8
-			subset definition: 2
-			type definition: 2
+			schema_definition: 1
+			slot_definition: 6
+			subset_definition: 2
+			type_definition: 2
 
-Types: 10
-	Referenced by: 0 classes, 43 slots, 0 types 
+Types: 11
+	Referenced by: 0 classes, 45 slots, 0 types 
 	Bases:
 		Bool:
 			boolean
 		NCName:
 			ncname
-		URIorCURIE:
+		URI:
 			uri
+		URIorCURIE:
+			uriorcuri
 		XSDDate:
 			datetime
 		XSDDateTime:

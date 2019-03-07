@@ -39,14 +39,14 @@ class OwlSchemaGenerator(Generator):
     def visit_schema(self, output: Optional[str]):
         base = URIRef(self.schema.id)
         self.graph = Graph(identifier=base)
-        for prefix in self.metamodel.schema.id_prefixes:
+        for prefix in self.metamodel.schema.emit_prefixes:
             self.graph.bind(prefix, self.metamodel.namespaces[prefix])
 
         self.graph.add((base, RDF.type, OWL.Ontology))
         self._add_element_properties(base, self.schema)
 
         # add the model types
-        for name in ['class definition', 'type definition', 'slot definition', 'subset definition']:
+        for name in ['class_definition', 'type_definition', 'slot_definition', 'subset_definition']:
             self._add_metamodel_class(name)
 
         # add value placeholder
@@ -70,7 +70,9 @@ class OwlSchemaGenerator(Generator):
         self._add_element_properties(cls_uri, cls)
 
         # Parent classes
-        if not cls.defining_slots:
+        # TODO: reintroduce this
+        # if not cls.defining_slots:
+        if True:
             if cls.is_a:
                 self.graph.add((cls_uri, RDFS.subClassOf, self._class_uri(cls.is_a)))
             if cls.mixin:
@@ -122,7 +124,9 @@ class OwlSchemaGenerator(Generator):
 
         elts = []
         for sn in sorted(self.own_slot_names(cls)):
-            if sn not in cls.defining_slots:
+            # TODO: Reintroduce this
+            # if sn not in cls.defining_slots:
+            if False:
                 slot = self.schema.slots[sn]
                 slot_node = BNode()
                 self.graph.add((slot_node, RDF.type, OWL.Restriction))

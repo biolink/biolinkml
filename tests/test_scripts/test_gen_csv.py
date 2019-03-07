@@ -20,8 +20,8 @@ class GenCSVTestCase(ClickTestCase):
         self.do_test(source_yaml_path, 'meta.csv')
         self.do_test(source_yaml_path + ' -f tsv', 'meta.tsv')
         self.do_test(source_yaml_path + ' -f xsv', 'meta_error', error=click.exceptions.BadParameter)
-        self.do_test([source_yaml_path, "-r", "schema definition"], 'meta_sd')
-        self.do_test([source_yaml_path, "-r", "schema definition", "-r", "slot definition"], 'meta_sd_sd')
+        self.do_test([source_yaml_path, "-r", "schema_definition"], 'meta_sd')
+        self.do_test([source_yaml_path, "-r", "schema_definition", "-r", "slot_definition"], 'meta_sd_sd')
         self.do_test([source_yaml_path, "-r", "nada"], 'meta_sd', error=ValueError)
 
 

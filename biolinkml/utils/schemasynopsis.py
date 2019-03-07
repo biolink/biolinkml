@@ -89,9 +89,6 @@ class SchemaSynopsis:
             self.add_ref(SlotType, k, ClassType, v.domain)
         self.rangerefs.setdefault(v.range, set()).add(k)
         self.add_ref(SlotType, k, ClassType if v.range in self.schema.classes else TypeType, v.range)
-        if v.inverse:
-            self.inverses.setdefault(v.inverse, set()).add(k)
-            self.add_ref(SlotType, k, SlotType, v.inverse)
 
     def summarize_type_definition(self, k: TypeDefinitionName, v: TypeDefinition):
         """
@@ -119,9 +116,6 @@ class SchemaSynopsis:
         self.summarize_definition(ClassType, k, v)
         for slotname in v.slots:
             self.add_ref(ClassType, k, SlotType, slotname)
-        for ds in v.defining_slots:
-            self.definingslots.setdefault(ds, set()).add(k)
-            self.add_ref(ClassType, k, SlotType, ds)
         for slotname, usage in v.slot_usage.items():
             self.slotusages.setdefault(slotname, set()).add(k)
             self.add_ref(ClassType, k, SlotType, slotname)

@@ -19,7 +19,7 @@ default_curi_maps:
   - idot_context
   - semweb_context
 
-id_prefixes:
+emit_prefixes:
   - rdf
   - rdfs
   - xsd

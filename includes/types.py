@@ -1,5 +1,5 @@
 # Auto generated from types.yaml by pythongen.py version: 0.2.0
-# Generation date: 2019-02-05 15:54
+# Generation date: 2019-03-06 10:29
 # Schema: types
 #
 # id: http://w3id.org/biolink/biolinkml/types
@@ -10,9 +10,9 @@ from typing import Optional, List, Union, Dict
 from dataclasses import dataclass
 from biolinkml.utils.metamodelcore import empty_list, empty_dict
 from biolinkml.utils.yamlutils import YAMLRoot
-from biolinkml.utils.metamodelcore import Bool, NCName, URIorCURIE, XSDDate, XSDDateTime, XSDTime
+from biolinkml.utils.metamodelcore import Bool, NCName, URI, URIorCURIE, XSDDate, XSDDateTime, XSDTime
 
-metamodel_version = "1.0.2"
+metamodel_version = "1.1.1"
 
 inherited_slots: List[str] = []
 
@@ -53,8 +53,13 @@ class Datetime(XSDDate):
     pass
 
 
-class Uri(URIorCURIE):
+class Uriorcuri(URIorCURIE):
     """ a URI or a CURIE """
+    pass
+
+
+class Uri(URI):
+    """ a complete URI """
     pass
 
 

@@ -26,7 +26,7 @@ class ResolverTestCase(unittest.TestCase):
     def test_type_uri(self):
         """ Validate type URI's and the fact that they aren't inherited """
         schema = SchemaLoader(os.path.join(datadir, 'resolver2.yaml')).resolve()
-        self.assertEqual({'string': 'xsd:string', 't1': 'xsd:string', 't2': 'xsd:int', 't3': 'xsd:string'},
+        self.assertEqual({'string': 'xsd:string', 't1': 'xsd:string', 't2': 'xsd:int', 't3': None},
                          {t.name: t.uri for t in schema.types.values()})
 
     def test_element_slots(self):
@@ -40,7 +40,6 @@ class ResolverTestCase(unittest.TestCase):
              'examples': [{'description': 'an example', 'value': 'test: foo'},
                           {'description': None, 'value': 17}],
              'from_schema': 'http://example.org/yaml4',
-             'id_prefixes': ['p1', 'P2'],
              'in_subset': ['subset1', 'subset 2'],
              'inlined': True,
              'name': 's1',

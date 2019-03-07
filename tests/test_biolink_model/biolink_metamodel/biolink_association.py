@@ -1,5 +1,5 @@
 # Auto generated from tests.test_biolink_model.biolink_metamodel.biolink_association .yaml by pythongen.py version: 0.2.0
-# Generation date: 2019-02-12 09:04
+# Generation date: 2019-02-12 13:58
 # Schema: biolink association
 #
 # id: http://w3id.org/biolink/biolink-model/association
@@ -10,15 +10,14 @@ from typing import Optional, List, Union, Dict
 from dataclasses import dataclass
 from biolinkml.utils.metamodelcore import empty_list, empty_dict
 from biolinkml.utils.yamlutils import YAMLRoot
-from tests.test_biolink_model.biolink_metamodel.biolink_named_thing import AltDescription, Example, InformationContentEntity, InformationContentEntityId, NamedThingId, NodeTypeId, PropertyDefinition, PropertyDefinitionId, ProviderId, QualifierTypeId, RelationshipTypeId, SubsetDefinitionId, Thing
+from tests.test_biolink_model.biolink_metamodel.biolink_named_thing import AltDescription, Example, InformationContentEntity, InformationContentEntityId, NamedThingId, NodeTypeId, PropertyDefinition, PropertyDefinitionId, ProviderId, QualifierType, QualifierTypeId, RelationshipTypeId, SubsetDefinitionId, Thing
 from tests.test_biolink_model.biolink_metamodel.includes.biolink_types import BooleanType, FileName, IdentifierType, LabelType, NarrativeText, UriType
 from biolinkml.utils.metamodelcore import Bool, NCName, URIorCURIE, XSDDate
 from includes.types import Boolean, Datetime, Ncname, String, Uri
 
 metamodel_version = "1.0.2"
 
-inherited_slots: List[str] = ["qualifier_definitions", "slot_class_range", "slot_relation_range", "definitional",
-                              "slots"]
+inherited_slots: List[str] = ["slot_class_range", "slot_relation_range", "definitional", "slots"]
 
 
 # Types
@@ -85,11 +84,10 @@ class Association(Thing):
     has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
     has_evidence: List[Union[str, EvidenceTypeId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
-    qualifiers: List[Union[str, QualifierTypeId]] = empty_list()
+    qualifiers: Dict[Union[str, QualifierTypeId], Union[dict, QualifierType]] = empty_dict()
     publications: List[Union[str, PublicationId]] = empty_list()
     mixins: List[Union[str, AssociationAssociationId]] = empty_list()
     apply_to: List[Union[str, AssociationAssociationId]] = empty_list()
-    slots: Dict[Union[str, AssocPropertyDefinitionId], Union[dict, "AssocPropertyDefinition"]] = empty_dict()
     association_slot: List[Union[dict, "SlotDescription"]] = empty_list()
 
     def _fix_elements(self):
@@ -116,17 +114,15 @@ class Association(Thing):
                              else EvidenceTypeId(v) for v in self.has_evidence]
         if self.provided_by and not isinstance(self.provided_by, ProviderId):
             self.provided_by = ProviderId(self.provided_by)
-        self.qualifiers = [v if isinstance(v, QualifierTypeId)
-                           else QualifierTypeId(v) for v in self.qualifiers]
+        for k, v in self.qualifiers.items():
+            if not isinstance(v, QualifierType):
+                self.qualifiers[k] = QualifierType(id=k, **({} if v is None else v))
         self.publications = [v if isinstance(v, PublicationId)
                              else PublicationId(v) for v in self.publications]
         self.mixins = [v if isinstance(v, AssociationAssociationId)
                        else AssociationAssociationId(v) for v in self.mixins]
         self.apply_to = [v if isinstance(v, AssociationAssociationId)
                          else AssociationAssociationId(v) for v in self.apply_to]
-        for k, v in self.slots.items():
-            if not isinstance(v, AssocPropertyDefinition):
-                self.slots[k] = AssocPropertyDefinition(id=k, **({} if v is None else v))
         self.association_slot = [v if isinstance(v, SlotDescription)
                                  else SlotDescription(**v) for v in self.association_slot]
 

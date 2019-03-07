@@ -10,133 +10,236 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-:date rdfs:label "date" ;
+:metamodel a :SchemaDefinition ;
+    dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
+    dcterms:title "Biolink Schema Metamodel" ;
+    pav:version "1.1.1" ;
+    :classes :ClassDefinition,
+        :Definition,
+        :Element,
+        :Example,
+        :Prefix,
+        :SchemaDefinition,
+        :SlotDefinition,
+        :SubsetDefinition,
+        :TypeDefinition ;
+    :default_curi_maps "semweb_context" ;
+    :default_prefix "meta" ;
+    :default_range :string ;
+    :emit_prefixes "OIO",
+        "dcterms",
+        "meta",
+        "owl",
+        "pav",
+        "rdf",
+        "rdfs",
+        "skos",
+        "xsd" ;
+    :generation_date "2019-03-06 20:13"^^xsd:dateTime ;
+    :id <http://w3id.org/biolink/biolinkml/meta> ;
+    :imports <http://w3id.org/biolink/biolinkml/meta/includes/types> ;
+    :metamodel_version "1.1.1" ;
+    :prefixes [ :local_name "xsd" ;
+            :prefix_uri xsd: ],
+        [ :local_name "meta" ;
+            :prefix_uri : ],
+        [ :local_name "OIO" ;
+            :prefix_uri OIO: ],
+        [ :local_name "skos" ;
+            :prefix_uri skos: ],
+        [ :local_name "metatype" ;
+            :prefix_uri metatype: ],
+        [ :local_name "pav" ;
+            :prefix_uri pav: ] ;
+    :slots :abstract,
+        :alias,
+        :apply_to,
+        :base,
+        :class_definition_apply_to,
+        :class_definition_is_a,
+        :class_definition_mixins,
+        :class_uri,
+        :classes,
+        :comments,
+        :default_curi_maps,
+        :default_prefix,
+        :default_range,
+        :deprecated,
+        :description,
+        :domain,
+        :emit_prefixes,
+        :examples,
+        :from_schema,
+        :generation_date,
+        :id,
+        :identifier,
+        :ifabsent,
+        :imported_from,
+        :imports,
+        :in_subset,
+        :inherited,
+        :inlined,
+        :is_a,
+        :key,
+        :license,
+        :local_name,
+        :metamodel_version,
+        :mixin,
+        :mixins,
+        :multivalued,
+        :name,
+        :notes,
+        :prefix_uri,
+        :prefixes,
+        :range,
+        :readonly,
+        :repr,
+        :required,
+        :schema_definition_description,
+        :see_also,
+        :singular_name,
+        :slot_definition_apply_to,
+        :slot_definition_is_a,
+        :slot_definition_mixins,
+        :slot_definitions,
+        :slot_uri,
+        :slot_usage,
+        :slots,
+        :source_file,
+        :source_file_date,
+        :source_file_size,
+        :subsets,
+        :title,
+        :todos,
+        :type_uri,
+        :typeof,
+        :types,
+        :value,
+        :value_description,
+        :version ;
+    :source_file "meta.yaml" ;
+    :source_file_date "Wed Mar  6 20:02:16 2019"^^xsd:dateTime ;
+    :source_file_size 18607 ;
+    :subsets :owl ;
+    :types :boolean,
+        :date,
+        :datetime,
+        :double,
+        :float,
+        :integer,
+        :ncname,
+        :string,
+        :time,
+        :uri,
+        :uriorcuri ;
+    skos:definition "A metamodel for defining biolink related schemas" .
+
+:date a :TypeDefinition ;
     :base "XSDDateTime" ;
     :from_schema <http://w3id.org/biolink/biolinkml/types> ;
     :imported_from "includes/types" ;
     :repr "str" ;
     :uri xsd:dateTime ;
     skos:definition "a date (year, month and day) in an idealized calendar" ;
-    skos:editorialNote ( "URI is dateTime because OWL reasoners don't work with straight date or time" ) .
+    skos:editorialNote "URI is dateTime because OWL reasoners don't work with straight date or time" .
 
-:double rdfs:label "double" ;
+:double a :TypeDefinition ;
     :base "float" ;
     :from_schema <http://w3id.org/biolink/biolinkml/types> ;
     :imported_from "includes/types" ;
     :uri xsd:double .
 
-:float rdfs:label "float" ;
+:float a :TypeDefinition ;
     :base "float" ;
     :from_schema <http://w3id.org/biolink/biolinkml/types> ;
     :imported_from "includes/types" ;
     :uri xsd:float .
 
-:time rdfs:label "time" ;
+:time a :TypeDefinition ;
     :base "XSDTime" ;
     :from_schema <http://w3id.org/biolink/biolinkml/types> ;
     :imported_from "includes/types" ;
     :repr "str" ;
     :uri xsd:dateTime ;
     skos:definition "A time object represents a (local) time of day, independent of any particular day" ;
-    skos:editorialNote ( "URI is dateTime because OWL reasoners don't work with straight date or time" ) .
+    skos:editorialNote "URI is dateTime because OWL reasoners don't work with straight date or time" .
 
-:class_definition_apply_to rdfs:label "class_definition_apply_to" ;
+:uriorcuri a :TypeDefinition ;
+    :base "URIorCURIE" ;
+    :from_schema <http://w3id.org/biolink/biolinkml/types> ;
+    :imported_from "includes/types" ;
+    :repr "str" ;
+    :uri xsd:anyURI ;
+    skos:definition "a URI or a CURIE" .
+
+:class_definition_apply_to a :SlotDefinition ;
     :alias "apply_to" ;
     :domain :ClassDefinition ;
-    :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :is_a :apply_to ;
     :multivalued true ;
     :range :ClassDefinition ;
-    :slot_uri :apply_to ;
-    skos:definition "Used to extend class or slot definitions. For example, if we have a core schema where a gene has two slots for identifier and symbol, and we have a specialized schema for my_organism where we wish to add a slot systematic_name, we can avoid subclassing by defining a class gene_my_organism, adding the slot to this class, and then adding an apply_to pointing to the gene class. The new slot will be 'injected into' the gene class." .
+    :slot_uri :apply_to .
 
-:class_definition_is_a rdfs:label "class_definition_is_a" ;
+:class_definition_is_a a :SlotDefinition ;
     :alias "is_a" ;
     :domain :ClassDefinition ;
-    :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :is_a :is_a ;
     :range :ClassDefinition ;
-    :slot_uri :is_a ;
-    skos:definition "specifies single-inheritance between classes or slots. While multiple inheritance is not allowed, mixins can be provided effectively providing the same thing. The semantics are the same when translated to formalisms that allow MI (e.g. RDFS/OWL). When translating to a SI framework (e.g. java classes, python classes) then is_a is used. When translating a framework without polymorphism (e.g. json-schema, solr document schema) then is_a and mixins are recursively unfolded" .
+    :slot_uri :is_a .
 
-:class_definition_mixins rdfs:label "class_definition_mixins" ;
+:class_definition_mixins a :SlotDefinition ;
     :alias "mixins" ;
     :domain :ClassDefinition ;
-    :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :is_a :mixins ;
     :multivalued true ;
     :range :ClassDefinition ;
-    :slot_uri :mixins ;
-    skos:definition "List of definitions to be mixed in. Targets may be any definition of the same type" .
+    :slot_uri :mixins .
 
-:integer rdfs:label "integer" ;
+:integer a :TypeDefinition ;
     :base "int" ;
     :from_schema <http://w3id.org/biolink/biolinkml/types> ;
     :imported_from "includes/types" ;
     :uri xsd:integer .
 
-:inverse rdfs:label "inverse" ;
-    :domain :SlotDefinition ;
-    :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
-    :range :SlotDefinition ;
-    :slot_uri owl:inverseOf ;
-    skos:definition "used to indicate the inverse of a slot (e.g. 'expresses' is the inverse predicate of 'expressed in')" .
-
-:license rdfs:label "license" ;
+:license a :SlotDefinition ;
     :domain :SchemaDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
-    :in_subset ( :owl ) ;
+    :in_subset :owl ;
     :range :string ;
     :slot_uri dcterms:license ;
     skos:definition "license for the schema" .
 
-:range_subclass rdfs:label "range_subclass" ;
-    :alias "subclass_of" ;
-    :domain :SlotDefinition ;
-    :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
-    :range :uri ;
-    :slot_uri :subclass_of ;
-    skos:definition "Constraint on the range of a property" .
-
-:schema_definition_description rdfs:label "schema_definition_description" ;
+:schema_definition_description a :SlotDefinition ;
     :alias "description" ;
     :domain :SchemaDefinition ;
-    :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :is_a :description ;
     :range :string ;
-    :slot_uri dcterms:description ;
-    skos:definition "a description of the element's purpose and use" .
+    :slot_uri :description .
 
-:slot_definition_apply_to rdfs:label "slot_definition_apply_to" ;
+:slot_definition_apply_to a :SlotDefinition ;
     :alias "apply_to" ;
     :domain :SlotDefinition ;
-    :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :is_a :apply_to ;
     :multivalued true ;
     :range :SlotDefinition ;
-    :slot_uri :apply_to ;
-    skos:definition "Used to extend class or slot definitions. For example, if we have a core schema where a gene has two slots for identifier and symbol, and we have a specialized schema for my_organism where we wish to add a slot systematic_name, we can avoid subclassing by defining a class gene_my_organism, adding the slot to this class, and then adding an apply_to pointing to the gene class. The new slot will be 'injected into' the gene class." .
+    :slot_uri :apply_to .
 
-:slot_definition_is_a rdfs:label "slot_definition_is_a" ;
+:slot_definition_is_a a :SlotDefinition ;
     :alias "is_a" ;
     :domain :SlotDefinition ;
-    :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :is_a :is_a ;
     :range :SlotDefinition ;
-    :slot_uri :is_a ;
-    skos:definition "specifies single-inheritance between classes or slots. While multiple inheritance is not allowed, mixins can be provided effectively providing the same thing. The semantics are the same when translated to formalisms that allow MI (e.g. RDFS/OWL). When translating to a SI framework (e.g. java classes, python classes) then is_a is used. When translating a framework without polymorphism (e.g. json-schema, solr document schema) then is_a and mixins are recursively unfolded" .
+    :slot_uri :is_a .
 
-:slot_definition_mixins rdfs:label "slot_definition_mixins" ;
+:slot_definition_mixins a :SlotDefinition ;
     :alias "mixins" ;
     :domain :SlotDefinition ;
-    :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :is_a :mixins ;
     :multivalued true ;
     :range :SlotDefinition ;
-    :slot_uri :mixins ;
-    skos:definition "List of definitions to be mixed in. Targets may be any definition of the same type" .
+    :slot_uri :mixins .
 
-:slot_definitions rdfs:label "slot_definitions" ;
+:slot_definitions a :SlotDefinition ;
     :alias "slots" ;
     :domain :SchemaDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
@@ -146,59 +249,65 @@
     :slot_uri :slots ;
     skos:definition "slot definitions" .
 
-:title rdfs:label "title" ;
+:title a :SlotDefinition ;
     :domain :SchemaDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
-    :in_subset ( :owl ) ;
+    :in_subset :owl ;
     :range :string ;
     :slot_uri dcterms:title ;
     skos:definition "the official title of the schema" .
 
-:type_uri rdfs:label "type_uri" ;
+:type_uri a :SlotDefinition ;
     :alias "uri" ;
     :domain :TypeDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :range :uri ;
     :slot_uri :uri ;
-    skos:definition "the URI to be used for the type in semantic web mappings" .
+    skos:definition "The uri that defines the possible values for the type definition" ;
+    skos:note "every root type must have a type uri",
+        "uri is typically drawn from the set of URI's defined in OWL (https://www.w3.org/TR/2012/REC-owl2-syntax-20121211/#Datatype_Maps)" .
 
-:value_description rdfs:label "value_description" ;
+:value_description a :SlotDefinition ;
     :alias "description" ;
     :domain :Example ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :range :string ;
-    :slot_uri :description .
+    :slot_uri :description ;
+    skos:definition "description of what the value is doing" .
 
-:version rdfs:label "version" ;
+:version a :SlotDefinition ;
     :domain :SchemaDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :range :string ;
     :slot_uri pav:version ;
     skos:definition "particular version of schema" .
 
-:alias rdfs:label "alias" ;
+:alias a :SlotDefinition ;
     :domain :SlotDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :range :string ;
     :slot_uri :alias ;
     skos:definition "the name used for a slot in the context of its owning class.  If present, this is used instead of the actual slot name." .
 
-:base rdfs:label "base" ;
+:base a :SlotDefinition ;
     :domain :TypeDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
+    :inherited true ;
     :range :string ;
     :slot_uri :base ;
-    skos:definition "python base type that implements this type definition" .
+    skos:definition "python base type that implements this type definition" ;
+    skos:note "every root type must have a base",
+        "the base is inherited by child types but may be overriden.  Base compatibility is not checked." .
 
-:class_uri rdfs:label "class_uri" ;
+:class_uri a :SlotDefinition ;
     :domain :ClassDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
-    :ifabsent "set to <default_prefix>:<class_name>" ;
+    :ifabsent "set to <default prefix>:<class name>" ;
     :range :uri ;
     :slot_uri :class_uri ;
     skos:definition "URI of the class in an RDF environment" .
 
-:classes rdfs:label "classes" ;
+:classes a :SlotDefinition ;
     :domain :SchemaDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :inlined true ;
@@ -207,44 +316,36 @@
     :slot_uri :classes ;
     skos:definition "class definitions" .
 
-:datetime rdfs:label "datetime" ;
+:datetime a :TypeDefinition ;
     :base "XSDDate" ;
     :from_schema <http://w3id.org/biolink/biolinkml/types> ;
     :imported_from "includes/types" ;
     :repr "str" ;
     :uri xsd:dateTime .
 
-:default_curi_maps rdfs:label "default_curi_maps" ;
+:default_curi_maps a :SlotDefinition ;
     :domain :SchemaDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :multivalued true ;
     :range :string ;
     :slot_uri :default_curi_maps ;
-    skos:definition "ordered list of prefixcommon biocontexts to be fetched to resolve id_prefixes and inline prefix variables" .
+    skos:definition "ordered list of prefixcommon biocontexts to be fetched to resolve id prefixes and inline prefix variables" .
 
-:default_prefix rdfs:label "default_prefix" ;
+:default_prefix a :SlotDefinition ;
     :domain :SchemaDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :range :string ;
     :slot_uri :default_prefix ;
     skos:definition "default and base prefix -- used for ':' identifiers, @base and @vocab" .
 
-:default_range rdfs:label "default_range" ;
+:default_range a :SlotDefinition ;
     :domain :SchemaDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :range :Definition ;
     :slot_uri :default_range ;
     skos:definition "default slot range to be used if range element is omitted from a slot definition" .
 
-:defining_slots rdfs:label "defining_slots" ;
-    :domain :ClassDefinition ;
-    :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
-    :multivalued true ;
-    :range :SlotDefinition ;
-    :slot_uri :defining_slots ;
-    skos:definition "The combination of is_a plus defining slots form a genus-differentia definition, or the set of necessary and sufficient conditions that can be transformed into an OWL equivalence axiom" .
-
-:domain rdfs:label "domain" ;
+:domain a :SlotDefinition ;
     :domain :SlotDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :inherited true ;
@@ -262,34 +363,43 @@ the declaration
 implicitly asserts that X is an instance of C1
 """ .
 
-:generation_date rdfs:label "generation_date" ;
+:emit_prefixes a :SlotDefinition ;
     :domain :SchemaDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
-    :in_subset ( :owl ) ;
+    :multivalued true ;
+    :range :ncname ;
+    :slot_uri :emit_prefixes ;
+    skos:definition "a list of Curie prefixes that are used in the representation of instances of the model.  All prefixes in this list are added to the prefix sections of the target models." .
+
+:generation_date a :SlotDefinition ;
+    :domain :SchemaDefinition ;
+    :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
+    :in_subset :owl ;
     :range :datetime ;
     :readonly "supplied by the schema loader" ;
     :slot_uri :generation_date ;
     skos:definition "date and time that the schema was loaded/generated" .
 
-:id rdfs:label "id" ;
+:id a :SlotDefinition ;
     :domain :SchemaDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
-    :identifier true ;
     :range :uri ;
     :required true ;
     :slot_uri :id ;
-    skos:definition "a globally unique schema identifier" .
+    skos:definition "The official schema URI" .
 
-:identifier rdfs:label "identifier" ;
+:identifier a :SlotDefinition ;
     :domain :SlotDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :inherited true ;
     :range :boolean ;
     :slot_uri :identifier ;
-    skos:definition "True means that this slot must be unique across the collection of slots" ;
-    skos:note ( "keys and identifiers must be inherited." ) .
+    skos:definition "true means that this slot is the subject of a set of assertions.  Identifiers do not appear as predicates in the model" ;
+    skos:note "a given domain can have at most one identifier",
+        "identifier is inherited",
+        "identifier slots are always required" .
 
-:ifabsent rdfs:label "ifabsent" ;
+:ifabsent a :SlotDefinition ;
     :domain :SlotDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :inherited true ;
@@ -297,7 +407,7 @@ implicitly asserts that X is an instance of C1
     :slot_uri :ifabsent ;
     skos:definition "description of special behavior if the slot is absent" .
 
-:imports rdfs:label "imports" ;
+:imports a :SlotDefinition ;
     :domain :SchemaDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :multivalued true ;
@@ -305,16 +415,16 @@ implicitly asserts that X is an instance of C1
     :slot_uri :imports ;
     skos:definition "other schemas that are included in this schema" .
 
-:inherited rdfs:label "inherited" ;
+:inherited a :SlotDefinition ;
     :domain :SlotDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :inherited true ;
     :range :boolean ;
     :slot_uri :inherited ;
     skos:definition "true means that the *value* of a slot is inherited by subclasses" ;
-    skos:note ( "Inherited applies to slot values.  Parent *slots* are always inherited by subclasses" ) .
+    skos:note "Inherited applies to slot values.  Parent *slots* are always inherited by subclasses" .
 
-:inlined rdfs:label "inlined" ;
+:inlined a :SlotDefinition ;
     :domain :SlotDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :inherited true ;
@@ -322,16 +432,18 @@ implicitly asserts that X is an instance of C1
     :slot_uri :inlined ;
     skos:definition "an inlined definition a list of actual values rather than references.  Only applies to slots whose range is a class." .
 
-:key rdfs:label "key" ;
+:key a :SlotDefinition ;
     :domain :SlotDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :inherited true ;
     :range :boolean ;
     :slot_uri :key ;
-    skos:definition "true means that the slot uniquely identifies the element within the context of its container" ;
-    skos:editorialNote ( "a given domain can have at most one key" "key slots default to required" ) .
+    skos:definition "true means that the slot uniquely identifies the element within the context of its container.  Key slots are NOT identifiers - they do not serve as subjects" ;
+    skos:editorialNote "a given domain can have at most one key",
+        "key is inherited",
+        "key slots are always required" .
 
-:local_name rdfs:label "local_name" ;
+:local_name a :SlotDefinition ;
     :domain :Prefix ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :key true ;
@@ -340,16 +452,16 @@ implicitly asserts that X is an instance of C1
     :slot_uri :local_name ;
     skos:definition "the nsname (sans ':' for a given prefix)" .
 
-:metamodel_version rdfs:label "metamodel_version" ;
+:metamodel_version a :SlotDefinition ;
     :domain :SchemaDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
-    :in_subset ( :owl ) ;
+    :in_subset :owl ;
     :range :string ;
     :readonly "supplied by the schema loader" ;
     :slot_uri :metamodel_version ;
     skos:definition "Version of the metamodel used to load the schema" .
 
-:multivalued rdfs:label "multivalued" ;
+:multivalued a :SlotDefinition ;
     :domain :SlotDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :inherited true ;
@@ -357,7 +469,7 @@ implicitly asserts that X is an instance of C1
     :slot_uri :multivalued ;
     skos:definition "true means that slot can have more than one value" .
 
-:ncname rdfs:label "ncname" ;
+:ncname a :TypeDefinition ;
     :base "NCName" ;
     :from_schema <http://w3id.org/biolink/biolinkml/types> ;
     :imported_from "includes/types" ;
@@ -365,7 +477,7 @@ implicitly asserts that X is an instance of C1
     :uri xsd:string ;
     skos:definition "Prefix part of CURIE" .
 
-:prefix_uri rdfs:label "prefix_uri" ;
+:prefix_uri a :SlotDefinition ;
     :domain :Prefix ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :range :uri ;
@@ -373,19 +485,19 @@ implicitly asserts that X is an instance of C1
     :slot_uri :prefix_uri ;
     skos:definition "A URI associated with a given prefix" .
 
-:prefixes rdfs:label "prefixes" ;
+:prefixes a :SlotDefinition ;
     :domain :SchemaDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :inlined true ;
     :multivalued true ;
     :range :Prefix ;
     :slot_uri :prefixes ;
-    skos:definition "prefix / URI definitions to be added to the context beyond those fetched from prefixcommons in id_prefixes" .
+    skos:definition "prefix / URI definitions to be added to the context beyond those fetched from prefixcommons in id prefixes" .
 
-:range rdfs:label "range" ;
+:range a :SlotDefinition ;
     :domain :SlotDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
-    :ifabsent "set to default_range" ;
+    :ifabsent "set to default range" ;
     :inherited true ;
     :range :Element ;
     :slot_uri :range ;
@@ -400,7 +512,7 @@ the declaration
 implicitly asserts Y is an instance of C2
 """ .
 
-:readonly rdfs:label "readonly" ;
+:readonly a :SlotDefinition ;
     :domain :SlotDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :inherited true ;
@@ -408,7 +520,16 @@ implicitly asserts Y is an instance of C2
     :slot_uri :readonly ;
     skos:definition "If present, slot is read only.  Text explains why" .
 
-:required rdfs:label "required" ;
+:repr a :SlotDefinition ;
+    :domain :TypeDefinition ;
+    :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
+    :inherited true ;
+    :range :string ;
+    :slot_uri :repr ;
+    skos:definition "the name of the python object that implements this type definition" ;
+    skos:note "if not supplied, the model d" .
+
+:required a :SlotDefinition ;
     :domain :SlotDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :inherited true ;
@@ -416,15 +537,15 @@ implicitly asserts Y is an instance of C2
     :slot_uri :required ;
     skos:definition "true means that the slot must be present in the loaded definition" .
 
-:slot_uri rdfs:label "slot_uri" ;
+:slot_uri a :SlotDefinition ;
     :domain :SlotDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
-    :ifabsent "set to <default_prefix>:<slot_name>" ;
+    :ifabsent "set to <default prefix>:<slot name>" ;
     :range :uri ;
     :slot_uri :slot_uri ;
     skos:definition "predicate of this slot for semantic web application" .
 
-:slot_usage rdfs:label "slot_usage" ;
+:slot_usage a :SlotDefinition ;
     :domain :ClassDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :inlined true ;
@@ -432,43 +553,36 @@ implicitly asserts Y is an instance of C2
     :range :SlotDefinition ;
     :slot_uri :slot_usage ;
     skos:definition "the redefinition of a slot in the context of the containing class definition." ;
-    skos:note ( "Many slots may be re-used across different classes, but the meaning of the slot may be refined by context. For example, a generic association model may use slots subject/predicate/object with generic semantics and minimal constraints. When this is subclasses, e.g. to disease-phenotype associations then slot_usage may specify both local naming (e.g. subject=disease) and local constraints" ) .
+    skos:note "Many slots may be re-used across different classes, but the meaning of the slot may be refined by context. For example, a generic association model may use slots subject/predicate/object with generic semantics and minimal constraints. When this is subclasses, e.g. to disease-phenotype associations then slot usage may specify both local naming (e.g. subject=disease) and local constraints" .
 
-:source_file rdfs:label "source_file" ;
+:source_file a :SlotDefinition ;
     :domain :SchemaDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
-    :in_subset ( :owl ) ;
+    :in_subset :owl ;
     :range :string ;
     :readonly "suppplied by the schema loader" ;
     :slot_uri :source_file ;
     skos:definition "name, uri or description of the source of the schema" .
 
-:source_file_date rdfs:label "source_file_date" ;
+:source_file_date a :SlotDefinition ;
     :domain :SchemaDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
-    :in_subset ( :owl ) ;
+    :in_subset :owl ;
     :range :datetime ;
     :readonly "supplied by the loader" ;
     :slot_uri :source_file_date ;
     skos:definition "modification date of the source of the schema" .
 
-:source_file_size rdfs:label "source_file_size" ;
+:source_file_size a :SlotDefinition ;
     :domain :SchemaDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
-    :in_subset ( :owl ) ;
+    :in_subset :owl ;
     :range :integer ;
     :readonly "supplied by the schema loader" ;
     :slot_uri :source_file_size ;
     skos:definition "size in bytes of the source of the schema" .
 
-:subclass_of rdfs:label "subclass_of" ;
-    :domain :ClassDefinition ;
-    :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
-    :range :uri ;
-    :slot_uri rdfs:subClassOf ;
-    skos:definition "instances of this class are considered/required to be sub classes of the target URI" .
-
-:subsets rdfs:label "subsets" ;
+:subsets a :SlotDefinition ;
     :domain :SchemaDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :inlined true ;
@@ -477,14 +591,17 @@ implicitly asserts Y is an instance of C2
     :slot_uri :subsets ;
     skos:definition "list of subsets referenced in this model" .
 
-:typeof rdfs:label "typeof" ;
+:typeof a :SlotDefinition ;
     :domain :TypeDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :range :TypeDefinition ;
     :slot_uri :typeof ;
-    skos:definition "supertype" .
+    skos:definition "Names a parent type" ;
+    skos:note "the target type definition of the typeof slot is referred to as the \"parent type\"",
+        "the type definition containing the typeof slot is referred to as the \"child type\"",
+        "type definitions without a typeof slot are referred to as a \"root type\"" .
 
-:types rdfs:label "types" ;
+:types a :SlotDefinition ;
     :domain :SchemaDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :inlined true ;
@@ -493,79 +610,69 @@ implicitly asserts Y is an instance of C2
     :slot_uri :types ;
     skos:definition "data types used in the model" .
 
-:value rdfs:label "value" ;
+:value a :SlotDefinition ;
     :domain :Example ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :range :string ;
-    :slot_uri :value .
+    :slot_uri :value ;
+    skos:definition "example value" .
 
-:SubsetDefinition rdfs:label "SubsetDefinition" ;
-    :class_uri :SubsetDefinition ;
-    :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
-    :is_a :Element ;
-    :slots ( :name :description :deprecated :notes :comments :examples :in_subset :from_schema :see_also :id_prefixes ) ;
-    skos:definition "the name and description of a subset" .
-
-:slots rdfs:label "slots" ;
+:slots a :SlotDefinition ;
     :domain :ClassDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :multivalued true ;
     :range :SlotDefinition ;
     :slot_uri :slots ;
     skos:definition "list of slot names that are applicable to a class" ;
-    skos:note ( "the preferred way for defining slots is through the slot domain. The final list of slots for a class is the combination of the parent (is_a) slots, mixins slots, apply_to slots minus the slot_usage entries." ) .
+    skos:note "This defines the set of slots that are allowed to be used for a given class. The final list of slots for a class is the combination of the parent (is a) slots, mixins slots, apply to slots minus the slot usage entries. Formally, " .
 
-:Example rdfs:label "Example" ;
+:Example a :ClassDefinition ;
     :class_uri :Example ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
-    :slots ( :value :value_description ) ;
+    :slots :value,
+        :value_description ;
     skos:definition "usage example and description" .
 
-:Prefix rdfs:label "Prefix" ;
+:Prefix a :ClassDefinition ;
     :class_uri :Prefix ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
-    :slots ( :local_name :prefix_uri ) ;
+    :slots :local_name,
+        :prefix_uri ;
     skos:definition "prefix URI tuple" .
 
-:abstract rdfs:label "abstract" ;
+:SubsetDefinition a :ClassDefinition ;
+    :class_uri :SubsetDefinition ;
+    :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
+    :is_a :Element ;
+    :slots :comments,
+        :deprecated,
+        :description,
+        :examples,
+        :from_schema,
+        :imported_from,
+        :in_subset,
+        :name,
+        :notes,
+        :see_also,
+        :singular_name,
+        :todos ;
+    skos:definition "the name and description of a subset" .
+
+:abstract a :SlotDefinition ;
     :domain :Definition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :range :boolean ;
     :slot_uri :abstract ;
     skos:definition "an abstract class is a high level class or slot that is typically used to group common slots together and cannot be directly instantiated." .
 
-:local_names rdfs:label "local_names" ;
-    :domain :Definition ;
-    :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
-    :multivalued true ;
-    :range :string ;
-    :slot_uri :local_names ;
-    skos:definition "map from local identifier to slot" ;
-    skos:editorialNote ( "get this properly documented -- it is a map from an identifier to a slot name" ) .
-
-:mixin rdfs:label "mixin" ;
+:mixin a :SlotDefinition ;
     :domain :Definition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :range :boolean ;
     :slot_uri :mixin ;
     skos:definition "this slot or class can only be used as a mixin -- equivalent to abstract" .
 
-:values_from rdfs:label "values_from" ;
-    :domain :Definition ;
-    :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
-    :multivalued true ;
-    :range :uri ;
-    :slot_uri :values_from ;
-    skos:definition "identifies the possible uri's of the range" .
-
-:TypeDefinition rdfs:label "TypeDefinition" ;
-    :class_uri :TypeDefinition ;
-    :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
-    :is_a :Element ;
-    :slots ( :name :description :deprecated :notes :comments :examples :in_subset :from_schema :see_also :id_prefixes :typeof :base :type_uri ) ;
-    skos:definition "A data type definition." .
-
-:apply_to rdfs:label "apply_to" ;
+:apply_to a :SlotDefinition ;
     :domain :Definition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :multivalued true ;
@@ -573,14 +680,15 @@ implicitly asserts Y is an instance of C2
     :slot_uri :apply_to ;
     skos:definition "Used to extend class or slot definitions. For example, if we have a core schema where a gene has two slots for identifier and symbol, and we have a specialized schema for my_organism where we wish to add a slot systematic_name, we can avoid subclassing by defining a class gene_my_organism, adding the slot to this class, and then adding an apply_to pointing to the gene class. The new slot will be 'injected into' the gene class." .
 
-:is_a rdfs:label "is_a" ;
+:is_a a :SlotDefinition ;
+    :abstract true ;
     :domain :Definition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :range :Definition ;
     :slot_uri :is_a ;
-    skos:definition "specifies single-inheritance between classes or slots. While multiple inheritance is not allowed, mixins can be provided effectively providing the same thing. The semantics are the same when translated to formalisms that allow MI (e.g. RDFS/OWL). When translating to a SI framework (e.g. java classes, python classes) then is_a is used. When translating a framework without polymorphism (e.g. json-schema, solr document schema) then is_a and mixins are recursively unfolded" .
+    skos:definition "specifies single-inheritance between classes or slots. While multiple inheritance is not allowed, mixins can be provided effectively providing the same thing. The semantics are the same when translated to formalisms that allow MI (e.g. RDFS/OWL). When translating to a SI framework (e.g. java classes, python classes) then is a is used. When translating a framework without polymorphism (e.g. json-schema, solr document schema) then is a and mixins are recursively unfolded" .
 
-:mixins rdfs:label "mixins" ;
+:mixins a :SlotDefinition ;
     :domain :Definition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :multivalued true ;
@@ -588,26 +696,26 @@ implicitly asserts Y is an instance of C2
     :slot_uri :mixins ;
     skos:definition "List of definitions to be mixed in. Targets may be any definition of the same type" .
 
-:comments rdfs:label "comments" ;
+:comments a :SlotDefinition ;
     :domain :Element ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
-    :in_subset ( :owl ) ;
+    :in_subset :owl ;
     :multivalued true ;
     :range :string ;
     :slot_uri skos:note ;
     skos:definition "notes and comments about an element intended for external consumption" .
 
-:examples rdfs:label "examples" ;
+:examples a :SlotDefinition ;
     :domain :Element ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
-    :in_subset ( :owl ) ;
+    :in_subset :owl ;
     :inlined true ;
     :multivalued true ;
     :range :Example ;
     :slot_uri skos:example ;
     skos:definition "example usages of an element" .
 
-:from_schema rdfs:label "from_schema" ;
+:from_schema a :SlotDefinition ;
     :domain :Element ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :range :SchemaDefinition ;
@@ -615,7 +723,7 @@ implicitly asserts Y is an instance of C2
     :slot_uri skos:inScheme ;
     skos:definition "id of the schema that defined the element" .
 
-:in_subset rdfs:label "in_subset" ;
+:in_subset a :SlotDefinition ;
     :domain :Element ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :multivalued true ;
@@ -623,167 +731,259 @@ implicitly asserts Y is an instance of C2
     :slot_uri OIO:inSubset ;
     skos:definition "used to indicate membership of a term in a defined subset of biolink terms used for a particular domain or application (e.g. the translator_minimal subset holding the minimal set of predicates used in a translator knowledge graph)" .
 
-:name rdfs:label "name" ;
+:name a :SlotDefinition ;
     :domain :Element ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
-    :in_subset ( :owl ) ;
+    :identifier true ;
+    :in_subset :owl ;
     :key true ;
     :range :string ;
     :required true ;
     :slot_uri rdfs:label ;
-    skos:definition "the unique name of the element within the context of the schema" .
+    skos:definition "the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class." .
 
-:notes rdfs:label "notes" ;
+:notes a :SlotDefinition ;
     :domain :Element ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
-    :in_subset ( :owl ) ;
+    :in_subset :owl ;
     :multivalued true ;
     :range :string ;
     :slot_uri skos:editorialNote ;
     skos:definition "editorial notes about an element intended for internal consumption" .
 
-:see_also rdfs:label "see_also" ;
+:see_also a :SlotDefinition ;
     :domain :Element ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
-    :in_subset ( :owl ) ;
+    :in_subset :owl ;
     :multivalued true ;
     :range :uri ;
     :slot_uri rdfs:seeAlso ;
     skos:definition "a reference" .
 
-:boolean rdfs:label "boolean" ;
+:singular_name a :SlotDefinition ;
+    :domain :Element ;
+    :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
+    :range :string ;
+    :slot_uri skos:altLabel ;
+    skos:definition "a name that is used in the singular form" .
+
+:boolean a :TypeDefinition ;
     :base "Bool" ;
     :from_schema <http://w3id.org/biolink/biolinkml/types> ;
     :imported_from "includes/types" ;
     :uri xsd:boolean ;
     skos:definition "A binary (true or false) value" .
 
-:deprecated rdfs:label "deprecated" ;
+:deprecated a :SlotDefinition ;
     :domain :Element ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :range :string ;
     :slot_uri :deprecated ;
     skos:definition "Description of why and when this element will no longer be used" .
 
-:description rdfs:label "description" ;
+:imported_from a :SlotDefinition ;
     :domain :Element ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
-    :in_subset ( :owl ) ;
     :range :string ;
-    :slot_uri skos:definition ;
-    skos:definition "a description of the element's purpose and use" .
+    :readonly "supplied by the schema loader" ;
+    :slot_uri :imported_from ;
+    skos:definition "the imports entry that this element was derived from.  Empty means primary source" .
 
-:id_prefixes rdfs:label "id_prefixes" ;
+:todos a :SlotDefinition ;
     :domain :Element ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :multivalued true ;
-    :range :ncname ;
-    :slot_uri :id_prefixes ;
-    skos:definition "a list of Curie prefixes that are used in the representation of instances of the model.  All prefixes in this list are added to the prefix sections of the target models." .
+    :range :string ;
+    :slot_uri :todos ;
+    skos:definition "Outstanding issue that needs resolution" .
 
-:uri rdfs:label "uri" ;
-    :base "URIorCURIE" ;
+:uri a :TypeDefinition ;
+    :base "URI" ;
     :from_schema <http://w3id.org/biolink/biolinkml/types> ;
     :imported_from "includes/types" ;
     :repr "str" ;
     :uri xsd:anyURI ;
-    skos:definition "a URI or a CURIE" .
+    skos:definition "a complete URI" .
 
-:Definition rdfs:label "Definition" ;
+:description a :SlotDefinition ;
+    :domain :Element ;
+    :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
+    :in_subset :owl ;
+    :range :string ;
+    :slot_uri skos:definition ;
+    skos:definition "a description of the element's purpose and use" .
+
+:Definition a :ClassDefinition ;
     :abstract true ;
     :class_uri :Definition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :is_a :Element ;
-    :slots ( :name :description :deprecated :notes :comments :examples :in_subset :from_schema :see_also :id_prefixes :is_a :abstract :local_names :mixin :mixins :apply_to :values_from ) ;
+    :slots :abstract,
+        :apply_to,
+        :comments,
+        :deprecated,
+        :description,
+        :examples,
+        :from_schema,
+        :imported_from,
+        :in_subset,
+        :is_a,
+        :mixin,
+        :mixins,
+        :name,
+        :notes,
+        :see_also,
+        :singular_name,
+        :todos ;
     skos:definition "base class for definitions" .
 
-:Element rdfs:label "Element" ;
+:owl a :SubsetDefinition ;
+    :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
+    skos:definition "Set of slots that appear in the OWL representation of a model" .
+
+:Element a :ClassDefinition ;
     :abstract true ;
     :class_uri :Element ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
-    :slots ( :name :description :deprecated :notes :comments :examples :in_subset :from_schema :see_also :id_prefixes ) ;
+    :slots :comments,
+        :deprecated,
+        :description,
+        :examples,
+        :from_schema,
+        :imported_from,
+        :in_subset,
+        :name,
+        :notes,
+        :see_also,
+        :singular_name,
+        :todos ;
     skos:definition "a named element in the model" .
 
-:ClassDefinition rdfs:label "ClassDefinition" ;
+:TypeDefinition a :ClassDefinition ;
+    :class_uri :TypeDefinition ;
+    :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
+    :is_a :Element ;
+    :slots :base,
+        :comments,
+        :deprecated,
+        :description,
+        :examples,
+        :from_schema,
+        :imported_from,
+        :in_subset,
+        :name,
+        :notes,
+        :repr,
+        :see_also,
+        :singular_name,
+        :todos,
+        :type_uri,
+        :typeof ;
+    skos:definition "A data type definition." .
+
+:ClassDefinition a :ClassDefinition ;
     :class_uri :ClassDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :is_a :Definition ;
-    :slot_usage ( [ rdfs:label "is_a" ;
-                :domain :ClassDefinition ;
-                :range :ClassDefinition ;
-                :slot_uri :None ] [ rdfs:label "mixins" ;
-                :domain :ClassDefinition ;
-                :range :ClassDefinition ;
-                :slot_uri :None ] [ rdfs:label "apply_to" ;
-                :domain :ClassDefinition ;
-                :range :ClassDefinition ;
-                :slot_uri :None ] ) ;
-    :slots ( :name :description :deprecated :notes :comments :examples :in_subset :from_schema :see_also :id_prefixes :class_definition_is_a :abstract :local_names :mixin :class_definition_mixins :class_definition_apply_to :values_from :slots :slot_usage :class_uri :defining_slots :subclass_of ) ;
+    :slots :abstract,
+        :class_definition_apply_to,
+        :class_definition_is_a,
+        :class_definition_mixins,
+        :class_uri,
+        :comments,
+        :deprecated,
+        :description,
+        :examples,
+        :from_schema,
+        :imported_from,
+        :in_subset,
+        :mixin,
+        :name,
+        :notes,
+        :see_also,
+        :singular_name,
+        :slot_usage,
+        :slots,
+        :todos ;
     skos:definition "the definition of a class or interface" .
 
-:string rdfs:label "string" ;
+:SchemaDefinition a :ClassDefinition ;
+    :class_uri :SchemaDefinition ;
+    :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
+    :is_a :Element ;
+    :slots :classes,
+        :comments,
+        :default_curi_maps,
+        :default_prefix,
+        :default_range,
+        :deprecated,
+        :emit_prefixes,
+        :examples,
+        :from_schema,
+        :generation_date,
+        :id,
+        :imported_from,
+        :imports,
+        :in_subset,
+        :license,
+        :metamodel_version,
+        :name,
+        :notes,
+        :prefixes,
+        :schema_definition_description,
+        :see_also,
+        :singular_name,
+        :slot_definitions,
+        :source_file,
+        :source_file_date,
+        :source_file_size,
+        :subsets,
+        :title,
+        :todos,
+        :types,
+        :version ;
+    skos:definition "a collection of subset, type, slot and class definitions" .
+
+:string a :TypeDefinition ;
     :base "str" ;
     :from_schema <http://w3id.org/biolink/biolinkml/types> ;
     :imported_from "includes/types" ;
     :uri xsd:string .
 
-:SchemaDefinition rdfs:label "SchemaDefinition" ;
-    :class_uri :SchemaDefinition ;
-    :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
-    :is_a :Element ;
-    :slot_usage ( [ rdfs:label "description" ;
-                :domain :SchemaDefinition ;
-                :slot_uri dcterms:description ] ) ;
-    :slots ( :name :schema_definition_description :deprecated :notes :comments :examples :in_subset :from_schema :see_also :id_prefixes :id :title :version :imports :license :prefixes :default_curi_maps :default_prefix :default_range :subsets :types :slot_definitions :classes :metamodel_version :source_file :source_file_date :source_file_size :generation_date ) ;
-    skos:definition "a collection of subset, type, slot and class definitions" .
-
-:SlotDefinition rdfs:label "SlotDefinition" ;
+:SlotDefinition a :ClassDefinition ;
     :class_uri :SlotDefinition ;
     :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
     :is_a :Definition ;
-    :slot_usage ( [ rdfs:label "is_a" ;
-                :domain :SlotDefinition ;
-                :range :SlotDefinition ;
-                :slot_uri :None ] [ rdfs:label "mixins" ;
-                :domain :SlotDefinition ;
-                :range :SlotDefinition ;
-                :slot_uri :None ] [ rdfs:label "apply_to" ;
-                :domain :SlotDefinition ;
-                :range :SlotDefinition ;
-                :slot_uri :None ] ) ;
-    :slots ( :name :description :deprecated :notes :comments :examples :in_subset :from_schema :see_also :id_prefixes :slot_definition_is_a :abstract :local_names :mixin :slot_definition_mixins :slot_definition_apply_to :values_from :domain :range :slot_uri :multivalued :inherited :readonly :ifabsent :required :inlined :key :identifier :alias :range_subclass :inverse ) ;
+    :slots :abstract,
+        :alias,
+        :comments,
+        :deprecated,
+        :description,
+        :domain,
+        :examples,
+        :from_schema,
+        :identifier,
+        :ifabsent,
+        :imported_from,
+        :in_subset,
+        :inherited,
+        :inlined,
+        :key,
+        :mixin,
+        :multivalued,
+        :name,
+        :notes,
+        :range,
+        :readonly,
+        :required,
+        :see_also,
+        :singular_name,
+        :slot_definition_apply_to,
+        :slot_definition_is_a,
+        :slot_definition_mixins,
+        :slot_uri,
+        :todos ;
     skos:definition "the definition of a property or a slot" .
-
-<http://w3id.org/biolink/biolinkml/meta> rdfs:label "metamodel" ;
-    dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
-    dcterms:title "Biolink Schema Metamodel" ;
-    pav:version "1.0.1" ;
-    :classes ( :Element :SchemaDefinition :TypeDefinition :SubsetDefinition :Definition :SlotDefinition :ClassDefinition :Prefix :Example ) ;
-    :default_curi_maps ( "semweb_context" ) ;
-    :default_prefix "meta" ;
-    :default_range :string ;
-    :generation_date "2019-02-05 10:33"^^xsd:dateTime ;
-    :id <http://w3id.org/biolink/biolinkml/meta> ;
-    :id_prefixes ( "meta" "rdf" "rdfs" "xsd" "skos" "dcterms" "OIO" "owl" "pav" ) ;
-    :imports ( <http://w3id.org/biolink/biolinkml/meta/includes/types> ) ;
-    :metamodel_version "1.0.1" ;
-    :prefixes ( [ :local_name "meta" ;
-                :prefix_uri : ] [ :local_name "skos" ;
-                :prefix_uri skos: ] [ :local_name "OIO" ;
-                :prefix_uri OIO: ] [ :local_name "pav" ;
-                :prefix_uri pav: ] [ :local_name "metatype" ;
-                :prefix_uri metatype: ] [ :local_name "xsd" ;
-                :prefix_uri xsd: ] ) ;
-    :slots ( :name :description :deprecated :notes :comments :examples :in_subset :from_schema :see_also :id_prefixes :is_a :abstract :local_names :mixin :mixins :apply_to :values_from :id :title :version :imports :license :prefixes :default_curi_maps :default_prefix :default_range :subsets :types :slot_definitions :classes :metamodel_version :source_file :source_file_date :source_file_size :generation_date :slots :slot_usage :class_uri :defining_slots :subclass_of :domain :range :slot_uri :multivalued :inherited :readonly :ifabsent :required :inlined :key :identifier :alias :range_subclass :inverse :typeof :base :type_uri :value :value_description :local_name :prefix_uri :schema_definition_description :slot_definition_is_a :slot_definition_mixins :slot_definition_apply_to :class_definition_is_a :class_definition_mixins :class_definition_apply_to ) ;
-    :source_file "meta.yaml" ;
-    :source_file_date "Wed Jan 30 16:49:26 2019"^^xsd:dateTime ;
-    :source_file_size 19963 ;
-    :subsets ( [ rdfs:label "owl" ;
-                :from_schema <http://w3id.org/biolink/biolinkml/meta> ;
-                skos:definition "Set of slots that appear in the OWL representation of a model" ] ) ;
-    :types ( :string :integer :boolean :float :double :time :date :datetime :uri :ncname ) ;
-    skos:definition "A metamodel for defining biolink related schemas" ;
-    skos:editorialNote ( "This is a static copy of biolinkml/meta.yaml.  Update when appropriate" ) .
 
 
 

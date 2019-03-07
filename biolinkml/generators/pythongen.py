@@ -110,7 +110,7 @@ metamodel_version = "{self.schema.metamodel_version}"
                     parent = self.schema.classes[cls.is_a]
                     if parent.imported_from:
                         rval.add_element(self.schema.classes[cls.is_a])
-                        if self.definition_key(parent):
+                        if self.class_identifier(parent):
                             rval.add_entry(parent.imported_from, self.class_identifier_path(parent, False)[-1])
                 for slotname in cls.slots:
                     slot = self.schema.slots[slotname]
@@ -120,7 +120,7 @@ metamodel_version = "{self.schema.metamodel_version}"
                         else:
                             cls = self.schema.classes[slot.range]
                             if cls.imported_from:
-                                if self.definition_key(cls):
+                                if self.class_identifier(cls):
                                     rval.add_entry(cls.imported_from, self.class_identifier_path(cls, False)[-1])
                                 if slot.inlined:
                                     rval.add_element(cls)
@@ -129,7 +129,6 @@ metamodel_version = "{self.schema.metamodel_version}"
 
     def gen_references(self) -> str:
         """ Generate python type declarations for all identifiers (primary keys)
-
         """
         rval = []
         for cls in self.schema.classes.values():
@@ -138,7 +137,7 @@ metamodel_version = "{self.schema.metamodel_version}"
                 if pkeys:
                     for pk in pkeys:
                         classname = camelcase(cls.name) + camelcase(self.aliased_slot_name(pk))
-                        if cls.is_a and self.definition_key(cls.is_a):
+                        if cls.is_a and self.class_identifier(cls.is_a):
                             parents = self.class_identifier_path(cls.is_a, False)
                         else:
                             parents = self.slot_type_path(self.schema.slots[pk])
@@ -223,17 +222,15 @@ class {self.class_or_type_name(cls.name)}{parentref}:{wrapped_description}
             # Root keys and identifiers go first.  Note that even if a key or identifier is overridden it still
             # appears at the top of the list, as we want to keep the positionality...
             slot_variables = list(self._slot_iter(cls,
-                                                  lambda slot: slot.key and (not overridden_slot(slot.name) or is_leaf),
-                                                  first_hit_only=True))
-            slot_variables += list(self._slot_iter(cls,
-                                                   lambda slot: slot.identifier and (
+                                                  lambda slot: (slot.identifier or slot.key) and (
                                                                not overridden_slot(slot.name) or is_leaf),
-                                                   first_hit_only=True))
+                                                  first_hit_only=True))
             initializers += [self.gen_class_variable(target_class, slot, not is_root) for slot in slot_variables]
+
 
             # Required slots
             slot_variables = self._slot_iter(cls,
-                                             lambda slot: slot.required and not slot.key and not slot.identifier
+                                             lambda slot: slot.required and not slot.identifier and not slot.key
                                                           and not overridden_slot(slot.name))
             initializers +=  [self.gen_class_variable(target_class, slot, not is_root) for slot in slot_variables]
 
@@ -275,7 +272,7 @@ class {self.class_or_type_name(cls.name)}{parentref}:{wrapped_description}
         range_type, parent_type, _ = self.class_reference_type(slot, cls)
 
         if slot.multivalued:
-            pkey = self.definition_key(slot.range)
+            pkey = self.class_identifier(slot.range, keys_count=True)
             if self.is_key_value_class(cast(DefinitionName, slot.range)):
                 return range_type, 'empty_dict()'
             elif slot.inlined and pkey:
@@ -297,7 +294,7 @@ class {self.class_or_type_name(cls.name)}{parentref}:{wrapped_description}
         :param cls: owning class.  Used for generating key references
         :return: Python class reference type, most proximal type, most proximal type name
         """
-        rangelist = self.class_identifier_path(cls, False) if slot.key else self.slot_type_path(slot)
+        rangelist = self.class_identifier_path(cls, False) if slot.key or slot.identifier else self.slot_type_path(slot)
         prox_type = self.slot_type_path(slot)[-1].rsplit('.')[-1]
         prox_type_name = rangelist[-1]
 
@@ -378,7 +375,7 @@ class {self.class_or_type_name(cls.name)}{parentref}:{wrapped_description}
                     if slot.range in self.schema.classes and not self.schema.classes[slot.range].slots:
                         rlines.append(f'\tself.{slotname} = {base_type_name}()')
                     else:
-                        if self.definition_key(slot.range) or slot.range in self.schema.types:
+                        if self.class_identifier(slot.range) or slot.range in self.schema.types:
                             rlines.append(f'\tself.{slotname} = {base_type_name}(self.{slotname})')
                         else:
                             rlines.append(f'\tself.{slotname} = {base_type_name}(**self.{slotname})')

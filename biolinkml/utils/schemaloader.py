@@ -91,10 +91,6 @@ class SchemaLoader:
                     and slot.range != self.schema.default_range:
                 self.raise_value_error(f"slot: {slot.name} - unrecognized range ({slot.range})")
 
-            # Assign missing predicates
-            if slot.slot_uri is None:
-                slot.slot_uri = self.namespaces.uri_or_curie_for(self.schema.default_prefix, self.slot_name_for(slot))
-
         # Massage classes, propagating class slots entries domain back to the target slots
         for cls in self.schema.classes.values():
             if not isinstance(cls, ClassDefinition):
@@ -155,21 +151,21 @@ class SchemaLoader:
             if not ss.from_schema:
                 ss.from_schema = self.schema.id
 
-        # Inline any class definitions that don't have keys
+
         for slot in self.schema.slots.values():
+            # Inline any class definitions that don't have identifiers.  Note that keys ARE inlined
             if slot.range in self.schema.classes:
                 range_class = self.schema.classes[cast(ClassDefinitionName, slot.range)]
-                if not any([self.schema.slots[s].key for s in range_class.slots]):
+                if not any([self.schema.slots[s].identifier for s in range_class.slots]):
                     slot.inlined = True
+
+            # Assign missing predicates
+            if slot.slot_uri is None:
+                slot.slot_uri = self.namespaces.uri_or_curie_for(self.schema.default_prefix, self.slot_name_for(slot))
 
         # Check for duplicate class and type names
         def check_dups(s1: Set[ElementName], s2: Set[ElementName]) -> str:
             return ', '.join(sorted(s1.intersection(s2)))
-
-        # Check for slots with both key and identifier
-        for slot in self.schema.slots.values():
-            if slot.key and slot.identifier:
-                self.raise_value_error(f'slot: "{slot.name}" - key and identifier are mutually exclusive')
 
         classes = set(self.schema.classes.keys())
         slots = set(self.schema.slots.keys())

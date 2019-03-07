@@ -1,5 +1,5 @@
 # Auto generated from biolink_metamodel.yaml by pythongen.py version: 0.2.0
-# Generation date: 2019-02-12 09:07
+# Generation date: 2019-02-12 13:58
 # Schema: biolink model
 #
 # id: http://w3id.org/biolink/biolink-model/model
@@ -18,8 +18,7 @@ from includes.types import Boolean, Datetime, Ncname, String, Uri
 
 metamodel_version = "1.0.2"
 
-inherited_slots: List[str] = ["slots", "qualifier_definitions", "slot_class_range", "slot_relation_range",
-                              "definitional"]
+inherited_slots: List[str] = ["slots", "slot_class_range", "slot_relation_range", "definitional"]
 
 
 # Types

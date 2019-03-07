@@ -59,7 +59,7 @@ class ClickTestCase(unittest.TestCase):
     def tearDownClass(cls):
         if not cls.keep_temp_directory and os.path.exists(cls.tmpdir_path):
             make_and_clear_directory(cls.tmpdir_path)
-            keep_temp_directory = False
+            cls.keep_temp_directory = False
         if cls.creation_messages:
             for msg in cls.creation_messages:
                 print(msg, file=sys.stderr)

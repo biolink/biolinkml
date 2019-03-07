@@ -11,7 +11,7 @@ URI: [http://w3id.org/biolink/biolinkml/meta/description](slot_uri)
 
 ## Children
 
- *  [schema definition.description](schema_definition_description.md)
+ *  [schema_definition.description](schema_definition_description.md)
 ## Used by
 
  * [ClassDefinition](ClassDefinition.md)

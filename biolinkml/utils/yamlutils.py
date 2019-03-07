@@ -35,11 +35,11 @@ class YAMLRoot(JsonObj):
                     if isinstance(v, dict):
                         itemslist = []
                         for vk, vv in v.items():
-                            if isinstance(vv, ClassDefinition):
-                                vv['@id'] = camelcase(vk)
-                            elif isinstance(vv, (SlotDefinition, TypeDefinition)):
-                                if k != 'slot_usage':
-                                    vv['@id'] = underscore(vk)
+                            # if isinstance(vv, ClassDefinition):
+                            #     vv['@id'] = camelcase(vk)
+                            # elif isinstance(vv, (SlotDefinition, TypeDefinition)):
+                            #     if k != 'slot_usage':
+                            #         vv['@id'] = underscore(vk)
                             itemslist.append(vv)
                         rval[k] = itemslist
                     else:
@@ -78,7 +78,7 @@ def as_yaml(schema: YAMLRoot) -> str:
 
 def as_json(schema: YAMLRoot, context: Optional[Union[JsonObj, dict]] = None) -> JsonObj:
     rval = JsonObj(**schema.__dict__)
-    rval.a = schema.__class__.__name__
+    rval['type'] = schema.__class__.__name__
     if context:
         if isinstance(context, JsonObj):
             context = context.__dict__

@@ -50,25 +50,26 @@ class GenJSONLDTestCase(ClickTestCase):
     def check_size(self, g: Graph, g2: Graph, root: URIRef, expected_classes: int,
                    expected_slots: int, expected_types: int, model: str) -> None:
         for graph in [g, g2]:
-            class_bnode = graph.value(root, METAMODEL_NAMESPACE.classes)
-            slot_bnode = graph.value(root, METAMODEL_NAMESPACE.slots)
-            type_bnode = graph.value(root, METAMODEL_NAMESPACE.types)
-            self.assertEqual(expected_classes, len(list(Collection(graph, class_bnode))),
-                             f"Expected {expected_classes} classes in {model}")
-            self.assertEqual(expected_slots, len(list(Collection(graph, slot_bnode))),
-                             f"Expected {expected_slots} slots in {model}")
-            self.assertEqual(expected_types, len(list(Collection(graph, type_bnode))),
-                             f"Expected {expected_types} types in {model}")
+
+            n_classes = len(list(graph.objects(root, METAMODEL_NAMESPACE.classes)))
+            n_slots = len(list(graph.objects(root, METAMODEL_NAMESPACE.slots)))
+            n_types = len(list(graph.objects(root, METAMODEL_NAMESPACE.types)))
+            self.assertEqual(expected_classes, n_classes, f"Expected {expected_classes} classes in {model}")
+            self.assertEqual(expected_slots, n_slots, f"Expected {expected_slots} slots in {model}")
+            self.assertEqual(expected_types, n_types, f"Expected {expected_types} types in {model}")
 
     def test_meta_output(self):
         """ Generate a context AND a jsonld for the metamodel and make sure it parses as RDF """
         jsonld_path = os.path.join(testscriptstempdir, 'metajson.jsonld')
         rdf_path = os.path.join(testscriptstempdir, 'metardf.ttl')
-        meta_context_path = os.path.join(self.testdir_path, 'metacontext.jsonld')
+        meta_context_path = os.path.join(testscriptstempdir, 'metacontext.jsonld')
 
         # Generate an image of the metamodel
         gen = ContextGenerator(source_yaml_path)
-        root = gen.schema.id
+        base = gen.schema.id
+        if base[-1] not in '/#':
+            base += '/'
+        base += gen.schema.name
         with open(meta_context_path, 'w') as tfile:
             tfile.write(gen.serialize())
         with open(jsonld_path, 'w') as tfile:
@@ -81,7 +82,7 @@ class GenJSONLDTestCase(ClickTestCase):
         new_ttl = g.serialize(format="turtle").decode()
         new_g = Graph()
         new_g.parse(data=new_ttl, format="turtle")
-        self.check_size(g, new_g, URIRef(root), 9, 68, 10, "meta")
+        self.check_size(g, new_g, URIRef(base), 9, 68, 11, "meta")
 
 
 if __name__ == '__main__':

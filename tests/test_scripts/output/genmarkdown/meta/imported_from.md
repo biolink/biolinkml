@@ -1,12 +1,12 @@
-# Slot: id_prefixes
+# Slot: imported_from
 
 
-a list of Curie prefixes that are used in the representation of instances of the model.  All prefixes in this list are added to the prefix sections of the target models.
+the imports entry that this element was derived from.  Empty means primary source
 
-URI: [http://w3id.org/biolink/biolinkml/meta/id_prefixes](slot_uri)
+URI: [http://w3id.org/biolink/biolinkml/meta/imported_from](slot_uri)
 ## Domain and Range
 
-[Element](Element.md) -><sub>opt</sub> [[Ncname](Ncname.md)]
+[Element](Element.md) -><sub>opt</sub> [String](String.md)
 ## Inheritance
 
 ## Children

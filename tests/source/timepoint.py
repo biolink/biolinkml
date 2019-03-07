@@ -1,4 +1,3 @@
-
 # id: http://example.org/tests/timepoint
 # description:
 # license: https://creativecommons.org/publicdomain/zero/1.0/
@@ -7,9 +6,10 @@ from typing import Optional, List, Union, Dict
 from dataclasses import dataclass
 from biolinkml.utils.metamodelcore import empty_list, empty_dict
 from biolinkml.utils.yamlutils import YAMLRoot
-from includes.types import String, Time
+from ......includes.types import String, Time
+from biolinkml.utils.metamodelcore import XSDTime
 
-metamodel_version = "1.0.1"
+metamodel_version = "1.1.1"
 
 inherited_slots: List[str] = []
 
@@ -52,7 +52,7 @@ class GeographicLocationAtTime(GeographicLocation):
 
     def _fix_elements(self):
         super()._fix_elements()
-        if self.k and not isinstance(self.k, GeographicLocationAtTimeK):
+        if self.k is not None and not isinstance(self.k, GeographicLocationAtTimeK):
             self.k = GeographicLocationAtTimeK(self.k)
-        if self.timepoint and not isinstance(self.timepoint, TimeType):
+        if self.timepoint is not None and not isinstance(self.timepoint, TimeType):
             self.timepoint = TimeType(self.timepoint)

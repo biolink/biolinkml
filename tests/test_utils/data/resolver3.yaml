@@ -37,9 +37,6 @@ slots:
         - http://example.org/e1
         - ex:e2
 
-    id_prefixes:
-        - p1
-        - P2
 
     required: false
     inlined: false
