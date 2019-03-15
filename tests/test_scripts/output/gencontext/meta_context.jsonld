@@ -1,0 +1,153 @@
+{
+   "_comments": "Auto generated from meta.yaml by jsonldcontextgen.py version: 0.0.2\nGeneration date: 2019-03-08 07:50\nSchema: metamodel\n\nid: http://w3id.org/biolink/biolinkml/meta\ndescription: A metamodel for defining biolink related schemas\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
+   "@context": {
+      "_comments": null,
+      "type": "@type",
+      "OIO": "http://www.geneontology.org/formats/oboInOwl#",
+      "dcterms": "http://purl.org/dc/terms/",
+      "metatype": "http://w3id.org/biolink/biolinkml/type/",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "pav": "http://purl.org/pav/",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "skos": "http://www.w3.org/2004/02/skos/core#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "@vocab": "http://w3id.org/biolink/biolinkml/meta/",
+      "abstract": {
+         "@type": "xsd:boolean"
+      },
+      "aliases": {
+         "@id": "skos:altLabel"
+      },
+      "apply_to": {
+         "@type": "@id"
+      },
+      "class_uri": {
+         "@type": "@id"
+      },
+      "classes": {
+         "@type": "@id"
+      },
+      "comments": {
+         "@id": "skos:note"
+      },
+      "default_range": {
+         "@type": "@id"
+      },
+      "description": {
+         "@id": "skos:definition"
+      },
+      "domain": {
+         "@type": "@id"
+      },
+      "examples": {
+         "@type": "@id",
+         "@id": "skos:example"
+      },
+      "from_schema": {
+         "@type": "@id",
+         "@id": "skos:inScheme"
+      },
+      "generation_date": {
+         "@type": "xsd:dateTime"
+      },
+      "id": {
+         "@type": "@id"
+      },
+      "identifier": {
+         "@type": "xsd:boolean"
+      },
+      "imports": {
+         "@type": "@id"
+      },
+      "in_subset": {
+         "@type": "@id",
+         "@id": "OIO:inSubset"
+      },
+      "inherited": {
+         "@type": "xsd:boolean"
+      },
+      "inlined": {
+         "@type": "xsd:boolean"
+      },
+      "is_a": {
+         "@type": "@id"
+      },
+      "key": {
+         "@type": "xsd:boolean"
+      },
+      "license": {
+         "@id": "dcterms:license"
+      },
+      "mappings": {
+         "@type": "@id",
+         "@id": "skos:mappingRelation"
+      },
+      "mixin": {
+         "@type": "xsd:boolean"
+      },
+      "mixins": {
+         "@type": "@id"
+      },
+      "multivalued": {
+         "@type": "xsd:boolean"
+      },
+      "name": "@id",
+      "notes": {
+         "@id": "skos:editorialNote"
+      },
+      "prefix_uri": {
+         "@type": "@id"
+      },
+      "prefixes": {
+         "@type": "@id"
+      },
+      "range": {
+         "@type": "@id"
+      },
+      "required": {
+         "@type": "xsd:boolean"
+      },
+      "see_also": {
+         "@type": "@id",
+         "@id": "rdfs:seeAlso"
+      },
+      "singular_name": {
+         "@id": "skos:altLabel"
+      },
+      "slots": {
+         "@type": "@id"
+      },
+      "slot_uri": {
+         "@type": "@id"
+      },
+      "slot_usage": {
+         "@type": "@id"
+      },
+      "source_file_date": {
+         "@type": "xsd:dateTime"
+      },
+      "source_file_size": {
+         "@type": "xsd:integer"
+      },
+      "subsets": {
+         "@type": "@id"
+      },
+      "title": {
+         "@id": "dcterms:title"
+      },
+      "uri": {
+         "@type": "@id"
+      },
+      "typeof": {
+         "@type": "@id"
+      },
+      "types": {
+         "@type": "@id"
+      },
+      "version": {
+         "@id": "pav:version"
+      }
+   }
+}
+
