@@ -113,11 +113,11 @@ license: {be(self.schema.license)}
                         slot_def['@type'] = '@id'
                     else:
                         slot_def['@type'] = range_type.uri
-                    slot_prefix = self.namespaces.prefix_for(slot.slot_uri)
-                    if not self.default_ns or not slot_prefix or slot_prefix != self.default_ns:
-                        slot_def['@id'] = slot.slot_uri
-                        if slot_prefix:
-                            self.emit_prefixes.add(slot_prefix)
+                slot_prefix = self.namespaces.prefix_for(slot.slot_uri)
+                if not self.default_ns or not slot_prefix or slot_prefix != self.default_ns:
+                    slot_def['@id'] = slot.slot_uri
+                    if slot_prefix:
+                        self.emit_prefixes.add(slot_prefix)
                 # if slot.multivalued:
                 #     slot_def['@container'] = '@list'
         if slot_def:

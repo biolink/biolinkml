@@ -2,7 +2,7 @@ import sys
 from collections import OrderedDict
 from typing import Any, Tuple, Optional, List, Union
 
-from rdflib import Namespace, URIRef
+from rdflib import Namespace, URIRef, Graph
 
 from biolinkml.utils.metamodelcore import NCName
 
@@ -147,9 +147,19 @@ class Namespaces(OrderedDict):
         else:
             return prefix + ':' + suffix
 
+    def load_graph(self, g: Graph) -> Graph:
+        for k, v in self.items():
+            if not k.startswith('_') and not k.startswith('@'):
+                g.bind(k, URIRef(v))
+        return g
+
     @staticmethod
     def join(prefix: str, suffix: str) -> str:
-        return str(prefix) + ('' if prefix.endswith(('/', '#')) else '/') + suffix
+        return Namespaces.sfx(prefix) + suffix
+
+    @staticmethod
+    def sfx(uri: str) -> str:
+        return str(uri) + ('' if uri.endswith(('/', '#')) else '/')
 
     def add_prefixmap(self, map_name: str, include_defaults: bool= True) -> None:
         """

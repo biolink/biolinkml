@@ -1,5 +1,5 @@
 {
-   "_comments": "Auto generated from meta.yaml by jsonldcontextgen.py version: 0.0.2\nGeneration date: 2019-03-07 10:52\nSchema: metamodel\n\nid: http://w3id.org/biolink/biolinkml/meta\ndescription: A metamodel for defining biolink related schemas\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
+   "_comments": "Auto generated from meta.yaml by jsonldcontextgen.py version: 0.0.2\nGeneration date: 2019-03-14 20:31\nSchema: metamodel\n\nid: http://w3id.org/biolink/biolinkml/meta\ndescription: A metamodel for defining biolink related schemas\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
    "@context": {
       "_comments": null,
       "type": "@type",
@@ -41,10 +41,12 @@
          "@type": "@id"
       },
       "examples": {
-         "@type": "@id"
+         "@type": "@id",
+         "@id": "skos:example"
       },
       "from_schema": {
-         "@type": "@id"
+         "@type": "@id",
+         "@id": "skos:inScheme"
       },
       "generation_date": {
          "@type": "xsd:dateTime"
@@ -59,7 +61,8 @@
          "@type": "@id"
       },
       "in_subset": {
-         "@type": "@id"
+         "@type": "@id",
+         "@id": "OIO:inSubset"
       },
       "inherited": {
          "@type": "xsd:boolean"

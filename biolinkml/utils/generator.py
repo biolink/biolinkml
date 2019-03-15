@@ -46,6 +46,7 @@ class Generator(metaclass=abc.ABCMeta):
             self.synopsis = gen.synopsis
             self.namespaces = gen.namespaces
             self.base_dir = gen.base_dir
+            self.schema_location = gen.schema_location
         else:
             loader = SchemaLoader(schema, self.base_dir)
             loader.resolve()
@@ -53,6 +54,7 @@ class Generator(metaclass=abc.ABCMeta):
             self.synopsis = loader.synopsis
             self.namespaces = loader.namespaces
             self.base_dir = loader.base_dir
+            self.schema_location = loader.schema_location
 
     def serialize(self, **kwargs) -> str:
         """

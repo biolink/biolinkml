@@ -7,10 +7,10 @@ from typing import Optional, List, Union, Dict
 from dataclasses import dataclass
 from biolinkml.utils.metamodelcore import empty_list, empty_dict
 from biolinkml.utils.yamlutils import YAMLRoot
-from ......includes.types import String, Time
 from biolinkml.utils.metamodelcore import XSDTime
+from includes.types import String, Time
 
-metamodel_version = "1.1.1"
+metamodel_version = "1.1.2"
 
 inherited_slots: List[str] = []
 

@@ -116,9 +116,11 @@ slots:
     slot_uri: OIO:inSubset
 
   from_schema:
-    range: schema_definition
+    range: uri
     readonly: supplied by the schema loader
     description: id of the schema that defined the element
+    notes:
+      - A stronger model would be range schema_definition, but this doesn't address the import model
     slot_uri: skos:inScheme
 
   imported_from:
@@ -593,9 +595,9 @@ classes:
       - source_file_date
       - source_file_size
       - generation_date
-    slot_usage:
-      description:
-        slot_uri: dcterms:description
+#    slot_usage:
+#      description:
+#        slot_uri: dcterms:description
 
   type_definition:
     description: A data type definition.

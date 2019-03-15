@@ -56,7 +56,7 @@ def load_raw_schema(data: Union[str, dict, TextIO],
                 fname = os.path.abspath(data)
                 base_dir = os.path.dirname(fname)
             else:
-                fname = data if os.path.isabs(data) else os.path.join(base_dir, data)
+                fname = data if os.path.isabs(data) else os.path.abspath(os.path.join(base_dir, data))
             with open(fname) as f:
                 return load_raw_schema(f, fname, time.ctime(os.path.getmtime(fname)), os.path.getsize(fname), base_dir)
     else:

@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by pythongen.py version: 0.2.0
-# Generation date: 2019-03-07 10:51
+# Generation date: 2019-03-08 07:37
 # Schema: metamodel
 #
 # id: http://w3id.org/biolink/biolinkml/meta
@@ -13,7 +13,7 @@ from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.metamodelcore import Bool, NCName, URI, URIorCURIE, XSDDate
 from includes.types import Boolean, Datetime, Integer, Ncname, String, Uri, Uriorcuri
 
-metamodel_version = "1.1.1"
+metamodel_version = "1.1.2"
 
 inherited_slots: List[str] = ["domain", "range", "multivalued", "inherited", "readonly", "ifabsent", "required",
                               "inlined", "key", "identifier", "base", "repr"]
@@ -72,7 +72,7 @@ class Element(YAMLRoot):
     comments: List[str] = empty_list()
     examples: List[Union[dict, "Example"]] = empty_list()
     in_subset: List[Union[str, SubsetDefinitionName]] = empty_list()
-    from_schema: Optional[Union[str, SchemaDefinitionName]] = None
+    from_schema: Optional[Union[str, URI]] = None
     imported_from: Optional[str] = None
     see_also: List[Union[str, URI]] = empty_list()
 
@@ -86,8 +86,8 @@ class Element(YAMLRoot):
                          else Example(**v) for v in self.examples]
         self.in_subset = [v if isinstance(v, SubsetDefinitionName)
                           else SubsetDefinitionName(v) for v in self.in_subset]
-        if self.from_schema is not None and not isinstance(self.from_schema, SchemaDefinitionName):
-            self.from_schema = SchemaDefinitionName(self.from_schema)
+        if self.from_schema is not None and not isinstance(self.from_schema, URI):
+            self.from_schema = URI(self.from_schema)
         self.see_also = [v if isinstance(v, URI)
                          else URI(v) for v in self.see_also]
 
@@ -103,19 +103,19 @@ class SchemaDefinition(Element):
     singular_name: Optional[str] = None
     aliases: List[str] = empty_list()
     mappings: List[Union[str, URIorCURIE]] = empty_list()
+    description: Optional[str] = None
     deprecated: Optional[str] = None
     todos: List[str] = empty_list()
     notes: List[str] = empty_list()
     comments: List[str] = empty_list()
     examples: List[Union[dict, "Example"]] = empty_list()
     in_subset: List[Union[str, SubsetDefinitionName]] = empty_list()
-    from_schema: Optional[Union[str, SchemaDefinitionName]] = None
+    from_schema: Optional[Union[str, URI]] = None
     imported_from: Optional[str] = None
     see_also: List[Union[str, URI]] = empty_list()
 
     # === schema_definition ===
     id: Union[str, URI] = None
-    description: Optional[str] = None
     title: Optional[str] = None
     version: Optional[str] = None
     imports: List[Union[str, URI]] = empty_list()
@@ -186,7 +186,7 @@ class TypeDefinition(Element):
     comments: List[str] = empty_list()
     examples: List[Union[dict, "Example"]] = empty_list()
     in_subset: List[Union[str, SubsetDefinitionName]] = empty_list()
-    from_schema: Optional[Union[str, SchemaDefinitionName]] = None
+    from_schema: Optional[Union[str, URI]] = None
     imported_from: Optional[str] = None
     see_also: List[Union[str, URI]] = empty_list()
 
@@ -224,7 +224,7 @@ class SubsetDefinition(Element):
     comments: List[str] = empty_list()
     examples: List[Union[dict, "Example"]] = empty_list()
     in_subset: List[Union[str, SubsetDefinitionName]] = empty_list()
-    from_schema: Optional[Union[str, SchemaDefinitionName]] = None
+    from_schema: Optional[Union[str, URI]] = None
     imported_from: Optional[str] = None
     see_also: List[Union[str, URI]] = empty_list()
 
@@ -254,7 +254,7 @@ class Definition(Element):
     comments: List[str] = empty_list()
     examples: List[Union[dict, "Example"]] = empty_list()
     in_subset: List[Union[str, SubsetDefinitionName]] = empty_list()
-    from_schema: Optional[Union[str, SchemaDefinitionName]] = None
+    from_schema: Optional[Union[str, URI]] = None
     imported_from: Optional[str] = None
     see_also: List[Union[str, URI]] = empty_list()
 
@@ -293,7 +293,7 @@ class SlotDefinition(Definition):
     comments: List[str] = empty_list()
     examples: List[Union[dict, "Example"]] = empty_list()
     in_subset: List[Union[str, SubsetDefinitionName]] = empty_list()
-    from_schema: Optional[Union[str, SchemaDefinitionName]] = None
+    from_schema: Optional[Union[str, URI]] = None
     imported_from: Optional[str] = None
     see_also: List[Union[str, URI]] = empty_list()
 
@@ -354,7 +354,7 @@ class ClassDefinition(Definition):
     comments: List[str] = empty_list()
     examples: List[Union[dict, "Example"]] = empty_list()
     in_subset: List[Union[str, SubsetDefinitionName]] = empty_list()
-    from_schema: Optional[Union[str, SchemaDefinitionName]] = None
+    from_schema: Optional[Union[str, URI]] = None
     imported_from: Optional[str] = None
     see_also: List[Union[str, URI]] = empty_list()
 

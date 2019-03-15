@@ -71,13 +71,12 @@ class ShExGenerator(Generator):
         return True
 
     def end_class(self, cls: ClassDefinition) -> None:
-        if cls.is_a or cls.mixins:
-            shapeExpr = ShapeAnd(
-                shapeExprs=([self._shape_iri(cast(ClassDefinitionName, cls.is_a))] if cls.is_a else []) +
-                            [self._shape_iri(cast(ClassDefinitionName, mixin)) for mixin in cls.mixins] +
-                            [self.shape])
-        else:
-            shapeExpr = self.shape
+        self.shape.expression.id = self.namespaces.uri_for(cls.class_uri + "_t")
+        if cls.is_a:
+            self._add_constraint(self.namespaces.uri_for(camelcase(cls.is_a) + "_t"))
+        for mixin in cls.mixins:
+            self._add_constraint(self.namespaces.uri_for(camelcase(mixin) + "_t"))
+        shapeExpr = self.shape
         shapeExpr.id = self._shape_iri(cls.name)
         self.shapes.append(shapeExpr)
 
@@ -85,14 +84,7 @@ class ShExGenerator(Generator):
             -> None:
         if not (slot.identifier or slot.abstract):
             constraint = TripleConstraint()
-            # Juggling to get the constraint to be either a single triple constraint or an eachof construct
-            if not self.shape.expression:
-                self.shape.expression = constraint
-            elif isinstance(self.shape.expression, TripleConstraint):
-                self.shape.expression = EachOf(expressions=[self.shape.expression, constraint])
-            else:
-                self.shape.expression.expressions.append(constraint)
-
+            self._add_constraint(constraint)
             constraint.predicate = self.namespaces.uri_for(slot.slot_uri)
             constraint.min = int(bool(slot.required))
             constraint.max = 1 if not slot.multivalued else -1
@@ -105,18 +97,27 @@ class ShExGenerator(Generator):
             g = Graph()
             g.parse(data=shex, format="json-ld")
             g.bind('owl', OWL)
-            # # TODO: Add bindings here
-            # g.bind('biolink', BIOENTITY)
-            # g.bind('meta', META)
             shex = g.serialize(format='turtle').decode()
         elif self.format == 'shex':
-            shex = str(ShExC(self.shex))
+            g = Graph()
+            self.namespaces.load_graph(g)
+            shex = str(ShExC(self.shex, base=self.namespaces.sfx(self.namespaces._base), namespaces=g))
         if output:
             with open(output, 'w') as outf:
                 outf.write(shex)
         else:
             print(shex)
 
+    def _add_constraint(self, constraint) -> None:
+        # No constraints
+        if not self.shape.expression:
+            self.shape.expression = constraint
+        # One constraint
+        elif not isinstance(self.shape.expression, EachOf):
+            self.shape.expression = EachOf(expressions=[self.shape.expression, constraint])
+        # Two or more constraints
+        else:
+            self.shape.expression.expressions.append(constraint)
 
 
 @click.command()

@@ -1,6 +1,23 @@
 CHANGES
 =======
 
+* New steady state.  Everything in the core works w/ exception of the ShEx CLOSED statement
+* Add binder link
+* ShEx validation example working
+* Add as\_json function w/ passed context
+* Fix bug in text loader -- TextIO typing problem
+* Five changes
+* slot.key forces required
+* Checkpoint
+* Checkpoint on notebook
+* Add examples notebook
+* Checkpoint on the biolink metamodel and model task
+* Complete imports model.  Now generates all metamodel elements
+* Added a summary generator for viewing models in tsv format
+* Fix an issue where some of the base types miss getting imported
+* clarifying domain != slot
+* Complete imports model.  Now generates all metamodel elements
+
 v0.5.3
 ------
 

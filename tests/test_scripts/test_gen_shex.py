@@ -31,12 +31,13 @@ class GenShExTestCase(ClickTestCase):
         self.do_test(source_yaml_path + ' -f shex', 'metashex.shex')
         self.do_test(source_yaml_path + f' -f xsv', 'meta_error', error=click.exceptions.BadParameter)
 
-    def test_existing_shex(self):
+    def test_rdf_shex(self):
         """ Generate ShEx and RDF for the model and verify that the RDF represents a valid instance """
-        GenShExTestCase.keep_temp_directory = False
-        do_update = True
+        GenShExTestCase.keep_temp_directory = False     # Set to true if you want to edit the output
+        do_update = True                                # True means keep
         test_dir = os.path.join(self.tmpdir_path, 'meta_conformance_test')
-        make_and_clear_directory(test_dir)
+        if do_update:
+            make_and_clear_directory(test_dir)
 
         json_file = os.path.join(test_dir, 'meta.jsonld')
         if do_update:
@@ -70,7 +71,7 @@ class GenShExTestCase(ClickTestCase):
             for r in results:
                 if not r.result:
                     print(r.reason)
-        elif not do_update:
+        elif not do_update and False:
             make_and_clear_directory(test_dir)
         self.assertTrue(success)
 

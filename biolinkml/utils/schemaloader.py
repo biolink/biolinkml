@@ -32,6 +32,7 @@ class SchemaLoader:
         self.base_dir = self._get_base_dir(base_dir)
         self.namespaces = namespaces if namespaces else Namespaces()
         self.synopsis: SchemaSynopsis = None
+        self.schema_location: str = None
 
     def resolve(self) -> SchemaDefinition:
         """Reconcile a loaded schema, applying is_a, mixins, apply_to's and other such things.  Also validate the
@@ -211,6 +212,7 @@ class SchemaLoader:
             print(f"Warning: Shared type and subset names: {dups}", file=sys.stderr)
 
         # Make the source file relative if it is locally generated
+        self.schema_location = self.schema.source_file
         if self.schema.source_file and '://' not in self.schema.source_file:
             self.schema.source_file = os.path.basename(self.schema.source_file)
 
@@ -357,7 +359,6 @@ class SchemaLoader:
                 return parsed_url.path.split('/', 1)[0]
             else:
                 rval = os.path.dirname(os.path.abspath(self.schema.source_file))
-                self.schema.source_file = os.path.basename(self.schema.source_file)
                 return rval
         else:
             return None

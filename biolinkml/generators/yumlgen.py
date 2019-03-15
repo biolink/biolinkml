@@ -22,7 +22,7 @@ yuml_uses = 'uses -.->'
 yuml_injected = '< -.- inject'
 yuml_slot_type = ':'
 yuml_inline = '++- '
-yuml_rev_inline = '-++'
+yuml_inline_rev = '-++'
 yuml_ref = '- '
 
 yuml_base = 'http://yuml.me/diagram/nofunky'
@@ -126,21 +126,21 @@ class YumlGenerator(Generator):
             # Slots that reference other classes
             for slot in self.filtered_cls_slots(cn, False, lambda s: s.range in self.schema.classes)[::-1]:
                 # Swap the two boxes because, in the case of self reference, the last definition wins
-                rhs = self.class_box(cn)
-                lhs = self.class_box(cast(ClassDefinitionName, slot.range))
-                assocs.append(lhs + '<' +
-                              self.aliased_slot_name(slot) + self.prop_modifier(cls, slot) +
-                              self.cardinality(slot) + (yuml_rev_inline if slot.inlined else yuml_ref) + rhs)
+                if not slot.range in self.associations_generated:
+                    rhs = self.class_box(cn)
+                    lhs = self.class_box(cast(ClassDefinitionName, slot.range))
+                    assocs.append(lhs + '<' + self.aliased_slot_name(slot) + self.prop_modifier(cls, slot) +
+                                  self.cardinality(slot, False) + (yuml_inline_rev if slot.inlined else yuml_ref) + rhs)
 
             # Slots in other classes that reference this
             for slotname in sorted(self.synopsis.rangerefs.get(cn, [])):
                 slot = self.schema.slots[slotname]
                 # Don't do self references twice
-                if slot.domain != cls.name or slot.range != cls.name:
+                if slot.domain != cls.name or slot.range != cls.name and slot.domain not in self.associations_generated:
                     dom = self.schema.classes[slot.domain]
                     assocs.append(self.class_box(slot.domain) + (yuml_inline if slot.inlined else yuml_ref) +
                                   self.aliased_slot_name(slot) + self.prop_modifier(dom, slot) +
-                                  self.cardinality(slot) + '>' + self.class_box(cn))
+                                  self.cardinality(slot, False) + '>' + self.class_box(cn))
 
             # Mixins used in the class
             for mixin in cls.mixins:
@@ -163,16 +163,22 @@ class YumlGenerator(Generator):
                     assocs.append(self.class_box(cn) + yuml_is_a + self.class_box(ClassDefinitionName(is_a_cls)))
 
             # Parent
-            if cls.is_a:
+            if cls.is_a and cls.is_a not in self.associations_generated:
                 assocs.append(self.class_box(cls.is_a) + yuml_is_a + self.class_box(cn))
         return ', '.join(assocs)
 
     @staticmethod
-    def cardinality(slot: SlotDefinition) -> str:
-        if slot.multivalued:
-            return ' +' if slot.required else ' *'
+    def cardinality(slot: SlotDefinition, is_attribute: bool = True) -> str:
+        if is_attribute:
+            if slot.multivalued:
+                return ' %2B' if slot.required else ' *'
+            else:
+                return '' if slot.required else ' %3F'
         else:
-            return '' if slot.required else ' %3F'
+            if slot.multivalued:
+                return ' 1..*' if slot.required else ' 0..*'
+            else:
+                return ' 1..1' if slot.required else ' 0..1'
 
     def filtered_cls_slots(self,
                            cn: ClassDefinitionName,

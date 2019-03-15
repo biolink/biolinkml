@@ -1,9 +1,11 @@
+import inspect
 import os
 import re
 from typing import Optional, Tuple, List, Union, TextIO, Callable, Dict, Iterator, cast, Set
 
 import click
 
+import biolinkml
 from biolinkml.generators import PYTHON_GEN_VERSION
 from biolinkml.meta import SchemaDefinition, SlotDefinition, ClassDefinition, ClassDefinitionName, \
     SlotDefinitionName, DefinitionName, Element, TypeDefinition
@@ -77,12 +79,18 @@ metamodel_version = "{self.schema.metamodel_version}"
         :return: source file followed by elements to import
         """
         class ImportList:
-            def __init__(self):
+            def __init__(self, schema_location: str):
+                self.schema_location = schema_location
                 self.v: Dict[str, Set[str]] = {}
 
             def add_element(self, e: Element) -> None:
                 if e.imported_from:
-                    self.v.setdefault(e.imported_from.replace('/', '.'), set()).add(camelcase(e.name))
+                    anchor_path = os.path.dirname(self.schema_location)
+                    # TODO: Need to test absolute import paths as well as URI's
+                    abs_import_path = os.path.join(anchor_path, e.imported_from)
+                    python_base_dir = os.path.dirname(os.path.dirname(inspect.getfile(biolinkml)))
+                    python_import_dir = os.path.relpath(abs_import_path, python_base_dir)
+                    self.v.setdefault(python_import_dir.replace('/', '.'), set()).add(camelcase(e.name))
 
             def add_entry(self, path: str, name: str) -> None:
                 self.v.setdefault(path.replace('/', '.'), set()).add(name)
@@ -100,7 +108,7 @@ metamodel_version = "{self.schema.metamodel_version}"
                 add_type_ref(self.schema.types[typ.typeof])
             rval.add_element(typ)
 
-        rval = ImportList()
+        rval = ImportList(self.schema_location)
         for typ in self.schema.types.values():
             if not typ.imported_from:
                 add_type_ref(typ)

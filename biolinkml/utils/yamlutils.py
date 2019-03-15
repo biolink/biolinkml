@@ -2,9 +2,7 @@ from dataclasses import dataclass
 from typing import Optional, Union
 
 import yaml
-from jsonasobj import JsonObj
-
-from biolinkml.utils.formatutils import camelcase, underscore
+from jsonasobj import JsonObj, as_dict
 
 
 @dataclass(init=True)
@@ -26,7 +24,6 @@ class YAMLRoot(JsonObj):
         :param obj: YAMLRoot object to serialize
         :return: Serialized version of obj
         """
-        from biolinkml.meta import ClassDefinition, SlotDefinition, TypeDefinition
 
         if isinstance(obj, JsonObj):
             rval = dict()
@@ -73,7 +70,7 @@ def as_yaml(schema: YAMLRoot) -> str:
     :param schema: YAML object
     :return: Stringified representation
     """
-    return yaml.dump(schema)
+    return yaml.safe_dump(as_dict(schema))
 
 
 def as_json(schema: YAMLRoot, context: Optional[Union[JsonObj, dict]] = None) -> JsonObj:

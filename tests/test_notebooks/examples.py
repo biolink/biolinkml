@@ -1,13 +1,14 @@
 from types import ModuleType
 
 from jsonasobj import as_json, loads
+from pyshex import PrefixLibrary
 from rdflib import Graph
 
 from biolinkml.generators.jsonldcontextgen import ContextGenerator
 from biolinkml.generators.pythongen import PythonGenerator
 from biolinkml.generators.shexgen import ShExGenerator
-from biolinkml.generators.jsonldgen import JSONLDGenerator
 from biolinkml.generators.yumlgen import YumlGenerator
+
 
 from biolinkml.utils.yamlutils import as_json as yaml_to_json
 
@@ -48,6 +49,14 @@ classes:
             - age
             - living
             - knows
+            
+    friendly_person:
+        description: Any person that knows someone
+        is_a: person
+        slot_usage:
+            knows:
+                required: True
+            
 
 slots:
     id:
@@ -81,12 +90,14 @@ slots:
         slot_uri: foaf:knows
         multivalued: true
 """
-print(PythonGenerator(yaml).serialize())
+python_src = PythonGenerator(yaml).serialize()
+print(python_src)
 spec = compile(PythonGenerator(yaml).serialize(), 'test', 'exec')
 module = ModuleType('test')
 exec(spec, module.__dict__)
 
 print(f'<img src="{YumlGenerator(yaml).serialize()}"/>')
+print(f'\n-----\n{YumlGenerator(yaml).serialize()}\n')
 
 cntxt = loads(ContextGenerator(yaml).serialize(base="http://example.org/context/"))
 print(as_json(cntxt))
@@ -107,6 +118,7 @@ g.parse(data=jsonld, format="json-ld")
 print(g.serialize(format="turtle").decode())
 
 from pyshex.evaluate import evaluate
-print(evaluate(g, shex,
-               start="http://example.org/sample/example1/Person",
-               focus="http://example.org/context/42"))
+r = evaluate(g, shex,
+             start="http://example.org/sample/example1/Person",
+             focus="http://example.org/context/42")
+print("Conforms" if r[0] else r[1])
