@@ -115,15 +115,9 @@ dev:
 dists: requirements sdist bdist wheels
 
 requirements:
-	pipenv run pipenv_to_requirements -f
+	pipenv run pipenv_to_requirements 
 
-sdist: requirements
-	pipenv run python setup.py sdist
-
-bdist: requirements
-	pipenv run python setup.py bdist
-
-wheels: requirements
+dist: requirements
 	pipenv run python setup.py bdist_wheel
 
 clean:

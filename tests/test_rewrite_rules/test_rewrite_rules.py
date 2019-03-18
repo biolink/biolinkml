@@ -1,14 +1,15 @@
 import os
 import unittest
 from dataclasses import dataclass
-from typing import List, Optional, Union
+from typing import List, Optional, Union, Tuple
 
 import requests
 
 from rdflib import Namespace, URIRef
 
-# DEFAULT_SERVER = "http://w3id.org/"
-DEFAULT_SERVER = "http://localhost:8188/"
+W3ID_SERVER = "http://w3id.org/"
+DEFAULT_SERVER = W3ID_SERVER
+# DEFAULT_SERVER = "http://localhost:8188/"
 
 # Taken from Firefox network.http.accept.default
 default_header = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
@@ -77,8 +78,8 @@ class TestLists:
         ]
 
         self.biolinkmodel_entries: List[TestEntry] = [
-            TestEntry(self.biolink + '/vocab/Element', 'biolink-model/docs/Element'),
-            TestEntry(self.biolink + '/vocab', 'vocab'),
+            TestEntry(self.biolink + 'vocab/Element', 'biolink-model/docs/Element'),
+            TestEntry(self.biolink + 'vocab', 'vocab'),
             TestEntry(self.biolink + 'biolink-model.yaml', 'biolink-model.yaml')
         ]
 
@@ -94,21 +95,40 @@ class RewriteRuleTestCase(unittest.TestCase):
     def setUpClass(cls):
         cls.tests = TestLists(cls.SERVER)
         print(f"Server: {cls.SERVER}")
+        cls.results: Tuple[str, str, str] = set()   # from, to, format
+
+    @classmethod
+    def tearDownClass(cls):
+        print()
+        for from_url, to_url, hdr in sorted(list(cls.results)):
+            fmt = '' if hdr == 'text/html' else f" ({hdr})"
+            if DEFAULT_SERVER != W3ID_SERVER:
+                from_url = from_url.replace(DEFAULT_SERVER, W3ID_SERVER)
+            print(f"{from_url}{fmt} - {to_url}")
+
+    def record_results(self, from_url: str, accept_header, to_url: str) -> None:
+        self.results.add( (from_url, to_url, accept_header.split(',')[0]))
 
     def rule_test(self, entries: List[TestEntry]) -> None:
 
         def test_it(e: TestEntry, accept_header: str) -> bool:
             expected = github_io + e.expected_url
             resp = requests.head(e.input_url, headers={'accept': accept_header})
+
+            # w3id.org uses a 301 to go from http: to https:
+            if resp.status_code == 301 and 'location' in resp.headers:
+                resp = requests.head(resp.headers['location'], headers={'accept': accept_header})
             actual = resp.headers['location'] \
                 if resp.status_code == 302 and 'location' in resp.headers \
                 else f"Error: {resp.status_code}"
             if FAIL_ON_ERROR:
                 self.assertEqual(expected, actual)
+                self.record_results(e.input_url, accept_header, actual)
                 return True
             elif expected != actual:
                 print(f"{e.input_url} ({accept_header}):\n expected {expected} - got {actual}")
                 return False
+            self.record_results(e.input_url, accept_header, actual)
             return True
 
         def ev_al(entry: TestEntry) -> bool:

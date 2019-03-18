@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "211a49624ece002a28084ba42712ee12c49f2cba0789095e2790866371208523"
+            "sha256": "c22f66bc3b9101c8ce678246dac27f828f40f01e3f5221f541ed8126e089f665"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -16,6 +16,12 @@
         ]
     },
     "default": {
+        "antlr4-python3-runtime": {
+            "hashes": [
+                "sha256:168cdcec8fb9152e84a87ca6fd261b3d54c8f6358f42ab3b813b14a7193bb50b"
+            ],
+            "version": "==4.7.2"
+        },
         "argh": {
             "hashes": [
                 "sha256:a9b3aaa1904eeb78e32394cd46c6f37ac0fb4af6dc488daa58971bdc7d7fcaf3",
@@ -153,6 +159,13 @@
                 "sha256:dc639b046a6e2cff5bbe40194ad65936d6ba360b52b3c3fe1d08a82dd50b5e53"
             ],
             "version": "==1.8.0"
+        },
+        "pyjsg": {
+            "hashes": [
+                "sha256:7d8b9e4cdd4ef160ef85c9109a3e306e2fa99994d0e9c2063b0d46c0de473591"
+            ],
+            "index": "pypi",
+            "version": "==0.9.1"
         },
         "pyparsing": {
             "hashes": [
@@ -443,9 +456,10 @@
         },
         "pyjsg": {
             "hashes": [
-                "sha256:00c3ec2420bef54653c129c7ae6a133125f3b7aa02f8dca06097e8b83519edfe"
+                "sha256:7d8b9e4cdd4ef160ef85c9109a3e306e2fa99994d0e9c2063b0d46c0de473591"
             ],
-            "version": "==0.9.0"
+            "index": "pypi",
+            "version": "==0.9.1"
         },
         "pyparsing": {
             "hashes": [

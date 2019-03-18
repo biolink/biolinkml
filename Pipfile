@@ -20,6 +20,7 @@ requests = "*"
 tox-pipenv = "*"
 pbr = "*"
 cachier = "*"
+pyjsg = "*"
 
 [requires]
 python_version = "3.7"
