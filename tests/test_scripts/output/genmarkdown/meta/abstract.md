@@ -6,7 +6,7 @@ an abstract class is a high level class or slot that is typically used to group 
 URI: [http://w3id.org/biolink/biolinkml/meta/abstract](slot_uri)
 ## Domain and Range
 
-[Definition](Definition.md) -><sub>opt</sub> [Boolean](Boolean.md)
+[Definition](Definition.md) ->  <sub>OPT</sub> [Boolean](Boolean.md)
 ## Inheritance
 
 ## Children

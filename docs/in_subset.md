@@ -6,7 +6,7 @@ used to indicate membership of a term in a defined subset of biolink terms used 
 URI: [http://w3id.org/biolink/biolinkml/meta/in_subset](slot_uri)
 ## Domain and Range
 
-[Element](Element.md) -><sub>opt</sub> [[SubsetDefinition](SubsetDefinition.md)]
+[Element](Element.md) ->  <sub>0..*</sub> [SubsetDefinition](SubsetDefinition.md)
 ## Inheritance
 
 ## Children

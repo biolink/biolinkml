@@ -6,7 +6,7 @@ id of the schema that defined the element
 URI: [http://w3id.org/biolink/biolinkml/meta/from_schema](slot_uri)
 ## Domain and Range
 
-[Element](Element.md) -><sub>opt</sub> [SchemaDefinition](SchemaDefinition.md)
+[Element](Element.md) ->  <sub>OPT</sub> [Uri](Uri.md)
 ## Inheritance
 
 ## Children

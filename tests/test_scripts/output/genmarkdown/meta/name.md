@@ -6,7 +6,7 @@ the unique name of the element within the context of the schema.  Name is combin
 URI: [http://w3id.org/biolink/biolinkml/meta/name](slot_uri)
 ## Domain and Range
 
-[Element](Element.md) -> [String](String.md)
+[Element](Element.md) ->  <sub>REQ</sub> [String](String.md)
 ## Inheritance
 
 ## Children

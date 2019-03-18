@@ -6,7 +6,7 @@ the redefinition of a slot in the context of the containing class definition.
 URI: [http://w3id.org/biolink/biolinkml/meta/slot_usage](slot_uri)
 ## Domain and Range
 
-[ClassDefinition](ClassDefinition.md) -><sub>opt</sub> [[SlotDefinition](SlotDefinition.md)]
+[ClassDefinition](ClassDefinition.md) ->  <sub>0..*</sub> [SlotDefinition](SlotDefinition.md)
 ## Inheritance
 
 ## Children

@@ -18,15 +18,18 @@ class CsvGenerator(Generator):
     generatorversion = "0.1.0"
     valid_formats = ['csv', 'tsv']
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], fmt: str='csv') -> None:
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], fmt: str=None) -> None:
         super().__init__(schema, fmt)
         self.sep: str = None
         self.closure: Set[ClassDefinitionName] = None       # List of classes to include in output
         self.writer: DictWriter = None
         
-    def visit_schema(self, classes: List[ClassDefinitionName]=None) -> None:
+    def visit_schema(self, classes: List[ClassDefinitionName] = None) -> None:
         # Note: classes comes from the "root" argument
         self.closure = set()
+
+        if classes is None:
+            classes = []
 
         # Validate the supplied list of classes
         for clsname in classes:

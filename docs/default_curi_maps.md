@@ -1,12 +1,12 @@
 # Slot: default_curi_maps
 
 
-ordered list of prefixcommon biocontexts to be fetched to resolve id_prefixes and inline prefix variables
+ordered list of prefixcommon biocontexts to be fetched to resolve id prefixes and inline prefix variables
 
 URI: [http://w3id.org/biolink/biolinkml/meta/default_curi_maps](slot_uri)
 ## Domain and Range
 
-[SchemaDefinition](SchemaDefinition.md) -><sub>opt</sub> [[String](String.md)]
+[SchemaDefinition](SchemaDefinition.md) ->  <sub>0..*</sub> [String](String.md)
 ## Inheritance
 
 ## Children

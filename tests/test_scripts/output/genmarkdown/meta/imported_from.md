@@ -6,7 +6,7 @@ the imports entry that this element was derived from.  Empty means primary sourc
 URI: [http://w3id.org/biolink/biolinkml/meta/imported_from](slot_uri)
 ## Domain and Range
 
-[Element](Element.md) -><sub>opt</sub> [String](String.md)
+[Element](Element.md) ->  <sub>OPT</sub> [String](String.md)
 ## Inheritance
 
 ## Children

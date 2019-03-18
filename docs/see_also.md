@@ -6,7 +6,7 @@ a reference
 URI: [http://w3id.org/biolink/biolinkml/meta/see_also](slot_uri)
 ## Domain and Range
 
-[Element](Element.md) -><sub>opt</sub> [[Uri](Uri.md)]
+[Element](Element.md) ->  <sub>0..*</sub> [Uriorcurie](Uriorcurie.md)
 ## Inheritance
 
 ## Children

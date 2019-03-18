@@ -6,7 +6,7 @@ prefix / URI definitions to be added to the context beyond those fetched from pr
 URI: [http://w3id.org/biolink/biolinkml/meta/prefixes](slot_uri)
 ## Domain and Range
 
-[SchemaDefinition](SchemaDefinition.md) -><sub>opt</sub> [[Prefix](Prefix.md)]
+[SchemaDefinition](SchemaDefinition.md) ->  <sub>0..*</sub> [Prefix](Prefix.md)
 ## Inheritance
 
 ## Children

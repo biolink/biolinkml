@@ -6,7 +6,7 @@ Description of why and when this element will no longer be used
 URI: [http://w3id.org/biolink/biolinkml/meta/deprecated](slot_uri)
 ## Domain and Range
 
-[Element](Element.md) -><sub>opt</sub> [String](String.md)
+[Element](Element.md) ->  <sub>OPT</sub> [String](String.md)
 ## Inheritance
 
 ## Children

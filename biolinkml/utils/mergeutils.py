@@ -35,11 +35,11 @@ def merge_namespaces(target: SchemaDefinition, mergee: SchemaDefinition, namespa
     :return:
     """
     for prefix in mergee.prefixes.values():
-        namespaces[prefix.local_name] = prefix.prefix_uri
-        if prefix.local_name not in target.prefixes:
-            target.prefixes[prefix.local_name] = prefix
-        elif target.prefixes[prefix.local_name].prefix_uri != prefix.prefix_uri:
-            raise ValueError(f'Prefix: {prefix.local_name} mismatch between {target.name} and {mergee.name}')
+        namespaces[prefix.prefix_prefix] = prefix.prefix_reference
+        if prefix.prefix_prefix not in target.prefixes:
+            target.prefixes[prefix.prefix_prefix] = prefix
+        elif target.prefixes[prefix.prefix_prefix].prefix_reference != prefix.prefix_reference:
+            raise ValueError(f'Prefix: {prefix.prefix_prefix} mismatch between {target.name} and {mergee.name}')
     for mmap in mergee.default_curi_maps:
         namespaces.add_prefixmap(mmap)
 

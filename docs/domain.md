@@ -14,7 +14,7 @@ implicitly asserts that X is an instance of C1
 URI: [http://w3id.org/biolink/biolinkml/meta/domain](slot_uri)
 ## Domain and Range
 
-[SlotDefinition](SlotDefinition.md) -> [ClassDefinition](ClassDefinition.md)
+[SlotDefinition](SlotDefinition.md) ->  <sub>REQ</sub> [ClassDefinition](ClassDefinition.md)
 ## Inheritance
 
 ## Children

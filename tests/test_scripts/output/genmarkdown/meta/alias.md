@@ -6,7 +6,7 @@ the name used for a slot in the context of its owning class.  If present, this i
 URI: [http://w3id.org/biolink/biolinkml/meta/alias](slot_uri)
 ## Domain and Range
 
-[SlotDefinition](SlotDefinition.md) -><sub>opt</sub> [String](String.md)
+[SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [String](String.md)
 ## Inheritance
 
 ## Children

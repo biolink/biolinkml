@@ -1,5 +1,5 @@
 import os
-from typing import Union, TextIO
+from typing import Union, TextIO, Optional
 
 import click
 
@@ -14,13 +14,13 @@ class GraphqlGenerator(Generator):
     valid_formats = ['graphql']
     visit_all_class_slots = True
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], fmt: str='csv') -> None:
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], fmt: Optional[str] = None) -> None:
         super().__init__(schema, fmt)
 
     def visit_class(self, cls: ClassDefinition) -> bool:
-        etype = 'interface' if cls.abstract or cls.mixin else 'type'
+        etype = 'interface' if (cls.abstract or cls.mixin) and not cls.mixins else 'type'
         mixins = ', '.join([camelcase(mixin) for mixin in cls.mixins])
-        print(f"{etype} {camelcase(cls.name)}" + (f"implements {mixins}" if mixins else ""))
+        print(f"{etype} {camelcase(cls.name)}" + (f" implements {mixins}" if mixins else ""))
         print("  {")
         return True
 

@@ -5,8 +5,8 @@ from io import StringIO
 from typing import List, Set, Union, TextIO, Optional, cast
 
 from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, ClassDefinitionName, \
-    TypeDefinition, Element, SlotDefinitionName, TypeDefinitionName, PrefixLocalName, ElementName, SubsetDefinition, \
-    SubsetDefinitionName
+    TypeDefinition, Element, SlotDefinitionName, TypeDefinitionName, PrefixPrefixPrefix, ElementName, \
+    SubsetDefinition, SubsetDefinitionName
 from biolinkml.utils.formatutils import camelcase, underscore
 from biolinkml.utils.mergeutils import alias_root
 from biolinkml.utils.schemaloader import SchemaLoader
@@ -462,4 +462,4 @@ class Generator(metaclass=abc.ABCMeta):
             return self.schema.default_prefix
         else:
             # Basic loader tests for valid default prefix
-            return self.schema.prefixes[PrefixLocalName(self.schema.default_prefix)].prefix_uri
+            return self.schema.prefixes[PrefixPrefixPrefix(self.schema.default_prefix)].prefix_reference

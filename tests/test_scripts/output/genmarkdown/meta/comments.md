@@ -6,7 +6,7 @@ notes and comments about an element intended for external consumption
 URI: [http://w3id.org/biolink/biolinkml/meta/comments](slot_uri)
 ## Domain and Range
 
-[Element](Element.md) -><sub>opt</sub> [[String](String.md)]
+[Element](Element.md) ->  <sub>0..*</sub> [String](String.md)
 ## Inheritance
 
 ## Children

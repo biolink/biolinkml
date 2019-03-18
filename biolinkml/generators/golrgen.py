@@ -45,15 +45,15 @@ class GolrSchemaGenerator(Generator):
     valid_formats = "[golr]"
     visit_all_class_slots = True
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], fmt: str='csv') -> None:
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], fmt: Optional[str] = None) -> None:
         super().__init__(schema, fmt)
         self.dirname: str = None
         self.class_obj: GOLRClass = None
 
-    def visit_schema(self, dirname: str) -> None:
-        self.dirname = dirname
-        if dirname:
-            os.makedirs(dirname, exist_ok=True)
+    def visit_schema(self, directory: str) -> None:
+        self.dirname = directory
+        if directory:
+            os.makedirs(directory, exist_ok=True)
         # write_golr_yaml_to_dir(schema, dir)
 
     def visit_class(self, cls: ClassDefinition) -> bool:
@@ -86,4 +86,4 @@ class GolrSchemaGenerator(Generator):
 @click.option("--format", "-f", default='golr', type=click.Choice(['golr']), help="Output format")
 def cli(file, dir, format):
     """ Generate GOLR representation of a biolink model """
-    print(GolrSchemaGenerator(file, format).serialize(dirname=dir))
+    print(GolrSchemaGenerator(file, format).serialize(directory=dir))

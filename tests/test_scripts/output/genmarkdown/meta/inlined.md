@@ -6,7 +6,7 @@ an inlined definition a list of actual values rather than references.  Only appl
 URI: [http://w3id.org/biolink/biolinkml/meta/inlined](slot_uri)
 ## Domain and Range
 
-[SlotDefinition](SlotDefinition.md) -><sub>opt</sub> [Boolean](Boolean.md)
+[SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [Boolean](Boolean.md)
 ## Inheritance
 
 ## Children

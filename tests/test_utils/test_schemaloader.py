@@ -90,10 +90,12 @@ class SchemaLoaderTestCase(Base):
         fn = os.path.join(datadir, 'loaderpass11.yaml')
         _ = SchemaLoader(fn).resolve()
 
-    @unittest.skipIf(True, "Needs to be implemented")
     def test_undefined_subset(self):
         """ Throw an error on an undefined subset reference """
-        self.assertTrue(False, "Implemement me")
+        fn = os.path.join(datadir, 'loadererror11.yaml')
+        with self.assertRaises(ValueError, msg="Subset references must be valid"):
+            _ = SchemaLoader(fn).resolve()
+
 
 if __name__ == '__main__':
     unittest.main()

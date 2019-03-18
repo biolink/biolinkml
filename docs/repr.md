@@ -1,12 +1,12 @@
 # Slot: repr
 
 
-the python representation of this type if different than the base type
+the name of the python object that implements this type definition
 
 URI: [http://w3id.org/biolink/biolinkml/meta/repr](slot_uri)
 ## Domain and Range
 
-[TypeDefinition](TypeDefinition.md) -><sub>opt</sub> [String](String.md)
+[TypeDefinition](TypeDefinition.md) ->  <sub>OPT</sub> [String](String.md)
 ## Inheritance
 
 ## Children

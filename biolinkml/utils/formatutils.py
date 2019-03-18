@@ -9,11 +9,11 @@ def camelcase(txt: str) -> str:
     def _up(s: str):
         return s[0].upper() + (s[1:] if len(s) > 1 else '')
 
-    return ''.join([_up(word) for word in us_pattern.sub(' ', txt.strip()).split()])
+    return ''.join([_up(word) for word in us_pattern.sub(' ', txt.strip().replace(',', '')).split()])
 
 
 def underscore(txt: str) -> str:
-    return ws_pattern.sub('_', txt.strip()).replace(',','')
+    return ws_pattern.sub('_', txt.strip()).replace(',', '')
 
 
 def lcamelcase(txt: str) -> str:

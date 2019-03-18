@@ -36,7 +36,7 @@ class OwlSchemaGenerator(Generator):
         self.metamodel.resolve()
         self.top_value_uri: URIRef = None
 
-    def visit_schema(self, output: Optional[str]):
+    def visit_schema(self, output: Optional[str] = None):
         base = URIRef(self.schema.id)
         self.graph = Graph(identifier=base)
         for prefix in self.metamodel.schema.emit_prefixes:
@@ -54,7 +54,7 @@ class OwlSchemaGenerator(Generator):
         self.graph.add((self.top_value_uri, RDF.type, OWL.DatatypeProperty))
         self.graph.add((self.top_value_uri, RDFS.label, Literal("value")))
 
-    def end_schema(self, output: Optional[str]) -> None:
+    def end_schema(self, output: Optional[str] = None) -> None:
         data = self.graph.serialize(format='turtle' if self.format == 'ttl' else self.format).decode()
         if output:
             with open(output, 'w') as outf:

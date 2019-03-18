@@ -19,7 +19,7 @@ class MarkdownGenerator(Generator):
     valid_formats = ["md"]
     visit_all_class_slots = False
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], fmt: str='json') -> None:
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], fmt: str=None) -> None:
         super().__init__(schema, fmt)
         self.directory: Optional[str] = None
         self.image_directory: Optional[str] = None
@@ -30,12 +30,12 @@ class MarkdownGenerator(Generator):
 
     def visit_schema(self, directory: str=None, classes: Set[ClassDefinitionName]=None, image_dir: bool=False,
                      noimages: bool=False) -> None:
-        for cls in classes:
+        self.gen_classes = classes if classes else []
+        for cls in self.gen_classes:
             if cls not in self.schema.classes:
                 raise ValueError("Unknown class name: {cls}")
-        self.gen_classes = classes
-        if classes:
-            self.gen_classes_neighborhood = self.neighborhood(list(classes))
+        if self.gen_classes:
+            self.gen_classes_neighborhood = self.neighborhood(list(self.gen_classes))
 
         self.directory = directory
         if directory:
@@ -125,7 +125,8 @@ class MarkdownGenerator(Generator):
                         slot = self.schema.slots[sn]
                         if slot.range == cls.name:
                             self.bullet(f' **{self.class_link(slot.domain)}** '
-                                        f'*{self.slot_link(slot, add_subset=False)}{self.opt(slot)}*  **{self.card(slot)}**')
+                                        f'*{self.slot_link(slot, add_subset=False)}*{self.predicate_cardinality(slot)}  '
+                                        f'**{self.class_type_link(slot.range)}**')
 
                 self.header(2, 'Fields')
                 for sn in sorted(cls.slots):
@@ -147,7 +148,8 @@ class MarkdownGenerator(Generator):
                 self.mappings(slot)
 
                 self.header(2, 'Domain and Range')
-                print(f'{self.class_link(slot.domain)} ->{self.opt(slot)} {self.card(slot)}')
+                print(f'{self.class_link(slot.domain)} ->{self.predicate_cardinality(slot)} '
+                      f'{self.class_type_link(slot.range)}')
 
                 self.header(2, 'Inheritance')
                 if slot.is_a:
@@ -210,16 +212,19 @@ class MarkdownGenerator(Generator):
             return True
 
     def slot_field(self, cls: ClassDefinition, slot: SlotDefinition) -> None:
-        self.bullet(f'{self.slot_link(slot)}{self.opt(slot)}')
+        self.bullet(f'{self.slot_link(slot)}{self.predicate_cardinality(slot)}')
         if slot.description:
             self.bullet(f'Description: {slot.description}', level=1)
-        self.bullet(f'range: {self.card(slot)}', level=1)
+        self.bullet(f'range: {self.class_type_link(slot.range)}', level=1)
         # if slot.subproperty_of:
         #     self.bullet(f'edge label: {self.slot_link(slot.subproperty_of)}', level=1)
         for example in slot.examples:
             self.bullet(f'Example: {example.value} {example.description}', level=1)
         if slot.name not in self.own_slot_names(cls):
             self.bullet(f'inherited from: {self.class_link(slot.domain)}', level=1)
+        if slot.in_subset:
+            ssl = ','.join(slot.in_subset)
+            self.bullet(f'in subsets: ({ssl})', level=1)
 
     def to_uri(self, uri_or_curie: str) -> str:
         """ Return the URI for the slot if known """
@@ -234,11 +239,22 @@ class MarkdownGenerator(Generator):
     # FORMATTING
     # --
     @staticmethod
-    def opt(slot: SlotDefinition) -> str:
-        return f"<sub>opt</sub>" if not slot.required else ''
+    def predicate_cardinality(slot: SlotDefinition) -> str:
+        """ Emit cardinality for a suffix on a predicate"""
+        if slot.multivalued:
+            card_str = '1..*' if slot.required else '0..*'
+        else:
+            card_str = 'REQ' if slot.required else 'OPT'
+        return f"  <sub>{card_str}</sub>"
 
-    def card(self, slot: SlotDefinition) -> str:
-        return f"[{self.class_type_link(slot.range)}]" if slot.multivalued else self.class_type_link(slot.range)
+    @staticmethod
+    def range_cardinality(slot: SlotDefinition) -> str:
+        """ Emits cardinality decorator at end of type """
+        if slot.multivalued:
+            card_str = '1..*' if slot.required else '0..*'
+        else:
+            card_str = '1..1' if slot.required else '0..1'
+        return f"  <sub><b>{card_str}</b></sub>"
 
     @staticmethod
     def anchor(id_: str) -> None:
@@ -311,7 +327,6 @@ class MarkdownGenerator(Generator):
         desc = self.desc_for(obj, use_desc)
         return f'[{link_name}]' \
                f'({link_ref}.{self.format})' + \
-                 (f' *subsets*: ({"| ".join(obj.in_subset)})' if add_subset and obj.in_subset else '') + \
                  (f' {after_link} ' if after_link else '') + (f' - {desc.split(nl)[0]}' if desc else '')
 
     def type_link(self, ref: Optional[Union[str, TypeDefinition]], *, after_link: str = None, use_desc: bool=False,

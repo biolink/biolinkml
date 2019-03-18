@@ -1,18 +1,18 @@
 
-Classes: 9
-	Referenced by: 6 classes, 67 slots, 0 types 
-	Root: 3
-	Leaf: 7
-	Standalone: 8
+Classes: 11
+	Referenced by: 6 classes, 78 slots, 0 types 
+	Root: 5
+	Leaf: 9
+	Standalone: 10
 	Declared mixin: 0
 	Undeclared mixin: 0
 	Abstract: 2
 
-Slots: 67
-	Referenced by: 9 classes, 6 slots, 0 types 
-	Root: 61
-	Leaf: 64
-	Standalone: 67
+Slots: 78
+	Referenced by: 11 classes, 6 slots, 0 types 
+	Root: 72
+	Leaf: 75
+	Standalone: 80
 	Declared mixin: 0
 	Undeclared mixin: 0
 	Abstract: 1
@@ -21,22 +21,24 @@ Slots: 67
 			boolean: 8
 			datetime: 2
 			integer: 1
-			ncname: 2
-			string: 23
-			uri: 8
-			uriorcuri: 1
+			ncname: 5
+			string: 25
+			uri: 5
+			uriorcurie: 7
 		Class:
+			alt_description: 1
 			class_definition: 5
 			definition: 4
 			element: 1
 			example: 1
+			local_name: 1
 			prefix: 1
-			slot_definition: 6
+			slot_definition: 7
 			subset_definition: 2
 			type_definition: 2
 
 Types: 11
-	Referenced by: 0 classes, 45 slots, 0 types 
+	Referenced by: 0 classes, 53 slots, 0 types 
 	Bases:
 		Bool:
 			boolean
@@ -45,7 +47,7 @@ Types: 11
 		URI:
 			uri
 		URIorCURIE:
-			uriorcuri
+			uriorcurie
 		XSDDate:
 			datetime
 		XSDDateTime:

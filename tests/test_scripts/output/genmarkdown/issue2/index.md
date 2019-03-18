@@ -17,7 +17,7 @@ A metamodel for defining biolink related schemas
 
 ### Slots
 
- * [examples](examples.md) *subsets*: (owl) - example usages of an element
+ * [examples](examples.md) - example usages of an element
 ### Types
 
 #### Built in

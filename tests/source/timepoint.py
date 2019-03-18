@@ -1,3 +1,4 @@
+
 # id: http://example.org/tests/timepoint
 # description:
 # license: https://creativecommons.org/publicdomain/zero/1.0/
@@ -6,8 +7,8 @@ from typing import Optional, List, Union, Dict
 from dataclasses import dataclass
 from biolinkml.utils.metamodelcore import empty_list, empty_dict
 from biolinkml.utils.yamlutils import YAMLRoot
-from ......includes.types import String, Time
 from biolinkml.utils.metamodelcore import XSDTime
+from includes.types import String, Time
 
 metamodel_version = "1.1.2"
 

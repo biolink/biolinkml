@@ -1,5 +1,5 @@
 {
-   "_comments": "Auto generated from meta.yaml by jsonldcontextgen.py version: 0.0.2\nGeneration date: 2019-03-14 20:31\nSchema: metamodel\n\nid: http://w3id.org/biolink/biolinkml/meta\ndescription: A metamodel for defining biolink related schemas\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
+   "_comments": "Auto generated from meta.yaml by jsonldcontextgen.py version: 0.0.2\nGeneration date: 2019-03-18 10:27\nSchema: metamodel\n\nid: http://w3id.org/biolink/biolinkml/meta\ndescription: A metamodel for defining biolink related schemas\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
    "@context": {
       "_comments": null,
       "type": "@type",
@@ -19,6 +19,9 @@
       "aliases": {
          "@id": "skos:altLabel"
       },
+      "alt_descriptions": {
+         "@type": "@id"
+      },
       "apply_to": {
          "@type": "@id"
       },
@@ -34,6 +37,9 @@
       "default_range": {
          "@type": "@id"
       },
+      "defining_slots": {
+         "@type": "@id"
+      },
       "description": {
          "@id": "skos:definition"
       },
@@ -41,8 +47,7 @@
          "@type": "@id"
       },
       "examples": {
-         "@type": "@id",
-         "@id": "skos:example"
+         "@type": "@id"
       },
       "from_schema": {
          "@type": "@id",
@@ -79,6 +84,12 @@
       "license": {
          "@id": "dcterms:license"
       },
+      "local_name_value": {
+         "@id": "skos:altLabel"
+      },
+      "local_names": {
+         "@type": "@id"
+      },
       "mappings": {
          "@type": "@id",
          "@id": "skos:mappingRelation"
@@ -96,7 +107,7 @@
       "notes": {
          "@id": "skos:editorialNote"
       },
-      "prefix_uri": {
+      "prefix_reference": {
          "@type": "@id"
       },
       "prefixes": {
@@ -130,6 +141,14 @@
       "source_file_size": {
          "@type": "xsd:integer"
       },
+      "subclass_of": {
+         "@type": "@id",
+         "@id": "rdfs:subClassOf"
+      },
+      "subproperty_of": {
+         "@type": "@id",
+         "@id": "rdfs:subPropertyOf"
+      },
       "subsets": {
          "@type": "@id"
       },
@@ -143,6 +162,12 @@
          "@type": "@id"
       },
       "types": {
+         "@type": "@id"
+      },
+      "value": {
+         "@id": "skos:example"
+      },
+      "values_from": {
          "@type": "@id"
       },
       "version": {

@@ -5,19 +5,19 @@ prefix URI tuple
 
 URI: [http://w3id.org/biolink/biolinkml/meta/Prefix](http://w3id.org/biolink/biolinkml/meta/Prefix)
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[SchemaDefinition]++-%20prefixes%20*>\[Prefix|local_name(pk):ncname;prefix_uri:uri])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[SchemaDefinition]++-%20prefixes%200..*>\[Prefix|prefix_prefix(pk):ncname;prefix_reference:uri])
 ## Inheritance
 
 ## Children
 
 ## Used by
 
- *  **[SchemaDefinition](SchemaDefinition.md)** *[prefixes](prefixes.md)<sub>opt</sub>*  **[[Prefix](Prefix.md)]**
+ *  **[SchemaDefinition](SchemaDefinition.md)** *[prefixes](prefixes.md)*  <sub>0..*</sub>  **[Prefix](Prefix.md)**
 ## Fields
 
- * [local_name](local_name.md)
+ * [prefix_prefix](prefix_prefix.md)  <sub>REQ</sub>
     * Description: the nsname (sans ':' for a given prefix)
     * range: [Ncname](Ncname.md)
- * [prefix_uri](prefix_uri.md)
+ * [prefix_reference](prefix_reference.md)  <sub>REQ</sub>
     * Description: A URI associated with a given prefix
     * range: [Uri](Uri.md)

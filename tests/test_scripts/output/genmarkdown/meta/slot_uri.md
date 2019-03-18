@@ -6,7 +6,7 @@ predicate of this slot for semantic web application
 URI: [http://w3id.org/biolink/biolinkml/meta/slot_uri](slot_uri)
 ## Domain and Range
 
-[SlotDefinition](SlotDefinition.md) -><sub>opt</sub> [Uri](Uri.md)
+[SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [Uri](Uri.md)
 ## Inheritance
 
 ## Children

@@ -11,14 +11,15 @@ from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition
 from biolinkml.utils.formatutils import underscore
 from biolinkml.utils.generator import Generator
 
+valid_formats = sorted(list(FORMATS))
 
 class DotGenerator(Generator):
     generatorname = os.path.basename(__file__)
     generatorversion = "0.0.2"
-    valid_formats: Set[str] = FORMATS
+    valid_formats: List[str] = valid_formats
     visit_all_class_slots = True
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], fmt: str='png') -> None:
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], fmt: Optional[str] = None) -> None:
         super().__init__(schema, fmt)
         self.classnames: List[str] = None
         self.filename: Optional[str] = None
@@ -28,17 +29,18 @@ class DotGenerator(Generator):
         self.cls_subj: Optional[SlotDefinition] = None
         self.cls_obj: Optional[SlotDefinition] = None
 
-    def visit_schema(self, classname: List[str], dirname: Optional[str], filename: Optional[str]) -> None:
+    def visit_schema(self, classname: Optional[List[str]] = None, directory: Optional[str] = None,
+                     filename: Optional[str] = None) -> None:
         self.classnames = [] if classname is None else list(classname)
         for classname in self.classnames:
             if classname not in self.schema.classes:
                 raise ValueError(f"Unknown class name: {classname}")
         self.filename = filename
-        self.dirname = dirname
+        self.dirname = directory
         if filename:
             self.filedot = Digraph(comment=self.schema.name)
-        if dirname:
-            os.makedirs(dirname, exist_ok=True)
+        if directory:
+            os.makedirs(directory, exist_ok=True)
 
     def end_schema(self, **kwargs) -> None:
         if self.filedot:
@@ -97,7 +99,7 @@ class DotGenerator(Generator):
 @click.option("--directory", "-d", help="Output directory - if supplied, a graph per class will be generated")
 @click.option("--out", "-o", help="Target file -- if supplied, one large graph will be generated")
 @click.option("--classname", "-c", default=None, multiple=True, help="Class(es) to transform")
-@click.option("--format", "-f", default='png', type=click.Choice(sorted(list(FORMATS))), help="Output format")
+@click.option("--format", "-f", default='png', type=click.Choice(valid_formats), help="Output format")
 def cli(yamlfile, directory, out, classname, format):
     """ Generate graphviz representations of the biolink model """
-    DotGenerator(yamlfile, format).serialize(classname=classname, dirname=directory, filename=out)
+    DotGenerator(yamlfile, format).serialize(classname=classname, directory=directory, filename=out)

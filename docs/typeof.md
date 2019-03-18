@@ -1,12 +1,12 @@
 # Slot: typeof
 
 
-supertype
+Names a parent type
 
 URI: [http://w3id.org/biolink/biolinkml/meta/typeof](slot_uri)
 ## Domain and Range
 
-[TypeDefinition](TypeDefinition.md) -><sub>opt</sub> [TypeDefinition](TypeDefinition.md)
+[TypeDefinition](TypeDefinition.md) ->  <sub>OPT</sub> [TypeDefinition](TypeDefinition.md)
 ## Inheritance
 
 ## Children

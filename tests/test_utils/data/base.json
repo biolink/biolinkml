@@ -8,24 +8,24 @@
    "license": "https://creativecommons.org/publicdomain/zero/1.0/",
    "prefixes": [
       {
-         "local_name": "meta",
-         "prefix_uri": "http://w3id.org/biolink/biolinkml/meta/"
+         "prefix_prefix": "meta",
+         "prefix_reference": "http://w3id.org/biolink/biolinkml/meta/"
       },
       {
-         "local_name": "skos",
-         "prefix_uri": "http://www.w3.org/2004/02/skos/core#"
+         "prefix_prefix": "skos",
+         "prefix_reference": "http://www.w3.org/2004/02/skos/core#"
       },
       {
-         "local_name": "OIO",
-         "prefix_uri": "http://www.geneontology.org/formats/oboInOwl#"
+         "prefix_prefix": "OIO",
+         "prefix_reference": "http://www.geneontology.org/formats/oboInOwl#"
       },
       {
-         "local_name": "metatype",
-         "prefix_uri": "http://w3id.org/biolink/biolinkml/type/"
+         "prefix_prefix": "metatype",
+         "prefix_reference": "http://w3id.org/biolink/biolinkml/type/"
       },
       {
-         "local_name": "xsd",
-         "prefix_uri": "http://www.w3.org/2001/XMLSchema#"
+         "prefix_prefix": "xsd",
+         "prefix_reference": "http://www.w3.org/2001/XMLSchema#"
       }
    ],
    "emit_prefixes": [
@@ -124,7 +124,7 @@
          "repr": "str"
       },
       {
-         "name": "uriorcuri",
+         "name": "uriorcurie",
          "description": "a URI or a CURIE",
          "from_schema": "http://w3id.org/biolink/biolinkml/types",
          "imported_from": "../../../includes/types",

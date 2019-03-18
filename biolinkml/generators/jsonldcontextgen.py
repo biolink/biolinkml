@@ -34,7 +34,7 @@ class ContextGenerator(Generator):
 
         # Add any explicitly declared prefixes
         for prefix in self.schema.prefixes.values():
-            self.emit_prefixes.add(prefix.local_name)
+            self.emit_prefixes.add(prefix.prefix_prefix)
 
         # Add any prefixes explicitly declared
         for pfx in self.schema.emit_prefixes:

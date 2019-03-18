@@ -90,8 +90,9 @@ def load_raw_schema(data: Union[str, dict, TextIO],
 
         for e in ['slots', 'classes', 'types', 'subsets']:
             check_is_dict(e)
+            fix_multiples(e, 'in_subset')
+            fix_multiples(e, 'apply_to')
 
-        fix_multiples('classes', 'apply_to')
         for e in ['imports']:
             for body in schema_body:
                 if e in body:

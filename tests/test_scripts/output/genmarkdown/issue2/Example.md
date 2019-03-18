@@ -12,12 +12,12 @@ URI: [http://w3id.org/biolink/biolinkml/meta/Example](http://w3id.org/biolink/bi
 
 ## Used by
 
- *  **[Element](Element.md)** *[examples](examples.md)<sub>opt</sub>*  **[[Example](Example.md)]**
+ *  **[Element](Element.md)** *[examples](examples.md)*  <sub>0..*</sub>  **[Example](Example.md)**
 ## Fields
 
- * value<sub>opt</sub>
+ * value  <sub>OPT</sub>
     * Description: example value
     * range: [String](String.md)
- * value_description<sub>opt</sub>
+ * value_description  <sub>OPT</sub>
     * Description: description of what the value is doing
     * range: [String](String.md)

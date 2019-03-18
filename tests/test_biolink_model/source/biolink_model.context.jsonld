@@ -1,0 +1,32 @@
+{
+   "_comments": "Auto generated from biolink-model.yaml by jsonldcontextgen.py version: \nGeneration date: \nSchema: biolink model\n\nid: https://biolink.github.io/biolink-model/ontology/biolink.ttl\ndescription: Entity and association taxonomy and datamodel for life-sciences data\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
+   "@context": {
+      "_comments": null,
+      "type": "@type",
+      "OBAN": "http://purl.org/oban/",
+      "OIO": "http://www.geneontology.org/formats/oboInOwl#",
+      "SIO": "http://semanticscience.org/resource/SIO_",
+      "biolinkml": "http://w3id.org/biolink/biolinkml/",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "skos": "https://www.w3.org/TR/skos-reference/#",
+      "wgs": "http://www.w3.org/2003/01/geo/wgs84_pos",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "@vocab": "http://w3id.org/biolink/vocab/",
+      "id": "@id",
+      "drug": {
+         "@type": "@id"
+      },
+      "has_exposure_parts": {
+         "@type": "@id"
+      },
+      "interacting_molecules_category": {
+         "@type": "@id"
+      },
+      "related_to": {
+         "@type": "@id",
+         "@id": "owl:ObjectProperty"
+      }
+   }
+}

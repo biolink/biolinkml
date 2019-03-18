@@ -2,507 +2,10 @@
   {
     "@graph": [
       {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/in_subset",
-        "@type": [
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
-          "http://www.w3.org/2002/07/owl#AnnotationProperty"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/Element"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "in_subset"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/SubsetDefinition"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "used to indicate membership of a term in a defined subset of biolink terms used for a particular domain or application (e.g. the translator_minimal subset holding the minimal set of predicates used in a translator knowledge graph)"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/alias",
-        "@type": [
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
-          "http://www.w3.org/2002/07/owl#AnnotationProperty"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "alias"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/string"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "the name used for a slot in the context of its owning class.  If present, this is used instead of the actual slot name."
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/class_definition_mixins",
-        "@type": [
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
-          "http://www.w3.org/2002/07/owl#AnnotationProperty"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/ClassDefinition"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "class_definition_mixins"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/ClassDefinition"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/mixins"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/is_a",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#AnnotationProperty",
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/Definition"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "is_a"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/Definition"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "specifies single-inheritance between classes or slots. While multiple inheritance is not allowed, mixins can be provided effectively providing the same thing. The semantics are the same when translated to formalisms that allow MI (e.g. RDFS/OWL). When translating to a SI framework (e.g. java classes, python classes) then is a is used. When translating a framework without polymorphism (e.g. json-schema, solr document schema) then is a and mixins are recursively unfolded"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/default_prefix",
-        "@type": [
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
-          "http://www.w3.org/2002/07/owl#AnnotationProperty"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/SchemaDefinition"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "default_prefix"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/string"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "default and base prefix -- used for ':' identifiers, @base and @vocab"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/prefixes",
-        "@type": [
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
-          "http://www.w3.org/2002/07/owl#AnnotationProperty"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/SchemaDefinition"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "prefixes"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/Prefix"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "prefix / URI definitions to be added to the context beyond those fetched from prefixcommons in id prefixes"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/float",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#Class",
-          "http://w3id.org/biolink/biolinkml/meta/TypeDefinition"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "float"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-          {
-            "@id": "_:N6560463b0f6c4faea343d614bca4f938"
-          }
-        ]
-      },
-      {
-        "@id": "_:N6560463b0f6c4faea343d614bca4f938",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#Restriction"
-        ],
-        "http://www.w3.org/2002/07/owl#onDataRange": [
-          {
-            "@id": "http://www.w3.org/2001/XMLSchema#float"
-          }
-        ],
-        "http://www.w3.org/2002/07/owl#onProperty": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/topValue"
-          }
-        ],
-        "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
-          {
-            "@value": 1
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/emit_prefixes",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#AnnotationProperty",
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/SchemaDefinition"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "emit_prefixes"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/ncname"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "a list of Curie prefixes that are used in the representation of instances of the model.  All prefixes in this list are added to the prefix sections of the target models."
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/prefix_uri",
-        "@type": [
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
-          "http://www.w3.org/2002/07/owl#AnnotationProperty"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/Prefix"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "prefix_uri"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/uri"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "A URI associated with a given prefix"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/comments",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#AnnotationProperty",
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/Element"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "comments"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/string"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "notes and comments about an element intended for external consumption"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/string",
-        "@type": [
-          "http://w3id.org/biolink/biolinkml/meta/TypeDefinition",
-          "http://www.w3.org/2002/07/owl#Class"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "string"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-          {
-            "@id": "_:Nfb84dfcf8a1a4d47accef4678984aca1"
-          }
-        ]
-      },
-      {
-        "@id": "_:Nfb84dfcf8a1a4d47accef4678984aca1",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#Restriction"
-        ],
-        "http://www.w3.org/2002/07/owl#onDataRange": [
-          {
-            "@id": "http://www.w3.org/2001/XMLSchema#string"
-          }
-        ],
-        "http://www.w3.org/2002/07/owl#onProperty": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/topValue"
-          }
-        ],
-        "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
-          {
-            "@value": 1
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/description",
-        "@type": [
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
-          "http://www.w3.org/2002/07/owl#AnnotationProperty"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/Element"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "description"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/string"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "a description of the element's purpose and use"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/Example",
+        "@id": "http://w3id.org/biolink/biolinkml/meta/TypeDefinition",
         "@type": [
           "http://w3id.org/biolink/biolinkml/meta/ClassDefinition",
           "http://www.w3.org/2002/07/owl#Class"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "example"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "usage example and description"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/source_file_date",
-        "@type": [
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
-          "http://www.w3.org/2002/07/owl#AnnotationProperty"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/SchemaDefinition"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "source_file_date"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/datetime"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "modification date of the source of the schema"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/inherited",
-        "@type": [
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
-          "http://www.w3.org/2002/07/owl#ObjectProperty"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "inherited"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/boolean"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "true means that the *value* of a slot is inherited by subclasses"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#note": [
-          {
-            "@value": "Inherited applies to slot values.  Parent *slots* are always inherited by subclasses"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/date",
-        "@type": [
-          "http://w3id.org/biolink/biolinkml/meta/TypeDefinition",
-          "http://www.w3.org/2002/07/owl#Class"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "date"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-          {
-            "@id": "_:Nd1be1fb012aa4580a2df0ff0ce1dbd9a"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "a date (year, month and day) in an idealized calendar"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#editorialNote": [
-          {
-            "@value": "URI is dateTime because OWL reasoners don't work with straight date or time"
-          }
-        ]
-      },
-      {
-        "@id": "_:Nd1be1fb012aa4580a2df0ff0ce1dbd9a",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#Restriction"
-        ],
-        "http://www.w3.org/2002/07/owl#onDataRange": [
-          {
-            "@id": "http://www.w3.org/2001/XMLSchema#dateTime"
-          }
-        ],
-        "http://www.w3.org/2002/07/owl#onProperty": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/topValue"
-          }
-        ],
-        "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
-          {
-            "@value": 1
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/local_name",
-        "@type": [
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
-          "http://www.w3.org/2002/07/owl#AnnotationProperty"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/Prefix"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "local_name"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/ncname"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "the nsname (sans ':' for a given prefix)"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/TypeDefinition",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#Class",
-          "http://w3id.org/biolink/biolinkml/meta/ClassDefinition"
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
           {
@@ -521,261 +24,29 @@
         ]
       },
       {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/mixin",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#AnnotationProperty",
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/Definition"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "mixin"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/boolean"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "this slot or class can only be used as a mixin -- equivalent to abstract"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/ClassDefinition",
+        "@id": "http://w3id.org/biolink/biolinkml/meta/SubsetDefinition",
         "@type": [
           "http://w3id.org/biolink/biolinkml/meta/ClassDefinition",
           "http://www.w3.org/2002/07/owl#Class"
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
           {
-            "@value": "class_definition"
+            "@value": "subset_definition"
           }
         ],
         "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
           {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/Definition"
+            "@id": "http://w3id.org/biolink/biolinkml/meta/Element"
           }
         ],
         "http://www.w3.org/2004/02/skos/core#definition": [
           {
-            "@value": "the definition of a class or interface"
+            "@value": "the name and description of a subset"
           }
         ]
       },
       {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/topValue",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#DatatypeProperty"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "value"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/apply_to",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#AnnotationProperty",
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/Definition"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "apply_to"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/Definition"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "Used to extend class or slot definitions. For example, if we have a core schema where a gene has two slots for identifier and symbol, and we have a specialized schema for my_organism where we wish to add a slot systematic_name, we can avoid subclassing by defining a class gene_my_organism, adding the slot to this class, and then adding an apply_to pointing to the gene class. The new slot will be 'injected into' the gene class."
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/ifabsent",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#ObjectProperty",
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "ifabsent"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/string"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "description of special behavior if the slot is absent"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/datetime",
-        "@type": [
-          "http://w3id.org/biolink/biolinkml/meta/TypeDefinition",
-          "http://www.w3.org/2002/07/owl#Class"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "datetime"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-          {
-            "@id": "_:N512dcf5cea084908be6031e1a5f3def7"
-          }
-        ]
-      },
-      {
-        "@id": "_:N512dcf5cea084908be6031e1a5f3def7",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#Restriction"
-        ],
-        "http://www.w3.org/2002/07/owl#onDataRange": [
-          {
-            "@id": "http://www.w3.org/2001/XMLSchema#dateTime"
-          }
-        ],
-        "http://www.w3.org/2002/07/owl#onProperty": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/topValue"
-          }
-        ],
-        "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
-          {
-            "@value": 1
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/uriorcuri",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#Class",
-          "http://w3id.org/biolink/biolinkml/meta/TypeDefinition"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "uriorcuri"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-          {
-            "@id": "_:Nc25d94651b884d609d383514f342463c"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "a URI or a CURIE"
-          }
-        ]
-      },
-      {
-        "@id": "_:Nc25d94651b884d609d383514f342463c",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#Restriction"
-        ],
-        "http://www.w3.org/2002/07/owl#onDataRange": [
-          {
-            "@id": "http://www.w3.org/2001/XMLSchema#anyURI"
-          }
-        ],
-        "http://www.w3.org/2002/07/owl#onProperty": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/topValue"
-          }
-        ],
-        "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
-          {
-            "@value": 1
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/slot_usage",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#AnnotationProperty",
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/ClassDefinition"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "slot_usage"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "the redefinition of a slot in the context of the containing class definition."
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#note": [
-          {
-            "@value": "Many slots may be re-used across different classes, but the meaning of the slot may be refined by context. For example, a generic association model may use slots subject/predicate/object with generic semantics and minimal constraints. When this is subclasses, e.g. to disease-phenotype associations then slot usage may specify both local naming (e.g. subject=disease) and local constraints"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/default_range",
-        "@type": [
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
-          "http://www.w3.org/2002/07/owl#AnnotationProperty"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/SchemaDefinition"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "default_range"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/Definition"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "default slot range to be used if range element is omitted from a slot definition"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/examples",
+        "@id": "http://w3id.org/biolink/biolinkml/meta/imported_from",
         "@type": [
           "http://www.w3.org/2002/07/owl#AnnotationProperty",
           "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
@@ -787,17 +58,17 @@
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
           {
-            "@value": "examples"
+            "@value": "imported_from"
           }
         ],
         "http://www.w3.org/2000/01/rdf-schema#range": [
           {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/Example"
+            "@id": "http://w3id.org/biolink/biolinkml/meta/string"
           }
         ],
         "http://www.w3.org/2004/02/skos/core#definition": [
           {
-            "@value": "example usages of an element"
+            "@value": "the imports entry that this element was derived from.  Empty means primary source"
           }
         ]
       },
@@ -840,68 +111,35 @@
         ]
       },
       {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/key",
+        "@id": "http://w3id.org/biolink/biolinkml/meta/ncname",
         "@type": [
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
-          "http://www.w3.org/2002/07/owl#ObjectProperty"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
-          }
+          "http://w3id.org/biolink/biolinkml/meta/TypeDefinition",
+          "http://www.w3.org/2002/07/owl#Class"
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
           {
-            "@value": "key"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/boolean"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "true means that the slot uniquely identifies the element within the context of its container.  Key slots are NOT identifiers - they do not serve as subjects"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#editorialNote": [
-          {
-            "@value": "key slots are always required"
-          },
-          {
-            "@value": "a given domain can have at most one key"
-          },
-          {
-            "@value": "key is inherited"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/double",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#Class",
-          "http://w3id.org/biolink/biolinkml/meta/TypeDefinition"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "double"
+            "@value": "ncname"
           }
         ],
         "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
           {
-            "@id": "_:Nb2884545898741c19938ff227412d79a"
+            "@id": "_:N012a545fabee4c10a70b2cebc820bd23"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "Prefix part of CURIE"
           }
         ]
       },
       {
-        "@id": "_:Nb2884545898741c19938ff227412d79a",
+        "@id": "_:N012a545fabee4c10a70b2cebc820bd23",
         "@type": [
           "http://www.w3.org/2002/07/owl#Restriction"
         ],
         "http://www.w3.org/2002/07/owl#onDataRange": [
           {
-            "@id": "http://www.w3.org/2001/XMLSchema#double"
+            "@id": "http://www.w3.org/2001/XMLSchema#string"
           }
         ],
         "http://www.w3.org/2002/07/owl#onProperty": [
@@ -912,6 +150,33 @@
         "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
           {
             "@value": 1
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/version",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#AnnotationProperty",
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/SchemaDefinition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "version"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/string"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "particular version of schema"
           }
         ]
       },
@@ -943,33 +208,6 @@
         ]
       },
       {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/imported_from",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#AnnotationProperty",
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/Element"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "imported_from"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/string"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "the imports entry that this element was derived from.  Empty means primary source"
-          }
-        ]
-      },
-      {
         "@id": "http://w3id.org/biolink/biolinkml/meta/inlined",
         "@type": [
           "http://www.w3.org/2002/07/owl#ObjectProperty",
@@ -997,63 +235,41 @@
         ]
       },
       {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/aliases",
+        "@id": "http://w3id.org/biolink/biolinkml/meta/subproperty_of",
         "@type": [
           "http://www.w3.org/2002/07/owl#AnnotationProperty",
           "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
         ],
         "http://www.w3.org/2000/01/rdf-schema#domain": [
           {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/Element"
+            "@id": "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
           }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
           {
-            "@value": "aliases"
+            "@value": "subproperty_of"
           }
         ],
         "http://www.w3.org/2000/01/rdf-schema#range": [
           {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/string"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/class_definition_apply_to",
-        "@type": [
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
-          "http://www.w3.org/2002/07/owl#AnnotationProperty"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/ClassDefinition"
+            "@id": "http://w3id.org/biolink/biolinkml/meta/uriorcurie"
           }
         ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
+        "http://www.w3.org/2004/02/skos/core#definition": [
           {
-            "@value": "class_definition_apply_to"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/ClassDefinition"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/apply_to"
+            "@value": "Ontology property which this slot is a subproperty of"
           }
         ]
       },
       {
         "@id": "http://w3id.org/biolink/biolinkml/meta/singular_name",
         "@type": [
-          "http://www.w3.org/2002/07/owl#AnnotationProperty",
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
+          "http://www.w3.org/2002/07/owl#AnnotationProperty"
         ],
         "http://www.w3.org/2000/01/rdf-schema#domain": [
           {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/Element"
+            "@id": "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
           }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -1073,285 +289,69 @@
         ]
       },
       {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/subsets",
+        "@id": "http://w3id.org/biolink/biolinkml/meta/slot_usage",
         "@type": [
           "http://www.w3.org/2002/07/owl#AnnotationProperty",
           "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
         ],
         "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/SchemaDefinition"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "subsets"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/SubsetDefinition"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "list of subsets referenced in this model"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/slot_definition_mixins",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#AnnotationProperty",
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "slot_definition_mixins"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/mixins"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/typeof",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#AnnotationProperty",
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/TypeDefinition"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "typeof"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/TypeDefinition"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "Names a parent type"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#note": [
-          {
-            "@value": "type definitions without a typeof slot are referred to as a \"root type\""
-          },
-          {
-            "@value": "the target type definition of the typeof slot is referred to as the \"parent type\""
-          },
-          {
-            "@value": "the type definition containing the typeof slot is referred to as the \"child type\""
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#Ontology"
-        ],
-        "http://purl.org/dc/terms/license": [
-          {
-            "@value": "https://creativecommons.org/publicdomain/zero/1.0/"
-          }
-        ],
-        "http://purl.org/dc/terms/title": [
-          {
-            "@value": "Biolink Schema Metamodel"
-          }
-        ],
-        "http://w3id.org/biolink/biolinkml/meta/generation_date": [
-          {
-            "@value": "2019-03-08 07:50"
-          }
-        ],
-        "http://w3id.org/biolink/biolinkml/meta/metamodel_version": [
-          {
-            "@value": "1.1.2"
-          }
-        ],
-        "http://w3id.org/biolink/biolinkml/meta/source_file": [
-          {
-            "@value": "meta.yaml"
-          }
-        ],
-        "http://w3id.org/biolink/biolinkml/meta/source_file_date": [
-          {
-            "@value": "Fri Mar  8 07:14:35 2019"
-          }
-        ],
-        "http://w3id.org/biolink/biolinkml/meta/source_file_size": [
-          {
-            "@value": 18693
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "metamodel"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "A metamodel for defining biolink related schemas"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/value_description",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#AnnotationProperty",
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/Example"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "value_description"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/string"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "description of what the value is doing"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/todos",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#AnnotationProperty",
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/Element"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "todos"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/string"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "Outstanding issue that needs resolution"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/repr",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#ObjectProperty",
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/TypeDefinition"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "repr"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/string"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "the name of the python object that implements this type definition"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#note": [
-          {
-            "@value": "if not supplied, the model d"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/classes",
-        "@type": [
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
-          "http://www.w3.org/2002/07/owl#AnnotationProperty"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/SchemaDefinition"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "classes"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
           {
             "@id": "http://w3id.org/biolink/biolinkml/meta/ClassDefinition"
           }
         ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "slot_usage"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+          }
+        ],
         "http://www.w3.org/2004/02/skos/core#definition": [
           {
-            "@value": "class definitions"
+            "@value": "the redefinition of a slot in the context of the containing class definition."
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#note": [
+          {
+            "@value": "Many slots may be re-used across different classes, but the meaning of the slot may be refined by context. For example, a generic association model may use slots subject/predicate/object with generic semantics and minimal constraints. When this is subclasses, e.g. to disease-phenotype associations then slot usage may specify both local naming (e.g. subject=disease) and local constraints"
           }
         ]
       },
       {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/abstract",
+        "@id": "http://w3id.org/biolink/biolinkml/meta/type_uri",
         "@type": [
           "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
           "http://www.w3.org/2002/07/owl#AnnotationProperty"
         ],
         "http://www.w3.org/2000/01/rdf-schema#domain": [
           {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/Definition"
+            "@id": "http://w3id.org/biolink/biolinkml/meta/TypeDefinition"
           }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
           {
-            "@value": "abstract"
+            "@value": "type_uri"
           }
         ],
         "http://www.w3.org/2000/01/rdf-schema#range": [
           {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/boolean"
+            "@id": "http://w3id.org/biolink/biolinkml/meta/uriorcurie"
           }
         ],
         "http://www.w3.org/2004/02/skos/core#definition": [
           {
-            "@value": "an abstract class is a high level class or slot that is typically used to group common slots together and cannot be directly instantiated."
+            "@value": "The uri that defines the possible values for the type definition"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#note": [
+          {
+            "@value": "uri is typically drawn from the set of URI's defined in OWL (https://www.w3.org/TR/2012/REC-owl2-syntax-20121211/#Datatype_Maps)"
+          },
+          {
+            "@value": "every root type must have a type uri"
           }
         ]
       },
@@ -1385,8 +385,8 @@
       {
         "@id": "http://w3id.org/biolink/biolinkml/meta/value",
         "@type": [
-          "http://www.w3.org/2002/07/owl#AnnotationProperty",
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
+          "http://www.w3.org/2002/07/owl#AnnotationProperty"
         ],
         "http://www.w3.org/2000/01/rdf-schema#domain": [
           {
@@ -1406,6 +406,705 @@
         "http://www.w3.org/2004/02/skos/core#definition": [
           {
             "@value": "example value"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
+        "@type": [
+          "http://w3id.org/biolink/biolinkml/meta/ClassDefinition",
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "slot_definition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/Definition"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "the definition of a property or a slot"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/aliases",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#AnnotationProperty",
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/Element"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "aliases"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/string"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/float",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#Class",
+          "http://w3id.org/biolink/biolinkml/meta/TypeDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "float"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+          {
+            "@id": "_:N747e1513b6644760b4db8315c21460a9"
+          }
+        ]
+      },
+      {
+        "@id": "_:N747e1513b6644760b4db8315c21460a9",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#Restriction"
+        ],
+        "http://www.w3.org/2002/07/owl#onDataRange": [
+          {
+            "@id": "http://www.w3.org/2001/XMLSchema#float"
+          }
+        ],
+        "http://www.w3.org/2002/07/owl#onProperty": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/topValue"
+          }
+        ],
+        "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+          {
+            "@value": 1
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/generation_date",
+        "@type": [
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
+          "http://www.w3.org/2002/07/owl#AnnotationProperty"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/SchemaDefinition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "generation_date"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/datetime"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "date and time that the schema was loaded/generated"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/emit_prefixes",
+        "@type": [
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
+          "http://www.w3.org/2002/07/owl#AnnotationProperty"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/SchemaDefinition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "emit_prefixes"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/ncname"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "a list of Curie prefixes that are used in the representation of instances of the model.  All prefixes in this list are added to the prefix sections of the target models."
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/ifabsent",
+        "@type": [
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
+          "http://www.w3.org/2002/07/owl#ObjectProperty"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "ifabsent"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/string"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "description of special behavior if the slot is absent"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/subsets",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#AnnotationProperty",
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/SchemaDefinition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "subsets"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/SubsetDefinition"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "list of subsets referenced in this model"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/time",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#Class",
+          "http://w3id.org/biolink/biolinkml/meta/TypeDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "time"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+          {
+            "@id": "_:Nc0fa208cc93c4db0b0993a74b2a93d87"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "A time object represents a (local) time of day, independent of any particular day"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#editorialNote": [
+          {
+            "@value": "URI is dateTime because OWL reasoners don't work with straight date or time"
+          }
+        ]
+      },
+      {
+        "@id": "_:Nc0fa208cc93c4db0b0993a74b2a93d87",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#Restriction"
+        ],
+        "http://www.w3.org/2002/07/owl#onDataRange": [
+          {
+            "@id": "http://www.w3.org/2001/XMLSchema#dateTime"
+          }
+        ],
+        "http://www.w3.org/2002/07/owl#onProperty": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/topValue"
+          }
+        ],
+        "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+          {
+            "@value": 1
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/abstract",
+        "@type": [
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
+          "http://www.w3.org/2002/07/owl#AnnotationProperty"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/Definition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "abstract"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/boolean"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "an abstract class is a high level class or slot that is typically used to group common slots together and cannot be directly instantiated."
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/double",
+        "@type": [
+          "http://w3id.org/biolink/biolinkml/meta/TypeDefinition",
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "double"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+          {
+            "@id": "_:Nd007d4eaefa2442da213c5844cd84eee"
+          }
+        ]
+      },
+      {
+        "@id": "_:Nd007d4eaefa2442da213c5844cd84eee",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#Restriction"
+        ],
+        "http://www.w3.org/2002/07/owl#onDataRange": [
+          {
+            "@id": "http://www.w3.org/2001/XMLSchema#double"
+          }
+        ],
+        "http://www.w3.org/2002/07/owl#onProperty": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/topValue"
+          }
+        ],
+        "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+          {
+            "@value": 1
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/uri",
+        "@type": [
+          "http://w3id.org/biolink/biolinkml/meta/TypeDefinition",
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "uri"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+          {
+            "@id": "_:N85227271e557492893e691915738e1a1"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "a complete URI"
+          }
+        ]
+      },
+      {
+        "@id": "_:N85227271e557492893e691915738e1a1",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#Restriction"
+        ],
+        "http://www.w3.org/2002/07/owl#onDataRange": [
+          {
+            "@id": "http://www.w3.org/2001/XMLSchema#anyURI"
+          }
+        ],
+        "http://www.w3.org/2002/07/owl#onProperty": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/topValue"
+          }
+        ],
+        "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+          {
+            "@value": 1
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/description",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#AnnotationProperty",
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/Element"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "description"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/string"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "a description of the element's purpose and use"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/slot_definitions",
+        "@type": [
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
+          "http://www.w3.org/2002/07/owl#AnnotationProperty"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/SchemaDefinition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "slot_definitions"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "slot definitions"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/required",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#ObjectProperty",
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "required"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/boolean"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "true means that the slot must be present in the loaded definition"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/value_description",
+        "@type": [
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
+          "http://www.w3.org/2002/07/owl#AnnotationProperty"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/Example"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "value_description"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/string"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "description of what the value is doing"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/Prefix",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#Class",
+          "http://w3id.org/biolink/biolinkml/meta/ClassDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "prefix"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "prefix URI tuple"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/local_names",
+        "@type": [
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
+          "http://www.w3.org/2002/07/owl#AnnotationProperty"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/Element"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "local_names"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/LocalName"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/ClassDefinition",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#Class",
+          "http://w3id.org/biolink/biolinkml/meta/ClassDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "class_definition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/Definition"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "the definition of a class or interface"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/classes",
+        "@type": [
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
+          "http://www.w3.org/2002/07/owl#AnnotationProperty"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/SchemaDefinition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "classes"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/ClassDefinition"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "class definitions"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/mappings",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#AnnotationProperty",
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/Element"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "mappings"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/uriorcurie"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective."
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/topValue",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#DatatypeProperty"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "value"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/is_a",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#AnnotationProperty",
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/Definition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "is_a"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/Definition"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "specifies single-inheritance between classes or slots. While multiple inheritance is not allowed, mixins can be provided effectively providing the same thing. The semantics are the same when translated to formalisms that allow MI (e.g. RDFS/OWL). When translating to a SI framework (e.g. java classes, python classes) then is a is used. When translating a framework without polymorphism (e.g. json-schema, solr document schema) then is a and mixins are recursively unfolded"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/imports",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#AnnotationProperty",
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/SchemaDefinition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "imports"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/uri"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "other schemas that are included in this schema"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/default_range",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#AnnotationProperty",
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/SchemaDefinition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "default_range"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/Definition"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "default slot range to be used if range element is omitted from a slot definition"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/integer",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#Class",
+          "http://w3id.org/biolink/biolinkml/meta/TypeDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "integer"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+          {
+            "@id": "_:N050d2b613f1440f49bfdfef3d0d2ce18"
+          }
+        ]
+      },
+      {
+        "@id": "_:N050d2b613f1440f49bfdfef3d0d2ce18",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#Restriction"
+        ],
+        "http://www.w3.org/2002/07/owl#onDataRange": [
+          {
+            "@id": "http://www.w3.org/2001/XMLSchema#integer"
+          }
+        ],
+        "http://www.w3.org/2002/07/owl#onProperty": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/topValue"
+          }
+        ],
+        "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+          {
+            "@value": 1
           }
         ]
       },
@@ -1437,130 +1136,64 @@
         ]
       },
       {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/Definition",
+        "@id": "http://w3id.org/biolink/biolinkml/meta/comments",
         "@type": [
-          "http://w3id.org/biolink/biolinkml/meta/ClassDefinition",
-          "http://www.w3.org/2002/07/owl#Class"
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
+          "http://www.w3.org/2002/07/owl#AnnotationProperty"
         ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "definition"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
           {
             "@id": "http://w3id.org/biolink/biolinkml/meta/Element"
           }
         ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "comments"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/string"
+          }
+        ],
         "http://www.w3.org/2004/02/skos/core#definition": [
           {
-            "@value": "base class for definitions"
+            "@value": "notes and comments about an element intended for external consumption"
           }
         ]
       },
       {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/slot_uri",
+        "@id": "http://w3id.org/biolink/biolinkml/meta/defining_slots",
         "@type": [
-          "http://www.w3.org/2002/07/owl#AnnotationProperty",
+          "http://www.w3.org/2002/07/owl#ObjectProperty",
           "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
         ],
         "http://www.w3.org/2000/01/rdf-schema#domain": [
           {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "slot_uri"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/uri"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "predicate of this slot for semantic web application"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/domain",
-        "@type": [
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
-          "http://www.w3.org/2002/07/owl#ObjectProperty"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "domain"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
             "@id": "http://w3id.org/biolink/biolinkml/meta/ClassDefinition"
           }
         ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "defines the type of the subject of the slot.  Given the following slot definition\n  S1:\n    domain: C1\n    range:  C2\nthe declaration\n  X:\n    S1: Y\n\nimplicitly asserts that X is an instance of C1\n"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/Prefix",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#Class",
-          "http://w3id.org/biolink/biolinkml/meta/ClassDefinition"
-        ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
           {
-            "@value": "prefix"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "prefix URI tuple"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/mixins",
-        "@type": [
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
-          "http://www.w3.org/2002/07/owl#AnnotationProperty"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/Definition"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "mixins"
+            "@value": "defining_slots"
           }
         ],
         "http://www.w3.org/2000/01/rdf-schema#range": [
           {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/Definition"
+            "@id": "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
           }
         ],
         "http://www.w3.org/2004/02/skos/core#definition": [
           {
-            "@value": "List of definitions to be mixed in. Targets may be any definition of the same type"
+            "@value": "The combination of is a plus defining slots form a genus-differentia definition, or the set of necessary and sufficient conditions that can be transformed into an OWL equivalence axiom"
           }
         ]
       },
       {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/type_uri",
+        "@id": "http://w3id.org/biolink/biolinkml/meta/typeof",
         "@type": [
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
-          "http://www.w3.org/2002/07/owl#AnnotationProperty"
+          "http://www.w3.org/2002/07/owl#AnnotationProperty",
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
         ],
         "http://www.w3.org/2000/01/rdf-schema#domain": [
           {
@@ -1569,33 +1202,106 @@
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
           {
-            "@value": "type_uri"
+            "@value": "typeof"
           }
         ],
         "http://www.w3.org/2000/01/rdf-schema#range": [
           {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/uri"
+            "@id": "http://w3id.org/biolink/biolinkml/meta/TypeDefinition"
           }
         ],
         "http://www.w3.org/2004/02/skos/core#definition": [
           {
-            "@value": "The uri that defines the possible values for the type definition"
+            "@value": "Names a parent type"
           }
         ],
         "http://www.w3.org/2004/02/skos/core#note": [
           {
-            "@value": "every root type must have a type uri"
+            "@value": "the type definition containing the typeof slot is referred to as the \"child type\""
           },
           {
-            "@value": "uri is typically drawn from the set of URI's defined in OWL (https://www.w3.org/TR/2012/REC-owl2-syntax-20121211/#Datatype_Maps)"
+            "@value": "the target type definition of the typeof slot is referred to as the \"parent type\""
+          },
+          {
+            "@value": "type definitions without a typeof slot are referred to as a \"root type\""
           }
         ]
       },
       {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/slots",
+        "@id": "http://w3id.org/biolink/biolinkml/meta/uriorcurie",
+        "@type": [
+          "http://w3id.org/biolink/biolinkml/meta/TypeDefinition",
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "uriorcurie"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+          {
+            "@id": "_:Ne3fc5323c3b845fd9cb0206181194b3a"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "a URI or a CURIE"
+          }
+        ]
+      },
+      {
+        "@id": "_:Ne3fc5323c3b845fd9cb0206181194b3a",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#Restriction"
+        ],
+        "http://www.w3.org/2002/07/owl#onDataRange": [
+          {
+            "@id": "http://www.w3.org/2001/XMLSchema#anyURI"
+          }
+        ],
+        "http://www.w3.org/2002/07/owl#onProperty": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/topValue"
+          }
+        ],
+        "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+          {
+            "@value": 1
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/slot_definition_mixins",
         "@type": [
           "http://www.w3.org/2002/07/owl#AnnotationProperty",
           "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "slot_definition_mixins"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/mixins"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/class_uri",
+        "@type": [
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
+          "http://www.w3.org/2002/07/owl#AnnotationProperty"
         ],
         "http://www.w3.org/2000/01/rdf-schema#domain": [
           {
@@ -1604,22 +1310,44 @@
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
           {
-            "@value": "slots"
+            "@value": "class_uri"
           }
         ],
         "http://www.w3.org/2000/01/rdf-schema#range": [
           {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+            "@id": "http://w3id.org/biolink/biolinkml/meta/uriorcurie"
           }
         ],
         "http://www.w3.org/2004/02/skos/core#definition": [
           {
-            "@value": "list of slot names that are applicable to a class"
+            "@value": "URI of the class in an RDF environment"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/multivalued",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#ObjectProperty",
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
           }
         ],
-        "http://www.w3.org/2004/02/skos/core#note": [
+        "http://www.w3.org/2000/01/rdf-schema#label": [
           {
-            "@value": "This defines the set of slots that are allowed to be used for a given class. The final list of slots for a class is the combination of the parent (is a) slots, mixins slots, apply to slots minus the slot usage entries. Formally, "
+            "@value": "multivalued"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/boolean"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "true means that slot can have more than one value"
           }
         ]
       },
@@ -1656,150 +1384,10 @@
         ]
       },
       {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/mappings",
+        "@id": "http://w3id.org/biolink/biolinkml/meta/slot_definition_apply_to",
         "@type": [
           "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
           "http://www.w3.org/2002/07/owl#AnnotationProperty"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/Element"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "mappings"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/uriorcuri"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective."
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/integer",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#Class",
-          "http://w3id.org/biolink/biolinkml/meta/TypeDefinition"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "integer"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-          {
-            "@id": "_:N9e83d8e6ea134552ae14b621d9b3f1f8"
-          }
-        ]
-      },
-      {
-        "@id": "_:N9e83d8e6ea134552ae14b621d9b3f1f8",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#Restriction"
-        ],
-        "http://www.w3.org/2002/07/owl#onDataRange": [
-          {
-            "@id": "http://www.w3.org/2001/XMLSchema#integer"
-          }
-        ],
-        "http://www.w3.org/2002/07/owl#onProperty": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/topValue"
-          }
-        ],
-        "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
-          {
-            "@value": 1
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/readonly",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#ObjectProperty",
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "readonly"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/string"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "If present, slot is read only.  Text explains why"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/time",
-        "@type": [
-          "http://w3id.org/biolink/biolinkml/meta/TypeDefinition",
-          "http://www.w3.org/2002/07/owl#Class"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "time"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-          {
-            "@id": "_:N506c2a47ac7d4baa9a8f711bf4fa5db5"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "A time object represents a (local) time of day, independent of any particular day"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#editorialNote": [
-          {
-            "@value": "URI is dateTime because OWL reasoners don't work with straight date or time"
-          }
-        ]
-      },
-      {
-        "@id": "_:N506c2a47ac7d4baa9a8f711bf4fa5db5",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#Restriction"
-        ],
-        "http://www.w3.org/2002/07/owl#onDataRange": [
-          {
-            "@id": "http://www.w3.org/2001/XMLSchema#dateTime"
-          }
-        ],
-        "http://www.w3.org/2002/07/owl#onProperty": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/topValue"
-          }
-        ],
-        "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
-          {
-            "@value": 1
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/slot_definition_apply_to",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#AnnotationProperty",
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
         ],
         "http://www.w3.org/2000/01/rdf-schema#domain": [
           {
@@ -1823,107 +1411,10 @@
         ]
       },
       {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/generation_date",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#AnnotationProperty",
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/SchemaDefinition"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "generation_date"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/datetime"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "date and time that the schema was loaded/generated"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/boolean",
-        "@type": [
-          "http://w3id.org/biolink/biolinkml/meta/TypeDefinition",
-          "http://www.w3.org/2002/07/owl#Class"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "boolean"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-          {
-            "@id": "_:Nc50f26de385c4622a46d1236f6a63114"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "A binary (true or false) value"
-          }
-        ]
-      },
-      {
-        "@id": "_:Nc50f26de385c4622a46d1236f6a63114",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#Restriction"
-        ],
-        "http://www.w3.org/2002/07/owl#onDataRange": [
-          {
-            "@id": "http://www.w3.org/2001/XMLSchema#boolean"
-          }
-        ],
-        "http://www.w3.org/2002/07/owl#onProperty": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/topValue"
-          }
-        ],
-        "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
-          {
-            "@value": 1
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/slot_definitions",
+        "@id": "http://w3id.org/biolink/biolinkml/meta/class_definition_mixins",
         "@type": [
           "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
           "http://www.w3.org/2002/07/owl#AnnotationProperty"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/SchemaDefinition"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "slot_definitions"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "slot definitions"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/class_uri",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#AnnotationProperty",
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
         ],
         "http://www.w3.org/2000/01/rdf-schema#domain": [
           {
@@ -1932,136 +1423,49 @@
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
           {
-            "@value": "class_uri"
+            "@value": "class_definition_mixins"
           }
         ],
         "http://www.w3.org/2000/01/rdf-schema#range": [
           {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/uri"
+            "@id": "http://w3id.org/biolink/biolinkml/meta/ClassDefinition"
           }
         ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
+        "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
           {
-            "@value": "URI of the class in an RDF environment"
+            "@id": "http://w3id.org/biolink/biolinkml/meta/mixins"
           }
         ]
       },
       {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/SubsetDefinition",
-        "@type": [
-          "http://w3id.org/biolink/biolinkml/meta/ClassDefinition",
-          "http://www.w3.org/2002/07/owl#Class"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "subset_definition"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/Element"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "the name and description of a subset"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
-        "@type": [
-          "http://w3id.org/biolink/biolinkml/meta/ClassDefinition",
-          "http://www.w3.org/2002/07/owl#Class"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "slot_definition"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/Definition"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "the definition of a property or a slot"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/ncname",
-        "@type": [
-          "http://w3id.org/biolink/biolinkml/meta/TypeDefinition",
-          "http://www.w3.org/2002/07/owl#Class"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "ncname"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-          {
-            "@id": "_:Nb7557b75f7c9454c94dd836e368cc2dd"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "Prefix part of CURIE"
-          }
-        ]
-      },
-      {
-        "@id": "_:Nb7557b75f7c9454c94dd836e368cc2dd",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#Restriction"
-        ],
-        "http://www.w3.org/2002/07/owl#onDataRange": [
-          {
-            "@id": "http://www.w3.org/2001/XMLSchema#string"
-          }
-        ],
-        "http://www.w3.org/2002/07/owl#onProperty": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/topValue"
-          }
-        ],
-        "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
-          {
-            "@value": 1
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/id",
+        "@id": "http://w3id.org/biolink/biolinkml/meta/local_name_source",
         "@type": [
           "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
           "http://www.w3.org/2002/07/owl#AnnotationProperty"
         ],
         "http://www.w3.org/2000/01/rdf-schema#domain": [
           {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/SchemaDefinition"
+            "@id": "http://w3id.org/biolink/biolinkml/meta/LocalName"
           }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
           {
-            "@value": "id"
+            "@value": "local_name_source"
           }
         ],
         "http://www.w3.org/2000/01/rdf-schema#range": [
           {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/uri"
+            "@id": "http://w3id.org/biolink/biolinkml/meta/ncname"
           }
         ],
         "http://www.w3.org/2004/02/skos/core#definition": [
           {
-            "@value": "The official schema URI"
+            "@value": "the ncname of the source of the name"
           }
         ]
       },
       {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/deprecated",
+        "@id": "http://w3id.org/biolink/biolinkml/meta/notes",
         "@type": [
           "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
           "http://www.w3.org/2002/07/owl#AnnotationProperty"
@@ -2073,7 +1477,7 @@
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
           {
-            "@value": "deprecated"
+            "@value": "notes"
           }
         ],
         "http://www.w3.org/2000/01/rdf-schema#range": [
@@ -2083,34 +1487,7 @@
         ],
         "http://www.w3.org/2004/02/skos/core#definition": [
           {
-            "@value": "Description of why and when this element will no longer be used"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/imports",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#AnnotationProperty",
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/SchemaDefinition"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "imports"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/uri"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "other schemas that are included in this schema"
+            "@value": "editorial notes about an element intended for internal consumption"
           }
         ]
       },
@@ -2142,198 +1519,57 @@
         ]
       },
       {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/version",
+        "@id": "http://w3id.org/biolink/biolinkml/meta/date",
         "@type": [
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
-          "http://www.w3.org/2002/07/owl#AnnotationProperty"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/SchemaDefinition"
-          }
+          "http://www.w3.org/2002/07/owl#Class",
+          "http://w3id.org/biolink/biolinkml/meta/TypeDefinition"
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
           {
-            "@value": "version"
+            "@value": "date"
           }
         ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
+        "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
           {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/string"
+            "@id": "_:Ncf470d7db0ab4bcea74784bec48d5b51"
           }
         ],
         "http://www.w3.org/2004/02/skos/core#definition": [
           {
-            "@value": "particular version of schema"
+            "@value": "a date (year, month and day) in an idealized calendar"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#editorialNote": [
+          {
+            "@value": "URI is dateTime because OWL reasoners don't work with straight date or time"
           }
         ]
       },
       {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/source_file_size",
+        "@id": "_:Ncf470d7db0ab4bcea74784bec48d5b51",
         "@type": [
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
-          "http://www.w3.org/2002/07/owl#AnnotationProperty"
+          "http://www.w3.org/2002/07/owl#Restriction"
         ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
+        "http://www.w3.org/2002/07/owl#onDataRange": [
           {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/SchemaDefinition"
+            "@id": "http://www.w3.org/2001/XMLSchema#dateTime"
           }
         ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
+        "http://www.w3.org/2002/07/owl#onProperty": [
           {
-            "@value": "source_file_size"
+            "@id": "http://w3id.org/biolink/biolinkml/meta/topValue"
           }
         ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
+        "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
           {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/integer"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "size in bytes of the source of the schema"
+            "@value": 1
           }
         ]
       },
       {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/types",
-        "@type": [
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
-          "http://www.w3.org/2002/07/owl#AnnotationProperty"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/SchemaDefinition"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "types"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/TypeDefinition"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "data types used in the model"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/name",
+        "@id": "http://w3id.org/biolink/biolinkml/meta/alias",
         "@type": [
           "http://www.w3.org/2002/07/owl#AnnotationProperty",
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/Element"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "name"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/string"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class."
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/title",
-        "@type": [
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
-          "http://www.w3.org/2002/07/owl#AnnotationProperty"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/SchemaDefinition"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "title"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/string"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "the official title of the schema"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/metamodel_version",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#AnnotationProperty",
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/SchemaDefinition"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "metamodel_version"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/string"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "Version of the metamodel used to load the schema"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/notes",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#AnnotationProperty",
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#domain": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/Element"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "notes"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#range": [
-          {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/string"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "editorial notes about an element intended for internal consumption"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/multivalued",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#ObjectProperty",
           "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
         ],
         "http://www.w3.org/2000/01/rdf-schema#domain": [
@@ -2343,39 +1579,22 @@
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
           {
-            "@value": "multivalued"
+            "@value": "alias"
           }
         ],
         "http://www.w3.org/2000/01/rdf-schema#range": [
           {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/boolean"
+            "@id": "http://w3id.org/biolink/biolinkml/meta/string"
           }
         ],
         "http://www.w3.org/2004/02/skos/core#definition": [
           {
-            "@value": "true means that slot can have more than one value"
+            "@value": "the name used for a slot in the context of its owning class.  If present, this is used instead of the actual slot name."
           }
         ]
       },
       {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/Element",
-        "@type": [
-          "http://www.w3.org/2002/07/owl#Class",
-          "http://w3id.org/biolink/biolinkml/meta/ClassDefinition"
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "element"
-          }
-        ],
-        "http://www.w3.org/2004/02/skos/core#definition": [
-          {
-            "@value": "a named element in the model"
-          }
-        ]
-      },
-      {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/required",
+        "@id": "http://w3id.org/biolink/biolinkml/meta/inherited",
         "@type": [
           "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
           "http://www.w3.org/2002/07/owl#ObjectProperty"
@@ -2387,7 +1606,7 @@
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
           {
-            "@value": "required"
+            "@value": "inherited"
           }
         ],
         "http://www.w3.org/2000/01/rdf-schema#range": [
@@ -2397,12 +1616,109 @@
         ],
         "http://www.w3.org/2004/02/skos/core#definition": [
           {
-            "@value": "true means that the slot must be present in the loaded definition"
+            "@value": "true means that the *value* of a slot is inherited by subclasses"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#note": [
+          {
+            "@value": "Inherited applies to slot values.  Parent *slots* are always inherited by subclasses"
           }
         ]
       },
       {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/class_definition_is_a",
+        "@id": "http://w3id.org/biolink/biolinkml/meta/datetime",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#Class",
+          "http://w3id.org/biolink/biolinkml/meta/TypeDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "datetime"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+          {
+            "@id": "_:N4c140fc5c31d4862b5d03504b812f92e"
+          }
+        ]
+      },
+      {
+        "@id": "_:N4c140fc5c31d4862b5d03504b812f92e",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#Restriction"
+        ],
+        "http://www.w3.org/2002/07/owl#onDataRange": [
+          {
+            "@id": "http://www.w3.org/2001/XMLSchema#dateTime"
+          }
+        ],
+        "http://www.w3.org/2002/07/owl#onProperty": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/topValue"
+          }
+        ],
+        "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+          {
+            "@value": 1
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/prefix_prefix",
+        "@type": [
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
+          "http://www.w3.org/2002/07/owl#AnnotationProperty"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/Prefix"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "prefix_prefix"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/ncname"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "the nsname (sans ':' for a given prefix)"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/prefix_reference",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#AnnotationProperty",
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/Prefix"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "prefix_reference"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/uri"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "A URI associated with a given prefix"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/slots",
         "@type": [
           "http://www.w3.org/2002/07/owl#AnnotationProperty",
           "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
@@ -2414,7 +1730,39 @@
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
           {
-            "@value": "class_definition_is_a"
+            "@value": "slots"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "list of slot names that are applicable to a class"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#note": [
+          {
+            "@value": "This defines the set of slots that are allowed to be used for a given class. The final list of slots for a class is the combination of the parent (is a) slots, mixins slots, apply to slots minus the slot usage entries. Formally, "
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/class_definition_apply_to",
+        "@type": [
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
+          "http://www.w3.org/2002/07/owl#AnnotationProperty"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/ClassDefinition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "class_definition_apply_to"
           }
         ],
         "http://www.w3.org/2000/01/rdf-schema#range": [
@@ -2424,37 +1772,135 @@
         ],
         "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
           {
-            "@id": "http://w3id.org/biolink/biolinkml/meta/is_a"
+            "@id": "http://w3id.org/biolink/biolinkml/meta/apply_to"
           }
         ]
       },
       {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/SchemaDefinition",
+        "@id": "http://w3id.org/biolink/biolinkml/meta/alt_descriptions",
         "@type": [
-          "http://w3id.org/biolink/biolinkml/meta/ClassDefinition",
-          "http://www.w3.org/2002/07/owl#Class"
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
+          "http://www.w3.org/2002/07/owl#AnnotationProperty"
         ],
-        "http://www.w3.org/2000/01/rdf-schema#label": [
-          {
-            "@value": "schema_definition"
-          }
-        ],
-        "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
           {
             "@id": "http://w3id.org/biolink/biolinkml/meta/Element"
           }
         ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "alt_descriptions"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/AltDescription"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/source_file_date",
+        "@type": [
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
+          "http://www.w3.org/2002/07/owl#AnnotationProperty"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/SchemaDefinition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "source_file_date"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/datetime"
+          }
+        ],
         "http://www.w3.org/2004/02/skos/core#definition": [
           {
-            "@value": "a collection of subset, type, slot and class definitions"
+            "@value": "modification date of the source of the schema"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/Example",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#Class",
+          "http://w3id.org/biolink/biolinkml/meta/ClassDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "example"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "usage example and description"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/mixins",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#AnnotationProperty",
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/Definition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "mixins"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/Definition"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "List of definitions to be mixed in. Targets may be any definition of the same type"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/examples",
+        "@type": [
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
+          "http://www.w3.org/2002/07/owl#AnnotationProperty"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/Element"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "examples"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/Example"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "example usages of an element"
           }
         ]
       },
       {
         "@id": "http://w3id.org/biolink/biolinkml/meta/base",
         "@type": [
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
-          "http://www.w3.org/2002/07/owl#ObjectProperty"
+          "http://www.w3.org/2002/07/owl#ObjectProperty",
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
         ],
         "http://www.w3.org/2000/01/rdf-schema#domain": [
           {
@@ -2486,10 +1932,10 @@
         ]
       },
       {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/see_also",
+        "@id": "http://w3id.org/biolink/biolinkml/meta/in_subset",
         "@type": [
-          "http://www.w3.org/2002/07/owl#AnnotationProperty",
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
+          "http://www.w3.org/2002/07/owl#AnnotationProperty"
         ],
         "http://www.w3.org/2000/01/rdf-schema#domain": [
           {
@@ -2498,7 +1944,202 @@
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
           {
-            "@value": "see_also"
+            "@value": "in_subset"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/SubsetDefinition"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "used to indicate membership of a term in a defined subset of biolink terms used for a particular domain or application (e.g. the translator_minimal subset holding the minimal set of predicates used in a translator knowledge graph)"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/title",
+        "@type": [
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
+          "http://www.w3.org/2002/07/owl#AnnotationProperty"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/SchemaDefinition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "title"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/string"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "the official title of the schema"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/SchemaDefinition",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#Class",
+          "http://w3id.org/biolink/biolinkml/meta/ClassDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "schema_definition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/Element"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "a collection of subset, type, slot and class definitions"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/string",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#Class",
+          "http://w3id.org/biolink/biolinkml/meta/TypeDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "string"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+          {
+            "@id": "_:Nbffeaa78665648408b173d3d5d7afe70"
+          }
+        ]
+      },
+      {
+        "@id": "_:Nbffeaa78665648408b173d3d5d7afe70",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#Restriction"
+        ],
+        "http://www.w3.org/2002/07/owl#onDataRange": [
+          {
+            "@id": "http://www.w3.org/2001/XMLSchema#string"
+          }
+        ],
+        "http://www.w3.org/2002/07/owl#onProperty": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/topValue"
+          }
+        ],
+        "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+          {
+            "@value": 1
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/values_from",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#AnnotationProperty",
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/Definition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "values_from"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/uriorcurie"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "the identifier of a \"value set\" -- a set of identifiers that form the possible values for the range of a slot"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/subclass_of",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#AnnotationProperty",
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/ClassDefinition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "subclass_of"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/uriorcurie"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "rdfs:subClassOf to be emitted in OWL generation"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/class_definition_is_a",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#AnnotationProperty",
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/ClassDefinition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "class_definition_is_a"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/ClassDefinition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/is_a"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/slot_uri",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#AnnotationProperty",
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "slot_uri"
           }
         ],
         "http://www.w3.org/2000/01/rdf-schema#range": [
@@ -2508,15 +2149,42 @@
         ],
         "http://www.w3.org/2004/02/skos/core#definition": [
           {
-            "@value": "a reference"
+            "@value": "predicate of this slot for semantic web application"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/default_prefix",
+        "@type": [
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
+          "http://www.w3.org/2002/07/owl#AnnotationProperty"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/SchemaDefinition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "default_prefix"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/string"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "default and base prefix -- used for ':' identifiers, @base and @vocab"
           }
         ]
       },
       {
         "@id": "http://w3id.org/biolink/biolinkml/meta/range",
         "@type": [
-          "http://www.w3.org/2002/07/owl#ObjectProperty",
-          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
+          "http://www.w3.org/2002/07/owl#ObjectProperty"
         ],
         "http://www.w3.org/2000/01/rdf-schema#domain": [
           {
@@ -2540,35 +2208,406 @@
         ]
       },
       {
-        "@id": "http://w3id.org/biolink/biolinkml/meta/uri",
+        "@id": "http://w3id.org/biolink/biolinkml/meta/mixin",
         "@type": [
-          "http://www.w3.org/2002/07/owl#Class",
-          "http://w3id.org/biolink/biolinkml/meta/TypeDefinition"
+          "http://www.w3.org/2002/07/owl#AnnotationProperty",
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/Definition"
+          }
         ],
         "http://www.w3.org/2000/01/rdf-schema#label": [
           {
-            "@value": "uri"
+            "@value": "mixin"
           }
         ],
-        "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+        "http://www.w3.org/2000/01/rdf-schema#range": [
           {
-            "@id": "_:N46553ff4534c49fd832df290fd50fe3c"
+            "@id": "http://w3id.org/biolink/biolinkml/meta/boolean"
           }
         ],
         "http://www.w3.org/2004/02/skos/core#definition": [
           {
-            "@value": "a complete URI"
+            "@value": "this slot or class can only be used as a mixin -- equivalent to abstract"
           }
         ]
       },
       {
-        "@id": "_:N46553ff4534c49fd832df290fd50fe3c",
+        "@id": "http://w3id.org/biolink/biolinkml/meta/Element",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#Class",
+          "http://w3id.org/biolink/biolinkml/meta/ClassDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "element"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "a named element in the model"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/readonly",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#ObjectProperty",
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "readonly"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/string"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "If present, slot is read only.  Text explains why"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/Definition",
+        "@type": [
+          "http://w3id.org/biolink/biolinkml/meta/ClassDefinition",
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "definition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/Element"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "base class for definitions"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/domain",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#ObjectProperty",
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "domain"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/ClassDefinition"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "defines the type of the subject of the slot.  Given the following slot definition\n  S1:\n    domain: C1\n    range:  C2\nthe declaration\n  X:\n    S1: Y\n\nimplicitly asserts that X is an instance of C1\n"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/todos",
+        "@type": [
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
+          "http://www.w3.org/2002/07/owl#AnnotationProperty"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/Element"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "todos"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/string"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "Outstanding issue that needs resolution"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#Ontology"
+        ],
+        "http://purl.org/dc/terms/license": [
+          {
+            "@value": "https://creativecommons.org/publicdomain/zero/1.0/"
+          }
+        ],
+        "http://purl.org/dc/terms/title": [
+          {
+            "@value": "Biolink Schema Metamodel"
+          }
+        ],
+        "http://w3id.org/biolink/biolinkml/meta/generation_date": [
+          {
+            "@value": "2019-03-17 14:40"
+          }
+        ],
+        "http://w3id.org/biolink/biolinkml/meta/metamodel_version": [
+          {
+            "@value": "1.1.2"
+          }
+        ],
+        "http://w3id.org/biolink/biolinkml/meta/source_file": [
+          {
+            "@value": "meta.yaml"
+          }
+        ],
+        "http://w3id.org/biolink/biolinkml/meta/source_file_date": [
+          {
+            "@value": "Sat Mar 16 11:17:08 2019"
+          }
+        ],
+        "http://w3id.org/biolink/biolinkml/meta/source_file_size": [
+          {
+            "@value": 22172
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "metamodel"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "A metamodel for defining biolink related schemas"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/id_prefixes",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#AnnotationProperty",
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/Element"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "id_prefixes"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/ncname"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "the identifier of this class or slot must begin with one of the URIs referenced by this prefix"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/deprecated",
+        "@type": [
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
+          "http://www.w3.org/2002/07/owl#AnnotationProperty"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/Element"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "deprecated"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/string"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "Description of why and when this element will no longer be used"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/key",
+        "@type": [
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
+          "http://www.w3.org/2002/07/owl#ObjectProperty"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "key"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/boolean"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "true means that the slot uniquely identifies the element within the context of its container.  Key slots are NOT identifiers - they do not serve as subjects"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#editorialNote": [
+          {
+            "@value": "key slots are always required"
+          },
+          {
+            "@value": "key is inherited"
+          },
+          {
+            "@value": "a given domain can have at most one key"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/local_name_value",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#AnnotationProperty",
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/LocalName"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "local_name_value"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/string"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "a name assigned to an element in a given ontology"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/metamodel_version",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#AnnotationProperty",
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/SchemaDefinition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "metamodel_version"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/string"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "Version of the metamodel used to load the schema"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/alt_description_source",
+        "@type": [
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
+          "http://www.w3.org/2002/07/owl#AnnotationProperty"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/AltDescription"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "alt_description_source"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/ncname"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "the source of an attributed description"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/boolean",
+        "@type": [
+          "http://w3id.org/biolink/biolinkml/meta/TypeDefinition",
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "boolean"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+          {
+            "@id": "_:N911c40c3430e4487a2577221ceb3515f"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "A binary (true or false) value"
+          }
+        ]
+      },
+      {
+        "@id": "_:N911c40c3430e4487a2577221ceb3515f",
         "@type": [
           "http://www.w3.org/2002/07/owl#Restriction"
         ],
         "http://www.w3.org/2002/07/owl#onDataRange": [
           {
-            "@id": "http://www.w3.org/2001/XMLSchema#anyURI"
+            "@id": "http://www.w3.org/2001/XMLSchema#boolean"
           }
         ],
         "http://www.w3.org/2002/07/owl#onProperty": [
@@ -2579,6 +2618,288 @@
         "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
           {
             "@value": 1
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/source_file_size",
+        "@type": [
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
+          "http://www.w3.org/2002/07/owl#AnnotationProperty"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/SchemaDefinition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "source_file_size"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/integer"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "size in bytes of the source of the schema"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/LocalName",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#Class",
+          "http://w3id.org/biolink/biolinkml/meta/ClassDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "local_name"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "an attributed label"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/name",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#AnnotationProperty",
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/Element"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "name"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/string"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class."
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/alt_description_text",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#AnnotationProperty",
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/AltDescription"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "alt_description_text"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/string"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "text of an attributed description"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/see_also",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#AnnotationProperty",
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/Element"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "see_also"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/uriorcurie"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "a reference"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/prefixes",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#AnnotationProperty",
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/SchemaDefinition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "prefixes"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/Prefix"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "prefix / URI definitions to be added to the context beyond those fetched from prefixcommons in id prefixes"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/apply_to",
+        "@type": [
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
+          "http://www.w3.org/2002/07/owl#AnnotationProperty"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/Definition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "apply_to"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/Definition"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "Used to extend class or slot definitions. For example, if we have a core schema where a gene has two slots for identifier and symbol, and we have a specialized schema for my_organism where we wish to add a slot systematic_name, we can avoid subclassing by defining a class gene_my_organism, adding the slot to this class, and then adding an apply_to pointing to the gene class. The new slot will be 'injected into' the gene class."
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/AltDescription",
+        "@type": [
+          "http://w3id.org/biolink/biolinkml/meta/ClassDefinition",
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "alt_description"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "an attributed description"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/id",
+        "@type": [
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
+          "http://www.w3.org/2002/07/owl#AnnotationProperty"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/SchemaDefinition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "id"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/uri"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "The official schema URI"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/repr",
+        "@type": [
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition",
+          "http://www.w3.org/2002/07/owl#ObjectProperty"
+        ],
+        "http://w3id.org/biolink/biolinkml/meta/examples": [
+          {
+            "@value": "Example(value=None, description=None)"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/TypeDefinition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "repr"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/string"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "the name of the python object that implements this type definition"
+          }
+        ]
+      },
+      {
+        "@id": "http://w3id.org/biolink/biolinkml/meta/types",
+        "@type": [
+          "http://www.w3.org/2002/07/owl#AnnotationProperty",
+          "http://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#domain": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/SchemaDefinition"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@value": "types"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#range": [
+          {
+            "@id": "http://w3id.org/biolink/biolinkml/meta/TypeDefinition"
+          }
+        ],
+        "http://www.w3.org/2004/02/skos/core#definition": [
+          {
+            "@value": "data types used in the model"
           }
         ]
       }

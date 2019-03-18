@@ -3,6 +3,8 @@ from typing import Optional, Union
 
 import yaml
 from jsonasobj import JsonObj, as_dict
+from yaml import SafeDumper, ScalarNode
+from yaml.representer import BaseRepresenter
 
 
 @dataclass(init=True)
@@ -70,7 +72,11 @@ def as_yaml(schema: YAMLRoot) -> str:
     :param schema: YAML object
     :return: Stringified representation
     """
-    return yaml.safe_dump(as_dict(schema))
+    # TODO: figure out how do to a safe dump;
+    # def default_representer(_, data) -> str:
+    #     return ScalarNode(None, str(data))
+    # SafeDumper.add_representer(None, default_representer)
+    return yaml.dump(schema)
 
 
 def as_json(schema: YAMLRoot, context: Optional[Union[JsonObj, dict]] = None) -> JsonObj:

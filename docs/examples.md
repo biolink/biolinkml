@@ -6,7 +6,7 @@ example usages of an element
 URI: [http://w3id.org/biolink/biolinkml/meta/examples](slot_uri)
 ## Domain and Range
 
-[Element](Element.md) -><sub>opt</sub> [[Example](Example.md)]
+[Element](Element.md) ->  <sub>0..*</sub> [Example](Example.md)
 ## Inheritance
 
 ## Children

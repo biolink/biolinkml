@@ -15,6 +15,7 @@ Shared type definitions
 
  * **Bool**
  * **NCName**
+ * **URI**
  * **URIorCURIE**
  * **XSDDate**
  * **XSDDateTime**
@@ -33,4 +34,5 @@ Shared type definitions
  * [Ncname](Ncname.md)  (**NCName**)  - Prefix part of CURIE
  * [String](String.md)  (**str**) 
  * [Time](Time.md)  (**XSDTime**)  - A time object represents a (local) time of day, independent of any particular day
- * [Uri](Uri.md)  (**URIorCURIE**)  - a URI or a CURIE
+ * [Uri](Uri.md)  (**URI**)  - a complete URI
+ * [Uriorcurie](Uriorcurie.md)  (**URIorCURIE**)  - a URI or a CURIE

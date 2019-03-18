@@ -6,7 +6,7 @@ specifies single-inheritance between classes or slots. While multiple inheritanc
 URI: [http://w3id.org/biolink/biolinkml/meta/is_a](slot_uri)
 ## Domain and Range
 
-[Definition](Definition.md) -><sub>opt</sub> [Definition](Definition.md)
+[Definition](Definition.md) ->  <sub>OPT</sub> [Definition](Definition.md)
 ## Inheritance
 
 ## Children

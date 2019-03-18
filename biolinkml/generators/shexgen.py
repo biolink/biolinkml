@@ -57,25 +57,36 @@ class ShExGenerator(Generator):
 
     def visit_class(self, cls: ClassDefinition) -> bool:
         self.shape = Shape()
-        if not cls.mixin and not cls.name in self.synopsis.mixinrefs and not cls.abstract and self.class_identifier(cls):
-            self.shape.closed = True
-            self.shape.extra = [RDF.type]
-            type_constraint = TripleConstraint()
-            type_constraint.predicate = RDF.type
-            type_constraint.valueExpr = NodeConstraint(values=[IRIREF(self.namespaces.uri_for(cls.class_uri))])
-            self.shape.expression = type_constraint
+
         # # TODO: Add this when shex 2.1 is committed
         # if cls.abstract:
         #     self.shapeExpr.abstract = True
-        # TODO: Figure out the semantics of union_of
         return True
 
     def end_class(self, cls: ClassDefinition) -> None:
-        self.shape.expression.id = self.namespaces.uri_for(cls.class_uri + "_t")
-        if cls.is_a:
+        if cls.is_a and self._class_has_expressions(cls.is_a):
             self._add_constraint(self.namespaces.uri_for(camelcase(cls.is_a) + "_t"))
         for mixin in cls.mixins:
-            self._add_constraint(self.namespaces.uri_for(camelcase(mixin) + "_t"))
+            if self._class_has_expressions(mixin):
+                self._add_constraint(self.namespaces.uri_for(camelcase(mixin) + "_t"))
+        if cls.name in self.synopsis.applytorefs:
+            for applyto in self.synopsis.applytorefs[cls.name].classrefs:
+                if self._class_has_expressions(applyto):
+                    self._add_constraint(self.namespaces.uri_for(camelcase(applyto) + '_t'))
+        if self.shape.expression:
+            self.shape.expression.id = self.namespaces.uri_for(cls.class_uri + "_t")
+
+        self.shape.closed = True
+        self.shape.extra = [RDF.type]
+        if self.class_identifier(cls):
+            type_constraint = TripleConstraint()
+            type_constraint.predicate = RDF.type
+            type_constraint.valueExpr = NodeConstraint(values=[IRIREF(self.namespaces.uri_for(cls.class_uri))])
+            if not self.shape.expression:
+                self.shape.expression = type_constraint
+            else:
+                self.shape.expression = EachOf(expressions=[self.shape.expression, type_constraint])
+
         shapeExpr = self.shape
         shapeExpr.id = self._shape_iri(cls.name)
         self.shapes.append(shapeExpr)
@@ -107,6 +118,13 @@ class ShExGenerator(Generator):
                 outf.write(shex)
         else:
             print(shex)
+
+    def _class_has_expressions(self, classname: ClassDefinitionName) -> bool:
+        """ Return true if classname has a tripleExprLabel """
+        for slot in self.own_slots(classname):
+            if not (slot.identifier or slot.abstract):
+                return True
+        return False
 
     def _add_constraint(self, constraint) -> None:
         # No constraints

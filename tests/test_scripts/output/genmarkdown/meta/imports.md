@@ -6,7 +6,7 @@ other schemas that are included in this schema
 URI: [http://w3id.org/biolink/biolinkml/meta/imports](slot_uri)
 ## Domain and Range
 
-[SchemaDefinition](SchemaDefinition.md) -><sub>opt</sub> [[Uri](Uri.md)]
+[SchemaDefinition](SchemaDefinition.md) ->  <sub>0..*</sub> [Uri](Uri.md)
 ## Inheritance
 
 ## Children

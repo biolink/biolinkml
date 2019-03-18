@@ -15,7 +15,7 @@ from biolinkml.utils.schemasynopsis import SchemaSynopsis
 class SchemaLoader:
     def __init__(self,
                  data: Union[str, TextIO, SchemaDefinition, dict],
-                 base_dir: Optional[str]=None,
+                 base_dir: Optional[str] = None,
                  namespaces: Optional[Namespaces] = None) \
             -> None:
         """ Constructor - load and process a YAML or pre-processed schema
@@ -51,7 +51,7 @@ class SchemaLoader:
 
         # Process the namespace declarations
         for prefix in self.schema.prefixes.values():
-            self.namespaces[prefix.local_name] = prefix.prefix_uri
+            self.namespaces[prefix.prefix_prefix] = prefix.prefix_reference
         for cmap in self.schema.default_curi_maps:
             self.namespaces.add_prefixmap(cmap, include_defaults=False)
         if not self.namespaces._default:
@@ -111,7 +111,6 @@ class SchemaLoader:
                 else:
                     self.raise_value_error(f'Class "{cls.name}" - unknown slot: "{slotname}"')
 
-
         # apply to --> mixins
         for cls in self.schema.classes.values():
             for apply_to_cls in cls.apply_to:
@@ -152,7 +151,6 @@ class SchemaLoader:
             if not ss.from_schema:
                 ss.from_schema = self.schema.id
 
-
         for slot in self.schema.slots.values():
             # Inline any class definitions that don't have identifiers.  Note that keys ARE inlined
             if slot.range in self.schema.classes:
@@ -189,7 +187,6 @@ class SchemaLoader:
             if len(class_slots) > 1:
                 self.raise_value_error(f'Class "{cls.name}" - multiple keys not allowed ({", ".join(class_slots)})')
 
-
         # Cannot have duplicate class or type keys
         dups = check_dups(classes, types)
         if dups:
@@ -217,6 +214,9 @@ class SchemaLoader:
             self.schema.source_file = os.path.basename(self.schema.source_file)
 
         self.synopsis = SchemaSynopsis(self.schema)
+        for subset, referees in self.synopsis.subsetrefs.items():
+            if subset not in self.schema.subsets:
+                self.raise_value_error(f"Subset: {subset} is not defined")
         return self.schema
 
     def merge_slot(self, slot: SlotDefinition, merged_slots: List[SlotDefinitionName]) -> None:
@@ -312,7 +312,7 @@ class SchemaLoader:
                 if typ.typeof in self.schema.types:
                     reftyp = self.schema.types[cast(TypeDefinitionName, typ.typeof)]
                     self.merge_type(reftyp, merged_types)
-                    merge_slots(typ, reftyp, ['imported_from'])
+                    merge_slots(typ, reftyp, [SlotDefinitionName('imported_from')])
                 else:
                     self.raise_value_error(f'Type: "{typ.name}" - unknown typeof reference: {typ.typeof}')
             merged_types.append(typ.name)
@@ -362,4 +362,3 @@ class SchemaLoader:
                 return rval
         else:
             return None
-

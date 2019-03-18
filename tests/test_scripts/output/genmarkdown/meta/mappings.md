@@ -6,7 +6,7 @@ A list of terms from different schemas or terminology systems that have comparab
 URI: [http://w3id.org/biolink/biolinkml/meta/mappings](slot_uri)
 ## Domain and Range
 
-[Element](Element.md) -><sub>opt</sub> [[Uriorcuri](Uriorcuri.md)]
+[Element](Element.md) ->  <sub>0..*</sub> [Uriorcurie](Uriorcurie.md)
 ## Inheritance
 
 ## Children

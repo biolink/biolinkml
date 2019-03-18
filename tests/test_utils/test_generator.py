@@ -632,11 +632,11 @@ classes:
         self.assertEqual("Warning: neighborhood(Definition) - Definition is undefined", errfile.getvalue().strip())
         pprint(gen.neighborhood('definition'))
         self.assertEqual(References(
-            classrefs={'definition', 'element', 'slot_definition', 'schema_definition', 'example', 'class_definition',
-                       'subset_definition'},
+            classrefs={'class_definition', 'local_name', 'schema_definition', 'subset_definition', 'alt_description',
+                       'definition', 'example', 'slot_definition', 'element'},
             slotrefs={'is_a', 'apply_to', 'mixins', 'default_range'},
-            typerefs={'uriorcuri', 'string', 'boolean', 'uri'}, subsetrefs=set()), gen.neighborhood('definition'))
-
+            typerefs={'uriorcurie', 'boolean', 'uri', 'ncname', 'string'},
+            subsetrefs=set()), gen.neighborhood('definition'))
 
 
 if __name__ == '__main__':

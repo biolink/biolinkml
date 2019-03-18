@@ -33,32 +33,25 @@ class GenShExTestCase(ClickTestCase):
 
     def test_rdf_shex(self):
         """ Generate ShEx and RDF for the model and verify that the RDF represents a valid instance """
-        GenShExTestCase.keep_temp_directory = False     # Set to true if you want to edit the output
-        do_update = True                                # True means keep
         test_dir = os.path.join(self.tmpdir_path, 'meta_conformance_test')
-        if do_update:
-            make_and_clear_directory(test_dir)
+        make_and_clear_directory(self.tmpdir_path)
+        make_and_clear_directory(test_dir)
 
         json_file = os.path.join(test_dir, 'meta.jsonld')
-        if do_update:
-            json_str = JSONLDGenerator(source_yaml_path).serialize()
-            with open(json_file, 'w') as f:
-                f.write(json_str)
-        self.assertTrue(os.path.exists(json_file))
+        json_str = JSONLDGenerator(source_yaml_path).serialize()
+        with open(json_file, 'w') as f:
+            f.write(json_str)
 
         context_file = os.path.join(test_dir, 'metacontext.jsonld')
-        if do_update:
-            ContextGenerator(source_yaml_path).serialize(output=context_file)
+        ContextGenerator(source_yaml_path).serialize(output=context_file)
         self.assertTrue(os.path.exists(context_file))
 
         rdf_file = os.path.join(test_dir, 'meta.ttl')
-        if do_update:
-            RDFGenerator(source_yaml_path).serialize(output=rdf_file, context=context_file)
+        RDFGenerator(source_yaml_path).serialize(output=rdf_file, context=context_file)
         self.assertTrue(os.path.exists(rdf_file))
 
         shex_file = os.path.join(test_dir, 'meta.shex')
-        if do_update:
-            ShExGenerator(source_yaml_path).serialize(output=shex_file, collections=False)
+        ShExGenerator(source_yaml_path).serialize(output=shex_file, collections=False)
         self.assertTrue(os.path.exists(shex_file))
 
         g = CFGraph()
@@ -71,7 +64,7 @@ class GenShExTestCase(ClickTestCase):
             for r in results:
                 if not r.result:
                     print(r.reason)
-        elif not do_update and False:
+        else:
             make_and_clear_directory(test_dir)
         self.assertTrue(success)
 

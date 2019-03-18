@@ -34,13 +34,15 @@ class ResolverTestCase(unittest.TestCase):
         schema = SchemaLoader(os.path.join(datadir, 'resolver3.yaml')).resolve()
         x = {k:v for k, v in as_dict(schema.slots['s1']).items() if v is not None and v != []}
         self.assertEqual(
-            {'comments': ["I'm a little comment"],
+            {'alt_descriptions': {},
+             'comments': ["I'm a little comment"],
              'description': 'this is s1 it is good',
              'domain': 'c1',
              'examples': [{'description': 'an example', 'value': 'test: foo'},
                           {'description': None, 'value': 17}],
              'from_schema': 'http://example.org/yaml4',
              'in_subset': ['subset1', 'subset 2'],
+             'local_names': {},
              'inlined': True,
              'name': 's1',
              'notes': ['Pay attention here', 'Something might be happening'],

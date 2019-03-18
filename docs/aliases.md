@@ -6,7 +6,7 @@
 URI: [http://w3id.org/biolink/biolinkml/meta/aliases](slot_uri)
 ## Domain and Range
 
-[Element](Element.md) -><sub>opt</sub> [[String](String.md)]
+[Element](Element.md) ->  <sub>0..*</sub> [String](String.md)
 ## Inheritance
 
 ## Children

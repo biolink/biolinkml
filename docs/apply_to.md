@@ -6,13 +6,13 @@ Used to extend class or slot definitions. For example, if we have a core schema 
 URI: [http://w3id.org/biolink/biolinkml/meta/apply_to](slot_uri)
 ## Domain and Range
 
-[Definition](Definition.md) -><sub>opt</sub> [[Definition](Definition.md)]
+[Definition](Definition.md) ->  <sub>0..*</sub> [Definition](Definition.md)
 ## Inheritance
 
 ## Children
 
- *  [class definition.apply_to](class_definition_apply_to.md)
- *  [slot definition.apply_to](slot_definition_apply_to.md)
+ *  [class_definition.apply_to](class_definition_apply_to.md)
+ *  [slot_definition.apply_to](slot_definition_apply_to.md)
 ## Used by
 
  * [ClassDefinition](ClassDefinition.md)

@@ -17,10 +17,10 @@ IMGFLAGS?=-i
 
 all: env.lock context.jsonld shex rdf owl docs clean
 
-shex:  meta.shex metanc.shex
+shex: meta.shex
 rdf: meta.ttl
-owl:  meta.owl
-docs:  docs/index.md
+owl: meta.owl
+docs: docs/index.md
 
 # Regenerate the metamodel -- do this with care.
 regen-mm:  biolinkml/meta.py
@@ -29,7 +29,9 @@ regen-mm:  biolinkml/meta.py
 # Install package into build environment
 # ----------------------------------------
 env.lock:
-	pipenv install -d -e .
+	pipenv install -d
+	# Use pip so we don't create circular dependencies
+	pipenv run pip install -e .
 	cp /dev/null env.lock
 
 
@@ -37,7 +39,7 @@ env.lock:
 # Update requirements.txt
 # ----------------------------------------
 requirements.txt: env.lock
-	pipenv lock -r > $@
+	pipenv run pipenv_to_requirements
 
 # ----------------------------------------
 # Regenerate meta.py - the master source file

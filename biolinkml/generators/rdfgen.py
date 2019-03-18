@@ -29,7 +29,7 @@ class RDFGenerator(Generator):
     def _data(self, g: Graph) -> str:
         return g.serialize(format='turtle' if self.format == 'ttl' else self.format).decode()
 
-    def end_schema(self, output: Optional[str], context: str = METAMODEL_CONTEXT_URI) -> None:
+    def end_schema(self, output: Optional[str] = None, context: str = METAMODEL_CONTEXT_URI) -> None:
         gen = JSONLDGenerator(self, fmt=JSONLDGenerator.valid_formats[0], emit_metadata=self.emit_metadata)
         jsonld_str = gen.serialize(context=context)
         graph = Graph()

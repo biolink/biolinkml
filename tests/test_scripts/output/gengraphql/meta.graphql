@@ -1,10 +1,18 @@
+type AltDescription
+  {
+    source: Ncname!
+    description: String!
+  }
+
 type ClassDefinition
   {
+    idPrefixes: [Ncname]
     name: String!
-    singularName: String
     aliases: [String]
-    mappings: [Uriorcuri]
+    localNames: [LocalName]
+    mappings: [Uriorcurie]
     description: String
+    altDescriptions: [AltDescription]
     deprecated: String
     todos: [String]
     comments: [String]
@@ -13,24 +21,29 @@ type ClassDefinition
     inSubset: [SubsetDefinition]
     fromSchema: Uri
     importedFrom: String
-    seeAlso: [Uri]
+    seeAlso: [Uriorcurie]
     isA: ClassDefinition
     abstract: Boolean
     mixin: Boolean
     mixins: [ClassDefinition]
     applyTo: [ClassDefinition]
+    valuesFrom: [Uriorcurie]
     slots: [SlotDefinition]
     slotUsage: [SlotDefinition]
-    classUri: Uri
+    classUri: Uriorcurie
+    subclassOf: Uriorcurie
+    definingSlots: [SlotDefinition]
   }
 
 interface Definition
   {
+    idPrefixes: [Ncname]
     name: String!
-    singularName: String
     aliases: [String]
-    mappings: [Uriorcuri]
+    localNames: [LocalName]
+    mappings: [Uriorcurie]
     description: String
+    altDescriptions: [AltDescription]
     deprecated: String
     todos: [String]
     comments: [String]
@@ -39,21 +52,24 @@ interface Definition
     inSubset: [SubsetDefinition]
     fromSchema: Uri
     importedFrom: String
-    seeAlso: [Uri]
+    seeAlso: [Uriorcurie]
     isA: Definition
     abstract: Boolean
     mixin: Boolean
     mixins: [Definition]
     applyTo: [Definition]
+    valuesFrom: [Uriorcurie]
   }
 
 interface Element
   {
+    idPrefixes: [Ncname]
     name: String!
-    singularName: String
     aliases: [String]
-    mappings: [Uriorcuri]
+    localNames: [LocalName]
+    mappings: [Uriorcurie]
     description: String
+    altDescriptions: [AltDescription]
     deprecated: String
     todos: [String]
     notes: [String]
@@ -62,7 +78,7 @@ interface Element
     inSubset: [SubsetDefinition]
     fromSchema: Uri
     importedFrom: String
-    seeAlso: [Uri]
+    seeAlso: [Uriorcurie]
   }
 
 type Example
@@ -71,19 +87,27 @@ type Example
     description: String
   }
 
+type LocalName
+  {
+    localNameSource: Ncname!
+    localNameValue: String!
+  }
+
 type Prefix
   {
-    localName: Ncname!
-    prefixUri: Uri!
+    prefixPrefix: Ncname!
+    prefixReference: Uri!
   }
 
 type SchemaDefinition
   {
+    idPrefixes: [Ncname]
     name: String!
-    singularName: String
     aliases: [String]
-    mappings: [Uriorcuri]
+    localNames: [LocalName]
+    mappings: [Uriorcurie]
     description: String
+    altDescriptions: [AltDescription]
     deprecated: String
     todos: [String]
     comments: [String]
@@ -92,7 +116,7 @@ type SchemaDefinition
     inSubset: [SubsetDefinition]
     fromSchema: Uri
     importedFrom: String
-    seeAlso: [Uri]
+    seeAlso: [Uriorcurie]
     id: Uri!
     title: String
     version: String
@@ -116,11 +140,13 @@ type SchemaDefinition
 
 type SlotDefinition
   {
+    idPrefixes: [Ncname]
     name: String!
-    singularName: String
     aliases: [String]
-    mappings: [Uriorcuri]
+    localNames: [LocalName]
+    mappings: [Uriorcurie]
     description: String
+    altDescriptions: [AltDescription]
     deprecated: String
     todos: [String]
     comments: [String]
@@ -129,12 +155,14 @@ type SlotDefinition
     inSubset: [SubsetDefinition]
     fromSchema: Uri
     importedFrom: String
-    seeAlso: [Uri]
+    seeAlso: [Uriorcurie]
     isA: SlotDefinition
     abstract: Boolean
     mixin: Boolean
     mixins: [SlotDefinition]
     applyTo: [SlotDefinition]
+    valuesFrom: [Uriorcurie]
+    singularName: String
     domain: ClassDefinition!
     range: Element
     slotUri: Uri
@@ -147,15 +175,18 @@ type SlotDefinition
     key: Boolean
     identifier: Boolean
     alias: String
+    subpropertyOf: Uriorcurie
   }
 
 type SubsetDefinition
   {
+    idPrefixes: [Ncname]
     name: String!
-    singularName: String
     aliases: [String]
-    mappings: [Uriorcuri]
+    localNames: [LocalName]
+    mappings: [Uriorcurie]
     description: String
+    altDescriptions: [AltDescription]
     deprecated: String
     todos: [String]
     comments: [String]
@@ -164,16 +195,18 @@ type SubsetDefinition
     inSubset: [SubsetDefinition]
     fromSchema: Uri
     importedFrom: String
-    seeAlso: [Uri]
+    seeAlso: [Uriorcurie]
   }
 
 type TypeDefinition
   {
+    idPrefixes: [Ncname]
     name: String!
-    singularName: String
     aliases: [String]
-    mappings: [Uriorcuri]
+    localNames: [LocalName]
+    mappings: [Uriorcurie]
     description: String
+    altDescriptions: [AltDescription]
     deprecated: String
     todos: [String]
     comments: [String]
@@ -182,10 +215,10 @@ type TypeDefinition
     inSubset: [SubsetDefinition]
     fromSchema: Uri
     importedFrom: String
-    seeAlso: [Uri]
+    seeAlso: [Uriorcurie]
     typeof: TypeDefinition
     base: String
-    uri: Uri
+    uri: Uriorcurie
     repr: String
   }
 

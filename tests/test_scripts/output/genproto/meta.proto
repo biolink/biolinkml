@@ -1,28 +1,39 @@
+// an attributed description
+message AltDescription
+ {
+  optional source None = 1
+  description None = 2
+ }
 // the definition of a class or interface
 message ClassDefinition
  {
-  optional name None = 1
-  optional singularName None = 2
+  repeated idPrefixes None = 1
+  optional name None = 2
   repeated aliases None = 3
-  repeated mappings None = 4
-  optional description None = 5
-  optional deprecated None = 6
-  repeated todos None = 7
-  repeated comments None = 8
-  repeated notes None = 9
-  repeated examples None = 10
-  repeated inSubset None = 11
-  optional fromSchema None = 12
-  optional importedFrom None = 13
-  repeated seeAlso None = 14
-  optional isA None = 15
-  optional abstract None = 16
-  optional mixin None = 17
-  repeated mixins None = 18
-  repeated applyTo None = 19
-  repeated slots None = 20
-  repeated slotUsage None = 21
-  optional classUri None = 22
+  repeated localNames None = 4
+  repeated mappings None = 5
+  optional description None = 6
+  repeated altDescriptions None = 7
+  optional deprecated None = 8
+  repeated todos None = 9
+  repeated comments None = 10
+  repeated notes None = 11
+  repeated examples None = 12
+  repeated inSubset None = 13
+  optional fromSchema None = 14
+  optional importedFrom None = 15
+  repeated seeAlso None = 16
+  optional isA None = 17
+  optional abstract None = 18
+  optional mixin None = 19
+  repeated mixins None = 20
+  repeated applyTo None = 21
+  repeated valuesFrom None = 22
+  repeated slots None = 23
+  repeated slotUsage None = 24
+  optional classUri None = 25
+  optional subclassOf None = 26
+  repeated definingSlots None = 27
  }
 // usage example and description
 message Example
@@ -30,122 +41,139 @@ message Example
   optional value None = 1
   optional description None = 2
  }
+// an attributed label
+message LocalName
+ {
+  optional localNameSource None = 1
+  localNameValue None = 2
+ }
 // prefix URI tuple
 message Prefix
  {
-  optional localName None = 1
-  prefixUri None = 2
+  optional prefixPrefix None = 1
+  prefixReference None = 2
  }
 // a collection of subset, type, slot and class definitions
 message SchemaDefinition
  {
-  optional name None = 1
-  optional singularName None = 2
+  repeated idPrefixes None = 1
+  optional name None = 2
   repeated aliases None = 3
-  repeated mappings None = 4
-  optional description None = 5
-  optional deprecated None = 6
-  repeated todos None = 7
-  repeated comments None = 8
-  repeated notes None = 9
-  repeated examples None = 10
-  repeated inSubset None = 11
-  optional fromSchema None = 12
-  optional importedFrom None = 13
-  repeated seeAlso None = 14
-  id None = 15
-  optional title None = 16
-  optional version None = 17
-  repeated imports None = 18
-  optional license None = 19
-  repeated prefixes None = 20
-  repeated emitPrefixes None = 21
-  repeated defaultCuriMaps None = 22
-  optional defaultPrefix None = 23
-  optional defaultRange None = 24
-  repeated subsets None = 25
-  repeated types None = 26
-  repeated slots None = 27
-  repeated classes None = 28
-  optional metamodelVersion None = 29
-  optional sourceFile None = 30
-  optional sourceFileDate None = 31
-  optional sourceFileSize None = 32
-  optional generationDate None = 33
+  repeated localNames None = 4
+  repeated mappings None = 5
+  optional description None = 6
+  repeated altDescriptions None = 7
+  optional deprecated None = 8
+  repeated todos None = 9
+  repeated comments None = 10
+  repeated notes None = 11
+  repeated examples None = 12
+  repeated inSubset None = 13
+  optional fromSchema None = 14
+  optional importedFrom None = 15
+  repeated seeAlso None = 16
+  id None = 17
+  optional title None = 18
+  optional version None = 19
+  repeated imports None = 20
+  optional license None = 21
+  repeated prefixes None = 22
+  repeated emitPrefixes None = 23
+  repeated defaultCuriMaps None = 24
+  optional defaultPrefix None = 25
+  optional defaultRange None = 26
+  repeated subsets None = 27
+  repeated types None = 28
+  repeated slots None = 29
+  repeated classes None = 30
+  optional metamodelVersion None = 31
+  optional sourceFile None = 32
+  optional sourceFileDate None = 33
+  optional sourceFileSize None = 34
+  optional generationDate None = 35
  }
 // the definition of a property or a slot
 message SlotDefinition
  {
-  optional name None = 1
-  optional singularName None = 2
+  repeated idPrefixes None = 1
+  optional name None = 2
   repeated aliases None = 3
-  repeated mappings None = 4
-  optional description None = 5
-  optional deprecated None = 6
-  repeated todos None = 7
-  repeated comments None = 8
-  repeated notes None = 9
-  repeated examples None = 10
-  repeated inSubset None = 11
-  optional fromSchema None = 12
-  optional importedFrom None = 13
-  repeated seeAlso None = 14
-  optional isA None = 15
-  optional abstract None = 16
-  optional mixin None = 17
-  repeated mixins None = 18
-  repeated applyTo None = 19
-  domain None = 20
-  optional range None = 21
-  optional slotUri None = 22
-  optional multivalued None = 23
-  optional inherited None = 24
-  optional readonly None = 25
-  optional ifabsent None = 26
-  optional required None = 27
-  optional inlined None = 28
-  optional key None = 29
-  optional identifier None = 30
-  optional alias None = 31
+  repeated localNames None = 4
+  repeated mappings None = 5
+  optional description None = 6
+  repeated altDescriptions None = 7
+  optional deprecated None = 8
+  repeated todos None = 9
+  repeated comments None = 10
+  repeated notes None = 11
+  repeated examples None = 12
+  repeated inSubset None = 13
+  optional fromSchema None = 14
+  optional importedFrom None = 15
+  repeated seeAlso None = 16
+  optional isA None = 17
+  optional abstract None = 18
+  optional mixin None = 19
+  repeated mixins None = 20
+  repeated applyTo None = 21
+  repeated valuesFrom None = 22
+  optional singularName None = 23
+  domain None = 24
+  optional range None = 25
+  optional slotUri None = 26
+  optional multivalued None = 27
+  optional inherited None = 28
+  optional readonly None = 29
+  optional ifabsent None = 30
+  optional required None = 31
+  optional inlined None = 32
+  optional key None = 33
+  optional identifier None = 34
+  optional alias None = 35
+  optional subpropertyOf None = 36
  }
 // the name and description of a subset
 message SubsetDefinition
  {
-  optional name None = 1
-  optional singularName None = 2
+  repeated idPrefixes None = 1
+  optional name None = 2
   repeated aliases None = 3
-  repeated mappings None = 4
-  optional description None = 5
-  optional deprecated None = 6
-  repeated todos None = 7
-  repeated comments None = 8
-  repeated notes None = 9
-  repeated examples None = 10
-  repeated inSubset None = 11
-  optional fromSchema None = 12
-  optional importedFrom None = 13
-  repeated seeAlso None = 14
+  repeated localNames None = 4
+  repeated mappings None = 5
+  optional description None = 6
+  repeated altDescriptions None = 7
+  optional deprecated None = 8
+  repeated todos None = 9
+  repeated comments None = 10
+  repeated notes None = 11
+  repeated examples None = 12
+  repeated inSubset None = 13
+  optional fromSchema None = 14
+  optional importedFrom None = 15
+  repeated seeAlso None = 16
  }
 // A data type definition.
 message TypeDefinition
  {
-  optional name None = 1
-  optional singularName None = 2
+  repeated idPrefixes None = 1
+  optional name None = 2
   repeated aliases None = 3
-  repeated mappings None = 4
-  optional description None = 5
-  optional deprecated None = 6
-  repeated todos None = 7
-  repeated comments None = 8
-  repeated notes None = 9
-  repeated examples None = 10
-  repeated inSubset None = 11
-  optional fromSchema None = 12
-  optional importedFrom None = 13
-  repeated seeAlso None = 14
-  optional typeof None = 15
-  optional base None = 16
-  optional uri None = 17
-  optional repr None = 18
+  repeated localNames None = 4
+  repeated mappings None = 5
+  optional description None = 6
+  repeated altDescriptions None = 7
+  optional deprecated None = 8
+  repeated todos None = 9
+  repeated comments None = 10
+  repeated notes None = 11
+  repeated examples None = 12
+  repeated inSubset None = 13
+  optional fromSchema None = 14
+  optional importedFrom None = 15
+  repeated seeAlso None = 16
+  optional typeof None = 17
+  optional base None = 18
+  optional uri None = 19
+  optional repr None = 20
  }
 

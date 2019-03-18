@@ -67,7 +67,7 @@ types:
     repr: str
     base: XSDDate
 
-  uriorcuri:
+  uriorcurie:
     uri: xsd:anyURI
     base: URIorCURIE
     repr: str

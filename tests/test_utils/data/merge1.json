@@ -3,8 +3,8 @@
    "id": "http://example.org/schema1",
    "prefixes": [
       {
-         "local_name": "xsd",
-         "prefix_uri": "http://www.w3.org/2001/XMLSchema#"
+         "prefix_prefix": "xsd",
+         "prefix_reference": "http://www.w3.org/2001/XMLSchema#"
       }
    ],
    "default_prefix": "http://example.org/schema1",

@@ -1,15 +1,12 @@
 from types import ModuleType
 
 from jsonasobj import as_json, loads
-from pyshex import PrefixLibrary
 from rdflib import Graph
 
 from biolinkml.generators.jsonldcontextgen import ContextGenerator
 from biolinkml.generators.pythongen import PythonGenerator
 from biolinkml.generators.shexgen import ShExGenerator
 from biolinkml.generators.yumlgen import YumlGenerator
-
-
 from biolinkml.utils.yamlutils import as_json as yaml_to_json
 
 yaml = """

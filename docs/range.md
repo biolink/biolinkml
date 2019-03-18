@@ -14,7 +14,7 @@ implicitly asserts Y is an instance of C2
 URI: [http://w3id.org/biolink/biolinkml/meta/range](slot_uri)
 ## Domain and Range
 
-[SlotDefinition](SlotDefinition.md) -><sub>opt</sub> [Element](Element.md)
+[SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [Element](Element.md)
 ## Inheritance
 
 ## Children
