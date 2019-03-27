@@ -187,6 +187,73 @@ message BiosampleToDiseaseOrPhenotypicFeatureAssociation
   optional providedBy None = 9
   optional associationSlot None = 10
  }
+message Carbohydrate
+ {
+  id None = 1
+  optional name None = 2
+  repeated category None = 3
+  repeated relatedTo None = 4
+  repeated interactsWith None = 5
+  optional nodeProperty None = 6
+  optional iri None = 7
+  repeated synonym None = 8
+  optional fullName None = 9
+  optional description None = 10
+  optional systematicSynonym None = 11
+  repeated hasPhenotype None = 12
+  repeated molecularlyInteractsWith None = 13
+  repeated affectsAbundanceOf None = 14
+  repeated increasesAbundanceOf None = 15
+  repeated decreasesAbundanceOf None = 16
+  repeated affectsActivityOf None = 17
+  repeated increasesActivityOf None = 18
+  repeated decreasesActivityOf None = 19
+  repeated affectsExpressionOf None = 20
+  repeated increasesExpressionOf None = 21
+  repeated decreasesExpressionOf None = 22
+  repeated affectsFoldingOf None = 23
+  repeated increasesFoldingOf None = 24
+  repeated decreasesFoldingOf None = 25
+  repeated affectsLocalizationOf None = 26
+  repeated increasesLocalizationOf None = 27
+  repeated decreasesLocalizationOf None = 28
+  repeated affectsMetabolicProcessingOf None = 29
+  repeated increasesMetabolicProcessingOf None = 30
+  repeated decreasesMetabolicProcessingOf None = 31
+  repeated affectsMolecularModificationOf None = 32
+  repeated increasesMolecularModificationOf None = 33
+  repeated decreasesMolecularModificationOf None = 34
+  repeated affectsSynthesisOf None = 35
+  repeated increasesSynthesisOf None = 36
+  repeated decreasesSynthesisOf None = 37
+  repeated affectsDegradationOf None = 38
+  repeated increasesDegradationOf None = 39
+  repeated decreasesDegradationOf None = 40
+  repeated affectsMutationRateOf None = 41
+  repeated increasesMutationRateOf None = 42
+  repeated decreasesMutationRateOf None = 43
+  repeated affectsResponseTo None = 44
+  repeated increasesResponseTo None = 45
+  repeated decreasesResponseTo None = 46
+  repeated affectsSplicingOf None = 47
+  repeated increasesSplicingOf None = 48
+  repeated decreasesSplicingOf None = 49
+  repeated affectsStabilityOf None = 50
+  repeated increasesStabilityOf None = 51
+  repeated decreasesStabilityOf None = 52
+  repeated affectsTransportOf None = 53
+  repeated increasesTransportOf None = 54
+  repeated decreasesTransportOf None = 55
+  repeated affectsSecretionOf None = 56
+  repeated increasesSecretionOf None = 57
+  repeated decreasesSecretionOf None = 58
+  repeated affectsUptakeOf None = 59
+  repeated increasesUptakeOf None = 60
+  repeated decreasesUptakeOf None = 61
+  repeated regulatesEntityToEntity None = 62
+  repeated biomarkerFor None = 63
+  repeated inTaxon None = 64
+ }
 // An individual organism that has a patient role in some clinical context.
 message Case
  {
@@ -2482,7 +2549,7 @@ message PlanetaryEntity
   optional description None = 10
   optional systematicSynonym None = 11
  }
-// A collection of individuals from the same taxonomic class distinguished by one or more characteristics. Characteristics can include, but are not limited to, shared geographic location, genetics, phenotypes [Alliance for Genome Resources]  
+// A collection of individuals from the same taxonomic class distinguished by one or more characteristics. Characteristics can include, but are not limited to, shared geographic location, genetics, phenotypes [Alliance for Genome Resources]
 message PopulationOfIndividualOrganisms
  {
   id None = 1

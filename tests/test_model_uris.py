@@ -11,7 +11,7 @@ class ModelURITestCase(unittest.TestCase):
     def validate_yaml_content(self, meta_yaml, access_by_uri: bool) -> None:
         self.assertEqual(METAMODEL_URI, meta_yaml.id)
         self.assertEqual(METAMODEL_LOCAL_NAME, meta_yaml.default_prefix)
-        self.assertEqual(METAMODEL_NAMESPACE, meta_yaml.prefixes[meta_yaml.default_prefix].prefix_uri)
+        self.assertEqual(METAMODEL_NAMESPACE, meta_yaml.prefixes[meta_yaml.default_prefix].prefix_reference)
         self.assertEqual(METAMODEL_URI if access_by_uri else LOCAL_YAML_PATH, meta_yaml.source_file)
 
     def test_model_uris(self):
@@ -27,7 +27,6 @@ class ModelURITestCase(unittest.TestCase):
         self.assertEqual(METATYPE_LOCAL_NAME, types_yaml.default_prefix)
         self.assertEqual(METATYPE_NAMESPACE, types_yaml.prefixes[types_yaml.default_prefix].prefix_uri)
 
-    @unittest.expectedFailure
     def test_model_access(self):
         """ Make sure that the law loader can dereference a URL and that the data matches """
         online_meta_yaml = load_raw_schema(METAMODEL_URI)

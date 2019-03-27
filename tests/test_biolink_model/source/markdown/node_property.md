@@ -47,6 +47,7 @@ URI: [https://biolink.github.io/biolink-model/ontology/biolink.ttl/node_property
  * [BiologicalProcessOrActivity](BiologicalProcessOrActivity.md)
  * [BiologicalSex](BiologicalSex.md)
  * [Biosample](Biosample.md)
+ * [Carbohydrate](Carbohydrate.md)
  * [Case](Case.md)
  * [Cell](Cell.md)
  * [CellLine](CellLine.md)

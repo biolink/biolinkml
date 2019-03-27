@@ -203,6 +203,10 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
     )
 }
 
+<Carbohydrate> EXTRA rdf:type CLOSED {
+    rdf:type [ biolink:Carbohydrate ]
+}
+
 <Case> EXTRA rdf:type CLOSED {
     (  &<IndividualOrganism_t> ;
        rdf:type [ biolink:Case ]

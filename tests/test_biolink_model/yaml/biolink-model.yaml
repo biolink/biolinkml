@@ -10,6 +10,9 @@ prefixes:
   OBAN: http://purl.org/oban/
   SIO: http://semanticscience.org/resource/SIO_
   wgs: http://www.w3.org/2003/01/geo/wgs84_pos
+  UMLSSG: https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/GROUP/
+  UMLSST: https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/STY/
+  UMLSSC: https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/TUI/
 
 default_prefix: biolink
 
@@ -147,7 +150,7 @@ types:
     uri: UO:0000000
     id_prefixes:
       - UO
-      
+
   time type:
     typeof: time
 
@@ -156,7 +159,7 @@ types:
 
 slots:
 
-## predicates/relations 
+## predicates/relations
 
   related to:
     description: >-
@@ -167,7 +170,7 @@ slots:
     slot_uri: owl:ObjectProperty
     mappings:
       - SEMMEDDB:ASSOCIATED_WITH
-      
+
   interacts with:
     domain: named thing
     range: named thing
@@ -177,8 +180,8 @@ slots:
     in_subset:
       - translator_minimal
 #   symmetric: true
-    slot_uri: RO:0002434 
-      
+    slot_uri: RO:0002434
+
   physically interacts with:
     is_a: interacts with
     description: >-
@@ -186,10 +189,10 @@ slots:
     in_subset:
       - translator_minimal
 #   symmetric: true
-    mappings: 
+    mappings:
       - WD:P129
-      - SEMMEDDB:INTERACTS_WITH  
-      
+      - SEMMEDDB:INTERACTS_WITH
+
   molecularly interacts with:
     is_a: physically interacts with
     domain: molecular entity
@@ -198,7 +201,7 @@ slots:
       - translator_minimal
     mappings:
       - RO:0002436
-  
+
   genetically interacts with:
     is_a: interacts with
     description: >-
@@ -209,7 +212,7 @@ slots:
       - translator_minimal
     mappings:
       - RO:0002435
-  
+
   affects:
     is_a: related to
     description: >-
@@ -219,7 +222,7 @@ slots:
       - translator_minimal
     mappings:
       - SEMMEDDB:AFFECTS
-  
+
   affects abundance of:
     description: >-
       holds between two molecular entities where the action or effect of one changes the amount of the other within a system of interest
@@ -237,7 +240,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: molecular entity
-    
+
   decreases abundance of:
     description: >-
       holds between two molecular entities where the action or effect of one decreases the amount of the other within a system of interest
@@ -245,8 +248,8 @@ slots:
     in_subset:
       - translator_minimal
     domain: molecular entity
-    range: molecular entity  
-    
+    range: molecular entity
+
   affects activity of:
     description: >-
       holds between two molecular entities where the action or effect of one changes the activity of the other within a system of interest
@@ -264,7 +267,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: molecular entity
-    
+
   decreases activity of:
     description: >-
       holds between two molecular entities where the action or effect of one decreases the activity of the other within a system of interest
@@ -273,7 +276,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: molecular entity
-    
+
   affects expression of:
     description: >-
       holds between two molecular entities where the action or effect of one changes the level of expression of the other within a system of interest
@@ -291,7 +294,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: genomic entity
-    
+
   decreases expression of:
     description: >-
       holds between two molecular entities where the action or effect of one decreases the level of expression of the other within a system of interest
@@ -299,11 +302,11 @@ slots:
     in_subset:
       - translator_minimal
     domain: molecular entity
-    range: genomic entity  
-    
+    range: genomic entity
+
   affects folding of:
     description: >-
-      holds between two molecular entities where the action or effect of one changes the rate or quality of folding of the other 
+      holds between two molecular entities where the action or effect of one changes the rate or quality of folding of the other
     is_a: affects
     in_subset:
       - translator_minimal
@@ -312,7 +315,7 @@ slots:
 
   increases folding of:
     description: >-
-      holds between two molecular entities where the action or effect of one increases the rate or quality of folding of the other 
+      holds between two molecular entities where the action or effect of one increases the rate or quality of folding of the other
     is_a: affects folding of
     in_subset:
       - translator_minimal
@@ -321,13 +324,13 @@ slots:
 
   decreases folding of:
     description: >-
-      holds between two molecular entities where the action or effect of one decreases the rate or quality of folding of the other 
+      holds between two molecular entities where the action or effect of one decreases the rate or quality of folding of the other
     is_a: affects folding of
     in_subset:
       - translator_minimal
     domain: molecular entity
     range: molecular entity
-    
+
   affects localization of:
     description: >-
       holds between two molecular entities where the action or effect of one changes the localization of the other within a system of interest
@@ -336,7 +339,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: molecular entity
-    
+
   increases localization of:
     description: >-
       holds between two molecular entities where the action or effect of one increases the proper localization of the other within a system of interest
@@ -345,7 +348,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: molecular entity
-    
+
   decreases localization of:
     description: >-
       holds between two molecular entities where the action or effect of one decreases the proper localization of the other within a system of interest
@@ -354,7 +357,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: molecular entity
-    
+
   affects metabolic processing of:
     description: >-
       holds between two molecular entities where the action or effect of one impacts the metabolic processing of the other within a system of interest
@@ -363,7 +366,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: molecular entity
-    
+
   increases metabolic processing of:
     description: >-
       holds between two molecular entities where the action or effect of one increases the rate of metabolic processing of the other within a system of interest
@@ -381,7 +384,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: molecular entity
-    
+
   affects molecular modification of:
     description: >-
       holds between two molecular entities where the action or effect of one leads changes in the molecular modification(s) of the other (e.g. via post-translational modifications of proteins such as the addition of phosphoryl group, or via redox reaction that adds or subtracts electrons)
@@ -390,7 +393,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: molecular entity
-    
+
   increases molecular modification of:
     description: >-
       holds between two molecular entities where the action or effect of one leads to increased molecular modification(s) of the other (e.g. via post-translational modifications of proteins such as the addition of phosphoryl group, or via redox reaction that adds or subtracts electrons)
@@ -399,7 +402,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: molecular entity
-    
+
   decreases molecular modification of:
     description: >-
       holds between two molecular entities where the action or effect of one leads to decreased molecular modification(s) of the other (e.g. via post-translational modifications of proteins such as the addition of phosphoryl group, or via redox reaction that adds or subtracts electrons)
@@ -408,7 +411,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: molecular entity
-    
+
   affects synthesis of:
     description: >-
       holds between two molecular entities where the action or effect of one impacts the rate of chemical synthesis of the other
@@ -417,7 +420,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: molecular entity
-    
+
   increases synthesis of:
     description: >-
       holds between two molecular entities where the action or effect of one increases the rate of chemical synthesis of the other
@@ -426,7 +429,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: molecular entity
-    
+
   decreases synthesis of:
     description: >-
       holds between two molecular entities where the action or effect of one decreases the rate of chemical synthesis of the other
@@ -435,7 +438,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: molecular entity
- 
+
   affects degradation of:
     description: >-
       holds between two molecular entities where the action or effect of one impacts the rate of degradation of the other within a system of interest
@@ -444,7 +447,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: molecular entity
-    
+
   increases degradation of:
     description: >-
       holds between two molecular entities where the action or effect of one increases the rate of degradation of the other within a system of interest
@@ -453,7 +456,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: molecular entity
-    
+
   decreases degradation of:
     description: >-
       holds between two molecular entities where the action or effect of one decreases the rate of degradation of the other within a system of interest
@@ -462,7 +465,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: molecular entity
-    
+
   affects mutation rate of:
     description: >-
       holds between a molecular entity and a genomic entity where the action or effect of the molecular entity impacts the rate of mutation of the genomic entity within a system of interest
@@ -471,7 +474,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: genomic entity
-    
+
   increases mutation rate of:
     description: >-
       holds between a molecular entity and a genomic entity where the action or effect of the molecular entity increases the rate of mutation of the genomic entity within a system of interest
@@ -480,7 +483,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: genomic entity
-    
+
   decreases mutation rate of:
     description: >-
       holds between a molecular entity and a genomic entity where the action or effect of the molecular entity decreases the rate of mutation of the genomic entity within a system of interest
@@ -489,7 +492,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: genomic entity
-    
+
   affects response to:
     description: >-
       holds between two molecular entities where the action or effect of one impacts the susceptibility of a biological entity or system (e.g. an organism, cell, cellular component, macromolecular machine, biological or pathological process) to the other
@@ -498,7 +501,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: molecular entity
-    
+
   increases response to:
     description: >-
       holds between two molecular entities where the action or effect of one increases the susceptibility of a biological entity or system (e.g. an organism, cell, cellular component, macromolecular machine, biological or pathological process) to the other
@@ -507,7 +510,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: molecular entity
-    
+
   decreases response to:
     description: >-
       holds between two molecular entities where the action or effect of one decreases the susceptibility of a biological entity or system (e.g. an organism, cell, cellular component, macromolecular machine, biological or pathological process) to the other
@@ -516,7 +519,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: molecular entity
-    
+
   affects splicing of:
     description: >-
       holds between a molecular entity and an mRNA where the action or effect of the molecular entity impacts the splicing of the mRNA
@@ -534,7 +537,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: transcript
-    
+
   decreases splicing of:
     description: >-
       holds between a molecular entity and an mRNA where the action or effect of the molecular entity decreases the proper splicing of the mRNA
@@ -543,7 +546,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: transcript
-    
+
   affects stability of:
     description: >-
       holds between two molecular entities where the action or effect of one impacts the stability of the other within a system of interest
@@ -552,7 +555,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: molecular entity
-    
+
   increases stability of:
     description: >-
       holds between two molecular entities where the action or effect of one increases the stability of the other within a system of interest
@@ -561,7 +564,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: molecular entity
-    
+
   decreases stability of:
     description: >-
       holds between two molecular entities where the action or effect of one decreases the stability of the other within a system of interest
@@ -570,7 +573,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: molecular entity
-    
+
   affects transport of:
     description: >-
       holds between two molecular entities where the action or effect of one impacts the rate of transport of the other across some boundary in a system of interest
@@ -579,7 +582,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: molecular entity
-    
+
   increases transport of:
     description: >-
       holds between two molecular entities where the action or effect of one increases the rate of transport of the other across some boundary in a system of interest
@@ -588,7 +591,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: molecular entity
-    
+
   decreases transport of:
     description: >-
       holds between two molecular entities where the action or effect of one decreases the rate of transport of the other across some boundary in a system of interest
@@ -597,7 +600,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: molecular entity
-    
+
   affects secretion of:
     description: >-
       holds between two molecular entities where the action or effect of one impacts the rate of secretion of the other out of a cell, gland, or organ
@@ -606,7 +609,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: molecular entity
-    
+
   increases secretion of:
     description: >-
       holds between two molecular entities where the action or effect of one increases the rate of secretion of the other out of a cell, gland, or organ
@@ -615,7 +618,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: molecular entity
-    
+
   decreases secretion of:
     description: >-
       holds between two molecular entities where the action or effect of one decreases the rate of secretion of the other out of a cell, gland, or organ
@@ -624,7 +627,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: molecular entity
-    
+
   affects uptake of:
     description: >-
       holds between two molecular entities where the action or effect of one impacts the rate of uptake of the other into of a cell, gland, or organ
@@ -642,7 +645,7 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: molecular entity
-    
+
   decreases uptake of:
     description: >-
       holds between two molecular entities where the action or effect of one decreases the rate of uptake of the other into of a cell, gland, or organ
@@ -650,38 +653,38 @@ slots:
     in_subset:
       - translator_minimal
     domain: molecular entity
-    range: molecular entity  
-  
+    range: molecular entity
+
   regulates:
     is_a: affects
-    comments: 
+    comments:
       - This is a grouping for process-process and entity-entity relations
     mixin: true
     abstract: true
     mappings:
       - WD:P128
-    
+
   positively regulates:
-    comments: 
+    comments:
       - This is a grouping for process-process and entity-entity relations
     is_a: regulates
     mixin: true
     abstract: true
-    
+
   negatively regulates:
-    comments: 
+    comments:
       - This is a grouping for process-process and entity-entity relations
     is_a: regulates
     mixin: true
     abstract: true
-  
+
   regulates, process to process:
     is_a: regulates
     domain: occurrent
     range: occurrent
     mappings:
       - RO:0002211
-  
+
   positively regulates, process to process:
     is_a: regulates, process to process
     mixins:
@@ -745,7 +748,7 @@ slots:
       - translator_minimal
     mappings:
       - SEMMEDDB:DISRUPTS
-      
+
   has gene product:
     is_a: related to
     description: >-
@@ -763,7 +766,7 @@ slots:
     aliases: ['in homology relationship with']
     description: >-
       holds between two biological entities that have common evolutionary origin
-    comments: 
+    comments:
       - typically used to describe homology relationships between genes or gene products
     in_subset:
       - translator_minimal
@@ -828,7 +831,7 @@ slots:
 
   in cell population with:
     description: >-
-      holds between two genes or gene products that are expressed in the same cell type or population 
+      holds between two genes or gene products that are expressed in the same cell type or population
     is_a: coexists with
     domain: gene or gene product
     range: gene or gene product
@@ -858,14 +861,14 @@ slots:
   affects risk for:
     is_a: related to
     description: >-
-      holds between two entities where exposure to one entity alters the chance of developing the other 
+      holds between two entities where exposure to one entity alters the chance of developing the other
     in_subset:
       - translator_minimal
 
   predisposes:
     is_a: affects risk for
     description: >-
-      holds between two entities where exposure to one entity increases the chance of developing the other 
+      holds between two entities where exposure to one entity increases the chance of developing the other
     in_subset:
       - translator_minimal
     mappings:
@@ -879,7 +882,7 @@ slots:
       - translator_minimal
     mappings:
       - RO:0002326
-      
+
   causes:
     description: >-
       holds between two entities where the occurrence, existence, or activity of one causes the occurrence or  generation of the other
@@ -911,7 +914,7 @@ slots:
   prevents :
     is_a: affects risk for
     description: >-
-      holds between an entity whose application or use reduces the likelihood of a potential outcome. 
+      holds between an entity whose application or use reduces the likelihood of a potential outcome.
       Typically used to associate a chemical substance, exposure, activity, or medical intervention that can prevent
       the onset a disease or phenotypic feature.
     in_subset:
@@ -956,12 +959,12 @@ slots:
   treated by:
     is_a: related to
     description: >-
-      holds between a disease or phenotypic feature and a therapeutic process or chemical substance that is used to treat the condition 
+      holds between a disease or phenotypic feature and a therapeutic process or chemical substance that is used to treat the condition
     domain: disease or phenotypic feature
     in_subset:
       - translator_minimal
 #   inverse: treats
-    mappings: 
+    mappings:
       - RO:0002302
       - WD:P2176
 
@@ -992,7 +995,7 @@ slots:
   has phenotype:
     is_a: related to
     description: >-
-      holds between a biological entity and a phenotype, where a phenotype is construed broadly as any kind of quality of an organism part, a collection of these qualities, or a change in quality or qualities (e.g. abnormally increased temperature). 
+      holds between a biological entity and a phenotype, where a phenotype is construed broadly as any kind of quality of an organism part, a collection of these qualities, or a change in quality or qualities (e.g. abnormally increased temperature).
     domain: biological entity
     range: phenotypic feature
     notes:
@@ -1026,11 +1029,11 @@ slots:
   location of:
     is_a: related to
     description: >-
-      holds between material entity or site and a material entity that is located within it (but not considered a part of it) 
+      holds between material entity or site and a material entity that is located within it (but not considered a part of it)
     in_subset:
       - translator_minimal
 #   inverse: located in
-    mappings:  
+    mappings:
       - RO:0001015
       - SEMMEDDB:LOCATION_OF
       - WD:276
@@ -1038,10 +1041,10 @@ slots:
   model of:
     is_a: related to
     description: >-
-      holds between an entity and some other entity it approximates for purposes of scientific study, in virtue of its exibiting similar features of the studied entity.    
+      holds between an entity and some other entity it approximates for purposes of scientific study, in virtue of its exibiting similar features of the studied entity.
     in_subset:
       - translator_minimal
-    mappings:  
+    mappings:
       - RO:0003301
 
   overlaps:
@@ -1073,13 +1076,13 @@ slots:
 #   inverse: has part
     mappings:
       - BFO:0000050
-      - SEMMEDDB:PART_OF      
+      - SEMMEDDB:PART_OF
       - WD:P361
 
   has participant:
     is_a: related to
     description: >-
-      holds between a process and a continuant, where the continuant is somehow involved in the process 
+      holds between a process and a continuant, where the continuant is somehow involved in the process
     domain: occurrent
     in_subset:
       - translator_minimal
@@ -1123,7 +1126,7 @@ slots:
   capable of:
     is_a: actively involved in
     description: >-
-      holds between a continuant and process or function, where the continuant alone has the ability to carry out the process or function. 
+      holds between a continuant and process or function, where the continuant alone has the ability to carry out the process or function.
     range: occurrent
     in_subset:
       - translator_minimal
@@ -1210,7 +1213,7 @@ slots:
       - rdfs:subClassOf
       - SEMMEDDB:IS_A
       - WD:P279
- 
+
 ## property slots
 
   node property:
@@ -1239,7 +1242,7 @@ slots:
     domain: association
     range: identifier type
     alias: id
-      
+
   iri:
     is_a: node property
     description: >-
@@ -1248,7 +1251,7 @@ slots:
       - translator_minimal
     domain: named thing
     range: iri type
-  
+
   name:
     is_a: node property
     aliases: ['label', 'display name']
@@ -1271,7 +1274,7 @@ slots:
     multivalued: true
     in_subset:
       - translator_minimal
-  
+
   category:
     is_a: node property
     domain: named thing
@@ -1285,14 +1288,14 @@ slots:
       - translator_minimal
     mappings:
       - "rdf:type"
-  
+
   full name:
     is_a: node property
     domain: named thing
     range: label type
     description: >-
       a long-form human readable name for a thing
-  
+
   description:
     is_a: node property
     domain: named thing
@@ -1303,21 +1306,21 @@ slots:
       - translator_minimal
     mappings:
       - dcterms:description
-  
+
   systematic synonym:
     is_a: node property
     domain: named thing
     range: label type
     description: >-
       more commonly used for gene symbols in yeast
-    
+
   association slot:
     abstract: true
     domain: association
     aliases: ['edge property', 'statement property']
     description: >-
       any slot that relates an association to another entity
-    
+
   subject:
     is_a: association slot
     local_names:
@@ -1332,7 +1335,7 @@ slots:
       - rdf:subject
       - owl:annotatedSource
       - oban:association_has_subject
-      
+
   object:
     is_a: association slot
     description: >-
@@ -1352,7 +1355,7 @@ slots:
     is_a: association slot
     description: >-
       A high-level grouping for the relationship type. AKA minimal predicate.
-      This is analogous to category for nodes. 
+      This is analogous to category for nodes.
     notes:
     - in neo4j this corresponds to the relationship type and the convention is for a snake_case label
     range: label type
@@ -1372,7 +1375,7 @@ slots:
       - "rdf:predicate"
       - "owl:annotatedProperty"
       - "oban:association_has_predicate"
-      
+
   negated:
     is_a: association slot
     range: boolean
@@ -1392,7 +1395,7 @@ slots:
       connects an association to an instance of supporting evidence
     mappings:
       - RO:0002558
-      
+
   provided by:
     is_a: association slot
     range: provider
@@ -1422,7 +1425,7 @@ slots:
     range: date
     description: >-
       date on which thing was updated. This can be applied to nodes or edges
-  
+
   in taxon:
     is_a: related to
     domain: thing with taxon
@@ -1434,7 +1437,7 @@ slots:
     mappings:
       - RO:0002162
       - WD:P703
-      
+
   latitude:
     is_a: node property
     range: float
@@ -1462,7 +1465,7 @@ slots:
   aggregate statistic:
     is_a: node property
     abstract: true
-      
+
   has count:
     description: >-
       number of things with a particular property
@@ -1550,7 +1553,7 @@ slots:
       a qualifier used in an association where the variant
     is_a: association slot
     range: sequence variant
-    
+
   publications:
     singular_name: publication
     description: >-
@@ -1579,7 +1582,7 @@ slots:
     description: >-
       connects and entity to a single gene
     range: gene
-    
+
   has zygosity:
     is_a: node property
 #    domain: single locus feature complement
@@ -1612,7 +1615,7 @@ slots:
   end interbase coordinate:
     is_a: interbase coordinate
 
-    
+
 classes:
 
   attribute:
@@ -1646,45 +1649,45 @@ classes:
     description: >-
       describes the severity of a phenotypic feature or disease
     is_a: attribute
-  
+
   frequency value:
     description: >-
       describes the frequency of occurrence of an event or condition
     is_a: attribute
-  
+
   clinical modifier:
     description: >-
       Used to characterize and specify the phenotypic abnormalities defined in the Phenotypic abnormality subontology,
       with respect to severity, laterality, age of onset, and other aspects
     subclass_of: "HP:0012823"
     is_a: attribute
-  
+
   onset:
     description: >-
       The age group in which manifestations appear
     mappings:
       - "HP:0003674"
     is_a: attribute
-  
+
   relationship quantifier:
     abstract: true
     mixin: true
-    
+
   senstivity quantifier:
     is_a: relationship quantifier
     mixin: true
-    
+
   specificity quantifier:
     is_a: relationship quantifier
     mixin: true
-    
+
   pathognomonicity quantifier:
     is_a: specificity quantifier
     description: >-
       A relationship quantifier between a variant or symptom and a disease, which is
       high when the presence of the feature implies the existence of the disease
     mixin: true
-  
+
   frequency quantifier:
     is_a: relationship quantifier
     mixin: true
@@ -1693,7 +1696,7 @@ classes:
       - has total
       - has quotient
       - has percentage
-  
+
   named thing:
     description: "a databased entity or concept/class"
     slots:
@@ -1702,15 +1705,31 @@ classes:
       - category
     subclass_of: BFO:0000001
     mappings:
-      - "UMLSSG:OBJC"
       - WD:Q35120
+      # UMLS Semantic Group "Objects"
+      - UMLSSG:OBJC
+      # Entity
+      - UMLSSC:T071
+      - UMLSST:enty
+      # Physical Object
+      - UMLSSC:T072
+      - UMLSST:phob
+      # Manufactured Object
+      - UMLSSC:T073
+      - UMLSST:mnob
+      # Food
+      - UMLSSC:T168
+      - UMLSST:food
 
   biological entity:
     is_a: named thing
     abstract: true
     mappings:
       - WD:Q28845870
-        
+      # UMLS Semantic Type "Experimental Model of Disease"
+      - UMLSSC:T050
+      - UMLSST:emod
+
   ontology class:
     is_a: named thing
     description: "a concept or class in an ontology, vocabulary or thesaurus"
@@ -1719,14 +1738,14 @@ classes:
     is_a: ontology class
     description: >-
       An OWL property used as an edge label
-    
+
   gene ontology class:
     description: >-
       an ontology class that describes a functional aspect of a gene, gene prodoct or complex
     is_a: ontology class
     in_subset:
       - testing
-      
+
   thing with taxon:
     abstract: true
     mixin: true
@@ -1734,14 +1753,14 @@ classes:
       A mixin that can be used on any entity with a taxon
     slots:
       - in taxon
-      
+
   organism taxon:
     is_a: ontology class
     values_from:
       - NCBITaxon
     mappings:
       - WD:Q16521
-      
+
   organismal entity:
     description: >-
       A named entity that is either a part of an organism, a whole organism, population or clade of organisms, excluding molecular entities
@@ -1749,7 +1768,7 @@ classes:
     is_a: biological entity
     mappings:
       - WD:Q7239
-      
+
   individual organism:
     mixins:
       - thing with taxon
@@ -1757,19 +1776,82 @@ classes:
     subclass_of: "NCBITaxon:1"
     mappings:
       - SIO:010000
-      - UMLSSG:LIVB
       - WD:Q795052
+      # UMLS Semantic Group "Living Beings"
+      # Several of the associated semantic types here are probably not
+      # that relevant to the Biolink world but we keep them here for now.
+      - UMLSSG:LIVB
+      # Organism
+      - UMLSSC:T001
+      - UMLSST:orgm
+      # Plant
+      - UMLSSC:T002
+      - UMLSST:plnt
+      # Fungus
+      - UMLSSC:T004
+      - UMLSST:fngs
+      # Virus
+      - UMLSSC:T005
+      - UMLSST:virs
+      # Bacterium
+      - UMLSSC:T007
+      - UMLSST:bact
+      # Animal
+      - UMLSSC:T008
+      - UMLSST:anim
+      # Vertebrate
+      - UMLSSC:T010
+      - UMLSST:vtbt
+      # Amphibian
+      - UMLSSC:T011
+      - UMLSST:amph
+      # Bird
+      - UMLSSC:T012
+      - UMLSST:bird
+      # Fish
+      - UMLSSC:T013
+      - UMLSST:fish
+      # Reptile
+      - UMLSSC:T014
+      - UMLSST:rept
+      # Mammal
+      - UMLSSC:T015
+      - UMLSST:mamm
+      # Human
+      - UMLSSC:T016
+      - UMLSST:humn
+      # Group
+      - UMLSSC:T096
+      - UMLSST:grup
+      # Professional or Occupational Group
+      - UMLSSC:T097
+      - UMLSST:prog
+      # Family Group
+      - UMLSSC:T099
+      - UMLSST:famg
+      # Age Group
+      - UMLSSC:T100
+      - UMLSST:aggp
+      # Patient or Disabled Group
+      - UMLSSC:T101
+      - UMLSST:podg
+      # Archaeon
+      - UMLSSC:T194
+      - UMLSST:arch
+      # Eukaryote
+      - UMLSSC:T204
+      - UMLSST:euka
 
   case:
     aliases: ['patient', 'proband']
     is_a: individual organism
     description: >-
       An individual organism that has a patient role in some clinical context.
-    
+
   population of individual organisms:
     description: >-
       A collection of individuals from the same taxonomic class distinguished by one or more characteristics.
-      Characteristics can include, but are not limited to, shared geographic location, genetics, phenotypes [Alliance for Genome Resources]  
+      Characteristics can include, but are not limited to, shared geographic location, genetics, phenotypes [Alliance for Genome Resources]
     local_names:
       ga4gh: population
       agr: population
@@ -1779,9 +1861,12 @@ classes:
     subclass_of: PCO:0000001
     mappings:
       - SIO:001061
+      # UMLS Semantic Type "Population Group"
+      - UMLSSC:T098
+      - UMLSST:popg
     id_prefixes:
       - HANCESTRO
-      
+
   biosample:
     aliases: ['biospecimen', 'sample']
     mixins:
@@ -1789,7 +1874,7 @@ classes:
     is_a: organismal entity
     mappings:
       - SIO:001050
-      
+
   disease or phenotypic feature:
     aliases: ['phenome']
     is_a: biological entity
@@ -1800,16 +1885,51 @@ classes:
 #    union_of:
 #      - disease
 #      - phenotypic feature
-      
+    mappings:
+      # UMLS Semantic Type "Finding"
+      - UMLSSC:T033
+      - UMLSST:fndg
+
   disease:
     aliases: ['condition', 'disorder', 'medical condition']
     is_a: disease or phenotypic feature
     mappings:
-      - "MONDO:0000001"
-      - "WD:Q12136"
+      - MONDO:0000001
+      - WD:Q12136
       - SIO:010299
+      # UMLS Semantic Group "Disorders"
       - UMLSSG:DISO
-      
+      # Congenital Abnormality
+      - UMLSSC:T019
+      - UMLSST:cgab
+      # Acquired Abnormality
+      - UMLSSC:T020
+      - UMLSST:acab
+      # Injury or Poisoning
+      - UMLSSC:T037
+      - UMLSST:inpo
+      # Pathologic Function
+      - UMLSSC:T046
+      - UMLSST:patf
+      # Disease or Syndrome
+      - UMLSSC:T047
+      - UMLSST:dsyn
+      # Mental or Behavioral Dysfunction
+      - UMLSSC:T048
+      - UMLSST:mobd
+      # Cell or Molecular Dysfunction
+      - UMLSSC:T049
+      - UMLSST:comd
+      # Sign or Symptom
+      - UMLSSC:T184
+      - UMLSST:sosy
+      # Anatomical Abnormality
+      - UMLSSC:T190
+      - UMLSST:anab
+      # Neoplastic Process
+      - UMLSSC:T191
+      - UMLSST:neop
+
   phenotypic feature:
     aliases: ['sign', 'symptom', 'phenotype', 'trait', 'endophenotype']
     is_a: disease or phenotypic feature
@@ -1818,7 +1938,7 @@ classes:
       - "UPHENO:0001001"
       - SIO:010056
       - WD:Q169872
-      
+
   environment:
     aliases: ['environment', 'exposure', 'experimental condition']
     is_a: biological entity
@@ -1835,9 +1955,43 @@ classes:
     description: >-
       a piece of information that typically describes some piece of biology or is used as support.
     mappings:
-      - "IAO:0000030"
-      - "UMLSSG:CONC"
-      
+      - IAO:0000030
+      # UMLS Semantic Group "Concepts & Ideas"
+      - UMLSSG:CONC
+      # Conceptual Entity
+      - UMLSSC:T077
+      - UMLSST:cnce
+      # Idea or Concept
+      - UMLSSC:T078
+      - UMLSST:idcn
+      # Temporal Concept
+      - UMLSSC:T079
+      - UMLSST:tmco
+      # Qualitative Concept
+      - UMLSSC:T080
+      - UMLSST:qlco
+      # Quantitative Concept
+      - UMLSSC:T081
+      - UMLSST:qnco
+      # Spatial Concept
+      - UMLSSC:T082
+      - UMLSST:spco
+      # Regulation or Law
+      - UMLSSC:T089
+      - UMLSST:rnlw
+      # Group Attribute
+      - UMLSSC:T102
+      - UMLSST:grpa
+      # Functional Concept
+      - UMLSSC:T169
+      - UMLSST:ftcn
+      # Language
+      - UMLSSC:T171
+      - UMLSST:lang
+      # Classification
+      - UMLSSC:T185
+      - UMLSST:clas
+
   confidence level:
     is_a: information content entity
     description: >-
@@ -1846,7 +2000,7 @@ classes:
       - cio
     mappings:
       - "CIO:0000028"
-      
+
   evidence type:
     is_a: information content entity
     aliases: ['evidence code']
@@ -1856,7 +2010,7 @@ classes:
       - eco
     mappings:
       - "ECO:0000000"
-      
+
   publication:
     is_a: information content entity
     aliases: ['reference']
@@ -1865,22 +2019,38 @@ classes:
       or to a part of it (e.g. a figure, figure legend, or section highlighted by NLP).
       The scope is intended to be general and include information published on the web as well as journals.
     mappings:
-      - "IAO:0000311"
+      - IAO:0000311
+      # UMLS Semantic Type "Intellectual Product"
+      - UMLSSC:T170
+      - UMLSST:inpr
+
     id_prefixes:
       - PMID
 
   administrative entity:
     is_a: named thing
     abstract: true
-    
+
   provider:
     is_a: administrative entity
     aliases: ['agent', 'group']
     description: >-
       person, group, organization or project that provides a piece of information
-    mappings:
+    mappings: # Organizations
       - UMLSSG:ORGA
-      
+      # Organization
+      - UMLSSC:T092
+      - UMLSST:orgt
+      # Health Care Related Organization
+      - UMLSSC:T093
+      - UMLSST:hcro
+      # Professional Society
+      - UMLSSC:T094
+      - UMLSST:pros
+      # Self-help or Relief Organization
+      - UMLSSC:T095
+      - UMLSST:shro
+
   molecular entity:
     is_a: biological entity
     mixins:
@@ -1892,6 +2062,11 @@ classes:
     mappings:
       - SIO:010004
       - WD:Q43460564
+      # UMLS Semantic Group "Genes & Molecular Sequences"
+      - UMLSSG:GENE
+      # Molecular Sequence
+      - UMLSSC:T085
+      - UMLSST:mosq
 
   chemical substance:
     is_a: molecular entity
@@ -1900,39 +2075,107 @@ classes:
       material with multiple chemical entities as part
     subclass_of: "CHEBI:24431"
     mappings:
-      - "SIO:010004"
-      - "UMLSSG:CHEM"
-      - "WD:Q79529"
+      - SIO:010004
+      - WD:Q79529
+      # UMLS Semantic Type "Substance"
+      - UMLSSC:T167
+      - UMLSST:sbst
+      # UMLS Semantic Group "Chemicals & Drugs"
+      - UMLSSG:CHEM
+      # Chemical
+      - UMLSSC:T103
+      - UMLSST:chem
+      # Chemical Viewed Structurally
+      - UMLSSC:T104
+      - UMLSST:chvs
+      # Organic Chemical
+      - UMLSSC:T109
+      - UMLSST:orch
+      # Nucleic Acid, Nucleoside, or Nucleotide
+      - UMLSSC:T114
+      - UMLSST:nnon
+      # Chemical Viewed Functionally
+      - UMLSSC:T120
+      - UMLSST:chvf
+      # Pharmacologic Substance
+      - UMLSSC:T121
+      - UMLSST:phsu
+      # Biomedical or Dental Material
+      - UMLSSC:T122
+      - UMLSST:bodm
+      # Biologically Active Substance
+      - UMLSSC:T123
+      - UMLSST:bacs
+      # Hormone
+      - UMLSSC:T125
+      - UMLSST:horm
+      # Enzyme
+      - UMLSSC:T126
+      - UMLSST:enzy
+      # Vitamin
+      - UMLSSC:T127
+      - UMLSST:vita
+      # Immunologic Factor
+      - UMLSSC:T129
+      - UMLSST:imft
+      # Indicator, Reagent, or Diagnostic Aid
+      - UMLSSC:T130
+      - UMLSST:irda
+      # Hazardous or Poisonous Substance
+      - UMLSSC:T131
+      - UMLSST:hops
+      # Receptor
+      - UMLSSC:T192
+      - UMLSST:rcpt
+      # Antibiotic
+      - UMLSSC:T195
+      - UMLSST:antb
+      # Element, Ion, or Isotope
+      - UMLSSC:T196
+      - UMLSST:elii
+      # Inorganic Chemical
+      - UMLSSC:T197
+      - UMLSST:inch
     id_prefixes:
       - CHEBI
       - CHEMBL.COMPOUND
-        
+
+  carbohydrate:
+    is_a: chemical substance
+    mappings:
+      # UMLS Semantic Type "Carbohydrate Sequence"
+      - UMLSSC:T088
+      - UMLSST:crbs
+
   drug:
     is_a: chemical substance
     description: >-
       A substance intended for use in the diagnosis, cure, mitigation, treatment, or prevention of disease
-    comments: 
+    comments:
       - The CHEBI ID represents a role rather than a substance
     mappings:
       - WD:Q12140
-      - CHEBI:23888       
-      
+      - CHEBI:23888
+      # UMLS Semantic Type "Clinical Drug"
+      - UMLSSC:T200
+      - UMLSST:clnd
+
   metabolite:
     is_a: chemical substance
     description: >-
       Any intermediate or product resulting from metabolism. Includes primary and secondary metabolites.
-    comments: 
+    comments:
       - The CHEBI ID represents a role rather than a substance
     mappings:
       - CHEBI:25212
 #
 #    attribute:
-#      subclass_of: PATO:0000001
+##    subclass_of: PATO:0000001
 #      mixins:
 #        - ontology class
 #      description: >-
 #        A property or characteristic of an entity
-    
+
   anatomical entity:
     is_a: organismal entity
     mixins:
@@ -1941,9 +2184,22 @@ classes:
     description: >-
       A subcellular location, cell type or gross anatomical part
     mappings:
-      - "UMLSSG:ANAT"
       - SIO:010046
       - WD:Q4936952
+      # UMLS Semantic Group "Anatomy"
+      - UMLSSG:ANAT
+      # Body System
+      - UMLSSC:T022
+      - UMLSST:bdsy
+      # Body Location or Region
+      - UMLSSC:T029
+      - UMLSST:blor
+      # Body Space or Junction
+      - UMLSSC:T030
+      - UMLSST:bsoj
+      # Body Substance
+      - UMLSSC:T031
+      - UMLSST:bdsu
 
   life stage:
     is_a: organismal entity
@@ -1957,34 +2213,43 @@ classes:
     is_a: named thing
     description: >-
       Any entity or process that exists at the level of the whole planet
-      
+
   environmental process:
     is_a: planetary entity
     mixins:
       - occurrent
     subclass_of: ENVO:02500000
-      
+
   environmental feature:
     is_a: planetary entity
     subclass_of: ENVO:00002297
-      
+
   clinical entity:
     is_a: named thing
     description: >-
       Any entity or process that exists in the clinical domain and outside the biological realm. Diseases are placed under biological entities
-      
+
   clinical trial:
     is_a: clinical entity
-      
+
   clinical intervention:
     is_a: clinical entity
-      
+
   device:
     is_a: named thing
     description: >-
       A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment
-    mappings:
-      - "UMLSSG:DEVI"
+    mappings: # Devices
+      - UMLSSG:DEVI
+      # Medical Device
+      - UMLSSC:T074
+      - UMLSST:medd
+      # Research Device
+      - UMLSSC:T075
+      - UMLSST:resd
+      # Drug Delivery Device
+      - UMLSSC:T203
+      - UMLSST:drdd
 
   genomic entity:
     is_a: molecular entity
@@ -1994,9 +2259,13 @@ classes:
     slots:
       - has biological sequence
     mappings:
-      - "SO:0000110"
-      - "UMLSSG:GENE"
-
+      - SO:0000110
+      # Gene or Genome
+      - UMLSSC:T028
+      - UMLSST:gngm
+      # Nucleotide Sequence
+      - UMLSSC:T086
+      - UMLSST:nusq
   genome:
     is_a: genomic entity
     description: >-
@@ -2028,7 +2297,7 @@ classes:
     mappings:
       - SO:0000316
       - SIO:001390
-      
+
   macromolecular machine:
     is_a: genomic entity
 #    union_of:
@@ -2045,7 +2314,7 @@ classes:
         description: >-
           genes are typically designated by a short symbol and a full name. We map the symbol to the default display name
           and use an additional slot for full name
-      
+
   gene or gene product:
     is_a: macromolecular machine
 #    union_of:
@@ -2056,15 +2325,14 @@ classes:
       Frequently an identifier for one will be used as proxy for another
     id_prefixes:
       - CHEMBL.TARGET
-      
+
   gene:
     is_a: gene or gene product
     aliases: ['locus']
     mappings:
-      - "SO:0000704"
-      - "SIO:010035"
-      - "WD:Q7187"
-      - "UMLSSG:GENE"
+      - SO:0000704
+      - SIO:010035
+      - WD:Q7187
     id_prefixes:
       - NCBIGene
       - ENSEMBL
@@ -2075,7 +2343,7 @@ classes:
       - WB
       - SGD
       - PomBase
-      
+
   gene product:
     is_a: gene or gene product
     description: >-
@@ -2085,21 +2353,27 @@ classes:
 #      - RNA product
     mappings:
       - WD:Q424689
-    
+
   protein:
     is_a: gene product
     aliases: ['polypeptide']
     description: >-
       A gene product that is composed of a chain of amino acid sequences and is produced by ribosome-mediated translation of mRNA
     mappings:
-      - "PR:000000001"
-      - "SIO:010043"
-      - "WD:Q8054"
+      - PR:000000001
+      - SIO:010043
+      - WD:Q8054
+      # UMLS Semantic Type: "Amino Acid Sequence"
+      - UMLSSC:T087
+      - UMLSST:amas
+      # Amino Acid, Peptide, or Protein
+      - UMLSSC:T116
+      - UMLSST:aapp
     id_prefixes:
       - UniProtKB
       - PR
       - ENSEMBL
-    
+
   gene product isoform:
     is_a: gene product
     description: >-
@@ -2108,7 +2382,7 @@ classes:
       or it may represent the superclass of all isoforms.
 #    entity: true
     abstract: true
-    
+
   protein isoform:
     aliases: ['proteoform']
     is_a: protein
@@ -2120,7 +2394,7 @@ classes:
       - UniProtKB
       - PR
       - ENSEMBL
-    
+
   RNA product:
     is_a: gene product
     mappings:
@@ -2129,7 +2403,7 @@ classes:
       - WD:Q11053
     id_prefixes:
       - RNAcentral
-    
+
   RNA product isoform:
     is_a: RNA product
     description: >-
@@ -2138,7 +2412,7 @@ classes:
       - gene product isoform
     id_prefixes:
       - RNAcentral
-      
+
   noncoding RNA product:
     is_a: RNA product
     id_prefixes:
@@ -2148,7 +2422,7 @@ classes:
     subclass_of: SO:0000655
     mappings:
       - SIO:001235
-      
+
   microRNA:
     is_a: noncoding RNA product
     subclass_of: SO:0000276
@@ -2157,7 +2431,7 @@ classes:
       - WD:Q310899
     id_prefixes:
       - MIR
-        
+
   macromolecular complex:
     is_a: macromolecular machine
     subclass_of: "GO:0032991"
@@ -2169,7 +2443,7 @@ classes:
       - GO
       - PR
       - Reactome
-      
+
   gene grouping:
     abstract: true
     mixin: true
@@ -2188,7 +2462,7 @@ classes:
       any grouping of multiple genes or gene products related by common descent
     id_prefixes:
       - PANTHER
-      
+
   zygosity:
     is_a: attribute
     mappings:
@@ -2198,7 +2472,7 @@ classes:
     is_a: genomic entity
     description: >-
       An information content entity that describes a genome by specifying the total variation in genomic sequence and/or gene expression, relative to some extablished background
-    comments: 
+    comments:
       - Consider renaming as genotypic entity
     slots:
       - has zygosity
@@ -2223,10 +2497,10 @@ classes:
     is_a: genomic entity
     description: >-
       An allele that varies in its sequence from what is considered the reference allele at that locus.
-    comments: 
+    comments:
       - >-
-        This class is for modeling the specific state at a locus. A single dbSNP rs ID could correspond to more
-        than one sequence variants (e.g CIViC:1252 and CIViC:1253, two distinct BRCA2 alleles for rs28897743)
+          This class is for modeling the specific state at a locus. A single dbSNP rs ID could correspond to more
+          than one sequence variants (e.g CIViC:1252 and CIViC:1253, two distinct BRCA2 alleles for rs28897743)
     mappings:
       - GENO:0000002
       - WD:Q15304597
@@ -2293,24 +2567,27 @@ classes:
     slots:
       - latitude
       - longitude
-    mappings:
-      - "UMLSSG:GEOG"
-      
+    mappings: # Geographic Areas
+      - UMLSSG:GEOG
+      # Geographic Area
+      - UMLSST:geoa
+      - UMLSSC:T083
+
   geographic location at time:
     is_a: geographic location
     description: >-
       a location that can be described in lat/long coordinates, for a particular time
     slots:
       - timepoint
-      
+
   ## ------
   ## ASSOCIATIONS
   ## ------
-      
+
   association:
     description: >-
       A typed association between two entities, supported by evidence
-    comments: 
+    comments:
       - This is roughly the model used by biolink and ontobio at the moment
     slots:
       - association_id
@@ -2463,7 +2740,7 @@ classes:
       interacting molecules category:
         # TODO: Is this correct?
         range: ontology class
-#        subclass_of: "MI:1046"
+#  #    subclass_of: "MI:1046"
         examples:
           - value: MI:1048
             description: smallmolecule-protein
@@ -2513,7 +2790,7 @@ classes:
 #        - range: cell line
 #        - range: disease or phenotypic feature
         range: disease or phenotypic feature
-        
+
   chemical to thing association:
     is_a: association
     defining_slots:
@@ -2555,7 +2832,7 @@ classes:
       object:
         range: disease or phenotypic feature
         description: "the disease or phenotype that is affected by the chemical"
-        
+
   chemical to pathway association:
     is_a: association
     mappings:
@@ -2571,7 +2848,7 @@ classes:
       object:
         range: pathway
         description: "the pathway that is affected by the chemical"
-        
+
   chemical to gene association:
     is_a: association
     mappings:
@@ -2587,7 +2864,7 @@ classes:
       object:
         range: gene or gene product
         description: "the gene or gene product that is affected by the chemical"
-        
+
   biosample to thing association:
     is_a: association
     defining_slots:
@@ -2600,7 +2877,7 @@ classes:
         range: biosample
         description: >-
           the biosample being described
-        
+
   biosample to disease or phenotypic feature association:
     is_a: association
     defining_slots:
@@ -2645,10 +2922,11 @@ classes:
         range: phenotypic feature
         description: "phenotypic class"
         values_from: ['upheno', 'hp', 'mp', 'wbphenotypic feature']
+  #    subclass_of: UPHENO:0001001
         examples:
           - value: HP:0002487
             description: Hyperkinesis
-          - value: WBPhenotype:0000180 
+          - value: WBPhenotype:0000180
             description: axon morphology variant
           - value: MP:0001569
             description: abnormal circulating bilirubin level
@@ -2667,11 +2945,11 @@ classes:
       object:
         range: disease
         description: "disease"
-#        subclass_of: MONDO:0000001
+#  #    subclass_of: MONDO:0000001
         examples:
           - value: MONDO:0020066
             description: "Ehlers-Danlos syndrome"
-      
+
 
   disease or phenotypic feature association to thing association:
     abstract: true
@@ -2728,7 +3006,7 @@ classes:
         range: disease
         description: "disease class"
         values_from: ['mondo', 'omim', 'orphanet', 'ncit', 'doid']
-#        subclass_of: MONDO:0000001
+  #    subclass_of: MONDO:0000001
         examples:
           - value: MONDO:0017314
             description: "Ehlers-Danlos syndrome, vascular type"
@@ -2752,7 +3030,7 @@ classes:
         range: genotype
         description: >-
           genotype that is associated with the phenotypic feature
-          
+
   environment to phenotypic feature association:
     is_a: association
     defining_slots:
@@ -2765,7 +3043,7 @@ classes:
     slot_usage:
       subject:
         range: environment
-          
+
   disease to phenotypic feature association:
     is_a: association
     defining_slots:
@@ -2775,7 +3053,7 @@ classes:
     mixins:
       - entity to phenotypic feature association
       - disease to thing association
-      
+
   case to phenotypic feature association:
     is_a: association
     defining_slots:
@@ -2785,7 +3063,7 @@ classes:
     mixins:
       - entity to phenotypic feature association
       - case to thing association
-      
+
   gene to thing association:
     is_a: association
     defining_slots:
@@ -2814,7 +3092,7 @@ classes:
             description: "ClinVar representation of NM_000059.3(BRCA2):c.7007G>A (p.Arg2336His)"
           - value: ClinGen:CA024716
             description: "chr13:g.32921033G>C (hg19) in ClinGen"
-        
+
   gene to phenotypic feature association:
     is_a: association
     mappings:
@@ -2832,10 +3110,10 @@ classes:
         examples:
           - value: HGNC:2197
             description: "COL1A1 (Human)"
-            
+
   gene to disease association:
     is_a: association
-    comments: 
+    comments:
       - NCIT:R176 refers to the inverse relationship
     mappings:
       - SIO:000983
@@ -2917,7 +3195,7 @@ classes:
           A relationship type that holds between the subject and object populations. Standard mereological
           relations can be used. E.g. subject part-of object, subject overlaps object. Derivation relationships
           can also be used
-      
+
   variant to phenotypic feature association:
     is_a: association
     defining_slots:
@@ -2934,7 +3212,7 @@ classes:
 
   variant to disease association:
     is_a: association
-    comments: 
+    comments:
       - TODO decide no how to model pathogenicity
     defining_slots:
       - subject
@@ -2959,7 +3237,7 @@ classes:
         examples:
           - value: MONDO:0016419
             description: hereditary breast cancer
-          
+
   model to disease mixin:
     mixin: true
     abstract: true
@@ -2975,7 +3253,7 @@ classes:
         subproperty_of: model of
         description: >-
           The relationship to the disease
-            
+
   gene as a model of disease association:
     is_a: gene to disease association
     defining_slots:
@@ -2991,7 +3269,7 @@ classes:
         description: >-
           A gene that has a role in modeling the disease. This may be a model organism ortholog of a known disease gene,
           or it may be a gene whose mutants recapitulate core features of the disease.
-            
+
   gene has variant that contributes to disease association:
     is_a: gene to disease association
     defining_slots:
@@ -3016,7 +3294,7 @@ classes:
       subject:
         range: genotype
         description: "genotype that is the subject of the association"
-        
+
   gene to expression site association:
     is_a: association
     defining_slots:
@@ -3038,7 +3316,7 @@ classes:
       object:
         range: anatomical entity
         description: "location in which the gene is expressed"
-#        subclass_of: UBERON:0001062
+  #    subclass_of: UBERON:0001062
         examples:
           - value: UBERON:0002037
             description: cerebellum
@@ -3060,7 +3338,7 @@ classes:
     description: >-
       An association between a sequence variant and a treatment or health intervention.
       The treatment object itself encompasses both the disease and the drug used.
-    comments: 
+    comments:
       - An alternate way to model the same information could be via a qualifier
     defining_slots:
       - subject
@@ -3102,7 +3380,7 @@ classes:
             description: kinase activity
           - value: GO:0045211
             description: postsynaptic membrane
-    
+
   macromolecular machine to molecular activity association:
     is_a: functional association
     description: >-
@@ -3112,7 +3390,7 @@ classes:
     slot_usage:
       object:
         range: molecular activity
-          
+
   macromolecular machine to biological process association:
     is_a: functional association
     description: >-
@@ -3132,7 +3410,7 @@ classes:
     slot_usage:
       object:
         range: cellular component
-        
+
   gene to go term association:
     aliases: ['functional association']
     is_a: functional association
@@ -3255,7 +3533,7 @@ classes:
       object:
         range: gene or gene product
 #        role: regulated gene
-  
+
   anatomical entity to anatomical entity association:
 #      schema: gocam
     is_a: association
@@ -3267,7 +3545,7 @@ classes:
         range: anatomical entity
       object:
         range: anatomical entity
-  
+
   anatomical entity to anatomical entity part of association:
 #      schema: gocam
     is_a: anatomical entity to anatomical entity association
@@ -3288,7 +3566,7 @@ classes:
           the whole
       relation:
         subproperty_of: part of
-  
+
   anatomical entity to anatomical entity ontogenic association:
     is_a: anatomical entity to anatomical entity association
     description: >-
@@ -3335,7 +3613,10 @@ classes:
     description: >-
       An execution of a molecular function carried out by a gene product or macromolecular complex.
     mappings:
-      - "GO:0003674"
+      - GO:0003674
+      # UMLS Semantic Type "Molecular Function"
+      - UMLSSC:T044
+      - UMLSST:moft
     id_prefixes:
       - GO
       - Reactome
@@ -3344,22 +3625,89 @@ classes:
     is_a: occurrent
     description: >-
       Activity or behavior of any independent integral living, organization or mechanical actor in the world
-    mappings:
-      - "UMLSSG:ACTI"
+    mappings: #Activities & Behaviors
+      - UMLSSG:ACTI
+      # Event
+      - UMLSSC:T051
+      - UMLSST:evnt
+      # Activity
+      - UMLSSC:T052
+      - UMLSST:acty
+      # Behavior
+      - UMLSSC:T053
+      - UMLSST:bhvr
+      # Social Behavior
+      - UMLSSC:T054
+      - UMLSST:socb
+      # Individual Behavior
+      - UMLSSC:T055
+      - UMLSST:inbe
+      # Daily or Recreational Activity
+      - UMLSSC:T056
+      - UMLSST:dora
+      # Occupational Activity
+      - UMLSSC:T057
+      - UMLSST:ocac
+      # Governmental or Regulatory Activity
+      - UMLSSC:T064
+      - UMLSST:gora
+      # Machine Activity
+      - UMLSSC:T066
+      - UMLSST:mcha
 
   procedure:
     is_a: occurrent
     description: >-
       A series of actions conducted in a certain order or manner
-    mappings:
-      - "UMLSSG:PROC"
+    mappings: # Procedures
+      - UMLSSG:PROC
+      # Health Care Activity
+      - UMLSSC:T058
+      - UMLSST:hlca
+      # Laboratory Procedure
+      - UMLSSC:T059
+      - UMLSST:lbpr
+      # Diagnostic Procedure
+      - UMLSSC:T060
+      - UMLSST:diap
+      # Therapeutic or Preventive Procedure
+      - UMLSSC:T061
+      - UMLSST:topp
+      # Research Activity
+      - UMLSSC:T062
+      - UMLSST:resa
+      # Molecular Biology Research Technique
+      - UMLSSC:T063
+      - UMLSST:mbrt
+      # Educational Activity
+      - UMLSSC:T065
+      - UMLSST:edac
 
   phenomenon:
     is_a: occurrent
     description: >-
       a fact or situation that is observed to exist or happen, especially one whose cause or explanation is in question
     mappings:
-      - "UMLSSG:PHEN"
+      # Phenomena
+      - UMLSSG:PHEN
+      # Laboratory or Test Result
+      - UMLSSC:T034
+      - UMLSST:lbtr
+      # Biologic Function
+      - UMLSSC:T038
+      - UMLSST:biof
+      #  Phenomenon or Process
+      - UMLSSC:T067
+      - UMLSST:phpr
+      # Human-caused Phenomenon or Process
+      - UMLSSC:T068
+      - UMLSST:hcpp
+      # Environmental Effect of Humans
+      - UMLSSC:T069
+      - UMLSST:eehu
+      # Natural Phenomenon or Process
+      - UMLSSC:T070
+      - UMLSST:npop
 
   biological process:
     is_a: biological process or activity
@@ -3389,27 +3737,57 @@ classes:
   physiological process:
     aliases: ['physiology']
     is_a: biological process
-    mappings:
-      - "UMLSSG:PHYS"
-      
+    mappings: # Physiology
+      - UMLSSG:PHYS
+      # Organism Attribute
+      - UMLSSC:T032
+      - UMLSST:orga
+      # Physiologic Function
+      - UMLSSC:T039
+      - UMLSST:phsf
+      # Organism Function
+      - UMLSSC:T040
+      - UMLSST:orgf
+      # Mental Process
+      - UMLSSC:T041
+      - UMLSST:menp
+      # Organ or Tissue Function
+      - UMLSSC:T042
+      - UMLSST:ortf
+      # Cell Function
+      - UMLSSC:T043
+      - UMLSST:celf
+      # Genetic Function
+      - UMLSSC:T045
+      - UMLSST:genf
+      # Clinical Attribute
+      - UMLSSC:T201
+      - UMLSST:clna
+
   cellular component:
     is_a: anatomical entity
     description: >-
       A location in or around a cell
     mappings:
-      - "GO:0005575"
+      - GO:0005575
       - SIO:001400
       - WD:Q5058355
+      # Cell Component
+      - UMLSSC:T026
+      - UMLSST:celc
     id_prefixes:
       - GO
-      
+
   cell:
     is_a: anatomical entity
     mappings:
-      - "GO:0005623"
-      - "CL:0000000"
-      - "SIO:010001"
+      - GO:0005623
+      - CL:0000000
+      - SIO:010001
       - WD:Q7868
+      # UMLS Semantic Type "Cell"
+      - UMLSSC:T025
+      - UMLSST:cell
     id_prefixes:
       - CL
       - PO
@@ -3420,7 +3798,7 @@ classes:
       - "CLO:0000031"
     id_prefixes:
       - CLO
-      
+
   gross anatomical structure:
     aliases: ['tissue', 'organ']
     is_a: anatomical entity
@@ -3428,9 +3806,22 @@ classes:
       - UBERON:0010000
       - SIO:010046
       - WD:Q4936952
+      # UMLS Semantic Type "Anatomical Structure"
+      - UMLSSC:T017
+      - UMLSST:anst
+      # UMLS Semantic Type "Fully Formed Anatomical Structure"
+      - UMLSSC:T021
+      - UMLSST:ffas
+      # UMLS Semantic Type "Body Part, Organ, or Organ Component"
+      - UMLSSC:T023
+      - UMLSST:bpoc
+      # UMLS Semantic Type "Tissue"
+      - UMLSSC:T024
+      - UMLSST:tisu
+      # Embryonic Structure
+      - UMLSSC:T018
+      - UMLSST:emst
     id_prefixes:
       - UBERON
       - PO
       - FAO
-      
-  

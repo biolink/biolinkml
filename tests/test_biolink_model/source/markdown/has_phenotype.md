@@ -21,6 +21,7 @@ URI: [https://biolink.github.io/biolink-model/ontology/biolink.ttl/has_phenotype
  * [BiologicalProcess](BiologicalProcess.md)
  * [BiologicalProcessOrActivity](BiologicalProcessOrActivity.md)
  * [Biosample](Biosample.md)
+ * [Carbohydrate](Carbohydrate.md)
  * [Case](Case.md)
  * [Cell](Cell.md)
  * [CellLine](CellLine.md)

@@ -32,7 +32,7 @@ URI: [https://biolink.github.io/biolink-model/ontology/biolink.ttl/IndividualOrg
     * range: [LabelType](LabelType.md)
     * inherited from: [NamedThing](NamedThing.md)
  * [has phenotype](has_phenotype.md)  <sub>0..*</sub>
-    * Description: holds between a biological entity and a phenotype, where a phenotype is construed broadly as any kind of quality of an organism part, a collection of these qualities, or a change in quality or qualities (e.g. abnormally increased temperature). 
+    * Description: holds between a biological entity and a phenotype, where a phenotype is construed broadly as any kind of quality of an organism part, a collection of these qualities, or a change in quality or qualities (e.g. abnormally increased temperature).
     * range: [PhenotypicFeature](PhenotypicFeature.md)
     * inherited from: [BiologicalEntity](BiologicalEntity.md)
     * in subsets: (translator_minimal)

@@ -34,7 +34,7 @@ URI: [https://biolink.github.io/biolink-model/ontology/biolink.ttl/MicroRNA](htt
     * inherited from: [MolecularEntity](MolecularEntity.md)
     * in subsets: (translator_minimal)
  * [affects folding of](affects_folding_of.md)  <sub>0..*</sub>
-    * Description: holds between two molecular entities where the action or effect of one changes the rate or quality of folding of the other 
+    * Description: holds between two molecular entities where the action or effect of one changes the rate or quality of folding of the other
     * range: [MolecularEntity](MolecularEntity.md)
     * inherited from: [MolecularEntity](MolecularEntity.md)
     * in subsets: (translator_minimal)
@@ -124,7 +124,7 @@ URI: [https://biolink.github.io/biolink-model/ontology/biolink.ttl/MicroRNA](htt
     * inherited from: [MolecularEntity](MolecularEntity.md)
     * in subsets: (translator_minimal)
  * [decreases folding of](decreases_folding_of.md)  <sub>0..*</sub>
-    * Description: holds between two molecular entities where the action or effect of one decreases the rate or quality of folding of the other 
+    * Description: holds between two molecular entities where the action or effect of one decreases the rate or quality of folding of the other
     * range: [MolecularEntity](MolecularEntity.md)
     * inherited from: [MolecularEntity](MolecularEntity.md)
     * in subsets: (translator_minimal)
@@ -202,7 +202,7 @@ URI: [https://biolink.github.io/biolink-model/ontology/biolink.ttl/MicroRNA](htt
     * range: [BiologicalSequence](BiologicalSequence.md)
     * inherited from: [GenomicEntity](GenomicEntity.md)
  * [has phenotype](has_phenotype.md)  <sub>0..*</sub>
-    * Description: holds between a biological entity and a phenotype, where a phenotype is construed broadly as any kind of quality of an organism part, a collection of these qualities, or a change in quality or qualities (e.g. abnormally increased temperature). 
+    * Description: holds between a biological entity and a phenotype, where a phenotype is construed broadly as any kind of quality of an organism part, a collection of these qualities, or a change in quality or qualities (e.g. abnormally increased temperature).
     * range: [PhenotypicFeature](PhenotypicFeature.md)
     * inherited from: [BiologicalEntity](BiologicalEntity.md)
     * in subsets: (translator_minimal)
@@ -212,7 +212,7 @@ URI: [https://biolink.github.io/biolink-model/ontology/biolink.ttl/MicroRNA](htt
     * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
  * [in cell population with](in_cell_population_with.md)  <sub>0..*</sub>
-    * Description: holds between two genes or gene products that are expressed in the same cell type or population 
+    * Description: holds between two genes or gene products that are expressed in the same cell type or population
     * range: [GeneOrGeneProduct](GeneOrGeneProduct.md)
     * inherited from: [GeneOrGeneProduct](GeneOrGeneProduct.md)
     * in subsets: (translator_minimal)
@@ -252,7 +252,7 @@ URI: [https://biolink.github.io/biolink-model/ontology/biolink.ttl/MicroRNA](htt
     * inherited from: [MolecularEntity](MolecularEntity.md)
     * in subsets: (translator_minimal)
  * [increases folding of](increases_folding_of.md)  <sub>0..*</sub>
-    * Description: holds between two molecular entities where the action or effect of one increases the rate or quality of folding of the other 
+    * Description: holds between two molecular entities where the action or effect of one increases the rate or quality of folding of the other
     * range: [MolecularEntity](MolecularEntity.md)
     * inherited from: [MolecularEntity](MolecularEntity.md)
     * in subsets: (translator_minimal)

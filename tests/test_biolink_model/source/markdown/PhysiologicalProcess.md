@@ -33,12 +33,12 @@ URI: [https://biolink.github.io/biolink-model/ontology/biolink.ttl/Physiological
     * inherited from: [Occurrent](Occurrent.md)
     * in subsets: (translator_minimal)
  * [has participant](has_participant.md)  <sub>0..*</sub>
-    * Description: holds between a process and a continuant, where the continuant is somehow involved in the process 
+    * Description: holds between a process and a continuant, where the continuant is somehow involved in the process
     * range: [String](String.md)
     * inherited from: [Occurrent](Occurrent.md)
     * in subsets: (translator_minimal)
  * [has phenotype](has_phenotype.md)  <sub>0..*</sub>
-    * Description: holds between a biological entity and a phenotype, where a phenotype is construed broadly as any kind of quality of an organism part, a collection of these qualities, or a change in quality or qualities (e.g. abnormally increased temperature). 
+    * Description: holds between a biological entity and a phenotype, where a phenotype is construed broadly as any kind of quality of an organism part, a collection of these qualities, or a change in quality or qualities (e.g. abnormally increased temperature).
     * range: [PhenotypicFeature](PhenotypicFeature.md)
     * inherited from: [BiologicalEntity](BiologicalEntity.md)
     * in subsets: (translator_minimal)

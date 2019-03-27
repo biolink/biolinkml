@@ -3,6 +3,9 @@ import re
 import unittest
 from typing import Optional, Callable
 
+from rdflib import Graph, Namespace
+from rdflib.compare import to_isomorphic, graph_diff
+
 from biolinkml.generators.csvgen import CsvGenerator
 from biolinkml.generators.dotgen import DotGenerator
 from biolinkml.generators.golrgen import GolrSchemaGenerator
@@ -22,6 +25,8 @@ from tests.utils.compare_directories import are_dir_trees_equal
 from tests.utils.dirutils import make_and_clear_directory
 
 
+BIOLINK_NS = Namespace("http://w3id.org/biolink/vocab/")
+
 class CurrentBiolinkModelTestCase(unittest.TestCase):
     cwd = os.path.abspath(os.path.dirname(__file__))
 
@@ -29,9 +34,53 @@ class CurrentBiolinkModelTestCase(unittest.TestCase):
     target_path = os.path.join(cwd, 'target')
     biolink_model_path = os.path.join(cwd, 'yaml', 'biolink-model.yaml')
 
+    @staticmethod
+    def _print_triples(g: Graph):
+        g.bind('BIOLINK', BIOLINK_NS)
+        g_text = re.sub(r'@prefix.*\n', '', g.serialize(format="turtle").decode())
+        print(g_text)
+
+    def _default_comparator(self, old_data: str, new_data:str, new_file:str) -> None:
+        self.maxDiff = None
+        if old_data != new_data:
+            with open(new_file, 'w') as newf:
+                newf.write(new_data)
+            print(ClickTestCase.closein_comparison(old_data, new_data))
+            self.assertEqual(old_data, new_data)
+
+    def rdf_comparator(self, old_data: str, new_data: str, new_file:str) -> None:
+        old_graph = Graph()
+        new_graph = Graph()
+        old_graph.parse(data=old_data, format="turtle")
+        new_graph.parse(data=new_data, format="turtle")
+        old_iso = to_isomorphic(old_graph)
+        # Remove the metadata specific triples
+        for t in list(old_iso.triples((None, BIOLINK_NS.generation_date, None))):
+            old_iso.remove(t)
+        new_iso = to_isomorphic(new_graph)
+        for t in list(new_iso.triples((None, BIOLINK_NS.generation_date, None))):
+            new_iso.remove(t)
+        # Graph compare takes a Looong time
+        in_both, in_old, in_new = graph_diff(old_iso, new_iso)
+        # if old_iso != new_iso:
+        #     in_both, in_old, in_new = graph_diff(old_iso, new_iso)
+        old_len = len(list(in_old))
+        new_len = len(list(in_new))
+        if old_len or new_len:
+            if old_len:
+                print("----- Old graph only -----")
+                self._print_triples(in_old)
+            if new_len:
+                print("----- New Grapn Only -----")
+                self._print_triples(in_new)
+            with open(new_file, 'w') as newf:
+                newf.write(new_data)
+            self.assertTrue(False, "RDF file mismatch")
+
     def single_file_generator(self, suffix: str, gen: type(Generator), gen_args: Optional[dict] = None,
                               serialize_args: Optional[dict] = None,
-                              filtr: Optional[Callable[[str], str]] = None) -> None:
+                              filtr: Optional[Callable[[str], str]] = None,
+                              comparator: Callable[[type(unittest.TestCase), str, str, str], None] = None) -> None:
         """
 
         :param suffix: File suffix (without '.')
@@ -39,6 +88,7 @@ class CurrentBiolinkModelTestCase(unittest.TestCase):
         :param gen_args: Arguments to generator
         :param serialize_args: Arguments to serializer
         :param filtr: Filter to remove metadata specific info from the file
+        :param comparator: Comparison method to use
         :return:
         """
         if gen_args is None:
@@ -47,6 +97,8 @@ class CurrentBiolinkModelTestCase(unittest.TestCase):
             serialize_args = {}
         if filtr is None:
             def filtr(s): return s
+        if comparator is None:
+            comparator = CurrentBiolinkModelTestCase._default_comparator
         old_file = os.path.join(self.source_path, 'biolink_model.' + suffix)
         new_file = os.path.join(self.target_path, 'biolink_model.' + suffix)
         if os.path.exists(new_file):
@@ -61,12 +113,7 @@ class CurrentBiolinkModelTestCase(unittest.TestCase):
         # Note: we assume old file (source) is pre-filtered.  This prevents unnecessary git updates
         with open(old_file) as oldf:
             old_data = oldf.read()
-        self.maxDiff = None
-        if old_data != new_data:
-            with open(new_file, 'w') as newf:
-                newf.write(new_data)
-            print(ClickTestCase.closein_comparison(old_data, new_data))
-            self.assertEqual(old_data, new_data)
+        comparator(self, old_data, new_data, new_file)
 
     def directory_generator(self, dirname: str, gen: type(Generator), gen_args: Optional[dict] = None,
                             serialize_args: Optional[dict] = None):
@@ -149,7 +196,8 @@ class CurrentBiolinkModelTestCase(unittest.TestCase):
         context_file = os.path.join(self.target_path, 'biolink_model.rdf.context.jsonld')
         ContextGenerator(self.biolink_model_path).serialize(output=context_file)
         self.assertTrue(os.path.exists(context_file))
-        self.single_file_generator('ttl', RDFGenerator, serialize_args={"context": context_file})
+        self.single_file_generator('ttl', RDFGenerator, serialize_args={"context": context_file},
+                                   comparator=CurrentBiolinkModelTestCase.rdf_comparator)
         os.remove(context_file)
 
     def test_biolink_shex(self):

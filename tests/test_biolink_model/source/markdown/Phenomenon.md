@@ -33,7 +33,7 @@ URI: [https://biolink.github.io/biolink-model/ontology/biolink.ttl/Phenomenon](h
     * inherited from: [Occurrent](Occurrent.md)
     * in subsets: (translator_minimal)
  * [has participant](has_participant.md)  <sub>0..*</sub>
-    * Description: holds between a process and a continuant, where the continuant is somehow involved in the process 
+    * Description: holds between a process and a continuant, where the continuant is somehow involved in the process
     * range: [String](String.md)
     * inherited from: [Occurrent](Occurrent.md)
     * in subsets: (translator_minimal)

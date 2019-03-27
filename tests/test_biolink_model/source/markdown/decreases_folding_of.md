@@ -16,6 +16,7 @@ URI: [https://biolink.github.io/biolink-model/ontology/biolink.ttl/decreases_fol
 
  * [RNAProduct](RNAProduct.md)
  * [RNAProductIsoform](RNAProductIsoform.md)
+ * [Carbohydrate](Carbohydrate.md)
  * [ChemicalSubstance](ChemicalSubstance.md)
  * [CodingSequence](CodingSequence.md)
  * [Drug](Drug.md)

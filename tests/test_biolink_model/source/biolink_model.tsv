@@ -14,6 +14,7 @@ biological_sex
 biosample		
 biosample_to_disease_or_phenotypic_feature_association		An association between a biosample and a disease or phenotype
 biosample_to_thing_association		An association between a biosample and something
+carbohydrate		
 case		An individual organism that has a patient role in some clinical context.
 case_to_phenotypic_feature_association		An association between a case (e.g. individual patient) and a phenotypic feature in which the individual has or has had the phenotype
 case_to_thing_association		An abstract association for use where the case is the subject

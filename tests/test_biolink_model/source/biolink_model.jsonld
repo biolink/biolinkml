@@ -23,6 +23,18 @@
     {
       "prefix_prefix": "wgs",
       "prefix_reference": "http://www.w3.org/2003/01/geo/wgs84_pos"
+    },
+    {
+      "prefix_prefix": "UMLSSG",
+      "prefix_reference": "https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/GROUP/"
+    },
+    {
+      "prefix_prefix": "UMLSST",
+      "prefix_reference": "https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/STY/"
+    },
+    {
+      "prefix_prefix": "UMLSSC",
+      "prefix_reference": "https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/TUI/"
     }
   ],
   "emit_prefixes": [
@@ -486,7 +498,7 @@
     },
     {
       "name": "affects_folding_of",
-      "description": "holds between two molecular entities where the action or effect of one changes the rate or quality of folding of the other ",
+      "description": "holds between two molecular entities where the action or effect of one changes the rate or quality of folding of the other",
       "in_subset": [
         "translator_minimal"
       ],
@@ -500,7 +512,7 @@
     },
     {
       "name": "increases_folding_of",
-      "description": "holds between two molecular entities where the action or effect of one increases the rate or quality of folding of the other ",
+      "description": "holds between two molecular entities where the action or effect of one increases the rate or quality of folding of the other",
       "in_subset": [
         "translator_minimal"
       ],
@@ -514,7 +526,7 @@
     },
     {
       "name": "decreases_folding_of",
-      "description": "holds between two molecular entities where the action or effect of one decreases the rate or quality of folding of the other ",
+      "description": "holds between two molecular entities where the action or effect of one decreases the rate or quality of folding of the other",
       "in_subset": [
         "translator_minimal"
       ],
@@ -1382,7 +1394,7 @@
     },
     {
       "name": "in_cell_population_with",
-      "description": "holds between two genes or gene products that are expressed in the same cell type or population ",
+      "description": "holds between two genes or gene products that are expressed in the same cell type or population",
       "in_subset": [
         "translator_minimal"
       ],
@@ -1430,7 +1442,7 @@
     },
     {
       "name": "affects_risk_for",
-      "description": "holds between two entities where exposure to one entity alters the chance of developing the other ",
+      "description": "holds between two entities where exposure to one entity alters the chance of developing the other",
       "in_subset": [
         "translator_minimal"
       ],
@@ -1447,7 +1459,7 @@
       "mappings": [
         "SEMMEDDB:PREDISPOSES"
       ],
-      "description": "holds between two entities where exposure to one entity increases the chance of developing the other ",
+      "description": "holds between two entities where exposure to one entity increases the chance of developing the other",
       "in_subset": [
         "translator_minimal"
       ],
@@ -1525,7 +1537,7 @@
         "RO:0002599",
         "SEMMEDDB:PREVENTS"
       ],
-      "description": "holds between an entity whose application or use reduces the likelihood of a potential outcome.  Typically used to associate a chemical substance, exposure, activity, or medical intervention that can prevent the onset a disease or phenotypic feature.",
+      "description": "holds between an entity whose application or use reduces the likelihood of a potential outcome. Typically used to associate a chemical substance, exposure, activity, or medical intervention that can prevent the onset a disease or phenotypic feature.",
       "in_subset": [
         "translator_minimal"
       ],
@@ -1591,7 +1603,7 @@
         "RO:0002302",
         "WD:P2176"
       ],
-      "description": "holds between a disease or phenotypic feature and a therapeutic process or chemical substance that is used to treat the condition ",
+      "description": "holds between a disease or phenotypic feature and a therapeutic process or chemical substance that is used to treat the condition",
       "in_subset": [
         "translator_minimal"
       ],
@@ -1642,7 +1654,7 @@
       "mappings": [
         "RO:0002200"
       ],
-      "description": "holds between a biological entity and a phenotype, where a phenotype is construed broadly as any kind of quality of an organism part, a collection of these qualities, or a change in quality or qualities (e.g. abnormally increased temperature). ",
+      "description": "holds between a biological entity and a phenotype, where a phenotype is construed broadly as any kind of quality of an organism part, a collection of these qualities, or a change in quality or qualities (e.g. abnormally increased temperature).",
       "notes": [
         "check the range"
       ],
@@ -1700,7 +1712,7 @@
         "SEMMEDDB:LOCATION_OF",
         "WD:276"
       ],
-      "description": "holds between material entity or site and a material entity that is located within it (but not considered a part of it) ",
+      "description": "holds between material entity or site and a material entity that is located within it (but not considered a part of it)",
       "in_subset": [
         "translator_minimal"
       ],
@@ -1717,7 +1729,7 @@
       "mappings": [
         "RO:0003301"
       ],
-      "description": "holds between an entity and some other entity it approximates for purposes of scientific study, in virtue of its exibiting similar features of the studied entity.    ",
+      "description": "holds between an entity and some other entity it approximates for purposes of scientific study, in virtue of its exibiting similar features of the studied entity.",
       "in_subset": [
         "translator_minimal"
       ],
@@ -1789,7 +1801,7 @@
         "RO:0000057",
         "WD:P2283"
       ],
-      "description": "holds between a process and a continuant, where the continuant is somehow involved in the process ",
+      "description": "holds between a process and a continuant, where the continuant is somehow involved in the process",
       "in_subset": [
         "translator_minimal"
       ],
@@ -1858,7 +1870,7 @@
       "mappings": [
         "RO:0002215"
       ],
-      "description": "holds between a continuant and process or function, where the continuant alone has the ability to carry out the process or function. ",
+      "description": "holds between a continuant and process or function, where the continuant alone has the ability to carry out the process or function.",
       "in_subset": [
         "translator_minimal"
       ],
@@ -2215,7 +2227,7 @@
     },
     {
       "name": "edge_label",
-      "description": "A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes. ",
+      "description": "A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.",
       "notes": [
         "in neo4j this corresponds to the relationship type and the convention is for a snake_case label"
       ],
@@ -3880,8 +3892,16 @@
     {
       "name": "NamedThing",
       "mappings": [
+        "WD:Q35120",
         "UMLSSG:OBJC",
-        "WD:Q35120"
+        "UMLSSC:T071",
+        "UMLSST:enty",
+        "UMLSSC:T072",
+        "UMLSST:phob",
+        "UMLSSC:T073",
+        "UMLSST:mnob",
+        "UMLSSC:T168",
+        "UMLSST:food"
       ],
       "description": "a databased entity or concept/class",
       "from_schema": "https://biolink.github.io/biolink-model/ontology/biolink.ttl",
@@ -3905,7 +3925,9 @@
     {
       "name": "BiologicalEntity",
       "mappings": [
-        "WD:Q28845870"
+        "WD:Q28845870",
+        "UMLSSC:T050",
+        "UMLSST:emod"
       ],
       "from_schema": "https://biolink.github.io/biolink-model/ontology/biolink.ttl",
       "is_a": "NamedThing",
@@ -4065,8 +4087,48 @@
       "name": "IndividualOrganism",
       "mappings": [
         "SIO:010000",
+        "WD:Q795052",
         "UMLSSG:LIVB",
-        "WD:Q795052"
+        "UMLSSC:T001",
+        "UMLSST:orgm",
+        "UMLSSC:T002",
+        "UMLSST:plnt",
+        "UMLSSC:T004",
+        "UMLSST:fngs",
+        "UMLSSC:T005",
+        "UMLSST:virs",
+        "UMLSSC:T007",
+        "UMLSST:bact",
+        "UMLSSC:T008",
+        "UMLSST:anim",
+        "UMLSSC:T010",
+        "UMLSST:vtbt",
+        "UMLSSC:T011",
+        "UMLSST:amph",
+        "UMLSSC:T012",
+        "UMLSST:bird",
+        "UMLSSC:T013",
+        "UMLSST:fish",
+        "UMLSSC:T014",
+        "UMLSST:rept",
+        "UMLSSC:T015",
+        "UMLSST:mamm",
+        "UMLSSC:T016",
+        "UMLSST:humn",
+        "UMLSSC:T096",
+        "UMLSST:grup",
+        "UMLSSC:T097",
+        "UMLSST:prog",
+        "UMLSSC:T099",
+        "UMLSST:famg",
+        "UMLSSC:T100",
+        "UMLSST:aggp",
+        "UMLSSC:T101",
+        "UMLSST:podg",
+        "UMLSSC:T194",
+        "UMLSST:arch",
+        "UMLSSC:T204",
+        "UMLSST:euka"
       ],
       "from_schema": "https://biolink.github.io/biolink-model/ontology/biolink.ttl",
       "is_a": "OrganismalEntity",
@@ -4137,9 +4199,11 @@
         }
       ],
       "mappings": [
-        "SIO:001061"
+        "SIO:001061",
+        "UMLSSC:T098",
+        "UMLSST:popg"
       ],
-      "description": "A collection of individuals from the same taxonomic class distinguished by one or more characteristics. Characteristics can include, but are not limited to, shared geographic location, genetics, phenotypes [Alliance for Genome Resources]  ",
+      "description": "A collection of individuals from the same taxonomic class distinguished by one or more characteristics. Characteristics can include, but are not limited to, shared geographic location, genetics, phenotypes [Alliance for Genome Resources]",
       "from_schema": "https://biolink.github.io/biolink-model/ontology/biolink.ttl",
       "is_a": "OrganismalEntity",
       "mixins": [
@@ -4201,6 +4265,10 @@
       "aliases": [
         "phenome"
       ],
+      "mappings": [
+        "UMLSSC:T033",
+        "UMLSST:fndg"
+      ],
       "description": "Either one of a disease or an individual phenotypic feature. Some knowledge resources such as Monarch treat these as distinct, others such as MESH conflate.",
       "from_schema": "https://biolink.github.io/biolink-model/ontology/biolink.ttl",
       "is_a": "BiologicalEntity",
@@ -4239,7 +4307,27 @@
         "MONDO:0000001",
         "WD:Q12136",
         "SIO:010299",
-        "UMLSSG:DISO"
+        "UMLSSG:DISO",
+        "UMLSSC:T019",
+        "UMLSST:cgab",
+        "UMLSSC:T020",
+        "UMLSST:acab",
+        "UMLSSC:T037",
+        "UMLSST:inpo",
+        "UMLSSC:T046",
+        "UMLSST:patf",
+        "UMLSSC:T047",
+        "UMLSST:dsyn",
+        "UMLSSC:T048",
+        "UMLSST:mobd",
+        "UMLSSC:T049",
+        "UMLSST:comd",
+        "UMLSSC:T184",
+        "UMLSST:sosy",
+        "UMLSSC:T190",
+        "UMLSST:anab",
+        "UMLSSC:T191",
+        "UMLSST:neop"
       ],
       "from_schema": "https://biolink.github.io/biolink-model/ontology/biolink.ttl",
       "is_a": "DiseaseOrPhenotypicFeature",
@@ -4341,7 +4429,29 @@
       ],
       "mappings": [
         "IAO:0000030",
-        "UMLSSG:CONC"
+        "UMLSSG:CONC",
+        "UMLSSC:T077",
+        "UMLSST:cnce",
+        "UMLSSC:T078",
+        "UMLSST:idcn",
+        "UMLSSC:T079",
+        "UMLSST:tmco",
+        "UMLSSC:T080",
+        "UMLSST:qlco",
+        "UMLSSC:T081",
+        "UMLSST:qnco",
+        "UMLSSC:T082",
+        "UMLSST:spco",
+        "UMLSSC:T089",
+        "UMLSST:rnlw",
+        "UMLSSC:T102",
+        "UMLSST:grpa",
+        "UMLSSC:T169",
+        "UMLSST:ftcn",
+        "UMLSSC:T171",
+        "UMLSST:lang",
+        "UMLSSC:T185",
+        "UMLSST:clas"
       ],
       "description": "a piece of information that typically describes some piece of biology or is used as support.",
       "from_schema": "https://biolink.github.io/biolink-model/ontology/biolink.ttl",
@@ -4429,7 +4539,9 @@
         "reference"
       ],
       "mappings": [
-        "IAO:0000311"
+        "IAO:0000311",
+        "UMLSSC:T170",
+        "UMLSST:inpr"
       ],
       "description": "Any published piece of information. Can refer to a whole publication, or to a part of it (e.g. a figure, figure legend, or section highlighted by NLP). The scope is intended to be general and include information published on the web as well as journals.",
       "from_schema": "https://biolink.github.io/biolink-model/ontology/biolink.ttl",
@@ -4478,7 +4590,15 @@
         "group"
       ],
       "mappings": [
-        "UMLSSG:ORGA"
+        "UMLSSG:ORGA",
+        "UMLSSC:T092",
+        "UMLSST:orgt",
+        "UMLSSC:T093",
+        "UMLSST:hcro",
+        "UMLSSC:T094",
+        "UMLSST:pros",
+        "UMLSSC:T095",
+        "UMLSST:shro"
       ],
       "description": "person, group, organization or project that provides a piece of information",
       "from_schema": "https://biolink.github.io/biolink-model/ontology/biolink.ttl",
@@ -4506,7 +4626,10 @@
       ],
       "mappings": [
         "SIO:010004",
-        "WD:Q43460564"
+        "WD:Q43460564",
+        "UMLSSG:GENE",
+        "UMLSSC:T085",
+        "UMLSST:mosq"
       ],
       "description": "A gene, gene product, small molecule or macromolecule (including protein complex)",
       "notes": [
@@ -4594,8 +4717,46 @@
       ],
       "mappings": [
         "SIO:010004",
+        "WD:Q79529",
+        "UMLSSC:T167",
+        "UMLSST:sbst",
         "UMLSSG:CHEM",
-        "WD:Q79529"
+        "UMLSSC:T103",
+        "UMLSST:chem",
+        "UMLSSC:T104",
+        "UMLSST:chvs",
+        "UMLSSC:T109",
+        "UMLSST:orch",
+        "UMLSSC:T114",
+        "UMLSST:nnon",
+        "UMLSSC:T120",
+        "UMLSST:chvf",
+        "UMLSSC:T121",
+        "UMLSST:phsu",
+        "UMLSSC:T122",
+        "UMLSST:bodm",
+        "UMLSSC:T123",
+        "UMLSST:bacs",
+        "UMLSSC:T125",
+        "UMLSST:horm",
+        "UMLSSC:T126",
+        "UMLSST:enzy",
+        "UMLSSC:T127",
+        "UMLSST:vita",
+        "UMLSSC:T129",
+        "UMLSST:imft",
+        "UMLSSC:T130",
+        "UMLSST:irda",
+        "UMLSSC:T131",
+        "UMLSST:hops",
+        "UMLSSC:T192",
+        "UMLSST:rcpt",
+        "UMLSSC:T195",
+        "UMLSST:antb",
+        "UMLSSC:T196",
+        "UMLSST:elii",
+        "UMLSSC:T197",
+        "UMLSST:inch"
       ],
       "description": "May be a chemical entity or a formulation with a chemical entity as active ingredient, or a complex material with multiple chemical entities as part",
       "from_schema": "https://biolink.github.io/biolink-model/ontology/biolink.ttl",
@@ -4671,10 +4832,89 @@
       "type": "ClassDefinition"
     },
     {
+      "name": "Carbohydrate",
+      "mappings": [
+        "UMLSSC:T088",
+        "UMLSST:crbs"
+      ],
+      "from_schema": "https://biolink.github.io/biolink-model/ontology/biolink.ttl",
+      "is_a": "ChemicalSubstance",
+      "slots": [
+        "id",
+        "name",
+        "category",
+        "related_to",
+        "interacts_with",
+        "node_property",
+        "iri",
+        "synonym",
+        "full_name",
+        "description",
+        "systematic_synonym",
+        "has_phenotype",
+        "molecularly_interacts_with",
+        "affects_abundance_of",
+        "increases_abundance_of",
+        "decreases_abundance_of",
+        "affects_activity_of",
+        "increases_activity_of",
+        "decreases_activity_of",
+        "affects_expression_of",
+        "increases_expression_of",
+        "decreases_expression_of",
+        "affects_folding_of",
+        "increases_folding_of",
+        "decreases_folding_of",
+        "affects_localization_of",
+        "increases_localization_of",
+        "decreases_localization_of",
+        "affects_metabolic_processing_of",
+        "increases_metabolic_processing_of",
+        "decreases_metabolic_processing_of",
+        "affects_molecular_modification_of",
+        "increases_molecular_modification_of",
+        "decreases_molecular_modification_of",
+        "affects_synthesis_of",
+        "increases_synthesis_of",
+        "decreases_synthesis_of",
+        "affects_degradation_of",
+        "increases_degradation_of",
+        "decreases_degradation_of",
+        "affects_mutation_rate_of",
+        "increases_mutation_rate_of",
+        "decreases_mutation_rate_of",
+        "affects_response_to",
+        "increases_response_to",
+        "decreases_response_to",
+        "affects_splicing_of",
+        "increases_splicing_of",
+        "decreases_splicing_of",
+        "affects_stability_of",
+        "increases_stability_of",
+        "decreases_stability_of",
+        "affects_transport_of",
+        "increases_transport_of",
+        "decreases_transport_of",
+        "affects_secretion_of",
+        "increases_secretion_of",
+        "decreases_secretion_of",
+        "affects_uptake_of",
+        "increases_uptake_of",
+        "decreases_uptake_of",
+        "regulates_entity_to_entity",
+        "biomarker_for",
+        "in_taxon"
+      ],
+      "class_uri": "http://w3id.org/biolink/vocab/Carbohydrate",
+      "type": "ClassDefinition"
+    },
+    {
       "name": "Drug",
       "mappings": [
         "WD:Q12140",
-        "CHEBI:23888"
+        "CHEBI:23888",
+        "UMLSSC:T200",
+        "UMLSST:clnd"
       ],
       "description": "A substance intended for use in the diagnosis, cure, mitigation, treatment, or prevention of disease",
       "comments": [
@@ -4834,9 +5074,17 @@
     {
       "name": "AnatomicalEntity",
       "mappings": [
-        "UMLSSG:ANAT",
         "SIO:010046",
-        "WD:Q4936952"
+        "WD:Q4936952",
+        "UMLSSG:ANAT",
+        "UMLSSC:T022",
+        "UMLSST:bdsy",
+        "UMLSSC:T029",
+        "UMLSST:blor",
+        "UMLSSC:T030",
+        "UMLSST:bsoj",
+        "UMLSSC:T031",
+        "UMLSST:bdsu"
       ],
       "description": "A subcellular location, cell type or gross anatomical part",
       "from_schema": "https://biolink.github.io/biolink-model/ontology/biolink.ttl",
@@ -5025,7 +5273,13 @@
     {
       "name": "Device",
       "mappings": [
-        "UMLSSG:DEVI"
+        "UMLSSG:DEVI",
+        "UMLSSC:T074",
+        "UMLSST:medd",
+        "UMLSSC:T075",
+        "UMLSST:resd",
+        "UMLSSC:T203",
+        "UMLSST:drdd"
       ],
       "description": "A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment",
       "from_schema": "https://biolink.github.io/biolink-model/ontology/biolink.ttl",
@@ -5053,7 +5307,10 @@
       ],
       "mappings": [
         "SO:0000110",
-        "UMLSSG:GENE"
+        "UMLSSC:T028",
+        "UMLSST:gngm",
+        "UMLSSC:T086",
+        "UMLSST:nusq"
       ],
       "description": "an entity that can either be directly located on a genome (gene, transcript, exon, regulatory region) or is encoded in a genome (protein)",
       "from_schema": "https://biolink.github.io/biolink-model/ontology/biolink.ttl",
@@ -5621,8 +5878,7 @@
       "mappings": [
         "SO:0000704",
         "SIO:010035",
-        "WD:Q7187",
-        "UMLSSG:GENE"
+        "WD:Q7187"
       ],
       "from_schema": "https://biolink.github.io/biolink-model/ontology/biolink.ttl",
       "is_a": "GeneOrGeneProduct",
@@ -5798,7 +6054,11 @@
       "mappings": [
         "PR:000000001",
         "SIO:010043",
-        "WD:Q8054"
+        "WD:Q8054",
+        "UMLSSC:T087",
+        "UMLSST:amas",
+        "UMLSSC:T116",
+        "UMLSST:aapp"
       ],
       "description": "A gene product that is composed of a chain of amino acid sequences and is produced by ribosome-mediated translation of mRNA",
       "from_schema": "https://biolink.github.io/biolink-model/ontology/biolink.ttl",
@@ -6931,7 +7191,9 @@
     {
       "name": "GeographicLocation",
       "mappings": [
-        "UMLSSG:GEOG"
+        "UMLSSG:GEOG",
+        "UMLSST:geoa",
+        "UMLSSC:T083"
       ],
       "description": "a location that can be described in lat/long coordinates",
       "from_schema": "https://biolink.github.io/biolink-model/ontology/biolink.ttl",
@@ -8582,7 +8844,9 @@
         "reaction"
       ],
       "mappings": [
-        "GO:0003674"
+        "GO:0003674",
+        "UMLSSC:T044",
+        "UMLSST:moft"
       ],
       "description": "An execution of a molecular function carried out by a gene product or macromolecular complex.",
       "from_schema": "https://biolink.github.io/biolink-model/ontology/biolink.ttl",
@@ -8614,7 +8878,25 @@
     {
       "name": "ActivityAndBehavior",
       "mappings": [
-        "UMLSSG:ACTI"
+        "UMLSSG:ACTI",
+        "UMLSSC:T051",
+        "UMLSST:evnt",
+        "UMLSSC:T052",
+        "UMLSST:acty",
+        "UMLSSC:T053",
+        "UMLSST:bhvr",
+        "UMLSSC:T054",
+        "UMLSST:socb",
+        "UMLSSC:T055",
+        "UMLSST:inbe",
+        "UMLSSC:T056",
+        "UMLSST:dora",
+        "UMLSSC:T057",
+        "UMLSST:ocac",
+        "UMLSSC:T064",
+        "UMLSST:gora",
+        "UMLSSC:T066",
+        "UMLSST:mcha"
       ],
       "description": "Activity or behavior of any independent integral living, organization or mechanical actor in the world",
       "from_schema": "https://biolink.github.io/biolink-model/ontology/biolink.ttl",
@@ -8642,7 +8924,21 @@
     {
       "name": "Procedure",
       "mappings": [
-        "UMLSSG:PROC"
+        "UMLSSG:PROC",
+        "UMLSSC:T058",
+        "UMLSST:hlca",
+        "UMLSSC:T059",
+        "UMLSST:lbpr",
+        "UMLSSC:T060",
+        "UMLSST:diap",
+        "UMLSSC:T061",
+        "UMLSST:topp",
+        "UMLSSC:T062",
+        "UMLSST:resa",
+        "UMLSSC:T063",
+        "UMLSST:mbrt",
+        "UMLSSC:T065",
+        "UMLSST:edac"
       ],
       "description": "A series of actions conducted in a certain order or manner",
       "from_schema": "https://biolink.github.io/biolink-model/ontology/biolink.ttl",
@@ -8670,7 +8966,19 @@
     {
       "name": "Phenomenon",
       "mappings": [
-        "UMLSSG:PHEN"
+        "UMLSSG:PHEN",
+        "UMLSSC:T034",
+        "UMLSST:lbtr",
+        "UMLSSC:T038",
+        "UMLSST:biof",
+        "UMLSSC:T067",
+        "UMLSST:phpr",
+        "UMLSSC:T068",
+        "UMLSST:hcpp",
+        "UMLSSC:T069",
+        "UMLSST:eehu",
+        "UMLSSC:T070",
+        "UMLSST:npop"
       ],
       "description": "a fact or situation that is observed to exist or happen, especially one whose cause or explanation is in question",
       "from_schema": "https://biolink.github.io/biolink-model/ontology/biolink.ttl",
@@ -8774,7 +9082,23 @@
         "physiology"
       ],
       "mappings": [
-        "UMLSSG:PHYS"
+        "UMLSSG:PHYS",
+        "UMLSSC:T032",
+        "UMLSST:orga",
+        "UMLSSC:T039",
+        "UMLSST:phsf",
+        "UMLSSC:T040",
+        "UMLSST:orgf",
+        "UMLSSC:T041",
+        "UMLSST:menp",
+        "UMLSSC:T042",
+        "UMLSST:ortf",
+        "UMLSSC:T043",
+        "UMLSST:celf",
+        "UMLSSC:T045",
+        "UMLSST:genf",
+        "UMLSSC:T201",
+        "UMLSST:clna"
       ],
       "from_schema": "https://biolink.github.io/biolink-model/ontology/biolink.ttl",
       "is_a": "BiologicalProcess",
@@ -8807,7 +9131,9 @@
       "mappings": [
         "GO:0005575",
         "SIO:001400",
-        "WD:Q5058355"
+        "WD:Q5058355",
+        "UMLSSC:T026",
+        "UMLSST:celc"
       ],
       "description": "A location in or around a cell",
       "from_schema": "https://biolink.github.io/biolink-model/ontology/biolink.ttl",
@@ -8841,7 +9167,9 @@
         "GO:0005623",
         "CL:0000000",
         "SIO:010001",
-        "WD:Q7868"
+        "WD:Q7868",
+        "UMLSSC:T025",
+        "UMLSST:cell"
       ],
       "from_schema": "https://biolink.github.io/biolink-model/ontology/biolink.ttl",
       "is_a": "AnatomicalEntity",
@@ -8906,7 +9234,17 @@
       "mappings": [
         "UBERON:0010000",
         "SIO:010046",
-        "WD:Q4936952"
+        "WD:Q4936952",
+        "UMLSSC:T017",
+        "UMLSST:anst",
+        "UMLSSC:T021",
+        "UMLSST:ffas",
+        "UMLSSC:T023",
+        "UMLSST:bpoc",
+        "UMLSSC:T024",
+        "UMLSST:tisu",
+        "UMLSSC:T018",
+        "UMLSST:emst"
       ],
       "from_schema": "https://biolink.github.io/biolink-model/ontology/biolink.ttl",
       "is_a": "AnatomicalEntity",
@@ -8932,8 +9270,8 @@
   ],
   "metamodel_version": "1.1.2",
   "source_file": "biolink-model.yaml",
-  "source_file_date": "Sun Mar 17 10:17:49 2019",
-  "source_file_size": 99625,
+  "source_file_date": "Tue Mar 26 09:41:58 2019",
+  "source_file_size": 108304,
   "generation_date": "2019-01-01 12:00",
   "type": "SchemaDefinition",
   "@context": [

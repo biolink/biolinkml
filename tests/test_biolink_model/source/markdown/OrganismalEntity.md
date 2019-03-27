@@ -15,7 +15,7 @@ URI: [https://biolink.github.io/biolink-model/ontology/biolink.ttl/OrganismalEnt
  * [Biosample](Biosample.md)
  * [IndividualOrganism](IndividualOrganism.md)
  * [LifeStage](LifeStage.md) - A stage of development or growth of an organism, including post-natal adult stages
- * [PopulationOfIndividualOrganisms](PopulationOfIndividualOrganisms.md) - A collection of individuals from the same taxonomic class distinguished by one or more characteristics. Characteristics can include, but are not limited to, shared geographic location, genetics, phenotypes [Alliance for Genome Resources]  
+ * [PopulationOfIndividualOrganisms](PopulationOfIndividualOrganisms.md) - A collection of individuals from the same taxonomic class distinguished by one or more characteristics. Characteristics can include, but are not limited to, shared geographic location, genetics, phenotypes [Alliance for Genome Resources]
 ## Used by
 
 ## Fields
@@ -35,7 +35,7 @@ URI: [https://biolink.github.io/biolink-model/ontology/biolink.ttl/OrganismalEnt
     * range: [LabelType](LabelType.md)
     * inherited from: [NamedThing](NamedThing.md)
  * [has phenotype](has_phenotype.md)  <sub>0..*</sub>
-    * Description: holds between a biological entity and a phenotype, where a phenotype is construed broadly as any kind of quality of an organism part, a collection of these qualities, or a change in quality or qualities (e.g. abnormally increased temperature). 
+    * Description: holds between a biological entity and a phenotype, where a phenotype is construed broadly as any kind of quality of an organism part, a collection of these qualities, or a change in quality or qualities (e.g. abnormally increased temperature).
     * range: [PhenotypicFeature](PhenotypicFeature.md)
     * inherited from: [BiologicalEntity](BiologicalEntity.md)
     * in subsets: (translator_minimal)

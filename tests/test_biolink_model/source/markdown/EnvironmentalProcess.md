@@ -33,7 +33,7 @@ URI: [https://biolink.github.io/biolink-model/ontology/biolink.ttl/Environmental
     * range: [String](String.md)
     * in subsets: (translator_minimal)
  * [has participant](has_participant.md)  <sub>0..*</sub>
-    * Description: holds between a process and a continuant, where the continuant is somehow involved in the process 
+    * Description: holds between a process and a continuant, where the continuant is somehow involved in the process
     * range: [String](String.md)
     * in subsets: (translator_minimal)
  * [id](id.md)  <sub>REQ</sub>

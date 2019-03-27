@@ -246,6 +246,10 @@ class ChemicalSubstanceId(MolecularEntityId):
     pass
 
 
+class CarbohydrateId(ChemicalSubstanceId):
+    pass
+
+
 class DrugId(ChemicalSubstanceId):
     pass
 
@@ -1816,6 +1820,89 @@ class ChemicalSubstance(MolecularEntity):
         super()._fix_elements()
         if self.id is not None and not isinstance(self.id, ChemicalSubstanceId):
             self.id = ChemicalSubstanceId(self.id)
+
+
+@dataclass
+class Carbohydrate(ChemicalSubstance):
+
+    # === named thing ===
+    id: Union[str, CarbohydrateId]
+    name: Optional[Union[str, LabelType]] = None
+    category: List[Union[str, IriType]] = empty_list()
+    related_to: List[Union[str, NamedThingId]] = empty_list()
+    interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    node_property: Optional[str] = None
+    iri: Optional[Union[str, IriType]] = None
+    synonym: List[Union[str, LabelType]] = empty_list()
+    full_name: Optional[Union[str, LabelType]] = None
+    description: Optional[Union[str, NarrativeText]] = None
+    systematic_synonym: Optional[Union[str, LabelType]] = None
+
+    # === biological entity ===
+    has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
+
+    # === molecular entity ===
+    molecularly_interacts_with: List[Union[str, MolecularEntityId]] = empty_list()
+    affects_abundance_of: List[Union[str, MolecularEntityId]] = empty_list()
+    increases_abundance_of: List[Union[str, MolecularEntityId]] = empty_list()
+    decreases_abundance_of: List[Union[str, MolecularEntityId]] = empty_list()
+    affects_activity_of: List[Union[str, MolecularEntityId]] = empty_list()
+    increases_activity_of: List[Union[str, MolecularEntityId]] = empty_list()
+    decreases_activity_of: List[Union[str, MolecularEntityId]] = empty_list()
+    affects_expression_of: List[Union[str, GenomicEntityId]] = empty_list()
+    increases_expression_of: List[Union[str, GenomicEntityId]] = empty_list()
+    decreases_expression_of: List[Union[str, GenomicEntityId]] = empty_list()
+    affects_folding_of: List[Union[str, MolecularEntityId]] = empty_list()
+    increases_folding_of: List[Union[str, MolecularEntityId]] = empty_list()
+    decreases_folding_of: List[Union[str, MolecularEntityId]] = empty_list()
+    affects_localization_of: List[Union[str, MolecularEntityId]] = empty_list()
+    increases_localization_of: List[Union[str, MolecularEntityId]] = empty_list()
+    decreases_localization_of: List[Union[str, MolecularEntityId]] = empty_list()
+    affects_metabolic_processing_of: List[Union[str, MolecularEntityId]] = empty_list()
+    increases_metabolic_processing_of: List[Union[str, MolecularEntityId]] = empty_list()
+    decreases_metabolic_processing_of: List[Union[str, MolecularEntityId]] = empty_list()
+    affects_molecular_modification_of: List[Union[str, MolecularEntityId]] = empty_list()
+    increases_molecular_modification_of: List[Union[str, MolecularEntityId]] = empty_list()
+    decreases_molecular_modification_of: List[Union[str, MolecularEntityId]] = empty_list()
+    affects_synthesis_of: List[Union[str, MolecularEntityId]] = empty_list()
+    increases_synthesis_of: List[Union[str, MolecularEntityId]] = empty_list()
+    decreases_synthesis_of: List[Union[str, MolecularEntityId]] = empty_list()
+    affects_degradation_of: List[Union[str, MolecularEntityId]] = empty_list()
+    increases_degradation_of: List[Union[str, MolecularEntityId]] = empty_list()
+    decreases_degradation_of: List[Union[str, MolecularEntityId]] = empty_list()
+    affects_mutation_rate_of: List[Union[str, GenomicEntityId]] = empty_list()
+    increases_mutation_rate_of: List[Union[str, GenomicEntityId]] = empty_list()
+    decreases_mutation_rate_of: List[Union[str, GenomicEntityId]] = empty_list()
+    affects_response_to: List[Union[str, MolecularEntityId]] = empty_list()
+    increases_response_to: List[Union[str, MolecularEntityId]] = empty_list()
+    decreases_response_to: List[Union[str, MolecularEntityId]] = empty_list()
+    affects_splicing_of: List[Union[str, TranscriptId]] = empty_list()
+    increases_splicing_of: List[Union[str, TranscriptId]] = empty_list()
+    decreases_splicing_of: List[Union[str, TranscriptId]] = empty_list()
+    affects_stability_of: List[Union[str, MolecularEntityId]] = empty_list()
+    increases_stability_of: List[Union[str, MolecularEntityId]] = empty_list()
+    decreases_stability_of: List[Union[str, MolecularEntityId]] = empty_list()
+    affects_transport_of: List[Union[str, MolecularEntityId]] = empty_list()
+    increases_transport_of: List[Union[str, MolecularEntityId]] = empty_list()
+    decreases_transport_of: List[Union[str, MolecularEntityId]] = empty_list()
+    affects_secretion_of: List[Union[str, MolecularEntityId]] = empty_list()
+    increases_secretion_of: List[Union[str, MolecularEntityId]] = empty_list()
+    decreases_secretion_of: List[Union[str, MolecularEntityId]] = empty_list()
+    affects_uptake_of: List[Union[str, MolecularEntityId]] = empty_list()
+    increases_uptake_of: List[Union[str, MolecularEntityId]] = empty_list()
+    decreases_uptake_of: List[Union[str, MolecularEntityId]] = empty_list()
+    regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
+    biomarker_for: List[Union[str, DiseaseOrPhenotypicFeatureId]] = empty_list()
+    in_taxon: List[Union[str, OrganismTaxonId]] = empty_list()
+
+    # === chemical substance ===
+
+    # === carbohydrate ===
+
+    def _fix_elements(self):
+        super()._fix_elements()
+        if self.id is not None and not isinstance(self.id, CarbohydrateId):
+            self.id = CarbohydrateId(self.id)
 
 
 @dataclass

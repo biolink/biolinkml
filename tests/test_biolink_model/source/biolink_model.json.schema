@@ -45,7 +45,7 @@
          "type": "array"
       },
       "affects_folding_of": {
-         "description": "holds between two molecular entities where the action or effect of one changes the rate or quality of folding of the other ",
+         "description": "holds between two molecular entities where the action or effect of one changes the rate or quality of folding of the other",
          "items": {
             "type": "string"
          },
@@ -87,7 +87,7 @@
          "type": "array"
       },
       "affects_risk_for": {
-         "description": "holds between two entities where exposure to one entity alters the chance of developing the other ",
+         "description": "holds between two entities where exposure to one entity alters the chance of developing the other",
          "items": {
             "type": "string"
          },
@@ -154,7 +154,7 @@
          "type": "array"
       },
       "capable_of": {
-         "description": "holds between a continuant and process or function, where the continuant alone has the ability to carry out the process or function. ",
+         "description": "holds between a continuant and process or function, where the continuant alone has the ability to carry out the process or function.",
          "items": {
             "type": "string"
          },
@@ -239,7 +239,7 @@
          "type": "array"
       },
       "decreases_folding_of": {
-         "description": "holds between two molecular entities where the action or effect of one decreases the rate or quality of folding of the other ",
+         "description": "holds between two molecular entities where the action or effect of one decreases the rate or quality of folding of the other",
          "items": {
             "type": "string"
          },
@@ -354,7 +354,7 @@
          "type": "array"
       },
       "edge_label": {
-         "description": "A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes. ",
+         "description": "A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.",
          "type": "string"
       },
       "end_interbase_coordinate": {
@@ -470,7 +470,7 @@
          "type": "array"
       },
       "has_participant": {
-         "description": "holds between a process and a continuant, where the continuant is somehow involved in the process ",
+         "description": "holds between a process and a continuant, where the continuant is somehow involved in the process",
          "items": {
             "type": "string"
          },
@@ -481,7 +481,7 @@
          "type": "string"
       },
       "has_phenotype": {
-         "description": "holds between a biological entity and a phenotype, where a phenotype is construed broadly as any kind of quality of an organism part, a collection of these qualities, or a change in quality or qualities (e.g. abnormally increased temperature). ",
+         "description": "holds between a biological entity and a phenotype, where a phenotype is construed broadly as any kind of quality of an organism part, a collection of these qualities, or a change in quality or qualities (e.g. abnormally increased temperature).",
          "items": {
             "type": "string"
          },
@@ -509,7 +509,7 @@
          "type": "string"
       },
       "in_cell_population_with": {
-         "description": "holds between two genes or gene products that are expressed in the same cell type or population ",
+         "description": "holds between two genes or gene products that are expressed in the same cell type or population",
          "items": {
             "type": "string"
          },
@@ -565,7 +565,7 @@
          "type": "array"
       },
       "increases_folding_of": {
-         "description": "holds between two molecular entities where the action or effect of one increases the rate or quality of folding of the other ",
+         "description": "holds between two molecular entities where the action or effect of one increases the rate or quality of folding of the other",
          "items": {
             "type": "string"
          },
@@ -678,7 +678,7 @@
          "type": "array"
       },
       "location_of": {
-         "description": "holds between material entity or site and a material entity that is located within it (but not considered a part of it) ",
+         "description": "holds between material entity or site and a material entity that is located within it (but not considered a part of it)",
          "items": {
             "type": "string"
          },
@@ -696,7 +696,7 @@
          "type": "array"
       },
       "model_of": {
-         "description": "holds between an entity and some other entity it approximates for purposes of scientific study, in virtue of its exibiting similar features of the studied entity.    ",
+         "description": "holds between an entity and some other entity it approximates for purposes of scientific study, in virtue of its exibiting similar features of the studied entity.",
          "items": {
             "type": "string"
          },
@@ -825,14 +825,14 @@
          "type": "array"
       },
       "predisposes": {
-         "description": "holds between two entities where exposure to one entity increases the chance of developing the other ",
+         "description": "holds between two entities where exposure to one entity increases the chance of developing the other",
          "items": {
             "type": "string"
          },
          "type": "array"
       },
       "prevents": {
-         "description": "holds between an entity whose application or use reduces the likelihood of a potential outcome.  Typically used to associate a chemical substance, exposure, activity, or medical intervention that can prevent the onset a disease or phenotypic feature.",
+         "description": "holds between an entity whose application or use reduces the likelihood of a potential outcome. Typically used to associate a chemical substance, exposure, activity, or medical intervention that can prevent the onset a disease or phenotypic feature.",
          "items": {
             "type": "string"
          },
@@ -949,7 +949,7 @@
          "type": "string"
       },
       "treated_by": {
-         "description": "holds between a disease or phenotypic feature and a therapeutic process or chemical substance that is used to treat the condition ",
+         "description": "holds between a disease or phenotypic feature and a therapeutic process or chemical substance that is used to treat the condition",
          "items": {
             "type": "string"
          },
@@ -1194,7 +1194,7 @@
                "type": "array"
             },
             "has_participant": {
-               "description": "holds between a process and a continuant, where the continuant is somehow involved in the process ",
+               "description": "holds between a process and a continuant, where the continuant is somehow involved in the process",
                "items": {
                   "type": "string"
                },
@@ -1247,6 +1247,12 @@
          "description": "An association between a biosample and a disease or phenotype",
          "properties": {},
          "title": "BiosampleToDiseaseOrPhenotypicFeatureAssociation",
+         "type": "object"
+      },
+      "Carbohydrate": {
+         "description": "",
+         "properties": {},
+         "title": "Carbohydrate",
          "type": "object"
       },
       "Case": {
@@ -1419,7 +1425,7 @@
                "type": "array"
             },
             "treated_by": {
-               "description": "holds between a disease or phenotypic feature and a therapeutic process or chemical substance that is used to treat the condition ",
+               "description": "holds between a disease or phenotypic feature and a therapeutic process or chemical substance that is used to treat the condition",
                "items": {
                   "type": "string"
                },
@@ -1525,7 +1531,7 @@
                "type": "array"
             },
             "has_participant": {
-               "description": "holds between a process and a continuant, where the continuant is somehow involved in the process ",
+               "description": "holds between a process and a continuant, where the continuant is somehow involved in the process",
                "items": {
                   "type": "string"
                },
@@ -1706,7 +1712,7 @@
                "type": "array"
             },
             "in_cell_population_with": {
-               "description": "holds between two genes or gene products that are expressed in the same cell type or population ",
+               "description": "holds between two genes or gene products that are expressed in the same cell type or population",
                "items": {
                   "type": "string"
                },
@@ -2163,7 +2169,7 @@
                "type": "array"
             },
             "has_participant": {
-               "description": "holds between a process and a continuant, where the continuant is somehow involved in the process ",
+               "description": "holds between a process and a continuant, where the continuant is somehow involved in the process",
                "items": {
                   "type": "string"
                },
@@ -2218,7 +2224,7 @@
                "type": "array"
             },
             "affects_folding_of": {
-               "description": "holds between two molecular entities where the action or effect of one changes the rate or quality of folding of the other ",
+               "description": "holds between two molecular entities where the action or effect of one changes the rate or quality of folding of the other",
                "items": {
                   "type": "string"
                },
@@ -2337,7 +2343,7 @@
                "type": "array"
             },
             "decreases_folding_of": {
-               "description": "holds between two molecular entities where the action or effect of one decreases the rate or quality of folding of the other ",
+               "description": "holds between two molecular entities where the action or effect of one decreases the rate or quality of folding of the other",
                "items": {
                   "type": "string"
                },
@@ -2456,7 +2462,7 @@
                "type": "array"
             },
             "increases_folding_of": {
-               "description": "holds between two molecular entities where the action or effect of one increases the rate or quality of folding of the other ",
+               "description": "holds between two molecular entities where the action or effect of one increases the rate or quality of folding of the other",
                "items": {
                   "type": "string"
                },
@@ -2636,7 +2642,7 @@
                "type": "array"
             },
             "has_participant": {
-               "description": "holds between a process and a continuant, where the continuant is somehow involved in the process ",
+               "description": "holds between a process and a continuant, where the continuant is somehow involved in the process",
                "items": {
                   "type": "string"
                },
