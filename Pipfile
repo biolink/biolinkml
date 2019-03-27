@@ -5,22 +5,20 @@ verify_ssl = true
 
 [dev-packages]
 pipenv-to-requirements = "*"
+tox-pipenv = "*"
 unittest2 = "*"
-biolinkml = {editable = true,path = "."}
 
 [packages]
 click = ">=7.0"
 graphviz = ">=0.10.1"
 jsonasobj = ">=1.2.1"
-jsonschema = ">=2.6.0"
+jsonschema = ">=3.0.1"
 prefixcommons = ">=0.1.7"
-rdflib-jsonld = ">=0.4.0"
+rdflib-jsonld = ">=0.4"
 rdflib = ">=4.2.2"
-requests = "*"
-tox-pipenv = "*"
-pbr = "*"
-cachier = "*"
-pyjsg = "*"
+requests = ">=2.21"
+pyjsg = ">=0.9.1"
+pyyaml = ">=5.1"
 
 [requires]
 python_version = "3.7"

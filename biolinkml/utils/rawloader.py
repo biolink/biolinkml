@@ -46,7 +46,7 @@ def load_raw_schema(data: Union[str, dict, TextIO],
             # URL being passed
             fname = Namespaces.join(base_dir, data) if '://' not in data else data
             req = Request(fname)
-            req.add_header("Accept", "application/yaml, text/yaml;q=0.9")
+            req.add_header("Accept", "text/yaml, application/yaml;q=0.9")
             with urlopen(req) as response:
                 return load_raw_schema(response, fname, response.info()['Last-Modified'],
                                        response.info()['Content-Length'])
