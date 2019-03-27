@@ -1,6 +1,7 @@
 metamodel/metamodel.py-PREV
 tests/test_scripts/temp/
 env.lock
+Pipfile.lock
 
 # Jekyll
 Gemfile.lock

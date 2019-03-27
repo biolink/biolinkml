@@ -1,6 +1,15 @@
 CHANGES
 =======
 
+v0.6.0
+------
+
+* Add tests for modified biolink model
+* Change the header because we use text/yaml
+* Checkpoint --
+* Update w3id.org -- redirects now work correctly
+* Commit all test directories
+* Synchronize with PyShEx and other models
 * New steady state.  Everything in the core works w/ exception of the ShEx CLOSED statement
 * Add binder link
 * ShEx validation example working
