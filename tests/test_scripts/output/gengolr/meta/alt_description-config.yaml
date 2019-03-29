@@ -1,0 +1,17 @@
+description: an attributed description
+display_name: !!python/object/new:biolinkml.meta.ClassDefinitionName
+- alt_description
+document_category: !!python/object/new:biolinkml.meta.ClassDefinitionName
+- alt_description
+fields:
+- description: the source of an attributed description
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - alt_description_source
+  id: source
+- description: text of an attributed description
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - alt_description_text
+  id: description
+id: alt_description
+schema_generating: true
+weight: 20

@@ -1,0 +1,9 @@
+Usage: gen-jsonld-context [OPTIONS] YAMLFILE
+
+  Generate jsonld @context definition from biolink model
+
+Options:
+  -f, --format [json]  Output format
+  -o, --output TEXT    Output file name
+  --base TEXT          Base URI for model
+  --help               Show this message and exit.
