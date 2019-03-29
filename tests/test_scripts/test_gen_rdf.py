@@ -33,14 +33,14 @@ class GenRDFTestCase(ClickTestCase):
     def test_help(self):
         self.do_test("--help", 'help', bypass_soft_compare=True)
 
-    # This fails at the moment because we aren't using a good RDF comparator
-    @unittest.expectedFailure
     def test_meta(self):
         """ Test the RDF generator on the metamodel """
         meta_context_path = urljoin('file:', os.path.join(self.test_base_dir, 'gencontext', 'meta_context.jsonld'))
         self.maxDiff = None
-        self.do_test(source_yaml_path + f" --context {meta_context_path}", 'meta.ttl', filtr=filtr)
-        self.do_test(source_yaml_path + f' -f n3  --context {meta_context_path}', 'meta.n3', filtr=filtr)
+        self.do_test(source_yaml_path + f" --context {meta_context_path}", 'meta.ttl', filtr=filtr,
+                     comparator=ClickTestCase.rdf_comparator)
+        self.do_test(source_yaml_path + f' -f n3  --context {meta_context_path}', 'meta.n3', filtr=filtr,
+                     comparator=ClickTestCase.rdf_comparator)
         self.do_test(source_yaml_path + f' -f xsv  --context {meta_context_path}', 'meta_error',
                      error=click.exceptions.BadParameter)
 

@@ -222,7 +222,7 @@ class {self.class_or_type_name(cls.name)}{parentref}:{wrapped_description}
         else:
             initializers = []
 
-        is_root = not cls.is_a
+        is_root = not cls.is_a and not ancestor_path
         is_leaf = target_class == cls
         if cls.slots:
             initializers += ['', f"# === {cls.name} ==="]

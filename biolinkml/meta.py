@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by pythongen.py version: 0.2.0
-# Generation date: 2019-03-16 11:11
+# Generation date: 2019-03-27 17:52
 # Schema: metamodel
 #
 # id: http://w3id.org/biolink/biolinkml/meta
@@ -13,10 +13,10 @@ from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.metamodelcore import Bool, NCName, URI, URIorCURIE, XSDDate
 from includes.types import Boolean, Datetime, Integer, Ncname, String, Uri, Uriorcurie
 
-metamodel_version = "1.1.2"
+metamodel_version = "1.2.0"
 
-inherited_slots: List[str] = ["domain", "range", "multivalued", "inherited", "readonly", "ifabsent", "required",
-                              "inlined", "key", "identifier", "base", "repr"]
+inherited_slots: List[str] = ["defining_slots", "domain", "range", "multivalued", "inherited", "readonly", "ifabsent",
+                              "required", "inlined", "key", "identifier", "base", "repr"]
 
 
 # Types
@@ -117,7 +117,7 @@ class SchemaDefinition(Element):
     """
 
     # === element ===
-    name: Union[str, SchemaDefinitionName]
+    name: Union[str, SchemaDefinitionName] = None
     id_prefixes: List[Union[str, NCName]] = empty_list()
     aliases: List[str] = empty_list()
     local_names: Union[dict, "LocalName"] = empty_dict()
@@ -195,7 +195,7 @@ class TypeDefinition(Element):
     """
 
     # === element ===
-    name: Union[str, TypeDefinitionName]
+    name: Union[str, TypeDefinitionName] = None
     id_prefixes: List[Union[str, NCName]] = empty_list()
     aliases: List[str] = empty_list()
     local_names: Union[dict, "LocalName"] = empty_dict()
@@ -235,7 +235,7 @@ class SubsetDefinition(Element):
     """
 
     # === element ===
-    name: Union[str, SubsetDefinitionName]
+    name: Union[str, SubsetDefinitionName] = None
     id_prefixes: List[Union[str, NCName]] = empty_list()
     aliases: List[str] = empty_list()
     local_names: Union[dict, "LocalName"] = empty_dict()
@@ -267,7 +267,7 @@ class Definition(Element):
     """
 
     # === element ===
-    name: Union[str, DefinitionName]
+    name: Union[str, DefinitionName] = None
     id_prefixes: List[Union[str, NCName]] = empty_list()
     aliases: List[str] = empty_list()
     local_names: Union[dict, "LocalName"] = empty_dict()
@@ -311,7 +311,7 @@ class SlotDefinition(Definition):
     """
 
     # === element ===
-    name: Union[str, SlotDefinitionName]
+    name: Union[str, SlotDefinitionName] = None
     id_prefixes: List[Union[str, NCName]] = empty_list()
     aliases: List[str] = empty_list()
     local_names: Union[dict, "LocalName"] = empty_dict()
@@ -379,7 +379,7 @@ class ClassDefinition(Definition):
     """
 
     # === element ===
-    name: Union[str, ClassDefinitionName]
+    name: Union[str, ClassDefinitionName] = None
     id_prefixes: List[Union[str, NCName]] = empty_list()
     aliases: List[str] = empty_list()
     local_names: Union[dict, "LocalName"] = empty_dict()

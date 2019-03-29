@@ -10,9 +10,10 @@ from typing import Union, List, Optional, Callable
 
 # Make sure you import click from here rather than the root
 import click
-
 # Stop click from doing a sys.exit
-from tests.test_scripts import testscriptstempdir
+from rdflib import Graph, Namespace
+from rdflib.compare import to_isomorphic, graph_diff
+
 from tests.utils.compare_directories import are_dir_trees_equal
 from tests.utils.dirutils import make_and_clear_directory
 
@@ -32,6 +33,7 @@ def metadata_filter(s: str) -> str:
     return re.sub(r'(# Auto generated from ).*(\.yaml by pythongen\.py version:) .*', r'\1\2',
                   re.sub(r'(# Generation date:) .*', r'\1', re.sub(r'\r\n', '\n', s))).strip()
 
+MMNS = Namespace("http://w3id.org/biolink/biolinkml/meta/")
 
 class ClickTestCase(unittest.TestCase):
     # The four variables below must be set by the inheriting class
@@ -67,6 +69,41 @@ class ClickTestCase(unittest.TestCase):
             assert False, "Tests failed because baseline files were being created"
 
     @staticmethod
+    def _print_triples(g: Graph):
+        g.bind('meta', MMNS)
+        g_text = re.sub(r'@prefix.*\n', '', g.serialize(format="turtle").decode())
+        print(g_text)
+
+    def rdf_comparator(self, old_data: str, new_data: str) -> bool:
+        old_graph = Graph()
+        new_graph = Graph()
+        old_graph.parse(data=old_data, format="turtle")
+        new_graph.parse(data=new_data, format="turtle")
+        old_iso = to_isomorphic(old_graph)
+        # Remove the metadata specific triples
+        for t in list(old_iso.triples((None, MMNS.generation_date, None))):
+            old_iso.remove(t)
+        new_iso = to_isomorphic(new_graph)
+        for t in list(new_iso.triples((None, MMNS.generation_date, None))):
+            new_iso.remove(t)
+        # Graph compare takes a Looong time
+        in_both, in_old, in_new = graph_diff(old_iso, new_iso)
+        # if old_iso != new_iso:
+        #     in_both, in_old, in_new = graph_diff(old_iso, new_iso)
+        old_len = len(list(in_old))
+        new_len = len(list(in_new))
+        if old_len or new_len:
+            if old_len:
+                print("----- Old graph only -----")
+                self._print_triples(in_old)
+            if new_len:
+                print("----- New Grapn Only -----")
+                self._print_triples(in_new)
+            self.assertTrue(False, "RDF file mismatch")
+            return False
+        return True
+
+    @staticmethod
     def closein_comparison(old_txt: str, new_txt: str) -> None:
         """ Assist with testing comparison -- zero in on the first difference in a big string
 
@@ -89,7 +126,8 @@ class ClickTestCase(unittest.TestCase):
 
     def do_test(self, args: Union[str, List[str]], testfile: Optional[str] = "", *, error: type(Exception) = None,
                 filtr: Optional[Callable[[str], str]] = None, tox_wrap_fix: bool = False,
-                bypass_soft_compare: bool = False, dirbase: Optional[str]=None) -> None:
+                bypass_soft_compare: bool = False, dirbase: Optional[str] = None,
+                comparator: Callable[[type(unittest.TestCase), str, str, str], bool] = None) -> None:
         """ Execute a command test
 
         @param args: Argument string or list to command
@@ -100,6 +138,7 @@ class ClickTestCase(unittest.TestCase):
         file before failing
         @param bypass_soft_compare: True means not to use the class level soft compare
         @param dirbase: If present, compare tmpdir_path (new) to testdir_path(old)
+        @param comparator: If present, use this method for comparison
         """
         new_directory = os.path.join(self.tmpdir_path, dirbase) if dirbase else None
 
@@ -145,19 +184,21 @@ class ClickTestCase(unittest.TestCase):
                 if filtr:
                     old_txt = filtr(old_txt)
 
-                if old_txt != new_txt and tox_wrap_fix:
+                if old_txt != new_txt and not comparator and tox_wrap_fix:
                     old_txt = textwrap.fill(old_txt, 60)
                     new_txt = textwrap.fill(new_txt, 60)
-                compare_result = old_txt == new_txt
+                compare_result = (old_txt == new_txt) if not comparator else comparator(self, old_txt, new_txt)
 
                 # If necessary, update the test file
                 if not compare_result:
                     if self.soft_compare and not bypass_soft_compare:
                         print(f"{self.id()}: {self.soft_compare}")
-                    else:
+                    elif not comparator:
                         if len(old_txt) > 10000:
                             print(self.closein_comparison(old_txt, new_txt))
                         self.assertEqual(old_txt, new_txt)
+                    else:
+                        self.assertFalse(True, "Mismatch")
 
     def temp_directory(self, base: str) -> str:
         """
@@ -170,6 +211,7 @@ class ClickTestCase(unittest.TestCase):
         new_directory = os.path.join(self.tmpdir_path, base)
         make_and_clear_directory(new_directory)
         return new_directory
+
 
 if __name__ == '__main__':
     unittest.main()

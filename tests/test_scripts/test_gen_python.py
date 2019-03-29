@@ -2,6 +2,8 @@ import os
 import unittest
 
 # This has to occur post ClickTestCase
+from types import ModuleType
+
 import click
 
 
@@ -20,21 +22,33 @@ class GenPythonTestCase(ClickTestCase):
         yaml_path = os.path.abspath(os.path.join(sourcedir, f"{base}.yaml"))
         target_path = os.path.join(targetdir, f'{base}.py')
         master_path = os.path.join(sourcedir, f'{base}.py')
-        pydata = str(PythonGenerator(yaml_path, "py", emit_metadata=False).serialize())
-        with open(target_path, 'w') as pyfile:
-            pyfile.write(pydata)
 
+        pydata = str(PythonGenerator(yaml_path, "py", emit_metadata=False).serialize())
+        newdat = metadata_filter(pydata)
+
+        # If the master for comparison doesn't exist, create it
         if not os.path.exists(master_path):
             with open(master_path, 'w') as mf:
-                mf.write(pydata)
+                mf.write(newdat)
             self.assertFalse(True, f"Regenerated {os.path.basename(master_path)} - rerun to complete test")
 
-        with open(target_path) as newf:
-            newdat = metadata_filter(newf.read())
-            with open(master_path) as oldf:
-                olddat = metadata_filter(oldf.read())
-                self.maxDiff = None
-        self.assertEqual(olddat, newdat)
+        # Compare the current master with what we've generated
+        with open(master_path) as oldf:
+            olddat = oldf.read()
+        if olddat != newdat:
+            # Save the old if we're different
+            with open(target_path, 'w') as newf:
+                newf.write(pydata)
+            self.maxDiff = None
+            self.assertEqual(olddat, newdat)
+
+        # Make sure the python is valid
+        spec = compile(pydata, 'test', 'exec')
+        module = ModuleType('test')
+        exec(spec, module.__dict__)
+
+        if os.path.exists(target_path):
+            os.remove(target_path)
 
     def test_help(self):
         self.do_test("--help", 'help')
@@ -75,6 +89,14 @@ types:
     def test_type_inheritence(self):
         """ Make sure that typeof's get represented correctly """
         self.gen_and_comp_python('testtypes')
+
+    def test_inherited_identifiers(self):
+        self.gen_and_comp_python('inheritedid')
+
+    # This still needs to be fixed
+    @unittest.expectedFailure
+    def test_ordering(self):
+        self.gen_and_comp_python('ordering')
 
 
 if __name__ == '__main__':

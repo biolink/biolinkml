@@ -21,10 +21,10 @@ class PythonGenTestCase(unittest.TestCase):
             with open(master_python) as oldf:
                 olddat = metadata_filter(oldf.read())
                 self.maxDiff = None
-        if olddat != newdat:
-            print("-" * 80)
-            print(pydata)
-            print('-' * 80)
+        # if olddat != newdat:
+        #     print("-" * 80)
+        #     print(pydata)
+        #     print('-' * 80)
         self.assertEqual(olddat, newdat,
                          f'\n{master_python} does not match output -- Latest output is in tests/target directory')
 
