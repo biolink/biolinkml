@@ -10,6 +10,8 @@
 # `Pipfile.lock` and then regenerate `requirements*.txt`.
 ################################################################################
 
--e .
+jupyter
 pipenv-to-requirements
+tox
+tox-pipenv
 unittest2

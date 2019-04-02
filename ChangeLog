@@ -1,6 +1,12 @@
 CHANGES
 =======
 
+v0.6.1
+------
+
+* Update jupyter notebook example
+* Bumped metamodel version number
+* Bumped metamodel version number
 * Update the example notebook.  0.6.0 release
 
 v0.6.0

@@ -1,5 +1,5 @@
 {
-   "_comments": "Auto generated from meta.yaml by jsonldcontextgen.py version: 0.0.2\nGeneration date: 2019-03-18 11:04\nSchema: metamodel\n\nid: http://w3id.org/biolink/biolinkml/meta\ndescription: A metamodel for defining biolink related schemas\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
+   "_comments": "Auto generated from meta.yaml by jsonldcontextgen.py version: 0.0.2\nGeneration date: 2019-04-01 19:09\nSchema: metamodel\n\nid: http://w3id.org/biolink/biolinkml/meta\ndescription: A metamodel for defining biolink related schemas\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
    "@context": {
       "_comments": null,
       "type": "@type",
@@ -77,6 +77,9 @@
       },
       "is_a": {
          "@type": "@id"
+      },
+      "is_usage_slot": {
+         "@type": "xsd:boolean"
       },
       "key": {
          "@type": "xsd:boolean"
@@ -176,4 +179,3 @@
       "@base": "http://w3id.org/biolink/biolinkml"
    }
 }
-

@@ -46,8 +46,8 @@ class GenRDFTestCase(ClickTestCase):
 
     def test_make_script(self):
         """ Test a relative file path in JSON """
-        self.do_test(source_yaml_path + f" --context {os.path.relpath(source_context_path, os.getcwd())}",
-                     'make_output.ttl', filtr=filtr)
+        self.do_test(source_yaml_path + f" --context {source_context_path}",
+                     'make_output.ttl', filtr=filtr, comparator=ClickTestCase.rdf_comparator)
 
 
 if __name__ == '__main__':

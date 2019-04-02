@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by pythongen.py version: 0.2.0
-# Generation date: 2019-03-27 17:52
+# Generation date: 2019-04-01 19:05
 # Schema: metamodel
 #
 # id: http://w3id.org/biolink/biolinkml/meta
@@ -15,8 +15,9 @@ from includes.types import Boolean, Datetime, Integer, Ncname, String, Uri, Urio
 
 metamodel_version = "1.2.0"
 
-inherited_slots: List[str] = ["defining_slots", "domain", "range", "multivalued", "inherited", "readonly", "ifabsent",
-                              "required", "inlined", "key", "identifier", "base", "repr"]
+inherited_slots: List[str] = ["class_uri", "defining_slots", "domain", "range", "slot_uri", "multivalued", "inherited",
+                              "readonly", "ifabsent", "required", "inlined", "key", "identifier", "base", "type_uri",
+                              "repr"]
 
 
 # Types
@@ -351,6 +352,7 @@ class SlotDefinition(Definition):
     identifier: Optional[Bool] = None
     alias: Optional[str] = None
     subproperty_of: Optional[Union[str, URIorCURIE]] = None
+    is_usage_slot: Optional[Bool] = None
 
     def _fix_elements(self):
         super()._fix_elements()

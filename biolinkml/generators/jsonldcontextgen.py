@@ -84,11 +84,12 @@ license: {be(self.schema.license)}
     def visit_class(self, cls: ClassDefinition) -> bool:
         class_def = {}
         cn = camelcase(cls.name)
+        self.add_mappings(cls, class_def)
         cls_prefix = self.namespaces.prefix_for(cls.class_uri)
         if not self.default_ns or not cls_prefix or cls_prefix != self.default_ns:
             class_def['@id'] = cls.class_uri
             if cls_prefix:
-                self.emit_prefixes.add(cls_prefix)
+                self.add_prefix(cls_prefix)
         if class_def:
             self.slot_class_maps[cn] = class_def
 
@@ -100,9 +101,7 @@ license: {be(self.schema.license)}
             slot_def = '@id'
         else:
             slot_def = {}
-            # TODO: clean up slot_usage items and figure out what we want to do here
-            # Proxy for a slot_usage entry for the moment
-            if not slot.is_a:
+            if not slot.is_usage_slot:
                 if slot.range in self.schema.classes:
                     slot_def['@type'] = '@id'
                 else:
@@ -117,9 +116,8 @@ license: {be(self.schema.license)}
                 if not self.default_ns or not slot_prefix or slot_prefix != self.default_ns:
                     slot_def['@id'] = slot.slot_uri
                     if slot_prefix:
-                        self.emit_prefixes.add(slot_prefix)
-                # if slot.multivalued:
-                #     slot_def['@container'] = '@list'
+                        self.add_prefix(slot_prefix)
+                self.add_mappings(slot, slot_def)
         if slot_def:
             self.context_body[underscore(aliased_slot_name)] = slot_def
 
@@ -133,6 +131,29 @@ license: {be(self.schema.license)}
             self.namespaces[ncname] = f"http://example.org/UNKNOWN/{ncname}/"
         self.emit_prefixes.add(ncname)
 
+    def add_mappings(self, defn: Definition, target: Dict) -> None:
+        """
+        Process any mappings in defn, adding all of the mappings prefixes to the namespace map
+        :param defn: Class or Slot Definition
+        :param target: context target
+        """
+        self.add_id_prefixes(defn)
+        for mapping in defn.mappings:
+            if '://' in mapping:
+                mcurie = self.namespaces.curie_for(mapping)
+                print(f"No namespace defined for URI: {mapping}")
+                if mcurie is None:
+                    return        # Absolute path - no prefix/name
+                else:
+                    mapping = mcurie
+            if ':' not in mapping or len(mapping.split(':')) != 2:
+                raise ValueError(f"Definition {defn.name} - unrecognized mapping: {mapping}")
+            ns = mapping.split(':')[0]
+            self.add_prefix(ns)
+
+    def add_id_prefixes(self, element: Element) -> None:
+        for id_prefix in element.id_prefixes:
+            self.add_prefix(id_prefix)
 
 
 @click.command()

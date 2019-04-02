@@ -12,6 +12,7 @@ from biolinkml.meta import SchemaDefinition, SlotDefinition, ClassDefinition, Cl
 from biolinkml.utils.formatutils import camelcase, underscore, be, wrapped_annotation, split_line
 from biolinkml.utils.generator import Generator
 from biolinkml.utils.metamodelcore import builtinnames
+from includes import types
 
 
 class PythonGenerator(Generator):
@@ -85,12 +86,18 @@ metamodel_version = "{self.schema.metamodel_version}"
 
             def add_element(self, e: Element) -> None:
                 if e.imported_from:
-                    anchor_path = os.path.dirname(self.schema_location)
-                    # TODO: Need to test absolute import paths as well as URI's
-                    abs_import_path = os.path.join(anchor_path, e.imported_from)
-                    python_base_dir = os.path.dirname(os.path.dirname(inspect.getfile(biolinkml)))
-                    python_import_dir = os.path.relpath(abs_import_path, python_base_dir)
-                    self.v.setdefault(python_import_dir.replace('/', '.'), set()).add(camelcase(e.name))
+                    if str(e.imported_from) == biolinkml.METATYPE_URI:
+                        # TODO: figure out how to make this sort of stuff part of the model
+                        self.v.setdefault(types.__name__, set()).add(camelcase(e.name))
+                    elif e.imported_from.__contains__('://'):
+                        raise(NotImplementedError, f"Cannot map {e.imported_from} into a python import statement")
+                    else:
+                        anchor_path = os.path.dirname(self.schema_location)
+                        abs_import_path = os.path.join(anchor_path, e.imported_from) \
+                            if not os.path.isabs(e.imported_from) else e.imported_from
+                        python_base_dir = os.path.dirname(os.path.dirname(inspect.getfile(biolinkml)))
+                        python_import_dir = os.path.relpath(abs_import_path, python_base_dir)
+                        self.v.setdefault(python_import_dir.replace('/', '.'), set()).add(camelcase(e.name))
 
             def add_entry(self, path: str, name: str) -> None:
                 self.v.setdefault(path.replace('/', '.'), set()).add(name)

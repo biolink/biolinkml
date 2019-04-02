@@ -64,9 +64,10 @@ class SchemaLoader:
 
         # Process imports
         for sname in self.schema.imports:
-            if sname not in self.loaded:
-                self.loaded.add(sname)
-                merge_schemas(self.schema, load_raw_schema(sname + '.yaml', base_dir=self.base_dir), sname,
+            sloc = self.namespaces.uri_for(sname) if ':' in sname else sname
+            if sloc not in self.loaded:
+                self.loaded.add(sloc)
+                merge_schemas(self.schema, load_raw_schema(sloc + '.yaml', base_dir=self.base_dir), sloc,
                               self.namespaces)
 
         # Massage initial set of slots
@@ -85,11 +86,9 @@ class SchemaLoader:
                 elif not slot.required:
                     self.raise_value_error(f"slot: {slot.name} - key and identifier slots cannot be optional")
 
-            # Add default ranges
-            if slot.range is None:
-                slot.range = self.schema.default_range
-            elif slot.range not in self.schema.types and slot.range not in self.schema.classes \
-                    and slot.range != self.schema.default_range:
+            # Validate the slot range
+            if slot.range is not None and  slot.range not in self.schema.types and \
+                    slot.range not in self.schema.classes:
                 self.raise_value_error(f"slot: {slot.name} - unrecognized range ({slot.range})")
 
         # Massage classes, propagating class slots entries domain back to the target slots
@@ -127,6 +126,9 @@ class SchemaLoader:
             if not slot.from_schema:
                 slot.from_schema = self.schema.id
             self.merge_slot(slot, merged_slots)
+            # Add default ranges
+            if slot.range is None:
+                slot.range = self.schema.default_range
 
         # Update classes with parental information
         merged_classes: List[ClassDefinitionName] = []
@@ -286,7 +288,7 @@ class SchemaLoader:
                 child_name = slotname
             else:
                 child_name = slot_usage_name(slotname, cls)
-            new_slot = SlotDefinition(name=child_name, alias=slotname, domain=cls.name)
+            new_slot = SlotDefinition(name=child_name, alias=slotname, domain=cls.name, is_usage_slot=True)
             self.schema.slots[child_name] = new_slot
             merge_slots(new_slot, slot_usage)
 

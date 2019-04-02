@@ -60,6 +60,12 @@ def merge_dicts(target: Dict[str, Element], source: Dict[str, Element], imported
 
 def merge_slots(target: Union[SlotDefinition, TypeDefinition], source: Union[SlotDefinition, TypeDefinition],
                 skip: List[Union[SlotDefinitionName, TypeDefinitionName]] = None) -> None:
+    """
+    Merge slot source into target
+    :param target: slot to merge into
+    :param source: slot to be merged from
+    :param skip: Properties to not merge (used to prevent provenance such as 'inherited from' from propagating)
+    """
     if skip is None:
         skip = []
     for k, v in dataclasses.asdict(source).items():

@@ -364,6 +364,7 @@ slots:
   class_uri:
     domain: class_definition
     range: uriorcurie
+    inherited: true
     description: URI of the class in an RDF environment
     ifabsent: set to <default prefix>:<class name>
 
@@ -432,6 +433,7 @@ slots:
   slot_uri:
     domain: slot_definition
     range: uri
+    inherited: true
     ifabsent: set to <default prefix>:<slot name>
     description: predicate of this slot for semantic web application
 
@@ -515,6 +517,12 @@ slots:
       the name used for a slot in the context of its owning class.  If present, this is used instead of the actual
       slot name.
 
+  is_usage_slot:
+    domain: slot_definition
+    range: boolean
+    description: True means that this slot was defined in a slot_usage situation
+    readonly: filled in by the loader
+
   subproperty_of:
     domain: slot_definition
     range: uriorcurie
@@ -569,6 +577,7 @@ slots:
     domain: type_definition
     range: uriorcurie
     alias: uri
+    inherited: true
     description: The uri that defines the possible values for the type definition
     comments:
       - uri is typically drawn from the set of URI's defined in OWL (https://www.w3.org/TR/2012/REC-owl2-syntax-20121211/#Datatype_Maps)
