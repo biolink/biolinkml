@@ -1,18 +1,18 @@
 {
    "name": "types",
    "description": "Shared type definitions",
-   "id": "http://w3id.org/biolink/biolinkml/types",
+   "id": "https://w3id.org/biolink/biolinkml/types",
    "title": "Core Biolink metamodel types",
    "version": "1.0.2",
    "license": "https://creativecommons.org/publicdomain/zero/1.0/",
    "prefixes": [
       {
          "prefix_prefix": "meta",
-         "prefix_reference": "http://w3id.org/biolink/biolinkml/meta/"
+         "prefix_reference": "https://w3id.org/biolink/biolinkml/meta/"
       },
       {
          "prefix_prefix": "metatype",
-         "prefix_reference": "http://w3id.org/biolink/biolinkml/type/"
+         "prefix_reference": "https://w3id.org/biolink/biolinkml/type/"
       },
       {
          "prefix_prefix": "xsd",
@@ -24,32 +24,32 @@
    "types": [
       {
          "name": "string",
-         "from_schema": "http://w3id.org/biolink/biolinkml/types",
+         "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "str",
          "uri": "xsd:string"
       },
       {
          "name": "integer",
-         "from_schema": "http://w3id.org/biolink/biolinkml/types",
+         "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "int",
          "uri": "xsd:integer"
       },
       {
          "name": "boolean",
          "description": "A binary (true or false) value",
-         "from_schema": "http://w3id.org/biolink/biolinkml/types",
+         "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "Bool",
          "uri": "xsd:boolean"
       },
       {
          "name": "float",
-         "from_schema": "http://w3id.org/biolink/biolinkml/types",
+         "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "float",
          "uri": "xsd:float"
       },
       {
          "name": "double",
-         "from_schema": "http://w3id.org/biolink/biolinkml/types",
+         "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "float",
          "uri": "xsd:double"
       },
@@ -59,7 +59,7 @@
          "notes": [
             "URI is dateTime because OWL reasoners don't work with straight date or time"
          ],
-         "from_schema": "http://w3id.org/biolink/biolinkml/types",
+         "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "XSDTime",
          "uri": "xsd:dateTime",
          "repr": "str"
@@ -70,14 +70,14 @@
          "notes": [
             "URI is dateTime because OWL reasoners don't work with straight date or time"
          ],
-         "from_schema": "http://w3id.org/biolink/biolinkml/types",
+         "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "XSDDateTime",
          "uri": "xsd:dateTime",
          "repr": "str"
       },
       {
          "name": "datetime",
-         "from_schema": "http://w3id.org/biolink/biolinkml/types",
+         "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "XSDDate",
          "uri": "xsd:dateTime",
          "repr": "str"
@@ -85,7 +85,7 @@
       {
          "name": "uriorcurie",
          "description": "a URI or a CURIE",
-         "from_schema": "http://w3id.org/biolink/biolinkml/types",
+         "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "URIorCURIE",
          "uri": "xsd:anyURI",
          "repr": "str"
@@ -93,7 +93,7 @@
       {
          "name": "uri",
          "description": "a complete URI",
-         "from_schema": "http://w3id.org/biolink/biolinkml/types",
+         "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "URI",
          "uri": "xsd:anyURI",
          "repr": "str"
@@ -101,7 +101,7 @@
       {
          "name": "ncname",
          "description": "Prefix part of CURIE",
-         "from_schema": "http://w3id.org/biolink/biolinkml/types",
+         "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "NCName",
          "uri": "xsd:string",
          "repr": "str"

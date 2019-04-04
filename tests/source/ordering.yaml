@@ -4,7 +4,7 @@ description: Test
 license: https://creativecommons.org/publicdomain/zero/1.0/
 
 prefixes:
-  biolinkml: http://w3id.org/biolink/biolinkml/
+  biolinkml: https://w3id.org/biolink/biolinkml/
 
 default_prefix: biolinkml
 default_range: string

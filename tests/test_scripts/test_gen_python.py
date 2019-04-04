@@ -61,7 +61,7 @@ class GenPythonTestCase(ClickTestCase):
 
     def test_head(self):
         """ Validate the head/nohead parameter """
-        yaml = '''id: "http://w3id.org/biolink/metamodel"
+        yaml = '''id: "https://w3id.org/biolink/metamodel"
 description: Metamodel for biolink schema
 license: https://creativecommons.org/publicdomain/zero/1.0/
 version: 0.4.0
@@ -76,7 +76,7 @@ types:
         self.assertTrue(output.startswith(f'# Auto generated from None by pythongen.py version: '
                                           f'{PythonGenerator.generatorversion}'))
         output = PythonGenerator(yaml, "py", emit_metadata=False).serialize()
-        self.assertTrue(output.startswith('\n# id: http://w3id.org/biolink/metamodel'))
+        self.assertTrue(output.startswith('\n# id: https://w3id.org/biolink/metamodel'))
 
     def test_multi_id(self):
         """ Test the multi-identifier error """

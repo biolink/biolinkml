@@ -1,14 +1,14 @@
 import os
 import unittest
-import click
-from CFGraph import CFGraph
-from pyshex import ShExEvaluator
 
-from biolinkml import METAMODEL_NAMESPACE, METAMODEL_URI
+import click
+from biolinkml import METAMODEL_NAMESPACE
 from biolinkml.generators.jsonldcontextgen import ContextGenerator
+from biolinkml.generators.jsonldgen import JSONLDGenerator
 from biolinkml.generators.rdfgen import RDFGenerator
 from biolinkml.generators.shexgen import cli, ShExGenerator
-from biolinkml.generators.jsonldgen import JSONLDGenerator
+from pyshex import ShExEvaluator
+from rdflib import Graph
 from tests import source_yaml_path
 from tests.test_scripts.clicktestcase import ClickTestCase
 from tests.utils.dirutils import make_and_clear_directory
@@ -54,7 +54,7 @@ class GenShExTestCase(ClickTestCase):
         ShExGenerator(source_yaml_path).serialize(output=shex_file, collections=False)
         self.assertTrue(os.path.exists(shex_file))
 
-        g = CFGraph()
+        g = Graph()
         g.load(rdf_file, format='ttl')
         focus = METAMODEL_NAMESPACE.metamodel
         start = METAMODEL_NAMESPACE.SchemaDefinition

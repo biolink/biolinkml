@@ -5,5 +5,5 @@ Usage: gen-jsonld [OPTIONS] YAMLFILE
 Options:
   -f, --format [jsonld]  Output format
   --context TEXT         JSONLD context file (default:
-                         http://w3id.org/biolink/biolinkml/context.jsonld)
+                         https://w3id.org/biolink/biolinkml/context.jsonld)
   --help                 Show this message and exit.

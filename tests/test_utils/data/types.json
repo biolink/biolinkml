@@ -4,14 +4,14 @@
    "id_prefixes": [
       "xsd"
    ],
-   "id": "http://w3id.org/biolink/metamodel/includes/types",
+   "id": "https://w3id.org/biolink/metamodel/includes/types",
    "title": "Core Biolink model types",
    "version": "1.0.0",
    "license": "https://creativecommons.org/publicdomain/zero/1.0/",
    "prefixes": [
       {
          "local_name": "meta",
-         "prefix_uri": "http://w3id.org/biolink/metamodel/"
+         "prefix_uri": "https://w3id.org/biolink/metamodel/"
       },
       {
          "local_name": "xsd",

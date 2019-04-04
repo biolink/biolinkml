@@ -7,8 +7,10 @@ from typing import Union, TextIO, Optional, List, cast
 import click
 from ShExJSG import ShExC
 from ShExJSG.SchemaWithContext import Schema
-from ShExJSG.ShExJ import Shape, IRIREF, ShapeAnd, EachOf, TripleConstraint, NodeConstraint, ShapeOr
+from ShExJSG.ShExJ import Shape, IRIREF, ShapeAnd, EachOf, TripleConstraint, NodeConstraint, ShapeOr, tripleExprLabel, \
+    OneOf
 from jsonasobj import as_json
+from pyjsg.jsglib import isinstance_
 from rdflib import Graph, OWL, RDF, Namespace, XSD
 
 from biolinkml import METAMODEL_LOCAL_NAME, METAMODEL_NAMESPACE
@@ -64,7 +66,7 @@ class ShExGenerator(Generator):
         return True
 
     def end_class(self, cls: ClassDefinition) -> None:
-        if cls.is_a and self._class_has_expressions(cls.is_a):
+        if cls.is_a:
             self._add_constraint(self.namespaces.uri_for(camelcase(cls.is_a) + "_t"))
         for mixin in cls.mixins:
             if self._class_has_expressions(mixin):
@@ -74,7 +76,10 @@ class ShExGenerator(Generator):
                 if self._class_has_expressions(applyto):
                     self._add_constraint(self.namespaces.uri_for(camelcase(applyto) + '_t'))
         if self.shape.expression:
-            self.shape.expression.id = self.namespaces.uri_for(cls.class_uri + "_t")
+            # TODO: Figure out how to label a single triple expression
+            if isinstance_(self.shape.expression, tripleExprLabel):
+                self.shape.expression = OneOf(expressions=[self.shape.expression, self.shape.expression])
+            self.shape.expression.id = self.namespaces.uri_for(camelcase(cls.name) + "_t")
 
         self.shape.closed = True
         self.shape.extra = [RDF.type]

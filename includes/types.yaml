@@ -1,14 +1,14 @@
 title: Core Biolink metamodel types
 name: types
-id: http://w3id.org/biolink/biolinkml/types
+id: https://w3id.org/biolink/biolinkml/types
 
 description: Shared type definitions
 license: https://creativecommons.org/publicdomain/zero/1.0/
 version: 1.0.2
 
 prefixes:
-  meta: http://w3id.org/biolink/biolinkml/meta/
-  metatype: http://w3id.org/biolink/biolinkml/type/
+  meta: https://w3id.org/biolink/biolinkml/meta/
+  metatype: https://w3id.org/biolink/biolinkml/type/
   xsd: http://www.w3.org/2001/XMLSchema#
 
 default_prefix: metatype

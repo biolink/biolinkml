@@ -33,7 +33,7 @@ def metadata_filter(s: str) -> str:
     return re.sub(r'(# Auto generated from ).*(\.yaml by pythongen\.py version:) .*', r'\1\2',
                   re.sub(r'(# Generation date:) .*', r'\1', re.sub(r'\r\n', '\n', s))).strip()
 
-MMNS = Namespace("http://w3id.org/biolink/biolinkml/meta/")
+MMNS = Namespace("https://w3id.org/biolink/biolinkml/meta/")
 
 class ClickTestCase(unittest.TestCase):
     # The four variables below must be set by the inheriting class
@@ -207,7 +207,8 @@ class ClickTestCase(unittest.TestCase):
         :param base:
         :return: directory
         """
-        make_and_clear_directory(self.tmpdir_path)
+        if not os.path.exists(self.tmpdir_path):
+            make_and_clear_directory(self.tmpdir_path)
         new_directory = os.path.join(self.tmpdir_path, base)
         make_and_clear_directory(new_directory)
         return new_directory

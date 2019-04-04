@@ -9,7 +9,7 @@ from biolinkml.utils.namespaces import Namespaces
 class NamespacesTestCase(unittest.TestCase):
     def test_namespaces(self):
         ns = Namespaces()
-        ns['meta'] = "http://w3id.org/biolink/metamodel/"
+        ns['meta'] = "https://w3id.org/biolink/metamodel/"
         ns.skos = SKOS
         self.assertEqual(ns.skos, SKOS)
         self.assertEqual(ns.skos.note, SKOS.note)
@@ -60,7 +60,7 @@ class NamespacesTestCase(unittest.TestCase):
         self.assertEqual(SKOS.comment, ns.uri_for("skos:comment"))
         self.assertEqual(URIRef('http://example.org/dc/table'), ns.uri_for("dc:table"))
         self.assertEqual(ns.uri_for("http://something.org"), URIRef("http://something.org"))
-        self.assertEqual('http://w3id.org/biolink/metamodel/Schema', str(ns.uri_for(":Schema")))
+        self.assertEqual('https://w3id.org/biolink/metamodel/Schema', str(ns.uri_for(":Schema")))
         self.assertEqual(URIRef('http://example.org/wrong/Base'), ns.uri_for("Base"))
         del ns._base
         with self.assertRaises(ValueError):

@@ -10,7 +10,7 @@ from prefixcommons import curie_util
 
 
 META_NS = "meta"
-META_URI = "http://w3id.org/biolink/biolinkml/meta"
+META_URI = "https://w3id.org/biolink/biolinkml/meta"
 
 
 class Namespaces(OrderedDict):
@@ -109,7 +109,6 @@ class Namespaces(OrderedDict):
         if ':/' in uri_or_curie:
             uri_or_curie = self.curie_for(uri_or_curie)
         return uri_or_curie.split(':')[0] if uri_or_curie else None
-
 
     def uri_for(self, uri_or_curie: Any) -> URIRef:
         """

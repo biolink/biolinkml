@@ -1,17 +1,9 @@
 import os
 import unittest
-from typing import Dict
-
-from jsonasobj import as_dict
 
 from biolinkml.utils.schemaloader import SchemaLoader
+from jsonasobj import as_dict
 from tests.test_utils import datadir
-
-
-
-yaml4 = '''
-
-'''
 
 
 class ResolverTestCase(unittest.TestCase):
@@ -26,7 +18,7 @@ class ResolverTestCase(unittest.TestCase):
     def test_type_uri(self):
         """ Validate type URI's and the fact that they aren't inherited """
         schema = SchemaLoader(os.path.join(datadir, 'resolver2.yaml')).resolve()
-        self.assertEqual({'string': 'xsd:string', 't1': 'xsd:string', 't2': 'xsd:int', 't3': None},
+        self.assertEqual({'string': 'xsd:string', 't1': 'xsd:string', 't2': 'xsd:int', 't3': 'xsd:string'},
                          {t.name: t.uri for t in schema.types.values()})
 
     def test_element_slots(self):

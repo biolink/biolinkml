@@ -1,7 +1,0 @@
-display_name: !!python/object/new:biolinkml.meta.ClassDefinitionName
-- senstivity quantifier
-document_category: !!python/object/new:biolinkml.meta.ClassDefinitionName
-- senstivity quantifier
-id: senstivity_quantifier
-schema_generating: true
-weight: 20

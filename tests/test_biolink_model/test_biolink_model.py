@@ -2,11 +2,9 @@ import os
 import re
 import unittest
 from types import ModuleType
-from typing import Optional, Callable
+from typing import Optional, Callable, List
 
-from rdflib import Graph, Namespace
-from rdflib.compare import to_isomorphic, graph_diff
-
+from biolinkml import METAMODEL_NAMESPACE, LOCAL_SHEX_PATH, LOCAL_CONTEXT_PATH
 from biolinkml.generators.csvgen import CsvGenerator
 from biolinkml.generators.dotgen import DotGenerator
 from biolinkml.generators.golrgen import GolrSchemaGenerator
@@ -21,13 +19,18 @@ from biolinkml.generators.pythongen import PythonGenerator
 from biolinkml.generators.rdfgen import RDFGenerator
 from biolinkml.generators.shexgen import ShExGenerator
 from biolinkml.utils.generator import Generator
+from pyshex import ShExEvaluator
+from pyshex.shex_evaluator import EvaluationResult
+from rdflib import Graph, Namespace
+from rdflib.compare import to_isomorphic, graph_diff
 from tests.test_scripts.clicktestcase import ClickTestCase, metadata_filter
 from tests.utils.compare_directories import are_dir_trees_equal
 from tests.utils.dirutils import make_and_clear_directory
 
+BIOLINK_NS = Namespace("https://w3id.org/biolink/vocab/")
 
-BIOLINK_NS = Namespace("http://w3id.org/biolink/vocab/")
-
+# ShEx validation of the biolink model takes a loooong time, so we only do it on rare occasions
+DO_SHEX_VALIDATION = False
 
 class CurrentBiolinkModelTestCase(unittest.TestCase):
     cwd = os.path.abspath(os.path.dirname(__file__))
@@ -39,6 +42,7 @@ class CurrentBiolinkModelTestCase(unittest.TestCase):
     @staticmethod
     def _print_triples(g: Graph):
         g.bind('BIOLINK', BIOLINK_NS)
+        g.bind('meta', METAMODEL_NAMESPACE)
         g_text = re.sub(r'@prefix.*\n', '', g.serialize(format="turtle").decode())
         print(g_text)
 
@@ -57,10 +61,10 @@ class CurrentBiolinkModelTestCase(unittest.TestCase):
         new_graph.parse(data=new_data, format="turtle")
         old_iso = to_isomorphic(old_graph)
         # Remove the metadata specific triples
-        for t in list(old_iso.triples((None, BIOLINK_NS.generation_date, None))):
+        for t in list(old_iso.triples((None, METAMODEL_NAMESPACE.generation_date, None))):
             old_iso.remove(t)
         new_iso = to_isomorphic(new_graph)
-        for t in list(new_iso.triples((None, BIOLINK_NS.generation_date, None))):
+        for t in list(new_iso.triples((None, METAMODEL_NAMESPACE.generation_date, None))):
             new_iso.remove(t)
         # Graph compare takes a Looong time
         in_both, in_old, in_new = graph_diff(old_iso, new_iso)
@@ -199,55 +203,48 @@ class CurrentBiolinkModelTestCase(unittest.TestCase):
         """ Test the proto schema generator for the biolink model """
         self.single_file_generator('proto', ProtoGenerator)
 
+    def _evaluate_shex_results(self, results: List[EvaluationResult]) -> bool:
+        """
+        Check the results of the ShEx evaluation
+        :param results: evaluate output
+        :return: success indicator
+        """
+        success = all(r.result for r in results)
+        if not success:
+            for r in results:
+                if not r.result:
+                    print(r.reason)
+        return success
+
     def test_biolink_rdf(self):
         """ Test the rdf generator for the biolink model """
-        # Generate a local context because we may be changing
-        context_file = os.path.join(self.target_path, 'biolink_model.rdf.context.jsonld')
-        ContextGenerator(self.biolink_model_path).serialize(output=context_file)
-        self.assertTrue(os.path.exists(context_file))
-        self.single_file_generator('ttl', RDFGenerator, serialize_args={"context": context_file},
+        self.single_file_generator('ttl', RDFGenerator, serialize_args={"context": LOCAL_CONTEXT_PATH},
                                    comparator=CurrentBiolinkModelTestCase.rdf_comparator)
-        os.remove(context_file)
+
+        # Validate the RDF against the Biolink ShEx
+        if DO_SHEX_VALIDATION:
+            g = Graph()
+            rdf_file = os.path.join(self.source_path, 'biolink_model.ttl')
+            g.load(rdf_file, format='ttl')
+            focus = BIOLINK_NS.biolink_model
+            start = METAMODEL_NAMESPACE.SchemaDefinition
+            results = ShExEvaluator(g, LOCAL_SHEX_PATH, focus, start).evaluate(debug=False)
+            self.assertTrue(self._evaluate_shex_results(results))
+
+        else:
+            print("*** RDF Model validation step was skipped. See: test_biolink_model.DO_SHEX_VALIDATION to run it")
 
     def test_biolink_shex(self):
         """ Test the shex generator for the biolink model """
         self.single_file_generator('shex', ShExGenerator)
-
-    # def test_rdf_shex(self):
-    #     """ Generate ShEx and RDF for the model and verify that the RDF represents a valid instance """
-    #     test_dir = os.path.join(self.target_path, 'rdf_shex')
-    #     make_and_clear_directory(test_dir)
-    #
-    #     json_file = os.path.join(test_dir, 'meta.jsonld')
-    #     json_str = JSONLDGenerator(self.biolink_model_path).serialize()
-    #     with open(json_file, 'w') as f:
-    #         f.write(json_str)
-    #
-    #     context_file = os.path.join(test_dir, 'metacontext.jsonld')
-    #     ContextGenerator(self.biolink_model_path).serialize(output=context_file)
-    #     self.assertTrue(os.path.exists(context_file))
-    #
-    #     rdf_file = os.path.join(test_dir, 'meta.ttl')
-    #     RDFGenerator(self.biolink_model_path).serialize(output=rdf_file, context=context_file)
-    #     self.assertTrue(os.path.exists(rdf_file))
-    #
-    #     shex_file = os.path.join(test_dir, 'meta.shex')
-    #     ShExGenerator(self.biolink_model_path).serialize(output=shex_file, collections=False)
-    #     self.assertTrue(os.path.exists(shex_file))
-    #
-    #     g = Graph()
-    #     g.load(rdf_file, format='ttl')
-    #     focus = METAMODEL_NAMESPACE.metamodel
-    #     start = METAMODEL_NAMESPACE.SchemaDefinition
-    #     results = ShExEvaluator(g, shex_file, focus, start).evaluate(debug=False)
-    #     success = all(r.result for r in results)
-    #     if not success:
-    #         for r in results:
-    #             if not r.result:
-    #                 print(r.reason)
-    #     else:
-    #         make_and_clear_directory(test_dir)
-    #     self.assertTrue(success)
+        shex_file = os.path.join(self.source_path, 'biolink_model.shex')
+        g = Graph()
+        rdf_file = os.path.join(self.source_path, 'statements.ttl')
+        g.load(rdf_file, format='ttl')
+        focus = "http://identifiers.org/drugbank:DB00005"
+        start = BIOLINK_NS.Drug
+        results = ShExEvaluator(g, shex_file, focus, start).evaluate()
+        self.assertTrue(self._evaluate_shex_results(results))
 
 
 if __name__ == '__main__':

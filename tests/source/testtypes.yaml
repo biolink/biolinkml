@@ -2,7 +2,7 @@ id: http://example.org/tests/types
 name: types
 
 prefixes:
-  metatype: http://w3id.org/biolink/biolinkml/types/
+  metatype: https://w3id.org/biolink/biolinkml/types/
   xsd: http://www.w3.org/2001/XMLSchema#
 
 
