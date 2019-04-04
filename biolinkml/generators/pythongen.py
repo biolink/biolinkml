@@ -40,16 +40,13 @@ class PythonGenerator(Generator):
 # description: {split_descripton}
 # license: {be(self.schema.license)}
 
-from typing import Optional, List, Union, Dict
+from typing import Optional, List, Union, Dict, ClassVar
 from dataclasses import dataclass
 from biolinkml.utils.metamodelcore import empty_list, empty_dict
 from biolinkml.utils.yamlutils import YAMLRoot
 {self.gen_imports()}
 
 metamodel_version = "{self.schema.metamodel_version}"
-
-{self.gen_inherited()}
-
 
 # Types
 {self.gen_typedefs()}
@@ -60,14 +57,6 @@ metamodel_version = "{self.schema.metamodel_version}"
 
     def end_schema(self):
         print(re.sub(r' +\n', '\n', self.gen_schema().replace('\t', '    ')).strip(' '), end='')
-
-    def gen_inherited(self) -> str:
-        """ Generate the list of slot properties that are inherited across slot_usage or is_a paths """
-        inherited_head = 'inherited_slots: List[str] = ['
-        inherited_slots = ', '.join([f'"{underscore(slot.name)}"' for slot in self.schema.slots.values()
-                                     if slot.inherited])
-        is_rows = split_line(inherited_slots, 120 - len(inherited_head))
-        return inherited_head + ('\n' + len(inherited_head) * ' ').join([r.strip() for r in is_rows]) + ']'
 
     def gen_imports(self) -> str:
         listents = [f"from {k} import {', '.join(v)}" for k, v in self.gen_import_list().items()]
@@ -186,6 +175,7 @@ metamodel_version = "{self.schema.metamodel_version}"
     def gen_classdef(self, cls: ClassDefinition) -> str:
         """ Generate python definition for class cls """
         parentref = f'({self.formatted_element_name(cls.is_a, True) if cls.is_a else "YAMLRoot"})'
+        inheritedslots = self.gen_inherited_slots(cls)
         slotdefs = self.gen_class_variables(cls)
         postinits = self.gen_postinits(cls)
         if not slotdefs:
@@ -197,8 +187,18 @@ metamodel_version = "{self.schema.metamodel_version}"
         return f'''
 @dataclass
 class {self.class_or_type_name(cls.name)}{parentref}:{wrapped_description}
+    {inheritedslots}
     {slotdefs}
     {postinits}'''
+
+    def gen_inherited_slots(self, cls: ClassDefinition) -> str:
+        inherited_slots = []
+        for slotname in cls.slots:
+            slot = self.schema.slots[slotname]
+            if slot.inherited:
+                inherited_slots.append(slot.alias if slot.alias else slotname)
+        inherited_slots_str = ", ".join([f'"{underscore(s)}"' for s in inherited_slots])
+        return f"_inherited_slots: ClassVar[List[str]] = [{inherited_slots_str}]"
 
     def gen_class_variables(self,
                             cls: ClassDefinition,

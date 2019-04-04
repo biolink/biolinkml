@@ -1,24 +1,19 @@
 # Auto generated from meta.yaml by pythongen.py version: 0.2.0
-# Generation date: 2019-04-01 19:05
+# Generation date: 2019-04-02 15:50
 # Schema: metamodel
 #
-# id: http://w3id.org/biolink/biolinkml/meta
+# id: https://w3id.org/biolink/biolinkml/meta
 # description: A metamodel for defining biolink related schemas
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 
-from typing import Optional, List, Union, Dict
+from typing import Optional, List, Union, Dict, ClassVar
 from dataclasses import dataclass
 from biolinkml.utils.metamodelcore import empty_list, empty_dict
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.metamodelcore import Bool, NCName, URI, URIorCURIE, XSDDate
 from includes.types import Boolean, Datetime, Integer, Ncname, String, Uri, Uriorcurie
 
-metamodel_version = "1.2.0"
-
-inherited_slots: List[str] = ["class_uri", "defining_slots", "domain", "range", "slot_uri", "multivalued", "inherited",
-                              "readonly", "ifabsent", "required", "inlined", "key", "identifier", "base", "type_uri",
-                              "repr"]
-
+metamodel_version = "1.3.0"
 
 # Types
 
@@ -68,6 +63,7 @@ class Element(YAMLRoot):
     """
     a named element in the model
     """
+    _inherited_slots: ClassVar[List[str]] = []
 
     # === element ===
     name: Union[str, ElementName]
@@ -116,6 +112,7 @@ class SchemaDefinition(Element):
     """
     a collection of subset, type, slot and class definitions
     """
+    _inherited_slots: ClassVar[List[str]] = []
 
     # === element ===
     name: Union[str, SchemaDefinitionName] = None
@@ -194,6 +191,7 @@ class TypeDefinition(Element):
     """
     A data type definition.
     """
+    _inherited_slots: ClassVar[List[str]] = ["base", "uri", "repr"]
 
     # === element ===
     name: Union[str, TypeDefinitionName] = None
@@ -234,6 +232,7 @@ class SubsetDefinition(Element):
     """
     the name and description of a subset
     """
+    _inherited_slots: ClassVar[List[str]] = []
 
     # === element ===
     name: Union[str, SubsetDefinitionName] = None
@@ -266,6 +265,7 @@ class Definition(Element):
     """
     base class for definitions
     """
+    _inherited_slots: ClassVar[List[str]] = []
 
     # === element ===
     name: Union[str, DefinitionName] = None
@@ -310,6 +310,7 @@ class SlotDefinition(Definition):
     """
     the definition of a property or a slot
     """
+    _inherited_slots: ClassVar[List[str]] = ["domain", "range", "slot_uri", "multivalued", "inherited", "readonly", "ifabsent", "required", "inlined", "key", "identifier"]
 
     # === element ===
     name: Union[str, SlotDefinitionName] = None
@@ -379,6 +380,7 @@ class ClassDefinition(Definition):
     """
     the definition of a class or interface
     """
+    _inherited_slots: ClassVar[List[str]] = ["class_uri", "defining_slots"]
 
     # === element ===
     name: Union[str, ClassDefinitionName] = None
@@ -441,6 +443,7 @@ class Prefix(YAMLRoot):
     """
     prefix URI tuple
     """
+    _inherited_slots: ClassVar[List[str]] = []
 
     # === prefix ===
     prefix_prefix: Union[str, PrefixPrefixPrefix]
@@ -459,6 +462,7 @@ class LocalName(YAMLRoot):
     """
     an attributed label
     """
+    _inherited_slots: ClassVar[List[str]] = []
 
     # === local_name ===
     local_name_source: Union[str, LocalNameLocalNameSource]
@@ -475,6 +479,7 @@ class Example(YAMLRoot):
     """
     usage example and description
     """
+    _inherited_slots: ClassVar[List[str]] = []
 
     # === example ===
     value: Optional[str] = None
@@ -486,6 +491,7 @@ class AltDescription(YAMLRoot):
     """
     an attributed description
     """
+    _inherited_slots: ClassVar[List[str]] = []
 
     # === alt_description ===
     source: Union[str, AltDescriptionSource]

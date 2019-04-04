@@ -1,21 +1,18 @@
 # Auto generated from types.yaml by pythongen.py version: 0.2.0
-# Generation date: 2019-03-28 17:47
+# Generation date: 2019-04-02 15:49
 # Schema: types
 #
 # id: http://w3id.org/biolink/biolinkml/types
 # description: Shared type definitions
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 
-from typing import Optional, List, Union, Dict
+from typing import Optional, List, Union, Dict, ClassVar
 from dataclasses import dataclass
 from biolinkml.utils.metamodelcore import empty_list, empty_dict
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.metamodelcore import Bool, NCName, URI, URIorCURIE, XSDDate, XSDDateTime, XSDTime
 
-metamodel_version = "1.2.0"
-
-inherited_slots: List[str] = []
-
+metamodel_version = "1.3.0"
 
 # Types
 class String(str):

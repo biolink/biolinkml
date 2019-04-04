@@ -45,11 +45,9 @@ class SchemaLoader:
             print(f"Warning: default_range not specified. Default set to '{self.schema.default_range}'",
                   file=sys.stderr)
 
+        # Process the namespace declarations
         if not self.schema.default_prefix:
             self.schema.default_prefix = self.schema.id
-        self.namespaces._base = self.schema.id
-
-        # Process the namespace declarations
         for prefix in self.schema.prefixes.values():
             self.namespaces[prefix.prefix_prefix] = prefix.prefix_reference
         for cmap in self.schema.default_curi_maps:
@@ -69,6 +67,9 @@ class SchemaLoader:
                 self.loaded.add(sloc)
                 merge_schemas(self.schema, load_raw_schema(sloc + '.yaml', base_dir=self.base_dir), sloc,
                               self.namespaces)
+
+        self.namespaces._base = self.schema.default_prefix if ':' in self.schema.default_prefix else \
+            self.namespaces[self.schema.default_prefix]
 
         # Massage initial set of slots
         for slot in self.schema.slots.values():
@@ -188,6 +189,9 @@ class SchemaLoader:
                     class_slots.append(slot.name)
             if len(class_slots) > 1:
                 self.raise_value_error(f'Class "{cls.name}" - multiple keys not allowed ({", ".join(class_slots)})')
+
+        # Check out all the namespaces
+        self.check_prefixes()
 
         # Cannot have duplicate class or type keys
         dups = check_dups(classes, types)
@@ -343,6 +347,38 @@ class SchemaLoader:
             if defn:
                 return defn
         return None
+
+    def check_prefixes(self) -> None:
+        """
+        Iterate over the entire schema checking all prefixes
+        """
+        self.check_prefix(self.schema.default_prefix)
+        for prefix in self.schema.emit_prefixes:
+            self.check_prefix(prefix)
+        for typ in self.schema.types.values():
+            self.check_prefix(typ.uri)
+            for prefix in typ.mappings:
+                self.check_prefix(prefix)
+            for prefix in typ.id_prefixes:
+                self.check_prefix(prefix)
+        for slot in self.schema.slots.values():
+            self.check_prefix(slot.slot_uri)
+            for prefix in slot.mappings:
+                self.check_prefix(prefix)
+            for prefix in slot.id_prefixes:
+                self.check_prefix(prefix)
+        for cls in self.schema.classes.values():
+            self.check_prefix(cls.class_uri)
+            for prefix in cls.mappings:
+                self.check_prefix(prefix)
+            for prefix in cls.id_prefixes:
+                self.check_prefix(prefix)
+
+    def check_prefix(self, prefix: str) -> None:
+        prefix = self.namespaces.prefix_for(prefix)
+        if prefix and prefix not in self.namespaces:
+            print(f"Unrecognized prefix: {prefix}", file=sys.stderr)
+            self.namespaces[prefix] = f"http://example.org/UNKNOWN/{prefix}/"
 
     @staticmethod
     def slot_name_for(slot: SlotDefinition) -> str:
