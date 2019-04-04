@@ -1,0 +1,19 @@
+# Slot: treated by
+
+
+holds between a disease or phenotypic feature and a therapeutic process or chemical substance that is used to treat the condition
+
+URI: [https://w3id.org/biolink/biolink-model/treated_by](slot_uri)
+## Domain and Range
+
+[DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md) ->  <sub>0..*</sub> [NamedThing](NamedThing.md)
+## Inheritance
+
+ *  is_a: [related to](related_to.md)
+## Children
+
+## Used by
+
+ * [Disease](Disease.md)
+ * [DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md)
+ * [PhenotypicFeature](PhenotypicFeature.md)

@@ -1,0 +1,161 @@
+{
+   "name": "base",
+   "id": "http://example.org/base",
+   "title": "Base for import test",
+   "imports": [
+      "../../../includes/types"
+   ],
+   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "prefixes": [
+      {
+         "prefix_prefix": "meta",
+         "prefix_reference": "https://w3id.org/biolink/biolinkml/meta/"
+      },
+      {
+         "prefix_prefix": "skos",
+         "prefix_reference": "http://www.w3.org/2004/02/skos/core#"
+      },
+      {
+         "prefix_prefix": "OIO",
+         "prefix_reference": "http://www.geneontology.org/formats/oboInOwl#"
+      },
+      {
+         "prefix_prefix": "metatype",
+         "prefix_reference": "https://w3id.org/biolink/biolinkml/type/"
+      },
+      {
+         "prefix_prefix": "xsd",
+         "prefix_reference": "http://www.w3.org/2001/XMLSchema#"
+      }
+   ],
+   "emit_prefixes": [
+      "meta",
+      "rdf",
+      "rdfs",
+      "skos",
+      "dcterms",
+      "OIO",
+      "pav"
+   ],
+   "default_curi_maps": [
+      "semweb_context"
+   ],
+   "default_prefix": "meta",
+   "default_range": "string",
+   "types": [
+      {
+         "name": "extended",
+         "from_schema": "http://example.org/base",
+         "typeof": "boolean",
+         "base": "Bool",
+         "uri": "xsd:boolean"
+      },
+      {
+         "name": "double_extended",
+         "from_schema": "http://example.org/base",
+         "typeof": "extended",
+         "base": "Bool",
+         "uri": "xsd:boolean"
+      },
+      {
+         "name": "string",
+         "from_schema": "https://w3id.org/biolink/biolinkml/types",
+         "imported_from": "../../../includes/types",
+         "base": "str",
+         "uri": "xsd:string"
+      },
+      {
+         "name": "integer",
+         "from_schema": "https://w3id.org/biolink/biolinkml/types",
+         "imported_from": "../../../includes/types",
+         "base": "int",
+         "uri": "xsd:integer"
+      },
+      {
+         "name": "boolean",
+         "description": "A binary (true or false) value",
+         "from_schema": "https://w3id.org/biolink/biolinkml/types",
+         "imported_from": "../../../includes/types",
+         "base": "Bool",
+         "uri": "xsd:boolean"
+      },
+      {
+         "name": "float",
+         "from_schema": "https://w3id.org/biolink/biolinkml/types",
+         "imported_from": "../../../includes/types",
+         "base": "float",
+         "uri": "xsd:float"
+      },
+      {
+         "name": "double",
+         "from_schema": "https://w3id.org/biolink/biolinkml/types",
+         "imported_from": "../../../includes/types",
+         "base": "float",
+         "uri": "xsd:double"
+      },
+      {
+         "name": "time",
+         "description": "A time object represents a (local) time of day, independent of any particular day",
+         "notes": [
+            "URI is dateTime because OWL reasoners don't work with straight date or time"
+         ],
+         "from_schema": "https://w3id.org/biolink/biolinkml/types",
+         "imported_from": "../../../includes/types",
+         "base": "XSDTime",
+         "uri": "xsd:dateTime",
+         "repr": "str"
+      },
+      {
+         "name": "date",
+         "description": "a date (year, month and day) in an idealized calendar",
+         "notes": [
+            "URI is dateTime because OWL reasoners don't work with straight date or time"
+         ],
+         "from_schema": "https://w3id.org/biolink/biolinkml/types",
+         "imported_from": "../../../includes/types",
+         "base": "XSDDateTime",
+         "uri": "xsd:dateTime",
+         "repr": "str"
+      },
+      {
+         "name": "datetime",
+         "from_schema": "https://w3id.org/biolink/biolinkml/types",
+         "imported_from": "../../../includes/types",
+         "base": "XSDDate",
+         "uri": "xsd:dateTime",
+         "repr": "str"
+      },
+      {
+         "name": "uriorcurie",
+         "description": "a URI or a CURIE",
+         "from_schema": "https://w3id.org/biolink/biolinkml/types",
+         "imported_from": "../../../includes/types",
+         "base": "URIorCURIE",
+         "uri": "xsd:anyURI",
+         "repr": "str"
+      },
+      {
+         "name": "uri",
+         "description": "a complete URI",
+         "from_schema": "https://w3id.org/biolink/biolinkml/types",
+         "imported_from": "../../../includes/types",
+         "base": "URI",
+         "uri": "xsd:anyURI",
+         "repr": "str"
+      },
+      {
+         "name": "ncname",
+         "description": "Prefix part of CURIE",
+         "from_schema": "https://w3id.org/biolink/biolinkml/types",
+         "imported_from": "../../../includes/types",
+         "base": "NCName",
+         "uri": "xsd:string",
+         "repr": "str"
+      }
+   ],
+   "metamodel_version": "0.5.0",
+   "source_file": "base.yaml",
+   "source_file_date": "2018-12-31 17:23",
+   "source_file_size": 259,
+   "generation_date": "2018-12-31 17:23"
+}

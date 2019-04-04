@@ -1,0 +1,24 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+<http://identifiers.org/drugbank:DB00005> a <https://w3id.org/biolink/vocab/Drug>;
+  <https://w3id.org/biolink/vocab/affects> <https://w3id.org/data2services/vocab/organism/e1e572616d493b2affcc653e19cbcd21>;
+  rdfs:subClassOf <http://identifiers.org/mesh/D000602>, <http://identifiers.org/mesh/D000700>,
+    <http://identifiers.org/mesh/D000893>, <http://identifiers.org/mesh/D000906>, <http://identifiers.org/mesh/D001798>,
+    <http://identifiers.org/mesh/D002491>, <http://identifiers.org/mesh/D005765>, <http://identifiers.org/mesh/D005916>,
+    <http://identifiers.org/mesh/D007074>, <http://identifiers.org/mesh/D007132>, <http://identifiers.org/mesh/D007155>,
+    <http://identifiers.org/mesh/D007162>, <http://identifiers.org/mesh/D007166>, <http://identifiers.org/mesh/D008565>,
+    <http://identifiers.org/mesh/D011506>, <http://identifiers.org/mesh/D011956>, <http://identifiers.org/mesh/D011971>,
+    <http://identifiers.org/mesh/D012712>, <http://identifiers.org/mesh/D018121>, <http://identifiers.org/mesh/D018124>,
+    <http://identifiers.org/mesh/D018373>, <http://identifiers.org/mesh/D018501>, <http://identifiers.org/mesh/D018689>,
+    <http://identifiers.org/mesh/D018712>, <http://identifiers.org/mesh/D052246>;
+  <https://w3id.org/biolink/vocab/description> "Dimeric fusion protein consisting of the extracellular ligand-binding portion of the human 75 kilodalton (p75) tumor necrosis factor receptor (TNFR) linked to the Fc portion of human IgG1. The Fc component of etanercept contains the CH2 domain, the CH3 domain and hinge region, but not the CH1 domain of IgG1. Etanercept is produced by recombinant DNA technology in a Chinese hamster ovary (CHO) mammalian cell expression system. It consists of 934 amino acids.";
+  <https://w3id.org/biolink/vocab/filler> <https://w3id.org/data2services/model/group/approved>,
+    <https://w3id.org/data2services/model/group/investigational>, <https://w3id.org/data2services/model/state/liquid>;
+  <https://w3id.org/biolink/vocab/id> "DB00005";
+  <https://w3id.org/biolink/vocab/name> "Etanercept";
+  <https://w3id.org/biolink/vocab/same_as> <http://identifiers.org/cas/185243-69-0>,
+    <http://identifiers.org/chembl.compound/CHEMBL1201572>, <http://identifiers.org/kegg.compound/C07897>,
+    <http://identifiers.org/kegg.drug/D00742>, <http://identifiers.org/pharmgkb.drug/PA449515>,
+    <http://identifiers.org/pubchem.substance/46506732>, <http://identifiers.org/ttd.drug/DNC000605>,
+    <http://identifiers.org/unii/OP401G7OJC>, <http://identifiers.org/wikipedia.en/Etanercept>;
+  <https://w3id.org/biolink/vocab/systematic_synonym> "BIOD00052", "BTD00052", "DB00005" .

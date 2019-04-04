@@ -1,0 +1,17 @@
+description: an attributed label
+display_name: !!python/object/new:biolinkml.meta.ClassDefinitionName
+- local_name
+document_category: !!python/object/new:biolinkml.meta.ClassDefinitionName
+- local_name
+fields:
+- description: the ncname of the source of the name
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - local_name_source
+  id: local_name_source
+- description: a name assigned to an element in a given ontology
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - local_name_value
+  id: local_name_value
+id: local_name
+schema_generating: true
+weight: 20
