@@ -630,7 +630,6 @@ classes:
         with redirect_stderr(errfile):
             gen.neighborhood(['Definition'])
         self.assertEqual("Warning: neighborhood(Definition) - Definition is undefined", errfile.getvalue().strip())
-        pprint(gen.neighborhood('definition'))
         self.assertEqual(References(
             classrefs={'class_definition', 'local_name', 'schema_definition', 'subset_definition', 'alt_description',
                        'definition', 'example', 'slot_definition', 'element'},

@@ -3,7 +3,7 @@
 
 holds between two molecular entities where the action or effect of one decreases the level of expression of the other within a system of interest
 
-URI: [https://w3id.org/biolink/biolink-model/decreases_expression_of](slot_uri)
+URI: [biolink:decreases_expression_of](https://w3id.org/biolink/vocab/decreases_expression_of)
 ## Domain and Range
 
 [MolecularEntity](MolecularEntity.md) ->  <sub>0..*</sub> [GenomicEntity](GenomicEntity.md)

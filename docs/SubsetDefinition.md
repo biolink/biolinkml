@@ -3,9 +3,9 @@
 
 the name and description of a subset
 
-URI: [http://w3id.org/biolink/biolinkml/meta/SubsetDefinition](http://w3id.org/biolink/biolinkml/meta/SubsetDefinition)
+URI: [meta:SubsetDefinition](https://w3id.org/biolink/biolinkml/meta/SubsetDefinition)
 
-![img](images/SubsetDefinition.png)
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[SubsetDefinition]<in_subset(i)%200..*-%20\[SubsetDefinition|id_prefixes(i):ncname%20*;name(pk)(i):string;aliases(i):string%20*;mappings(i):uriorcurie%20*;description(i):string%20%3F;deprecated(i):string%20%3F;todos(i):string%20*;notes(i):string%20*;comments(i):string%20*;from_schema(i):uri%20%3F;imported_from(i):string%20%3F;see_also(i):uriorcurie%20*],%20\[Example]<examples(i)%200..*-++\[SubsetDefinition],%20\[AltDescription]<alt_descriptions(i)%200..*-++\[SubsetDefinition],%20\[LocalName]<local_names(i)%200..*-++\[SubsetDefinition],%20\[Element]-%20in_subset%200..*>\[SubsetDefinition],%20\[SchemaDefinition]++-%20subsets%200..*>\[SubsetDefinition],%20\[Element]^-\[SubsetDefinition])
 ## Inheritance
 
  *  is_a: [Element](Element.md) - a named element in the model

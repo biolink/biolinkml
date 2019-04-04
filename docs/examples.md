@@ -3,7 +3,7 @@
 
 example usages of an element
 
-URI: [http://w3id.org/biolink/biolinkml/meta/examples](slot_uri)
+URI: [meta:examples](https://w3id.org/biolink/biolinkml/meta/examples)
 ## Domain and Range
 
 [Element](Element.md) ->  <sub>0..*</sub> [Example](Example.md)

@@ -3,7 +3,7 @@
 
 the imports entry that this element was derived from.  Empty means primary source
 
-URI: [http://w3id.org/biolink/biolinkml/meta/imported_from](slot_uri)
+URI: [meta:imported_from](https://w3id.org/biolink/biolinkml/meta/imported_from)
 ## Domain and Range
 
 [Element](Element.md) ->  <sub>OPT</sub> [String](String.md)

@@ -3,9 +3,9 @@
 
 an attributed description
 
-URI: [http://w3id.org/biolink/biolinkml/meta/AltDescription](http://w3id.org/biolink/biolinkml/meta/AltDescription)
+URI: [meta:AltDescription](https://w3id.org/biolink/biolinkml/meta/AltDescription)
 
-![img](images/AltDescription.png)
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Element]++-%20alt_descriptions%200..*>\[AltDescription|source(pk):ncname;description:string])
 ## Inheritance
 
 ## Children

@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/pairwise_interaction_association_subject](slot_uri)
+URI: [biolink:pairwise_interaction_association_subject](https://w3id.org/biolink/vocab/pairwise_interaction_association_subject)
 ## Domain and Range
 
 [PairwiseInteractionAssociation](PairwiseInteractionAssociation.md) ->  <sub>REQ</sub> [MolecularEntity](MolecularEntity.md)

@@ -3,7 +3,7 @@
 
 A grouping for any property that holds between a node and a value
 
-URI: [https://w3id.org/biolink/biolink-model/node_property](slot_uri)
+URI: [biolink:node_property](https://w3id.org/biolink/vocab/node_property)
 ## Domain and Range
 
 [NamedThing](NamedThing.md) ->  <sub>OPT</sub> [String](String.md)

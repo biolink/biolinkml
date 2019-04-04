@@ -3,7 +3,7 @@
 
 describes the frequency of occurrence of an event or condition
 
-URI: [https://w3id.org/biolink/biolink-model/FrequencyValue](https://w3id.org/biolink/biolink-model/FrequencyValue)
+URI: [biolink:FrequencyValue](https://w3id.org/biolink/vocab/FrequencyValue)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OntologyClass]<subclass%20of(i)%200..*-%20\[FrequencyValue|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*;node_property(i):string%20%3F;iri(i):iri_type%20%3F;synonym(i):label_type%20*;full_name(i):label_type%20%3F;description(i):narrative_text%20%3F;systematic_synonym(i):label_type%20%3F],%20\[NamedThing]<interacts%20with(i)%200..*-%20\[FrequencyValue],%20\[NamedThing]<related%20to(i)%200..*-%20\[FrequencyValue],%20\[FrequencyQualifierMixin]-%20frequency%20qualifier%200..1>\[FrequencyValue],%20\[Attribute]^-\[FrequencyValue])
 ## Inheritance

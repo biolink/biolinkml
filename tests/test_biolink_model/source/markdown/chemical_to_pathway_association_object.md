@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/chemical_to_pathway_association_object](slot_uri)
+URI: [biolink:chemical_to_pathway_association_object](https://w3id.org/biolink/vocab/chemical_to_pathway_association_object)
 ## Domain and Range
 
 [ChemicalToPathwayAssociation](ChemicalToPathwayAssociation.md) ->  <sub>REQ</sub> [Pathway](Pathway.md)

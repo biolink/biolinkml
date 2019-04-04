@@ -3,7 +3,7 @@
 
 A functional association between a macromolecular machine (gene, gene product or complex) and a biological process or pathway (as represented in the GO biological process branch), where the entity carries out some part of the process, regulates it, or acts upstream of it
 
-URI: [https://w3id.org/biolink/biolink-model/MacromolecularMachineToBiologicalProcessAssociation](https://w3id.org/biolink/biolink-model/MacromolecularMachineToBiologicalProcessAssociation)
+URI: [biolink:MacromolecularMachineToBiologicalProcessAssociation](https://w3id.org/biolink/vocab/MacromolecularMachineToBiologicalProcessAssociation)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[MacromolecularMachineToBiologicalProcessAssociation|id(i):identifier_type;relation(i):iri_type;negated(i):boolean%20%3F;association_slot(i):string%20%3F],%20\[Publication]<publications(i)%200..*-%20\[MacromolecularMachineToBiologicalProcessAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[MacromolecularMachineToBiologicalProcessAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[MacromolecularMachineToBiologicalProcessAssociation],%20\[MacromolecularMachine]<subject(i)%201..1-%20\[MacromolecularMachineToBiologicalProcessAssociation],%20\[BiologicalProcess]<object%201..1-%20\[MacromolecularMachineToBiologicalProcessAssociation],%20\[FunctionalAssociation]^-\[MacromolecularMachineToBiologicalProcessAssociation])
 ## Inheritance

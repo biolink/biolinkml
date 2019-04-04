@@ -3,7 +3,7 @@
 
 if set to true, then the association is negated i.e. is not true
 
-URI: [https://w3id.org/biolink/biolink-model/negated](slot_uri)
+URI: [biolink:negated](https://w3id.org/biolink/vocab/negated)
 ## Domain and Range
 
 [Association](Association.md) ->  <sub>OPT</sub> [Boolean](Boolean.md)

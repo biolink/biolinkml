@@ -3,7 +3,7 @@
 
 editorial notes about an element intended for internal consumption
 
-URI: [http://w3id.org/biolink/biolinkml/meta/notes](slot_uri)
+URI: [meta:notes](https://w3id.org/biolink/biolinkml/meta/notes)
 ## Domain and Range
 
 [Element](Element.md) ->  <sub>0..*</sub> [String](String.md)

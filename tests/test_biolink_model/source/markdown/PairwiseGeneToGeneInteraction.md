@@ -3,7 +3,7 @@
 
 An interaction between two genes or two gene products. May be physical (e.g. protein binding) or genetic (between genes). May be symmetric (e.g. protein interaction) or directed (e.g. phosphorylation)
 
-URI: [https://w3id.org/biolink/biolink-model/PairwiseGeneToGeneInteraction](https://w3id.org/biolink/biolink-model/PairwiseGeneToGeneInteraction)
+URI: [biolink:PairwiseGeneToGeneInteraction](https://w3id.org/biolink/vocab/PairwiseGeneToGeneInteraction)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[PairwiseGeneToGeneInteraction|relation:iri_type;id(i):identifier_type;negated(i):boolean%20%3F;association_slot(i):string%20%3F],%20\[Publication]<publications(i)%200..*-%20\[PairwiseGeneToGeneInteraction],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[PairwiseGeneToGeneInteraction],%20\[OntologyClass]<association%20type(i)%200..1-%20\[PairwiseGeneToGeneInteraction],%20\[GeneOrGeneProduct]<object(i)%201..1-%20\[PairwiseGeneToGeneInteraction],%20\[GeneOrGeneProduct]<subject(i)%201..1-%20\[PairwiseGeneToGeneInteraction],%20\[PairwiseGeneToGeneInteraction]uses%20-.->\[PairwiseInteractionAssociation],%20\[GeneToGeneAssociation]^-\[PairwiseGeneToGeneInteraction])
 ## Inheritance

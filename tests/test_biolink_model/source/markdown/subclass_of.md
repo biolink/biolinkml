@@ -3,7 +3,7 @@
 
 holds between two classes where the domain class is a specialization of the range class
 
-URI: [https://w3id.org/biolink/biolink-model/subclass_of](slot_uri)
+URI: [biolink:subclass_of](https://w3id.org/biolink/vocab/subclass_of)
 ## Domain and Range
 
 [OntologyClass](OntologyClass.md) ->  <sub>0..*</sub> [OntologyClass](OntologyClass.md)

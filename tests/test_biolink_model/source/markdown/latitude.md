@@ -3,7 +3,7 @@
 
 latitude
 
-URI: [https://w3id.org/biolink/biolink-model/latitude](slot_uri)
+URI: [biolink:latitude](https://w3id.org/biolink/vocab/latitude)
 ## Domain and Range
 
 [GeographicLocation](GeographicLocation.md) ->  <sub>OPT</sub> [Float](Float.md)

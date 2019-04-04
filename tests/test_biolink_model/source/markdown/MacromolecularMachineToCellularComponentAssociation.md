@@ -3,7 +3,7 @@
 
 A functional association between a macromolecular machine (gene, gene product or complex) and a cellular component (as represented in the GO cellular component branch), where the entity carries out its function in the cellular component
 
-URI: [https://w3id.org/biolink/biolink-model/MacromolecularMachineToCellularComponentAssociation](https://w3id.org/biolink/biolink-model/MacromolecularMachineToCellularComponentAssociation)
+URI: [biolink:MacromolecularMachineToCellularComponentAssociation](https://w3id.org/biolink/vocab/MacromolecularMachineToCellularComponentAssociation)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[MacromolecularMachineToCellularComponentAssociation|id(i):identifier_type;relation(i):iri_type;negated(i):boolean%20%3F;association_slot(i):string%20%3F],%20\[Publication]<publications(i)%200..*-%20\[MacromolecularMachineToCellularComponentAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[MacromolecularMachineToCellularComponentAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[MacromolecularMachineToCellularComponentAssociation],%20\[MacromolecularMachine]<subject(i)%201..1-%20\[MacromolecularMachineToCellularComponentAssociation],%20\[CellularComponent]<object%201..1-%20\[MacromolecularMachineToCellularComponentAssociation],%20\[FunctionalAssociation]^-\[MacromolecularMachineToCellularComponentAssociation])
 ## Inheritance

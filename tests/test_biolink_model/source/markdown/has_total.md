@@ -3,7 +3,7 @@
 
 total number of things in a particular reference set
 
-URI: [https://w3id.org/biolink/biolink-model/has_total](slot_uri)
+URI: [biolink:has_total](https://w3id.org/biolink/vocab/has_total)
 ## Domain and Range
 
 [FrequencyQuantifier](FrequencyQuantifier.md) ->  <sub>OPT</sub> [Integer](Integer.md)

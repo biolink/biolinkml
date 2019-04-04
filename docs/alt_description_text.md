@@ -3,7 +3,7 @@
 
 text of an attributed description
 
-URI: [http://w3id.org/biolink/biolinkml/meta/alt_description_text](slot_uri)
+URI: [meta:alt_description_text](https://w3id.org/biolink/biolinkml/meta/alt_description_text)
 ## Domain and Range
 
 [AltDescription](AltDescription.md) ->  <sub>REQ</sub> [String](String.md)

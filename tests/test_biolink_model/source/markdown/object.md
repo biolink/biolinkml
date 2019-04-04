@@ -3,7 +3,7 @@
 
 connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
 
-URI: [https://w3id.org/biolink/biolink-model/object](slot_uri)
+URI: [biolink:object](https://w3id.org/biolink/vocab/object)
 ## Domain and Range
 
 [Association](Association.md) ->  <sub>REQ</sub> [IriType](IriType.md)

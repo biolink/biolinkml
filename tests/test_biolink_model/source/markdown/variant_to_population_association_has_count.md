@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/variant_to_population_association_has_count](slot_uri)
+URI: [biolink:variant_to_population_association_has_count](https://w3id.org/biolink/vocab/variant_to_population_association_has_count)
 ## Domain and Range
 
 [VariantToPopulationAssociation](VariantToPopulationAssociation.md) ->  <sub>OPT</sub> [Integer](Integer.md)

@@ -3,7 +3,7 @@
 
 size in bytes of the source of the schema
 
-URI: [http://w3id.org/biolink/biolinkml/meta/source_file_size](slot_uri)
+URI: [meta:source_file_size](https://w3id.org/biolink/biolinkml/meta/source_file_size)
 ## Domain and Range
 
 [SchemaDefinition](SchemaDefinition.md) ->  <sub>OPT</sub> [Integer](Integer.md)

@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/has_quotient](slot_uri)
+URI: [biolink:has_quotient](https://w3id.org/biolink/vocab/has_quotient)
 ## Domain and Range
 
 [FrequencyQuantifier](FrequencyQuantifier.md) ->  <sub>OPT</sub> [Double](Double.md)

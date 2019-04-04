@@ -3,7 +3,7 @@
 
 
 
-URI: [http://w3id.org/biolink/biolinkml/meta/class_definition_apply_to](slot_uri)
+URI: [meta:class_definition_apply_to](https://w3id.org/biolink/biolinkml/meta/class_definition_apply_to)
 ## Domain and Range
 
 [ClassDefinition](ClassDefinition.md) ->  <sub>0..*</sub> [ClassDefinition](ClassDefinition.md)

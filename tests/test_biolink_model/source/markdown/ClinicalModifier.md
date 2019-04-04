@@ -3,7 +3,7 @@
 
 Used to characterize and specify the phenotypic abnormalities defined in the Phenotypic abnormality subontology, with respect to severity, laterality, age of onset, and other aspects
 
-URI: [https://w3id.org/biolink/biolink-model/ClinicalModifier](https://w3id.org/biolink/biolink-model/ClinicalModifier)
+URI: [biolink:ClinicalModifier](https://w3id.org/biolink/vocab/ClinicalModifier)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OntologyClass]<subclass%20of(i)%200..*-%20\[ClinicalModifier|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*;node_property(i):string%20%3F;iri(i):iri_type%20%3F;synonym(i):label_type%20*;full_name(i):label_type%20%3F;description(i):narrative_text%20%3F;systematic_synonym(i):label_type%20%3F],%20\[NamedThing]<interacts%20with(i)%200..*-%20\[ClinicalModifier],%20\[NamedThing]<related%20to(i)%200..*-%20\[ClinicalModifier],%20\[Association]-%20clinical%20modifier%20qualifier(i)%200..1>\[ClinicalModifier],%20\[Attribute]^-\[ClinicalModifier])
 ## Inheritance

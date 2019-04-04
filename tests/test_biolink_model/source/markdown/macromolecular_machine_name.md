@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/macromolecular_machine_name](slot_uri)
+URI: [biolink:macromolecular_machine_name](https://w3id.org/biolink/vocab/macromolecular_machine_name)
 ## Domain and Range
 
 [MacromolecularMachine](MacromolecularMachine.md) ->  <sub>OPT</sub> [SymbolType](SymbolType.md)

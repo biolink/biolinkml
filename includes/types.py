@@ -1,8 +1,8 @@
-# Auto generated from types.yaml by pythongen.py version: 0.2.0
-# Generation date: 2019-04-02 15:49
+# Auto generated from .yaml by pythongen.py version:
+# Generation date:
 # Schema: types
 #
-# id: http://w3id.org/biolink/biolinkml/types
+# id: https://w3id.org/biolink/biolinkml/types
 # description: Shared type definitions
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 
@@ -66,5 +66,3 @@ class Ncname(NCName):
 
 
 # Class references
-
-

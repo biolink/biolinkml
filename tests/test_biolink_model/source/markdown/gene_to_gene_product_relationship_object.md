@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/gene_to_gene_product_relationship_object](slot_uri)
+URI: [biolink:gene_to_gene_product_relationship_object](https://w3id.org/biolink/vocab/gene_to_gene_product_relationship_object)
 ## Domain and Range
 
 [GeneToGeneProductRelationship](GeneToGeneProductRelationship.md) ->  <sub>REQ</sub> [GeneProduct](GeneProduct.md)

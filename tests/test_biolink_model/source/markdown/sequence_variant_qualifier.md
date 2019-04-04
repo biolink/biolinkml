@@ -3,7 +3,7 @@
 
 a qualifier used in an association where the variant
 
-URI: [https://w3id.org/biolink/biolink-model/sequence_variant_qualifier](slot_uri)
+URI: [biolink:sequence_variant_qualifier](https://w3id.org/biolink/vocab/sequence_variant_qualifier)
 ## Domain and Range
 
 [GeneHasVariantThatContributesToDiseaseAssociation](GeneHasVariantThatContributesToDiseaseAssociation.md) ->  <sub>OPT</sub> [SequenceVariant](SequenceVariant.md)

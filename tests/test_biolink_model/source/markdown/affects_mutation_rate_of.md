@@ -3,7 +3,7 @@
 
 holds between a molecular entity and a genomic entity where the action or effect of the molecular entity impacts the rate of mutation of the genomic entity within a system of interest
 
-URI: [https://w3id.org/biolink/biolink-model/affects_mutation_rate_of](slot_uri)
+URI: [biolink:affects_mutation_rate_of](https://w3id.org/biolink/vocab/affects_mutation_rate_of)
 ## Domain and Range
 
 [MolecularEntity](MolecularEntity.md) ->  <sub>0..*</sub> [GenomicEntity](GenomicEntity.md)

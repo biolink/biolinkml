@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/SenstivityQuantifier](https://w3id.org/biolink/biolink-model/SenstivityQuantifier)
+URI: [biolink:SenstivityQuantifier](https://w3id.org/biolink/vocab/SenstivityQuantifier)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[RelationshipQuantifier]^-\[SenstivityQuantifier])
 ## Inheritance

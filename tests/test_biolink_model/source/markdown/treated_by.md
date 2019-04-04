@@ -3,7 +3,7 @@
 
 holds between a disease or phenotypic feature and a therapeutic process or chemical substance that is used to treat the condition
 
-URI: [https://w3id.org/biolink/biolink-model/treated_by](slot_uri)
+URI: [biolink:treated_by](https://w3id.org/biolink/vocab/treated_by)
 ## Domain and Range
 
 [DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md) ->  <sub>0..*</sub> [NamedThing](NamedThing.md)

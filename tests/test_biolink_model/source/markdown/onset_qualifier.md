@@ -3,7 +3,7 @@
 
 a qualifier used in a phenotypic association to state when the phenotype appears is in the subject
 
-URI: [https://w3id.org/biolink/biolink-model/onset_qualifier](slot_uri)
+URI: [biolink:onset_qualifier](https://w3id.org/biolink/vocab/onset_qualifier)
 ## Domain and Range
 
 [EntityToFeatureOrDiseaseQualifiers](EntityToFeatureOrDiseaseQualifiers.md) ->  <sub>OPT</sub> [Onset](Onset.md)

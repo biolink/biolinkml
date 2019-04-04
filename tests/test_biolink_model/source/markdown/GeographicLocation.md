@@ -3,7 +3,7 @@
 
 a location that can be described in lat/long coordinates
 
-URI: [https://w3id.org/biolink/biolink-model/GeographicLocation](https://w3id.org/biolink/biolink-model/GeographicLocation)
+URI: [biolink:GeographicLocation](https://w3id.org/biolink/vocab/GeographicLocation)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[NamedThing]<interacts%20with(i)%200..*-%20\[GeographicLocation|latitude:float%20%3F;longitude:float%20%3F;id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*;node_property(i):string%20%3F;iri(i):iri_type%20%3F;synonym(i):label_type%20*;full_name(i):label_type%20%3F;description(i):narrative_text%20%3F;systematic_synonym(i):label_type%20%3F],%20\[NamedThing]<related%20to(i)%200..*-%20\[GeographicLocation],%20\[GeographicLocation]^-\[GeographicLocationAtTime],%20\[PlanetaryEntity]^-\[GeographicLocation])
 ## Inheritance

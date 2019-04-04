@@ -3,9 +3,9 @@
 
 a named element in the model
 
-URI: [http://w3id.org/biolink/biolinkml/meta/Element](http://w3id.org/biolink/biolinkml/meta/Element)
+URI: [meta:Element](https://w3id.org/biolink/biolinkml/meta/Element)
 
-![img](images/Element.png)
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[SubsetDefinition]<in_subset%200..*-%20\[Element|id_prefixes:ncname%20*;name(pk):string;aliases:string%20*;mappings:uriorcurie%20*;description:string%20%3F;deprecated:string%20%3F;todos:string%20*;notes:string%20*;comments:string%20*;from_schema:uri%20%3F;imported_from:string%20%3F;see_also:uriorcurie%20*],%20\[Example]<examples%200..*-++\[Element],%20\[AltDescription]<alt_descriptions%200..*-++\[Element],%20\[LocalName]<local_names%200..*-++\[Element],%20\[SlotDefinition]-%20range%200..1>\[Element],%20\[Element]^-\[TypeDefinition],%20\[Element]^-\[SubsetDefinition],%20\[Element]^-\[SchemaDefinition],%20\[Element]^-\[Definition])
 ## Inheritance
 
 ## Children

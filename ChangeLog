@@ -1,6 +1,15 @@
 CHANGES
 =======
 
+v0.6.2
+------
+
+* Adding all the tests for previous changes
+* ShEx definitions now link to parent even if there are no parent tripleexprs
+* Move inherited names inside classes
+* Fix element URI so text is CURIE and link is URI
+* Fixed several issues in context.jsonld generation
+
 v0.6.1
 ------
 

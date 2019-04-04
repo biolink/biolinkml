@@ -3,7 +3,7 @@
 
 a name that is used in the singular form
 
-URI: [http://w3id.org/biolink/biolinkml/meta/singular_name](slot_uri)
+URI: [meta:singular_name](https://w3id.org/biolink/biolinkml/meta/singular_name)
 ## Domain and Range
 
 [SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [String](String.md)

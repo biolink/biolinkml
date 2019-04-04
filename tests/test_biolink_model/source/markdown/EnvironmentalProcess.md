@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/EnvironmentalProcess](https://w3id.org/biolink/biolink-model/EnvironmentalProcess)
+URI: [biolink:EnvironmentalProcess](https://w3id.org/biolink/vocab/EnvironmentalProcess)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[NamedThing]<interacts%20with(i)%200..*-%20\[EnvironmentalProcess|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*;node_property(i):string%20%3F;iri(i):iri_type%20%3F;synonym(i):label_type%20*;full_name(i):label_type%20%3F;description(i):narrative_text%20%3F;systematic_synonym(i):label_type%20%3F],%20\[NamedThing]<related%20to(i)%200..*-%20\[EnvironmentalProcess],%20\[Occurrent]<precedes%200..*-%20\[EnvironmentalProcess],%20\[NamedThing]<has%20input%200..*-%20\[EnvironmentalProcess],%20\[NamedThing]<has%20participant%200..*-%20\[EnvironmentalProcess],%20\[Occurrent]<regulates,%20process%20to%20process%200..*-%20\[EnvironmentalProcess],%20\[EnvironmentalProcess]uses%20-.->\[Occurrent],%20\[PlanetaryEntity]^-\[EnvironmentalProcess])
 ## Inheritance

@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/gene_to_expression_site_association_stage_qualifier](slot_uri)
+URI: [biolink:gene_to_expression_site_association_stage_qualifier](https://w3id.org/biolink/vocab/gene_to_expression_site_association_stage_qualifier)
 ## Domain and Range
 
 [GeneToExpressionSiteAssociation](GeneToExpressionSiteAssociation.md) ->  <sub>OPT</sub> [LifeStage](LifeStage.md)

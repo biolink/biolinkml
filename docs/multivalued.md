@@ -3,7 +3,7 @@
 
 true means that slot can have more than one value
 
-URI: [http://w3id.org/biolink/biolinkml/meta/multivalued](slot_uri)
+URI: [meta:multivalued](https://w3id.org/biolink/biolinkml/meta/multivalued)
 ## Domain and Range
 
 [SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [Boolean](Boolean.md)

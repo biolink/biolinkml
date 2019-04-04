@@ -3,7 +3,7 @@
 
 A stage of development or growth of an organism, including post-natal adult stages
 
-URI: [https://w3id.org/biolink/biolink-model/LifeStage](https://w3id.org/biolink/biolink-model/LifeStage)
+URI: [biolink:LifeStage](https://w3id.org/biolink/vocab/LifeStage)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[NamedThing]<interacts%20with(i)%200..*-%20\[LifeStage|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*;node_property(i):string%20%3F;iri(i):iri_type%20%3F;synonym(i):label_type%20*;full_name(i):label_type%20%3F;description(i):narrative_text%20%3F;systematic_synonym(i):label_type%20%3F],%20\[NamedThing]<related%20to(i)%200..*-%20\[LifeStage],%20\[PhenotypicFeature]<has%20phenotype(i)%200..*-%20\[LifeStage],%20\[OrganismTaxon]<in%20taxon%200..*-%20\[LifeStage],%20\[GeneToExpressionSiteAssociation]-%20stage%20qualifier%200..1>\[LifeStage],%20\[GeneToExpressionSiteAssociation]-%20stage%20qualifier(i)%200..1>\[LifeStage],%20\[LifeStage]uses%20-.->\[ThingWithTaxon],%20\[OrganismalEntity]^-\[LifeStage])
 ## Inheritance

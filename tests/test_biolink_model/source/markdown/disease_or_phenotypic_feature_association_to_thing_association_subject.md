@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/disease_or_phenotypic_feature_association_to_thing_association_subject](slot_uri)
+URI: [biolink:disease_or_phenotypic_feature_association_to_thing_association_subject](https://w3id.org/biolink/vocab/disease_or_phenotypic_feature_association_to_thing_association_subject)
 ## Domain and Range
 
 [DiseaseOrPhenotypicFeatureAssociationToThingAssociation](DiseaseOrPhenotypicFeatureAssociationToThingAssociation.md) ->  <sub>REQ</sub> [DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md)

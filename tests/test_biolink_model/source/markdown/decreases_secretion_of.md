@@ -3,7 +3,7 @@
 
 holds between two molecular entities where the action or effect of one decreases the rate of secretion of the other out of a cell, gland, or organ
 
-URI: [https://w3id.org/biolink/biolink-model/decreases_secretion_of](slot_uri)
+URI: [biolink:decreases_secretion_of](https://w3id.org/biolink/vocab/decreases_secretion_of)
 ## Domain and Range
 
 [MolecularEntity](MolecularEntity.md) ->  <sub>0..*</sub> [MolecularEntity](MolecularEntity.md)

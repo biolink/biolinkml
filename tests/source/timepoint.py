@@ -9,7 +9,7 @@ from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.metamodelcore import XSDTime
 from includes.types import String, Time
 
-metamodel_version = "1.3.0"
+metamodel_version = "1.3.1"
 
 # Types
 class TimeType(Time):

@@ -3,7 +3,7 @@
 
 true means that the *value* of a slot is inherited by subclasses
 
-URI: [http://w3id.org/biolink/biolinkml/meta/inherited](slot_uri)
+URI: [meta:inherited](https://w3id.org/biolink/biolinkml/meta/inherited)
 ## Domain and Range
 
 [SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [Boolean](Boolean.md)

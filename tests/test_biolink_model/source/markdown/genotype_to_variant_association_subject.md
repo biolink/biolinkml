@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/genotype_to_variant_association_subject](slot_uri)
+URI: [biolink:genotype_to_variant_association_subject](https://w3id.org/biolink/vocab/genotype_to_variant_association_subject)
 ## Domain and Range
 
 [GenotypeToVariantAssociation](GenotypeToVariantAssociation.md) ->  <sub>REQ</sub> [Genotype](Genotype.md)

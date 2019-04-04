@@ -3,7 +3,7 @@
 
 a concept or class in an ontology, vocabulary or thesaurus
 
-URI: [https://w3id.org/biolink/biolink-model/OntologyClass](https://w3id.org/biolink/biolink-model/OntologyClass)
+URI: [biolink:OntologyClass](https://w3id.org/biolink/vocab/OntologyClass)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[NamedThing]<interacts%20with(i)%200..*-%20\[OntologyClass|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*;node_property(i):string%20%3F;iri(i):iri_type%20%3F;synonym(i):label_type%20*;full_name(i):label_type%20%3F;description(i):narrative_text%20%3F;systematic_synonym(i):label_type%20%3F],%20\[NamedThing]<related%20to(i)%200..*-%20\[OntologyClass],%20\[OntologyClass]<subclass%20of%200..*-%20\[OntologyClass],%20\[Association]-%20association%20type%200..1>\[OntologyClass],%20\[GeneToExpressionSiteAssociation]-%20quantifier%20qualifier%200..1>\[OntologyClass],%20\[NamedThing]-%20has%20molecular%20consequence(i)%200..*>\[OntologyClass],%20\[PairwiseInteractionAssociation]-%20interacting%20molecules%20category(i)%200..1>\[OntologyClass],%20\[Association]-%20qualifiers%200..*>\[OntologyClass],%20\[GeneToExpressionSiteAssociation]-%20quantifier%20qualifier(i)%200..1>\[OntologyClass],%20\[Attribute]uses%20-.->\[OntologyClass],%20\[OntologyClass]^-\[RelationshipType],%20\[OntologyClass]^-\[OrganismTaxon],%20\[OntologyClass]^-\[GeneOntologyClass],%20\[NamedThing]^-\[OntologyClass])
 ## Inheritance

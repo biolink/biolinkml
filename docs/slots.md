@@ -3,7 +3,7 @@
 
 list of slot names that are applicable to a class
 
-URI: [http://w3id.org/biolink/biolinkml/meta/slots](slot_uri)
+URI: [meta:slots](https://w3id.org/biolink/biolinkml/meta/slots)
 ## Domain and Range
 
 [ClassDefinition](ClassDefinition.md) ->  <sub>0..*</sub> [SlotDefinition](SlotDefinition.md)

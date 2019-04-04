@@ -3,7 +3,7 @@
 
 a point in time
 
-URI: [https://w3id.org/biolink/biolink-model/timepoint](slot_uri)
+URI: [biolink:timepoint](https://w3id.org/biolink/vocab/timepoint)
 ## Domain and Range
 
 [GeographicLocationAtTime](GeographicLocationAtTime.md) ->  <sub>OPT</sub> [TimeType](TimeType.md)

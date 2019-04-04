@@ -3,7 +3,7 @@
 
 An IRI for the node. This is determined by the id using expansion rules.
 
-URI: [https://w3id.org/biolink/biolink-model/iri](slot_uri)
+URI: [biolink:iri](https://w3id.org/biolink/vocab/iri)
 ## Domain and Range
 
 [NamedThing](NamedThing.md) ->  <sub>OPT</sub> [IriType](IriType.md)

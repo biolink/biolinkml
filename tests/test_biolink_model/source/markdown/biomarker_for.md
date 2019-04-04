@@ -3,7 +3,7 @@
 
 holds between a measurable molecular entity and a disease or phenotypic feature, where the entity is used as an indicator of the presence or state of the disease or feature.
 
-URI: [https://w3id.org/biolink/biolink-model/biomarker_for](slot_uri)
+URI: [biolink:biomarker_for](https://w3id.org/biolink/vocab/biomarker_for)
 ## Domain and Range
 
 [MolecularEntity](MolecularEntity.md) ->  <sub>0..*</sub> [DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md)

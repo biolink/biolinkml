@@ -3,7 +3,7 @@
 
 connects a thing to a class representing a taxon
 
-URI: [https://w3id.org/biolink/biolink-model/in_taxon](slot_uri)
+URI: [biolink:in_taxon](https://w3id.org/biolink/vocab/in_taxon)
 ## Domain and Range
 
 [ThingWithTaxon](ThingWithTaxon.md) ->  <sub>0..*</sub> [OrganismTaxon](OrganismTaxon.md)

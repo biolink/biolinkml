@@ -57,6 +57,7 @@ URI Maps:
 METAMODEL_FILE_NAME = 'meta.yaml'
 METAMODEL_LDCONTEXT_NAME = 'context.jsonld'
 METAMODEL_SHEX_NAME = 'meta.shex'
+METAMODEL_RDF_NAME = 'meta.ttl'
 TYPES_FILE_NAME = 'types.yaml'
 
 
@@ -70,6 +71,9 @@ LOCAL_CONTEXT_PATH = os.path.join(MODULE_DIR, METAMODEL_LDCONTEXT_NAME)
 
 # Location of metamodel shex file
 LOCAL_SHEX_PATH = os.path.join(MODULE_DIR, METAMODEL_SHEX_NAME)
+
+# Location of the metamodel rdf file
+LOCAL_RDF_PATH = os.path.join(MODULE_DIR, METAMODEL_RDF_NAME)
 
 # Base URI for all things meta
 META_BASE_URI = 'https://w3id.org/biolink/biolinkml'

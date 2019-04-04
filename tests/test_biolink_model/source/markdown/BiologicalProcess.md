@@ -3,7 +3,7 @@
 
 One or more causally connected executions of molecular functions
 
-URI: [https://w3id.org/biolink/biolink-model/BiologicalProcess](https://w3id.org/biolink/biolink-model/BiologicalProcess)
+URI: [biolink:BiologicalProcess](https://w3id.org/biolink/vocab/BiologicalProcess)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[NamedThing]<interacts%20with(i)%200..*-%20\[BiologicalProcess|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*;node_property(i):string%20%3F;iri(i):iri_type%20%3F;synonym(i):label_type%20*;full_name(i):label_type%20%3F;description(i):narrative_text%20%3F;systematic_synonym(i):label_type%20%3F],%20\[NamedThing]<related%20to(i)%200..*-%20\[BiologicalProcess],%20\[PhenotypicFeature]<has%20phenotype(i)%200..*-%20\[BiologicalProcess],%20\[Occurrent]<precedes%200..*-%20\[BiologicalProcess],%20\[NamedThing]<has%20input%200..*-%20\[BiologicalProcess],%20\[NamedThing]<has%20participant%200..*-%20\[BiologicalProcess],%20\[Occurrent]<regulates,%20process%20to%20process%200..*-%20\[BiologicalProcess],%20\[MacromolecularMachineToBiologicalProcessAssociation]-%20object%201..1>\[BiologicalProcess],%20\[BiologicalProcess]uses%20-.->\[Occurrent],%20\[BiologicalProcess]^-\[PhysiologicalProcess],%20\[BiologicalProcess]^-\[Pathway],%20\[BiologicalProcessOrActivity]^-\[BiologicalProcess])
 ## Inheritance

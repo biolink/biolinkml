@@ -3,7 +3,7 @@
 
 any grouping of multiple genes or gene products
 
-URI: [https://w3id.org/biolink/biolink-model/GeneGrouping](https://w3id.org/biolink/biolink-model/GeneGrouping)
+URI: [biolink:GeneGrouping](https://w3id.org/biolink/vocab/GeneGrouping)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[GeneFamily]uses%20-.->\[GeneGrouping])
 ## Inheritance

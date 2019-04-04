@@ -3,7 +3,7 @@
 
 a description of the element's purpose and use
 
-URI: [http://w3id.org/biolink/biolinkml/meta/description](slot_uri)
+URI: [meta:description](https://w3id.org/biolink/biolinkml/meta/description)
 ## Domain and Range
 
 [Element](Element.md) ->  <sub>OPT</sub> [String](String.md)

@@ -3,7 +3,7 @@
 
 holds between two molecular entities where the action or effect of one increases the rate of chemical synthesis of the other
 
-URI: [https://w3id.org/biolink/biolink-model/increases_synthesis_of](slot_uri)
+URI: [biolink:increases_synthesis_of](https://w3id.org/biolink/vocab/increases_synthesis_of)
 ## Domain and Range
 
 [MolecularEntity](MolecularEntity.md) ->  <sub>0..*</sub> [MolecularEntity](MolecularEntity.md)

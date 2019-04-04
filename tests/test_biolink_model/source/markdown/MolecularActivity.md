@@ -3,7 +3,7 @@
 
 An execution of a molecular function carried out by a gene product or macromolecular complex.
 
-URI: [https://w3id.org/biolink/biolink-model/MolecularActivity](https://w3id.org/biolink/biolink-model/MolecularActivity)
+URI: [biolink:MolecularActivity](https://w3id.org/biolink/vocab/MolecularActivity)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[NamedThing]<interacts%20with(i)%200..*-%20\[MolecularActivity|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*;node_property(i):string%20%3F;iri(i):iri_type%20%3F;synonym(i):label_type%20*;full_name(i):label_type%20%3F;description(i):narrative_text%20%3F;systematic_synonym(i):label_type%20%3F],%20\[NamedThing]<related%20to(i)%200..*-%20\[MolecularActivity],%20\[PhenotypicFeature]<has%20phenotype(i)%200..*-%20\[MolecularActivity],%20\[Occurrent]<precedes%200..*-%20\[MolecularActivity],%20\[NamedThing]<has%20input%200..*-%20\[MolecularActivity],%20\[NamedThing]<has%20participant%200..*-%20\[MolecularActivity],%20\[Occurrent]<regulates,%20process%20to%20process%200..*-%20\[MolecularActivity],%20\[MacromolecularMachineToMolecularActivityAssociation]-%20object%201..1>\[MolecularActivity],%20\[MolecularActivity]uses%20-.->\[Occurrent],%20\[BiologicalProcessOrActivity]^-\[MolecularActivity])
 ## Inheritance

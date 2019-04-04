@@ -3,7 +3,7 @@
 
 the identifier of a "value set" -- a set of identifiers that form the possible values for the range of a slot
 
-URI: [http://w3id.org/biolink/biolinkml/meta/values_from](slot_uri)
+URI: [meta:values_from](https://w3id.org/biolink/biolinkml/meta/values_from)
 ## Domain and Range
 
 [Definition](Definition.md) ->  <sub>0..*</sub> [Uriorcurie](Uriorcurie.md)

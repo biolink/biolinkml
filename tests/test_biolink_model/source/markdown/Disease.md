@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/Disease](https://w3id.org/biolink/biolink-model/Disease)
+URI: [biolink:Disease](https://w3id.org/biolink/vocab/Disease)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[NamedThing]<interacts%20with(i)%200..*-%20\[Disease|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*;node_property(i):string%20%3F;iri(i):iri_type%20%3F;synonym(i):label_type%20*;full_name(i):label_type%20%3F;description(i):narrative_text%20%3F;systematic_synonym(i):label_type%20%3F],%20\[NamedThing]<related%20to(i)%200..*-%20\[Disease],%20\[PhenotypicFeature]<has%20phenotype(i)%200..*-%20\[Disease],%20\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[Disease],%20\[NamedThing]<treated%20by(i)%200..*-%20\[Disease],%20\[MolecularEntity]<has%20biomarker(i)%200..*-%20\[Disease],%20\[MolecularEntity]<correlated%20with(i)%200..*-%20\[Disease],%20\[DiseaseToThingAssociation]-%20subject%201..1>\[Disease],%20\[EntityToDiseaseAssociation]-%20object(i)%201..1>\[Disease],%20\[NamedThing]-%20manifestation%20of(i)%200..*>\[Disease],%20\[DiseaseOrPhenotypicFeature]^-\[Disease])
 ## Inheritance

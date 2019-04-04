@@ -3,9 +3,9 @@
 
 usage example and description
 
-URI: [http://w3id.org/biolink/biolinkml/meta/Example](http://w3id.org/biolink/biolinkml/meta/Example)
+URI: [meta:Example](https://w3id.org/biolink/biolinkml/meta/Example)
 
-![img](images/Example.png)
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Element]++-%20examples%200..*>\[Example|value:string%20%3F;description:string%20%3F])
 ## Inheritance
 
 ## Children

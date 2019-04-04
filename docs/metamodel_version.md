@@ -3,7 +3,7 @@
 
 Version of the metamodel used to load the schema
 
-URI: [http://w3id.org/biolink/biolinkml/meta/metamodel_version](slot_uri)
+URI: [meta:metamodel_version](https://w3id.org/biolink/biolinkml/meta/metamodel_version)
 ## Domain and Range
 
 [SchemaDefinition](SchemaDefinition.md) ->  <sub>OPT</sub> [String](String.md)

@@ -3,7 +3,7 @@
 
 An attribute corresponding to the phenotypic sex of the individual, based upon the reproductive organs present.
 
-URI: [https://w3id.org/biolink/biolink-model/PhenotypicSex](https://w3id.org/biolink/biolink-model/PhenotypicSex)
+URI: [biolink:PhenotypicSex](https://w3id.org/biolink/vocab/PhenotypicSex)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OntologyClass]<subclass%20of(i)%200..*-%20\[PhenotypicSex|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*;node_property(i):string%20%3F;iri(i):iri_type%20%3F;synonym(i):label_type%20*;full_name(i):label_type%20%3F;description(i):narrative_text%20%3F;systematic_synonym(i):label_type%20%3F],%20\[NamedThing]<interacts%20with(i)%200..*-%20\[PhenotypicSex],%20\[NamedThing]<related%20to(i)%200..*-%20\[PhenotypicSex],%20\[BiologicalSex]^-\[PhenotypicSex])
 ## Inheritance

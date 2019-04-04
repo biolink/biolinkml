@@ -3,7 +3,7 @@
 
 holds between two molecular entities where the action or effect of one decreases the rate of chemical synthesis of the other
 
-URI: [https://w3id.org/biolink/biolink-model/decreases_synthesis_of](slot_uri)
+URI: [biolink:decreases_synthesis_of](https://w3id.org/biolink/vocab/decreases_synthesis_of)
 ## Domain and Range
 
 [MolecularEntity](MolecularEntity.md) ->  <sub>0..*</sub> [MolecularEntity](MolecularEntity.md)

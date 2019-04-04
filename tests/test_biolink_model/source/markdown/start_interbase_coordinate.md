@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/start_interbase_coordinate](slot_uri)
+URI: [biolink:start_interbase_coordinate](https://w3id.org/biolink/vocab/start_interbase_coordinate)
 ## Domain and Range
 
 [GenomicSequenceLocalization](GenomicSequenceLocalization.md) ->  <sub>OPT</sub> [String](String.md)

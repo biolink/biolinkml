@@ -3,7 +3,7 @@
 
 holds between two molecular entities where the action or effect of one leads to increased molecular modification(s) of the other (e.g. via post-translational modifications of proteins such as the addition of phosphoryl group, or via redox reaction that adds or subtracts electrons)
 
-URI: [https://w3id.org/biolink/biolink-model/increases_molecular_modification_of](slot_uri)
+URI: [biolink:increases_molecular_modification_of](https://w3id.org/biolink/vocab/increases_molecular_modification_of)
 ## Domain and Range
 
 [MolecularEntity](MolecularEntity.md) ->  <sub>0..*</sub> [MolecularEntity](MolecularEntity.md)

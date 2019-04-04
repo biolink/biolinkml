@@ -3,7 +3,7 @@
 
 An association between a biosample and a disease or phenotype
 
-URI: [https://w3id.org/biolink/biolink-model/BiosampleToDiseaseOrPhenotypicFeatureAssociation](https://w3id.org/biolink/biolink-model/BiosampleToDiseaseOrPhenotypicFeatureAssociation)
+URI: [biolink:BiosampleToDiseaseOrPhenotypicFeatureAssociation](https://w3id.org/biolink/vocab/BiosampleToDiseaseOrPhenotypicFeatureAssociation)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[BiosampleToDiseaseOrPhenotypicFeatureAssociation|id(i):identifier_type;subject(i):iri_type;relation(i):iri_type;object(i):iri_type;negated(i):boolean%20%3F;association_slot(i):string%20%3F],%20\[Publication]<publications(i)%200..*-%20\[BiosampleToDiseaseOrPhenotypicFeatureAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[BiosampleToDiseaseOrPhenotypicFeatureAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[BiosampleToDiseaseOrPhenotypicFeatureAssociation],%20\[BiosampleToDiseaseOrPhenotypicFeatureAssociation]uses%20-.->\[BiosampleToThingAssociation],%20\[BiosampleToDiseaseOrPhenotypicFeatureAssociation]uses%20-.->\[ThingToDiseaseOrPhenotypicFeatureAssociation],%20\[Association]^-\[BiosampleToDiseaseOrPhenotypicFeatureAssociation])
 ## Inheritance

@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/exon_to_transcript_relationship_object](slot_uri)
+URI: [biolink:exon_to_transcript_relationship_object](https://w3id.org/biolink/vocab/exon_to_transcript_relationship_object)
 ## Domain and Range
 
 [ExonToTranscriptRelationship](ExonToTranscriptRelationship.md) ->  <sub>REQ</sub> [Transcript](Transcript.md)

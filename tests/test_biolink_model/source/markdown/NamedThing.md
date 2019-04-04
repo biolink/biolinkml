@@ -3,7 +3,7 @@
 
 a databased entity or concept/class
 
-URI: [https://w3id.org/biolink/biolink-model/NamedThing](https://w3id.org/biolink/biolink-model/NamedThing)
+URI: [biolink:NamedThing](https://w3id.org/biolink/vocab/NamedThing)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[NamedThing]<interacts%20with%200..*-%20\[NamedThing|id:identifier_type;name:label_type%20%3F;category:iri_type%20*;node_property:string%20%3F;iri:iri_type%20%3F;synonym:label_type%20*;full_name:label_type%20%3F;description:narrative_text%20%3F;systematic_synonym:label_type%20%3F],%20\[NamedThing]<related%20to%200..*-%20\[NamedThing],%20\[Occurrent]-%20has%20input%200..*>\[NamedThing],%20\[Occurrent]-%20has%20participant%200..*>\[NamedThing],%20\[DiseaseOrPhenotypicFeature]-%20treated%20by%200..*>\[NamedThing],%20\[NamedThing]^-\[PlanetaryEntity],%20\[NamedThing]^-\[OntologyClass],%20\[NamedThing]^-\[Occurrent],%20\[NamedThing]^-\[InformationContentEntity],%20\[NamedThing]^-\[Device],%20\[NamedThing]^-\[ClinicalEntity],%20\[NamedThing]^-\[BiologicalEntity],%20\[NamedThing]^-\[AdministrativeEntity])
 ## Inheritance

@@ -3,7 +3,7 @@
 
 TODO
 
-URI: [https://w3id.org/biolink/biolink-model/phase](slot_uri)
+URI: [biolink:phase](https://w3id.org/biolink/vocab/phase)
 ## Domain and Range
 
 [GenomicSequenceLocalization](GenomicSequenceLocalization.md) ->  <sub>OPT</sub> [String](String.md)

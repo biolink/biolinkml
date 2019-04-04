@@ -3,7 +3,7 @@
 
 a fact or situation that is observed to exist or happen, especially one whose cause or explanation is in question
 
-URI: [https://w3id.org/biolink/biolink-model/Phenomenon](https://w3id.org/biolink/biolink-model/Phenomenon)
+URI: [biolink:Phenomenon](https://w3id.org/biolink/vocab/Phenomenon)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[NamedThing]<interacts%20with(i)%200..*-%20\[Phenomenon|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*;node_property(i):string%20%3F;iri(i):iri_type%20%3F;synonym(i):label_type%20*;full_name(i):label_type%20%3F;description(i):narrative_text%20%3F;systematic_synonym(i):label_type%20%3F],%20\[NamedThing]<related%20to(i)%200..*-%20\[Phenomenon],%20\[Occurrent]<precedes(i)%200..*-%20\[Phenomenon],%20\[NamedThing]<has%20input(i)%200..*-%20\[Phenomenon],%20\[NamedThing]<has%20participant(i)%200..*-%20\[Phenomenon],%20\[Occurrent]<regulates,%20process%20to%20process(i)%200..*-%20\[Phenomenon],%20\[Occurrent]^-\[Phenomenon])
 ## Inheritance

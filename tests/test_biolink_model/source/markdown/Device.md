@@ -3,7 +3,7 @@
 
 A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment
 
-URI: [https://w3id.org/biolink/biolink-model/Device](https://w3id.org/biolink/biolink-model/Device)
+URI: [biolink:Device](https://w3id.org/biolink/vocab/Device)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[NamedThing]<interacts%20with(i)%200..*-%20\[Device|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*;node_property(i):string%20%3F;iri(i):iri_type%20%3F;synonym(i):label_type%20*;full_name(i):label_type%20%3F;description(i):narrative_text%20%3F;systematic_synonym(i):label_type%20%3F],%20\[NamedThing]<related%20to(i)%200..*-%20\[Device],%20\[NamedThing]^-\[Device])
 ## Inheritance

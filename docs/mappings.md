@@ -3,7 +3,7 @@
 
 A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective.
 
-URI: [http://w3id.org/biolink/biolinkml/meta/mappings](slot_uri)
+URI: [meta:mappings](https://w3id.org/biolink/biolinkml/meta/mappings)
 ## Domain and Range
 
 [Element](Element.md) ->  <sub>0..*</sub> [Uriorcurie](Uriorcurie.md)

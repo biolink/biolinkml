@@ -3,7 +3,7 @@
 
 connects a genomic feature to its sequence
 
-URI: [https://w3id.org/biolink/biolink-model/has_biological_sequence](slot_uri)
+URI: [biolink:has_biological_sequence](https://w3id.org/biolink/vocab/has_biological_sequence)
 ## Domain and Range
 
 [GenomicEntity](GenomicEntity.md) ->  <sub>OPT</sub> [BiologicalSequence](BiologicalSequence.md)

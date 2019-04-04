@@ -3,7 +3,7 @@
 
 connects an association to the type of association (e.g. gene to phenotype)
 
-URI: [https://w3id.org/biolink/biolink-model/association_type](slot_uri)
+URI: [biolink:association_type](https://w3id.org/biolink/vocab/association_type)
 ## Domain and Range
 
 [Association](Association.md) ->  <sub>OPT</sub> [OntologyClass](OntologyClass.md)

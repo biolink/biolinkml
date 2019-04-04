@@ -56,6 +56,7 @@ A metamodel for defining biolink related schemas
  * [is_a](is_a.md) - specifies single-inheritance between classes or slots. While multiple inheritance is not allowed, mixins can be provided effectively providing the same thing. The semantics are the same when translated to formalisms that allow MI (e.g. RDFS/OWL). When translating to a SI framework (e.g. java classes, python classes) then is a is used. When translating a framework without polymorphism (e.g. json-schema, solr document schema) then is a and mixins are recursively unfolded
     * [class_definition.is_a](class_definition_is_a.md)
     * [slot_definition.is_a](slot_definition_is_a.md)
+ * [is_usage_slot](is_usage_slot.md) - True means that this slot was defined in a slot_usage situation
  * [key](key.md) - true means that the slot uniquely identifies the element within the context of its container.  Key slots are NOT identifiers - they do not serve as subjects
  * [license](license.md) - license for the schema
  * [local_name_source](local_name_source.md) - the ncname of the source of the name

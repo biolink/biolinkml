@@ -3,7 +3,7 @@
 
 
 
-URI: [http://w3id.org/biolink/biolinkml/meta/alt_descriptions](slot_uri)
+URI: [meta:alt_descriptions](https://w3id.org/biolink/biolinkml/meta/alt_descriptions)
 ## Domain and Range
 
 [Element](Element.md) ->  <sub>0..*</sub> [AltDescription](AltDescription.md)

@@ -3,9 +3,9 @@
 
 an attributed label
 
-URI: [http://w3id.org/biolink/biolinkml/meta/LocalName](http://w3id.org/biolink/biolinkml/meta/LocalName)
+URI: [meta:LocalName](https://w3id.org/biolink/biolinkml/meta/LocalName)
 
-![img](images/LocalName.png)
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Element]++-%20local_names%200..*>\[LocalName|local_name_source(pk):ncname;local_name_value:string])
 ## Inheritance
 
 ## Children

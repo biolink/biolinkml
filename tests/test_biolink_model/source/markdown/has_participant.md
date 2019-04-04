@@ -3,7 +3,7 @@
 
 holds between a process and a continuant, where the continuant is somehow involved in the process
 
-URI: [https://w3id.org/biolink/biolink-model/has_participant](slot_uri)
+URI: [biolink:has_participant](https://w3id.org/biolink/vocab/has_participant)
 ## Domain and Range
 
 [Occurrent](Occurrent.md) ->  <sub>0..*</sub> [NamedThing](NamedThing.md)

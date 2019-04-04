@@ -3,7 +3,7 @@
 
 holds between any two entities that directly or indirectly interact with each other
 
-URI: [https://w3id.org/biolink/biolink-model/interacts_with](slot_uri)
+URI: [biolink:interacts_with](https://w3id.org/biolink/vocab/interacts_with)
 ## Domain and Range
 
 [NamedThing](NamedThing.md) ->  <sub>0..*</sub> [NamedThing](NamedThing.md)

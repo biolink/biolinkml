@@ -3,7 +3,7 @@
 
 holds between two molecular entities where the action or effect of one changes the localization of the other within a system of interest
 
-URI: [https://w3id.org/biolink/biolink-model/affects_localization_of](slot_uri)
+URI: [biolink:affects_localization_of](https://w3id.org/biolink/vocab/affects_localization_of)
 ## Domain and Range
 
 [MolecularEntity](MolecularEntity.md) ->  <sub>0..*</sub> [MolecularEntity](MolecularEntity.md)

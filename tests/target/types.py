@@ -1,8 +1,8 @@
-# Auto generated from types.yaml by pythongen.py version: 0.2.0
-# Generation date: 2019-04-02 15:50
+# Auto generated from .yaml by pythongen.py version:
+# Generation date:
 # Schema: types
 #
-# id: http://w3id.org/biolink/biolinkml/types
+# id: https://w3id.org/biolink/biolinkml/types
 # description: Shared type definitions
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 
@@ -12,7 +12,7 @@ from biolinkml.utils.metamodelcore import empty_list, empty_dict
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.metamodelcore import Bool, NCName, URI, URIorCURIE, XSDDate, XSDDateTime, XSDTime
 
-metamodel_version = "1.3.0"
+metamodel_version = "1.3.1"
 
 # Types
 class String(str):
@@ -66,5 +66,3 @@ class Ncname(NCName):
 
 
 # Class references
-
-

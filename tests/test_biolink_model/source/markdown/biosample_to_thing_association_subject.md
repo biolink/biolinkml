@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/biosample_to_thing_association_subject](slot_uri)
+URI: [biolink:biosample_to_thing_association_subject](https://w3id.org/biolink/vocab/biosample_to_thing_association_subject)
 ## Domain and Range
 
 [BiosampleToThingAssociation](BiosampleToThingAssociation.md) ->  <sub>REQ</sub> [Biosample](Biosample.md)

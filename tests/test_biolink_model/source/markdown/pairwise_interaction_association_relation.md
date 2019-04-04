@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/pairwise_interaction_association_relation](slot_uri)
+URI: [biolink:pairwise_interaction_association_relation](https://w3id.org/biolink/vocab/pairwise_interaction_association_relation)
 ## Domain and Range
 
 [PairwiseInteractionAssociation](PairwiseInteractionAssociation.md) ->  <sub>REQ</sub> [IriType](IriType.md)

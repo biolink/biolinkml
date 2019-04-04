@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/sequence_variant_has_gene](slot_uri)
+URI: [biolink:sequence_variant_has_gene](https://w3id.org/biolink/vocab/sequence_variant_has_gene)
 ## Domain and Range
 
 [SequenceVariant](SequenceVariant.md) ->  <sub>0..*</sub> [Gene](Gene.md)

@@ -3,7 +3,7 @@
 
 Outstanding issue that needs resolution
 
-URI: [http://w3id.org/biolink/biolinkml/meta/todos](slot_uri)
+URI: [meta:todos](https://w3id.org/biolink/biolinkml/meta/todos)
 ## Domain and Range
 
 [Element](Element.md) ->  <sub>0..*</sub> [String](String.md)

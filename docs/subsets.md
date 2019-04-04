@@ -3,7 +3,7 @@
 
 list of subsets referenced in this model
 
-URI: [http://w3id.org/biolink/biolinkml/meta/subsets](slot_uri)
+URI: [meta:subsets](https://w3id.org/biolink/biolinkml/meta/subsets)
 ## Domain and Range
 
 [SchemaDefinition](SchemaDefinition.md) ->  <sub>0..*</sub> [SubsetDefinition](SubsetDefinition.md)

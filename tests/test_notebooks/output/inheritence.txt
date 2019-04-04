@@ -3,10 +3,9 @@
 -----
 http://yuml.me/diagram/nofunky;dir:TB/class/[Root]^-[Children|root_id:string], [Children]^-[Child2|description:string;root_id(i):string], [Children]^-[Child1|root_id(i):string], [Child2]^-[Child22|angry:boolean;description(i):string;root_id(i):string], [Child2]^-[Child21|description(i):string;root_id(i):string]
 
-BASE <http://example.org/sample/example2/>
+BASE <http://example.org/model/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-PREFIX ex: <http://example.org/model/>
 
 
 <String> xsd:string
@@ -16,31 +15,43 @@ PREFIX ex: <http://example.org/model/>
 <Boolean> xsd:boolean
 
 <Child1> EXTRA rdf:type CLOSED {
-    rdf:type [ ex:Child1 ]
+    (  $<Child1_t> (  &<Children_t> |
+          &<Children_t>
+       ) ;
+       rdf:type [ <Child1> ]
+    )
 }
 
 <Child2> EXTRA rdf:type CLOSED {
-    (  $ex:Child2_t ex:description @<String> ;
-       rdf:type [ ex:Child2 ]
+    (  $<Child2_t> (  <description> @<String> ;
+          &<Children_t>
+       ) ;
+       rdf:type [ <Child2> ]
     )
 }
 
 <Child21> EXTRA rdf:type CLOSED {
-    (  &<Child2_t> ;
-       rdf:type [ ex:Child21 ]
+    (  $<Child21_t> (  &<Child2_t> |
+          &<Child2_t>
+       ) ;
+       rdf:type [ <Child21> ]
     )
 }
 
 <Child22> EXTRA rdf:type CLOSED {
-    (  $ex:Child22_t (  ex:angry @<Boolean> ;
+    (  $<Child22_t> (  <angry> @<Boolean> ;
           &<Child2_t>
        ) ;
-       rdf:type [ ex:Child22 ]
+       rdf:type [ <Child22> ]
     )
 }
 
 <Children> EXTRA rdf:type CLOSED {
-    rdf:type [ ex:Children ]
+    (  $<Children_t> (  &<Root_t> |
+          &<Root_t>
+       ) ;
+       rdf:type [ <Children> ]
+    )
 }
 
 <Root> EXTRA rdf:type CLOSED { }

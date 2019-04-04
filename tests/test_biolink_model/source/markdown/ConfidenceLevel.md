@@ -3,7 +3,7 @@
 
 Level of confidence in a statement
 
-URI: [https://w3id.org/biolink/biolink-model/ConfidenceLevel](https://w3id.org/biolink/biolink-model/ConfidenceLevel)
+URI: [biolink:ConfidenceLevel](https://w3id.org/biolink/vocab/ConfidenceLevel)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[NamedThing]<interacts%20with(i)%200..*-%20\[ConfidenceLevel|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*;node_property(i):string%20%3F;iri(i):iri_type%20%3F;synonym(i):label_type%20*;full_name(i):label_type%20%3F;description(i):narrative_text%20%3F;systematic_synonym(i):label_type%20%3F],%20\[NamedThing]<related%20to(i)%200..*-%20\[ConfidenceLevel],%20\[Association]-%20has%20confidence%20level(i)%200..1>\[ConfidenceLevel],%20\[InformationContentEntity]^-\[ConfidenceLevel])
 ## Inheritance

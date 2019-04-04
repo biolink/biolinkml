@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by pythongen.py version: 0.2.0
-# Generation date: 2019-04-04 10:00
+# Generation date: 2019-04-04 13:38
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta
@@ -13,7 +13,7 @@ from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.metamodelcore import Bool, NCName, URI, URIorCURIE, XSDDate
 from includes.types import Boolean, Datetime, Integer, Ncname, String, Uri, Uriorcurie
 
-metamodel_version = "1.3.0"
+metamodel_version = "1.3.1"
 
 # Types
 

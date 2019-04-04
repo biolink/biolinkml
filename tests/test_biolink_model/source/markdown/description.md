@@ -3,7 +3,7 @@
 
 a human-readable description of a thing
 
-URI: [https://w3id.org/biolink/biolink-model/description](slot_uri)
+URI: [biolink:description](https://w3id.org/biolink/vocab/description)
 ## Domain and Range
 
 [NamedThing](NamedThing.md) ->  <sub>OPT</sub> [NarrativeText](NarrativeText.md)

@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/transcript_to_gene_relationship_subject](slot_uri)
+URI: [biolink:transcript_to_gene_relationship_subject](https://w3id.org/biolink/vocab/transcript_to_gene_relationship_subject)
 ## Domain and Range
 
 [TranscriptToGeneRelationship](TranscriptToGeneRelationship.md) ->  <sub>REQ</sub> [Transcript](Transcript.md)

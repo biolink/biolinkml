@@ -3,7 +3,7 @@
 
 List of definitions to be mixed in. Targets may be any definition of the same type
 
-URI: [http://w3id.org/biolink/biolinkml/meta/mixins](slot_uri)
+URI: [meta:mixins](https://w3id.org/biolink/biolinkml/meta/mixins)
 ## Domain and Range
 
 [Definition](Definition.md) ->  <sub>0..*</sub> [Definition](Definition.md)

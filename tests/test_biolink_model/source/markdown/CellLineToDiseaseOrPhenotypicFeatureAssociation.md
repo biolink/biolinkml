@@ -3,7 +3,7 @@
 
 An relationship between a cell line and a disease or a phenotype, where the cell line is derived from an individual with that disease or phenotype
 
-URI: [https://w3id.org/biolink/biolink-model/CellLineToDiseaseOrPhenotypicFeatureAssociation](https://w3id.org/biolink/biolink-model/CellLineToDiseaseOrPhenotypicFeatureAssociation)
+URI: [biolink:CellLineToDiseaseOrPhenotypicFeatureAssociation](https://w3id.org/biolink/vocab/CellLineToDiseaseOrPhenotypicFeatureAssociation)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[CellLineToDiseaseOrPhenotypicFeatureAssociation|id(i):identifier_type;relation(i):iri_type;object(i):iri_type;negated(i):boolean%20%3F;association_slot(i):string%20%3F],%20\[Publication]<publications(i)%200..*-%20\[CellLineToDiseaseOrPhenotypicFeatureAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[CellLineToDiseaseOrPhenotypicFeatureAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[CellLineToDiseaseOrPhenotypicFeatureAssociation],%20\[DiseaseOrPhenotypicFeature]<subject%201..1-%20\[CellLineToDiseaseOrPhenotypicFeatureAssociation],%20\[CellLineToDiseaseOrPhenotypicFeatureAssociation]uses%20-.->\[CellLineToThingAssociation],%20\[CellLineToDiseaseOrPhenotypicFeatureAssociation]uses%20-.->\[ThingToDiseaseOrPhenotypicFeatureAssociation],%20\[Association]^-\[CellLineToDiseaseOrPhenotypicFeatureAssociation])
 ## Inheritance

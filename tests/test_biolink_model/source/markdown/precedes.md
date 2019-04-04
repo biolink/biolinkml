@@ -3,7 +3,7 @@
 
 holds between two processes, where one completes before the other begins
 
-URI: [https://w3id.org/biolink/biolink-model/precedes](slot_uri)
+URI: [biolink:precedes](https://w3id.org/biolink/vocab/precedes)
 ## Domain and Range
 
 [Occurrent](Occurrent.md) ->  <sub>0..*</sub> [Occurrent](Occurrent.md)

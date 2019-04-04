@@ -3,7 +3,7 @@
 
 number of things with a particular property
 
-URI: [https://w3id.org/biolink/biolink-model/has_count](slot_uri)
+URI: [biolink:has_count](https://w3id.org/biolink/vocab/has_count)
 ## Domain and Range
 
 [FrequencyQuantifier](FrequencyQuantifier.md) ->  <sub>OPT</sub> [Integer](Integer.md)

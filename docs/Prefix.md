@@ -3,9 +3,9 @@
 
 prefix URI tuple
 
-URI: [http://w3id.org/biolink/biolinkml/meta/Prefix](http://w3id.org/biolink/biolinkml/meta/Prefix)
+URI: [meta:Prefix](https://w3id.org/biolink/biolinkml/meta/Prefix)
 
-![img](images/Prefix.png)
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[SchemaDefinition]++-%20prefixes%200..*>\[Prefix|prefix_prefix(pk):ncname;prefix_reference:uri])
 ## Inheritance
 
 ## Children

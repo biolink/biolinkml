@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/gene_regulatory_relationship_relation](slot_uri)
+URI: [biolink:gene_regulatory_relationship_relation](https://w3id.org/biolink/vocab/gene_regulatory_relationship_relation)
 ## Domain and Range
 
 [GeneRegulatoryRelationship](GeneRegulatoryRelationship.md) ->  <sub>REQ</sub> [IriType](IriType.md)

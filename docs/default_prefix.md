@@ -3,7 +3,7 @@
 
 default and base prefix -- used for ':' identifiers, @base and @vocab
 
-URI: [http://w3id.org/biolink/biolinkml/meta/default_prefix](slot_uri)
+URI: [meta:default_prefix](https://w3id.org/biolink/biolinkml/meta/default_prefix)
 ## Domain and Range
 
 [SchemaDefinition](SchemaDefinition.md) ->  <sub>OPT</sub> [String](String.md)

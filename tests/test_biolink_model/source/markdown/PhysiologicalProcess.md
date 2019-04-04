@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/PhysiologicalProcess](https://w3id.org/biolink/biolink-model/PhysiologicalProcess)
+URI: [biolink:PhysiologicalProcess](https://w3id.org/biolink/vocab/PhysiologicalProcess)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[NamedThing]<interacts%20with(i)%200..*-%20\[PhysiologicalProcess|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*;node_property(i):string%20%3F;iri(i):iri_type%20%3F;synonym(i):label_type%20*;full_name(i):label_type%20%3F;description(i):narrative_text%20%3F;systematic_synonym(i):label_type%20%3F],%20\[NamedThing]<related%20to(i)%200..*-%20\[PhysiologicalProcess],%20\[PhenotypicFeature]<has%20phenotype(i)%200..*-%20\[PhysiologicalProcess],%20\[Occurrent]<precedes(i)%200..*-%20\[PhysiologicalProcess],%20\[NamedThing]<has%20input(i)%200..*-%20\[PhysiologicalProcess],%20\[NamedThing]<has%20participant(i)%200..*-%20\[PhysiologicalProcess],%20\[Occurrent]<regulates,%20process%20to%20process(i)%200..*-%20\[PhysiologicalProcess],%20\[BiologicalProcess]^-\[PhysiologicalProcess])
 ## Inheritance

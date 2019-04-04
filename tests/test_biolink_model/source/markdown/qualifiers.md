@@ -3,7 +3,7 @@
 
 connects an association to qualifiers that modify or qualify the meaning of that association
 
-URI: [https://w3id.org/biolink/biolink-model/qualifiers](slot_uri)
+URI: [biolink:qualifiers](https://w3id.org/biolink/vocab/qualifiers)
 ## Domain and Range
 
 [Association](Association.md) ->  <sub>0..*</sub> [OntologyClass](OntologyClass.md)

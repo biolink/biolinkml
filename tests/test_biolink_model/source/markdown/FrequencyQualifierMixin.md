@@ -3,7 +3,7 @@
 
 Qualifier for freqency type associations
 
-URI: [https://w3id.org/biolink/biolink-model/FrequencyQualifierMixin](https://w3id.org/biolink/biolink-model/FrequencyQualifierMixin)
+URI: [biolink:FrequencyQualifierMixin](https://w3id.org/biolink/vocab/FrequencyQualifierMixin)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[FrequencyValue]<frequency%20qualifier%200..1-%20\[FrequencyQualifierMixin],%20\[VariantToPopulationAssociation]uses%20-.->\[FrequencyQualifierMixin],%20\[FrequencyQualifierMixin]^-\[EntityToFeatureOrDiseaseQualifiers])
 ## Inheritance

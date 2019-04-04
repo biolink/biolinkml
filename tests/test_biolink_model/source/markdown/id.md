@@ -3,7 +3,7 @@
 
 A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
 
-URI: [https://w3id.org/biolink/biolink-model/id](slot_uri)
+URI: [biolink:id](https://w3id.org/biolink/vocab/id)
 ## Domain and Range
 
 [NamedThing](NamedThing.md) ->  <sub>REQ</sub> [IdentifierType](IdentifierType.md)

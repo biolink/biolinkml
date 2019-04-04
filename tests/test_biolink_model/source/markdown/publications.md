@@ -3,7 +3,7 @@
 
 connects an association to publications supporting the association
 
-URI: [https://w3id.org/biolink/biolink-model/publications](slot_uri)
+URI: [biolink:publications](https://w3id.org/biolink/vocab/publications)
 ## Domain and Range
 
 [Association](Association.md) ->  <sub>0..*</sub> [Publication](Publication.md)

@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/variant_to_disease_association_object](slot_uri)
+URI: [biolink:variant_to_disease_association_object](https://w3id.org/biolink/vocab/variant_to_disease_association_object)
 ## Domain and Range
 
 [VariantToDiseaseAssociation](VariantToDiseaseAssociation.md) ->  <sub>REQ</sub> [IriType](IriType.md)

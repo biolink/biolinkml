@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/PhenotypicFeature](https://w3id.org/biolink/biolink-model/PhenotypicFeature)
+URI: [biolink:PhenotypicFeature](https://w3id.org/biolink/vocab/PhenotypicFeature)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[NamedThing]<interacts%20with(i)%200..*-%20\[PhenotypicFeature|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*;node_property(i):string%20%3F;iri(i):iri_type%20%3F;synonym(i):label_type%20*;full_name(i):label_type%20%3F;description(i):narrative_text%20%3F;systematic_synonym(i):label_type%20%3F],%20\[NamedThing]<related%20to(i)%200..*-%20\[PhenotypicFeature],%20\[PhenotypicFeature]<has%20phenotype(i)%200..*-%20\[PhenotypicFeature],%20\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[PhenotypicFeature],%20\[NamedThing]<treated%20by(i)%200..*-%20\[PhenotypicFeature],%20\[MolecularEntity]<has%20biomarker(i)%200..*-%20\[PhenotypicFeature],%20\[MolecularEntity]<correlated%20with(i)%200..*-%20\[PhenotypicFeature],%20\[EntityToPhenotypicFeatureAssociation]-%20object%201..1>\[PhenotypicFeature],%20\[BiologicalEntity]-%20has%20phenotype%200..*>\[PhenotypicFeature],%20\[DiseaseOrPhenotypicFeature]^-\[PhenotypicFeature])
 ## Inheritance

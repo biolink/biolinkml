@@ -3,7 +3,7 @@
 
 Any entity or process that exists in the clinical domain and outside the biological realm. Diseases are placed under biological entities
 
-URI: [https://w3id.org/biolink/biolink-model/ClinicalEntity](https://w3id.org/biolink/biolink-model/ClinicalEntity)
+URI: [biolink:ClinicalEntity](https://w3id.org/biolink/vocab/ClinicalEntity)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[NamedThing]<interacts%20with(i)%200..*-%20\[ClinicalEntity|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*;node_property(i):string%20%3F;iri(i):iri_type%20%3F;synonym(i):label_type%20*;full_name(i):label_type%20%3F;description(i):narrative_text%20%3F;systematic_synonym(i):label_type%20%3F],%20\[NamedThing]<related%20to(i)%200..*-%20\[ClinicalEntity],%20\[ClinicalEntity]^-\[ClinicalTrial],%20\[ClinicalEntity]^-\[ClinicalIntervention],%20\[NamedThing]^-\[ClinicalEntity])
 ## Inheritance

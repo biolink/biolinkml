@@ -3,7 +3,7 @@
 
 
 
-URI: [http://w3id.org/biolink/biolinkml/meta/local_names](slot_uri)
+URI: [meta:local_names](https://w3id.org/biolink/biolinkml/meta/local_names)
 ## Domain and Range
 
 [Element](Element.md) ->  <sub>0..*</sub> [LocalName](LocalName.md)

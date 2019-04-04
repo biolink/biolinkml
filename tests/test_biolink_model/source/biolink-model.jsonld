@@ -41,11 +41,11 @@
     },
     {
       "prefix_prefix": "meta",
-      "prefix_reference": "https://w3id.org/biolink/biolinkml/meta/"
+      "prefix_reference": "http://w3id.org/biolink/biolinkml/meta/"
     },
     {
       "prefix_prefix": "metatype",
-      "prefix_reference": "https://w3id.org/biolink/biolinkml/type/"
+      "prefix_reference": "http://w3id.org/biolink/biolinkml/type/"
     },
     {
       "prefix_prefix": "xsd",
@@ -195,7 +195,7 @@
     },
     {
       "name": "string",
-      "from_schema": "https://w3id.org/biolink/biolinkml/types",
+      "from_schema": "http://w3id.org/biolink/biolinkml/types",
       "imported_from": "https://w3id.org/biolink/biolinkml/types",
       "base": "str",
       "uri": "http://www.w3.org/2001/XMLSchema#string",
@@ -203,7 +203,7 @@
     },
     {
       "name": "integer",
-      "from_schema": "https://w3id.org/biolink/biolinkml/types",
+      "from_schema": "http://w3id.org/biolink/biolinkml/types",
       "imported_from": "https://w3id.org/biolink/biolinkml/types",
       "base": "int",
       "uri": "http://www.w3.org/2001/XMLSchema#integer",
@@ -212,7 +212,7 @@
     {
       "name": "boolean",
       "description": "A binary (true or false) value",
-      "from_schema": "https://w3id.org/biolink/biolinkml/types",
+      "from_schema": "http://w3id.org/biolink/biolinkml/types",
       "imported_from": "https://w3id.org/biolink/biolinkml/types",
       "base": "Bool",
       "uri": "http://www.w3.org/2001/XMLSchema#boolean",
@@ -220,7 +220,7 @@
     },
     {
       "name": "float",
-      "from_schema": "https://w3id.org/biolink/biolinkml/types",
+      "from_schema": "http://w3id.org/biolink/biolinkml/types",
       "imported_from": "https://w3id.org/biolink/biolinkml/types",
       "base": "float",
       "uri": "http://www.w3.org/2001/XMLSchema#float",
@@ -228,7 +228,7 @@
     },
     {
       "name": "double",
-      "from_schema": "https://w3id.org/biolink/biolinkml/types",
+      "from_schema": "http://w3id.org/biolink/biolinkml/types",
       "imported_from": "https://w3id.org/biolink/biolinkml/types",
       "base": "float",
       "uri": "http://www.w3.org/2001/XMLSchema#double",
@@ -240,7 +240,7 @@
       "notes": [
         "URI is dateTime because OWL reasoners don't work with straight date or time"
       ],
-      "from_schema": "https://w3id.org/biolink/biolinkml/types",
+      "from_schema": "http://w3id.org/biolink/biolinkml/types",
       "imported_from": "https://w3id.org/biolink/biolinkml/types",
       "base": "XSDTime",
       "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
@@ -253,7 +253,7 @@
       "notes": [
         "URI is dateTime because OWL reasoners don't work with straight date or time"
       ],
-      "from_schema": "https://w3id.org/biolink/biolinkml/types",
+      "from_schema": "http://w3id.org/biolink/biolinkml/types",
       "imported_from": "https://w3id.org/biolink/biolinkml/types",
       "base": "XSDDateTime",
       "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
@@ -262,7 +262,7 @@
     },
     {
       "name": "datetime",
-      "from_schema": "https://w3id.org/biolink/biolinkml/types",
+      "from_schema": "http://w3id.org/biolink/biolinkml/types",
       "imported_from": "https://w3id.org/biolink/biolinkml/types",
       "base": "XSDDate",
       "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
@@ -272,7 +272,7 @@
     {
       "name": "uriorcurie",
       "description": "a URI or a CURIE",
-      "from_schema": "https://w3id.org/biolink/biolinkml/types",
+      "from_schema": "http://w3id.org/biolink/biolinkml/types",
       "imported_from": "https://w3id.org/biolink/biolinkml/types",
       "base": "URIorCURIE",
       "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
@@ -282,7 +282,7 @@
     {
       "name": "uri",
       "description": "a complete URI",
-      "from_schema": "https://w3id.org/biolink/biolinkml/types",
+      "from_schema": "http://w3id.org/biolink/biolinkml/types",
       "imported_from": "https://w3id.org/biolink/biolinkml/types",
       "base": "URI",
       "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
@@ -292,7 +292,7 @@
     {
       "name": "ncname",
       "description": "Prefix part of CURIE",
-      "from_schema": "https://w3id.org/biolink/biolinkml/types",
+      "from_schema": "http://w3id.org/biolink/biolinkml/types",
       "imported_from": "https://w3id.org/biolink/biolinkml/types",
       "base": "NCName",
       "uri": "http://www.w3.org/2001/XMLSchema#string",
@@ -2029,7 +2029,7 @@
       "is_a": "node_property",
       "domain": "NamedThing",
       "range": "iri_type",
-      "slot_uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "slot_uri": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
       "multivalued": true,
       "type": "SlotDefinition"
     },
@@ -9155,10 +9155,10 @@
       "type": "ClassDefinition"
     }
   ],
-  "metamodel_version": "1.3.0",
+  "metamodel_version": "1.3.1",
   "source_file": "biolink-model.yaml",
-  "source_file_date": "Wed Apr  3 11:44:23 2019",
-  "source_file_size": 107086,
+  "source_file_date": "Wed Apr  3 16:30:43 2019",
+  "source_file_size": 107095,
   "generation_date": "2019-01-01 12:00",
   "type": "SchemaDefinition",
   "@context": [

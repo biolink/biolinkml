@@ -3,7 +3,7 @@
 
 holds between an anatomical entity and gene or gene product that is expressed there
 
-URI: [https://w3id.org/biolink/biolink-model/expresses](slot_uri)
+URI: [biolink:expresses](https://w3id.org/biolink/vocab/expresses)
 ## Domain and Range
 
 [AnatomicalEntity](AnatomicalEntity.md) ->  <sub>0..*</sub> [GeneOrGeneProduct](GeneOrGeneProduct.md)

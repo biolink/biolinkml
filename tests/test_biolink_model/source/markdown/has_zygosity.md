@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/has_zygosity](slot_uri)
+URI: [biolink:has_zygosity](https://w3id.org/biolink/vocab/has_zygosity)
 ## Domain and Range
 
 [Genotype](Genotype.md) ->  <sub>OPT</sub> [Zygosity](Zygosity.md)

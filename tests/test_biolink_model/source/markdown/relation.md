@@ -3,7 +3,7 @@
 
 the relationship type by which a subject is connected to an object in an association
 
-URI: [https://w3id.org/biolink/biolink-model/relation](slot_uri)
+URI: [biolink:relation](https://w3id.org/biolink/vocab/relation)
 ## Domain and Range
 
 [Association](Association.md) ->  <sub>REQ</sub> [IriType](IriType.md)

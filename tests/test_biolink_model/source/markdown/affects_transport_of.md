@@ -3,7 +3,7 @@
 
 holds between two molecular entities where the action or effect of one impacts the rate of transport of the other across some boundary in a system of interest
 
-URI: [https://w3id.org/biolink/biolink-model/affects_transport_of](slot_uri)
+URI: [biolink:affects_transport_of](https://w3id.org/biolink/vocab/affects_transport_of)
 ## Domain and Range
 
 [MolecularEntity](MolecularEntity.md) ->  <sub>0..*</sub> [MolecularEntity](MolecularEntity.md)

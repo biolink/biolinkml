@@ -3,7 +3,7 @@
 
 a long-form human readable name for a thing
 
-URI: [https://w3id.org/biolink/biolink-model/full_name](slot_uri)
+URI: [biolink:full_name](https://w3id.org/biolink/vocab/full_name)
 ## Domain and Range
 
 [NamedThing](NamedThing.md) ->  <sub>OPT</sub> [LabelType](LabelType.md)

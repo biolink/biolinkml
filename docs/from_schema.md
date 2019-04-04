@@ -3,7 +3,7 @@
 
 id of the schema that defined the element
 
-URI: [http://w3id.org/biolink/biolinkml/meta/from_schema](slot_uri)
+URI: [meta:from_schema](https://w3id.org/biolink/biolinkml/meta/from_schema)
 ## Domain and Range
 
 [Element](Element.md) ->  <sub>OPT</sub> [Uri](Uri.md)

@@ -3,7 +3,7 @@
 
 date and time that the schema was loaded/generated
 
-URI: [http://w3id.org/biolink/biolinkml/meta/generation_date](slot_uri)
+URI: [meta:generation_date](https://w3id.org/biolink/biolinkml/meta/generation_date)
 ## Domain and Range
 
 [SchemaDefinition](SchemaDefinition.md) ->  <sub>OPT</sub> [Datetime](Datetime.md)

@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/cell_line_to_thing_association_subject](slot_uri)
+URI: [biolink:cell_line_to_thing_association_subject](https://w3id.org/biolink/vocab/cell_line_to_thing_association_subject)
 ## Domain and Range
 
 [CellLineToThingAssociation](CellLineToThingAssociation.md) ->  <sub>REQ</sub> [CellLine](CellLine.md)

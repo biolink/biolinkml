@@ -3,7 +3,7 @@
 
 slot definitions
 
-URI: [http://w3id.org/biolink/biolinkml/meta/slot_definitions](slot_uri)
+URI: [meta:slot_definitions](https://w3id.org/biolink/biolinkml/meta/slot_definitions)
 ## Domain and Range
 
 [SchemaDefinition](SchemaDefinition.md) ->  <sub>0..*</sub> [SlotDefinition](SlotDefinition.md)

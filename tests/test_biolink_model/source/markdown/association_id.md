@@ -3,7 +3,7 @@
 
 A unique identifier for an association
 
-URI: [https://w3id.org/biolink/biolink-model/association_id](slot_uri)
+URI: [biolink:association_id](https://w3id.org/biolink/vocab/association_id)
 ## Domain and Range
 
 [Association](Association.md) ->  <sub>REQ</sub> [IdentifierType](IdentifierType.md)

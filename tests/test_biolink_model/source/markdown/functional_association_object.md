@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/functional_association_object](slot_uri)
+URI: [biolink:functional_association_object](https://w3id.org/biolink/vocab/functional_association_object)
 ## Domain and Range
 
 [FunctionalAssociation](FunctionalAssociation.md) ->  <sub>REQ</sub> [GeneOntologyClass](GeneOntologyClass.md)

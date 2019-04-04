@@ -3,7 +3,7 @@
 
 A feature of the environment of an organism that influences one or more phenotypic features of that organism, potentially mediated by genes
 
-URI: [https://w3id.org/biolink/biolink-model/Environment](https://w3id.org/biolink/biolink-model/Environment)
+URI: [biolink:Environment](https://w3id.org/biolink/vocab/Environment)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[NamedThing]<interacts%20with(i)%200..*-%20\[Environment|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*;node_property(i):string%20%3F;iri(i):iri_type%20%3F;synonym(i):label_type%20*;full_name(i):label_type%20%3F;description(i):narrative_text%20%3F;systematic_synonym(i):label_type%20%3F],%20\[NamedThing]<related%20to(i)%200..*-%20\[Environment],%20\[PhenotypicFeature]<has%20phenotype(i)%200..*-%20\[Environment],%20\[EnvironmentToPhenotypicFeatureAssociation]-%20subject%201..1>\[Environment],%20\[Environment]^-\[Treatment],%20\[Environment]^-\[DrugExposure],%20\[BiologicalEntity]^-\[Environment])
 ## Inheritance

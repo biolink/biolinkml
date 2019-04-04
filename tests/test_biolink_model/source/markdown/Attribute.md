@@ -3,7 +3,7 @@
 
 A property or characteristic of an entity
 
-URI: [https://w3id.org/biolink/biolink-model/Attribute](https://w3id.org/biolink/biolink-model/Attribute)
+URI: [biolink:Attribute](https://w3id.org/biolink/vocab/Attribute)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OntologyClass]<subclass%20of%200..*-%20\[Attribute|id:identifier_type;name:label_type%20%3F;category:iri_type%20*;node_property:string%20%3F;iri:iri_type%20%3F;synonym:label_type%20*;full_name:label_type%20%3F;description:narrative_text%20%3F;systematic_synonym:label_type%20%3F],%20\[NamedThing]<interacts%20with%200..*-%20\[Attribute],%20\[NamedThing]<related%20to%200..*-%20\[Attribute],%20\[Attribute]uses%20-.->\[OntologyClass],%20\[Attribute]^-\[Zygosity],%20\[Attribute]^-\[SeverityValue],%20\[Attribute]^-\[Onset],%20\[Attribute]^-\[FrequencyValue],%20\[Attribute]^-\[ClinicalModifier],%20\[Attribute]^-\[BiologicalSex])
 ## Inheritance

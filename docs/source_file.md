@@ -3,7 +3,7 @@
 
 name, uri or description of the source of the schema
 
-URI: [http://w3id.org/biolink/biolinkml/meta/source_file](slot_uri)
+URI: [meta:source_file](https://w3id.org/biolink/biolinkml/meta/source_file)
 ## Domain and Range
 
 [SchemaDefinition](SchemaDefinition.md) ->  <sub>OPT</sub> [String](String.md)

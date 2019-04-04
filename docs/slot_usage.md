@@ -3,7 +3,7 @@
 
 the redefinition of a slot in the context of the containing class definition.
 
-URI: [http://w3id.org/biolink/biolinkml/meta/slot_usage](slot_uri)
+URI: [meta:slot_usage](https://w3id.org/biolink/biolinkml/meta/slot_usage)
 ## Domain and Range
 
 [ClassDefinition](ClassDefinition.md) ->  <sub>0..*</sub> [SlotDefinition](SlotDefinition.md)

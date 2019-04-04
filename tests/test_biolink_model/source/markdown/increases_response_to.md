@@ -3,7 +3,7 @@
 
 holds between two molecular entities where the action or effect of one increases the susceptibility of a biological entity or system (e.g. an organism, cell, cellular component, macromolecular machine, biological or pathological process) to the other
 
-URI: [https://w3id.org/biolink/biolink-model/increases_response_to](slot_uri)
+URI: [biolink:increases_response_to](https://w3id.org/biolink/vocab/increases_response_to)
 ## Domain and Range
 
 [MolecularEntity](MolecularEntity.md) ->  <sub>0..*</sub> [MolecularEntity](MolecularEntity.md)

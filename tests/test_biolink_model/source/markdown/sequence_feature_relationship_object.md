@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/sequence_feature_relationship_object](slot_uri)
+URI: [biolink:sequence_feature_relationship_object](https://w3id.org/biolink/vocab/sequence_feature_relationship_object)
 ## Domain and Range
 
 [SequenceFeatureRelationship](SequenceFeatureRelationship.md) ->  <sub>REQ</sub> [GenomicEntity](GenomicEntity.md)

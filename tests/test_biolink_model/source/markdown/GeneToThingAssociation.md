@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/GeneToThingAssociation](https://w3id.org/biolink/biolink-model/GeneToThingAssociation)
+URI: [biolink:GeneToThingAssociation](https://w3id.org/biolink/vocab/GeneToThingAssociation)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[GeneToThingAssociation|id(i):identifier_type;relation(i):iri_type;object(i):iri_type;negated(i):boolean%20%3F;association_slot(i):string%20%3F],%20\[Publication]<publications(i)%200..*-%20\[GeneToThingAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[GeneToThingAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[GeneToThingAssociation],%20\[GeneOrGeneProduct]<subject%201..1-%20\[GeneToThingAssociation],%20\[GeneToPhenotypicFeatureAssociation]uses%20-.->\[GeneToThingAssociation],%20\[GeneToDiseaseAssociation]uses%20-.->\[GeneToThingAssociation],%20\[Association]^-\[GeneToThingAssociation])
 ## Inheritance

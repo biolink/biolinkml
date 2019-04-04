@@ -3,7 +3,7 @@
 
 python base type that implements this type definition
 
-URI: [http://w3id.org/biolink/biolinkml/meta/base](slot_uri)
+URI: [meta:base](https://w3id.org/biolink/biolinkml/meta/base)
 ## Domain and Range
 
 [TypeDefinition](TypeDefinition.md) ->  <sub>OPT</sub> [String](String.md)

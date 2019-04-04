@@ -3,7 +3,7 @@
 
 description of special behavior if the slot is absent
 
-URI: [http://w3id.org/biolink/biolinkml/meta/ifabsent](slot_uri)
+URI: [meta:ifabsent](https://w3id.org/biolink/biolinkml/meta/ifabsent)
 ## Domain and Range
 
 [SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [String](String.md)

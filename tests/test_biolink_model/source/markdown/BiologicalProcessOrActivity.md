@@ -3,7 +3,7 @@
 
 Either an individual molecular activity, or a collection of causally connected molecular activities
 
-URI: [https://w3id.org/biolink/biolink-model/BiologicalProcessOrActivity](https://w3id.org/biolink/biolink-model/BiologicalProcessOrActivity)
+URI: [biolink:BiologicalProcessOrActivity](https://w3id.org/biolink/vocab/BiologicalProcessOrActivity)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[NamedThing]<interacts%20with(i)%200..*-%20\[BiologicalProcessOrActivity|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*;node_property(i):string%20%3F;iri(i):iri_type%20%3F;synonym(i):label_type%20*;full_name(i):label_type%20%3F;description(i):narrative_text%20%3F;systematic_synonym(i):label_type%20%3F],%20\[NamedThing]<related%20to(i)%200..*-%20\[BiologicalProcessOrActivity],%20\[PhenotypicFeature]<has%20phenotype(i)%200..*-%20\[BiologicalProcessOrActivity],%20\[BiologicalProcessOrActivity]^-\[MolecularActivity],%20\[BiologicalProcessOrActivity]^-\[BiologicalProcess],%20\[BiologicalEntity]^-\[BiologicalProcessOrActivity])
 ## Inheritance

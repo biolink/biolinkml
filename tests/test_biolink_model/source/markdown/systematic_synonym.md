@@ -3,7 +3,7 @@
 
 more commonly used for gene symbols in yeast
 
-URI: [https://w3id.org/biolink/biolink-model/systematic_synonym](slot_uri)
+URI: [biolink:systematic_synonym](https://w3id.org/biolink/vocab/systematic_synonym)
 ## Domain and Range
 
 [NamedThing](NamedThing.md) ->  <sub>OPT</sub> [LabelType](LabelType.md)

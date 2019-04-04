@@ -3,7 +3,7 @@
 
 Description of why and when this element will no longer be used
 
-URI: [http://w3id.org/biolink/biolinkml/meta/deprecated](slot_uri)
+URI: [meta:deprecated](https://w3id.org/biolink/biolinkml/meta/deprecated)
 ## Domain and Range
 
 [Element](Element.md) ->  <sub>OPT</sub> [String](String.md)

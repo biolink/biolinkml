@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/BiologicalSex](https://w3id.org/biolink/biolink-model/BiologicalSex)
+URI: [biolink:BiologicalSex](https://w3id.org/biolink/vocab/BiologicalSex)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OntologyClass]<subclass%20of(i)%200..*-%20\[BiologicalSex|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*;node_property(i):string%20%3F;iri(i):iri_type%20%3F;synonym(i):label_type%20*;full_name(i):label_type%20%3F;description(i):narrative_text%20%3F;systematic_synonym(i):label_type%20%3F],%20\[NamedThing]<interacts%20with(i)%200..*-%20\[BiologicalSex],%20\[NamedThing]<related%20to(i)%200..*-%20\[BiologicalSex],%20\[EntityToPhenotypicFeatureAssociation]-%20sex%20qualifier%200..1>\[BiologicalSex],%20\[BiologicalSex]^-\[PhenotypicSex],%20\[BiologicalSex]^-\[GenotypicSex],%20\[Attribute]^-\[BiologicalSex])
 ## Inheritance

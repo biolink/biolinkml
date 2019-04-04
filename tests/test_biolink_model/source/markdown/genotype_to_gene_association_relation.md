@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/genotype_to_gene_association_relation](slot_uri)
+URI: [biolink:genotype_to_gene_association_relation](https://w3id.org/biolink/vocab/genotype_to_gene_association_relation)
 ## Domain and Range
 
 [GenotypeToGeneAssociation](GenotypeToGeneAssociation.md) ->  <sub>REQ</sub> [IriType](IriType.md)

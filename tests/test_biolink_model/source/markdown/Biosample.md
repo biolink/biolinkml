@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/Biosample](https://w3id.org/biolink/biolink-model/Biosample)
+URI: [biolink:Biosample](https://w3id.org/biolink/vocab/Biosample)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[NamedThing]<interacts%20with(i)%200..*-%20\[Biosample|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*;node_property(i):string%20%3F;iri(i):iri_type%20%3F;synonym(i):label_type%20*;full_name(i):label_type%20%3F;description(i):narrative_text%20%3F;systematic_synonym(i):label_type%20%3F],%20\[NamedThing]<related%20to(i)%200..*-%20\[Biosample],%20\[PhenotypicFeature]<has%20phenotype(i)%200..*-%20\[Biosample],%20\[OrganismTaxon]<in%20taxon%200..*-%20\[Biosample],%20\[BiosampleToThingAssociation]-%20subject%201..1>\[Biosample],%20\[Biosample]uses%20-.->\[ThingWithTaxon],%20\[Biosample]^-\[CellLine],%20\[OrganismalEntity]^-\[Biosample])
 ## Inheritance

@@ -3,7 +3,7 @@
 
 holds between two genes or gene products that are part of in the same biological pathway
 
-URI: [https://w3id.org/biolink/biolink-model/in_pathway_with](slot_uri)
+URI: [biolink:in_pathway_with](https://w3id.org/biolink/vocab/in_pathway_with)
 ## Domain and Range
 
 [GeneOrGeneProduct](GeneOrGeneProduct.md) ->  <sub>0..*</sub> [GeneOrGeneProduct](GeneOrGeneProduct.md)

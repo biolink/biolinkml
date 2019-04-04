@@ -3,9 +3,9 @@
 
 the definition of a property or a slot
 
-URI: [http://w3id.org/biolink/biolinkml/meta/SlotDefinition](http://w3id.org/biolink/biolinkml/meta/SlotDefinition)
+URI: [meta:SlotDefinition](https://w3id.org/biolink/biolinkml/meta/SlotDefinition)
 
-![img](images/SlotDefinition.png)
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[SubsetDefinition]<in_subset(i)%200..*-%20\[SlotDefinition|singular_name:string%20%3F;slot_uri:uri%20%3F;multivalued:boolean%20%3F;inherited:boolean%20%3F;readonly:string%20%3F;ifabsent:string%20%3F;required:boolean%20%3F;inlined:boolean%20%3F;key:boolean%20%3F;identifier:boolean%20%3F;alias:string%20%3F;subproperty_of:uriorcurie%20%3F;is_usage_slot:boolean%20%3F;abstract(i):boolean%20%3F;mixin(i):boolean%20%3F;values_from(i):uriorcurie%20*;id_prefixes(i):ncname%20*;name(pk)(i):string;aliases(i):string%20*;mappings(i):uriorcurie%20*;description(i):string%20%3F;deprecated(i):string%20%3F;todos(i):string%20*;notes(i):string%20*;comments(i):string%20*;from_schema(i):uri%20%3F;imported_from(i):string%20%3F;see_also(i):uriorcurie%20*],%20\[Example]<examples(i)%200..*-++\[SlotDefinition],%20\[AltDescription]<alt_descriptions(i)%200..*-++\[SlotDefinition],%20\[LocalName]<local_names(i)%200..*-++\[SlotDefinition],%20\[Element]<range%200..1-%20\[SlotDefinition],%20\[ClassDefinition]<domain%201..1-%20\[SlotDefinition],%20\[SlotDefinition]<apply_to%200..*-%20\[SlotDefinition],%20\[SlotDefinition]<mixins%200..*-%20\[SlotDefinition],%20\[SlotDefinition]<is_a%200..1-%20\[SlotDefinition],%20\[ClassDefinition]-%20defining_slots%200..*>\[SlotDefinition],%20\[SchemaDefinition]++-%20slots%200..*>\[SlotDefinition],%20\[ClassDefinition]++-%20slot_usage%200..*>\[SlotDefinition],%20\[ClassDefinition]-%20slots%200..*>\[SlotDefinition],%20\[Definition]^-\[SlotDefinition])
 ## Inheritance
 
  *  is_a: [Definition](Definition.md) - base class for definitions
@@ -93,6 +93,9 @@ implicitly asserts that X is an instance of C1
     * range: [Boolean](Boolean.md)
  * [inlined](inlined.md)  <sub>OPT</sub>
     * Description: an inlined definition a list of actual values rather than references.  Only applies to slots whose range is a class.
+    * range: [Boolean](Boolean.md)
+ * [is_usage_slot](is_usage_slot.md)  <sub>OPT</sub>
+    * Description: True means that this slot was defined in a slot_usage situation
     * range: [Boolean](Boolean.md)
  * [key](key.md)  <sub>OPT</sub>
     * Description: true means that the slot uniquely identifies the element within the context of its container.  Key slots are NOT identifiers - they do not serve as subjects

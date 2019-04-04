@@ -3,7 +3,7 @@
 
 
 
-URI: [http://w3id.org/biolink/biolinkml/meta/slot_definition_is_a](slot_uri)
+URI: [meta:slot_definition_is_a](https://w3id.org/biolink/biolinkml/meta/slot_definition_is_a)
 ## Domain and Range
 
 [SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [SlotDefinition](SlotDefinition.md)

@@ -3,7 +3,7 @@
 
 holds between two molecular entities where the action or effect of one increases the activity of the other within a system of interest
 
-URI: [https://w3id.org/biolink/biolink-model/increases_activity_of](slot_uri)
+URI: [biolink:increases_activity_of](https://w3id.org/biolink/vocab/increases_activity_of)
 ## Domain and Range
 
 [MolecularEntity](MolecularEntity.md) ->  <sub>0..*</sub> [MolecularEntity](MolecularEntity.md)

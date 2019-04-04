@@ -3,7 +3,7 @@
 
 TODO
 
-URI: [https://w3id.org/biolink/biolink-model/genome_build](slot_uri)
+URI: [biolink:genome_build](https://w3id.org/biolink/vocab/genome_build)
 ## Domain and Range
 
 [GenomicSequenceLocalization](GenomicSequenceLocalization.md) ->  <sub>OPT</sub> [String](String.md)

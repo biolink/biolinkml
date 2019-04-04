@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/GeneHasVariantThatContributesToDiseaseAssociation](https://w3id.org/biolink/biolink-model/GeneHasVariantThatContributesToDiseaseAssociation)
+URI: [biolink:GeneHasVariantThatContributesToDiseaseAssociation](https://w3id.org/biolink/vocab/GeneHasVariantThatContributesToDiseaseAssociation)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[GeneHasVariantThatContributesToDiseaseAssociation|id(i):identifier_type;relation(i):iri_type;object(i):iri_type;negated(i):boolean%20%3F;association_slot(i):string%20%3F],%20\[Publication]<publications(i)%200..*-%20\[GeneHasVariantThatContributesToDiseaseAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[GeneHasVariantThatContributesToDiseaseAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[GeneHasVariantThatContributesToDiseaseAssociation],%20\[Onset]<onset%20qualifier(i)%200..1-%20\[GeneHasVariantThatContributesToDiseaseAssociation],%20\[SeverityValue]<severity%20qualifier(i)%200..1-%20\[GeneHasVariantThatContributesToDiseaseAssociation],%20\[FrequencyValue]<frequency%20qualifier(i)%200..1-%20\[GeneHasVariantThatContributesToDiseaseAssociation],%20\[SequenceVariant]<sequence%20variant%20qualifier%200..1-%20\[GeneHasVariantThatContributesToDiseaseAssociation],%20\[GeneOrGeneProduct]<subject%201..1-%20\[GeneHasVariantThatContributesToDiseaseAssociation],%20\[GeneToDiseaseAssociation]^-\[GeneHasVariantThatContributesToDiseaseAssociation])
 ## Inheritance

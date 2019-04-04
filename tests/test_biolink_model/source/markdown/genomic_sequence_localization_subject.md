@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/genomic_sequence_localization_subject](slot_uri)
+URI: [biolink:genomic_sequence_localization_subject](https://w3id.org/biolink/vocab/genomic_sequence_localization_subject)
 ## Domain and Range
 
 [GenomicSequenceLocalization](GenomicSequenceLocalization.md) ->  <sub>REQ</sub> [GenomicEntity](GenomicEntity.md)

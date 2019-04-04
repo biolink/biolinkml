@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/macromolecular_machine_to_cellular_component_association_object](slot_uri)
+URI: [biolink:macromolecular_machine_to_cellular_component_association_object](https://w3id.org/biolink/vocab/macromolecular_machine_to_cellular_component_association_object)
 ## Domain and Range
 
 [MacromolecularMachineToCellularComponentAssociation](MacromolecularMachineToCellularComponentAssociation.md) ->  <sub>REQ</sub> [CellularComponent](CellularComponent.md)

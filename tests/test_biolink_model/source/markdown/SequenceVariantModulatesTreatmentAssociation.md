@@ -3,7 +3,7 @@
 
 An association between a sequence variant and a treatment or health intervention. The treatment object itself encompasses both the disease and the drug used.
 
-URI: [https://w3id.org/biolink/biolink-model/SequenceVariantModulatesTreatmentAssociation](https://w3id.org/biolink/biolink-model/SequenceVariantModulatesTreatmentAssociation)
+URI: [biolink:SequenceVariantModulatesTreatmentAssociation](https://w3id.org/biolink/vocab/SequenceVariantModulatesTreatmentAssociation)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[SequenceVariantModulatesTreatmentAssociation|id(i):identifier_type;relation(i):iri_type;negated(i):boolean%20%3F;association_slot(i):string%20%3F],%20\[Publication]<publications(i)%200..*-%20\[SequenceVariantModulatesTreatmentAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[SequenceVariantModulatesTreatmentAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[SequenceVariantModulatesTreatmentAssociation],%20\[Treatment]<object%201..1-%20\[SequenceVariantModulatesTreatmentAssociation],%20\[SequenceVariant]<subject%201..1-%20\[SequenceVariantModulatesTreatmentAssociation],%20\[Association]^-\[SequenceVariantModulatesTreatmentAssociation])
 ## Inheritance

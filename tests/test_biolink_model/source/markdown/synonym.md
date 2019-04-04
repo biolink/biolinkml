@@ -3,7 +3,7 @@
 
 Alternate human-readable names for a thing
 
-URI: [https://w3id.org/biolink/biolink-model/synonym](slot_uri)
+URI: [biolink:synonym](https://w3id.org/biolink/vocab/synonym)
 ## Domain and Range
 
 [NamedThing](NamedThing.md) ->  <sub>0..*</sub> [LabelType](LabelType.md)

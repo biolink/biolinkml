@@ -3,7 +3,7 @@
 
 Ontology property which this slot is a subproperty of
 
-URI: [http://w3id.org/biolink/biolinkml/meta/subproperty_of](slot_uri)
+URI: [meta:subproperty_of](https://w3id.org/biolink/biolinkml/meta/subproperty_of)
 ## Domain and Range
 
 [SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [Uriorcurie](Uriorcurie.md)

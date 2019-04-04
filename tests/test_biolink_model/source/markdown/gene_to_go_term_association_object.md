@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/gene_to_go_term_association_object](slot_uri)
+URI: [biolink:gene_to_go_term_association_object](https://w3id.org/biolink/vocab/gene_to_go_term_association_object)
 ## Domain and Range
 
 [GeneToGoTermAssociation](GeneToGoTermAssociation.md) ->  <sub>REQ</sub> [GeneOntologyClass](GeneOntologyClass.md)

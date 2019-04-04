@@ -3,7 +3,7 @@
 
 connects an association to the agent (person, organization or group) that provided it
 
-URI: [https://w3id.org/biolink/biolink-model/provided_by](slot_uri)
+URI: [biolink:provided_by](https://w3id.org/biolink/vocab/provided_by)
 ## Domain and Range
 
 [Association](Association.md) ->  <sub>OPT</sub> [Provider](Provider.md)

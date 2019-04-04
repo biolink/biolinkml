@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/environment_to_phenotypic_feature_association_subject](slot_uri)
+URI: [biolink:environment_to_phenotypic_feature_association_subject](https://w3id.org/biolink/vocab/environment_to_phenotypic_feature_association_subject)
 ## Domain and Range
 
 [EnvironmentToPhenotypicFeatureAssociation](EnvironmentToPhenotypicFeatureAssociation.md) ->  <sub>REQ</sub> [Environment](Environment.md)

@@ -3,7 +3,7 @@
 
 equivalent to has quotient multiplied by 100
 
-URI: [https://w3id.org/biolink/biolink-model/has_percentage](slot_uri)
+URI: [biolink:has_percentage](https://w3id.org/biolink/vocab/has_percentage)
 ## Domain and Range
 
 [FrequencyQuantifier](FrequencyQuantifier.md) ->  <sub>OPT</sub> [Double](Double.md)

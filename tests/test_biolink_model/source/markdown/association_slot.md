@@ -3,7 +3,7 @@
 
 any slot that relates an association to another entity
 
-URI: [https://w3id.org/biolink/biolink-model/association_slot](slot_uri)
+URI: [biolink:association_slot](https://w3id.org/biolink/vocab/association_slot)
 ## Domain and Range
 
 [Association](Association.md) ->  <sub>OPT</sub> [String](String.md)

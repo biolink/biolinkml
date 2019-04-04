@@ -3,7 +3,7 @@
 
 The official schema URI
 
-URI: [http://w3id.org/biolink/biolinkml/meta/id](slot_uri)
+URI: [meta:id](https://w3id.org/biolink/biolinkml/meta/id)
 ## Domain and Range
 
 [SchemaDefinition](SchemaDefinition.md) ->  <sub>REQ</sub> [Uri](Uri.md)

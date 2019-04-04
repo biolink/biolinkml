@@ -3,7 +3,7 @@
 
 rdfs:subClassOf to be emitted in OWL generation
 
-URI: [http://w3id.org/biolink/biolinkml/meta/subclass_of](slot_uri)
+URI: [meta:subclass_of](https://w3id.org/biolink/biolinkml/meta/subclass_of)
 ## Domain and Range
 
 [ClassDefinition](ClassDefinition.md) ->  <sub>OPT</sub> [Uriorcurie](Uriorcurie.md)

@@ -3,7 +3,7 @@
 
 holds between two molecular entities where the action or effect of one increases the rate of uptake of the other into of a cell, gland, or organ
 
-URI: [https://w3id.org/biolink/biolink-model/increases_uptake_of](slot_uri)
+URI: [biolink:increases_uptake_of](https://w3id.org/biolink/vocab/increases_uptake_of)
 ## Domain and Range
 
 [MolecularEntity](MolecularEntity.md) ->  <sub>0..*</sub> [MolecularEntity](MolecularEntity.md)

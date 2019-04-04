@@ -3,7 +3,7 @@
 
 modification date of the source of the schema
 
-URI: [http://w3id.org/biolink/biolinkml/meta/source_file_date](slot_uri)
+URI: [meta:source_file_date](https://w3id.org/biolink/biolinkml/meta/source_file_date)
 ## Domain and Range
 
 [SchemaDefinition](SchemaDefinition.md) ->  <sub>OPT</sub> [Datetime](Datetime.md)

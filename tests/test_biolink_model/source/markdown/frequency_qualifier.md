@@ -3,7 +3,7 @@
 
 a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject
 
-URI: [https://w3id.org/biolink/biolink-model/frequency_qualifier](slot_uri)
+URI: [biolink:frequency_qualifier](https://w3id.org/biolink/vocab/frequency_qualifier)
 ## Domain and Range
 
 [FrequencyQualifierMixin](FrequencyQualifierMixin.md) ->  <sub>OPT</sub> [FrequencyValue](FrequencyValue.md)

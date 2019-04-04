@@ -15,7 +15,7 @@ class YamlUtilTestCase(Base):
     def test_dupcheck_loader(self):
         """ Make sure the duplicate checker finds duplicates """
         with open(os.path.join(datadir, 'yaml1.yaml')) as f:
-            y1 = yaml.load(f)
+            y1 = yaml.safe_load(f)
             self.assertEqual(17, y1['f1'])
         with open(os.path.join(datadir, 'yaml1.yaml')) as f:
             with self.assertRaises(ValueError):

@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/regulates_process_to_process](slot_uri)
+URI: [biolink:regulates_process_to_process](https://w3id.org/biolink/vocab/regulates_process_to_process)
 ## Domain and Range
 
 [Occurrent](Occurrent.md) ->  <sub>0..*</sub> [Occurrent](Occurrent.md)

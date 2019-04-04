@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/molecularly_interacts_with](slot_uri)
+URI: [biolink:molecularly_interacts_with](https://w3id.org/biolink/vocab/molecularly_interacts_with)
 ## Domain and Range
 
 [MolecularEntity](MolecularEntity.md) ->  <sub>0..*</sub> [MolecularEntity](MolecularEntity.md)

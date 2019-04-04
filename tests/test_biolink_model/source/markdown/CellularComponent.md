@@ -3,7 +3,7 @@
 
 A location in or around a cell
 
-URI: [https://w3id.org/biolink/biolink-model/CellularComponent](https://w3id.org/biolink/biolink-model/CellularComponent)
+URI: [biolink:CellularComponent](https://w3id.org/biolink/vocab/CellularComponent)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[NamedThing]<interacts%20with(i)%200..*-%20\[CellularComponent|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*;node_property(i):string%20%3F;iri(i):iri_type%20%3F;synonym(i):label_type%20*;full_name(i):label_type%20%3F;description(i):narrative_text%20%3F;systematic_synonym(i):label_type%20%3F],%20\[NamedThing]<related%20to(i)%200..*-%20\[CellularComponent],%20\[PhenotypicFeature]<has%20phenotype(i)%200..*-%20\[CellularComponent],%20\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[CellularComponent],%20\[GeneOrGeneProduct]<expresses(i)%200..*-%20\[CellularComponent],%20\[MacromolecularMachineToCellularComponentAssociation]-%20object%201..1>\[CellularComponent],%20\[AnatomicalEntity]^-\[CellularComponent])
 ## Inheritance

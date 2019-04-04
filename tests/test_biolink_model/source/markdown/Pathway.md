@@ -3,7 +3,7 @@
 
 
 
-URI: [https://w3id.org/biolink/biolink-model/Pathway](https://w3id.org/biolink/biolink-model/Pathway)
+URI: [biolink:Pathway](https://w3id.org/biolink/vocab/Pathway)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[NamedThing]<interacts%20with(i)%200..*-%20\[Pathway|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*;node_property(i):string%20%3F;iri(i):iri_type%20%3F;synonym(i):label_type%20*;full_name(i):label_type%20%3F;description(i):narrative_text%20%3F;systematic_synonym(i):label_type%20%3F],%20\[NamedThing]<related%20to(i)%200..*-%20\[Pathway],%20\[PhenotypicFeature]<has%20phenotype(i)%200..*-%20\[Pathway],%20\[Occurrent]<precedes(i)%200..*-%20\[Pathway],%20\[NamedThing]<has%20input(i)%200..*-%20\[Pathway],%20\[NamedThing]<has%20participant(i)%200..*-%20\[Pathway],%20\[Occurrent]<regulates,%20process%20to%20process(i)%200..*-%20\[Pathway],%20\[ChemicalToPathwayAssociation]-%20object%201..1>\[Pathway],%20\[BiologicalProcess]^-\[Pathway])
 ## Inheritance
