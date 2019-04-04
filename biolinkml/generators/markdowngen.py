@@ -90,8 +90,9 @@ class MarkdownGenerator(Generator):
                 self.frontmatter(f"Class: {cls.name}")
                 self.para(be(cls.description))
 
-                cls_uri = Namespaces.join(self.namespaces._base, camelcase(cls.name))
-                print(f'URI: [{cls_uri}]({cls_uri})')
+                class_curi = self.namespaces.uri_or_curie_for(self.namespaces._base, camelcase(cls.name))
+                class_uri = self.namespaces.uri_for(class_curi)
+                print(f'URI: [{class_curi}]({class_uri})')
                 print()
                 if self.image_directory:
                     yg = YumlGenerator(self)
@@ -143,8 +144,9 @@ class MarkdownGenerator(Generator):
             with redirect_stdout(slotfile):
                 self.frontmatter(f"Slot: {aliased_slot_name}")
                 self.para(be(slot.description))
-                slot_uri = self.namespaces.uri_or_curie_for(self.namespaces._base, underscore(slot.name))
-                print(f'URI: [{slot_uri}](slot_uri)')
+                slot_curi = self.namespaces.uri_or_curie_for(self.namespaces._base, underscore(slot.name))
+                slot_uri = self.namespaces.uri_for(slot_curi)
+                print(f'URI: [{slot_curi}]({slot_uri})')
                 self.mappings(slot)
 
                 self.header(2, 'Domain and Range')

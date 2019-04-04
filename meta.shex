@@ -146,6 +146,7 @@ PREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>
           <identifier> @<Boolean> ? ;
           <alias> @<String> ? ;
           rdfs:subPropertyOf @<Uriorcurie> ? ;
+          <is_usage_slot> @<Boolean> ? ;
           &<Definition_t>
        ) ;
        rdf:type [ <SlotDefinition> ]

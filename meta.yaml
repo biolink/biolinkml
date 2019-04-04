@@ -1,4 +1,4 @@
-id: http://w3id.org/biolink/biolinkml/meta
+id: https://w3id.org/biolink/biolinkml/meta
 title: Biolink Schema Metamodel
 name: metamodel
 description: A metamodel for defining biolink related schemas
@@ -6,7 +6,7 @@ license: https://creativecommons.org/publicdomain/zero/1.0/
 version: 1.1.1
 
 prefixes:
-  meta: http://w3id.org/biolink/biolinkml/meta/
+  meta: https://w3id.org/biolink/biolinkml/meta/
   skos: http://www.w3.org/2004/02/skos/core#
   OIO: http://www.geneontology.org/formats/oboInOwl#
   pav: http://purl.org/pav/
