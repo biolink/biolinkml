@@ -14,11 +14,11 @@
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "Biolink Schema Metamodel" ;
     skos:definition "A metamodel for defining biolink related schemas" ;
-    meta:generation_date "2019-04-04 12:05" ;
-    meta:metamodel_version "1.3.1" ;
+    meta:generation_date "2019-04-09 11:57" ;
+    meta:metamodel_version "1.3.2" ;
     meta:source_file "meta.yaml" ;
-    meta:source_file_date "Wed Apr  3 16:57:46 2019" ;
-    meta:source_file_size 22418 .
+    meta:source_file_date "Tue Apr  9 11:25:45 2019" ;
+    meta:source_file_size 22378 .
 
 meta:abstract a owl:AnnotationProperty,
         meta:SlotDefinition ;
@@ -90,7 +90,7 @@ meta:class_definition_mixins a owl:AnnotationProperty,
     rdfs:range meta:ClassDefinition ;
     rdfs:subPropertyOf meta:mixins .
 
-meta:class_uri a owl:ObjectProperty,
+meta:class_uri a owl:AnnotationProperty,
         meta:SlotDefinition ;
     rdfs:label "class_uri" ;
     rdfs:domain meta:ClassDefinition ;
@@ -478,7 +478,7 @@ meta:slot_definitions a owl:AnnotationProperty,
     rdfs:range meta:SlotDefinition ;
     skos:definition "slot definitions" .
 
-meta:slot_uri a owl:ObjectProperty,
+meta:slot_uri a owl:AnnotationProperty,
         meta:SlotDefinition ;
     rdfs:label "slot_uri" ;
     rdfs:domain meta:SlotDefinition ;

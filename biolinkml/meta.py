@@ -1,5 +1,5 @@
-# Auto generated from meta.yaml by pythongen.py version: 0.2.0
-# Generation date: 2019-04-02 15:50
+# Auto generated from .yaml by pythongen.py version:
+# Generation date:
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta
@@ -13,7 +13,7 @@ from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.metamodelcore import Bool, NCName, URI, URIorCURIE, XSDDate
 from includes.types import Boolean, Datetime, Integer, Ncname, String, Uri, Uriorcurie
 
-metamodel_version = "1.3.1"
+metamodel_version = "1.3.2"
 
 # Types
 
@@ -310,7 +310,7 @@ class SlotDefinition(Definition):
     """
     the definition of a property or a slot
     """
-    _inherited_slots: ClassVar[List[str]] = ["domain", "range", "slot_uri", "multivalued", "inherited", "readonly", "ifabsent", "required", "inlined", "key", "identifier"]
+    _inherited_slots: ClassVar[List[str]] = ["domain", "range", "multivalued", "inherited", "readonly", "ifabsent", "required", "inlined", "key", "identifier"]
 
     # === element ===
     name: Union[str, SlotDefinitionName] = None
@@ -380,7 +380,7 @@ class ClassDefinition(Definition):
     """
     the definition of a class or interface
     """
-    _inherited_slots: ClassVar[List[str]] = ["class_uri", "defining_slots"]
+    _inherited_slots: ClassVar[List[str]] = ["defining_slots"]
 
     # === element ===
     name: Union[str, ClassDefinitionName] = None

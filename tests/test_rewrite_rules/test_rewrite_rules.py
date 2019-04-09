@@ -87,7 +87,7 @@ class TestLists:
 FAIL_ON_ERROR = True
 
 
-@unittest.skipIf(False, "Only works if the server is up and running")
+@unittest.skipIf(True, "Rewrite rules test bypassed except when new rules are submitted to w3id.org")
 class RewriteRuleTestCase(unittest.TestCase):
     SERVER = DEFAULT_SERVER         # Can be overwritten with a startup parameter
 

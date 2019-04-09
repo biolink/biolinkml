@@ -364,7 +364,6 @@ slots:
   class_uri:
     domain: class_definition
     range: uriorcurie
-    inherited: true
     description: URI of the class in an RDF environment
     ifabsent: set to <default prefix>:<class name>
 
@@ -433,7 +432,6 @@ slots:
   slot_uri:
     domain: slot_definition
     range: uri
-    inherited: true
     ifabsent: set to <default prefix>:<slot name>
     description: predicate of this slot for semantic web application
 

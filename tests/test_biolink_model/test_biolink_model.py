@@ -129,8 +129,8 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
         else:
             print("*** RDF Model validation step was skipped. See: test_biolink_model.DO_SHEX_VALIDATION to run it")
 
-    def test_biolink_shex(self):
-        """ Test the shex generator for the biolink model """
+    def test_biolink_shex_incorrect_rdf(self):
+        """ Test some non-conforming RDF  """
         self.single_file_generator('shex', ShExGenerator)
         shex_file = os.path.join(self.source_path, 'biolink-model.shex')
         data_dir = os.path.join(self.cwd, 'data')
@@ -152,10 +152,23 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
             with open(errs_file, 'w') as f:
                 f.write(repr(results))
 
+    @unittest.skipIf(True, "Awaiting fix to PyShEx permutation issue")
+    def test_biolink_correct_rdf(self):
+        """ Test some conforming RDF  """
+        self.single_file_generator('shex', ShExGenerator)
+        shex_file = os.path.join(self.source_path, 'biolink-model.shex')
+        data_dir = os.path.join(self.cwd, 'data')
+
+        focus = "http://identifiers.org/drugbank:DB00005"
+        start = BIOLINK_NS.Drug
+        evaluator = ShExEvaluator(None, shex_file, focus, start)
+
         rdf_file = os.path.join(data_dir, 'correct.ttl')
-        results = evaluator.evaluate(rdf_file, debug=True)
+        results = evaluator.evaluate(rdf_file, debug=False)
         self.assertTrue(self._evaluate_shex_results(results))
 
+
+    @unittest.skipIf(False, "Evaluation of performance test.")
     def test_probe(self):
         """ Test for determining performance problem """
         shex_file = os.path.join(self.source_path, 'probe.shex')
@@ -165,7 +178,7 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
         start = BIOLINK_NS.Drug
         evaluator = ShExEvaluator(None, shex_file, focus, start)
         rdf_file = os.path.join(data_dir, 'probe.ttl')
-        results = evaluator.evaluate(rdf_file, debug=True)
+        results = evaluator.evaluate(rdf_file, debug=False)
         self.assertTrue(self._evaluate_shex_results(results))
 
 
