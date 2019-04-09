@@ -3,6 +3,7 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX OBAN: <http://purl.org/oban/>
+PREFIX OBO: <http://purl.obolibrary.org/obo/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX faldo: <http://biohackathon.org/resource/faldo#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
@@ -23,13 +24,13 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 
 <SymbolType> xsd:string
 
-<Frequency> <http://purl.obolibrary.org/obo/UO_/0000105>
+<Frequency> OBO:UO_0000105
 
-<PerecentageFrequencyValue> <http://purl.obolibrary.org/obo/UO_/0000187>
+<PerecentageFrequencyValue> OBO:UO_0000187
 
-<Quotient> <http://purl.obolibrary.org/obo/UO_/0010006>
+<Quotient> OBO:UO_0010006
 
-<Unit> <http://purl.obolibrary.org/obo/UO_/0000000>
+<Unit> OBO:UO_0000000
 
 <TimeType> xsd:dateTime
 
@@ -58,28 +59,28 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 <Ncname> xsd:string
 
 <ActivityAndBehavior> EXTRA rdf:type CLOSED {
-    (  $<ActivityAndBehavior_t> (  &<Occurrent_t> |
-          &<Occurrent_t>
+    (  $<ActivityAndBehavior_t> (  &<Occurrent_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
        rdf:type [ <ActivityAndBehavior> ]
     )
 }
 
 <AdministrativeEntity> EXTRA rdf:type CLOSED {
-    (  $<AdministrativeEntity_t> (  &<NamedThing_t> |
-          &<NamedThing_t>
+    (  $<AdministrativeEntity_t> (  &<NamedThing_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
        rdf:type [ <AdministrativeEntity> ]
     )
 }
 
 <AnatomicalEntity> EXTRA rdf:type CLOSED {
-    (  $<AnatomicalEntity_t> (  <http://purl.obolibrary.org/obo/RO_/0002292> @<GeneOrGeneProduct> * ;
-          <http://purl.obolibrary.org/obo/RO_/0002162> @<OrganismTaxon> * ;
+    (  $<AnatomicalEntity_t> (  OBO:RO_0002292 @<GeneOrGeneProduct> * ;
+          OBO:RO_0002162 @<OrganismTaxon> * ;
           &<OrganismalEntity_t> ;
           &<ThingWithTaxon_t>
        ) ;
-       rdf:type [ <http://semanticscience.org/resource/SIO_/010046> ]
+       rdf:type [ <http://semanticscience.org/resource/SIO_010046> ]
     )
 }
 
@@ -120,7 +121,11 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
           rdf:type @<OntologyClass> ? ;
           <qualifiers> @<OntologyClass> * ;
           <publications> @<Publication> * ;
-          pav:providedBy @<Provider> ?
+          pav:providedBy @<Provider> ? ;
+          <edge_label> @<LabelType> ? ;
+          <has_confidence_level> @<ConfidenceLevel> ? ;
+          OBO:RO_0002558 @<EvidenceType> ? ;
+          <clinical_modifier_qualifier> @<ClinicalModifier> ?
        ) ;
        rdf:type [ OBAN:association ]
     )
@@ -130,7 +135,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
     (  $<Attribute_t> (  rdfs:label @<LabelType> ? ;
           rdfs:subClassOf @<IriType> * ;
           owl:ObjectProperty @<NamedThing> * ;
-          <http://purl.obolibrary.org/obo/RO_/0002434> @<NamedThing> * ;
+          OBO:RO_0002434 @<NamedThing> * ;
           <node_property> @<String> ? ;
           <iri> @<IriType> ? ;
           <synonym> @<LabelType> * ;
@@ -145,7 +150,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 }
 
 <BiologicalEntity> EXTRA rdf:type CLOSED {
-    (  $<BiologicalEntity_t> (  <http://purl.obolibrary.org/obo/RO_/0002200> @<PhenotypicFeature> * ;
+    (  $<BiologicalEntity_t> (  OBO:RO_0002200 @<PhenotypicFeature> * ;
           &<NamedThing_t>
        ) ;
        rdf:type [ WD:Q28845870 ]
@@ -153,39 +158,39 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 }
 
 <BiologicalProcess> EXTRA rdf:type CLOSED {
-    (  $<BiologicalProcess_t> (  <http://purl.obolibrary.org/obo/RO_/0002211> @<Occurrent> * ;
-          <http://purl.obolibrary.org/obo/RO_/0000057> @<NamedThing> * ;
-          <http://purl.obolibrary.org/obo/RO_/0002233> @<NamedThing> * ;
-          <http://purl.obolibrary.org/obo/BFO_/0000063> @<Occurrent> * ;
+    (  $<BiologicalProcess_t> (  OBO:RO_0002211 @<Occurrent> * ;
+          OBO:RO_0000057 @<NamedThing> * ;
+          OBO:RO_0002233 @<NamedThing> * ;
+          OBO:BFO_0000063 @<Occurrent> * ;
           &<BiologicalProcessOrActivity_t> ;
           &<Occurrent_t>
        ) ;
-       rdf:type [ <http://purl.obolibrary.org/obo/GO_/0008150> ]
+       rdf:type [ OBO:GO_0008150 ]
     )
 }
 
 <BiologicalProcessOrActivity> EXTRA rdf:type CLOSED {
-    (  $<BiologicalProcessOrActivity_t> (  &<BiologicalEntity_t> |
-          &<BiologicalEntity_t>
+    (  $<BiologicalProcessOrActivity_t> (  &<BiologicalEntity_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
        rdf:type [ <BiologicalProcessOrActivity> ]
     )
 }
 
 <BiologicalSex> EXTRA rdf:type CLOSED {
-    (  $<BiologicalSex_t> (  &<Attribute_t> |
-          &<Attribute_t>
+    (  $<BiologicalSex_t> (  &<Attribute_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
        rdf:type [ <BiologicalSex> ]
     )
 }
 
 <Biosample> EXTRA rdf:type CLOSED {
-    (  $<Biosample_t> (  <http://purl.obolibrary.org/obo/RO_/0002162> @<OrganismTaxon> * ;
+    (  $<Biosample_t> (  OBO:RO_0002162 @<OrganismTaxon> * ;
           &<OrganismalEntity_t> ;
           &<ThingWithTaxon_t>
        ) ;
-       rdf:type [ <http://semanticscience.org/resource/SIO_/001050> ]
+       rdf:type [ <http://semanticscience.org/resource/SIO_001050> ]
     )
 }
 
@@ -207,16 +212,16 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 }
 
 <Carbohydrate> EXTRA rdf:type CLOSED {
-    (  $<Carbohydrate_t> (  &<ChemicalSubstance_t> |
-          &<ChemicalSubstance_t>
+    (  $<Carbohydrate_t> (  &<ChemicalSubstance_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
        rdf:type [ <Carbohydrate> ]
     )
 }
 
 <Case> EXTRA rdf:type CLOSED {
-    (  $<Case_t> (  &<IndividualOrganism_t> |
-          &<IndividualOrganism_t>
+    (  $<Case_t> (  &<IndividualOrganism_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
        rdf:type [ <Case> ]
     )
@@ -244,18 +249,18 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 }
 
 <Cell> EXTRA rdf:type CLOSED {
-    (  $<Cell_t> (  &<AnatomicalEntity_t> |
-          &<AnatomicalEntity_t>
+    (  $<Cell_t> (  &<AnatomicalEntity_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
-       rdf:type [ <http://purl.obolibrary.org/obo/GO_/0005623> ]
+       rdf:type [ OBO:GO_0005623 ]
     )
 }
 
 <CellLine> EXTRA rdf:type CLOSED {
-    (  $<CellLine_t> (  &<Biosample_t> |
-          &<Biosample_t>
+    (  $<CellLine_t> (  &<Biosample_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
-       rdf:type [ <http://purl.obolibrary.org/obo/CLO_/0000031> ]
+       rdf:type [ OBO:CLO_0000031 ]
     )
 }
 
@@ -278,18 +283,18 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 }
 
 <CellularComponent> EXTRA rdf:type CLOSED {
-    (  $<CellularComponent_t> (  &<AnatomicalEntity_t> |
-          &<AnatomicalEntity_t>
+    (  $<CellularComponent_t> (  &<AnatomicalEntity_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
-       rdf:type [ <http://purl.obolibrary.org/obo/GO_/0005575> ]
+       rdf:type [ OBO:GO_0005575 ]
     )
 }
 
 <ChemicalSubstance> EXTRA rdf:type CLOSED {
-    (  $<ChemicalSubstance_t> (  &<MolecularEntity_t> |
-          &<MolecularEntity_t>
+    (  $<ChemicalSubstance_t> (  &<MolecularEntity_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
-       rdf:type [ <http://semanticscience.org/resource/SIO_/010004> ]
+       rdf:type [ <http://semanticscience.org/resource/SIO_010004> ]
     )
 }
 
@@ -299,7 +304,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
           &<ChemicalToThingAssociation_t> ;
           &<ThingToDiseaseOrPhenotypicFeatureAssociation_t>
        ) ;
-       rdf:type [ <http://semanticscience.org/resource/SIO_/000993> ]
+       rdf:type [ <http://semanticscience.org/resource/SIO_000993> ]
     )
 }
 
@@ -308,7 +313,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
           &<Association_t> ;
           &<ChemicalToThingAssociation_t>
        ) ;
-       rdf:type [ <http://semanticscience.org/resource/SIO_/001257> ]
+       rdf:type [ <http://semanticscience.org/resource/SIO_001257> ]
     )
 }
 
@@ -317,7 +322,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
           &<Association_t> ;
           &<ChemicalToThingAssociation_t>
        ) ;
-       rdf:type [ <http://semanticscience.org/resource/SIO_/001250> ]
+       rdf:type [ <http://semanticscience.org/resource/SIO_001250> ]
     )
 }
 
@@ -330,74 +335,74 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 }
 
 <ClinicalEntity> EXTRA rdf:type CLOSED {
-    (  $<ClinicalEntity_t> (  &<NamedThing_t> |
-          &<NamedThing_t>
+    (  $<ClinicalEntity_t> (  &<NamedThing_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
        rdf:type [ <ClinicalEntity> ]
     )
 }
 
 <ClinicalIntervention> EXTRA rdf:type CLOSED {
-    (  $<ClinicalIntervention_t> (  &<ClinicalEntity_t> |
-          &<ClinicalEntity_t>
+    (  $<ClinicalIntervention_t> (  &<ClinicalEntity_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
        rdf:type [ <ClinicalIntervention> ]
     )
 }
 
 <ClinicalModifier> EXTRA rdf:type CLOSED {
-    (  $<ClinicalModifier_t> (  &<Attribute_t> |
-          &<Attribute_t>
+    (  $<ClinicalModifier_t> (  &<Attribute_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
        rdf:type [ <ClinicalModifier> ]
     )
 }
 
 <ClinicalTrial> EXTRA rdf:type CLOSED {
-    (  $<ClinicalTrial_t> (  &<ClinicalEntity_t> |
-          &<ClinicalEntity_t>
+    (  $<ClinicalTrial_t> (  &<ClinicalEntity_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
        rdf:type [ <ClinicalTrial> ]
     )
 }
 
 <CodingSequence> EXTRA rdf:type CLOSED {
-    (  $<CodingSequence_t> (  &<GenomicEntity_t> |
-          &<GenomicEntity_t>
+    (  $<CodingSequence_t> (  &<GenomicEntity_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
-       rdf:type [ <http://purl.obolibrary.org/obo/SO_/0000316> ]
+       rdf:type [ OBO:SO_0000316 ]
     )
 }
 
 <ConfidenceLevel> EXTRA rdf:type CLOSED {
-    (  $<ConfidenceLevel_t> (  &<InformationContentEntity_t> |
-          &<InformationContentEntity_t>
+    (  $<ConfidenceLevel_t> (  &<InformationContentEntity_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
-       rdf:type [ <http://purl.obolibrary.org/obo/CIO_/0000028> ]
+       rdf:type [ OBO:CIO_0000028 ]
     )
 }
 
 <Device> EXTRA rdf:type CLOSED {
-    (  $<Device_t> (  &<NamedThing_t> |
-          &<NamedThing_t>
+    (  $<Device_t> (  &<NamedThing_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
        rdf:type [ <Device> ]
     )
 }
 
 <Disease> EXTRA rdf:type CLOSED {
-    (  $<Disease_t> (  &<DiseaseOrPhenotypicFeature_t> |
-          &<DiseaseOrPhenotypicFeature_t>
+    (  $<Disease_t> (  &<DiseaseOrPhenotypicFeature_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
-       rdf:type [ <http://purl.obolibrary.org/obo/MONDO_/0000001> ]
+       rdf:type [ OBO:MONDO_0000001 ]
     )
 }
 
 <DiseaseOrPhenotypicFeature> EXTRA rdf:type CLOSED {
-    (  $<DiseaseOrPhenotypicFeature_t> (  <http://purl.obolibrary.org/obo/RO_/0002610> @<MolecularEntity> * ;
-          <http://purl.obolibrary.org/obo/RO_/0002610> @<MolecularEntity> * ;
-          <http://purl.obolibrary.org/obo/RO_/0002302> @<NamedThing> * ;
-          <http://purl.obolibrary.org/obo/RO_/0002162> @<OrganismTaxon> * ;
+    (  $<DiseaseOrPhenotypicFeature_t> (  OBO:RO_0002610 @<MolecularEntity> * ;
+          OBO:RO_0002610 @<MolecularEntity> * ;
+          OBO:RO_0002302 @<NamedThing> * ;
+          OBO:RO_0002162 @<OrganismTaxon> * ;
           &<BiologicalEntity_t> ;
           &<ThingWithTaxon_t>
        ) ;
@@ -409,7 +414,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
     (  $<DiseaseOrPhenotypicFeatureAssociationToLocationAssociation_t> (  rdf:object @<AnatomicalEntity> ;
           &<DiseaseOrPhenotypicFeatureAssociationToThingAssociation_t>
        ) ;
-       rdf:type [ <http://purl.obolibrary.org/obo/NCIT_/R100> ]
+       rdf:type [ OBO:NCIT_R100 ]
     )
 }
 
@@ -443,15 +448,14 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 }
 
 <Drug> EXTRA rdf:type CLOSED {
-    (  $<Drug_t> (  &<ChemicalSubstance_t> |
-          &<ChemicalSubstance_t>
-       ) ;
+    (  &<MolecularEntity_t> ;
+       <http://ex.org/dummy> . ?;
        rdf:type [ WD:Q12140 ]
     )
 }
 
 <DrugExposure> EXTRA rdf:type CLOSED {
-    (  $<DrugExposure_t> (  &<Environment_t> |
+    (  $<DrugExposure_t> (  <drug> @<ChemicalSubstance> + ;
           &<Environment_t>
        ) ;
        rdf:type [ <http://example.org/UNKNOWN/ECTO/0000509> ]
@@ -459,7 +463,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 }
 
 <EntityToDiseaseAssociation> EXTRA rdf:type CLOSED {
-    $<EntityToDiseaseAssociation_t> (  &<EntityToFeatureOrDiseaseQualifiers_t> |
+    $<EntityToDiseaseAssociation_t> (  rdf:object @<Disease> ;
        &<EntityToFeatureOrDiseaseQualifiers_t>
     )
 }
@@ -477,6 +481,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
           <frequency_qualifier> @<FrequencyValue> ? ;
           <severity_qualifier> @<SeverityValue> ? ;
           <onset_qualifier> @<Onset> ? ;
+          dcterms:description @<NarrativeText> ? ;
           &<Association_t> ;
           &<EntityToFeatureOrDiseaseQualifiers_t>
        ) ;
@@ -485,10 +490,10 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 }
 
 <Environment> EXTRA rdf:type CLOSED {
-    (  $<Environment_t> (  &<BiologicalEntity_t> |
-          &<BiologicalEntity_t>
+    (  $<Environment_t> (  &<BiologicalEntity_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
-       rdf:type [ <http://semanticscience.org/resource/SIO_/000955> ]
+       rdf:type [ <http://semanticscience.org/resource/SIO_000955> ]
     )
 }
 
@@ -506,18 +511,18 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 }
 
 <EnvironmentalFeature> EXTRA rdf:type CLOSED {
-    (  $<EnvironmentalFeature_t> (  &<PlanetaryEntity_t> |
-          &<PlanetaryEntity_t>
+    (  $<EnvironmentalFeature_t> (  &<PlanetaryEntity_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
        rdf:type [ <EnvironmentalFeature> ]
     )
 }
 
 <EnvironmentalProcess> EXTRA rdf:type CLOSED {
-    (  $<EnvironmentalProcess_t> (  <http://purl.obolibrary.org/obo/RO_/0002211> @<Occurrent> * ;
-          <http://purl.obolibrary.org/obo/RO_/0000057> @<NamedThing> * ;
-          <http://purl.obolibrary.org/obo/RO_/0002233> @<NamedThing> * ;
-          <http://purl.obolibrary.org/obo/BFO_/0000063> @<Occurrent> * ;
+    (  $<EnvironmentalProcess_t> (  OBO:RO_0002211 @<Occurrent> * ;
+          OBO:RO_0000057 @<NamedThing> * ;
+          OBO:RO_0002233 @<NamedThing> * ;
+          OBO:BFO_0000063 @<Occurrent> * ;
           &<PlanetaryEntity_t> ;
           &<Occurrent_t>
        ) ;
@@ -526,18 +531,18 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 }
 
 <EvidenceType> EXTRA rdf:type CLOSED {
-    (  $<EvidenceType_t> (  &<InformationContentEntity_t> |
-          &<InformationContentEntity_t>
+    (  $<EvidenceType_t> (  &<InformationContentEntity_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
-       rdf:type [ <http://purl.obolibrary.org/obo/ECO_/0000000> ]
+       rdf:type [ OBO:ECO_0000000 ]
     )
 }
 
 <Exon> EXTRA rdf:type CLOSED {
-    (  $<Exon_t> (  &<GenomicEntity_t> |
-          &<GenomicEntity_t>
+    (  $<Exon_t> (  &<GenomicEntity_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
-       rdf:type [ <http://purl.obolibrary.org/obo/SO_/0000147> ]
+       rdf:type [ OBO:SO_0000147 ]
     )
 }
 
@@ -564,8 +569,8 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 }
 
 <FrequencyValue> EXTRA rdf:type CLOSED {
-    (  $<FrequencyValue_t> (  &<Attribute_t> |
-          &<Attribute_t>
+    (  $<FrequencyValue_t> (  &<Attribute_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
        rdf:type [ <FrequencyValue> ]
     )
@@ -581,32 +586,36 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 }
 
 <Gene> EXTRA rdf:type CLOSED {
-    (  $<Gene_t> (  <http://purl.obolibrary.org/obo/RO_/0002435> @<Gene> * ;
-          <http://purl.obolibrary.org/obo/RO_/0002205> @<GeneProduct> * ;
+    (  $<Gene_t> (  OBO:RO_0002435 @<Gene> * ;
+          OBO:RO_0002205 @<GeneProduct> * ;
           WD:P2293 @<DiseaseOrPhenotypicFeature> * ;
           &<GeneOrGeneProduct_t>
        ) ;
-       rdf:type [ <http://purl.obolibrary.org/obo/SO_/0000704> ]
+       rdf:type [ OBO:SO_0000704 ]
     )
 }
 
 <GeneAsAModelOfDiseaseAssociation> EXTRA rdf:type CLOSED {
     (  $<GeneAsAModelOfDiseaseAssociation_t> (  rdf:subject @<GeneOrGeneProduct> ;
-          &<GeneToDiseaseAssociation_t>
+          &<GeneToDiseaseAssociation_t> ;
+          &<ModelToDiseaseMixin_t> ;
+          &<EntityToDiseaseAssociation_t>
        ) ;
        rdf:type [ <GeneAsAModelOfDiseaseAssociation> ]
     )
 }
 
 <GeneFamily> EXTRA rdf:type CLOSED {
-    (  $<GeneFamily_t> (  &<MolecularEntity_t> |
-          &<MolecularEntity_t>
+    (  $<GeneFamily_t> (  &<MolecularEntity_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
-       rdf:type [ <http://semanticscience.org/resource/SIO_/001380> ]
+       rdf:type [ <http://semanticscience.org/resource/SIO_001380> ]
     )
 }
 
-<GeneGrouping> EXTRA rdf:type CLOSED { }
+<GeneGrouping> EXTRA rdf:type CLOSED {
+    $<GeneGrouping_t> <http://ex.org/dummy> . ?
+}
 
 <GeneHasVariantThatContributesToDiseaseAssociation> EXTRA rdf:type CLOSED {
     (  $<GeneHasVariantThatContributesToDiseaseAssociation_t> (  rdf:subject @<GeneOrGeneProduct> ;
@@ -618,8 +627,8 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 }
 
 <GeneOntologyClass> EXTRA rdf:type CLOSED {
-    (  $<GeneOntologyClass_t> (  &<OntologyClass_t> |
-          &<OntologyClass_t>
+    (  $<GeneOntologyClass_t> (  &<OntologyClass_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
        rdf:type [ <GeneOntologyClass> ]
     )
@@ -629,7 +638,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
     (  $<GeneOrGeneProduct_t> (  SEMMEDDB:COEXISTS_WITH @<GeneOrGeneProduct> * ;
           SEMMEDDB:COEXISTS_WITH @<GeneOrGeneProduct> * ;
           SEMMEDDB:COEXISTS_WITH @<GeneOrGeneProduct> * ;
-          <http://purl.obolibrary.org/obo/RO_/0002206> @<AnatomicalEntity> * ;
+          OBO:RO_0002206 @<AnatomicalEntity> * ;
           &<MacromolecularMachine_t>
        ) ;
        rdf:type [ <GeneOrGeneProduct> ]
@@ -637,16 +646,16 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 }
 
 <GeneProduct> EXTRA rdf:type CLOSED {
-    (  $<GeneProduct_t> (  &<GeneOrGeneProduct_t> |
-          &<GeneOrGeneProduct_t>
+    (  $<GeneProduct_t> (  &<GeneOrGeneProduct_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
        rdf:type [ WD:Q424689 ]
     )
 }
 
 <GeneProductIsoform> EXTRA rdf:type CLOSED {
-    (  $<GeneProductIsoform_t> (  &<GeneProduct_t> |
-          &<GeneProduct_t>
+    (  $<GeneProductIsoform_t> (  &<GeneProduct_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
        rdf:type [ <GeneProductIsoform> ]
     )
@@ -668,9 +677,10 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
           <severity_qualifier> @<SeverityValue> ? ;
           <onset_qualifier> @<Onset> ? ;
           &<Association_t> ;
+          &<EntityToDiseaseAssociation_t> ;
           &<GeneToThingAssociation_t>
        ) ;
-       rdf:type [ <http://semanticscience.org/resource/SIO_/000983> ]
+       rdf:type [ <http://semanticscience.org/resource/SIO_000983> ]
     )
 }
 
@@ -745,10 +755,10 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 }
 
 <Genome> EXTRA rdf:type CLOSED {
-    (  $<Genome_t> (  &<GenomicEntity_t> |
-          &<GenomicEntity_t>
+    (  $<Genome_t> (  &<GenomicEntity_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
-       rdf:type [ <http://purl.obolibrary.org/obo/SO_/0001026> ]
+       rdf:type [ OBO:SO_0001026 ]
     )
 }
 
@@ -756,7 +766,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
     (  $<GenomicEntity_t> (  <has_biological_sequence> @<BiologicalSequence> ? ;
           &<MolecularEntity_t>
        ) ;
-       rdf:type [ <http://purl.obolibrary.org/obo/SO_/0000110> ]
+       rdf:type [ OBO:SO_0000110 ]
     )
 }
 
@@ -777,7 +787,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
     (  $<Genotype_t> (  <has_zygosity> @<Zygosity> ? ;
           &<GenomicEntity_t>
        ) ;
-       rdf:type [ <http://purl.obolibrary.org/obo/GENO_/0000536> ]
+       rdf:type [ OBO:GENO_0000536 ]
     )
 }
 
@@ -835,16 +845,16 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 }
 
 <GenotypicSex> EXTRA rdf:type CLOSED {
-    (  $<GenotypicSex_t> (  &<BiologicalSex_t> |
-          &<BiologicalSex_t>
+    (  $<GenotypicSex_t> (  &<BiologicalSex_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
        rdf:type [ <GenotypicSex> ]
     )
 }
 
 <GeographicLocation> EXTRA rdf:type CLOSED {
-    (  $<GeographicLocation_t> (  <http://www.w3.org/2003/01/geo/wgs84_pos/lat> @<Float> ? ;
-          <http://www.w3.org/2003/01/geo/wgs84_pos/long> @<Float> ? ;
+    (  $<GeographicLocation_t> (  <http://www.w3.org/2003/01/geo/wgs84_poslat> @<Float> ? ;
+          <http://www.w3.org/2003/01/geo/wgs84_poslong> @<Float> ? ;
           &<PlanetaryEntity_t>
        ) ;
        rdf:type [ <GeographicLocation> ]
@@ -860,40 +870,40 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 }
 
 <GrossAnatomicalStructure> EXTRA rdf:type CLOSED {
-    (  $<GrossAnatomicalStructure_t> (  &<AnatomicalEntity_t> |
-          &<AnatomicalEntity_t>
+    (  $<GrossAnatomicalStructure_t> (  &<AnatomicalEntity_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
-       rdf:type [ <http://purl.obolibrary.org/obo/UBERON_/0010000> ]
+       rdf:type [ OBO:UBERON_0010000 ]
     )
 }
 
 <Haplotype> EXTRA rdf:type CLOSED {
-    (  $<Haplotype_t> (  &<GenomicEntity_t> |
-          &<GenomicEntity_t>
+    (  $<Haplotype_t> (  &<GenomicEntity_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
-       rdf:type [ <http://purl.obolibrary.org/obo/GENO_/0000871> ]
+       rdf:type [ OBO:GENO_0000871 ]
     )
 }
 
 <IndividualOrganism> EXTRA rdf:type CLOSED {
-    (  $<IndividualOrganism_t> (  <http://purl.obolibrary.org/obo/RO_/0002162> @<OrganismTaxon> * ;
+    (  $<IndividualOrganism_t> (  OBO:RO_0002162 @<OrganismTaxon> * ;
           &<OrganismalEntity_t> ;
           &<ThingWithTaxon_t>
        ) ;
-       rdf:type [ <http://semanticscience.org/resource/SIO_/010000> ]
+       rdf:type [ <http://semanticscience.org/resource/SIO_010000> ]
     )
 }
 
 <InformationContentEntity> EXTRA rdf:type CLOSED {
-    (  $<InformationContentEntity_t> (  &<NamedThing_t> |
-          &<NamedThing_t>
+    (  $<InformationContentEntity_t> (  &<NamedThing_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
-       rdf:type [ <http://purl.obolibrary.org/obo/IAO_/0000030> ]
+       rdf:type [ OBO:IAO_0000030 ]
     )
 }
 
 <LifeStage> EXTRA rdf:type CLOSED {
-    (  $<LifeStage_t> (  <http://purl.obolibrary.org/obo/RO_/0002162> @<OrganismTaxon> * ;
+    (  $<LifeStage_t> (  OBO:RO_0002162 @<OrganismTaxon> * ;
           &<OrganismalEntity_t> ;
           &<ThingWithTaxon_t>
        ) ;
@@ -902,10 +912,10 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 }
 
 <MacromolecularComplex> EXTRA rdf:type CLOSED {
-    (  $<MacromolecularComplex_t> (  &<MacromolecularMachine_t> |
-          &<MacromolecularMachine_t>
+    (  $<MacromolecularComplex_t> (  &<MacromolecularMachine_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
-       rdf:type [ <http://semanticscience.org/resource/SIO_/010046> ]
+       rdf:type [ <http://semanticscience.org/resource/SIO_010046> ]
     )
 }
 
@@ -942,37 +952,41 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 }
 
 <Metabolite> EXTRA rdf:type CLOSED {
-    (  $<Metabolite_t> (  &<ChemicalSubstance_t> |
-          &<ChemicalSubstance_t>
+    (  $<Metabolite_t> (  &<ChemicalSubstance_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
-       rdf:type [ <http://purl.obolibrary.org/obo/CHEBI_/25212> ]
+       rdf:type [ OBO:CHEBI_25212 ]
     )
 }
 
 <MicroRNA> EXTRA rdf:type CLOSED {
-    (  $<MicroRNA_t> (  &<NoncodingRNAProduct_t> |
-          &<NoncodingRNAProduct_t>
+    (  $<MicroRNA_t> (  &<NoncodingRNAProduct_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
-       rdf:type [ <http://semanticscience.org/resource/SIO_/001397> ]
+       rdf:type [ <http://semanticscience.org/resource/SIO_001397> ]
     )
 }
 
-<ModelToDiseaseMixin> EXTRA rdf:type CLOSED { }
+<ModelToDiseaseMixin> EXTRA rdf:type CLOSED {
+    $<ModelToDiseaseMixin_t> (  rdf:subject @<IriType> ;
+       rdf:predicate @<IriType>
+    )
+}
 
 <MolecularActivity> EXTRA rdf:type CLOSED {
-    (  $<MolecularActivity_t> (  <http://purl.obolibrary.org/obo/RO_/0002211> @<Occurrent> * ;
-          <http://purl.obolibrary.org/obo/RO_/0000057> @<NamedThing> * ;
-          <http://purl.obolibrary.org/obo/RO_/0002233> @<NamedThing> * ;
-          <http://purl.obolibrary.org/obo/BFO_/0000063> @<Occurrent> * ;
+    (  $<MolecularActivity_t> (  OBO:RO_0002211 @<Occurrent> * ;
+          OBO:RO_0000057 @<NamedThing> * ;
+          OBO:RO_0002233 @<NamedThing> * ;
+          OBO:BFO_0000063 @<Occurrent> * ;
           &<BiologicalProcessOrActivity_t> ;
           &<Occurrent_t>
        ) ;
-       rdf:type [ <http://purl.obolibrary.org/obo/GO_/0003674> ]
+       rdf:type [ OBO:GO_0003674 ]
     )
 }
 
 <MolecularEntity> EXTRA rdf:type CLOSED {
-    (  $<MolecularEntity_t> (  <http://purl.obolibrary.org/obo/RO_/0002436> @<MolecularEntity> * ;
+    (  $<MolecularEntity_t> (  OBO:RO_0002436 @<MolecularEntity> * ;
           SEMMEDDB:AFFECTS @<MolecularEntity> * ;
           SEMMEDDB:AFFECTS @<MolecularEntity> * ;
           SEMMEDDB:AFFECTS @<MolecularEntity> * ;
@@ -1021,13 +1035,15 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
           SEMMEDDB:AFFECTS @<MolecularEntity> * ;
           SEMMEDDB:AFFECTS @<MolecularEntity> * ;
           SEMMEDDB:AFFECTS @<MolecularEntity> * ;
-          <http://purl.obolibrary.org/obo/RO_/0002448> @<MolecularEntity> * ;
-          <http://purl.obolibrary.org/obo/RO_/0002607> @<DiseaseOrPhenotypicFeature> * ;
-          <http://purl.obolibrary.org/obo/RO_/0002162> @<OrganismTaxon> * ;
+          OBO:RO_0002448 @<MolecularEntity> * ;
+          OBO:RO_0002607 @<DiseaseOrPhenotypicFeature> * ;
+          OBO:RO_0002162 @<OrganismTaxon> * ;
+          OBO:RO_0002450 @<MolecularEntity> * ;
+          OBO:RO_0002449 @<MolecularEntity> * ;
           &<BiologicalEntity_t> ;
           &<ThingWithTaxon_t>
        ) ;
-       rdf:type [ <http://semanticscience.org/resource/SIO_/010004> ]
+       rdf:type [ <http://semanticscience.org/resource/SIO_010004> ]
     )
 }
 
@@ -1035,42 +1051,79 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
     (  $<NamedThing_t> (  rdfs:label @<LabelType> ? ;
           rdfs:subClassOf @<IriType> * ;
           owl:ObjectProperty @<NamedThing> * ;
-          <http://purl.obolibrary.org/obo/RO_/0002434> @<NamedThing> * ;
+          OBO:RO_0002434 @<NamedThing> * ;
           <node_property> @<String> ? ;
           <iri> @<IriType> ? ;
           <synonym> @<LabelType> * ;
           <full_name> @<LabelType> ? ;
           dcterms:description @<NarrativeText> ? ;
-          <systematic_synonym> @<LabelType> ?
+          <systematic_synonym> @<LabelType> ? ;
+          WD:P129 @<NamedThing> * ;
+          SEMMEDDB:AFFECTS @<NamedThing> * ;
+          SEMMEDDB:DISRUPTS @<NamedThing> * ;
+          OBO:RO_HOM0000001 @<NamedThing> * ;
+          OBO:RO_HOM0000011 @<NamedThing> * ;
+          OBO:RO_HOM0000017 @<NamedThing> * ;
+          OBO:RO_HOM0000018 @<NamedThing> * ;
+          SEMMEDDB:COEXISTS_WITH @<NamedThing> * ;
+          OBO:RO_00002325 @<NamedThing> * ;
+          owl:ObjectProperty @<NamedThing> * ;
+          SEMMEDDB:PREDISPOSES @<NamedThing> * ;
+          OBO:RO_0002326 @<NamedThing> * ;
+          OBO:RO_0002410 @<NamedThing> * ;
+          OBO:RO_0002599 @<NamedThing> * ;
+          OBO:BFO_0000066 @<NamedThing> * ;
+          OBO:RO_0001025 @<NamedThing> * ;
+          OBO:RO_0001015 @<NamedThing> * ;
+          OBO:RO_0003301 @<NamedThing> * ;
+          OBO:RO_0002131 @<NamedThing> * ;
+          OBO:BFO_0000051 @<NamedThing> * ;
+          OBO:BFO_0000050 @<NamedThing> * ;
+          OBO:RO_0000056 @<Occurrent> * ;
+          OBO:RO_0002331 @<Occurrent> * ;
+          OBO:RO_0002215 @<Occurrent> * ;
+          OBO:RO_0001001 @<NamedThing> * ;
+          OBO:RO_0001000 @<NamedThing> * ;
+          SEMMEDDB:MANIFESTATION_OF @<Disease> * ;
+          OBO:RO_0003000 @<NamedThing> * ;
+          owl:equivalentClass @<NamedThing> * ;
+          dcterms:created @<Date> ? ;
+          <update_date> @<Date> ? ;
+          WD:P274 @<ChemicalFormulaValue> ? ;
+          owl:ObjectProperty @<OntologyClass> * ;
+          <filler> @<NamedThing> ? ;
+          <interbase_coordinate> @<String> ?
        ) ;
        rdf:type [ WD:Q35120 ]
     )
 }
 
 <NoncodingRNAProduct> EXTRA rdf:type CLOSED {
-    (  $<NoncodingRNAProduct_t> (  &<RNAProduct_t> |
-          &<RNAProduct_t>
+    (  $<NoncodingRNAProduct_t> (  &<RNAProduct_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
-       rdf:type [ <http://semanticscience.org/resource/SIO_/001235> ]
+       rdf:type [ <http://semanticscience.org/resource/SIO_001235> ]
     )
 }
 
 <Occurrent> EXTRA rdf:type CLOSED {
-    (  $<Occurrent_t> (  <http://purl.obolibrary.org/obo/RO_/0002211> @<Occurrent> * ;
-          <http://purl.obolibrary.org/obo/RO_/0000057> @<NamedThing> * ;
-          <http://purl.obolibrary.org/obo/RO_/0002233> @<NamedThing> * ;
-          <http://purl.obolibrary.org/obo/BFO_/0000063> @<Occurrent> * ;
+    (  $<Occurrent_t> (  OBO:RO_0002211 @<Occurrent> * ;
+          OBO:RO_0000057 @<NamedThing> * ;
+          OBO:RO_0002233 @<NamedThing> * ;
+          OBO:BFO_0000063 @<Occurrent> * ;
+          OBO:RO_0002213 @<Occurrent> * ;
+          OBO:RO_0002212 @<Occurrent> * ;
           &<NamedThing_t>
        ) ;
-       rdf:type [ <http://purl.obolibrary.org/obo/BFO_/0000003> ]
+       rdf:type [ OBO:BFO_0000003 ]
     )
 }
 
 <Onset> EXTRA rdf:type CLOSED {
-    (  $<Onset_t> (  &<Attribute_t> |
-          &<Attribute_t>
+    (  $<Onset_t> (  &<Attribute_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
-       rdf:type [ <http://purl.obolibrary.org/obo/HP_/0003674> ]
+       rdf:type [ OBO:HP_0003674 ]
     )
 }
 
@@ -1083,16 +1136,16 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 }
 
 <OrganismTaxon> EXTRA rdf:type CLOSED {
-    (  $<OrganismTaxon_t> (  &<OntologyClass_t> |
-          &<OntologyClass_t>
+    (  $<OrganismTaxon_t> (  &<OntologyClass_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
        rdf:type [ WD:Q16521 ]
     )
 }
 
 <OrganismalEntity> EXTRA rdf:type CLOSED {
-    (  $<OrganismalEntity_t> (  &<BiologicalEntity_t> |
-          &<BiologicalEntity_t>
+    (  $<OrganismalEntity_t> (  &<BiologicalEntity_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
        rdf:type [ WD:Q7239 ]
     )
@@ -1111,6 +1164,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
     (  $<PairwiseInteractionAssociation_t> (  rdf:subject @<MolecularEntity> ;
           rdf:predicate @<IriType> ;
           rdf:object @<MolecularEntity> ;
+          <interacting_molecules_category> @<OntologyClass> ? ;
           &<Association_t>
        ) ;
        rdf:type [ <PairwiseInteractionAssociation> ]
@@ -1118,65 +1172,65 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 }
 
 <PathognomonicityQuantifier> EXTRA rdf:type CLOSED {
-    $<PathognomonicityQuantifier_t> (  &<SpecificityQuantifier_t> |
-       &<SpecificityQuantifier_t>
+    $<PathognomonicityQuantifier_t> (  &<SpecificityQuantifier_t> ;
+       <http://ex.org/dummy> . ?
     )
 }
 
 <Pathway> EXTRA rdf:type CLOSED {
-    (  $<Pathway_t> (  &<BiologicalProcess_t> |
-          &<BiologicalProcess_t>
+    (  $<Pathway_t> (  &<BiologicalProcess_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
-       rdf:type [ <http://purl.obolibrary.org/obo/GO_/0007165> ]
+       rdf:type [ OBO:GO_0007165 ]
     )
 }
 
 <Phenomenon> EXTRA rdf:type CLOSED {
-    (  $<Phenomenon_t> (  &<Occurrent_t> |
-          &<Occurrent_t>
+    (  $<Phenomenon_t> (  &<Occurrent_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
        rdf:type [ <Phenomenon> ]
     )
 }
 
 <PhenotypicFeature> EXTRA rdf:type CLOSED {
-    (  $<PhenotypicFeature_t> (  &<DiseaseOrPhenotypicFeature_t> |
-          &<DiseaseOrPhenotypicFeature_t>
+    (  $<PhenotypicFeature_t> (  &<DiseaseOrPhenotypicFeature_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
-       rdf:type [ <http://purl.obolibrary.org/obo/UPHENO_/0001001> ]
+       rdf:type [ OBO:UPHENO_0001001 ]
     )
 }
 
 <PhenotypicSex> EXTRA rdf:type CLOSED {
-    (  $<PhenotypicSex_t> (  &<BiologicalSex_t> |
-          &<BiologicalSex_t>
+    (  $<PhenotypicSex_t> (  &<BiologicalSex_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
        rdf:type [ <PhenotypicSex> ]
     )
 }
 
 <PhysiologicalProcess> EXTRA rdf:type CLOSED {
-    (  $<PhysiologicalProcess_t> (  &<BiologicalProcess_t> |
-          &<BiologicalProcess_t>
+    (  $<PhysiologicalProcess_t> (  &<BiologicalProcess_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
        rdf:type [ <PhysiologicalProcess> ]
     )
 }
 
 <PlanetaryEntity> EXTRA rdf:type CLOSED {
-    (  $<PlanetaryEntity_t> (  &<NamedThing_t> |
-          &<NamedThing_t>
+    (  $<PlanetaryEntity_t> (  &<NamedThing_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
        rdf:type [ <PlanetaryEntity> ]
     )
 }
 
 <PopulationOfIndividualOrganisms> EXTRA rdf:type CLOSED {
-    (  $<PopulationOfIndividualOrganisms_t> (  <http://purl.obolibrary.org/obo/RO_/0002162> @<OrganismTaxon> * ;
+    (  $<PopulationOfIndividualOrganisms_t> (  OBO:RO_0002162 @<OrganismTaxon> * ;
           &<OrganismalEntity_t> ;
           &<ThingWithTaxon_t>
        ) ;
-       rdf:type [ <http://semanticscience.org/resource/SIO_/001061> ]
+       rdf:type [ <http://semanticscience.org/resource/SIO_001061> ]
     )
 }
 
@@ -1191,74 +1245,76 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 }
 
 <Procedure> EXTRA rdf:type CLOSED {
-    (  $<Procedure_t> (  &<Occurrent_t> |
-          &<Occurrent_t>
+    (  $<Procedure_t> (  &<Occurrent_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
        rdf:type [ <Procedure> ]
     )
 }
 
 <Protein> EXTRA rdf:type CLOSED {
-    (  $<Protein_t> (  &<GeneProduct_t> |
-          &<GeneProduct_t>
+    (  $<Protein_t> (  &<GeneProduct_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
-       rdf:type [ <http://purl.obolibrary.org/obo/PR_/000000001> ]
+       rdf:type [ OBO:PR_000000001 ]
     )
 }
 
 <ProteinIsoform> EXTRA rdf:type CLOSED {
-    (  $<ProteinIsoform_t> (  &<Protein_t> |
-          &<Protein_t>
+    (  $<ProteinIsoform_t> (  &<Protein_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
        rdf:type [ <ProteinIsoform> ]
     )
 }
 
 <Provider> EXTRA rdf:type CLOSED {
-    (  $<Provider_t> (  &<AdministrativeEntity_t> |
-          &<AdministrativeEntity_t>
+    (  $<Provider_t> (  &<AdministrativeEntity_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
        rdf:type [ <Provider> ]
     )
 }
 
 <Publication> EXTRA rdf:type CLOSED {
-    (  $<Publication_t> (  &<InformationContentEntity_t> |
-          &<InformationContentEntity_t>
+    (  $<Publication_t> (  &<InformationContentEntity_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
-       rdf:type [ <http://purl.obolibrary.org/obo/IAO_/0000311> ]
+       rdf:type [ OBO:IAO_0000311 ]
     )
 }
 
-<RelationshipQuantifier> EXTRA rdf:type CLOSED { }
+<RelationshipQuantifier> EXTRA rdf:type CLOSED {
+    $<RelationshipQuantifier_t> <http://ex.org/dummy> . ?
+}
 
 <RelationshipType> EXTRA rdf:type CLOSED {
-    (  $<RelationshipType_t> (  &<OntologyClass_t> |
-          &<OntologyClass_t>
+    (  $<RelationshipType_t> (  &<OntologyClass_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
        rdf:type [ <RelationshipType> ]
     )
 }
 
 <RNAProduct> EXTRA rdf:type CLOSED {
-    (  $<RNAProduct_t> (  &<GeneProduct_t> |
-          &<GeneProduct_t>
+    (  $<RNAProduct_t> (  &<GeneProduct_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
-       rdf:type [ <http://purl.obolibrary.org/obo/CHEBI_/33697> ]
+       rdf:type [ OBO:CHEBI_33697 ]
     )
 }
 
 <RNAProductIsoform> EXTRA rdf:type CLOSED {
-    (  $<RNAProductIsoform_t> (  &<RNAProduct_t> |
-          &<RNAProduct_t>
+    (  $<RNAProductIsoform_t> (  &<RNAProduct_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
        rdf:type [ <RNAProductIsoform> ]
     )
 }
 
-<SenstivityQuantifier> EXTRA rdf:type CLOSED {
-    $<SenstivityQuantifier_t> (  &<RelationshipQuantifier_t> |
-       &<RelationshipQuantifier_t>
+<SensitivityQuantifier> EXTRA rdf:type CLOSED {
+    $<SensitivityQuantifier_t> (  &<RelationshipQuantifier_t> ;
+       <http://ex.org/dummy> . ?
     )
 }
 
@@ -1276,7 +1332,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
           <has_gene> @<Gene> * ;
           &<GenomicEntity_t>
        ) ;
-       rdf:type [ <http://purl.obolibrary.org/obo/GENO_/0000002> ]
+       rdf:type [ OBO:GENO_0000002 ]
     )
 }
 
@@ -1290,16 +1346,16 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 }
 
 <SeverityValue> EXTRA rdf:type CLOSED {
-    (  $<SeverityValue_t> (  &<Attribute_t> |
-          &<Attribute_t>
+    (  $<SeverityValue_t> (  &<Attribute_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
        rdf:type [ <SeverityValue> ]
     )
 }
 
 <SpecificityQuantifier> EXTRA rdf:type CLOSED {
-    $<SpecificityQuantifier_t> (  &<RelationshipQuantifier_t> |
-       &<RelationshipQuantifier_t>
+    $<SpecificityQuantifier_t> (  &<RelationshipQuantifier_t> ;
+       <http://ex.org/dummy> . ?
     )
 }
 
@@ -1312,14 +1368,14 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 }
 
 <ThingWithTaxon> EXTRA rdf:type CLOSED {
-    $<ThingWithTaxon_t> <http://purl.obolibrary.org/obo/RO_/0002162> @<OrganismTaxon> *
+    $<ThingWithTaxon_t> OBO:RO_0002162 . *
 }
 
 <Transcript> EXTRA rdf:type CLOSED {
-    (  $<Transcript_t> (  &<GenomicEntity_t> |
-          &<GenomicEntity_t>
+    (  $<Transcript_t> (  &<GenomicEntity_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
-       rdf:type [ <http://purl.obolibrary.org/obo/SO_/0000673> ]
+       rdf:type [ OBO:SO_0000673 ]
     )
 }
 
@@ -1333,10 +1389,11 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 }
 
 <Treatment> EXTRA rdf:type CLOSED {
-    (  $<Treatment_t> (  <http://purl.obolibrary.org/obo/RO_/0002606> @<DiseaseOrPhenotypicFeature> + ;
+    (  $<Treatment_t> (  OBO:RO_0002606 @<DiseaseOrPhenotypicFeature> + ;
+          <has_exposure_parts> @<DrugExposure> + ;
           &<Environment_t>
        ) ;
-       rdf:type [ <http://purl.obolibrary.org/obo/OGMS_/0000090> ]
+       rdf:type [ OBO:OGMS_0000090 ]
     )
 }
 
@@ -1348,7 +1405,8 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
           <severity_qualifier> @<SeverityValue> ? ;
           <onset_qualifier> @<Onset> ? ;
           &<Association_t> ;
-          &<VariantToThingAssociation_t>
+          &<VariantToThingAssociation_t> ;
+          &<EntityToDiseaseAssociation_t>
        ) ;
        rdf:type [ <VariantToDiseaseAssociation> ]
     )
@@ -1394,11 +1452,10 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 }
 
 <Zygosity> EXTRA rdf:type CLOSED {
-    (  $<Zygosity_t> (  &<Attribute_t> |
-          &<Attribute_t>
+    (  $<Zygosity_t> (  &<Attribute_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
-       rdf:type [ <http://purl.obolibrary.org/obo/GENO_/0000133> ]
+       rdf:type [ OBO:GENO_0000133 ]
     )
 }
-
 

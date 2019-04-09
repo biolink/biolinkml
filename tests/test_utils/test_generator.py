@@ -5,12 +5,10 @@ from io import StringIO
 from pprint import pprint
 from typing import Union, TextIO
 
-
 from biolinkml import LOCAL_YAML_PATH
 from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, TypeDefinition, SubsetDefinition
 from biolinkml.utils.generator import Generator
 from biolinkml.utils.typereferences import References
-from tests import source_yaml_path
 from tests.test_utils import datadir
 
 

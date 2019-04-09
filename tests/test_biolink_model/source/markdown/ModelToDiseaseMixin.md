@@ -5,7 +5,7 @@ This mixin is used for any association class for which the subject (source node)
 
 URI: [biolink:ModelToDiseaseMixin](https://w3id.org/biolink/vocab/ModelToDiseaseMixin)
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[GeneAsAModelOfDiseaseAssociation]uses%20-.->\[ModelToDiseaseMixin])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[GeneAsAModelOfDiseaseAssociation]uses%20-.->\[ModelToDiseaseMixin|subject:iri_type;relation:iri_type])
 ## Inheritance
 
 ## Children
@@ -15,3 +15,7 @@ URI: [biolink:ModelToDiseaseMixin](https://w3id.org/biolink/vocab/ModelToDisease
 
 ## Fields
 
+ * [model to disease mixin.relation](model_to_disease_mixin_relation.md)  <sub>REQ</sub>
+    * range: [IriType](IriType.md)
+ * [model to disease mixin.subject](model_to_disease_mixin_subject.md)  <sub>REQ</sub>
+    * range: [IriType](IriType.md)

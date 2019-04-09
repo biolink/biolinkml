@@ -154,10 +154,17 @@ class Namespaces(OrderedDict):
 
     @staticmethod
     def join(prefix: str, suffix: str) -> str:
-        return Namespaces.sfx(prefix) + suffix
+        return prefix + suffix
 
     @staticmethod
     def sfx(uri: str) -> str:
+        """
+        Add a separator to a uri if none exists.
+
+        Note: This should only be used with module id's -- it is not uncommon to use partial prefixes, e.g. PREFIX bfo: http://purl.obolibrary.org/obo/BFO_
+        :param uri: uri to be suffixed
+        :return: URI with suffix
+        """
         return str(uri) + ('' if uri.endswith(('/', '#')) else '/')
 
     def add_prefixmap(self, map_name: str, include_defaults: bool= True) -> None:

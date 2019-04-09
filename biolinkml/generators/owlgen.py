@@ -11,7 +11,7 @@ from rdflib.collection import Collection
 from rdflib.namespace import RDFS
 from rdflib.plugin import plugins as rdflib_plugins, Parser as rdflib_Parser
 
-from biolinkml import LOCAL_YAML_PATH, METAMODEL_LOCAL_NAME
+from biolinkml import LOCAL_YAML_PATH, METAMODEL_LOCAL_NAME, METAMODEL_NAMESPACE
 from biolinkml.meta import ClassDefinitionName, SchemaDefinition, ClassDefinition, SlotDefinitionName, \
     TypeDefinitionName, SlotDefinition, TypeDefinition, Element
 from biolinkml.utils.formatutils import camelcase, underscore
@@ -76,7 +76,7 @@ class OwlSchemaGenerator(Generator):
             if cls.is_a:
                 self.graph.add((cls_uri, RDFS.subClassOf, self._class_uri(cls.is_a)))
             if cls.mixin:
-                self.graph.add((cls_uri, RDFS.subClassOf, METAMODEL_LOCAL_NAME.mixin))
+                self.graph.add((cls_uri, RDFS.subClassOf, METAMODEL_NAMESPACE.mixin))
             for mixin in sorted(cls.mixins):
                 self.graph.add((cls_uri, RDFS.subClassOf, self._class_uri(mixin)))
             if cls.name in self.synopsis.applytorefs:

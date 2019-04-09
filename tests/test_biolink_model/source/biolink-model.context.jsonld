@@ -58,8 +58,8 @@
       "dcterms": "http://purl.org/dc/terms/",
       "dictyBase": "http://dictybase.org/gene/",
       "faldo": "http://biohackathon.org/resource/faldo#",
-      "meta": "http://w3id.org/biolink/biolinkml/meta/",
-      "metatype": "http://w3id.org/biolink/biolinkml/type/",
+      "meta": "https://w3id.org/biolink/biolinkml/meta/",
+      "metatype": "https://w3id.org/biolink/biolinkml/type/",
       "oban": "http://example.org/UNKNOWN/oban/",
       "owl": "http://www.w3.org/2002/07/owl#",
       "pav": "http://purl.org/pav/",
@@ -169,13 +169,13 @@
       "clinical_modifier_qualifier": {
          "@type": "@id"
       },
-      "co-localizes_with": {
-         "@type": "@id",
-         "@id": "RO:00002325"
-      },
       "coexists_with": {
          "@type": "@id",
          "@id": "SEMMEDDB:COEXISTS_WITH"
+      },
+      "colocalizes_with": {
+         "@type": "@id",
+         "@id": "RO:00002325"
       },
       "contributes_to": {
          "@type": "@id",

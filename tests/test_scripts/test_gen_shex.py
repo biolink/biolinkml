@@ -14,6 +14,8 @@ from tests.test_scripts.clicktestcase import ClickTestCase
 from tests.utils.dirutils import make_and_clear_directory
 
 
+SKIP_SHEX = True
+
 class GenShExTestCase(ClickTestCase):
     testdir = "genshex"
     click_ep = cli
@@ -31,6 +33,7 @@ class GenShExTestCase(ClickTestCase):
         self.do_test(source_yaml_path + ' -f shex', 'metashex.shex')
         self.do_test(source_yaml_path + f' -f xsv', 'meta_error', error=click.exceptions.BadParameter)
 
+    @unittest.skipIf(SKIP_SHEX, "ShEx test skipped because of CPU time")
     def test_rdf_shex(self):
         """ Generate ShEx and RDF for the model and verify that the RDF represents a valid instance """
         test_dir = os.path.join(self.tmpdir_path, 'meta_conformance_test')

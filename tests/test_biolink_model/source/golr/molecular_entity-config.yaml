@@ -393,6 +393,14 @@ fields:
   display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
   - in taxon
   id: in_taxon
+- cardinality: multi
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - positively regulates, entity to entity
+  id: positively_regulates_entity_to_entity
+- cardinality: multi
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - negatively regulates, entity to entity
+  id: negatively_regulates_entity_to_entity
 id: molecular_entity
 schema_generating: true
 weight: 20

@@ -10,8 +10,8 @@ from typing import Optional, List, Union, Dict, ClassVar
 from dataclasses import dataclass
 from biolinkml.utils.metamodelcore import empty_list, empty_dict
 from biolinkml.utils.yamlutils import YAMLRoot
-from biolinkml.utils.metamodelcore import Bool, URI, XSDTime
-from includes.types import Boolean, Double, Float, Integer, String, Time, Uri
+from biolinkml.utils.metamodelcore import Bool, URI, XSDDateTime, XSDTime
+from includes.types import Boolean, Date, Double, Float, Integer, String, Time, Uri
 
 metamodel_version = "1.3.1"
 
@@ -882,6 +882,45 @@ class NamedThing(YAMLRoot):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -905,6 +944,78 @@ class NamedThing(YAMLRoot):
             self.description = NarrativeText(self.description)
         if self.systematic_synonym is not None and not isinstance(self.systematic_synonym, LabelType):
             self.systematic_synonym = LabelType(self.systematic_synonym)
+        self.physically_interacts_with = [v if isinstance(v, NamedThingId)
+                                          else NamedThingId(v) for v in self.physically_interacts_with]
+        self.affects = [v if isinstance(v, NamedThingId)
+                        else NamedThingId(v) for v in self.affects]
+        self.regulates = [v if isinstance(v, NamedThingId)
+                          else NamedThingId(v) for v in self.regulates]
+        self.positively_regulates = [v if isinstance(v, NamedThingId)
+                                     else NamedThingId(v) for v in self.positively_regulates]
+        self.negatively_regulates = [v if isinstance(v, NamedThingId)
+                                     else NamedThingId(v) for v in self.negatively_regulates]
+        self.disrupts = [v if isinstance(v, NamedThingId)
+                         else NamedThingId(v) for v in self.disrupts]
+        self.homologous_to = [v if isinstance(v, NamedThingId)
+                              else NamedThingId(v) for v in self.homologous_to]
+        self.paralogous_to = [v if isinstance(v, NamedThingId)
+                              else NamedThingId(v) for v in self.paralogous_to]
+        self.orthologous_to = [v if isinstance(v, NamedThingId)
+                               else NamedThingId(v) for v in self.orthologous_to]
+        self.xenologous_to = [v if isinstance(v, NamedThingId)
+                              else NamedThingId(v) for v in self.xenologous_to]
+        self.coexists_with = [v if isinstance(v, NamedThingId)
+                              else NamedThingId(v) for v in self.coexists_with]
+        self.colocalizes_with = [v if isinstance(v, NamedThingId)
+                                 else NamedThingId(v) for v in self.colocalizes_with]
+        self.affects_risk_for = [v if isinstance(v, NamedThingId)
+                                 else NamedThingId(v) for v in self.affects_risk_for]
+        self.predisposes = [v if isinstance(v, NamedThingId)
+                            else NamedThingId(v) for v in self.predisposes]
+        self.contributes_to = [v if isinstance(v, NamedThingId)
+                               else NamedThingId(v) for v in self.contributes_to]
+        self.causes = [v if isinstance(v, NamedThingId)
+                       else NamedThingId(v) for v in self.causes]
+        self.prevents = [v if isinstance(v, NamedThingId)
+                         else NamedThingId(v) for v in self.prevents]
+        self.occurs_in = [v if isinstance(v, NamedThingId)
+                          else NamedThingId(v) for v in self.occurs_in]
+        self.located_in = [v if isinstance(v, NamedThingId)
+                           else NamedThingId(v) for v in self.located_in]
+        self.location_of = [v if isinstance(v, NamedThingId)
+                            else NamedThingId(v) for v in self.location_of]
+        self.model_of = [v if isinstance(v, NamedThingId)
+                         else NamedThingId(v) for v in self.model_of]
+        self.overlaps = [v if isinstance(v, NamedThingId)
+                         else NamedThingId(v) for v in self.overlaps]
+        self.has_part = [v if isinstance(v, NamedThingId)
+                         else NamedThingId(v) for v in self.has_part]
+        self.part_of = [v if isinstance(v, NamedThingId)
+                        else NamedThingId(v) for v in self.part_of]
+        self.participates_in = [v if isinstance(v, OccurrentId)
+                                else OccurrentId(v) for v in self.participates_in]
+        self.actively_involved_in = [v if isinstance(v, OccurrentId)
+                                     else OccurrentId(v) for v in self.actively_involved_in]
+        self.capable_of = [v if isinstance(v, OccurrentId)
+                           else OccurrentId(v) for v in self.capable_of]
+        self.derives_into = [v if isinstance(v, NamedThingId)
+                             else NamedThingId(v) for v in self.derives_into]
+        self.derives_from = [v if isinstance(v, NamedThingId)
+                             else NamedThingId(v) for v in self.derives_from]
+        self.manifestation_of = [v if isinstance(v, DiseaseId)
+                                 else DiseaseId(v) for v in self.manifestation_of]
+        self.produces = [v if isinstance(v, NamedThingId)
+                         else NamedThingId(v) for v in self.produces]
+        self.same_as = [v if isinstance(v, NamedThingId)
+                        else NamedThingId(v) for v in self.same_as]
+        if self.creation_date is not None and not isinstance(self.creation_date, XSDDateTime):
+            self.creation_date = XSDDateTime(self.creation_date)
+        if self.update_date is not None and not isinstance(self.update_date, XSDDateTime):
+            self.update_date = XSDDateTime(self.update_date)
+        self.has_molecular_consequence = [v if isinstance(v, OntologyClassId)
+                                          else OntologyClassId(v) for v in self.has_molecular_consequence]
+        if self.filler is not None and not isinstance(self.filler, NamedThingId):
+            self.filler = NamedThingId(self.filler)
 
 
 @dataclass
@@ -923,6 +1034,45 @@ class BiologicalEntity(NamedThing):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -952,6 +1102,45 @@ class OntologyClass(NamedThing):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === ontology class ===
     subclass_of: List[Union[str, OntologyClassId]] = empty_list()
@@ -983,6 +1172,45 @@ class RelationshipType(OntologyClass):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === ontology class ===
     subclass_of: List[Union[str, OntologyClassId]] = empty_list()
@@ -1014,6 +1242,45 @@ class GeneOntologyClass(OntologyClass):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === ontology class ===
     subclass_of: List[Union[str, OntologyClassId]] = empty_list()
@@ -1042,6 +1309,45 @@ class OrganismTaxon(OntologyClass):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === ontology class ===
     subclass_of: List[Union[str, OntologyClassId]] = empty_list()
@@ -1074,6 +1380,45 @@ class OrganismalEntity(BiologicalEntity):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -1097,6 +1442,45 @@ class IndividualOrganism(OrganismalEntity):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -1133,6 +1517,45 @@ class Case(IndividualOrganism):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -1171,6 +1594,45 @@ class PopulationOfIndividualOrganisms(OrganismalEntity):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -1204,6 +1666,45 @@ class Biosample(OrganismalEntity):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -1241,6 +1742,45 @@ class DiseaseOrPhenotypicFeature(BiologicalEntity):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -1281,6 +1821,45 @@ class Disease(DiseaseOrPhenotypicFeature):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -1315,6 +1894,45 @@ class PhenotypicFeature(DiseaseOrPhenotypicFeature):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -1353,6 +1971,45 @@ class Environment(BiologicalEntity):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -1384,6 +2041,45 @@ class InformationContentEntity(NamedThing):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === information content entity ===
 
@@ -1407,6 +2103,45 @@ class ConfidenceLevel(InformationContentEntity):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === information content entity ===
 
@@ -1437,6 +2172,45 @@ class EvidenceType(InformationContentEntity):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === information content entity ===
 
@@ -1469,6 +2243,45 @@ class Publication(InformationContentEntity):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === information content entity ===
 
@@ -1496,6 +2309,45 @@ class AdministrativeEntity(NamedThing):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === administrative entity ===
 
@@ -1519,6 +2371,45 @@ class Provider(AdministrativeEntity):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === administrative entity ===
 
@@ -1549,6 +2440,45 @@ class MolecularEntity(BiologicalEntity):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -1606,6 +2536,8 @@ class MolecularEntity(BiologicalEntity):
     regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
     biomarker_for: List[Union[str, DiseaseOrPhenotypicFeatureId]] = empty_list()
     in_taxon: List[Union[str, OrganismTaxonId]] = empty_list()
+    positively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
+    negatively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1715,6 +2647,10 @@ class MolecularEntity(BiologicalEntity):
                               else DiseaseOrPhenotypicFeatureId(v) for v in self.biomarker_for]
         self.in_taxon = [v if isinstance(v, OrganismTaxonId)
                          else OrganismTaxonId(v) for v in self.in_taxon]
+        self.positively_regulates_entity_to_entity = [v if isinstance(v, MolecularEntityId)
+                                                      else MolecularEntityId(v) for v in self.positively_regulates_entity_to_entity]
+        self.negatively_regulates_entity_to_entity = [v if isinstance(v, MolecularEntityId)
+                                                      else MolecularEntityId(v) for v in self.negatively_regulates_entity_to_entity]
 
 
 @dataclass
@@ -1737,6 +2673,45 @@ class ChemicalSubstance(MolecularEntity):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -1794,6 +2769,8 @@ class ChemicalSubstance(MolecularEntity):
     regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
     biomarker_for: List[Union[str, DiseaseOrPhenotypicFeatureId]] = empty_list()
     in_taxon: List[Union[str, OrganismTaxonId]] = empty_list()
+    positively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
+    negatively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
 
     # === chemical substance ===
 
@@ -1819,6 +2796,45 @@ class Carbohydrate(ChemicalSubstance):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -1876,6 +2892,8 @@ class Carbohydrate(ChemicalSubstance):
     regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
     biomarker_for: List[Union[str, DiseaseOrPhenotypicFeatureId]] = empty_list()
     in_taxon: List[Union[str, OrganismTaxonId]] = empty_list()
+    positively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
+    negatively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
 
     # === chemical substance ===
 
@@ -1906,6 +2924,45 @@ class Drug(ChemicalSubstance):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -1963,6 +3020,8 @@ class Drug(ChemicalSubstance):
     regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
     biomarker_for: List[Union[str, DiseaseOrPhenotypicFeatureId]] = empty_list()
     in_taxon: List[Union[str, OrganismTaxonId]] = empty_list()
+    positively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
+    negatively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
 
     # === chemical substance ===
 
@@ -1993,6 +3052,45 @@ class Metabolite(ChemicalSubstance):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -2050,6 +3148,8 @@ class Metabolite(ChemicalSubstance):
     regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
     biomarker_for: List[Union[str, DiseaseOrPhenotypicFeatureId]] = empty_list()
     in_taxon: List[Union[str, OrganismTaxonId]] = empty_list()
+    positively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
+    negatively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
 
     # === chemical substance ===
 
@@ -2080,6 +3180,45 @@ class AnatomicalEntity(OrganismalEntity):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -2119,6 +3258,45 @@ class LifeStage(OrganismalEntity):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -2155,6 +3333,45 @@ class PlanetaryEntity(NamedThing):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === planetary entity ===
 
@@ -2180,6 +3397,45 @@ class EnvironmentalProcess(PlanetaryEntity):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === planetary entity ===
 
@@ -2219,6 +3475,45 @@ class EnvironmentalFeature(PlanetaryEntity):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === planetary entity ===
 
@@ -2250,6 +3545,45 @@ class ClinicalEntity(NamedThing):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === clinical entity ===
 
@@ -2275,6 +3609,45 @@ class ClinicalTrial(ClinicalEntity):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === clinical entity ===
 
@@ -2302,6 +3675,45 @@ class ClinicalIntervention(ClinicalEntity):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === clinical entity ===
 
@@ -2332,6 +3744,45 @@ class Device(NamedThing):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === device ===
 
@@ -2361,6 +3812,45 @@ class GenomicEntity(MolecularEntity):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -2418,6 +3908,8 @@ class GenomicEntity(MolecularEntity):
     regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
     biomarker_for: List[Union[str, DiseaseOrPhenotypicFeatureId]] = empty_list()
     in_taxon: List[Union[str, OrganismTaxonId]] = empty_list()
+    positively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
+    negatively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
 
     # === genomic entity ===
     has_biological_sequence: Optional[Union[str, BiologicalSequence]] = None
@@ -2449,6 +3941,45 @@ class Genome(GenomicEntity):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -2506,6 +4037,8 @@ class Genome(GenomicEntity):
     regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
     biomarker_for: List[Union[str, DiseaseOrPhenotypicFeatureId]] = empty_list()
     in_taxon: List[Union[str, OrganismTaxonId]] = empty_list()
+    positively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
+    negatively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
 
     # === genomic entity ===
     has_biological_sequence: Optional[Union[str, BiologicalSequence]] = None
@@ -2537,6 +4070,45 @@ class Transcript(GenomicEntity):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -2594,6 +4166,8 @@ class Transcript(GenomicEntity):
     regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
     biomarker_for: List[Union[str, DiseaseOrPhenotypicFeatureId]] = empty_list()
     in_taxon: List[Union[str, OrganismTaxonId]] = empty_list()
+    positively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
+    negatively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
 
     # === genomic entity ===
     has_biological_sequence: Optional[Union[str, BiologicalSequence]] = None
@@ -2626,6 +4200,45 @@ class Exon(GenomicEntity):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -2683,6 +4296,8 @@ class Exon(GenomicEntity):
     regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
     biomarker_for: List[Union[str, DiseaseOrPhenotypicFeatureId]] = empty_list()
     in_taxon: List[Union[str, OrganismTaxonId]] = empty_list()
+    positively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
+    negatively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
 
     # === genomic entity ===
     has_biological_sequence: Optional[Union[str, BiologicalSequence]] = None
@@ -2711,6 +4326,45 @@ class CodingSequence(GenomicEntity):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -2768,6 +4422,8 @@ class CodingSequence(GenomicEntity):
     regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
     biomarker_for: List[Union[str, DiseaseOrPhenotypicFeatureId]] = empty_list()
     in_taxon: List[Union[str, OrganismTaxonId]] = empty_list()
+    positively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
+    negatively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
 
     # === genomic entity ===
     has_biological_sequence: Optional[Union[str, BiologicalSequence]] = None
@@ -2799,6 +4455,45 @@ class MacromolecularMachine(GenomicEntity):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -2856,6 +4551,8 @@ class MacromolecularMachine(GenomicEntity):
     regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
     biomarker_for: List[Union[str, DiseaseOrPhenotypicFeatureId]] = empty_list()
     in_taxon: List[Union[str, OrganismTaxonId]] = empty_list()
+    positively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
+    negatively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
 
     # === genomic entity ===
     has_biological_sequence: Optional[Union[str, BiologicalSequence]] = None
@@ -2889,6 +4586,45 @@ class GeneOrGeneProduct(MacromolecularMachine):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -2946,6 +4682,8 @@ class GeneOrGeneProduct(MacromolecularMachine):
     regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
     biomarker_for: List[Union[str, DiseaseOrPhenotypicFeatureId]] = empty_list()
     in_taxon: List[Union[str, OrganismTaxonId]] = empty_list()
+    positively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
+    negatively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
 
     # === genomic entity ===
     has_biological_sequence: Optional[Union[str, BiologicalSequence]] = None
@@ -2988,6 +4726,45 @@ class Gene(GeneOrGeneProduct):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -3045,6 +4822,8 @@ class Gene(GeneOrGeneProduct):
     regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
     biomarker_for: List[Union[str, DiseaseOrPhenotypicFeatureId]] = empty_list()
     in_taxon: List[Union[str, OrganismTaxonId]] = empty_list()
+    positively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
+    negatively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
 
     # === genomic entity ===
     has_biological_sequence: Optional[Union[str, BiologicalSequence]] = None
@@ -3093,6 +4872,45 @@ class GeneProduct(GeneOrGeneProduct):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -3150,6 +4968,8 @@ class GeneProduct(GeneOrGeneProduct):
     regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
     biomarker_for: List[Union[str, DiseaseOrPhenotypicFeatureId]] = empty_list()
     in_taxon: List[Union[str, OrganismTaxonId]] = empty_list()
+    positively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
+    negatively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
 
     # === genomic entity ===
     has_biological_sequence: Optional[Union[str, BiologicalSequence]] = None
@@ -3190,6 +5010,45 @@ class Protein(GeneProduct):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -3247,6 +5106,8 @@ class Protein(GeneProduct):
     regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
     biomarker_for: List[Union[str, DiseaseOrPhenotypicFeatureId]] = empty_list()
     in_taxon: List[Union[str, OrganismTaxonId]] = empty_list()
+    positively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
+    negatively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
 
     # === genomic entity ===
     has_biological_sequence: Optional[Union[str, BiologicalSequence]] = None
@@ -3290,6 +5151,45 @@ class GeneProductIsoform(GeneProduct):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -3347,6 +5247,8 @@ class GeneProductIsoform(GeneProduct):
     regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
     biomarker_for: List[Union[str, DiseaseOrPhenotypicFeatureId]] = empty_list()
     in_taxon: List[Union[str, OrganismTaxonId]] = empty_list()
+    positively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
+    negatively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
 
     # === genomic entity ===
     has_biological_sequence: Optional[Union[str, BiologicalSequence]] = None
@@ -3384,6 +5286,45 @@ class ProteinIsoform(Protein):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -3441,6 +5382,8 @@ class ProteinIsoform(Protein):
     regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
     biomarker_for: List[Union[str, DiseaseOrPhenotypicFeatureId]] = empty_list()
     in_taxon: List[Union[str, OrganismTaxonId]] = empty_list()
+    positively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
+    negatively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
 
     # === genomic entity ===
     has_biological_sequence: Optional[Union[str, BiologicalSequence]] = None
@@ -3481,6 +5424,45 @@ class RNAProduct(GeneProduct):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -3538,6 +5520,8 @@ class RNAProduct(GeneProduct):
     regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
     biomarker_for: List[Union[str, DiseaseOrPhenotypicFeatureId]] = empty_list()
     in_taxon: List[Union[str, OrganismTaxonId]] = empty_list()
+    positively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
+    negatively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
 
     # === genomic entity ===
     has_biological_sequence: Optional[Union[str, BiologicalSequence]] = None
@@ -3579,6 +5563,45 @@ class RNAProductIsoform(RNAProduct):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -3636,6 +5659,8 @@ class RNAProductIsoform(RNAProduct):
     regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
     biomarker_for: List[Union[str, DiseaseOrPhenotypicFeatureId]] = empty_list()
     in_taxon: List[Union[str, OrganismTaxonId]] = empty_list()
+    positively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
+    negatively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
 
     # === genomic entity ===
     has_biological_sequence: Optional[Union[str, BiologicalSequence]] = None
@@ -3676,6 +5701,45 @@ class NoncodingRNAProduct(RNAProduct):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -3733,6 +5797,8 @@ class NoncodingRNAProduct(RNAProduct):
     regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
     biomarker_for: List[Union[str, DiseaseOrPhenotypicFeatureId]] = empty_list()
     in_taxon: List[Union[str, OrganismTaxonId]] = empty_list()
+    positively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
+    negatively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
 
     # === genomic entity ===
     has_biological_sequence: Optional[Union[str, BiologicalSequence]] = None
@@ -3773,6 +5839,45 @@ class MicroRNA(NoncodingRNAProduct):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -3830,6 +5935,8 @@ class MicroRNA(NoncodingRNAProduct):
     regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
     biomarker_for: List[Union[str, DiseaseOrPhenotypicFeatureId]] = empty_list()
     in_taxon: List[Union[str, OrganismTaxonId]] = empty_list()
+    positively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
+    negatively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
 
     # === genomic entity ===
     has_biological_sequence: Optional[Union[str, BiologicalSequence]] = None
@@ -3872,6 +5979,45 @@ class MacromolecularComplex(MacromolecularMachine):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -3929,6 +6075,8 @@ class MacromolecularComplex(MacromolecularMachine):
     regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
     biomarker_for: List[Union[str, DiseaseOrPhenotypicFeatureId]] = empty_list()
     in_taxon: List[Union[str, OrganismTaxonId]] = empty_list()
+    positively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
+    negatively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
 
     # === genomic entity ===
     has_biological_sequence: Optional[Union[str, BiologicalSequence]] = None
@@ -3963,6 +6111,45 @@ class GeneFamily(MolecularEntity):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -4020,6 +6207,8 @@ class GeneFamily(MolecularEntity):
     regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
     biomarker_for: List[Union[str, DiseaseOrPhenotypicFeatureId]] = empty_list()
     in_taxon: List[Union[str, OrganismTaxonId]] = empty_list()
+    positively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
+    negatively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
 
     # === gene family ===
 
@@ -4075,6 +6264,45 @@ class Genotype(GenomicEntity):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -4132,6 +6360,8 @@ class Genotype(GenomicEntity):
     regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
     biomarker_for: List[Union[str, DiseaseOrPhenotypicFeatureId]] = empty_list()
     in_taxon: List[Union[str, OrganismTaxonId]] = empty_list()
+    positively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
+    negatively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
 
     # === genomic entity ===
     has_biological_sequence: Optional[Union[str, BiologicalSequence]] = None
@@ -4166,6 +6396,45 @@ class Haplotype(GenomicEntity):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -4223,6 +6492,8 @@ class Haplotype(GenomicEntity):
     regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
     biomarker_for: List[Union[str, DiseaseOrPhenotypicFeatureId]] = empty_list()
     in_taxon: List[Union[str, OrganismTaxonId]] = empty_list()
+    positively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
+    negatively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
 
     # === genomic entity ===
     has_biological_sequence: Optional[Union[str, BiologicalSequence]] = None
@@ -4253,6 +6524,45 @@ class SequenceVariant(GenomicEntity):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -4310,6 +6620,8 @@ class SequenceVariant(GenomicEntity):
     regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
     biomarker_for: List[Union[str, DiseaseOrPhenotypicFeatureId]] = empty_list()
     in_taxon: List[Union[str, OrganismTaxonId]] = empty_list()
+    positively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
+    negatively_regulates_entity_to_entity: List[Union[str, MolecularEntityId]] = empty_list()
 
     # === genomic entity ===
 
@@ -4347,6 +6659,45 @@ class DrugExposure(Environment):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -4354,11 +6705,14 @@ class DrugExposure(Environment):
     # === environment ===
 
     # === drug exposure ===
+    drug: List[Union[str, ChemicalSubstanceId]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
         if self.id is not None and not isinstance(self.id, DrugExposureId):
             self.id = DrugExposureId(self.id)
+        self.drug = [v if isinstance(v, ChemicalSubstanceId)
+                     else ChemicalSubstanceId(v) for v in self.drug]
 
 
 @dataclass
@@ -4380,6 +6734,45 @@ class Treatment(Environment):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -4388,6 +6781,7 @@ class Treatment(Environment):
 
     # === treatment ===
     treats: List[Union[str, DiseaseOrPhenotypicFeatureId]] = empty_list()
+    has_exposure_parts: List[Union[str, DrugExposureId]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -4395,6 +6789,8 @@ class Treatment(Environment):
             self.id = TreatmentId(self.id)
         self.treats = [v if isinstance(v, DiseaseOrPhenotypicFeatureId)
                        else DiseaseOrPhenotypicFeatureId(v) for v in self.treats]
+        self.has_exposure_parts = [v if isinstance(v, DrugExposureId)
+                                   else DrugExposureId(v) for v in self.has_exposure_parts]
 
 
 @dataclass
@@ -4416,6 +6812,45 @@ class GeographicLocation(PlanetaryEntity):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === planetary entity ===
 
@@ -4448,6 +6883,45 @@ class GeographicLocationAtTime(GeographicLocation):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === planetary entity ===
 
@@ -4484,6 +6958,10 @@ class Association(YAMLRoot):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -4503,6 +6981,14 @@ class Association(YAMLRoot):
                              else PublicationId(v) for v in self.publications]
         if self.provided_by is not None and not isinstance(self.provided_by, ProviderId):
             self.provided_by = ProviderId(self.provided_by)
+        if self.edge_label is not None and not isinstance(self.edge_label, LabelType):
+            self.edge_label = LabelType(self.edge_label)
+        if self.has_confidence_level is not None and not isinstance(self.has_confidence_level, ConfidenceLevelId):
+            self.has_confidence_level = ConfidenceLevelId(self.has_confidence_level)
+        if self.has_evidence is not None and not isinstance(self.has_evidence, EvidenceTypeId):
+            self.has_evidence = EvidenceTypeId(self.has_evidence)
+        if self.clinical_modifier_qualifier is not None and not isinstance(self.clinical_modifier_qualifier, ClinicalModifierId):
+            self.clinical_modifier_qualifier = ClinicalModifierId(self.clinical_modifier_qualifier)
 
 
 @dataclass
@@ -4520,6 +7006,10 @@ class GenotypeToGenotypePartAssociation(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === genotype to genotype part association ===
     subject: Union[str, GenotypeId] = None
@@ -4554,6 +7044,10 @@ class GenotypeToGeneAssociation(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === genotype to gene association ===
     subject: Union[str, GenotypeId] = None
@@ -4587,6 +7081,10 @@ class GenotypeToVariantAssociation(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === genotype to variant association ===
     subject: Union[str, GenotypeId] = None
@@ -4622,6 +7120,10 @@ class GeneToGeneAssociation(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === gene to gene association ===
     subject: Union[str, GeneOrGeneProductId] = None
@@ -4651,6 +7153,10 @@ class GeneToGeneHomologyAssociation(GeneToGeneAssociation):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === gene to gene association ===
     subject: Union[str, GeneOrGeneProductId] = None
@@ -4683,6 +7189,10 @@ class PairwiseGeneToGeneInteraction(GeneToGeneAssociation):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === gene to gene association ===
     subject: Union[str, GeneOrGeneProductId] = None
@@ -4716,6 +7226,10 @@ class CellLineToThingAssociation(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === cell line to thing association ===
     subject: Union[str, CellLineId] = None
@@ -4744,6 +7258,10 @@ class CellLineToDiseaseOrPhenotypicFeatureAssociation(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === cell line to disease or phenotypic feature association ===
     subject: Union[str, DiseaseOrPhenotypicFeatureId] = None
@@ -4773,6 +7291,10 @@ class ChemicalToThingAssociation(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === chemical to thing association ===
     subject: Union[str, ChemicalSubstanceId] = None
@@ -4800,6 +7322,10 @@ class CaseToThingAssociation(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === case to thing association ===
     subject: Union[str, CaseId] = None
@@ -4828,6 +7354,10 @@ class ChemicalToDiseaseOrPhenotypicFeatureAssociation(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === chemical to disease or phenotypic feature association ===
     object: Union[str, DiseaseOrPhenotypicFeatureId] = None
@@ -4857,6 +7387,10 @@ class ChemicalToPathwayAssociation(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === chemical to pathway association ===
     object: Union[str, PathwayId] = None
@@ -4886,6 +7420,10 @@ class ChemicalToGeneAssociation(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === chemical to gene association ===
     object: Union[str, GeneOrGeneProductId] = None
@@ -4915,6 +7453,10 @@ class BiosampleToThingAssociation(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === biosample to thing association ===
     subject: Union[str, BiosampleId] = None
@@ -4943,6 +7485,10 @@ class BiosampleToDiseaseOrPhenotypicFeatureAssociation(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === biosample to disease or phenotypic feature association ===
 
@@ -4966,6 +7512,10 @@ class EntityToPhenotypicFeatureAssociation(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === entity to phenotypic feature association ===
     object: Union[str, PhenotypicFeatureId] = None
@@ -4973,6 +7523,7 @@ class EntityToPhenotypicFeatureAssociation(Association):
     frequency_qualifier: Optional[Union[str, FrequencyValueId]] = None
     severity_qualifier: Optional[Union[str, SeverityValueId]] = None
     onset_qualifier: Optional[Union[str, OnsetId]] = None
+    description: Optional[Union[str, NarrativeText]] = None
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -4986,6 +7537,8 @@ class EntityToPhenotypicFeatureAssociation(Association):
             self.severity_qualifier = SeverityValueId(self.severity_qualifier)
         if self.onset_qualifier is not None and not isinstance(self.onset_qualifier, OnsetId):
             self.onset_qualifier = OnsetId(self.onset_qualifier)
+        if self.description is not None and not isinstance(self.description, NarrativeText):
+            self.description = NarrativeText(self.description)
 
 
 @dataclass
@@ -5002,6 +7555,10 @@ class DiseaseOrPhenotypicFeatureAssociationToThingAssociation(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === disease or phenotypic feature association to thing association ===
     subject: Union[str, DiseaseOrPhenotypicFeatureId] = None
@@ -5029,6 +7586,10 @@ class DiseaseOrPhenotypicFeatureAssociationToLocationAssociation(DiseaseOrPhenot
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === disease or phenotypic feature association to thing association ===
     subject: Union[str, DiseaseOrPhenotypicFeatureId] = None
@@ -5058,6 +7619,10 @@ class ThingToDiseaseOrPhenotypicFeatureAssociation(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === thing to disease or phenotypic feature association ===
     object: Union[str, DiseaseOrPhenotypicFeatureId] = None
@@ -5082,6 +7647,10 @@ class DiseaseToThingAssociation(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === disease to thing association ===
     subject: Union[str, DiseaseId] = None
@@ -5109,6 +7678,10 @@ class GenotypeToPhenotypicFeatureAssociation(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === genotype to phenotypic feature association ===
     subject: Union[str, GenotypeId] = None
@@ -5154,6 +7727,10 @@ class EnvironmentToPhenotypicFeatureAssociation(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === environment to phenotypic feature association ===
     subject: Union[str, EnvironmentId] = None
@@ -5197,6 +7774,10 @@ class DiseaseToPhenotypicFeatureAssociation(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === disease to phenotypic feature association ===
     sex_qualifier: Optional[Union[str, BiologicalSexId]] = None
@@ -5237,6 +7818,10 @@ class CaseToPhenotypicFeatureAssociation(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === case to phenotypic feature association ===
     sex_qualifier: Optional[Union[str, BiologicalSexId]] = None
@@ -5272,6 +7857,10 @@ class GeneToThingAssociation(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === gene to thing association ===
     subject: Union[str, GeneOrGeneProductId] = None
@@ -5296,6 +7885,10 @@ class GeneToPhenotypicFeatureAssociation(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === gene to phenotypic feature association ===
     subject: Union[str, GeneOrGeneProductId] = None
@@ -5334,6 +7927,10 @@ class GeneToDiseaseAssociation(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === gene to disease association ===
     subject: Union[str, GeneOrGeneProductId] = None
@@ -5371,6 +7968,10 @@ class VariantToPopulationAssociation(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === variant to population association ===
     subject: Union[str, SequenceVariantId] = None
@@ -5408,6 +8009,10 @@ class PopulationToPopulationAssociation(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === population to population association ===
     subject: Union[str, PopulationOfIndividualOrganismsId] = None
@@ -5440,6 +8045,10 @@ class VariantToPhenotypicFeatureAssociation(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === variant to phenotypic feature association ===
     subject: Union[str, SequenceVariantId] = None
@@ -5476,6 +8085,10 @@ class VariantToDiseaseAssociation(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === variant to disease association ===
     subject: Union[str, IriType] = None
@@ -5517,6 +8130,10 @@ class GeneAsAModelOfDiseaseAssociation(GeneToDiseaseAssociation):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === gene to disease association ===
     frequency_qualifier: Optional[Union[str, FrequencyValueId]] = None
@@ -5548,6 +8165,10 @@ class GeneHasVariantThatContributesToDiseaseAssociation(GeneToDiseaseAssociation
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === gene to disease association ===
     frequency_qualifier: Optional[Union[str, FrequencyValueId]] = None
@@ -5582,6 +8203,10 @@ class GenotypeToThingAssociation(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === genotype to thing association ===
     subject: Union[str, GenotypeId] = None
@@ -5607,6 +8232,10 @@ class GeneToExpressionSiteAssociation(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === gene to expression site association ===
     subject: Union[str, GeneOrGeneProductId] = None
@@ -5648,6 +8277,10 @@ class SequenceVariantModulatesTreatmentAssociation(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === sequence variant modulates treatment association ===
     subject: Union[str, SequenceVariantId] = None
@@ -5678,6 +8311,10 @@ class FunctionalAssociation(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === functional association ===
     subject: Union[str, MacromolecularMachineId] = None
@@ -5711,6 +8348,10 @@ class MacromolecularMachineToMolecularActivityAssociation(FunctionalAssociation)
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === functional association ===
     subject: Union[str, MacromolecularMachineId] = None
@@ -5744,6 +8385,10 @@ class MacromolecularMachineToBiologicalProcessAssociation(FunctionalAssociation)
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === functional association ===
     subject: Union[str, MacromolecularMachineId] = None
@@ -5777,6 +8422,10 @@ class MacromolecularMachineToCellularComponentAssociation(FunctionalAssociation)
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === functional association ===
     subject: Union[str, MacromolecularMachineId] = None
@@ -5805,6 +8454,10 @@ class GeneToGoTermAssociation(FunctionalAssociation):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === functional association ===
 
@@ -5839,6 +8492,10 @@ class GenomicSequenceLocalization(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === genomic sequence localization ===
     subject: Union[str, GenomicEntityId] = None
@@ -5874,6 +8531,10 @@ class SequenceFeatureRelationship(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === sequence feature relationship ===
     subject: Union[str, GenomicEntityId] = None
@@ -5905,6 +8566,10 @@ class TranscriptToGeneRelationship(SequenceFeatureRelationship):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === sequence feature relationship ===
 
@@ -5937,6 +8602,10 @@ class GeneToGeneProductRelationship(SequenceFeatureRelationship):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === sequence feature relationship ===
 
@@ -5973,6 +8642,10 @@ class ExonToTranscriptRelationship(SequenceFeatureRelationship):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === sequence feature relationship ===
 
@@ -6005,6 +8678,10 @@ class GeneRegulatoryRelationship(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === gene regulatory relationship ===
     subject: Union[str, GeneOrGeneProductId] = None
@@ -6036,6 +8713,10 @@ class AnatomicalEntityToAnatomicalEntityAssociation(Association):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === anatomical entity to anatomical entity association ===
     subject: Union[str, AnatomicalEntityId] = None
@@ -6068,6 +8749,10 @@ class AnatomicalEntityToAnatomicalEntityPartOfAssociation(AnatomicalEntityToAnat
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === anatomical entity to anatomical entity association ===
 
@@ -6105,6 +8790,10 @@ class AnatomicalEntityToAnatomicalEntityOntogenicAssociation(AnatomicalEntityToA
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
     association_slot: Optional[str] = None
+    edge_label: Optional[Union[str, LabelType]] = None
+    has_confidence_level: Optional[Union[str, ConfidenceLevelId]] = None
+    has_evidence: Optional[Union[str, EvidenceTypeId]] = None
+    clinical_modifier_qualifier: Optional[Union[str, ClinicalModifierId]] = None
 
     # === anatomical entity to anatomical entity association ===
 
@@ -6144,12 +8833,53 @@ class Occurrent(NamedThing):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === occurrent ===
     regulates_process_to_process: List[Union[str, OccurrentId]] = empty_list()
     has_participant: List[Union[str, NamedThingId]] = empty_list()
     has_input: List[Union[str, NamedThingId]] = empty_list()
     precedes: List[Union[str, OccurrentId]] = empty_list()
+    positively_regulates_process_to_process: List[Union[str, OccurrentId]] = empty_list()
+    negatively_regulates_process_to_process: List[Union[str, OccurrentId]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -6163,6 +8893,10 @@ class Occurrent(NamedThing):
                           else NamedThingId(v) for v in self.has_input]
         self.precedes = [v if isinstance(v, OccurrentId)
                          else OccurrentId(v) for v in self.precedes]
+        self.positively_regulates_process_to_process = [v if isinstance(v, OccurrentId)
+                                                        else OccurrentId(v) for v in self.positively_regulates_process_to_process]
+        self.negatively_regulates_process_to_process = [v if isinstance(v, OccurrentId)
+                                                        else OccurrentId(v) for v in self.negatively_regulates_process_to_process]
 
 
 @dataclass
@@ -6184,6 +8918,45 @@ class BiologicalProcessOrActivity(BiologicalEntity):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -6215,6 +8988,45 @@ class MolecularActivity(BiologicalProcessOrActivity):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -6260,12 +9072,53 @@ class ActivityAndBehavior(Occurrent):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === occurrent ===
     regulates_process_to_process: List[Union[str, OccurrentId]] = empty_list()
     has_participant: List[Union[str, NamedThingId]] = empty_list()
     has_input: List[Union[str, NamedThingId]] = empty_list()
     precedes: List[Union[str, OccurrentId]] = empty_list()
+    positively_regulates_process_to_process: List[Union[str, OccurrentId]] = empty_list()
+    negatively_regulates_process_to_process: List[Union[str, OccurrentId]] = empty_list()
 
     # === activity and behavior ===
 
@@ -6294,12 +9147,53 @@ class Procedure(Occurrent):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === occurrent ===
     regulates_process_to_process: List[Union[str, OccurrentId]] = empty_list()
     has_participant: List[Union[str, NamedThingId]] = empty_list()
     has_input: List[Union[str, NamedThingId]] = empty_list()
     precedes: List[Union[str, OccurrentId]] = empty_list()
+    positively_regulates_process_to_process: List[Union[str, OccurrentId]] = empty_list()
+    negatively_regulates_process_to_process: List[Union[str, OccurrentId]] = empty_list()
 
     # === procedure ===
 
@@ -6328,12 +9222,53 @@ class Phenomenon(Occurrent):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === occurrent ===
     regulates_process_to_process: List[Union[str, OccurrentId]] = empty_list()
     has_participant: List[Union[str, NamedThingId]] = empty_list()
     has_input: List[Union[str, NamedThingId]] = empty_list()
     precedes: List[Union[str, OccurrentId]] = empty_list()
+    positively_regulates_process_to_process: List[Union[str, OccurrentId]] = empty_list()
+    negatively_regulates_process_to_process: List[Union[str, OccurrentId]] = empty_list()
 
     # === phenomenon ===
 
@@ -6362,6 +9297,45 @@ class BiologicalProcess(BiologicalProcessOrActivity):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -6404,6 +9378,45 @@ class Pathway(BiologicalProcess):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -6440,6 +9453,45 @@ class PhysiologicalProcess(BiologicalProcess):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -6479,6 +9531,45 @@ class CellularComponent(AnatomicalEntity):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -6513,6 +9604,45 @@ class Cell(AnatomicalEntity):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -6547,6 +9677,45 @@ class CellLine(Biosample):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()
@@ -6580,6 +9749,45 @@ class GrossAnatomicalStructure(AnatomicalEntity):
     full_name: Optional[Union[str, LabelType]] = None
     description: Optional[Union[str, NarrativeText]] = None
     systematic_synonym: Optional[Union[str, LabelType]] = None
+    physically_interacts_with: List[Union[str, NamedThingId]] = empty_list()
+    affects: List[Union[str, NamedThingId]] = empty_list()
+    regulates: List[Union[str, NamedThingId]] = empty_list()
+    positively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    negatively_regulates: List[Union[str, NamedThingId]] = empty_list()
+    disrupts: List[Union[str, NamedThingId]] = empty_list()
+    homologous_to: List[Union[str, NamedThingId]] = empty_list()
+    paralogous_to: List[Union[str, NamedThingId]] = empty_list()
+    orthologous_to: List[Union[str, NamedThingId]] = empty_list()
+    xenologous_to: List[Union[str, NamedThingId]] = empty_list()
+    coexists_with: List[Union[str, NamedThingId]] = empty_list()
+    colocalizes_with: List[Union[str, NamedThingId]] = empty_list()
+    affects_risk_for: List[Union[str, NamedThingId]] = empty_list()
+    predisposes: List[Union[str, NamedThingId]] = empty_list()
+    contributes_to: List[Union[str, NamedThingId]] = empty_list()
+    causes: List[Union[str, NamedThingId]] = empty_list()
+    prevents: List[Union[str, NamedThingId]] = empty_list()
+    occurs_in: List[Union[str, NamedThingId]] = empty_list()
+    located_in: List[Union[str, NamedThingId]] = empty_list()
+    location_of: List[Union[str, NamedThingId]] = empty_list()
+    model_of: List[Union[str, NamedThingId]] = empty_list()
+    overlaps: List[Union[str, NamedThingId]] = empty_list()
+    has_part: List[Union[str, NamedThingId]] = empty_list()
+    part_of: List[Union[str, NamedThingId]] = empty_list()
+    participates_in: List[Union[str, OccurrentId]] = empty_list()
+    actively_involved_in: List[Union[str, OccurrentId]] = empty_list()
+    capable_of: List[Union[str, OccurrentId]] = empty_list()
+    derives_into: List[Union[str, NamedThingId]] = empty_list()
+    derives_from: List[Union[str, NamedThingId]] = empty_list()
+    manifestation_of: List[Union[str, DiseaseId]] = empty_list()
+    produces: List[Union[str, NamedThingId]] = empty_list()
+    same_as: List[Union[str, NamedThingId]] = empty_list()
+    creation_date: Optional[Union[str, XSDDateTime]] = None
+    update_date: Optional[Union[str, XSDDateTime]] = None
+    has_chemical_formula: Optional[str] = None
+    aggregate_statistic: Optional[str] = None
+    has_molecular_consequence: List[Union[str, OntologyClassId]] = empty_list()
+    filler: Optional[Union[str, NamedThingId]] = None
+    interbase_coordinate: Optional[str] = None
 
     # === biological entity ===
     has_phenotype: List[Union[str, PhenotypicFeatureId]] = empty_list()

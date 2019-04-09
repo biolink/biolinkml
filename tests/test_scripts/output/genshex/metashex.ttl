@@ -247,8 +247,11 @@
                 shex:predicate <https://w3id.org/biolink/biolinkml/meta/is_usage_slot> ;
                 shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/Boolean> ] <https://w3id.org/biolink/biolinkml/meta/Definition_t> ) .
 
-<https://w3id.org/biolink/biolinkml/meta/SubsetDefinition_t> a shex:OneOf ;
-    shex:expressions ( <https://w3id.org/biolink/biolinkml/meta/Element_t> <https://w3id.org/biolink/biolinkml/meta/Element_t> ) .
+<https://w3id.org/biolink/biolinkml/meta/SubsetDefinition_t> a shex:EachOf ;
+    shex:expressions ( <https://w3id.org/biolink/biolinkml/meta/Element_t> [ a shex:TripleConstraint ;
+                shex:max 1 ;
+                shex:min 0 ;
+                shex:predicate <http://ex.org/dummy> ] ) .
 
 <https://w3id.org/biolink/biolinkml/meta/Time> a shex:NodeConstraint ;
     shex:datatype xsd:dateTime .

@@ -767,7 +767,7 @@ slots:
     in_subset:
       - translator_minimal
 
-  co-localizes with:
+  colocalizes with:
     description: >-
       holds between two entities that are observed to be located in the same place.
     is_a: coexists with
@@ -1575,7 +1575,7 @@ classes:
     abstract: true
     mixin: true
 
-  senstivity quantifier:
+  sensitivity quantifier:
     is_a: relationship quantifier
     mixin: true
 

@@ -31,8 +31,8 @@ class SchemaLoader:
         self.loaded: Set[str] = {self.schema.name}
         self.base_dir = self._get_base_dir(base_dir)
         self.namespaces = namespaces if namespaces else Namespaces()
-        self.synopsis: SchemaSynopsis = None
-        self.schema_location: str = None
+        self.synopsis: Optional[SchemaSynopsis] = None
+        self.schema_location: Optional[str] = None
 
     def resolve(self) -> SchemaDefinition:
         """Reconcile a loaded schema, applying is_a, mixins, apply_to's and other such things.  Also validate the
@@ -47,7 +47,7 @@ class SchemaLoader:
 
         # Process the namespace declarations
         if not self.schema.default_prefix:
-            self.schema.default_prefix = self.schema.id
+            self.schema.default_prefix = Namespaces.sfx(self.schema.id)
         for prefix in self.schema.prefixes.values():
             self.namespaces[prefix.prefix_prefix] = prefix.prefix_reference
         for cmap in self.schema.default_curi_maps:
@@ -131,7 +131,7 @@ class SchemaLoader:
             if slot.range is None:
                 slot.range = self.schema.default_range
 
-        # Update classes with parental information
+        # Update classes with is_a and mixin information
         merged_classes: List[ClassDefinitionName] = []
         for cls in self.schema.classes.values():
             if not cls.from_schema:
@@ -153,6 +153,49 @@ class SchemaLoader:
         for ss in self.schema.subsets.values():
             if not ss.from_schema:
                 ss.from_schema = self.schema.id
+
+        # Massage initial set of slots
+        for slot in self.schema.slots.values():
+            # Propagate domain to containing class
+            if slot.domain and slot.domain in self.schema.classes:
+                if slot.name not in self.schema.classes[slot.domain].slots:
+                    self.schema.classes[slot.domain].slots.append(slot.name)
+            elif slot.domain:
+                self.raise_value_error(f"slot: {slot.name} - unrecognized domain ({slot.domain})")
+
+            # Keys and identifiers must be present
+            if bool(slot.key or slot.identifier):
+                if slot.required is None:
+                    slot.required = True
+                elif not slot.required:
+                    self.raise_value_error(f"slot: {slot.name} - key and identifier slots cannot be optional")
+
+            # Validate the slot range
+            if slot.range is not None and  slot.range not in self.schema.types and \
+                    slot.range not in self.schema.classes:
+                self.raise_value_error(f"slot: {slot.name} - unrecognized range ({slot.range})")
+
+        # Massage classes, propagating class slots entries domain back to the target slots
+        for cls in self.schema.classes.values():
+            if not isinstance(cls, ClassDefinition):
+                name = cls['name'] if 'name' in cls else 'Unknown'
+                self.raise_value_error(f'Class "{name} (type: {type(cls)})" definition is not a class definition')
+            if isinstance(cls.slots, str):
+                print(f"File: {self.schema.source_file} Class: {cls.name} Slots are not an array", file=sys.stderr)
+                cls.slots = [cls.slots]
+            for slotname in cls.slots:
+                if slotname in self.schema.slots:
+                    slot = self.schema.slots[cast(SlotDefinitionName, slotname)]
+                    if slot.domain is None:
+                        slot.domain = cls.name
+
+                    # TODO: fix this check
+                    # elif slot.domain != cls.name:
+                    #     self.raise_value_error(f'Slot: {slot.name} domain ({slot.domain}) '
+                    #                            f'does not match declaring class "({cls.name})"')
+                else:
+                    self.raise_value_error(f'Class "{cls.name}" - unknown slot: "{slotname}"')
+
 
         for slot in self.schema.slots.values():
             # Inline any class definitions that don't have identifiers.  Note that keys ARE inlined
@@ -290,9 +333,11 @@ class SchemaLoader:
                 print(f'Warning: class "{cls.name}" slot "{slotname}" does not reference an existing slot.  '
                       f'New slot was created.', file=sys.stderr)
                 child_name = slotname
+                slot_alias = None
             else:
                 child_name = slot_usage_name(slotname, cls)
-            new_slot = SlotDefinition(name=child_name, alias=slotname, domain=cls.name, is_usage_slot=True)
+                slot_alias = slotname
+            new_slot = SlotDefinition(name=child_name, alias=slot_alias, domain=cls.name, is_usage_slot=True)
             self.schema.slots[child_name] = new_slot
             merge_slots(new_slot, slot_usage)
 

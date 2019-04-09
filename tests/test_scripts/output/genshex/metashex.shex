@@ -154,8 +154,8 @@ PREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>
 }
 
 <SubsetDefinition> EXTRA rdf:type CLOSED {
-    (  $<SubsetDefinition_t> (  &<Element_t> |
-          &<Element_t>
+    (  $<SubsetDefinition_t> (  &<Element_t> ;
+          <http://ex.org/dummy> . ?
        ) ;
        rdf:type [ <SubsetDefinition> ]
     )

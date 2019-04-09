@@ -31,7 +31,7 @@ class GenOWLTestCase(ClickTestCase):
 
     def test_meta(self):
         self.maxDiff = None
-        self.do_test(source_yaml_path, 'meta_owl.ttl', filtr=filtr)
+        self.do_test(source_yaml_path, 'meta_owl.ttl', filtr=filtr, comparator=ClickTestCase.rdf_comparator)
         self.soft_compare = "Files differ but json-ld OWL representations have bnodes and ordering issues"
         self.do_test(source_yaml_path + ' -f json-ld', 'meta_owl.jsonld')
         self.soft_compare = None

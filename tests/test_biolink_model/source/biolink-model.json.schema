@@ -178,15 +178,15 @@
          "description": "Used to characterize and specify the phenotypic abnormalities defined in the Phenotypic abnormality subontology, with respect to severity, laterality, age of onset, and other aspects",
          "type": "string"
       },
-      "co-localizes_with": {
-         "description": "holds between two entities that are observed to be located in the same place.",
+      "coexists_with": {
+         "description": "holds between two entities that are co-located in the same aggregate object, process, or spatio-temporal region",
          "items": {
             "type": "string"
          },
          "type": "array"
       },
-      "coexists_with": {
-         "description": "holds between two entities that are co-located in the same aggregate object, process, or spatio-temporal region",
+      "colocalizes_with": {
+         "description": "holds between two entities that are observed to be located in the same place.",
          "items": {
             "type": "string"
          },
@@ -1066,6 +1066,22 @@
                "description": "connects an association to the type of association (e.g. gene to phenotype)",
                "type": "string"
             },
+            "clinical_modifier_qualifier": {
+               "description": "Used to characterize and specify the phenotypic abnormalities defined in the Phenotypic abnormality subontology, with respect to severity, laterality, age of onset, and other aspects",
+               "type": "string"
+            },
+            "edge_label": {
+               "description": "A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.",
+               "type": "string"
+            },
+            "has_confidence_level": {
+               "description": "connects an association to a qualitative term denoting the level of confidence",
+               "type": "string"
+            },
+            "has_evidence": {
+               "description": "connects an association to an instance of supporting evidence",
+               "type": "string"
+            },
             "id": {
                "description": "A unique identifier for an association",
                "required": true,
@@ -1477,7 +1493,15 @@
       },
       "DrugExposure": {
          "description": "A drug exposure is an intake of a particular chemical substance",
-         "properties": {},
+         "properties": {
+            "drug": {
+               "items": {
+                  "type": "string"
+               },
+               "required": true,
+               "type": "array"
+            }
+         },
          "title": "DrugExposure",
          "type": "object"
       },
@@ -2551,6 +2575,18 @@
                },
                "type": "array"
             },
+            "negatively_regulates_entity_to_entity": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "positively_regulates_entity_to_entity": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
             "regulates_entity_to_entity": {
                "items": {
                   "type": "string"
@@ -2564,8 +2600,85 @@
       "NamedThing": {
          "description": "a databased entity or concept/class",
          "properties": {
+            "actively_involved_in": {
+               "description": "holds between a continuant and a process or function, where the continuant actively contributes to part or all of the process or function it realizes",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "affects": {
+               "description": "describes an entity that has a direct affect on the state or quality of another existing entity. Use of the 'affects' predicate implies that the affected entity already exists, unlike predicates such as 'affects risk for' and 'prevents, where the outcome is something that may or may not come to be.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "affects_risk_for": {
+               "description": "holds between two entities where exposure to one entity alters the chance of developing the other",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "aggregate_statistic": {
+               "type": "string"
+            },
+            "capable_of": {
+               "description": "holds between a continuant and process or function, where the continuant alone has the ability to carry out the process or function.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
             "category": {
                "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "causes": {
+               "description": "holds between two entities where the occurrence, existence, or activity of one causes the occurrence or  generation of the other",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "coexists_with": {
+               "description": "holds between two entities that are co-located in the same aggregate object, process, or spatio-temporal region",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "colocalizes_with": {
+               "description": "holds between two entities that are observed to be located in the same place.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "contributes_to": {
+               "description": "holds between two entities where the occurrence, existence, or activity of one causes or contributes to the occurrence or generation of the other",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "creation_date": {
+               "description": "date on which thing was created. This can be applied to nodes or edges",
+               "type": "string"
+            },
+            "derives_from": {
+               "description": "holds between two distinct material entities, the new entity and the old entity, in which the new entity begins to exist when the old entity ceases to exist, and the new entity inherits the significant portion of the matter of the old entity",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "derives_into": {
+               "description": "holds between two distinct material entities, the old entity and the new entity, in which the new entity begins to exist when the old entity ceases to exist, and the new entity inherits the significant portion of the matter of the old entity",
                "items": {
                   "type": "string"
                },
@@ -2575,9 +2688,45 @@
                "description": "a human-readable description of a thing",
                "type": "string"
             },
+            "disrupts": {
+               "description": "describes a relationship where one entity degrades or interferes with the structure, function, or occurrence of another.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "filler": {
+               "description": "The value in a property-value tuple",
+               "type": "string"
+            },
             "full_name": {
                "description": "a long-form human readable name for a thing",
                "type": "string"
+            },
+            "has_chemical_formula": {
+               "description": "description of chemical compound based on element symbols",
+               "type": "string"
+            },
+            "has_molecular_consequence": {
+               "description": "connects a sequence variant to a class describing the molecular consequence. E.g.  SO:0001583",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "has_part": {
+               "description": "holds between wholes and their parts (material entities or processes)",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "homologous_to": {
+               "description": "holds between two biological entities that have common evolutionary origin",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "id": {
                "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
@@ -2591,20 +2740,147 @@
                },
                "type": "array"
             },
+            "interbase_coordinate": {
+               "description": "TODO",
+               "type": "string"
+            },
             "iri": {
                "description": "An IRI for the node. This is determined by the id using expansion rules.",
                "type": "string"
+            },
+            "located_in": {
+               "description": "holds between a material entity and a material entity or site within which it is located (but of which it is not considered a part)",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "location_of": {
+               "description": "holds between material entity or site and a material entity that is located within it (but not considered a part of it)",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "manifestation_of": {
+               "description": "used in SemMedDB for linking things like dysfunctions and processes to some disease or syndrome",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "model_of": {
+               "description": "holds between an entity and some other entity it approximates for purposes of scientific study, in virtue of its exibiting similar features of the studied entity.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "name": {
                "description": "A human-readable name for a thing",
                "type": "string"
             },
+            "negatively_regulates": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
             "node_property": {
                "description": "A grouping for any property that holds between a node and a value",
                "type": "string"
             },
+            "occurs_in": {
+               "description": "holds between a process and a material entity or site within which the process occurs",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "orthologous_to": {
+               "description": "a homology relationship between entities (typically genes) that diverged after a speciation event.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "overlaps": {
+               "description": "holds between entties that overlap in their extents (materials or processes)",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "paralogous_to": {
+               "description": "a homology relationship that holds between entities (typically genes) that diverged after a duplication event.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "part_of": {
+               "description": "holds between parts and wholes (material entities or processes)",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "participates_in": {
+               "description": "holds between a continuant and a process, where the continuant is somehow involved in the process",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "physically_interacts_with": {
+               "description": "holds between two entities that make physical contact as part of some interaction",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "positively_regulates": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "predisposes": {
+               "description": "holds between two entities where exposure to one entity increases the chance of developing the other",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "prevents": {
+               "description": "holds between an entity whose application or use reduces the likelihood of a potential outcome. Typically used to associate a chemical substance, exposure, activity, or medical intervention that can prevent the onset a disease or phenotypic feature.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "produces": {
+               "description": "holds between a material entity and a product that is generated through the intentional actions or functioning of the material entity",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "regulates": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
             "related_to": {
                "description": "A relationship that is asserted between two named things",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "same_as": {
+               "description": "holds between two entities that are considered equivalent to each other",
                "items": {
                   "type": "string"
                },
@@ -2620,6 +2896,17 @@
             "systematic_synonym": {
                "description": "more commonly used for gene symbols in yeast",
                "type": "string"
+            },
+            "update_date": {
+               "description": "date on which thing was updated. This can be applied to nodes or edges",
+               "type": "string"
+            },
+            "xenologous_to": {
+               "description": "a homology relationship characterized by an interspecies (horizontal) transfer since the common ancestor.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             }
          },
          "title": "NamedThing",
@@ -2643,6 +2930,18 @@
             },
             "has_participant": {
                "description": "holds between a process and a continuant, where the continuant is somehow involved in the process",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "negatively_regulates_process_to_process": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "positively_regulates_process_to_process": {
                "items": {
                   "type": "string"
                },
@@ -2825,10 +3124,10 @@
          "title": "RelationshipType",
          "type": "object"
       },
-      "SenstivityQuantifier": {
+      "SensitivityQuantifier": {
          "description": "",
          "properties": {},
-         "title": "SenstivityQuantifier",
+         "title": "SensitivityQuantifier",
          "type": "object"
       },
       "SequenceFeatureRelationship": {
@@ -2902,6 +3201,13 @@
       "Treatment": {
          "description": "A treatment is targeted at a disease or phenotype and may involve multiple drug 'exposures'",
          "properties": {
+            "has_exposure_parts": {
+               "items": {
+                  "type": "string"
+               },
+               "required": true,
+               "type": "array"
+            },
             "treats": {
                "description": "holds between a therapeutic procedure or chemical substance and a disease or phenotypic feature that it is used to treat",
                "items": {

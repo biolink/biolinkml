@@ -789,11 +789,16 @@
             "type": "EachOf",
             "expressions": [
                {
-                  "type": "OneOf",
+                  "type": "EachOf",
                   "id": "https://w3id.org/biolink/biolinkml/meta/SubsetDefinition_t",
                   "expressions": [
                      "https://w3id.org/biolink/biolinkml/meta/Element_t",
-                     "https://w3id.org/biolink/biolinkml/meta/Element_t"
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://ex.org/dummy",
+                        "min": 0,
+                        "max": 1
+                     }
                   ]
                },
                {

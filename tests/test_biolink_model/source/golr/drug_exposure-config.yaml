@@ -64,6 +64,10 @@ fields:
   display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
   - has phenotype
   id: has_phenotype
+- cardinality: multi
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - drug
+  id: drug
 id: drug_exposure
 schema_generating: true
 weight: 20

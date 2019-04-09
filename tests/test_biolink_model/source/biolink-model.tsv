@@ -129,7 +129,7 @@ relationship_quantifier
 relationship_type		An OWL property used as an edge label
 RNA_product		
 RNA_product_isoform		Represents a protein that is a specific isoform of the canonical or reference RNA
-senstivity_quantifier		
+sensitivity_quantifier		
 sequence_feature_relationship		For example, a particular exon is part of a particular transcript or gene
 sequence_variant		An allele that varies in its sequence from what is considered the reference allele at that locus.
 sequence_variant_modulates_treatment_association		An association between a sequence variant and a treatment or health intervention. The treatment object itself encompasses both the disease and the drug used.

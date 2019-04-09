@@ -34,7 +34,7 @@ class MetaModelTestCase(GeneratorTestCase):
 
     def test_meta_owl_schema(self):
         """ Test the owl schema generator for the biolink model """
-        self.single_file_generator('owl', OwlSchemaGenerator)
+        self.single_file_generator('owl', OwlSchemaGenerator, comparator=GeneratorTestCase.rdf_comparator)
 
     @staticmethod
     def _evaluate_shex_results(results: List[EvaluationResult]) -> bool:

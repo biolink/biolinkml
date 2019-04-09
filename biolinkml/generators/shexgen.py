@@ -20,6 +20,21 @@ from biolinkml.utils.formatutils import camelcase
 from biolinkml.utils.generator import Generator
 
 
+def wildcard(id: str) -> TripleConstraint:
+    """
+    Return a synthetic 'wild card' constraint of the form {p .?}
+    :param id: Triple identifier
+    :return: Corresponding constraint
+    """
+    return TripleConstraint(id=id, predicate="http://ex.org/dummy", min=0, max=1)
+
+
+def nevermatch() -> TripleConstraint:
+    """
+    Return a triple constraint that can never be matched
+    """
+    return TripleConstraint(predicate="http://ex.org/dummy", min=1, max=1)
+
 class ShExGenerator(Generator):
     generatorname = os.path.basename(__file__)
     generatorversion = "0.0.2"
@@ -75,15 +90,19 @@ class ShExGenerator(Generator):
             for applyto in self.synopsis.applytorefs[cls.name].classrefs:
                 if self._class_has_expressions(applyto):
                     self._add_constraint(self.namespaces.uri_for(camelcase(applyto) + '_t'))
-        if self.shape.expression:
-            # TODO: Figure out how to label a single triple expression
-            if isinstance_(self.shape.expression, tripleExprLabel):
-                self.shape.expression = OneOf(expressions=[self.shape.expression, self.shape.expression])
-            self.shape.expression.id = self.namespaces.uri_for(camelcase(cls.name) + "_t")
 
         self.shape.closed = True
         self.shape.extra = [RDF.type]
+        if self.shape.expression:
+            # TODO: Figure out how to label a single triple expression
+            if isinstance_(self.shape.expression, tripleExprLabel):
+                self.shape.expression = EachOf(expressions=[self.shape.expression, wildcard(None)])
+            self.shape.expression.id = self.namespaces.uri_for(camelcase(cls.name) + "_t")
+        else:
+            self.shape.expression = wildcard(self.namespaces.uri_for(camelcase(cls.name) + "_t"))
+
         if self.class_identifier(cls):
+            self.shape.extra = [RDF.type]
             type_constraint = TripleConstraint()
             type_constraint.predicate = RDF.type
             type_constraint.valueExpr = NodeConstraint(values=[IRIREF(self.namespaces.uri_for(cls.class_uri))])

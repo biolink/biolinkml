@@ -71,6 +71,10 @@ fields:
   display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
   - treats
   id: treats
+- cardinality: multi
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - has exposure parts
+  id: has_exposure_parts
 id: treatment
 schema_generating: true
 weight: 20

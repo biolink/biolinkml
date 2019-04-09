@@ -89,24 +89,23 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
         """ Test the jsonld context generator for the biolink model """
         self.single_file_generator('json.schema', JsonSchemaGenerator)
 
-    @unittest.expectedFailure
     def test_biolink_owl_schema(self):
         """ Test the owl schema generator for the biolink model """
-        self.single_file_generator('owl', OwlSchemaGenerator)
+        self.single_file_generator('owl', OwlSchemaGenerator, comparator=GeneratorTestCase.rdf_comparator)
 
     def test_biolink_proto(self):
         """ Test the proto schema generator for the biolink model """
         self.single_file_generator('proto', ProtoGenerator)
 
     @staticmethod
-    def _evaluate_shex_results(results: List[EvaluationResult]) -> bool:
+    def _evaluate_shex_results(results: List[EvaluationResult], printit: bool=True) -> bool:
         """
         Check the results of the ShEx evaluation
         :param results: evaluate output
         :return: success indicator
         """
         success = all(r.result for r in results)
-        if not success:
+        if not success and printit:
             for r in results:
                 if not r.result:
                     print(r.reason)
@@ -140,23 +139,34 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
         start = BIOLINK_NS.Drug
         evaluator = ShExEvaluator(None, shex_file, focus, start)
 
-        # statements.ttl has 16 error lines (more or less).
-        rdf_file = os.path.join(data_dir, 'statements.ttl')
-        errs_file = os.path.join(data_dir, 'statements.errs')
+        # incorrect.ttl has 16 error lines (more or less).
+        rdf_file = os.path.join(data_dir, 'incorrect.ttl')
+        errs_file = os.path.join(data_dir, 'incorrect.errs')
         results = evaluator.evaluate(rdf_file)
-        self.assertFalse(self._evaluate_shex_results(results))
+        self.assertFalse(self._evaluate_shex_results(results, printit=False))
         self.assertEqual(1, len(results))
         self.assertTrue('Unmatched triples in CLOSED shape' in results[0].reason)
         ntabs = results[0].reason.count('\n\t')
-        self.assertEqual(16, ntabs)
+        self.assertEqual(13, ntabs)
         if not os.path.exists(errs_file):
             with open(errs_file, 'w') as f:
                 f.write(repr(results))
 
         rdf_file = os.path.join(data_dir, 'correct.ttl')
-        results = evaluator.evaluate(rdf_file)
+        results = evaluator.evaluate(rdf_file, debug=True)
         self.assertTrue(self._evaluate_shex_results(results))
 
+    def test_probe(self):
+        """ Test for determining performance problem """
+        shex_file = os.path.join(self.source_path, 'probe.shex')
+        data_dir = os.path.join(self.cwd, 'data')
+
+        focus = "http://identifiers.org/drugbank:DB00005"
+        start = BIOLINK_NS.Drug
+        evaluator = ShExEvaluator(None, shex_file, focus, start)
+        rdf_file = os.path.join(data_dir, 'probe.ttl')
+        results = evaluator.evaluate(rdf_file, debug=True)
+        self.assertTrue(self._evaluate_shex_results(results))
 
 
 if __name__ == '__main__':

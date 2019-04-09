@@ -155,10 +155,10 @@ Entity and association taxonomy and datamodel for life-sciences data
  * [PathognomonicityQuantifier](PathognomonicityQuantifier.md) - A relationship quantifier between a variant or symptom and a disease, which is high when the presence of the feature implies the existence of the disease
  * [RelationshipQuantifier](RelationshipQuantifier.md)
     * [FrequencyQuantifier](FrequencyQuantifier.md)
-    * [SenstivityQuantifier](SenstivityQuantifier.md)
+    * [SensitivityQuantifier](SensitivityQuantifier.md)
     * [SpecificityQuantifier](SpecificityQuantifier.md)
        * [PathognomonicityQuantifier](PathognomonicityQuantifier.md) - A relationship quantifier between a variant or symptom and a disease, which is high when the presence of the feature implies the existence of the disease
- * [SenstivityQuantifier](SenstivityQuantifier.md)
+ * [SensitivityQuantifier](SensitivityQuantifier.md)
  * [SpecificityQuantifier](SpecificityQuantifier.md)
     * [PathognomonicityQuantifier](PathognomonicityQuantifier.md) - A relationship quantifier between a variant or symptom and a disease, which is high when the presence of the feature implies the existence of the disease
  * [ThingWithTaxon](ThingWithTaxon.md) - A mixin that can be used on any entity with a taxon
@@ -272,9 +272,9 @@ Entity and association taxonomy and datamodel for life-sciences data
        * [variant to phenotypic feature association.subject](variant_to_phenotypic_feature_association_subject.md)
        * [variant to population association.subject](variant_to_population_association_subject.md)
        * [variant to thing association.subject](variant_to_thing_association_subject.md)
- * [drug exposure.drug](drug.md)
- * [treatment.has exposure parts](has_exposure_parts.md)
- * [pairwise interaction association.interacting molecules category](interacting_molecules_category.md)
+ * [drug](drug.md)
+ * [has exposure parts](has_exposure_parts.md)
+ * [interacting molecules category](interacting_molecules_category.md)
  * [node property](node_property.md) - A grouping for any property that holds between a node and a value
     * [aggregate statistic](aggregate_statistic.md)
        * [has count](has_count.md) - number of things with a particular property
@@ -379,7 +379,7 @@ Entity and association taxonomy and datamodel for life-sciences data
        * [predisposes](predisposes.md) - holds between two entities where exposure to one entity increases the chance of developing the other
        * [prevents](prevents.md) - holds between an entity whose application or use reduces the likelihood of a potential outcome. Typically used to associate a chemical substance, exposure, activity, or medical intervention that can prevent the onset a disease or phenotypic feature.
     * [coexists with](coexists_with.md) - holds between two entities that are co-located in the same aggregate object, process, or spatio-temporal region
-       * [co-localizes with](co-localizes_with.md) - holds between two entities that are observed to be located in the same place.
+       * [colocalizes with](colocalizes_with.md) - holds between two entities that are observed to be located in the same place.
        * [in cell population with](in_cell_population_with.md) - holds between two genes or gene products that are expressed in the same cell type or population
        * [in complex with](in_complex_with.md) - holds between two genes or gene products that are part of (or code for products that are part of) in the same macromolecular complex
        * [in pathway with](in_pathway_with.md) - holds between two genes or gene products that are part of in the same biological pathway

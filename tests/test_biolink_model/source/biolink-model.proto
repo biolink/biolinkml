@@ -89,6 +89,10 @@ message Association
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
+  optional edgeLabel None = 11
+  optional hasConfidenceLevel None = 12
+  optional hasEvidence None = 13
+  optional clinicalModifierQualifier None = 14
  }
 // A property or characteristic of an entity
 message Attribute
@@ -775,6 +779,7 @@ message DrugExposure
   optional description None = 10
   optional systematicSynonym None = 11
   repeated hasPhenotype None = 12
+  repeated drug None = 13
  }
 // A feature of the environment of an organism that influences one or more phenotypic features of that organism, potentially mediated by genes
 message Environment
@@ -2274,6 +2279,8 @@ message MolecularEntity
   repeated regulatesEntityToEntity None = 62
   repeated biomarkerFor None = 63
   repeated inTaxon None = 64
+  repeated positivelyRegulatesEntityToEntity None = 65
+  repeated negativelyRegulatesEntityToEntity None = 66
  }
 // a databased entity or concept/class
 message NamedThing
@@ -2289,6 +2296,45 @@ message NamedThing
   optional fullName None = 9
   optional description None = 10
   optional systematicSynonym None = 11
+  repeated physicallyInteractsWith None = 12
+  repeated affects None = 13
+  repeated regulates None = 14
+  repeated positivelyRegulates None = 15
+  repeated negativelyRegulates None = 16
+  repeated disrupts None = 17
+  repeated homologousTo None = 18
+  repeated paralogousTo None = 19
+  repeated orthologousTo None = 20
+  repeated xenologousTo None = 21
+  repeated coexistsWith None = 22
+  repeated colocalizesWith None = 23
+  repeated affectsRiskFor None = 24
+  repeated predisposes None = 25
+  repeated contributesTo None = 26
+  repeated causes None = 27
+  repeated prevents None = 28
+  repeated occursIn None = 29
+  repeated locatedIn None = 30
+  repeated locationOf None = 31
+  repeated modelOf None = 32
+  repeated overlaps None = 33
+  repeated hasPart None = 34
+  repeated partOf None = 35
+  repeated participatesIn None = 36
+  repeated activelyInvolvedIn None = 37
+  repeated capableOf None = 38
+  repeated derivesInto None = 39
+  repeated derivesFrom None = 40
+  repeated manifestationOf None = 41
+  repeated produces None = 42
+  repeated sameAs None = 43
+  optional creationDate None = 44
+  optional updateDate None = 45
+  optional hasChemicalFormula None = 46
+  optional aggregateStatistic None = 47
+  repeated hasMolecularConsequence None = 48
+  optional filler None = 49
+  optional interbaseCoordinate None = 50
  }
 message NoncodingRNAProduct
  {
@@ -2380,6 +2426,8 @@ message Occurrent
   repeated hasParticipant None = 13
   repeated hasInput None = 14
   repeated precedes None = 15
+  repeated positivelyRegulatesProcessToProcess None = 16
+  repeated negativelyRegulatesProcessToProcess None = 17
  }
 // The age group in which manifestations appear
 message Onset
@@ -3135,6 +3183,7 @@ message Treatment
   optional systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated treats None = 13
+  repeated hasExposureParts None = 14
  }
 message VariantToDiseaseAssociation
  {

@@ -7,7 +7,7 @@
          "prefix_reference": "http://www.w3.org/2001/XMLSchema#"
       }
    ],
-   "default_prefix": "http://example.org/schema1",
+   "default_prefix": "http://example.org/schema1/",
    "default_range": "t1",
    "subsets": [
       {

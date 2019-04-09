@@ -104,6 +104,10 @@ type Association
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType
+    hasConfidenceLevel: ConfidenceLevel
+    hasEvidence: EvidenceType
+    clinicalModifierQualifier: ClinicalModifier
   }
 
 type Attribute implements OntologyClass
@@ -899,6 +903,7 @@ type DrugExposure
     description: NarrativeText
     systematicSynonym: LabelType
     hasPhenotype: [PhenotypicFeature]
+    drug: [ChemicalSubstance]!
   }
 
 interface EntityToDiseaseAssociation
@@ -906,6 +911,7 @@ interface EntityToDiseaseAssociation
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
     onsetQualifier: Onset
+    object: Disease!
   }
 
 interface EntityToFeatureOrDiseaseQualifiers
@@ -931,6 +937,7 @@ type EntityToPhenotypicFeatureAssociation implements EntityToFeatureOrDiseaseQua
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
     onsetQualifier: Onset
+    description: NarrativeText
   }
 
 type Environment
@@ -2505,6 +2512,8 @@ type MicroRNA
 
 interface ModelToDiseaseMixin
   {
+    subject: IriType!
+    relation: IriType!
   }
 
 type MolecularActivity implements Occurrent
@@ -2593,6 +2602,8 @@ type MolecularEntity implements ThingWithTaxon
     regulatesEntityToEntity: [MolecularEntity]
     biomarkerFor: [DiseaseOrPhenotypicFeature]
     inTaxon: [OrganismTaxon]
+    positivelyRegulatesEntityToEntity: [MolecularEntity]
+    negativelyRegulatesEntityToEntity: [MolecularEntity]
   }
 
 type NamedThing
@@ -2608,6 +2619,45 @@ type NamedThing
     fullName: LabelType
     description: NarrativeText
     systematicSynonym: LabelType
+    physicallyInteractsWith: [NamedThing]
+    affects: [NamedThing]
+    regulates: [NamedThing]
+    positivelyRegulates: [NamedThing]
+    negativelyRegulates: [NamedThing]
+    disrupts: [NamedThing]
+    homologousTo: [NamedThing]
+    paralogousTo: [NamedThing]
+    orthologousTo: [NamedThing]
+    xenologousTo: [NamedThing]
+    coexistsWith: [NamedThing]
+    colocalizesWith: [NamedThing]
+    affectsRiskFor: [NamedThing]
+    predisposes: [NamedThing]
+    contributesTo: [NamedThing]
+    causes: [NamedThing]
+    prevents: [NamedThing]
+    occursIn: [NamedThing]
+    locatedIn: [NamedThing]
+    locationOf: [NamedThing]
+    modelOf: [NamedThing]
+    overlaps: [NamedThing]
+    hasPart: [NamedThing]
+    partOf: [NamedThing]
+    participatesIn: [Occurrent]
+    activelyInvolvedIn: [Occurrent]
+    capableOf: [Occurrent]
+    derivesInto: [NamedThing]
+    derivesFrom: [NamedThing]
+    manifestationOf: [Disease]
+    produces: [NamedThing]
+    sameAs: [NamedThing]
+    creationDate: Date
+    updateDate: Date
+    hasChemicalFormula: ChemicalFormulaValue
+    aggregateStatistic: String
+    hasMolecularConsequence: [OntologyClass]
+    filler: NamedThing
+    interbaseCoordinate: String
   }
 
 type NoncodingRNAProduct
@@ -2700,6 +2750,8 @@ type Occurrent
     hasParticipant: [NamedThing]
     hasInput: [NamedThing]
     precedes: [Occurrent]
+    positivelyRegulatesProcessToProcess: [Occurrent]
+    negativelyRegulatesProcessToProcess: [Occurrent]
   }
 
 type Onset
@@ -2792,6 +2844,7 @@ interface PairwiseInteractionAssociation
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    interactingMoleculesCategory: OntologyClass
   }
 
 interface PathognomonicityQuantifier
@@ -3300,7 +3353,7 @@ type RNAProductIsoform implements GeneProductIsoform
     expressedIn: [AnatomicalEntity]
   }
 
-interface SenstivityQuantifier
+interface SensitivityQuantifier
   {
   }
 
@@ -3539,6 +3592,7 @@ type Treatment
     systematicSynonym: LabelType
     hasPhenotype: [PhenotypicFeature]
     treats: [DiseaseOrPhenotypicFeature]!
+    hasExposureParts: [DrugExposure]!
   }
 
 type VariantToDiseaseAssociation implements VariantToThingAssociation, EntityToDiseaseAssociation
