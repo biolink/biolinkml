@@ -1,6 +1,14 @@
 CHANGES
 =======
 
+v0.6.3
+------
+
+* Slot and class uri's are no longer inherited
+* Slot and class uri's are no longer inherited
+* Multiple tweaks and bug fixes
+* Complete build.  Image of distro 0.6.2
+
 v0.6.2
 ------
 
