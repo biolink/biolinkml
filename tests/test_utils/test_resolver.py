@@ -3,27 +3,27 @@ import unittest
 
 from biolinkml.utils.schemaloader import SchemaLoader
 from jsonasobj import as_dict
-from tests.test_utils import datadir
+from tests.test_utils import inputdir
 
 
 class ResolverTestCase(unittest.TestCase):
 
     def test_default_range(self):
         """ Validate default slot range settings """
-        schema = SchemaLoader(os.path.join(datadir, 'resolver1.yaml')).resolve()
+        schema = SchemaLoader(os.path.join(inputdir, 'resolver1.yaml')).resolve()
         self.assertEqual({'s1':'t1', 's2':'t2'}, {slot.name: slot.range for slot in schema.slots.values()})
-        schema = SchemaLoader(os.path.join(datadir, 'resolver2.yaml')).resolve()
+        schema = SchemaLoader(os.path.join(inputdir, 'resolver2.yaml')).resolve()
         self.assertEqual({'s1': 'string', 's2': 't2'}, {slot.name: slot.range for slot in schema.slots.values()})
 
     def test_type_uri(self):
         """ Validate type URI's and the fact that they aren't inherited """
-        schema = SchemaLoader(os.path.join(datadir, 'resolver2.yaml')).resolve()
+        schema = SchemaLoader(os.path.join(inputdir, 'resolver2.yaml')).resolve()
         self.assertEqual({'string': 'xsd:string', 't1': 'xsd:string', 't2': 'xsd:int', 't3': 'xsd:string'},
                          {t.name: t.uri for t in schema.types.values()})
 
     def test_element_slots(self):
         """ Test all element slots and their inheritence """
-        schema = SchemaLoader(os.path.join(datadir, 'resolver3.yaml')).resolve()
+        schema = SchemaLoader(os.path.join(inputdir, 'resolver3.yaml')).resolve()
         x = {k:v for k, v in as_dict(schema.slots['s1']).items() if v is not None and v != []}
         self.assertEqual(
             {'alt_descriptions': {},

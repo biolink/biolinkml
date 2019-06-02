@@ -74,11 +74,17 @@ class ClickTestCase(unittest.TestCase):
         g_text = re.sub(r'@prefix.*\n', '', g.serialize(format="turtle").decode())
         print(g_text)
 
+    def n3_comparator(self, old_data: str, new_data: str) -> bool:
+        return self.compare_rdf(old_data, new_data, "n3")
+
     def rdf_comparator(self, old_data: str, new_data: str) -> bool:
+        return self.compare_rdf(old_data, new_data, "turtle")
+
+    def compare_rdf(self, old_data: str, new_data: str, fmt: str) -> bool:
         old_graph = Graph()
         new_graph = Graph()
-        old_graph.parse(data=old_data, format="turtle")
-        new_graph.parse(data=new_data, format="turtle")
+        old_graph.parse(data=old_data, format=fmt)
+        new_graph.parse(data=new_data, format=fmt)
         old_iso = to_isomorphic(old_graph)
         # Remove the metadata specific triples
         for t in list(old_iso.triples((None, MMNS.generation_date, None))):

@@ -35,7 +35,7 @@ class GenOWLTestCase(ClickTestCase):
         self.soft_compare = "Files differ but json-ld OWL representations have bnodes and ordering issues"
         self.do_test(source_yaml_path + ' -f json-ld', 'meta_owl.jsonld')
         self.soft_compare = None
-        self.do_test(source_yaml_path + ' -f n3', 'meta_owl.n3', filtr=filtr)
+        self.do_test(source_yaml_path + ' -f n3', 'meta_owl.n3', filtr=filtr, comparator=ClickTestCase.n3_comparator)
         self.do_test(source_yaml_path + ' -f xsv', 'meta_error', error=click.exceptions.BadParameter)
 
 

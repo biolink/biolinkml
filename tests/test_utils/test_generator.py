@@ -3,13 +3,14 @@ import unittest
 from contextlib import redirect_stderr
 from io import StringIO
 from pprint import pprint
-from typing import Union, TextIO
+from typing import Union, TextIO, cast
 
 from biolinkml import LOCAL_YAML_PATH
-from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, TypeDefinition, SubsetDefinition
+from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, TypeDefinition, SubsetDefinition, \
+    ElementName, SlotDefinitionName, ClassDefinitionName, TypeDefinitionName, Element
 from biolinkml.utils.generator import Generator
 from biolinkml.utils.typereferences import References
-from tests.test_utils import datadir
+from tests.test_utils import inputdir
 
 
 class GeneratorTest(Generator):
@@ -58,6 +59,7 @@ class GeneratorTest(Generator):
 
     def visit_subset(self, subset: SubsetDefinition) -> None:
         self.visited.append(f"subset: {subset.name}")
+
 
 # visit_all_class_slots = True, visits_are_sorted = False, sort_class_slots = False
 expected1 = [
@@ -320,7 +322,7 @@ expected5 = [
 class GeneratorTestCase(unittest.TestCase):
     def test_visitors(self):
         """ Test the generator visitor functions """
-        gen = GeneratorTest(os.path.join(datadir, 'generator1.yaml'))
+        gen = GeneratorTest(os.path.join(inputdir, 'generator1.yaml'))
         gen.serialize()
         self.assertEqual(expected1, gen.visited)
         gen.visit_all_class_slots = False
@@ -387,9 +389,8 @@ classes:
     
     dup name:
 """
-        errfile = StringIO()
         with self.assertRaises(ValueError):
-            gen = GeneratorTest(model)
+            GeneratorTest(model)
 
     def test_element_name(self):
         """ Test formatted_element_name """
@@ -432,88 +433,96 @@ classes:
 Warning: Shared slot and subset names: dup name
 Warning: Shared type and subset names: dup name""", errfile.getvalue().strip())
 
-        self.assertEqual('dup_name', gen.formatted_element_name('dup name', False))
-        self.assertEqual('int', gen.formatted_element_name('dup name', True))
-        self.assertEqual('str', gen.formatted_element_name('str', True))
-        self.assertIsNone(gen.formatted_element_name('class c1', False))
-        self.assertEqual('ClassC1', gen.formatted_element_name('class c1', True))
-        self.assertEqual('SubsetSs1', gen.formatted_element_name('subset ss1', False))
-        self.assertEqual("Unknown_ClassC2", gen.class_or_type_name('class c2'))
-        self.assertEqual("int", gen.class_or_type_name('dup name'))
-        self.assertEqual("int", gen.class_or_type_name('type t1'))
-        self.assertEqual("unknown_slot_s2", gen.slot_name('slot s2'))
-        self.assertEqual('Unknown_SS', gen.subset_name('s s'))
+        self.assertEqual('dup_name', gen.formatted_element_name(cast(ElementName, 'dup name'), False))
+        self.assertEqual('int', gen.formatted_element_name(cast(ElementName, 'dup name'), True))
+        self.assertEqual('str', gen.formatted_element_name(cast(ElementName, 'str'), True))
+        self.assertIsNone(gen.formatted_element_name(cast(ElementName, 'class c1'), False))
+        self.assertEqual('ClassC1', gen.formatted_element_name(cast(ElementName, 'class c1'), True))
+        self.assertEqual('SubsetSs1', gen.formatted_element_name(cast(ElementName, 'subset ss1'), False))
+        self.assertEqual("Unknown_ClassC2", gen.class_or_type_name(cast(ElementName, 'class c2')))
+        self.assertEqual("int", gen.class_or_type_name(cast(ElementName, 'dup name')))
+        self.assertEqual("int", gen.class_or_type_name(cast(ElementName, 'type t1')))
+        self.assertEqual("unknown_slot_s2", gen.slot_name(cast(SlotDefinitionName, 'slot s2')))
+        self.assertEqual('Unknown_SS', gen.subset_name(cast(ElementName, 's s')))
 
-        self.assertEqual('dup_name', gen.formatted_element_name(gen.schema.slots['dup name']))
-        self.assertEqual('int', gen.formatted_element_name(gen.schema.types['dup name']))
-        self.assertEqual('DupName', gen.formatted_element_name(gen.schema.subsets['dup name']))
-        self.assertEqual('ClassC1', gen.formatted_element_name(gen.schema.classes['class c1']))
-        self.assertIsNone(gen.formatted_element_name(gen))
+        self.assertEqual('dup_name', gen.formatted_element_name(gen.schema.slots[cast(ElementName, 'dup name')]))
+        self.assertEqual('int', gen.formatted_element_name(gen.schema.types[cast(ElementName, 'dup name')]))
+        self.assertEqual('DupName', gen.formatted_element_name(gen.schema.subsets[cast(ElementName, 'dup name')]))
+        self.assertEqual('ClassC1', gen.formatted_element_name(gen.schema.classes[cast(ElementName, 'class c1')]))
+        self.assertIsNone(gen.formatted_element_name(cast(Element, gen)))
 
     def test_own_slots(self):
         """ Test the generator own_slots and all_slots helper functions """
-        gen = GeneratorTest(os.path.join(datadir, 'ownalltest.yaml'))
+        gen = GeneratorTest(os.path.join(inputdir, 'ownalltest.yaml'))
         gen.sort_class_slots = True
 
-        self.assertEqual(['s6'], [s.name for s in gen.own_slots('at1')])
-        self.assertEqual(['s6'], [s.name for s in gen.all_slots('at1')])
-        self.assertEqual(['s6'], [s.name for s in gen.all_slots('at1', cls_slots_first=True)])
+        self.assertEqual(['s6'], [s.name for s in gen.own_slots(cast(ClassDefinitionName, 'at1'))])
+        self.assertEqual(['s6'], [s.name for s in gen.all_slots(cast(ClassDefinitionName, 'at1'))])
+        self.assertEqual(['s6'], [s.name for s in gen.all_slots(cast(ClassDefinitionName, 'at1'),
+                                                                cls_slots_first=True)])
 
-        self.assertEqual(['s5', 's6'], [s.name for s in gen.own_slots('m2')])
-        self.assertEqual(['s5', 's6'], [s.name for s in gen.all_slots('m2')])
-        self.assertEqual(['s5', 's6'], [s.name for s in gen.all_slots('m2', cls_slots_first=True)])
+        self.assertEqual(['s5', 's6'], [s.name for s in gen.own_slots(cast(ClassDefinitionName, 'm2'))])
+        self.assertEqual(['s5', 's6'], [s.name for s in gen.all_slots(cast(ClassDefinitionName, 'm2'))])
+        self.assertEqual(['s5', 's6'], [s.name for s in gen.all_slots(cast(ClassDefinitionName, 'm2'),
+                                                                      cls_slots_first=True)])
 
-        self.assertEqual(['s4'], [s.name for s in gen.own_slots('m1')])
-        self.assertEqual(['s4'], [s.name for s in gen.all_slots('m1')])
-        self.assertEqual(['s4'], [s.name for s in gen.all_slots('m1', cls_slots_first=True)])
+        self.assertEqual(['s4'], [s.name for s in gen.own_slots(cast(ClassDefinitionName, 'm1'))])
+        self.assertEqual(['s4'], [s.name for s in gen.all_slots(cast(ClassDefinitionName, 'm1'))])
+        self.assertEqual(['s4'], [s.name for s in gen.all_slots(cast(ClassDefinitionName, 'm1'),
+                                                                cls_slots_first=True)])
 
-        self.assertEqual(['s1', 's3'], [s.name for s in gen.own_slots('c1')])
-        self.assertEqual(['s1', 's3'], [s.name for s in gen.all_slots('c1')])
-        self.assertEqual(['s1', 's3'], [s.name for s in gen.all_slots('c1', cls_slots_first=True)])
+        self.assertEqual(['s1', 's3'], [s.name for s in gen.own_slots(cast(ClassDefinitionName, 'c1'))])
+        self.assertEqual(['s1', 's3'], [s.name for s in gen.all_slots(cast(ClassDefinitionName, 'c1'))])
+        self.assertEqual(['s1', 's3'], [s.name for s in gen.all_slots(cast(ClassDefinitionName, 'c1'),
+                                                                      cls_slots_first=True)])
 
-        self.assertEqual(['s2', 's4'], [s.name for s in gen.own_slots('c2')])
-        self.assertEqual(['s1', 's2', 's3', 's4'], [s.name for s in gen.all_slots('c2')])
-        self.assertEqual(['s2', 's4', 's1', 's3'], [s.name for s in gen.all_slots('c2', cls_slots_first=True)])
+        self.assertEqual(['s2', 's4'], [s.name for s in gen.own_slots(cast(ClassDefinitionName, 'c2'))])
+        self.assertEqual(['s1', 's2', 's3', 's4'], [s.name for s in gen.all_slots(cast(ClassDefinitionName, 'c2'))])
+        self.assertEqual(['s2', 's4', 's1', 's3'], [s.name for s in gen.all_slots(cast(ClassDefinitionName, 'c2'),
+                                                                                  cls_slots_first=True)])
 
-        self.assertEqual(['s5', 's6'], [s.name for s in gen.own_slots('c3')])
-        self.assertEqual(['s1', 's2', 's3', 's4', 's5', 's6'], [s.name for s in gen.all_slots('c3')])
+        self.assertEqual(['s5', 's6'], [s.name for s in gen.own_slots(cast(ClassDefinitionName, 'c3'))])
+        self.assertEqual(['s1', 's2', 's3', 's4', 's5', 's6'], [s.name for s in gen.all_slots(cast(ClassDefinitionName,
+                                                                                                   'c3'))])
         self.assertEqual(['s5', 's6', 's2', 's4', 's1', 's3'],
-                         [s.name for s in gen.all_slots('c3', cls_slots_first=True)])
+                         [s.name for s in gen.all_slots(cast(ClassDefinitionName, 'c3'), cls_slots_first=True)])
         
-        self.assertEqual(['c4_s1', 'c4_s5', 'c4_s6'], [s.name for s in gen.own_slots('c4')])
-        self.assertEqual(['c4_s1', 'c4_s5', 'c4_s6', 's2', 's3', 's4'], [s.name for s in gen.all_slots('c4')])
+        self.assertEqual(['c4_s1', 'c4_s5', 'c4_s6'], [s.name for s in gen.own_slots(cast(ClassDefinitionName, 'c4'))])
+        self.assertEqual(['c4_s1', 'c4_s5', 'c4_s6', 's2', 's3', 's4'],
+                         [s.name for s in gen.all_slots(cast(ClassDefinitionName, 'c4'))])
         self.assertEqual(['c4_s1', 'c4_s5', 'c4_s6', 's2', 's4', 's3'],
-                         [s.name for s in gen.all_slots('c4', cls_slots_first=True)])
+                         [s.name for s in gen.all_slots(cast(ClassDefinitionName, 'c4'), cls_slots_first=True)])
         
-        self.assertEqual(['c5_s1', 'c5_s6'], [s.name for s in gen.own_slots('c5')])
-        self.assertEqual(['c4_s5', 'c5_s1', 'c5_s6', 's2', 's3', 's4'], [s.name for s in gen.all_slots('c5')])
+        self.assertEqual(['c5_s1', 'c5_s6'], [s.name for s in gen.own_slots(cast(ClassDefinitionName, 'c5'))])
+        self.assertEqual(['c4_s5', 'c5_s1', 'c5_s6', 's2', 's3', 's4'],
+                         [s.name for s in gen.all_slots(cast(ClassDefinitionName, 'c5'))])
         self.assertEqual(['c5_s1', 'c5_s6', 'c4_s5', 's2', 's4', 's3'],
-                         [s.name for s in gen.all_slots('c5', cls_slots_first=True)])
+                         [s.name for s in gen.all_slots(cast(ClassDefinitionName, 'c5'), cls_slots_first=True)])
 
     def test_slot_class_paths(self):
         """ Test for aliased slot name, class identifier path and slot type path """
-        gen = GeneratorTest(os.path.join(datadir, 'ownalltest.yaml'))
+        gen = GeneratorTest(os.path.join(inputdir, 'ownalltest.yaml'))
         gen.sort_class_slots = True
         self.assertEqual(['s1', 's5', 's6', 's2', 's3', 's4'],
-                         [gen.aliased_slot_name(s.name) for s in gen.all_slots('c4')])
+                         [gen.aliased_slot_name(s.name) for s in gen.all_slots(cast(ClassDefinitionName, 'c4'))])
         self.assertEqual(['s5', 's1', 's6', 's2', 's3', 's4'],
-                         [gen.aliased_slot_name(s) for s in gen.all_slots('c5')])
+                         [gen.aliased_slot_name(s) for s in gen.all_slots(cast(ClassDefinitionName, 'c5'))])
         self.assertEqual({
             'c4_s1': ['int'],
             'c4_s5': ['Bool', 'T5'],
             'c4_s6': ['int', 'C1S1', 'C2S1', 'C3S1', 'C4S1'],
             's2': ['int', 'C1S1'],
             's3': ['int', 'T2', 'T3'],
-            's4': ['Bool']} , {s.name: gen.slot_type_path(s) for s in gen.all_slots('c4')})
+            's4': ['Bool']}, {s.name: gen.slot_type_path(s) for s in gen.all_slots(cast(ClassDefinitionName, 'c4'))})
         self.assertEqual({
             'c4_s5': ['Bool', 'T5'],
             'c5_s1': ['int'],
             'c5_s6': ['str'],
             's2': ['int', 'C1S1'],
             's3': ['int', 'T2', 'T3'],
-            's4': ['Bool']} , {s.name: gen.slot_type_path(s) for s in gen.all_slots('c5')})
+            's4': ['Bool']}, {s.name: gen.slot_type_path(s) for s in gen.all_slots(cast(ClassDefinitionName, 'c5'))})
         self.assertEqual({'s1': ['int'], 's3': ['int', 'T2', 'T3']},
-                         {s.name: gen.slot_type_path(s) for s in gen.all_slots('c1')})
+                         {s.name: gen.slot_type_path(s) for s in gen.all_slots(cast(ClassDefinitionName, 'c1'))})
 
     def test_ancestors(self):
         """ Test ancestors function and duplicate name detection """
@@ -556,13 +565,11 @@ classes:
         self.assertEqual("Warning: Shared class and slot names: slot s1", errfile.getvalue().strip())
 
         self.assertEqual(['slot s1'], gen.ancestors(gen.schema.slots['slot s1']))
-        self.assertEqual(['slot s2', 'slot s1'], gen.ancestors(gen.schema.slots['slot s2']))
+        self.assertEqual(['slot s2', 'slot s1'], gen.ancestors(gen.schema.slots[cast(ElementName, 'slot s2')]))
         self.assertEqual(['slot s3', 'slot s2', 'slot s1'], gen.ancestors(gen.schema.slots['slot s3']))
         self.assertEqual(['slot s4', 'slot s2', 'slot s1'], gen.ancestors(gen.schema.slots['slot s4']))
         self.assertEqual(['slot s1'], gen.ancestors(gen.schema.classes['slot s1']))
         self.assertEqual(['class c2', 'slot s1'], gen.ancestors(gen.schema.classes['class c2']))
-
-
 
     def test_range_type_path(self):
         model = """
@@ -626,13 +633,14 @@ classes:
         gen = GeneratorTest(LOCAL_YAML_PATH)
         errfile = StringIO()
         with redirect_stderr(errfile):
-            gen.neighborhood(['Definition'])
+            gen.neighborhood([cast(ElementName, 'Definition')])
         self.assertEqual("Warning: neighborhood(Definition) - Definition is undefined", errfile.getvalue().strip())
         self.assertEqual(References(
-            classrefs={'class_definition', 'local_name', 'schema_definition', 'subset_definition', 'alt_description',
-                       'definition', 'example', 'slot_definition', 'element'},
-            slotrefs={'is_a', 'apply_to', 'mixins', 'default_range'},
-            typerefs={'uriorcurie', 'boolean', 'uri', 'ncname', 'string'},
+            classrefs={cast(ClassDefinitionName, e) for e in ['class_definition', 'local_name', 'schema_definition',
+                                                              'subset_definition', 'alt_description', 'definition',
+                                                              'example', 'slot_definition', 'element']},
+            slotrefs={cast(SlotDefinitionName, e) for e in ['is_a', 'apply_to', 'mixins', 'default_range']},
+            typerefs={cast(TypeDefinitionName, e) for e in ['uriorcurie', 'boolean', 'uri', 'ncname', 'string']},
             subsetrefs=set()), gen.neighborhood('definition'))
 
 

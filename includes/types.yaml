@@ -2,9 +2,9 @@ title: Core Biolink metamodel types
 name: types
 id: https://w3id.org/biolink/biolinkml/types
 
-description: Shared type definitions
+description: Shared type definitions for the core biolink mode and metamodel
 license: https://creativecommons.org/publicdomain/zero/1.0/
-version: 1.0.2
+version: 1.0.3
 
 prefixes:
   meta: https://w3id.org/biolink/biolinkml/meta/
@@ -16,22 +16,25 @@ default_range: string
 
 
 #==================================
-# Common type definitions         #
-# Definition consists of:         #
-#    name:      type name         #
-#      uri:    RDF datatype       #
-#      base:   python base type   #
-#      repr:   input representaion#
-#      (metadata)                 #
+# Common type definitions
+#
+# Definition consists of:
+#    <name>:   type name
+#      uri:    RDF datatype
+#      base:   python base type
+#      repr:   representational form in yaml/python if different than representation in base
+#      (additional metadata)
 #==================================
 types:
   string:
     uri: xsd:string
     base: str
+    description: A character string
 
   integer:
     uri: xsd:integer
     base: int
+    description: An integer
 
   boolean:
     uri: xsd:boolean
@@ -41,10 +44,12 @@ types:
   float:
     uri: xsd:float
     base: float
+    description: A real number that conforms to the xsd:float specification
 
   double:
     uri: xsd:double
     base: float
+    description: A real number that conforms to the xsd:double specification
 
   time:
     uri: xsd:dateTime
@@ -56,7 +61,7 @@ types:
 
   date:
     uri: xsd:dateTime
-    base: XSDDateTime
+    base: XSDDate
     repr: str
     description: a date (year, month and day) in an idealized calendar
     notes:
@@ -65,7 +70,8 @@ types:
   datetime:
     uri: xsd:dateTime
     repr: str
-    base: XSDDate
+    base: XSDDateTime
+    description: The combination of a date and time
 
   uriorcurie:
     uri: xsd:anyURI

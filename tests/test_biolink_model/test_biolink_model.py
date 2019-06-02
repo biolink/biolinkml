@@ -75,7 +75,8 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
     def test_biolink_jsonld(self):
         """ Test the jsonld schema generator for the biolink model """
         def filtr(s: str) -> str:
-            return re.sub(r'"generation_date": ".*?",', '"generation_date": "2019-01-01 12:00",', s)
+            return re.sub(r'"source_file_date": ".*?",', '"source_file_date": "2019-01-01-12:00",',
+                          re.sub(r'"generation_date": ".*?",', '"generation_date": "2019-01-01 12:00",', s))
         self.single_file_generator('jsonld', JSONLDGenerator, filtr=filtr)
 
     def test_biolink_context(self):
@@ -168,7 +169,7 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
         self.assertTrue(self._evaluate_shex_results(results))
 
 
-    @unittest.skipIf(False, "Evaluation of performance test.")
+    @unittest.skipIf(True, "Evaluation of performance test.")
     def test_probe(self):
         """ Test for determining performance problem """
         shex_file = os.path.join(self.source_path, 'probe.shex')

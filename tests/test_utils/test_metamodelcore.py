@@ -1,6 +1,6 @@
 import unittest
 
-from biolinkml.utils.metamodelcore import NCName, Bool
+from biolinkml.utils.metamodelcore import NCName, Bool, URIorCURIE, URI
 
 
 class MetamodelCoreTest(unittest.TestCase):
@@ -18,6 +18,22 @@ class MetamodelCoreTest(unittest.TestCase):
             NCName('1')
         with self.assertRaises(ValueError):
             NCName('A12!')
+
+    def test_uris(self):
+        """ Test the URI and URIorCURIE types """
+        str1 = "https://google.com/test#file?abc=1&def=4"
+        self.assertEqual(str1, URIorCURIE(str1))
+        self.assertEqual(str1, URI(str1))
+        str2 = "abc:123"
+        self.assertEqual(str2, URIorCURIE(str2))
+        str3 = ":123"
+        self.assertEqual(str3, URIorCURIE(str3))
+        with self.assertRaises(ValueError):
+            URI(str2)
+        with self.assertRaises(ValueError):
+            URIorCURIE("1abc:def")
+        with self.assertRaises(ValueError):
+            URIorCURIE("1:def")
 
     def test_bool(self):
         self.assertTrue(Bool(True))

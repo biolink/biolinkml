@@ -3,7 +3,7 @@ import re
 import unittest
 from typing import Optional, Callable
 
-from rdflib import Graph, Namespace
+from rdflib import Graph, Namespace, OWL
 from rdflib.compare import to_isomorphic, graph_diff
 
 from biolinkml import METAMODEL_NAMESPACE
@@ -23,9 +23,6 @@ class GeneratorTestCase(unittest.TestCase):
     target_path: str = None
     model_path: str = None
     model_name: str = None
-    # source_path = os.path.join(cwd, 'source')
-    # target_path = os.path.join(cwd, 'target')
-    # biolink_model_path = os.path.join(cwd, 'yaml', 'biolink-model.yaml')
 
     @classmethod
     def setUpClass(cls) -> None:
@@ -36,6 +33,7 @@ class GeneratorTestCase(unittest.TestCase):
         """ Pretty print the contents of g, removing the prefix declarations """
         g.bind('BIOLINK', BIOLINK_NS)
         g.bind('meta', METAMODEL_NAMESPACE)
+        g.bind('owl', OWL)
         g_text = re.sub(r'@prefix.*\n', '', g.serialize(format="turtle").decode())
         print(g_text)
 
@@ -73,12 +71,16 @@ class GeneratorTestCase(unittest.TestCase):
         # Remove the metadata specific triples
         for t in list(old_iso.triples((None, METAMODEL_NAMESPACE.generation_date, None))):
             old_iso.remove(t)
+        for t in list(old_iso.triples((None, METAMODEL_NAMESPACE.source_file_date, None))):
+            old_iso.remove(t)
         new_iso = to_isomorphic(new_graph)
         for t in list(new_iso.triples((None, METAMODEL_NAMESPACE.generation_date, None))):
             new_iso.remove(t)
+        for t in list(new_iso.triples((None, METAMODEL_NAMESPACE.source_file_date, None))):
+            new_iso.remove(t)
 
-        # Graph compare takes a Looong time
         in_both, in_old, in_new = graph_diff(old_iso, new_iso)
+        # Graph compare takes a Looong time
         # if old_iso != new_iso:
         #     in_both, in_old, in_new = graph_diff(old_iso, new_iso)
         old_len = len(list(in_old))

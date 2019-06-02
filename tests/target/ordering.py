@@ -9,7 +9,7 @@ from biolinkml.utils.metamodelcore import empty_list, empty_dict
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.metamodelcore import URI
 
-metamodel_version = "1.3.2"
+metamodel_version = "1.3.4"
 
 # Types
 class String(str):

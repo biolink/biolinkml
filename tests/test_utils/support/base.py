@@ -9,7 +9,7 @@ from jsonasobj import as_json
 from biolinkml.meta import SchemaDefinition
 from biolinkml.utils.schemaloader import SchemaLoader
 from tests import sourcedir
-from tests.test_utils import datadir
+from tests.test_utils import outputdir, inputdir
 
 update_all_files: bool = False
 
@@ -27,8 +27,13 @@ class Base(unittest.TestCase):
         schema.source_file_date = "2018-12-31 17:23"
         return schema
 
-    def eval_output(self, actual: str, filename: str, conv_f: Optional[Callable[[str], Any]]=None) -> None:
-        file_path = os.path.join(datadir, filename)
+    def eval_output(self, actual: str, filename: str, conv_f: Optional[Callable[[str], Any]] = None,
+                    comp_f: Optional[Callable[[str, str], None]] = None) -> None:
+
+        if comp_f is None:
+            comp_f = lambda s1, s2: self.assertEqual(s1, s2)
+
+        file_path = os.path.join(outputdir, filename)
         file_created = False
         if not os.path.exists(file_path) or update_all_files:
             print(f"Creating {file_path}")
@@ -37,14 +42,16 @@ class Base(unittest.TestCase):
             file_created = True
         with open(file_path) as f:
             expected = f.read()
+
         if conv_f:
-            self.assertEqual(conv_f(expected), conv_f(actual))
+            self.maxDiff = None
+            comp_f(conv_f(expected), conv_f(actual))
         else:
-            self.assertEqual(expected, actual)
+            comp_f(expected, actual)
         self.assertFalse(file_created, f"{file_path}: Created new file image -- rerun")
 
     def eval_loader(self, base_name: str, is_sourcedir: bool=False, source: Optional[str]=None) -> None:
-        fn = os.path.join(sourcedir if is_sourcedir else datadir, base_name + '.yaml') if not source else source
+        fn = os.path.join(sourcedir if is_sourcedir else inputdir, base_name + '.yaml') if not source else source
         loader = SchemaLoader(fn)
         schema = as_json(self.fix_schema_metadata(loader.resolve()))
         self.eval_output(schema, base_name + '.json', loads)

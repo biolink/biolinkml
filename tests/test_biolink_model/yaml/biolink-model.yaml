@@ -109,6 +109,7 @@ slots:
     range: named thing
     multivalued: true
     slot_uri: owl:ObjectProperty
+    inherited: true
     mappings:
       - SEMMEDDB:ASSOCIATED_WITH
 
@@ -120,7 +121,6 @@ slots:
     is_a: related to
     in_subset:
       - translator_minimal
-#   symmetric: true
     slot_uri: RO:0002434
 
   physically interacts with:
@@ -129,7 +129,7 @@ slots:
       holds between two entities that make physical contact as part of some interaction
     in_subset:
       - translator_minimal
-#   symmetric: true
+    symmetric: true
     slot_uri: WD:P129
     mappings:
       - SEMMEDDB:INTERACTS_WITH
@@ -829,7 +829,7 @@ slots:
     range: disease or phenotypic feature
     in_subset:
       - translator_minimal
-#   inverse: treated by
+    inverse: treated by
     slot_uri: RO:0002606
     mappings:
       - RO:0003307
@@ -866,7 +866,7 @@ slots:
     range: molecular entity
     in_subset:
       - translator_minimal
-#   inverse: biomarker for
+    inverse: biomarker for
 
   biomarker for:
     is_a: correlated with
@@ -876,7 +876,7 @@ slots:
     range: disease or phenotypic feature
     in_subset:
       - translator_minimal
-#   inverse: has biomarker
+    inverse: has biomarker
     slot_uri: RO:0002607
 
   treated by:
@@ -886,7 +886,7 @@ slots:
     domain: disease or phenotypic feature
     in_subset:
       - translator_minimal
-#   inverse: treats
+    inverse: treats
     slot_uri: RO:0002302
     mappings:
       - WD:P2176
@@ -899,7 +899,7 @@ slots:
     range: anatomical entity
     in_subset:
       - translator_minimal
-#   inverse: expresses
+    inverse: expresses
     slot_uri: RO:0002206
 
   expresses:
@@ -910,7 +910,7 @@ slots:
     range: gene or gene product
     in_subset:
       - translator_minimal
-#   inverse: expressed in
+    inverse: expressed in
     slot_uri: RO:0002292
 
   has phenotype:
@@ -942,7 +942,7 @@ slots:
       holds between a material entity and a material entity or site within which it is located (but of which it is not considered a part)
     in_subset:
       - translator_minimal
-#   inverse: location of
+    inverse: location of
     slot_uri: RO:0001025
 
   location of:
@@ -951,7 +951,7 @@ slots:
       holds between material entity or site and a material entity that is located within it (but not considered a part of it)
     in_subset:
       - translator_minimal
-#   inverse: located in
+    inverse: located in
     slot_uri: RO:0001015
     mappings:
       - SEMMEDDB:LOCATION_OF
@@ -979,7 +979,7 @@ slots:
       holds between wholes and their parts (material entities or processes)
     in_subset:
       - translator_minimal
-#   inverse: part of
+    inverse: part of
     slot_uri: BFO:0000051
     mappings:
       - WD:P527
@@ -990,7 +990,7 @@ slots:
       holds between parts and wholes (material entities or processes)
     in_subset:
       - translator_minimal
-#   inverse: has part
+    inverse: has part
     slot_uri: BFO:0000050
     mappings:
       - SEMMEDDB:PART_OF
@@ -1003,7 +1003,7 @@ slots:
     domain: occurrent
     in_subset:
       - translator_minimal
-#   inverse: participates in
+    inverse: participates in
     slot_uri: RO:0000057
     mappings:
      - WD:P2283
@@ -1026,7 +1026,7 @@ slots:
     range: occurrent
     in_subset:
       - translator_minimal
-#   inverse: has participant
+    inverse: has participant
     slot_uri: RO:0000056
 
   actively involved in:
@@ -1053,7 +1053,7 @@ slots:
       holds between two distinct material entities, the old entity and the new entity, in which the new entity begins to exist when the old entity ceases to exist, and the new entity inherits the significant portion of the matter of the old entity
     in_subset:
       - translator_minimal
-#   inverse: derives from
+    inverse: derives from
     slot_uri: RO:0001001
     mappings:
       - SEMMEDDB:CONVERTS_TO
@@ -1064,7 +1064,7 @@ slots:
       holds between two distinct material entities, the new entity and the old entity, in which the new entity begins to exist when the old entity ceases to exist, and the new entity inherits the significant portion of the matter of the old entity
     in_subset:
       - translator_minimal
-#   inverse: derives into
+    inverse: derives into
     slot_uri: RO:0001000
 
   manifestation of:
@@ -1194,7 +1194,7 @@ slots:
     description: >-
       Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
       In a neo4j database this MAY correspond to the neo4j label tag
-#   is_class_field: true
+    is_class_field: true
     multivalued: true
     in_subset:
       - translator_minimal
@@ -1781,9 +1781,9 @@ classes:
       Either one of a disease or an individual phenotypic feature. Some knowledge resources such as Monarch treat these as distinct, others such as MESH conflate.
     mixins:
       - thing with taxon
-#    union_of:
-#      - disease
-#      - phenotypic feature
+    union_of:
+      - disease
+      - phenotypic feature
     mappings:
       # UMLS Semantic Type "Finding"
       - UMLSSC:T033
@@ -2065,7 +2065,7 @@ classes:
     class_uri: CHEBI:25212
 #
 #    attribute:
-##    subclass_of: PATO:0000001
+#    subclass_of: PATO:0000001
 #      mixins:
 #        - ontology class
 #      description: >-
@@ -2195,10 +2195,10 @@ classes:
 
   macromolecular machine:
     is_a: genomic entity
-#    union_of:
-#      - gene
-#      - gene product
-#      - macromolecular complex
+    union_of:
+      - gene
+      - gene product
+      - macromolecular complex
     description: >-
       A union of gene, gene product, and macromolecular complex.
       These are the basic units of function in a cell. They either carry out individual
@@ -2212,9 +2212,9 @@ classes:
 
   gene or gene product:
     is_a: macromolecular machine
-#    union_of:
-#      - gene
-#      - gene product
+    union_of:
+      - gene
+      - gene product
     description: >-
       a union of genes or gene products.
       Frequently an identifier for one will be used as proxy for another
@@ -2243,9 +2243,9 @@ classes:
     is_a: gene or gene product
     description: >-
       The functional molecular product of a single gene. Gene products are either proteins or functional RNA molecules
-#    union_of:
-#      - protein
-#      - RNA product
+    union_of:
+      - protein
+      - RNA product
     class_uri: WD:Q424689
 
   protein:
@@ -2505,7 +2505,7 @@ classes:
       Any association between one genotype and a genotypic entity that is a sub-component of it
     slot_usage:
       relation:
-        # subproperty_of: has variant part
+        subproperty_of: has variant part
       subject:
         range: genotype
         description: >-
@@ -2588,10 +2588,10 @@ classes:
     description: >-
       A homology association between two genes. May be orthology (in which case the species of subject and object
       should differ) or paralogy (in which case the species may be the same)
-#   symmetric: true
     slot_usage:
       relation:
         subproperty_of: homologous to
+        symmetric: true
         description: >-
           homology relationship type
 
@@ -2632,7 +2632,7 @@ classes:
       interacting molecules category:
         # TODO: Is this correct?
         range: ontology class
-#  #    subclass_of: "MI:1046"
+#        subclass_of: "MI:1046"
         examples:
           - value: MI:1048
             description: smallmolecule-protein
@@ -2649,10 +2649,10 @@ classes:
       An interaction between two genes or two gene products.
       May be physical (e.g. protein binding) or genetic (between genes).
       May be symmetric (e.g. protein interaction) or directed (e.g. phosphorylation)
-#   symmetric: true
     slot_usage:
       relation:
         subproperty_of: molecularly interacts with
+        symmetric: true
         values_from:
           - ro
           - mi
@@ -2811,7 +2811,6 @@ classes:
         range: phenotypic feature
         description: "phenotypic class"
         values_from: ['upheno', 'hp', 'mp', 'wbphenotypic feature']
-  #    subclass_of: UPHENO:0001001
         examples:
           - value: HP:0002487
             description: Hyperkinesis
@@ -2834,7 +2833,6 @@ classes:
       object:
         range: disease
         description: "disease"
-#  #    subclass_of: MONDO:0000001
         examples:
           - value: MONDO:0020066
             description: "Ehlers-Danlos syndrome"
@@ -2894,7 +2892,6 @@ classes:
         range: disease
         description: "disease class"
         values_from: ['mondo', 'omim', 'orphanet', 'ncit', 'doid']
-  #    subclass_of: MONDO:0000001
         examples:
           - value: MONDO:0017314
             description: "Ehlers-Danlos syndrome, vascular type"
@@ -3116,7 +3113,7 @@ classes:
       relation:
         description: >-
           E.g. is pathogenic for
-#        subproperty_of: related condition
+        subproperty_of: related condition
       object:
         description: >-
           a disease that is associated with that variant
@@ -3202,7 +3199,6 @@ classes:
       object:
         range: anatomical entity
         description: "location in which the gene is expressed"
-  #    subclass_of: UBERON:0001062
         examples:
           - value: UBERON:0002037
             description: cerebellum
@@ -3413,10 +3409,10 @@ classes:
           the direction is always from regulator to regulated
       subject:
         range: gene or gene product
-#        role: regulatory gene
+        role: regulatory gene
       object:
         range: gene or gene product
-#        role: regulated gene
+        role: regulated gene
 
   anatomical entity to anatomical entity association:
 #      schema: gocam
@@ -3469,7 +3465,7 @@ classes:
         description: >-
           the structure at an earlier time
       relation:
-#        subproperty_of: develops from
+         subproperty_of: develops from
 
   occurrent:
     description: >-

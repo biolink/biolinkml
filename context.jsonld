@@ -1,5 +1,5 @@
 {
-   "_comments": "Auto generated from meta.yaml by jsonldcontextgen.py version: 0.0.2\nGeneration date: 2019-04-01 19:09\nSchema: metamodel\n\nid: https://w3id.org/biolink/biolinkml/meta\ndescription: A metamodel for defining biolink related schemas\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
+   "_comments": "Auto generated from meta.yaml by jsonldcontextgen.py version: 0.0.2\nGeneration date: 2019-06-02 15:20\nSchema: metamodel\n\nid: https://w3id.org/biolink/biolinkml/meta\ndescription: A metamodel for defining biolink related schemas\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
    "@context": {
       "_comments": null,
       "type": "@type",
@@ -75,8 +75,15 @@
       "inlined": {
          "@type": "xsd:boolean"
       },
+      "inverse": {
+         "@type": "@id",
+         "@id": "owl:inverseOf"
+      },
       "is_a": {
          "@type": "@id"
+      },
+      "is_class_field": {
+         "@type": "xsd:boolean"
       },
       "is_usage_slot": {
          "@type": "xsd:boolean"
@@ -155,6 +162,9 @@
       "subsets": {
          "@type": "@id"
       },
+      "symmetric": {
+         "@type": "xsd:boolean"
+      },
       "title": {
          "@id": "dcterms:title"
       },
@@ -165,6 +175,9 @@
          "@type": "@id"
       },
       "types": {
+         "@type": "@id"
+      },
+      "union_of": {
          "@type": "@id"
       },
       "value": {

@@ -3,7 +3,7 @@
 # Schema: types
 #
 # id: https://w3id.org/biolink/biolinkml/types
-# description: Shared type definitions
+# description: Shared type definitions for the core biolink mode and metamodel
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 
 from typing import Optional, List, Union, Dict, ClassVar
@@ -12,14 +12,16 @@ from biolinkml.utils.metamodelcore import empty_list, empty_dict
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.metamodelcore import Bool, NCName, URI, URIorCURIE, XSDDate, XSDDateTime, XSDTime
 
-metamodel_version = "1.3.2"
+metamodel_version = "1.3.4"
 
 # Types
 class String(str):
+    """ A character string """
     pass
 
 
 class Integer(int):
+    """ An integer """
     pass
 
 
@@ -29,10 +31,12 @@ class Boolean(Bool):
 
 
 class Float(float):
+    """ A real number that conforms to the xsd:float specification """
     pass
 
 
 class Double(float):
+    """ A real number that conforms to the xsd:double specification """
     pass
 
 
@@ -41,12 +45,13 @@ class Time(XSDTime):
     pass
 
 
-class Date(XSDDateTime):
+class Date(XSDDate):
     """ a date (year, month and day) in an idealized calendar """
     pass
 
 
-class Datetime(XSDDate):
+class Datetime(XSDDateTime):
+    """ The combination of a date and time """
     pass
 
 

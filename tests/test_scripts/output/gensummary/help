@@ -1,7 +1,0 @@
-Usage: gen-summary [OPTIONS] YAMLFILE
-
-  Generate TSV summary files for viewing in Excel and the like
-
-Options:
-  -f, --format [tsv]  Output format
-  --help              Show this message and exit.

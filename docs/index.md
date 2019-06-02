@@ -53,9 +53,11 @@ A metamodel for defining biolink related schemas
  * [in_subset](in_subset.md) - used to indicate membership of a term in a defined subset of biolink terms used for a particular domain or application (e.g. the translator_minimal subset holding the minimal set of predicates used in a translator knowledge graph)
  * [inherited](inherited.md) - true means that the *value* of a slot is inherited by subclasses
  * [inlined](inlined.md) - an inlined definition a list of actual values rather than references.  Only applies to slots whose range is a class.
+ * [inverse](inverse.md) - indicates that any instance of d s r implies that there is also an instance of r s' d
  * [is_a](is_a.md) - specifies single-inheritance between classes or slots. While multiple inheritance is not allowed, mixins can be provided effectively providing the same thing. The semantics are the same when translated to formalisms that allow MI (e.g. RDFS/OWL). When translating to a SI framework (e.g. java classes, python classes) then is a is used. When translating a framework without polymorphism (e.g. json-schema, solr document schema) then is a and mixins are recursively unfolded
     * [class_definition.is_a](class_definition_is_a.md)
     * [slot_definition.is_a](slot_definition_is_a.md)
+ * [is_class_field](is_class_field.md) - indicates that any instance, i,  the domain of this slot will include an assert of i s range
  * [is_usage_slot](is_usage_slot.md) - True means that this slot was defined in a slot_usage situation
  * [key](key.md) - true means that the slot uniquely identifies the element within the context of its container.  Key slots are NOT identifiers - they do not serve as subjects
  * [license](license.md) - license for the schema
@@ -78,6 +80,7 @@ A metamodel for defining biolink related schemas
  * [readonly](readonly.md) - If present, slot is read only.  Text explains why
  * [repr](repr.md) - the name of the python object that implements this type definition
  * [required](required.md) - true means that the slot must be present in the loaded definition
+ * [role](role.md) - the role played by the slot range
  * [see_also](see_also.md) - a reference
  * [singular_name](singular_name.md) - a name that is used in the singular form
  * [schema_definition.slots](slot_definitions.md) - slot definitions
@@ -90,11 +93,13 @@ A metamodel for defining biolink related schemas
  * [subclass_of](subclass_of.md) - rdfs:subClassOf to be emitted in OWL generation
  * [subproperty_of](subproperty_of.md) - Ontology property which this slot is a subproperty of
  * [subsets](subsets.md) - list of subsets referenced in this model
+ * [symmetric](symmetric.md) - True means that any instance of  d s r implies that there is also an instance of r s d
  * [title](title.md) - the official title of the schema
  * [todos](todos.md) - Outstanding issue that needs resolution
  * [type_definition.uri](type_uri.md) - The uri that defines the possible values for the type definition
  * [typeof](typeof.md) - Names a parent type
  * [types](types.md) - data types used in the model
+ * [union_of](union_of.md) - indicates that the domain class consists exactly of the members of the classes in the range
  * [value](value.md) - example value
  * [example.description](value_description.md) - description of what the value is doing
  * [values_from](values_from.md) - the identifier of a "value set" -- a set of identifiers that form the possible values for the range of a slot
@@ -116,13 +121,13 @@ A metamodel for defining biolink related schemas
 #### Defined
 
  * [Boolean](Boolean.md)  (**Bool**)  - A binary (true or false) value
- * [Date](Date.md)  (**XSDDateTime**)  - a date (year, month and day) in an idealized calendar
- * [Datetime](Datetime.md)  (**XSDDate**) 
- * [Double](Double.md)  (**float**) 
- * [Float](Float.md)  (**float**) 
- * [Integer](Integer.md)  (**int**) 
+ * [Date](Date.md)  (**XSDDate**)  - a date (year, month and day) in an idealized calendar
+ * [Datetime](Datetime.md)  (**XSDDateTime**)  - The combination of a date and time
+ * [Double](Double.md)  (**float**)  - A real number that conforms to the xsd:double specification
+ * [Float](Float.md)  (**float**)  - A real number that conforms to the xsd:float specification
+ * [Integer](Integer.md)  (**int**)  - An integer
  * [Ncname](Ncname.md)  (**NCName**)  - Prefix part of CURIE
- * [String](String.md)  (**str**) 
+ * [String](String.md)  (**str**)  - A character string
  * [Time](Time.md)  (**XSDTime**)  - A time object represents a (local) time of day, independent of any particular day
  * [Uri](Uri.md)  (**URI**)  - a complete URI
  * [Uriorcurie](Uriorcurie.md)  (**URIorCURIE**)  - a URI or a CURIE

@@ -40,6 +40,8 @@ class GenPythonTestCase(ClickTestCase):
             with open(target_path, 'w') as newf:
                 newf.write(pydata)
             self.maxDiff = None
+            if olddat != newdat:
+                print(f"Data file: {master_path}")
             self.assertEqual(olddat, newdat)
 
         # Make sure the python is valid

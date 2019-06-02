@@ -31,10 +31,10 @@ class OwlSchemaGenerator(Generator):
 
     def __init__(self, schema: Union[str, TextIO, SchemaDefinition], fmt: str = 'ttl') -> None:
         super().__init__(schema, fmt)
-        self.graph: Graph = None
+        self.graph: Optional[Graph] = None
         self.metamodel = SchemaLoader(LOCAL_YAML_PATH)
         self.metamodel.resolve()
-        self.top_value_uri: URIRef = None
+        self.top_value_uri: Optional[URIRef] = None
 
     def visit_schema(self, output: Optional[str] = None):
         base = URIRef(self.schema.id)
@@ -122,29 +122,54 @@ class OwlSchemaGenerator(Generator):
         #     self.graph.add((union_node, OWL.unionOf, union_coll))
         #     self.graph.add((cls_uri, RDFS.subClassOf, union_node))
 
-        elts = []
         for sn in sorted(self.own_slot_names(cls)):
-            # TODO: Reintroduce this
-            # if sn not in cls.defining_slots:
-            if False:
+            # Defining_slots are covered above
+            if sn not in cls.defining_slots:
                 slot = self.schema.slots[sn]
-                slot_node = BNode()
-                self.graph.add((slot_node, RDF.type, OWL.Restriction))
-                self.graph.add((slot_node,
-                                OWL.someValuesFrom if slot.required else OWL.allValuesFrom,
-                                self._range_uri(slot)))
-                self._add_cardinality(slot_node, slot)
-                self.graph.add((slot_node, OWL.onProperty, self._prop_uri(self.aliased_slot_name(slot))))
-                elts.append(slot_node)
+                # Non-inherited slots are annotation properties
+                if slot.inherited:
+                    slot_node = BNode()
+                    self.graph.add((cls_uri, RDFS.subClassOf, slot_node))
 
-        if elts:
-            coll_bnode = BNode()
-            Collection(self.graph, coll_bnode, elts)
-            subclass_bnode = BNode()
-            self.graph.add((subclass_bnode, OWL.unionOf, coll_bnode))
-            self.graph.add((cls_uri, RDFS.subClassOf, subclass_bnode))
+                    #         required multivalued
+                    if slot.required:
+                        if slot.multivalued:
+                            #    y         y     intersectionOf(restriction(slot only type) restriction(slot some type)
+                            restr1 = BNode()
+                            self.graph.add((restr1, RDF.type, OWL.Restriction))
+                            self.graph.add((restr1, OWL.allValuesFrom, self._range_uri(slot)))
+                            self.graph.add((restr1, OWL.onProperty, self._prop_uri(self.aliased_slot_name(slot))))
+
+                            restr2 = BNode()
+                            self.graph.add((restr2, RDF.type, OWL.Restriction))
+                            self.graph.add((restr2, OWL.someValuesFrom, self._range_uri(slot)))
+                            self.graph.add((restr2, OWL.onProperty, self._prop_uri(self.aliased_slot_name(slot))))
+
+                            coll_bnode = BNode()
+                            Collection(self.graph, coll_bnode, [restr1, restr2])
+                            self.graph.add((slot_node, OWL.intersectionOf, coll_bnode))
+                            self.graph.add((slot_node, RDF.type, OWL.Class))
+                        else:
+                            #    y         n      restriction(slot exactly 1 type)
+                            self.graph.add((slot_node, RDF.type, OWL.Restriction))
+                            self.graph.add((slot_node, OWL.qualifiedCardinality, Literal(1)))
+                            self.graph.add((slot_node, OWL.onProperty, self._prop_uri(self.aliased_slot_name(slot))))
+                            self.graph.add((slot_node, OWL.onClass, self._range_uri(slot)))
+                    else:
+                        if slot.multivalued:
+                            #    n         y      restriction(slot only type)
+                            self.graph.add((slot_node, RDF.type, OWL.Restriction))
+                            self.graph.add((slot_node, OWL.allValuesFrom, self._range_uri(slot)))
+                            self.graph.add((slot_node, OWL.onProperty, self._prop_uri(self.aliased_slot_name(slot))))
+                        else:
+                            #    n         n      intersectionOf(restriction(slot only type) restriction(slot max 1 type))
+                            self.graph.add((slot_node, RDF.type, OWL.Restriction))
+                            self.graph.add((slot_node, OWL.onClass, self._range_uri(slot)))
+                            self.graph.add((slot_node, OWL.maxQualifiedCardinality, Literal(1)))
+                            self.graph.add((slot_node, OWL.onProperty, self._prop_uri(self.aliased_slot_name(slot))))
 
         return True
+
 
     def visit_slot(self, slot_name: str, slot: SlotDefinition) -> None:
         """ Add a slot definition per slot
@@ -156,6 +181,8 @@ class OwlSchemaGenerator(Generator):
         # Note: We use the raw name in OWL and add a subProperty arc
         slot_uri = self._prop_uri(slot.name)
         self._add_element_properties(slot_uri, slot)
+        # Inherited slots are object or data properties
+        # All others are annotation properties
         self.graph.add((slot_uri, RDF.type, OWL.ObjectProperty if slot.inherited else OWL.AnnotationProperty))
         self.graph.add((slot_uri, RDF.type,
                         self.metamodel.namespaces[METAMODEL_LOCAL_NAME][camelcase('slot definition')]))

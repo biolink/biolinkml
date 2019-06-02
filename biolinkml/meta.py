@@ -10,10 +10,10 @@ from typing import Optional, List, Union, Dict, ClassVar
 from dataclasses import dataclass
 from biolinkml.utils.metamodelcore import empty_list, empty_dict
 from biolinkml.utils.yamlutils import YAMLRoot
-from biolinkml.utils.metamodelcore import Bool, NCName, URI, URIorCURIE, XSDDate
+from biolinkml.utils.metamodelcore import Bool, NCName, URI, URIorCURIE, XSDDateTime
 from includes.types import Boolean, Datetime, Integer, Ncname, String, Uri, Uriorcurie
 
-metamodel_version = "1.3.2"
+metamodel_version = "1.3.4"
 
 # Types
 
@@ -136,7 +136,7 @@ class SchemaDefinition(Element):
     id: Union[str, URI] = None
     title: Optional[str] = None
     version: Optional[str] = None
-    imports: List[Union[str, URI]] = empty_list()
+    imports: List[Union[str, URIorCURIE]] = empty_list()
     license: Optional[str] = None
     prefixes: Union[dict, "Prefix"] = empty_dict()
     emit_prefixes: List[Union[str, NCName]] = empty_list()
@@ -149,9 +149,9 @@ class SchemaDefinition(Element):
     classes: Dict[Union[str, ClassDefinitionName], Union[dict, "ClassDefinition"]] = empty_dict()
     metamodel_version: Optional[str] = None
     source_file: Optional[str] = None
-    source_file_date: Optional[Union[str, XSDDate]] = None
+    source_file_date: Optional[Union[str, XSDDateTime]] = None
     source_file_size: Optional[int] = None
-    generation_date: Optional[Union[str, XSDDate]] = None
+    generation_date: Optional[Union[str, XSDDateTime]] = None
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -159,8 +159,8 @@ class SchemaDefinition(Element):
             self.name = SchemaDefinitionName(self.name)
         if self.id is not None and not isinstance(self.id, URI):
             self.id = URI(self.id)
-        self.imports = [v if isinstance(v, URI)
-                        else URI(v) for v in self.imports]
+        self.imports = [v if isinstance(v, URIorCURIE)
+                        else URIorCURIE(v) for v in self.imports]
         for k, v in self.prefixes.items():
             if not isinstance(v, Prefix):
                 self.prefixes[k] = Prefix(k, v)
@@ -180,10 +180,10 @@ class SchemaDefinition(Element):
         for k, v in self.classes.items():
             if not isinstance(v, ClassDefinition):
                 self.classes[k] = ClassDefinition(name=k, **({} if v is None else v))
-        if self.source_file_date is not None and not isinstance(self.source_file_date, XSDDate):
-            self.source_file_date = XSDDate(self.source_file_date)
-        if self.generation_date is not None and not isinstance(self.generation_date, XSDDate):
-            self.generation_date = XSDDate(self.generation_date)
+        if self.source_file_date is not None and not isinstance(self.source_file_date, XSDDateTime):
+            self.source_file_date = XSDDateTime(self.source_file_date)
+        if self.generation_date is not None and not isinstance(self.generation_date, XSDDateTime):
+            self.generation_date = XSDDateTime(self.generation_date)
 
 
 @dataclass
@@ -310,7 +310,7 @@ class SlotDefinition(Definition):
     """
     the definition of a property or a slot
     """
-    _inherited_slots: ClassVar[List[str]] = ["domain", "range", "multivalued", "inherited", "readonly", "ifabsent", "required", "inlined", "key", "identifier"]
+    _inherited_slots: ClassVar[List[str]] = ["domain", "range", "multivalued", "inherited", "readonly", "ifabsent", "required", "inlined", "key", "identifier", "role"]
 
     # === element ===
     name: Union[str, SlotDefinitionName] = None
@@ -342,7 +342,7 @@ class SlotDefinition(Definition):
     apply_to: List[Union[str, SlotDefinitionName]] = empty_list()
     singular_name: Optional[str] = None
     range: Optional[Union[str, ElementName]] = None
-    slot_uri: Optional[Union[str, URI]] = None
+    slot_uri: Optional[Union[str, URIorCURIE]] = None
     multivalued: Optional[Bool] = None
     inherited: Optional[Bool] = None
     readonly: Optional[str] = None
@@ -353,6 +353,10 @@ class SlotDefinition(Definition):
     identifier: Optional[Bool] = None
     alias: Optional[str] = None
     subproperty_of: Optional[Union[str, URIorCURIE]] = None
+    symmetric: Optional[Bool] = None
+    inverse: Optional[Union[str, SlotDefinitionName]] = None
+    is_class_field: Optional[Bool] = None
+    role: Optional[str] = None
     is_usage_slot: Optional[Bool] = None
 
     def _fix_elements(self):
@@ -369,10 +373,12 @@ class SlotDefinition(Definition):
             self.domain = ClassDefinitionName(self.domain)
         if self.range is not None and not isinstance(self.range, ElementName):
             self.range = ElementName(self.range)
-        if self.slot_uri is not None and not isinstance(self.slot_uri, URI):
-            self.slot_uri = URI(self.slot_uri)
+        if self.slot_uri is not None and not isinstance(self.slot_uri, URIorCURIE):
+            self.slot_uri = URIorCURIE(self.slot_uri)
         if self.subproperty_of is not None and not isinstance(self.subproperty_of, URIorCURIE):
             self.subproperty_of = URIorCURIE(self.subproperty_of)
+        if self.inverse is not None and not isinstance(self.inverse, SlotDefinitionName):
+            self.inverse = SlotDefinitionName(self.inverse)
 
 
 @dataclass
@@ -413,6 +419,7 @@ class ClassDefinition(Definition):
     slot_usage: Dict[Union[str, SlotDefinitionName], Union[dict, SlotDefinition]] = empty_dict()
     class_uri: Optional[Union[str, URIorCURIE]] = None
     subclass_of: Optional[Union[str, URIorCURIE]] = None
+    union_of: List[Union[str, ClassDefinitionName]] = empty_list()
     defining_slots: List[Union[str, SlotDefinitionName]] = empty_list()
 
     def _fix_elements(self):
@@ -434,6 +441,8 @@ class ClassDefinition(Definition):
             self.class_uri = URIorCURIE(self.class_uri)
         if self.subclass_of is not None and not isinstance(self.subclass_of, URIorCURIE):
             self.subclass_of = URIorCURIE(self.subclass_of)
+        self.union_of = [v if isinstance(v, ClassDefinitionName)
+                         else ClassDefinitionName(v) for v in self.union_of]
         self.defining_slots = [v if isinstance(v, SlotDefinitionName)
                                else SlotDefinitionName(v) for v in self.defining_slots]
 
