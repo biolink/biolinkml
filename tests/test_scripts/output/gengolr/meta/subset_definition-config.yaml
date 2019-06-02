@@ -1,0 +1,90 @@
+description: the name and description of a subset
+display_name: !!python/object/new:biolinkml.meta.ClassDefinitionName
+- subset_definition
+document_category: !!python/object/new:biolinkml.meta.ClassDefinitionName
+- subset_definition
+fields:
+- cardinality: multi
+  description: the identifier of this class or slot must begin with one of the URIs
+    referenced by this prefix
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - id_prefixes
+  id: id_prefixes
+- description: the unique name of the element within the context of the schema.  Name
+    is combined with the default prefix to form the globally unique subject of the
+    target class.
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - name
+  id: name
+- cardinality: multi
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - aliases
+  id: aliases
+- cardinality: multi
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - local_names
+  id: local_names
+- cardinality: multi
+  description: A list of terms from different schemas or terminology systems that
+    have comparable meaning. These may include terms that are precisely equivalent,
+    broader or narrower in meaning, or otherwise semantically related but not equivalent
+    from a strict ontological perspective.
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - mappings
+  id: mappings
+- description: a description of the element's purpose and use
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - description
+  id: description
+- cardinality: multi
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - alt_descriptions
+  id: alt_descriptions
+- description: Description of why and when this element will no longer be used
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - deprecated
+  id: deprecated
+- cardinality: multi
+  description: Outstanding issue that needs resolution
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - todos
+  id: todos
+- cardinality: multi
+  description: notes and comments about an element intended for external consumption
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - comments
+  id: comments
+- cardinality: multi
+  description: editorial notes about an element intended for internal consumption
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - notes
+  id: notes
+- cardinality: multi
+  description: example usages of an element
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - examples
+  id: examples
+- cardinality: multi
+  description: used to indicate membership of a term in a defined subset of biolink
+    terms used for a particular domain or application (e.g. the translator_minimal
+    subset holding the minimal set of predicates used in a translator knowledge graph)
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - in_subset
+  id: in_subset
+- description: id of the schema that defined the element
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - from_schema
+  id: from_schema
+- description: the imports entry that this element was derived from.  Empty means
+    primary source
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - imported_from
+  id: imported_from
+- cardinality: multi
+  description: a reference
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - see_also
+  id: see_also
+id: subset_definition
+schema_generating: true
+weight: 20

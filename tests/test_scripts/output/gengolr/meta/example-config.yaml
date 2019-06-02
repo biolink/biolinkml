@@ -1,0 +1,17 @@
+description: usage example and description
+display_name: !!python/object/new:biolinkml.meta.ClassDefinitionName
+- example
+document_category: !!python/object/new:biolinkml.meta.ClassDefinitionName
+- example
+fields:
+- description: example value
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - value
+  id: value
+- description: description of what the value is doing
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - value_description
+  id: description
+id: example
+schema_generating: true
+weight: 20

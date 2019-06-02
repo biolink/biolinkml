@@ -1,0 +1,17 @@
+description: prefix URI tuple
+display_name: !!python/object/new:biolinkml.meta.ClassDefinitionName
+- prefix
+document_category: !!python/object/new:biolinkml.meta.ClassDefinitionName
+- prefix
+fields:
+- description: the nsname (sans ':' for a given prefix)
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - prefix_prefix
+  id: prefix_prefix
+- description: A URI associated with a given prefix
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - prefix_reference
+  id: prefix_reference
+id: prefix
+schema_generating: true
+weight: 20

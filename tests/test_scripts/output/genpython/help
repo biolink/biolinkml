@@ -1,0 +1,8 @@
+Usage: gen-py-classes [OPTIONS] YAMLFILE
+
+  Generate python classes to represent a biolink model
+
+Options:
+  -f, --format [py]   Output format
+  --head / --no-head  Emit metadata heading
+  --help              Show this message and exit.
