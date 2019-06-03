@@ -2,7 +2,6 @@ metamodel/metamodel.py-PREV
 tests/test_scripts/temp/
 tests/target
 tests/test_biolink_model/target
-Pipfile.lock
 
 # Jekyll
 Gemfile.lock

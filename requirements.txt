@@ -17,8 +17,8 @@ jsonasobj>=1.2.1
 jsonschema>=3.0.1
 prefixcommons>=0.1.7
 pyjsg>=0.9.1
-pyshex
+pyshex>=0.7.10
 pyyaml>=5.1
 rdflib-jsonld>=0.4
 rdflib>=4.2.2
-requests>=2.21
+requests>=2.22

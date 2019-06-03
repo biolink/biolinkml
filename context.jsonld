@@ -189,6 +189,6 @@
       "version": {
          "@id": "pav:version"
       },
-      "@base": "https://w3id.org/biolink/biolinkml"
+      "@base": "https://w3id.org/biolink/biolinkml/"
    }
 }

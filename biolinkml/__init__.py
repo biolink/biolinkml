@@ -76,11 +76,11 @@ LOCAL_SHEX_PATH = os.path.join(MODULE_DIR, METAMODEL_SHEX_NAME)
 LOCAL_RDF_PATH = os.path.join(MODULE_DIR, METAMODEL_RDF_NAME)
 
 # Base URI for all things meta
-META_BASE_URI = 'https://w3id.org/biolink/biolinkml'
+META_BASE_URI = 'https://w3id.org/biolink/biolinkml/'
 
 # URI for the entire metamodel itself.
-METAMODEL_URI = META_BASE_URI + '/meta'
-METATYPE_URI = META_BASE_URI + '/types'
+METAMODEL_URI = META_BASE_URI + 'meta'
+METATYPE_URI = META_BASE_URI + 'types'
 
 # Preferred local name for metamodel elements
 METAMODEL_LOCAL_NAME = "meta"
@@ -88,10 +88,13 @@ METATYPE_LOCAL_NAME = 'metatype'
 
 # Namespace for metamodel elements
 METAMODEL_NAMESPACE = Namespace(METAMODEL_URI + '/')
-METATYPE_NAMESPACE = Namespace(META_BASE_URI + '/type/')
+METATYPE_NAMESPACE = Namespace(META_BASE_URI + 'type/')
 
 # Metamodel Context URI
-METAMODEL_CONTEXT_URI = META_BASE_URI + '/context.jsonld'
+METAMODEL_CONTEXT_URI = META_BASE_URI + 'context.jsonld'
 
 # Metamodel ShEx URI
-METAMODEL_SHEX_URI = META_BASE_URI + '/meta.shex'
+METAMODEL_SHEX_URI = META_BASE_URI + 'meta.shex'
+
+# Metamodel YAML file
+METAMODEL_YAML_URI = META_BASE_URI + 'meta.yaml'

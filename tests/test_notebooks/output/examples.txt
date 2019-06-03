@@ -1,5 +1,5 @@
 # Auto generated from None by pythongen.py version: 0.2.0
-# Generation date: 2019-06-02 16:52
+# Generation date: 2019-06-03 12:28
 # Schema: synopsis2
 #
 # id: http://example.org/sample/example1
@@ -89,7 +89,7 @@ class FriendlyPerson(Person):
 http://yuml.me/diagram/nofunky;dir:TB/class/[Person]<knows 0..*- [Person|id:string;first_name:string *;last_name:string;age:int %3F;living:boolean %3F], [FriendlyPerson|id(i):string;first_name(i):string *;last_name(i):string;age(i):int %3F;living(i):boolean %3F]- knows 1..*>[Person], [Person]^-[FriendlyPerson]
 
 {
-   "_comments": "Auto generated from None by jsonldcontextgen.py version: 0.0.2\nGeneration date: 2019-06-02 16:52\nSchema: synopsis2\n\nid: http://example.org/sample/example1\ndescription: \nlicense: \n",
+   "_comments": "Auto generated from None by jsonldcontextgen.py version: 0.0.2\nGeneration date: 2019-06-03 12:28\nSchema: synopsis2\n\nid: http://example.org/sample/example1\ndescription: \nlicense: \n",
    "@context": {
       "_comments": null,
       "type": "@type",
@@ -162,7 +162,7 @@ Person(id='42', last_name='smith', first_name=['Joe', 'Bob'], age=43, living=Non
    "living": null,
    "knows": [],
    "type": "Person",
-   "_comments": "Auto generated from None by jsonldcontextgen.py version: 0.0.2\nGeneration date: 2019-06-02 16:52\nSchema: synopsis2\n\nid: http://example.org/sample/example1\ndescription: \nlicense: \n",
+   "_comments": "Auto generated from None by jsonldcontextgen.py version: 0.0.2\nGeneration date: 2019-06-03 12:28\nSchema: synopsis2\n\nid: http://example.org/sample/example1\ndescription: \nlicense: \n",
    "@context": {
       "_comments": null,
       "type": "@type",
