@@ -7,9 +7,9 @@ import requests
 
 from rdflib import Namespace, URIRef
 
-W3ID_SERVER = "http://w3id.org/"
-DEFAULT_SERVER = W3ID_SERVER
-# DEFAULT_SERVER = "http://localhost:8188/"
+W3ID_SERVER = "https://w3id.org/"
+# DEFAULT_SERVER = W3ID_SERVER
+DEFAULT_SERVER = "http://localhost:8188/"
 
 # Taken from Firefox network.http.accept.default
 default_header = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
@@ -35,8 +35,8 @@ class TestLists:
         self.meta = Namespace(self.biolinkml + 'meta/')
 
         self.biolink_general: List[TestEntry] = [
-            TestEntry(self.biolink, ''),
-            TestEntry(self.biolink + 'foo', 'foo')
+            TestEntry(self.biolink, 'biolink-model/'),
+            TestEntry(self.biolink + 'foo', 'biolink-model/foo')
         ]
 
         self.model_entries: List[TestEntry] = [
@@ -79,15 +79,15 @@ class TestLists:
 
         self.biolinkmodel_entries: List[TestEntry] = [
             TestEntry(self.biolink + 'vocab/Element', 'biolink-model/docs/Element'),
-            TestEntry(self.biolink + 'vocab', 'vocab'),
-            TestEntry(self.biolink + 'biolink-model.yaml', 'biolink-model.yaml')
+            TestEntry(self.biolink + 'vocab', 'biolink-model/docs'),
+            TestEntry(self.biolink + 'biolink-model.yaml', 'biolink-model/biolink-model.yaml')
         ]
 
 
 FAIL_ON_ERROR = True
 
 
-@unittest.skipIf(True, "Rewrite rules test bypassed except when new rules are submitted to w3id.org")
+@unittest.skipIf(False, "Rewrite rules test bypassed except when new rules are submitted to w3id.org")
 class RewriteRuleTestCase(unittest.TestCase):
     SERVER = DEFAULT_SERVER         # Can be overwritten with a startup parameter
 
@@ -122,7 +122,7 @@ class RewriteRuleTestCase(unittest.TestCase):
                 if resp.status_code == 302 and 'location' in resp.headers \
                 else f"Error: {resp.status_code}"
             if FAIL_ON_ERROR:
-                self.assertEqual(expected, actual)
+                self.assertEqual(expected, actual, f"redirect for: {resp.url}")
                 self.record_results(e.input_url, accept_header, actual)
                 return True
             elif expected != actual:
