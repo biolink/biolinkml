@@ -8,8 +8,8 @@ import requests
 from rdflib import Namespace, URIRef
 
 W3ID_SERVER = "https://w3id.org/"
-# DEFAULT_SERVER = W3ID_SERVER
-DEFAULT_SERVER = "http://localhost:8188/"
+DEFAULT_SERVER = W3ID_SERVER
+# DEFAULT_SERVER = "http://localhost:8188/"
 
 # Taken from Firefox network.http.accept.default
 default_header = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
