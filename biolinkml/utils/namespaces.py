@@ -183,4 +183,5 @@ class Namespaces(OrderedDict):
                 if NCName.is_valid(k):
                     self[k] = v
                 else:
-                    print(f"Warning: biocontext map {map_name} has illegal prefix: {k}", file=sys.stderr)
+                    # print(f"Warning: biocontext map {map_name} has illegal prefix: {k}", file=sys.stderr)
+                    pass

@@ -319,7 +319,7 @@ class Generator(metaclass=abc.ABCMeta):
         else:
             return [formatted_typ_name]
 
-    def class_identifier(self, def_or_name: Union[str, ClassDefinition, TypeDefinition], keys_count: bool=False) \
+    def class_identifier(self, def_or_name: Union[str, ClassDefinition, TypeDefinition], keys_count: bool = False) \
             -> Optional[SlotDefinitionName]:
         """
         Return the class identifier if any
@@ -349,7 +349,7 @@ class Generator(metaclass=abc.ABCMeta):
         :param force_non_key: True means inlined even if the class has a key
         :return: path
         """
-        cls = cls_or_clsname if isinstance(cls_or_clsname, ClassDefinition)\
+        cls = cls_or_clsname if isinstance(cls_or_clsname, ClassDefinition) \
             else self.schema.classes[cast(ClassDefinitionName, cls_or_clsname)]
 
         # Determine whether the class has a key
@@ -395,6 +395,16 @@ class Generator(metaclass=abc.ABCMeta):
             slot = self.schema.slots[cast(SlotDefinitionName, slot)]
         return slot.alias if slot.alias else slot.name
 
+    def class_or_type_for(self, name: str) -> Optional[Element]:
+        """
+        Return the corresponding class or type for name
+        """
+        if name in self.schema.classes:
+            return self.schema.classes[name]
+        elif name in self.schema.types:
+            return self.schema.types[cast(TypeDefinitionName, name)]
+        return None
+
     def class_or_type_name(self, name: str) -> str:
         """
         Return the camelcase representation of clsname if it is a valid class or type.  Prepend "Unknown"
@@ -411,17 +421,23 @@ class Generator(metaclass=abc.ABCMeta):
         else:
             return "Unknown_" + camelcase(name)
 
-    def slot_name(self, name: SlotDefinitionName) -> str:
+    def slot_for(self, name: str) -> Optional[Element]:
+        return self.schema.slots.get(name)
+
+    def slot_name(self, name: str) -> str:
         """
         Return the underscored version of the aliased slot name if name is a slot. Prepend "unknown_" if the name
         isn't valid.
         """
-        slot = self.schema.slots.get(name)
+        slot = self.slot_for(name)
         return underscore(self.aliased_slot_name(slot) if slot else ("unknown " + name))
 
+    def subset_for(self, name: str) -> Optional[Element]:
+        return self.schema.subsets.get(name)
 
     def subset_name(self, name: str) -> str:
-        return ('' if name in self.schema.subsets else "Unknown_") + camelcase(name)
+        subset = self.subset_for(name)
+        return ('' if subset else "Unknown_") + camelcase(name)
 
     def formatted_element_name(self, el_or_elname: Union[ElementName, Element],
                                is_range_name: bool = False) -> Optional[str]:
@@ -453,6 +469,19 @@ class Generator(metaclass=abc.ABCMeta):
             return self.subset_name(el_or_elname.name)
         else:
             return None
+
+    def obj_for(self, el_or_elname: str, is_range_name: bool = False) -> Optional[Element]:
+        if is_range_name:
+            return self.class_or_type(el_or_elname) \
+                if el_or_elname in self.schema.classes or \
+                   el_or_elname in self.schema.types or \
+                   el_or_elname == self.schema.default_range else None
+        elif el_or_elname in self.schema.slots:
+            return self.slot_for(cast(SlotDefinitionName, el_or_elname))
+        elif el_or_elname in self.schema.subsets:
+            return self.subset_for(el_or_elname)
+        else:
+            return self.class_or_type_for(el_or_elname)
 
     def default_prefix(self) -> Optional[str]:
         """ Return the default prefix for the schema
