@@ -1,0 +1,17 @@
+# Slot: start interbase coordinate
+
+
+
+
+URI: [biolink:start_interbase_coordinate](https://w3id.org/biolink/vocab/start_interbase_coordinate)
+## Domain and Range
+
+[GenomicSequenceLocalization](GenomicSequenceLocalization.md) ->  <sub>OPT</sub> [String](String.md)
+## Inheritance
+
+ *  is_a: [interbase coordinate](interbase_coordinate.md)
+## Children
+
+## Used by
+
+ * [GenomicSequenceLocalization](GenomicSequenceLocalization.md)
