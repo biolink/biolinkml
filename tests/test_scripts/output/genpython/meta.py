@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by pythongen.py version: 0.2.0
-# Generation date: 2019-06-02 15:35
+# Generation date: 2019-06-20 19:42
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta
@@ -337,6 +337,7 @@ class SlotDefinition(Definition):
 
     # === slot_definition ===
     domain: Union[str, ClassDefinitionName] = None
+    owner: Union[str, DefinitionName] = None
     is_a: Optional[Union[str, SlotDefinitionName]] = None
     mixins: List[Union[str, SlotDefinitionName]] = empty_list()
     apply_to: List[Union[str, SlotDefinitionName]] = empty_list()
@@ -375,6 +376,8 @@ class SlotDefinition(Definition):
             self.range = ElementName(self.range)
         if self.slot_uri is not None and not isinstance(self.slot_uri, URIorCURIE):
             self.slot_uri = URIorCURIE(self.slot_uri)
+        if self.owner is not None and not isinstance(self.owner, DefinitionName):
+            self.owner = DefinitionName(self.owner)
         if self.subproperty_of is not None and not isinstance(self.subproperty_of, URIorCURIE):
             self.subproperty_of = URIorCURIE(self.subproperty_of)
         if self.inverse is not None and not isinstance(self.inverse, SlotDefinitionName):

@@ -7,7 +7,7 @@ URI: [meta:class_definition_mixins](https://w3id.org/biolink/biolinkml/meta/clas
 ## Domain and Range
 
 [ClassDefinition](ClassDefinition.md) ->  <sub>0..*</sub> [ClassDefinition](ClassDefinition.md)
-## Inheritance
+## Parents
 
  *  is_a: [mixins](mixins.md)
 ## Children

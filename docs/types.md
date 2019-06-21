@@ -7,7 +7,7 @@ URI: [meta:types](https://w3id.org/biolink/biolinkml/meta/types)
 ## Domain and Range
 
 [SchemaDefinition](SchemaDefinition.md) ->  <sub>0..*</sub> [TypeDefinition](TypeDefinition.md)
-## Inheritance
+## Parents
 
 ## Children
 

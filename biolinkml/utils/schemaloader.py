@@ -6,6 +6,7 @@ from urllib.parse import urlparse
 from biolinkml.meta import SchemaDefinition, SlotDefinition, SlotDefinitionName, ClassDefinition, \
     ClassDefinitionName, TypeDefinitionName, TypeDefinition, ElementName
 from biolinkml.utils.formatutils import underscore, camelcase
+from biolinkml.utils.metamodelcore import Bool
 from biolinkml.utils.namespaces import Namespaces
 from biolinkml.utils.rawloader import load_raw_schema
 from biolinkml.utils.mergeutils import merge_schemas, merge_slots, merge_classes, slot_usage_name
@@ -71,11 +72,28 @@ class SchemaLoader:
         self.namespaces._base = self.schema.default_prefix if ':' in self.schema.default_prefix else \
             self.namespaces[self.schema.default_prefix]
 
+        # Assign class slot ownership
+        for cls in self.schema.classes.values():
+            if not isinstance(cls, ClassDefinition):
+                name = cls['name'] if 'name' in cls else 'Unknown'
+                self.raise_value_error(f'Class "{name} (type: {type(cls)})" definition is not a class definition')
+            if isinstance(cls.slots, str):
+                print(f"File: {self.schema.source_file} Class: {cls.name} Slots are not an array", file=sys.stderr)
+                cls.slots = [cls.slots]
+            for slotname in cls.slots:
+                if slotname in self.schema.slots:
+                    slot = self.schema.slots[cast(SlotDefinitionName, slotname)]
+                    slot.owner = cls.name
+                else:
+                    self.raise_value_error(f'Class "{cls.name}" - unknown slot: "{slotname}"')
+
+
         # Massage initial set of slots
         for slot in self.schema.slots.values():
             # Propagate domain to containing class
             if slot.domain and slot.domain in self.schema.classes:
                 if slot.name not in self.schema.classes[slot.domain].slots:
+                    slot.owner = slot.name
                     self.schema.classes[slot.domain].slots.append(slot.name)
             elif slot.domain:
                 self.raise_value_error(f"slot: {slot.name} - unrecognized domain ({slot.domain})")
@@ -94,12 +112,6 @@ class SchemaLoader:
 
         # Massage classes, propagating class slots entries domain back to the target slots
         for cls in self.schema.classes.values():
-            if not isinstance(cls, ClassDefinition):
-                name = cls['name'] if 'name' in cls else 'Unknown'
-                self.raise_value_error(f'Class "{name} (type: {type(cls)})" definition is not a class definition')
-            if isinstance(cls.slots, str):
-                print(f"File: {self.schema.source_file} Class: {cls.name} Slots are not an array", file=sys.stderr)
-                cls.slots = [cls.slots]
             for slotname in cls.slots:
                 if slotname in self.schema.slots:
                     slot = self.schema.slots[cast(SlotDefinitionName, slotname)]
@@ -108,8 +120,6 @@ class SchemaLoader:
                     elif slot.domain != cls.name:
                         self.raise_value_error(f'Slot: {slot.name} domain ({slot.domain}) '
                                                f'does not match declaring class "({cls.name})"')
-                else:
-                    self.raise_value_error(f'Class "{cls.name}" - unknown slot: "{slotname}"')
 
         # apply to --> mixins
         for cls in self.schema.classes.values():
@@ -159,6 +169,7 @@ class SchemaLoader:
             # Propagate domain to containing class
             if slot.domain and slot.domain in self.schema.classes:
                 if slot.name not in self.schema.classes[slot.domain].slots:
+                    slot.owner = slot.name
                     self.schema.classes[slot.domain].slots.append(slot.name)
             elif slot.domain:
                 self.raise_value_error(f"slot: {slot.name} - unrecognized domain ({slot.domain})")
@@ -263,6 +274,12 @@ class SchemaLoader:
             self.schema.source_file = os.path.basename(self.schema.source_file)
 
         self.synopsis = SchemaSynopsis(self.schema)
+        errs = self.synopsis.errors()
+        if errs:
+            print("Warning: The following errors were encountered in the schema")
+            for errline in errs:
+                print("\t" + errline)
+            print()
         for subset, referees in self.synopsis.subsetrefs.items():
             if subset not in self.schema.subsets:
                 self.raise_value_error(f"Subset: {subset} is not defined")
@@ -337,7 +354,8 @@ class SchemaLoader:
             else:
                 child_name = slot_usage_name(slotname, cls)
                 slot_alias = slotname
-            new_slot = SlotDefinition(name=child_name, alias=slot_alias, domain=cls.name, is_usage_slot=True)
+            new_slot = SlotDefinition(name=child_name, alias=slot_alias, domain=cls.name, is_usage_slot=Bool(True),
+                                      owner=cls.name)
             self.schema.slots[child_name] = new_slot
             merge_slots(new_slot, slot_usage)
 

@@ -7,7 +7,7 @@ URI: [meta:repr](https://w3id.org/biolink/biolinkml/meta/repr)
 ## Domain and Range
 
 [TypeDefinition](TypeDefinition.md) ->  <sub>OPT</sub> [String](String.md)
-## Inheritance
+## Parents
 
 ## Children
 

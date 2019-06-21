@@ -7,7 +7,7 @@ URI: [meta:type_uri](https://w3id.org/biolink/biolinkml/meta/type_uri)
 ## Domain and Range
 
 [TypeDefinition](TypeDefinition.md) ->  <sub>OPT</sub> [Uriorcurie](Uriorcurie.md)
-## Inheritance
+## Parents
 
 ## Children
 

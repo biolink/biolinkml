@@ -7,7 +7,7 @@ URI: [meta:see_also](https://w3id.org/biolink/biolinkml/meta/see_also)
 ## Domain and Range
 
 [Element](Element.md) ->  <sub>0..*</sub> [Uriorcurie](Uriorcurie.md)
-## Inheritance
+## Parents
 
 ## Children
 

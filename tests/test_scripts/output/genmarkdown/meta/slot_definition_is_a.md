@@ -7,7 +7,7 @@ URI: [meta:slot_definition_is_a](https://w3id.org/biolink/biolinkml/meta/slot_de
 ## Domain and Range
 
 [SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [SlotDefinition](SlotDefinition.md)
-## Inheritance
+## Parents
 
  *  is_a: [is_a](is_a.md)
 ## Children

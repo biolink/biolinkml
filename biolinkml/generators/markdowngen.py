@@ -106,22 +106,26 @@ class MarkdownGenerator(Generator):
                 print(f'![img]({img_url})')
                 self.mappings(cls)
 
-                self.header(2, 'Inheritance')
                 if cls.is_a is not None:
+                    self.header(2, 'Parents')
                     self.bullet(f' is_a: {self.class_link(cls.is_a, use_desc=True)}')
-                for mixin in cls.mixins:
-                    self.bullet(f' mixin: {self.class_link(mixin, use_desc=True)}')
+                if cls.mixins:
+                    self.header(2, 'Uses Mixins')
+                    for mixin in cls.mixins:
+                        self.bullet(f' mixin: {self.class_link(mixin, use_desc=True)}')
 
-                self.header(2, 'Children')
                 if cls.name in self.synopsis.isarefs:
+                    self.header(2, 'Children')
                     for child in sorted(self.synopsis.isarefs[cls.name].classrefs):
                         self.bullet(f'{self.class_link(child, use_desc=True)}')
+
                 if cls.name in self.synopsis.mixinrefs:
+                    self.header(2, 'Mixin for')
                     for mixin in sorted(self.synopsis.mixinrefs[cls.name].classrefs):
                         self.bullet(f'{self.class_link(mixin, use_desc=True, after_link="(mixin)")}')
 
                 if cls.name in self.synopsis.classrefs:
-                    self.header(2, 'Used by')
+                    self.header(2, 'Referenced by class')
                     for sn in sorted(self.synopsis.classrefs[cls.name].slotrefs):
                         slot = self.schema.slots[sn]
                         if slot.range == cls.name:
@@ -129,12 +133,27 @@ class MarkdownGenerator(Generator):
                                         f'*{self.slot_link(slot, add_subset=False)}*{self.predicate_cardinality(slot)}  '
                                         f'**{self.class_type_link(slot.range)}**')
 
-                self.header(2, 'Fields')
-                for sn in sorted(cls.slots):
-                    self.slot_field(cls, self.schema.slots[sn])
+                self.header(2, 'Attributes')
+                own_slots = [slot for slot in [self.schema.slots[sn]
+                                               for sn in sorted(cls.slots)] if slot.owner == cls.name]
+                if own_slots:
+                    self.header(3, 'Own')
+                    for slot in own_slots:
+                        self.slot_field(cls, slot)
 
-                for slot in sorted(self.all_slots(cls), key=lambda s: s.name):
-                    if slot.name not in cls.slots:
+                for slot_owner in sorted({slot.owner for slot in [self.schema.slots[sn]
+                                                                  for sn in cls.slots] if slot.owner != slot.name}):
+                    self.header(3, "Inherited from " + slot_owner + ':')
+                    for owner_slot_name in self.schema.classes[slot_owner].slots:
+                        owner_slot = self.schema.slots[owner_slot_name]
+                        if owner_slot.owner == slot_owner:
+                            self.slot_field(cls, owner_slot)
+
+                domain_for_slots = [slot for slot in [self.schema.slots[sn]
+                                                      for sn in sorted(cls.slots)] if slot.domain == cls.name]
+                if domain_for_slots:
+                    self.header(3, 'Domain for slot:')
+                    for slot in domain_for_slots:
                         self.slot_field(cls, slot)
 
         return True
@@ -153,7 +172,7 @@ class MarkdownGenerator(Generator):
                 print(f'{self.class_link(slot.domain)} ->{self.predicate_cardinality(slot)} '
                       f'{self.class_type_link(slot.range)}')
 
-                self.header(2, 'Inheritance')
+                self.header(2, 'Parents')
                 if slot.is_a:
                     self.bullet(f' is_a: {self.slot_link(slot.is_a)}')
 
@@ -321,7 +340,8 @@ class MarkdownGenerator(Generator):
         if obj is None or not self.is_secondary_ref(obj.name):
             return self.bbin(obj)
         if isinstance(obj, SlotDefinition):
-            link_name = ((be(obj.domain) + '.') if obj.alias else '') + self.aliased_slot_name(obj)
+            # link_name = ((be(obj.domain) + '.') if obj.alias else '') + self.aliased_slot_name(obj)
+            link_name = self.aliased_slot_name(obj)
             link_ref = underscore(obj.name)
         else:
             link_name = camelcase(obj.name)

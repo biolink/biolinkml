@@ -7,7 +7,7 @@ URI: [meta:is_class_field](https://w3id.org/biolink/biolinkml/meta/is_class_fiel
 ## Domain and Range
 
 [SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [Boolean](Boolean.md)
-## Inheritance
+## Parents
 
 ## Children
 

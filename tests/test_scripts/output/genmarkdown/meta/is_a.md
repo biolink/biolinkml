@@ -7,12 +7,12 @@ URI: [meta:is_a](https://w3id.org/biolink/biolinkml/meta/is_a)
 ## Domain and Range
 
 [Definition](Definition.md) ->  <sub>OPT</sub> [Definition](Definition.md)
-## Inheritance
+## Parents
 
 ## Children
 
- *  [class_definition.is_a](class_definition_is_a.md)
- *  [slot_definition.is_a](slot_definition_is_a.md)
+ *  [is_a](class_definition_is_a.md)
+ *  [is_a](slot_definition_is_a.md)
 ## Used by
 
  * [ClassDefinition](ClassDefinition.md)

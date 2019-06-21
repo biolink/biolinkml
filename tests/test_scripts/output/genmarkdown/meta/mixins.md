@@ -7,12 +7,12 @@ URI: [meta:mixins](https://w3id.org/biolink/biolinkml/meta/mixins)
 ## Domain and Range
 
 [Definition](Definition.md) ->  <sub>0..*</sub> [Definition](Definition.md)
-## Inheritance
+## Parents
 
 ## Children
 
- *  [class_definition.mixins](class_definition_mixins.md)
- *  [slot_definition.mixins](slot_definition_mixins.md)
+ *  [mixins](class_definition_mixins.md)
+ *  [mixins](slot_definition_mixins.md)
 ## Used by
 
  * [ClassDefinition](ClassDefinition.md)

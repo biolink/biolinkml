@@ -7,7 +7,7 @@ URI: [meta:default_range](https://w3id.org/biolink/biolinkml/meta/default_range)
 ## Domain and Range
 
 [SchemaDefinition](SchemaDefinition.md) ->  <sub>OPT</sub> [Definition](Definition.md)
-## Inheritance
+## Parents
 
 ## Children
 

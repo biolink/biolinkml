@@ -7,7 +7,7 @@ URI: [meta:subproperty_of](https://w3id.org/biolink/biolinkml/meta/subproperty_o
 ## Domain and Range
 
 [SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [Uriorcurie](Uriorcurie.md)
-## Inheritance
+## Parents
 
 ## Children
 

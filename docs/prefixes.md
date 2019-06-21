@@ -7,7 +7,7 @@ URI: [meta:prefixes](https://w3id.org/biolink/biolinkml/meta/prefixes)
 ## Domain and Range
 
 [SchemaDefinition](SchemaDefinition.md) ->  <sub>0..*</sub> [Prefix](Prefix.md)
-## Inheritance
+## Parents
 
 ## Children
 

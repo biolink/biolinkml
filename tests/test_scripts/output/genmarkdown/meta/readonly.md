@@ -7,7 +7,7 @@ URI: [meta:readonly](https://w3id.org/biolink/biolinkml/meta/readonly)
 ## Domain and Range
 
 [SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [String](String.md)
-## Inheritance
+## Parents
 
 ## Children
 

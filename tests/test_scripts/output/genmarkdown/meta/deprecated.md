@@ -7,7 +7,7 @@ URI: [meta:deprecated](https://w3id.org/biolink/biolinkml/meta/deprecated)
 ## Domain and Range
 
 [Element](Element.md) ->  <sub>OPT</sub> [String](String.md)
-## Inheritance
+## Parents
 
 ## Children
 

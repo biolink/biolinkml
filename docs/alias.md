@@ -7,7 +7,7 @@ URI: [meta:alias](https://w3id.org/biolink/biolinkml/meta/alias)
 ## Domain and Range
 
 [SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [String](String.md)
-## Inheritance
+## Parents
 
 ## Children
 

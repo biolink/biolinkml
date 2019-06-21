@@ -7,7 +7,7 @@ URI: [meta:slot_definition_mixins](https://w3id.org/biolink/biolinkml/meta/slot_
 ## Domain and Range
 
 [SlotDefinition](SlotDefinition.md) ->  <sub>0..*</sub> [SlotDefinition](SlotDefinition.md)
-## Inheritance
+## Parents
 
  *  is_a: [mixins](mixins.md)
 ## Children

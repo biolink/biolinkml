@@ -176,6 +176,7 @@ type SlotDefinition
     key: Boolean
     identifier: Boolean
     alias: String
+    owner: Definition!
     subpropertyOf: Uriorcurie
     symmetric: Boolean
     inverse: SlotDefinition

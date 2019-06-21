@@ -207,9 +207,13 @@ class SchemaSynopsis:
 
         # Look for slot domain / class slot mismatches
         for slotname, owners in self.owners.items():
+            owners = list(owners)
             if len(owners) > 1:
                 owners_str = ', '.join(owners)
                 rval += [f"\tSlot {slotname} has multiple owners: ({owners_str})"]
+            real_owner = self.schema.slots[slotname].owner
+            if real_owner is None or (real_owner != slotname and real_owner != owners[0]):
+                rval += [f'\tSlot "{slotname}"" owner ({self.schema.slots[slotname].owner}) does not match {owners[0]}']
         for slotname, slot in sorted(self.schema.slots.items(), key=lambda e: e[0]):
             if slotname not in self.owners:
                 if not self._ancestor_is_owned(slot):

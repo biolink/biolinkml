@@ -7,7 +7,7 @@ URI: [meta:alt_descriptions](https://w3id.org/biolink/biolinkml/meta/alt_descrip
 ## Domain and Range
 
 [Element](Element.md) ->  <sub>0..*</sub> [AltDescription](AltDescription.md)
-## Inheritance
+## Parents
 
 ## Children
 

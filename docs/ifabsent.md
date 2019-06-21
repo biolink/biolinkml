@@ -7,7 +7,7 @@ URI: [meta:ifabsent](https://w3id.org/biolink/biolinkml/meta/ifabsent)
 ## Domain and Range
 
 [SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [String](String.md)
-## Inheritance
+## Parents
 
 ## Children
 

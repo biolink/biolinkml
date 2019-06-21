@@ -15,7 +15,7 @@ URI: [meta:range](https://w3id.org/biolink/biolinkml/meta/range)
 ## Domain and Range
 
 [SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [Element](Element.md)
-## Inheritance
+## Parents
 
 ## Children
 

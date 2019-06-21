@@ -7,7 +7,7 @@ URI: [meta:metamodel_version](https://w3id.org/biolink/biolinkml/meta/metamodel_
 ## Domain and Range
 
 [SchemaDefinition](SchemaDefinition.md) ->  <sub>OPT</sub> [String](String.md)
-## Inheritance
+## Parents
 
 ## Children
 

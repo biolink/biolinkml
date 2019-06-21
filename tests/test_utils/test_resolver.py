@@ -38,6 +38,7 @@ class ResolverTestCase(unittest.TestCase):
              'inlined': True,
              'name': 's1',
              'notes': ['Pay attention here', 'Something might be happening'],
+             'owner': 's1',
              'range': 'c2',
              'required': False,
              'see_also': ['http://example.org/e1', 'ex:e2'],

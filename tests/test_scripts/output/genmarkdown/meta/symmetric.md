@@ -7,7 +7,7 @@ URI: [meta:symmetric](https://w3id.org/biolink/biolinkml/meta/symmetric)
 ## Domain and Range
 
 [SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [Boolean](Boolean.md)
-## Inheritance
+## Parents
 
 ## Children
 

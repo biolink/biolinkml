@@ -7,7 +7,7 @@ URI: [meta:class_uri](https://w3id.org/biolink/biolinkml/meta/class_uri)
 ## Domain and Range
 
 [ClassDefinition](ClassDefinition.md) ->  <sub>OPT</sub> [Uriorcurie](Uriorcurie.md)
-## Inheritance
+## Parents
 
 ## Children
 

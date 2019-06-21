@@ -512,6 +512,13 @@ slots:
       the name used for a slot in the context of its owning class.  If present, this is used instead of the actual
       slot name.
 
+  owner:
+    domain: slot_definition
+    range: definition
+    description: >-
+      the "owner" of the slot. It is the class if it appears in the slots list, otherwise the declaring slot
+    required: true
+
   is_usage_slot:
     domain: slot_definition
     range: boolean
@@ -771,6 +778,7 @@ classes:
       - key
       - identifier
       - alias
+      - owner
       - subproperty_of
       - symmetric
       - inverse

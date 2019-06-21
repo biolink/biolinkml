@@ -1,6 +1,6 @@
 
 Classes: 11
-	Referenced by: 6 classes, 84 slots, 0 types 
+	Referenced by: 6 classes, 85 slots, 0 types 
 	Root: 5
 	Leaf: 9
 	Standalone: 10
@@ -8,11 +8,11 @@ Classes: 11
 	Undeclared mixin: 0
 	Abstract: 2
 
-Slots: 84
+Slots: 85
 	Referenced by: 11 classes, 6 slots, 0 types 
-	Root: 78
-	Leaf: 81
-	Standalone: 86
+	Root: 79
+	Leaf: 82
+	Standalone: 87
 	Declared mixin: 0
 	Undeclared mixin: 0
 	Abstract: 1
@@ -28,7 +28,7 @@ Slots: 84
 		Class:
 			alt_description: 1
 			class_definition: 6
-			definition: 4
+			definition: 5
 			element: 1
 			example: 1
 			local_name: 1

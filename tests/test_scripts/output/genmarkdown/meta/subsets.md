@@ -7,7 +7,7 @@ URI: [meta:subsets](https://w3id.org/biolink/biolinkml/meta/subsets)
 ## Domain and Range
 
 [SchemaDefinition](SchemaDefinition.md) ->  <sub>0..*</sub> [SubsetDefinition](SubsetDefinition.md)
-## Inheritance
+## Parents
 
 ## Children
 

@@ -7,7 +7,7 @@ URI: [meta:class_definition_is_a](https://w3id.org/biolink/biolinkml/meta/class_
 ## Domain and Range
 
 [ClassDefinition](ClassDefinition.md) ->  <sub>OPT</sub> [ClassDefinition](ClassDefinition.md)
-## Inheritance
+## Parents
 
  *  is_a: [is_a](is_a.md)
 ## Children

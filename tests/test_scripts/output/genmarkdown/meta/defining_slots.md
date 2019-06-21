@@ -7,7 +7,7 @@ URI: [meta:defining_slots](https://w3id.org/biolink/biolinkml/meta/defining_slot
 ## Domain and Range
 
 [ClassDefinition](ClassDefinition.md) ->  <sub>0..*</sub> [SlotDefinition](SlotDefinition.md)
-## Inheritance
+## Parents
 
 ## Children
 

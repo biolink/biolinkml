@@ -5,6 +5,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX pav: <http://purl.org/pav/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>
 
 
@@ -44,6 +45,7 @@ PREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>
           <slot_usage> @<SlotDefinition> * ;
           <class_uri> @<Uriorcurie> ? ;
           rdfs:subClassOf @<Uriorcurie> ? ;
+          <union_of> @<ClassDefinition> * ;
           <defining_slots> @<SlotDefinition> * ;
           &<Definition_t>
        ) ;
@@ -106,7 +108,7 @@ PREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>
     (  $<SchemaDefinition_t> (  <id> @<Uri> ;
           dcterms:title @<String> ? ;
           pav:version @<String> ? ;
-          <imports> @<Uri> * ;
+          <imports> @<Uriorcurie> * ;
           dcterms:license @<String> ? ;
           <prefixes> @<Prefix> * ;
           <emit_prefixes> @<Ncname> * ;
@@ -135,7 +137,7 @@ PREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>
           skos:altLabel @<String> ? ;
           <domain> @<ClassDefinition> ;
           <range> @<Element> ? ;
-          <slot_uri> @<Uri> ? ;
+          <slot_uri> @<Uriorcurie> ? ;
           <multivalued> @<Boolean> ? ;
           <inherited> @<Boolean> ? ;
           <readonly> @<String> ? ;
@@ -145,7 +147,12 @@ PREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>
           <key> @<Boolean> ? ;
           <identifier> @<Boolean> ? ;
           <alias> @<String> ? ;
+          <owner> @<Definition> ;
           rdfs:subPropertyOf @<Uriorcurie> ? ;
+          <symmetric> @<Boolean> ? ;
+          owl:inverseOf @<SlotDefinition> ? ;
+          <is_class_field> @<Boolean> ? ;
+          <role> @<String> ? ;
           <is_usage_slot> @<Boolean> ? ;
           &<Definition_t>
        ) ;
@@ -154,7 +161,9 @@ PREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>
 }
 
 <SubsetDefinition> EXTRA rdf:type CLOSED {
-    (  &<Element_t> ;
+    (  $<SubsetDefinition_t> (  &<Element_t> ;
+          <http://ex.org/dummy> . ?
+       ) ;
        rdf:type [ <SubsetDefinition> ]
     )
 }

@@ -7,7 +7,7 @@ URI: [meta:class_definition_apply_to](https://w3id.org/biolink/biolinkml/meta/cl
 ## Domain and Range
 
 [ClassDefinition](ClassDefinition.md) ->  <sub>0..*</sub> [ClassDefinition](ClassDefinition.md)
-## Inheritance
+## Parents
 
  *  is_a: [apply_to](apply_to.md)
 ## Children

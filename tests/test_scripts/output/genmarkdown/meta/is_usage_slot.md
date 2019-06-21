@@ -7,7 +7,7 @@ URI: [meta:is_usage_slot](https://w3id.org/biolink/biolinkml/meta/is_usage_slot)
 ## Domain and Range
 
 [SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [Boolean](Boolean.md)
-## Inheritance
+## Parents
 
 ## Children
 

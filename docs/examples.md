@@ -7,7 +7,7 @@ URI: [meta:examples](https://w3id.org/biolink/biolinkml/meta/examples)
 ## Domain and Range
 
 [Element](Element.md) ->  <sub>0..*</sub> [Example](Example.md)
-## Inheritance
+## Parents
 
 ## Children
 

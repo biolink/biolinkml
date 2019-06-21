@@ -7,7 +7,7 @@ URI: [meta:prefix_prefix](https://w3id.org/biolink/biolinkml/meta/prefix_prefix)
 ## Domain and Range
 
 [Prefix](Prefix.md) ->  <sub>REQ</sub> [Ncname](Ncname.md)
-## Inheritance
+## Parents
 
 ## Children
 

@@ -7,7 +7,7 @@ URI: [meta:generation_date](https://w3id.org/biolink/biolinkml/meta/generation_d
 ## Domain and Range
 
 [SchemaDefinition](SchemaDefinition.md) ->  <sub>OPT</sub> [Datetime](Datetime.md)
-## Inheritance
+## Parents
 
 ## Children
 

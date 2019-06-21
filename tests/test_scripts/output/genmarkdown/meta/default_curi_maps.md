@@ -7,7 +7,7 @@ URI: [meta:default_curi_maps](https://w3id.org/biolink/biolinkml/meta/default_cu
 ## Domain and Range
 
 [SchemaDefinition](SchemaDefinition.md) ->  <sub>0..*</sub> [String](String.md)
-## Inheritance
+## Parents
 
 ## Children
 

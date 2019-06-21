@@ -7,7 +7,7 @@ URI: [meta:value_description](https://w3id.org/biolink/biolinkml/meta/value_desc
 ## Domain and Range
 
 [Example](Example.md) ->  <sub>OPT</sub> [String](String.md)
-## Inheritance
+## Parents
 
 ## Children
 

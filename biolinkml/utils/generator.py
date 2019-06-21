@@ -472,7 +472,7 @@ class Generator(metaclass=abc.ABCMeta):
 
     def obj_for(self, el_or_elname: str, is_range_name: bool = False) -> Optional[Element]:
         if is_range_name:
-            return self.class_or_type(el_or_elname) \
+            return self.class_or_type_for(el_or_elname) \
                 if el_or_elname in self.schema.classes or \
                    el_or_elname in self.schema.types or \
                    el_or_elname == self.schema.default_range else None

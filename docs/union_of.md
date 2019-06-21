@@ -7,7 +7,7 @@ URI: [meta:union_of](https://w3id.org/biolink/biolinkml/meta/union_of)
 ## Domain and Range
 
 [ClassDefinition](ClassDefinition.md) ->  <sub>0..*</sub> [ClassDefinition](ClassDefinition.md)
-## Inheritance
+## Parents
 
 ## Children
 

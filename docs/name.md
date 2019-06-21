@@ -7,7 +7,7 @@ URI: [meta:name](https://w3id.org/biolink/biolinkml/meta/name)
 ## Domain and Range
 
 [Element](Element.md) ->  <sub>REQ</sub> [String](String.md)
-## Inheritance
+## Parents
 
 ## Children
 

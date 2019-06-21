@@ -131,12 +131,13 @@ message SlotDefinition
   optional key None = 33
   optional identifier None = 34
   optional alias None = 35
-  optional subpropertyOf None = 36
-  optional symmetric None = 37
-  optional inverse None = 38
-  optional isClassField None = 39
-  optional role None = 40
-  optional isUsageSlot None = 41
+  owner None = 36
+  optional subpropertyOf None = 37
+  optional symmetric None = 38
+  optional inverse None = 39
+  optional isClassField None = 40
+  optional role None = 41
+  optional isUsageSlot None = 42
  }
 // the name and description of a subset
 message SubsetDefinition

@@ -7,7 +7,7 @@ URI: [meta:in_subset](https://w3id.org/biolink/biolinkml/meta/in_subset)
 ## Domain and Range
 
 [Element](Element.md) ->  <sub>0..*</sub> [SubsetDefinition](SubsetDefinition.md)
-## Inheritance
+## Parents
 
 ## Children
 

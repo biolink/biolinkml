@@ -7,12 +7,12 @@ URI: [meta:apply_to](https://w3id.org/biolink/biolinkml/meta/apply_to)
 ## Domain and Range
 
 [Definition](Definition.md) ->  <sub>0..*</sub> [Definition](Definition.md)
-## Inheritance
+## Parents
 
 ## Children
 
- *  [class_definition.apply_to](class_definition_apply_to.md)
- *  [slot_definition.apply_to](slot_definition_apply_to.md)
+ *  [apply_to](class_definition_apply_to.md)
+ *  [apply_to](slot_definition_apply_to.md)
 ## Used by
 
  * [ClassDefinition](ClassDefinition.md)

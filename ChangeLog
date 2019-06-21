@@ -1,6 +1,13 @@
 CHANGES
 =======
 
+v1.3.6
+------
+
+* Add functions to generator to support biolink-model-toolkit, issue #10
+* Switch back to w3id server in test case
+* Fix for issue #8
+
 v1.3.5
 ------
 

@@ -243,6 +243,10 @@
                 shex:predicate <https://w3id.org/biolink/biolinkml/meta/alias> ;
                 shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/String> ] [ a shex:TripleConstraint ;
                 shex:max 1 ;
+                shex:min 1 ;
+                shex:predicate <https://w3id.org/biolink/biolinkml/meta/owner> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/Definition> ] [ a shex:TripleConstraint ;
+                shex:max 1 ;
                 shex:min 0 ;
                 shex:predicate rdfs:subPropertyOf ;
                 shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/Uriorcurie> ] [ a shex:TripleConstraint ;
@@ -383,15 +387,6 @@
 <https://w3id.org/biolink/biolinkml/meta/Uri> a shex:NodeConstraint ;
     shex:nodeKind shex:nonliteral .
 
-<https://w3id.org/biolink/biolinkml/meta/Definition> a shex:Shape ;
-    shex:closed true ;
-    shex:expression [ a shex:EachOf ;
-            shex:expressions ( <https://w3id.org/biolink/biolinkml/meta/Definition_t> [ a shex:TripleConstraint ;
-                        shex:predicate rdf:type ;
-                        shex:valueExpr [ a shex:NodeConstraint ;
-                                shex:values ( <https://w3id.org/biolink/biolinkml/meta/Definition> ) ] ] ) ] ;
-    shex:extra rdf:type .
-
 <https://w3id.org/biolink/biolinkml/meta/Element_t> a shex:EachOf ;
     shex:expressions ( [ a shex:TripleConstraint ;
                 shex:max -1 ;
@@ -454,6 +449,15 @@
                 shex:min 0 ;
                 shex:predicate rdfs:seeAlso ;
                 shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/Uriorcurie> ] ) .
+
+<https://w3id.org/biolink/biolinkml/meta/Definition> a shex:Shape ;
+    shex:closed true ;
+    shex:expression [ a shex:EachOf ;
+            shex:expressions ( <https://w3id.org/biolink/biolinkml/meta/Definition_t> [ a shex:TripleConstraint ;
+                        shex:predicate rdf:type ;
+                        shex:valueExpr [ a shex:NodeConstraint ;
+                                shex:values ( <https://w3id.org/biolink/biolinkml/meta/Definition> ) ] ] ) ] ;
+    shex:extra rdf:type .
 
 <https://w3id.org/biolink/biolinkml/meta/Ncname> a shex:NodeConstraint ;
     shex:datatype xsd:string .

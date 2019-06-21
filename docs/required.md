@@ -7,7 +7,7 @@ URI: [meta:required](https://w3id.org/biolink/biolinkml/meta/required)
 ## Domain and Range
 
 [SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [Boolean](Boolean.md)
-## Inheritance
+## Parents
 
 ## Children
 

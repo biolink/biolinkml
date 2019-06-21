@@ -6,18 +6,32 @@ an attributed description
 URI: [meta:AltDescription](https://w3id.org/biolink/biolinkml/meta/AltDescription)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Element]++-%20alt_descriptions%200..*>\[AltDescription|source(pk):ncname;description:string])
-## Inheritance
-
-## Children
-
-## Used by
+## Referenced by class
 
  *  **[Element](Element.md)** *[alt_descriptions](alt_descriptions.md)*  <sub>0..*</sub>  **[AltDescription](AltDescription.md)**
-## Fields
+## Attributes
 
- * [alt_description.source](alt_description_source.md)  <sub>REQ</sub>
+### Own
+
+ * [source](alt_description_source.md)  <sub>REQ</sub>
     * Description: the source of an attributed description
     * range: [Ncname](Ncname.md)
- * [alt_description.description](alt_description_text.md)  <sub>REQ</sub>
+ * [description](alt_description_text.md)  <sub>REQ</sub>
+    * Description: text of an attributed description
+    * range: [String](String.md)
+### Inherited from alt_description:
+
+ * [source](alt_description_source.md)  <sub>REQ</sub>
+    * Description: the source of an attributed description
+    * range: [Ncname](Ncname.md)
+ * [description](alt_description_text.md)  <sub>REQ</sub>
+    * Description: text of an attributed description
+    * range: [String](String.md)
+### Domain for slot:
+
+ * [source](alt_description_source.md)  <sub>REQ</sub>
+    * Description: the source of an attributed description
+    * range: [Ncname](Ncname.md)
+ * [description](alt_description_text.md)  <sub>REQ</sub>
     * Description: text of an attributed description
     * range: [String](String.md)
