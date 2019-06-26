@@ -14,7 +14,7 @@ METATYPE = Namespace("https://w3id.org/biolink/biolinkml/type/")
 
 class DateTestCase(unittest.TestCase):
     def test_date_time(self):
-        """ has_phenotype shouldn't appear in the UML graph """
+        """ date datatype should be rdf:date and datetime rdf:datetime """
         rdf = RDFGenerator(LOCAL_TYPES_PATH).serialize()
         g = Graph()
         g.parse(data=rdf, format="turtle")

@@ -50,12 +50,12 @@
       {
          "type": "NodeConstraint",
          "id": "https://w3id.org/biolink/biolinkml/meta/Uriorcurie",
-         "nodeKind": "nonliteral"
+         "nodeKind": "iri"
       },
       {
          "type": "NodeConstraint",
          "id": "https://w3id.org/biolink/biolinkml/meta/Uri",
-         "nodeKind": "nonliteral"
+         "nodeKind": "iri"
       },
       {
          "type": "NodeConstraint",
