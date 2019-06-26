@@ -6,7 +6,7 @@ from typing import Optional, Callable
 from rdflib import Graph, Namespace, OWL
 from rdflib.compare import to_isomorphic, graph_diff
 
-from biolinkml import METAMODEL_NAMESPACE
+from biolinkml import METAMODEL_NAMESPACE, MODULE_DIR
 from biolinkml.utils.generator import Generator
 from tests.test_scripts.clicktestcase import ClickTestCase
 from tests.utils.compare_directories import are_dir_trees_equal
@@ -37,13 +37,14 @@ class GeneratorTestCase(unittest.TestCase):
         g_text = re.sub(r'@prefix.*\n', '', g.serialize(format="turtle").decode())
         print(g_text)
 
-    def _default_comparator(self, old_data: str, new_data: str, new_file: str) -> None:
+    def _default_comparator(self, old_data: str, new_data: str, new_file: str, msg: Optional[str] = None) -> None:
         """ Simple file comparator.  Compare old to new and, if they don't match, save an image of new in
         new_file and raise an error
 
         :param old_data: Expected data
         :param new_data: Actual data
         :param new_file: Save actual data here if mismatch
+        :param msg: If present add to the assert message
         :return:
         """
         self.maxDiff = None
@@ -52,15 +53,16 @@ class GeneratorTestCase(unittest.TestCase):
                 newf.write(new_data)
             if len(new_data) > 20000:
                 print(ClickTestCase.closein_comparison(old_data, new_data))
-            self.assertEqual(old_data, new_data)
+            self.assertEqual(old_data, new_data, msg=msg)
 
-    def rdf_comparator(self, old_data: str, new_data: str, new_file:str) -> None:
+    def rdf_comparator(self, old_data: str, new_data: str, new_file: str, msg: Optional[str] = None) -> None:
         """
         RDF comparator.  Compare two graphs and, if they don't match, save a turtle image of new_data in
         new_file and raise an error
         :param old_data: Turtle representation of expected RDF
         :param new_data: Turtle representation of actual RDF
         :param new_file: Save actual RDF here if mismatch
+        :param msg: If present, add to assert message
         :return:
         """
         old_graph = Graph()
@@ -94,7 +96,7 @@ class GeneratorTestCase(unittest.TestCase):
                 self._print_triples(in_new)
             with open(new_file, 'w') as newf:
                 newf.write(new_data)
-            self.assertTrue(False, "RDF file mismatch")
+            self.assertTrue(False, "RDF file mismatch" if not msg else msg)
 
     def single_file_generator(self, suffix: str, gen: type(Generator), gen_args: Optional[dict] = None,
                               serialize_args: Optional[dict] = None,
@@ -122,6 +124,7 @@ class GeneratorTestCase(unittest.TestCase):
             comparator = GeneratorTestCase._default_comparator
         old_file = os.path.join(self.source_path, self.model_name + '.' + suffix)
         new_file = os.path.join(self.target_path, self.model_name + '.' + suffix)
+        message = f"Comparing existing {os.path.relpath(old_file, MODULE_DIR)} to new {os.path.relpath(new_file, MODULE_DIR)}"
         yaml_file = os.path.join(self.model_path, self.model_name + '.yaml')
         if os.path.exists(new_file):
             os.remove(new_file)
@@ -134,7 +137,7 @@ class GeneratorTestCase(unittest.TestCase):
 
         with open(old_file) as oldf:
             old_data = filtr(oldf.read())
-        comparator(self, old_data, filtr(new_data), new_file)
+        comparator(self, old_data, filtr(new_data), new_file, message)
 
     def directory_generator(self, dirname: str, gen: type(Generator), gen_args: Optional[dict] = None,
                             serialize_args: Optional[dict] = None):
