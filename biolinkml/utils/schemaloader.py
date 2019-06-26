@@ -224,9 +224,13 @@ class SchemaLoader:
             return ', '.join(sorted(s1.intersection(s2)))
 
         classes = set(self.schema.classes.keys())
+        self.validate_item_names("class", classes)
         slots = set(self.schema.slots.keys())
+        self.validate_item_names("slot", slots)
         types = set(self.schema.types.keys())
+        self.validate_item_names("type", types)
         subsets = set(self.schema.subsets.keys())
+        self.validate_item_names("subset", subsets)
 
         # Check that the default range is valid
         if not self.schema.default_range:
@@ -284,6 +288,15 @@ class SchemaLoader:
             if subset not in self.schema.subsets:
                 self.raise_value_error(f"Subset: {subset} is not defined")
         return self.schema
+
+
+    def validate_item_names(self, typ: str, names: List[str]) -> None:
+        # TODO: add a more rigorous syntax check for item names
+        for name in names:
+            if ':' in name:
+                raise ValueError(f'{typ}: "{name}" - ":" not allowed in identifier')
+
+
 
     def merge_slot(self, slot: SlotDefinition, merged_slots: List[SlotDefinitionName]) -> None:
         """
