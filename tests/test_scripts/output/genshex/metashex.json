@@ -40,7 +40,7 @@
       {
          "type": "NodeConstraint",
          "id": "https://w3id.org/biolink/biolinkml/meta/Date",
-         "datatype": "http://www.w3.org/2001/XMLSchema#dateTime"
+         "datatype": "http://www.w3.org/2001/XMLSchema#date"
       },
       {
          "type": "NodeConstraint",

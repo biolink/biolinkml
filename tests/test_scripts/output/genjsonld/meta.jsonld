@@ -126,7 +126,7 @@
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
       "imported_from": "includes/types",
       "base": "XSDDate",
-      "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "uri": "http://www.w3.org/2001/XMLSchema#date",
       "repr": "str",
       "type": "TypeDefinition"
     },
@@ -1495,7 +1495,7 @@
   "source_file": "meta.yaml",
   "source_file_date": "Tue Jun 11 22:42:42 2019",
   "source_file_size": 22748,
-  "generation_date": "2019-06-20 19:42",
+  "generation_date": "2019-06-26 10:49",
   "type": "SchemaDefinition",
   "@context": [
     "file:///Users/solbrig/git/biolink/biolinkml/tests/test_scripts/output/gencontext/meta.jsonld",

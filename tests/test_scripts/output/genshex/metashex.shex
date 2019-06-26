@@ -21,7 +21,7 @@ PREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>
 
 <Time> xsd:dateTime
 
-<Date> xsd:dateTime
+<Date> xsd:date
 
 <Datetime> xsd:dateTime
 

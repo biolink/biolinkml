@@ -56,7 +56,7 @@
                 shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/SlotDefinition> ] <https://w3id.org/biolink/biolinkml/meta/Definition_t> ) .
 
 <https://w3id.org/biolink/biolinkml/meta/Date> a shex:NodeConstraint ;
-    shex:datatype xsd:dateTime .
+    shex:datatype xsd:date .
 
 <https://w3id.org/biolink/biolinkml/meta/Double> a shex:NodeConstraint ;
     shex:datatype xsd:double .

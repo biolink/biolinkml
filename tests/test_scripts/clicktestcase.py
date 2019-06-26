@@ -16,6 +16,7 @@ from rdflib.compare import to_isomorphic, graph_diff
 
 from tests.utils.compare_directories import are_dir_trees_equal
 from tests.utils.dirutils import make_and_clear_directory
+from biolinkml import MODULE_DIR
 
 
 class CLIExitException(Exception):
@@ -197,14 +198,15 @@ class ClickTestCase(unittest.TestCase):
 
                 # If necessary, update the test file
                 if not compare_result:
+                    msg = f"Existing file: {os.path.relpath(testfile_path, MODULE_DIR)}"
                     if self.soft_compare and not bypass_soft_compare:
                         print(f"{self.id()}: {self.soft_compare}")
                     elif not comparator:
                         if len(old_txt) > 10000:
                             print(self.closein_comparison(old_txt, new_txt))
-                        self.assertEqual(old_txt, new_txt)
+                        self.assertEqual(old_txt, new_txt, msg=msg)
                     else:
-                        self.assertFalse(True, "Mismatch")
+                        self.assertFalse(True, "Mismatch", msg=msg)
 
     def temp_directory(self, base: str) -> str:
         """

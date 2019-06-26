@@ -76,7 +76,7 @@
          ],
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "XSDDate",
-         "uri": "xsd:dateTime",
+         "uri": "xsd:date",
          "repr": "str"
       },
       {
