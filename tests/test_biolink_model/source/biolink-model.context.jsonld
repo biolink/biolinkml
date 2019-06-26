@@ -169,7 +169,7 @@
          "@id": "RO:0002610"
       },
       "creation_date": {
-         "@type": "xsd:dateTime",
+         "@type": "xsd:date",
          "@id": "dcterms:created"
       },
       "decreases_abundance_of": {
@@ -559,7 +559,7 @@
          "@id": "RO:0002606"
       },
       "update_date": {
-         "@type": "xsd:dateTime"
+         "@type": "xsd:date"
       },
       "xenologous_to": {
          "@type": "@id",

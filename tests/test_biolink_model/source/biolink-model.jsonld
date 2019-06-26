@@ -260,7 +260,7 @@
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
       "imported_from": "https://w3id.org/biolink/biolinkml/types",
       "base": "XSDDate",
-      "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "uri": "http://www.w3.org/2001/XMLSchema#date",
       "repr": "str",
       "type": "TypeDefinition"
     },
