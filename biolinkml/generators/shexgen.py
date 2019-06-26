@@ -35,6 +35,7 @@ def nevermatch() -> TripleConstraint:
     """
     return TripleConstraint(predicate="http://ex.org/dummy", min=1, max=1)
 
+
 class ShExGenerator(Generator):
     generatorname = os.path.basename(__file__)
     generatorversion = "0.0.2"
@@ -53,6 +54,12 @@ class ShExGenerator(Generator):
         self.meta = Namespace(self.namespaces.join(self.namespaces[METAMODEL_LOCAL_NAME], ''))  # URI for the metamodel
         self.base = Namespace(self.namespaces.join(self.namespaces._base, ''))    # Base URI for what is being modeled
 
+    def serialize(self, format: Optional[str] = None, **args) -> str:
+        if format is not None and format not in self.valid_formats:
+            raise ValueError(f"Unrecognized format: {format}")
+        self.format = format
+        return super().serialize(**args)
+
     def visit_schema(self, **_):
         # Adjust the schema context to include the base model URI
         context = self.shex['@context']
@@ -62,7 +69,7 @@ class ShExGenerator(Generator):
             if typ.uri:
                 uri = self.namespaces.uri_for(typ.uri)
                 if uri == XSD.anyURI:
-                    self.shapes.append(NodeConstraint(id=self._shape_iri(typ.name), nodeKind="nonliteral"))
+                    self.shapes.append(NodeConstraint(id=self._shape_iri(typ.name), nodeKind="iri"))
                 else:
                     self.shapes.append(NodeConstraint(id=self._shape_iri(typ.name),
                                                       datatype=self.namespaces.uri_for(typ.uri)))
