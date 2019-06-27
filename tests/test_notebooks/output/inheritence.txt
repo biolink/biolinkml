@@ -39,9 +39,9 @@ http://yuml.me/diagram/nofunky;dir:TB/class/[Root]^-[Children|root_id:string], [
             "expressions": [
                {
                   "type": "EachOf",
-                  "id": "http://example.org/model/Child1_t",
+                  "id": "http://example.org/model/Child1_struct",
                   "expressions": [
-                     "http://example.org/model/Children_t",
+                     "http://example.org/model/Children_struct",
                      {
                         "type": "TripleConstraint",
                         "predicate": "http://ex.org/dummy",
@@ -64,8 +64,17 @@ http://yuml.me/diagram/nofunky;dir:TB/class/[Root]^-[Children|root_id:string], [
          }
       },
       {
-         "type": "Shape",
+         "type": "ShapeOr",
          "id": "http://example.org/model/Child2",
+         "shapeExprs": [
+            "http://example.org/model/Child21",
+            "http://example.org/model/Child22",
+            "http://example.org/model/Child2Type"
+         ]
+      },
+      {
+         "type": "Shape",
+         "id": "http://example.org/model/Child2_type",
          "closed": true,
          "extra": [
             "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
@@ -75,7 +84,7 @@ http://yuml.me/diagram/nofunky;dir:TB/class/[Root]^-[Children|root_id:string], [
             "expressions": [
                {
                   "type": "EachOf",
-                  "id": "http://example.org/model/Child2_t",
+                  "id": "http://example.org/model/Child2_struct",
                   "expressions": [
                      {
                         "type": "TripleConstraint",
@@ -84,7 +93,7 @@ http://yuml.me/diagram/nofunky;dir:TB/class/[Root]^-[Children|root_id:string], [
                         "min": 1,
                         "max": 1
                      },
-                     "http://example.org/model/Children_t"
+                     "http://example.org/model/Children_struct"
                   ]
                },
                {
@@ -112,9 +121,9 @@ http://yuml.me/diagram/nofunky;dir:TB/class/[Root]^-[Children|root_id:string], [
             "expressions": [
                {
                   "type": "EachOf",
-                  "id": "http://example.org/model/Child21_t",
+                  "id": "http://example.org/model/Child21_struct",
                   "expressions": [
-                     "http://example.org/model/Child2_t",
+                     "http://example.org/model/Child2_struct",
                      {
                         "type": "TripleConstraint",
                         "predicate": "http://ex.org/dummy",
@@ -148,7 +157,7 @@ http://yuml.me/diagram/nofunky;dir:TB/class/[Root]^-[Children|root_id:string], [
             "expressions": [
                {
                   "type": "EachOf",
-                  "id": "http://example.org/model/Child22_t",
+                  "id": "http://example.org/model/Child22_struct",
                   "expressions": [
                      {
                         "type": "TripleConstraint",
@@ -157,7 +166,7 @@ http://yuml.me/diagram/nofunky;dir:TB/class/[Root]^-[Children|root_id:string], [
                         "min": 1,
                         "max": 1
                      },
-                     "http://example.org/model/Child2_t"
+                     "http://example.org/model/Child2_struct"
                   ]
                },
                {
@@ -174,8 +183,17 @@ http://yuml.me/diagram/nofunky;dir:TB/class/[Root]^-[Children|root_id:string], [
          }
       },
       {
-         "type": "Shape",
+         "type": "ShapeOr",
          "id": "http://example.org/model/Children",
+         "shapeExprs": [
+            "http://example.org/model/Child1",
+            "http://example.org/model/Child2",
+            "http://example.org/model/ChildrenType"
+         ]
+      },
+      {
+         "type": "Shape",
+         "id": "http://example.org/model/Children_type",
          "closed": true,
          "extra": [
             "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
@@ -185,9 +203,9 @@ http://yuml.me/diagram/nofunky;dir:TB/class/[Root]^-[Children|root_id:string], [
             "expressions": [
                {
                   "type": "EachOf",
-                  "id": "http://example.org/model/Children_t",
+                  "id": "http://example.org/model/Children_struct",
                   "expressions": [
-                     "http://example.org/model/Root_t",
+                     "http://example.org/model/Root_struct",
                      {
                         "type": "TripleConstraint",
                         "predicate": "http://ex.org/dummy",
@@ -210,15 +228,23 @@ http://yuml.me/diagram/nofunky;dir:TB/class/[Root]^-[Children|root_id:string], [
          }
       },
       {
-         "type": "Shape",
+         "type": "ShapeOr",
          "id": "http://example.org/model/Root",
+         "shapeExprs": [
+            "http://example.org/model/Children",
+            "http://example.org/model/RootType"
+         ]
+      },
+      {
+         "type": "Shape",
+         "id": "http://example.org/model/Root_type",
          "closed": true,
          "extra": [
             "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
          ],
          "expression": {
             "type": "TripleConstraint",
-            "id": "http://example.org/model/Root_t",
+            "id": "http://example.org/model/Root_struct",
             "predicate": "http://ex.org/dummy",
             "min": 0,
             "max": 1

@@ -636,10 +636,10 @@ classes:
             gen.neighborhood([cast(ElementName, 'Definition')])
         self.assertEqual("Warning: neighborhood(Definition) - Definition is undefined", errfile.getvalue().strip())
         self.assertEqual(References(
-            classrefs={cast(ClassDefinitionName, e) for e in ['class_definition', 'local_name', 'schema_definition',
+            classrefs={cast(ClassDefinitionName, e) for e in ['class_definition', 'local_name',
                                                               'subset_definition', 'alt_description', 'definition',
                                                               'example', 'slot_definition', 'element']},
-            slotrefs={cast(SlotDefinitionName, e) for e in ['is_a', 'apply_to', 'mixins', 'default_range', 'owner']},
+            slotrefs={cast(SlotDefinitionName, e) for e in ['is_a', 'apply_to', 'mixins', 'owner']},
             typerefs={cast(TypeDefinitionName, e) for e in ['uriorcurie', 'boolean', 'uri', 'ncname', 'string']},
             subsetrefs=set()), gen.neighborhood('definition'))
 

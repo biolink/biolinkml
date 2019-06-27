@@ -50,8 +50,20 @@ class MetaModelTestCase(GeneratorTestCase):
                     print(r.reason)
         return success
 
+    def test_meta_shecx(self):
+        """ Test the shex ShExC generation """
+        self.single_file_generator('shex', ShExGenerator, serialize_args={"format": "shex"})
+
+    def test_meta_shecj(self):
+        """ Test the shex ShExJ generation """
+        self.single_file_generator('json', ShExGenerator, serialize_args={"format": "json"})
+
     def test_meta_rdf(self):
         """ Test the rdf generator for the biolink model """
+        # Make sure the ShEx is good
+        self.single_file_generator('shex', ShExGenerator, serialize_args={"format": "shex"})
+
+        # Make a fresh copy of the RDF and validate it as well
         self.single_file_generator('ttl', RDFGenerator, serialize_args={"context": LOCAL_CONTEXT_PATH},
                                    comparator=GeneratorTestCase.rdf_comparator)
 

@@ -13,7 +13,7 @@ from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.metamodelcore import Bool, NCName, URI, URIorCURIE, XSDDateTime
 from includes.types import Boolean, Datetime, Integer, Ncname, String, Uri, Uriorcurie
 
-metamodel_version = "1.3.4"
+metamodel_version = "1.3.5"
 
 # Types
 
@@ -142,7 +142,7 @@ class SchemaDefinition(Element):
     emit_prefixes: List[Union[str, NCName]] = empty_list()
     default_curi_maps: List[str] = empty_list()
     default_prefix: Optional[str] = None
-    default_range: Optional[Union[str, DefinitionName]] = None
+    default_range: Optional[Union[str, TypeDefinitionName]] = None
     subsets: Dict[Union[str, SubsetDefinitionName], Union[dict, "SubsetDefinition"]] = empty_dict()
     types: Dict[Union[str, TypeDefinitionName], Union[dict, "TypeDefinition"]] = empty_dict()
     slots: Dict[Union[str, SlotDefinitionName], Union[dict, "SlotDefinition"]] = empty_dict()
@@ -166,8 +166,8 @@ class SchemaDefinition(Element):
                 self.prefixes[k] = Prefix(k, v)
         self.emit_prefixes = [v if isinstance(v, NCName)
                               else NCName(v) for v in self.emit_prefixes]
-        if self.default_range is not None and not isinstance(self.default_range, DefinitionName):
-            self.default_range = DefinitionName(self.default_range)
+        if self.default_range is not None and not isinstance(self.default_range, TypeDefinitionName):
+            self.default_range = TypeDefinitionName(self.default_range)
         for k, v in self.subsets.items():
             if not isinstance(v, SubsetDefinition):
                 self.subsets[k] = SubsetDefinition(name=k, **({} if v is None else v))
