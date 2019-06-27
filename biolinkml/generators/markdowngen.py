@@ -141,8 +141,8 @@ class MarkdownGenerator(Generator):
                     for slot in own_slots:
                         self.slot_field(cls, slot)
 
-                for slot_owner in sorted({slot.owner for slot in [self.schema.slots[sn]
-                                                                  for sn in cls.slots] if slot.owner != slot.name}):
+                for slot_owner in sorted({slot.owner for slot in [self.schema.slots[sn] for sn in cls.slots]
+                                          if slot.owner != slot.name and slot.owner != cls.name}):
                     self.header(3, "Inherited from " + slot_owner + ':')
                     for owner_slot_name in self.schema.classes[slot_owner].slots:
                         owner_slot = self.schema.slots[owner_slot_name]
@@ -287,7 +287,7 @@ class MarkdownGenerator(Generator):
 
     @staticmethod
     def header(level: int, txt: str) -> None:
-        print(f'{"#" * level} {txt}\n')
+        print(f'\n{"#" * level} {txt}\n')
 
     @staticmethod
     def para(txt: str) -> None:
