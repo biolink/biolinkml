@@ -3,253 +3,72 @@
 -----
 http://yuml.me/diagram/nofunky;dir:TB/class/[Root]^-[Children|root_id:string], [Children]^-[Child2|description:string;root_id(i):string], [Children]^-[Child1|root_id(i):string], [Child2]^-[Child22|angry:boolean;description(i):string;root_id(i):string], [Child2]^-[Child21|description(i):string;root_id(i):string]
 
-{
-   "type": "Schema",
-   "@context": [
-      "http://www.w3.org/ns/shex.jsonld",
-      {
-         "@base": "http://example.org/model/"
-      }
-   ],
-   "shapes": [
-      {
-         "type": "NodeConstraint",
-         "id": "http://example.org/model/String",
-         "datatype": "http://www.w3.org/2001/XMLSchema#string"
-      },
-      {
-         "type": "NodeConstraint",
-         "id": "http://example.org/model/Int",
-         "datatype": "http://www.w3.org/2001/XMLSchema#integer"
-      },
-      {
-         "type": "NodeConstraint",
-         "id": "http://example.org/model/Boolean",
-         "datatype": "http://www.w3.org/2001/XMLSchema#boolean"
-      },
-      {
-         "type": "Shape",
-         "id": "http://example.org/model/Child1",
-         "closed": true,
-         "extra": [
-            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
-         ],
-         "expression": {
-            "type": "EachOf",
-            "expressions": [
-               {
-                  "type": "EachOf",
-                  "id": "http://example.org/model/Child1_struct",
-                  "expressions": [
-                     "http://example.org/model/Children_struct",
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "http://ex.org/dummy",
-                        "min": 0,
-                        "max": 1
-                     }
-                  ]
-               },
-               {
-                  "type": "TripleConstraint",
-                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
-                  "valueExpr": {
-                     "type": "NodeConstraint",
-                     "values": [
-                        "http://example.org/model/Child1"
-                     ]
-                  }
-               }
-            ]
-         }
-      },
-      {
-         "type": "ShapeOr",
-         "id": "http://example.org/model/Child2",
-         "shapeExprs": [
-            "http://example.org/model/Child21",
-            "http://example.org/model/Child22",
-            "http://example.org/model/Child2Type"
-         ]
-      },
-      {
-         "type": "Shape",
-         "id": "http://example.org/model/Child2_type",
-         "closed": true,
-         "extra": [
-            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
-         ],
-         "expression": {
-            "type": "EachOf",
-            "expressions": [
-               {
-                  "type": "EachOf",
-                  "id": "http://example.org/model/Child2_struct",
-                  "expressions": [
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "http://example.org/model/description",
-                        "valueExpr": "http://example.org/model/String",
-                        "min": 1,
-                        "max": 1
-                     },
-                     "http://example.org/model/Children_struct"
-                  ]
-               },
-               {
-                  "type": "TripleConstraint",
-                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
-                  "valueExpr": {
-                     "type": "NodeConstraint",
-                     "values": [
-                        "http://example.org/model/Child2"
-                     ]
-                  }
-               }
-            ]
-         }
-      },
-      {
-         "type": "Shape",
-         "id": "http://example.org/model/Child21",
-         "closed": true,
-         "extra": [
-            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
-         ],
-         "expression": {
-            "type": "EachOf",
-            "expressions": [
-               {
-                  "type": "EachOf",
-                  "id": "http://example.org/model/Child21_struct",
-                  "expressions": [
-                     "http://example.org/model/Child2_struct",
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "http://ex.org/dummy",
-                        "min": 0,
-                        "max": 1
-                     }
-                  ]
-               },
-               {
-                  "type": "TripleConstraint",
-                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
-                  "valueExpr": {
-                     "type": "NodeConstraint",
-                     "values": [
-                        "http://example.org/model/Child21"
-                     ]
-                  }
-               }
-            ]
-         }
-      },
-      {
-         "type": "Shape",
-         "id": "http://example.org/model/Child22",
-         "closed": true,
-         "extra": [
-            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
-         ],
-         "expression": {
-            "type": "EachOf",
-            "expressions": [
-               {
-                  "type": "EachOf",
-                  "id": "http://example.org/model/Child22_struct",
-                  "expressions": [
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "http://example.org/model/angry",
-                        "valueExpr": "http://example.org/model/Boolean",
-                        "min": 1,
-                        "max": 1
-                     },
-                     "http://example.org/model/Child2_struct"
-                  ]
-               },
-               {
-                  "type": "TripleConstraint",
-                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
-                  "valueExpr": {
-                     "type": "NodeConstraint",
-                     "values": [
-                        "http://example.org/model/Child22"
-                     ]
-                  }
-               }
-            ]
-         }
-      },
-      {
-         "type": "ShapeOr",
-         "id": "http://example.org/model/Children",
-         "shapeExprs": [
-            "http://example.org/model/Child1",
-            "http://example.org/model/Child2",
-            "http://example.org/model/ChildrenType"
-         ]
-      },
-      {
-         "type": "Shape",
-         "id": "http://example.org/model/Children_type",
-         "closed": true,
-         "extra": [
-            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
-         ],
-         "expression": {
-            "type": "EachOf",
-            "expressions": [
-               {
-                  "type": "EachOf",
-                  "id": "http://example.org/model/Children_struct",
-                  "expressions": [
-                     "http://example.org/model/Root_struct",
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "http://ex.org/dummy",
-                        "min": 0,
-                        "max": 1
-                     }
-                  ]
-               },
-               {
-                  "type": "TripleConstraint",
-                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
-                  "valueExpr": {
-                     "type": "NodeConstraint",
-                     "values": [
-                        "http://example.org/model/Children"
-                     ]
-                  }
-               }
-            ]
-         }
-      },
-      {
-         "type": "ShapeOr",
-         "id": "http://example.org/model/Root",
-         "shapeExprs": [
-            "http://example.org/model/Children",
-            "http://example.org/model/RootType"
-         ]
-      },
-      {
-         "type": "Shape",
-         "id": "http://example.org/model/Root_type",
-         "closed": true,
-         "extra": [
-            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
-         ],
-         "expression": {
-            "type": "TripleConstraint",
-            "id": "http://example.org/model/Root_struct",
-            "predicate": "http://ex.org/dummy",
-            "min": 0,
-            "max": 1
-         }
-      }
-   ]
+BASE <http://example.org/model/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+<String> xsd:string
+
+<Int> xsd:integer
+
+<Boolean> xsd:boolean
+
+<Child1> EXTRA rdf:type CLOSED {
+    (  $<Child1_struct> (  &<Children_struct> ;
+          <http://ex.org/dummy> . ?
+       ) ;
+       rdf:type [ <Child1> ]
+    )
 }
+
+<Child2>  (
+    @<Child21> OR @<Child22> OR @<Child2Type>
+)
+
+<Child2_type> EXTRA rdf:type CLOSED {
+    (  $<Child2_struct> (  <description> @<String> ;
+          &<Children_struct>
+       ) ;
+       rdf:type [ <Child2> ]
+    )
+}
+
+<Child21> EXTRA rdf:type CLOSED {
+    (  $<Child21_struct> (  &<Child2_struct> ;
+          <http://ex.org/dummy> . ?
+       ) ;
+       rdf:type [ <Child21> ]
+    )
+}
+
+<Child22> EXTRA rdf:type CLOSED {
+    (  $<Child22_struct> (  <angry> @<Boolean> ;
+          &<Child2_struct>
+       ) ;
+       rdf:type [ <Child22> ]
+    )
+}
+
+<Children>  (
+    @<Child1> OR @<Child2> OR @<ChildrenType>
+)
+
+<Children_type> EXTRA rdf:type CLOSED {
+    (  $<Children_struct> (  &<Root_struct> ;
+          <http://ex.org/dummy> . ?
+       ) ;
+       rdf:type [ <Children> ]
+    )
+}
+
+<Root>  (
+    @<Children> OR @<RootType>
+)
+
+<Root_type> EXTRA rdf:type CLOSED {
+    $<Root_struct> <http://ex.org/dummy> . ?
+}
+
+
 

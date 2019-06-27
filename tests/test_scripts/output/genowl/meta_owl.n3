@@ -1,0 +1,878 @@
+@prefix OIO: <http://www.geneontology.org/formats/oboInOwl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix meta: <https://w3id.org/biolink/biolinkml/meta/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pav: <http://purl.org/pav/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/biolink/biolinkml/meta> a owl:Ontology ;
+    rdfs:label "metamodel" ;
+    dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
+    dcterms:title "Biolink Schema Metamodel" ;
+    skos:definition "A metamodel for defining biolink related schemas" ;
+    meta:generation_date "2019-06-27 13:06" ;
+    meta:metamodel_version "1.3.5" ;
+    meta:source_file "meta.yaml" ;
+    meta:source_file_date "Wed Jun 26 15:06:11 2019" ;
+    meta:source_file_size 22855 .
+
+meta:abstract a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "abstract" ;
+    rdfs:domain meta:Definition ;
+    rdfs:range meta:boolean ;
+    skos:definition "an abstract class is a high level class or slot that is typically used to group common slots together and cannot be directly instantiated." .
+
+meta:alias a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "alias" ;
+    rdfs:domain meta:SlotDefinition ;
+    rdfs:range meta:string ;
+    skos:definition "the name used for a slot in the context of its owning class.  If present, this is used instead of the actual slot name." .
+
+meta:aliases a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "aliases" ;
+    rdfs:domain meta:Element ;
+    rdfs:range meta:string .
+
+meta:alt_description_source a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "alt_description_source" ;
+    rdfs:domain meta:AltDescription ;
+    rdfs:range meta:ncname ;
+    skos:definition "the source of an attributed description" .
+
+meta:alt_description_text a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "alt_description_text" ;
+    rdfs:domain meta:AltDescription ;
+    rdfs:range meta:string ;
+    skos:definition "text of an attributed description" .
+
+meta:alt_descriptions a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "alt_descriptions" ;
+    rdfs:domain meta:Element ;
+    rdfs:range meta:AltDescription .
+
+meta:class_definition_apply_to a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "class_definition_apply_to" ;
+    rdfs:domain meta:ClassDefinition ;
+    rdfs:range meta:ClassDefinition ;
+    rdfs:subPropertyOf meta:apply_to .
+
+meta:class_definition_is_a a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "class_definition_is_a" ;
+    rdfs:domain meta:ClassDefinition ;
+    rdfs:range meta:ClassDefinition ;
+    rdfs:subPropertyOf meta:is_a .
+
+meta:class_definition_mixins a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "class_definition_mixins" ;
+    rdfs:domain meta:ClassDefinition ;
+    rdfs:range meta:ClassDefinition ;
+    rdfs:subPropertyOf meta:mixins .
+
+meta:class_uri a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "class_uri" ;
+    rdfs:domain meta:ClassDefinition ;
+    rdfs:range meta:uriorcurie ;
+    skos:definition "URI of the class in an RDF environment" .
+
+meta:classes a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "classes" ;
+    rdfs:domain meta:SchemaDefinition ;
+    rdfs:range meta:ClassDefinition ;
+    skos:definition "class definitions" .
+
+meta:comments a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "comments" ;
+    rdfs:domain meta:Element ;
+    rdfs:range meta:string ;
+    skos:definition "notes and comments about an element intended for external consumption" .
+
+meta:date a owl:Class,
+        meta:TypeDefinition ;
+    rdfs:label "date" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:date ;
+            owl:onProperty meta:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "a date (year, month and day) in an idealized calendar" ;
+    skos:editorialNote "URI is dateTime because OWL reasoners don't work with straight date or time" .
+
+meta:default_curi_maps a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "default_curi_maps" ;
+    rdfs:domain meta:SchemaDefinition ;
+    rdfs:range meta:string ;
+    skos:definition "ordered list of prefixcommon biocontexts to be fetched to resolve id prefixes and inline prefix variables" .
+
+meta:default_prefix a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "default_prefix" ;
+    rdfs:domain meta:SchemaDefinition ;
+    rdfs:range meta:string ;
+    skos:definition "default and base prefix -- used for ':' identifiers, @base and @vocab" .
+
+meta:default_range a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "default_range" ;
+    rdfs:domain meta:SchemaDefinition ;
+    rdfs:range meta:TypeDefinition ;
+    skos:definition "default slot range to be used if range element is omitted from a slot definition" ;
+    skos:editorialNote "restricted to type definitions for the time being.  Could be broadened if required" .
+
+meta:deprecated a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "deprecated" ;
+    rdfs:domain meta:Element ;
+    rdfs:range meta:string ;
+    skos:definition "Description of why and when this element will no longer be used" .
+
+meta:description a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "description" ;
+    rdfs:domain meta:Element ;
+    rdfs:range meta:string ;
+    skos:definition "a description of the element's purpose and use" .
+
+meta:double a owl:Class,
+        meta:TypeDefinition ;
+    rdfs:label "double" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:double ;
+            owl:onProperty meta:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A real number that conforms to the xsd:double specification" .
+
+meta:emit_prefixes a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "emit_prefixes" ;
+    rdfs:domain meta:SchemaDefinition ;
+    rdfs:range meta:ncname ;
+    skos:definition "a list of Curie prefixes that are used in the representation of instances of the model.  All prefixes in this list are added to the prefix sections of the target models." .
+
+meta:examples a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "examples" ;
+    rdfs:domain meta:Element ;
+    rdfs:range meta:Example ;
+    skos:definition "example usages of an element" .
+
+meta:float a owl:Class,
+        meta:TypeDefinition ;
+    rdfs:label "float" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:float ;
+            owl:onProperty meta:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A real number that conforms to the xsd:float specification" .
+
+meta:from_schema a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "from_schema" ;
+    rdfs:domain meta:Element ;
+    rdfs:range meta:uri ;
+    skos:definition "id of the schema that defined the element" ;
+    skos:editorialNote "A stronger model would be range schema_definition, but this doesn't address the import model" .
+
+meta:generation_date a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "generation_date" ;
+    rdfs:domain meta:SchemaDefinition ;
+    rdfs:range meta:datetime ;
+    skos:definition "date and time that the schema was loaded/generated" .
+
+meta:id a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "id" ;
+    rdfs:domain meta:SchemaDefinition ;
+    rdfs:range meta:uri ;
+    skos:definition "The official schema URI" .
+
+meta:id_prefixes a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "id_prefixes" ;
+    rdfs:domain meta:Element ;
+    rdfs:range meta:ncname ;
+    skos:definition "the identifier of this class or slot must begin with one of the URIs referenced by this prefix" .
+
+meta:imported_from a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "imported_from" ;
+    rdfs:domain meta:Element ;
+    rdfs:range meta:string ;
+    skos:definition "the imports entry that this element was derived from.  Empty means primary source" .
+
+meta:imports a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "imports" ;
+    rdfs:domain meta:SchemaDefinition ;
+    rdfs:range meta:uriorcurie ;
+    skos:definition "other schemas that are included in this schema" .
+
+meta:in_subset a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "in_subset" ;
+    rdfs:domain meta:Element ;
+    rdfs:range meta:SubsetDefinition ;
+    skos:definition "used to indicate membership of a term in a defined subset of biolink terms used for a particular domain or application (e.g. the translator_minimal subset holding the minimal set of predicates used in a translator knowledge graph)" .
+
+meta:inverse a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "inverse" ;
+    rdfs:domain meta:SlotDefinition ;
+    rdfs:range meta:SlotDefinition ;
+    skos:definition "indicates that any instance of d s r implies that there is also an instance of r s' d" .
+
+meta:is_class_field a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "is_class_field" ;
+    rdfs:domain meta:SlotDefinition ;
+    rdfs:range meta:boolean ;
+    skos:definition "indicates that any instance, i,  the domain of this slot will include an assert of i s range" .
+
+meta:is_usage_slot a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "is_usage_slot" ;
+    rdfs:domain meta:SlotDefinition ;
+    rdfs:range meta:boolean ;
+    skos:definition "True means that this slot was defined in a slot_usage situation" .
+
+meta:license a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "license" ;
+    rdfs:domain meta:SchemaDefinition ;
+    rdfs:range meta:string ;
+    skos:definition "license for the schema" .
+
+meta:local_name_source a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "local_name_source" ;
+    rdfs:domain meta:LocalName ;
+    rdfs:range meta:ncname ;
+    skos:definition "the ncname of the source of the name" .
+
+meta:local_name_value a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "local_name_value" ;
+    rdfs:domain meta:LocalName ;
+    rdfs:range meta:string ;
+    skos:definition "a name assigned to an element in a given ontology" .
+
+meta:local_names a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "local_names" ;
+    rdfs:domain meta:Element ;
+    rdfs:range meta:LocalName .
+
+meta:mappings a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "mappings" ;
+    rdfs:domain meta:Element ;
+    rdfs:range meta:uriorcurie ;
+    skos:definition "A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective." .
+
+meta:metamodel_version a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "metamodel_version" ;
+    rdfs:domain meta:SchemaDefinition ;
+    rdfs:range meta:string ;
+    skos:definition "Version of the metamodel used to load the schema" .
+
+meta:mixin a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "mixin" ;
+    rdfs:domain meta:Definition ;
+    rdfs:range meta:boolean ;
+    skos:definition "this slot or class can only be used as a mixin -- equivalent to abstract" .
+
+meta:name a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "name" ;
+    rdfs:domain meta:Element ;
+    rdfs:range meta:string ;
+    skos:definition "the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class." .
+
+meta:notes a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "notes" ;
+    rdfs:domain meta:Element ;
+    rdfs:range meta:string ;
+    skos:definition "editorial notes about an element intended for internal consumption" .
+
+meta:owner a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "owner" ;
+    rdfs:domain meta:SlotDefinition ;
+    rdfs:range meta:Definition ;
+    skos:definition "the \"owner\" of the slot. It is the class if it appears in the slots list, otherwise the declaring slot" .
+
+meta:prefix_prefix a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "prefix_prefix" ;
+    rdfs:domain meta:Prefix ;
+    rdfs:range meta:ncname ;
+    skos:definition "the nsname (sans ':' for a given prefix)" .
+
+meta:prefix_reference a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "prefix_reference" ;
+    rdfs:domain meta:Prefix ;
+    rdfs:range meta:uri ;
+    skos:definition "A URI associated with a given prefix" .
+
+meta:prefixes a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "prefixes" ;
+    rdfs:domain meta:SchemaDefinition ;
+    rdfs:range meta:Prefix ;
+    skos:definition "prefix / URI definitions to be added to the context beyond those fetched from prefixcommons in id prefixes" .
+
+meta:see_also a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "see_also" ;
+    rdfs:domain meta:Element ;
+    rdfs:range meta:uriorcurie ;
+    skos:definition "a reference" .
+
+meta:singular_name a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "singular_name" ;
+    rdfs:domain meta:SlotDefinition ;
+    rdfs:range meta:string ;
+    skos:definition "a name that is used in the singular form" .
+
+meta:slot_definition_apply_to a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "slot_definition_apply_to" ;
+    rdfs:domain meta:SlotDefinition ;
+    rdfs:range meta:SlotDefinition ;
+    rdfs:subPropertyOf meta:apply_to .
+
+meta:slot_definition_is_a a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "slot_definition_is_a" ;
+    rdfs:domain meta:SlotDefinition ;
+    rdfs:range meta:SlotDefinition ;
+    rdfs:subPropertyOf meta:is_a .
+
+meta:slot_definition_mixins a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "slot_definition_mixins" ;
+    rdfs:domain meta:SlotDefinition ;
+    rdfs:range meta:SlotDefinition ;
+    rdfs:subPropertyOf meta:mixins .
+
+meta:slot_definitions a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "slot_definitions" ;
+    rdfs:domain meta:SchemaDefinition ;
+    rdfs:range meta:SlotDefinition ;
+    skos:definition "slot definitions" .
+
+meta:slot_uri a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "slot_uri" ;
+    rdfs:domain meta:SlotDefinition ;
+    rdfs:range meta:uriorcurie ;
+    skos:definition "predicate of this slot for semantic web application" .
+
+meta:slot_usage a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "slot_usage" ;
+    rdfs:domain meta:ClassDefinition ;
+    rdfs:range meta:SlotDefinition ;
+    skos:definition "the redefinition of a slot in the context of the containing class definition." ;
+    skos:note "Many slots may be re-used across different classes, but the meaning of the slot may be refined by context. For example, a generic association model may use slots subject/predicate/object with generic semantics and minimal constraints. When this is subclasses, e.g. to disease-phenotype associations then slot usage may specify both local naming (e.g. subject=disease) and local constraints" .
+
+meta:slots a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "slots" ;
+    rdfs:domain meta:ClassDefinition ;
+    rdfs:range meta:SlotDefinition ;
+    skos:definition "list of slot names that are applicable to a class" ;
+    skos:note "This defines the set of slots that are allowed to be used for a given class. The final list of slots for a class is the combination of the parent (is a) slots, mixins slots, apply to slots minus the slot usage entries. Formally, " .
+
+meta:source_file a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "source_file" ;
+    rdfs:domain meta:SchemaDefinition ;
+    rdfs:range meta:string ;
+    skos:definition "name, uri or description of the source of the schema" .
+
+meta:source_file_date a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "source_file_date" ;
+    rdfs:domain meta:SchemaDefinition ;
+    rdfs:range meta:datetime ;
+    skos:definition "modification date of the source of the schema" .
+
+meta:source_file_size a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "source_file_size" ;
+    rdfs:domain meta:SchemaDefinition ;
+    rdfs:range meta:integer ;
+    skos:definition "size in bytes of the source of the schema" .
+
+meta:subclass_of a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "subclass_of" ;
+    rdfs:domain meta:ClassDefinition ;
+    rdfs:range meta:uriorcurie ;
+    skos:definition "rdfs:subClassOf to be emitted in OWL generation" .
+
+meta:subproperty_of a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "subproperty_of" ;
+    rdfs:domain meta:SlotDefinition ;
+    rdfs:range meta:uriorcurie ;
+    skos:definition "Ontology property which this slot is a subproperty of" .
+
+meta:subsets a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "subsets" ;
+    rdfs:domain meta:SchemaDefinition ;
+    rdfs:range meta:SubsetDefinition ;
+    skos:definition "list of subsets referenced in this model" .
+
+meta:symmetric a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "symmetric" ;
+    rdfs:domain meta:SlotDefinition ;
+    rdfs:range meta:boolean ;
+    skos:definition "True means that any instance of  d s r implies that there is also an instance of r s d" .
+
+meta:time a owl:Class,
+        meta:TypeDefinition ;
+    rdfs:label "time" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:dateTime ;
+            owl:onProperty meta:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A time object represents a (local) time of day, independent of any particular day" ;
+    skos:editorialNote "URI is dateTime because OWL reasoners don't work with straight date or time" .
+
+meta:title a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "title" ;
+    rdfs:domain meta:SchemaDefinition ;
+    rdfs:range meta:string ;
+    skos:definition "the official title of the schema" .
+
+meta:todos a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "todos" ;
+    rdfs:domain meta:Element ;
+    rdfs:range meta:string ;
+    skos:definition "Outstanding issue that needs resolution" .
+
+meta:type_uri a owl:ObjectProperty,
+        meta:SlotDefinition ;
+    rdfs:label "type_uri" ;
+    rdfs:domain meta:TypeDefinition ;
+    rdfs:range meta:uriorcurie ;
+    skos:definition "The uri that defines the possible values for the type definition" ;
+    skos:note "every root type must have a type uri",
+        "uri is typically drawn from the set of URI's defined in OWL (https://www.w3.org/TR/2012/REC-owl2-syntax-20121211/#Datatype_Maps)" .
+
+meta:typeof a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "typeof" ;
+    rdfs:domain meta:TypeDefinition ;
+    rdfs:range meta:TypeDefinition ;
+    skos:definition "Names a parent type" ;
+    skos:note "the target type definition of the typeof slot is referred to as the \"parent type\"",
+        "the type definition containing the typeof slot is referred to as the \"child type\"",
+        "type definitions without a typeof slot are referred to as a \"root type\"" .
+
+meta:types a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "types" ;
+    rdfs:domain meta:SchemaDefinition ;
+    rdfs:range meta:TypeDefinition ;
+    skos:definition "data types used in the model" .
+
+meta:union_of a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "union_of" ;
+    rdfs:domain meta:ClassDefinition ;
+    rdfs:range meta:ClassDefinition ;
+    skos:definition "indicates that the domain class consists exactly of the members of the classes in the range" ;
+    skos:editorialNote "this only applies in the OWL generation" .
+
+meta:value a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "value" ;
+    rdfs:domain meta:Example ;
+    rdfs:range meta:string ;
+    skos:definition "example value" .
+
+meta:value_description a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "value_description" ;
+    rdfs:domain meta:Example ;
+    rdfs:range meta:string ;
+    skos:definition "description of what the value is doing" .
+
+meta:values_from a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "values_from" ;
+    rdfs:domain meta:Definition ;
+    rdfs:range meta:uriorcurie ;
+    skos:definition "the identifier of a \"value set\" -- a set of identifiers that form the possible values for the range of a slot" .
+
+meta:version a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "version" ;
+    rdfs:domain meta:SchemaDefinition ;
+    rdfs:range meta:string ;
+    skos:definition "particular version of schema" .
+
+meta:base a owl:ObjectProperty,
+        meta:SlotDefinition ;
+    rdfs:label "base" ;
+    rdfs:domain meta:TypeDefinition ;
+    rdfs:range meta:string ;
+    skos:definition "python base type that implements this type definition" ;
+    skos:note "every root type must have a base",
+        "the base is inherited by child types but may be overriden.  Base compatibility is not checked." .
+
+meta:defining_slots a owl:ObjectProperty,
+        meta:SlotDefinition ;
+    rdfs:label "defining_slots" ;
+    rdfs:domain meta:ClassDefinition ;
+    rdfs:range meta:SlotDefinition ;
+    skos:definition "The combination of is a plus defining slots form a genus-differentia definition, or the set of necessary and sufficient conditions that can be transformed into an OWL equivalence axiom" .
+
+meta:domain a owl:ObjectProperty,
+        meta:SlotDefinition ;
+    rdfs:label "domain" ;
+    rdfs:domain meta:SlotDefinition ;
+    rdfs:range meta:ClassDefinition ;
+    skos:definition """defines the type of the subject of the slot.  Given the following slot definition
+  S1:
+    domain: C1
+    range:  C2
+the declaration
+  X:
+    S1: Y
+
+implicitly asserts that X is an instance of C1
+""" .
+
+meta:identifier a owl:ObjectProperty,
+        meta:SlotDefinition ;
+    rdfs:label "identifier" ;
+    rdfs:domain meta:SlotDefinition ;
+    rdfs:range meta:boolean ;
+    skos:definition "true means that this slot is the subject of a set of assertions.  Identifiers do not appear as predicates in the model" ;
+    skos:note "a given domain can have at most one identifier",
+        "identifier is inherited",
+        "identifier slots are always required" .
+
+meta:ifabsent a owl:ObjectProperty,
+        meta:SlotDefinition ;
+    rdfs:label "ifabsent" ;
+    rdfs:domain meta:SlotDefinition ;
+    rdfs:range meta:string ;
+    skos:definition "description of special behavior if the slot is absent" .
+
+meta:inherited a owl:ObjectProperty,
+        meta:SlotDefinition ;
+    rdfs:label "inherited" ;
+    rdfs:domain meta:SlotDefinition ;
+    rdfs:range meta:boolean ;
+    skos:definition "true means that the *value* of a slot is inherited by subclasses" ;
+    skos:note "Inherited applies to slot values.  Parent *slots* are always inherited by subclasses" .
+
+meta:inlined a owl:ObjectProperty,
+        meta:SlotDefinition ;
+    rdfs:label "inlined" ;
+    rdfs:domain meta:SlotDefinition ;
+    rdfs:range meta:boolean ;
+    skos:definition "an inlined definition a list of actual values rather than references.  Only applies to slots whose range is a class." .
+
+meta:integer a owl:Class,
+        meta:TypeDefinition ;
+    rdfs:label "integer" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:integer ;
+            owl:onProperty meta:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "An integer" .
+
+meta:key a owl:ObjectProperty,
+        meta:SlotDefinition ;
+    rdfs:label "key" ;
+    rdfs:domain meta:SlotDefinition ;
+    rdfs:range meta:boolean ;
+    skos:definition "true means that the slot uniquely identifies the element within the context of its container.  Key slots are NOT identifiers - they do not serve as subjects" ;
+    skos:editorialNote "a given domain can have at most one key",
+        "key is inherited",
+        "key slots are always required" .
+
+meta:multivalued a owl:ObjectProperty,
+        meta:SlotDefinition ;
+    rdfs:label "multivalued" ;
+    rdfs:domain meta:SlotDefinition ;
+    rdfs:range meta:boolean ;
+    skos:definition "true means that slot can have more than one value" .
+
+meta:range a owl:ObjectProperty,
+        meta:SlotDefinition ;
+    rdfs:label "range" ;
+    rdfs:domain meta:SlotDefinition ;
+    rdfs:range meta:Element ;
+    skos:definition """defines the type of the object of the slot.  Given the following slot definition
+  S1:
+    domain: C1
+    range:  C2
+the declaration
+  X:
+    S1: Y
+
+implicitly asserts Y is an instance of C2
+""" .
+
+meta:readonly a owl:ObjectProperty,
+        meta:SlotDefinition ;
+    rdfs:label "readonly" ;
+    rdfs:domain meta:SlotDefinition ;
+    rdfs:range meta:string ;
+    skos:definition "If present, slot is read only.  Text explains why" .
+
+meta:repr a owl:ObjectProperty,
+        meta:SlotDefinition ;
+    rdfs:label "repr" ;
+    rdfs:domain meta:TypeDefinition ;
+    rdfs:range meta:string ;
+    skos:definition "the name of the python object that implements this type definition" ;
+    meta:examples "Example(value=None, description=None)" .
+
+meta:required a owl:ObjectProperty,
+        meta:SlotDefinition ;
+    rdfs:label "required" ;
+    rdfs:domain meta:SlotDefinition ;
+    rdfs:range meta:boolean ;
+    skos:definition "true means that the slot must be present in the loaded definition" .
+
+meta:role a owl:ObjectProperty,
+        meta:SlotDefinition ;
+    rdfs:label "role" ;
+    rdfs:domain meta:SlotDefinition ;
+    rdfs:range meta:string ;
+    skos:definition "the role played by the slot range" .
+
+meta:SubsetDefinition a owl:Class,
+        meta:ClassDefinition ;
+    rdfs:label "subset_definition" ;
+    rdfs:subClassOf meta:Element ;
+    skos:definition "the name and description of a subset" .
+
+meta:apply_to a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "apply_to" ;
+    rdfs:domain meta:Definition ;
+    rdfs:range meta:Definition ;
+    skos:definition "Used to extend class or slot definitions. For example, if we have a core schema where a gene has two slots for identifier and symbol, and we have a specialized schema for my_organism where we wish to add a slot systematic_name, we can avoid subclassing by defining a class gene_my_organism, adding the slot to this class, and then adding an apply_to pointing to the gene class. The new slot will be 'injected into' the gene class." .
+
+meta:datetime a owl:Class,
+        meta:TypeDefinition ;
+    rdfs:label "datetime" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:dateTime ;
+            owl:onProperty meta:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "The combination of a date and time" .
+
+meta:is_a a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "is_a" ;
+    rdfs:domain meta:Definition ;
+    rdfs:range meta:Definition ;
+    skos:definition "specifies single-inheritance between classes or slots. While multiple inheritance is not allowed, mixins can be provided effectively providing the same thing. The semantics are the same when translated to formalisms that allow MI (e.g. RDFS/OWL). When translating to a SI framework (e.g. java classes, python classes) then is a is used. When translating a framework without polymorphism (e.g. json-schema, solr document schema) then is a and mixins are recursively unfolded" .
+
+meta:mixins a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "mixins" ;
+    rdfs:domain meta:Definition ;
+    rdfs:range meta:Definition ;
+    skos:definition "List of definitions to be mixed in. Targets may be any definition of the same type" .
+
+meta:AltDescription a owl:Class,
+        meta:ClassDefinition ;
+    rdfs:label "alt_description" ;
+    skos:definition "an attributed description" .
+
+meta:Example a owl:Class,
+        meta:ClassDefinition ;
+    rdfs:label "example" ;
+    skos:definition "usage example and description" .
+
+meta:LocalName a owl:Class,
+        meta:ClassDefinition ;
+    rdfs:label "local_name" ;
+    skos:definition "an attributed label" .
+
+meta:Prefix a owl:Class,
+        meta:ClassDefinition ;
+    rdfs:label "prefix" ;
+    skos:definition "prefix URI tuple" .
+
+meta:uri a owl:Class,
+        meta:TypeDefinition ;
+    rdfs:label "uri" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:anyURI ;
+            owl:onProperty meta:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "a complete URI" .
+
+meta:ncname a owl:Class,
+        meta:TypeDefinition ;
+    rdfs:label "ncname" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty meta:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "Prefix part of CURIE" .
+
+meta:uriorcurie a owl:Class,
+        meta:TypeDefinition ;
+    rdfs:label "uriorcurie" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:anyURI ;
+            owl:onProperty meta:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "a URI or a CURIE" .
+
+meta:topValue a owl:DatatypeProperty ;
+    rdfs:label "value" .
+
+meta:Definition a owl:Class,
+        meta:ClassDefinition ;
+    rdfs:label "definition" ;
+    rdfs:subClassOf meta:Element ;
+    skos:definition "base class for definitions" .
+
+meta:boolean a owl:Class,
+        meta:TypeDefinition ;
+    rdfs:label "boolean" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:boolean ;
+            owl:onProperty meta:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A binary (true or false) value" .
+
+meta:TypeDefinition a owl:Class,
+        meta:ClassDefinition ;
+    rdfs:label "type_definition" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:string ;
+            owl:onProperty meta:repr ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:uriorcurie ;
+            owl:onProperty meta:uri ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:string ;
+            owl:onProperty meta:base ],
+        meta:Element ;
+    skos:definition "A data type definition." .
+
+meta:SchemaDefinition a owl:Class,
+        meta:ClassDefinition ;
+    rdfs:label "schema_definition" ;
+    rdfs:subClassOf meta:Element ;
+    skos:definition "a collection of subset, type, slot and class definitions" .
+
+meta:Element a owl:Class,
+        meta:ClassDefinition ;
+    rdfs:label "element" ;
+    skos:definition "a named element in the model" .
+
+meta:ClassDefinition a owl:Class,
+        meta:ClassDefinition ;
+    rdfs:label "class_definition" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom meta:SlotDefinition ;
+            owl:onProperty meta:defining_slots ],
+        meta:Definition ;
+    skos:definition "the definition of a class or interface" .
+
+meta:string a owl:Class,
+        meta:TypeDefinition ;
+    rdfs:label "string" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty meta:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A character string" .
+
+meta:SlotDefinition a owl:Class,
+        meta:ClassDefinition ;
+    rdfs:label "slot_definition" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:boolean ;
+            owl:onProperty meta:identifier ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:boolean ;
+            owl:onProperty meta:inherited ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:string ;
+            owl:onProperty meta:ifabsent ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:boolean ;
+            owl:onProperty meta:multivalued ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:boolean ;
+            owl:onProperty meta:required ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:string ;
+            owl:onProperty meta:readonly ],
+        [ a owl:Restriction ;
+            owl:onClass meta:ClassDefinition ;
+            owl:onProperty meta:domain ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:string ;
+            owl:onProperty meta:role ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:Element ;
+            owl:onProperty meta:range ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:boolean ;
+            owl:onProperty meta:key ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:boolean ;
+            owl:onProperty meta:inlined ],
+        meta:Definition ;
+    skos:definition "the definition of a property or a slot" .
+
+
+

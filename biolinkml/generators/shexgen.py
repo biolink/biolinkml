@@ -57,7 +57,7 @@ class ShExGenerator(Generator):
     def serialize(self, format: Optional[str] = None, **args) -> str:
         if format is not None and format not in self.valid_formats:
             raise ValueError(f"Unrecognized format: {format}")
-        self.format = format
+        self.format = format if format else "shex"
         return super().serialize(**args)
 
     def visit_schema(self, **_):
