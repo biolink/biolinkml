@@ -13,7 +13,7 @@ from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.metamodelcore import Bool, URI, XSDDate, XSDTime
 from includes.types import Boolean, Date, Double, Float, Integer, String, Time, Uri
 
-metamodel_version = "1.3.4"
+metamodel_version = "1.3.5"
 
 # Types
 class ChemicalFormulaValue(str):

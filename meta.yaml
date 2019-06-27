@@ -3,7 +3,7 @@ title: Biolink Schema Metamodel
 name: metamodel
 description: A metamodel for defining biolink related schemas
 license: https://creativecommons.org/publicdomain/zero/1.0/
-version: 1.3.4
+version: 1.3.5
 
 prefixes:
   meta: https://w3id.org/biolink/biolinkml/meta/
@@ -262,8 +262,10 @@ slots:
 
   default_range:
     domain: schema_definition
-    range: definition
+    range: type_definition
     description: default slot range to be used if range element is omitted from a slot definition
+    notes:
+      - restricted to type definitions for the time being.  Could be broadened if required
 
   subsets:
     domain: schema_definition

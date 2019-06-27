@@ -14,11 +14,11 @@
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "Biolink Schema Metamodel" ;
     skos:definition "A metamodel for defining biolink related schemas" ;
-    meta:generation_date "2019-06-26 10:40" ;
-    meta:metamodel_version "1.3.4" ;
+    meta:generation_date "2019-06-26 15:18" ;
+    meta:metamodel_version "1.3.5" ;
     meta:source_file "meta.yaml" ;
-    meta:source_file_date "Tue Jun 11 22:42:42 2019" ;
-    meta:source_file_size 22748 .
+    meta:source_file_date "Wed Jun 26 15:06:11 2019" ;
+    meta:source_file_size 22855 .
 
 meta:abstract a owl:AnnotationProperty,
         meta:SlotDefinition ;
@@ -130,8 +130,9 @@ meta:default_range a owl:AnnotationProperty,
         meta:SlotDefinition ;
     rdfs:label "default_range" ;
     rdfs:domain meta:SchemaDefinition ;
-    rdfs:range meta:Definition ;
-    skos:definition "default slot range to be used if range element is omitted from a slot definition" .
+    rdfs:range meta:TypeDefinition ;
+    skos:definition "default slot range to be used if range element is omitted from a slot definition" ;
+    skos:editorialNote "restricted to type definitions for the time being.  Could be broadened if required" .
 
 meta:deprecated a owl:AnnotationProperty,
         meta:SlotDefinition ;
@@ -767,6 +768,15 @@ meta:Definition a owl:Class,
     rdfs:subClassOf meta:Element ;
     skos:definition "base class for definitions" .
 
+meta:boolean a owl:Class,
+        meta:TypeDefinition ;
+    rdfs:label "boolean" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:boolean ;
+            owl:onProperty meta:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A binary (true or false) value" .
+
 meta:TypeDefinition a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "type_definition" ;
@@ -777,22 +787,13 @@ meta:TypeDefinition a owl:Class,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:string ;
-            owl:onProperty meta:repr ],
+            owl:onProperty meta:base ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:string ;
-            owl:onProperty meta:base ],
+            owl:onProperty meta:repr ],
         meta:Element ;
     skos:definition "A data type definition." .
-
-meta:boolean a owl:Class,
-        meta:TypeDefinition ;
-    rdfs:label "boolean" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onDataRange xsd:boolean ;
-            owl:onProperty meta:topValue ;
-            owl:qualifiedCardinality 1 ] ;
-    skos:definition "A binary (true or false) value" .
 
 meta:SchemaDefinition a owl:Class,
         meta:ClassDefinition ;
@@ -829,7 +830,23 @@ meta:SlotDefinition a owl:Class,
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:string ;
+            owl:onProperty meta:ifabsent ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:string ;
+            owl:onProperty meta:readonly ],
+        [ a owl:Restriction ;
+            owl:onClass meta:ClassDefinition ;
+            owl:onProperty meta:domain ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:string ;
             owl:onProperty meta:role ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:boolean ;
+            owl:onProperty meta:identifier ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:boolean ;
@@ -841,35 +858,19 @@ meta:SlotDefinition a owl:Class,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:boolean ;
-            owl:onProperty meta:identifier ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:boolean ;
-            owl:onProperty meta:key ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:boolean ;
             owl:onProperty meta:multivalued ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:boolean ;
             owl:onProperty meta:inlined ],
         [ a owl:Restriction ;
-            owl:onClass meta:ClassDefinition ;
-            owl:onProperty meta:domain ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:string ;
-            owl:onProperty meta:ifabsent ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:string ;
-            owl:onProperty meta:readonly ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:boolean ;
             owl:onProperty meta:required ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:boolean ;
+            owl:onProperty meta:key ],
         meta:Definition ;
     skos:definition "the definition of a property or a slot" .
 

@@ -57,7 +57,7 @@ class ShExGenerator(Generator):
     def serialize(self, format: Optional[str] = None, **args) -> str:
         if format is not None and format not in self.valid_formats:
             raise ValueError(f"Unrecognized format: {format}")
-        self.format = format
+        self.format = format if format else "shex"
         return super().serialize(**args)
 
     def visit_schema(self, **_):
@@ -88,28 +88,46 @@ class ShExGenerator(Generator):
         return True
 
     def end_class(self, cls: ClassDefinition) -> None:
+
+        # If this class has subtypes, define the class as the union of itself and its subtypes
+        if cls.name in self.synopsis.isarefs:
+            children = list(self.synopsis.isarefs[cls.name].classrefs)
+        else:
+            children = []
+        if len(children):
+            childrenExprs = [self._shape_iri(child_name) for child_name in sorted(children)]
+            # If not abstract, the class itself satisfies the shape
+            if not cls.abstract:
+                childrenExprs.append(self._shape_iri(cls.name + "_type"))
+            # ShapeOr has to have at least two expressions, so if we just have one, repeat it
+            if len(childrenExprs) == 1:
+                childrenExprs += childrenExprs
+            classdef = ShapeOr(shapeExprs = childrenExprs)
+            classdef.id = self._shape_iri(cls.name)
+            self.shapes.append(classdef)
+
+
         if cls.is_a:
-            self._add_constraint(self.namespaces.uri_for(camelcase(cls.is_a) + "_t"))
+            self._add_constraint(self.namespaces.uri_for(camelcase(cls.is_a) + "_struct"))
         for mixin in cls.mixins:
             if self._class_has_expressions(mixin):
-                self._add_constraint(self.namespaces.uri_for(camelcase(mixin) + "_t"))
+                self._add_constraint(self.namespaces.uri_for(camelcase(mixin) + "_struct"))
         if cls.name in self.synopsis.applytorefs:
             for applyto in self.synopsis.applytorefs[cls.name].classrefs:
                 if self._class_has_expressions(applyto):
-                    self._add_constraint(self.namespaces.uri_for(camelcase(applyto) + '_t'))
+                    self._add_constraint(self.namespaces.uri_for(camelcase(applyto) + '_struct'))
 
-        self.shape.closed = True
-        self.shape.extra = [RDF.type]
+        if not cls.abstract:
+            self.shape.closed = True
+            self.shape.extra = [RDF.type]
         if self.shape.expression:
-            # TODO: Figure out how to label a single triple expression
             if isinstance_(self.shape.expression, tripleExprLabel):
                 self.shape.expression = EachOf(expressions=[self.shape.expression, wildcard(None)])
-            self.shape.expression.id = self.namespaces.uri_for(camelcase(cls.name) + "_t")
+            self.shape.expression.id = self.namespaces.uri_for(camelcase(cls.name) + "_struct")
         else:
-            self.shape.expression = wildcard(self.namespaces.uri_for(camelcase(cls.name) + "_t"))
+            self.shape.expression = wildcard(self.namespaces.uri_for(camelcase(cls.name) + "_struct"))
 
         if self.class_identifier(cls):
-            self.shape.extra = [RDF.type]
             type_constraint = TripleConstraint()
             type_constraint.predicate = RDF.type
             type_constraint.valueExpr = NodeConstraint(values=[IRIREF(self.namespaces.uri_for(cls.class_uri))])
@@ -119,7 +137,7 @@ class ShExGenerator(Generator):
                 self.shape.expression = EachOf(expressions=[self.shape.expression, type_constraint])
 
         shapeExpr = self.shape
-        shapeExpr.id = self._shape_iri(cls.name)
+        shapeExpr.id = self._shape_iri(cls.name) + ("_type" if len(children) else "")
         self.shapes.append(shapeExpr)
 
     def visit_class_slot(self, cls: ClassDefinition, aliased_slot_name: SlotDefinitionName, slot: SlotDefinition) \

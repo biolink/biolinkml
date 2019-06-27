@@ -5,7 +5,7 @@ a collection of subset, type, slot and class definitions
 
 URI: [meta:SchemaDefinition](https://w3id.org/biolink/biolinkml/meta/SchemaDefinition)
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[SubsetDefinition]<in_subset(i)%200..*-%20\[SchemaDefinition|id:uri;title:string%20%3F;version:string%20%3F;imports:uriorcurie%20*;license:string%20%3F;emit_prefixes:ncname%20*;default_curi_maps:string%20*;default_prefix:string%20%3F;metamodel_version:string%20%3F;source_file:string%20%3F;source_file_date:datetime%20%3F;source_file_size:integer%20%3F;generation_date:datetime%20%3F;id_prefixes(i):ncname%20*;name(pk)(i):string;aliases(i):string%20*;mappings(i):uriorcurie%20*;description(i):string%20%3F;deprecated(i):string%20%3F;todos(i):string%20*;notes(i):string%20*;comments(i):string%20*;from_schema(i):uri%20%3F;imported_from(i):string%20%3F;see_also(i):uriorcurie%20*],%20\[Example]<examples(i)%200..*-++\[SchemaDefinition],%20\[AltDescription]<alt_descriptions(i)%200..*-++\[SchemaDefinition],%20\[LocalName]<local_names(i)%200..*-++\[SchemaDefinition],%20\[ClassDefinition]<classes%200..*-++\[SchemaDefinition],%20\[SlotDefinition]<slots%200..*-++\[SchemaDefinition],%20\[TypeDefinition]<types%200..*-++\[SchemaDefinition],%20\[SubsetDefinition]<subsets%200..*-++\[SchemaDefinition],%20\[Definition]<default_range%200..1-%20\[SchemaDefinition],%20\[Prefix]<prefixes%200..*-++\[SchemaDefinition],%20\[Element]^-\[SchemaDefinition])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[SubsetDefinition]<in_subset(i)%200..*-%20\[SchemaDefinition|id:uri;title:string%20%3F;version:string%20%3F;imports:uriorcurie%20*;license:string%20%3F;emit_prefixes:ncname%20*;default_curi_maps:string%20*;default_prefix:string%20%3F;metamodel_version:string%20%3F;source_file:string%20%3F;source_file_date:datetime%20%3F;source_file_size:integer%20%3F;generation_date:datetime%20%3F;id_prefixes(i):ncname%20*;name(pk)(i):string;aliases(i):string%20*;mappings(i):uriorcurie%20*;description(i):string%20%3F;deprecated(i):string%20%3F;todos(i):string%20*;notes(i):string%20*;comments(i):string%20*;from_schema(i):uri%20%3F;imported_from(i):string%20%3F;see_also(i):uriorcurie%20*],%20\[Example]<examples(i)%200..*-++\[SchemaDefinition],%20\[AltDescription]<alt_descriptions(i)%200..*-++\[SchemaDefinition],%20\[LocalName]<local_names(i)%200..*-++\[SchemaDefinition],%20\[ClassDefinition]<classes%200..*-++\[SchemaDefinition],%20\[SlotDefinition]<slots%200..*-++\[SchemaDefinition],%20\[TypeDefinition]<types%200..*-++\[SchemaDefinition],%20\[SubsetDefinition]<subsets%200..*-++\[SchemaDefinition],%20\[TypeDefinition]<default_range%200..1-%20\[SchemaDefinition],%20\[Prefix]<prefixes%200..*-++\[SchemaDefinition],%20\[Element]^-\[SchemaDefinition])
 ## Parents
 
  *  is_a: [Element](Element.md) - a named element in the model
@@ -26,7 +26,7 @@ URI: [meta:SchemaDefinition](https://w3id.org/biolink/biolinkml/meta/SchemaDefin
     * range: [String](String.md)
  * [default_range](default_range.md)  <sub>OPT</sub>
     * Description: default slot range to be used if range element is omitted from a slot definition
-    * range: [Definition](Definition.md)
+    * range: [TypeDefinition](TypeDefinition.md)
  * [emit_prefixes](emit_prefixes.md)  <sub>0..*</sub>
     * Description: a list of Curie prefixes that are used in the representation of instances of the model.  All prefixes in this list are added to the prefix sections of the target models.
     * range: [Ncname](Ncname.md)
@@ -186,7 +186,7 @@ URI: [meta:SchemaDefinition](https://w3id.org/biolink/biolinkml/meta/SchemaDefin
     * range: [String](String.md)
  * [default_range](default_range.md)  <sub>OPT</sub>
     * Description: default slot range to be used if range element is omitted from a slot definition
-    * range: [Definition](Definition.md)
+    * range: [TypeDefinition](TypeDefinition.md)
  * [subsets](subsets.md)  <sub>0..*</sub>
     * Description: list of subsets referenced in this model
     * range: [SubsetDefinition](SubsetDefinition.md)
@@ -232,7 +232,7 @@ URI: [meta:SchemaDefinition](https://w3id.org/biolink/biolinkml/meta/SchemaDefin
     * range: [String](String.md)
  * [default_range](default_range.md)  <sub>OPT</sub>
     * Description: default slot range to be used if range element is omitted from a slot definition
-    * range: [Definition](Definition.md)
+    * range: [TypeDefinition](TypeDefinition.md)
  * [emit_prefixes](emit_prefixes.md)  <sub>0..*</sub>
     * Description: a list of Curie prefixes that are used in the representation of instances of the model.  All prefixes in this list are added to the prefix sections of the target models.
     * range: [Ncname](Ncname.md)

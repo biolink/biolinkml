@@ -3,7 +3,7 @@
    "description": "A metamodel for defining biolink related schemas",
    "id": "https://w3id.org/biolink/biolinkml/meta",
    "title": "Biolink Schema Metamodel",
-   "version": "1.3.4",
+   "version": "1.3.5",
    "imports": [
       "includes/types"
    ],
@@ -450,10 +450,13 @@
       {
          "name": "default_range",
          "description": "default slot range to be used if range element is omitted from a slot definition",
+         "notes": [
+            "restricted to type definitions for the time being.  Could be broadened if required"
+         ],
          "from_schema": "https://w3id.org/biolink/biolinkml/meta",
          "domain": "schema_definition",
          "owner": "schema_definition",
-         "range": "definition",
+         "range": "type_definition",
          "slot_uri": "meta:default_range"
       },
       {

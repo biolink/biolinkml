@@ -1,5 +1,5 @@
 # Auto generated from None by pythongen.py version: 0.2.0
-# Generation date: 2019-06-26 13:57
+# Generation date: 2019-06-27 14:38
 # Schema: synopsis2
 #
 # id: http://example.org/sample/example1
@@ -12,7 +12,7 @@ from biolinkml.utils.metamodelcore import empty_list, empty_dict
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.metamodelcore import Bool
 
-metamodel_version = "1.3.4"
+metamodel_version = "1.3.5"
 
 # Types
 class String(str):
@@ -89,7 +89,7 @@ class FriendlyPerson(Person):
 http://yuml.me/diagram/nofunky;dir:TB/class/[Person]<knows 0..*- [Person|id:string;first_name:string *;last_name:string;age:int %3F;living:boolean %3F], [FriendlyPerson|id(i):string;first_name(i):string *;last_name(i):string;age(i):int %3F;living(i):boolean %3F]- knows 1..*>[Person], [Person]^-[FriendlyPerson]
 
 {
-   "_comments": "Auto generated from None by jsonldcontextgen.py version: 0.0.2\nGeneration date: 2019-06-26 13:57\nSchema: synopsis2\n\nid: http://example.org/sample/example1\ndescription: \nlicense: \n",
+   "_comments": "Auto generated from None by jsonldcontextgen.py version: 0.0.2\nGeneration date: 2019-06-27 14:38\nSchema: synopsis2\n\nid: http://example.org/sample/example1\ndescription: \nlicense: \n",
    "@context": {
       "_comments": null,
       "type": "@type",
@@ -117,133 +117,42 @@ http://yuml.me/diagram/nofunky;dir:TB/class/[Person]<knows 0..*- [Person|id:stri
       "@base": "http://example.org/context/"
    }
 }
-{
-   "type": "Schema",
-   "@context": [
-      "http://www.w3.org/ns/shex.jsonld",
-      {
-         "@base": "http://example.org/model/"
-      }
-   ],
-   "shapes": [
-      {
-         "type": "NodeConstraint",
-         "id": "http://example.org/model/String",
-         "datatype": "http://www.w3.org/2001/XMLSchema#string"
-      },
-      {
-         "type": "NodeConstraint",
-         "id": "http://example.org/model/Int",
-         "datatype": "http://www.w3.org/2001/XMLSchema#integer"
-      },
-      {
-         "type": "NodeConstraint",
-         "id": "http://example.org/model/Boolean",
-         "datatype": "http://www.w3.org/2001/XMLSchema#boolean"
-      },
-      {
-         "type": "Shape",
-         "id": "http://example.org/model/FriendlyPerson",
-         "closed": true,
-         "extra": [
-            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
-         ],
-         "expression": {
-            "type": "EachOf",
-            "expressions": [
-               {
-                  "type": "EachOf",
-                  "id": "http://example.org/model/FriendlyPerson_t",
-                  "expressions": [
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "http://example.org/model/knows",
-                        "valueExpr": "http://example.org/model/Person",
-                        "min": 1,
-                        "max": -1
-                     },
-                     "http://example.org/model/Person_t"
-                  ]
-               },
-               {
-                  "type": "TripleConstraint",
-                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
-                  "valueExpr": {
-                     "type": "NodeConstraint",
-                     "values": [
-                        "http://example.org/model/FriendlyPerson"
-                     ]
-                  }
-               }
-            ]
-         }
-      },
-      {
-         "type": "Shape",
-         "id": "http://example.org/model/Person",
-         "closed": true,
-         "extra": [
-            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
-         ],
-         "expression": {
-            "type": "EachOf",
-            "expressions": [
-               {
-                  "type": "EachOf",
-                  "id": "http://example.org/model/Person_t",
-                  "expressions": [
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "http://xmlns.com/foaf/0.1/firstName",
-                        "valueExpr": "http://example.org/model/String",
-                        "min": 0,
-                        "max": -1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "http://xmlns.com/foaf/0.1/lastName",
-                        "valueExpr": "http://example.org/model/String",
-                        "min": 1,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "http://xmlns.com/foaf/0.1/age",
-                        "valueExpr": "http://example.org/model/Int",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "http://example.org/model/living",
-                        "valueExpr": "http://example.org/model/Boolean",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "http://xmlns.com/foaf/0.1/knows",
-                        "valueExpr": "http://example.org/model/Person",
-                        "min": 0,
-                        "max": -1
-                     }
-                  ]
-               },
-               {
-                  "type": "TripleConstraint",
-                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
-                  "valueExpr": {
-                     "type": "NodeConstraint",
-                     "values": [
-                        "http://example.org/model/Person"
-                     ]
-                  }
-               }
-            ]
-         }
-      }
-   ]
+BASE <http://example.org/model/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+
+<String> xsd:string
+
+<Int> xsd:integer
+
+<Boolean> xsd:boolean
+
+<FriendlyPerson> EXTRA rdf:type CLOSED {
+    (  $<FriendlyPerson_struct> (  <knows> @<Person> + ;
+          &<Person_struct>
+       ) ;
+       rdf:type [ <FriendlyPerson> ]
+    )
 }
+
+<Person>  (
+    @<FriendlyPerson> OR @<PersonType>
+)
+
+<Person_type> EXTRA rdf:type CLOSED {
+    (  $<Person_struct> (  foaf:firstName @<String> * ;
+          foaf:lastName @<String> ;
+          foaf:age @<Int> ? ;
+          <living> @<Boolean> ? ;
+          foaf:knows @<Person> *
+       ) ;
+       rdf:type [ <Person> ]
+    )
+}
+
+
 
 Person(id='42', last_name='smith', first_name=['Joe', 'Bob'], age=43, living=None, knows=[])
 {
@@ -257,7 +166,7 @@ Person(id='42', last_name='smith', first_name=['Joe', 'Bob'], age=43, living=Non
    "living": null,
    "knows": [],
    "type": "Person",
-   "_comments": "Auto generated from None by jsonldcontextgen.py version: 0.0.2\nGeneration date: 2019-06-26 13:57\nSchema: synopsis2\n\nid: http://example.org/sample/example1\ndescription: \nlicense: \n",
+   "_comments": "Auto generated from None by jsonldcontextgen.py version: 0.0.2\nGeneration date: 2019-06-27 14:38\nSchema: synopsis2\n\nid: http://example.org/sample/example1\ndescription: \nlicense: \n",
    "@context": {
       "_comments": null,
       "type": "@type",

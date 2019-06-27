@@ -127,7 +127,7 @@ type SchemaDefinition
     emitPrefixes: [Ncname]
     defaultCuriMaps: [String]
     defaultPrefix: String
-    defaultRange: Definition
+    defaultRange: TypeDefinition
     subsets: [SubsetDefinition]
     types: [TypeDefinition]
     slots: [SlotDefinition]

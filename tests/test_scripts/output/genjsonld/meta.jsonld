@@ -3,7 +3,7 @@
   "description": "A metamodel for defining biolink related schemas",
   "id": "https://w3id.org/biolink/biolinkml/meta",
   "title": "Biolink Schema Metamodel",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "imports": [
     "includes/types"
   ],
@@ -489,10 +489,13 @@
     {
       "name": "default_range",
       "description": "default slot range to be used if range element is omitted from a slot definition",
+      "notes": [
+        "restricted to type definitions for the time being.  Could be broadened if required"
+      ],
       "from_schema": "https://w3id.org/biolink/biolinkml/meta",
       "domain": "SchemaDefinition",
       "owner": "SchemaDefinition",
-      "range": "Definition",
+      "range": "TypeDefinition",
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/default_range",
       "type": "SlotDefinition"
     },
@@ -1491,11 +1494,11 @@
       "type": "ClassDefinition"
     }
   ],
-  "metamodel_version": "1.3.4",
+  "metamodel_version": "1.3.5",
   "source_file": "meta.yaml",
-  "source_file_date": "Tue Jun 11 22:42:42 2019",
-  "source_file_size": 22748,
-  "generation_date": "2019-06-26 10:49",
+  "source_file_date": "Wed Jun 26 15:06:11 2019",
+  "source_file_size": 22855,
+  "generation_date": "2019-06-27 13:06",
   "type": "SchemaDefinition",
   "@context": [
     "file:///Users/solbrig/git/biolink/biolinkml/tests/test_scripts/output/gencontext/meta.jsonld",
