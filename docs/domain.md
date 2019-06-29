@@ -1,3 +1,4 @@
+
 # Slot: domain
 
 
@@ -12,12 +13,16 @@ the declaration
 implicitly asserts that X is an instance of C1
 
 URI: [meta:domain](https://w3id.org/biolink/biolinkml/meta/domain)
+
 ## Domain and Range
 
 [SlotDefinition](SlotDefinition.md) ->  <sub>REQ</sub> [ClassDefinition](ClassDefinition.md)
+
 ## Parents
 
+
 ## Children
+
 
 ## Used by
 

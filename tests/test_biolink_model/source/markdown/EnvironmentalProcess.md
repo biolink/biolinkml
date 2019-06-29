@@ -1,3 +1,4 @@
+
 # Class: environmental process
 
 
@@ -6,13 +7,17 @@
 URI: [biolink:EnvironmentalProcess](https://w3id.org/biolink/vocab/EnvironmentalProcess)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[EnvironmentalProcess|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*]uses%20-.->\[Occurrent],%20\[PlanetaryEntity]^-\[EnvironmentalProcess])
+
 ## Parents
 
  *  is_a: [PlanetaryEntity](PlanetaryEntity.md) - Any entity or process that exists at the level of the whole planet
+
 ## Uses Mixins
 
  *  mixin: [Occurrent](Occurrent.md) - A processual entity
+
 ## Attributes
+
 
 ### Inherited from named thing:
 

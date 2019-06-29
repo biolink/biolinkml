@@ -1,6 +1,19 @@
 CHANGES
 =======
 
+v1.3.8
+------
+
+* Fix for Issues #24, #25 and #26
+* Fix for Issues #24, #25 and #26
+* Fix for Issues #24, #25 and #26
+* Address Issue #6  -- slot labels with a ':' are an error
+* Fix to issue #4 -- map meta:Uri to shex:iri
+* Updated tests that got missed in the prior submission
+* Fixes issue #3 -- switch date and datetime URI's
+* Fixes issue #9 -- switch date and datetime URI's
+* New version
+
 v1.3.7
 ------
 

@@ -1,3 +1,4 @@
+
 # id: http://example.org/tests/timepoint
 # description:
 # license: https://creativecommons.org/publicdomain/zero/1.0/
@@ -9,7 +10,8 @@ from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.metamodelcore import XSDTime
 from includes.types import String, Time
 
-metamodel_version = "1.3.5"
+metamodel_version = "1.3.6"
+
 
 # Types
 class TimeType(Time):
@@ -30,7 +32,6 @@ class GeographicLocationAtTimeK(GeographicLocationK):
 class GeographicLocation(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
-    # === geographic location ===
     k: Union[str, GeographicLocationK]
 
     def _fix_elements(self):
@@ -43,10 +44,7 @@ class GeographicLocation(YAMLRoot):
 class GeographicLocationAtTime(GeographicLocation):
     _inherited_slots: ClassVar[List[str]] = []
 
-    # === geographic location ===
     k: Union[str, GeographicLocationAtTimeK] = None
-
-    # === geographic location at time ===
     timepoint: Optional[Union[str, TimeType]] = None
 
     def _fix_elements(self):

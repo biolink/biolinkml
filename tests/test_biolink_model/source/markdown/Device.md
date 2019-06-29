@@ -1,3 +1,4 @@
+
 # Class: device
 
 
@@ -6,10 +7,13 @@ A thing made or adapted for a particular purpose, especially a piece of mechanic
 URI: [biolink:Device](https://w3id.org/biolink/vocab/Device)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[NamedThing]^-\[Device|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*])
+
 ## Parents
 
  *  is_a: [NamedThing](NamedThing.md) - a databased entity or concept/class
+
 ## Attributes
+
 
 ### Inherited from named thing:
 

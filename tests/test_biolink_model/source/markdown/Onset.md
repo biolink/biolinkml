@@ -1,3 +1,4 @@
+
 # Class: onset
 
 
@@ -6,13 +7,17 @@ The age group in which manifestations appear
 URI: [biolink:Onset](https://w3id.org/biolink/vocab/Onset)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[EntityToFeatureOrDiseaseQualifiers]-%20onset%20qualifier%200..1>\[Onset|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*],%20\[Attribute]^-\[Onset])
+
 ## Parents
 
  *  is_a: [Attribute](Attribute.md) - A property or characteristic of an entity
+
 ## Referenced by class
 
  *  **[EntityToFeatureOrDiseaseQualifiers](EntityToFeatureOrDiseaseQualifiers.md)** *[onset qualifier](onset_qualifier.md)*  <sub>OPT</sub>  **[Onset](Onset.md)**
+
 ## Attributes
+
 
 ### Inherited from named thing:
 

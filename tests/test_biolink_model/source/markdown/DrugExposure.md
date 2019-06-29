@@ -1,3 +1,4 @@
+
 # Class: drug exposure
 
 
@@ -6,13 +7,17 @@ A drug exposure is an intake of a particular chemical substance
 URI: [biolink:DrugExposure](https://w3id.org/biolink/vocab/DrugExposure)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Environment]^-\[DrugExposure|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*])
+
 ## Parents
 
  *  is_a: [Environment](Environment.md) - A feature of the environment of an organism that influences one or more phenotypic features of that organism, potentially mediated by genes
+
 ## Referenced by class
 
  *  **[Treatment](Treatment.md)** *[has exposure parts](has_exposure_parts.md)*  <sub>1..*</sub>  **[DrugExposure](DrugExposure.md)**
+
 ## Attributes
+
 
 ### Inherited from named thing:
 
@@ -31,6 +36,7 @@ URI: [biolink:DrugExposure](https://w3id.org/biolink/vocab/DrugExposure)
     * range: [IriType](IriType.md)
     * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
+
 ### Domain for slot:
 
  * [drug](drug.md)  <sub>1..*</sub>

@@ -1,3 +1,4 @@
+
 # Class: case
 
 
@@ -6,13 +7,17 @@ An individual organism that has a patient role in some clinical context.
 URI: [biolink:Case](https://w3id.org/biolink/vocab/Case)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[Case|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*],%20\[CaseToThingAssociation]-%20subject%201..1>\[Case],%20\[IndividualOrganism]^-\[Case])
+
 ## Parents
 
  *  is_a: [IndividualOrganism](IndividualOrganism.md)
+
 ## Referenced by class
 
  *  **[CaseToThingAssociation](CaseToThingAssociation.md)** *[subject](case_to_thing_association_subject.md)*  <sub>REQ</sub>  **[Case](Case.md)**
+
 ## Attributes
+
 
 ### Inherited from named thing:
 
@@ -31,6 +36,7 @@ URI: [biolink:Case](https://w3id.org/biolink/vocab/Case)
     * range: [IriType](IriType.md)
     * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
+
 ### Inherited from thing with taxon:
 
  * [in taxon](in_taxon.md)  <sub>0..*</sub>

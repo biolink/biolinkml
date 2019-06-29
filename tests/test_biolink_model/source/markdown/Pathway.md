@@ -1,3 +1,4 @@
+
 # Class: pathway
 
 
@@ -6,13 +7,17 @@
 URI: [biolink:Pathway](https://w3id.org/biolink/vocab/Pathway)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[ChemicalToPathwayAssociation]-%20object%201..1>\[Pathway|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*],%20\[BiologicalProcess]^-\[Pathway])
+
 ## Parents
 
  *  is_a: [BiologicalProcess](BiologicalProcess.md) - One or more causally connected executions of molecular functions
+
 ## Referenced by class
 
  *  **[ChemicalToPathwayAssociation](ChemicalToPathwayAssociation.md)** *[object](chemical_to_pathway_association_object.md)*  <sub>REQ</sub>  **[Pathway](Pathway.md)**
+
 ## Attributes
+
 
 ### Inherited from named thing:
 

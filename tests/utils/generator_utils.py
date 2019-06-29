@@ -23,6 +23,7 @@ class GeneratorTestCase(unittest.TestCase):
     target_path: str = None
     model_path: str = None
     model_name: str = None
+    output_name: str = None             # If different than model name
 
     @classmethod
     def setUpClass(cls) -> None:
@@ -122,8 +123,9 @@ class GeneratorTestCase(unittest.TestCase):
             def filtr(s): return s
         if comparator is None:
             comparator = GeneratorTestCase._default_comparator
-        old_file = os.path.join(self.source_path, self.model_name + '.' + suffix)
-        new_file = os.path.join(self.target_path, self.model_name + '.' + suffix)
+        output_base = self.output_name if self.output_name else self.model_name
+        old_file = os.path.join(self.source_path, output_base + '.' + suffix)
+        new_file = os.path.join(self.target_path, output_base + '.' + suffix)
         message = f"Comparing existing {os.path.relpath(old_file, MODULE_DIR)} to new {os.path.relpath(new_file, MODULE_DIR)}"
         yaml_file = os.path.join(self.model_path, self.model_name + '.yaml')
         if os.path.exists(new_file):

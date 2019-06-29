@@ -1,3 +1,4 @@
+
 # Class: environment
 
 
@@ -6,17 +7,22 @@ A feature of the environment of an organism that influences one or more phenotyp
 URI: [biolink:Environment](https://w3id.org/biolink/vocab/Environment)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[EnvironmentToPhenotypicFeatureAssociation]-%20subject%201..1>\[Environment|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*],%20\[Environment]^-\[Treatment],%20\[Environment]^-\[DrugExposure],%20\[BiologicalEntity]^-\[Environment])
+
 ## Parents
 
  *  is_a: [BiologicalEntity](BiologicalEntity.md)
+
 ## Children
 
  * [DrugExposure](DrugExposure.md) - A drug exposure is an intake of a particular chemical substance
  * [Treatment](Treatment.md) - A treatment is targeted at a disease or phenotype and may involve multiple drug 'exposures'
+
 ## Referenced by class
 
  *  **[EnvironmentToPhenotypicFeatureAssociation](EnvironmentToPhenotypicFeatureAssociation.md)** *[subject](environment_to_phenotypic_feature_association_subject.md)*  <sub>REQ</sub>  **[Environment](Environment.md)**
+
 ## Attributes
+
 
 ### Inherited from named thing:
 

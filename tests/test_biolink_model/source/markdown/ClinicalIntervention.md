@@ -1,3 +1,4 @@
+
 # Class: clinical intervention
 
 
@@ -6,10 +7,13 @@
 URI: [biolink:ClinicalIntervention](https://w3id.org/biolink/vocab/ClinicalIntervention)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[ClinicalEntity]^-\[ClinicalIntervention|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*])
+
 ## Parents
 
  *  is_a: [ClinicalEntity](ClinicalEntity.md) - Any entity or process that exists in the clinical domain and outside the biological realm. Diseases are placed under biological entities
+
 ## Attributes
+
 
 ### Inherited from named thing:
 

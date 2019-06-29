@@ -1,3 +1,4 @@
+
 # Class: biological process or activity
 
 
@@ -6,16 +7,21 @@ Either an individual molecular activity, or a collection of causally connected m
 URI: [biolink:BiologicalProcessOrActivity](https://w3id.org/biolink/vocab/BiologicalProcessOrActivity)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[BiologicalProcessOrActivity|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*]^-\[MolecularActivity],%20\[BiologicalProcessOrActivity]^-\[BiologicalProcess],%20\[BiologicalEntity]^-\[BiologicalProcessOrActivity])
+
 ## Parents
 
  *  is_a: [BiologicalEntity](BiologicalEntity.md)
+
 ## Children
 
  * [BiologicalProcess](BiologicalProcess.md) - One or more causally connected executions of molecular functions
  * [MolecularActivity](MolecularActivity.md) - An execution of a molecular function carried out by a gene product or macromolecular complex.
+
 ## Referenced by class
 
+
 ## Attributes
+
 
 ### Inherited from named thing:
 

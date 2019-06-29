@@ -1,3 +1,4 @@
+
 # Class: planetary entity
 
 
@@ -6,17 +7,22 @@ Any entity or process that exists at the level of the whole planet
 URI: [biolink:PlanetaryEntity](https://w3id.org/biolink/vocab/PlanetaryEntity)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[PlanetaryEntity|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*]^-\[GeographicLocation],%20\[PlanetaryEntity]^-\[EnvironmentalProcess],%20\[PlanetaryEntity]^-\[EnvironmentalFeature],%20\[NamedThing]^-\[PlanetaryEntity])
+
 ## Parents
 
  *  is_a: [NamedThing](NamedThing.md) - a databased entity or concept/class
+
 ## Children
 
  * [EnvironmentalFeature](EnvironmentalFeature.md)
  * [EnvironmentalProcess](EnvironmentalProcess.md)
  * [GeographicLocation](GeographicLocation.md) - a location that can be described in lat/long coordinates
+
 ## Referenced by class
 
+
 ## Attributes
+
 
 ### Inherited from named thing:
 

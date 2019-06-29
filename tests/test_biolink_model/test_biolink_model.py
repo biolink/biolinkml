@@ -39,12 +39,14 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
     model_path = os.path.join(cwd, 'yaml')
     model_name = 'biolink-model'
 
+
     def test_biolink_python(self):
         """ Test the python generator for the biolink model """
+        self.output_name = 'model'
         self.single_file_generator('py', PythonGenerator, {'emit_metadata': True}, filtr=metadata_filter)
 
         # Make sure the python is valid
-        with open(os.path.join(self.source_path, 'biolink-model.py')) as f:
+        with open(os.path.join(self.source_path, f'{self.output_name}.py')) as f:
             pydata = f.read()
         spec = compile(pydata, 'test', 'exec')
         module = ModuleType('test')

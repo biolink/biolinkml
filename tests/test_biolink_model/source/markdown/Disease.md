@@ -1,3 +1,4 @@
+
 # Class: disease
 
 
@@ -6,15 +7,19 @@
 URI: [biolink:Disease](https://w3id.org/biolink/vocab/Disease)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[Disease|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*],%20\[DiseaseToThingAssociation]-%20subject%201..1>\[Disease],%20\[DiseaseOrPhenotypicFeature]^-\[Disease])
+
 ## Parents
 
  *  is_a: [DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md) - Either one of a disease or an individual phenotypic feature. Some knowledge resources such as Monarch treat these as distinct, others such as MESH conflate.
+
 ## Referenced by class
 
  *  **[DiseaseToThingAssociation](DiseaseToThingAssociation.md)** *[subject](disease_to_thing_association_subject.md)*  <sub>REQ</sub>  **[Disease](Disease.md)**
  *  **[EntityToDiseaseAssociation](EntityToDiseaseAssociation.md)** *[object](entity_to_disease_association_object.md)*  <sub>REQ</sub>  **[Disease](Disease.md)**
  *  **[NamedThing](NamedThing.md)** *[manifestation of](manifestation_of.md)*  <sub>0..*</sub>  **[Disease](Disease.md)**
+
 ## Attributes
+
 
 ### Inherited from named thing:
 
@@ -33,6 +38,7 @@ URI: [biolink:Disease](https://w3id.org/biolink/vocab/Disease)
     * range: [IriType](IriType.md)
     * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
+
 ### Inherited from thing with taxon:
 
  * [in taxon](in_taxon.md)  <sub>0..*</sub>

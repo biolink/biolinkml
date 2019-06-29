@@ -170,32 +170,32 @@
         "rdfs",
         "skos",
         "xsd" ;
-    :generation_date "2019-06-27 12:39"^^xsd:dateTime ;
+    :generation_date "2019-06-28 12:57"^^xsd:dateTime ;
     :id <https://w3id.org/biolink/biolink-model> ;
     :imports <biolinkml:types> ;
-    :metamodel_version "1.3.5" ;
-    :prefixes [ :prefix_prefix "biolinkml" ;
-            :prefix_reference <https://w3id.org/biolink/biolinkml/> ],
-        [ :prefix_prefix "UMLSST" ;
+    :metamodel_version "1.3.6" ;
+    :prefixes [ :prefix_prefix "UMLSST" ;
             :prefix_reference <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/STY/> ],
-        [ :prefix_prefix "OBAN" ;
-            :prefix_reference <http://purl.org/oban/> ],
+        [ :prefix_prefix "metatype" ;
+            :prefix_reference metatype: ],
         [ :prefix_prefix "UMLSSG" ;
             :prefix_reference <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/GROUP/> ],
         [ :prefix_prefix "xsd" ;
             :prefix_reference xsd: ],
-        [ :prefix_prefix "SIO" ;
-            :prefix_reference <http://semanticscience.org/resource/SIO_> ],
         [ :prefix_prefix "wgs" ;
             :prefix_reference <http://www.w3.org/2003/01/geo/wgs84_pos> ],
-        [ :prefix_prefix "UMLSSC" ;
-            :prefix_reference <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/TUI/> ],
+        [ :prefix_prefix "biolinkml" ;
+            :prefix_reference <https://w3id.org/biolink/biolinkml/> ],
         [ :prefix_prefix "meta" ;
             :prefix_reference : ],
+        [ :prefix_prefix "UMLSSC" ;
+            :prefix_reference <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/TUI/> ],
+        [ :prefix_prefix "SIO" ;
+            :prefix_reference <http://semanticscience.org/resource/SIO_> ],
+        [ :prefix_prefix "OBAN" ;
+            :prefix_reference <http://purl.org/oban/> ],
         [ :prefix_prefix "biolink" ;
-            :prefix_reference <https://w3id.org/biolink/vocab/> ],
-        [ :prefix_prefix "metatype" ;
-            :prefix_reference metatype: ] ;
+            :prefix_reference <https://w3id.org/biolink/vocab/> ] ;
     :slots <https://w3id.org/biolink/vocab/actively_involved_in>,
         <https://w3id.org/biolink/vocab/affects>,
         <https://w3id.org/biolink/vocab/affects_abundance_of>,
@@ -455,7 +455,7 @@
         <https://w3id.org/biolink/vocab/variant_to_thing_association_subject>,
         <https://w3id.org/biolink/vocab/xenologous_to> ;
     :source_file "biolink-model.yaml" ;
-    :source_file_date "Thu Jun 20 19:58:04 2019"^^xsd:dateTime ;
+    :source_file_date "Fri Jun 28 10:28:33 2019"^^xsd:dateTime ;
     :source_file_size 106946 ;
     :subsets <https://w3id.org/biolink/vocab/testing>,
         <https://w3id.org/biolink/vocab/translator_minimal> ;
@@ -3700,11 +3700,11 @@
     :inherited true ;
     :is_a <https://w3id.org/biolink/vocab/regulates_entity_to_entity> ;
     :local_names [ a :LocalName ;
-            skos:altLabel "activity directly negatively regulates activity of" ;
-            :local_name_source "ro" ],
-        [ a :LocalName ;
             skos:altLabel "negatively regulates" ;
-            :local_name_source "translator" ] ;
+            :local_name_source "translator" ],
+        [ a :LocalName ;
+            skos:altLabel "activity directly negatively regulates activity of" ;
+            :local_name_source "ro" ] ;
     :mixins <https://w3id.org/biolink/vocab/negatively_regulates> ;
     :multivalued true ;
     :owner <https://w3id.org/biolink/vocab/negatively_regulates_entity_to_entity> ;
@@ -3779,11 +3779,11 @@
     :inherited true ;
     :is_a <https://w3id.org/biolink/vocab/regulates_entity_to_entity> ;
     :local_names [ a :LocalName ;
-            skos:altLabel "positively regulates" ;
-            :local_name_source "translator" ],
-        [ a :LocalName ;
             skos:altLabel "activity directly positively regulates activity of" ;
-            :local_name_source "ro" ] ;
+            :local_name_source "ro" ],
+        [ a :LocalName ;
+            skos:altLabel "positively regulates" ;
+            :local_name_source "translator" ] ;
     :mixins <https://w3id.org/biolink/vocab/positively_regulates> ;
     :multivalued true ;
     :owner <https://w3id.org/biolink/vocab/positively_regulates_entity_to_entity> ;
@@ -4349,10 +4349,10 @@
     :is_a <https://w3id.org/biolink/vocab/OrganismalEntity> ;
     :local_names [ a :LocalName ;
             skos:altLabel "population" ;
-            :local_name_source "agr" ],
+            :local_name_source "ga4gh" ],
         [ a :LocalName ;
             skos:altLabel "population" ;
-            :local_name_source "ga4gh" ] ;
+            :local_name_source "agr" ] ;
     :mixins <https://w3id.org/biolink/vocab/ThingWithTaxon> ;
     :slots <https://w3id.org/biolink/vocab/category>,
         <https://w3id.org/biolink/vocab/description>,
@@ -7439,11 +7439,11 @@
     :inherited true ;
     :is_a <https://w3id.org/biolink/vocab/regulates> ;
     :local_names [ a :LocalName ;
-            skos:altLabel "activity directly regulates activity of" ;
-            :local_name_source "ro" ],
-        [ a :LocalName ;
             skos:altLabel "regulates" ;
-            :local_name_source "translator" ] ;
+            :local_name_source "translator" ],
+        [ a :LocalName ;
+            skos:altLabel "activity directly regulates activity of" ;
+            :local_name_source "ro" ] ;
     :multivalued true ;
     :owner <https://w3id.org/biolink/vocab/regulates_entity_to_entity> ;
     :range <https://w3id.org/biolink/vocab/MolecularEntity> ;
@@ -7785,11 +7785,11 @@
     :domain <https://w3id.org/biolink/vocab/Association> ;
     :is_a <https://w3id.org/biolink/vocab/association_slot> ;
     :local_names [ a :LocalName ;
-            skos:altLabel "predicate" ;
-            :local_name_source "translator" ],
-        [ a :LocalName ;
             skos:altLabel "annotation predicate" ;
-            :local_name_source "ga4gh" ] ;
+            :local_name_source "ga4gh" ],
+        [ a :LocalName ;
+            skos:altLabel "predicate" ;
+            :local_name_source "translator" ] ;
     :owner <https://w3id.org/biolink/vocab/Association> ;
     :range <https://w3id.org/biolink/vocab/iri_type> ;
     :required true ;
@@ -8074,11 +8074,11 @@
     :domain <https://w3id.org/biolink/vocab/Association> ;
     :is_a <https://w3id.org/biolink/vocab/association_slot> ;
     :local_names [ a :LocalName ;
-            skos:altLabel "annotation subject" ;
-            :local_name_source "ga4gh" ],
-        [ a :LocalName ;
             skos:altLabel "node with outgoing relationship" ;
-            :local_name_source "neo4j" ] ;
+            :local_name_source "neo4j" ],
+        [ a :LocalName ;
+            skos:altLabel "annotation subject" ;
+            :local_name_source "ga4gh" ] ;
     :owner <https://w3id.org/biolink/vocab/Association> ;
     :range <https://w3id.org/biolink/vocab/iri_type> ;
     :required true ;

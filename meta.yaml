@@ -3,7 +3,7 @@ title: Biolink Schema Metamodel
 name: metamodel
 description: A metamodel for defining biolink related schemas
 license: https://creativecommons.org/publicdomain/zero/1.0/
-version: 1.3.5
+version: 1.3.6
 
 prefixes:
   meta: https://w3id.org/biolink/biolinkml/meta/
@@ -786,6 +786,7 @@ classes:
       - inverse
       - is_class_field
       - role
+      - is_usage_slot
 
     slot_usage:
       is_a:
@@ -804,6 +805,7 @@ classes:
       - class_uri
       - subclass_of
       - union_of
+      - defining_slots
     slot_usage:
       is_a:
         range: class_definition

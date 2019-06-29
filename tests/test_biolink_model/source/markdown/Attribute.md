@@ -1,3 +1,4 @@
+
 # Class: attribute
 
 
@@ -6,9 +7,11 @@ A property or characteristic of an entity
 URI: [biolink:Attribute](https://w3id.org/biolink/vocab/Attribute)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Attribute|id:identifier_type;name:label_type%20%3F;category:iri_type%20*]uses%20-.->\[OntologyClass],%20\[Attribute]^-\[Zygosity],%20\[Attribute]^-\[SeverityValue],%20\[Attribute]^-\[Onset],%20\[Attribute]^-\[FrequencyValue],%20\[Attribute]^-\[ClinicalModifier],%20\[Attribute]^-\[BiologicalSex])
+
 ## Uses Mixins
 
  *  mixin: [OntologyClass](OntologyClass.md) - a concept or class in an ontology, vocabulary or thesaurus
+
 ## Children
 
  * [BiologicalSex](BiologicalSex.md)
@@ -17,9 +20,12 @@ URI: [biolink:Attribute](https://w3id.org/biolink/vocab/Attribute)
  * [Onset](Onset.md) - The age group in which manifestations appear
  * [SeverityValue](SeverityValue.md) - describes the severity of a phenotypic feature or disease
  * [Zygosity](Zygosity.md)
+
 ## Referenced by class
 
+
 ## Attributes
+
 
 ### Inherited from named thing:
 

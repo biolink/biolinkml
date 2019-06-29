@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by pythongen.py version: 0.2.0
-# Generation date: 2019-06-27 13:10
+# Generation date: 2019-06-28 18:26
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta
@@ -13,7 +13,8 @@ from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.metamodelcore import Bool, NCName, URI, URIorCURIE, XSDDateTime
 from includes.types import Boolean, Datetime, Integer, Ncname, String, Uri, Uriorcurie
 
-metamodel_version = "1.3.5"
+metamodel_version = "1.3.6"
+
 
 # Types
 
@@ -65,7 +66,6 @@ class Element(YAMLRoot):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    # === element ===
     name: Union[str, ElementName]
     id_prefixes: List[Union[str, NCName]] = empty_list()
     aliases: List[str] = empty_list()
@@ -114,25 +114,7 @@ class SchemaDefinition(Element):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    # === element ===
     name: Union[str, SchemaDefinitionName] = None
-    id_prefixes: List[Union[str, NCName]] = empty_list()
-    aliases: List[str] = empty_list()
-    local_names: Union[dict, "LocalName"] = empty_dict()
-    mappings: List[Union[str, URIorCURIE]] = empty_list()
-    description: Optional[str] = None
-    alt_descriptions: Union[dict, "AltDescription"] = empty_dict()
-    deprecated: Optional[str] = None
-    todos: List[str] = empty_list()
-    notes: List[str] = empty_list()
-    comments: List[str] = empty_list()
-    examples: List[Union[dict, "Example"]] = empty_list()
-    in_subset: List[Union[str, SubsetDefinitionName]] = empty_list()
-    from_schema: Optional[Union[str, URI]] = None
-    imported_from: Optional[str] = None
-    see_also: List[Union[str, URIorCURIE]] = empty_list()
-
-    # === schema_definition ===
     id: Union[str, URI] = None
     title: Optional[str] = None
     version: Optional[str] = None
@@ -193,25 +175,7 @@ class TypeDefinition(Element):
     """
     _inherited_slots: ClassVar[List[str]] = ["base", "uri", "repr"]
 
-    # === element ===
     name: Union[str, TypeDefinitionName] = None
-    id_prefixes: List[Union[str, NCName]] = empty_list()
-    aliases: List[str] = empty_list()
-    local_names: Union[dict, "LocalName"] = empty_dict()
-    mappings: List[Union[str, URIorCURIE]] = empty_list()
-    description: Optional[str] = None
-    alt_descriptions: Union[dict, "AltDescription"] = empty_dict()
-    deprecated: Optional[str] = None
-    todos: List[str] = empty_list()
-    notes: List[str] = empty_list()
-    comments: List[str] = empty_list()
-    examples: List[Union[dict, "Example"]] = empty_list()
-    in_subset: List[Union[str, SubsetDefinitionName]] = empty_list()
-    from_schema: Optional[Union[str, URI]] = None
-    imported_from: Optional[str] = None
-    see_also: List[Union[str, URIorCURIE]] = empty_list()
-
-    # === type_definition ===
     typeof: Optional[Union[str, TypeDefinitionName]] = None
     base: Optional[str] = None
     uri: Optional[Union[str, URIorCURIE]] = None
@@ -234,25 +198,7 @@ class SubsetDefinition(Element):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    # === element ===
     name: Union[str, SubsetDefinitionName] = None
-    id_prefixes: List[Union[str, NCName]] = empty_list()
-    aliases: List[str] = empty_list()
-    local_names: Union[dict, "LocalName"] = empty_dict()
-    mappings: List[Union[str, URIorCURIE]] = empty_list()
-    description: Optional[str] = None
-    alt_descriptions: Union[dict, "AltDescription"] = empty_dict()
-    deprecated: Optional[str] = None
-    todos: List[str] = empty_list()
-    notes: List[str] = empty_list()
-    comments: List[str] = empty_list()
-    examples: List[Union[dict, "Example"]] = empty_list()
-    in_subset: List[Union[str, SubsetDefinitionName]] = empty_list()
-    from_schema: Optional[Union[str, URI]] = None
-    imported_from: Optional[str] = None
-    see_also: List[Union[str, URIorCURIE]] = empty_list()
-
-    # === subset_definition ===
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -267,25 +213,7 @@ class Definition(Element):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    # === element ===
     name: Union[str, DefinitionName] = None
-    id_prefixes: List[Union[str, NCName]] = empty_list()
-    aliases: List[str] = empty_list()
-    local_names: Union[dict, "LocalName"] = empty_dict()
-    mappings: List[Union[str, URIorCURIE]] = empty_list()
-    description: Optional[str] = None
-    alt_descriptions: Union[dict, "AltDescription"] = empty_dict()
-    deprecated: Optional[str] = None
-    todos: List[str] = empty_list()
-    notes: List[str] = empty_list()
-    comments: List[str] = empty_list()
-    examples: List[Union[dict, "Example"]] = empty_list()
-    in_subset: List[Union[str, SubsetDefinitionName]] = empty_list()
-    from_schema: Optional[Union[str, URI]] = None
-    imported_from: Optional[str] = None
-    see_also: List[Union[str, URIorCURIE]] = empty_list()
-
-    # === definition ===
     is_a: Optional[Union[str, DefinitionName]] = None
     abstract: Optional[Bool] = None
     mixin: Optional[Bool] = None
@@ -312,35 +240,9 @@ class SlotDefinition(Definition):
     """
     _inherited_slots: ClassVar[List[str]] = ["domain", "range", "multivalued", "inherited", "readonly", "ifabsent", "required", "inlined", "key", "identifier", "role"]
 
-    # === element ===
     name: Union[str, SlotDefinitionName] = None
-    id_prefixes: List[Union[str, NCName]] = empty_list()
-    aliases: List[str] = empty_list()
-    local_names: Union[dict, "LocalName"] = empty_dict()
-    mappings: List[Union[str, URIorCURIE]] = empty_list()
-    description: Optional[str] = None
-    alt_descriptions: Union[dict, "AltDescription"] = empty_dict()
-    deprecated: Optional[str] = None
-    todos: List[str] = empty_list()
-    notes: List[str] = empty_list()
-    comments: List[str] = empty_list()
-    examples: List[Union[dict, "Example"]] = empty_list()
-    in_subset: List[Union[str, SubsetDefinitionName]] = empty_list()
-    from_schema: Optional[Union[str, URI]] = None
-    imported_from: Optional[str] = None
-    see_also: List[Union[str, URIorCURIE]] = empty_list()
-
-    # === definition ===
-    abstract: Optional[Bool] = None
-    mixin: Optional[Bool] = None
-    values_from: List[Union[str, URIorCURIE]] = empty_list()
-
-    # === slot_definition ===
     domain: Union[str, ClassDefinitionName] = None
     owner: Union[str, DefinitionName] = None
-    is_a: Optional[Union[str, SlotDefinitionName]] = None
-    mixins: List[Union[str, SlotDefinitionName]] = empty_list()
-    apply_to: List[Union[str, SlotDefinitionName]] = empty_list()
     singular_name: Optional[str] = None
     range: Optional[Union[str, ElementName]] = None
     slot_uri: Optional[Union[str, URIorCURIE]] = None
@@ -391,33 +293,7 @@ class ClassDefinition(Definition):
     """
     _inherited_slots: ClassVar[List[str]] = ["defining_slots"]
 
-    # === element ===
     name: Union[str, ClassDefinitionName] = None
-    id_prefixes: List[Union[str, NCName]] = empty_list()
-    aliases: List[str] = empty_list()
-    local_names: Union[dict, "LocalName"] = empty_dict()
-    mappings: List[Union[str, URIorCURIE]] = empty_list()
-    description: Optional[str] = None
-    alt_descriptions: Union[dict, "AltDescription"] = empty_dict()
-    deprecated: Optional[str] = None
-    todos: List[str] = empty_list()
-    notes: List[str] = empty_list()
-    comments: List[str] = empty_list()
-    examples: List[Union[dict, "Example"]] = empty_list()
-    in_subset: List[Union[str, SubsetDefinitionName]] = empty_list()
-    from_schema: Optional[Union[str, URI]] = None
-    imported_from: Optional[str] = None
-    see_also: List[Union[str, URIorCURIE]] = empty_list()
-
-    # === definition ===
-    abstract: Optional[Bool] = None
-    mixin: Optional[Bool] = None
-    values_from: List[Union[str, URIorCURIE]] = empty_list()
-
-    # === class_definition ===
-    is_a: Optional[Union[str, ClassDefinitionName]] = None
-    mixins: List[Union[str, ClassDefinitionName]] = empty_list()
-    apply_to: List[Union[str, ClassDefinitionName]] = empty_list()
     slots: List[Union[str, SlotDefinitionName]] = empty_list()
     slot_usage: Dict[Union[str, SlotDefinitionName], Union[dict, SlotDefinition]] = empty_dict()
     class_uri: Optional[Union[str, URIorCURIE]] = None
@@ -457,7 +333,6 @@ class Prefix(YAMLRoot):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    # === prefix ===
     prefix_prefix: Union[str, PrefixPrefixPrefix]
     prefix_reference: Union[str, URI]
 
@@ -476,7 +351,6 @@ class LocalName(YAMLRoot):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    # === local_name ===
     local_name_source: Union[str, LocalNameLocalNameSource]
     local_name_value: str
 
@@ -493,10 +367,8 @@ class Example(YAMLRoot):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    # === example ===
     value: Optional[str] = None
     description: Optional[str] = None
-
 
 @dataclass
 class AltDescription(YAMLRoot):
@@ -505,7 +377,6 @@ class AltDescription(YAMLRoot):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    # === alt_description ===
     source: Union[str, AltDescriptionSource]
     description: str
 

@@ -1,3 +1,4 @@
+
 # Class: biological sex
 
 
@@ -6,17 +7,22 @@
 URI: [biolink:BiologicalSex](https://w3id.org/biolink/vocab/BiologicalSex)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[EntityToPhenotypicFeatureAssociation]-%20sex%20qualifier%200..1>\[BiologicalSex|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*],%20\[BiologicalSex]^-\[PhenotypicSex],%20\[BiologicalSex]^-\[GenotypicSex],%20\[Attribute]^-\[BiologicalSex])
+
 ## Parents
 
  *  is_a: [Attribute](Attribute.md) - A property or characteristic of an entity
+
 ## Children
 
  * [GenotypicSex](GenotypicSex.md) - An attribute corresponding to the genotypic sex of the individual, based upon genotypic composition of sex chromosomes.
  * [PhenotypicSex](PhenotypicSex.md) - An attribute corresponding to the phenotypic sex of the individual, based upon the reproductive organs present.
+
 ## Referenced by class
 
  *  **[EntityToPhenotypicFeatureAssociation](EntityToPhenotypicFeatureAssociation.md)** *[sex qualifier](sex_qualifier.md)*  <sub>OPT</sub>  **[BiologicalSex](BiologicalSex.md)**
+
 ## Attributes
+
 
 ### Inherited from named thing:
 

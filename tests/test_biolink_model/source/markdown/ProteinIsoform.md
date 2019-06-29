@@ -1,3 +1,4 @@
+
 # Class: protein isoform
 
 
@@ -6,13 +7,17 @@ Represents a protein that is a specific isoform of the canonical or reference pr
 URI: [biolink:ProteinIsoform](https://w3id.org/biolink/vocab/ProteinIsoform)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[ProteinIsoform|name(i):symbol_type%20%3F;has_biological_sequence(i):biological_sequence%20%3F;id(i):identifier_type;category(i):iri_type%20*],%20\[ProteinIsoform]uses%20-.->\[GeneProductIsoform],%20\[Protein]^-\[ProteinIsoform])
+
 ## Parents
 
  *  is_a: [Protein](Protein.md) - A gene product that is composed of a chain of amino acid sequences and is produced by ribosome-mediated translation of mRNA
+
 ## Uses Mixins
 
  *  mixin: [GeneProductIsoform](GeneProductIsoform.md) - This is an abstract class that can be mixed in with different kinds of gene products to indicate that the gene product is intended to represent a specific isoform rather than a canonical or reference or generic product. The designation of canonical or reference may be arbitrary, or it may represent the superclass of all isoforms.
+
 ## Attributes
+
 
 ### Inherited from genomic entity:
 
@@ -20,11 +25,13 @@ URI: [biolink:ProteinIsoform](https://w3id.org/biolink/vocab/ProteinIsoform)
     * Description: connects a genomic feature to its sequence
     * range: [BiologicalSequence](BiologicalSequence.md)
     * inherited from: [GenomicEntity](GenomicEntity.md)
+
 ### Inherited from macromolecular machine:
 
  * [name](macromolecular_machine_name.md)  <sub>OPT</sub>
     * range: [SymbolType](SymbolType.md)
     * inherited from: [MacromolecularMachine](MacromolecularMachine.md)
+
 ### Inherited from named thing:
 
  * [id](id.md)  <sub>REQ</sub>
@@ -42,6 +49,7 @@ URI: [biolink:ProteinIsoform](https://w3id.org/biolink/vocab/ProteinIsoform)
     * range: [IriType](IriType.md)
     * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
+
 ### Inherited from thing with taxon:
 
  * [in taxon](in_taxon.md)  <sub>0..*</sub>

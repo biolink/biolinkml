@@ -1,7 +1,9 @@
+
 # Metamodel schema
 
 
 A metamodel for defining biolink related schemas
+
 
 ### Classes
 
@@ -16,7 +18,9 @@ A metamodel for defining biolink related schemas
  * [Example](Example.md) - usage example and description
  * [LocalName](LocalName.md) - an attributed label
  * [Prefix](Prefix.md) - prefix URI tuple
+
 ### Mixins
+
 
 ### Slots
 
@@ -105,7 +109,9 @@ A metamodel for defining biolink related schemas
  * [description](value_description.md) - description of what the value is doing
  * [values_from](values_from.md) - the identifier of a "value set" -- a set of identifiers that form the possible values for the range of a slot
  * [version](version.md) - particular version of schema
+
 ### Types
+
 
 #### Built in
 
@@ -119,6 +125,7 @@ A metamodel for defining biolink related schemas
  * **float**
  * **int**
  * **str**
+
 #### Defined
 
  * [Boolean](Boolean.md)  (**Bool**)  - A binary (true or false) value

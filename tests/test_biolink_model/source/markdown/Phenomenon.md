@@ -1,3 +1,4 @@
+
 # Class: phenomenon
 
 
@@ -6,10 +7,13 @@ a fact or situation that is observed to exist or happen, especially one whose ca
 URI: [biolink:Phenomenon](https://w3id.org/biolink/vocab/Phenomenon)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Occurrent]^-\[Phenomenon|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*])
+
 ## Parents
 
  *  is_a: [Occurrent](Occurrent.md) - A processual entity
+
 ## Attributes
+
 
 ### Inherited from named thing:
 

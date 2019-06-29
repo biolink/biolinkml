@@ -1,3 +1,4 @@
+
 # Class: treatment
 
 
@@ -6,13 +7,17 @@ A treatment is targeted at a disease or phenotype and may involve multiple drug 
 URI: [biolink:Treatment](https://w3id.org/biolink/vocab/Treatment)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[SequenceVariantModulatesTreatmentAssociation]-%20object%201..1>\[Treatment|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*],%20\[Environment]^-\[Treatment])
+
 ## Parents
 
  *  is_a: [Environment](Environment.md) - A feature of the environment of an organism that influences one or more phenotypic features of that organism, potentially mediated by genes
+
 ## Referenced by class
 
  *  **[SequenceVariantModulatesTreatmentAssociation](SequenceVariantModulatesTreatmentAssociation.md)** *[object](sequence_variant_modulates_treatment_association_object.md)*  <sub>REQ</sub>  **[Treatment](Treatment.md)**
+
 ## Attributes
+
 
 ### Inherited from named thing:
 
@@ -31,6 +36,7 @@ URI: [biolink:Treatment](https://w3id.org/biolink/vocab/Treatment)
     * range: [IriType](IriType.md)
     * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
+
 ### Domain for slot:
 
  * [has exposure parts](has_exposure_parts.md)  <sub>1..*</sub>

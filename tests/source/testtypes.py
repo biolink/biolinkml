@@ -1,3 +1,4 @@
+
 # id: http://example.org/tests/types
 # description:
 # license:
@@ -8,7 +9,8 @@ from biolinkml.utils.metamodelcore import empty_list, empty_dict
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.metamodelcore import Bool
 
-metamodel_version = "1.3.5"
+metamodel_version = "1.3.6"
+
 
 # Types
 class String(str):
@@ -28,3 +30,5 @@ class StringType(String):
 
 
 # Class references
+
+

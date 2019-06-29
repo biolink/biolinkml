@@ -1,3 +1,4 @@
+
 # Class: molecular activity
 
 
@@ -6,16 +7,21 @@ An execution of a molecular function carried out by a gene product or macromolec
 URI: [biolink:MolecularActivity](https://w3id.org/biolink/vocab/MolecularActivity)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[MacromolecularMachineToMolecularActivityAssociation]-%20object%201..1>\[MolecularActivity|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*],%20\[MolecularActivity]uses%20-.->\[Occurrent],%20\[BiologicalProcessOrActivity]^-\[MolecularActivity])
+
 ## Parents
 
  *  is_a: [BiologicalProcessOrActivity](BiologicalProcessOrActivity.md) - Either an individual molecular activity, or a collection of causally connected molecular activities
+
 ## Uses Mixins
 
  *  mixin: [Occurrent](Occurrent.md) - A processual entity
+
 ## Referenced by class
 
  *  **[MacromolecularMachineToMolecularActivityAssociation](MacromolecularMachineToMolecularActivityAssociation.md)** *[object](macromolecular_machine_to_molecular_activity_association_object.md)*  <sub>REQ</sub>  **[MolecularActivity](MolecularActivity.md)**
+
 ## Attributes
+
 
 ### Inherited from named thing:
 

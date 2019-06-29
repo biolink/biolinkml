@@ -48,6 +48,7 @@ from biolinkml.utils.yamlutils import YAMLRoot
 
 metamodel_version = "{self.schema.metamodel_version}"
 
+
 # Types
 {self.gen_typedefs()}
 # Class references
@@ -174,22 +175,19 @@ metamodel_version = "{self.schema.metamodel_version}"
 
     def gen_classdef(self, cls: ClassDefinition) -> str:
         """ Generate python definition for class cls """
+
         parentref = f'({self.formatted_element_name(cls.is_a, True) if cls.is_a else "YAMLRoot"})'
         inheritedslots = self.gen_inherited_slots(cls)
         slotdefs = self.gen_class_variables(cls)
         postinits = self.gen_postinits(cls)
-        if not slotdefs:
-            slotdefs = 'pass'
-        wrapped_description = f'''
-    """
-    {wrapped_annotation(be(cls.description))}
-    """''' if be(cls.description) else ''
-        return f'''
-@dataclass
-class {self.class_or_type_name(cls.name)}{parentref}:{wrapped_description}
-    {inheritedslots}
-    {slotdefs}
-    {postinits}'''
+
+        wrapped_description = f'\n\t"""\n\t{wrapped_annotation(be(cls.description))}\n\t"""' if be(cls.description) else ''
+
+        return ('\n@dataclass' if slotdefs else '') + \
+               f'\nclass {self.class_or_type_name(cls.name)}{parentref}:{wrapped_description}' + \
+               f'\n\t{inheritedslots}\n' + \
+               (f'\n\t{slotdefs}' if slotdefs else '') + \
+               (f'\n{postinits}' if postinits else '')
 
     def gen_inherited_slots(self, cls: ClassDefinition) -> str:
         inherited_slots = []
@@ -202,13 +200,11 @@ class {self.class_or_type_name(cls.name)}{parentref}:{wrapped_description}
 
     def gen_class_variables(self,
                             cls: ClassDefinition,
-                            target_class: ClassDefinition = None,
                             ancestor_path: List[ClassDefinitionName] = None) -> str:
         """
         Generate the variable declarations for a dataclass.
 
         :param cls: class containing variables to be rendered in inheritence hierarchy
-        :param target_class: ultimate path being generated
         :param ancestor_path: class names from cls to target class -- used to strip slot_usage overrides
         :return: variable declarations for target class and its ancestors
         """
@@ -217,46 +213,34 @@ class {self.class_or_type_name(cls.name)}{parentref}:{wrapped_description}
             return bool(set(ancestor_path)
                         .intersection(set(self.synopsis.slotusages.get(self.aliased_slot_name(slotname), []))))
 
-        if target_class is None:
-            target_class = cls
 
         if ancestor_path is None:
             ancestor_path = []
 
         if cls.is_a:
             ancestor_path.append(cls.name)
-            initializers = [self.gen_class_variables(self.schema.classes[cls.is_a], target_class, ancestor_path)]
-        else:
-            initializers = []
+        initializers = []
 
         is_root = not cls.is_a and not ancestor_path
-        is_leaf = target_class == cls
-        if cls.slots:
-            initializers += ['', f"# === {cls.name} ==="]
+        domain_slots = self.domain_slots(cls)
 
-            # Root keys and identifiers go first.  Note that even if a key or identifier is overridden it still
-            # appears at the top of the list, as we want to keep the positionality...
-            slot_variables = list(self._slot_iter(cls,
-                                                  lambda slot: (slot.identifier or slot.key) and (
-                                                               not overridden_slot(slot.name) or is_leaf),
-                                                  first_hit_only=True))
-            initializers += [self.gen_class_variable(target_class, slot, not is_root) for slot in slot_variables]
+        # Root keys and identifiers go first.  Note that even if a key or identifier is overridden it still
+        # appears at the top of the list, as we need to keep the position
+        slot_variables = self._slot_iter(cls, lambda slot: (slot.identifier or slot.key), first_hit_only=True)
+        initializers += [self.gen_class_variable(cls, slot, not is_root) for slot in slot_variables]
 
+        # Required slots
+        slot_variables = self._slot_iter(cls,
+                                         lambda slot: slot.required and not slot.identifier and not slot.key)
+        initializers +=  [self.gen_class_variable(cls, slot, not is_root) for slot in slot_variables]
 
-            # Required slots
-            slot_variables = self._slot_iter(cls,
-                                             lambda slot: slot.required and not slot.identifier and not slot.key
-                                                          and not overridden_slot(slot.name))
-            initializers +=  [self.gen_class_variable(target_class, slot, not is_root) for slot in slot_variables]
-
-            # Followed by everything else
-            slot_variables = self._slot_iter(cls, lambda slot: not slot.required and not overridden_slot(slot.name))
-            initializers += [self.gen_class_variable(target_class, slot, True) for slot in slot_variables]
+        # Followed by everything else
+        slot_variables = self._slot_iter(cls, lambda slot: not slot.required and not overridden_slot(slot.name)
+                                                           and slot in domain_slots)
+        initializers += [self.gen_class_variable(cls, slot, True) for slot in slot_variables]
 
         if ancestor_path:
             ancestor_path.pop()
-        if not ancestor_path and not initializers:
-            initializers = ['pass']
 
         return '\n\t'.join(initializers)
 
@@ -339,9 +323,10 @@ class {self.class_or_type_name(cls.name)}{parentref}:{wrapped_description}
                 post_inits.append(self.gen_postinit(cls, self.schema.slots[pkey]))
         else:
             pkeys = []
-        for slot in self.own_slots(cls):
+        for slot in self.domain_slots(cls):
             if slot.name not in pkeys:
                 post_inits.append(self.gen_postinit(cls, slot))
+
         post_inits_line = '\n\t\t'.join([p for p in post_inits if p])
         return (f'''
     def _fix_elements(self):
@@ -426,7 +411,7 @@ class {self.class_or_type_name(cls.name)}{parentref}:{wrapped_description}
         :param first_hit_only: True means stop on first match.  False means generate all
         :return: Set of slots that match
         """
-        for slot in self.own_slots(cls):
+        for slot in self.all_slots(cls):
             if test(slot):
                 yield slot
                 if first_hit_only:

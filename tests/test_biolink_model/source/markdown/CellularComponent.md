@@ -1,3 +1,4 @@
+
 # Class: cellular component
 
 
@@ -6,13 +7,17 @@ A location in or around a cell
 URI: [biolink:CellularComponent](https://w3id.org/biolink/vocab/CellularComponent)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[CellularComponent|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*],%20\[MacromolecularMachineToCellularComponentAssociation]-%20object%201..1>\[CellularComponent],%20\[AnatomicalEntity]^-\[CellularComponent])
+
 ## Parents
 
  *  is_a: [AnatomicalEntity](AnatomicalEntity.md) - A subcellular location, cell type or gross anatomical part
+
 ## Referenced by class
 
  *  **[MacromolecularMachineToCellularComponentAssociation](MacromolecularMachineToCellularComponentAssociation.md)** *[object](macromolecular_machine_to_cellular_component_association_object.md)*  <sub>REQ</sub>  **[CellularComponent](CellularComponent.md)**
+
 ## Attributes
+
 
 ### Inherited from named thing:
 
@@ -31,6 +36,7 @@ URI: [biolink:CellularComponent](https://w3id.org/biolink/vocab/CellularComponen
     * range: [IriType](IriType.md)
     * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
+
 ### Inherited from thing with taxon:
 
  * [in taxon](in_taxon.md)  <sub>0..*</sub>

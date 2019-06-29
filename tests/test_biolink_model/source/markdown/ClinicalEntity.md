@@ -1,3 +1,4 @@
+
 # Class: clinical entity
 
 
@@ -6,16 +7,21 @@ Any entity or process that exists in the clinical domain and outside the biologi
 URI: [biolink:ClinicalEntity](https://w3id.org/biolink/vocab/ClinicalEntity)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[ClinicalEntity|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*]^-\[ClinicalTrial],%20\[ClinicalEntity]^-\[ClinicalIntervention],%20\[NamedThing]^-\[ClinicalEntity])
+
 ## Parents
 
  *  is_a: [NamedThing](NamedThing.md) - a databased entity or concept/class
+
 ## Children
 
  * [ClinicalIntervention](ClinicalIntervention.md)
  * [ClinicalTrial](ClinicalTrial.md)
+
 ## Referenced by class
 
+
 ## Attributes
+
 
 ### Inherited from named thing:
 

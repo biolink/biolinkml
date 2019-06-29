@@ -1,3 +1,4 @@
+
 # Class: physiological process
 
 
@@ -6,10 +7,13 @@
 URI: [biolink:PhysiologicalProcess](https://w3id.org/biolink/vocab/PhysiologicalProcess)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[BiologicalProcess]^-\[PhysiologicalProcess|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*])
+
 ## Parents
 
  *  is_a: [BiologicalProcess](BiologicalProcess.md) - One or more causally connected executions of molecular functions
+
 ## Attributes
+
 
 ### Inherited from named thing:
 

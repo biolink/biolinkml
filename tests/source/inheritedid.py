@@ -1,3 +1,4 @@
+
 # id: https://example.org/inheritedid
 # description: Test
 # license: https://creativecommons.org/publicdomain/zero/1.0/
@@ -8,7 +9,8 @@ from biolinkml.utils.metamodelcore import empty_list, empty_dict
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.metamodelcore import URI
 
-metamodel_version = "1.3.5"
+metamodel_version = "1.3.6"
+
 
 # Types
 class String(str):
@@ -54,7 +56,6 @@ class NamedThing(YAMLRoot):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    # === named thing ===
     id: Union[str, NamedThingId]
     name: Optional[Union[str, LabelType]] = None
 
@@ -73,27 +74,19 @@ class Attribute(YAMLRoot):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    # === attribute ===
     id: Union[str, AttributeId]
-    name: Optional[Union[str, LabelType]] = None
 
     def _fix_elements(self):
         super()._fix_elements()
         if not isinstance(self.id, AttributeId):
             self.id = AttributeId(self.id)
-        if self.name is not None and not isinstance(self.name, LabelType):
-            self.name = LabelType(self.name)
 
 
 @dataclass
 class BiologicalSex(Attribute):
     _inherited_slots: ClassVar[List[str]] = []
 
-    # === attribute ===
     id: Union[str, BiologicalSexId] = None
-    name: Optional[Union[str, LabelType]] = None
-
-    # === biological sex ===
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -108,11 +101,7 @@ class OntologyClass(NamedThing):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    # === named thing ===
     id: Union[str, OntologyClassId] = None
-    name: Optional[Union[str, LabelType]] = None
-
-    # === ontology class ===
 
     def _fix_elements(self):
         super()._fix_elements()

@@ -1,3 +1,4 @@
+
 # Class: genome
 
 
@@ -6,10 +7,13 @@ A genome is the sum of genetic material within a cell or virion.
 URI: [biolink:Genome](https://w3id.org/biolink/vocab/Genome)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[Genome|has_biological_sequence(i):biological_sequence%20%3F;id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*],%20\[GenomicEntity]^-\[Genome])
+
 ## Parents
 
  *  is_a: [GenomicEntity](GenomicEntity.md) - an entity that can either be directly located on a genome (gene, transcript, exon, regulatory region) or is encoded in a genome (protein)
+
 ## Attributes
+
 
 ### Inherited from genomic entity:
 
@@ -17,6 +21,7 @@ URI: [biolink:Genome](https://w3id.org/biolink/vocab/Genome)
     * Description: connects a genomic feature to its sequence
     * range: [BiologicalSequence](BiologicalSequence.md)
     * inherited from: [GenomicEntity](GenomicEntity.md)
+
 ### Inherited from named thing:
 
  * [id](id.md)  <sub>REQ</sub>
@@ -34,6 +39,7 @@ URI: [biolink:Genome](https://w3id.org/biolink/vocab/Genome)
     * range: [IriType](IriType.md)
     * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
+
 ### Inherited from thing with taxon:
 
  * [in taxon](in_taxon.md)  <sub>0..*</sub>

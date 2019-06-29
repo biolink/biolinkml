@@ -1,3 +1,4 @@
+
 # Class: gene family
 
 
@@ -6,13 +7,17 @@ any grouping of multiple genes or gene products related by common descent
 URI: [biolink:GeneFamily](https://w3id.org/biolink/vocab/GeneFamily)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[GeneFamily|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*],%20\[GeneFamily]uses%20-.->\[GeneGrouping],%20\[MolecularEntity]^-\[GeneFamily])
+
 ## Parents
 
  *  is_a: [MolecularEntity](MolecularEntity.md) - A gene, gene product, small molecule or macromolecule (including protein complex)
+
 ## Uses Mixins
 
  *  mixin: [GeneGrouping](GeneGrouping.md) - any grouping of multiple genes or gene products
+
 ## Attributes
+
 
 ### Inherited from named thing:
 
@@ -31,6 +36,7 @@ URI: [biolink:GeneFamily](https://w3id.org/biolink/vocab/GeneFamily)
     * range: [IriType](IriType.md)
     * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
+
 ### Inherited from thing with taxon:
 
  * [in taxon](in_taxon.md)  <sub>0..*</sub>

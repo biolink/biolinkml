@@ -1,3 +1,4 @@
+
 # Class: RNA product
 
 
@@ -6,16 +7,21 @@
 URI: [biolink:RNAProduct](https://w3id.org/biolink/vocab/RNAProduct)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[RNAProduct|name(i):symbol_type%20%3F;has_biological_sequence(i):biological_sequence%20%3F;id(i):identifier_type;category(i):iri_type%20*],%20\[RNAProduct]^-\[NoncodingRNAProduct],%20\[RNAProduct]^-\[RNAProductIsoform],%20\[GeneProduct]^-\[RNAProduct])
+
 ## Parents
 
  *  is_a: [GeneProduct](GeneProduct.md) - The functional molecular product of a single gene. Gene products are either proteins or functional RNA molecules
+
 ## Children
 
  * [RNAProductIsoform](RNAProductIsoform.md) - Represents a protein that is a specific isoform of the canonical or reference RNA
  * [NoncodingRNAProduct](NoncodingRNAProduct.md)
+
 ## Referenced by class
 
+
 ## Attributes
+
 
 ### Inherited from genomic entity:
 
@@ -23,11 +29,13 @@ URI: [biolink:RNAProduct](https://w3id.org/biolink/vocab/RNAProduct)
     * Description: connects a genomic feature to its sequence
     * range: [BiologicalSequence](BiologicalSequence.md)
     * inherited from: [GenomicEntity](GenomicEntity.md)
+
 ### Inherited from macromolecular machine:
 
  * [name](macromolecular_machine_name.md)  <sub>OPT</sub>
     * range: [SymbolType](SymbolType.md)
     * inherited from: [MacromolecularMachine](MacromolecularMachine.md)
+
 ### Inherited from named thing:
 
  * [id](id.md)  <sub>REQ</sub>
@@ -45,6 +53,7 @@ URI: [biolink:RNAProduct](https://w3id.org/biolink/vocab/RNAProduct)
     * range: [IriType](IriType.md)
     * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
+
 ### Inherited from thing with taxon:
 
  * [in taxon](in_taxon.md)  <sub>0..*</sub>

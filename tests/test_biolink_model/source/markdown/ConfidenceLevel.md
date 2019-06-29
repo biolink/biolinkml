@@ -1,3 +1,4 @@
+
 # Class: confidence level
 
 
@@ -6,13 +7,17 @@ Level of confidence in a statement
 URI: [biolink:ConfidenceLevel](https://w3id.org/biolink/vocab/ConfidenceLevel)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[InformationContentEntity]^-\[ConfidenceLevel|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*])
+
 ## Parents
 
  *  is_a: [InformationContentEntity](InformationContentEntity.md) - a piece of information that typically describes some piece of biology or is used as support.
+
 ## Referenced by class
 
  *  **[Association](Association.md)** *[has confidence level](has_confidence_level.md)*  <sub>OPT</sub>  **[ConfidenceLevel](ConfidenceLevel.md)**
+
 ## Attributes
+
 
 ### Inherited from named thing:
 

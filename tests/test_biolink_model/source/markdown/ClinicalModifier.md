@@ -1,3 +1,4 @@
+
 # Class: clinical modifier
 
 
@@ -6,13 +7,17 @@ Used to characterize and specify the phenotypic abnormalities defined in the Phe
 URI: [biolink:ClinicalModifier](https://w3id.org/biolink/vocab/ClinicalModifier)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Attribute]^-\[ClinicalModifier|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*])
+
 ## Parents
 
  *  is_a: [Attribute](Attribute.md) - A property or characteristic of an entity
+
 ## Referenced by class
 
  *  **[Association](Association.md)** *[clinical modifier qualifier](clinical_modifier_qualifier.md)*  <sub>OPT</sub>  **[ClinicalModifier](ClinicalModifier.md)**
+
 ## Attributes
+
 
 ### Inherited from named thing:
 

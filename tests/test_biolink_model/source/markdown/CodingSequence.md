@@ -1,3 +1,4 @@
+
 # Class: coding sequence
 
 
@@ -6,10 +7,13 @@
 URI: [biolink:CodingSequence](https://w3id.org/biolink/vocab/CodingSequence)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[CodingSequence|has_biological_sequence(i):biological_sequence%20%3F;id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*],%20\[GenomicEntity]^-\[CodingSequence])
+
 ## Parents
 
  *  is_a: [GenomicEntity](GenomicEntity.md) - an entity that can either be directly located on a genome (gene, transcript, exon, regulatory region) or is encoded in a genome (protein)
+
 ## Attributes
+
 
 ### Inherited from genomic entity:
 
@@ -17,6 +21,7 @@ URI: [biolink:CodingSequence](https://w3id.org/biolink/vocab/CodingSequence)
     * Description: connects a genomic feature to its sequence
     * range: [BiologicalSequence](BiologicalSequence.md)
     * inherited from: [GenomicEntity](GenomicEntity.md)
+
 ### Inherited from named thing:
 
  * [id](id.md)  <sub>REQ</sub>
@@ -34,6 +39,7 @@ URI: [biolink:CodingSequence](https://w3id.org/biolink/vocab/CodingSequence)
     * range: [IriType](IriType.md)
     * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
+
 ### Inherited from thing with taxon:
 
  * [in taxon](in_taxon.md)  <sub>0..*</sub>

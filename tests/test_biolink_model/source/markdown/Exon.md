@@ -1,3 +1,4 @@
+
 # Class: exon
 
 
@@ -6,13 +7,17 @@ A region of the transcript sequence within a gene which is not removed from the 
 URI: [biolink:Exon](https://w3id.org/biolink/vocab/Exon)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[Exon|has_biological_sequence(i):biological_sequence%20%3F;id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*],%20\[ExonToTranscriptRelationship]-%20subject%201..1>\[Exon],%20\[GenomicEntity]^-\[Exon])
+
 ## Parents
 
  *  is_a: [GenomicEntity](GenomicEntity.md) - an entity that can either be directly located on a genome (gene, transcript, exon, regulatory region) or is encoded in a genome (protein)
+
 ## Referenced by class
 
  *  **[ExonToTranscriptRelationship](ExonToTranscriptRelationship.md)** *[subject](exon_to_transcript_relationship_subject.md)*  <sub>REQ</sub>  **[Exon](Exon.md)**
+
 ## Attributes
+
 
 ### Inherited from genomic entity:
 
@@ -20,6 +25,7 @@ URI: [biolink:Exon](https://w3id.org/biolink/vocab/Exon)
     * Description: connects a genomic feature to its sequence
     * range: [BiologicalSequence](BiologicalSequence.md)
     * inherited from: [GenomicEntity](GenomicEntity.md)
+
 ### Inherited from named thing:
 
  * [id](id.md)  <sub>REQ</sub>
@@ -37,6 +43,7 @@ URI: [biolink:Exon](https://w3id.org/biolink/vocab/Exon)
     * range: [IriType](IriType.md)
     * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
+
 ### Inherited from thing with taxon:
 
  * [in taxon](in_taxon.md)  <sub>0..*</sub>

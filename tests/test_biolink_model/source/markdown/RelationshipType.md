@@ -1,3 +1,4 @@
+
 # Class: relationship type
 
 
@@ -6,10 +7,13 @@ An OWL property used as an edge label
 URI: [biolink:RelationshipType](https://w3id.org/biolink/vocab/RelationshipType)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OntologyClass]^-\[RelationshipType|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*])
+
 ## Parents
 
  *  is_a: [OntologyClass](OntologyClass.md) - a concept or class in an ontology, vocabulary or thesaurus
+
 ## Attributes
+
 
 ### Inherited from named thing:
 

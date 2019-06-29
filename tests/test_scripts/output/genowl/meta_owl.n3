@@ -14,11 +14,11 @@
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "Biolink Schema Metamodel" ;
     skos:definition "A metamodel for defining biolink related schemas" ;
-    meta:generation_date "2019-06-27 13:06" ;
-    meta:metamodel_version "1.3.5" ;
+    meta:generation_date "2019-06-28 18:22" ;
+    meta:metamodel_version "1.3.6" ;
     meta:source_file "meta.yaml" ;
-    meta:source_file_date "Wed Jun 26 15:06:11 2019" ;
-    meta:source_file_size 22855 .
+    meta:source_file_date "Fri Jun 28 14:08:33 2019" ;
+    meta:source_file_size 22900 .
 
 meta:abstract a owl:AnnotationProperty,
         meta:SlotDefinition ;
@@ -786,12 +786,12 @@ meta:TypeDefinition a owl:Class,
             owl:onProperty meta:repr ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:uriorcurie ;
-            owl:onProperty meta:uri ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:string ;
             owl:onProperty meta:base ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:uriorcurie ;
+            owl:onProperty meta:uri ],
         meta:Element ;
     skos:definition "A data type definition." .
 
@@ -829,32 +829,8 @@ meta:SlotDefinition a owl:Class,
     rdfs:label "slot_definition" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:boolean ;
-            owl:onProperty meta:identifier ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:boolean ;
-            owl:onProperty meta:inherited ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:string ;
-            owl:onProperty meta:ifabsent ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:boolean ;
-            owl:onProperty meta:multivalued ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:boolean ;
-            owl:onProperty meta:required ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:string ;
             owl:onProperty meta:readonly ],
-        [ a owl:Restriction ;
-            owl:onClass meta:ClassDefinition ;
-            owl:onProperty meta:domain ;
-            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:string ;
@@ -864,13 +840,37 @@ meta:SlotDefinition a owl:Class,
             owl:onClass meta:Element ;
             owl:onProperty meta:range ],
         [ a owl:Restriction ;
+            owl:onClass meta:ClassDefinition ;
+            owl:onProperty meta:domain ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:boolean ;
+            owl:onProperty meta:required ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:boolean ;
+            owl:onProperty meta:inlined ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:boolean ;
+            owl:onProperty meta:identifier ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:boolean ;
+            owl:onProperty meta:multivalued ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:boolean ;
             owl:onProperty meta:key ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:boolean ;
-            owl:onProperty meta:inlined ],
+            owl:onProperty meta:inherited ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:string ;
+            owl:onProperty meta:ifabsent ],
         meta:Definition ;
     skos:definition "the definition of a property or a slot" .
 

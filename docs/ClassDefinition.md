@@ -1,3 +1,4 @@
+
 # Class: class_definition
 
 
@@ -5,10 +6,12 @@ the definition of a class or interface
 
 URI: [meta:ClassDefinition](https://w3id.org/biolink/biolinkml/meta/ClassDefinition)
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[SubsetDefinition]<in_subset(i)%200..*-%20\[ClassDefinition|class_uri:uriorcurie%20%3F;subclass_of:uriorcurie%20%3F;abstract(i):boolean%20%3F;mixin(i):boolean%20%3F;values_from(i):uriorcurie%20*;id_prefixes(i):ncname%20*;name(pk)(i):string;aliases(i):string%20*;mappings(i):uriorcurie%20*;description(i):string%20%3F;deprecated(i):string%20%3F;todos(i):string%20*;notes(i):string%20*;comments(i):string%20*;from_schema(i):uri%20%3F;imported_from(i):string%20%3F;see_also(i):uriorcurie%20*],%20\[Example]<examples(i)%200..*-++\[ClassDefinition],%20\[AltDescription]<alt_descriptions(i)%200..*-++\[ClassDefinition],%20\[LocalName]<local_names(i)%200..*-++\[ClassDefinition],%20\[ClassDefinition]<union_of%200..*-%20\[ClassDefinition],%20\[SlotDefinition]<slot_usage%200..*-++\[ClassDefinition],%20\[SlotDefinition]<slots%200..*-%20\[ClassDefinition],%20\[ClassDefinition]<apply_to%200..*-%20\[ClassDefinition],%20\[ClassDefinition]<mixins%200..*-%20\[ClassDefinition],%20\[ClassDefinition]<is_a%200..1-%20\[ClassDefinition],%20\[SchemaDefinition]++-%20classes%200..*>\[ClassDefinition],%20\[SlotDefinition]-%20domain%201..1>\[ClassDefinition],%20\[Definition]^-\[ClassDefinition])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[SubsetDefinition]<in_subset(i)%200..*-%20\[ClassDefinition|class_uri:uriorcurie%20%3F;subclass_of:uriorcurie%20%3F;abstract(i):boolean%20%3F;mixin(i):boolean%20%3F;values_from(i):uriorcurie%20*;id_prefixes(i):ncname%20*;name(pk)(i):string;aliases(i):string%20*;mappings(i):uriorcurie%20*;description(i):string%20%3F;deprecated(i):string%20%3F;todos(i):string%20*;notes(i):string%20*;comments(i):string%20*;from_schema(i):uri%20%3F;imported_from(i):string%20%3F;see_also(i):uriorcurie%20*],%20\[Example]<examples(i)%200..*-++\[ClassDefinition],%20\[AltDescription]<alt_descriptions(i)%200..*-++\[ClassDefinition],%20\[LocalName]<local_names(i)%200..*-++\[ClassDefinition],%20\[SlotDefinition]<defining_slots%200..*-%20\[ClassDefinition],%20\[ClassDefinition]<union_of%200..*-%20\[ClassDefinition],%20\[SlotDefinition]<slot_usage%200..*-++\[ClassDefinition],%20\[SlotDefinition]<slots%200..*-%20\[ClassDefinition],%20\[ClassDefinition]<apply_to%200..*-%20\[ClassDefinition],%20\[ClassDefinition]<mixins%200..*-%20\[ClassDefinition],%20\[ClassDefinition]<is_a%200..1-%20\[ClassDefinition],%20\[SchemaDefinition]++-%20classes%200..*>\[ClassDefinition],%20\[SlotDefinition]-%20domain%201..1>\[ClassDefinition],%20\[Definition]^-\[ClassDefinition])
+
 ## Parents
 
  *  is_a: [Definition](Definition.md) - base class for definitions
+
 ## Referenced by class
 
  *  **[ClassDefinition](ClassDefinition.md)** *[apply_to](class_definition_apply_to.md)*  <sub>0..*</sub>  **[ClassDefinition](ClassDefinition.md)**
@@ -17,7 +20,9 @@ URI: [meta:ClassDefinition](https://w3id.org/biolink/biolinkml/meta/ClassDefinit
  *  **[SchemaDefinition](SchemaDefinition.md)** *[classes](classes.md)*  <sub>0..*</sub>  **[ClassDefinition](ClassDefinition.md)**
  *  **[SlotDefinition](SlotDefinition.md)** *[domain](domain.md)*  <sub>REQ</sub>  **[ClassDefinition](ClassDefinition.md)**
  *  **[ClassDefinition](ClassDefinition.md)** *[union_of](union_of.md)*  <sub>0..*</sub>  **[ClassDefinition](ClassDefinition.md)**
+
 ## Attributes
+
 
 ### Own
 
@@ -30,6 +35,9 @@ URI: [meta:ClassDefinition](https://w3id.org/biolink/biolinkml/meta/ClassDefinit
  * [class_uri](class_uri.md)  <sub>OPT</sub>
     * Description: URI of the class in an RDF environment
     * range: [Uriorcurie](Uriorcurie.md)
+ * [defining_slots](defining_slots.md)  <sub>0..*</sub>
+    * Description: The combination of is a plus defining slots form a genus-differentia definition, or the set of necessary and sufficient conditions that can be transformed into an OWL equivalence axiom
+    * range: [SlotDefinition](SlotDefinition.md)
  * [slot_usage](slot_usage.md)  <sub>0..*</sub>
     * Description: the redefinition of a slot in the context of the containing class definition.
     * range: [SlotDefinition](SlotDefinition.md)
@@ -42,29 +50,7 @@ URI: [meta:ClassDefinition](https://w3id.org/biolink/biolinkml/meta/ClassDefinit
  * [union_of](union_of.md)  <sub>0..*</sub>
     * Description: indicates that the domain class consists exactly of the members of the classes in the range
     * range: [ClassDefinition](ClassDefinition.md)
-### Inherited from class_definition:
 
- * [is_a](class_definition_is_a.md)  <sub>OPT</sub>
-    * range: [ClassDefinition](ClassDefinition.md)
- * [mixins](class_definition_mixins.md)  <sub>0..*</sub>
-    * range: [ClassDefinition](ClassDefinition.md)
- * [apply_to](class_definition_apply_to.md)  <sub>0..*</sub>
-    * range: [ClassDefinition](ClassDefinition.md)
- * [slots](slots.md)  <sub>0..*</sub>
-    * Description: list of slot names that are applicable to a class
-    * range: [SlotDefinition](SlotDefinition.md)
- * [slot_usage](slot_usage.md)  <sub>0..*</sub>
-    * Description: the redefinition of a slot in the context of the containing class definition.
-    * range: [SlotDefinition](SlotDefinition.md)
- * [class_uri](class_uri.md)  <sub>OPT</sub>
-    * Description: URI of the class in an RDF environment
-    * range: [Uriorcurie](Uriorcurie.md)
- * [subclass_of](subclass_of.md)  <sub>OPT</sub>
-    * Description: rdfs:subClassOf to be emitted in OWL generation
-    * range: [Uriorcurie](Uriorcurie.md)
- * [union_of](union_of.md)  <sub>0..*</sub>
-    * Description: indicates that the domain class consists exactly of the members of the classes in the range
-    * range: [ClassDefinition](ClassDefinition.md)
 ### Inherited from definition:
 
  * [is_a](is_a.md)  <sub>OPT</sub>
@@ -91,6 +77,7 @@ URI: [meta:ClassDefinition](https://w3id.org/biolink/biolinkml/meta/ClassDefinit
     * Description: the identifier of a "value set" -- a set of identifiers that form the possible values for the range of a slot
     * range: [Uriorcurie](Uriorcurie.md)
     * inherited from: [Definition](Definition.md)
+
 ### Inherited from element:
 
  * [id_prefixes](id_prefixes.md)  <sub>0..*</sub>
@@ -165,6 +152,7 @@ URI: [meta:ClassDefinition](https://w3id.org/biolink/biolinkml/meta/ClassDefinit
     * range: [Uriorcurie](Uriorcurie.md)
     * inherited from: [Element](Element.md)
     * in subsets: (owl)
+
 ### Domain for slot:
 
  * [apply_to](class_definition_apply_to.md)  <sub>0..*</sub>

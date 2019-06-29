@@ -1,3 +1,4 @@
+
 # Class: organismal entity
 
 
@@ -6,9 +7,11 @@ A named entity that is either a part of an organism, a whole organism, populatio
 URI: [biolink:OrganismalEntity](https://w3id.org/biolink/vocab/OrganismalEntity)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismalEntity|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*]^-\[PopulationOfIndividualOrganisms],%20\[OrganismalEntity]^-\[LifeStage],%20\[OrganismalEntity]^-\[IndividualOrganism],%20\[OrganismalEntity]^-\[Biosample],%20\[OrganismalEntity]^-\[AnatomicalEntity],%20\[BiologicalEntity]^-\[OrganismalEntity])
+
 ## Parents
 
  *  is_a: [BiologicalEntity](BiologicalEntity.md)
+
 ## Children
 
  * [AnatomicalEntity](AnatomicalEntity.md) - A subcellular location, cell type or gross anatomical part
@@ -16,9 +19,12 @@ URI: [biolink:OrganismalEntity](https://w3id.org/biolink/vocab/OrganismalEntity)
  * [IndividualOrganism](IndividualOrganism.md)
  * [LifeStage](LifeStage.md) - A stage of development or growth of an organism, including post-natal adult stages
  * [PopulationOfIndividualOrganisms](PopulationOfIndividualOrganisms.md) - A collection of individuals from the same taxonomic class distinguished by one or more characteristics. Characteristics can include, but are not limited to, shared geographic location, genetics, phenotypes [Alliance for Genome Resources]
+
 ## Referenced by class
 
+
 ## Attributes
+
 
 ### Inherited from named thing:
 

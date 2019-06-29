@@ -1,3 +1,4 @@
+
 # id: http://example.org/example/multi_id
 # description:
 # license:
@@ -8,7 +9,8 @@ from biolinkml.utils.metamodelcore import empty_list, empty_dict
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.metamodelcore import URIorCURIE
 
-metamodel_version = "1.3.5"
+metamodel_version = "1.3.6"
+
 
 # Types
 class Uri(URIorCURIE):
@@ -30,9 +32,8 @@ class SequenceVariantId(NamedThingId):
 
 @dataclass
 class NamedThing(YAMLRoot):
-    _inherited_slots: ClassVar[List[str]] = []
+    _inherited_slots: ClassVar[List[str]] = ["node_property", "id"]
 
-    # === named thing ===
     id: Union[URIorCURIE, NamedThingId]
     node_property: Optional[Union[URIorCURIE, IdentifierType]] = None
     not_overridden: Optional[Union[URIorCURIE, IdentifierType]] = None
@@ -49,14 +50,9 @@ class NamedThing(YAMLRoot):
 
 @dataclass
 class SequenceVariant(NamedThing):
-    _inherited_slots: ClassVar[List[str]] = []
+    _inherited_slots: ClassVar[List[str]] = ["node_property", "id"]
 
-    # === named thing ===
-    not_overridden: Optional[Union[URIorCURIE, IdentifierType]] = None
-
-    # === sequence variant ===
     id: Union[URIorCURIE, SequenceVariantId] = None
-    node_property: Optional[Union[URIorCURIE, IdentifierType]] = None
 
     def _fix_elements(self):
         super()._fix_elements()

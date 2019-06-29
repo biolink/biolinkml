@@ -1,3 +1,4 @@
+
 # Class: clinical trial
 
 
@@ -6,10 +7,13 @@
 URI: [biolink:ClinicalTrial](https://w3id.org/biolink/vocab/ClinicalTrial)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[ClinicalEntity]^-\[ClinicalTrial|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*])
+
 ## Parents
 
  *  is_a: [ClinicalEntity](ClinicalEntity.md) - Any entity or process that exists in the clinical domain and outside the biological realm. Diseases are placed under biological entities
+
 ## Attributes
+
 
 ### Inherited from named thing:
 

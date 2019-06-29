@@ -1,3 +1,4 @@
+
 # Class: cell
 
 
@@ -6,10 +7,13 @@
 URI: [biolink:Cell](https://w3id.org/biolink/vocab/Cell)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[Cell|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*],%20\[AnatomicalEntity]^-\[Cell])
+
 ## Parents
 
  *  is_a: [AnatomicalEntity](AnatomicalEntity.md) - A subcellular location, cell type or gross anatomical part
+
 ## Attributes
+
 
 ### Inherited from named thing:
 
@@ -28,6 +32,7 @@ URI: [biolink:Cell](https://w3id.org/biolink/vocab/Cell)
     * range: [IriType](IriType.md)
     * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
+
 ### Inherited from thing with taxon:
 
  * [in taxon](in_taxon.md)  <sub>0..*</sub>

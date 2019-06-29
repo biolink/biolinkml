@@ -1,6 +1,7 @@
 import abc
 import sys
 from contextlib import redirect_stdout
+from functools import lru_cache
 from io import StringIO
 from typing import List, Set, Union, TextIO, Optional, cast
 
@@ -492,3 +493,8 @@ class Generator(metaclass=abc.ABCMeta):
         else:
             # Basic loader tests for valid default prefix
             return self.schema.prefixes[PrefixPrefixPrefix(self.schema.default_prefix)].prefix_reference
+
+    # TODO: add lru cache once we get identity into the classes
+    def domain_slots(self, cls: ClassDefinition) -> List[SlotDefinition]:
+        """ Return all slots in the class definition that are owned by the class """
+        return [slot for slot in [self.schema.slots[sn] for sn in cls.slots] if slot.owner == cls.name]

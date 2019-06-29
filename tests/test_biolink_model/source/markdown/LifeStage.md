@@ -1,3 +1,4 @@
+
 # Class: life stage
 
 
@@ -6,17 +7,22 @@ A stage of development or growth of an organism, including post-natal adult stag
 URI: [biolink:LifeStage](https://w3id.org/biolink/vocab/LifeStage)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon%200..*-%20\[LifeStage|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*],%20\[GeneToExpressionSiteAssociation]-%20stage%20qualifier%200..1>\[LifeStage],%20\[LifeStage]uses%20-.->\[ThingWithTaxon],%20\[OrganismalEntity]^-\[LifeStage])
+
 ## Parents
 
  *  is_a: [OrganismalEntity](OrganismalEntity.md) - A named entity that is either a part of an organism, a whole organism, population or clade of organisms, excluding molecular entities
+
 ## Uses Mixins
 
  *  mixin: [ThingWithTaxon](ThingWithTaxon.md) - A mixin that can be used on any entity with a taxon
+
 ## Referenced by class
 
  *  **[GeneToExpressionSiteAssociation](GeneToExpressionSiteAssociation.md)** *[stage qualifier](gene_to_expression_site_association_stage_qualifier.md)*  <sub>OPT</sub>  **[LifeStage](LifeStage.md)**
  *  **[GeneToExpressionSiteAssociation](GeneToExpressionSiteAssociation.md)** *[stage qualifier](stage_qualifier.md)*  <sub>OPT</sub>  **[LifeStage](LifeStage.md)**
+
 ## Attributes
+
 
 ### Inherited from named thing:
 
@@ -35,6 +41,7 @@ URI: [biolink:LifeStage](https://w3id.org/biolink/vocab/LifeStage)
     * range: [IriType](IriType.md)
     * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
+
 ### Inherited from thing with taxon:
 
  * [in taxon](in_taxon.md)  <sub>0..*</sub>

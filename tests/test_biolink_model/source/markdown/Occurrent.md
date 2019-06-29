@@ -1,3 +1,4 @@
+
 # Class: occurrent
 
 
@@ -6,19 +7,23 @@ A processual entity
 URI: [biolink:Occurrent](https://w3id.org/biolink/vocab/Occurrent)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[MolecularActivity]uses%20-.->\[Occurrent|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*],%20\[EnvironmentalProcess]uses%20-.->\[Occurrent],%20\[BiologicalProcess]uses%20-.->\[Occurrent],%20\[Occurrent]^-\[Procedure],%20\[Occurrent]^-\[Phenomenon],%20\[Occurrent]^-\[ActivityAndBehavior],%20\[NamedThing]^-\[Occurrent])
+
 ## Parents
 
  *  is_a: [NamedThing](NamedThing.md) - a databased entity or concept/class
+
 ## Children
 
  * [ActivityAndBehavior](ActivityAndBehavior.md) - Activity or behavior of any independent integral living, organization or mechanical actor in the world
  * [Phenomenon](Phenomenon.md) - a fact or situation that is observed to exist or happen, especially one whose cause or explanation is in question
  * [Procedure](Procedure.md) - A series of actions conducted in a certain order or manner
+
 ## Mixin for
 
  * [BiologicalProcess](BiologicalProcess.md) (mixin)  - One or more causally connected executions of molecular functions
  * [EnvironmentalProcess](EnvironmentalProcess.md) (mixin) 
  * [MolecularActivity](MolecularActivity.md) (mixin)  - An execution of a molecular function carried out by a gene product or macromolecular complex.
+
 ## Referenced by class
 
  *  **[NamedThing](NamedThing.md)** *[actively involved in](actively_involved_in.md)*  <sub>0..*</sub>  **[Occurrent](Occurrent.md)**
@@ -28,7 +33,9 @@ URI: [biolink:Occurrent](https://w3id.org/biolink/vocab/Occurrent)
  *  **[Occurrent](Occurrent.md)** *[positively regulates, process to process](positively_regulates_process_to_process.md)*  <sub>0..*</sub>  **[Occurrent](Occurrent.md)**
  *  **[Occurrent](Occurrent.md)** *[precedes](precedes.md)*  <sub>0..*</sub>  **[Occurrent](Occurrent.md)**
  *  **[Occurrent](Occurrent.md)** *[regulates, process to process](regulates_process_to_process.md)*  <sub>0..*</sub>  **[Occurrent](Occurrent.md)**
+
 ## Attributes
+
 
 ### Inherited from named thing:
 
@@ -47,6 +54,7 @@ URI: [biolink:Occurrent](https://w3id.org/biolink/vocab/Occurrent)
     * range: [IriType](IriType.md)
     * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
+
 ### Domain for slot:
 
  * [has input](has_input.md)  <sub>0..*</sub>

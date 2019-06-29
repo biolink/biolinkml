@@ -1,3 +1,4 @@
+
 # Class: frequency value
 
 
@@ -6,13 +7,17 @@ describes the frequency of occurrence of an event or condition
 URI: [biolink:FrequencyValue](https://w3id.org/biolink/vocab/FrequencyValue)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[FrequencyQualifierMixin]-%20frequency%20qualifier%200..1>\[FrequencyValue|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*],%20\[Attribute]^-\[FrequencyValue])
+
 ## Parents
 
  *  is_a: [Attribute](Attribute.md) - A property or characteristic of an entity
+
 ## Referenced by class
 
  *  **[FrequencyQualifierMixin](FrequencyQualifierMixin.md)** *[frequency qualifier](frequency_qualifier.md)*  <sub>OPT</sub>  **[FrequencyValue](FrequencyValue.md)**
+
 ## Attributes
+
 
 ### Inherited from named thing:
 

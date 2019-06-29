@@ -1,3 +1,4 @@
+
 # Class: evidence type
 
 
@@ -6,13 +7,17 @@ Class of evidence that supports an association
 URI: [biolink:EvidenceType](https://w3id.org/biolink/vocab/EvidenceType)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[InformationContentEntity]^-\[EvidenceType|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*])
+
 ## Parents
 
  *  is_a: [InformationContentEntity](InformationContentEntity.md) - a piece of information that typically describes some piece of biology or is used as support.
+
 ## Referenced by class
 
  *  **[Association](Association.md)** *[has evidence](has_evidence.md)*  <sub>OPT</sub>  **[EvidenceType](EvidenceType.md)**
+
 ## Attributes
+
 
 ### Inherited from named thing:
 

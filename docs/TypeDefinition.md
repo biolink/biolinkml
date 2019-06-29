@@ -1,3 +1,4 @@
+
 # Class: type_definition
 
 
@@ -6,15 +7,19 @@ A data type definition.
 URI: [meta:TypeDefinition](https://w3id.org/biolink/biolinkml/meta/TypeDefinition)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[SubsetDefinition]<in_subset(i)%200..*-%20\[TypeDefinition|base:string%20%3F;uri:uriorcurie%20%3F;repr:string%20%3F;id_prefixes(i):ncname%20*;name(pk)(i):string;aliases(i):string%20*;mappings(i):uriorcurie%20*;description(i):string%20%3F;deprecated(i):string%20%3F;todos(i):string%20*;notes(i):string%20*;comments(i):string%20*;from_schema(i):uri%20%3F;imported_from(i):string%20%3F;see_also(i):uriorcurie%20*],%20\[Example]<examples(i)%200..*-++\[TypeDefinition],%20\[AltDescription]<alt_descriptions(i)%200..*-++\[TypeDefinition],%20\[LocalName]<local_names(i)%200..*-++\[TypeDefinition],%20\[TypeDefinition]<typeof%200..1-%20\[TypeDefinition],%20\[SchemaDefinition]-%20default_range%200..1>\[TypeDefinition],%20\[SchemaDefinition]++-%20types%200..*>\[TypeDefinition],%20\[Element]^-\[TypeDefinition])
+
 ## Parents
 
  *  is_a: [Element](Element.md) - a named element in the model
+
 ## Referenced by class
 
  *  **[SchemaDefinition](SchemaDefinition.md)** *[default_range](default_range.md)*  <sub>OPT</sub>  **[TypeDefinition](TypeDefinition.md)**
  *  **[TypeDefinition](TypeDefinition.md)** *[typeof](typeof.md)*  <sub>OPT</sub>  **[TypeDefinition](TypeDefinition.md)**
  *  **[SchemaDefinition](SchemaDefinition.md)** *[types](types.md)*  <sub>0..*</sub>  **[TypeDefinition](TypeDefinition.md)**
+
 ## Attributes
+
 
 ### Own
 
@@ -31,6 +36,7 @@ URI: [meta:TypeDefinition](https://w3id.org/biolink/biolinkml/meta/TypeDefinitio
  * [typeof](typeof.md)  <sub>OPT</sub>
     * Description: Names a parent type
     * range: [TypeDefinition](TypeDefinition.md)
+
 ### Inherited from element:
 
  * [id_prefixes](id_prefixes.md)  <sub>0..*</sub>
@@ -105,21 +111,7 @@ URI: [meta:TypeDefinition](https://w3id.org/biolink/biolinkml/meta/TypeDefinitio
     * range: [Uriorcurie](Uriorcurie.md)
     * inherited from: [Element](Element.md)
     * in subsets: (owl)
-### Inherited from type_definition:
 
- * [typeof](typeof.md)  <sub>OPT</sub>
-    * Description: Names a parent type
-    * range: [TypeDefinition](TypeDefinition.md)
- * [base](base.md)  <sub>OPT</sub>
-    * Description: python base type that implements this type definition
-    * range: [String](String.md)
- * [uri](type_uri.md)  <sub>OPT</sub>
-    * Description: The uri that defines the possible values for the type definition
-    * range: [Uriorcurie](Uriorcurie.md)
- * [repr](repr.md)  <sub>OPT</sub>
-    * Description: the name of the python object that implements this type definition
-    * range: [String](String.md)
-    * Example: None None
 ### Domain for slot:
 
  * [base](base.md)  <sub>OPT</sub>

@@ -1,3 +1,4 @@
+
 # Class: cell line
 
 
@@ -6,13 +7,17 @@
 URI: [biolink:CellLine](https://w3id.org/biolink/vocab/CellLine)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[CellLine|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*],%20\[CellLineToThingAssociation]-%20subject%201..1>\[CellLine],%20\[Biosample]^-\[CellLine])
+
 ## Parents
 
  *  is_a: [Biosample](Biosample.md)
+
 ## Referenced by class
 
  *  **[CellLineToThingAssociation](CellLineToThingAssociation.md)** *[subject](cell_line_to_thing_association_subject.md)*  <sub>REQ</sub>  **[CellLine](CellLine.md)**
+
 ## Attributes
+
 
 ### Inherited from named thing:
 
@@ -31,6 +36,7 @@ URI: [biolink:CellLine](https://w3id.org/biolink/vocab/CellLine)
     * range: [IriType](IriType.md)
     * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
+
 ### Inherited from thing with taxon:
 
  * [in taxon](in_taxon.md)  <sub>0..*</sub>
