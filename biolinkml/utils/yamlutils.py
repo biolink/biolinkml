@@ -30,7 +30,11 @@ class YAMLRoot(JsonObj):
         if isinstance(obj, JsonObj):
             rval = dict()
             for k, v in obj.__dict__.items():
-                if not k.startswith('_') and v is not None and (not isinstance(v, (dict, list, bool)) or v):
+                is_classvar = k.startswith("type_") and hasattr(type(obj), k)
+                if is_classvar:
+                    print(f"***** {k} is classvar ")
+                if not is_classvar and not k.startswith('_') and v is not None and\
+                        (not isinstance(v, (dict, list, bool)) or v):
                     if isinstance(v, dict):
                         itemslist = []
                         for vk, vv in v.items():

@@ -66,6 +66,10 @@ class Element(YAMLRoot):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
+    type_uri: ClassVar[str] = "https://w3id.org/biolink/biolinkml/meta/Element"
+    type_curie: ClassVar[str] = "meta:Element"
+    type_name: ClassVar[str] = "element"
+
     name: Union[str, ElementName]
     id_prefixes: List[Union[str, NCName]] = empty_list()
     aliases: List[str] = empty_list()
@@ -113,6 +117,10 @@ class SchemaDefinition(Element):
     a collection of subset, type, slot and class definitions
     """
     _inherited_slots: ClassVar[List[str]] = []
+
+    type_uri: ClassVar[str] = "https://w3id.org/biolink/biolinkml/meta/SchemaDefinition"
+    type_curie: ClassVar[str] = "meta:SchemaDefinition"
+    type_name: ClassVar[str] = "schema_definition"
 
     name: Union[str, SchemaDefinitionName] = None
     id: Union[str, URI] = None
@@ -175,6 +183,10 @@ class TypeDefinition(Element):
     """
     _inherited_slots: ClassVar[List[str]] = ["base", "uri", "repr"]
 
+    type_uri: ClassVar[str] = "https://w3id.org/biolink/biolinkml/meta/TypeDefinition"
+    type_curie: ClassVar[str] = "meta:TypeDefinition"
+    type_name: ClassVar[str] = "type_definition"
+
     name: Union[str, TypeDefinitionName] = None
     typeof: Optional[Union[str, TypeDefinitionName]] = None
     base: Optional[str] = None
@@ -198,6 +210,10 @@ class SubsetDefinition(Element):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
+    type_uri: ClassVar[str] = "https://w3id.org/biolink/biolinkml/meta/SubsetDefinition"
+    type_curie: ClassVar[str] = "meta:SubsetDefinition"
+    type_name: ClassVar[str] = "subset_definition"
+
     name: Union[str, SubsetDefinitionName] = None
 
     def _fix_elements(self):
@@ -212,6 +228,10 @@ class Definition(Element):
     base class for definitions
     """
     _inherited_slots: ClassVar[List[str]] = []
+
+    type_uri: ClassVar[str] = "https://w3id.org/biolink/biolinkml/meta/Definition"
+    type_curie: ClassVar[str] = "meta:Definition"
+    type_name: ClassVar[str] = "definition"
 
     name: Union[str, DefinitionName] = None
     is_a: Optional[Union[str, DefinitionName]] = None
@@ -239,6 +259,10 @@ class SlotDefinition(Definition):
     the definition of a property or a slot
     """
     _inherited_slots: ClassVar[List[str]] = ["domain", "range", "multivalued", "inherited", "readonly", "ifabsent", "required", "inlined", "key", "identifier", "role"]
+
+    type_uri: ClassVar[str] = "https://w3id.org/biolink/biolinkml/meta/SlotDefinition"
+    type_curie: ClassVar[str] = "meta:SlotDefinition"
+    type_name: ClassVar[str] = "slot_definition"
 
     name: Union[str, SlotDefinitionName] = None
     domain: Union[str, ClassDefinitionName] = None
@@ -293,6 +317,10 @@ class ClassDefinition(Definition):
     """
     _inherited_slots: ClassVar[List[str]] = ["defining_slots"]
 
+    type_uri: ClassVar[str] = "https://w3id.org/biolink/biolinkml/meta/ClassDefinition"
+    type_curie: ClassVar[str] = "meta:ClassDefinition"
+    type_name: ClassVar[str] = "class_definition"
+
     name: Union[str, ClassDefinitionName] = None
     slots: List[Union[str, SlotDefinitionName]] = empty_list()
     slot_usage: Dict[Union[str, SlotDefinitionName], Union[dict, SlotDefinition]] = empty_dict()
@@ -333,6 +361,10 @@ class Prefix(YAMLRoot):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
+    type_uri: ClassVar[str] = "https://w3id.org/biolink/biolinkml/meta/Prefix"
+    type_curie: ClassVar[str] = "meta:Prefix"
+    type_name: ClassVar[str] = "prefix"
+
     prefix_prefix: Union[str, PrefixPrefixPrefix]
     prefix_reference: Union[str, URI]
 
@@ -351,6 +383,10 @@ class LocalName(YAMLRoot):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
+    type_uri: ClassVar[str] = "https://w3id.org/biolink/biolinkml/meta/LocalName"
+    type_curie: ClassVar[str] = "meta:LocalName"
+    type_name: ClassVar[str] = "local_name"
+
     local_name_source: Union[str, LocalNameLocalNameSource]
     local_name_value: str
 
@@ -367,6 +403,10 @@ class Example(YAMLRoot):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
+    type_uri: ClassVar[str] = "https://w3id.org/biolink/biolinkml/meta/Example"
+    type_curie: ClassVar[str] = "meta:Example"
+    type_name: ClassVar[str] = "example"
+
     value: Optional[str] = None
     description: Optional[str] = None
 
@@ -376,6 +416,10 @@ class AltDescription(YAMLRoot):
     an attributed description
     """
     _inherited_slots: ClassVar[List[str]] = []
+
+    type_uri: ClassVar[str] = "https://w3id.org/biolink/biolinkml/meta/AltDescription"
+    type_curie: ClassVar[str] = "meta:AltDescription"
+    type_name: ClassVar[str] = "alt_description"
 
     source: Union[str, AltDescriptionSource]
     description: str

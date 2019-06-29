@@ -177,7 +177,6 @@ metamodel_version = "{self.schema.metamodel_version}"
         """ Generate python definition for class cls """
 
         parentref = f'({self.formatted_element_name(cls.is_a, True) if cls.is_a else "YAMLRoot"})'
-        inheritedslots = self.gen_inherited_slots(cls)
         slotdefs = self.gen_class_variables(cls)
         postinits = self.gen_postinits(cls)
 
@@ -185,7 +184,8 @@ metamodel_version = "{self.schema.metamodel_version}"
 
         return ('\n@dataclass' if slotdefs else '') + \
                f'\nclass {self.class_or_type_name(cls.name)}{parentref}:{wrapped_description}' + \
-               f'\n\t{inheritedslots}\n' + \
+               f'\n\t{self.gen_inherited_slots(cls)}\n' + \
+               f'\n\t{self.gen_class_meta(cls)}\n' + \
                (f'\n\t{slotdefs}' if slotdefs else '') + \
                (f'\n{postinits}' if postinits else '')
 
@@ -197,6 +197,13 @@ metamodel_version = "{self.schema.metamodel_version}"
                 inherited_slots.append(slot.alias if slot.alias else slotname)
         inherited_slots_str = ", ".join([f'"{underscore(s)}"' for s in inherited_slots])
         return f"_inherited_slots: ClassVar[List[str]] = [{inherited_slots_str}]"
+
+    def gen_class_meta(self, cls: ClassDefinition) -> str:
+        cls_uri = self.namespaces.uri_for(cls.class_uri)
+        vars = [f'type_uri: ClassVar[str] = "{cls_uri}"',
+                f'type_curie: ClassVar[str] = "{self.namespaces.curie_for(cls_uri)}"',
+                f'type_name: ClassVar[str] = "{cls.name}"']
+        return "\n\t".join(vars)
 
     def gen_class_variables(self,
                             cls: ClassDefinition,

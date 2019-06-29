@@ -56,6 +56,10 @@ class Attribute(YAMLRoot):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
+    type_uri: ClassVar[str] = "https://w3id.org/biolink/biolinkml/Attribute"
+    type_curie: ClassVar[str] = "biolinkml:Attribute"
+    type_name: ClassVar[str] = "attribute"
+
     id: Union[str, AttributeId]
 
     def _fix_elements(self):
@@ -67,6 +71,10 @@ class Attribute(YAMLRoot):
 @dataclass
 class BiologicalSex(Attribute):
     _inherited_slots: ClassVar[List[str]] = []
+
+    type_uri: ClassVar[str] = "https://w3id.org/biolink/biolinkml/BiologicalSex"
+    type_curie: ClassVar[str] = "biolinkml:BiologicalSex"
+    type_name: ClassVar[str] = "biological sex"
 
     id: Union[str, BiologicalSexId] = None
 
@@ -83,6 +91,10 @@ class OntologyClass(NamedThing):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
+    type_uri: ClassVar[str] = "https://w3id.org/biolink/biolinkml/OntologyClass"
+    type_curie: ClassVar[str] = "biolinkml:OntologyClass"
+    type_name: ClassVar[str] = "ontology class"
+
     id: Union[str, OntologyClassId] = None
 
     def _fix_elements(self):
@@ -97,6 +109,10 @@ class NamedThing(YAMLRoot):
     a databased entity or concept/class
     """
     _inherited_slots: ClassVar[List[str]] = []
+
+    type_uri: ClassVar[str] = "https://w3id.org/biolink/biolinkml/NamedThing"
+    type_curie: ClassVar[str] = "biolinkml:NamedThing"
+    type_name: ClassVar[str] = "named thing"
 
     id: Union[str, NamedThingId]
     name: Optional[Union[str, LabelType]] = None

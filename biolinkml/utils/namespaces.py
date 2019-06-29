@@ -101,7 +101,7 @@ class Namespaces(OrderedDict):
                 if len(vs) > len(match[0]):
                     match = (vs, k)
         if len(match[0]):
-            return u.replace(match[0], match[1] + ':')
+            return u.replace(match[0], ':' if match[1] == '@default' else '' if match[1] == '@base' else match[1] + ':')
         return None
 
     def prefix_for(self, uri_or_curie: Any) -> Optional[str]:
