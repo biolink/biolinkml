@@ -1,0 +1,59 @@
+id: http://example.org/tests/ifabsent
+name: ifabsent
+
+prefixes:
+  test: http://example.org/test/
+  skos: http://www.w3.org/2004/02/skos/core#
+
+imports:
+  - ../../../includes/types
+
+
+slots:
+  s1:
+    ifabsent: true
+
+  s1p:
+    ifabsent: True
+
+  s2:
+    ifabsent: false
+
+  s2p:
+    ifabsent: False
+
+  s3:
+    ifabsent: slot_uri
+
+  s4:
+    ifabsent: slot_curie
+
+  s5:
+    ifabsent: class_uri
+
+  s6:
+    ifabsent: class_curie
+
+  s7:
+    ifabsent: bnode
+
+  s8:
+    ifabsent: string(penguins"doves)
+
+  s9:
+    ifabsent: int(-1403)
+
+classes:
+  c1:
+    slots:
+      - s1
+      - s1p
+      - s2
+      - s2p
+      - s3
+      - s4
+      - s5
+      - s6
+      - s7
+      - s8
+      - s9

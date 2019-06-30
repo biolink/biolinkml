@@ -367,7 +367,7 @@ slots:
     domain: class_definition
     range: uriorcurie
     description: URI of the class in an RDF environment
-    ifabsent: set to <default prefix>:<class name>
+    ifabsent: class_curi
 
   subclass_of:
     domain: class_definition
@@ -415,7 +415,7 @@ slots:
   range:
     domain: slot_definition
     range: element
-    ifabsent: set to default range
+    ifabsent: default_range
     inherited: true
     description: |
       defines the type of the object of the slot.  Given the following slot definition
@@ -431,7 +431,7 @@ slots:
   slot_uri:
     domain: slot_definition
     range: uriorcurie
-    ifabsent: set to <default prefix>:<slot name>
+    ifabsent: slot_curie
     description: predicate of this slot for semantic web application
 
   multivalued:
@@ -439,6 +439,7 @@ slots:
     range: boolean
     inherited: true
     description: true means that slot can have more than one value
+    ifabsent: False
 
   inherited:
     domain: slot_definition
@@ -458,7 +459,19 @@ slots:
     domain: slot_definition
     range: string
     inherited: true
-    description: description of special behavior if the slot is absent
+    description:  >-
+      function that provides a default value for the slot.  Possible values for this slot are defined in
+      biolink.utils.ifabsent_functions.default_library:
+        * [Tt]rue -- boolean True
+        * [Ff]alse -- boolean False
+        * int(value) -- integer value
+        * str(value) -- string value
+        * default_range -- schema default range
+        * bnode -- blank node identifier
+        * class_uri -- URI for the containing class
+        * slot_uri -- URI for the slot
+        * class_curie -- CURIE for the containing class
+        * class_uri -- URI for the containing class
 
   singular_name:
     domain: slot_definition

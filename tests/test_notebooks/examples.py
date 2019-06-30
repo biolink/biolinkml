@@ -7,7 +7,7 @@ from biolinkml.generators.jsonldcontextgen import ContextGenerator
 from biolinkml.generators.pythongen import PythonGenerator
 from biolinkml.generators.shexgen import ShExGenerator
 from biolinkml.generators.yumlgen import YumlGenerator
-from biolinkml.utils.yamlutils import as_json as yaml_to_json
+from biolinkml.utils.yamlutils import as_json_object as yaml_to_json
 
 yaml = """
 id: http://example.org/sample/example1

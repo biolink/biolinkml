@@ -83,7 +83,7 @@ def as_yaml(schema: YAMLRoot) -> str:
     return yaml.dump(schema)
 
 
-def as_json(schema: YAMLRoot, context: Optional[Union[JsonObj, dict]] = None) -> JsonObj:
+def as_json_object(schema: YAMLRoot, context: Optional[Union[JsonObj, dict]] = None) -> JsonObj:
     rval = JsonObj(**schema.__dict__)
     rval['type'] = schema.__class__.__name__
     if context:

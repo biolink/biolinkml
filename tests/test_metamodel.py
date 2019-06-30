@@ -1,24 +1,21 @@
 import os
 import unittest
-from types import ModuleType
 from typing import List
 
 from pyshex.shex_evaluator import EvaluationResult, ShExEvaluator
 from rdflib import Graph
 
-from biolinkml import LOCAL_YAML_PATH, meta, LOCAL_TYPES_PATH, LOCAL_CONTEXT_PATH, METAMODEL_NAMESPACE, LOCAL_SHEX_PATH, \
+from biolinkml import LOCAL_CONTEXT_PATH, METAMODEL_NAMESPACE, LOCAL_SHEX_PATH, \
     LOCAL_RDF_PATH
 from biolinkml.generators.markdowngen import MarkdownGenerator
 from biolinkml.generators.owlgen import OwlSchemaGenerator
 from biolinkml.generators.rdfgen import RDFGenerator
 from biolinkml.generators.shexgen import ShExGenerator
-from includes import types
-from biolinkml.generators.pythongen import PythonGenerator
 from tests import targetdir
-from tests.test_scripts.clicktestcase import metadata_filter
 from tests.utils.generator_utils import GeneratorTestCase
 
-DO_SHEX_VALIDATION: bool = False
+DO_SHEX_VALIDATION: bool = True
+
 
 class MetaModelTestCase(GeneratorTestCase):
     root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))

@@ -7,7 +7,7 @@ from biolinkml.generators.jsonldcontextgen import ContextGenerator
 from biolinkml.generators.pythongen import PythonGenerator
 from biolinkml.generators.shexgen import ShExGenerator
 from biolinkml.generators.yumlgen import YumlGenerator
-from biolinkml.utils.yamlutils import as_json as yaml_to_json
+from biolinkml.utils.yamlutils import as_json_object as yaml_to_json
 
 yaml = """
 id: http://example.org/sample/example2
@@ -92,7 +92,7 @@ print(shex)
 # print(joe_smith)
 #
 # # Add the context and turn it into RDF
-# jsonld = as_json(yaml_to_json(joe_smith, cntxt))
+# jsonld = as_json_object(yaml_to_json(joe_smith, cntxt))
 # print(jsonld)
 # g = Graph()
 # g.parse(data=jsonld, format="json-ld")

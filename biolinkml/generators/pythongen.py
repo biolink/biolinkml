@@ -1,6 +1,7 @@
 import inspect
 import os
 import re
+import sys
 from typing import Optional, Tuple, List, Union, TextIO, Callable, Dict, Iterator, cast, Set
 
 import click
@@ -11,6 +12,7 @@ from biolinkml.meta import SchemaDefinition, SlotDefinition, ClassDefinition, Cl
     SlotDefinitionName, DefinitionName, Element, TypeDefinition
 from biolinkml.utils.formatutils import camelcase, underscore, be, wrapped_annotation, split_line
 from biolinkml.utils.generator import Generator
+from biolinkml.utils.ifabsent_functions import default_library, ifabsent_value
 from biolinkml.utils.metamodelcore import builtinnames
 from includes import types
 
@@ -42,11 +44,16 @@ class PythonGenerator(Generator):
 
 from typing import Optional, List, Union, Dict, ClassVar
 from dataclasses import dataclass
-from biolinkml.utils.metamodelcore import empty_list, empty_dict
+from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
+from rdflib import Namespace
 {self.gen_imports()}
 
 metamodel_version = "{self.schema.metamodel_version}"
+
+
+# Namespaces
+{self.gen_namespaces()}
 
 
 # Types
@@ -131,6 +138,15 @@ metamodel_version = "{self.schema.metamodel_version}"
                                     rval.add_element(cls)
 
         return rval.values()
+
+    def gen_namespaces(self) -> str:
+        return '\n'.join([
+            f"{pfx.upper()} = Namespace('{self.namespaces[pfx]}')"
+            for pfx in sorted(set(self.schema.prefixes.keys()).union(set(self.schema.emit_prefixes)))
+            if pfx in self.namespaces
+        ])
+
+
 
     def gen_references(self) -> str:
         """ Generate python type declarations for all identifiers (primary keys)
@@ -262,7 +278,14 @@ metamodel_version = "{self.schema.metamodel_version}"
         """
         slotname = self.slot_name(slot.name)
         slot_range, default_val = self.range_cardinality(slot, cls, can_be_positional)
-        default = f'= {default_val}' if default_val else ''
+        if slot.ifabsent is not None:
+            ifabsent_text = ifabsent_value(slot.ifabsent, self, cls, slot)
+            if ifabsent_text:
+                default = f'= {ifabsent_text}'
+            else:
+                default = "MISSING"
+        else:
+            default = f'= {default_val}' if default_val else ''
         return f'''{slotname}: {slot_range} {default}'''
 
     def range_cardinality(self, slot: SlotDefinition, cls: ClassDefinition, positional_allowed: bool) \

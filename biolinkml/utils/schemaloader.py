@@ -277,6 +277,7 @@ class SchemaLoader:
         if self.schema.source_file and '://' not in self.schema.source_file:
             self.schema.source_file = os.path.basename(self.schema.source_file)
 
+
         self.synopsis = SchemaSynopsis(self.schema)
         errs = self.synopsis.errors()
         if errs:
@@ -443,6 +444,10 @@ class SchemaLoader:
                 self.check_prefix(prefix)
             for prefix in slot.id_prefixes:
                 self.check_prefix(prefix)
+            if slot.ifabsent:
+                from biolinkml.utils.ifabsent_functions import isabsent_match
+                if isabsent_match(slot.ifabsent) is None:
+                    self.raise_value_error(f"Unrecognized ifabsent action for slot '{slot.name}': '{slot.ifabsent}'")
         for cls in self.schema.classes.values():
             self.check_prefix(cls.class_uri)
             for prefix in cls.mappings:

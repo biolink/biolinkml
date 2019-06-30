@@ -7,6 +7,7 @@ from tests import targetdir
 from tests.test_scripts.clicktestcase import metadata_filter
 from tests.utils.generator_utils import GeneratorTestCase
 
+
 class MetaModelTestCase(GeneratorTestCase):
     root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 

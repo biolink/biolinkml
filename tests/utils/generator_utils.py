@@ -126,7 +126,8 @@ class GeneratorTestCase(unittest.TestCase):
         output_base = self.output_name if self.output_name else self.model_name
         old_file = os.path.join(self.source_path, output_base + '.' + suffix)
         new_file = os.path.join(self.target_path, output_base + '.' + suffix)
-        message = f"Comparing existing {os.path.relpath(old_file, MODULE_DIR)} to new {os.path.relpath(new_file, MODULE_DIR)}"
+        message = f"\nComparing existing {os.path.relpath(old_file, MODULE_DIR)} " \
+            f"to new {os.path.relpath(new_file, MODULE_DIR)}\n"
         yaml_file = os.path.join(self.model_path, self.model_name + '.yaml')
         if os.path.exists(new_file):
             os.remove(new_file)

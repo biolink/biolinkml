@@ -3,7 +3,7 @@ import re
 from dataclasses import field
 from urllib.parse import urlparse
 
-from rdflib import Literal, XSD
+from rdflib import Literal, XSD, BNode
 
 
 def empty_list():
@@ -16,6 +16,10 @@ def empty_dict():
 
 def empty_set():
     return field(default_factory=set)
+
+
+def bnode():
+    return field(default_factory=lambda: BNode().n3())
 
 
 builtinnames = dir(builtins)
@@ -107,3 +111,4 @@ class XSDDateTime(str):
     def __init__(self, value: str) -> None:
         super().__init__()
         self = Literal(value, datatype=XSD.dateTime).value
+
