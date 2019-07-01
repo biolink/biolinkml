@@ -11,7 +11,7 @@ from dataclasses import dataclass
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
-from rdflib import Namespace
+from rdflib import Namespace, URIRef
 from biolinkml.utils.metamodelcore import Bool, URIorCURIE, XSDDate, XSDTime
 from includes.types import Boolean, Date, Double, Float, Integer, String, Time, Uriorcurie
 
@@ -174,7 +174,9 @@ class OnsetId(AttributeId):
 
 
 class NamedThingId(IdentifierType):
-    pass
+    def __init__(self, name: Union[str, URIRef, "ElementName"]) -> None:
+        if type(name) is not str and type(name) is not URIRef and not issubclass(type(self), type(name)):
+            raise ValueError(f"Illegal identifier for {type(self).__name__}: {name} ({type(name).__name__})")
 
 
 class BiologicalEntityId(NamedThingId):
