@@ -2,7 +2,8 @@ from dataclasses import dataclass
 from typing import Optional, Union
 
 import yaml
-from jsonasobj import JsonObj, as_dict
+from jsonasobj import JsonObj, as_dict, as_json, load
+from rdflib import Graph
 from yaml import SafeDumper, ScalarNode
 from yaml.representer import BaseRepresenter
 
@@ -115,3 +116,11 @@ class DupCheckYamlLoader(yaml.loader.SafeLoader):
             mapping[key] = value
 
         return mapping
+
+
+def as_rdf(schema: YAMLRoot, context_loc: str) -> Graph:
+    context = load(context_loc)
+    jsonld = as_json_object(schema, context)
+    graph = Graph()
+    graph.parse(data=as_json(jsonld), format="json-ld")
+    return graph
