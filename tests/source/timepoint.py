@@ -5,12 +5,21 @@
 
 from typing import Optional, List, Union, Dict, ClassVar
 from dataclasses import dataclass
-from biolinkml.utils.metamodelcore import empty_list, empty_dict
+from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
+from biolinkml.utils.formatutils import camelcase, underscore, sfx
+from rdflib import Namespace
 from biolinkml.utils.metamodelcore import XSDTime
 from includes.types import String, Time
 
 metamodel_version = "1.3.6"
+
+
+# Namespaces
+META = Namespace('https://w3id.org/biolink/biolinkml/meta/')
+METATYPE = Namespace('https://w3id.org/biolink/biolinkml/type/')
+XSD = Namespace('http://www.w3.org/2001/XMLSchema#')
+DEFAULT_ = Namespace('http://example.org/tests/timepoint/')
 
 
 # Types
@@ -33,7 +42,7 @@ class GeographicLocation(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
     type_uri: ClassVar[str] = "http://example.org/tests/timepoint/GeographicLocation"
-    type_curie: ClassVar[str] = ":GeographicLocation"
+    type_curie: ClassVar[str] = None
     type_name: ClassVar[str] = "geographic location"
 
     k: Union[str, GeographicLocationK]
@@ -49,7 +58,7 @@ class GeographicLocationAtTime(GeographicLocation):
     _inherited_slots: ClassVar[List[str]] = []
 
     type_uri: ClassVar[str] = "http://example.org/tests/timepoint/GeographicLocationAtTime"
-    type_curie: ClassVar[str] = ":GeographicLocationAtTime"
+    type_curie: ClassVar[str] = None
     type_name: ClassVar[str] = "geographic location at time"
 
     k: Union[str, GeographicLocationAtTimeK] = None

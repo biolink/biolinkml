@@ -15,6 +15,7 @@ class RawLoaderTestCase(unittest.TestCase):
     def _verify_schema1_content(self, schema: SchemaDefinition, source_file,
                                 addl_checks: Callable[[SchemaDefinition], None]=None) -> None:
         expected = loads(f"""{{
+           "default_prefix": "http://example.org/{source_file}/",
            "name": "{source_file}",
            "id": "http://example.org/{source_file}",
            "title": "Load Raw Schema Test",

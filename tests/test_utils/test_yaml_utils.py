@@ -59,6 +59,7 @@ class YamlUtilTestCase(Base):
    "source_file": "schema6.yaml",
    "source_file_date": "2018-12-31 17:23",
    "source_file_size": 259,
+   "default_prefix": "http://example.org/schema6.fuzz/",
    "generation_date": "2018-12-31 17:23"
 }"""), loads(as_json(schema)))
 
@@ -66,7 +67,8 @@ class YamlUtilTestCase(Base):
         """ Test the YAML output representation """
         schema = self.fix_schema_metadata(load_raw_schema(os.path.join(inputdir, 'schema4.yaml')))
 
-        self.assertEqual("""generation_date: 2018-12-31 17:23
+        self.assertEqual("""default_prefix: http://example.org/schema4/
+generation_date: 2018-12-31 17:23
 id: !!python/object/new:biolinkml.utils.metamodelcore.URI
 - http://example.org/schema4
 metamodel_version: 0.5.0

@@ -51,7 +51,7 @@ A metamodel for defining biolink related schemas
  * [id](id.md) - The official schema URI
  * [id_prefixes](id_prefixes.md) - the identifier of this class or slot must begin with one of the URIs referenced by this prefix
  * [identifier](identifier.md) - true means that this slot is the subject of a set of assertions.  Identifiers do not appear as predicates in the model
- * [ifabsent](ifabsent.md) - description of special behavior if the slot is absent
+ * [ifabsent](ifabsent.md) - function that provides a default value for the slot.  Possible values for this slot are defined in biolink.utils.ifabsent_functions.default_library:
  * [imported_from](imported_from.md) - the imports entry that this element was derived from.  Empty means primary source
  * [imports](imports.md) - other schemas that are included in this schema
  * [in_subset](in_subset.md) - used to indicate membership of a term in a defined subset of biolink terms used for a particular domain or application (e.g. the translator_minimal subset holding the minimal set of predicates used in a translator knowledge graph)

@@ -456,7 +456,7 @@ Entity and association taxonomy and datamodel for life-sciences data
  * [Frequency](Frequency.md)  ([String](String.md)) 
  * [IdentifierType](IdentifierType.md)  ([String](String.md))  - A string that is intended to uniquely identify a thing May be URI in full or compact (CURIE) form
  * [Integer](Integer.md)  (**int**)  - An integer
- * [IriType](IriType.md)  ([Uri](Uri.md))  - An IRI
+ * [IriType](IriType.md)  ([Uriorcurie](Uriorcurie.md))  - An IRI
  * [LabelType](LabelType.md)  ([String](String.md))  - A string that provides a human-readable name for a thing
  * [NarrativeText](NarrativeText.md)  ([String](String.md))  - A string that provides a human-readable description of something
  * [Ncname](Ncname.md)  (**NCName**)  - Prefix part of CURIE

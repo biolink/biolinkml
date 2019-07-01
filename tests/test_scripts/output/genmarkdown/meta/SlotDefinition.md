@@ -47,7 +47,17 @@ implicitly asserts that X is an instance of C1
     * Description: true means that this slot is the subject of a set of assertions.  Identifiers do not appear as predicates in the model
     * range: [Boolean](Boolean.md)
  * [ifabsent](ifabsent.md)  <sub>OPT</sub>
-    * Description: description of special behavior if the slot is absent
+    * Description: function that provides a default value for the slot.  Possible values for this slot are defined in biolink.utils.ifabsent_functions.default_library:
+  * [Tt]rue -- boolean True
+  * [Ff]alse -- boolean False
+  * int(value) -- integer value
+  * str(value) -- string value
+  * default_range -- schema default range
+  * bnode -- blank node identifier
+  * class_uri -- URI for the containing class
+  * slot_uri -- URI for the slot
+  * class_curie -- CURIE for the containing class
+  * class_uri -- URI for the containing class
     * range: [String](String.md)
  * [inherited](inherited.md)  <sub>OPT</sub>
     * Description: true means that the *value* of a slot is inherited by subclasses
@@ -236,7 +246,17 @@ implicitly asserts that X is an instance of C1
     * Description: true means that this slot is the subject of a set of assertions.  Identifiers do not appear as predicates in the model
     * range: [Boolean](Boolean.md)
  * [ifabsent](ifabsent.md)  <sub>OPT</sub>
-    * Description: description of special behavior if the slot is absent
+    * Description: function that provides a default value for the slot.  Possible values for this slot are defined in biolink.utils.ifabsent_functions.default_library:
+  * [Tt]rue -- boolean True
+  * [Ff]alse -- boolean False
+  * int(value) -- integer value
+  * str(value) -- string value
+  * default_range -- schema default range
+  * bnode -- blank node identifier
+  * class_uri -- URI for the containing class
+  * slot_uri -- URI for the slot
+  * class_curie -- CURIE for the containing class
+  * class_uri -- URI for the containing class
     * range: [String](String.md)
  * [inherited](inherited.md)  <sub>OPT</sub>
     * Description: true means that the *value* of a slot is inherited by subclasses

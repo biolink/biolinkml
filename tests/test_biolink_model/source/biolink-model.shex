@@ -108,7 +108,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 
 <AnatomicalEntityToAnatomicalEntityOntogenicAssociation> EXTRA rdf:type CLOSED {
     (  $<AnatomicalEntityToAnatomicalEntityOntogenicAssociation_struct> (  <subject> @<AnatomicalEntity> ;
-          <relation> @<IriType> ;
+          <relation> @<Uriorcurie> ;
           <object> @<AnatomicalEntity> ;
           &<AnatomicalEntityToAnatomicalEntityAssociation_struct>
        ) ;
@@ -118,7 +118,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 
 <AnatomicalEntityToAnatomicalEntityPartOfAssociation> EXTRA rdf:type CLOSED {
     (  $<AnatomicalEntityToAnatomicalEntityPartOfAssociation_struct> (  <subject> @<AnatomicalEntity> ;
-          <relation> @<IriType> ;
+          <relation> @<Uriorcurie> ;
           <object> @<AnatomicalEntity> ;
           &<AnatomicalEntityToAnatomicalEntityAssociation_struct>
        ) ;
@@ -144,15 +144,15 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 )
 
 <Association_type> EXTRA rdf:type CLOSED {
-    (  $<Association_struct> (  rdf:subject @<IriType> ;
-          rdf:predicate @<IriType> ;
-          rdf:object @<IriType> ;
+    (  $<Association_struct> (  rdf:subject @<NamedThing> ;
+          rdf:predicate @<Uriorcurie> ;
+          rdf:object @<NamedThing> ;
           <negated> @<Boolean> ? ;
           rdf:type @<OntologyClass> ? ;
           <qualifiers> @<OntologyClass> * ;
           <publications> @<Publication> * ;
           pav:providedBy @<Provider> ? ;
-          <edge_label> @<LabelType> ? ;
+          <edge_label> @<LabelType> ;
           <has_confidence_level> @<ConfidenceLevel> ? ;
           OBO:RO_0002558 @<EvidenceType> ? ;
           <clinical_modifier_qualifier> @<ClinicalModifier> ?
@@ -166,8 +166,8 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 )
 
 <Attribute_type> EXTRA rdf:type CLOSED {
-    (  $<Attribute_struct> (  rdfs:label @<LabelType> ? ;
-          rdfs:subClassOf @<IriType> * ;
+    (  $<Attribute_struct> (  rdfs:label @<LabelType> ;
+          rdfs:subClassOf @<IriType> + ;
           owl:ObjectProperty @<NamedThing> * ;
           OBO:RO_0002434 @<NamedThing> * ;
           <node_property> @<String> ? ;
@@ -760,7 +760,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 
 <GeneRegulatoryRelationship> EXTRA rdf:type CLOSED {
     (  $<GeneRegulatoryRelationship_struct> (  <subject> @<GeneOrGeneProduct> ;
-          <relation> @<IriType> ;
+          <relation> @<Uriorcurie> ;
           <object> @<GeneOrGeneProduct> ;
           &<Association_struct>
        ) ;
@@ -787,7 +787,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 
 <GeneToExpressionSiteAssociation> EXTRA rdf:type CLOSED {
     (  $<GeneToExpressionSiteAssociation_struct> (  <subject> @<GeneOrGeneProduct> ;
-          <relation> @<IriType> ;
+          <relation> @<Uriorcurie> ;
           <object> @<AnatomicalEntity> ;
           <stage_qualifier> @<LifeStage> ? ;
           <quantifier_qualifier> @<OntologyClass> ? ;
@@ -811,7 +811,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 }
 
 <GeneToGeneHomologyAssociation> EXTRA rdf:type CLOSED {
-    (  $<GeneToGeneHomologyAssociation_struct> (  <relation> @<IriType> ;
+    (  $<GeneToGeneHomologyAssociation_struct> (  <relation> @<Uriorcurie> ;
           &<GeneToGeneAssociation_struct>
        ) ;
        rdf:type [ <GeneToGeneHomologyAssociation> ]
@@ -820,7 +820,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 
 <GeneToGeneProductRelationship> EXTRA rdf:type CLOSED {
     (  $<GeneToGeneProductRelationship_struct> (  <subject> @<Gene> ;
-          <relation> @<IriType> ;
+          <relation> @<Uriorcurie> ;
           <object> @<GeneProduct> ;
           &<SequenceFeatureRelationship_struct>
        ) ;
@@ -903,7 +903,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 
 <GenotypeToGeneAssociation> EXTRA rdf:type CLOSED {
     (  $<GenotypeToGeneAssociation_struct> (  <subject> @<Genotype> ;
-          <relation> @<IriType> ;
+          <relation> @<Uriorcurie> ;
           <object> @<Gene> ;
           &<Association_struct>
        ) ;
@@ -913,7 +913,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 
 <GenotypeToGenotypePartAssociation> EXTRA rdf:type CLOSED {
     (  $<GenotypeToGenotypePartAssociation_struct> (  <subject> @<Genotype> ;
-          <relation> @<IriType> ;
+          <relation> @<Uriorcurie> ;
           <object> @<Genotype> ;
           &<Association_struct>
        ) ;
@@ -923,7 +923,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 
 <GenotypeToPhenotypicFeatureAssociation> EXTRA rdf:type CLOSED {
     (  $<GenotypeToPhenotypicFeatureAssociation_struct> (  <subject> @<Genotype> ;
-          <relation> @<IriType> ;
+          <relation> @<Uriorcurie> ;
           <sex_qualifier> @<BiologicalSex> ? ;
           <frequency_qualifier> @<FrequencyValue> ? ;
           <severity_qualifier> @<SeverityValue> ? ;
@@ -946,7 +946,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 
 <GenotypeToVariantAssociation> EXTRA rdf:type CLOSED {
     (  $<GenotypeToVariantAssociation_struct> (  <subject> @<Genotype> ;
-          <relation> @<IriType> ;
+          <relation> @<Uriorcurie> ;
           <object> @<SequenceVariant> ;
           &<Association_struct>
        ) ;
@@ -1046,7 +1046,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 )
 
 <MacromolecularMachine_type> EXTRA rdf:type CLOSED {
-    (  $<MacromolecularMachine_struct> (  <name> @<SymbolType> ? ;
+    (  $<MacromolecularMachine_struct> (  <name> @<SymbolType> ;
           &<GenomicEntity_struct>
        ) ;
        rdf:type [ <MacromolecularMachine> ]
@@ -1094,8 +1094,8 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 }
 
 <ModelToDiseaseMixin> {
-    $<ModelToDiseaseMixin_struct> (  <subject> @<IriType> ;
-       <relation> @<IriType>
+    $<ModelToDiseaseMixin_struct> (  <subject> @<NamedThing> ;
+       <relation> @<Uriorcurie>
     )
 }
 
@@ -1183,8 +1183,8 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 )
 
 <NamedThing_type> EXTRA rdf:type CLOSED {
-    (  $<NamedThing_struct> (  rdfs:label @<LabelType> ? ;
-          rdfs:subClassOf @<IriType> * ;
+    (  $<NamedThing_struct> (  rdfs:label @<LabelType> ;
+          rdfs:subClassOf @<IriType> + ;
           owl:ObjectProperty @<NamedThing> * ;
           OBO:RO_0002434 @<NamedThing> * ;
           <node_property> @<String> ? ;
@@ -1303,7 +1303,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 }
 
 <PairwiseGeneToGeneInteraction> EXTRA rdf:type CLOSED {
-    (  $<PairwiseGeneToGeneInteraction_struct> (  <relation> @<IriType> ;
+    (  $<PairwiseGeneToGeneInteraction_struct> (  <relation> @<Uriorcurie> ;
           &<GeneToGeneAssociation_struct> ;
           &<PairwiseInteractionAssociation_struct>
        ) ;
@@ -1313,7 +1313,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 
 <PairwiseInteractionAssociation> {
     (  $<PairwiseInteractionAssociation_struct> (  <subject> @<MolecularEntity> ;
-          <relation> @<IriType> ;
+          <relation> @<Uriorcurie> ;
           <object> @<MolecularEntity> ;
           <interacting_molecules_category> @<OntologyClass> ? ;
           &<Association_struct>
@@ -1391,7 +1391,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 
 <PopulationToPopulationAssociation> EXTRA rdf:type CLOSED {
     (  $<PopulationToPopulationAssociation_struct> (  <subject> @<PopulationOfIndividualOrganisms> ;
-          <relation> @<IriType> ;
+          <relation> @<Uriorcurie> ;
           <object> @<PopulationOfIndividualOrganisms> ;
           &<Association_struct>
        ) ;
@@ -1574,9 +1574,9 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 }
 
 <VariantToDiseaseAssociation> EXTRA rdf:type CLOSED {
-    (  $<VariantToDiseaseAssociation_struct> (  <subject> @<IriType> ;
-          <relation> @<IriType> ;
-          <object> @<IriType> ;
+    (  $<VariantToDiseaseAssociation_struct> (  <subject> @<NamedThing> ;
+          <relation> @<Uriorcurie> ;
+          <object> @<NamedThing> ;
           <frequency_qualifier> @<FrequencyValue> ? ;
           <severity_qualifier> @<SeverityValue> ? ;
           <onset_qualifier> @<Onset> ? ;

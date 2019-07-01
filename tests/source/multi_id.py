@@ -5,11 +5,18 @@
 
 from typing import Optional, List, Union, Dict, ClassVar
 from dataclasses import dataclass
-from biolinkml.utils.metamodelcore import empty_list, empty_dict
+from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
+from biolinkml.utils.formatutils import camelcase, underscore, sfx
+from rdflib import Namespace
 from biolinkml.utils.metamodelcore import URIorCURIE
 
 metamodel_version = "1.3.6"
+
+
+# Namespaces
+XSD = Namespace('http://www.w3.org/2001/XMLSchema#')
+DEFAULT_ = Namespace('http://example.org/example/multi_id/')
 
 
 # Types
@@ -35,7 +42,7 @@ class NamedThing(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = ["node_property", "id"]
 
     type_uri: ClassVar[str] = "http://example.org/example/multi_id/NamedThing"
-    type_curie: ClassVar[str] = ":NamedThing"
+    type_curie: ClassVar[str] = None
     type_name: ClassVar[str] = "named thing"
 
     id: Union[URIorCURIE, NamedThingId]
@@ -57,10 +64,11 @@ class SequenceVariant(NamedThing):
     _inherited_slots: ClassVar[List[str]] = ["node_property", "id"]
 
     type_uri: ClassVar[str] = "http://example.org/example/multi_id/SequenceVariant"
-    type_curie: ClassVar[str] = ":SequenceVariant"
+    type_curie: ClassVar[str] = None
     type_name: ClassVar[str] = "sequence variant"
 
     id: Union[URIorCURIE, SequenceVariantId] = None
+    node_property: Optional[Union[URIorCURIE, IdentifierType]] = None
 
     def _fix_elements(self):
         super()._fix_elements()

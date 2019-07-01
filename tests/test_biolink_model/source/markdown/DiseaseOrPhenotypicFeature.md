@@ -6,7 +6,7 @@ Either one of a disease or an individual phenotypic feature. Some knowledge reso
 
 URI: [biolink:DiseaseOrPhenotypicFeature](https://w3id.org/biolink/vocab/DiseaseOrPhenotypicFeature)
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon%200..*-%20\[DiseaseOrPhenotypicFeature|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*],%20\[CellLineToDiseaseOrPhenotypicFeatureAssociation]-%20subject%201..1>\[DiseaseOrPhenotypicFeature],%20\[ChemicalToDiseaseOrPhenotypicFeatureAssociation]-%20object%201..1>\[DiseaseOrPhenotypicFeature],%20\[DiseaseOrPhenotypicFeatureAssociationToThingAssociation]-%20subject%201..1>\[DiseaseOrPhenotypicFeature],%20\[ThingToDiseaseOrPhenotypicFeatureAssociation]-%20object%201..1>\[DiseaseOrPhenotypicFeature],%20\[DiseaseOrPhenotypicFeature]uses%20-.->\[ThingWithTaxon],%20\[DiseaseOrPhenotypicFeature]^-\[PhenotypicFeature],%20\[DiseaseOrPhenotypicFeature]^-\[Disease],%20\[BiologicalEntity]^-\[DiseaseOrPhenotypicFeature])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon%200..*-%20\[DiseaseOrPhenotypicFeature|id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],%20\[CellLineToDiseaseOrPhenotypicFeatureAssociation]-%20subject%201..1>\[DiseaseOrPhenotypicFeature],%20\[ChemicalToDiseaseOrPhenotypicFeatureAssociation]-%20object%201..1>\[DiseaseOrPhenotypicFeature],%20\[DiseaseOrPhenotypicFeatureAssociationToThingAssociation]-%20subject%201..1>\[DiseaseOrPhenotypicFeature],%20\[ThingToDiseaseOrPhenotypicFeatureAssociation]-%20object%201..1>\[DiseaseOrPhenotypicFeature],%20\[DiseaseOrPhenotypicFeature]uses%20-.->\[ThingWithTaxon],%20\[DiseaseOrPhenotypicFeature]^-\[PhenotypicFeature],%20\[DiseaseOrPhenotypicFeature]^-\[Disease],%20\[BiologicalEntity]^-\[DiseaseOrPhenotypicFeature])
 
 ## Parents
 
@@ -41,12 +41,12 @@ URI: [biolink:DiseaseOrPhenotypicFeature](https://w3id.org/biolink/vocab/Disease
     * range: [IdentifierType](IdentifierType.md)
     * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
- * [name](name.md)  <sub>OPT</sub>
+ * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing
     * range: [LabelType](LabelType.md)
     * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
- * [category](category.md)  <sub>0..*</sub>
+ * [category](category.md)  <sub>1..*</sub>
     * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
     * range: [IriType](IriType.md)
     * inherited from: [NamedThing](NamedThing.md)

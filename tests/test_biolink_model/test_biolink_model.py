@@ -39,7 +39,6 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
     model_path = os.path.join(cwd, 'yaml')
     model_name = 'biolink-model'
 
-
     def test_biolink_python(self):
         """ Test the python generator for the biolink model """
         self.output_name = 'model'

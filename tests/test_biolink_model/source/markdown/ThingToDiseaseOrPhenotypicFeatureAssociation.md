@@ -6,7 +6,7 @@
 
 URI: [biolink:ThingToDiseaseOrPhenotypicFeatureAssociation](https://w3id.org/biolink/vocab/ThingToDiseaseOrPhenotypicFeatureAssociation)
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[ThingToDiseaseOrPhenotypicFeatureAssociation|id(i):identifier_type;subject(i):iri_type;relation(i):iri_type;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[ThingToDiseaseOrPhenotypicFeatureAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[ThingToDiseaseOrPhenotypicFeatureAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[ThingToDiseaseOrPhenotypicFeatureAssociation],%20\[DiseaseOrPhenotypicFeature]<object%201..1-%20\[ThingToDiseaseOrPhenotypicFeatureAssociation],%20\[ChemicalToDiseaseOrPhenotypicFeatureAssociation]uses%20-.->\[ThingToDiseaseOrPhenotypicFeatureAssociation],%20\[CellLineToDiseaseOrPhenotypicFeatureAssociation]uses%20-.->\[ThingToDiseaseOrPhenotypicFeatureAssociation],%20\[BiosampleToDiseaseOrPhenotypicFeatureAssociation]uses%20-.->\[ThingToDiseaseOrPhenotypicFeatureAssociation],%20\[Association]^-\[ThingToDiseaseOrPhenotypicFeatureAssociation])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[ThingToDiseaseOrPhenotypicFeatureAssociation|relation(i):uriorcurie;id(i):identifier_type;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[ThingToDiseaseOrPhenotypicFeatureAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[ThingToDiseaseOrPhenotypicFeatureAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[ThingToDiseaseOrPhenotypicFeatureAssociation],%20\[NamedThing]<subject(i)%201..1-%20\[ThingToDiseaseOrPhenotypicFeatureAssociation],%20\[DiseaseOrPhenotypicFeature]<object%201..1-%20\[ThingToDiseaseOrPhenotypicFeatureAssociation],%20\[ChemicalToDiseaseOrPhenotypicFeatureAssociation]uses%20-.->\[ThingToDiseaseOrPhenotypicFeatureAssociation],%20\[CellLineToDiseaseOrPhenotypicFeatureAssociation]uses%20-.->\[ThingToDiseaseOrPhenotypicFeatureAssociation],%20\[BiosampleToDiseaseOrPhenotypicFeatureAssociation]uses%20-.->\[ThingToDiseaseOrPhenotypicFeatureAssociation],%20\[Association]^-\[ThingToDiseaseOrPhenotypicFeatureAssociation])
 
 ## Parents
 
@@ -31,23 +31,23 @@ URI: [biolink:ThingToDiseaseOrPhenotypicFeatureAssociation](https://w3id.org/bio
 
 ### Inherited from association:
 
+ * [subject](subject.md)  <sub>REQ</sub>
+    * Description: connects an association to the subject of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
+    * range: [NamedThing](NamedThing.md)
+    * inherited from: [Association](Association.md)
+ * [relation](relation.md)  <sub>REQ</sub>
+    * Description: the relationship type by which a subject is connected to an object in an association
+    * range: [Uriorcurie](Uriorcurie.md)
+    * inherited from: [Association](Association.md)
+ * [object](object.md)  <sub>REQ</sub>
+    * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
+    * range: [NamedThing](NamedThing.md)
+    * inherited from: [Association](Association.md)
  * [id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [IdentifierType](IdentifierType.md)
     * inherited from: [Association](Association.md)
     * in subsets: (translator_minimal)
- * [subject](subject.md)  <sub>REQ</sub>
-    * Description: connects an association to the subject of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
-    * range: [IriType](IriType.md)
-    * inherited from: [Association](Association.md)
- * [relation](relation.md)  <sub>REQ</sub>
-    * Description: the relationship type by which a subject is connected to an object in an association
-    * range: [IriType](IriType.md)
-    * inherited from: [Association](Association.md)
- * [object](object.md)  <sub>REQ</sub>
-    * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
-    * range: [IriType](IriType.md)
-    * inherited from: [Association](Association.md)
  * [negated](negated.md)  <sub>OPT</sub>
     * Description: if set to true, then the association is negated i.e. is not true
     * range: [Boolean](Boolean.md)

@@ -258,6 +258,7 @@ slots:
   default_prefix:
     domain: schema_definition
     range: string
+    ifabsent: default_ns
     description: default and base prefix -- used for ':' identifiers, @base and @vocab
 
   default_range:
@@ -367,7 +368,7 @@ slots:
     domain: class_definition
     range: uriorcurie
     description: URI of the class in an RDF environment
-    ifabsent: class_curi
+    ifabsent: class_curie
 
   subclass_of:
     domain: class_definition
@@ -439,7 +440,7 @@ slots:
     range: boolean
     inherited: true
     description: true means that slot can have more than one value
-    ifabsent: False
+    # ifabsent: False
 
   inherited:
     domain: slot_definition

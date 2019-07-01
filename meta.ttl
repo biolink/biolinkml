@@ -38,22 +38,22 @@
         "rdfs",
         "skos",
         "xsd" ;
-    :generation_date "2019-06-29 09:11"^^xsd:dateTime ;
+    :generation_date "2019-07-01 12:41"^^xsd:dateTime ;
     :id <https://w3id.org/biolink/biolinkml/meta> ;
     :imports <https://w3id.org/biolink/biolinkml/meta/includes/types> ;
     :metamodel_version "1.3.6" ;
-    :prefixes [ :prefix_prefix "xsd" ;
-            :prefix_reference xsd: ],
-        [ :prefix_prefix "metatype" ;
-            :prefix_reference metatype: ],
+    :prefixes [ :prefix_prefix "skos" ;
+            :prefix_reference skos: ],
         [ :prefix_prefix "meta" ;
             :prefix_reference : ],
-        [ :prefix_prefix "OIO" ;
-            :prefix_reference OIO: ],
-        [ :prefix_prefix "skos" ;
-            :prefix_reference skos: ],
+        [ :prefix_prefix "metatype" ;
+            :prefix_reference metatype: ],
+        [ :prefix_prefix "xsd" ;
+            :prefix_reference xsd: ],
         [ :prefix_prefix "pav" ;
-            :prefix_reference pav: ] ;
+            :prefix_reference pav: ],
+        [ :prefix_prefix "OIO" ;
+            :prefix_reference OIO: ] ;
     :slots :abstract,
         :alias,
         :aliases,
@@ -140,8 +140,8 @@
         :values_from,
         :version ;
     :source_file "meta.yaml" ;
-    :source_file_date "Fri Jun 28 14:08:33 2019"^^xsd:dateTime ;
-    :source_file_size 22900 ;
+    :source_file_date "Mon Jul  1 12:17:05 2019"^^xsd:dateTime ;
+    :source_file_size 23434 ;
     :subsets :owl ;
     :types :boolean,
         :date,
@@ -154,10 +154,6 @@
         :time,
         :uri,
         :uriorcurie .
-
-:owl a :SubsetDefinition ;
-    skos:definition "Set of slots that appear in the OWL representation of a model" ;
-    skos:inScheme <https://w3id.org/biolink/biolinkml/meta> .
 
 :date a :TypeDefinition ;
     skos:definition "a date (year, month and day) in an idealized calendar" ;
@@ -407,7 +403,7 @@
     skos:definition "URI of the class in an RDF environment" ;
     skos:inScheme <https://w3id.org/biolink/biolinkml/meta> ;
     :domain :ClassDefinition ;
-    :ifabsent "set to <default prefix>:<class name>" ;
+    :ifabsent "class_curie" ;
     :owner :ClassDefinition ;
     :range :uriorcurie ;
     :slot_uri :class_uri .
@@ -443,6 +439,7 @@
     skos:definition "default and base prefix -- used for ':' identifiers, @base and @vocab" ;
     skos:inScheme <https://w3id.org/biolink/biolinkml/meta> ;
     :domain :SchemaDefinition ;
+    :ifabsent "default_ns" ;
     :owner :SchemaDefinition ;
     :range :string ;
     :slot_uri :default_prefix .
@@ -526,7 +523,17 @@ implicitly asserts that X is an instance of C1
     :slot_uri :identifier .
 
 :ifabsent a :SlotDefinition ;
-    skos:definition "description of special behavior if the slot is absent" ;
+    skos:definition """function that provides a default value for the slot.  Possible values for this slot are defined in biolink.utils.ifabsent_functions.default_library:
+  * [Tt]rue -- boolean True
+  * [Ff]alse -- boolean False
+  * int(value) -- integer value
+  * str(value) -- string value
+  * default_range -- schema default range
+  * bnode -- blank node identifier
+  * class_uri -- URI for the containing class
+  * slot_uri -- URI for the slot
+  * class_curie -- CURIE for the containing class
+  * class_uri -- URI for the containing class""" ;
     skos:inScheme <https://w3id.org/biolink/biolinkml/meta> ;
     :domain :SlotDefinition ;
     :inherited true ;
@@ -671,7 +678,7 @@ implicitly asserts Y is an instance of C2
 """ ;
     skos:inScheme <https://w3id.org/biolink/biolinkml/meta> ;
     :domain :SlotDefinition ;
-    :ifabsent "set to default range" ;
+    :ifabsent "default_range" ;
     :inherited true ;
     :owner :SlotDefinition ;
     :range :Element ;
@@ -718,7 +725,7 @@ implicitly asserts Y is an instance of C2
     skos:definition "predicate of this slot for semantic web application" ;
     skos:inScheme <https://w3id.org/biolink/biolinkml/meta> ;
     :domain :SlotDefinition ;
-    :ifabsent "set to <default prefix>:<slot name>" ;
+    :ifabsent "slot_curie" ;
     :owner :SlotDefinition ;
     :range :uriorcurie ;
     :slot_uri :slot_uri .
@@ -1106,6 +1113,10 @@ implicitly asserts Y is an instance of C2
     :base "Bool" ;
     :imported_from "includes/types" ;
     :uri xsd:boolean .
+
+:owl a :SubsetDefinition ;
+    skos:definition "Set of slots that appear in the OWL representation of a model" ;
+    skos:inScheme <https://w3id.org/biolink/biolinkml/meta> .
 
 :Definition a :ClassDefinition ;
     skos:definition "base class for definitions" ;

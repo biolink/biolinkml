@@ -445,7 +445,8 @@
          "domain": "schema_definition",
          "owner": "schema_definition",
          "range": "string",
-         "slot_uri": "meta:default_prefix"
+         "slot_uri": "meta:default_prefix",
+         "ifabsent": "default_ns"
       },
       {
          "name": "default_range",
@@ -604,7 +605,7 @@
          "owner": "class_definition",
          "range": "uriorcurie",
          "slot_uri": "meta:class_uri",
-         "ifabsent": "set to <default prefix>:<class name>"
+         "ifabsent": "class_curie"
       },
       {
          "name": "subclass_of",
@@ -659,7 +660,7 @@
          "range": "element",
          "slot_uri": "meta:range",
          "inherited": true,
-         "ifabsent": "set to default range"
+         "ifabsent": "default_range"
       },
       {
          "name": "slot_uri",
@@ -669,7 +670,7 @@
          "owner": "slot_definition",
          "range": "uriorcurie",
          "slot_uri": "meta:slot_uri",
-         "ifabsent": "set to <default prefix>:<slot name>"
+         "ifabsent": "slot_curie"
       },
       {
          "name": "multivalued",
@@ -706,7 +707,7 @@
       },
       {
          "name": "ifabsent",
-         "description": "description of special behavior if the slot is absent",
+         "description": "function that provides a default value for the slot.  Possible values for this slot are defined in biolink.utils.ifabsent_functions.default_library:\n  * [Tt]rue -- boolean True\n  * [Ff]alse -- boolean False\n  * int(value) -- integer value\n  * str(value) -- string value\n  * default_range -- schema default range\n  * bnode -- blank node identifier\n  * class_uri -- URI for the containing class\n  * slot_uri -- URI for the slot\n  * class_curie -- CURIE for the containing class\n  * class_uri -- URI for the containing class",
          "from_schema": "https://w3id.org/biolink/biolinkml/meta",
          "domain": "slot_definition",
          "owner": "slot_definition",

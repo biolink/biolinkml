@@ -2,7 +2,7 @@
 message ActivityAndBehavior
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -21,7 +21,7 @@ message ActivityAndBehavior
 message AnatomicalEntity
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -37,59 +37,62 @@ message AnatomicalEntity
  }
 message AnatomicalEntityToAnatomicalEntityAssociation
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
+  edgeLabel None = 11
  }
 // A relationship between two anatomical entities where the relationship is ontogenic, i.e the two entities are related by development. A number of different relationship types can be used to specify the precise nature of the relationship
 message AnatomicalEntityToAnatomicalEntityOntogenicAssociation
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
+  edgeLabel None = 11
  }
 // A relationship between two anatomical entities where the relationship is mereological, i.e the two entities are related by parthood. This includes relationships between cellular components and cells, between cells and tissues, tissues and whole organisms
 message AnatomicalEntityToAnatomicalEntityPartOfAssociation
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
+  edgeLabel None = 11
  }
 // A typed association between two entities, supported by evidence
 message Association
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
-  optional edgeLabel None = 11
+  edgeLabel None = 11
   optional hasConfidenceLevel None = 12
   optional hasEvidence None = 13
   optional clinicalModifierQualifier None = 14
@@ -98,7 +101,7 @@ message Association
 message Attribute
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -114,7 +117,7 @@ message Attribute
 message BiologicalProcess
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -134,7 +137,7 @@ message BiologicalProcess
 message BiologicalProcessOrActivity
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -149,7 +152,7 @@ message BiologicalProcessOrActivity
 message BiologicalSex
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -164,7 +167,7 @@ message BiologicalSex
 message Biosample
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -180,21 +183,22 @@ message Biosample
 // An association between a biosample and a disease or phenotype
 message BiosampleToDiseaseOrPhenotypicFeatureAssociation
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
+  edgeLabel None = 11
  }
 message Carbohydrate
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -262,7 +266,7 @@ message Carbohydrate
 message Case
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -278,25 +282,26 @@ message Case
 // An association between a case (e.g. individual patient) and a phenotypic feature in which the individual has or has had the phenotype
 message CaseToPhenotypicFeatureAssociation
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
-  optional sexQualifier None = 11
-  optional frequencyQualifier None = 12
-  optional severityQualifier None = 13
-  optional onsetQualifier None = 14
+  edgeLabel None = 11
+  optional sexQualifier None = 12
+  optional frequencyQualifier None = 13
+  optional severityQualifier None = 14
+  optional onsetQualifier None = 15
  }
 message Cell
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -313,7 +318,7 @@ message Cell
 message CellLine
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -329,22 +334,23 @@ message CellLine
 // An relationship between a cell line and a disease or a phenotype, where the cell line is derived from an individual with that disease or phenotype
 message CellLineToDiseaseOrPhenotypicFeatureAssociation
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
+  edgeLabel None = 11
  }
 // A location in or around a cell
 message CellularComponent
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -362,7 +368,7 @@ message CellularComponent
 message ChemicalSubstance
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -429,50 +435,53 @@ message ChemicalSubstance
 // An interaction between a chemical entity and a phenotype or disease, where the presence of the chemical gives rise to or exacerbates the phenotype
 message ChemicalToDiseaseOrPhenotypicFeatureAssociation
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
+  edgeLabel None = 11
  }
 // An interaction between a chemical entity and a gene or gene product
 message ChemicalToGeneAssociation
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
+  edgeLabel None = 11
  }
 // An interaction between a chemical entity and a biological process or pathway
 message ChemicalToPathwayAssociation
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
+  edgeLabel None = 11
  }
 // Any entity or process that exists in the clinical domain and outside the biological realm. Diseases are placed under biological entities
 message ClinicalEntity
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -486,7 +495,7 @@ message ClinicalEntity
 message ClinicalIntervention
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -501,7 +510,7 @@ message ClinicalIntervention
 message ClinicalModifier
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -516,7 +525,7 @@ message ClinicalModifier
 message ClinicalTrial
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -530,7 +539,7 @@ message ClinicalTrial
 message CodingSequence
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -599,7 +608,7 @@ message CodingSequence
 message ConfidenceLevel
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -614,7 +623,7 @@ message ConfidenceLevel
 message Device
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -628,7 +637,7 @@ message Device
 message Disease
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -648,7 +657,7 @@ message Disease
 message DiseaseOrPhenotypicFeature
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -667,40 +676,42 @@ message DiseaseOrPhenotypicFeature
 // An association between either a disease or a phenotypic feature and an anatomical entity, where the disease/feature manifests in that site.
 message DiseaseOrPhenotypicFeatureAssociationToLocationAssociation
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
+  edgeLabel None = 11
  }
 // An association between a disease and a phenotypic feature in which the phenotypic feature is associated with the disease in some way
 message DiseaseToPhenotypicFeatureAssociation
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
-  optional sexQualifier None = 11
-  optional frequencyQualifier None = 12
-  optional severityQualifier None = 13
-  optional onsetQualifier None = 14
+  edgeLabel None = 11
+  optional sexQualifier None = 12
+  optional frequencyQualifier None = 13
+  optional severityQualifier None = 14
+  optional onsetQualifier None = 15
  }
 // A substance intended for use in the diagnosis, cure, mitigation, treatment, or prevention of disease
 message Drug
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -768,7 +779,7 @@ message Drug
 message DrugExposure
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -785,7 +796,7 @@ message DrugExposure
 message Environment
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -800,25 +811,26 @@ message Environment
 // Any association between an environment and a phenotypic feature, where being in the environment influences the phenotype
 message EnvironmentToPhenotypicFeatureAssociation
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
-  optional sexQualifier None = 11
-  optional frequencyQualifier None = 12
-  optional severityQualifier None = 13
-  optional onsetQualifier None = 14
+  edgeLabel None = 11
+  optional sexQualifier None = 12
+  optional frequencyQualifier None = 13
+  optional severityQualifier None = 14
+  optional onsetQualifier None = 15
  }
 message EnvironmentalFeature
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -832,7 +844,7 @@ message EnvironmentalFeature
 message EnvironmentalProcess
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -851,7 +863,7 @@ message EnvironmentalProcess
 message EvidenceType
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -866,7 +878,7 @@ message EvidenceType
 message Exon
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -934,22 +946,23 @@ message Exon
 // A transcript is formed from multiple exons
 message ExonToTranscriptRelationship
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
+  edgeLabel None = 11
  }
 // describes the frequency of occurrence of an event or condition
 message FrequencyValue
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -964,21 +977,22 @@ message FrequencyValue
 // An association between a macromolecular machine (gene, gene product or complex of gene products) and either a molecular activity, a biological process or a cellular location in which a function is executed
 message FunctionalAssociation
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
+  edgeLabel None = 11
  }
 message Gene
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -1052,25 +1066,26 @@ message Gene
  }
 message GeneAsAModelOfDiseaseAssociation
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
-  optional frequencyQualifier None = 11
-  optional severityQualifier None = 12
-  optional onsetQualifier None = 13
+  edgeLabel None = 11
+  optional frequencyQualifier None = 12
+  optional severityQualifier None = 13
+  optional onsetQualifier None = 14
  }
 // any grouping of multiple genes or gene products related by common descent
 message GeneFamily
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -1136,26 +1151,27 @@ message GeneFamily
  }
 message GeneHasVariantThatContributesToDiseaseAssociation
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
-  optional frequencyQualifier None = 11
-  optional severityQualifier None = 12
-  optional onsetQualifier None = 13
-  optional sequenceVariantQualifier None = 14
+  edgeLabel None = 11
+  optional frequencyQualifier None = 12
+  optional severityQualifier None = 13
+  optional onsetQualifier None = 14
+  optional sequenceVariantQualifier None = 15
  }
 // an ontology class that describes a functional aspect of a gene, gene prodoct or complex
 message GeneOntologyClass
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -1171,7 +1187,7 @@ message GeneOntologyClass
 message GeneOrGeneProduct
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -1244,7 +1260,7 @@ message GeneOrGeneProduct
 message GeneProduct
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -1316,112 +1332,119 @@ message GeneProduct
 // A regulatory relationship between two genes
 message GeneRegulatoryRelationship
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
+  edgeLabel None = 11
  }
 message GeneToDiseaseAssociation
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
-  optional frequencyQualifier None = 11
-  optional severityQualifier None = 12
-  optional onsetQualifier None = 13
+  edgeLabel None = 11
+  optional frequencyQualifier None = 12
+  optional severityQualifier None = 13
+  optional onsetQualifier None = 14
  }
 // An association between a gene and an expression site, possibly qualified by stage/timing info.
 message GeneToExpressionSiteAssociation
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
-  optional stageQualifier None = 11
-  optional quantifierQualifier None = 12
+  edgeLabel None = 11
+  optional stageQualifier None = 12
+  optional quantifierQualifier None = 13
  }
 // A homology association between two genes. May be orthology (in which case the species of subject and object should differ) or paralogy (in which case the species may be the same)
 message GeneToGeneHomologyAssociation
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
+  edgeLabel None = 11
  }
 // A gene is transcribed and potentially translated to a gene product
 message GeneToGeneProductRelationship
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
+  edgeLabel None = 11
  }
 message GeneToGoTermAssociation
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
+  edgeLabel None = 11
  }
 message GeneToPhenotypicFeatureAssociation
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
-  optional sexQualifier None = 11
-  optional frequencyQualifier None = 12
-  optional severityQualifier None = 13
-  optional onsetQualifier None = 14
+  edgeLabel None = 11
+  optional sexQualifier None = 12
+  optional frequencyQualifier None = 13
+  optional severityQualifier None = 14
+  optional onsetQualifier None = 15
  }
 // A genome is the sum of genetic material within a cell or virion.
 message Genome
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -1490,7 +1513,7 @@ message Genome
 message GenomicEntity
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -1558,26 +1581,27 @@ message GenomicEntity
 // A relationship between a sequence feature and an entity it is localized to. The reference entity may be a chromosome, chromosome region or information entity such as a contig
 message GenomicSequenceLocalization
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
-  optional startInterbaseCoordinate None = 11
-  optional endInterbaseCoordinate None = 12
-  optional genomeBuild None = 13
-  optional phase None = 14
+  edgeLabel None = 11
+  optional startInterbaseCoordinate None = 12
+  optional endInterbaseCoordinate None = 13
+  optional genomeBuild None = 14
+  optional phase None = 15
  }
 // An information content entity that describes a genome by specifying the total variation in genomic sequence and/or gene expression, relative to some extablished background
 message Genotype
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -1646,68 +1670,72 @@ message Genotype
 // Any association between a genotype and a gene. The genotype have have multiple variants in that gene or a single one. There is no assumption of cardinality
 message GenotypeToGeneAssociation
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
+  edgeLabel None = 11
  }
 // Any association between one genotype and a genotypic entity that is a sub-component of it
 message GenotypeToGenotypePartAssociation
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
+  edgeLabel None = 11
  }
 // Any association between one genotype and a phenotypic feature, where having the genotype confers the phenotype, either in isolation or through environment
 message GenotypeToPhenotypicFeatureAssociation
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
-  optional sexQualifier None = 11
-  optional frequencyQualifier None = 12
-  optional severityQualifier None = 13
-  optional onsetQualifier None = 14
+  edgeLabel None = 11
+  optional sexQualifier None = 12
+  optional frequencyQualifier None = 13
+  optional severityQualifier None = 14
+  optional onsetQualifier None = 15
  }
 // Any association between a genotype and a sequence variant.
 message GenotypeToVariantAssociation
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
+  edgeLabel None = 11
  }
 // An attribute corresponding to the genotypic sex of the individual, based upon genotypic composition of sex chromosomes.
 message GenotypicSex
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -1723,7 +1751,7 @@ message GenotypicSex
 message GeographicLocation
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -1740,7 +1768,7 @@ message GeographicLocation
 message GeographicLocationAtTime
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -1757,7 +1785,7 @@ message GeographicLocationAtTime
 message GrossAnatomicalStructure
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -1775,7 +1803,7 @@ message GrossAnatomicalStructure
 message Haplotype
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -1843,7 +1871,7 @@ message Haplotype
 message IndividualOrganism
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -1860,7 +1888,7 @@ message IndividualOrganism
 message LifeStage
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -1876,7 +1904,7 @@ message LifeStage
 message MacromolecularComplex
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -1945,7 +1973,7 @@ message MacromolecularComplex
 message MacromolecularMachine
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -2013,50 +2041,53 @@ message MacromolecularMachine
 // A functional association between a macromolecular machine (gene, gene product or complex) and a biological process or pathway (as represented in the GO biological process branch), where the entity carries out some part of the process, regulates it, or acts upstream of it
 message MacromolecularMachineToBiologicalProcessAssociation
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
+  edgeLabel None = 11
  }
 // A functional association between a macromolecular machine (gene, gene product or complex) and a cellular component (as represented in the GO cellular component branch), where the entity carries out its function in the cellular component
 message MacromolecularMachineToCellularComponentAssociation
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
+  edgeLabel None = 11
  }
 // A functional association between a macromolecular machine (gene, gene product or complex) and a molecular activity (as represented in the GO molecular function branch), where the entity carries out the activity, or contributes to its execution
 message MacromolecularMachineToMolecularActivityAssociation
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
+  edgeLabel None = 11
  }
 // Any intermediate or product resulting from metabolism. Includes primary and secondary metabolites.
 message Metabolite
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -2123,7 +2154,7 @@ message Metabolite
 message MicroRNA
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -2196,7 +2227,7 @@ message MicroRNA
 message MolecularActivity
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -2216,7 +2247,7 @@ message MolecularActivity
 message MolecularEntity
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -2286,7 +2317,7 @@ message MolecularEntity
 message NamedThing
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -2339,7 +2370,7 @@ message NamedThing
 message NoncodingRNAProduct
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -2412,7 +2443,7 @@ message NoncodingRNAProduct
 message Occurrent
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -2433,7 +2464,7 @@ message Occurrent
 message Onset
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -2449,7 +2480,7 @@ message Onset
 message OntologyClass
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -2464,7 +2495,7 @@ message OntologyClass
 message OrganismTaxon
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -2479,21 +2510,22 @@ message OrganismTaxon
 // An interaction between two genes or two gene products. May be physical (e.g. protein binding) or genetic (between genes). May be symmetric (e.g. protein interaction) or directed (e.g. phosphorylation)
 message PairwiseGeneToGeneInteraction
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
+  edgeLabel None = 11
  }
 message Pathway
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -2513,7 +2545,7 @@ message Pathway
 message Phenomenon
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -2531,7 +2563,7 @@ message Phenomenon
 message PhenotypicFeature
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -2551,7 +2583,7 @@ message PhenotypicFeature
 message PhenotypicSex
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -2566,7 +2598,7 @@ message PhenotypicSex
 message PhysiologicalProcess
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -2586,7 +2618,7 @@ message PhysiologicalProcess
 message PlanetaryEntity
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -2601,7 +2633,7 @@ message PlanetaryEntity
 message PopulationOfIndividualOrganisms
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -2617,22 +2649,23 @@ message PopulationOfIndividualOrganisms
 // An association between a two populations
 message PopulationToPopulationAssociation
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
+  edgeLabel None = 11
  }
 // A series of actions conducted in a certain order or manner
 message Procedure
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -2651,7 +2684,7 @@ message Procedure
 message Protein
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -2724,7 +2757,7 @@ message Protein
 message ProteinIsoform
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -2797,7 +2830,7 @@ message ProteinIsoform
 message Provider
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -2812,7 +2845,7 @@ message Provider
 message Publication
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -2827,7 +2860,7 @@ message Publication
 message RelationshipType
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -2842,7 +2875,7 @@ message RelationshipType
 message RNAProduct
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -2915,7 +2948,7 @@ message RNAProduct
 message RNAProductIsoform
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -2987,22 +3020,23 @@ message RNAProductIsoform
 // For example, a particular exon is part of a particular transcript or gene
 message SequenceFeatureRelationship
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
+  edgeLabel None = 11
  }
 // An allele that varies in its sequence from what is considered the reference allele at that locus.
 message SequenceVariant
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -3072,7 +3106,7 @@ message SequenceVariant
 message SeverityValue
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -3088,7 +3122,7 @@ message SeverityValue
 message Transcript
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -3156,22 +3190,23 @@ message Transcript
 // A gene is a collection of transcripts
 message TranscriptToGeneRelationship
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
+  edgeLabel None = 11
  }
 // A treatment is targeted at a disease or phenotype and may involve multiple drug 'exposures'
 message Treatment
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5
@@ -3187,60 +3222,63 @@ message Treatment
  }
 message VariantToDiseaseAssociation
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
-  optional frequencyQualifier None = 11
-  optional severityQualifier None = 12
-  optional onsetQualifier None = 13
- }
-message VariantToPhenotypicFeatureAssociation
- {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
-  optional negated None = 5
-  optional associationType None = 6
-  repeated qualifiers None = 7
-  repeated publications None = 8
-  optional providedBy None = 9
-  optional associationSlot None = 10
-  optional sexQualifier None = 11
+  edgeLabel None = 11
   optional frequencyQualifier None = 12
   optional severityQualifier None = 13
   optional onsetQualifier None = 14
  }
-// An association between a variant and a population, where the variant has particular frequency in the population
-message VariantToPopulationAssociation
+message VariantToPhenotypicFeatureAssociation
  {
-  id None = 1
-  subject None = 2
-  relation None = 3
-  object None = 4
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
   optional negated None = 5
   optional associationType None = 6
   repeated qualifiers None = 7
   repeated publications None = 8
   optional providedBy None = 9
   optional associationSlot None = 10
-  optional hasCount None = 11
-  optional hasTotal None = 12
-  optional hasQuotient None = 13
-  optional hasPercentage None = 14
-  optional frequencyQualifier None = 15
+  edgeLabel None = 11
+  optional sexQualifier None = 12
+  optional frequencyQualifier None = 13
+  optional severityQualifier None = 14
+  optional onsetQualifier None = 15
+ }
+// An association between a variant and a population, where the variant has particular frequency in the population
+message VariantToPopulationAssociation
+ {
+  subject None = 1
+  relation None = 2
+  object None = 3
+  id None = 4
+  optional negated None = 5
+  optional associationType None = 6
+  repeated qualifiers None = 7
+  repeated publications None = 8
+  optional providedBy None = 9
+  optional associationSlot None = 10
+  edgeLabel None = 11
+  optional hasCount None = 12
+  optional hasTotal None = 13
+  optional hasQuotient None = 14
+  optional hasPercentage None = 15
+  optional frequencyQualifier None = 16
  }
 message Zygosity
  {
   id None = 1
-  optional name None = 2
+  name None = 2
   repeated category None = 3
   repeated relatedTo None = 4
   repeated interactsWith None = 5

@@ -8,12 +8,34 @@
 
 from typing import Optional, List, Union, Dict, ClassVar
 from dataclasses import dataclass
-from biolinkml.utils.metamodelcore import empty_list, empty_dict
+from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
-from biolinkml.utils.metamodelcore import Bool, URI, XSDDate, XSDTime
-from includes.types import Boolean, Date, Double, Float, Integer, String, Time, Uri
+from biolinkml.utils.formatutils import camelcase, underscore, sfx
+from rdflib import Namespace
+from biolinkml.utils.metamodelcore import Bool, URIorCURIE, XSDDate, XSDTime
+from includes.types import Boolean, Date, Double, Float, Integer, String, Time, Uriorcurie
 
 metamodel_version = "1.3.6"
+
+
+# Namespaces
+BIOGRID = Namespace('http://thebiogrid.org/')
+OBAN = Namespace('http://purl.org/oban/')
+OIO = Namespace('http://www.geneontology.org/formats/oboInOwl#')
+SIO = Namespace('http://semanticscience.org/resource/SIO_')
+UMLSSC = Namespace('https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/TUI/')
+UMLSSG = Namespace('https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/GROUP/')
+UMLSST = Namespace('https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/STY/')
+BIOLINK = Namespace('https://w3id.org/biolink/vocab/')
+BIOLINKML = Namespace('https://w3id.org/biolink/biolinkml/')
+META = Namespace('https://w3id.org/biolink/biolinkml/meta/')
+METATYPE = Namespace('https://w3id.org/biolink/biolinkml/type/')
+RDF = Namespace('http://www.w3.org/1999/02/22-rdf-syntax-ns#')
+RDFS = Namespace('http://www.w3.org/2000/01/rdf-schema#')
+SKOS = Namespace('https://www.w3.org/TR/skos-reference/#')
+WGS = Namespace('http://www.w3.org/2003/01/geo/wgs84_pos')
+XSD = Namespace('http://www.w3.org/2001/XMLSchema#')
+DEFAULT_ = BIOLINK
 
 
 # Types
@@ -27,7 +49,7 @@ class IdentifierType(String):
     pass
 
 
-class IriType(Uri):
+class IriType(Uriorcurie):
     """ An IRI """
     pass
 
@@ -623,6 +645,8 @@ class Attribute(YAMLRoot):
     type_name: ClassVar[str] = "attribute"
 
     id: Union[str, AttributeId]
+    name: Union[str, LabelType]
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -639,6 +663,8 @@ class BiologicalSex(Attribute):
     type_name: ClassVar[str] = "biological sex"
 
     id: Union[str, BiologicalSexId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -658,6 +684,8 @@ class PhenotypicSex(BiologicalSex):
     type_name: ClassVar[str] = "phenotypic sex"
 
     id: Union[str, PhenotypicSexId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -678,6 +706,8 @@ class GenotypicSex(BiologicalSex):
     type_name: ClassVar[str] = "genotypic sex"
 
     id: Union[str, GenotypicSexId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -697,6 +727,8 @@ class SeverityValue(Attribute):
     type_name: ClassVar[str] = "severity value"
 
     id: Union[str, SeverityValueId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -716,6 +748,8 @@ class FrequencyValue(Attribute):
     type_name: ClassVar[str] = "frequency value"
 
     id: Union[str, FrequencyValueId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -736,6 +770,8 @@ class ClinicalModifier(Attribute):
     type_name: ClassVar[str] = "clinical modifier"
 
     id: Union[str, ClinicalModifierId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -755,6 +791,8 @@ class Onset(Attribute):
     type_name: ClassVar[str] = "onset"
 
     id: Union[str, OnsetId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -774,17 +812,17 @@ class NamedThing(YAMLRoot):
     type_name: ClassVar[str] = "named thing"
 
     id: Union[str, NamedThingId]
-    name: Optional[Union[str, LabelType]] = None
+    name: Union[str, LabelType]
     category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
         if not isinstance(self.id, NamedThingId):
             self.id = NamedThingId(self.id)
-        if self.name is not None and not isinstance(self.name, LabelType):
+        if not isinstance(self.name, LabelType):
             self.name = LabelType(self.name)
-        self.category = [v if isinstance(v, IriType)
-                         else IriType(v) for v in self.category]
+        if not isinstance(self.category, IriType):
+            self.category = IriType(self.category)
 
 
 @dataclass
@@ -796,6 +834,8 @@ class BiologicalEntity(NamedThing):
     type_name: ClassVar[str] = "biological entity"
 
     id: Union[str, BiologicalEntityId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
 @dataclass
 class OntologyClass(NamedThing):
@@ -809,6 +849,8 @@ class OntologyClass(NamedThing):
     type_name: ClassVar[str] = "ontology class"
 
     id: Union[str, OntologyClassId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -828,6 +870,8 @@ class RelationshipType(OntologyClass):
     type_name: ClassVar[str] = "relationship type"
 
     id: Union[str, RelationshipTypeId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -847,6 +891,8 @@ class GeneOntologyClass(OntologyClass):
     type_name: ClassVar[str] = "gene ontology class"
 
     id: Union[str, GeneOntologyClassId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -863,6 +909,8 @@ class OrganismTaxon(OntologyClass):
     type_name: ClassVar[str] = "organism taxon"
 
     id: Union[str, OrganismTaxonId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -883,6 +931,8 @@ class OrganismalEntity(BiologicalEntity):
     type_name: ClassVar[str] = "organismal entity"
 
     id: Union[str, OrganismalEntityId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
 @dataclass
 class IndividualOrganism(OrganismalEntity):
@@ -893,6 +943,8 @@ class IndividualOrganism(OrganismalEntity):
     type_name: ClassVar[str] = "individual organism"
 
     id: Union[str, IndividualOrganismId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -912,6 +964,8 @@ class Case(IndividualOrganism):
     type_name: ClassVar[str] = "case"
 
     id: Union[str, CaseId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -933,6 +987,8 @@ class PopulationOfIndividualOrganisms(OrganismalEntity):
     type_name: ClassVar[str] = "population of individual organisms"
 
     id: Union[str, PopulationOfIndividualOrganismsId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -949,6 +1005,8 @@ class Biosample(OrganismalEntity):
     type_name: ClassVar[str] = "biosample"
 
     id: Union[str, BiosampleId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -969,6 +1027,8 @@ class DiseaseOrPhenotypicFeature(BiologicalEntity):
     type_name: ClassVar[str] = "disease or phenotypic feature"
 
     id: Union[str, DiseaseOrPhenotypicFeatureId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -985,6 +1045,8 @@ class Disease(DiseaseOrPhenotypicFeature):
     type_name: ClassVar[str] = "disease"
 
     id: Union[str, DiseaseId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1001,6 +1063,8 @@ class PhenotypicFeature(DiseaseOrPhenotypicFeature):
     type_name: ClassVar[str] = "phenotypic feature"
 
     id: Union[str, PhenotypicFeatureId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1021,6 +1085,8 @@ class Environment(BiologicalEntity):
     type_name: ClassVar[str] = "environment"
 
     id: Union[str, EnvironmentId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1040,6 +1106,8 @@ class InformationContentEntity(NamedThing):
     type_name: ClassVar[str] = "information content entity"
 
     id: Union[str, InformationContentEntityId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
 @dataclass
 class ConfidenceLevel(InformationContentEntity):
@@ -1053,6 +1121,8 @@ class ConfidenceLevel(InformationContentEntity):
     type_name: ClassVar[str] = "confidence level"
 
     id: Union[str, ConfidenceLevelId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1072,6 +1142,8 @@ class EvidenceType(InformationContentEntity):
     type_name: ClassVar[str] = "evidence type"
 
     id: Union[str, EvidenceTypeId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1093,6 +1165,8 @@ class Publication(InformationContentEntity):
     type_name: ClassVar[str] = "publication"
 
     id: Union[str, PublicationId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1109,6 +1183,8 @@ class AdministrativeEntity(NamedThing):
     type_name: ClassVar[str] = "administrative entity"
 
     id: Union[str, AdministrativeEntityId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
 @dataclass
 class Provider(AdministrativeEntity):
@@ -1122,6 +1198,8 @@ class Provider(AdministrativeEntity):
     type_name: ClassVar[str] = "provider"
 
     id: Union[str, ProviderId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1141,6 +1219,8 @@ class MolecularEntity(BiologicalEntity):
     type_name: ClassVar[str] = "molecular entity"
 
     id: Union[str, MolecularEntityId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1161,6 +1241,8 @@ class ChemicalSubstance(MolecularEntity):
     type_name: ClassVar[str] = "chemical substance"
 
     id: Union[str, ChemicalSubstanceId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1177,6 +1259,8 @@ class Carbohydrate(ChemicalSubstance):
     type_name: ClassVar[str] = "carbohydrate"
 
     id: Union[str, CarbohydrateId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1196,6 +1280,8 @@ class Drug(ChemicalSubstance):
     type_name: ClassVar[str] = "drug"
 
     id: Union[str, DrugId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1215,6 +1301,8 @@ class Metabolite(ChemicalSubstance):
     type_name: ClassVar[str] = "metabolite"
 
     id: Union[str, MetaboliteId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1234,6 +1322,8 @@ class AnatomicalEntity(OrganismalEntity):
     type_name: ClassVar[str] = "anatomical entity"
 
     id: Union[str, AnatomicalEntityId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1253,6 +1343,8 @@ class LifeStage(OrganismalEntity):
     type_name: ClassVar[str] = "life stage"
 
     id: Union[str, LifeStageId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1272,6 +1364,8 @@ class PlanetaryEntity(NamedThing):
     type_name: ClassVar[str] = "planetary entity"
 
     id: Union[str, PlanetaryEntityId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1288,6 +1382,8 @@ class EnvironmentalProcess(PlanetaryEntity):
     type_name: ClassVar[str] = "environmental process"
 
     id: Union[str, EnvironmentalProcessId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1304,6 +1400,8 @@ class EnvironmentalFeature(PlanetaryEntity):
     type_name: ClassVar[str] = "environmental feature"
 
     id: Union[str, EnvironmentalFeatureId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1324,6 +1422,8 @@ class ClinicalEntity(NamedThing):
     type_name: ClassVar[str] = "clinical entity"
 
     id: Union[str, ClinicalEntityId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1340,6 +1440,8 @@ class ClinicalTrial(ClinicalEntity):
     type_name: ClassVar[str] = "clinical trial"
 
     id: Union[str, ClinicalTrialId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1356,6 +1458,8 @@ class ClinicalIntervention(ClinicalEntity):
     type_name: ClassVar[str] = "clinical intervention"
 
     id: Union[str, ClinicalInterventionId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1375,6 +1479,8 @@ class Device(NamedThing):
     type_name: ClassVar[str] = "device"
 
     id: Union[str, DeviceId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1395,6 +1501,8 @@ class GenomicEntity(MolecularEntity):
     type_name: ClassVar[str] = "genomic entity"
 
     id: Union[str, GenomicEntityId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
     has_biological_sequence: Optional[Union[str, BiologicalSequence]] = None
 
     def _fix_elements(self):
@@ -1417,6 +1525,8 @@ class Genome(GenomicEntity):
     type_name: ClassVar[str] = "genome"
 
     id: Union[str, GenomeId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1436,6 +1546,8 @@ class Transcript(GenomicEntity):
     type_name: ClassVar[str] = "transcript"
 
     id: Union[str, TranscriptId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1456,6 +1568,8 @@ class Exon(GenomicEntity):
     type_name: ClassVar[str] = "exon"
 
     id: Union[str, ExonId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1472,6 +1586,8 @@ class CodingSequence(GenomicEntity):
     type_name: ClassVar[str] = "coding sequence"
 
     id: Union[str, CodingSequenceId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1492,6 +1608,8 @@ class MacromolecularMachine(GenomicEntity):
     type_name: ClassVar[str] = "macromolecular machine"
 
     id: Union[str, MacromolecularMachineId] = None
+    name: Union[str, SymbolType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1513,6 +1631,8 @@ class GeneOrGeneProduct(MacromolecularMachine):
     type_name: ClassVar[str] = "gene or gene product"
 
     id: Union[str, GeneOrGeneProductId] = None
+    name: Union[str, SymbolType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1529,6 +1649,8 @@ class Gene(GeneOrGeneProduct):
     type_name: ClassVar[str] = "gene"
 
     id: Union[str, GeneId] = None
+    name: Union[str, SymbolType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1548,6 +1670,8 @@ class GeneProduct(GeneOrGeneProduct):
     type_name: ClassVar[str] = "gene product"
 
     id: Union[str, GeneProductId] = None
+    name: Union[str, SymbolType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1568,6 +1692,8 @@ class Protein(GeneProduct):
     type_name: ClassVar[str] = "protein"
 
     id: Union[str, ProteinId] = None
+    name: Union[str, SymbolType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1589,6 +1715,8 @@ class GeneProductIsoform(GeneProduct):
     type_name: ClassVar[str] = "gene product isoform"
 
     id: Union[str, GeneProductIsoformId] = None
+    name: Union[str, SymbolType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
 @dataclass
 class ProteinIsoform(Protein):
@@ -1603,6 +1731,8 @@ class ProteinIsoform(Protein):
     type_name: ClassVar[str] = "protein isoform"
 
     id: Union[str, ProteinIsoformId] = None
+    name: Union[str, SymbolType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1619,6 +1749,8 @@ class RNAProduct(GeneProduct):
     type_name: ClassVar[str] = "RNA product"
 
     id: Union[str, RNAProductId] = None
+    name: Union[str, SymbolType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1638,6 +1770,8 @@ class RNAProductIsoform(RNAProduct):
     type_name: ClassVar[str] = "RNA product isoform"
 
     id: Union[str, RNAProductIsoformId] = None
+    name: Union[str, SymbolType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1654,6 +1788,8 @@ class NoncodingRNAProduct(RNAProduct):
     type_name: ClassVar[str] = "noncoding RNA product"
 
     id: Union[str, NoncodingRNAProductId] = None
+    name: Union[str, SymbolType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1670,6 +1806,8 @@ class MicroRNA(NoncodingRNAProduct):
     type_name: ClassVar[str] = "microRNA"
 
     id: Union[str, MicroRNAId] = None
+    name: Union[str, SymbolType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1686,6 +1824,8 @@ class MacromolecularComplex(MacromolecularMachine):
     type_name: ClassVar[str] = "macromolecular complex"
 
     id: Union[str, MacromolecularComplexId] = None
+    name: Union[str, SymbolType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1705,6 +1845,8 @@ class GeneFamily(MolecularEntity):
     type_name: ClassVar[str] = "gene family"
 
     id: Union[str, GeneFamilyId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1721,6 +1863,8 @@ class Zygosity(Attribute):
     type_name: ClassVar[str] = "zygosity"
 
     id: Union[str, ZygosityId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1741,6 +1885,8 @@ class Genotype(GenomicEntity):
     type_name: ClassVar[str] = "genotype"
 
     id: Union[str, GenotypeId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
     has_zygosity: Optional[Union[str, ZygosityId]] = None
 
     def _fix_elements(self):
@@ -1763,6 +1909,8 @@ class Haplotype(GenomicEntity):
     type_name: ClassVar[str] = "haplotype"
 
     id: Union[str, HaplotypeId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1782,6 +1930,10 @@ class SequenceVariant(GenomicEntity):
     type_name: ClassVar[str] = "sequence variant"
 
     id: Union[str, SequenceVariantId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
+    has_biological_sequence: Optional[Union[str, BiologicalSequence]] = None
+    has_gene: List[Union[str, GeneId]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1805,6 +1957,8 @@ class DrugExposure(Environment):
     type_name: ClassVar[str] = "drug exposure"
 
     id: Union[str, DrugExposureId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
     drug: List[Union[str, ChemicalSubstanceId]] = empty_list()
 
     def _fix_elements(self):
@@ -1825,6 +1979,8 @@ class Treatment(Environment):
     type_name: ClassVar[str] = "treatment"
 
     id: Union[str, TreatmentId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
     treats: List[Union[str, DiseaseOrPhenotypicFeatureId]] = empty_list()
     has_exposure_parts: List[Union[str, DrugExposureId]] = empty_list()
 
@@ -1846,6 +2002,8 @@ class GeographicLocation(PlanetaryEntity):
     type_name: ClassVar[str] = "geographic location"
 
     id: Union[str, GeographicLocationId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
     latitude: Optional[float] = None
     longitude: Optional[float] = None
 
@@ -1867,6 +2025,8 @@ class GeographicLocationAtTime(GeographicLocation):
     type_name: ClassVar[str] = "geographic location at time"
 
     id: Union[str, GeographicLocationAtTimeId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
     timepoint: Optional[Union[str, TimeType]] = None
 
     def _fix_elements(self):
@@ -1888,10 +2048,11 @@ class Association(YAMLRoot):
     type_curie: ClassVar[str] = "OBAN:association"
     type_name: ClassVar[str] = "association"
 
-    id: Union[str, AssociationId]
-    subject: Union[str, IriType]
-    relation: Union[str, IriType]
-    object: Union[str, IriType]
+    subject: Union[str, NamedThingId]
+    relation: Union[str, URIorCURIE]
+    object: Union[str, NamedThingId]
+    edge_label: Union[str, LabelType]
+    id: Union[str, AssociationId] = bnode()
     negated: Optional[Bool] = None
     association_type: Optional[Union[str, OntologyClassId]] = None
     qualifiers: List[Union[str, OntologyClassId]] = empty_list()
@@ -1902,12 +2063,12 @@ class Association(YAMLRoot):
         super()._fix_elements()
         if not isinstance(self.id, AssociationId):
             self.id = AssociationId(self.id)
-        if not isinstance(self.subject, IriType):
-            self.subject = IriType(self.subject)
-        if not isinstance(self.relation, IriType):
-            self.relation = IriType(self.relation)
-        if not isinstance(self.object, IriType):
-            self.object = IriType(self.object)
+        if not isinstance(self.subject, NamedThingId):
+            self.subject = NamedThingId(self.subject)
+        if not isinstance(self.relation, URIorCURIE):
+            self.relation = URIorCURIE(self.relation)
+        if not isinstance(self.object, NamedThingId):
+            self.object = NamedThingId(self.object)
         if self.association_type is not None and not isinstance(self.association_type, OntologyClassId):
             self.association_type = OntologyClassId(self.association_type)
         self.qualifiers = [v if isinstance(v, OntologyClassId)
@@ -1929,10 +2090,11 @@ class GenotypeToGenotypePartAssociation(Association):
     type_curie: ClassVar[str] = "biolink:GenotypeToGenotypePartAssociation"
     type_name: ClassVar[str] = "genotype to genotype part association"
 
-    id: Union[str, GenotypeToGenotypePartAssociationId] = None
     subject: Union[str, GenotypeId] = None
-    relation: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
     object: Union[str, GenotypeId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, GenotypeToGenotypePartAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1940,8 +2102,8 @@ class GenotypeToGenotypePartAssociation(Association):
             self.id = GenotypeToGenotypePartAssociationId(self.id)
         if self.subject is not None and not isinstance(self.subject, GenotypeId):
             self.subject = GenotypeId(self.subject)
-        if self.relation is not None and not isinstance(self.relation, IriType):
-            self.relation = IriType(self.relation)
+        if self.relation is not None and not isinstance(self.relation, URIorCURIE):
+            self.relation = URIorCURIE(self.relation)
         if self.object is not None and not isinstance(self.object, GenotypeId):
             self.object = GenotypeId(self.object)
 
@@ -1958,10 +2120,11 @@ class GenotypeToGeneAssociation(Association):
     type_curie: ClassVar[str] = "biolink:GenotypeToGeneAssociation"
     type_name: ClassVar[str] = "genotype to gene association"
 
-    id: Union[str, GenotypeToGeneAssociationId] = None
     subject: Union[str, GenotypeId] = None
-    relation: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
     object: Union[str, GeneId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, GenotypeToGeneAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1969,8 +2132,8 @@ class GenotypeToGeneAssociation(Association):
             self.id = GenotypeToGeneAssociationId(self.id)
         if self.subject is not None and not isinstance(self.subject, GenotypeId):
             self.subject = GenotypeId(self.subject)
-        if self.relation is not None and not isinstance(self.relation, IriType):
-            self.relation = IriType(self.relation)
+        if self.relation is not None and not isinstance(self.relation, URIorCURIE):
+            self.relation = URIorCURIE(self.relation)
         if self.object is not None and not isinstance(self.object, GeneId):
             self.object = GeneId(self.object)
 
@@ -1986,10 +2149,11 @@ class GenotypeToVariantAssociation(Association):
     type_curie: ClassVar[str] = "biolink:GenotypeToVariantAssociation"
     type_name: ClassVar[str] = "genotype to variant association"
 
-    id: Union[str, GenotypeToVariantAssociationId] = None
     subject: Union[str, GenotypeId] = None
-    relation: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
     object: Union[str, SequenceVariantId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, GenotypeToVariantAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -1997,8 +2161,8 @@ class GenotypeToVariantAssociation(Association):
             self.id = GenotypeToVariantAssociationId(self.id)
         if self.subject is not None and not isinstance(self.subject, GenotypeId):
             self.subject = GenotypeId(self.subject)
-        if self.relation is not None and not isinstance(self.relation, IriType):
-            self.relation = IriType(self.relation)
+        if self.relation is not None and not isinstance(self.relation, URIorCURIE):
+            self.relation = URIorCURIE(self.relation)
         if self.object is not None and not isinstance(self.object, SequenceVariantId):
             self.object = SequenceVariantId(self.object)
 
@@ -2015,10 +2179,11 @@ class GeneToGeneAssociation(Association):
     type_curie: ClassVar[str] = "biolink:GeneToGeneAssociation"
     type_name: ClassVar[str] = "gene to gene association"
 
-    id: Union[str, GeneToGeneAssociationId] = None
     subject: Union[str, GeneOrGeneProductId] = None
-    relation: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
     object: Union[str, GeneOrGeneProductId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, GeneToGeneAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -2040,17 +2205,18 @@ class GeneToGeneHomologyAssociation(GeneToGeneAssociation):
     type_curie: ClassVar[str] = "biolink:GeneToGeneHomologyAssociation"
     type_name: ClassVar[str] = "gene to gene homology association"
 
-    id: Union[str, GeneToGeneHomologyAssociationId] = None
     subject: Union[str, GeneOrGeneProductId] = None
-    relation: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
     object: Union[str, GeneOrGeneProductId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, GeneToGeneHomologyAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
         if self.id is not None and not isinstance(self.id, GeneToGeneHomologyAssociationId):
             self.id = GeneToGeneHomologyAssociationId(self.id)
-        if self.relation is not None and not isinstance(self.relation, IriType):
-            self.relation = IriType(self.relation)
+        if self.relation is not None and not isinstance(self.relation, URIorCURIE):
+            self.relation = URIorCURIE(self.relation)
 
 
 @dataclass
@@ -2065,17 +2231,18 @@ class PairwiseGeneToGeneInteraction(GeneToGeneAssociation):
     type_curie: ClassVar[str] = "biolink:PairwiseGeneToGeneInteraction"
     type_name: ClassVar[str] = "pairwise gene to gene interaction"
 
-    id: Union[str, PairwiseGeneToGeneInteractionId] = None
     subject: Union[str, GeneOrGeneProductId] = None
-    relation: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
     object: Union[str, GeneOrGeneProductId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, PairwiseGeneToGeneInteractionId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
         if self.id is not None and not isinstance(self.id, PairwiseGeneToGeneInteractionId):
             self.id = PairwiseGeneToGeneInteractionId(self.id)
-        if self.relation is not None and not isinstance(self.relation, IriType):
-            self.relation = IriType(self.relation)
+        if self.relation is not None and not isinstance(self.relation, URIorCURIE):
+            self.relation = URIorCURIE(self.relation)
 
 
 @dataclass
@@ -2089,10 +2256,11 @@ class CellLineToThingAssociation(Association):
     type_curie: ClassVar[str] = "biolink:CellLineToThingAssociation"
     type_name: ClassVar[str] = "cell line to thing association"
 
-    id: Union[str, CellLineToThingAssociationId] = None
     subject: Union[str, CellLineId] = None
-    relation: Union[str, IriType] = None
-    object: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
+    object: Union[str, NamedThingId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, CellLineToThingAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -2112,10 +2280,11 @@ class CellLineToDiseaseOrPhenotypicFeatureAssociation(Association):
     type_curie: ClassVar[str] = "biolink:CellLineToDiseaseOrPhenotypicFeatureAssociation"
     type_name: ClassVar[str] = "cell line to disease or phenotypic feature association"
 
-    id: Union[str, CellLineToDiseaseOrPhenotypicFeatureAssociationId] = None
     subject: Union[str, DiseaseOrPhenotypicFeatureId] = None
-    relation: Union[str, IriType] = None
-    object: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
+    object: Union[str, NamedThingId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, CellLineToDiseaseOrPhenotypicFeatureAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -2136,10 +2305,11 @@ class ChemicalToThingAssociation(Association):
     type_curie: ClassVar[str] = "biolink:ChemicalToThingAssociation"
     type_name: ClassVar[str] = "chemical to thing association"
 
-    id: Union[str, ChemicalToThingAssociationId] = None
     subject: Union[str, ChemicalSubstanceId] = None
-    relation: Union[str, IriType] = None
-    object: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
+    object: Union[str, NamedThingId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, ChemicalToThingAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -2158,10 +2328,11 @@ class CaseToThingAssociation(Association):
     type_curie: ClassVar[str] = "biolink:CaseToThingAssociation"
     type_name: ClassVar[str] = "case to thing association"
 
-    id: Union[str, CaseToThingAssociationId] = None
     subject: Union[str, CaseId] = None
-    relation: Union[str, IriType] = None
-    object: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
+    object: Union[str, NamedThingId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, CaseToThingAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -2181,10 +2352,11 @@ class ChemicalToDiseaseOrPhenotypicFeatureAssociation(Association):
     type_curie: ClassVar[str] = "SIO:000993"
     type_name: ClassVar[str] = "chemical to disease or phenotypic feature association"
 
-    id: Union[str, ChemicalToDiseaseOrPhenotypicFeatureAssociationId] = None
-    subject: Union[str, IriType] = None
-    relation: Union[str, IriType] = None
+    subject: Union[str, NamedThingId] = None
+    relation: Union[str, URIorCURIE] = None
     object: Union[str, DiseaseOrPhenotypicFeatureId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, ChemicalToDiseaseOrPhenotypicFeatureAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -2205,10 +2377,11 @@ class ChemicalToPathwayAssociation(Association):
     type_curie: ClassVar[str] = "SIO:001250"
     type_name: ClassVar[str] = "chemical to pathway association"
 
-    id: Union[str, ChemicalToPathwayAssociationId] = None
-    subject: Union[str, IriType] = None
-    relation: Union[str, IriType] = None
+    subject: Union[str, NamedThingId] = None
+    relation: Union[str, URIorCURIE] = None
     object: Union[str, PathwayId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, ChemicalToPathwayAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -2229,10 +2402,11 @@ class ChemicalToGeneAssociation(Association):
     type_curie: ClassVar[str] = "SIO:001257"
     type_name: ClassVar[str] = "chemical to gene association"
 
-    id: Union[str, ChemicalToGeneAssociationId] = None
-    subject: Union[str, IriType] = None
-    relation: Union[str, IriType] = None
+    subject: Union[str, NamedThingId] = None
+    relation: Union[str, URIorCURIE] = None
     object: Union[str, GeneOrGeneProductId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, ChemicalToGeneAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -2253,10 +2427,11 @@ class BiosampleToThingAssociation(Association):
     type_curie: ClassVar[str] = "biolink:BiosampleToThingAssociation"
     type_name: ClassVar[str] = "biosample to thing association"
 
-    id: Union[str, BiosampleToThingAssociationId] = None
     subject: Union[str, BiosampleId] = None
-    relation: Union[str, IriType] = None
-    object: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
+    object: Union[str, NamedThingId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, BiosampleToThingAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -2275,10 +2450,11 @@ class BiosampleToDiseaseOrPhenotypicFeatureAssociation(Association):
     type_curie: ClassVar[str] = "biolink:BiosampleToDiseaseOrPhenotypicFeatureAssociation"
     type_name: ClassVar[str] = "biosample to disease or phenotypic feature association"
 
-    id: Union[str, BiosampleToDiseaseOrPhenotypicFeatureAssociationId] = None
-    subject: Union[str, IriType] = None
-    relation: Union[str, IriType] = None
-    object: Union[str, IriType] = None
+    subject: Union[str, NamedThingId] = None
+    relation: Union[str, URIorCURIE] = None
+    object: Union[str, NamedThingId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, BiosampleToDiseaseOrPhenotypicFeatureAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -2294,10 +2470,11 @@ class EntityToPhenotypicFeatureAssociation(Association):
     type_curie: ClassVar[str] = "biolink:EntityToPhenotypicFeatureAssociation"
     type_name: ClassVar[str] = "entity to phenotypic feature association"
 
-    id: Union[str, EntityToPhenotypicFeatureAssociationId] = None
-    subject: Union[str, IriType] = None
-    relation: Union[str, IriType] = None
+    subject: Union[str, NamedThingId] = None
+    relation: Union[str, URIorCURIE] = None
     object: Union[str, PhenotypicFeatureId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, EntityToPhenotypicFeatureAssociationId] = bnode()
     sex_qualifier: Optional[Union[str, BiologicalSexId]] = None
 
     def _fix_elements(self):
@@ -2316,10 +2493,11 @@ class DiseaseOrPhenotypicFeatureAssociationToThingAssociation(Association):
     type_curie: ClassVar[str] = "biolink:DiseaseOrPhenotypicFeatureAssociationToThingAssociation"
     type_name: ClassVar[str] = "disease or phenotypic feature association to thing association"
 
-    id: Union[str, DiseaseOrPhenotypicFeatureAssociationToThingAssociationId] = None
     subject: Union[str, DiseaseOrPhenotypicFeatureId] = None
-    relation: Union[str, IriType] = None
-    object: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
+    object: Union[str, NamedThingId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, DiseaseOrPhenotypicFeatureAssociationToThingAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -2339,10 +2517,11 @@ class DiseaseOrPhenotypicFeatureAssociationToLocationAssociation(DiseaseOrPhenot
     type_curie: ClassVar[str] = "NCIT:R100"
     type_name: ClassVar[str] = "disease or phenotypic feature association to location association"
 
-    id: Union[str, DiseaseOrPhenotypicFeatureAssociationToLocationAssociationId] = None
     subject: Union[str, DiseaseOrPhenotypicFeatureId] = None
-    relation: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
     object: Union[str, AnatomicalEntityId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, DiseaseOrPhenotypicFeatureAssociationToLocationAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -2360,10 +2539,11 @@ class ThingToDiseaseOrPhenotypicFeatureAssociation(Association):
     type_curie: ClassVar[str] = "biolink:ThingToDiseaseOrPhenotypicFeatureAssociation"
     type_name: ClassVar[str] = "thing to disease or phenotypic feature association"
 
-    id: Union[str, ThingToDiseaseOrPhenotypicFeatureAssociationId] = None
-    subject: Union[str, IriType] = None
-    relation: Union[str, IriType] = None
+    subject: Union[str, NamedThingId] = None
+    relation: Union[str, URIorCURIE] = None
     object: Union[str, DiseaseOrPhenotypicFeatureId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, ThingToDiseaseOrPhenotypicFeatureAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -2379,10 +2559,11 @@ class DiseaseToThingAssociation(Association):
     type_curie: ClassVar[str] = "biolink:DiseaseToThingAssociation"
     type_name: ClassVar[str] = "disease to thing association"
 
-    id: Union[str, DiseaseToThingAssociationId] = None
     subject: Union[str, DiseaseId] = None
-    relation: Union[str, IriType] = None
-    object: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
+    object: Union[str, NamedThingId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, DiseaseToThingAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -2402,10 +2583,11 @@ class GenotypeToPhenotypicFeatureAssociation(Association):
     type_curie: ClassVar[str] = "biolink:GenotypeToPhenotypicFeatureAssociation"
     type_name: ClassVar[str] = "genotype to phenotypic feature association"
 
-    id: Union[str, GenotypeToPhenotypicFeatureAssociationId] = None
     subject: Union[str, GenotypeId] = None
-    relation: Union[str, IriType] = None
-    object: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
+    object: Union[str, NamedThingId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, GenotypeToPhenotypicFeatureAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -2413,8 +2595,8 @@ class GenotypeToPhenotypicFeatureAssociation(Association):
             self.id = GenotypeToPhenotypicFeatureAssociationId(self.id)
         if self.subject is not None and not isinstance(self.subject, GenotypeId):
             self.subject = GenotypeId(self.subject)
-        if self.relation is not None and not isinstance(self.relation, IriType):
-            self.relation = IriType(self.relation)
+        if self.relation is not None and not isinstance(self.relation, URIorCURIE):
+            self.relation = URIorCURIE(self.relation)
 
 
 @dataclass
@@ -2429,10 +2611,11 @@ class EnvironmentToPhenotypicFeatureAssociation(Association):
     type_curie: ClassVar[str] = "biolink:EnvironmentToPhenotypicFeatureAssociation"
     type_name: ClassVar[str] = "environment to phenotypic feature association"
 
-    id: Union[str, EnvironmentToPhenotypicFeatureAssociationId] = None
     subject: Union[str, EnvironmentId] = None
-    relation: Union[str, IriType] = None
-    object: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
+    object: Union[str, NamedThingId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, EnvironmentToPhenotypicFeatureAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -2454,10 +2637,11 @@ class DiseaseToPhenotypicFeatureAssociation(Association):
     type_curie: ClassVar[str] = "biolink:DiseaseToPhenotypicFeatureAssociation"
     type_name: ClassVar[str] = "disease to phenotypic feature association"
 
-    id: Union[str, DiseaseToPhenotypicFeatureAssociationId] = None
-    subject: Union[str, IriType] = None
-    relation: Union[str, IriType] = None
-    object: Union[str, IriType] = None
+    subject: Union[str, NamedThingId] = None
+    relation: Union[str, URIorCURIE] = None
+    object: Union[str, NamedThingId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, DiseaseToPhenotypicFeatureAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -2477,10 +2661,11 @@ class CaseToPhenotypicFeatureAssociation(Association):
     type_curie: ClassVar[str] = "biolink:CaseToPhenotypicFeatureAssociation"
     type_name: ClassVar[str] = "case to phenotypic feature association"
 
-    id: Union[str, CaseToPhenotypicFeatureAssociationId] = None
-    subject: Union[str, IriType] = None
-    relation: Union[str, IriType] = None
-    object: Union[str, IriType] = None
+    subject: Union[str, NamedThingId] = None
+    relation: Union[str, URIorCURIE] = None
+    object: Union[str, NamedThingId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, CaseToPhenotypicFeatureAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -2496,10 +2681,11 @@ class GeneToThingAssociation(Association):
     type_curie: ClassVar[str] = "biolink:GeneToThingAssociation"
     type_name: ClassVar[str] = "gene to thing association"
 
-    id: Union[str, GeneToThingAssociationId] = None
     subject: Union[str, GeneOrGeneProductId] = None
-    relation: Union[str, IriType] = None
-    object: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
+    object: Union[str, NamedThingId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, GeneToThingAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -2512,13 +2698,14 @@ class GeneToPhenotypicFeatureAssociation(Association):
     _inherited_slots: ClassVar[List[str]] = []
 
     type_uri: ClassVar[str] = "http://bio2rdf.org/wormbase_vocabulary:Gene-Phenotype-Association"
-    type_curie: ClassVar[str] = "None"
+    type_curie: ClassVar[str] = None
     type_name: ClassVar[str] = "gene to phenotypic feature association"
 
-    id: Union[str, GeneToPhenotypicFeatureAssociationId] = None
     subject: Union[str, GeneOrGeneProductId] = None
-    relation: Union[str, IriType] = None
-    object: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
+    object: Union[str, NamedThingId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, GeneToPhenotypicFeatureAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -2536,10 +2723,11 @@ class GeneToDiseaseAssociation(Association):
     type_curie: ClassVar[str] = "SIO:000983"
     type_name: ClassVar[str] = "gene to disease association"
 
-    id: Union[str, GeneToDiseaseAssociationId] = None
     subject: Union[str, GeneOrGeneProductId] = None
-    relation: Union[str, IriType] = None
-    object: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
+    object: Union[str, NamedThingId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, GeneToDiseaseAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -2560,10 +2748,14 @@ class VariantToPopulationAssociation(Association):
     type_curie: ClassVar[str] = "biolink:VariantToPopulationAssociation"
     type_name: ClassVar[str] = "variant to population association"
 
-    id: Union[str, VariantToPopulationAssociationId] = None
     subject: Union[str, SequenceVariantId] = None
-    relation: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
     object: Union[str, PopulationOfIndividualOrganismsId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, VariantToPopulationAssociationId] = bnode()
+    has_count: Optional[int] = None
+    has_total: Optional[int] = None
+    has_quotient: Optional[float] = None
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -2586,10 +2778,11 @@ class PopulationToPopulationAssociation(Association):
     type_curie: ClassVar[str] = "biolink:PopulationToPopulationAssociation"
     type_name: ClassVar[str] = "population to population association"
 
-    id: Union[str, PopulationToPopulationAssociationId] = None
     subject: Union[str, PopulationOfIndividualOrganismsId] = None
-    relation: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
     object: Union[str, PopulationOfIndividualOrganismsId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, PopulationToPopulationAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -2597,8 +2790,8 @@ class PopulationToPopulationAssociation(Association):
             self.id = PopulationToPopulationAssociationId(self.id)
         if self.subject is not None and not isinstance(self.subject, PopulationOfIndividualOrganismsId):
             self.subject = PopulationOfIndividualOrganismsId(self.subject)
-        if self.relation is not None and not isinstance(self.relation, IriType):
-            self.relation = IriType(self.relation)
+        if self.relation is not None and not isinstance(self.relation, URIorCURIE):
+            self.relation = URIorCURIE(self.relation)
         if self.object is not None and not isinstance(self.object, PopulationOfIndividualOrganismsId):
             self.object = PopulationOfIndividualOrganismsId(self.object)
 
@@ -2611,10 +2804,11 @@ class VariantToPhenotypicFeatureAssociation(Association):
     type_curie: ClassVar[str] = "biolink:VariantToPhenotypicFeatureAssociation"
     type_name: ClassVar[str] = "variant to phenotypic feature association"
 
-    id: Union[str, VariantToPhenotypicFeatureAssociationId] = None
     subject: Union[str, SequenceVariantId] = None
-    relation: Union[str, IriType] = None
-    object: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
+    object: Union[str, NamedThingId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, VariantToPhenotypicFeatureAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -2632,21 +2826,22 @@ class VariantToDiseaseAssociation(Association):
     type_curie: ClassVar[str] = "biolink:VariantToDiseaseAssociation"
     type_name: ClassVar[str] = "variant to disease association"
 
-    id: Union[str, VariantToDiseaseAssociationId] = None
-    subject: Union[str, IriType] = None
-    relation: Union[str, IriType] = None
-    object: Union[str, IriType] = None
+    subject: Union[str, NamedThingId] = None
+    relation: Union[str, URIorCURIE] = None
+    object: Union[str, NamedThingId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, VariantToDiseaseAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
         if self.id is not None and not isinstance(self.id, VariantToDiseaseAssociationId):
             self.id = VariantToDiseaseAssociationId(self.id)
-        if self.subject is not None and not isinstance(self.subject, IriType):
-            self.subject = IriType(self.subject)
-        if self.relation is not None and not isinstance(self.relation, IriType):
-            self.relation = IriType(self.relation)
-        if self.object is not None and not isinstance(self.object, IriType):
-            self.object = IriType(self.object)
+        if self.subject is not None and not isinstance(self.subject, NamedThingId):
+            self.subject = NamedThingId(self.subject)
+        if self.relation is not None and not isinstance(self.relation, URIorCURIE):
+            self.relation = URIorCURIE(self.relation)
+        if self.object is not None and not isinstance(self.object, NamedThingId):
+            self.object = NamedThingId(self.object)
 
 
 @dataclass
@@ -2657,10 +2852,11 @@ class GeneAsAModelOfDiseaseAssociation(GeneToDiseaseAssociation):
     type_curie: ClassVar[str] = "biolink:GeneAsAModelOfDiseaseAssociation"
     type_name: ClassVar[str] = "gene as a model of disease association"
 
-    id: Union[str, GeneAsAModelOfDiseaseAssociationId] = None
     subject: Union[str, GeneOrGeneProductId] = None
-    relation: Union[str, IriType] = None
-    object: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
+    object: Union[str, NamedThingId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, GeneAsAModelOfDiseaseAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -2678,10 +2874,11 @@ class GeneHasVariantThatContributesToDiseaseAssociation(GeneToDiseaseAssociation
     type_curie: ClassVar[str] = "biolink:GeneHasVariantThatContributesToDiseaseAssociation"
     type_name: ClassVar[str] = "gene has variant that contributes to disease association"
 
-    id: Union[str, GeneHasVariantThatContributesToDiseaseAssociationId] = None
     subject: Union[str, GeneOrGeneProductId] = None
-    relation: Union[str, IriType] = None
-    object: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
+    object: Union[str, NamedThingId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, GeneHasVariantThatContributesToDiseaseAssociationId] = bnode()
     sequence_variant_qualifier: Optional[Union[str, SequenceVariantId]] = None
 
     def _fix_elements(self):
@@ -2702,10 +2899,11 @@ class GenotypeToThingAssociation(Association):
     type_curie: ClassVar[str] = "biolink:GenotypeToThingAssociation"
     type_name: ClassVar[str] = "genotype to thing association"
 
-    id: Union[str, GenotypeToThingAssociationId] = None
     subject: Union[str, GenotypeId] = None
-    relation: Union[str, IriType] = None
-    object: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
+    object: Union[str, NamedThingId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, GenotypeToThingAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -2724,10 +2922,13 @@ class GeneToExpressionSiteAssociation(Association):
     type_curie: ClassVar[str] = "biolink:GeneToExpressionSiteAssociation"
     type_name: ClassVar[str] = "gene to expression site association"
 
-    id: Union[str, GeneToExpressionSiteAssociationId] = None
     subject: Union[str, GeneOrGeneProductId] = None
-    relation: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
     object: Union[str, AnatomicalEntityId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, GeneToExpressionSiteAssociationId] = bnode()
+    stage_qualifier: Optional[Union[str, LifeStageId]] = None
+    quantifier_qualifier: Optional[Union[str, OntologyClassId]] = None
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -2735,8 +2936,8 @@ class GeneToExpressionSiteAssociation(Association):
             self.id = GeneToExpressionSiteAssociationId(self.id)
         if self.subject is not None and not isinstance(self.subject, GeneOrGeneProductId):
             self.subject = GeneOrGeneProductId(self.subject)
-        if self.relation is not None and not isinstance(self.relation, IriType):
-            self.relation = IriType(self.relation)
+        if self.relation is not None and not isinstance(self.relation, URIorCURIE):
+            self.relation = URIorCURIE(self.relation)
         if self.object is not None and not isinstance(self.object, AnatomicalEntityId):
             self.object = AnatomicalEntityId(self.object)
         if self.stage_qualifier is not None and not isinstance(self.stage_qualifier, LifeStageId):
@@ -2757,10 +2958,11 @@ class SequenceVariantModulatesTreatmentAssociation(Association):
     type_curie: ClassVar[str] = "biolink:SequenceVariantModulatesTreatmentAssociation"
     type_name: ClassVar[str] = "sequence variant modulates treatment association"
 
-    id: Union[str, SequenceVariantModulatesTreatmentAssociationId] = None
     subject: Union[str, SequenceVariantId] = None
-    relation: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
     object: Union[str, TreatmentId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, SequenceVariantModulatesTreatmentAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -2782,10 +2984,11 @@ class FunctionalAssociation(Association):
     type_curie: ClassVar[str] = "biolink:FunctionalAssociation"
     type_name: ClassVar[str] = "functional association"
 
-    id: Union[str, FunctionalAssociationId] = None
     subject: Union[str, MacromolecularMachineId] = None
-    relation: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
     object: Union[str, GeneOntologyClassId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, FunctionalAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -2810,10 +3013,11 @@ class MacromolecularMachineToMolecularActivityAssociation(FunctionalAssociation)
     type_curie: ClassVar[str] = "biolink:MacromolecularMachineToMolecularActivityAssociation"
     type_name: ClassVar[str] = "macromolecular machine to molecular activity association"
 
-    id: Union[str, MacromolecularMachineToMolecularActivityAssociationId] = None
     subject: Union[str, MacromolecularMachineId] = None
-    relation: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
     object: Union[str, MolecularActivityId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, MacromolecularMachineToMolecularActivityAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -2836,10 +3040,11 @@ class MacromolecularMachineToBiologicalProcessAssociation(FunctionalAssociation)
     type_curie: ClassVar[str] = "biolink:MacromolecularMachineToBiologicalProcessAssociation"
     type_name: ClassVar[str] = "macromolecular machine to biological process association"
 
-    id: Union[str, MacromolecularMachineToBiologicalProcessAssociationId] = None
     subject: Union[str, MacromolecularMachineId] = None
-    relation: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
     object: Union[str, BiologicalProcessId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, MacromolecularMachineToBiologicalProcessAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -2862,10 +3067,11 @@ class MacromolecularMachineToCellularComponentAssociation(FunctionalAssociation)
     type_curie: ClassVar[str] = "biolink:MacromolecularMachineToCellularComponentAssociation"
     type_name: ClassVar[str] = "macromolecular machine to cellular component association"
 
-    id: Union[str, MacromolecularMachineToCellularComponentAssociationId] = None
     subject: Union[str, MacromolecularMachineId] = None
-    relation: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
     object: Union[str, CellularComponentId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, MacromolecularMachineToCellularComponentAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -2880,13 +3086,14 @@ class GeneToGoTermAssociation(FunctionalAssociation):
     _inherited_slots: ClassVar[List[str]] = []
 
     type_uri: ClassVar[str] = "http://bio2rdf.org/wormbase_vocabulary:Gene-GO-Association"
-    type_curie: ClassVar[str] = "None"
+    type_curie: ClassVar[str] = None
     type_name: ClassVar[str] = "gene to go term association"
 
-    id: Union[str, GeneToGoTermAssociationId] = None
     subject: Union[str, MolecularEntityId] = None
-    relation: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
     object: Union[str, GeneOntologyClassId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, GeneToGoTermAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -2910,10 +3117,11 @@ class GenomicSequenceLocalization(Association):
     type_curie: ClassVar[str] = "faldo:location"
     type_name: ClassVar[str] = "genomic sequence localization"
 
-    id: Union[str, GenomicSequenceLocalizationId] = None
     subject: Union[str, GenomicEntityId] = None
-    relation: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
     object: Union[str, GenomicEntityId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, GenomicSequenceLocalizationId] = bnode()
     start_interbase_coordinate: Optional[str] = None
     end_interbase_coordinate: Optional[str] = None
     genome_build: Optional[str] = None
@@ -2940,10 +3148,11 @@ class SequenceFeatureRelationship(Association):
     type_curie: ClassVar[str] = "biolink:SequenceFeatureRelationship"
     type_name: ClassVar[str] = "sequence feature relationship"
 
-    id: Union[str, SequenceFeatureRelationshipId] = None
     subject: Union[str, GenomicEntityId] = None
-    relation: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
     object: Union[str, GenomicEntityId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, SequenceFeatureRelationshipId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -2966,10 +3175,11 @@ class TranscriptToGeneRelationship(SequenceFeatureRelationship):
     type_curie: ClassVar[str] = "biolink:TranscriptToGeneRelationship"
     type_name: ClassVar[str] = "transcript to gene relationship"
 
-    id: Union[str, TranscriptToGeneRelationshipId] = None
     subject: Union[str, TranscriptId] = None
-    relation: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
     object: Union[str, GeneId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, TranscriptToGeneRelationshipId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -2992,10 +3202,11 @@ class GeneToGeneProductRelationship(SequenceFeatureRelationship):
     type_curie: ClassVar[str] = "biolink:GeneToGeneProductRelationship"
     type_name: ClassVar[str] = "gene to gene product relationship"
 
-    id: Union[str, GeneToGeneProductRelationshipId] = None
     subject: Union[str, GeneId] = None
-    relation: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
     object: Union[str, GeneProductId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, GeneToGeneProductRelationshipId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -3003,8 +3214,8 @@ class GeneToGeneProductRelationship(SequenceFeatureRelationship):
             self.id = GeneToGeneProductRelationshipId(self.id)
         if self.subject is not None and not isinstance(self.subject, GeneId):
             self.subject = GeneId(self.subject)
-        if self.relation is not None and not isinstance(self.relation, IriType):
-            self.relation = IriType(self.relation)
+        if self.relation is not None and not isinstance(self.relation, URIorCURIE):
+            self.relation = URIorCURIE(self.relation)
         if self.object is not None and not isinstance(self.object, GeneProductId):
             self.object = GeneProductId(self.object)
 
@@ -3020,10 +3231,11 @@ class ExonToTranscriptRelationship(SequenceFeatureRelationship):
     type_curie: ClassVar[str] = "biolink:ExonToTranscriptRelationship"
     type_name: ClassVar[str] = "exon to transcript relationship"
 
-    id: Union[str, ExonToTranscriptRelationshipId] = None
     subject: Union[str, ExonId] = None
-    relation: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
     object: Union[str, TranscriptId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, ExonToTranscriptRelationshipId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -3046,10 +3258,11 @@ class GeneRegulatoryRelationship(Association):
     type_curie: ClassVar[str] = "biolink:GeneRegulatoryRelationship"
     type_name: ClassVar[str] = "gene regulatory relationship"
 
-    id: Union[str, GeneRegulatoryRelationshipId] = None
     subject: Union[str, GeneOrGeneProductId] = None
-    relation: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
     object: Union[str, GeneOrGeneProductId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, GeneRegulatoryRelationshipId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -3057,8 +3270,8 @@ class GeneRegulatoryRelationship(Association):
             self.id = GeneRegulatoryRelationshipId(self.id)
         if self.subject is not None and not isinstance(self.subject, GeneOrGeneProductId):
             self.subject = GeneOrGeneProductId(self.subject)
-        if self.relation is not None and not isinstance(self.relation, IriType):
-            self.relation = IriType(self.relation)
+        if self.relation is not None and not isinstance(self.relation, URIorCURIE):
+            self.relation = URIorCURIE(self.relation)
         if self.object is not None and not isinstance(self.object, GeneOrGeneProductId):
             self.object = GeneOrGeneProductId(self.object)
 
@@ -3071,10 +3284,11 @@ class AnatomicalEntityToAnatomicalEntityAssociation(Association):
     type_curie: ClassVar[str] = "biolink:AnatomicalEntityToAnatomicalEntityAssociation"
     type_name: ClassVar[str] = "anatomical entity to anatomical entity association"
 
-    id: Union[str, AnatomicalEntityToAnatomicalEntityAssociationId] = None
     subject: Union[str, AnatomicalEntityId] = None
-    relation: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
     object: Union[str, AnatomicalEntityId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, AnatomicalEntityToAnatomicalEntityAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -3099,10 +3313,11 @@ class AnatomicalEntityToAnatomicalEntityPartOfAssociation(AnatomicalEntityToAnat
     type_curie: ClassVar[str] = "biolink:AnatomicalEntityToAnatomicalEntityPartOfAssociation"
     type_name: ClassVar[str] = "anatomical entity to anatomical entity part of association"
 
-    id: Union[str, AnatomicalEntityToAnatomicalEntityPartOfAssociationId] = None
     subject: Union[str, AnatomicalEntityId] = None
-    relation: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
     object: Union[str, AnatomicalEntityId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, AnatomicalEntityToAnatomicalEntityPartOfAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -3110,8 +3325,8 @@ class AnatomicalEntityToAnatomicalEntityPartOfAssociation(AnatomicalEntityToAnat
             self.id = AnatomicalEntityToAnatomicalEntityPartOfAssociationId(self.id)
         if self.subject is not None and not isinstance(self.subject, AnatomicalEntityId):
             self.subject = AnatomicalEntityId(self.subject)
-        if self.relation is not None and not isinstance(self.relation, IriType):
-            self.relation = IriType(self.relation)
+        if self.relation is not None and not isinstance(self.relation, URIorCURIE):
+            self.relation = URIorCURIE(self.relation)
         if self.object is not None and not isinstance(self.object, AnatomicalEntityId):
             self.object = AnatomicalEntityId(self.object)
 
@@ -3129,10 +3344,11 @@ class AnatomicalEntityToAnatomicalEntityOntogenicAssociation(AnatomicalEntityToA
     type_curie: ClassVar[str] = "biolink:AnatomicalEntityToAnatomicalEntityOntogenicAssociation"
     type_name: ClassVar[str] = "anatomical entity to anatomical entity ontogenic association"
 
-    id: Union[str, AnatomicalEntityToAnatomicalEntityOntogenicAssociationId] = None
     subject: Union[str, AnatomicalEntityId] = None
-    relation: Union[str, IriType] = None
+    relation: Union[str, URIorCURIE] = None
     object: Union[str, AnatomicalEntityId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[str, AnatomicalEntityToAnatomicalEntityOntogenicAssociationId] = bnode()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -3140,8 +3356,8 @@ class AnatomicalEntityToAnatomicalEntityOntogenicAssociation(AnatomicalEntityToA
             self.id = AnatomicalEntityToAnatomicalEntityOntogenicAssociationId(self.id)
         if self.subject is not None and not isinstance(self.subject, AnatomicalEntityId):
             self.subject = AnatomicalEntityId(self.subject)
-        if self.relation is not None and not isinstance(self.relation, IriType):
-            self.relation = IriType(self.relation)
+        if self.relation is not None and not isinstance(self.relation, URIorCURIE):
+            self.relation = URIorCURIE(self.relation)
         if self.object is not None and not isinstance(self.object, AnatomicalEntityId):
             self.object = AnatomicalEntityId(self.object)
 
@@ -3158,6 +3374,8 @@ class Occurrent(NamedThing):
     type_name: ClassVar[str] = "occurrent"
 
     id: Union[str, OccurrentId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -3177,6 +3395,8 @@ class BiologicalProcessOrActivity(BiologicalEntity):
     type_name: ClassVar[str] = "biological process or activity"
 
     id: Union[str, BiologicalProcessOrActivityId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -3196,6 +3416,8 @@ class MolecularActivity(BiologicalProcessOrActivity):
     type_name: ClassVar[str] = "molecular activity"
 
     id: Union[str, MolecularActivityId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -3215,6 +3437,8 @@ class ActivityAndBehavior(Occurrent):
     type_name: ClassVar[str] = "activity and behavior"
 
     id: Union[str, ActivityAndBehaviorId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -3234,6 +3458,8 @@ class Procedure(Occurrent):
     type_name: ClassVar[str] = "procedure"
 
     id: Union[str, ProcedureId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -3253,6 +3479,8 @@ class Phenomenon(Occurrent):
     type_name: ClassVar[str] = "phenomenon"
 
     id: Union[str, PhenomenonId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -3272,6 +3500,8 @@ class BiologicalProcess(BiologicalProcessOrActivity):
     type_name: ClassVar[str] = "biological process"
 
     id: Union[str, BiologicalProcessId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -3288,6 +3518,8 @@ class Pathway(BiologicalProcess):
     type_name: ClassVar[str] = "pathway"
 
     id: Union[str, PathwayId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -3304,6 +3536,8 @@ class PhysiologicalProcess(BiologicalProcess):
     type_name: ClassVar[str] = "physiological process"
 
     id: Union[str, PhysiologicalProcessId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -3323,6 +3557,8 @@ class CellularComponent(AnatomicalEntity):
     type_name: ClassVar[str] = "cellular component"
 
     id: Union[str, CellularComponentId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -3339,6 +3575,8 @@ class Cell(AnatomicalEntity):
     type_name: ClassVar[str] = "cell"
 
     id: Union[str, CellId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -3355,6 +3593,8 @@ class CellLine(Biosample):
     type_name: ClassVar[str] = "cell line"
 
     id: Union[str, CellLineId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()
@@ -3371,6 +3611,8 @@ class GrossAnatomicalStructure(AnatomicalEntity):
     type_name: ClassVar[str] = "gross anatomical structure"
 
     id: Union[str, GrossAnatomicalStructureId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
 
     def _fix_elements(self):
         super()._fix_elements()

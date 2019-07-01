@@ -84,12 +84,13 @@ class Namespaces(OrderedDict):
     def _base(self) -> None:
         super().__delitem__(self._base_key)
 
-    def curie_for(self, uri: Any) -> Optional[str]:
+    def curie_for(self, uri: Any, default_ok: bool = True) -> Optional[str]:
         """
         Return the most appropriate CURIE for URI.  The first longest matching prefix used, if any.  If no CURIE is
         present, None is returned
 
         @param uri: URI to create the CURIE for
+        @param default_ok: True means the default (no) prefix is ok
         """
         match: Tuple[str, Namespace] = ('', None)     # match string / prefix
         u = str(uri)
@@ -98,10 +99,12 @@ class Namespaces(OrderedDict):
         for k, v in self.items():
             vs = str(v)
             if u.startswith(vs):
-                if len(vs) > len(match[0]):
+                if len(vs) > len(match[0]) and (default_ok or k not in (Namespaces._default_key, Namespaces._base_key)):
                     match = (vs, k)
         if len(match[0]):
-            return u.replace(match[0], ':' if match[1] == '@default' else '' if match[1] == '@base' else match[1] + ':')
+            return u.replace(match[0],
+                             ':' if match[1] == Namespaces._default_key else '' if match[1] == Namespaces._base_key else
+                             match[1] + ':')
         return None
 
     def prefix_for(self, uri_or_curie: Any) -> Optional[str]:
@@ -155,17 +158,6 @@ class Namespaces(OrderedDict):
     @staticmethod
     def join(prefix: str, suffix: str) -> str:
         return prefix + suffix
-
-    @staticmethod
-    def sfx(uri: str) -> str:
-        """
-        Add a separator to a uri if none exists.
-
-        Note: This should only be used with module id's -- it is not uncommon to use partial prefixes, e.g. PREFIX bfo: http://purl.obolibrary.org/obo/BFO_
-        :param uri: uri to be suffixed
-        :return: URI with suffix
-        """
-        return str(uri) + ('' if uri.endswith(('/', '#')) else '/')
 
     def add_prefixmap(self, map_name: str, include_defaults: bool= True) -> None:
         """

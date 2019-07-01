@@ -8,12 +8,28 @@
 
 from typing import Optional, List, Union, Dict, ClassVar
 from dataclasses import dataclass
-from biolinkml.utils.metamodelcore import empty_list, empty_dict
+from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
+from biolinkml.utils.formatutils import camelcase, underscore, sfx
+from rdflib import Namespace
 from biolinkml.utils.metamodelcore import Bool, NCName, URI, URIorCURIE, XSDDateTime
 from includes.types import Boolean, Datetime, Integer, Ncname, String, Uri, Uriorcurie
 
 metamodel_version = "1.3.6"
+
+
+# Namespaces
+OIO = Namespace('http://www.geneontology.org/formats/oboInOwl#')
+DCTERMS = Namespace('http://purl.org/dc/terms/')
+META = Namespace('https://w3id.org/biolink/biolinkml/meta/')
+METATYPE = Namespace('https://w3id.org/biolink/biolinkml/type/')
+OWL = Namespace('http://www.w3.org/2002/07/owl#')
+PAV = Namespace('http://purl.org/pav/')
+RDF = Namespace('http://www.w3.org/1999/02/22-rdf-syntax-ns#')
+RDFS = Namespace('http://www.w3.org/2000/01/rdf-schema#')
+SKOS = Namespace('http://www.w3.org/2004/02/skos/core#')
+XSD = Namespace('http://www.w3.org/2001/XMLSchema#')
+DEFAULT_ = META
 
 
 # Types
@@ -144,6 +160,8 @@ class SchemaDefinition(Element):
     generation_date: Optional[Union[str, XSDDateTime]] = None
 
     def _fix_elements(self):
+        if self.default_prefix is None:
+            self.default_prefix = sfx(str(self.id))
         super()._fix_elements()
         if self.name is not None and not isinstance(self.name, SchemaDefinitionName):
             self.name = SchemaDefinitionName(self.name)
@@ -267,6 +285,9 @@ class SlotDefinition(Definition):
     name: Union[str, SlotDefinitionName] = None
     domain: Union[str, ClassDefinitionName] = None
     owner: Union[str, DefinitionName] = None
+    is_a: Optional[Union[str, SlotDefinitionName]] = None
+    mixins: List[Union[str, SlotDefinitionName]] = empty_list()
+    apply_to: List[Union[str, SlotDefinitionName]] = empty_list()
     singular_name: Optional[str] = None
     range: Optional[Union[str, ElementName]] = None
     slot_uri: Optional[Union[str, URIorCURIE]] = None
@@ -322,6 +343,9 @@ class ClassDefinition(Definition):
     type_name: ClassVar[str] = "class_definition"
 
     name: Union[str, ClassDefinitionName] = None
+    is_a: Optional[Union[str, ClassDefinitionName]] = None
+    mixins: List[Union[str, ClassDefinitionName]] = empty_list()
+    apply_to: List[Union[str, ClassDefinitionName]] = empty_list()
     slots: List[Union[str, SlotDefinitionName]] = empty_list()
     slot_usage: Dict[Union[str, SlotDefinitionName], Union[dict, SlotDefinition]] = empty_dict()
     class_uri: Optional[Union[str, URIorCURIE]] = None

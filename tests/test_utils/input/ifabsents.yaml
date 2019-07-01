@@ -5,6 +5,7 @@ prefixes:
   test: http://example.org/test/
   skos: http://www.w3.org/2004/02/skos/core#
 
+
 imports:
   - ../../../includes/types
 
@@ -22,26 +23,32 @@ slots:
   s2p:
     ifabsent: False
 
-  s3:
+  slot_uri:
     ifabsent: slot_uri
 
-  s4:
+  slot_curie:
     ifabsent: slot_curie
 
-  s5:
+  class_uri:
     ifabsent: class_uri
 
-  s6:
+  class_curie:
     ifabsent: class_curie
 
-  s7:
+  bnode:
     ifabsent: bnode
 
-  s8:
+  txt:
     ifabsent: string(penguins"doves)
 
-  s9:
+  int:
     ifabsent: int(-1403)
+
+  dfltrange:
+    ifabsent: default_range
+
+  dfltns:
+    ifabsent: default_ns
 
 classes:
   c1:
@@ -50,10 +57,12 @@ classes:
       - s1p
       - s2
       - s2p
-      - s3
-      - s4
-      - s5
-      - s6
-      - s7
-      - s8
-      - s9
+      - slot_uri
+      - slot_curie
+      - class_uri
+      - class_curie
+      - bnode
+      - txt
+      - int
+      - dfltrange
+      - dfltns

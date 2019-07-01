@@ -6,7 +6,7 @@
 
 URI: [biolink:VariantToDiseaseAssociation](https://w3id.org/biolink/vocab/VariantToDiseaseAssociation)
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[VariantToDiseaseAssociation|subject:iri_type;relation:iri_type;object:iri_type;id(i):identifier_type;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[VariantToDiseaseAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[VariantToDiseaseAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[VariantToDiseaseAssociation],%20\[Onset]<onset%20qualifier%200..1-%20\[VariantToDiseaseAssociation],%20\[SeverityValue]<severity%20qualifier%200..1-%20\[VariantToDiseaseAssociation],%20\[FrequencyValue]<frequency%20qualifier%200..1-%20\[VariantToDiseaseAssociation],%20\[VariantToDiseaseAssociation]uses%20-.->\[VariantToThingAssociation],%20\[VariantToDiseaseAssociation]uses%20-.->\[EntityToDiseaseAssociation],%20\[Association]^-\[VariantToDiseaseAssociation])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[VariantToDiseaseAssociation|relation:uriorcurie;id(i):identifier_type;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[VariantToDiseaseAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[VariantToDiseaseAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[VariantToDiseaseAssociation],%20\[Onset]<onset%20qualifier%200..1-%20\[VariantToDiseaseAssociation],%20\[SeverityValue]<severity%20qualifier%200..1-%20\[VariantToDiseaseAssociation],%20\[FrequencyValue]<frequency%20qualifier%200..1-%20\[VariantToDiseaseAssociation],%20\[NamedThing]<object%201..1-%20\[VariantToDiseaseAssociation],%20\[NamedThing]<subject%201..1-%20\[VariantToDiseaseAssociation],%20\[VariantToDiseaseAssociation]uses%20-.->\[VariantToThingAssociation],%20\[VariantToDiseaseAssociation]uses%20-.->\[EntityToDiseaseAssociation],%20\[Association]^-\[VariantToDiseaseAssociation])
 
 ## Parents
 
@@ -26,31 +26,31 @@ URI: [biolink:VariantToDiseaseAssociation](https://w3id.org/biolink/vocab/Varian
 ### Own
 
  * [object](variant_to_disease_association_object.md)  <sub>REQ</sub>
-    * range: [IriType](IriType.md)
+    * range: [NamedThing](NamedThing.md)
  * [relation](variant_to_disease_association_relation.md)  <sub>REQ</sub>
-    * range: [IriType](IriType.md)
+    * range: [Uriorcurie](Uriorcurie.md)
  * [subject](variant_to_disease_association_subject.md)  <sub>REQ</sub>
-    * range: [IriType](IriType.md)
+    * range: [NamedThing](NamedThing.md)
 
 ### Inherited from association:
 
+ * [subject](subject.md)  <sub>REQ</sub>
+    * Description: connects an association to the subject of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
+    * range: [NamedThing](NamedThing.md)
+    * inherited from: [Association](Association.md)
+ * [relation](relation.md)  <sub>REQ</sub>
+    * Description: the relationship type by which a subject is connected to an object in an association
+    * range: [Uriorcurie](Uriorcurie.md)
+    * inherited from: [Association](Association.md)
+ * [object](object.md)  <sub>REQ</sub>
+    * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
+    * range: [NamedThing](NamedThing.md)
+    * inherited from: [Association](Association.md)
  * [id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [IdentifierType](IdentifierType.md)
     * inherited from: [Association](Association.md)
     * in subsets: (translator_minimal)
- * [subject](subject.md)  <sub>REQ</sub>
-    * Description: connects an association to the subject of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
-    * range: [IriType](IriType.md)
-    * inherited from: [Association](Association.md)
- * [relation](relation.md)  <sub>REQ</sub>
-    * Description: the relationship type by which a subject is connected to an object in an association
-    * range: [IriType](IriType.md)
-    * inherited from: [Association](Association.md)
- * [object](object.md)  <sub>REQ</sub>
-    * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
-    * range: [IriType](IriType.md)
-    * inherited from: [Association](Association.md)
  * [negated](negated.md)  <sub>OPT</sub>
     * Description: if set to true, then the association is negated i.e. is not true
     * range: [Boolean](Boolean.md)
@@ -90,8 +90,8 @@ URI: [biolink:VariantToDiseaseAssociation](https://w3id.org/biolink/vocab/Varian
 ### Domain for slot:
 
  * [object](variant_to_disease_association_object.md)  <sub>REQ</sub>
-    * range: [IriType](IriType.md)
+    * range: [NamedThing](NamedThing.md)
  * [relation](variant_to_disease_association_relation.md)  <sub>REQ</sub>
-    * range: [IriType](IriType.md)
+    * range: [Uriorcurie](Uriorcurie.md)
  * [subject](variant_to_disease_association_subject.md)  <sub>REQ</sub>
-    * range: [IriType](IriType.md)
+    * range: [NamedThing](NamedThing.md)

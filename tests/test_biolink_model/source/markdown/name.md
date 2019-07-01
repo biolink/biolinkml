@@ -8,7 +8,7 @@ URI: [biolink:name](https://w3id.org/biolink/vocab/name)
 
 ## Domain and Range
 
-[NamedThing](NamedThing.md) ->  <sub>OPT</sub> [LabelType](LabelType.md)
+[NamedThing](NamedThing.md) ->  <sub>REQ</sub> [LabelType](LabelType.md)
 
 ## Parents
 

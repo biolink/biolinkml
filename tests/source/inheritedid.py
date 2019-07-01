@@ -5,11 +5,18 @@
 
 from typing import Optional, List, Union, Dict, ClassVar
 from dataclasses import dataclass
-from biolinkml.utils.metamodelcore import empty_list, empty_dict
+from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
+from biolinkml.utils.formatutils import camelcase, underscore, sfx
+from rdflib import Namespace
 from biolinkml.utils.metamodelcore import URI
 
 metamodel_version = "1.3.6"
+
+
+# Namespaces
+BIOLINKML = Namespace('https://w3id.org/biolink/biolinkml/')
+DEFAULT_ = BIOLINKML
 
 
 # Types

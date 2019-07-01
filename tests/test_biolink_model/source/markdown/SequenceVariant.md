@@ -6,7 +6,7 @@ An allele that varies in its sequence from what is considered the reference alle
 
 URI: [biolink:SequenceVariant](https://w3id.org/biolink/vocab/SequenceVariant)
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[SequenceVariant|id:identifier_type;has_biological_sequence:biological_sequence%20%3F;name(i):label_type%20%3F;category(i):iri_type%20*],%20\[Gene]<has%20gene%200..*-%20\[SequenceVariant],%20\[GenotypeToVariantAssociation]-%20object%201..1>\[SequenceVariant],%20\[SequenceVariantModulatesTreatmentAssociation]-%20subject%201..1>\[SequenceVariant],%20\[GeneHasVariantThatContributesToDiseaseAssociation]-%20sequence%20variant%20qualifier%200..1>\[SequenceVariant],%20\[VariantToPhenotypicFeatureAssociation]-%20subject%201..1>\[SequenceVariant],%20\[VariantToPopulationAssociation]-%20subject%201..1>\[SequenceVariant],%20\[VariantToThingAssociation]-%20subject%201..1>\[SequenceVariant],%20\[GenomicEntity]^-\[SequenceVariant])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[SequenceVariant|id:identifier_type;has_biological_sequence:biological_sequence%20%3F;name(i):label_type;category(i):iri_type%20%2B],%20\[Gene]<has%20gene%200..*-%20\[SequenceVariant],%20\[GenotypeToVariantAssociation]-%20object%201..1>\[SequenceVariant],%20\[SequenceVariantModulatesTreatmentAssociation]-%20subject%201..1>\[SequenceVariant],%20\[GeneHasVariantThatContributesToDiseaseAssociation]-%20sequence%20variant%20qualifier%200..1>\[SequenceVariant],%20\[VariantToPhenotypicFeatureAssociation]-%20subject%201..1>\[SequenceVariant],%20\[VariantToPopulationAssociation]-%20subject%201..1>\[SequenceVariant],%20\[VariantToThingAssociation]-%20subject%201..1>\[SequenceVariant],%20\[GenomicEntity]^-\[SequenceVariant])
 
 ## Parents
 
@@ -40,12 +40,12 @@ URI: [biolink:SequenceVariant](https://w3id.org/biolink/vocab/SequenceVariant)
     * range: [IdentifierType](IdentifierType.md)
     * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
- * [name](name.md)  <sub>OPT</sub>
+ * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing
     * range: [LabelType](LabelType.md)
     * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
- * [category](category.md)  <sub>0..*</sub>
+ * [category](category.md)  <sub>1..*</sub>
     * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
     * range: [IriType](IriType.md)
     * inherited from: [NamedThing](NamedThing.md)

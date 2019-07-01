@@ -17,9 +17,7 @@ class IfAbsentTestCase(GeneratorTestCase):
     model_name: str = "ifabsents"
     output_name: str = None
 
-    def test_good_ifabsent(self):
-        IfAbsentTestCase.model_name = "ifabsents"
-
+    def do_test(self):
         """ Test the metadata options"""
         self.single_file_generator('py', PythonGenerator, filtr=metadata_filter)
 
@@ -29,6 +27,21 @@ class IfAbsentTestCase(GeneratorTestCase):
         spec = compile(pydata, 'test', 'exec')
         module = ModuleType('test')
         exec(spec, module.__dict__)
+
+    def test_good_ifabsent(self):
+        """ Test isabsent with no default_prefix """
+        IfAbsentTestCase.model_name = "ifabsents"
+        self.do_test()
+
+    def test_good_ifabsent2(self):
+        """ Test isabsents with default_prefix specified """
+        IfAbsentTestCase.model_name = "ifabsents2"
+        self.do_test()
+
+    def test_good_ifabsent3(self):
+        """ Test isabsent with no default_prefix, but prefix specified that matches the module id """
+        IfAbsentTestCase.model_name = "ifabsents3"
+        self.do_test()
 
     def test_bad_ifabsent(self):
         IfAbsentTestCase.model_name = "ifabsents_error"

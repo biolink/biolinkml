@@ -6,7 +6,7 @@ A stage of development or growth of an organism, including post-natal adult stag
 
 URI: [biolink:LifeStage](https://w3id.org/biolink/vocab/LifeStage)
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon%200..*-%20\[LifeStage|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*],%20\[GeneToExpressionSiteAssociation]-%20stage%20qualifier%200..1>\[LifeStage],%20\[LifeStage]uses%20-.->\[ThingWithTaxon],%20\[OrganismalEntity]^-\[LifeStage])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon%200..*-%20\[LifeStage|id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],%20\[GeneToExpressionSiteAssociation]-%20stage%20qualifier%200..1>\[LifeStage],%20\[LifeStage]uses%20-.->\[ThingWithTaxon],%20\[OrganismalEntity]^-\[LifeStage])
 
 ## Parents
 
@@ -31,12 +31,12 @@ URI: [biolink:LifeStage](https://w3id.org/biolink/vocab/LifeStage)
     * range: [IdentifierType](IdentifierType.md)
     * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
- * [name](name.md)  <sub>OPT</sub>
+ * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing
     * range: [LabelType](LabelType.md)
     * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
- * [category](category.md)  <sub>0..*</sub>
+ * [category](category.md)  <sub>1..*</sub>
     * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
     * range: [IriType](IriType.md)
     * inherited from: [NamedThing](NamedThing.md)

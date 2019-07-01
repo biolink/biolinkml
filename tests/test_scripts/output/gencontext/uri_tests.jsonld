@@ -1,5 +1,5 @@
 {
-   "_comments": "Auto generated from uri_tests.yaml by jsonldcontextgen.py version: 0.0.2\nGeneration date: 2019-06-20 19:42\nSchema: uri_tests\n\nid: http://example.org/example/uri_tests\ndescription: \nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
+   "_comments": "Auto generated from uri_tests.yaml by jsonldcontextgen.py version: 0.0.2\nGeneration date: 2019-06-30 12:52\nSchema: uri_tests\n\nid: http://example.org/example/uri_tests\ndescription: \nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
    "@context": {
       "_comments": null,
       "type": "@type",

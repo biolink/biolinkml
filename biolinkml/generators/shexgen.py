@@ -16,7 +16,7 @@ from rdflib import Graph, OWL, RDF, Namespace, XSD
 from biolinkml import METAMODEL_LOCAL_NAME, METAMODEL_NAMESPACE
 from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, ClassDefinitionName, \
     SlotDefinitionName, ElementName
-from biolinkml.utils.formatutils import camelcase
+from biolinkml.utils.formatutils import camelcase, sfx
 from biolinkml.utils.generator import Generator
 
 
@@ -161,7 +161,7 @@ class ShExGenerator(Generator):
         elif self.format == 'shex':
             g = Graph()
             self.namespaces.load_graph(g)
-            shex = str(ShExC(self.shex, base=self.namespaces.sfx(self.namespaces._base), namespaces=g))
+            shex = str(ShExC(self.shex, base=sfx(self.namespaces._base), namespaces=g))
         if output:
             with open(output, 'w') as outf:
                 outf.write(shex)

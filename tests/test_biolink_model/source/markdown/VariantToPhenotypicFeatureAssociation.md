@@ -6,7 +6,7 @@
 
 URI: [biolink:VariantToPhenotypicFeatureAssociation](https://w3id.org/biolink/vocab/VariantToPhenotypicFeatureAssociation)
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[VariantToPhenotypicFeatureAssociation|id(i):identifier_type;relation(i):iri_type;object(i):iri_type;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[VariantToPhenotypicFeatureAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[VariantToPhenotypicFeatureAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[VariantToPhenotypicFeatureAssociation],%20\[Onset]<onset%20qualifier%200..1-%20\[VariantToPhenotypicFeatureAssociation],%20\[SeverityValue]<severity%20qualifier%200..1-%20\[VariantToPhenotypicFeatureAssociation],%20\[FrequencyValue]<frequency%20qualifier%200..1-%20\[VariantToPhenotypicFeatureAssociation],%20\[BiologicalSex]<sex%20qualifier%200..1-%20\[VariantToPhenotypicFeatureAssociation],%20\[SequenceVariant]<subject%201..1-%20\[VariantToPhenotypicFeatureAssociation],%20\[VariantToPhenotypicFeatureAssociation]uses%20-.->\[VariantToThingAssociation],%20\[VariantToPhenotypicFeatureAssociation]uses%20-.->\[EntityToPhenotypicFeatureAssociation],%20\[Association]^-\[VariantToPhenotypicFeatureAssociation])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[VariantToPhenotypicFeatureAssociation|relation(i):uriorcurie;id(i):identifier_type;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[VariantToPhenotypicFeatureAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[VariantToPhenotypicFeatureAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[VariantToPhenotypicFeatureAssociation],%20\[NamedThing]<object(i)%201..1-%20\[VariantToPhenotypicFeatureAssociation],%20\[Onset]<onset%20qualifier%200..1-%20\[VariantToPhenotypicFeatureAssociation],%20\[SeverityValue]<severity%20qualifier%200..1-%20\[VariantToPhenotypicFeatureAssociation],%20\[FrequencyValue]<frequency%20qualifier%200..1-%20\[VariantToPhenotypicFeatureAssociation],%20\[BiologicalSex]<sex%20qualifier%200..1-%20\[VariantToPhenotypicFeatureAssociation],%20\[SequenceVariant]<subject%201..1-%20\[VariantToPhenotypicFeatureAssociation],%20\[VariantToPhenotypicFeatureAssociation]uses%20-.->\[VariantToThingAssociation],%20\[VariantToPhenotypicFeatureAssociation]uses%20-.->\[EntityToPhenotypicFeatureAssociation],%20\[Association]^-\[VariantToPhenotypicFeatureAssociation])
 
 ## Parents
 
@@ -30,23 +30,23 @@ URI: [biolink:VariantToPhenotypicFeatureAssociation](https://w3id.org/biolink/vo
 
 ### Inherited from association:
 
+ * [subject](subject.md)  <sub>REQ</sub>
+    * Description: connects an association to the subject of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
+    * range: [NamedThing](NamedThing.md)
+    * inherited from: [Association](Association.md)
+ * [relation](relation.md)  <sub>REQ</sub>
+    * Description: the relationship type by which a subject is connected to an object in an association
+    * range: [Uriorcurie](Uriorcurie.md)
+    * inherited from: [Association](Association.md)
+ * [object](object.md)  <sub>REQ</sub>
+    * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
+    * range: [NamedThing](NamedThing.md)
+    * inherited from: [Association](Association.md)
  * [id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [IdentifierType](IdentifierType.md)
     * inherited from: [Association](Association.md)
     * in subsets: (translator_minimal)
- * [subject](subject.md)  <sub>REQ</sub>
-    * Description: connects an association to the subject of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
-    * range: [IriType](IriType.md)
-    * inherited from: [Association](Association.md)
- * [relation](relation.md)  <sub>REQ</sub>
-    * Description: the relationship type by which a subject is connected to an object in an association
-    * range: [IriType](IriType.md)
-    * inherited from: [Association](Association.md)
- * [object](object.md)  <sub>REQ</sub>
-    * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
-    * range: [IriType](IriType.md)
-    * inherited from: [Association](Association.md)
  * [negated](negated.md)  <sub>OPT</sub>
     * Description: if set to true, then the association is negated i.e. is not true
     * range: [Boolean](Boolean.md)

@@ -6,7 +6,7 @@ A feature of the environment of an organism that influences one or more phenotyp
 
 URI: [biolink:Environment](https://w3id.org/biolink/vocab/Environment)
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[EnvironmentToPhenotypicFeatureAssociation]-%20subject%201..1>\[Environment|id(i):identifier_type;name(i):label_type%20%3F;category(i):iri_type%20*],%20\[Environment]^-\[Treatment],%20\[Environment]^-\[DrugExposure],%20\[BiologicalEntity]^-\[Environment])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[EnvironmentToPhenotypicFeatureAssociation]-%20subject%201..1>\[Environment|id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],%20\[Environment]^-\[Treatment],%20\[Environment]^-\[DrugExposure],%20\[BiologicalEntity]^-\[Environment])
 
 ## Parents
 
@@ -31,12 +31,12 @@ URI: [biolink:Environment](https://w3id.org/biolink/vocab/Environment)
     * range: [IdentifierType](IdentifierType.md)
     * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
- * [name](name.md)  <sub>OPT</sub>
+ * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing
     * range: [LabelType](LabelType.md)
     * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
- * [category](category.md)  <sub>0..*</sub>
+ * [category](category.md)  <sub>1..*</sub>
     * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
     * range: [IriType](IriType.md)
     * inherited from: [NamedThing](NamedThing.md)
