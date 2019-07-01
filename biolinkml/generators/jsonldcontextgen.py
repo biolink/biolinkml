@@ -84,7 +84,7 @@ license: {be(self.schema.license)}
     def visit_class(self, cls: ClassDefinition) -> bool:
         class_def = {}
         cn = camelcase(cls.name)
-        self.add_mappings(cls, class_def)
+        self.add_mappings(cls)
         cls_prefix = self.namespaces.prefix_for(cls.class_uri)
         if not self.default_ns or not cls_prefix or cls_prefix != self.default_ns:
             class_def['@id'] = cls.class_uri
@@ -117,7 +117,7 @@ license: {be(self.schema.license)}
                     slot_def['@id'] = slot.slot_uri
                     if slot_prefix:
                         self.add_prefix(slot_prefix)
-                self.add_mappings(slot, slot_def)
+                self.add_mappings(slot)
         if slot_def:
             self.context_body[underscore(aliased_slot_name)] = slot_def
 
@@ -131,11 +131,10 @@ license: {be(self.schema.license)}
             self.namespaces[ncname] = f"http://example.org/UNKNOWN/{ncname}/"
         self.emit_prefixes.add(ncname)
 
-    def add_mappings(self, defn: Definition, target: Dict) -> None:
+    def add_mappings(self, defn: Definition) -> None:
         """
         Process any mappings in defn, adding all of the mappings prefixes to the namespace map
         :param defn: Class or Slot Definition
-        :param target: context target
         """
         self.add_id_prefixes(defn)
         for mapping in defn.mappings:

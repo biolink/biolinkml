@@ -8,7 +8,7 @@ import click
 import biolinkml
 from biolinkml.generators import PYTHON_GEN_VERSION
 from biolinkml.meta import SchemaDefinition, SlotDefinition, ClassDefinition, ClassDefinitionName, \
-    SlotDefinitionName, DefinitionName, Element, TypeDefinition
+    SlotDefinitionName, DefinitionName, Element, TypeDefinition, Definition
 from biolinkml.utils.formatutils import camelcase, underscore, be, wrapped_annotation, split_line, uri_for, sfx
 from biolinkml.utils.generator import Generator
 from biolinkml.utils.ifabsent_functions import ifabsent_value_declaration, ifabsent_postinit_declaration, \
@@ -26,9 +26,57 @@ class PythonGenerator(Generator):
     def __init__(self, schema: Union[str, TextIO, SchemaDefinition], fmt: str=valid_formats[0],
                  emit_metadata: bool=True) -> None:
         self.sourcefile = schema
+        self.emit_prefixes: Set[str] = set()
         super().__init__(schema, fmt, emit_metadata)
         if not self.schema.source_file and isinstance(self.sourcefile, str) and '\n' not in self.sourcefile:
             self.schema.source_file = os.path.basename(self.sourcefile)
+
+    def visit_schema(self, **kwargs) -> None:
+        # Add explicitly declared prefixes
+        self.emit_prefixes.update([str(p) for p in self.schema.prefixes.values()])
+
+        # Add all emit statements
+        self.emit_prefixes.update(self.schema.emit_prefixes)
+
+        # Add the default prefix
+        if self.schema.default_prefix:
+            self.emit_prefixes.add(self.namespaces.prefix_for(self.schema.default_prefix))
+
+    def visit_class(self, cls: ClassDefinition) -> bool:
+        cls_prefix = self.namespaces.prefix_for(cls.class_uri)
+        if cls_prefix:
+            self.emit_prefixes.add(cls_prefix)
+        self.add_mappings(cls)
+        return False
+
+    def visit_slot(self, aliased_slot_name: str, slot: SlotDefinition) -> None:
+        slot_prefix = self.namespaces.prefix_for(slot.slot_uri)
+        if slot_prefix:
+            self.emit_prefixes.add(slot_prefix)
+        self.add_mappings(slot)
+
+    def add_mappings(self, defn: Definition) -> None:
+        """
+        Process any mappings in defn, adding all of the mappings prefixes to the namespace map
+        :param defn: Class or Slot Definition
+        :param target: context target
+        """
+        self.add_id_prefixes(defn)
+        for mapping in defn.mappings:
+            if '://' in mapping:
+                mcurie = self.namespaces.curie_for(mapping)
+                print(f"No namespace defined for URI: {mapping}")
+                if mcurie is None:
+                    return        # Absolute path - no prefix/name
+                else:
+                    mapping = mcurie
+            if ':' not in mapping or len(mapping.split(':')) != 2:
+                raise ValueError(f"Definition {defn.name} - unrecognized mapping: {mapping}")
+            ns = mapping.split(':')[0]
+            self.emit_prefixes.add(ns)
+
+    def add_id_prefixes(self, element: Element) -> None:
+        self.emit_prefixes.update(element.id_prefixes)
 
     def gen_schema(self) -> str:
         split_descripton = '\n#              '.join(split_line(be(self.schema.description), split_len=100))
@@ -144,9 +192,8 @@ metamodel_version = "{self.schema.metamodel_version}"
         dflt_prefix = default_curie_or_uri(self)
         dflt = f"Namespace('{sfx(dflt_prefix)}')" if ':/' in dflt_prefix else dflt_prefix.upper()
         return '\n'.join([
-            f"{pfx.upper()} = Namespace('{self.namespaces[pfx]}')"
-            for pfx in sorted(set(self.schema.prefixes.keys()).union(set(self.schema.emit_prefixes)))
-            if pfx in self.namespaces
+            f"{pfx.upper().replace('.', '_')} = Namespace('{self.namespaces[pfx]}')"
+            for pfx in sorted(self.emit_prefixes) if pfx in self.namespaces
         ] + [f"DEFAULT_ = {dflt}"])
 
 
