@@ -1,9 +1,13 @@
 import unittest
 
 from biolinkml.utils.metamodelcore import NCName, Bool, URIorCURIE, URI
+from biolinkml.utils.strictness import lax, strict
 
 
 class MetamodelCoreTest(unittest.TestCase):
+    def tearDown(self) -> None:
+        strict()
+
     def test_ncname(self):
         self.assertEqual('A123', NCName('A123'))
         x = NCName('A1.B_C-')
@@ -48,10 +52,15 @@ class MetamodelCoreTest(unittest.TestCase):
         self.assertFalse(Bool(0))
         self.assertFalse(Bool("0"))
         self.assertFalse(Bool(Bool(0)))
+        # Strict mode
         with self.assertRaises(ValueError):
             x = Bool(17)
         with self.assertRaises(ValueError):
             x = Bool("a")
+        lax()
+        x = Bool(17)
+        print(str(x))
+        x = Bool("a")
 
 
 if __name__ == '__main__':

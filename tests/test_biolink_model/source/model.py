@@ -11,7 +11,7 @@ from dataclasses import dataclass
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
-from rdflib import Namespace, URIRef
+from rdflib import Namespace
 from biolinkml.utils.metamodelcore import Bool, URIorCURIE, XSDDate, XSDTime
 from includes.types import Boolean, Date, Double, Float, Integer, String, Time, Uriorcurie
 
@@ -174,9 +174,7 @@ class OnsetId(AttributeId):
 
 
 class NamedThingId(IdentifierType):
-    def __init__(self, name: Union[str, URIRef, "ElementName"]) -> None:
-        if type(name) is not str and type(name) is not URIRef and not issubclass(type(self), type(name)):
-            raise ValueError(f"Illegal identifier for {type(self).__name__}: {name} ({type(name).__name__})")
+    pass
 
 
 class BiologicalEntityId(NamedThingId):
@@ -698,10 +696,10 @@ class Attribute(YAMLRoot):
     name: Union[str, LabelType]
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if not isinstance(self.id, AttributeId):
             self.id = AttributeId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -716,10 +714,10 @@ class BiologicalSex(Attribute):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, BiologicalSexId):
             self.id = BiologicalSexId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -737,10 +735,10 @@ class PhenotypicSex(BiologicalSex):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, PhenotypicSexId):
             self.id = PhenotypicSexId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -759,10 +757,10 @@ class GenotypicSex(BiologicalSex):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, GenotypicSexId):
             self.id = GenotypicSexId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -780,10 +778,10 @@ class SeverityValue(Attribute):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, SeverityValueId):
             self.id = SeverityValueId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -801,10 +799,10 @@ class FrequencyValue(Attribute):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, FrequencyValueId):
             self.id = FrequencyValueId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -823,10 +821,10 @@ class ClinicalModifier(Attribute):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, ClinicalModifierId):
             self.id = ClinicalModifierId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -844,10 +842,10 @@ class Onset(Attribute):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, OnsetId):
             self.id = OnsetId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -865,14 +863,14 @@ class NamedThing(YAMLRoot):
     name: Union[str, LabelType]
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if not isinstance(self.id, NamedThingId):
             self.id = NamedThingId(self.id)
         if not isinstance(self.name, LabelType):
             self.name = LabelType(self.name)
         if not isinstance(self.category, IriType):
             self.category = IriType(self.category)
+        super()._fix_elements()
 
 
 @dataclass
@@ -902,10 +900,10 @@ class OntologyClass(NamedThing):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, OntologyClassId):
             self.id = OntologyClassId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -923,10 +921,10 @@ class RelationshipType(OntologyClass):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, RelationshipTypeId):
             self.id = RelationshipTypeId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -944,10 +942,10 @@ class GeneOntologyClass(OntologyClass):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, GeneOntologyClassId):
             self.id = GeneOntologyClassId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -962,10 +960,10 @@ class OrganismTaxon(OntologyClass):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, OrganismTaxonId):
             self.id = OrganismTaxonId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -996,10 +994,10 @@ class IndividualOrganism(OrganismalEntity):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, IndividualOrganismId):
             self.id = IndividualOrganismId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1017,10 +1015,10 @@ class Case(IndividualOrganism):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, CaseId):
             self.id = CaseId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1040,10 +1038,10 @@ class PopulationOfIndividualOrganisms(OrganismalEntity):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, PopulationOfIndividualOrganismsId):
             self.id = PopulationOfIndividualOrganismsId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1058,10 +1056,10 @@ class Biosample(OrganismalEntity):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, BiosampleId):
             self.id = BiosampleId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1080,10 +1078,10 @@ class DiseaseOrPhenotypicFeature(BiologicalEntity):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, DiseaseOrPhenotypicFeatureId):
             self.id = DiseaseOrPhenotypicFeatureId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1098,10 +1096,10 @@ class Disease(DiseaseOrPhenotypicFeature):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, DiseaseId):
             self.id = DiseaseId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1116,10 +1114,10 @@ class PhenotypicFeature(DiseaseOrPhenotypicFeature):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, PhenotypicFeatureId):
             self.id = PhenotypicFeatureId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1138,10 +1136,10 @@ class Environment(BiologicalEntity):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, EnvironmentId):
             self.id = EnvironmentId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1174,10 +1172,10 @@ class ConfidenceLevel(InformationContentEntity):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, ConfidenceLevelId):
             self.id = ConfidenceLevelId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1195,10 +1193,10 @@ class EvidenceType(InformationContentEntity):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, EvidenceTypeId):
             self.id = EvidenceTypeId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1218,10 +1216,10 @@ class Publication(InformationContentEntity):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, PublicationId):
             self.id = PublicationId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1251,10 +1249,10 @@ class Provider(AdministrativeEntity):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, ProviderId):
             self.id = ProviderId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1272,10 +1270,10 @@ class MolecularEntity(BiologicalEntity):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, MolecularEntityId):
             self.id = MolecularEntityId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1294,10 +1292,10 @@ class ChemicalSubstance(MolecularEntity):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, ChemicalSubstanceId):
             self.id = ChemicalSubstanceId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1312,10 +1310,10 @@ class Carbohydrate(ChemicalSubstance):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, CarbohydrateId):
             self.id = CarbohydrateId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1333,10 +1331,10 @@ class Drug(ChemicalSubstance):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, DrugId):
             self.id = DrugId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1354,10 +1352,10 @@ class Metabolite(ChemicalSubstance):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, MetaboliteId):
             self.id = MetaboliteId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1375,10 +1373,10 @@ class AnatomicalEntity(OrganismalEntity):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, AnatomicalEntityId):
             self.id = AnatomicalEntityId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1396,10 +1394,10 @@ class LifeStage(OrganismalEntity):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, LifeStageId):
             self.id = LifeStageId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1417,10 +1415,10 @@ class PlanetaryEntity(NamedThing):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, PlanetaryEntityId):
             self.id = PlanetaryEntityId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1435,10 +1433,10 @@ class EnvironmentalProcess(PlanetaryEntity):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, EnvironmentalProcessId):
             self.id = EnvironmentalProcessId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1453,10 +1451,10 @@ class EnvironmentalFeature(PlanetaryEntity):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, EnvironmentalFeatureId):
             self.id = EnvironmentalFeatureId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1475,10 +1473,10 @@ class ClinicalEntity(NamedThing):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, ClinicalEntityId):
             self.id = ClinicalEntityId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1493,10 +1491,10 @@ class ClinicalTrial(ClinicalEntity):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, ClinicalTrialId):
             self.id = ClinicalTrialId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1511,10 +1509,10 @@ class ClinicalIntervention(ClinicalEntity):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, ClinicalInterventionId):
             self.id = ClinicalInterventionId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1532,10 +1530,10 @@ class Device(NamedThing):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, DeviceId):
             self.id = DeviceId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1555,12 +1553,12 @@ class GenomicEntity(MolecularEntity):
     category: List[Union[str, IriType]] = empty_list()
     has_biological_sequence: Optional[Union[str, BiologicalSequence]] = None
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, GenomicEntityId):
             self.id = GenomicEntityId(self.id)
         if self.has_biological_sequence is not None and not isinstance(self.has_biological_sequence, BiologicalSequence):
             self.has_biological_sequence = BiologicalSequence(self.has_biological_sequence)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1578,10 +1576,10 @@ class Genome(GenomicEntity):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, GenomeId):
             self.id = GenomeId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1599,10 +1597,10 @@ class Transcript(GenomicEntity):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, TranscriptId):
             self.id = TranscriptId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1621,10 +1619,10 @@ class Exon(GenomicEntity):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, ExonId):
             self.id = ExonId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1639,10 +1637,10 @@ class CodingSequence(GenomicEntity):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, CodingSequenceId):
             self.id = CodingSequenceId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1661,12 +1659,12 @@ class MacromolecularMachine(GenomicEntity):
     name: Union[str, SymbolType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, MacromolecularMachineId):
             self.id = MacromolecularMachineId(self.id)
         if self.name is not None and not isinstance(self.name, SymbolType):
             self.name = SymbolType(self.name)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1684,10 +1682,10 @@ class GeneOrGeneProduct(MacromolecularMachine):
     name: Union[str, SymbolType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, GeneOrGeneProductId):
             self.id = GeneOrGeneProductId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1702,10 +1700,10 @@ class Gene(GeneOrGeneProduct):
     name: Union[str, SymbolType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, GeneId):
             self.id = GeneId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1723,10 +1721,10 @@ class GeneProduct(GeneOrGeneProduct):
     name: Union[str, SymbolType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, GeneProductId):
             self.id = GeneProductId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1745,10 +1743,10 @@ class Protein(GeneProduct):
     name: Union[str, SymbolType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, ProteinId):
             self.id = ProteinId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1784,10 +1782,10 @@ class ProteinIsoform(Protein):
     name: Union[str, SymbolType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, ProteinIsoformId):
             self.id = ProteinIsoformId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1802,10 +1800,10 @@ class RNAProduct(GeneProduct):
     name: Union[str, SymbolType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, RNAProductId):
             self.id = RNAProductId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1823,10 +1821,10 @@ class RNAProductIsoform(RNAProduct):
     name: Union[str, SymbolType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, RNAProductIsoformId):
             self.id = RNAProductIsoformId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1841,10 +1839,10 @@ class NoncodingRNAProduct(RNAProduct):
     name: Union[str, SymbolType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, NoncodingRNAProductId):
             self.id = NoncodingRNAProductId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1859,10 +1857,10 @@ class MicroRNA(NoncodingRNAProduct):
     name: Union[str, SymbolType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, MicroRNAId):
             self.id = MicroRNAId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1877,10 +1875,10 @@ class MacromolecularComplex(MacromolecularMachine):
     name: Union[str, SymbolType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, MacromolecularComplexId):
             self.id = MacromolecularComplexId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1898,10 +1896,10 @@ class GeneFamily(MolecularEntity):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, GeneFamilyId):
             self.id = GeneFamilyId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1916,10 +1914,10 @@ class Zygosity(Attribute):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, ZygosityId):
             self.id = ZygosityId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1939,12 +1937,12 @@ class Genotype(GenomicEntity):
     category: List[Union[str, IriType]] = empty_list()
     has_zygosity: Optional[Union[str, ZygosityId]] = None
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, GenotypeId):
             self.id = GenotypeId(self.id)
         if self.has_zygosity is not None and not isinstance(self.has_zygosity, ZygosityId):
             self.has_zygosity = ZygosityId(self.has_zygosity)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1962,10 +1960,10 @@ class Haplotype(GenomicEntity):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, HaplotypeId):
             self.id = HaplotypeId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -1985,14 +1983,14 @@ class SequenceVariant(GenomicEntity):
     has_biological_sequence: Optional[Union[str, BiologicalSequence]] = None
     has_gene: List[Union[str, GeneId]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, SequenceVariantId):
             self.id = SequenceVariantId(self.id)
         if self.has_biological_sequence is not None and not isinstance(self.has_biological_sequence, BiologicalSequence):
             self.has_biological_sequence = BiologicalSequence(self.has_biological_sequence)
         self.has_gene = [v if isinstance(v, GeneId)
                          else GeneId(v) for v in self.has_gene]
+        super()._fix_elements()
 
 
 @dataclass
@@ -2011,10 +2009,10 @@ class DrugExposure(Environment):
     category: List[Union[str, IriType]] = empty_list()
     drug: List[Union[str, ChemicalSubstanceId]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, DrugExposureId):
             self.id = DrugExposureId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2034,10 +2032,10 @@ class Treatment(Environment):
     treats: List[Union[str, DiseaseOrPhenotypicFeatureId]] = empty_list()
     has_exposure_parts: List[Union[str, DrugExposureId]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, TreatmentId):
             self.id = TreatmentId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2057,10 +2055,10 @@ class GeographicLocation(PlanetaryEntity):
     latitude: Optional[float] = None
     longitude: Optional[float] = None
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, GeographicLocationId):
             self.id = GeographicLocationId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2079,12 +2077,12 @@ class GeographicLocationAtTime(GeographicLocation):
     category: List[Union[str, IriType]] = empty_list()
     timepoint: Optional[Union[str, TimeType]] = None
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, GeographicLocationAtTimeId):
             self.id = GeographicLocationAtTimeId(self.id)
         if self.timepoint is not None and not isinstance(self.timepoint, TimeType):
             self.timepoint = TimeType(self.timepoint)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2109,8 +2107,7 @@ class Association(YAMLRoot):
     publications: List[Union[str, PublicationId]] = empty_list()
     provided_by: Optional[Union[str, ProviderId]] = None
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if not isinstance(self.id, AssociationId):
             self.id = AssociationId(self.id)
         if not isinstance(self.subject, NamedThingId):
@@ -2127,6 +2124,7 @@ class Association(YAMLRoot):
                              else PublicationId(v) for v in self.publications]
         if self.provided_by is not None and not isinstance(self.provided_by, ProviderId):
             self.provided_by = ProviderId(self.provided_by)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2146,8 +2144,7 @@ class GenotypeToGenotypePartAssociation(Association):
     edge_label: Union[str, LabelType] = None
     id: Union[str, GenotypeToGenotypePartAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, GenotypeToGenotypePartAssociationId):
             self.id = GenotypeToGenotypePartAssociationId(self.id)
         if self.subject is not None and not isinstance(self.subject, GenotypeId):
@@ -2156,6 +2153,7 @@ class GenotypeToGenotypePartAssociation(Association):
             self.relation = URIorCURIE(self.relation)
         if self.object is not None and not isinstance(self.object, GenotypeId):
             self.object = GenotypeId(self.object)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2176,8 +2174,7 @@ class GenotypeToGeneAssociation(Association):
     edge_label: Union[str, LabelType] = None
     id: Union[str, GenotypeToGeneAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, GenotypeToGeneAssociationId):
             self.id = GenotypeToGeneAssociationId(self.id)
         if self.subject is not None and not isinstance(self.subject, GenotypeId):
@@ -2186,6 +2183,7 @@ class GenotypeToGeneAssociation(Association):
             self.relation = URIorCURIE(self.relation)
         if self.object is not None and not isinstance(self.object, GeneId):
             self.object = GeneId(self.object)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2205,8 +2203,7 @@ class GenotypeToVariantAssociation(Association):
     edge_label: Union[str, LabelType] = None
     id: Union[str, GenotypeToVariantAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, GenotypeToVariantAssociationId):
             self.id = GenotypeToVariantAssociationId(self.id)
         if self.subject is not None and not isinstance(self.subject, GenotypeId):
@@ -2215,6 +2212,7 @@ class GenotypeToVariantAssociation(Association):
             self.relation = URIorCURIE(self.relation)
         if self.object is not None and not isinstance(self.object, SequenceVariantId):
             self.object = SequenceVariantId(self.object)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2235,12 +2233,12 @@ class GeneToGeneAssociation(Association):
     edge_label: Union[str, LabelType] = None
     id: Union[str, GeneToGeneAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.subject is not None and not isinstance(self.subject, GeneOrGeneProductId):
             self.subject = GeneOrGeneProductId(self.subject)
         if self.object is not None and not isinstance(self.object, GeneOrGeneProductId):
             self.object = GeneOrGeneProductId(self.object)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2261,12 +2259,12 @@ class GeneToGeneHomologyAssociation(GeneToGeneAssociation):
     edge_label: Union[str, LabelType] = None
     id: Union[str, GeneToGeneHomologyAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, GeneToGeneHomologyAssociationId):
             self.id = GeneToGeneHomologyAssociationId(self.id)
         if self.relation is not None and not isinstance(self.relation, URIorCURIE):
             self.relation = URIorCURIE(self.relation)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2287,12 +2285,12 @@ class PairwiseGeneToGeneInteraction(GeneToGeneAssociation):
     edge_label: Union[str, LabelType] = None
     id: Union[str, PairwiseGeneToGeneInteractionId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, PairwiseGeneToGeneInteractionId):
             self.id = PairwiseGeneToGeneInteractionId(self.id)
         if self.relation is not None and not isinstance(self.relation, URIorCURIE):
             self.relation = URIorCURIE(self.relation)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2312,10 +2310,10 @@ class CellLineToThingAssociation(Association):
     edge_label: Union[str, LabelType] = None
     id: Union[str, CellLineToThingAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.subject is not None and not isinstance(self.subject, CellLineId):
             self.subject = CellLineId(self.subject)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2336,12 +2334,12 @@ class CellLineToDiseaseOrPhenotypicFeatureAssociation(Association):
     edge_label: Union[str, LabelType] = None
     id: Union[str, CellLineToDiseaseOrPhenotypicFeatureAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, CellLineToDiseaseOrPhenotypicFeatureAssociationId):
             self.id = CellLineToDiseaseOrPhenotypicFeatureAssociationId(self.id)
         if self.subject is not None and not isinstance(self.subject, DiseaseOrPhenotypicFeatureId):
             self.subject = DiseaseOrPhenotypicFeatureId(self.subject)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2361,10 +2359,10 @@ class ChemicalToThingAssociation(Association):
     edge_label: Union[str, LabelType] = None
     id: Union[str, ChemicalToThingAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.subject is not None and not isinstance(self.subject, ChemicalSubstanceId):
             self.subject = ChemicalSubstanceId(self.subject)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2384,10 +2382,10 @@ class CaseToThingAssociation(Association):
     edge_label: Union[str, LabelType] = None
     id: Union[str, CaseToThingAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.subject is not None and not isinstance(self.subject, CaseId):
             self.subject = CaseId(self.subject)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2408,12 +2406,12 @@ class ChemicalToDiseaseOrPhenotypicFeatureAssociation(Association):
     edge_label: Union[str, LabelType] = None
     id: Union[str, ChemicalToDiseaseOrPhenotypicFeatureAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, ChemicalToDiseaseOrPhenotypicFeatureAssociationId):
             self.id = ChemicalToDiseaseOrPhenotypicFeatureAssociationId(self.id)
         if self.object is not None and not isinstance(self.object, DiseaseOrPhenotypicFeatureId):
             self.object = DiseaseOrPhenotypicFeatureId(self.object)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2433,12 +2431,12 @@ class ChemicalToPathwayAssociation(Association):
     edge_label: Union[str, LabelType] = None
     id: Union[str, ChemicalToPathwayAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, ChemicalToPathwayAssociationId):
             self.id = ChemicalToPathwayAssociationId(self.id)
         if self.object is not None and not isinstance(self.object, PathwayId):
             self.object = PathwayId(self.object)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2458,12 +2456,12 @@ class ChemicalToGeneAssociation(Association):
     edge_label: Union[str, LabelType] = None
     id: Union[str, ChemicalToGeneAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, ChemicalToGeneAssociationId):
             self.id = ChemicalToGeneAssociationId(self.id)
         if self.object is not None and not isinstance(self.object, GeneOrGeneProductId):
             self.object = GeneOrGeneProductId(self.object)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2483,10 +2481,10 @@ class BiosampleToThingAssociation(Association):
     edge_label: Union[str, LabelType] = None
     id: Union[str, BiosampleToThingAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.subject is not None and not isinstance(self.subject, BiosampleId):
             self.subject = BiosampleId(self.subject)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2506,10 +2504,10 @@ class BiosampleToDiseaseOrPhenotypicFeatureAssociation(Association):
     edge_label: Union[str, LabelType] = None
     id: Union[str, BiosampleToDiseaseOrPhenotypicFeatureAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, BiosampleToDiseaseOrPhenotypicFeatureAssociationId):
             self.id = BiosampleToDiseaseOrPhenotypicFeatureAssociationId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2527,12 +2525,12 @@ class EntityToPhenotypicFeatureAssociation(Association):
     id: Union[str, EntityToPhenotypicFeatureAssociationId] = bnode()
     sex_qualifier: Optional[Union[str, BiologicalSexId]] = None
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.object is not None and not isinstance(self.object, PhenotypicFeatureId):
             self.object = PhenotypicFeatureId(self.object)
         if self.sex_qualifier is not None and not isinstance(self.sex_qualifier, BiologicalSexId):
             self.sex_qualifier = BiologicalSexId(self.sex_qualifier)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2549,10 +2547,10 @@ class DiseaseOrPhenotypicFeatureAssociationToThingAssociation(Association):
     edge_label: Union[str, LabelType] = None
     id: Union[str, DiseaseOrPhenotypicFeatureAssociationToThingAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.subject is not None and not isinstance(self.subject, DiseaseOrPhenotypicFeatureId):
             self.subject = DiseaseOrPhenotypicFeatureId(self.subject)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2573,12 +2571,12 @@ class DiseaseOrPhenotypicFeatureAssociationToLocationAssociation(DiseaseOrPhenot
     edge_label: Union[str, LabelType] = None
     id: Union[str, DiseaseOrPhenotypicFeatureAssociationToLocationAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, DiseaseOrPhenotypicFeatureAssociationToLocationAssociationId):
             self.id = DiseaseOrPhenotypicFeatureAssociationToLocationAssociationId(self.id)
         if self.object is not None and not isinstance(self.object, AnatomicalEntityId):
             self.object = AnatomicalEntityId(self.object)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2595,10 +2593,10 @@ class ThingToDiseaseOrPhenotypicFeatureAssociation(Association):
     edge_label: Union[str, LabelType] = None
     id: Union[str, ThingToDiseaseOrPhenotypicFeatureAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.object is not None and not isinstance(self.object, DiseaseOrPhenotypicFeatureId):
             self.object = DiseaseOrPhenotypicFeatureId(self.object)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2615,10 +2613,10 @@ class DiseaseToThingAssociation(Association):
     edge_label: Union[str, LabelType] = None
     id: Union[str, DiseaseToThingAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.subject is not None and not isinstance(self.subject, DiseaseId):
             self.subject = DiseaseId(self.subject)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2639,14 +2637,14 @@ class GenotypeToPhenotypicFeatureAssociation(Association):
     edge_label: Union[str, LabelType] = None
     id: Union[str, GenotypeToPhenotypicFeatureAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, GenotypeToPhenotypicFeatureAssociationId):
             self.id = GenotypeToPhenotypicFeatureAssociationId(self.id)
         if self.subject is not None and not isinstance(self.subject, GenotypeId):
             self.subject = GenotypeId(self.subject)
         if self.relation is not None and not isinstance(self.relation, URIorCURIE):
             self.relation = URIorCURIE(self.relation)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2667,12 +2665,12 @@ class EnvironmentToPhenotypicFeatureAssociation(Association):
     edge_label: Union[str, LabelType] = None
     id: Union[str, EnvironmentToPhenotypicFeatureAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, EnvironmentToPhenotypicFeatureAssociationId):
             self.id = EnvironmentToPhenotypicFeatureAssociationId(self.id)
         if self.subject is not None and not isinstance(self.subject, EnvironmentId):
             self.subject = EnvironmentId(self.subject)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2693,10 +2691,10 @@ class DiseaseToPhenotypicFeatureAssociation(Association):
     edge_label: Union[str, LabelType] = None
     id: Union[str, DiseaseToPhenotypicFeatureAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, DiseaseToPhenotypicFeatureAssociationId):
             self.id = DiseaseToPhenotypicFeatureAssociationId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2717,10 +2715,10 @@ class CaseToPhenotypicFeatureAssociation(Association):
     edge_label: Union[str, LabelType] = None
     id: Union[str, CaseToPhenotypicFeatureAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, CaseToPhenotypicFeatureAssociationId):
             self.id = CaseToPhenotypicFeatureAssociationId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2737,10 +2735,10 @@ class GeneToThingAssociation(Association):
     edge_label: Union[str, LabelType] = None
     id: Union[str, GeneToThingAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.subject is not None and not isinstance(self.subject, GeneOrGeneProductId):
             self.subject = GeneOrGeneProductId(self.subject)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2757,12 +2755,12 @@ class GeneToPhenotypicFeatureAssociation(Association):
     edge_label: Union[str, LabelType] = None
     id: Union[str, GeneToPhenotypicFeatureAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, GeneToPhenotypicFeatureAssociationId):
             self.id = GeneToPhenotypicFeatureAssociationId(self.id)
         if self.subject is not None and not isinstance(self.subject, GeneOrGeneProductId):
             self.subject = GeneOrGeneProductId(self.subject)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2779,12 +2777,12 @@ class GeneToDiseaseAssociation(Association):
     edge_label: Union[str, LabelType] = None
     id: Union[str, GeneToDiseaseAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, GeneToDiseaseAssociationId):
             self.id = GeneToDiseaseAssociationId(self.id)
         if self.subject is not None and not isinstance(self.subject, GeneOrGeneProductId):
             self.subject = GeneOrGeneProductId(self.subject)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2807,14 +2805,14 @@ class VariantToPopulationAssociation(Association):
     has_total: Optional[int] = None
     has_quotient: Optional[float] = None
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, VariantToPopulationAssociationId):
             self.id = VariantToPopulationAssociationId(self.id)
         if self.subject is not None and not isinstance(self.subject, SequenceVariantId):
             self.subject = SequenceVariantId(self.subject)
         if self.object is not None and not isinstance(self.object, PopulationOfIndividualOrganismsId):
             self.object = PopulationOfIndividualOrganismsId(self.object)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2834,8 +2832,7 @@ class PopulationToPopulationAssociation(Association):
     edge_label: Union[str, LabelType] = None
     id: Union[str, PopulationToPopulationAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, PopulationToPopulationAssociationId):
             self.id = PopulationToPopulationAssociationId(self.id)
         if self.subject is not None and not isinstance(self.subject, PopulationOfIndividualOrganismsId):
@@ -2844,6 +2841,7 @@ class PopulationToPopulationAssociation(Association):
             self.relation = URIorCURIE(self.relation)
         if self.object is not None and not isinstance(self.object, PopulationOfIndividualOrganismsId):
             self.object = PopulationOfIndividualOrganismsId(self.object)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2860,12 +2858,12 @@ class VariantToPhenotypicFeatureAssociation(Association):
     edge_label: Union[str, LabelType] = None
     id: Union[str, VariantToPhenotypicFeatureAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, VariantToPhenotypicFeatureAssociationId):
             self.id = VariantToPhenotypicFeatureAssociationId(self.id)
         if self.subject is not None and not isinstance(self.subject, SequenceVariantId):
             self.subject = SequenceVariantId(self.subject)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2882,8 +2880,7 @@ class VariantToDiseaseAssociation(Association):
     edge_label: Union[str, LabelType] = None
     id: Union[str, VariantToDiseaseAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, VariantToDiseaseAssociationId):
             self.id = VariantToDiseaseAssociationId(self.id)
         if self.subject is not None and not isinstance(self.subject, NamedThingId):
@@ -2892,6 +2889,7 @@ class VariantToDiseaseAssociation(Association):
             self.relation = URIorCURIE(self.relation)
         if self.object is not None and not isinstance(self.object, NamedThingId):
             self.object = NamedThingId(self.object)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2908,12 +2906,12 @@ class GeneAsAModelOfDiseaseAssociation(GeneToDiseaseAssociation):
     edge_label: Union[str, LabelType] = None
     id: Union[str, GeneAsAModelOfDiseaseAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, GeneAsAModelOfDiseaseAssociationId):
             self.id = GeneAsAModelOfDiseaseAssociationId(self.id)
         if self.subject is not None and not isinstance(self.subject, GeneOrGeneProductId):
             self.subject = GeneOrGeneProductId(self.subject)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2931,14 +2929,14 @@ class GeneHasVariantThatContributesToDiseaseAssociation(GeneToDiseaseAssociation
     id: Union[str, GeneHasVariantThatContributesToDiseaseAssociationId] = bnode()
     sequence_variant_qualifier: Optional[Union[str, SequenceVariantId]] = None
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, GeneHasVariantThatContributesToDiseaseAssociationId):
             self.id = GeneHasVariantThatContributesToDiseaseAssociationId(self.id)
         if self.subject is not None and not isinstance(self.subject, GeneOrGeneProductId):
             self.subject = GeneOrGeneProductId(self.subject)
         if self.sequence_variant_qualifier is not None and not isinstance(self.sequence_variant_qualifier, SequenceVariantId):
             self.sequence_variant_qualifier = SequenceVariantId(self.sequence_variant_qualifier)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2955,10 +2953,10 @@ class GenotypeToThingAssociation(Association):
     edge_label: Union[str, LabelType] = None
     id: Union[str, GenotypeToThingAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.subject is not None and not isinstance(self.subject, GenotypeId):
             self.subject = GenotypeId(self.subject)
+        super()._fix_elements()
 
 
 @dataclass
@@ -2980,8 +2978,7 @@ class GeneToExpressionSiteAssociation(Association):
     stage_qualifier: Optional[Union[str, LifeStageId]] = None
     quantifier_qualifier: Optional[Union[str, OntologyClassId]] = None
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, GeneToExpressionSiteAssociationId):
             self.id = GeneToExpressionSiteAssociationId(self.id)
         if self.subject is not None and not isinstance(self.subject, GeneOrGeneProductId):
@@ -2994,6 +2991,7 @@ class GeneToExpressionSiteAssociation(Association):
             self.stage_qualifier = LifeStageId(self.stage_qualifier)
         if self.quantifier_qualifier is not None and not isinstance(self.quantifier_qualifier, OntologyClassId):
             self.quantifier_qualifier = OntologyClassId(self.quantifier_qualifier)
+        super()._fix_elements()
 
 
 @dataclass
@@ -3014,12 +3012,12 @@ class SequenceVariantModulatesTreatmentAssociation(Association):
     edge_label: Union[str, LabelType] = None
     id: Union[str, SequenceVariantModulatesTreatmentAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.subject is not None and not isinstance(self.subject, SequenceVariantId):
             self.subject = SequenceVariantId(self.subject)
         if self.object is not None and not isinstance(self.object, TreatmentId):
             self.object = TreatmentId(self.object)
+        super()._fix_elements()
 
 
 @dataclass
@@ -3040,14 +3038,14 @@ class FunctionalAssociation(Association):
     edge_label: Union[str, LabelType] = None
     id: Union[str, FunctionalAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, FunctionalAssociationId):
             self.id = FunctionalAssociationId(self.id)
         if self.subject is not None and not isinstance(self.subject, MacromolecularMachineId):
             self.subject = MacromolecularMachineId(self.subject)
         if self.object is not None and not isinstance(self.object, GeneOntologyClassId):
             self.object = GeneOntologyClassId(self.object)
+        super()._fix_elements()
 
 
 @dataclass
@@ -3069,12 +3067,12 @@ class MacromolecularMachineToMolecularActivityAssociation(FunctionalAssociation)
     edge_label: Union[str, LabelType] = None
     id: Union[str, MacromolecularMachineToMolecularActivityAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, MacromolecularMachineToMolecularActivityAssociationId):
             self.id = MacromolecularMachineToMolecularActivityAssociationId(self.id)
         if self.object is not None and not isinstance(self.object, MolecularActivityId):
             self.object = MolecularActivityId(self.object)
+        super()._fix_elements()
 
 
 @dataclass
@@ -3096,12 +3094,12 @@ class MacromolecularMachineToBiologicalProcessAssociation(FunctionalAssociation)
     edge_label: Union[str, LabelType] = None
     id: Union[str, MacromolecularMachineToBiologicalProcessAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, MacromolecularMachineToBiologicalProcessAssociationId):
             self.id = MacromolecularMachineToBiologicalProcessAssociationId(self.id)
         if self.object is not None and not isinstance(self.object, BiologicalProcessId):
             self.object = BiologicalProcessId(self.object)
+        super()._fix_elements()
 
 
 @dataclass
@@ -3123,12 +3121,12 @@ class MacromolecularMachineToCellularComponentAssociation(FunctionalAssociation)
     edge_label: Union[str, LabelType] = None
     id: Union[str, MacromolecularMachineToCellularComponentAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, MacromolecularMachineToCellularComponentAssociationId):
             self.id = MacromolecularMachineToCellularComponentAssociationId(self.id)
         if self.object is not None and not isinstance(self.object, CellularComponentId):
             self.object = CellularComponentId(self.object)
+        super()._fix_elements()
 
 
 @dataclass
@@ -3145,14 +3143,14 @@ class GeneToGoTermAssociation(FunctionalAssociation):
     edge_label: Union[str, LabelType] = None
     id: Union[str, GeneToGoTermAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, GeneToGoTermAssociationId):
             self.id = GeneToGoTermAssociationId(self.id)
         if self.subject is not None and not isinstance(self.subject, MolecularEntityId):
             self.subject = MolecularEntityId(self.subject)
         if self.object is not None and not isinstance(self.object, GeneOntologyClassId):
             self.object = GeneOntologyClassId(self.object)
+        super()._fix_elements()
 
 
 @dataclass
@@ -3177,14 +3175,14 @@ class GenomicSequenceLocalization(Association):
     genome_build: Optional[str] = None
     phase: Optional[str] = None
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, GenomicSequenceLocalizationId):
             self.id = GenomicSequenceLocalizationId(self.id)
         if self.subject is not None and not isinstance(self.subject, GenomicEntityId):
             self.subject = GenomicEntityId(self.subject)
         if self.object is not None and not isinstance(self.object, GenomicEntityId):
             self.object = GenomicEntityId(self.object)
+        super()._fix_elements()
 
 
 @dataclass
@@ -3204,14 +3202,14 @@ class SequenceFeatureRelationship(Association):
     edge_label: Union[str, LabelType] = None
     id: Union[str, SequenceFeatureRelationshipId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, SequenceFeatureRelationshipId):
             self.id = SequenceFeatureRelationshipId(self.id)
         if self.subject is not None and not isinstance(self.subject, GenomicEntityId):
             self.subject = GenomicEntityId(self.subject)
         if self.object is not None and not isinstance(self.object, GenomicEntityId):
             self.object = GenomicEntityId(self.object)
+        super()._fix_elements()
 
 
 @dataclass
@@ -3231,14 +3229,14 @@ class TranscriptToGeneRelationship(SequenceFeatureRelationship):
     edge_label: Union[str, LabelType] = None
     id: Union[str, TranscriptToGeneRelationshipId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, TranscriptToGeneRelationshipId):
             self.id = TranscriptToGeneRelationshipId(self.id)
         if self.subject is not None and not isinstance(self.subject, TranscriptId):
             self.subject = TranscriptId(self.subject)
         if self.object is not None and not isinstance(self.object, GeneId):
             self.object = GeneId(self.object)
+        super()._fix_elements()
 
 
 @dataclass
@@ -3258,8 +3256,7 @@ class GeneToGeneProductRelationship(SequenceFeatureRelationship):
     edge_label: Union[str, LabelType] = None
     id: Union[str, GeneToGeneProductRelationshipId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, GeneToGeneProductRelationshipId):
             self.id = GeneToGeneProductRelationshipId(self.id)
         if self.subject is not None and not isinstance(self.subject, GeneId):
@@ -3268,6 +3265,7 @@ class GeneToGeneProductRelationship(SequenceFeatureRelationship):
             self.relation = URIorCURIE(self.relation)
         if self.object is not None and not isinstance(self.object, GeneProductId):
             self.object = GeneProductId(self.object)
+        super()._fix_elements()
 
 
 @dataclass
@@ -3287,14 +3285,14 @@ class ExonToTranscriptRelationship(SequenceFeatureRelationship):
     edge_label: Union[str, LabelType] = None
     id: Union[str, ExonToTranscriptRelationshipId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, ExonToTranscriptRelationshipId):
             self.id = ExonToTranscriptRelationshipId(self.id)
         if self.subject is not None and not isinstance(self.subject, ExonId):
             self.subject = ExonId(self.subject)
         if self.object is not None and not isinstance(self.object, TranscriptId):
             self.object = TranscriptId(self.object)
+        super()._fix_elements()
 
 
 @dataclass
@@ -3314,8 +3312,7 @@ class GeneRegulatoryRelationship(Association):
     edge_label: Union[str, LabelType] = None
     id: Union[str, GeneRegulatoryRelationshipId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, GeneRegulatoryRelationshipId):
             self.id = GeneRegulatoryRelationshipId(self.id)
         if self.subject is not None and not isinstance(self.subject, GeneOrGeneProductId):
@@ -3324,6 +3321,7 @@ class GeneRegulatoryRelationship(Association):
             self.relation = URIorCURIE(self.relation)
         if self.object is not None and not isinstance(self.object, GeneOrGeneProductId):
             self.object = GeneOrGeneProductId(self.object)
+        super()._fix_elements()
 
 
 @dataclass
@@ -3340,14 +3338,14 @@ class AnatomicalEntityToAnatomicalEntityAssociation(Association):
     edge_label: Union[str, LabelType] = None
     id: Union[str, AnatomicalEntityToAnatomicalEntityAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, AnatomicalEntityToAnatomicalEntityAssociationId):
             self.id = AnatomicalEntityToAnatomicalEntityAssociationId(self.id)
         if self.subject is not None and not isinstance(self.subject, AnatomicalEntityId):
             self.subject = AnatomicalEntityId(self.subject)
         if self.object is not None and not isinstance(self.object, AnatomicalEntityId):
             self.object = AnatomicalEntityId(self.object)
+        super()._fix_elements()
 
 
 @dataclass
@@ -3369,8 +3367,7 @@ class AnatomicalEntityToAnatomicalEntityPartOfAssociation(AnatomicalEntityToAnat
     edge_label: Union[str, LabelType] = None
     id: Union[str, AnatomicalEntityToAnatomicalEntityPartOfAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, AnatomicalEntityToAnatomicalEntityPartOfAssociationId):
             self.id = AnatomicalEntityToAnatomicalEntityPartOfAssociationId(self.id)
         if self.subject is not None and not isinstance(self.subject, AnatomicalEntityId):
@@ -3379,6 +3376,7 @@ class AnatomicalEntityToAnatomicalEntityPartOfAssociation(AnatomicalEntityToAnat
             self.relation = URIorCURIE(self.relation)
         if self.object is not None and not isinstance(self.object, AnatomicalEntityId):
             self.object = AnatomicalEntityId(self.object)
+        super()._fix_elements()
 
 
 @dataclass
@@ -3400,8 +3398,7 @@ class AnatomicalEntityToAnatomicalEntityOntogenicAssociation(AnatomicalEntityToA
     edge_label: Union[str, LabelType] = None
     id: Union[str, AnatomicalEntityToAnatomicalEntityOntogenicAssociationId] = bnode()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, AnatomicalEntityToAnatomicalEntityOntogenicAssociationId):
             self.id = AnatomicalEntityToAnatomicalEntityOntogenicAssociationId(self.id)
         if self.subject is not None and not isinstance(self.subject, AnatomicalEntityId):
@@ -3410,6 +3407,7 @@ class AnatomicalEntityToAnatomicalEntityOntogenicAssociation(AnatomicalEntityToA
             self.relation = URIorCURIE(self.relation)
         if self.object is not None and not isinstance(self.object, AnatomicalEntityId):
             self.object = AnatomicalEntityId(self.object)
+        super()._fix_elements()
 
 
 @dataclass
@@ -3427,10 +3425,10 @@ class Occurrent(NamedThing):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, OccurrentId):
             self.id = OccurrentId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -3448,10 +3446,10 @@ class BiologicalProcessOrActivity(BiologicalEntity):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, BiologicalProcessOrActivityId):
             self.id = BiologicalProcessOrActivityId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -3469,10 +3467,10 @@ class MolecularActivity(BiologicalProcessOrActivity):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, MolecularActivityId):
             self.id = MolecularActivityId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -3490,10 +3488,10 @@ class ActivityAndBehavior(Occurrent):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, ActivityAndBehaviorId):
             self.id = ActivityAndBehaviorId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -3511,10 +3509,10 @@ class Procedure(Occurrent):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, ProcedureId):
             self.id = ProcedureId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -3532,10 +3530,10 @@ class Phenomenon(Occurrent):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, PhenomenonId):
             self.id = PhenomenonId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -3553,10 +3551,10 @@ class BiologicalProcess(BiologicalProcessOrActivity):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, BiologicalProcessId):
             self.id = BiologicalProcessId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -3571,10 +3569,10 @@ class Pathway(BiologicalProcess):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, PathwayId):
             self.id = PathwayId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -3589,10 +3587,10 @@ class PhysiologicalProcess(BiologicalProcess):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, PhysiologicalProcessId):
             self.id = PhysiologicalProcessId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -3610,10 +3608,10 @@ class CellularComponent(AnatomicalEntity):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, CellularComponentId):
             self.id = CellularComponentId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -3628,10 +3626,10 @@ class Cell(AnatomicalEntity):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, CellId):
             self.id = CellId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -3646,10 +3644,10 @@ class CellLine(Biosample):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, CellLineId):
             self.id = CellLineId(self.id)
+        super()._fix_elements()
 
 
 @dataclass
@@ -3664,7 +3662,7 @@ class GrossAnatomicalStructure(AnatomicalEntity):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, GrossAnatomicalStructureId):
             self.id = GrossAnatomicalStructureId(self.id)
+        super()._fix_elements()

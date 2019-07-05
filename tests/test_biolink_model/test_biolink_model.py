@@ -39,6 +39,9 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
     model_path = os.path.join(cwd, 'yaml')
     model_name = 'biolink-model'
 
+    def tearDown(self) -> None:
+        self.output_name = None
+
     def test_biolink_python(self):
         """ Test the python generator for the biolink model """
         self.output_name = 'model'
@@ -131,6 +134,13 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
         else:
             print("*** RDF Model validation step was skipped. See: test_biolink_model.DO_SHEX_VALIDATION to run it")
 
+    def test_biolink_shex(self):
+        """ Just Generate the ShEx file untested """
+        self.single_file_generator('shex', ShExGenerator)
+        self.output_name = 'biolink-model.shex'
+        # TODO: Get format/fmt resolved
+        self.single_file_generator('json', ShExGenerator, gen_args=dict(fmt='json'))
+
     def test_biolink_shex_incorrect_rdf(self):
         """ Test some non-conforming RDF  """
         self.single_file_generator('shex', ShExGenerator)
@@ -168,7 +178,6 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
         rdf_file = os.path.join(data_dir, 'correct.ttl')
         results = evaluator.evaluate(rdf_file, debug=False)
         self.assertTrue(self._evaluate_shex_results(results))
-
 
     @unittest.skipIf(True, "Evaluation of performance test.")
     def test_probe(self):
