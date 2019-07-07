@@ -98,9 +98,8 @@
       "name": "identifier_type",
       "description": "A string that is intended to uniquely identify a thing May be URI in full or compact (CURIE) form",
       "from_schema": "https://w3id.org/biolink/biolink-model",
-      "typeof": "string",
-      "base": "str",
-      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "base": "ElementIdentifier",
+      "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
       "type": "TypeDefinition"
     },
     {
@@ -9677,10 +9676,10 @@
       "type": "ClassDefinition"
     }
   ],
-  "metamodel_version": "1.3.6",
+  "metamodel_version": "1.4.0",
   "source_file": "biolink-model.yaml",
   "source_file_date": "2019-01-01-12:00",
-  "source_file_size": 107073,
+  "source_file_size": 107102,
   "generation_date": "2019-01-01 12:00",
   "type": "SchemaDefinition",
   "@context": [

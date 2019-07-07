@@ -29,7 +29,9 @@ A metamodel for defining biolink related schemas
 #### Built in
 
  * **Bool**
+ * **ElementIdentifier**
  * **NCName**
+ * **NodeIdentifier**
  * **URI**
  * **URIorCURIE**
  * **XSDDate**

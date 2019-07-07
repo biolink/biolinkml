@@ -14,15 +14,10 @@ from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace
 from includes.types import String
 
-metamodel_version = "1.3.6"
+metamodel_version = "1.4.0"
 
 
 # Namespaces
-META = Namespace('https://w3id.org/biolink/biolinkml/meta/')
-METATYPE = Namespace('https://w3id.org/biolink/biolinkml/type/')
-SKOS = Namespace('http://www.w3.org/2004/02/skos/core#')
-TEST = Namespace('http://example.org/test/')
-XSD = Namespace('http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = Namespace('http://example.org/tests/ifabsent/')
 
 

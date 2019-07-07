@@ -3,7 +3,7 @@
    "description": "A metamodel for defining biolink related schemas",
    "id": "https://w3id.org/biolink/biolinkml/meta",
    "title": "Biolink Schema Metamodel",
-   "version": "1.3.6",
+   "version": "1.4.0",
    "imports": [
       "includes/types"
    ],
@@ -32,6 +32,10 @@
       {
          "prefix_prefix": "xsd",
          "prefix_reference": "http://www.w3.org/2001/XMLSchema#"
+      },
+      {
+         "prefix_prefix": "shex",
+         "prefix_reference": "http://www.w3.org/ns/shex#"
       }
    ],
    "emit_prefixes": [
@@ -156,6 +160,27 @@
          "imported_from": "includes/types",
          "base": "NCName",
          "uri": "xsd:string",
+         "repr": "str"
+      },
+      {
+         "name": "objectidentifier",
+         "description": "A URI or CURIE that represents an object in the model.",
+         "comments": [
+            "Used for inheritence and type checking"
+         ],
+         "from_schema": "https://w3id.org/biolink/biolinkml/types",
+         "imported_from": "includes/types",
+         "base": "ElementIdentifier",
+         "uri": "shex:iri",
+         "repr": "str"
+      },
+      {
+         "name": "nodeidentifier",
+         "description": "A URI, CURIE or BNODE that represents a node in a model.",
+         "from_schema": "https://w3id.org/biolink/biolinkml/types",
+         "imported_from": "includes/types",
+         "base": "NodeIdentifier",
+         "uri": "shex:nonLiteral",
          "repr": "str"
       }
    ],

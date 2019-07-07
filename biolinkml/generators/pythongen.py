@@ -419,9 +419,9 @@ metamodel_version = "{self.schema.metamodel_version}"
                                     ('\n\t\t' if post_inits_pre_super else '')
         post_inits_line = '\n\t\t'.join([p for p in post_inits if p])
         return (f'''
-    def _fix_elements(self):
-        {post_inits_pre_super_line}super()._fix_elements()
-        {post_inits_line}''' + '\n') if post_inits_line or post_inits_pre_super_line else ''
+    def __post_init__(self):
+        {post_inits_pre_super_line}{post_inits_line}
+        super().__post_init__()''' + '\n') if post_inits_line or post_inits_pre_super_line else ''
 
     def is_key_value_class(self, range_name: DefinitionName) -> bool:
         """

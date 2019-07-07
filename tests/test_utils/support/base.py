@@ -27,11 +27,17 @@ class Base(unittest.TestCase):
         schema.source_file_date = "2018-12-31 17:23"
         return schema
 
+
     def eval_output(self, actual: str, filename: str, conv_f: Optional[Callable[[str], Any]] = None,
                     comp_f: Optional[Callable[[str, str], None]] = None) -> None:
 
+        def _default_comparator(expected: str, actual: str) -> None:
+            if expected != actual:
+                print(f"\n***** Testing file: {file_path}. Remove to update test. *****\n")
+                self.assertEqual(expected, actual)
+
         if comp_f is None:
-            comp_f = lambda s1, s2: self.assertEqual(s1, s2)
+            comp_f = _default_comparator
 
         file_path = os.path.join(outputdir, filename)
         file_created = False

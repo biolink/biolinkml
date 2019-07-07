@@ -11,7 +11,7 @@ from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace
 from biolinkml.utils.metamodelcore import URI
 
-metamodel_version = "1.3.6"
+metamodel_version = "1.4.0"
 
 
 # Namespaces
@@ -69,10 +69,10 @@ class Attribute(YAMLRoot):
 
     id: Union[str, AttributeId]
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if not isinstance(self.id, AttributeId):
             self.id = AttributeId(self.id)
+        super().__post_init__()
 
 
 @dataclass
@@ -85,10 +85,10 @@ class BiologicalSex(Attribute):
 
     id: Union[str, BiologicalSexId] = None
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, BiologicalSexId):
             self.id = BiologicalSexId(self.id)
+        super().__post_init__()
 
 
 @dataclass
@@ -104,10 +104,10 @@ class OntologyClass(NamedThing):
 
     id: Union[str, OntologyClassId] = None
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, OntologyClassId):
             self.id = OntologyClassId(self.id)
+        super().__post_init__()
 
 
 @dataclass
@@ -124,9 +124,9 @@ class NamedThing(YAMLRoot):
     id: Union[str, NamedThingId]
     name: Optional[Union[str, LabelType]] = None
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if not isinstance(self.id, NamedThingId):
             self.id = NamedThingId(self.id)
         if self.name is not None and not isinstance(self.name, LabelType):
             self.name = LabelType(self.name)
+        super().__post_init__()

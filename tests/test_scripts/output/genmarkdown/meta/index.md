@@ -116,7 +116,9 @@ A metamodel for defining biolink related schemas
 #### Built in
 
  * **Bool**
+ * **ElementIdentifier**
  * **NCName**
+ * **NodeIdentifier**
  * **URI**
  * **URIorCURIE**
  * **XSDDate**
@@ -135,6 +137,8 @@ A metamodel for defining biolink related schemas
  * [Float](Float.md)  (**float**)  - A real number that conforms to the xsd:float specification
  * [Integer](Integer.md)  (**int**)  - An integer
  * [Ncname](Ncname.md)  (**NCName**)  - Prefix part of CURIE
+ * [Nodeidentifier](Nodeidentifier.md)  (**NodeIdentifier**)  - A URI, CURIE or BNODE that represents a node in a model.
+ * [Objectidentifier](Objectidentifier.md)  (**ElementIdentifier**)  - A URI or CURIE that represents an object in the model.
  * [String](String.md)  (**str**)  - A character string
  * [Time](Time.md)  (**XSDTime**)  - A time object represents a (local) time of day, independent of any particular day
  * [Uri](Uri.md)  (**URI**)  - a complete URI

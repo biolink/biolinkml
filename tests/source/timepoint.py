@@ -12,13 +12,10 @@ from rdflib import Namespace
 from biolinkml.utils.metamodelcore import XSDTime
 from includes.types import String, Time
 
-metamodel_version = "1.3.6"
+metamodel_version = "1.4.0"
 
 
 # Namespaces
-META = Namespace('https://w3id.org/biolink/biolinkml/meta/')
-METATYPE = Namespace('https://w3id.org/biolink/biolinkml/type/')
-XSD = Namespace('http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = Namespace('http://example.org/tests/timepoint/')
 
 
@@ -47,10 +44,10 @@ class GeographicLocation(YAMLRoot):
 
     k: Union[str, GeographicLocationK]
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if not isinstance(self.k, GeographicLocationK):
             self.k = GeographicLocationK(self.k)
+        super().__post_init__()
 
 
 @dataclass
@@ -64,9 +61,9 @@ class GeographicLocationAtTime(GeographicLocation):
     k: Union[str, GeographicLocationAtTimeK] = None
     timepoint: Optional[Union[str, TimeType]] = None
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.k is not None and not isinstance(self.k, GeographicLocationAtTimeK):
             self.k = GeographicLocationAtTimeK(self.k)
         if self.timepoint is not None and not isinstance(self.timepoint, TimeType):
             self.timepoint = TimeType(self.timepoint)
+        super().__post_init__()

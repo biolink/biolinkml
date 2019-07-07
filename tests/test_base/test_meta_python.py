@@ -2,6 +2,7 @@ import os
 import unittest
 from types import ModuleType
 
+from biolinkml import MODULE_DIR
 from biolinkml.generators.pythongen import PythonGenerator
 from tests import targetdir
 from tests.test_scripts.clicktestcase import metadata_filter
@@ -9,11 +10,10 @@ from tests.utils.generator_utils import GeneratorTestCase
 
 
 class MetaModelTestCase(GeneratorTestCase):
-    root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
-    source_path = os.path.join(root, 'biolinkml')
+    source_path = os.path.join(MODULE_DIR, 'biolinkml')
     target_path = targetdir
-    model_path = root
+    model_path = MODULE_DIR
     model_name = 'meta'
 
     def test_meta_python(self):

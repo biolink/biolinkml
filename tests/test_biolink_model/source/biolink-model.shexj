@@ -15,7 +15,7 @@
       {
          "type": "NodeConstraint",
          "id": "https://w3id.org/biolink/vocab/IdentifierType",
-         "datatype": "http://www.w3.org/2001/XMLSchema#string"
+         "nodeKind": "iri"
       },
       {
          "type": "NodeConstraint",

@@ -16,7 +16,7 @@ from rdflib.compare import to_isomorphic, graph_diff
 
 from tests.utils.compare_directories import are_dir_trees_equal
 from tests.utils.dirutils import make_and_clear_directory
-from biolinkml import MODULE_DIR
+from biolinkml import MODULE_DIR, METAMODEL_NAMESPACE
 
 
 class CLIExitException(Exception):
@@ -34,7 +34,6 @@ def metadata_filter(s: str) -> str:
     return re.sub(r'(# Auto generated from ).*(\.yaml by pythongen\.py version:) .*', r'\1\2',
                   re.sub(r'(# Generation date:) .*', r'\1', re.sub(r'\r\n', '\n', s)))
 
-MMNS = Namespace("https://w3id.org/biolink/biolinkml/meta/")
 
 class ClickTestCase(unittest.TestCase):
     # The four variables below must be set by the inheriting class
@@ -71,27 +70,27 @@ class ClickTestCase(unittest.TestCase):
 
     @staticmethod
     def _print_triples(g: Graph):
-        g.bind('meta', MMNS)
+        g.bind('meta', METAMODEL_NAMESPACE)
         g_text = re.sub(r'@prefix.*\n', '', g.serialize(format="turtle").decode())
         print(g_text)
 
-    def n3_comparator(self, old_data: str, new_data: str) -> bool:
+    def n3_comparator(self, old_data: str, new_data: str) -> str:
         return self.compare_rdf(old_data, new_data, "n3")
 
-    def rdf_comparator(self, old_data: str, new_data: str) -> bool:
+    def rdf_comparator(self, old_data: str, new_data: str) -> str:
         return self.compare_rdf(old_data, new_data, "turtle")
 
-    def compare_rdf(self, old_data: str, new_data: str, fmt: str) -> bool:
+    def compare_rdf(self, old_data: str, new_data: str, fmt: str) -> Optional[str]:
         old_graph = Graph()
         new_graph = Graph()
         old_graph.parse(data=old_data, format=fmt)
         new_graph.parse(data=new_data, format=fmt)
         old_iso = to_isomorphic(old_graph)
         # Remove the metadata specific triples
-        for t in list(old_iso.triples((None, MMNS.generation_date, None))):
+        for t in list(old_iso.triples((None, METAMODEL_NAMESPACE.generation_date, None))):
             old_iso.remove(t)
         new_iso = to_isomorphic(new_graph)
-        for t in list(new_iso.triples((None, MMNS.generation_date, None))):
+        for t in list(new_iso.triples((None, METAMODEL_NAMESPACE.generation_date, None))):
             new_iso.remove(t)
         # Graph compare takes a Looong time
         in_both, in_old, in_new = graph_diff(old_iso, new_iso)
@@ -100,15 +99,16 @@ class ClickTestCase(unittest.TestCase):
         old_len = len(list(in_old))
         new_len = len(list(in_new))
         if old_len or new_len:
-            if old_len:
-                print("----- Old graph only -----")
-                self._print_triples(in_old)
-            if new_len:
-                print("----- New Grapn Only -----")
-                self._print_triples(in_new)
-            self.assertTrue(False, "RDF file mismatch")
-            return False
-        return True
+            txt = StringIO()
+            with redirect_stdout(txt):
+                if old_len:
+                    print("----- Old graph only -----")
+                    self._print_triples(in_old)
+                if new_len:
+                    print("----- New Grapn Only -----")
+                    self._print_triples(in_new)
+            return txt.getvalue()
+        return None
 
     @staticmethod
     def closein_comparison(old_txt: str, new_txt: str) -> None:
@@ -117,24 +117,27 @@ class ClickTestCase(unittest.TestCase):
         @param old_txt:
         @param new_txt:
         """
+        window = 30
+        view = 120
+
         nw = nt = new_txt.strip()
         ow = ot = old_txt.strip()
         if ot != nt:
             offset = 0
-            while nt and ot and nt[:20] == ot[:20]:
-                offset += 20
-                nt = nt[20:]
-                ot = ot[20:]
-            offset = max(offset-50, 0)
+            while nt and ot and nt[:window] == ot[:window]:
+                offset += window
+                nt = nt[window:]
+                ot = ot[window:]
+            offset = max(offset-view, 0)
             print("   - - EXPECTED - -")
-            print(ow[offset:offset+100])
-            print("   - - ACTUAL - -")
-            print(nw[offset:offset+100])
+            print(ow[offset:offset+view+view])
+            print("\n   - - ACTUAL - -")
+            print(nw[offset:offset+view+view])
 
     def do_test(self, args: Union[str, List[str]], testfile: Optional[str] = "", *, error: type(Exception) = None,
                 filtr: Optional[Callable[[str], str]] = None, tox_wrap_fix: bool = False,
                 bypass_soft_compare: bool = False, dirbase: Optional[str] = None,
-                comparator: Callable[[type(unittest.TestCase), str, str, str], bool] = None) -> None:
+                comparator: Callable[[type(unittest.TestCase), str, str, str], str] = None) -> None:
         """ Execute a command test
 
         @param args: Argument string or list to command
@@ -194,19 +197,24 @@ class ClickTestCase(unittest.TestCase):
                 if old_txt != new_txt and not comparator and tox_wrap_fix:
                     old_txt = textwrap.fill(old_txt, 60)
                     new_txt = textwrap.fill(new_txt, 60)
-                compare_result = (old_txt == new_txt) if not comparator else comparator(self, old_txt, new_txt)
+                if comparator:
+                    compare_text = comparator(self, old_txt, new_txt)
+                else:
+                    compare_text = None if old_txt == new_txt else ''
 
                 # If necessary, update the test file
-                if not compare_result:
-                    msg = f"Existing file: {os.path.relpath(testfile_path, MODULE_DIR)}"
+                if compare_text is not None:
+                    print(f"\n***** Mismatch on: {os.path.relpath(testfile_path, MODULE_DIR)}. "
+                          f"Remove file to refresh *****\n")
                     if self.soft_compare and not bypass_soft_compare:
                         print(f"{self.id()}: {self.soft_compare}")
                     elif not comparator:
                         if len(old_txt) > 10000:
                             print(self.closein_comparison(old_txt, new_txt))
-                        self.assertEqual(old_txt, new_txt, msg=msg)
+                        self.assertEqual(old_txt, new_txt)
                     else:
-                        self.assertFalse(True, "Mismatch", msg=msg)
+                        print(compare_text)
+                        self.assertFalse(True, "Mismatch")
 
     def temp_directory(self, base: str) -> str:
         """

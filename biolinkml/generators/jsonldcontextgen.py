@@ -160,6 +160,7 @@ license: {be(self.schema.license)}
 @click.option("--format", "-f", default='json', type=click.Choice(ContextGenerator.valid_formats), help="Output format")
 @click.option("-o", "--output", help="Output file name")
 @click.option("--base", help="Base URI for model")
-def cli(yamlfile, format, base, output):
+@click.option("--native_uris", is_flag=True, help="Don't use the class and slot URI's")
+def cli(yamlfile, format, base, output, native_uris):
     """ Generate jsonld @context definition from biolink model """
-    print(ContextGenerator(yamlfile, format).serialize(base=base, output=output))
+    print(ContextGenerator(yamlfile, format).serialize(base=base, output=output, native_uris=native_uris))

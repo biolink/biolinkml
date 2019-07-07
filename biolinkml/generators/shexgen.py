@@ -29,12 +29,7 @@ def wildcard(id: str) -> TripleConstraint:
     return TripleConstraint(id=id, predicate="http://ex.org/dummy", min=0, max=1)
 
 
-def nevermatch() -> TripleConstraint:
-    """
-    Return a triple constraint that can never be matched
-    """
-    return TripleConstraint(predicate="http://ex.org/dummy", min=1, max=1)
-
+SHEX = Namespace("http://www.w3.org/ns/shex#")
 
 class ShExGenerator(Generator):
     generatorname = os.path.basename(__file__)
@@ -54,12 +49,6 @@ class ShExGenerator(Generator):
         self.meta = Namespace(self.namespaces.join(self.namespaces[METAMODEL_LOCAL_NAME], ''))  # URI for the metamodel
         self.base = Namespace(self.namespaces.join(self.namespaces._base, ''))    # Base URI for what is being modeled
 
-    def serialize(self, format: Optional[str] = None, **args) -> str:
-        if format is not None and format not in self.valid_formats:
-            raise ValueError(f"Unrecognized format: {format}")
-        self.format = format if format else "shex"
-        return super().serialize(**args)
-
     def visit_schema(self, **_):
         # Adjust the schema context to include the base model URI
         context = self.shex['@context']
@@ -68,8 +57,10 @@ class ShExGenerator(Generator):
         for typ in self.schema.types.values():
             if typ.uri:
                 uri = self.namespaces.uri_for(typ.uri)
-                if uri == XSD.anyURI:
+                if uri in (XSD.anyURI, SHEX.iri):
                     self.shapes.append(NodeConstraint(id=self._shape_iri(typ.name), nodeKind="iri"))
+                elif uri == SHEX.nonLiteral:
+                    self.shapes.append(NodeConstraint(id=self._shape_iri(typ.name), nodeKind="nonliteral"))
                 else:
                     self.shapes.append(NodeConstraint(id=self._shape_iri(typ.name),
                                                       datatype=self.namespaces.uri_for(typ.uri)))
@@ -122,7 +113,7 @@ class ShExGenerator(Generator):
             self.shape.extra = [RDF.type]
         if self.shape.expression:
             if isinstance_(self.shape.expression, tripleExprLabel):
-                self.shape.expression = EachOf(expressions=[self.shape.expression, wildcard(None)])
+                self.shape.expression = OneOf(expressions=[self.shape.expression, wildcard(None)])
             self.shape.expression.id = self.namespaces.uri_for(camelcase(cls.name) + "_struct")
         else:
             self.shape.expression = wildcard(self.namespaces.uri_for(camelcase(cls.name) + "_struct"))

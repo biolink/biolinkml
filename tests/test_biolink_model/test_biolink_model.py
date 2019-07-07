@@ -137,14 +137,13 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
     def test_biolink_shex(self):
         """ Just Generate the ShEx file untested """
         self.single_file_generator('shex', ShExGenerator)
-        self.output_name = 'biolink-model.shex'
         # TODO: Get format/fmt resolved
-        self.single_file_generator('json', ShExGenerator, gen_args=dict(fmt='json'))
+        self.single_file_generator('shexj', ShExGenerator, gen_args=dict(fmt='json'))
 
     def test_biolink_shex_incorrect_rdf(self):
         """ Test some non-conforming RDF  """
-        self.single_file_generator('shex', ShExGenerator)
-        shex_file = os.path.join(self.source_path, 'biolink-model.shex')
+        self.single_file_generator('shexj', ShExGenerator, dict(fmt='json'))
+        shex_file = os.path.join(self.source_path, 'biolink-model.shexj')
         data_dir = os.path.join(self.cwd, 'data')
 
         focus = "http://identifiers.org/drugbank:DB00005"
@@ -164,11 +163,10 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
             with open(errs_file, 'w') as f:
                 f.write(repr(results))
 
-    @unittest.skipIf(True, "Awaiting fix to PyShEx permutation issue")
     def test_biolink_correct_rdf(self):
         """ Test some conforming RDF  """
-        self.single_file_generator('shex', ShExGenerator)
-        shex_file = os.path.join(self.source_path, 'biolink-model.shex')
+        self.single_file_generator('shexj', ShExGenerator, dict(fmt='json'))
+        shex_file = os.path.join(self.source_path, 'biolink-model.shexj')
         data_dir = os.path.join(self.cwd, 'data')
 
         focus = "http://identifiers.org/drugbank:DB00005"
@@ -176,19 +174,6 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
         evaluator = ShExEvaluator(None, shex_file, focus, start)
 
         rdf_file = os.path.join(data_dir, 'correct.ttl')
-        results = evaluator.evaluate(rdf_file, debug=False)
-        self.assertTrue(self._evaluate_shex_results(results))
-
-    @unittest.skipIf(True, "Evaluation of performance test.")
-    def test_probe(self):
-        """ Test for determining performance problem """
-        shex_file = os.path.join(self.source_path, 'probe.shex')
-        data_dir = os.path.join(self.cwd, 'data')
-
-        focus = "http://identifiers.org/drugbank:DB00005"
-        start = BIOLINK_NS.Drug
-        evaluator = ShExEvaluator(None, shex_file, focus, start)
-        rdf_file = os.path.join(data_dir, 'probe.ttl')
         results = evaluator.evaluate(rdf_file, debug=False)
         self.assertTrue(self._evaluate_shex_results(results))
 

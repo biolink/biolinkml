@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by pythongen.py version: 0.2.0
-# Generation date: 2019-07-01 15:37
+# Generation date: 2019-07-06 16:36
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta
@@ -15,14 +15,13 @@ from rdflib import Namespace
 from biolinkml.utils.metamodelcore import Bool, NCName, URI, URIorCURIE, XSDDateTime
 from includes.types import Boolean, Datetime, Integer, Ncname, String, Uri, Uriorcurie
 
-metamodel_version = "1.3.6"
+metamodel_version = "1.4.0"
 
 
 # Namespaces
 OIO = Namespace('http://www.geneontology.org/formats/oboInOwl#')
 DCTERMS = Namespace('http://purl.org/dc/terms/')
 META = Namespace('https://w3id.org/biolink/biolinkml/meta/')
-METATYPE = Namespace('https://w3id.org/biolink/biolinkml/type/')
 OWL = Namespace('http://www.w3.org/2002/07/owl#')
 PAV = Namespace('http://purl.org/pav/')
 RDF = Namespace('http://www.w3.org/1999/02/22-rdf-syntax-ns#')
@@ -103,8 +102,7 @@ class Element(YAMLRoot):
     imported_from: Optional[str] = None
     see_also: List[Union[str, URIorCURIE]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         self.id_prefixes = [v if isinstance(v, NCName)
                             else NCName(v) for v in self.id_prefixes]
         if not isinstance(self.name, ElementName):
@@ -125,6 +123,7 @@ class Element(YAMLRoot):
             self.from_schema = URI(self.from_schema)
         self.see_also = [v if isinstance(v, URIorCURIE)
                          else URIorCURIE(v) for v in self.see_also]
+        super().__post_init__()
 
 
 @dataclass
@@ -159,10 +158,9 @@ class SchemaDefinition(Element):
     source_file_size: Optional[int] = None
     generation_date: Optional[Union[str, XSDDateTime]] = None
 
-    def _fix_elements(self):
+    def __post_init__(self):
         if self.default_prefix is None:
             self.default_prefix = sfx(str(self.id))
-        super()._fix_elements()
         if self.name is not None and not isinstance(self.name, SchemaDefinitionName):
             self.name = SchemaDefinitionName(self.name)
         if self.id is not None and not isinstance(self.id, URI):
@@ -192,6 +190,7 @@ class SchemaDefinition(Element):
             self.source_file_date = XSDDateTime(self.source_file_date)
         if self.generation_date is not None and not isinstance(self.generation_date, XSDDateTime):
             self.generation_date = XSDDateTime(self.generation_date)
+        super().__post_init__()
 
 
 @dataclass
@@ -211,14 +210,14 @@ class TypeDefinition(Element):
     uri: Optional[Union[str, URIorCURIE]] = None
     repr: Optional[str] = None
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.name is not None and not isinstance(self.name, TypeDefinitionName):
             self.name = TypeDefinitionName(self.name)
         if self.typeof is not None and not isinstance(self.typeof, TypeDefinitionName):
             self.typeof = TypeDefinitionName(self.typeof)
         if self.uri is not None and not isinstance(self.uri, URIorCURIE):
             self.uri = URIorCURIE(self.uri)
+        super().__post_init__()
 
 
 @dataclass
@@ -234,10 +233,10 @@ class SubsetDefinition(Element):
 
     name: Union[str, SubsetDefinitionName] = None
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.name is not None and not isinstance(self.name, SubsetDefinitionName):
             self.name = SubsetDefinitionName(self.name)
+        super().__post_init__()
 
 
 @dataclass
@@ -259,8 +258,7 @@ class Definition(Element):
     apply_to: List[Union[str, DefinitionName]] = empty_list()
     values_from: List[Union[str, URIorCURIE]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.is_a is not None and not isinstance(self.is_a, DefinitionName):
             self.is_a = DefinitionName(self.is_a)
         self.mixins = [v if isinstance(v, DefinitionName)
@@ -269,6 +267,7 @@ class Definition(Element):
                          else DefinitionName(v) for v in self.apply_to]
         self.values_from = [v if isinstance(v, URIorCURIE)
                             else URIorCURIE(v) for v in self.values_from]
+        super().__post_init__()
 
 
 @dataclass
@@ -307,8 +306,7 @@ class SlotDefinition(Definition):
     role: Optional[str] = None
     is_usage_slot: Optional[Bool] = None
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.name is not None and not isinstance(self.name, SlotDefinitionName):
             self.name = SlotDefinitionName(self.name)
         if self.is_a is not None and not isinstance(self.is_a, SlotDefinitionName):
@@ -329,6 +327,7 @@ class SlotDefinition(Definition):
             self.subproperty_of = URIorCURIE(self.subproperty_of)
         if self.inverse is not None and not isinstance(self.inverse, SlotDefinitionName):
             self.inverse = SlotDefinitionName(self.inverse)
+        super().__post_init__()
 
 
 @dataclass
@@ -353,8 +352,7 @@ class ClassDefinition(Definition):
     union_of: List[Union[str, ClassDefinitionName]] = empty_list()
     defining_slots: List[Union[str, SlotDefinitionName]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.name is not None and not isinstance(self.name, ClassDefinitionName):
             self.name = ClassDefinitionName(self.name)
         if self.is_a is not None and not isinstance(self.is_a, ClassDefinitionName):
@@ -376,6 +374,7 @@ class ClassDefinition(Definition):
                          else ClassDefinitionName(v) for v in self.union_of]
         self.defining_slots = [v if isinstance(v, SlotDefinitionName)
                                else SlotDefinitionName(v) for v in self.defining_slots]
+        super().__post_init__()
 
 
 @dataclass
@@ -392,12 +391,12 @@ class Prefix(YAMLRoot):
     prefix_prefix: Union[str, PrefixPrefixPrefix]
     prefix_reference: Union[str, URI]
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if not isinstance(self.prefix_prefix, PrefixPrefixPrefix):
             self.prefix_prefix = PrefixPrefixPrefix(self.prefix_prefix)
         if not isinstance(self.prefix_reference, URI):
             self.prefix_reference = URI(self.prefix_reference)
+        super().__post_init__()
 
 
 @dataclass
@@ -414,10 +413,10 @@ class LocalName(YAMLRoot):
     local_name_source: Union[str, LocalNameLocalNameSource]
     local_name_value: str
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if not isinstance(self.local_name_source, LocalNameLocalNameSource):
             self.local_name_source = LocalNameLocalNameSource(self.local_name_source)
+        super().__post_init__()
 
 
 @dataclass
@@ -448,8 +447,8 @@ class AltDescription(YAMLRoot):
     source: Union[str, AltDescriptionSource]
     description: str
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if not isinstance(self.source, AltDescriptionSource):
             self.source = AltDescriptionSource(self.source)
+        super().__post_init__()
 

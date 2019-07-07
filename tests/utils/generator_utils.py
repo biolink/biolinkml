@@ -54,7 +54,7 @@ class GeneratorTestCase(unittest.TestCase):
                 newf.write(new_data)
             if len(new_data) > 20000:
                 print(ClickTestCase.closein_comparison(old_data, new_data))
-            self.assertEqual(old_data, new_data, msg=msg)
+            self.assertEqual(old_data, new_data)
 
     def rdf_comparator(self, old_data: str, new_data: str, new_file: str, msg: Optional[str] = None) -> None:
         """
@@ -99,7 +99,8 @@ class GeneratorTestCase(unittest.TestCase):
                 newf.write(new_data)
             self.assertTrue(False, "RDF file mismatch" if not msg else msg)
 
-    def single_file_generator(self, suffix: str, gen: type(Generator), gen_args: Optional[dict] = None,
+    def single_file_generator(self, suffix: str, gen: type(Generator),
+                              gen_args: Optional[dict] = None,
                               serialize_args: Optional[dict] = None,
                               filtr: Optional[Callable[[str], str]] = None,
                               comparator: Callable[[type(unittest.TestCase), str, str, str], None] = None,
@@ -126,8 +127,8 @@ class GeneratorTestCase(unittest.TestCase):
         output_base = self.output_name if self.output_name else self.model_name
         old_file = os.path.join(self.source_path, output_base + '.' + suffix)
         new_file = os.path.join(self.target_path, output_base + '.' + suffix)
-        message = f"\nComparing existing {os.path.relpath(old_file, MODULE_DIR)} " \
-            f"to new {os.path.relpath(new_file, MODULE_DIR)}\n"
+        message = \
+            f"\n***** Move {os.path.relpath(new_file, MODULE_DIR)} to {os.path.relpath(old_file, MODULE_DIR)} *****\n"
         yaml_file = os.path.join(self.model_path, self.model_name + '.yaml')
         if os.path.exists(new_file):
             os.remove(new_file)

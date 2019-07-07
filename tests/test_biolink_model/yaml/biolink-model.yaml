@@ -51,7 +51,8 @@ types:
       - Should be implemented as a stronger type
 
   identifier type:
-    typeof: string
+    base: ElementIdentifier
+    uri: xsd:anyURI
     description: >-
       A string that is intended to uniquely identify a thing
       May be URI in full or compact (CURIE) form

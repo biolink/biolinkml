@@ -1,5 +1,5 @@
 {
-   "_comments": "Auto generated from meta.yaml by jsonldcontextgen.py version: 0.0.2\nGeneration date: 2019-06-20 20:03\nSchema: metamodel\n\nid: https://w3id.org/biolink/biolinkml/meta\ndescription: A metamodel for defining biolink related schemas\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
+   "_comments": "Auto generated from meta.yaml by jsonldcontextgen.py version: 0.0.2\nGeneration date: 2019-07-07 12:17\nSchema: metamodel\n\nid: https://w3id.org/biolink/biolinkml/meta\ndescription: A metamodel for defining biolink related schemas\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
    "@context": {
       "_comments": null,
       "type": "@type",
@@ -10,6 +10,7 @@
       "pav": "http://purl.org/pav/",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "shex": "http://www.w3.org/ns/shex#",
       "skos": "http://www.w3.org/2004/02/skos/core#",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "@vocab": "https://w3id.org/biolink/biolinkml/meta/",

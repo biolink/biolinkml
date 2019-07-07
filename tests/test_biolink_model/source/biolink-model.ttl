@@ -6,6 +6,7 @@
 @prefix pav: <http://purl.org/pav/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix shex: <http://www.w3.org/ns/shex#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -171,32 +172,32 @@
         "rdfs",
         "skos",
         "xsd" ;
-    :generation_date "2019-07-01 16:31"^^xsd:dateTime ;
+    :generation_date "2019-07-07 13:35"^^xsd:dateTime ;
     :id <https://w3id.org/biolink/biolink-model> ;
     :imports <biolinkml:types> ;
-    :metamodel_version "1.3.6" ;
-    :prefixes [ :prefix_prefix "UMLSSC" ;
-            :prefix_reference <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/TUI/> ],
-        [ :prefix_prefix "xsd" ;
+    :metamodel_version "1.4.0" ;
+    :prefixes [ :prefix_prefix "xsd" ;
             :prefix_reference xsd: ],
-        [ :prefix_prefix "SIO" ;
-            :prefix_reference <http://semanticscience.org/resource/SIO_> ],
-        [ :prefix_prefix "biolink" ;
-            :prefix_reference <https://w3id.org/biolink/vocab/> ],
-        [ :prefix_prefix "UMLSSG" ;
-            :prefix_reference <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/GROUP/> ],
+        [ :prefix_prefix "UMLSST" ;
+            :prefix_reference <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/STY/> ],
         [ :prefix_prefix "wgs" ;
             :prefix_reference <http://www.w3.org/2003/01/geo/wgs84_pos> ],
+        [ :prefix_prefix "UMLSSG" ;
+            :prefix_reference <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/GROUP/> ],
         [ :prefix_prefix "biolinkml" ;
             :prefix_reference <https://w3id.org/biolink/biolinkml/> ],
+        [ :prefix_prefix "meta" ;
+            :prefix_reference : ],
+        [ :prefix_prefix "biolink" ;
+            :prefix_reference <https://w3id.org/biolink/vocab/> ],
+        [ :prefix_prefix "UMLSSC" ;
+            :prefix_reference <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/TUI/> ],
+        [ :prefix_prefix "SIO" ;
+            :prefix_reference <http://semanticscience.org/resource/SIO_> ],
         [ :prefix_prefix "OBAN" ;
             :prefix_reference <http://purl.org/oban/> ],
         [ :prefix_prefix "metatype" ;
-            :prefix_reference metatype: ],
-        [ :prefix_prefix "UMLSST" ;
-            :prefix_reference <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/STY/> ],
-        [ :prefix_prefix "meta" ;
-            :prefix_reference : ] ;
+            :prefix_reference metatype: ] ;
     :slots <https://w3id.org/biolink/vocab/actively_involved_in>,
         <https://w3id.org/biolink/vocab/affects>,
         <https://w3id.org/biolink/vocab/affects_abundance_of>,
@@ -456,8 +457,8 @@
         <https://w3id.org/biolink/vocab/variant_to_thing_association_subject>,
         <https://w3id.org/biolink/vocab/xenologous_to> ;
     :source_file "biolink-model.yaml" ;
-    :source_file_date "Mon Jul  1 16:30:36 2019"^^xsd:dateTime ;
-    :source_file_size 107073 ;
+    :source_file_date "Sun Jul  7 11:53:24 2019"^^xsd:dateTime ;
+    :source_file_size 107102 ;
     :subsets <https://w3id.org/biolink/vocab/testing>,
         <https://w3id.org/biolink/vocab/translator_minimal> ;
     :types <https://w3id.org/biolink/vocab/biological_sequence>,
@@ -3789,11 +3790,11 @@
     :inherited true ;
     :is_a <https://w3id.org/biolink/vocab/regulates_entity_to_entity> ;
     :local_names [ a :LocalName ;
-            skos:altLabel "activity directly positively regulates activity of" ;
-            :local_name_source "ro" ],
-        [ a :LocalName ;
             skos:altLabel "positively regulates" ;
-            :local_name_source "translator" ] ;
+            :local_name_source "translator" ],
+        [ a :LocalName ;
+            skos:altLabel "activity directly positively regulates activity of" ;
+            :local_name_source "ro" ] ;
     :mixins <https://w3id.org/biolink/vocab/positively_regulates> ;
     :multivalued true ;
     :owner <https://w3id.org/biolink/vocab/positively_regulates_entity_to_entity> ;
@@ -4367,10 +4368,10 @@
     :is_a <https://w3id.org/biolink/vocab/OrganismalEntity> ;
     :local_names [ a :LocalName ;
             skos:altLabel "population" ;
-            :local_name_source "ga4gh" ],
+            :local_name_source "agr" ],
         [ a :LocalName ;
             skos:altLabel "population" ;
-            :local_name_source "agr" ] ;
+            :local_name_source "ga4gh" ] ;
     :mixins <https://w3id.org/biolink/vocab/ThingWithTaxon> ;
     :slots <https://w3id.org/biolink/vocab/category>,
         <https://w3id.org/biolink/vocab/description>,
@@ -5060,9 +5061,8 @@
 <https://w3id.org/biolink/vocab/identifier_type> a :TypeDefinition ;
     skos:definition "A string that is intended to uniquely identify a thing May be URI in full or compact (CURIE) form" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    :base "str" ;
-    :typeof <https://w3id.org/biolink/vocab/string> ;
-    :uri xsd:string .
+    :base "ElementIdentifier" ;
+    :uri xsd:anyURI .
 
 <https://w3id.org/biolink/vocab/integer> a :TypeDefinition ;
     skos:definition "An integer" ;
@@ -6733,11 +6733,11 @@
         <wd:Q15304597> ;
     skos:note "This class is for modeling the specific state at a locus. A single dbSNP rs ID could correspond to more than one sequence variants (e.g CIViC:1252 and CIViC:1253, two distinct BRCA2 alleles for rs28897743)" ;
     :alt_descriptions [ a :AltDescription ;
-            skos:definition "A contiguous change at a Location" ;
-            :source "VMC" ],
-        [ a :AltDescription ;
             skos:definition "An enitity that describes a single affected, endogenous allele.  These can be of any type that matches that definition" ;
-            :source "AGR" ] ;
+            :source "AGR" ],
+        [ a :AltDescription ;
+            skos:definition "A contiguous change at a Location" ;
+            :source "VMC" ] ;
     :class_uri <http://purl.obolibrary.org/obo/GENO_0000002> ;
     :id_prefixes "CIViC",
         "ClinVar",
@@ -6846,6 +6846,13 @@
     :range <https://w3id.org/biolink/vocab/OntologyClass> ;
     :slot_uri rdfs:subClassOf .
 
+<https://w3id.org/biolink/vocab/string> a :TypeDefinition ;
+    skos:definition "A character string" ;
+    skos:inScheme <https://w3id.org/biolink/biolinkml/types> ;
+    :base "str" ;
+    :imported_from "https://w3id.org/biolink/biolinkml/types" ;
+    :uri xsd:string .
+
 <https://w3id.org/biolink/vocab/frequency_qualifier> a :SlotDefinition ;
     skos:definition "a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
@@ -6854,13 +6861,6 @@
     :owner <https://w3id.org/biolink/vocab/FrequencyQualifierMixin> ;
     :range <https://w3id.org/biolink/vocab/FrequencyValue> ;
     :slot_uri <https://w3id.org/biolink/vocab/frequency_qualifier> .
-
-<https://w3id.org/biolink/vocab/string> a :TypeDefinition ;
-    skos:definition "A character string" ;
-    skos:inScheme <https://w3id.org/biolink/biolinkml/types> ;
-    :base "str" ;
-    :imported_from "https://w3id.org/biolink/biolinkml/types" ;
-    :uri xsd:string .
 
 <https://w3id.org/biolink/vocab/uriorcurie> a :TypeDefinition ;
     skos:definition "a URI or a CURIE" ;
@@ -8100,11 +8100,11 @@
     :domain <https://w3id.org/biolink/vocab/Association> ;
     :is_a <https://w3id.org/biolink/vocab/association_slot> ;
     :local_names [ a :LocalName ;
-            skos:altLabel "node with incoming relationship" ;
-            :local_name_source "neo4j" ],
-        [ a :LocalName ;
             skos:altLabel "descriptor" ;
-            :local_name_source "ga4gh" ] ;
+            :local_name_source "ga4gh" ],
+        [ a :LocalName ;
+            skos:altLabel "node with incoming relationship" ;
+            :local_name_source "neo4j" ] ;
     :owner <https://w3id.org/biolink/vocab/Association> ;
     :range <https://w3id.org/biolink/vocab/NamedThing> ;
     :required true ;

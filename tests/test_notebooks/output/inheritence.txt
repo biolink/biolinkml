@@ -15,7 +15,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 <Boolean> xsd:boolean
 
 <Child1> EXTRA rdf:type CLOSED {
-    (  $<Child1_struct> (  &<Children_struct> ;
+    (  $<Child1_struct> (  &<Children_struct> |
           <http://ex.org/dummy> . ?
        ) ;
        rdf:type [ <Child1> ]
@@ -35,7 +35,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 }
 
 <Child21> EXTRA rdf:type CLOSED {
-    (  $<Child21_struct> (  &<Child2_struct> ;
+    (  $<Child21_struct> (  &<Child2_struct> |
           <http://ex.org/dummy> . ?
        ) ;
        rdf:type [ <Child21> ]
@@ -55,7 +55,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 )
 
 <Children_type> EXTRA rdf:type CLOSED {
-    (  $<Children_struct> (  &<Root_struct> ;
+    (  $<Children_struct> (  &<Root_struct> |
           <http://ex.org/dummy> . ?
        ) ;
        rdf:type [ <Children> ]

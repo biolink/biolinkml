@@ -31,6 +31,10 @@ PREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>
 
 <Ncname> xsd:string
 
+<Objectidentifier> IRI
+
+<Nodeidentifier> NONLITERAL
+
 <AltDescription> EXTRA rdf:type CLOSED {
     $<AltDescription_struct> (  <source> @<Ncname> ;
        <description> @<String>
@@ -169,7 +173,7 @@ PREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>
 }
 
 <SubsetDefinition> EXTRA rdf:type CLOSED {
-    (  $<SubsetDefinition_struct> (  &<Element_struct> ;
+    (  $<SubsetDefinition_struct> (  &<Element_struct> |
           <http://ex.org/dummy> . ?
        ) ;
        rdf:type [ <SubsetDefinition> ]

@@ -12,15 +12,13 @@ from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace
-from biolinkml.utils.metamodelcore import Bool, NCName, URI, URIorCURIE, XSDDate, XSDDateTime, XSDTime
+from biolinkml.utils.metamodelcore import Bool, ElementIdentifier, NCName, NodeIdentifier, URI, URIorCURIE, XSDDate, XSDDateTime, XSDTime
 
-metamodel_version = "1.3.6"
+metamodel_version = "1.4.0"
 
 
 # Namespaces
-META = Namespace('https://w3id.org/biolink/biolinkml/meta/')
 METATYPE = Namespace('https://w3id.org/biolink/biolinkml/type/')
-XSD = Namespace('http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = METATYPE
 
 
@@ -77,6 +75,16 @@ class Uri(URI):
 
 class Ncname(NCName):
     """ Prefix part of CURIE """
+    pass
+
+
+class Objectidentifier(ElementIdentifier):
+    """ A URI or CURIE that represents an object in the model. """
+    pass
+
+
+class Nodeidentifier(NodeIdentifier):
+    """ A URI, CURIE or BNODE that represents a node in a model. """
     pass
 
 

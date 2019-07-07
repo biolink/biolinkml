@@ -11,11 +11,10 @@ from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace
 from biolinkml.utils.metamodelcore import URIorCURIE
 
-metamodel_version = "1.3.6"
+metamodel_version = "1.4.0"
 
 
 # Namespaces
-XSD = Namespace('http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = Namespace('http://example.org/example/multi_id/')
 
 
@@ -49,14 +48,14 @@ class NamedThing(YAMLRoot):
     node_property: Optional[Union[URIorCURIE, IdentifierType]] = None
     not_overridden: Optional[Union[URIorCURIE, IdentifierType]] = None
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if not isinstance(self.id, NamedThingId):
             self.id = NamedThingId(self.id)
         if self.node_property is not None and not isinstance(self.node_property, IdentifierType):
             self.node_property = IdentifierType(self.node_property)
         if self.not_overridden is not None and not isinstance(self.not_overridden, IdentifierType):
             self.not_overridden = IdentifierType(self.not_overridden)
+        super().__post_init__()
 
 
 @dataclass
@@ -70,9 +69,9 @@ class SequenceVariant(NamedThing):
     id: Union[URIorCURIE, SequenceVariantId] = None
     node_property: Optional[Union[URIorCURIE, IdentifierType]] = None
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, SequenceVariantId):
             self.id = SequenceVariantId(self.id)
         if self.node_property is not None and not isinstance(self.node_property, IdentifierType):
             self.node_property = IdentifierType(self.node_property)
+        super().__post_init__()
