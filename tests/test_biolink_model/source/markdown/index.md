@@ -436,6 +436,7 @@ Entity and association taxonomy and datamodel for life-sciences data
  * **Bool**
  * **ElementIdentifier**
  * **NCName**
+ * **NodeIdentifier**
  * **URI**
  * **URIorCURIE**
  * **XSDDate**
@@ -461,6 +462,8 @@ Entity and association taxonomy and datamodel for life-sciences data
  * [LabelType](LabelType.md)  ([String](String.md))  - A string that provides a human-readable name for a thing
  * [NarrativeText](NarrativeText.md)  ([String](String.md))  - A string that provides a human-readable description of something
  * [Ncname](Ncname.md)  (**NCName**)  - Prefix part of CURIE
+ * [Nodeidentifier](Nodeidentifier.md)  (**NodeIdentifier**)  - A URI, CURIE or BNODE that represents a node in a model.
+ * [Objectidentifier](Objectidentifier.md)  (**ElementIdentifier**)  - A URI or CURIE that represents an object in the model.
  * [PerecentageFrequencyValue](PerecentageFrequencyValue.md)  ([Double](Double.md)) 
  * [Quotient](Quotient.md)  ([Double](Double.md)) 
  * [String](String.md)  (**str**)  - A character string

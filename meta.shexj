@@ -108,7 +108,7 @@
                         "https://w3id.org/biolink/biolinkml/meta/AltDescription"
                      ]
                   },
-                  "min": 1
+                  "min": 0
                }
             ]
          }
@@ -475,7 +475,7 @@
                         "https://w3id.org/biolink/biolinkml/meta/Example"
                      ]
                   },
-                  "min": 1
+                  "min": 0
                }
             ]
          }
@@ -516,7 +516,7 @@
                         "https://w3id.org/biolink/biolinkml/meta/LocalName"
                      ]
                   },
-                  "min": 1
+                  "min": 0
                }
             ]
          }
@@ -557,7 +557,7 @@
                         "https://w3id.org/biolink/biolinkml/meta/Prefix"
                      ]
                   },
-                  "min": 1
+                  "min": 0
                }
             ]
          }

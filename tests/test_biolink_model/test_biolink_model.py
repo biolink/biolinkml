@@ -116,6 +116,7 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
                     print(r.reason)
         return success
 
+    @unittest.skipIf(True, "Biolink validation against itself takes time...")
     def test_biolink_rdf(self):
         """ Test the rdf generator for the biolink model """
         self.single_file_generator('ttl', RDFGenerator, serialize_args={"context": LOCAL_CONTEXT_PATH},

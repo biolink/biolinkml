@@ -13,4 +13,4 @@ source_yaml_path = LOCAL_YAML_PATH
 target_yaml_path = os.path.join(targetdir, 'meta.yaml')
 source_context_path = LOCAL_CONTEXT_PATH
 
-DO_SHEX_VALIDATION = True
+DO_SHEX_VALIDATION = False

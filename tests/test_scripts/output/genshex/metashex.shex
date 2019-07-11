@@ -39,7 +39,7 @@ PREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>
     (  $<AltDescription_tes> (  <source> @<Ncname> ;
           <description> @<String>
        ) ;
-       rdf:type [ <AltDescription> ]
+       rdf:type [ <AltDescription> ] ?
     )
 }
 
@@ -106,7 +106,7 @@ PREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>
     (  $<Example_tes> (  skos:example @<String> ? ;
           <description> @<String> ?
        ) ;
-       rdf:type [ <Example> ]
+       rdf:type [ <Example> ] ?
     )
 }
 
@@ -114,7 +114,7 @@ PREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>
     (  $<LocalName_tes> (  <local_name_source> @<Ncname> ;
           skos:altLabel @<String>
        ) ;
-       rdf:type [ <LocalName> ]
+       rdf:type [ <LocalName> ] ?
     )
 }
 
@@ -122,7 +122,7 @@ PREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>
     (  $<Prefix_tes> (  <prefix_prefix> @<Ncname> ;
           <prefix_reference> @<Uri>
        ) ;
-       rdf:type [ <Prefix> ]
+       rdf:type [ <Prefix> ] ?
     )
 }
 

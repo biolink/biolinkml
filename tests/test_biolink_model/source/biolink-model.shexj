@@ -123,6 +123,16 @@
          "datatype": "http://www.w3.org/2001/XMLSchema#string"
       },
       {
+         "type": "NodeConstraint",
+         "id": "https://w3id.org/biolink/vocab/Objectidentifier",
+         "nodeKind": "iri"
+      },
+      {
+         "type": "NodeConstraint",
+         "id": "https://w3id.org/biolink/vocab/Nodeidentifier",
+         "nodeKind": "nonliteral"
+      },
+      {
          "type": "Shape",
          "id": "https://w3id.org/biolink/vocab/ActivityAndBehavior",
          "closed": true,
@@ -2641,7 +2651,7 @@
                         "https://w3id.org/biolink/vocab/EntityToDiseaseAssociation"
                      ]
                   },
-                  "min": 1
+                  "min": 0
                }
             ]
          }
@@ -2697,7 +2707,7 @@
                               "https://w3id.org/biolink/vocab/EntityToFeatureOrDiseaseQualifiers"
                            ]
                         },
-                        "min": 1
+                        "min": 0
                      }
                   ]
                }
@@ -3206,7 +3216,7 @@
                               "https://w3id.org/biolink/vocab/FrequencyQualifierMixin"
                            ]
                         },
-                        "min": 1
+                        "min": 0
                      }
                   ]
                }
@@ -3276,7 +3286,7 @@
                         "https://w3id.org/biolink/vocab/FrequencyQuantifier"
                      ]
                   },
-                  "min": 1
+                  "min": 0
                }
             ]
          }
@@ -3586,7 +3596,7 @@
                         "https://w3id.org/biolink/vocab/GeneGrouping"
                      ]
                   },
-                  "min": 1
+                  "min": 0
                }
             ]
          }
@@ -5731,7 +5741,7 @@
                         "https://w3id.org/biolink/vocab/ModelToDiseaseMixin"
                      ]
                   },
-                  "min": 1
+                  "min": 0
                }
             ]
          }
@@ -7082,7 +7092,7 @@
                         "https://w3id.org/biolink/vocab/PathognomonicityQuantifier"
                      ]
                   },
-                  "min": 1
+                  "min": 0
                }
             ]
          }
@@ -7692,7 +7702,7 @@
                         "https://w3id.org/biolink/vocab/RelationshipQuantifier"
                      ]
                   },
-                  "min": 1
+                  "min": 0
                }
             ]
          }
@@ -7867,7 +7877,7 @@
                         "https://w3id.org/biolink/vocab/SensitivityQuantifier"
                      ]
                   },
-                  "min": 1
+                  "min": 0
                }
             ]
          }
@@ -8115,7 +8125,7 @@
                               "https://w3id.org/biolink/vocab/SpecificityQuantifier"
                            ]
                         },
-                        "min": 1
+                        "min": 0
                      }
                   ]
                }
@@ -8193,7 +8203,7 @@
                         "https://w3id.org/biolink/vocab/ThingWithTaxon"
                      ]
                   },
-                  "min": 1
+                  "min": 0
                }
             ]
          }

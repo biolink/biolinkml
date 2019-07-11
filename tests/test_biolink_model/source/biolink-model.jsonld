@@ -40,16 +40,16 @@
       "prefix_reference": "https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/TUI/"
     },
     {
-      "prefix_prefix": "meta",
-      "prefix_reference": "https://w3id.org/biolink/biolinkml/meta/"
-    },
-    {
       "prefix_prefix": "metatype",
       "prefix_reference": "https://w3id.org/biolink/biolinkml/type/"
     },
     {
       "prefix_prefix": "xsd",
       "prefix_reference": "http://www.w3.org/2001/XMLSchema#"
+    },
+    {
+      "prefix_prefix": "shex",
+      "prefix_reference": "http://www.w3.org/ns/shex#"
     }
   ],
   "emit_prefixes": [
@@ -301,6 +301,29 @@
       "imported_from": "https://w3id.org/biolink/biolinkml/types",
       "base": "NCName",
       "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "repr": "str",
+      "type": "TypeDefinition"
+    },
+    {
+      "name": "objectidentifier",
+      "description": "A URI or CURIE that represents an object in the model.",
+      "comments": [
+        "Used for inheritence and type checking"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/types",
+      "imported_from": "https://w3id.org/biolink/biolinkml/types",
+      "base": "ElementIdentifier",
+      "uri": "http://www.w3.org/ns/shex#iri",
+      "repr": "str",
+      "type": "TypeDefinition"
+    },
+    {
+      "name": "nodeidentifier",
+      "description": "A URI, CURIE or BNODE that represents a node in a model.",
+      "from_schema": "https://w3id.org/biolink/biolinkml/types",
+      "imported_from": "https://w3id.org/biolink/biolinkml/types",
+      "base": "NodeIdentifier",
+      "uri": "http://www.w3.org/ns/shex#nonLiteral",
       "repr": "str",
       "type": "TypeDefinition"
     }

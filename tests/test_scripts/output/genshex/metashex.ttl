@@ -347,7 +347,7 @@
     shex:closed true ;
     shex:expression [ a shex:EachOf ;
             shex:expressions ( <https://w3id.org/biolink/biolinkml/meta/AltDescription_tes> [ a shex:TripleConstraint ;
-                        shex:min 1 ;
+                        shex:min 0 ;
                         shex:predicate rdf:type ;
                         shex:valueExpr [ a shex:NodeConstraint ;
                                 shex:values ( <https://w3id.org/biolink/biolinkml/meta/AltDescription> ) ] ] ) ] .
@@ -386,7 +386,7 @@
     shex:closed true ;
     shex:expression [ a shex:EachOf ;
             shex:expressions ( <https://w3id.org/biolink/biolinkml/meta/Example_tes> [ a shex:TripleConstraint ;
-                        shex:min 1 ;
+                        shex:min 0 ;
                         shex:predicate rdf:type ;
                         shex:valueExpr [ a shex:NodeConstraint ;
                                 shex:values ( <https://w3id.org/biolink/biolinkml/meta/Example> ) ] ] ) ] .
@@ -395,7 +395,7 @@
     shex:closed true ;
     shex:expression [ a shex:EachOf ;
             shex:expressions ( <https://w3id.org/biolink/biolinkml/meta/LocalName_tes> [ a shex:TripleConstraint ;
-                        shex:min 1 ;
+                        shex:min 0 ;
                         shex:predicate rdf:type ;
                         shex:valueExpr [ a shex:NodeConstraint ;
                                 shex:values ( <https://w3id.org/biolink/biolinkml/meta/LocalName> ) ] ] ) ] .
@@ -404,7 +404,7 @@
     shex:closed true ;
     shex:expression [ a shex:EachOf ;
             shex:expressions ( <https://w3id.org/biolink/biolinkml/meta/Prefix_tes> [ a shex:TripleConstraint ;
-                        shex:min 1 ;
+                        shex:min 0 ;
                         shex:predicate rdf:type ;
                         shex:valueExpr [ a shex:NodeConstraint ;
                                 shex:values ( <https://w3id.org/biolink/biolinkml/meta/Prefix> ) ] ] ) ] .

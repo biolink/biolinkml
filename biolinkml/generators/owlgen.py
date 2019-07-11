@@ -243,13 +243,13 @@ class OwlSchemaGenerator(Generator):
             return self._class_uri(cast(ClassDefinitionName, slot.range))
 
     def _class_uri(self, cn: ClassDefinitionName) -> URIRef:
-        return self.namespaces[METAMODEL_LOCAL_NAME][camelcase(cn)]
+        return self.metamodel.namespaces[METAMODEL_LOCAL_NAME][camelcase(cn)]
 
     def _prop_uri(self, pn: SlotDefinitionName) -> URIRef:
-        return self.namespaces[METAMODEL_LOCAL_NAME][underscore(pn)]
+        return self.metamodel.namespaces[METAMODEL_LOCAL_NAME][underscore(pn)]
 
     def _type_uri(self, tn: TypeDefinitionName) -> URIRef:
-        return self.namespaces[METAMODEL_LOCAL_NAME][underscore(tn)]
+        return self.metamodel.namespaces[METAMODEL_LOCAL_NAME][underscore(tn)]
 
     def _add_metamodel_class(self, cname: str) -> None:
         metac = self.metamodel.schema.classes[cname]

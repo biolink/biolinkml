@@ -11,43 +11,43 @@
 
 <http://example.org/owl2> a owl:Ontology ;
     rdfs:label "owl2" ;
-    meta:generation_date "2019-07-06 16:20" ;
+    meta:generation_date "2019-07-11 14:07" ;
     meta:metamodel_version "1.4.0" ;
     meta:source_file "owl2.yaml" ;
     meta:source_file_date "Fri Jun 28 10:28:33 2019" ;
     meta:source_file_size 519 .
 
-<http://example.org/owl2/annotslot> a owl:AnnotationProperty,
-        meta:SlotDefinition ;
-    rdfs:label "annotslot" ;
-    rdfs:domain <http://example.org/owl2/C1> ;
-    rdfs:range <http://example.org/owl2/C2> .
-
-<http://example.org/owl2/annotslot2> a owl:AnnotationProperty,
-        meta:SlotDefinition ;
-    rdfs:label "annotslot2" ;
-    rdfs:domain <http://example.org/owl2/C1> ;
-    rdfs:range <http://example.org/owl2/string> .
-
 meta:SubsetDefinition a owl:Class ;
     rdfs:label "subset_definition" ;
     skos:definition "the name and description of a subset" .
 
-<http://example.org/owl2/dataslot> a owl:ObjectProperty,
+meta:annotslot a owl:AnnotationProperty,
         meta:SlotDefinition ;
-    rdfs:label "dataslot" ;
-    rdfs:domain <http://example.org/owl2/C1> ;
-    rdfs:range <http://example.org/owl2/string> .
+    rdfs:label "annotslot" ;
+    rdfs:domain meta:C1 ;
+    rdfs:range meta:C2 .
 
-<http://example.org/owl2/objslot> a owl:ObjectProperty,
+meta:annotslot2 a owl:AnnotationProperty,
         meta:SlotDefinition ;
-    rdfs:label "objslot" ;
-    rdfs:domain <http://example.org/owl2/C1> ;
-    rdfs:range <http://example.org/owl2/C2> .
+    rdfs:label "annotslot2" ;
+    rdfs:domain meta:C1 ;
+    rdfs:range meta:string .
 
 meta:TypeDefinition a owl:Class ;
     rdfs:label "type_definition" ;
     skos:definition "A data type definition." .
+
+meta:dataslot a owl:ObjectProperty,
+        meta:SlotDefinition ;
+    rdfs:label "dataslot" ;
+    rdfs:domain meta:C1 ;
+    rdfs:range meta:string .
+
+meta:objslot a owl:ObjectProperty,
+        meta:SlotDefinition ;
+    rdfs:label "objslot" ;
+    rdfs:domain meta:C1 ;
+    rdfs:range meta:C2 .
 
 meta:topValue a owl:DatatypeProperty ;
     rdfs:label "value" .
@@ -56,11 +56,11 @@ meta:ClassDefinition a owl:Class ;
     rdfs:label "class_definition" ;
     skos:definition "the definition of a class or interface" .
 
-<http://example.org/owl2/C2> a owl:Class,
+meta:C2 a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "c2" .
 
-<http://example.org/owl2/string> a owl:Class,
+meta:string a owl:Class,
         meta:TypeDefinition ;
     rdfs:label "string" ;
     rdfs:subClassOf [ a owl:Restriction ;
@@ -68,17 +68,17 @@ meta:ClassDefinition a owl:Class ;
             owl:onProperty meta:topValue ;
             owl:qualifiedCardinality 1 ] .
 
-<http://example.org/owl2/C1> a owl:Class,
+meta:C1 a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "c1" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://example.org/owl2/string> ;
-            owl:onProperty <http://example.org/owl2/dataslot> ],
+            owl:onClass meta:string ;
+            owl:onProperty meta:dataslot ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://example.org/owl2/C2> ;
-            owl:onProperty <http://example.org/owl2/objslot> ] .
+            owl:onClass meta:C2 ;
+            owl:onProperty meta:objslot ] .
 
 meta:SlotDefinition a owl:Class ;
     rdfs:label "slot_definition" ;

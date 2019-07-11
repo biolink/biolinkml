@@ -58,6 +58,10 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 
 <Ncname> xsd:string
 
+<Objectidentifier> IRI
+
+<Nodeidentifier> NONLITERAL
+
 <ActivityAndBehavior> CLOSED {
     (  $<ActivityAndBehavior_tes> (  &<Occurrent_tes> ;
           rdf:type [ OBO:BFO_0000003 ] ?
@@ -552,7 +556,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
           rdf:type [ <EntityToFeatureOrDiseaseQualifiers> ] ? ;
           <object> @<Disease>
        ) ;
-       rdf:type [ <EntityToDiseaseAssociation> ]
+       rdf:type [ <EntityToDiseaseAssociation> ] ?
     )
 }
 
@@ -563,7 +567,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
              <severity_qualifier> @<SeverityValue> ? ;
              <onset_qualifier> @<Onset> ?
           ) ;
-          rdf:type [ <EntityToFeatureOrDiseaseQualifiers> ]
+          rdf:type [ <EntityToFeatureOrDiseaseQualifiers> ] ?
        )
     } OR @<EntityToDiseaseAssociation>
 )
@@ -660,7 +664,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 <FrequencyQualifierMixin>  (
     {
        (  $<FrequencyQualifierMixin_tes> <frequency_qualifier> @<FrequencyValue> ? ;
-          rdf:type [ <FrequencyQualifierMixin> ]
+          rdf:type [ <FrequencyQualifierMixin> ] ?
        )
     } OR @<EntityToFeatureOrDiseaseQualifiers>
 )
@@ -673,7 +677,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
           <has_quotient> @<Double> ? ;
           <has_percentage> @<Double> ?
        ) ;
-       rdf:type [ <FrequencyQuantifier> ]
+       rdf:type [ <FrequencyQuantifier> ] ?
     )
 }
 
@@ -734,7 +738,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 
 <GeneGrouping> {
     (  $<GeneGrouping_tes> rdf:type . * ;
-       rdf:type [ <GeneGrouping> ]
+       rdf:type [ <GeneGrouping> ] ?
     )
 }
 
@@ -1150,7 +1154,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
     (  $<ModelToDiseaseMixin_tes> (  <subject> @<NamedThing> ;
           <relation> @<Uriorcurie>
        ) ;
-       rdf:type [ <ModelToDiseaseMixin> ]
+       rdf:type [ <ModelToDiseaseMixin> ] ?
     )
 }
 
@@ -1380,7 +1384,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
     (  $<PathognomonicityQuantifier_tes> (  &<SpecificityQuantifier_tes> ;
           rdf:type [ <SpecificityQuantifier> ] ?
        ) ;
-       rdf:type [ <PathognomonicityQuantifier> ]
+       rdf:type [ <PathognomonicityQuantifier> ] ?
     )
 }
 
@@ -1506,7 +1510,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 
 <RelationshipQuantifier_struct> {
     (  $<RelationshipQuantifier_tes> rdf:type . * ;
-       rdf:type [ <RelationshipQuantifier> ]
+       rdf:type [ <RelationshipQuantifier> ] ?
     )
 }
 
@@ -1542,7 +1546,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
     (  $<SensitivityQuantifier_tes> (  &<RelationshipQuantifier_tes> ;
           rdf:type [ <RelationshipQuantifier> ] ?
        ) ;
-       rdf:type [ <SensitivityQuantifier> ]
+       rdf:type [ <SensitivityQuantifier> ] ?
     )
 }
 
@@ -1591,7 +1595,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
        (  $<SpecificityQuantifier_tes> (  &<RelationshipQuantifier_tes> ;
              rdf:type [ <RelationshipQuantifier> ] ?
           ) ;
-          rdf:type [ <SpecificityQuantifier> ]
+          rdf:type [ <SpecificityQuantifier> ] ?
        )
     } OR @<PathognomonicityQuantifier>
 )
@@ -1607,7 +1611,7 @@ PREFIX WD: <http://example.org/UNKNOWN/WD/>
 
 <ThingWithTaxon> {
     (  $<ThingWithTaxon_tes> OBO:RO_0002162 @<OrganismTaxon> * ;
-       rdf:type [ <ThingWithTaxon> ]
+       rdf:type [ <ThingWithTaxon> ] ?
     )
 }
 

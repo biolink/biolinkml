@@ -63,7 +63,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 <Root>  (
     CLOSED {
        (  $<Root_tes> rdf:type . * ;
-          rdf:type [ <Root> ]
+          rdf:type [ <Root> ] ?
        )
     } OR @<Children>
 )

@@ -84,7 +84,9 @@ class ShExGenerator(Generator):
         if self.shape.expression is None:
             self._add_constraint(TripleConstraint(predicate=RDF.type, min=0, max=-1))
         self.shape.expression.id = self._shape_iri(cls.name) + '_tes'
-        self.shape.expression = EachOf(expressions=[self.shape.expression, self._type_arc(cls.class_uri)])
+        self.shape.expression = EachOf(expressions=[self.shape.expression,
+                                                    self._type_arc(cls.class_uri,
+                                                                   not bool(self.class_identifier(cls)))])
         self.shape.closed = not (cls.abstract or cls.mixin)
 
         # If this class has subtypes, define the class as the union of its subtypes and itself (if not abstract)
