@@ -15,8 +15,8 @@ class JsonSchemaGenerator(Generator):
     valid_formats = "[json]"
     visit_all_class_slots = False
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], fmt: str='json') -> None:
-        super().__init__(schema, fmt)
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], format: str='json') -> None:
+        super().__init__(schema, format)
         self.schemaobj: JsonObj = None
         self.clsobj: JsonObj = None
         self.inline = False

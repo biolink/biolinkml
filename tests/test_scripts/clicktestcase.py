@@ -211,6 +211,7 @@ class ClickTestCase(unittest.TestCase):
                     elif not comparator:
                         if len(old_txt) > 10000:
                             print(self.closein_comparison(old_txt, new_txt))
+                        self.maxDiff = None
                         self.assertEqual(old_txt, new_txt)
                     else:
                         print(compare_text)

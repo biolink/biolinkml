@@ -168,6 +168,7 @@ class MetamodelCoreTest(unittest.TestCase):
         self.assertTrue(XSDDateTime.is_valid(XSDDate(datetime.datetime.now().date())))
         self.assertTrue(XSDDateTime.is_valid(v))
 
+    @unittest.skipIf(True, "Finish implementing this")
     def test_nodeidentifier(self):
         context = """{
             "@context": {
@@ -235,7 +236,7 @@ class MetamodelCoreTest(unittest.TestCase):
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] a <file:///Users/solbrig/git/biolink/biolinkml/tests/test_utils/Pair> ;
+[] a <file:///Users/solbrig/git/biolink/biolinkml/tests/Pair> ;
     rdfs:object "http://example.org/tests/child2" ;
     rdfs:subject "http://example.org/tests/descendant1" .
 

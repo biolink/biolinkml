@@ -38,7 +38,7 @@ def sfx(uri: str) -> str:
     :param uri: uri to be suffixed
     :return: URI with suffix
     """
-    return str(uri) + ('' if uri.endswith(('/', '#')) else '/')
+    return str(uri) + ('' if uri.endswith(('/', '#', '_', ':')) else '/')
 
 
 def uri_for(prefix: str, suffix: str) -> str:

@@ -8,7 +8,7 @@ from dataclasses import dataclass
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
-from rdflib import Namespace
+from rdflib import Namespace, URIRef
 from biolinkml.utils.metamodelcore import URI
 
 metamodel_version = "1.4.0"
@@ -16,27 +16,40 @@ metamodel_version = "1.4.0"
 
 # Namespaces
 BIOLINKML = Namespace('https://w3id.org/biolink/biolinkml/')
+XSD = Namespace('http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = BIOLINKML
 
 
 # Types
 class String(str):
-    pass
+    type_class_uri = XSD.string
+    type_class_curie = "xsd:string"
+    type_name = "string"
+    type_model_uri = BIOLINKML.String
 
 
 class Uri(URI):
     """ a complete URI """
-    pass
+    type_class_uri = XSD.anyURI
+    type_class_curie = "xsd:anyURI"
+    type_name = "uri"
+    type_model_uri = BIOLINKML.Uri
 
 
 class IdentifierType(String):
     """ A string that is intended to uniquely identify a thing May be URI in full or compact (CURIE) form """
-    pass
+    type_class_uri = XSD.string
+    type_class_curie = "xsd:string"
+    type_name = "identifier type"
+    type_model_uri = BIOLINKML.IdentifierType
 
 
 class LabelType(String):
     """ A string that provides a human-readable name for a thing """
-    pass
+    type_class_uri = XSD.string
+    type_class_curie = "xsd:string"
+    type_name = "label type"
+    type_model_uri = BIOLINKML.LabelType
 
 
 # Class references
@@ -63,9 +76,10 @@ class Attribute(YAMLRoot):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    type_uri: ClassVar[str] = "https://w3id.org/biolink/biolinkml/Attribute"
-    type_curie: ClassVar[str] = "biolinkml:Attribute"
-    type_name: ClassVar[str] = "attribute"
+    class_class_uri: ClassVar[URIRef] = BIOLINKML.Attribute
+    class_class_curie: ClassVar[str] = "biolinkml:Attribute"
+    class_name: ClassVar[str] = "attribute"
+    class_model_uri: ClassVar[URIRef] = BIOLINKML.Attribute
 
     id: Union[str, AttributeId]
 
@@ -79,9 +93,10 @@ class Attribute(YAMLRoot):
 class BiologicalSex(Attribute):
     _inherited_slots: ClassVar[List[str]] = []
 
-    type_uri: ClassVar[str] = "https://w3id.org/biolink/biolinkml/BiologicalSex"
-    type_curie: ClassVar[str] = "biolinkml:BiologicalSex"
-    type_name: ClassVar[str] = "biological sex"
+    class_class_uri: ClassVar[URIRef] = BIOLINKML.BiologicalSex
+    class_class_curie: ClassVar[str] = "biolinkml:BiologicalSex"
+    class_name: ClassVar[str] = "biological sex"
+    class_model_uri: ClassVar[URIRef] = BIOLINKML.BiologicalSex
 
     id: Union[str, BiologicalSexId] = None
 
@@ -98,9 +113,10 @@ class OntologyClass(NamedThing):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    type_uri: ClassVar[str] = "https://w3id.org/biolink/biolinkml/OntologyClass"
-    type_curie: ClassVar[str] = "biolinkml:OntologyClass"
-    type_name: ClassVar[str] = "ontology class"
+    class_class_uri: ClassVar[URIRef] = BIOLINKML.OntologyClass
+    class_class_curie: ClassVar[str] = "biolinkml:OntologyClass"
+    class_name: ClassVar[str] = "ontology class"
+    class_model_uri: ClassVar[URIRef] = BIOLINKML.OntologyClass
 
     id: Union[str, OntologyClassId] = None
 
@@ -117,9 +133,10 @@ class NamedThing(YAMLRoot):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    type_uri: ClassVar[str] = "https://w3id.org/biolink/biolinkml/NamedThing"
-    type_curie: ClassVar[str] = "biolinkml:NamedThing"
-    type_name: ClassVar[str] = "named thing"
+    class_class_uri: ClassVar[URIRef] = BIOLINKML.NamedThing
+    class_class_curie: ClassVar[str] = "biolinkml:NamedThing"
+    class_name: ClassVar[str] = "named thing"
+    class_model_uri: ClassVar[URIRef] = BIOLINKML.NamedThing
 
     id: Union[str, NamedThingId]
     name: Optional[Union[str, LabelType]] = None

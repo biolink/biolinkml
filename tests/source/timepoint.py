@@ -8,7 +8,7 @@ from dataclasses import dataclass
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
-from rdflib import Namespace
+from rdflib import Namespace, URIRef
 from biolinkml.utils.metamodelcore import XSDTime
 from includes.types import String, Time
 
@@ -16,13 +16,18 @@ metamodel_version = "1.4.0"
 
 
 # Namespaces
+SHEX = Namespace('http://www.w3.org/ns/shex#')
+XSD = Namespace('http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = Namespace('http://example.org/tests/timepoint/')
 
 
 # Types
 class TimeType(Time):
     """ A time object represents a (local) time of day, independent of any particular day """
-    pass
+    type_class_uri = XSD.dateTime
+    type_class_curie = "xsd:dateTime"
+    type_name = "time type"
+    type_model_uri = URIRef("http://example.org/tests/timepoint/TimeType")
 
 
 # Class references
@@ -38,9 +43,10 @@ class GeographicLocationAtTimeK(GeographicLocationK):
 class GeographicLocation(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
-    type_uri: ClassVar[str] = "http://example.org/tests/timepoint/GeographicLocation"
-    type_curie: ClassVar[str] = None
-    type_name: ClassVar[str] = "geographic location"
+    class_class_uri: ClassVar[URIRef] = URIRef("http://example.org/tests/timepoint/GeographicLocation")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "geographic location"
+    class_model_uri: ClassVar[URIRef] = URIRef("http://example.org/tests/timepoint/GeographicLocation")
 
     k: Union[str, GeographicLocationK]
 
@@ -54,9 +60,10 @@ class GeographicLocation(YAMLRoot):
 class GeographicLocationAtTime(GeographicLocation):
     _inherited_slots: ClassVar[List[str]] = []
 
-    type_uri: ClassVar[str] = "http://example.org/tests/timepoint/GeographicLocationAtTime"
-    type_curie: ClassVar[str] = None
-    type_name: ClassVar[str] = "geographic location at time"
+    class_class_uri: ClassVar[URIRef] = URIRef("http://example.org/tests/timepoint/GeographicLocationAtTime")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "geographic location at time"
+    class_model_uri: ClassVar[URIRef] = URIRef("http://example.org/tests/timepoint/GeographicLocationAtTime")
 
     k: Union[str, GeographicLocationAtTimeK] = None
     timepoint: Optional[Union[str, TimeType]] = None

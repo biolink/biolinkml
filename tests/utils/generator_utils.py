@@ -50,6 +50,8 @@ class GeneratorTestCase(unittest.TestCase):
         """
         self.maxDiff = None
         if old_data != new_data:
+            if msg:
+                print(msg)
             with open(new_file, 'w') as newf:
                 newf.write(new_data)
             if len(new_data) > 20000:
@@ -99,8 +101,9 @@ class GeneratorTestCase(unittest.TestCase):
                 newf.write(new_data)
             self.assertTrue(False, "RDF file mismatch" if not msg else msg)
 
-    def single_file_generator(self, suffix: str, gen: type(Generator),
-                              gen_args: Optional[dict] = None,
+    def single_file_generator(self, suffix: str, gen: type(Generator), *,
+                              format: Optional[str] = None,
+                              generator_args: Optional[dict] = None,
                               serialize_args: Optional[dict] = None,
                               filtr: Optional[Callable[[str], str]] = None,
                               comparator: Callable[[type(unittest.TestCase), str, str, str], None] = None,
@@ -109,17 +112,19 @@ class GeneratorTestCase(unittest.TestCase):
 
         :param suffix: File suffix (without '.')
         :param gen: Generator to invoke
-        :param gen_args: Arguments to generator
+        :param format: Generator format argument
+        :param generator_args: Additional arguments to the generator
         :param serialize_args: Arguments to serializer.
         :param filtr: Filter to remove metadata specific info from the output.  Default: identity
         :param comparator: Comparison method to use.  Default: GeneratorTestCase._default_comparator
         :param preserve_metadata: True means metadata is to preserved in old_file
         """
-
-        if gen_args is None:
-            gen_args = {}
         if serialize_args is None:
             serialize_args = {}
+        if generator_args is None:
+            generator_args = {}
+        if format:
+            generator_args["format"] = format
         if filtr is None:
             def filtr(s): return s
         if comparator is None:
@@ -132,7 +137,8 @@ class GeneratorTestCase(unittest.TestCase):
         yaml_file = os.path.join(self.model_path, self.model_name + '.yaml')
         if os.path.exists(new_file):
             os.remove(new_file)
-        new_data = str(gen(yaml_file, **gen_args).serialize(**serialize_args))
+
+        new_data = str(gen(yaml_file, **generator_args).serialize(**serialize_args))
 
         if not os.path.exists(old_file):
             with open(old_file, 'w') as oldf:

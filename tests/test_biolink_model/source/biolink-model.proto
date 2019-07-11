@@ -11,7 +11,7 @@ message ActivityAndBehavior
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated regulatesProcessToProcess None = 12
   repeated hasParticipant None = 13
   repeated hasInput None = 14
@@ -30,7 +30,7 @@ message AnatomicalEntity
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated expresses None = 13
   repeated inTaxon None = 14
@@ -110,7 +110,7 @@ message Attribute
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated subclassOf None = 12
  }
 // One or more causally connected executions of molecular functions
@@ -126,7 +126,7 @@ message BiologicalProcess
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated regulatesProcessToProcess None = 13
   repeated hasParticipant None = 14
@@ -146,7 +146,7 @@ message BiologicalProcessOrActivity
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
  }
 message BiologicalSex
@@ -161,7 +161,7 @@ message BiologicalSex
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated subclassOf None = 12
  }
 message Biosample
@@ -176,7 +176,7 @@ message Biosample
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated inTaxon None = 13
  }
@@ -207,7 +207,7 @@ message Carbohydrate
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated molecularlyInteractsWith None = 13
   repeated affectsAbundanceOf None = 14
@@ -275,7 +275,7 @@ message Case
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated inTaxon None = 13
  }
@@ -310,7 +310,7 @@ message Cell
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated expresses None = 13
   repeated inTaxon None = 14
@@ -327,7 +327,7 @@ message CellLine
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated inTaxon None = 13
  }
@@ -359,7 +359,7 @@ message CellularComponent
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated expresses None = 13
   repeated inTaxon None = 14
@@ -377,7 +377,7 @@ message ChemicalSubstance
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated molecularlyInteractsWith None = 13
   repeated affectsAbundanceOf None = 14
@@ -490,7 +490,7 @@ message ClinicalEntity
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
  }
 message ClinicalIntervention
  {
@@ -504,7 +504,7 @@ message ClinicalIntervention
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
  }
 // Used to characterize and specify the phenotypic abnormalities defined in the Phenotypic abnormality subontology, with respect to severity, laterality, age of onset, and other aspects
 message ClinicalModifier
@@ -519,7 +519,7 @@ message ClinicalModifier
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated subclassOf None = 12
  }
 message ClinicalTrial
@@ -534,7 +534,7 @@ message ClinicalTrial
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
  }
 message CodingSequence
  {
@@ -548,7 +548,7 @@ message CodingSequence
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated molecularlyInteractsWith None = 13
   repeated affectsAbundanceOf None = 14
@@ -617,7 +617,7 @@ message ConfidenceLevel
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
  }
 // A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment
 message Device
@@ -632,7 +632,7 @@ message Device
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
  }
 message Disease
  {
@@ -646,7 +646,7 @@ message Disease
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated correlatedWith None = 13
   repeated hasBiomarker None = 14
@@ -666,7 +666,7 @@ message DiseaseOrPhenotypicFeature
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated correlatedWith None = 13
   repeated hasBiomarker None = 14
@@ -720,7 +720,7 @@ message Drug
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated molecularlyInteractsWith None = 13
   repeated affectsAbundanceOf None = 14
@@ -788,7 +788,7 @@ message DrugExposure
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated drug None = 13
  }
@@ -805,7 +805,7 @@ message Environment
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
  }
 // Any association between an environment and a phenotypic feature, where being in the environment influences the phenotype
@@ -839,7 +839,7 @@ message EnvironmentalFeature
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
  }
 message EnvironmentalProcess
  {
@@ -853,7 +853,7 @@ message EnvironmentalProcess
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated regulatesProcessToProcess None = 12
   repeated hasParticipant None = 13
   repeated hasInput None = 14
@@ -872,7 +872,7 @@ message EvidenceType
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
  }
 // A region of the transcript sequence within a gene which is not removed from the primary RNA transcript by RNA splicing
 message Exon
@@ -887,7 +887,7 @@ message Exon
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated molecularlyInteractsWith None = 13
   repeated affectsAbundanceOf None = 14
@@ -971,7 +971,7 @@ message FrequencyValue
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated subclassOf None = 12
  }
 // An association between a macromolecular machine (gene, gene product or complex of gene products) and either a molecular activity, a biological process or a cellular location in which a function is executed
@@ -1001,7 +1001,7 @@ message Gene
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated molecularlyInteractsWith None = 13
   repeated affectsAbundanceOf None = 14
@@ -1094,7 +1094,7 @@ message GeneFamily
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated molecularlyInteractsWith None = 13
   repeated affectsAbundanceOf None = 14
@@ -1180,7 +1180,7 @@ message GeneOntologyClass
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated subclassOf None = 12
  }
 // a union of genes or gene products. Frequently an identifier for one will be used as proxy for another
@@ -1196,7 +1196,7 @@ message GeneOrGeneProduct
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated molecularlyInteractsWith None = 13
   repeated affectsAbundanceOf None = 14
@@ -1269,7 +1269,7 @@ message GeneProduct
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated molecularlyInteractsWith None = 13
   repeated affectsAbundanceOf None = 14
@@ -1453,7 +1453,7 @@ message Genome
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated molecularlyInteractsWith None = 13
   repeated affectsAbundanceOf None = 14
@@ -1522,7 +1522,7 @@ message GenomicEntity
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated molecularlyInteractsWith None = 13
   repeated affectsAbundanceOf None = 14
@@ -1610,7 +1610,7 @@ message Genotype
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated molecularlyInteractsWith None = 13
   repeated affectsAbundanceOf None = 14
@@ -1744,7 +1744,7 @@ message GenotypicSex
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated subclassOf None = 12
  }
 // a location that can be described in lat/long coordinates
@@ -1760,7 +1760,7 @@ message GeographicLocation
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   optional latitude None = 12
   optional longitude None = 13
  }
@@ -1777,7 +1777,7 @@ message GeographicLocationAtTime
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   optional latitude None = 12
   optional longitude None = 13
   optional timepoint None = 14
@@ -1794,7 +1794,7 @@ message GrossAnatomicalStructure
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated expresses None = 13
   repeated inTaxon None = 14
@@ -1812,7 +1812,7 @@ message Haplotype
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated molecularlyInteractsWith None = 13
   repeated affectsAbundanceOf None = 14
@@ -1880,7 +1880,7 @@ message IndividualOrganism
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated inTaxon None = 13
  }
@@ -1897,7 +1897,7 @@ message LifeStage
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated inTaxon None = 13
  }
@@ -1913,7 +1913,7 @@ message MacromolecularComplex
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated molecularlyInteractsWith None = 13
   repeated affectsAbundanceOf None = 14
@@ -1982,7 +1982,7 @@ message MacromolecularMachine
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated molecularlyInteractsWith None = 13
   repeated affectsAbundanceOf None = 14
@@ -2096,7 +2096,7 @@ message Metabolite
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated molecularlyInteractsWith None = 13
   repeated affectsAbundanceOf None = 14
@@ -2163,7 +2163,7 @@ message MicroRNA
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated molecularlyInteractsWith None = 13
   repeated affectsAbundanceOf None = 14
@@ -2236,7 +2236,7 @@ message MolecularActivity
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated regulatesProcessToProcess None = 13
   repeated hasParticipant None = 14
@@ -2256,7 +2256,7 @@ message MolecularEntity
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated molecularlyInteractsWith None = 13
   repeated affectsAbundanceOf None = 14
@@ -2326,7 +2326,7 @@ message NamedThing
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated physicallyInteractsWith None = 12
   repeated affects None = 13
   repeated regulates None = 14
@@ -2379,7 +2379,7 @@ message NoncodingRNAProduct
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated molecularlyInteractsWith None = 13
   repeated affectsAbundanceOf None = 14
@@ -2452,7 +2452,7 @@ message Occurrent
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated regulatesProcessToProcess None = 12
   repeated hasParticipant None = 13
   repeated hasInput None = 14
@@ -2473,7 +2473,7 @@ message Onset
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated subclassOf None = 12
  }
 // a concept or class in an ontology, vocabulary or thesaurus
@@ -2489,7 +2489,7 @@ message OntologyClass
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated subclassOf None = 12
  }
 message OrganismTaxon
@@ -2504,7 +2504,7 @@ message OrganismTaxon
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated subclassOf None = 12
  }
 // An interaction between two genes or two gene products. May be physical (e.g. protein binding) or genetic (between genes). May be symmetric (e.g. protein interaction) or directed (e.g. phosphorylation)
@@ -2534,7 +2534,7 @@ message Pathway
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated regulatesProcessToProcess None = 13
   repeated hasParticipant None = 14
@@ -2554,7 +2554,7 @@ message Phenomenon
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated regulatesProcessToProcess None = 12
   repeated hasParticipant None = 13
   repeated hasInput None = 14
@@ -2572,7 +2572,7 @@ message PhenotypicFeature
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated correlatedWith None = 13
   repeated hasBiomarker None = 14
@@ -2592,7 +2592,7 @@ message PhenotypicSex
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated subclassOf None = 12
  }
 message PhysiologicalProcess
@@ -2607,7 +2607,7 @@ message PhysiologicalProcess
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated regulatesProcessToProcess None = 13
   repeated hasParticipant None = 14
@@ -2627,7 +2627,7 @@ message PlanetaryEntity
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
  }
 // A collection of individuals from the same taxonomic class distinguished by one or more characteristics. Characteristics can include, but are not limited to, shared geographic location, genetics, phenotypes [Alliance for Genome Resources]
 message PopulationOfIndividualOrganisms
@@ -2642,7 +2642,7 @@ message PopulationOfIndividualOrganisms
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated inTaxon None = 13
  }
@@ -2674,7 +2674,7 @@ message Procedure
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated regulatesProcessToProcess None = 12
   repeated hasParticipant None = 13
   repeated hasInput None = 14
@@ -2693,7 +2693,7 @@ message Protein
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated molecularlyInteractsWith None = 13
   repeated affectsAbundanceOf None = 14
@@ -2766,7 +2766,7 @@ message ProteinIsoform
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated molecularlyInteractsWith None = 13
   repeated affectsAbundanceOf None = 14
@@ -2839,7 +2839,7 @@ message Provider
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
  }
 // Any published piece of information. Can refer to a whole publication, or to a part of it (e.g. a figure, figure legend, or section highlighted by NLP). The scope is intended to be general and include information published on the web as well as journals.
 message Publication
@@ -2854,7 +2854,7 @@ message Publication
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
  }
 // An OWL property used as an edge label
 message RelationshipType
@@ -2869,7 +2869,7 @@ message RelationshipType
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated subclassOf None = 12
  }
 message RNAProduct
@@ -2884,7 +2884,7 @@ message RNAProduct
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated molecularlyInteractsWith None = 13
   repeated affectsAbundanceOf None = 14
@@ -2957,7 +2957,7 @@ message RNAProductIsoform
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated molecularlyInteractsWith None = 13
   repeated affectsAbundanceOf None = 14
@@ -3045,7 +3045,7 @@ message SequenceVariant
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated molecularlyInteractsWith None = 13
   repeated affectsAbundanceOf None = 14
@@ -3115,7 +3115,7 @@ message SeverityValue
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated subclassOf None = 12
  }
 // An RNA synthesized on a DNA or RNA template by an RNA polymerase
@@ -3131,7 +3131,7 @@ message Transcript
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated molecularlyInteractsWith None = 13
   repeated affectsAbundanceOf None = 14
@@ -3215,7 +3215,7 @@ message Treatment
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated hasPhenotype None = 12
   repeated treats None = 13
   repeated hasExposureParts None = 14
@@ -3287,6 +3287,6 @@ message Zygosity
   repeated synonym None = 8
   optional fullName None = 9
   optional description None = 10
-  optional systematicSynonym None = 11
+  repeated systematicSynonym None = 11
   repeated subclassOf None = 12
  }

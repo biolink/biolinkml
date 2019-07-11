@@ -1121,7 +1121,8 @@ slots:
     description: >-
       holds between two classes where the domain class is a specialization of the range class
     domain: ontology class
-    range: ontology class
+    range: iri type
+    multivalued: True
     in_subset:
       - translator_minimal
     slot_uri: rdfs:subClassOf
@@ -1227,6 +1228,7 @@ slots:
     is_a: node property
     domain: named thing
     range: label type
+    multivalued: true
     description: >-
       more commonly used for gene symbols in yeast
 

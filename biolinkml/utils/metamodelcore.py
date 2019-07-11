@@ -313,7 +313,7 @@ class ElementIdentifier(NodeIdentifier):
     def __new__(cls, v: Union[str, URIRef, URIorCURIE, NodeIdentifier, "ElementIdentifier"]) -> "ElementIdentifier":
         if hasattr(v, 'id'):        # Allows passing instances of identified objects
             v = v.id
-        if is_strict() and type(v) is BNode or str(v).startswith('_:'):
+        if is_strict() and (type(v) is BNode or str(v).startswith('_:')):
             raise ValueError(f"Invalid identifier type for {cls.__name__}: {v} ({type(v).__name__})")
         return super().__new__(cls, v)
 

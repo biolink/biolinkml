@@ -98,14 +98,17 @@ class Namespaces(OrderedDict):
     def _base(self) -> None:
         super().__delitem__(self._base_key)
 
-    def curie_for(self, uri: Any, default_ok: bool = True) -> Optional[str]:
+    def curie_for(self, uri: Any, default_ok: bool = True, pythonform: bool = False) -> Optional[str]:
         """
         Return the most appropriate CURIE for URI.  The first longest matching prefix used, if any.  If no CURIE is
         present, None is returned
 
         @param uri: URI to create the CURIE for
         @param default_ok: True means the default prefix is ok. Otherwise we have to have a reql prefix
+        @param pythonform: True means take the python/rdflib uppercase format
         """
+        if pythonform:
+            default_ok = False
         match: Tuple[str, Optional[Namespace]] = ('', None)     # match string / prefix
         u = str(uri)
 
@@ -116,9 +119,19 @@ class Namespaces(OrderedDict):
                 if len(vs) > len(match[0]) and (default_ok or k not in (Namespaces._default_key, Namespaces._base_key)):
                     match = (vs, k)
         if len(match[0]):
-            return u.replace(match[0],
-                             ':' if match[1] == Namespaces._default_key else '' if match[1] == Namespaces._base_key else
-                             match[1] + ':')
+            if pythonform:
+                ns = match[1].upper()
+                ln = u.replace((match[0]), '')
+                if not ln:
+                    return f"URIRef(str({ns}))"
+                elif ln.isidentifier():
+                    return f"{ns}.{ln}"
+                else:
+                    return f'{ns}["{ln}"]'
+            else:
+                return u.replace(match[0],
+                                 ':' if match[1] == Namespaces._default_key else
+                                 '' if match[1] == Namespaces._base_key else match[1] + ':')
         return None
 
     def prefix_for(self, uri_or_curie: Any) -> Optional[str]:

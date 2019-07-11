@@ -9,7 +9,7 @@ import biolinkml
 from biolinkml.generators import PYTHON_GEN_VERSION
 from biolinkml.meta import SchemaDefinition, SlotDefinition, ClassDefinition, ClassDefinitionName, \
     SlotDefinitionName, DefinitionName, Element, TypeDefinition, Definition
-from biolinkml.utils.formatutils import camelcase, underscore, be, wrapped_annotation, split_line, uri_for, sfx
+from biolinkml.utils.formatutils import camelcase, underscore, be, wrapped_annotation, split_line, sfx
 from biolinkml.utils.generator import Generator
 from biolinkml.utils.ifabsent_functions import ifabsent_value_declaration, ifabsent_postinit_declaration, \
     default_curie_or_uri
@@ -23,11 +23,13 @@ class PythonGenerator(Generator):
     valid_formats = ['py']
     visit_all_class_slots = False
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], fmt: str=valid_formats[0],
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], format: str = valid_formats[0],
                  emit_metadata: bool=True) -> None:
         self.sourcefile = schema
         self.emit_prefixes: Set[str] = set()
-        super().__init__(schema, fmt, emit_metadata)
+        if format is None:
+            format = self.valid_formats[0]
+        super().__init__(schema, format, emit_metadata)
         if not self.schema.source_file and isinstance(self.sourcefile, str) and '\n' not in self.sourcefile:
             self.schema.source_file = os.path.basename(self.sourcefile)
 
@@ -54,6 +56,11 @@ class PythonGenerator(Generator):
         if slot_prefix:
             self.emit_prefixes.add(slot_prefix)
         self.add_mappings(slot)
+
+    def visit_type(self, typ: TypeDefinition) -> None:
+        type_prefix = self.namespaces.prefix_for(typ.uri)
+        if type_prefix:
+            self.emit_prefixes.add(type_prefix)
 
     def add_mappings(self, defn: Definition) -> None:
         """
@@ -95,7 +102,7 @@ from dataclasses import dataclass
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
-from rdflib import Namespace
+from rdflib import Namespace, URIRef
 {self.gen_imports()}
 
 metamodel_version = "{self.schema.metamodel_version}"
@@ -225,10 +232,10 @@ metamodel_version = "{self.schema.metamodel_version}"
 
                 if typ.typeof:
                     parent_typename = camelcase(typ.typeof)
-                    rval.append(f'class {typname}({parent_typename}):{desc}\n\tpass\n\n')
+                    rval.append(f'class {typname}({parent_typename}):{desc}\n\t{self.gen_type_meta(typ)}\n\n')
                 else:
                     base_base = typ.base.rsplit('.')[-1]
-                    rval.append(f'class {typname}({base_base}):{desc}\n\tpass\n\n')
+                    rval.append(f'class {typname}({base_base}):{desc}\n\t{self.gen_type_meta(typ)}\n\n')
         return '\n'.join(rval)
 
     def gen_classdefs(self) -> str:
@@ -264,15 +271,53 @@ metamodel_version = "{self.schema.metamodel_version}"
         return f"_inherited_slots: ClassVar[List[str]] = [{inherited_slots_str}]"
 
     def gen_class_meta(self, cls: ClassDefinition) -> str:
-        cls_uri = self.namespaces.uri_for(cls.class_uri)
-        cls_curie = self.namespaces.curie_for(cls_uri, default_ok=False)
-        if cls_curie:
-            cls_curie = f'"{cls_curie}"'
+        class_class_uri = self.namespaces.uri_for(cls.class_uri)
+        if class_class_uri:
+            cls_python_uri = self.namespaces.curie_for(class_class_uri, default_ok=False, pythonform=True)
+            class_class_curie = self.namespaces.curie_for(class_class_uri, default_ok=False, pythonform=False)
+        else:
+            cls_python_uri = None
+            class_class_curie = None
+        if class_class_curie:
+            class_class_curie = f'"{class_class_curie}"'
+        class_class_uri = cls_python_uri if cls_python_uri else f'URIRef("{class_class_uri}")'
+        class_model_uri = self.namespaces.uri_or_curie_for(self.schema.default_prefix, camelcase(cls.name))
+        if ':/' in class_model_uri:
+            class_model_uri = f'URIRef("{class_model_uri}")'
+        else:
+            ns, ln = class_model_uri.split(':', 1)
+            class_model_uri = f"{ns.upper()}.{ln}"
 
-        vars = [f'type_uri: ClassVar[str] = "{cls_uri}"',
-                f'type_curie: ClassVar[str] = {cls_curie}',
-                f'type_name: ClassVar[str] = "{cls.name}"']
+        vars = [f'class_class_uri: ClassVar[URIRef] = {class_class_uri}',
+                f'class_class_curie: ClassVar[str] = {class_class_curie}',
+                f'class_name: ClassVar[str] = "{cls.name}"',
+                f'class_model_uri: ClassVar[URIRef] = {class_model_uri}']
         return "\n\t".join(vars)
+
+    def gen_type_meta(self, typ: TypeDefinition) -> str:
+        type_class_uri = self.namespaces.uri_for(typ.uri)
+        if type_class_uri:
+            type_python_uri = self.namespaces.curie_for(type_class_uri, default_ok=False, pythonform=True)
+            type_class_curie = self.namespaces.curie_for(type_class_uri, default_ok=False, pythonform=False)
+        else:
+            type_python_uri = None
+            type_class_curie = None
+        if type_class_curie:
+            type_class_curie = f'"{type_class_curie}"'
+        type_class_uri = type_python_uri if type_python_uri else f'URIRef("{type_class_uri}")'
+        type_model_uri = self.namespaces.uri_or_curie_for(self.schema.default_prefix, camelcase(typ.name))
+        if ':/' in type_model_uri:
+            type_model_uri = f'URIRef("{type_model_uri}")'
+        else:
+            ns, ln = type_model_uri.split(':', 1)
+            ln_suffix = f".{ln}" if ln.isidentifier() else f'["{ln}"]'
+            type_model_uri = f"{ns.upper()}{ln_suffix}"
+        vars = [f'type_class_uri = {type_class_uri}',
+                f'type_class_curie = {type_class_curie}',
+                f'type_name = "{typ.name}"',
+                f'type_model_uri = {type_model_uri}']
+        return "\n\t".join(vars)
+
 
     def gen_class_variables(self,
                             cls: ClassDefinition) -> str:

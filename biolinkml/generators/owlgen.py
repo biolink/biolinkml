@@ -29,8 +29,8 @@ class OwlSchemaGenerator(Generator):
     valid_formats = [x.name for x in rdflib_plugins(None, rdflib_Parser) if '/' not in str(x.name)]
     visits_are_sorted = True
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], fmt: str = 'ttl') -> None:
-        super().__init__(schema, fmt)
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], format: str = 'ttl') -> None:
+        super().__init__(schema, format)
         self.graph: Optional[Graph] = None
         self.metamodel = SchemaLoader(LOCAL_YAML_PATH) if os.path.exists(LOCAL_YAML_PATH) else\
             SchemaLoader(METAMODEL_YAML_URI, base_dir=META_BASE_URI)

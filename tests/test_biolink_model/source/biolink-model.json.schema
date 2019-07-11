@@ -942,7 +942,10 @@
       },
       "systematic_synonym": {
          "description": "more commonly used for gene symbols in yeast",
-         "type": "string"
+         "items": {
+            "type": "string"
+         },
+         "type": "array"
       },
       "timepoint": {
          "description": "a point in time",
@@ -1196,7 +1199,10 @@
             },
             "systematic_synonym": {
                "description": "more commonly used for gene symbols in yeast",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             }
          },
          "title": "Attribute",
@@ -2901,7 +2907,10 @@
             },
             "systematic_synonym": {
                "description": "more commonly used for gene symbols in yeast",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "update_date": {
                "description": "date on which thing was updated. This can be applied to nodes or edges",

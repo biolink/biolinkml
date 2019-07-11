@@ -21,8 +21,8 @@ class ContextGenerator(Generator):
     valid_formats = ['json']
     visit_all_class_slots = False
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], fmt: str='json') -> None:
-        super().__init__(schema, fmt)
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], format: str='json') -> None:
+        super().__init__(schema, format)
         if self.namespaces is None:
             raise TypeError("Schema text must be supplied to context generater.  Preparsed schema will not work")
         self.emit_prefixes: Set[str] = set()

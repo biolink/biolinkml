@@ -10,7 +10,7 @@ type ActivityAndBehavior
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     regulatesProcessToProcess: [Occurrent]
     hasParticipant: [NamedThing]
     hasInput: [NamedThing]
@@ -29,7 +29,7 @@ interface AdministrativeEntity
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
   }
 
 type AnatomicalEntity implements ThingWithTaxon
@@ -44,7 +44,7 @@ type AnatomicalEntity implements ThingWithTaxon
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     expresses: [GeneOrGeneProduct]
     inTaxon: [OrganismTaxon]
@@ -125,8 +125,8 @@ type Attribute implements OntologyClass
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
-    subclassOf: [OntologyClass]
+    systematicSynonym: [LabelType]
+    subclassOf: [IriType]
   }
 
 interface BiologicalEntity
@@ -141,7 +141,7 @@ interface BiologicalEntity
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
   }
 
@@ -157,7 +157,7 @@ type BiologicalProcess implements Occurrent
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     regulatesProcessToProcess: [Occurrent]
     hasParticipant: [NamedThing]
@@ -177,7 +177,7 @@ type BiologicalProcessOrActivity
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
   }
 
@@ -193,8 +193,8 @@ type BiologicalSex
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
-    subclassOf: [OntologyClass]
+    systematicSynonym: [LabelType]
+    subclassOf: [IriType]
   }
 
 type Biosample implements ThingWithTaxon
@@ -209,7 +209,7 @@ type Biosample implements ThingWithTaxon
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     inTaxon: [OrganismTaxon]
   }
@@ -256,7 +256,7 @@ type Carbohydrate
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -324,7 +324,7 @@ type Case
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     inTaxon: [OrganismTaxon]
   }
@@ -375,7 +375,7 @@ type Cell
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     expresses: [GeneOrGeneProduct]
     inTaxon: [OrganismTaxon]
@@ -393,7 +393,7 @@ type CellLine
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     inTaxon: [OrganismTaxon]
   }
@@ -440,7 +440,7 @@ type CellularComponent
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     expresses: [GeneOrGeneProduct]
     inTaxon: [OrganismTaxon]
@@ -458,7 +458,7 @@ type ChemicalSubstance
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -586,7 +586,7 @@ type ClinicalEntity
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
   }
 
 type ClinicalIntervention
@@ -601,7 +601,7 @@ type ClinicalIntervention
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
   }
 
 type ClinicalModifier
@@ -616,8 +616,8 @@ type ClinicalModifier
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
-    subclassOf: [OntologyClass]
+    systematicSynonym: [LabelType]
+    subclassOf: [IriType]
   }
 
 type ClinicalTrial
@@ -632,7 +632,7 @@ type ClinicalTrial
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
   }
 
 type CodingSequence
@@ -647,7 +647,7 @@ type CodingSequence
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -716,7 +716,7 @@ type ConfidenceLevel
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
   }
 
 type Device
@@ -731,7 +731,7 @@ type Device
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
   }
 
 type Disease
@@ -746,7 +746,7 @@ type Disease
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     correlatedWith: [MolecularEntity]
     hasBiomarker: [MolecularEntity]
@@ -766,7 +766,7 @@ type DiseaseOrPhenotypicFeature implements ThingWithTaxon
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     correlatedWith: [MolecularEntity]
     hasBiomarker: [MolecularEntity]
@@ -850,7 +850,7 @@ type Drug
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -918,7 +918,7 @@ type DrugExposure
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     drug: [ChemicalSubstance]!
   }
@@ -970,7 +970,7 @@ type Environment
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
   }
 
@@ -1005,7 +1005,7 @@ type EnvironmentalFeature
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
   }
 
 type EnvironmentalProcess implements Occurrent
@@ -1020,7 +1020,7 @@ type EnvironmentalProcess implements Occurrent
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     regulatesProcessToProcess: [Occurrent]
     hasParticipant: [NamedThing]
     hasInput: [NamedThing]
@@ -1039,7 +1039,7 @@ type EvidenceType
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
   }
 
 type Exon
@@ -1054,7 +1054,7 @@ type Exon
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -1151,8 +1151,8 @@ type FrequencyValue
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
-    subclassOf: [OntologyClass]
+    systematicSynonym: [LabelType]
+    subclassOf: [IriType]
   }
 
 type FunctionalAssociation
@@ -1182,7 +1182,7 @@ type Gene
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -1276,7 +1276,7 @@ type GeneFamily implements GeneGrouping
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -1367,8 +1367,8 @@ type GeneOntologyClass
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
-    subclassOf: [OntologyClass]
+    systematicSynonym: [LabelType]
+    subclassOf: [IriType]
   }
 
 type GeneOrGeneProduct
@@ -1383,7 +1383,7 @@ type GeneOrGeneProduct
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -1456,7 +1456,7 @@ type GeneProduct
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -1529,7 +1529,7 @@ interface GeneProductIsoform
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -1746,7 +1746,7 @@ type Genome
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -1815,7 +1815,7 @@ type GenomicEntity
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -1903,7 +1903,7 @@ type Genotype
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -2052,8 +2052,8 @@ type GenotypicSex
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
-    subclassOf: [OntologyClass]
+    systematicSynonym: [LabelType]
+    subclassOf: [IriType]
   }
 
 type GeographicLocation
@@ -2068,7 +2068,7 @@ type GeographicLocation
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     latitude: Float
     longitude: Float
   }
@@ -2085,7 +2085,7 @@ type GeographicLocationAtTime
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     latitude: Float
     longitude: Float
     timepoint: TimeType
@@ -2103,7 +2103,7 @@ type GrossAnatomicalStructure
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     expresses: [GeneOrGeneProduct]
     inTaxon: [OrganismTaxon]
@@ -2121,7 +2121,7 @@ type Haplotype
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -2190,7 +2190,7 @@ type IndividualOrganism implements ThingWithTaxon
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     inTaxon: [OrganismTaxon]
   }
@@ -2207,7 +2207,7 @@ interface InformationContentEntity
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
   }
 
 type LifeStage implements ThingWithTaxon
@@ -2222,7 +2222,7 @@ type LifeStage implements ThingWithTaxon
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     inTaxon: [OrganismTaxon]
   }
@@ -2239,7 +2239,7 @@ type MacromolecularComplex
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -2308,7 +2308,7 @@ type MacromolecularMachine
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -2422,7 +2422,7 @@ type Metabolite
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -2490,7 +2490,7 @@ type MicroRNA
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -2569,7 +2569,7 @@ type MolecularActivity implements Occurrent
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     regulatesProcessToProcess: [Occurrent]
     hasParticipant: [NamedThing]
@@ -2589,7 +2589,7 @@ type MolecularEntity implements ThingWithTaxon
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -2659,7 +2659,7 @@ type NamedThing
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     physicallyInteractsWith: [NamedThing]
     affects: [NamedThing]
     regulates: [NamedThing]
@@ -2713,7 +2713,7 @@ type NoncodingRNAProduct
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -2786,7 +2786,7 @@ type Occurrent
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     regulatesProcessToProcess: [Occurrent]
     hasParticipant: [NamedThing]
     hasInput: [NamedThing]
@@ -2807,8 +2807,8 @@ type Onset
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
-    subclassOf: [OntologyClass]
+    systematicSynonym: [LabelType]
+    subclassOf: [IriType]
   }
 
 type OntologyClass
@@ -2823,8 +2823,8 @@ type OntologyClass
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
-    subclassOf: [OntologyClass]
+    systematicSynonym: [LabelType]
+    subclassOf: [IriType]
   }
 
 type OrganismTaxon
@@ -2839,8 +2839,8 @@ type OrganismTaxon
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
-    subclassOf: [OntologyClass]
+    systematicSynonym: [LabelType]
+    subclassOf: [IriType]
   }
 
 interface OrganismalEntity
@@ -2855,7 +2855,7 @@ interface OrganismalEntity
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
   }
 
@@ -2906,7 +2906,7 @@ type Pathway
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     regulatesProcessToProcess: [Occurrent]
     hasParticipant: [NamedThing]
@@ -2926,7 +2926,7 @@ type Phenomenon
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     regulatesProcessToProcess: [Occurrent]
     hasParticipant: [NamedThing]
     hasInput: [NamedThing]
@@ -2945,7 +2945,7 @@ type PhenotypicFeature
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     correlatedWith: [MolecularEntity]
     hasBiomarker: [MolecularEntity]
@@ -2965,8 +2965,8 @@ type PhenotypicSex
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
-    subclassOf: [OntologyClass]
+    systematicSynonym: [LabelType]
+    subclassOf: [IriType]
   }
 
 type PhysiologicalProcess
@@ -2981,7 +2981,7 @@ type PhysiologicalProcess
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     regulatesProcessToProcess: [Occurrent]
     hasParticipant: [NamedThing]
@@ -3001,7 +3001,7 @@ type PlanetaryEntity
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
   }
 
 type PopulationOfIndividualOrganisms implements ThingWithTaxon
@@ -3016,7 +3016,7 @@ type PopulationOfIndividualOrganisms implements ThingWithTaxon
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     inTaxon: [OrganismTaxon]
   }
@@ -3048,7 +3048,7 @@ type Procedure
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     regulatesProcessToProcess: [Occurrent]
     hasParticipant: [NamedThing]
     hasInput: [NamedThing]
@@ -3067,7 +3067,7 @@ type Protein
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -3140,7 +3140,7 @@ type ProteinIsoform implements GeneProductIsoform
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -3213,7 +3213,7 @@ type Provider
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
   }
 
 type Publication
@@ -3228,7 +3228,7 @@ type Publication
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
   }
 
 interface RelationshipQuantifier
@@ -3247,8 +3247,8 @@ type RelationshipType
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
-    subclassOf: [OntologyClass]
+    systematicSynonym: [LabelType]
+    subclassOf: [IriType]
   }
 
 type RNAProduct
@@ -3263,7 +3263,7 @@ type RNAProduct
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -3336,7 +3336,7 @@ type RNAProductIsoform implements GeneProductIsoform
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -3428,7 +3428,7 @@ type SequenceVariant
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -3513,8 +3513,8 @@ type SeverityValue
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
-    subclassOf: [OntologyClass]
+    systematicSynonym: [LabelType]
+    subclassOf: [IriType]
   }
 
 interface SpecificityQuantifier
@@ -3553,7 +3553,7 @@ type Transcript
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -3637,7 +3637,7 @@ type Treatment
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     treats: [DiseaseOrPhenotypicFeature]!
     hasExposureParts: [DrugExposure]!
@@ -3727,7 +3727,7 @@ type Zygosity
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
-    subclassOf: [OntologyClass]
+    systematicSynonym: [LabelType]
+    subclassOf: [IriType]
   }
 

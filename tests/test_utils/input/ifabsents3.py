@@ -11,14 +11,16 @@ from dataclasses import dataclass
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
-from rdflib import Namespace
+from rdflib import Namespace, URIRef
 from includes.types import String
 
 metamodel_version = "1.4.0"
 
 
 # Namespaces
+SHEX = Namespace('http://www.w3.org/ns/shex#')
 TEST = Namespace('http://example.org/tests/ifabsent/')
+XSD = Namespace('http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = TEST
 
 
@@ -32,9 +34,10 @@ DEFAULT_ = TEST
 class C1(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
-    type_uri: ClassVar[str] = "http://example.org/tests/ifabsent/C1"
-    type_curie: ClassVar[str] = "test:C1"
-    type_name: ClassVar[str] = "c1"
+    class_class_uri: ClassVar[URIRef] = TEST.C1
+    class_class_curie: ClassVar[str] = "test:C1"
+    class_name: ClassVar[str] = "c1"
+    class_model_uri: ClassVar[URIRef] = TEST.C1
 
     s1: Optional[str] = True
     s1p: Optional[str] = True

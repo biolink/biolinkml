@@ -76,26 +76,39 @@
          "type": "Shape",
          "id": "https://w3id.org/biolink/biolinkml/meta/AltDescription",
          "closed": true,
-         "extra": [
-            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
-         ],
          "expression": {
             "type": "EachOf",
-            "id": "https://w3id.org/biolink/biolinkml/meta/AltDescription_struct",
             "expressions": [
                {
-                  "type": "TripleConstraint",
-                  "predicate": "https://w3id.org/biolink/biolinkml/meta/source",
-                  "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Ncname",
-                  "min": 1,
-                  "max": 1
+                  "type": "EachOf",
+                  "id": "https://w3id.org/biolink/biolinkml/meta/AltDescription_tes",
+                  "expressions": [
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/biolinkml/meta/source",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Ncname",
+                        "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/biolinkml/meta/description",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/String",
+                        "min": 1,
+                        "max": 1
+                     }
+                  ]
                },
                {
                   "type": "TripleConstraint",
-                  "predicate": "https://w3id.org/biolink/biolinkml/meta/description",
-                  "valueExpr": "https://w3id.org/biolink/biolinkml/meta/String",
-                  "min": 1,
-                  "max": 1
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://w3id.org/biolink/biolinkml/meta/AltDescription"
+                     ]
+                  },
+                  "min": 1
                }
             ]
          }
@@ -104,16 +117,25 @@
          "type": "Shape",
          "id": "https://w3id.org/biolink/biolinkml/meta/ClassDefinition",
          "closed": true,
-         "extra": [
-            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
-         ],
          "expression": {
             "type": "EachOf",
             "expressions": [
                {
                   "type": "EachOf",
-                  "id": "https://w3id.org/biolink/biolinkml/meta/ClassDefinition_struct",
+                  "id": "https://w3id.org/biolink/biolinkml/meta/ClassDefinition_tes",
                   "expressions": [
+                     "https://w3id.org/biolink/biolinkml/meta/Definition_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://w3id.org/biolink/biolinkml/meta/Definition"
+                           ]
+                        },
+                        "min": 0
+                     },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/is_a",
@@ -176,8 +198,7 @@
                         "valueExpr": "https://w3id.org/biolink/biolinkml/meta/SlotDefinition",
                         "min": 0,
                         "max": -1
-                     },
-                     "https://w3id.org/biolink/biolinkml/meta/Definition_struct"
+                     }
                   ]
                },
                {
@@ -188,7 +209,8 @@
                      "values": [
                         "https://w3id.org/biolink/biolinkml/meta/ClassDefinition"
                      ]
-                  }
+                  },
+                  "min": 1
                }
             ]
          }
@@ -203,14 +225,27 @@
       },
       {
          "type": "Shape",
-         "id": "https://w3id.org/biolink/biolinkml/meta/Definition_type",
+         "id": "https://w3id.org/biolink/biolinkml/meta/Definition_struct",
+         "closed": false,
          "expression": {
             "type": "EachOf",
             "expressions": [
                {
                   "type": "EachOf",
-                  "id": "https://w3id.org/biolink/biolinkml/meta/Definition_struct",
+                  "id": "https://w3id.org/biolink/biolinkml/meta/Definition_tes",
                   "expressions": [
+                     "https://w3id.org/biolink/biolinkml/meta/Element_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://w3id.org/biolink/biolinkml/meta/Element"
+                           ]
+                        },
+                        "min": 0
+                     },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/abstract",
@@ -245,8 +280,7 @@
                         "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Uriorcurie",
                         "min": 0,
                         "max": -1
-                     },
-                     "https://w3id.org/biolink/biolinkml/meta/Element_struct"
+                     }
                   ]
                },
                {
@@ -257,7 +291,8 @@
                      "values": [
                         "https://w3id.org/biolink/biolinkml/meta/Definition"
                      ]
-                  }
+                  },
+                  "min": 1
                }
             ]
          }
@@ -274,13 +309,14 @@
       },
       {
          "type": "Shape",
-         "id": "https://w3id.org/biolink/biolinkml/meta/Element_type",
+         "id": "https://w3id.org/biolink/biolinkml/meta/Element_struct",
+         "closed": false,
          "expression": {
             "type": "EachOf",
             "expressions": [
                {
                   "type": "EachOf",
-                  "id": "https://w3id.org/biolink/biolinkml/meta/Element_struct",
+                  "id": "https://w3id.org/biolink/biolinkml/meta/Element_tes",
                   "expressions": [
                      {
                         "type": "TripleConstraint",
@@ -397,7 +433,8 @@
                      "values": [
                         "https://w3id.org/biolink/biolinkml/meta/Element"
                      ]
-                  }
+                  },
+                  "min": 1
                }
             ]
          }
@@ -406,26 +443,39 @@
          "type": "Shape",
          "id": "https://w3id.org/biolink/biolinkml/meta/Example",
          "closed": true,
-         "extra": [
-            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
-         ],
          "expression": {
             "type": "EachOf",
-            "id": "https://w3id.org/biolink/biolinkml/meta/Example_struct",
             "expressions": [
                {
-                  "type": "TripleConstraint",
-                  "predicate": "http://www.w3.org/2004/02/skos/core#example",
-                  "valueExpr": "https://w3id.org/biolink/biolinkml/meta/String",
-                  "min": 0,
-                  "max": 1
+                  "type": "EachOf",
+                  "id": "https://w3id.org/biolink/biolinkml/meta/Example_tes",
+                  "expressions": [
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/2004/02/skos/core#example",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/String",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/biolinkml/meta/description",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/String",
+                        "min": 0,
+                        "max": 1
+                     }
+                  ]
                },
                {
                   "type": "TripleConstraint",
-                  "predicate": "https://w3id.org/biolink/biolinkml/meta/description",
-                  "valueExpr": "https://w3id.org/biolink/biolinkml/meta/String",
-                  "min": 0,
-                  "max": 1
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://w3id.org/biolink/biolinkml/meta/Example"
+                     ]
+                  },
+                  "min": 1
                }
             ]
          }
@@ -434,26 +484,39 @@
          "type": "Shape",
          "id": "https://w3id.org/biolink/biolinkml/meta/LocalName",
          "closed": true,
-         "extra": [
-            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
-         ],
          "expression": {
             "type": "EachOf",
-            "id": "https://w3id.org/biolink/biolinkml/meta/LocalName_struct",
             "expressions": [
                {
-                  "type": "TripleConstraint",
-                  "predicate": "https://w3id.org/biolink/biolinkml/meta/local_name_source",
-                  "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Ncname",
-                  "min": 1,
-                  "max": 1
+                  "type": "EachOf",
+                  "id": "https://w3id.org/biolink/biolinkml/meta/LocalName_tes",
+                  "expressions": [
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/biolinkml/meta/local_name_source",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Ncname",
+                        "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/2004/02/skos/core#altLabel",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/String",
+                        "min": 1,
+                        "max": 1
+                     }
+                  ]
                },
                {
                   "type": "TripleConstraint",
-                  "predicate": "http://www.w3.org/2004/02/skos/core#altLabel",
-                  "valueExpr": "https://w3id.org/biolink/biolinkml/meta/String",
-                  "min": 1,
-                  "max": 1
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://w3id.org/biolink/biolinkml/meta/LocalName"
+                     ]
+                  },
+                  "min": 1
                }
             ]
          }
@@ -462,26 +525,39 @@
          "type": "Shape",
          "id": "https://w3id.org/biolink/biolinkml/meta/Prefix",
          "closed": true,
-         "extra": [
-            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
-         ],
          "expression": {
             "type": "EachOf",
-            "id": "https://w3id.org/biolink/biolinkml/meta/Prefix_struct",
             "expressions": [
                {
-                  "type": "TripleConstraint",
-                  "predicate": "https://w3id.org/biolink/biolinkml/meta/prefix_prefix",
-                  "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Ncname",
-                  "min": 1,
-                  "max": 1
+                  "type": "EachOf",
+                  "id": "https://w3id.org/biolink/biolinkml/meta/Prefix_tes",
+                  "expressions": [
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/biolinkml/meta/prefix_prefix",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Ncname",
+                        "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/biolinkml/meta/prefix_reference",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Uri",
+                        "min": 1,
+                        "max": 1
+                     }
+                  ]
                },
                {
                   "type": "TripleConstraint",
-                  "predicate": "https://w3id.org/biolink/biolinkml/meta/prefix_reference",
-                  "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Uri",
-                  "min": 1,
-                  "max": 1
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://w3id.org/biolink/biolinkml/meta/Prefix"
+                     ]
+                  },
+                  "min": 1
                }
             ]
          }
@@ -490,16 +566,25 @@
          "type": "Shape",
          "id": "https://w3id.org/biolink/biolinkml/meta/SchemaDefinition",
          "closed": true,
-         "extra": [
-            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
-         ],
          "expression": {
             "type": "EachOf",
             "expressions": [
                {
                   "type": "EachOf",
-                  "id": "https://w3id.org/biolink/biolinkml/meta/SchemaDefinition_struct",
+                  "id": "https://w3id.org/biolink/biolinkml/meta/SchemaDefinition_tes",
                   "expressions": [
+                     "https://w3id.org/biolink/biolinkml/meta/Element_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://w3id.org/biolink/biolinkml/meta/Element"
+                           ]
+                        },
+                        "min": 0
+                     },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/id",
@@ -632,8 +717,7 @@
                         "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Datetime",
                         "min": 0,
                         "max": 1
-                     },
-                     "https://w3id.org/biolink/biolinkml/meta/Element_struct"
+                     }
                   ]
                },
                {
@@ -644,7 +728,8 @@
                      "values": [
                         "https://w3id.org/biolink/biolinkml/meta/SchemaDefinition"
                      ]
-                  }
+                  },
+                  "min": 1
                }
             ]
          }
@@ -653,16 +738,25 @@
          "type": "Shape",
          "id": "https://w3id.org/biolink/biolinkml/meta/SlotDefinition",
          "closed": true,
-         "extra": [
-            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
-         ],
          "expression": {
             "type": "EachOf",
             "expressions": [
                {
                   "type": "EachOf",
-                  "id": "https://w3id.org/biolink/biolinkml/meta/SlotDefinition_struct",
+                  "id": "https://w3id.org/biolink/biolinkml/meta/SlotDefinition_tes",
                   "expressions": [
+                     "https://w3id.org/biolink/biolinkml/meta/Definition_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://w3id.org/biolink/biolinkml/meta/Definition"
+                           ]
+                        },
+                        "min": 0
+                     },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/is_a",
@@ -823,8 +917,7 @@
                         "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Boolean",
                         "min": 0,
                         "max": 1
-                     },
-                     "https://w3id.org/biolink/biolinkml/meta/Definition_struct"
+                     }
                   ]
                },
                {
@@ -835,7 +928,8 @@
                      "values": [
                         "https://w3id.org/biolink/biolinkml/meta/SlotDefinition"
                      ]
-                  }
+                  },
+                  "min": 1
                }
             ]
          }
@@ -844,22 +938,24 @@
          "type": "Shape",
          "id": "https://w3id.org/biolink/biolinkml/meta/SubsetDefinition",
          "closed": true,
-         "extra": [
-            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
-         ],
          "expression": {
             "type": "EachOf",
             "expressions": [
                {
-                  "type": "OneOf",
-                  "id": "https://w3id.org/biolink/biolinkml/meta/SubsetDefinition_struct",
+                  "type": "EachOf",
+                  "id": "https://w3id.org/biolink/biolinkml/meta/SubsetDefinition_tes",
                   "expressions": [
-                     "https://w3id.org/biolink/biolinkml/meta/Element_struct",
+                     "https://w3id.org/biolink/biolinkml/meta/Element_tes",
                      {
                         "type": "TripleConstraint",
-                        "predicate": "http://ex.org/dummy",
-                        "min": 0,
-                        "max": 1
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://w3id.org/biolink/biolinkml/meta/Element"
+                           ]
+                        },
+                        "min": 0
                      }
                   ]
                },
@@ -871,7 +967,8 @@
                      "values": [
                         "https://w3id.org/biolink/biolinkml/meta/SubsetDefinition"
                      ]
-                  }
+                  },
+                  "min": 1
                }
             ]
          }
@@ -880,16 +977,25 @@
          "type": "Shape",
          "id": "https://w3id.org/biolink/biolinkml/meta/TypeDefinition",
          "closed": true,
-         "extra": [
-            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
-         ],
          "expression": {
             "type": "EachOf",
             "expressions": [
                {
                   "type": "EachOf",
-                  "id": "https://w3id.org/biolink/biolinkml/meta/TypeDefinition_struct",
+                  "id": "https://w3id.org/biolink/biolinkml/meta/TypeDefinition_tes",
                   "expressions": [
+                     "https://w3id.org/biolink/biolinkml/meta/Element_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://w3id.org/biolink/biolinkml/meta/Element"
+                           ]
+                        },
+                        "min": 0
+                     },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/typeof",
@@ -917,8 +1023,7 @@
                         "valueExpr": "https://w3id.org/biolink/biolinkml/meta/String",
                         "min": 0,
                         "max": 1
-                     },
-                     "https://w3id.org/biolink/biolinkml/meta/Element_struct"
+                     }
                   ]
                },
                {
@@ -929,7 +1034,8 @@
                      "values": [
                         "https://w3id.org/biolink/biolinkml/meta/TypeDefinition"
                      ]
-                  }
+                  },
+                  "min": 1
                }
             ]
          }

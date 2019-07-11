@@ -23,8 +23,8 @@ class RDFGenerator(Generator):
     valid_formats = [x.name for x in rdflib_plugins(None, rdflib_Parser) if '/' not in str(x.name)]
     visit_all_class_slots = False
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], fmt: str = 'ttl') -> None:
-        super().__init__(schema, fmt)
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], format: str = 'ttl') -> None:
+        super().__init__(schema, format)
 
     def _data(self, g: Graph) -> str:
         return g.serialize(format='turtle' if self.format == 'ttl' else self.format).decode()

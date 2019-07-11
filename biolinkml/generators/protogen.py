@@ -18,8 +18,8 @@ class ProtoGenerator(Generator):
     valid_formats = ['proto']
     visit_all_class_slots = True
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], fmt: str='proto') -> None:
-        super().__init__(schema, fmt)
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], format: str='proto') -> None:
+        super().__init__(schema, format)
         self.relative_slot_num = 0
 
     def visit_class(self, cls: ClassDefinition) -> bool:

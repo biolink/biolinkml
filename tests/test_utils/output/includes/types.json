@@ -7,10 +7,6 @@
    "license": "https://creativecommons.org/publicdomain/zero/1.0/",
    "prefixes": [
       {
-         "prefix_prefix": "meta",
-         "prefix_reference": "https://w3id.org/biolink/biolinkml/meta/"
-      },
-      {
          "prefix_prefix": "metatype",
          "prefix_reference": "https://w3id.org/biolink/biolinkml/type/"
       },

@@ -7,7 +7,6 @@ license: https://creativecommons.org/publicdomain/zero/1.0/
 version: 1.1.0
 
 prefixes:
-  meta: https://w3id.org/biolink/biolinkml/meta/
   metatype: https://w3id.org/biolink/biolinkml/type/
   xsd: http://www.w3.org/2001/XMLSchema#
   shex: http://www.w3.org/ns/shex#

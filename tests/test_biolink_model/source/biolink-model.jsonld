@@ -2160,7 +2160,7 @@
       "is_a": "related_to",
       "domain": "OntologyClass",
       "owner": "subclass_of",
-      "range": "OntologyClass",
+      "range": "iri_type",
       "slot_uri": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
       "multivalued": true,
       "inherited": true,
@@ -2312,6 +2312,7 @@
       "owner": "systematic_synonym",
       "range": "label_type",
       "slot_uri": "https://w3id.org/biolink/vocab/systematic_synonym",
+      "multivalued": true,
       "type": "SlotDefinition"
     },
     {
@@ -9679,7 +9680,7 @@
   "metamodel_version": "1.4.0",
   "source_file": "biolink-model.yaml",
   "source_file_date": "2019-01-01-12:00",
-  "source_file_size": 107102,
+  "source_file_size": 107140,
   "generation_date": "2019-01-01 12:00",
   "type": "SchemaDefinition",
   "@context": [

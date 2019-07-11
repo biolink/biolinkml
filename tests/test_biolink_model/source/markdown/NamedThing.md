@@ -253,7 +253,7 @@ URI: [biolink:NamedThing](https://w3id.org/biolink/vocab/NamedThing)
     * Description: Alternate human-readable names for a thing
     * range: [LabelType](LabelType.md)
     * in subsets: (translator_minimal)
- * [systematic synonym](systematic_synonym.md)  <sub>OPT</sub>
+ * [systematic synonym](systematic_synonym.md)  <sub>0..*</sub>
     * Description: more commonly used for gene symbols in yeast
     * range: [LabelType](LabelType.md)
  * [update date](update_date.md)  <sub>OPT</sub>

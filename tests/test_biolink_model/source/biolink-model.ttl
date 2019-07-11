@@ -172,32 +172,32 @@
         "rdfs",
         "skos",
         "xsd" ;
-    :generation_date "2019-07-07 13:35"^^xsd:dateTime ;
+    :generation_date "2019-07-11 10:08"^^xsd:dateTime ;
     :id <https://w3id.org/biolink/biolink-model> ;
     :imports <biolinkml:types> ;
     :metamodel_version "1.4.0" ;
-    :prefixes [ :prefix_prefix "xsd" ;
+    :prefixes [ :prefix_prefix "metatype" ;
+            :prefix_reference metatype: ],
+        [ :prefix_prefix "wgs" ;
+            :prefix_reference <http://www.w3.org/2003/01/geo/wgs84_pos> ],
+        [ :prefix_prefix "SIO" ;
+            :prefix_reference <http://semanticscience.org/resource/SIO_> ],
+        [ :prefix_prefix "biolinkml" ;
+            :prefix_reference <https://w3id.org/biolink/biolinkml/> ],
+        [ :prefix_prefix "UMLSSC" ;
+            :prefix_reference <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/TUI/> ],
+        [ :prefix_prefix "xsd" ;
             :prefix_reference xsd: ],
         [ :prefix_prefix "UMLSST" ;
             :prefix_reference <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/STY/> ],
-        [ :prefix_prefix "wgs" ;
-            :prefix_reference <http://www.w3.org/2003/01/geo/wgs84_pos> ],
-        [ :prefix_prefix "UMLSSG" ;
-            :prefix_reference <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/GROUP/> ],
-        [ :prefix_prefix "biolinkml" ;
-            :prefix_reference <https://w3id.org/biolink/biolinkml/> ],
-        [ :prefix_prefix "meta" ;
-            :prefix_reference : ],
         [ :prefix_prefix "biolink" ;
             :prefix_reference <https://w3id.org/biolink/vocab/> ],
-        [ :prefix_prefix "UMLSSC" ;
-            :prefix_reference <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/TUI/> ],
-        [ :prefix_prefix "SIO" ;
-            :prefix_reference <http://semanticscience.org/resource/SIO_> ],
         [ :prefix_prefix "OBAN" ;
             :prefix_reference <http://purl.org/oban/> ],
-        [ :prefix_prefix "metatype" ;
-            :prefix_reference metatype: ] ;
+        [ :prefix_prefix "UMLSSG" ;
+            :prefix_reference <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/GROUP/> ],
+        [ :prefix_prefix "meta" ;
+            :prefix_reference : ] ;
     :slots <https://w3id.org/biolink/vocab/actively_involved_in>,
         <https://w3id.org/biolink/vocab/affects>,
         <https://w3id.org/biolink/vocab/affects_abundance_of>,
@@ -457,8 +457,8 @@
         <https://w3id.org/biolink/vocab/variant_to_thing_association_subject>,
         <https://w3id.org/biolink/vocab/xenologous_to> ;
     :source_file "biolink-model.yaml" ;
-    :source_file_date "Sun Jul  7 11:53:24 2019"^^xsd:dateTime ;
-    :source_file_size 107102 ;
+    :source_file_date "Mon Jul  8 10:46:00 2019"^^xsd:dateTime ;
+    :source_file_size 107140 ;
     :subsets <https://w3id.org/biolink/vocab/testing>,
         <https://w3id.org/biolink/vocab/translator_minimal> ;
     :types <https://w3id.org/biolink/vocab/biological_sequence>,
@@ -3624,14 +3624,6 @@
     :range <https://w3id.org/biolink/vocab/Zygosity> ;
     :slot_uri <https://w3id.org/biolink/vocab/has_zygosity> .
 
-<https://w3id.org/biolink/vocab/iri_type> a :TypeDefinition ;
-    skos:definition "An IRI" ;
-    skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    :base "URIorCURIE" ;
-    :repr "str" ;
-    :typeof <https://w3id.org/biolink/vocab/uriorcurie> ;
-    :uri xsd:anyURI .
-
 <https://w3id.org/biolink/vocab/latitude> a :SlotDefinition ;
     skos:definition "latitude" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
@@ -3711,11 +3703,11 @@
     :inherited true ;
     :is_a <https://w3id.org/biolink/vocab/regulates_entity_to_entity> ;
     :local_names [ a :LocalName ;
-            skos:altLabel "negatively regulates" ;
-            :local_name_source "translator" ],
-        [ a :LocalName ;
             skos:altLabel "activity directly negatively regulates activity of" ;
-            :local_name_source "ro" ] ;
+            :local_name_source "ro" ],
+        [ a :LocalName ;
+            skos:altLabel "negatively regulates" ;
+            :local_name_source "translator" ] ;
     :mixins <https://w3id.org/biolink/vocab/negatively_regulates> ;
     :multivalued true ;
     :owner <https://w3id.org/biolink/vocab/negatively_regulates_entity_to_entity> ;
@@ -4368,10 +4360,10 @@
     :is_a <https://w3id.org/biolink/vocab/OrganismalEntity> ;
     :local_names [ a :LocalName ;
             skos:altLabel "population" ;
-            :local_name_source "agr" ],
+            :local_name_source "ga4gh" ],
         [ a :LocalName ;
             skos:altLabel "population" ;
-            :local_name_source "ga4gh" ] ;
+            :local_name_source "agr" ] ;
     :mixins <https://w3id.org/biolink/vocab/ThingWithTaxon> ;
     :slots <https://w3id.org/biolink/vocab/category>,
         <https://w3id.org/biolink/vocab/description>,
@@ -4696,6 +4688,14 @@
     :owner <https://w3id.org/biolink/vocab/interacting_molecules_category> ;
     :range <https://w3id.org/biolink/vocab/OntologyClass> ;
     :slot_uri <https://w3id.org/biolink/vocab/interacting_molecules_category> .
+
+<https://w3id.org/biolink/vocab/iri_type> a :TypeDefinition ;
+    skos:definition "An IRI" ;
+    skos:inScheme <https://w3id.org/biolink/biolink-model> ;
+    :base "URIorCURIE" ;
+    :repr "str" ;
+    :typeof <https://w3id.org/biolink/vocab/uriorcurie> ;
+    :uri xsd:anyURI .
 
 <https://w3id.org/biolink/vocab/located_in> a :SlotDefinition ;
     OIO:inSubset <https://w3id.org/biolink/vocab/translator_minimal> ;
@@ -6515,6 +6515,24 @@
         <https://w3id.org/biolink/vocab/relation>,
         <https://w3id.org/biolink/vocab/start_interbase_coordinate> .
 
+<https://w3id.org/biolink/vocab/OntologyClass> a :ClassDefinition ;
+    skos:definition "a concept or class in an ontology, vocabulary or thesaurus" ;
+    skos:inScheme <https://w3id.org/biolink/biolink-model> ;
+    :class_uri <https://w3id.org/biolink/vocab/OntologyClass> ;
+    :is_a <https://w3id.org/biolink/vocab/NamedThing> ;
+    :slots <https://w3id.org/biolink/vocab/category>,
+        <https://w3id.org/biolink/vocab/description>,
+        <https://w3id.org/biolink/vocab/full_name>,
+        <https://w3id.org/biolink/vocab/id>,
+        <https://w3id.org/biolink/vocab/interacts_with>,
+        <https://w3id.org/biolink/vocab/iri>,
+        <https://w3id.org/biolink/vocab/name>,
+        <https://w3id.org/biolink/vocab/node_property>,
+        <https://w3id.org/biolink/vocab/related_to>,
+        <https://w3id.org/biolink/vocab/subclass_of>,
+        <https://w3id.org/biolink/vocab/synonym>,
+        <https://w3id.org/biolink/vocab/systematic_synonym> .
+
 <https://w3id.org/biolink/vocab/expressed_in> a :SlotDefinition ;
     OIO:inSubset <https://w3id.org/biolink/vocab/translator_minimal> ;
     owl:inverseOf <https://w3id.org/biolink/vocab/expresses> ;
@@ -6706,24 +6724,6 @@
         <https://w3id.org/biolink/vocab/quantifier_qualifier>,
         <https://w3id.org/biolink/vocab/stage_qualifier> .
 
-<https://w3id.org/biolink/vocab/OntologyClass> a :ClassDefinition ;
-    skos:definition "a concept or class in an ontology, vocabulary or thesaurus" ;
-    skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    :class_uri <https://w3id.org/biolink/vocab/OntologyClass> ;
-    :is_a <https://w3id.org/biolink/vocab/NamedThing> ;
-    :slots <https://w3id.org/biolink/vocab/category>,
-        <https://w3id.org/biolink/vocab/description>,
-        <https://w3id.org/biolink/vocab/full_name>,
-        <https://w3id.org/biolink/vocab/id>,
-        <https://w3id.org/biolink/vocab/interacts_with>,
-        <https://w3id.org/biolink/vocab/iri>,
-        <https://w3id.org/biolink/vocab/name>,
-        <https://w3id.org/biolink/vocab/node_property>,
-        <https://w3id.org/biolink/vocab/related_to>,
-        <https://w3id.org/biolink/vocab/subclass_of>,
-        <https://w3id.org/biolink/vocab/synonym>,
-        <https://w3id.org/biolink/vocab/systematic_synonym> .
-
 <https://w3id.org/biolink/vocab/SequenceVariant> a :ClassDefinition ;
     skos:altLabel "allele" ;
     skos:definition "An allele that varies in its sequence from what is considered the reference allele at that locus." ;
@@ -6843,7 +6843,7 @@
     :is_a <https://w3id.org/biolink/vocab/related_to> ;
     :multivalued true ;
     :owner <https://w3id.org/biolink/vocab/subclass_of> ;
-    :range <https://w3id.org/biolink/vocab/OntologyClass> ;
+    :range <https://w3id.org/biolink/vocab/iri_type> ;
     :slot_uri rdfs:subClassOf .
 
 <https://w3id.org/biolink/vocab/string> a :TypeDefinition ;
@@ -7484,11 +7484,11 @@
     :inherited true ;
     :is_a <https://w3id.org/biolink/vocab/regulates> ;
     :local_names [ a :LocalName ;
-            skos:altLabel "regulates" ;
-            :local_name_source "translator" ],
-        [ a :LocalName ;
             skos:altLabel "activity directly regulates activity of" ;
-            :local_name_source "ro" ] ;
+            :local_name_source "ro" ],
+        [ a :LocalName ;
+            skos:altLabel "regulates" ;
+            :local_name_source "translator" ] ;
     :multivalued true ;
     :owner <https://w3id.org/biolink/vocab/regulates_entity_to_entity> ;
     :range <https://w3id.org/biolink/vocab/MolecularEntity> ;
@@ -7902,6 +7902,7 @@
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
     :domain <https://w3id.org/biolink/vocab/NamedThing> ;
     :is_a <https://w3id.org/biolink/vocab/node_property> ;
+    :multivalued true ;
     :owner <https://w3id.org/biolink/vocab/systematic_synonym> ;
     :range <https://w3id.org/biolink/vocab/label_type> ;
     :slot_uri <https://w3id.org/biolink/vocab/systematic_synonym> .
@@ -8100,11 +8101,11 @@
     :domain <https://w3id.org/biolink/vocab/Association> ;
     :is_a <https://w3id.org/biolink/vocab/association_slot> ;
     :local_names [ a :LocalName ;
-            skos:altLabel "descriptor" ;
-            :local_name_source "ga4gh" ],
-        [ a :LocalName ;
             skos:altLabel "node with incoming relationship" ;
-            :local_name_source "neo4j" ] ;
+            :local_name_source "neo4j" ],
+        [ a :LocalName ;
+            skos:altLabel "descriptor" ;
+            :local_name_source "ga4gh" ] ;
     :owner <https://w3id.org/biolink/vocab/Association> ;
     :range <https://w3id.org/biolink/vocab/NamedThing> ;
     :required true ;

@@ -21,7 +21,7 @@ requests = ">=2.22"
 pyjsg = ">=0.9.1"
 pyyaml = ">=5.1"
 argparse = ">=1.4.0"
-pyshex = ">=0.7.10"
+pyshex = ">=0.7.11"
 pyshexc = "*"
 
 [requires]

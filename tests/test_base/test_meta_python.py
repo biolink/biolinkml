@@ -18,7 +18,7 @@ class MetaModelTestCase(GeneratorTestCase):
 
     def test_meta_python(self):
         """ Test the python generator for the biolink model """
-        self.single_file_generator('py', PythonGenerator, {'emit_metadata': True}, filtr=metadata_filter,
+        self.single_file_generator('py', PythonGenerator, generator_args={'emit_metadata': True}, filtr=metadata_filter,
                                    preserve_metadata=True)
 
         # Make sure the python is valid
