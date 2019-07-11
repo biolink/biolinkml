@@ -4,12 +4,12 @@ id: https://w3id.org/biolink/biolinkml/types
 
 description: Shared type definitions for the core biolink mode and metamodel
 license: https://creativecommons.org/publicdomain/zero/1.0/
-version: 1.0.3
+version: 1.1.0
 
 prefixes:
-  meta: https://w3id.org/biolink/biolinkml/meta/
   metatype: https://w3id.org/biolink/biolinkml/type/
   xsd: http://www.w3.org/2001/XMLSchema#
+  shex: http://www.w3.org/ns/shex#
 
 default_prefix: metatype
 default_range: string
@@ -90,3 +90,17 @@ types:
     base: NCName
     repr: str
     description: Prefix part of CURIE
+
+  objectidentifier:
+    uri: shex:iri
+    base: ElementIdentifier
+    repr: str
+    description: A URI or CURIE that represents an object in the model.
+    comments:
+      - Used for inheritence and type checking
+
+  nodeidentifier:
+    uri: shex:nonLiteral
+    base: NodeIdentifier
+    repr: str
+    description: A URI, CURIE or BNODE that represents a node in a model.

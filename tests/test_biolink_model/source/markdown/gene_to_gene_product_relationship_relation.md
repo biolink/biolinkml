@@ -1,16 +1,21 @@
+
 # Slot: relation
 
 
 
 
 URI: [biolink:gene_to_gene_product_relationship_relation](https://w3id.org/biolink/vocab/gene_to_gene_product_relationship_relation)
+
 ## Domain and Range
 
-[GeneToGeneProductRelationship](GeneToGeneProductRelationship.md) ->  <sub>REQ</sub> [IriType](IriType.md)
+[GeneToGeneProductRelationship](GeneToGeneProductRelationship.md) ->  <sub>REQ</sub> [Uriorcurie](Uriorcurie.md)
+
 ## Parents
 
  *  is_a: [relation](relation.md)
+
 ## Children
+
 
 ## Used by
 

@@ -19,8 +19,8 @@ class DotGenerator(Generator):
     valid_formats: List[str] = valid_formats
     visit_all_class_slots = True
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], fmt: Optional[str] = None) -> None:
-        super().__init__(schema, fmt)
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], format: Optional[str] = None) -> None:
+        super().__init__(schema, format)
         self.classnames: List[str] = None
         self.filename: Optional[str] = None
         self.dirname: Optional[str] = None

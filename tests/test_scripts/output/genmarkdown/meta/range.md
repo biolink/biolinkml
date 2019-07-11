@@ -1,3 +1,4 @@
+
 # Slot: range
 
 
@@ -12,12 +13,16 @@ the declaration
 implicitly asserts Y is an instance of C2
 
 URI: [meta:range](https://w3id.org/biolink/biolinkml/meta/range)
+
 ## Domain and Range
 
 [SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [Element](Element.md)
+
 ## Parents
 
+
 ## Children
+
 
 ## Used by
 

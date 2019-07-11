@@ -31,14 +31,22 @@ PREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>
 
 <Ncname> xsd:string
 
-<AltDescription> EXTRA rdf:type CLOSED {
-    $<AltDescription_struct> (  <source> @<Ncname> ;
-       <description> @<String>
+<Objectidentifier> IRI
+
+<Nodeidentifier> NONLITERAL
+
+<AltDescription> CLOSED {
+    (  $<AltDescription_tes> (  <source> @<Ncname> ;
+          <description> @<String>
+       ) ;
+       rdf:type [ <AltDescription> ]
     )
 }
 
-<ClassDefinition> EXTRA rdf:type CLOSED {
-    (  $<ClassDefinition_struct> (  <is_a> @<ClassDefinition> ? ;
+<ClassDefinition> CLOSED {
+    (  $<ClassDefinition_tes> (  &<Definition_tes> ;
+          rdf:type [ <Definition> ] ? ;
+          <is_a> @<ClassDefinition> ? ;
           <mixins> @<ClassDefinition> * ;
           <apply_to> @<ClassDefinition> * ;
           <slots> @<SlotDefinition> * ;
@@ -46,8 +54,7 @@ PREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>
           <class_uri> @<Uriorcurie> ? ;
           rdfs:subClassOf @<Uriorcurie> ? ;
           <union_of> @<ClassDefinition> * ;
-          <defining_slots> @<SlotDefinition> * ;
-          &<Definition_struct>
+          <defining_slots> @<SlotDefinition> *
        ) ;
        rdf:type [ <ClassDefinition> ]
     )
@@ -57,13 +64,14 @@ PREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>
     @<ClassDefinition> OR @<SlotDefinition>
 )
 
-<Definition_type> {
-    (  $<Definition_struct> (  <abstract> @<Boolean> ? ;
+<Definition_struct> {
+    (  $<Definition_tes> (  &<Element_tes> ;
+          rdf:type [ <Element> ] ? ;
+          <abstract> @<Boolean> ? ;
           <mixin> @<Boolean> ? ;
           <mixins> @<Definition> * ;
           <apply_to> @<Definition> * ;
-          <values_from> @<Uriorcurie> * ;
-          &<Element_struct>
+          <values_from> @<Uriorcurie> *
        ) ;
        rdf:type [ <Definition> ]
     )
@@ -73,8 +81,8 @@ PREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>
     @<Definition> OR @<SchemaDefinition> OR @<SubsetDefinition> OR @<TypeDefinition>
 )
 
-<Element_type> {
-    (  $<Element_struct> (  <id_prefixes> @<Ncname> * ;
+<Element_struct> {
+    (  $<Element_tes> (  <id_prefixes> @<Ncname> * ;
           skos:altLabel @<String> * ;
           <local_names> @<LocalName> * ;
           skos:mappingRelation @<Uriorcurie> * ;
@@ -94,26 +102,34 @@ PREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>
     )
 }
 
-<Example> EXTRA rdf:type CLOSED {
-    $<Example_struct> (  skos:example @<String> ? ;
-       <description> @<String> ?
+<Example> CLOSED {
+    (  $<Example_tes> (  skos:example @<String> ? ;
+          <description> @<String> ?
+       ) ;
+       rdf:type [ <Example> ]
     )
 }
 
-<LocalName> EXTRA rdf:type CLOSED {
-    $<LocalName_struct> (  <local_name_source> @<Ncname> ;
-       skos:altLabel @<String>
+<LocalName> CLOSED {
+    (  $<LocalName_tes> (  <local_name_source> @<Ncname> ;
+          skos:altLabel @<String>
+       ) ;
+       rdf:type [ <LocalName> ]
     )
 }
 
-<Prefix> EXTRA rdf:type CLOSED {
-    $<Prefix_struct> (  <prefix_prefix> @<Ncname> ;
-       <prefix_reference> @<Uri>
+<Prefix> CLOSED {
+    (  $<Prefix_tes> (  <prefix_prefix> @<Ncname> ;
+          <prefix_reference> @<Uri>
+       ) ;
+       rdf:type [ <Prefix> ]
     )
 }
 
-<SchemaDefinition> EXTRA rdf:type CLOSED {
-    (  $<SchemaDefinition_struct> (  <id> @<Uri> ;
+<SchemaDefinition> CLOSED {
+    (  $<SchemaDefinition_tes> (  &<Element_tes> ;
+          rdf:type [ <Element> ] ? ;
+          <id> @<Uri> ;
           dcterms:title @<String> ? ;
           pav:version @<String> ? ;
           <imports> @<Uriorcurie> * ;
@@ -131,15 +147,16 @@ PREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>
           <source_file> @<String> ? ;
           <source_file_date> @<Datetime> ? ;
           <source_file_size> @<Integer> ? ;
-          <generation_date> @<Datetime> ? ;
-          &<Element_struct>
+          <generation_date> @<Datetime> ?
        ) ;
        rdf:type [ <SchemaDefinition> ]
     )
 }
 
-<SlotDefinition> EXTRA rdf:type CLOSED {
-    (  $<SlotDefinition_struct> (  <is_a> @<SlotDefinition> ? ;
+<SlotDefinition> CLOSED {
+    (  $<SlotDefinition_tes> (  &<Definition_tes> ;
+          rdf:type [ <Definition> ] ? ;
+          <is_a> @<SlotDefinition> ? ;
           <mixins> @<SlotDefinition> * ;
           <apply_to> @<SlotDefinition> * ;
           skos:altLabel @<String> ? ;
@@ -161,27 +178,27 @@ PREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>
           owl:inverseOf @<SlotDefinition> ? ;
           <is_class_field> @<Boolean> ? ;
           <role> @<String> ? ;
-          <is_usage_slot> @<Boolean> ? ;
-          &<Definition_struct>
+          <is_usage_slot> @<Boolean> ?
        ) ;
        rdf:type [ <SlotDefinition> ]
     )
 }
 
-<SubsetDefinition> EXTRA rdf:type CLOSED {
-    (  $<SubsetDefinition_struct> (  &<Element_struct> ;
-          <http://ex.org/dummy> . ?
+<SubsetDefinition> CLOSED {
+    (  $<SubsetDefinition_tes> (  &<Element_tes> ;
+          rdf:type [ <Element> ] ?
        ) ;
        rdf:type [ <SubsetDefinition> ]
     )
 }
 
-<TypeDefinition> EXTRA rdf:type CLOSED {
-    (  $<TypeDefinition_struct> (  <typeof> @<TypeDefinition> ? ;
+<TypeDefinition> CLOSED {
+    (  $<TypeDefinition_tes> (  &<Element_tes> ;
+          rdf:type [ <Element> ] ? ;
+          <typeof> @<TypeDefinition> ? ;
           <base> @<String> ? ;
           <uri> @<Uriorcurie> ? ;
-          <repr> @<String> ? ;
-          &<Element_struct>
+          <repr> @<String> ?
        ) ;
        rdf:type [ <TypeDefinition> ]
     )

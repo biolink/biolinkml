@@ -4,6 +4,7 @@
       "_comments": null,
       "type": "@type",
       "BFO": "http://purl.obolibrary.org/obo/BFO_",
+      "BIOGRID": "http://thebiogrid.org/",
       "CHEBI": "http://purl.obolibrary.org/obo/CHEBI_",
       "CHEMBL.COMPOUND": "http://identifiers.org/chembl.compound/",
       "CHEMBL.TARGET": "http://identifiers.org/chembl.target/",

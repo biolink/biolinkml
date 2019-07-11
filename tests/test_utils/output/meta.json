@@ -3,7 +3,7 @@
    "description": "A metamodel for defining biolink related schemas",
    "id": "https://w3id.org/biolink/biolinkml/meta",
    "title": "Biolink Schema Metamodel",
-   "version": "1.3.5",
+   "version": "1.4.0",
    "imports": [
       "includes/types"
    ],
@@ -32,6 +32,10 @@
       {
          "prefix_prefix": "xsd",
          "prefix_reference": "http://www.w3.org/2001/XMLSchema#"
+      },
+      {
+         "prefix_prefix": "shex",
+         "prefix_reference": "http://www.w3.org/ns/shex#"
       }
    ],
    "emit_prefixes": [
@@ -156,6 +160,27 @@
          "imported_from": "includes/types",
          "base": "NCName",
          "uri": "xsd:string",
+         "repr": "str"
+      },
+      {
+         "name": "objectidentifier",
+         "description": "A URI or CURIE that represents an object in the model.",
+         "comments": [
+            "Used for inheritence and type checking"
+         ],
+         "from_schema": "https://w3id.org/biolink/biolinkml/types",
+         "imported_from": "includes/types",
+         "base": "ElementIdentifier",
+         "uri": "shex:iri",
+         "repr": "str"
+      },
+      {
+         "name": "nodeidentifier",
+         "description": "A URI, CURIE or BNODE that represents a node in a model.",
+         "from_schema": "https://w3id.org/biolink/biolinkml/types",
+         "imported_from": "includes/types",
+         "base": "NodeIdentifier",
+         "uri": "shex:nonLiteral",
          "repr": "str"
       }
    ],
@@ -445,7 +470,8 @@
          "domain": "schema_definition",
          "owner": "schema_definition",
          "range": "string",
-         "slot_uri": "meta:default_prefix"
+         "slot_uri": "meta:default_prefix",
+         "ifabsent": "default_ns"
       },
       {
          "name": "default_range",
@@ -604,7 +630,7 @@
          "owner": "class_definition",
          "range": "uriorcurie",
          "slot_uri": "meta:class_uri",
-         "ifabsent": "set to <default prefix>:<class name>"
+         "ifabsent": "class_curie"
       },
       {
          "name": "subclass_of",
@@ -620,7 +646,7 @@
          "description": "The combination of is a plus defining slots form a genus-differentia definition, or the set of necessary and sufficient conditions that can be transformed into an OWL equivalence axiom",
          "from_schema": "https://w3id.org/biolink/biolinkml/meta",
          "domain": "class_definition",
-         "owner": "defining_slots",
+         "owner": "class_definition",
          "range": "slot_definition",
          "slot_uri": "meta:defining_slots",
          "multivalued": true,
@@ -659,7 +685,7 @@
          "range": "element",
          "slot_uri": "meta:range",
          "inherited": true,
-         "ifabsent": "set to default range"
+         "ifabsent": "default_range"
       },
       {
          "name": "slot_uri",
@@ -669,7 +695,7 @@
          "owner": "slot_definition",
          "range": "uriorcurie",
          "slot_uri": "meta:slot_uri",
-         "ifabsent": "set to <default prefix>:<slot name>"
+         "ifabsent": "slot_curie"
       },
       {
          "name": "multivalued",
@@ -706,7 +732,7 @@
       },
       {
          "name": "ifabsent",
-         "description": "description of special behavior if the slot is absent",
+         "description": "function that provides a default value for the slot.  Possible values for this slot are defined in biolink.utils.ifabsent_functions.default_library:\n  * [Tt]rue -- boolean True\n  * [Ff]alse -- boolean False\n  * int(value) -- integer value\n  * str(value) -- string value\n  * default_range -- schema default range\n  * bnode -- blank node identifier\n  * class_uri -- URI for the containing class\n  * slot_uri -- URI for the slot\n  * class_curie -- CURIE for the containing class\n  * class_uri -- URI for the containing class",
          "from_schema": "https://w3id.org/biolink/biolinkml/meta",
          "domain": "slot_definition",
          "owner": "slot_definition",
@@ -797,7 +823,7 @@
          "description": "True means that this slot was defined in a slot_usage situation",
          "from_schema": "https://w3id.org/biolink/biolinkml/meta",
          "domain": "slot_definition",
-         "owner": "is_usage_slot",
+         "owner": "slot_definition",
          "range": "boolean",
          "slot_uri": "meta:is_usage_slot",
          "readonly": "filled in by the loader"

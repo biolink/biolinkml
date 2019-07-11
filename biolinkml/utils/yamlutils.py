@@ -2,7 +2,8 @@ from dataclasses import dataclass
 from typing import Optional, Union
 
 import yaml
-from jsonasobj import JsonObj, as_dict
+from jsonasobj import JsonObj, as_dict, as_json, load, loads
+from rdflib import Graph
 from yaml import SafeDumper, ScalarNode
 from yaml.representer import BaseRepresenter
 
@@ -30,7 +31,11 @@ class YAMLRoot(JsonObj):
         if isinstance(obj, JsonObj):
             rval = dict()
             for k, v in obj.__dict__.items():
-                if not k.startswith('_') and v is not None and (not isinstance(v, (dict, list, bool)) or v):
+                is_classvar = k.startswith("type_") and hasattr(type(obj), k)
+                if is_classvar:
+                    print(f"***** {k} is classvar ")
+                if not is_classvar and not k.startswith('_') and v is not None and\
+                        (not isinstance(v, (dict, list, bool)) or v):
                     if isinstance(v, dict):
                         itemslist = []
                         for vk, vv in v.items():
@@ -79,7 +84,7 @@ def as_yaml(schema: YAMLRoot) -> str:
     return yaml.dump(schema)
 
 
-def as_json(schema: YAMLRoot, context: Optional[Union[JsonObj, dict]] = None) -> JsonObj:
+def as_json_object(schema: YAMLRoot, context: Optional[Union[JsonObj, dict]] = None) -> JsonObj:
     rval = JsonObj(**schema.__dict__)
     rval['type'] = schema.__class__.__name__
     if context:
@@ -111,3 +116,20 @@ class DupCheckYamlLoader(yaml.loader.SafeLoader):
             mapping[key] = value
 
         return mapping
+
+
+def as_rdf(schema: YAMLRoot, context_loc: Optional[Union[str, JsonObj]] = None) -> Graph:
+    if context_loc is not None:
+        if isinstance(context_loc, str):
+            if context_loc.strip().startswith('{'):
+                context = loads(context_loc)
+            else:
+                context = load(context_loc)
+        else:
+            context = context_loc
+    else:
+        context = None
+    jsonld = as_json_object(schema, context)
+    graph = Graph()
+    graph.parse(data=as_json(jsonld), format="json-ld")
+    return graph

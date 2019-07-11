@@ -1,7 +1,9 @@
+
 # Metamodel schema
 
 
 A metamodel for defining biolink related schemas
+
 
 ### Classes
 
@@ -16,7 +18,9 @@ A metamodel for defining biolink related schemas
  * [Example](Example.md) - usage example and description
  * [LocalName](LocalName.md) - an attributed label
  * [Prefix](Prefix.md) - prefix URI tuple
+
 ### Mixins
+
 
 ### Slots
 
@@ -47,7 +51,7 @@ A metamodel for defining biolink related schemas
  * [id](id.md) - The official schema URI
  * [id_prefixes](id_prefixes.md) - the identifier of this class or slot must begin with one of the URIs referenced by this prefix
  * [identifier](identifier.md) - true means that this slot is the subject of a set of assertions.  Identifiers do not appear as predicates in the model
- * [ifabsent](ifabsent.md) - description of special behavior if the slot is absent
+ * [ifabsent](ifabsent.md) - function that provides a default value for the slot.  Possible values for this slot are defined in biolink.utils.ifabsent_functions.default_library:
  * [imported_from](imported_from.md) - the imports entry that this element was derived from.  Empty means primary source
  * [imports](imports.md) - other schemas that are included in this schema
  * [in_subset](in_subset.md) - used to indicate membership of a term in a defined subset of biolink terms used for a particular domain or application (e.g. the translator_minimal subset holding the minimal set of predicates used in a translator knowledge graph)
@@ -105,12 +109,16 @@ A metamodel for defining biolink related schemas
  * [description](value_description.md) - description of what the value is doing
  * [values_from](values_from.md) - the identifier of a "value set" -- a set of identifiers that form the possible values for the range of a slot
  * [version](version.md) - particular version of schema
+
 ### Types
+
 
 #### Built in
 
  * **Bool**
+ * **ElementIdentifier**
  * **NCName**
+ * **NodeIdentifier**
  * **URI**
  * **URIorCURIE**
  * **XSDDate**
@@ -119,6 +127,7 @@ A metamodel for defining biolink related schemas
  * **float**
  * **int**
  * **str**
+
 #### Defined
 
  * [Boolean](Boolean.md)  (**Bool**)  - A binary (true or false) value
@@ -128,6 +137,8 @@ A metamodel for defining biolink related schemas
  * [Float](Float.md)  (**float**)  - A real number that conforms to the xsd:float specification
  * [Integer](Integer.md)  (**int**)  - An integer
  * [Ncname](Ncname.md)  (**NCName**)  - Prefix part of CURIE
+ * [Nodeidentifier](Nodeidentifier.md)  (**NodeIdentifier**)  - A URI, CURIE or BNODE that represents a node in a model.
+ * [Objectidentifier](Objectidentifier.md)  (**ElementIdentifier**)  - A URI or CURIE that represents an object in the model.
  * [String](String.md)  (**str**)  - A character string
  * [Time](Time.md)  (**XSDTime**)  - A time object represents a (local) time of day, independent of any particular day
  * [Uri](Uri.md)  (**URI**)  - a complete URI

@@ -3,13 +3,9 @@
    "description": "Shared type definitions for the core biolink mode and metamodel",
    "id": "https://w3id.org/biolink/biolinkml/types",
    "title": "Core Biolink metamodel types",
-   "version": "1.0.3",
+   "version": "1.1.0",
    "license": "https://creativecommons.org/publicdomain/zero/1.0/",
    "prefixes": [
-      {
-         "prefix_prefix": "meta",
-         "prefix_reference": "https://w3id.org/biolink/biolinkml/meta/"
-      },
       {
          "prefix_prefix": "metatype",
          "prefix_reference": "https://w3id.org/biolink/biolinkml/type/"
@@ -17,6 +13,10 @@
       {
          "prefix_prefix": "xsd",
          "prefix_reference": "http://www.w3.org/2001/XMLSchema#"
+      },
+      {
+         "prefix_prefix": "shex",
+         "prefix_reference": "http://www.w3.org/ns/shex#"
       }
    ],
    "default_prefix": "metatype",
@@ -109,6 +109,25 @@
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "NCName",
          "uri": "xsd:string",
+         "repr": "str"
+      },
+      {
+         "name": "objectidentifier",
+         "description": "A URI or CURIE that represents an object in the model.",
+         "comments": [
+            "Used for inheritence and type checking"
+         ],
+         "from_schema": "https://w3id.org/biolink/biolinkml/types",
+         "base": "ElementIdentifier",
+         "uri": "shex:iri",
+         "repr": "str"
+      },
+      {
+         "name": "nodeidentifier",
+         "description": "A URI, CURIE or BNODE that represents a node in a model.",
+         "from_schema": "https://w3id.org/biolink/biolinkml/types",
+         "base": "NodeIdentifier",
+         "uri": "shex:nonLiteral",
          "repr": "str"
       }
    ],

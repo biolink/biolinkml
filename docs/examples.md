@@ -1,15 +1,20 @@
+
 # Slot: examples
 
 
 example usages of an element
 
 URI: [meta:examples](https://w3id.org/biolink/biolinkml/meta/examples)
+
 ## Domain and Range
 
 [Element](Element.md) ->  <sub>0..*</sub> [Example](Example.md)
+
 ## Parents
 
+
 ## Children
+
 
 ## Used by
 

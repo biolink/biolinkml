@@ -100,6 +100,10 @@ types:
     def test_ordering(self):
         self.gen_and_comp_python('ordering')
 
+    def test_default_namespace(self):
+        """ Test that curie_for replaces '@default' with a blank """
+        self.gen_and_comp_python('default_namespace')
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -57,7 +57,8 @@
     "rdfs",
     "xsd",
     "skos",
-    "OIO"
+    "OIO",
+    "BIOGRID"
   ],
   "default_curi_maps": [
     "obo_context",
@@ -97,17 +98,16 @@
       "name": "identifier_type",
       "description": "A string that is intended to uniquely identify a thing May be URI in full or compact (CURIE) form",
       "from_schema": "https://w3id.org/biolink/biolink-model",
-      "typeof": "string",
-      "base": "str",
-      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "base": "ElementIdentifier",
+      "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
       "type": "TypeDefinition"
     },
     {
       "name": "iri_type",
       "description": "An IRI",
       "from_schema": "https://w3id.org/biolink/biolink-model",
-      "typeof": "uri",
-      "base": "URI",
+      "typeof": "uriorcurie",
+      "base": "URIorCURIE",
       "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
       "repr": "str",
       "type": "TypeDefinition"
@@ -2160,7 +2160,7 @@
       "is_a": "related_to",
       "domain": "OntologyClass",
       "owner": "subclass_of",
-      "range": "OntologyClass",
+      "range": "iri_type",
       "slot_uri": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
       "multivalued": true,
       "inherited": true,
@@ -2204,6 +2204,7 @@
       "owner": "Association",
       "range": "identifier_type",
       "slot_uri": "https://w3id.org/biolink/vocab/id",
+      "ifabsent": "bnode",
       "required": true,
       "identifier": true,
       "alias": "id",
@@ -2239,6 +2240,7 @@
       "owner": "NamedThing",
       "range": "label_type",
       "slot_uri": "http://www.w3.org/2000/01/rdf-schema#label",
+      "required": true,
       "type": "SlotDefinition"
     },
     {
@@ -2272,6 +2274,7 @@
       "range": "iri_type",
       "slot_uri": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
       "multivalued": true,
+      "required": true,
       "is_class_field": true,
       "type": "SlotDefinition"
     },
@@ -2309,6 +2312,7 @@
       "owner": "systematic_synonym",
       "range": "label_type",
       "slot_uri": "https://w3id.org/biolink/vocab/systematic_synonym",
+      "multivalued": true,
       "type": "SlotDefinition"
     },
     {
@@ -2349,7 +2353,7 @@
       "is_a": "association_slot",
       "domain": "Association",
       "owner": "Association",
-      "range": "iri_type",
+      "range": "NamedThing",
       "slot_uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#subject",
       "required": true,
       "type": "SlotDefinition"
@@ -2377,7 +2381,7 @@
       "is_a": "association_slot",
       "domain": "Association",
       "owner": "Association",
-      "range": "iri_type",
+      "range": "NamedThing",
       "slot_uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#object",
       "required": true,
       "type": "SlotDefinition"
@@ -2394,6 +2398,7 @@
       "owner": "edge_label",
       "range": "label_type",
       "slot_uri": "https://w3id.org/biolink/vocab/edge_label",
+      "required": true,
       "type": "SlotDefinition"
     },
     {
@@ -2419,7 +2424,7 @@
       "is_a": "association_slot",
       "domain": "Association",
       "owner": "Association",
-      "range": "iri_type",
+      "range": "uriorcurie",
       "slot_uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#predicate",
       "required": true,
       "type": "SlotDefinition"
@@ -2855,6 +2860,7 @@
       "owner": "MacromolecularMachine",
       "range": "symbol_type",
       "slot_uri": "https://w3id.org/biolink/vocab/name",
+      "required": true,
       "alias": "name",
       "is_usage_slot": true,
       "type": "SlotDefinition"
@@ -2922,7 +2928,7 @@
       "is_a": "relation",
       "domain": "GenotypeToGenotypePartAssociation",
       "owner": "GenotypeToGenotypePartAssociation",
-      "range": "iri_type",
+      "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/vocab/relation",
       "required": true,
       "alias": "relation",
@@ -2958,7 +2964,7 @@
       "is_a": "relation",
       "domain": "GenotypeToGeneAssociation",
       "owner": "GenotypeToGeneAssociation",
-      "range": "iri_type",
+      "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/vocab/relation",
       "required": true,
       "alias": "relation",
@@ -2994,7 +3000,7 @@
       "is_a": "relation",
       "domain": "GenotypeToVariantAssociation",
       "owner": "GenotypeToVariantAssociation",
-      "range": "iri_type",
+      "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/vocab/relation",
       "required": true,
       "alias": "relation",
@@ -3054,7 +3060,7 @@
       "is_a": "relation",
       "domain": "GeneToGeneHomologyAssociation",
       "owner": "GeneToGeneHomologyAssociation",
-      "range": "iri_type",
+      "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/vocab/relation",
       "required": true,
       "alias": "relation",
@@ -3080,6 +3086,7 @@
       "owner": "PairwiseInteractionAssociation",
       "range": "identifier_type",
       "slot_uri": "https://w3id.org/biolink/vocab/id",
+      "ifabsent": "bnode",
       "required": true,
       "identifier": true,
       "alias": "id",
@@ -3091,7 +3098,7 @@
       "is_a": "relation",
       "domain": "PairwiseInteractionAssociation",
       "owner": "PairwiseInteractionAssociation",
-      "range": "iri_type",
+      "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/vocab/relation",
       "required": true,
       "alias": "relation",
@@ -3124,7 +3131,7 @@
       "is_a": "relation",
       "domain": "PairwiseGeneToGeneInteraction",
       "owner": "PairwiseGeneToGeneInteraction",
-      "range": "iri_type",
+      "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/vocab/relation",
       "required": true,
       "alias": "relation",
@@ -3315,7 +3322,7 @@
       "is_a": "relation",
       "domain": "GenotypeToPhenotypicFeatureAssociation",
       "owner": "GenotypeToPhenotypicFeatureAssociation",
-      "range": "iri_type",
+      "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/vocab/relation",
       "required": true,
       "alias": "relation",
@@ -3492,7 +3499,7 @@
       "is_a": "relation",
       "domain": "PopulationToPopulationAssociation",
       "owner": "PopulationToPopulationAssociation",
-      "range": "iri_type",
+      "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/vocab/relation",
       "required": true,
       "alias": "relation",
@@ -3516,7 +3523,7 @@
       "is_a": "subject",
       "domain": "VariantToDiseaseAssociation",
       "owner": "VariantToDiseaseAssociation",
-      "range": "iri_type",
+      "range": "NamedThing",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
@@ -3528,7 +3535,7 @@
       "is_a": "relation",
       "domain": "VariantToDiseaseAssociation",
       "owner": "VariantToDiseaseAssociation",
-      "range": "iri_type",
+      "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/vocab/relation",
       "required": true,
       "alias": "relation",
@@ -3540,7 +3547,7 @@
       "is_a": "object",
       "domain": "VariantToDiseaseAssociation",
       "owner": "VariantToDiseaseAssociation",
-      "range": "iri_type",
+      "range": "NamedThing",
       "slot_uri": "https://w3id.org/biolink/vocab/object",
       "required": true,
       "alias": "object",
@@ -3552,7 +3559,7 @@
       "is_a": "subject",
       "domain": "ModelToDiseaseMixin",
       "owner": "model_to_disease_mixin_subject",
-      "range": "iri_type",
+      "range": "NamedThing",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
@@ -3564,7 +3571,7 @@
       "is_a": "relation",
       "domain": "ModelToDiseaseMixin",
       "owner": "model_to_disease_mixin_relation",
-      "range": "iri_type",
+      "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/vocab/relation",
       "required": true,
       "alias": "relation",
@@ -3624,7 +3631,7 @@
       "is_a": "relation",
       "domain": "GeneToExpressionSiteAssociation",
       "owner": "GeneToExpressionSiteAssociation",
-      "range": "iri_type",
+      "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/vocab/relation",
       "required": true,
       "alias": "relation",
@@ -3862,7 +3869,7 @@
       "is_a": "relation",
       "domain": "GeneToGeneProductRelationship",
       "owner": "GeneToGeneProductRelationship",
-      "range": "iri_type",
+      "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/vocab/relation",
       "required": true,
       "alias": "relation",
@@ -3898,7 +3905,7 @@
       "is_a": "relation",
       "domain": "GeneRegulatoryRelationship",
       "owner": "GeneRegulatoryRelationship",
-      "range": "iri_type",
+      "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/vocab/relation",
       "required": true,
       "alias": "relation",
@@ -3984,7 +3991,7 @@
       "is_a": "relation",
       "domain": "AnatomicalEntityToAnatomicalEntityPartOfAssociation",
       "owner": "AnatomicalEntityToAnatomicalEntityPartOfAssociation",
-      "range": "iri_type",
+      "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/vocab/relation",
       "required": true,
       "alias": "relation",
@@ -4020,7 +4027,7 @@
       "is_a": "relation",
       "domain": "AnatomicalEntityToAnatomicalEntityOntogenicAssociation",
       "owner": "AnatomicalEntityToAnatomicalEntityOntogenicAssociation",
-      "range": "iri_type",
+      "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/vocab/relation",
       "required": true,
       "alias": "relation",
@@ -7624,10 +7631,10 @@
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "slots": [
-        "association_id",
         "subject",
         "relation",
         "object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
@@ -7648,16 +7655,17 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
       "slots": [
-        "association_id",
         "genotype_to_genotype_part_association_subject",
         "genotype_to_genotype_part_association_relation",
         "genotype_to_genotype_part_association_object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/GenotypeToGenotypePartAssociation",
       "defining_slots": [
@@ -7672,16 +7680,17 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
       "slots": [
-        "association_id",
         "genotype_to_gene_association_subject",
         "genotype_to_gene_association_relation",
         "genotype_to_gene_association_object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/GenotypeToGeneAssociation",
       "defining_slots": [
@@ -7696,16 +7705,17 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
       "slots": [
-        "association_id",
         "genotype_to_variant_association_subject",
         "genotype_to_variant_association_relation",
         "genotype_to_variant_association_object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/GenotypeToVariantAssociation",
       "defining_slots": [
@@ -7724,16 +7734,17 @@
       "is_a": "Association",
       "abstract": true,
       "slots": [
-        "association_id",
         "gene_to_gene_association_subject",
         "relation",
         "gene_to_gene_association_object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/GeneToGeneAssociation",
       "defining_slots": [
@@ -7748,16 +7759,17 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "GeneToGeneAssociation",
       "slots": [
-        "association_id",
         "gene_to_gene_association_subject",
         "gene_to_gene_homology_association_relation",
         "gene_to_gene_association_object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/GeneToGeneHomologyAssociation",
       "defining_slots": [
@@ -7775,16 +7787,17 @@
       "abstract": true,
       "mixin": true,
       "slots": [
-        "pairwise_interaction_association_id",
         "pairwise_interaction_association_subject",
         "pairwise_interaction_association_relation",
         "pairwise_interaction_association_object",
+        "pairwise_interaction_association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
         "association_slot",
+        "edge_label",
         "interacting_molecules_category"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/PairwiseInteractionAssociation",
@@ -7804,16 +7817,17 @@
         "PairwiseInteractionAssociation"
       ],
       "slots": [
-        "association_id",
         "gene_to_gene_association_subject",
         "pairwise_gene_to_gene_interaction_relation",
         "gene_to_gene_association_object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/PairwiseGeneToGeneInteraction",
       "defining_slots": [
@@ -7830,16 +7844,17 @@
       "is_a": "Association",
       "abstract": true,
       "slots": [
-        "association_id",
         "cell_line_to_thing_association_subject",
         "relation",
         "object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/CellLineToThingAssociation",
       "defining_slots": [
@@ -7857,16 +7872,17 @@
         "ThingToDiseaseOrPhenotypicFeatureAssociation"
       ],
       "slots": [
-        "association_id",
         "cell_line_to_disease_or_phenotypic_feature_association_subject",
         "relation",
         "object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/CellLineToDiseaseOrPhenotypicFeatureAssociation",
       "type": "ClassDefinition"
@@ -7878,16 +7894,17 @@
       "is_a": "Association",
       "abstract": true,
       "slots": [
-        "association_id",
         "chemical_to_thing_association_subject",
         "relation",
         "object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/ChemicalToThingAssociation",
       "defining_slots": [
@@ -7902,16 +7919,17 @@
       "is_a": "Association",
       "abstract": true,
       "slots": [
-        "association_id",
         "case_to_thing_association_subject",
         "relation",
         "object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/CaseToThingAssociation",
       "defining_slots": [
@@ -7929,16 +7947,17 @@
         "ThingToDiseaseOrPhenotypicFeatureAssociation"
       ],
       "slots": [
-        "association_id",
         "subject",
         "relation",
         "chemical_to_disease_or_phenotypic_feature_association_object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "http://semanticscience.org/resource/SIO_000993",
       "defining_slots": [
@@ -7956,16 +7975,17 @@
         "ChemicalToThingAssociation"
       ],
       "slots": [
-        "association_id",
         "subject",
         "relation",
         "chemical_to_pathway_association_object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "http://semanticscience.org/resource/SIO_001250",
       "defining_slots": [
@@ -7983,16 +8003,17 @@
         "ChemicalToThingAssociation"
       ],
       "slots": [
-        "association_id",
         "subject",
         "relation",
         "chemical_to_gene_association_object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "http://semanticscience.org/resource/SIO_001257",
       "defining_slots": [
@@ -8008,16 +8029,17 @@
       "is_a": "Association",
       "abstract": true,
       "slots": [
-        "association_id",
         "biosample_to_thing_association_subject",
         "relation",
         "object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/BiosampleToThingAssociation",
       "defining_slots": [
@@ -8035,16 +8057,17 @@
         "ThingToDiseaseOrPhenotypicFeatureAssociation"
       ],
       "slots": [
-        "association_id",
         "subject",
         "relation",
         "object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/BiosampleToDiseaseOrPhenotypicFeatureAssociation",
       "defining_slots": [
@@ -8088,16 +8111,17 @@
         "EntityToFeatureOrDiseaseQualifiers"
       ],
       "slots": [
-        "association_id",
         "subject",
         "relation",
         "entity_to_phenotypic_feature_association_object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
         "association_slot",
+        "edge_label",
         "sex_qualifier",
         "frequency_qualifier",
         "severity_qualifier",
@@ -8135,16 +8159,17 @@
       "is_a": "Association",
       "abstract": true,
       "slots": [
-        "association_id",
         "disease_or_phenotypic_feature_association_to_thing_association_subject",
         "relation",
         "object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/DiseaseOrPhenotypicFeatureAssociationToThingAssociation",
       "defining_slots": [
@@ -8158,16 +8183,17 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "DiseaseOrPhenotypicFeatureAssociationToThingAssociation",
       "slots": [
-        "association_id",
         "disease_or_phenotypic_feature_association_to_thing_association_subject",
         "relation",
         "disease_or_phenotypic_feature_association_to_location_association_object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "http://purl.obolibrary.org/obo/NCIT_R100",
       "type": "ClassDefinition"
@@ -8178,16 +8204,17 @@
       "is_a": "Association",
       "abstract": true,
       "slots": [
-        "association_id",
         "subject",
         "relation",
         "thing_to_disease_or_phenotypic_feature_association_object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/ThingToDiseaseOrPhenotypicFeatureAssociation",
       "defining_slots": [
@@ -8201,16 +8228,17 @@
       "is_a": "Association",
       "abstract": true,
       "slots": [
-        "association_id",
         "disease_to_thing_association_subject",
         "relation",
         "object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/DiseaseToThingAssociation",
       "defining_slots": [
@@ -8228,16 +8256,17 @@
         "GenotypeToThingAssociation"
       ],
       "slots": [
-        "association_id",
         "genotype_to_phenotypic_feature_association_subject",
         "genotype_to_phenotypic_feature_association_relation",
         "object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
         "association_slot",
+        "edge_label",
         "sex_qualifier",
         "frequency_qualifier",
         "severity_qualifier",
@@ -8259,16 +8288,17 @@
         "EntityToPhenotypicFeatureAssociation"
       ],
       "slots": [
-        "association_id",
         "environment_to_phenotypic_feature_association_subject",
         "relation",
         "object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
         "association_slot",
+        "edge_label",
         "sex_qualifier",
         "frequency_qualifier",
         "severity_qualifier",
@@ -8291,16 +8321,17 @@
         "DiseaseToThingAssociation"
       ],
       "slots": [
-        "association_id",
         "subject",
         "relation",
         "object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
         "association_slot",
+        "edge_label",
         "sex_qualifier",
         "frequency_qualifier",
         "severity_qualifier",
@@ -8323,16 +8354,17 @@
         "CaseToThingAssociation"
       ],
       "slots": [
-        "association_id",
         "subject",
         "relation",
         "object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
         "association_slot",
+        "edge_label",
         "sex_qualifier",
         "frequency_qualifier",
         "severity_qualifier",
@@ -8351,16 +8383,17 @@
       "is_a": "Association",
       "abstract": true,
       "slots": [
-        "association_id",
         "gene_to_thing_association_subject",
         "relation",
         "object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/GeneToThingAssociation",
       "defining_slots": [
@@ -8382,16 +8415,17 @@
       "abstract": true,
       "mixin": true,
       "slots": [
-        "association_id",
         "variant_to_thing_association_subject",
         "relation",
         "object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/VariantToThingAssociation",
       "defining_slots": [
@@ -8408,16 +8442,17 @@
         "GeneToThingAssociation"
       ],
       "slots": [
-        "association_id",
         "gene_to_phenotypic_feature_association_subject",
         "relation",
         "object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
         "association_slot",
+        "edge_label",
         "sex_qualifier",
         "frequency_qualifier",
         "severity_qualifier",
@@ -8442,16 +8477,17 @@
         "GeneToThingAssociation"
       ],
       "slots": [
-        "association_id",
         "gene_to_disease_association_subject",
         "relation",
         "object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
         "association_slot",
+        "edge_label",
         "frequency_qualifier",
         "severity_qualifier",
         "onset_qualifier"
@@ -8474,16 +8510,17 @@
         "FrequencyQualifierMixin"
       ],
       "slots": [
-        "association_id",
         "variant_to_population_association_subject",
         "relation",
         "variant_to_population_association_object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
         "association_slot",
+        "edge_label",
         "variant_to_population_association_has_count",
         "variant_to_population_association_has_total",
         "variant_to_population_association_has_quotient",
@@ -8503,16 +8540,17 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
       "slots": [
-        "association_id",
         "population_to_population_association_subject",
         "population_to_population_association_relation",
         "population_to_population_association_object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/PopulationToPopulationAssociation",
       "defining_slots": [
@@ -8530,16 +8568,17 @@
         "EntityToPhenotypicFeatureAssociation"
       ],
       "slots": [
-        "association_id",
         "variant_to_phenotypic_feature_association_subject",
         "relation",
         "object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
         "association_slot",
+        "edge_label",
         "sex_qualifier",
         "frequency_qualifier",
         "severity_qualifier",
@@ -8564,16 +8603,17 @@
         "EntityToDiseaseAssociation"
       ],
       "slots": [
-        "association_id",
         "variant_to_disease_association_subject",
         "variant_to_disease_association_relation",
         "variant_to_disease_association_object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
         "association_slot",
+        "edge_label",
         "frequency_qualifier",
         "severity_qualifier",
         "onset_qualifier"
@@ -8607,16 +8647,17 @@
         "EntityToDiseaseAssociation"
       ],
       "slots": [
-        "association_id",
         "gene_as_a_model_of_disease_association_subject",
         "relation",
         "object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
         "association_slot",
+        "edge_label",
         "frequency_qualifier",
         "severity_qualifier",
         "onset_qualifier"
@@ -8634,16 +8675,17 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "GeneToDiseaseAssociation",
       "slots": [
-        "association_id",
         "gene_has_variant_that_contributes_to_disease_association_subject",
         "relation",
         "object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
         "association_slot",
+        "edge_label",
         "frequency_qualifier",
         "severity_qualifier",
         "onset_qualifier",
@@ -8663,16 +8705,17 @@
       "is_a": "Association",
       "abstract": true,
       "slots": [
-        "association_id",
         "genotype_to_thing_association_subject",
         "relation",
         "object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/GenotypeToThingAssociation",
       "defining_slots": [
@@ -8772,16 +8815,17 @@
       ],
       "is_a": "Association",
       "slots": [
-        "association_id",
         "gene_to_expression_site_association_subject",
         "gene_to_expression_site_association_relation",
         "gene_to_expression_site_association_object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
         "association_slot",
+        "edge_label",
         "gene_to_expression_site_association_stage_qualifier",
         "gene_to_expression_site_association_quantifier_qualifier",
         "stage_qualifier",
@@ -8805,16 +8849,17 @@
       "is_a": "Association",
       "abstract": true,
       "slots": [
-        "association_id",
         "sequence_variant_modulates_treatment_association_subject",
         "relation",
         "sequence_variant_modulates_treatment_association_object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/SequenceVariantModulatesTreatmentAssociation",
       "defining_slots": [
@@ -8829,16 +8874,17 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
       "slots": [
-        "association_id",
         "functional_association_subject",
         "relation",
         "functional_association_object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/FunctionalAssociation",
       "type": "ClassDefinition"
@@ -8849,16 +8895,17 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "FunctionalAssociation",
       "slots": [
-        "association_id",
         "functional_association_subject",
         "relation",
         "macromolecular_machine_to_molecular_activity_association_object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/MacromolecularMachineToMolecularActivityAssociation",
       "type": "ClassDefinition"
@@ -8869,16 +8916,17 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "FunctionalAssociation",
       "slots": [
-        "association_id",
         "functional_association_subject",
         "relation",
         "macromolecular_machine_to_biological_process_association_object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/MacromolecularMachineToBiologicalProcessAssociation",
       "type": "ClassDefinition"
@@ -8889,16 +8937,17 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "FunctionalAssociation",
       "slots": [
-        "association_id",
         "functional_association_subject",
         "relation",
         "macromolecular_machine_to_cellular_component_association_object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/MacromolecularMachineToCellularComponentAssociation",
       "type": "ClassDefinition"
@@ -8911,16 +8960,17 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "FunctionalAssociation",
       "slots": [
-        "association_id",
         "gene_to_go_term_association_subject",
         "relation",
         "gene_to_go_term_association_object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "http://bio2rdf.org/wormbase_vocabulary:Gene-GO-Association",
       "defining_slots": [
@@ -8935,16 +8985,17 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
       "slots": [
-        "association_id",
         "genomic_sequence_localization_subject",
         "relation",
         "genomic_sequence_localization_object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
         "association_slot",
+        "edge_label",
         "start_interbase_coordinate",
         "end_interbase_coordinate",
         "genome_build",
@@ -8959,16 +9010,17 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
       "slots": [
-        "association_id",
         "sequence_feature_relationship_subject",
         "relation",
         "sequence_feature_relationship_object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/SequenceFeatureRelationship",
       "defining_slots": [
@@ -8983,16 +9035,17 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "SequenceFeatureRelationship",
       "slots": [
-        "association_id",
         "transcript_to_gene_relationship_subject",
         "relation",
         "transcript_to_gene_relationship_object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/TranscriptToGeneRelationship",
       "defining_slots": [
@@ -9007,16 +9060,17 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "SequenceFeatureRelationship",
       "slots": [
-        "association_id",
         "gene_to_gene_product_relationship_subject",
         "gene_to_gene_product_relationship_relation",
         "gene_to_gene_product_relationship_object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/GeneToGeneProductRelationship",
       "defining_slots": [
@@ -9031,16 +9085,17 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "SequenceFeatureRelationship",
       "slots": [
-        "association_id",
         "exon_to_transcript_relationship_subject",
         "relation",
         "exon_to_transcript_relationship_object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/ExonToTranscriptRelationship",
       "defining_slots": [
@@ -9055,16 +9110,17 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
       "slots": [
-        "association_id",
         "gene_regulatory_relationship_subject",
         "gene_regulatory_relationship_relation",
         "gene_regulatory_relationship_object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/GeneRegulatoryRelationship",
       "type": "ClassDefinition"
@@ -9074,16 +9130,17 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
       "slots": [
-        "association_id",
         "anatomical_entity_to_anatomical_entity_association_subject",
         "relation",
         "anatomical_entity_to_anatomical_entity_association_object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/AnatomicalEntityToAnatomicalEntityAssociation",
       "defining_slots": [
@@ -9098,16 +9155,17 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "AnatomicalEntityToAnatomicalEntityAssociation",
       "slots": [
-        "association_id",
         "anatomical_entity_to_anatomical_entity_part_of_association_subject",
         "anatomical_entity_to_anatomical_entity_part_of_association_relation",
         "anatomical_entity_to_anatomical_entity_part_of_association_object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/AnatomicalEntityToAnatomicalEntityPartOfAssociation",
       "defining_slots": [
@@ -9121,16 +9179,17 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "AnatomicalEntityToAnatomicalEntityAssociation",
       "slots": [
-        "association_id",
         "anatomical_entity_to_anatomical_entity_ontogenic_association_subject",
         "anatomical_entity_to_anatomical_entity_ontogenic_association_relation",
         "anatomical_entity_to_anatomical_entity_ontogenic_association_object",
+        "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot"
+        "association_slot",
+        "edge_label"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/AnatomicalEntityToAnatomicalEntityOntogenicAssociation",
       "defining_slots": [
@@ -9618,10 +9677,10 @@
       "type": "ClassDefinition"
     }
   ],
-  "metamodel_version": "1.3.5",
+  "metamodel_version": "1.4.0",
   "source_file": "biolink-model.yaml",
   "source_file_date": "2019-01-01-12:00",
-  "source_file_size": 106946,
+  "source_file_size": 107140,
   "generation_date": "2019-01-01 12:00",
   "type": "SchemaDefinition",
   "@context": [

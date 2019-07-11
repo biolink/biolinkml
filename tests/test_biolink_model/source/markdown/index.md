@@ -1,7 +1,9 @@
+
 # Biolink_Model schema
 
 
 Entity and association taxonomy and datamodel for life-sciences data
+
 
 ### Classes
 
@@ -140,6 +142,7 @@ Entity and association taxonomy and datamodel for life-sciences data
        * [EnvironmentalProcess](EnvironmentalProcess.md)
        * [GeographicLocation](GeographicLocation.md) - a location that can be described in lat/long coordinates
           * [GeographicLocationAtTime](GeographicLocationAtTime.md) - a location that can be described in lat/long coordinates, for a particular time
+
 ### Mixins
 
  * [EntityToDiseaseAssociation](EntityToDiseaseAssociation.md) - mixin class for any association whose object (target node) is a disease
@@ -163,6 +166,7 @@ Entity and association taxonomy and datamodel for life-sciences data
     * [PathognomonicityQuantifier](PathognomonicityQuantifier.md) - A relationship quantifier between a variant or symptom and a disease, which is high when the presence of the feature implies the existence of the disease
  * [ThingWithTaxon](ThingWithTaxon.md) - A mixin that can be used on any entity with a taxon
  * [VariantToThingAssociation](VariantToThingAssociation.md)
+
 ### Slots
 
  * [association slot](association_slot.md) - any slot that relates an association to another entity
@@ -423,11 +427,14 @@ Entity and association taxonomy and datamodel for life-sciences data
     * [same as](same_as.md) - holds between two entities that are considered equivalent to each other
     * [subclass of](subclass_of.md) - holds between two classes where the domain class is a specialization of the range class
     * [treated by](treated_by.md) - holds between a disease or phenotypic feature and a therapeutic process or chemical substance that is used to treat the condition
+
 ### Types
+
 
 #### Built in
 
  * **Bool**
+ * **ElementIdentifier**
  * **NCName**
  * **URI**
  * **URIorCURIE**
@@ -437,6 +444,7 @@ Entity and association taxonomy and datamodel for life-sciences data
  * **float**
  * **int**
  * **str**
+
 #### Defined
 
  * [BiologicalSequence](BiologicalSequence.md)  ([String](String.md)) 
@@ -447,9 +455,9 @@ Entity and association taxonomy and datamodel for life-sciences data
  * [Double](Double.md)  (**float**)  - A real number that conforms to the xsd:double specification
  * [Float](Float.md)  (**float**)  - A real number that conforms to the xsd:float specification
  * [Frequency](Frequency.md)  ([String](String.md)) 
- * [IdentifierType](IdentifierType.md)  ([String](String.md))  - A string that is intended to uniquely identify a thing May be URI in full or compact (CURIE) form
+ * [IdentifierType](IdentifierType.md)  (**ElementIdentifier**)  - A string that is intended to uniquely identify a thing May be URI in full or compact (CURIE) form
  * [Integer](Integer.md)  (**int**)  - An integer
- * [IriType](IriType.md)  ([Uri](Uri.md))  - An IRI
+ * [IriType](IriType.md)  ([Uriorcurie](Uriorcurie.md))  - An IRI
  * [LabelType](LabelType.md)  ([String](String.md))  - A string that provides a human-readable name for a thing
  * [NarrativeText](NarrativeText.md)  ([String](String.md))  - A string that provides a human-readable description of something
  * [Ncname](Ncname.md)  (**NCName**)  - Prefix part of CURIE

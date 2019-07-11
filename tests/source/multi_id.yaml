@@ -18,6 +18,7 @@ slots:
   node property:
     domain: named thing
     range: identifier type
+    inherited: true
 
   not overridden:
     domain: named thing
@@ -31,6 +32,10 @@ slots:
 
 classes:
   named thing:
+    slots:
+      - node property
+      - not overridden
+      - id
 
 
   sequence variant:

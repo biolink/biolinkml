@@ -38,8 +38,8 @@ class YumlGenerator(Generator):
     valid_formats = ['yuml', 'png', 'pdf', 'jpg', 'json', 'svg']
     visit_all_class_slots = False
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], fmt: str='yuml') -> None:
-        super().__init__(schema, fmt)
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], format: str='yuml') -> None:
+        super().__init__(schema, format)
         self.referenced: Set[ClassDefinitionName] = None        # List of classes that have to be emitted
         self.generated: Set[ClassDefinitionName] = None         # List of classes that have been emitted
         self.box_generated: Set[ClassDefinitionName] = None     # Class boxes that have been emitted

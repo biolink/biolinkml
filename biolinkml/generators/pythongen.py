@@ -8,9 +8,11 @@ import click
 import biolinkml
 from biolinkml.generators import PYTHON_GEN_VERSION
 from biolinkml.meta import SchemaDefinition, SlotDefinition, ClassDefinition, ClassDefinitionName, \
-    SlotDefinitionName, DefinitionName, Element, TypeDefinition
-from biolinkml.utils.formatutils import camelcase, underscore, be, wrapped_annotation, split_line
+    SlotDefinitionName, DefinitionName, Element, TypeDefinition, Definition
+from biolinkml.utils.formatutils import camelcase, underscore, be, wrapped_annotation, split_line, sfx
 from biolinkml.utils.generator import Generator
+from biolinkml.utils.ifabsent_functions import ifabsent_value_declaration, ifabsent_postinit_declaration, \
+    default_curie_or_uri
 from biolinkml.utils.metamodelcore import builtinnames
 from includes import types
 
@@ -21,12 +23,67 @@ class PythonGenerator(Generator):
     valid_formats = ['py']
     visit_all_class_slots = False
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], fmt: str=valid_formats[0],
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], format: str = valid_formats[0],
                  emit_metadata: bool=True) -> None:
         self.sourcefile = schema
-        super().__init__(schema, fmt, emit_metadata)
+        self.emit_prefixes: Set[str] = set()
+        if format is None:
+            format = self.valid_formats[0]
+        super().__init__(schema, format, emit_metadata)
         if not self.schema.source_file and isinstance(self.sourcefile, str) and '\n' not in self.sourcefile:
             self.schema.source_file = os.path.basename(self.sourcefile)
+
+    def visit_schema(self, **kwargs) -> None:
+        # Add explicitly declared prefixes
+        self.emit_prefixes.update([str(p) for p in self.schema.prefixes.values()])
+
+        # Add all emit statements
+        self.emit_prefixes.update(self.schema.emit_prefixes)
+
+        # Add the default prefix
+        if self.schema.default_prefix:
+            self.emit_prefixes.add(self.namespaces.prefix_for(self.schema.default_prefix))
+
+    def visit_class(self, cls: ClassDefinition) -> bool:
+        cls_prefix = self.namespaces.prefix_for(cls.class_uri)
+        if cls_prefix:
+            self.emit_prefixes.add(cls_prefix)
+        self.add_mappings(cls)
+        return False
+
+    def visit_slot(self, aliased_slot_name: str, slot: SlotDefinition) -> None:
+        slot_prefix = self.namespaces.prefix_for(slot.slot_uri)
+        if slot_prefix:
+            self.emit_prefixes.add(slot_prefix)
+        self.add_mappings(slot)
+
+    def visit_type(self, typ: TypeDefinition) -> None:
+        type_prefix = self.namespaces.prefix_for(typ.uri)
+        if type_prefix:
+            self.emit_prefixes.add(type_prefix)
+
+    def add_mappings(self, defn: Definition) -> None:
+        """
+        Process any mappings in defn, adding all of the mappings prefixes to the namespace map
+        :param defn: Class or Slot Definition
+        :param target: context target
+        """
+        self.add_id_prefixes(defn)
+        for mapping in defn.mappings:
+            if '://' in mapping:
+                mcurie = self.namespaces.curie_for(mapping)
+                print(f"No namespace defined for URI: {mapping}")
+                if mcurie is None:
+                    return        # Absolute path - no prefix/name
+                else:
+                    mapping = mcurie
+            if ':' not in mapping or len(mapping.split(':')) != 2:
+                raise ValueError(f"Definition {defn.name} - unrecognized mapping: {mapping}")
+            ns = mapping.split(':')[0]
+            self.emit_prefixes.add(ns)
+
+    def add_id_prefixes(self, element: Element) -> None:
+        self.emit_prefixes.update(element.id_prefixes)
 
     def gen_schema(self) -> str:
         split_descripton = '\n#              '.join(split_line(be(self.schema.description), split_len=100))
@@ -42,11 +99,18 @@ class PythonGenerator(Generator):
 
 from typing import Optional, List, Union, Dict, ClassVar
 from dataclasses import dataclass
-from biolinkml.utils.metamodelcore import empty_list, empty_dict
+from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
+from biolinkml.utils.formatutils import camelcase, underscore, sfx
+from rdflib import Namespace, URIRef
 {self.gen_imports()}
 
 metamodel_version = "{self.schema.metamodel_version}"
+
+
+# Namespaces
+{self.gen_namespaces()}
+
 
 # Types
 {self.gen_typedefs()}
@@ -131,6 +195,15 @@ metamodel_version = "{self.schema.metamodel_version}"
 
         return rval.values()
 
+    def gen_namespaces(self) -> str:
+        dflt_prefix = default_curie_or_uri(self)
+        dflt = f"Namespace('{sfx(dflt_prefix)}')" if ':/' in dflt_prefix else dflt_prefix.upper()
+        return '\n'.join([
+            f"{pfx.upper().replace('.', '_')} = Namespace('{self.namespaces[pfx]}')"
+            for pfx in sorted(self.emit_prefixes) if pfx in self.namespaces
+        ] + [f"DEFAULT_ = {dflt}"])
+
+
     def gen_references(self) -> str:
         """ Generate python type declarations for all identifiers (primary keys)
         """
@@ -159,10 +232,10 @@ metamodel_version = "{self.schema.metamodel_version}"
 
                 if typ.typeof:
                     parent_typename = camelcase(typ.typeof)
-                    rval.append(f'class {typname}({parent_typename}):{desc}\n\tpass\n\n')
+                    rval.append(f'class {typname}({parent_typename}):{desc}\n\t{self.gen_type_meta(typ)}\n\n')
                 else:
                     base_base = typ.base.rsplit('.')[-1]
-                    rval.append(f'class {typname}({base_base}):{desc}\n\tpass\n\n')
+                    rval.append(f'class {typname}({base_base}):{desc}\n\t{self.gen_type_meta(typ)}\n\n')
         return '\n'.join(rval)
 
     def gen_classdefs(self) -> str:
@@ -174,22 +247,19 @@ metamodel_version = "{self.schema.metamodel_version}"
 
     def gen_classdef(self, cls: ClassDefinition) -> str:
         """ Generate python definition for class cls """
+
         parentref = f'({self.formatted_element_name(cls.is_a, True) if cls.is_a else "YAMLRoot"})'
-        inheritedslots = self.gen_inherited_slots(cls)
         slotdefs = self.gen_class_variables(cls)
         postinits = self.gen_postinits(cls)
-        if not slotdefs:
-            slotdefs = 'pass'
-        wrapped_description = f'''
-    """
-    {wrapped_annotation(be(cls.description))}
-    """''' if be(cls.description) else ''
-        return f'''
-@dataclass
-class {self.class_or_type_name(cls.name)}{parentref}:{wrapped_description}
-    {inheritedslots}
-    {slotdefs}
-    {postinits}'''
+
+        wrapped_description = f'\n\t"""\n\t{wrapped_annotation(be(cls.description))}\n\t"""' if be(cls.description) else ''
+
+        return ('\n@dataclass' if slotdefs else '') + \
+               f'\nclass {self.class_or_type_name(cls.name)}{parentref}:{wrapped_description}' + \
+               f'\n\t{self.gen_inherited_slots(cls)}\n' + \
+               f'\n\t{self.gen_class_meta(cls)}\n' + \
+               (f'\n\t{slotdefs}' if slotdefs else '') + \
+               (f'\n{postinits}' if postinits else '')
 
     def gen_inherited_slots(self, cls: ClassDefinition) -> str:
         inherited_slots = []
@@ -200,63 +270,94 @@ class {self.class_or_type_name(cls.name)}{parentref}:{wrapped_description}
         inherited_slots_str = ", ".join([f'"{underscore(s)}"' for s in inherited_slots])
         return f"_inherited_slots: ClassVar[List[str]] = [{inherited_slots_str}]"
 
+    def gen_class_meta(self, cls: ClassDefinition) -> str:
+        class_class_uri = self.namespaces.uri_for(cls.class_uri)
+        if class_class_uri:
+            cls_python_uri = self.namespaces.curie_for(class_class_uri, default_ok=False, pythonform=True)
+            class_class_curie = self.namespaces.curie_for(class_class_uri, default_ok=False, pythonform=False)
+        else:
+            cls_python_uri = None
+            class_class_curie = None
+        if class_class_curie:
+            class_class_curie = f'"{class_class_curie}"'
+        class_class_uri = cls_python_uri if cls_python_uri else f'URIRef("{class_class_uri}")'
+        class_model_uri = self.namespaces.uri_or_curie_for(self.schema.default_prefix, camelcase(cls.name))
+        if ':/' in class_model_uri:
+            class_model_uri = f'URIRef("{class_model_uri}")'
+        else:
+            ns, ln = class_model_uri.split(':', 1)
+            class_model_uri = f"{ns.upper()}.{ln}"
+
+        vars = [f'class_class_uri: ClassVar[URIRef] = {class_class_uri}',
+                f'class_class_curie: ClassVar[str] = {class_class_curie}',
+                f'class_name: ClassVar[str] = "{cls.name}"',
+                f'class_model_uri: ClassVar[URIRef] = {class_model_uri}']
+        return "\n\t".join(vars)
+
+    def gen_type_meta(self, typ: TypeDefinition) -> str:
+        type_class_uri = self.namespaces.uri_for(typ.uri)
+        if type_class_uri:
+            type_python_uri = self.namespaces.curie_for(type_class_uri, default_ok=False, pythonform=True)
+            type_class_curie = self.namespaces.curie_for(type_class_uri, default_ok=False, pythonform=False)
+        else:
+            type_python_uri = None
+            type_class_curie = None
+        if type_class_curie:
+            type_class_curie = f'"{type_class_curie}"'
+        type_class_uri = type_python_uri if type_python_uri else f'URIRef("{type_class_uri}")'
+        type_model_uri = self.namespaces.uri_or_curie_for(self.schema.default_prefix, camelcase(typ.name))
+        if ':/' in type_model_uri:
+            type_model_uri = f'URIRef("{type_model_uri}")'
+        else:
+            ns, ln = type_model_uri.split(':', 1)
+            ln_suffix = f".{ln}" if ln.isidentifier() else f'["{ln}"]'
+            type_model_uri = f"{ns.upper()}{ln_suffix}"
+        vars = [f'type_class_uri = {type_class_uri}',
+                f'type_class_curie = {type_class_curie}',
+                f'type_name = "{typ.name}"',
+                f'type_model_uri = {type_model_uri}']
+        return "\n\t".join(vars)
+
+
     def gen_class_variables(self,
-                            cls: ClassDefinition,
-                            target_class: ClassDefinition = None,
-                            ancestor_path: List[ClassDefinitionName] = None) -> str:
+                            cls: ClassDefinition) -> str:
         """
         Generate the variable declarations for a dataclass.
 
         :param cls: class containing variables to be rendered in inheritence hierarchy
-        :param target_class: ultimate path being generated
-        :param ancestor_path: class names from cls to target class -- used to strip slot_usage overrides
         :return: variable declarations for target class and its ancestors
         """
         def overridden_slot(slotname: SlotDefinitionName) -> bool:
             """ Determine whether slotname is overridden in any of the descendant classes """
-            return bool(set(ancestor_path)
-                        .intersection(set(self.synopsis.slotusages.get(self.aliased_slot_name(slotname), []))))
+            return False
+            # return bool(set(ancestor_path)
+            #             .intersection(set(self.synopsis.slotusages.get(self.aliased_slot_name(slotname), []))))
 
-        if target_class is None:
-            target_class = cls
+        initializers = []
 
-        if ancestor_path is None:
-            ancestor_path = []
+        is_root = not cls.is_a
+        domain_slots = self.domain_slots(cls)
 
-        if cls.is_a:
-            ancestor_path.append(cls.name)
-            initializers = [self.gen_class_variables(self.schema.classes[cls.is_a], target_class, ancestor_path)]
-        else:
-            initializers = []
+        # Root keys and identifiers go first.  Note that even if a key or identifier is overridden it still
+        # appears at the top of the list, as we need to keep the position
+        slot_variables = self._slot_iter(cls, lambda slot: (slot.identifier or slot.key) and not slot.ifabsent,
+                                         first_hit_only=True)
+        initializers += [self.gen_class_variable(cls, slot, not is_root) for slot in slot_variables]
 
-        is_root = not cls.is_a and not ancestor_path
-        is_leaf = target_class == cls
-        if cls.slots:
-            initializers += ['', f"# === {cls.name} ==="]
+        # Required slots
+        slot_variables = self._slot_iter(cls,
+                                         lambda slot: slot.required and not slot.identifier and not slot.key and not slot.ifabsent)
+        initializers += [self.gen_class_variable(cls, slot, not is_root) for slot in slot_variables]
 
-            # Root keys and identifiers go first.  Note that even if a key or identifier is overridden it still
-            # appears at the top of the list, as we want to keep the positionality...
-            slot_variables = list(self._slot_iter(cls,
-                                                  lambda slot: (slot.identifier or slot.key) and (
-                                                               not overridden_slot(slot.name) or is_leaf),
-                                                  first_hit_only=True))
-            initializers += [self.gen_class_variable(target_class, slot, not is_root) for slot in slot_variables]
+        # Required or key slots with default values
+        slot_variables = self._slot_iter(cls,
+                                         lambda slot: slot.ifabsent and slot.required)
+        initializers += [self.gen_class_variable(cls, slot, not is_root) for slot in slot_variables]
 
-
-            # Required slots
-            slot_variables = self._slot_iter(cls,
-                                             lambda slot: slot.required and not slot.identifier and not slot.key
-                                                          and not overridden_slot(slot.name))
-            initializers +=  [self.gen_class_variable(target_class, slot, not is_root) for slot in slot_variables]
-
-            # Followed by everything else
-            slot_variables = self._slot_iter(cls, lambda slot: not slot.required and not overridden_slot(slot.name))
-            initializers += [self.gen_class_variable(target_class, slot, True) for slot in slot_variables]
-
-        if ancestor_path:
-            ancestor_path.pop()
-        if not ancestor_path and not initializers:
-            initializers = ['pass']
+        # Followed by everything else
+        slot_variables = self._slot_iter(cls, lambda slot: not slot.required and not overridden_slot(slot.name)
+                                                           and slot in domain_slots)
+        initializers += [self.gen_class_variable(cls, slot, True) for slot in slot_variables]
 
         return '\n\t'.join(initializers)
 
@@ -271,7 +372,11 @@ class {self.class_or_type_name(cls.name)}{parentref}:{wrapped_description}
         """
         slotname = self.slot_name(slot.name)
         slot_range, default_val = self.range_cardinality(slot, cls, can_be_positional)
-        default = f'= {default_val}' if default_val else ''
+        ifabsent_text = ifabsent_value_declaration(slot.ifabsent, self, cls, slot) if slot.ifabsent is not None else None
+        if ifabsent_text:
+            default = f'= {ifabsent_text}'
+        else:
+            default = f'= {default_val}' if default_val else ''
         return f'''{slotname}: {slot_range} {default}'''
 
     def range_cardinality(self, slot: SlotDefinition, cls: ClassDefinition, positional_allowed: bool) \
@@ -332,21 +437,36 @@ class {self.class_or_type_name(cls.name)}{parentref}:{wrapped_description}
     def gen_postinits(self, cls: ClassDefinition) -> str:
         """ Generate all the typing and existence checks post initialize
         """
+        post_inits_pre_super = []
+        for slot in self.domain_slots(cls):
+            if slot.ifabsent:
+                dflt = ifabsent_postinit_declaration(slot.ifabsent, self, cls, slot)
+                if dflt and dflt != "None":
+                    post_inits_pre_super.append(f'if self.{self.slot_name(slot.name)} is None:')
+                    post_inits_pre_super.append(f'\tself.{self.slot_name(slot.name)} = {dflt}')
+
         post_inits = []
         if not cls.abstract:
             pkeys = self.primary_keys_for(cls)
             for pkey in pkeys:
-                post_inits.append(self.gen_postinit(cls, self.schema.slots[pkey]))
+                slot = self.schema.slots[pkey]
+                # TODO: Remove the bypass whenever we get default_range fixed
+                if not slot.ifabsent or True:
+                    post_inits.append(self.gen_postinit(cls, slot))
         else:
             pkeys = []
-        for slot in self.own_slots(cls):
-            if slot.name not in pkeys:
+        for slot in self.domain_slots(cls):
+            # TODO: Remove the bypass whenever we get default_range fixed
+            if slot.name not in pkeys and (not slot.ifabsent or True):
                 post_inits.append(self.gen_postinit(cls, slot))
+
+        post_inits_pre_super_line = '\n\t\t'.join([p for p in post_inits_pre_super if p]) + \
+                                    ('\n\t\t' if post_inits_pre_super else '')
         post_inits_line = '\n\t\t'.join([p for p in post_inits if p])
         return (f'''
-    def _fix_elements(self):
-        super()._fix_elements()
-        {post_inits_line}''' + '\n') if post_inits_line else ''
+    def __post_init__(self):
+        {post_inits_pre_super_line}{post_inits_line}
+        super().__post_init__()''' + '\n') if post_inits_line or post_inits_pre_super_line else ''
 
     def is_key_value_class(self, range_name: DefinitionName) -> bool:
         """
@@ -426,7 +546,7 @@ class {self.class_or_type_name(cls.name)}{parentref}:{wrapped_description}
         :param first_hit_only: True means stop on first match.  False means generate all
         :return: Set of slots that match
         """
-        for slot in self.own_slots(cls):
+        for slot in self.all_slots(cls):
             if test(slot):
                 yield slot
                 if first_hit_only:

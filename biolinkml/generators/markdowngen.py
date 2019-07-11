@@ -19,8 +19,8 @@ class MarkdownGenerator(Generator):
     valid_formats = ["md"]
     visit_all_class_slots = False
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], fmt: str=None) -> None:
-        super().__init__(schema, fmt)
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], format: str=None) -> None:
+        super().__init__(schema, format)
         self.directory: Optional[str] = None
         self.image_directory: Optional[str] = None
         self.noimages: bool = False

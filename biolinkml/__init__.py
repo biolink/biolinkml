@@ -56,7 +56,7 @@ URI Maps:
 
 METAMODEL_FILE_NAME = 'meta.yaml'
 METAMODEL_LDCONTEXT_NAME = 'context.jsonld'
-METAMODEL_SHEX_NAME = 'meta.shex'
+METAMODEL_SHEX_NAME = 'meta.shexj'
 METAMODEL_RDF_NAME = 'meta.ttl'
 TYPES_FILE_NAME = 'types.yaml'
 
@@ -64,7 +64,8 @@ TYPES_FILE_NAME = 'types.yaml'
 # Location of meta.yaml and types.yaml
 MODULE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 LOCAL_YAML_PATH = os.path.join(MODULE_DIR, METAMODEL_FILE_NAME)
-LOCAL_TYPES_PATH = os.path.join(MODULE_DIR, 'includes', TYPES_FILE_NAME)
+INCLUDES_DIR = os.path.join(MODULE_DIR, 'includes')
+LOCAL_TYPES_PATH = os.path.join(INCLUDES_DIR, TYPES_FILE_NAME)
 
 # Location of metamodel context.jsonld
 LOCAL_CONTEXT_PATH = os.path.join(MODULE_DIR, METAMODEL_LDCONTEXT_NAME)

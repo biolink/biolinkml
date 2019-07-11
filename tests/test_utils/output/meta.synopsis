@@ -37,13 +37,17 @@ Slots: 85
 			subset_definition: 2
 			type_definition: 3
 
-Types: 11
+Types: 13
 	Referenced by: 0 classes, 57 slots, 0 types 
 	Bases:
 		Bool:
 			boolean
+		ElementIdentifier:
+			objectidentifier
 		NCName:
 			ncname
+		NodeIdentifier:
+			nodeidentifier
 		URI:
 			uri
 		URIorCURIE:

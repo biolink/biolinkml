@@ -18,8 +18,8 @@ class SummaryGenerator(Generator):
     generatorversion = "0.1.0"
     valid_formats = ['tsv']
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], fmt: str = 'tsv') -> None:
-        super().__init__(schema, fmt)
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], format: str = 'tsv') -> None:
+        super().__init__(schema, format)
         self.dirname = None
         self.classtab: DictWriter = None
         self.slottab: DictWriter = None

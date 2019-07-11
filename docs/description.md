@@ -1,15 +1,20 @@
+
 # Slot: description
 
 
 a description of the element's purpose and use
 
 URI: [meta:description](https://w3id.org/biolink/biolinkml/meta/description)
+
 ## Domain and Range
 
 [Element](Element.md) ->  <sub>OPT</sub> [String](String.md)
+
 ## Parents
 
+
 ## Children
+
 
 ## Used by
 

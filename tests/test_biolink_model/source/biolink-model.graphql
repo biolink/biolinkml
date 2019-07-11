@@ -1,8 +1,8 @@
 type ActivityAndBehavior
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -10,7 +10,7 @@ type ActivityAndBehavior
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     regulatesProcessToProcess: [Occurrent]
     hasParticipant: [NamedThing]
     hasInput: [NamedThing]
@@ -20,8 +20,8 @@ type ActivityAndBehavior
 interface AdministrativeEntity
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -29,14 +29,14 @@ interface AdministrativeEntity
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
   }
 
 type AnatomicalEntity implements ThingWithTaxon
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -44,7 +44,7 @@ type AnatomicalEntity implements ThingWithTaxon
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     expresses: [GeneOrGeneProduct]
     inTaxon: [OrganismTaxon]
@@ -52,59 +52,62 @@ type AnatomicalEntity implements ThingWithTaxon
 
 type AnatomicalEntityToAnatomicalEntityAssociation
   {
-    id: IdentifierType!
     subject: AnatomicalEntity!
-    relation: IriType!
+    relation: Uriorcurie!
     object: AnatomicalEntity!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 type AnatomicalEntityToAnatomicalEntityOntogenicAssociation
   {
-    id: IdentifierType!
     subject: AnatomicalEntity!
-    relation: IriType!
+    relation: Uriorcurie!
     object: AnatomicalEntity!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 type AnatomicalEntityToAnatomicalEntityPartOfAssociation
   {
-    id: IdentifierType!
     subject: AnatomicalEntity!
-    relation: IriType!
+    relation: Uriorcurie!
     object: AnatomicalEntity!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 type Association
   {
+    subject: NamedThing!
+    relation: Uriorcurie!
+    object: NamedThing!
     id: IdentifierType!
-    subject: IriType!
-    relation: IriType!
-    object: IriType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
-    edgeLabel: LabelType
+    edgeLabel: LabelType!
     hasConfidenceLevel: ConfidenceLevel
     hasEvidence: EvidenceType
     clinicalModifierQualifier: ClinicalModifier
@@ -113,8 +116,8 @@ type Association
 type Attribute implements OntologyClass
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -122,15 +125,15 @@ type Attribute implements OntologyClass
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
-    subclassOf: [OntologyClass]
+    systematicSynonym: [LabelType]
+    subclassOf: [IriType]
   }
 
 interface BiologicalEntity
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -138,15 +141,15 @@ interface BiologicalEntity
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
   }
 
 type BiologicalProcess implements Occurrent
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -154,7 +157,7 @@ type BiologicalProcess implements Occurrent
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     regulatesProcessToProcess: [Occurrent]
     hasParticipant: [NamedThing]
@@ -165,8 +168,8 @@ type BiologicalProcess implements Occurrent
 type BiologicalProcessOrActivity
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -174,15 +177,15 @@ type BiologicalProcessOrActivity
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
   }
 
 type BiologicalSex
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -190,15 +193,15 @@ type BiologicalSex
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
-    subclassOf: [OntologyClass]
+    systematicSynonym: [LabelType]
+    subclassOf: [IriType]
   }
 
 type Biosample implements ThingWithTaxon
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -206,44 +209,46 @@ type Biosample implements ThingWithTaxon
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     inTaxon: [OrganismTaxon]
   }
 
 type BiosampleToDiseaseOrPhenotypicFeatureAssociation implements BiosampleToThingAssociation, ThingToDiseaseOrPhenotypicFeatureAssociation
   {
+    subject: NamedThing!
+    relation: Uriorcurie!
+    object: NamedThing!
     id: IdentifierType!
-    subject: IriType!
-    relation: IriType!
-    object: IriType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 interface BiosampleToThingAssociation
   {
-    id: IdentifierType!
     subject: Biosample!
-    relation: IriType!
-    object: IriType!
+    relation: Uriorcurie!
+    object: NamedThing!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 type Carbohydrate
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -251,7 +256,7 @@ type Carbohydrate
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -310,8 +315,8 @@ type Carbohydrate
 type Case
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -319,23 +324,24 @@ type Case
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     inTaxon: [OrganismTaxon]
   }
 
 type CaseToPhenotypicFeatureAssociation implements EntityToPhenotypicFeatureAssociation, CaseToThingAssociation
   {
+    subject: NamedThing!
+    relation: Uriorcurie!
+    object: NamedThing!
     id: IdentifierType!
-    subject: IriType!
-    relation: IriType!
-    object: IriType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
     sexQualifier: BiologicalSex
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
@@ -344,23 +350,24 @@ type CaseToPhenotypicFeatureAssociation implements EntityToPhenotypicFeatureAsso
 
 interface CaseToThingAssociation
   {
-    id: IdentifierType!
     subject: Case!
-    relation: IriType!
-    object: IriType!
+    relation: Uriorcurie!
+    object: NamedThing!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 type Cell
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -368,7 +375,7 @@ type Cell
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     expresses: [GeneOrGeneProduct]
     inTaxon: [OrganismTaxon]
@@ -377,8 +384,8 @@ type Cell
 type CellLine
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -386,44 +393,46 @@ type CellLine
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     inTaxon: [OrganismTaxon]
   }
 
 type CellLineToDiseaseOrPhenotypicFeatureAssociation implements CellLineToThingAssociation, ThingToDiseaseOrPhenotypicFeatureAssociation
   {
-    id: IdentifierType!
     subject: DiseaseOrPhenotypicFeature!
-    relation: IriType!
-    object: IriType!
+    relation: Uriorcurie!
+    object: NamedThing!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 interface CellLineToThingAssociation
   {
-    id: IdentifierType!
     subject: CellLine!
-    relation: IriType!
-    object: IriType!
+    relation: Uriorcurie!
+    object: NamedThing!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 type CellularComponent
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -431,7 +440,7 @@ type CellularComponent
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     expresses: [GeneOrGeneProduct]
     inTaxon: [OrganismTaxon]
@@ -440,8 +449,8 @@ type CellularComponent
 type ChemicalSubstance
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -449,7 +458,7 @@ type ChemicalSubstance
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -507,65 +516,69 @@ type ChemicalSubstance
 
 type ChemicalToDiseaseOrPhenotypicFeatureAssociation implements ChemicalToThingAssociation, ThingToDiseaseOrPhenotypicFeatureAssociation
   {
-    id: IdentifierType!
-    subject: IriType!
-    relation: IriType!
+    subject: NamedThing!
+    relation: Uriorcurie!
     object: DiseaseOrPhenotypicFeature!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 type ChemicalToGeneAssociation implements ChemicalToThingAssociation
   {
-    id: IdentifierType!
-    subject: IriType!
-    relation: IriType!
+    subject: NamedThing!
+    relation: Uriorcurie!
     object: GeneOrGeneProduct!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 type ChemicalToPathwayAssociation implements ChemicalToThingAssociation
   {
-    id: IdentifierType!
-    subject: IriType!
-    relation: IriType!
+    subject: NamedThing!
+    relation: Uriorcurie!
     object: Pathway!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 interface ChemicalToThingAssociation
   {
-    id: IdentifierType!
     subject: ChemicalSubstance!
-    relation: IriType!
-    object: IriType!
+    relation: Uriorcurie!
+    object: NamedThing!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 type ClinicalEntity
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -573,14 +586,14 @@ type ClinicalEntity
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
   }
 
 type ClinicalIntervention
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -588,14 +601,14 @@ type ClinicalIntervention
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
   }
 
 type ClinicalModifier
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -603,15 +616,15 @@ type ClinicalModifier
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
-    subclassOf: [OntologyClass]
+    systematicSynonym: [LabelType]
+    subclassOf: [IriType]
   }
 
 type ClinicalTrial
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -619,14 +632,14 @@ type ClinicalTrial
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
   }
 
 type CodingSequence
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -634,7 +647,7 @@ type CodingSequence
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -694,8 +707,8 @@ type CodingSequence
 type ConfidenceLevel
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -703,14 +716,14 @@ type ConfidenceLevel
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
   }
 
 type Device
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -718,14 +731,14 @@ type Device
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
   }
 
 type Disease
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -733,7 +746,7 @@ type Disease
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     correlatedWith: [MolecularEntity]
     hasBiomarker: [MolecularEntity]
@@ -744,8 +757,8 @@ type Disease
 type DiseaseOrPhenotypicFeature implements ThingWithTaxon
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -753,7 +766,7 @@ type DiseaseOrPhenotypicFeature implements ThingWithTaxon
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     correlatedWith: [MolecularEntity]
     hasBiomarker: [MolecularEntity]
@@ -763,44 +776,47 @@ type DiseaseOrPhenotypicFeature implements ThingWithTaxon
 
 type DiseaseOrPhenotypicFeatureAssociationToLocationAssociation
   {
-    id: IdentifierType!
     subject: DiseaseOrPhenotypicFeature!
-    relation: IriType!
+    relation: Uriorcurie!
     object: AnatomicalEntity!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 interface DiseaseOrPhenotypicFeatureAssociationToThingAssociation
   {
-    id: IdentifierType!
     subject: DiseaseOrPhenotypicFeature!
-    relation: IriType!
-    object: IriType!
+    relation: Uriorcurie!
+    object: NamedThing!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 type DiseaseToPhenotypicFeatureAssociation implements EntityToPhenotypicFeatureAssociation, DiseaseToThingAssociation
   {
+    subject: NamedThing!
+    relation: Uriorcurie!
+    object: NamedThing!
     id: IdentifierType!
-    subject: IriType!
-    relation: IriType!
-    object: IriType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
     sexQualifier: BiologicalSex
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
@@ -809,23 +825,24 @@ type DiseaseToPhenotypicFeatureAssociation implements EntityToPhenotypicFeatureA
 
 interface DiseaseToThingAssociation
   {
-    id: IdentifierType!
     subject: Disease!
-    relation: IriType!
-    object: IriType!
+    relation: Uriorcurie!
+    object: NamedThing!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 type Drug
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -833,7 +850,7 @@ type Drug
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -892,8 +909,8 @@ type Drug
 type DrugExposure
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -901,7 +918,7 @@ type DrugExposure
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     drug: [ChemicalSubstance]!
   }
@@ -923,16 +940,17 @@ interface EntityToFeatureOrDiseaseQualifiers
 
 type EntityToPhenotypicFeatureAssociation implements EntityToFeatureOrDiseaseQualifiers
   {
-    id: IdentifierType!
-    subject: IriType!
-    relation: IriType!
+    subject: NamedThing!
+    relation: Uriorcurie!
     object: PhenotypicFeature!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
     sexQualifier: BiologicalSex
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
@@ -943,8 +961,8 @@ type EntityToPhenotypicFeatureAssociation implements EntityToFeatureOrDiseaseQua
 type Environment
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -952,22 +970,23 @@ type Environment
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
   }
 
 type EnvironmentToPhenotypicFeatureAssociation implements EntityToPhenotypicFeatureAssociation
   {
-    id: IdentifierType!
     subject: Environment!
-    relation: IriType!
-    object: IriType!
+    relation: Uriorcurie!
+    object: NamedThing!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
     sexQualifier: BiologicalSex
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
@@ -977,8 +996,8 @@ type EnvironmentToPhenotypicFeatureAssociation implements EntityToPhenotypicFeat
 type EnvironmentalFeature
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -986,14 +1005,14 @@ type EnvironmentalFeature
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
   }
 
 type EnvironmentalProcess implements Occurrent
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -1001,7 +1020,7 @@ type EnvironmentalProcess implements Occurrent
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     regulatesProcessToProcess: [Occurrent]
     hasParticipant: [NamedThing]
     hasInput: [NamedThing]
@@ -1011,8 +1030,8 @@ type EnvironmentalProcess implements Occurrent
 type EvidenceType
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -1020,14 +1039,14 @@ type EvidenceType
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
   }
 
 type Exon
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -1035,7 +1054,7 @@ type Exon
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -1094,16 +1113,17 @@ type Exon
 
 type ExonToTranscriptRelationship
   {
-    id: IdentifierType!
     subject: Exon!
-    relation: IriType!
+    relation: Uriorcurie!
     object: Transcript!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 interface FrequencyQualifierMixin
@@ -1122,8 +1142,8 @@ interface FrequencyQuantifier
 type FrequencyValue
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -1131,29 +1151,30 @@ type FrequencyValue
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
-    subclassOf: [OntologyClass]
+    systematicSynonym: [LabelType]
+    subclassOf: [IriType]
   }
 
 type FunctionalAssociation
   {
-    id: IdentifierType!
     subject: MacromolecularMachine!
-    relation: IriType!
+    relation: Uriorcurie!
     object: GeneOntologyClass!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 type Gene
   {
     id: IdentifierType!
-    name: SymbolType
-    category: [IriType]
+    name: SymbolType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -1161,7 +1182,7 @@ type Gene
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -1227,16 +1248,17 @@ type Gene
 
 type GeneAsAModelOfDiseaseAssociation implements ModelToDiseaseMixin, EntityToDiseaseAssociation
   {
-    id: IdentifierType!
     subject: GeneOrGeneProduct!
-    relation: IriType!
-    object: IriType!
+    relation: Uriorcurie!
+    object: NamedThing!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
     onsetQualifier: Onset
@@ -1245,8 +1267,8 @@ type GeneAsAModelOfDiseaseAssociation implements ModelToDiseaseMixin, EntityToDi
 type GeneFamily implements GeneGrouping
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -1254,7 +1276,7 @@ type GeneFamily implements GeneGrouping
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -1316,16 +1338,17 @@ interface GeneGrouping
 
 type GeneHasVariantThatContributesToDiseaseAssociation
   {
-    id: IdentifierType!
     subject: GeneOrGeneProduct!
-    relation: IriType!
-    object: IriType!
+    relation: Uriorcurie!
+    object: NamedThing!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
     onsetQualifier: Onset
@@ -1335,8 +1358,8 @@ type GeneHasVariantThatContributesToDiseaseAssociation
 type GeneOntologyClass
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -1344,15 +1367,15 @@ type GeneOntologyClass
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
-    subclassOf: [OntologyClass]
+    systematicSynonym: [LabelType]
+    subclassOf: [IriType]
   }
 
 type GeneOrGeneProduct
   {
     id: IdentifierType!
-    name: SymbolType
-    category: [IriType]
+    name: SymbolType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -1360,7 +1383,7 @@ type GeneOrGeneProduct
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -1424,8 +1447,8 @@ type GeneOrGeneProduct
 type GeneProduct
   {
     id: IdentifierType!
-    name: SymbolType
-    category: [IriType]
+    name: SymbolType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -1433,7 +1456,7 @@ type GeneProduct
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -1497,8 +1520,8 @@ type GeneProduct
 interface GeneProductIsoform
   {
     id: IdentifierType!
-    name: SymbolType
-    category: [IriType]
+    name: SymbolType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -1506,7 +1529,7 @@ interface GeneProductIsoform
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -1569,30 +1592,32 @@ interface GeneProductIsoform
 
 type GeneRegulatoryRelationship
   {
-    id: IdentifierType!
     subject: GeneOrGeneProduct!
-    relation: IriType!
+    relation: Uriorcurie!
     object: GeneOrGeneProduct!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 type GeneToDiseaseAssociation implements EntityToDiseaseAssociation, GeneToThingAssociation
   {
-    id: IdentifierType!
     subject: GeneOrGeneProduct!
-    relation: IriType!
-    object: IriType!
+    relation: Uriorcurie!
+    object: NamedThing!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
     onsetQualifier: Onset
@@ -1600,88 +1625,94 @@ type GeneToDiseaseAssociation implements EntityToDiseaseAssociation, GeneToThing
 
 type GeneToExpressionSiteAssociation
   {
-    id: IdentifierType!
     subject: GeneOrGeneProduct!
-    relation: IriType!
+    relation: Uriorcurie!
     object: AnatomicalEntity!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
     stageQualifier: LifeStage
     quantifierQualifier: OntologyClass
   }
 
 interface GeneToGeneAssociation
   {
-    id: IdentifierType!
     subject: GeneOrGeneProduct!
-    relation: IriType!
+    relation: Uriorcurie!
     object: GeneOrGeneProduct!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 type GeneToGeneHomologyAssociation
   {
-    id: IdentifierType!
     subject: GeneOrGeneProduct!
-    relation: IriType!
+    relation: Uriorcurie!
     object: GeneOrGeneProduct!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 type GeneToGeneProductRelationship
   {
-    id: IdentifierType!
     subject: Gene!
-    relation: IriType!
+    relation: Uriorcurie!
     object: GeneProduct!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 type GeneToGoTermAssociation
   {
-    id: IdentifierType!
     subject: MolecularEntity!
-    relation: IriType!
+    relation: Uriorcurie!
     object: GeneOntologyClass!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 type GeneToPhenotypicFeatureAssociation implements EntityToPhenotypicFeatureAssociation, GeneToThingAssociation
   {
-    id: IdentifierType!
     subject: GeneOrGeneProduct!
-    relation: IriType!
-    object: IriType!
+    relation: Uriorcurie!
+    object: NamedThing!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
     sexQualifier: BiologicalSex
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
@@ -1690,23 +1721,24 @@ type GeneToPhenotypicFeatureAssociation implements EntityToPhenotypicFeatureAsso
 
 interface GeneToThingAssociation
   {
-    id: IdentifierType!
     subject: GeneOrGeneProduct!
-    relation: IriType!
-    object: IriType!
+    relation: Uriorcurie!
+    object: NamedThing!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 type Genome
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -1714,7 +1746,7 @@ type Genome
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -1774,8 +1806,8 @@ type Genome
 type GenomicEntity
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -1783,7 +1815,7 @@ type GenomicEntity
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -1842,16 +1874,17 @@ type GenomicEntity
 
 type GenomicSequenceLocalization
   {
-    id: IdentifierType!
     subject: GenomicEntity!
-    relation: IriType!
+    relation: Uriorcurie!
     object: GenomicEntity!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
     startInterbaseCoordinate: String
     endInterbaseCoordinate: String
     genomeBuild: String
@@ -1861,8 +1894,8 @@ type GenomicSequenceLocalization
 type Genotype
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -1870,7 +1903,7 @@ type Genotype
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -1930,44 +1963,47 @@ type Genotype
 
 type GenotypeToGeneAssociation
   {
-    id: IdentifierType!
     subject: Genotype!
-    relation: IriType!
+    relation: Uriorcurie!
     object: Gene!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 type GenotypeToGenotypePartAssociation
   {
-    id: IdentifierType!
     subject: Genotype!
-    relation: IriType!
+    relation: Uriorcurie!
     object: Genotype!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 type GenotypeToPhenotypicFeatureAssociation implements EntityToPhenotypicFeatureAssociation, GenotypeToThingAssociation
   {
-    id: IdentifierType!
     subject: Genotype!
-    relation: IriType!
-    object: IriType!
+    relation: Uriorcurie!
+    object: NamedThing!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
     sexQualifier: BiologicalSex
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
@@ -1976,37 +2012,39 @@ type GenotypeToPhenotypicFeatureAssociation implements EntityToPhenotypicFeature
 
 interface GenotypeToThingAssociation
   {
-    id: IdentifierType!
     subject: Genotype!
-    relation: IriType!
-    object: IriType!
+    relation: Uriorcurie!
+    object: NamedThing!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 type GenotypeToVariantAssociation
   {
-    id: IdentifierType!
     subject: Genotype!
-    relation: IriType!
+    relation: Uriorcurie!
     object: SequenceVariant!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 type GenotypicSex
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -2014,15 +2052,15 @@ type GenotypicSex
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
-    subclassOf: [OntologyClass]
+    systematicSynonym: [LabelType]
+    subclassOf: [IriType]
   }
 
 type GeographicLocation
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -2030,7 +2068,7 @@ type GeographicLocation
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     latitude: Float
     longitude: Float
   }
@@ -2038,8 +2076,8 @@ type GeographicLocation
 type GeographicLocationAtTime
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -2047,7 +2085,7 @@ type GeographicLocationAtTime
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     latitude: Float
     longitude: Float
     timepoint: TimeType
@@ -2056,8 +2094,8 @@ type GeographicLocationAtTime
 type GrossAnatomicalStructure
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -2065,7 +2103,7 @@ type GrossAnatomicalStructure
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     expresses: [GeneOrGeneProduct]
     inTaxon: [OrganismTaxon]
@@ -2074,8 +2112,8 @@ type GrossAnatomicalStructure
 type Haplotype
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -2083,7 +2121,7 @@ type Haplotype
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -2143,8 +2181,8 @@ type Haplotype
 type IndividualOrganism implements ThingWithTaxon
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -2152,7 +2190,7 @@ type IndividualOrganism implements ThingWithTaxon
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     inTaxon: [OrganismTaxon]
   }
@@ -2160,8 +2198,8 @@ type IndividualOrganism implements ThingWithTaxon
 interface InformationContentEntity
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -2169,14 +2207,14 @@ interface InformationContentEntity
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
   }
 
 type LifeStage implements ThingWithTaxon
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -2184,7 +2222,7 @@ type LifeStage implements ThingWithTaxon
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     inTaxon: [OrganismTaxon]
   }
@@ -2192,8 +2230,8 @@ type LifeStage implements ThingWithTaxon
 type MacromolecularComplex
   {
     id: IdentifierType!
-    name: SymbolType
-    category: [IriType]
+    name: SymbolType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -2201,7 +2239,7 @@ type MacromolecularComplex
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -2261,8 +2299,8 @@ type MacromolecularComplex
 type MacromolecularMachine
   {
     id: IdentifierType!
-    name: SymbolType
-    category: [IriType]
+    name: SymbolType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -2270,7 +2308,7 @@ type MacromolecularMachine
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -2329,51 +2367,54 @@ type MacromolecularMachine
 
 type MacromolecularMachineToBiologicalProcessAssociation
   {
-    id: IdentifierType!
     subject: MacromolecularMachine!
-    relation: IriType!
+    relation: Uriorcurie!
     object: BiologicalProcess!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 type MacromolecularMachineToCellularComponentAssociation
   {
-    id: IdentifierType!
     subject: MacromolecularMachine!
-    relation: IriType!
+    relation: Uriorcurie!
     object: CellularComponent!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 type MacromolecularMachineToMolecularActivityAssociation
   {
-    id: IdentifierType!
     subject: MacromolecularMachine!
-    relation: IriType!
+    relation: Uriorcurie!
     object: MolecularActivity!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 type Metabolite
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -2381,7 +2422,7 @@ type Metabolite
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -2440,8 +2481,8 @@ type Metabolite
 type MicroRNA
   {
     id: IdentifierType!
-    name: SymbolType
-    category: [IriType]
+    name: SymbolType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -2449,7 +2490,7 @@ type MicroRNA
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -2512,15 +2553,15 @@ type MicroRNA
 
 interface ModelToDiseaseMixin
   {
-    subject: IriType!
-    relation: IriType!
+    subject: NamedThing!
+    relation: Uriorcurie!
   }
 
 type MolecularActivity implements Occurrent
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -2528,7 +2569,7 @@ type MolecularActivity implements Occurrent
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     regulatesProcessToProcess: [Occurrent]
     hasParticipant: [NamedThing]
@@ -2539,8 +2580,8 @@ type MolecularActivity implements Occurrent
 type MolecularEntity implements ThingWithTaxon
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -2548,7 +2589,7 @@ type MolecularEntity implements ThingWithTaxon
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -2609,8 +2650,8 @@ type MolecularEntity implements ThingWithTaxon
 type NamedThing
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -2618,7 +2659,7 @@ type NamedThing
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     physicallyInteractsWith: [NamedThing]
     affects: [NamedThing]
     regulates: [NamedThing]
@@ -2663,8 +2704,8 @@ type NamedThing
 type NoncodingRNAProduct
   {
     id: IdentifierType!
-    name: SymbolType
-    category: [IriType]
+    name: SymbolType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -2672,7 +2713,7 @@ type NoncodingRNAProduct
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -2736,8 +2777,8 @@ type NoncodingRNAProduct
 type Occurrent
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -2745,7 +2786,7 @@ type Occurrent
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     regulatesProcessToProcess: [Occurrent]
     hasParticipant: [NamedThing]
     hasInput: [NamedThing]
@@ -2757,8 +2798,8 @@ type Occurrent
 type Onset
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -2766,15 +2807,15 @@ type Onset
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
-    subclassOf: [OntologyClass]
+    systematicSynonym: [LabelType]
+    subclassOf: [IriType]
   }
 
 type OntologyClass
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -2782,15 +2823,15 @@ type OntologyClass
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
-    subclassOf: [OntologyClass]
+    systematicSynonym: [LabelType]
+    subclassOf: [IriType]
   }
 
 type OrganismTaxon
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -2798,15 +2839,15 @@ type OrganismTaxon
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
-    subclassOf: [OntologyClass]
+    systematicSynonym: [LabelType]
+    subclassOf: [IriType]
   }
 
 interface OrganismalEntity
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -2814,36 +2855,38 @@ interface OrganismalEntity
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
   }
 
 type PairwiseGeneToGeneInteraction implements PairwiseInteractionAssociation
   {
-    id: IdentifierType!
     subject: GeneOrGeneProduct!
-    relation: IriType!
+    relation: Uriorcurie!
     object: GeneOrGeneProduct!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 interface PairwiseInteractionAssociation
   {
-    id: IdentifierType!
     subject: MolecularEntity!
-    relation: IriType!
+    relation: Uriorcurie!
     object: MolecularEntity!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
     interactingMoleculesCategory: OntologyClass
   }
 
@@ -2854,8 +2897,8 @@ interface PathognomonicityQuantifier
 type Pathway
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -2863,7 +2906,7 @@ type Pathway
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     regulatesProcessToProcess: [Occurrent]
     hasParticipant: [NamedThing]
@@ -2874,8 +2917,8 @@ type Pathway
 type Phenomenon
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -2883,7 +2926,7 @@ type Phenomenon
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     regulatesProcessToProcess: [Occurrent]
     hasParticipant: [NamedThing]
     hasInput: [NamedThing]
@@ -2893,8 +2936,8 @@ type Phenomenon
 type PhenotypicFeature
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -2902,7 +2945,7 @@ type PhenotypicFeature
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     correlatedWith: [MolecularEntity]
     hasBiomarker: [MolecularEntity]
@@ -2913,8 +2956,8 @@ type PhenotypicFeature
 type PhenotypicSex
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -2922,15 +2965,15 @@ type PhenotypicSex
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
-    subclassOf: [OntologyClass]
+    systematicSynonym: [LabelType]
+    subclassOf: [IriType]
   }
 
 type PhysiologicalProcess
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -2938,7 +2981,7 @@ type PhysiologicalProcess
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     regulatesProcessToProcess: [Occurrent]
     hasParticipant: [NamedThing]
@@ -2949,8 +2992,8 @@ type PhysiologicalProcess
 type PlanetaryEntity
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -2958,14 +3001,14 @@ type PlanetaryEntity
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
   }
 
 type PopulationOfIndividualOrganisms implements ThingWithTaxon
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -2973,30 +3016,31 @@ type PopulationOfIndividualOrganisms implements ThingWithTaxon
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     inTaxon: [OrganismTaxon]
   }
 
 type PopulationToPopulationAssociation
   {
-    id: IdentifierType!
     subject: PopulationOfIndividualOrganisms!
-    relation: IriType!
+    relation: Uriorcurie!
     object: PopulationOfIndividualOrganisms!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 type Procedure
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -3004,7 +3048,7 @@ type Procedure
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     regulatesProcessToProcess: [Occurrent]
     hasParticipant: [NamedThing]
     hasInput: [NamedThing]
@@ -3014,8 +3058,8 @@ type Procedure
 type Protein
   {
     id: IdentifierType!
-    name: SymbolType
-    category: [IriType]
+    name: SymbolType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -3023,7 +3067,7 @@ type Protein
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -3087,8 +3131,8 @@ type Protein
 type ProteinIsoform implements GeneProductIsoform
   {
     id: IdentifierType!
-    name: SymbolType
-    category: [IriType]
+    name: SymbolType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -3096,7 +3140,7 @@ type ProteinIsoform implements GeneProductIsoform
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -3160,8 +3204,8 @@ type ProteinIsoform implements GeneProductIsoform
 type Provider
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -3169,14 +3213,14 @@ type Provider
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
   }
 
 type Publication
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -3184,7 +3228,7 @@ type Publication
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
   }
 
 interface RelationshipQuantifier
@@ -3194,8 +3238,8 @@ interface RelationshipQuantifier
 type RelationshipType
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -3203,15 +3247,15 @@ type RelationshipType
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
-    subclassOf: [OntologyClass]
+    systematicSynonym: [LabelType]
+    subclassOf: [IriType]
   }
 
 type RNAProduct
   {
     id: IdentifierType!
-    name: SymbolType
-    category: [IriType]
+    name: SymbolType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -3219,7 +3263,7 @@ type RNAProduct
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -3283,8 +3327,8 @@ type RNAProduct
 type RNAProductIsoform implements GeneProductIsoform
   {
     id: IdentifierType!
-    name: SymbolType
-    category: [IriType]
+    name: SymbolType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -3292,7 +3336,7 @@ type RNAProductIsoform implements GeneProductIsoform
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -3359,23 +3403,24 @@ interface SensitivityQuantifier
 
 type SequenceFeatureRelationship
   {
-    id: IdentifierType!
     subject: GenomicEntity!
-    relation: IriType!
+    relation: Uriorcurie!
     object: GenomicEntity!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 type SequenceVariant
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -3383,7 +3428,7 @@ type SequenceVariant
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -3443,23 +3488,24 @@ type SequenceVariant
 
 interface SequenceVariantModulatesTreatmentAssociation
   {
-    id: IdentifierType!
     subject: SequenceVariant!
-    relation: IriType!
+    relation: Uriorcurie!
     object: Treatment!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 type SeverityValue
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -3467,8 +3513,8 @@ type SeverityValue
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
-    subclassOf: [OntologyClass]
+    systematicSynonym: [LabelType]
+    subclassOf: [IriType]
   }
 
 interface SpecificityQuantifier
@@ -3477,16 +3523,17 @@ interface SpecificityQuantifier
 
 interface ThingToDiseaseOrPhenotypicFeatureAssociation
   {
-    id: IdentifierType!
-    subject: IriType!
-    relation: IriType!
+    subject: NamedThing!
+    relation: Uriorcurie!
     object: DiseaseOrPhenotypicFeature!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 interface ThingWithTaxon
@@ -3497,8 +3544,8 @@ interface ThingWithTaxon
 type Transcript
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -3506,7 +3553,7 @@ type Transcript
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     molecularlyInteractsWith: [MolecularEntity]
     affectsAbundanceOf: [MolecularEntity]
@@ -3565,23 +3612,24 @@ type Transcript
 
 type TranscriptToGeneRelationship
   {
-    id: IdentifierType!
     subject: Transcript!
-    relation: IriType!
+    relation: Uriorcurie!
     object: Gene!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 type Treatment
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -3589,7 +3637,7 @@ type Treatment
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
+    systematicSynonym: [LabelType]
     hasPhenotype: [PhenotypicFeature]
     treats: [DiseaseOrPhenotypicFeature]!
     hasExposureParts: [DrugExposure]!
@@ -3597,16 +3645,17 @@ type Treatment
 
 type VariantToDiseaseAssociation implements VariantToThingAssociation, EntityToDiseaseAssociation
   {
+    subject: NamedThing!
+    relation: Uriorcurie!
+    object: NamedThing!
     id: IdentifierType!
-    subject: IriType!
-    relation: IriType!
-    object: IriType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
     onsetQualifier: Onset
@@ -3614,16 +3663,17 @@ type VariantToDiseaseAssociation implements VariantToThingAssociation, EntityToD
 
 type VariantToPhenotypicFeatureAssociation implements VariantToThingAssociation, EntityToPhenotypicFeatureAssociation
   {
-    id: IdentifierType!
     subject: SequenceVariant!
-    relation: IriType!
-    object: IriType!
+    relation: Uriorcurie!
+    object: NamedThing!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
     sexQualifier: BiologicalSex
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
@@ -3632,16 +3682,17 @@ type VariantToPhenotypicFeatureAssociation implements VariantToThingAssociation,
 
 type VariantToPopulationAssociation implements VariantToThingAssociation, FrequencyQuantifier, FrequencyQualifierMixin
   {
-    id: IdentifierType!
     subject: SequenceVariant!
-    relation: IriType!
+    relation: Uriorcurie!
     object: PopulationOfIndividualOrganisms!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
     hasCount: Integer
     hasTotal: Integer
     hasQuotient: Double
@@ -3651,23 +3702,24 @@ type VariantToPopulationAssociation implements VariantToThingAssociation, Freque
 
 interface VariantToThingAssociation
   {
-    id: IdentifierType!
     subject: SequenceVariant!
-    relation: IriType!
-    object: IriType!
+    relation: Uriorcurie!
+    object: NamedThing!
+    id: IdentifierType!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
     associationSlot: String
+    edgeLabel: LabelType!
   }
 
 type Zygosity
   {
     id: IdentifierType!
-    name: LabelType
-    category: [IriType]
+    name: LabelType!
+    category: [IriType]!
     relatedTo: [NamedThing]
     interactsWith: [NamedThing]
     nodeProperty: String
@@ -3675,7 +3727,7 @@ type Zygosity
     synonym: [LabelType]
     fullName: LabelType
     description: NarrativeText
-    systematicSynonym: LabelType
-    subclassOf: [OntologyClass]
+    systematicSynonym: [LabelType]
+    subclassOf: [IriType]
   }
 

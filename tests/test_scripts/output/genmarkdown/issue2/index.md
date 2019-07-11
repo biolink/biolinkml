@@ -1,7 +1,9 @@
+
 # Metamodel schema
 
 
 A metamodel for defining biolink related schemas
+
 
 ### Classes
 
@@ -13,17 +15,23 @@ A metamodel for defining biolink related schemas
     * subset_definition
     * type_definition
  * [Example](Example.md) - usage example and description
+
 ### Mixins
+
 
 ### Slots
 
  * [examples](examples.md) - example usages of an element
+
 ### Types
+
 
 #### Built in
 
  * **Bool**
+ * **ElementIdentifier**
  * **NCName**
+ * **NodeIdentifier**
  * **URI**
  * **URIorCURIE**
  * **XSDDate**
@@ -32,6 +40,7 @@ A metamodel for defining biolink related schemas
  * **float**
  * **int**
  * **str**
+
 #### Defined
 
  * [String](String.md)  (**str**)  - A character string

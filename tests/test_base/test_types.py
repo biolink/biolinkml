@@ -2,6 +2,7 @@ import os
 import unittest
 from types import ModuleType
 
+from biolinkml import INCLUDES_DIR
 from biolinkml.generators.pythongen import PythonGenerator
 from tests import targetdir
 from tests.test_scripts.clicktestcase import metadata_filter
@@ -9,11 +10,11 @@ from tests.utils.generator_utils import GeneratorTestCase
 
 
 class TypesTestCase(GeneratorTestCase):
-    root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'includes'))
+    """ Validate that types.py matches the YAML and compiles """
 
-    source_path = root
+    source_path = INCLUDES_DIR
     target_path = targetdir
-    model_path = root
+    model_path = INCLUDES_DIR
     model_name = 'types'
 
     def test_types_python(self):

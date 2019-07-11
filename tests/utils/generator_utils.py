@@ -23,6 +23,7 @@ class GeneratorTestCase(unittest.TestCase):
     target_path: str = None
     model_path: str = None
     model_name: str = None
+    output_name: str = None             # If different than model name
 
     @classmethod
     def setUpClass(cls) -> None:
@@ -49,11 +50,13 @@ class GeneratorTestCase(unittest.TestCase):
         """
         self.maxDiff = None
         if old_data != new_data:
+            if msg:
+                print(msg)
             with open(new_file, 'w') as newf:
                 newf.write(new_data)
             if len(new_data) > 20000:
                 print(ClickTestCase.closein_comparison(old_data, new_data))
-            self.assertEqual(old_data, new_data, msg=msg)
+            self.assertEqual(old_data, new_data)
 
     def rdf_comparator(self, old_data: str, new_data: str, new_file: str, msg: Optional[str] = None) -> None:
         """
@@ -98,7 +101,9 @@ class GeneratorTestCase(unittest.TestCase):
                 newf.write(new_data)
             self.assertTrue(False, "RDF file mismatch" if not msg else msg)
 
-    def single_file_generator(self, suffix: str, gen: type(Generator), gen_args: Optional[dict] = None,
+    def single_file_generator(self, suffix: str, gen: type(Generator), *,
+                              format: Optional[str] = None,
+                              generator_args: Optional[dict] = None,
                               serialize_args: Optional[dict] = None,
                               filtr: Optional[Callable[[str], str]] = None,
                               comparator: Callable[[type(unittest.TestCase), str, str, str], None] = None,
@@ -107,28 +112,33 @@ class GeneratorTestCase(unittest.TestCase):
 
         :param suffix: File suffix (without '.')
         :param gen: Generator to invoke
-        :param gen_args: Arguments to generator
+        :param format: Generator format argument
+        :param generator_args: Additional arguments to the generator
         :param serialize_args: Arguments to serializer.
         :param filtr: Filter to remove metadata specific info from the output.  Default: identity
         :param comparator: Comparison method to use.  Default: GeneratorTestCase._default_comparator
         :param preserve_metadata: True means metadata is to preserved in old_file
         """
-
-        if gen_args is None:
-            gen_args = {}
         if serialize_args is None:
             serialize_args = {}
+        if generator_args is None:
+            generator_args = {}
+        if format:
+            generator_args["format"] = format
         if filtr is None:
             def filtr(s): return s
         if comparator is None:
             comparator = GeneratorTestCase._default_comparator
-        old_file = os.path.join(self.source_path, self.model_name + '.' + suffix)
-        new_file = os.path.join(self.target_path, self.model_name + '.' + suffix)
-        message = f"Comparing existing {os.path.relpath(old_file, MODULE_DIR)} to new {os.path.relpath(new_file, MODULE_DIR)}"
+        output_base = self.output_name if self.output_name else self.model_name
+        old_file = os.path.join(self.source_path, output_base + '.' + suffix)
+        new_file = os.path.join(self.target_path, output_base + '.' + suffix)
+        message = \
+            f"\n***** Move {os.path.relpath(new_file, MODULE_DIR)} to {os.path.relpath(old_file, MODULE_DIR)} *****\n"
         yaml_file = os.path.join(self.model_path, self.model_name + '.yaml')
         if os.path.exists(new_file):
             os.remove(new_file)
-        new_data = str(gen(yaml_file, **gen_args).serialize(**serialize_args))
+
+        new_data = str(gen(yaml_file, **generator_args).serialize(**serialize_args))
 
         if not os.path.exists(old_file):
             with open(old_file, 'w') as oldf:

@@ -9,12 +9,10 @@ from biolinkml.generators.rdfgen import RDFGenerator
 from biolinkml.generators.shexgen import cli, ShExGenerator
 from pyshex import ShExEvaluator
 from rdflib import Graph
-from tests import source_yaml_path
+from tests import source_yaml_path, DO_SHEX_VALIDATION
 from tests.test_scripts.clicktestcase import ClickTestCase
 from tests.utils.dirutils import make_and_clear_directory
 
-
-SKIP_SHEX = False
 
 class GenShExTestCase(ClickTestCase):
     testdir = "genshex"
@@ -27,13 +25,12 @@ class GenShExTestCase(ClickTestCase):
     def test_meta(self):
         """ Generate various forms of the metamodel in ShEx """
         self.maxDiff = None
+        self.do_test(source_yaml_path, 'metashex.shex')
         self.do_test(source_yaml_path + ' -f json', 'metashex.json')
         self.do_test(source_yaml_path + ' -f rdf', 'metashex.ttl')
-        self.do_test(source_yaml_path, 'metashex.shex')
         self.do_test(source_yaml_path + ' -f shex', 'metashex.shex')
         self.do_test(source_yaml_path + f' -f xsv', 'meta_error', error=click.exceptions.BadParameter)
 
-    @unittest.skipIf(SKIP_SHEX, "ShEx test skipped because of CPU time")
     def test_rdf_shex(self):
         """ Generate ShEx and RDF for the model and verify that the RDF represents a valid instance """
         test_dir = os.path.join(self.tmpdir_path, 'meta_conformance_test')
@@ -57,20 +54,22 @@ class GenShExTestCase(ClickTestCase):
         ShExGenerator(source_yaml_path).serialize(output=shex_file, collections=False)
         self.assertTrue(os.path.exists(shex_file))
 
-        g = Graph()
-        g.load(rdf_file, format='ttl')
-        focus = METAMODEL_NAMESPACE.metamodel
-        start = METAMODEL_NAMESPACE.SchemaDefinition
-        results = ShExEvaluator(g, shex_file, focus, start).evaluate(debug=False)
-        success = all(r.result for r in results)
-        if not success:
-            for r in results:
-                if not r.result:
-                    print(r.reason)
+        if DO_SHEX_VALIDATION:
+            g = Graph()
+            g.load(rdf_file, format='ttl')
+            focus = METAMODEL_NAMESPACE.metamodel
+            start = METAMODEL_NAMESPACE.SchemaDefinition
+            results = ShExEvaluator(g, shex_file, focus, start).evaluate(debug=False)
+            success = all(r.result for r in results)
+            if not success:
+                for r in results:
+                    if not r.result:
+                        print(r.reason)
+            else:
+                make_and_clear_directory(test_dir)
+            self.assertTrue(success)
         else:
-            make_and_clear_directory(test_dir)
-        self.assertTrue(success)
-
+            print("*** ShEX validation step was skipped. Set: tests.__init__.DO_SHEX_VALIDATION to run it")
 
 if __name__ == '__main__':
     unittest.main()

@@ -14,8 +14,8 @@ class GraphqlGenerator(Generator):
     valid_formats = ['graphql']
     visit_all_class_slots = True
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], fmt: Optional[str] = None) -> None:
-        super().__init__(schema, fmt)
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], format: Optional[str] = None) -> None:
+        super().__init__(schema, format)
 
     def visit_class(self, cls: ClassDefinition) -> bool:
         etype = 'interface' if (cls.abstract or cls.mixin) and not cls.mixins else 'type'

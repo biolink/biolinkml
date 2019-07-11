@@ -29,10 +29,22 @@ def be(entry: object) -> str:
 
 split_col = 115
 
+
+def sfx(uri: str) -> str:
+    """
+    Add a separator to a uri if none exists.
+
+    Note: This should only be used with module id's -- it is not uncommon to use partial prefixes, e.g. PREFIX bfo: http://purl.obolibrary.org/obo/BFO_
+    :param uri: uri to be suffixed
+    :return: URI with suffix
+    """
+    return str(uri) + ('' if uri.endswith(('/', '#', '_', ':')) else '/')
+
+
 def uri_for(prefix: str, suffix: str) -> str:
     """ Generator for predicate and identifier URI's """
     if ':' in prefix:
-        return prefix + ('' if prefix.endswith(('/', '#', ':')) else '/') + suffix
+        return sfx(prefix) + suffix
     else:
         return prefix + ':' + suffix
 

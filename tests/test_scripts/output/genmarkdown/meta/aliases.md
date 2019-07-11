@@ -1,15 +1,20 @@
+
 # Slot: aliases
 
 
 
 
 URI: [meta:aliases](https://w3id.org/biolink/biolinkml/meta/aliases)
+
 ## Domain and Range
 
 [Element](Element.md) ->  <sub>0..*</sub> [String](String.md)
+
 ## Parents
 
+
 ## Children
+
 
 ## Used by
 

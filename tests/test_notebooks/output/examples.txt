@@ -1,5 +1,5 @@
 # Auto generated from None by pythongen.py version: 0.2.0
-# Generation date: 2019-06-27 16:09
+# Generation date: 2019-07-11 10:35
 # Schema: synopsis2
 #
 # id: http://example.org/sample/example1
@@ -8,23 +8,42 @@
 
 from typing import Optional, List, Union, Dict, ClassVar
 from dataclasses import dataclass
-from biolinkml.utils.metamodelcore import empty_list, empty_dict
+from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
+from biolinkml.utils.formatutils import camelcase, underscore, sfx
+from rdflib import Namespace, URIRef
 from biolinkml.utils.metamodelcore import Bool
 
-metamodel_version = "1.3.5"
+metamodel_version = "1.4.0"
+
+
+# Namespaces
+EX = Namespace('http://example.org/model/')
+FOAF = Namespace('http://xmlns.com/foaf/0.1/')
+XSD = Namespace('http://www.w3.org/2001/XMLSchema#')
+DEFAULT_ = EX
+
 
 # Types
 class String(str):
-    pass
+    type_class_uri = XSD.string
+    type_class_curie = "xsd:string"
+    type_name = "string"
+    type_model_uri = EX.String
 
 
 class Int(int):
-    pass
+    type_class_uri = XSD.integer
+    type_class_curie = "xsd:integer"
+    type_name = "int"
+    type_model_uri = EX.Int
 
 
 class Boolean(Bool):
-    pass
+    type_class_uri = XSD.boolean
+    type_class_curie = "xsd:boolean"
+    type_name = "boolean"
+    type_model_uri = EX.Boolean
 
 
 # Class references
@@ -43,7 +62,11 @@ class Person(YAMLRoot):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    # === person ===
+    class_class_uri: ClassVar[URIRef] = EX.Person
+    class_class_curie: ClassVar[str] = "ex:Person"
+    class_name: ClassVar[str] = "person"
+    class_model_uri: ClassVar[URIRef] = EX.Person
+
     id: Union[str, PersonId]
     last_name: str
     first_name: List[str] = empty_list()
@@ -51,12 +74,12 @@ class Person(YAMLRoot):
     living: Optional[Bool] = None
     knows: List[Union[str, PersonId]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if not isinstance(self.id, PersonId):
             self.id = PersonId(self.id)
         self.knows = [v if isinstance(v, PersonId)
                       else PersonId(v) for v in self.knows]
+        super().__post_init__()
 
 
 @dataclass
@@ -66,22 +89,21 @@ class FriendlyPerson(Person):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    # === person ===
+    class_class_uri: ClassVar[URIRef] = EX.FriendlyPerson
+    class_class_curie: ClassVar[str] = "ex:FriendlyPerson"
+    class_name: ClassVar[str] = "friendly_person"
+    class_model_uri: ClassVar[URIRef] = EX.FriendlyPerson
+
     id: Union[str, FriendlyPersonId] = None
     last_name: str = None
-    first_name: List[str] = empty_list()
-    age: Optional[int] = None
-    living: Optional[Bool] = None
-
-    # === friendly_person ===
     knows: List[Union[str, PersonId]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, FriendlyPersonId):
             self.id = FriendlyPersonId(self.id)
         self.knows = [v if isinstance(v, PersonId)
                       else PersonId(v) for v in self.knows]
+        super().__post_init__()
 
 <img src="http://yuml.me/diagram/nofunky;dir:TB/class/[Person]<knows 0..*- [Person|id:string;first_name:string *;last_name:string;age:int %3F;living:boolean %3F], [FriendlyPerson|id(i):string;first_name(i):string *;last_name(i):string;age(i):int %3F;living(i):boolean %3F]- knows 1..*>[Person], [Person]^-[FriendlyPerson]"/>
 
@@ -89,7 +111,7 @@ class FriendlyPerson(Person):
 http://yuml.me/diagram/nofunky;dir:TB/class/[Person]<knows 0..*- [Person|id:string;first_name:string *;last_name:string;age:int %3F;living:boolean %3F], [FriendlyPerson|id(i):string;first_name(i):string *;last_name(i):string;age(i):int %3F;living(i):boolean %3F]- knows 1..*>[Person], [Person]^-[FriendlyPerson]
 
 {
-   "_comments": "Auto generated from None by jsonldcontextgen.py version: 0.0.2\nGeneration date: 2019-06-27 16:09\nSchema: synopsis2\n\nid: http://example.org/sample/example1\ndescription: \nlicense: \n",
+   "_comments": "Auto generated from None by jsonldcontextgen.py version: 0.0.2\nGeneration date: 2019-07-11 10:35\nSchema: synopsis2\n\nid: http://example.org/sample/example1\ndescription: \nlicense: \n",
    "@context": {
       "_comments": null,
       "type": "@type",
@@ -129,28 +151,27 @@ PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 
 <Boolean> xsd:boolean
 
-<FriendlyPerson> EXTRA rdf:type CLOSED {
-    (  $<FriendlyPerson_struct> (  <knows> @<Person> + ;
-          &<Person_struct>
+<FriendlyPerson> CLOSED {
+    (  $<FriendlyPerson_tes> (  &<Person_tes> ;
+          rdf:type [ <Person> ] ? ;
+          <knows> @<Person> +
        ) ;
        rdf:type [ <FriendlyPerson> ]
     )
 }
 
 <Person>  (
-    @<FriendlyPerson> OR @<PersonType>
+    CLOSED {
+       (  $<Person_tes> (  foaf:firstName @<String> * ;
+             foaf:lastName @<String> ;
+             foaf:age @<Int> ? ;
+             <living> @<Boolean> ? ;
+             foaf:knows @<Person> *
+          ) ;
+          rdf:type [ <Person> ]
+       )
+    } OR @<FriendlyPerson>
 )
-
-<Person_type> EXTRA rdf:type CLOSED {
-    (  $<Person_struct> (  foaf:firstName @<String> * ;
-          foaf:lastName @<String> ;
-          foaf:age @<Int> ? ;
-          <living> @<Boolean> ? ;
-          foaf:knows @<Person> *
-       ) ;
-       rdf:type [ <Person> ]
-    )
-}
 
 
 
@@ -166,7 +187,7 @@ Person(id='42', last_name='smith', first_name=['Joe', 'Bob'], age=43, living=Non
    "living": null,
    "knows": [],
    "type": "Person",
-   "_comments": "Auto generated from None by jsonldcontextgen.py version: 0.0.2\nGeneration date: 2019-06-27 16:09\nSchema: synopsis2\n\nid: http://example.org/sample/example1\ndescription: \nlicense: \n",
+   "_comments": "Auto generated from None by jsonldcontextgen.py version: 0.0.2\nGeneration date: 2019-07-11 10:35\nSchema: synopsis2\n\nid: http://example.org/sample/example1\ndescription: \nlicense: \n",
    "@context": {
       "_comments": null,
       "type": "@type",

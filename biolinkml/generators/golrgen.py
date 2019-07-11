@@ -45,8 +45,8 @@ class GolrSchemaGenerator(Generator):
     valid_formats = "[golr]"
     visit_all_class_slots = True
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], fmt: Optional[str] = None) -> None:
-        super().__init__(schema, fmt)
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], format: Optional[str] = None) -> None:
+        super().__init__(schema, format)
         self.dirname: str = None
         self.class_obj: GOLRClass = None
 

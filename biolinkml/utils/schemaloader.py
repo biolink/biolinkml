@@ -5,7 +5,7 @@ from urllib.parse import urlparse
 
 from biolinkml.meta import SchemaDefinition, SlotDefinition, SlotDefinitionName, ClassDefinition, \
     ClassDefinitionName, TypeDefinitionName, TypeDefinition, ElementName
-from biolinkml.utils.formatutils import underscore, camelcase
+from biolinkml.utils.formatutils import underscore, camelcase, sfx
 from biolinkml.utils.metamodelcore import Bool
 from biolinkml.utils.namespaces import Namespaces
 from biolinkml.utils.rawloader import load_raw_schema
@@ -48,7 +48,7 @@ class SchemaLoader:
 
         # Process the namespace declarations
         if not self.schema.default_prefix:
-            self.schema.default_prefix = Namespaces.sfx(self.schema.id)
+            self.schema.default_prefix = sfx(self.schema.id)
         for prefix in self.schema.prefixes.values():
             self.namespaces[prefix.prefix_prefix] = prefix.prefix_reference
         for cmap in self.schema.default_curi_maps:
@@ -173,6 +173,10 @@ class SchemaLoader:
                     self.schema.classes[slot.domain].slots.append(slot.name)
             elif slot.domain:
                 self.raise_value_error(f"slot: {slot.name} - unrecognized domain ({slot.domain})")
+            if slot.ifabsent:
+                from biolinkml.utils.ifabsent_functions import isabsent_match
+                if isabsent_match(slot.ifabsent) is None:
+                    self.raise_value_error(f"Unrecognized ifabsent action for slot '{slot.name}': '{slot.ifabsent}'")
 
             # Keys and identifiers must be present
             if bool(slot.key or slot.identifier):
@@ -276,6 +280,7 @@ class SchemaLoader:
         self.schema_location = self.schema.source_file
         if self.schema.source_file and '://' not in self.schema.source_file:
             self.schema.source_file = os.path.basename(self.schema.source_file)
+
 
         self.synopsis = SchemaSynopsis(self.schema)
         errs = self.synopsis.errors()

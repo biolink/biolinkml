@@ -25,6 +25,10 @@ slots:
 
 classes:
   geographic location:
+    slots:
+      - k
 
   geographic location at time:
     is_a: geographic location
+    slots:
+      - timepoint

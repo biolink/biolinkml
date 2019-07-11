@@ -39,12 +39,16 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
     model_path = os.path.join(cwd, 'yaml')
     model_name = 'biolink-model'
 
+    def tearDown(self) -> None:
+        self.output_name = None
+
     def test_biolink_python(self):
         """ Test the python generator for the biolink model """
-        self.single_file_generator('py', PythonGenerator, {'emit_metadata': True}, filtr=metadata_filter)
+        self.output_name = 'model'
+        self.single_file_generator('py', PythonGenerator, generator_args={'emit_metadata': True}, filtr=metadata_filter)
 
         # Make sure the python is valid
-        with open(os.path.join(self.source_path, 'biolink-model.py')) as f:
+        with open(os.path.join(self.source_path, f'{self.output_name}.py')) as f:
             pydata = f.read()
         spec = compile(pydata, 'test', 'exec')
         module = ModuleType('test')
@@ -58,7 +62,7 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
         """ Test the tsv generator for the biolink model """
         def filtr(s: str) -> str:
             return s.replace('\r\n', '\n')
-        self.single_file_generator('tsv', CsvGenerator, {'fmt': 'tsv'}, filtr=filtr)
+        self.single_file_generator('tsv', CsvGenerator, format="tsv", filtr=filtr)
 
     def test_biolink_graphviz(self):
         """ Test the dotty generator for the biolink model """
@@ -130,10 +134,15 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
         else:
             print("*** RDF Model validation step was skipped. See: test_biolink_model.DO_SHEX_VALIDATION to run it")
 
+    def test_biolink_shex(self):
+        """ Just Generate the ShEx file untested """
+        self.single_file_generator('shex', ShExGenerator)
+        self.single_file_generator('shexj', ShExGenerator, format='json')
+
     def test_biolink_shex_incorrect_rdf(self):
         """ Test some non-conforming RDF  """
-        self.single_file_generator('shex', ShExGenerator)
-        shex_file = os.path.join(self.source_path, 'biolink-model.shex')
+        self.single_file_generator('shexj', ShExGenerator, format='json')
+        shex_file = os.path.join(self.source_path, 'biolink-model.shexj')
         data_dir = os.path.join(self.cwd, 'data')
 
         focus = "http://identifiers.org/drugbank:DB00005"
@@ -153,31 +162,17 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
             with open(errs_file, 'w') as f:
                 f.write(repr(results))
 
-    @unittest.skipIf(True, "Awaiting fix to PyShEx permutation issue")
     def test_biolink_correct_rdf(self):
         """ Test some conforming RDF  """
-        self.single_file_generator('shex', ShExGenerator)
-        shex_file = os.path.join(self.source_path, 'biolink-model.shex')
+        self.single_file_generator('shexj', ShExGenerator, format='json')    # Make sure ShEx is current
+
+        shex_file = os.path.join(self.source_path, 'biolink-model.shexj')
         data_dir = os.path.join(self.cwd, 'data')
 
         focus = "http://identifiers.org/drugbank:DB00005"
         start = BIOLINK_NS.Drug
         evaluator = ShExEvaluator(None, shex_file, focus, start)
 
-        rdf_file = os.path.join(data_dir, 'correct.ttl')
-        results = evaluator.evaluate(rdf_file, debug=False)
-        self.assertTrue(self._evaluate_shex_results(results))
-
-
-    @unittest.skipIf(True, "Evaluation of performance test.")
-    def test_probe(self):
-        """ Test for determining performance problem """
-        shex_file = os.path.join(self.source_path, 'probe.shex')
-        data_dir = os.path.join(self.cwd, 'data')
-
-        focus = "http://identifiers.org/drugbank:DB00005"
-        start = BIOLINK_NS.Drug
-        evaluator = ShExEvaluator(None, shex_file, focus, start)
         rdf_file = os.path.join(data_dir, 'probe.ttl')
         results = evaluator.evaluate(rdf_file, debug=False)
         self.assertTrue(self._evaluate_shex_results(results))

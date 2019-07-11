@@ -1,33 +1,55 @@
+
 # id: https://example.org/inheritedid
 # description: Test
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 
 from typing import Optional, List, Union, Dict, ClassVar
 from dataclasses import dataclass
-from biolinkml.utils.metamodelcore import empty_list, empty_dict
+from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
+from biolinkml.utils.formatutils import camelcase, underscore, sfx
+from rdflib import Namespace, URIRef
 from biolinkml.utils.metamodelcore import URI
 
-metamodel_version = "1.3.5"
+metamodel_version = "1.4.0"
+
+
+# Namespaces
+BIOLINKML = Namespace('https://w3id.org/biolink/biolinkml/')
+XSD = Namespace('http://www.w3.org/2001/XMLSchema#')
+DEFAULT_ = BIOLINKML
+
 
 # Types
 class String(str):
-    pass
+    type_class_uri = XSD.string
+    type_class_curie = "xsd:string"
+    type_name = "string"
+    type_model_uri = BIOLINKML.String
 
 
 class Uri(URI):
     """ a complete URI """
-    pass
+    type_class_uri = XSD.anyURI
+    type_class_curie = "xsd:anyURI"
+    type_name = "uri"
+    type_model_uri = BIOLINKML.Uri
 
 
 class IdentifierType(String):
     """ A string that is intended to uniquely identify a thing May be URI in full or compact (CURIE) form """
-    pass
+    type_class_uri = XSD.string
+    type_class_curie = "xsd:string"
+    type_name = "identifier type"
+    type_model_uri = BIOLINKML.IdentifierType
 
 
 class LabelType(String):
     """ A string that provides a human-readable name for a thing """
-    pass
+    type_class_uri = XSD.string
+    type_class_curie = "xsd:string"
+    type_name = "label type"
+    type_model_uri = BIOLINKML.LabelType
 
 
 # Class references
@@ -54,32 +76,34 @@ class Attribute(YAMLRoot):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    # === attribute ===
-    id: Union[str, AttributeId]
-    name: Optional[Union[str, LabelType]] = None
+    class_class_uri: ClassVar[URIRef] = BIOLINKML.Attribute
+    class_class_curie: ClassVar[str] = "biolinkml:Attribute"
+    class_name: ClassVar[str] = "attribute"
+    class_model_uri: ClassVar[URIRef] = BIOLINKML.Attribute
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    id: Union[str, AttributeId]
+
+    def __post_init__(self):
         if not isinstance(self.id, AttributeId):
             self.id = AttributeId(self.id)
-        if self.name is not None and not isinstance(self.name, LabelType):
-            self.name = LabelType(self.name)
+        super().__post_init__()
 
 
 @dataclass
 class BiologicalSex(Attribute):
     _inherited_slots: ClassVar[List[str]] = []
 
-    # === attribute ===
+    class_class_uri: ClassVar[URIRef] = BIOLINKML.BiologicalSex
+    class_class_curie: ClassVar[str] = "biolinkml:BiologicalSex"
+    class_name: ClassVar[str] = "biological sex"
+    class_model_uri: ClassVar[URIRef] = BIOLINKML.BiologicalSex
+
     id: Union[str, BiologicalSexId] = None
-    name: Optional[Union[str, LabelType]] = None
 
-    # === biological sex ===
-
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, BiologicalSexId):
             self.id = BiologicalSexId(self.id)
+        super().__post_init__()
 
 
 @dataclass
@@ -89,16 +113,17 @@ class OntologyClass(NamedThing):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    # === named thing ===
+    class_class_uri: ClassVar[URIRef] = BIOLINKML.OntologyClass
+    class_class_curie: ClassVar[str] = "biolinkml:OntologyClass"
+    class_name: ClassVar[str] = "ontology class"
+    class_model_uri: ClassVar[URIRef] = BIOLINKML.OntologyClass
+
     id: Union[str, OntologyClassId] = None
-    name: Optional[Union[str, LabelType]] = None
 
-    # === ontology class ===
-
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.id is not None and not isinstance(self.id, OntologyClassId):
             self.id = OntologyClassId(self.id)
+        super().__post_init__()
 
 
 @dataclass
@@ -108,13 +133,17 @@ class NamedThing(YAMLRoot):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    # === named thing ===
+    class_class_uri: ClassVar[URIRef] = BIOLINKML.NamedThing
+    class_class_curie: ClassVar[str] = "biolinkml:NamedThing"
+    class_name: ClassVar[str] = "named thing"
+    class_model_uri: ClassVar[URIRef] = BIOLINKML.NamedThing
+
     id: Union[str, NamedThingId]
     name: Optional[Union[str, LabelType]] = None
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if not isinstance(self.id, NamedThingId):
             self.id = NamedThingId(self.id)
         if self.name is not None and not isinstance(self.name, LabelType):
             self.name = LabelType(self.name)
+        super().__post_init__()

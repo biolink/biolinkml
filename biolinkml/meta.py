@@ -8,12 +8,29 @@
 
 from typing import Optional, List, Union, Dict, ClassVar
 from dataclasses import dataclass
-from biolinkml.utils.metamodelcore import empty_list, empty_dict
+from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
+from biolinkml.utils.formatutils import camelcase, underscore, sfx
+from rdflib import Namespace, URIRef
 from biolinkml.utils.metamodelcore import Bool, NCName, URI, URIorCURIE, XSDDateTime
 from includes.types import Boolean, Datetime, Integer, Ncname, String, Uri, Uriorcurie
 
-metamodel_version = "1.3.5"
+metamodel_version = "1.4.0"
+
+
+# Namespaces
+OIO = Namespace('http://www.geneontology.org/formats/oboInOwl#')
+DCTERMS = Namespace('http://purl.org/dc/terms/')
+META = Namespace('https://w3id.org/biolink/biolinkml/meta/')
+OWL = Namespace('http://www.w3.org/2002/07/owl#')
+PAV = Namespace('http://purl.org/pav/')
+RDF = Namespace('http://www.w3.org/1999/02/22-rdf-syntax-ns#')
+RDFS = Namespace('http://www.w3.org/2000/01/rdf-schema#')
+SHEX = Namespace('http://www.w3.org/ns/shex#')
+SKOS = Namespace('http://www.w3.org/2004/02/skos/core#')
+XSD = Namespace('http://www.w3.org/2001/XMLSchema#')
+DEFAULT_ = META
+
 
 # Types
 
@@ -65,7 +82,11 @@ class Element(YAMLRoot):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    # === element ===
+    class_class_uri: ClassVar[URIRef] = META.Element
+    class_class_curie: ClassVar[str] = "meta:Element"
+    class_name: ClassVar[str] = "element"
+    class_model_uri: ClassVar[URIRef] = META.Element
+
     name: Union[str, ElementName]
     id_prefixes: List[Union[str, NCName]] = empty_list()
     aliases: List[str] = empty_list()
@@ -83,8 +104,7 @@ class Element(YAMLRoot):
     imported_from: Optional[str] = None
     see_also: List[Union[str, URIorCURIE]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         self.id_prefixes = [v if isinstance(v, NCName)
                             else NCName(v) for v in self.id_prefixes]
         if not isinstance(self.name, ElementName):
@@ -105,6 +125,7 @@ class Element(YAMLRoot):
             self.from_schema = URI(self.from_schema)
         self.see_also = [v if isinstance(v, URIorCURIE)
                          else URIorCURIE(v) for v in self.see_also]
+        super().__post_init__()
 
 
 @dataclass
@@ -114,25 +135,12 @@ class SchemaDefinition(Element):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    # === element ===
-    name: Union[str, SchemaDefinitionName] = None
-    id_prefixes: List[Union[str, NCName]] = empty_list()
-    aliases: List[str] = empty_list()
-    local_names: Union[dict, "LocalName"] = empty_dict()
-    mappings: List[Union[str, URIorCURIE]] = empty_list()
-    description: Optional[str] = None
-    alt_descriptions: Union[dict, "AltDescription"] = empty_dict()
-    deprecated: Optional[str] = None
-    todos: List[str] = empty_list()
-    notes: List[str] = empty_list()
-    comments: List[str] = empty_list()
-    examples: List[Union[dict, "Example"]] = empty_list()
-    in_subset: List[Union[str, SubsetDefinitionName]] = empty_list()
-    from_schema: Optional[Union[str, URI]] = None
-    imported_from: Optional[str] = None
-    see_also: List[Union[str, URIorCURIE]] = empty_list()
+    class_class_uri: ClassVar[URIRef] = META.SchemaDefinition
+    class_class_curie: ClassVar[str] = "meta:SchemaDefinition"
+    class_name: ClassVar[str] = "schema_definition"
+    class_model_uri: ClassVar[URIRef] = META.SchemaDefinition
 
-    # === schema_definition ===
+    name: Union[str, SchemaDefinitionName] = None
     id: Union[str, URI] = None
     title: Optional[str] = None
     version: Optional[str] = None
@@ -153,8 +161,9 @@ class SchemaDefinition(Element):
     source_file_size: Optional[int] = None
     generation_date: Optional[Union[str, XSDDateTime]] = None
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
+        if self.default_prefix is None:
+            self.default_prefix = sfx(str(self.id))
         if self.name is not None and not isinstance(self.name, SchemaDefinitionName):
             self.name = SchemaDefinitionName(self.name)
         if self.id is not None and not isinstance(self.id, URI):
@@ -184,6 +193,7 @@ class SchemaDefinition(Element):
             self.source_file_date = XSDDateTime(self.source_file_date)
         if self.generation_date is not None and not isinstance(self.generation_date, XSDDateTime):
             self.generation_date = XSDDateTime(self.generation_date)
+        super().__post_init__()
 
 
 @dataclass
@@ -193,38 +203,25 @@ class TypeDefinition(Element):
     """
     _inherited_slots: ClassVar[List[str]] = ["base", "uri", "repr"]
 
-    # === element ===
-    name: Union[str, TypeDefinitionName] = None
-    id_prefixes: List[Union[str, NCName]] = empty_list()
-    aliases: List[str] = empty_list()
-    local_names: Union[dict, "LocalName"] = empty_dict()
-    mappings: List[Union[str, URIorCURIE]] = empty_list()
-    description: Optional[str] = None
-    alt_descriptions: Union[dict, "AltDescription"] = empty_dict()
-    deprecated: Optional[str] = None
-    todos: List[str] = empty_list()
-    notes: List[str] = empty_list()
-    comments: List[str] = empty_list()
-    examples: List[Union[dict, "Example"]] = empty_list()
-    in_subset: List[Union[str, SubsetDefinitionName]] = empty_list()
-    from_schema: Optional[Union[str, URI]] = None
-    imported_from: Optional[str] = None
-    see_also: List[Union[str, URIorCURIE]] = empty_list()
+    class_class_uri: ClassVar[URIRef] = META.TypeDefinition
+    class_class_curie: ClassVar[str] = "meta:TypeDefinition"
+    class_name: ClassVar[str] = "type_definition"
+    class_model_uri: ClassVar[URIRef] = META.TypeDefinition
 
-    # === type_definition ===
+    name: Union[str, TypeDefinitionName] = None
     typeof: Optional[Union[str, TypeDefinitionName]] = None
     base: Optional[str] = None
     uri: Optional[Union[str, URIorCURIE]] = None
     repr: Optional[str] = None
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.name is not None and not isinstance(self.name, TypeDefinitionName):
             self.name = TypeDefinitionName(self.name)
         if self.typeof is not None and not isinstance(self.typeof, TypeDefinitionName):
             self.typeof = TypeDefinitionName(self.typeof)
         if self.uri is not None and not isinstance(self.uri, URIorCURIE):
             self.uri = URIorCURIE(self.uri)
+        super().__post_init__()
 
 
 @dataclass
@@ -234,30 +231,17 @@ class SubsetDefinition(Element):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    # === element ===
+    class_class_uri: ClassVar[URIRef] = META.SubsetDefinition
+    class_class_curie: ClassVar[str] = "meta:SubsetDefinition"
+    class_name: ClassVar[str] = "subset_definition"
+    class_model_uri: ClassVar[URIRef] = META.SubsetDefinition
+
     name: Union[str, SubsetDefinitionName] = None
-    id_prefixes: List[Union[str, NCName]] = empty_list()
-    aliases: List[str] = empty_list()
-    local_names: Union[dict, "LocalName"] = empty_dict()
-    mappings: List[Union[str, URIorCURIE]] = empty_list()
-    description: Optional[str] = None
-    alt_descriptions: Union[dict, "AltDescription"] = empty_dict()
-    deprecated: Optional[str] = None
-    todos: List[str] = empty_list()
-    notes: List[str] = empty_list()
-    comments: List[str] = empty_list()
-    examples: List[Union[dict, "Example"]] = empty_list()
-    in_subset: List[Union[str, SubsetDefinitionName]] = empty_list()
-    from_schema: Optional[Union[str, URI]] = None
-    imported_from: Optional[str] = None
-    see_also: List[Union[str, URIorCURIE]] = empty_list()
 
-    # === subset_definition ===
-
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.name is not None and not isinstance(self.name, SubsetDefinitionName):
             self.name = SubsetDefinitionName(self.name)
+        super().__post_init__()
 
 
 @dataclass
@@ -267,25 +251,12 @@ class Definition(Element):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    # === element ===
-    name: Union[str, DefinitionName] = None
-    id_prefixes: List[Union[str, NCName]] = empty_list()
-    aliases: List[str] = empty_list()
-    local_names: Union[dict, "LocalName"] = empty_dict()
-    mappings: List[Union[str, URIorCURIE]] = empty_list()
-    description: Optional[str] = None
-    alt_descriptions: Union[dict, "AltDescription"] = empty_dict()
-    deprecated: Optional[str] = None
-    todos: List[str] = empty_list()
-    notes: List[str] = empty_list()
-    comments: List[str] = empty_list()
-    examples: List[Union[dict, "Example"]] = empty_list()
-    in_subset: List[Union[str, SubsetDefinitionName]] = empty_list()
-    from_schema: Optional[Union[str, URI]] = None
-    imported_from: Optional[str] = None
-    see_also: List[Union[str, URIorCURIE]] = empty_list()
+    class_class_uri: ClassVar[URIRef] = META.Definition
+    class_class_curie: ClassVar[str] = "meta:Definition"
+    class_name: ClassVar[str] = "definition"
+    class_model_uri: ClassVar[URIRef] = META.Definition
 
-    # === definition ===
+    name: Union[str, DefinitionName] = None
     is_a: Optional[Union[str, DefinitionName]] = None
     abstract: Optional[Bool] = None
     mixin: Optional[Bool] = None
@@ -293,8 +264,7 @@ class Definition(Element):
     apply_to: List[Union[str, DefinitionName]] = empty_list()
     values_from: List[Union[str, URIorCURIE]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.is_a is not None and not isinstance(self.is_a, DefinitionName):
             self.is_a = DefinitionName(self.is_a)
         self.mixins = [v if isinstance(v, DefinitionName)
@@ -303,6 +273,7 @@ class Definition(Element):
                          else DefinitionName(v) for v in self.apply_to]
         self.values_from = [v if isinstance(v, URIorCURIE)
                             else URIorCURIE(v) for v in self.values_from]
+        super().__post_init__()
 
 
 @dataclass
@@ -312,30 +283,12 @@ class SlotDefinition(Definition):
     """
     _inherited_slots: ClassVar[List[str]] = ["domain", "range", "multivalued", "inherited", "readonly", "ifabsent", "required", "inlined", "key", "identifier", "role"]
 
-    # === element ===
+    class_class_uri: ClassVar[URIRef] = META.SlotDefinition
+    class_class_curie: ClassVar[str] = "meta:SlotDefinition"
+    class_name: ClassVar[str] = "slot_definition"
+    class_model_uri: ClassVar[URIRef] = META.SlotDefinition
+
     name: Union[str, SlotDefinitionName] = None
-    id_prefixes: List[Union[str, NCName]] = empty_list()
-    aliases: List[str] = empty_list()
-    local_names: Union[dict, "LocalName"] = empty_dict()
-    mappings: List[Union[str, URIorCURIE]] = empty_list()
-    description: Optional[str] = None
-    alt_descriptions: Union[dict, "AltDescription"] = empty_dict()
-    deprecated: Optional[str] = None
-    todos: List[str] = empty_list()
-    notes: List[str] = empty_list()
-    comments: List[str] = empty_list()
-    examples: List[Union[dict, "Example"]] = empty_list()
-    in_subset: List[Union[str, SubsetDefinitionName]] = empty_list()
-    from_schema: Optional[Union[str, URI]] = None
-    imported_from: Optional[str] = None
-    see_also: List[Union[str, URIorCURIE]] = empty_list()
-
-    # === definition ===
-    abstract: Optional[Bool] = None
-    mixin: Optional[Bool] = None
-    values_from: List[Union[str, URIorCURIE]] = empty_list()
-
-    # === slot_definition ===
     domain: Union[str, ClassDefinitionName] = None
     owner: Union[str, DefinitionName] = None
     is_a: Optional[Union[str, SlotDefinitionName]] = None
@@ -360,8 +313,7 @@ class SlotDefinition(Definition):
     role: Optional[str] = None
     is_usage_slot: Optional[Bool] = None
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.name is not None and not isinstance(self.name, SlotDefinitionName):
             self.name = SlotDefinitionName(self.name)
         if self.is_a is not None and not isinstance(self.is_a, SlotDefinitionName):
@@ -382,6 +334,7 @@ class SlotDefinition(Definition):
             self.subproperty_of = URIorCURIE(self.subproperty_of)
         if self.inverse is not None and not isinstance(self.inverse, SlotDefinitionName):
             self.inverse = SlotDefinitionName(self.inverse)
+        super().__post_init__()
 
 
 @dataclass
@@ -391,30 +344,12 @@ class ClassDefinition(Definition):
     """
     _inherited_slots: ClassVar[List[str]] = ["defining_slots"]
 
-    # === element ===
+    class_class_uri: ClassVar[URIRef] = META.ClassDefinition
+    class_class_curie: ClassVar[str] = "meta:ClassDefinition"
+    class_name: ClassVar[str] = "class_definition"
+    class_model_uri: ClassVar[URIRef] = META.ClassDefinition
+
     name: Union[str, ClassDefinitionName] = None
-    id_prefixes: List[Union[str, NCName]] = empty_list()
-    aliases: List[str] = empty_list()
-    local_names: Union[dict, "LocalName"] = empty_dict()
-    mappings: List[Union[str, URIorCURIE]] = empty_list()
-    description: Optional[str] = None
-    alt_descriptions: Union[dict, "AltDescription"] = empty_dict()
-    deprecated: Optional[str] = None
-    todos: List[str] = empty_list()
-    notes: List[str] = empty_list()
-    comments: List[str] = empty_list()
-    examples: List[Union[dict, "Example"]] = empty_list()
-    in_subset: List[Union[str, SubsetDefinitionName]] = empty_list()
-    from_schema: Optional[Union[str, URI]] = None
-    imported_from: Optional[str] = None
-    see_also: List[Union[str, URIorCURIE]] = empty_list()
-
-    # === definition ===
-    abstract: Optional[Bool] = None
-    mixin: Optional[Bool] = None
-    values_from: List[Union[str, URIorCURIE]] = empty_list()
-
-    # === class_definition ===
     is_a: Optional[Union[str, ClassDefinitionName]] = None
     mixins: List[Union[str, ClassDefinitionName]] = empty_list()
     apply_to: List[Union[str, ClassDefinitionName]] = empty_list()
@@ -425,8 +360,7 @@ class ClassDefinition(Definition):
     union_of: List[Union[str, ClassDefinitionName]] = empty_list()
     defining_slots: List[Union[str, SlotDefinitionName]] = empty_list()
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if self.name is not None and not isinstance(self.name, ClassDefinitionName):
             self.name = ClassDefinitionName(self.name)
         if self.is_a is not None and not isinstance(self.is_a, ClassDefinitionName):
@@ -448,6 +382,7 @@ class ClassDefinition(Definition):
                          else ClassDefinitionName(v) for v in self.union_of]
         self.defining_slots = [v if isinstance(v, SlotDefinitionName)
                                else SlotDefinitionName(v) for v in self.defining_slots]
+        super().__post_init__()
 
 
 @dataclass
@@ -457,16 +392,20 @@ class Prefix(YAMLRoot):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    # === prefix ===
+    class_class_uri: ClassVar[URIRef] = META.Prefix
+    class_class_curie: ClassVar[str] = "meta:Prefix"
+    class_name: ClassVar[str] = "prefix"
+    class_model_uri: ClassVar[URIRef] = META.Prefix
+
     prefix_prefix: Union[str, PrefixPrefixPrefix]
     prefix_reference: Union[str, URI]
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if not isinstance(self.prefix_prefix, PrefixPrefixPrefix):
             self.prefix_prefix = PrefixPrefixPrefix(self.prefix_prefix)
         if not isinstance(self.prefix_reference, URI):
             self.prefix_reference = URI(self.prefix_reference)
+        super().__post_init__()
 
 
 @dataclass
@@ -476,14 +415,18 @@ class LocalName(YAMLRoot):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    # === local_name ===
+    class_class_uri: ClassVar[URIRef] = META.LocalName
+    class_class_curie: ClassVar[str] = "meta:LocalName"
+    class_name: ClassVar[str] = "local_name"
+    class_model_uri: ClassVar[URIRef] = META.LocalName
+
     local_name_source: Union[str, LocalNameLocalNameSource]
     local_name_value: str
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if not isinstance(self.local_name_source, LocalNameLocalNameSource):
             self.local_name_source = LocalNameLocalNameSource(self.local_name_source)
+        super().__post_init__()
 
 
 @dataclass
@@ -493,10 +436,13 @@ class Example(YAMLRoot):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    # === example ===
+    class_class_uri: ClassVar[URIRef] = META.Example
+    class_class_curie: ClassVar[str] = "meta:Example"
+    class_name: ClassVar[str] = "example"
+    class_model_uri: ClassVar[URIRef] = META.Example
+
     value: Optional[str] = None
     description: Optional[str] = None
-
 
 @dataclass
 class AltDescription(YAMLRoot):
@@ -505,11 +451,15 @@ class AltDescription(YAMLRoot):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    # === alt_description ===
+    class_class_uri: ClassVar[URIRef] = META.AltDescription
+    class_class_curie: ClassVar[str] = "meta:AltDescription"
+    class_name: ClassVar[str] = "alt_description"
+    class_model_uri: ClassVar[URIRef] = META.AltDescription
+
     source: Union[str, AltDescriptionSource]
     description: str
 
-    def _fix_elements(self):
-        super()._fix_elements()
+    def __post_init__(self):
         if not isinstance(self.source, AltDescriptionSource):
             self.source = AltDescriptionSource(self.source)
+        super().__post_init__()

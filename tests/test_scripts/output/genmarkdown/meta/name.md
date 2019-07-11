@@ -1,15 +1,20 @@
+
 # Slot: name
 
 
 the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class.
 
 URI: [meta:name](https://w3id.org/biolink/biolinkml/meta/name)
+
 ## Domain and Range
 
 [Element](Element.md) ->  <sub>REQ</sub> [String](String.md)
+
 ## Parents
 
+
 ## Children
+
 
 ## Used by
 
