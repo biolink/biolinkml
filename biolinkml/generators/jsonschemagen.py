@@ -4,7 +4,7 @@ from typing import Union, TextIO
 import click
 from jsonasobj import JsonObj, as_json
 
-from biolinkml.utils.generator import Generator
+from biolinkml.utils.generator import Generator, shared_arguments
 from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition
 from biolinkml.utils.formatutils import camelcase, be, underscore
 
@@ -12,11 +12,11 @@ from biolinkml.utils.formatutils import camelcase, be, underscore
 class JsonSchemaGenerator(Generator):
     generatorname = os.path.basename(__file__)
     generatorversion = "0.0.2"
-    valid_formats = "[json]"
+    valid_formats = ["json"]
     visit_all_class_slots = False
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], format: str='json') -> None:
-        super().__init__(schema, format)
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], **kwargs) -> None:
+        super().__init__(schema, **kwargs)
         self.schemaobj: JsonObj = None
         self.clsobj: JsonObj = None
         self.inline = False
@@ -33,7 +33,7 @@ class JsonSchemaGenerator(Generator):
         self.schemaobj['$schema'] = "http://json-schema.org/draft-04/schema#"
         self.schemaobj['$id'] = self.schema.id
 
-    def end_schema(self, **kwargs) -> None:
+    def end_schema(self, **_) -> None:
         print(as_json(self.schemaobj, sort_keys=True))
 
     def visit_class(self, cls: ClassDefinition) -> bool:
@@ -72,7 +72,6 @@ class JsonSchemaGenerator(Generator):
                 defn.description = slot.description
             self.schemaobj.definitions[underscore(slot.name)] = defn
 
-
     @staticmethod
     def type_or_ref(rng: str) -> JsonObj:
         # TODO jref
@@ -83,10 +82,9 @@ class JsonSchemaGenerator(Generator):
         return f"#/definitions/{slot_name}"
 
 
+@shared_arguments(JsonSchemaGenerator)
 @click.command()
-@click.argument("yamlfile", type=click.Path(exists=True, dir_okay=False))
 @click.option("-i", "--inline", is_flag=True, help="Generate references to types rather than inlining them")
-@click.option("--format", "-f", default='json', type=click.Choice(['json']), help="Output format")
-def cli(yamlfile, inline, format):
+def cli(yamlfile, **kwargs):
     """ Generate JSON Schema representation of a biolink model """
-    print(JsonSchemaGenerator(yamlfile, format).serialize(inline=inline))
+    print(JsonSchemaGenerator(yamlfile, **kwargs).serialize(**kwargs))

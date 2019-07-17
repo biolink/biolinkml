@@ -3,7 +3,10 @@ import sys
 from contextlib import redirect_stdout
 from functools import lru_cache
 from io import StringIO
-from typing import List, Set, Union, TextIO, Optional, cast
+from typing import List, Set, Union, TextIO, Optional, cast, Type, Callable
+
+import click
+from click import Command, Argument, Option
 
 from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, ClassDefinitionName, \
     TypeDefinition, Element, SlotDefinitionName, TypeDefinitionName, PrefixPrefixPrefix, ElementName, \
@@ -26,8 +29,10 @@ class Generator(metaclass=abc.ABCMeta):
 
     def __init__(self,
                  schema: Union[str, TextIO, SchemaDefinition, "Generator"],
-                 fmt: Optional[str] = None,
-                 emit_metadata: bool = False) -> None:
+                 format: Optional[str] = None,
+                 emit_metadata: bool = False,
+                 use_class_slot_uris: Optional[bool] = None,
+                 **kwargs) -> None:
         """
         Constructor
 
@@ -35,11 +40,12 @@ class Generator(metaclass=abc.ABCMeta):
         open file or a pre-parsed schema.
         :param fmt: expected output format
         :param emit_metadata: True means include date, generator, etc. information in source header if appropriate
+        :param use_class_slot_uris: True means declared class slot uri's are used.  False means use model uris
         """
-        if fmt is None:
-            fmt = self.valid_formats[0]
-        assert fmt in self.valid_formats, f"Unrecognized format: {fmt}"
-        self.format = fmt
+        if format is None:
+            format = self.valid_formats[0]
+        assert format in self.valid_formats, f"Unrecognized format: {format}"
+        self.format = format
         self.emit_metadata = emit_metadata
         if isinstance(schema, Generator):
             gen = schema
@@ -49,7 +55,7 @@ class Generator(metaclass=abc.ABCMeta):
             self.base_dir = gen.base_dir
             self.schema_location = gen.schema_location
         else:
-            loader = SchemaLoader(schema, self.base_dir)
+            loader = SchemaLoader(schema, self.base_dir, use_class_slot_uris=use_class_slot_uris)
             loader.resolve()
             self.schema = loader.schema
             self.synopsis = loader.synopsis
@@ -498,3 +504,18 @@ class Generator(metaclass=abc.ABCMeta):
     def domain_slots(self, cls: ClassDefinition) -> List[SlotDefinition]:
         """ Return all slots in the class definition that are owned by the class """
         return [slot for slot in [self.schema.slots[sn] for sn in cls.slots] if slot.owner == cls.name]
+
+
+def shared_arguments(g: Generator) -> Callable[[Command], Command]:
+    def decorator(f: Command) -> Command:
+        f.params.append(
+            Argument(("yamlfile", ), type=click.Path(exists=True, dir_okay=False)))
+        f.params.append(
+            Option(("--format", "-f"), type=click.Choice(g.valid_formats), help="Output format",
+                   default=g.valid_formats[0]))
+        f.params.append(
+            Option(("--metadata/--no-metadata", ), default=True, help="Include metadata in output"))
+        f.params.append(
+            Option(("--useuris/--metauris", ), default=True, help="Include metadata in output"))
+        return f
+    return decorator

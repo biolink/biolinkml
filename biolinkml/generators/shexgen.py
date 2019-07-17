@@ -17,7 +17,7 @@ from biolinkml import METAMODEL_LOCAL_NAME, METAMODEL_NAMESPACE
 from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, ClassDefinitionName, \
     SlotDefinitionName, ElementName, SHEX
 from biolinkml.utils.formatutils import camelcase, sfx
-from biolinkml.utils.generator import Generator
+from biolinkml.utils.generator import Generator, shared_arguments
 from biolinkml.utils.metamodelcore import URIorCURIE
 
 
@@ -27,8 +27,8 @@ class ShExGenerator(Generator):
     valid_formats = ['shex', 'json', 'rdf']
     visit_all_class_slots = False
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], format: str = 'shex') -> None:
-        super().__init__(schema, format)
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], **args) -> None:
+        super().__init__(schema, **args)
         self.shex: Schema = Schema()                # ShEx Schema being generated
         self.shapes = []
         self.shape: Shape = None                    # Current shape being defined
@@ -155,11 +155,9 @@ class ShExGenerator(Generator):
                                 valueExpr=NodeConstraint(values=[IRIREF(self.namespaces.uri_for(target))]),
                                 min = 0 if opt else 1)
 
+@shared_arguments(ShExGenerator)
 @click.command()
-@click.argument("yamlfile", type=click.Path(exists=True, dir_okay=False))
-@click.option("--format", "-f", default='shex', type=click.Choice(ShExGenerator.valid_formats),
-              help="Output format")
 @click.option("-o", "--output", help="Output file name")
-def cli(yamlfile, format, output):
+def cli(yamlfile, **args):
     """ Generate a ShEx Schema for a  biolink model """
-    print(ShExGenerator(yamlfile, format).serialize(output=output))
+    print(ShExGenerator(yamlfile, **args).serialize(**args))

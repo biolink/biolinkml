@@ -17,13 +17,15 @@ class SchemaLoader:
     def __init__(self,
                  data: Union[str, TextIO, SchemaDefinition, dict],
                  base_dir: Optional[str] = None,
-                 namespaces: Optional[Namespaces] = None) \
+                 namespaces: Optional[Namespaces] = None,
+                 use_class_slot_uris: Optional[bool] = None) \
             -> None:
         """ Constructor - load and process a YAML or pre-processed schema
 
         :param data: YAML schema text, python dict loaded from yaml,  URL, file name, open file or SchemaDefinition
         :param base_dir: base directory or URL where Schema came from
         :param namespaces: namespaces collector
+        :param use_class_slot_uris: True means class_uri and slot_uri are identifiers.  False means they are mappings.
         """
         if isinstance(data, SchemaDefinition):
             self.schema = data
@@ -32,6 +34,7 @@ class SchemaLoader:
         self.loaded: Set[str] = {self.schema.name}
         self.base_dir = self._get_base_dir(base_dir)
         self.namespaces = namespaces if namespaces else Namespaces()
+        self.use_class_slot_uris = use_class_slot_uris if use_class_slot_uris is not None else True
         self.synopsis: Optional[SchemaSynopsis] = None
         self.schema_location: Optional[str] = None
 
@@ -128,7 +131,10 @@ class SchemaLoader:
                     self.schema.classes[apply_to_cls].mixins.append(cls.name)
                 else:
                     self.raise_value_error(f'Class "{cls.name}" unknown apply_to target: {apply_to_cls}')
-            if cls.class_uri is None:
+            # Class URI's also count as (trivial) mappings
+            if cls.class_uri is not None:
+                cls.mappings.insert(0, cls.class_uri)
+            if cls.class_uri is None or not self.use_class_slot_uris:
                 cls.class_uri = self.namespaces.uri_or_curie_for(self.schema.default_prefix, camelcase(cls.name))
 
         # Update slots with parental information
@@ -219,8 +225,10 @@ class SchemaLoader:
                 if not any([self.schema.slots[s].identifier for s in range_class.slots]):
                     slot.inlined = True
 
+            if slot.slot_uri is not None:
+                slot.mappings.insert(0, slot.slot_uri)
             # Assign missing predicates
-            if slot.slot_uri is None:
+            if slot.slot_uri is None or not self.use_class_slot_uris:
                 slot.slot_uri = self.namespaces.uri_or_curie_for(self.schema.default_prefix, self.slot_name_for(slot))
 
         # Check for duplicate class and type names

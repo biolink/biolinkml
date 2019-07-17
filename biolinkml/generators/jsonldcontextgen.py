@@ -12,17 +12,17 @@ from rdflib import XSD
 from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, Definition, TypeDefinition, \
     Element
 from biolinkml.utils.formatutils import camelcase, underscore, be
-from biolinkml.utils.generator import Generator
+from biolinkml.utils.generator import Generator, shared_arguments
 
 
 class ContextGenerator(Generator):
     generatorname = os.path.basename(__file__)
-    generatorversion = "0.0.2"
+    generatorversion = "0.1.1"
     valid_formats = ['json']
     visit_all_class_slots = False
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], format: str='json') -> None:
-        super().__init__(schema, format)
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], **kwargs) -> None:
+        super().__init__(schema, **kwargs)
         if self.namespaces is None:
             raise TypeError("Schema text must be supplied to context generater.  Preparsed schema will not work")
         self.emit_prefixes: Set[str] = set()
@@ -140,7 +140,7 @@ license: {be(self.schema.license)}
         for mapping in defn.mappings:
             if '://' in mapping:
                 mcurie = self.namespaces.curie_for(mapping)
-                print(f"No namespace defined for URI: {mapping}")
+                print(f"No namespace defined for URI: {mapping}", file=sys.stderr)
                 if mcurie is None:
                     return        # Absolute path - no prefix/name
                 else:
@@ -155,12 +155,11 @@ license: {be(self.schema.license)}
             self.add_prefix(id_prefix)
 
 
+@shared_arguments(ContextGenerator)
 @click.command()
-@click.argument("yamlfile", type=click.Path(exists=True, dir_okay=False))
-@click.option("--format", "-f", default='json', type=click.Choice(ContextGenerator.valid_formats), help="Output format")
 @click.option("-o", "--output", help="Output file name")
 @click.option("--base", help="Base URI for model")
 @click.option("--native_uris", is_flag=True, help="Don't use the class and slot URI's")
-def cli(yamlfile, format, base, output, native_uris):
+def cli(yamlfile, **args):
     """ Generate jsonld @context definition from biolink model """
-    print(ContextGenerator(yamlfile, format).serialize(base=base, output=output, native_uris=native_uris))
+    print(ContextGenerator(yamlfile, **args).serialize(**args))

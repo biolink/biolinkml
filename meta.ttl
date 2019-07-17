@@ -39,24 +39,24 @@
         "rdfs",
         "skos",
         "xsd" ;
-    :generation_date "2019-07-07 12:29"^^xsd:dateTime ;
+    :generation_date "2019-07-16 20:17"^^xsd:dateTime ;
     :id <https://w3id.org/biolink/biolinkml/meta> ;
     :imports <https://w3id.org/biolink/biolinkml/meta/includes/types> ;
     :metamodel_version "1.4.0" ;
-    :prefixes [ :prefix_prefix "pav" ;
-            :prefix_reference pav: ],
-        [ :prefix_prefix "shex" ;
+    :prefixes [ :prefix_prefix "shex" ;
             :prefix_reference shex: ],
         [ :prefix_prefix "OIO" ;
             :prefix_reference OIO: ],
-        [ :prefix_prefix "meta" ;
-            :prefix_reference : ],
+        [ :prefix_prefix "pav" ;
+            :prefix_reference pav: ],
         [ :prefix_prefix "xsd" ;
             :prefix_reference xsd: ],
-        [ :prefix_prefix "skos" ;
-            :prefix_reference skos: ],
         [ :prefix_prefix "metatype" ;
-            :prefix_reference metatype: ] ;
+            :prefix_reference metatype: ],
+        [ :prefix_prefix "meta" ;
+            :prefix_reference : ],
+        [ :prefix_prefix "skos" ;
+            :prefix_reference skos: ] ;
     :slots :abstract,
         :alias,
         :aliases,
@@ -143,7 +143,7 @@
         :values_from,
         :version ;
     :source_file "meta.yaml" ;
-    :source_file_date "Sat Jul  6 15:52:31 2019"^^xsd:dateTime ;
+    :source_file_date "Thu Jul 11 10:41:27 2019"^^xsd:dateTime ;
     :source_file_size 23434 ;
     :subsets :owl ;
     :types :boolean,
@@ -269,6 +269,7 @@
 :inverse a :SlotDefinition ;
     skos:definition "indicates that any instance of d s r implies that there is also an instance of r s' d" ;
     skos:inScheme <https://w3id.org/biolink/biolinkml/meta> ;
+    skos:mappingRelation owl:inverseOf ;
     :domain :SlotDefinition ;
     :owner :SlotDefinition ;
     :range :SlotDefinition ;
@@ -278,6 +279,7 @@
     OIO:inSubset :owl ;
     skos:definition "license for the schema" ;
     skos:inScheme <https://w3id.org/biolink/biolinkml/meta> ;
+    skos:mappingRelation dcterms:license ;
     :domain :SchemaDefinition ;
     :owner :SchemaDefinition ;
     :range :string ;
@@ -286,6 +288,7 @@
 :local_name_value a :SlotDefinition ;
     skos:definition "a name assigned to an element in a given ontology" ;
     skos:inScheme <https://w3id.org/biolink/biolinkml/meta> ;
+    skos:mappingRelation skos:altLabel ;
     :domain :LocalName ;
     :owner :LocalName ;
     :range :string ;
@@ -295,6 +298,7 @@
 :singular_name a :SlotDefinition ;
     skos:definition "a name that is used in the singular form" ;
     skos:inScheme <https://w3id.org/biolink/biolinkml/meta> ;
+    skos:mappingRelation skos:altLabel ;
     :domain :SlotDefinition ;
     :owner :SlotDefinition ;
     :range :string ;
@@ -343,6 +347,7 @@
 :subclass_of a :SlotDefinition ;
     skos:definition "rdfs:subClassOf to be emitted in OWL generation" ;
     skos:inScheme <https://w3id.org/biolink/biolinkml/meta> ;
+    skos:mappingRelation rdfs:subClassOf ;
     :domain :ClassDefinition ;
     :owner :ClassDefinition ;
     :range :uriorcurie ;
@@ -351,6 +356,7 @@
 :subproperty_of a :SlotDefinition ;
     skos:definition "Ontology property which this slot is a subproperty of" ;
     skos:inScheme <https://w3id.org/biolink/biolinkml/meta> ;
+    skos:mappingRelation rdfs:subPropertyOf ;
     :domain :SlotDefinition ;
     :owner :SlotDefinition ;
     :range :uriorcurie ;
@@ -360,6 +366,7 @@
     OIO:inSubset :owl ;
     skos:definition "the official title of the schema" ;
     skos:inScheme <https://w3id.org/biolink/biolinkml/meta> ;
+    skos:mappingRelation dcterms:title ;
     :domain :SchemaDefinition ;
     :owner :SchemaDefinition ;
     :range :string ;
@@ -380,6 +387,7 @@
 :value a :SlotDefinition ;
     skos:definition "example value" ;
     skos:inScheme <https://w3id.org/biolink/biolinkml/meta> ;
+    skos:mappingRelation skos:example ;
     :domain :Example ;
     :owner :Example ;
     :range :string ;
@@ -397,6 +405,7 @@
 :version a :SlotDefinition ;
     skos:definition "particular version of schema" ;
     skos:inScheme <https://w3id.org/biolink/biolinkml/meta> ;
+    skos:mappingRelation pav:version ;
     :domain :SchemaDefinition ;
     :owner :SchemaDefinition ;
     :range :string ;
@@ -972,6 +981,7 @@ implicitly asserts Y is an instance of C2
 
 :aliases a :SlotDefinition ;
     skos:inScheme <https://w3id.org/biolink/biolinkml/meta> ;
+    skos:mappingRelation skos:altLabel ;
     :domain :Element ;
     :multivalued true ;
     :owner :Element ;
@@ -982,6 +992,7 @@ implicitly asserts Y is an instance of C2
     OIO:inSubset :owl ;
     skos:definition "notes and comments about an element intended for external consumption" ;
     skos:inScheme <https://w3id.org/biolink/biolinkml/meta> ;
+    skos:mappingRelation skos:note ;
     :domain :Element ;
     :multivalued true ;
     :owner :Element ;
@@ -992,6 +1003,7 @@ implicitly asserts Y is an instance of C2
     skos:definition "id of the schema that defined the element" ;
     skos:editorialNote "A stronger model would be range schema_definition, but this doesn't address the import model" ;
     skos:inScheme <https://w3id.org/biolink/biolinkml/meta> ;
+    skos:mappingRelation skos:inScheme ;
     :domain :Element ;
     :owner :Element ;
     :range :uri ;
@@ -1001,6 +1013,7 @@ implicitly asserts Y is an instance of C2
 :in_subset a :SlotDefinition ;
     skos:definition "used to indicate membership of a term in a defined subset of biolink terms used for a particular domain or application (e.g. the translator_minimal subset holding the minimal set of predicates used in a translator knowledge graph)" ;
     skos:inScheme <https://w3id.org/biolink/biolinkml/meta> ;
+    skos:mappingRelation OIO:inSubset ;
     :domain :Element ;
     :multivalued true ;
     :owner :Element ;
@@ -1010,6 +1023,7 @@ implicitly asserts Y is an instance of C2
 :mappings a :SlotDefinition ;
     skos:definition "A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective." ;
     skos:inScheme <https://w3id.org/biolink/biolinkml/meta> ;
+    skos:mappingRelation skos:mappingRelation ;
     :domain :Element ;
     :multivalued true ;
     :owner :Element ;
@@ -1020,6 +1034,7 @@ implicitly asserts Y is an instance of C2
     OIO:inSubset :owl ;
     skos:definition "the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class." ;
     skos:inScheme <https://w3id.org/biolink/biolinkml/meta> ;
+    skos:mappingRelation rdfs:label ;
     :domain :Element ;
     :identifier true ;
     :key true ;
@@ -1032,6 +1047,7 @@ implicitly asserts Y is an instance of C2
     OIO:inSubset :owl ;
     skos:definition "editorial notes about an element intended for internal consumption" ;
     skos:inScheme <https://w3id.org/biolink/biolinkml/meta> ;
+    skos:mappingRelation skos:editorialNote ;
     :domain :Element ;
     :multivalued true ;
     :owner :Element ;
@@ -1042,6 +1058,7 @@ implicitly asserts Y is an instance of C2
     OIO:inSubset :owl ;
     skos:definition "a reference" ;
     skos:inScheme <https://w3id.org/biolink/biolinkml/meta> ;
+    skos:mappingRelation rdfs:seeAlso ;
     :domain :Element ;
     :multivalued true ;
     :owner :Element ;
@@ -1116,6 +1133,7 @@ implicitly asserts Y is an instance of C2
     OIO:inSubset :owl ;
     skos:definition "a description of the element's purpose and use" ;
     skos:inScheme <https://w3id.org/biolink/biolinkml/meta> ;
+    skos:mappingRelation skos:definition ;
     :domain :Element ;
     :owner :Element ;
     :range :string ;

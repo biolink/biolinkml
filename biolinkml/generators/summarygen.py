@@ -10,22 +10,22 @@ import click
 
 from biolinkml.meta import ClassDefinition, SchemaDefinition, SlotDefinition
 from biolinkml.utils.formatutils import camelcase
-from biolinkml.utils.generator import Generator
+from biolinkml.utils.generator import Generator, shared_arguments
 
 
 class SummaryGenerator(Generator):
     generatorname = os.path.basename(__file__)
-    generatorversion = "0.1.0"
+    generatorversion = "0.1.1"
     valid_formats = ['tsv']
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], format: str = 'tsv') -> None:
-        super().__init__(schema, format)
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], **args) -> None:
+        super().__init__(schema, **args)
         self.dirname = None
         self.classtab: DictWriter = None
         self.slottab: DictWriter = None
         self.dialect = 'excel-tab'
 
-    def visit_schema(self, **kwargs) -> None:
+    def visit_schema(self, **_) -> None:
         self.classtab = DictWriter(sys.stdout,
                                    ['Class Name', 'Parent Class', 'YAML Class Name', 'Description',
                                     'Flags', 'Slot Name', 'YAML Slot Name', 'Range', 'Card', 'Slot Description', 'URI'],
@@ -56,10 +56,8 @@ class SummaryGenerator(Generator):
                                 'URI': slot.slot_uri})
 
 
+@shared_arguments(SummaryGenerator)
 @click.command()
-@click.argument("yamlfile", type=click.Path(exists=True, dir_okay=False))
-@click.option("--format", "-f", default=SummaryGenerator.valid_formats[0],
-              type=click.Choice(SummaryGenerator.valid_formats), help="Output format")
-def cli(yamlfile, format):
+def cli(yamlfile, **args):
     """ Generate TSV summary files for viewing in Excel and the like """
-    print(SummaryGenerator(yamlfile, format).serialize())
+    print(SummaryGenerator(yamlfile, **args).serialize(**args))

@@ -9,18 +9,18 @@ from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, El
     TypeDefinition
 from biolinkml.utils.formatutils import camelcase, be, underscore
 from biolinkml.utils.namespaces import Namespaces
-from biolinkml.utils.generator import Generator
+from biolinkml.utils.generator import Generator, shared_arguments
 from biolinkml.utils.typereferences import References
 
 
 class MarkdownGenerator(Generator):
     generatorname = os.path.basename(__file__)
-    generatorversion = "0.0.3"
+    generatorversion = "0.1.1"
     valid_formats = ["md"]
     visit_all_class_slots = False
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], format: str=None) -> None:
-        super().__init__(schema, format)
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], **kwargs) -> None:
+        super().__init__(schema, **kwargs)
         self.directory: Optional[str] = None
         self.image_directory: Optional[str] = None
         self.noimages: bool = False
@@ -29,7 +29,7 @@ class MarkdownGenerator(Generator):
         self.BASE = None
 
     def visit_schema(self, directory: str=None, classes: Set[ClassDefinitionName]=None, image_dir: bool=False,
-                     noimages: bool=False) -> None:
+                     noimages: bool=False, **_) -> None:
         self.gen_classes = classes if classes else []
         for cls in self.gen_classes:
             if cls not in self.schema.classes:
@@ -397,13 +397,12 @@ class MarkdownGenerator(Generator):
         return uri
 
 
+@shared_arguments(MarkdownGenerator)
 @click.command()
-@click.argument("yamlfile", type=click.Path(exists=True, dir_okay=False))
-@click.option("-d", "--dir", help="Output directory")
-@click.option("-f", "--format", default='md', type=click.Choice(['md']), help="Output format")
+@click.option("--dir", "-d", help="Output directory")
 @click.option("--classes", "-c", default=None, multiple=True, help="Class(es) to emit")
-@click.option("-i", "--img", is_flag=True, help="Download YUML images to 'image' directory")
+@click.option("--img", "-i",  is_flag=True, help="Download YUML images to 'image' directory")
 @click.option("--noimages", is_flag=True, help="Do not (re-)generate images")
-def cli(yamlfile, format, dir, classes, img, noimages):
+def cli(yamlfile, dir, img, **kwargs):
     """ Generate markdown documentation of a biolink model """
-    MarkdownGenerator(yamlfile, format).serialize(classes=classes, directory=dir, image_dir=img, noimages=noimages)
+    MarkdownGenerator(yamlfile, **kwargs).serialize(directory=dir, image_dir=img, **kwargs)

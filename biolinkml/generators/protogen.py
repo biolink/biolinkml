@@ -5,7 +5,7 @@ import click
 
 from biolinkml.meta import ClassDefinition, SlotDefinition, SchemaDefinition
 from biolinkml.utils.formatutils import camelcase, lcamelcase
-from biolinkml.utils.generator import Generator
+from biolinkml.utils.generator import Generator, shared_arguments
 
 
 class ProtoGenerator(Generator):
@@ -14,12 +14,12 @@ class ProtoGenerator(Generator):
     
     """
     generatorname = os.path.basename(__file__)
-    generatorversion = "0.0.2"
+    generatorversion = "0.1.1"
     valid_formats = ['proto']
     visit_all_class_slots = True
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], format: str='proto') -> None:
-        super().__init__(schema, format)
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], **kwargs) -> None:
+        super().__init__(schema, **kwargs)
         self.relative_slot_num = 0
 
     def visit_class(self, cls: ClassDefinition) -> bool:
@@ -44,10 +44,8 @@ class ProtoGenerator(Generator):
         print(f"  {qual}{slotname} {slot_range} = {self.relative_slot_num}")
 
 
+@shared_arguments(ProtoGenerator)
 @click.command()
-@click.argument("yamlfile", type=click.Path(exists=True, dir_okay=False))
-@click.option("--format", "-f", default='proto', type=click.Choice(['proto']),
-              help="Output format")
-def cli(yamlfile, format):
+def cli(yamlfile, **args):
     """ Generate proto representation of biolink model """
-    print(ProtoGenerator(yamlfile, format).serialize())
+    print(ProtoGenerator(yamlfile, **args).serialize(**args))

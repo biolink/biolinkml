@@ -11,7 +11,7 @@ from biolinkml import METAMODEL_CONTEXT_URI
 from biolinkml.meta import ClassDefinitionName, SlotDefinitionName, TypeDefinitionName, \
     ElementName, SlotDefinition, ClassDefinition, TypeDefinition, SubsetDefinitionName, SubsetDefinition
 from biolinkml.utils.formatutils import camelcase, underscore
-from biolinkml.utils.generator import Generator
+from biolinkml.utils.generator import Generator, shared_arguments
 from biolinkml.utils.yamlutils import YAMLRoot
 
 
@@ -88,7 +88,7 @@ class JSONLDGenerator(Generator):
     def visit_subset(self, ss: SubsetDefinition) -> None:
         self._visit(ss)
 
-    def end_schema(self, context: str = None) -> None:
+    def end_schema(self, context: str = None, **_) -> None:
         self._add_type(self.schema)
         json_obj = self.schema
         base_prefix = self.default_prefix()
@@ -105,11 +105,10 @@ class JSONLDGenerator(Generator):
         print(as_json(json_obj, indent="  "))
 
 
+@shared_arguments(JSONLDGenerator)
 @click.command()
-@click.argument("yamlfile", type=click.Path(exists=True, dir_okay=False))
-@click.option("--format", "-f", default='jsonld', type=click.Choice(['jsonld']), help="Output format")
 @click.option("--context", default=METAMODEL_CONTEXT_URI,
               help=f"JSONLD context file (default: {METAMODEL_CONTEXT_URI})")
-def cli(yamlfile, format, context):
+def cli(yamlfile, **kwargs):
     """ Generate JSONLD file from biolink schema """
-    print(JSONLDGenerator(yamlfile, format).serialize(context=context))
+    print(JSONLDGenerator(yamlfile, **kwargs).serialize(**kwargs))

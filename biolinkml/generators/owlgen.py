@@ -15,7 +15,7 @@ from biolinkml import LOCAL_YAML_PATH, METAMODEL_LOCAL_NAME, METAMODEL_NAMESPACE
 from biolinkml.meta import ClassDefinitionName, SchemaDefinition, ClassDefinition, SlotDefinitionName, \
     TypeDefinitionName, SlotDefinition, TypeDefinition, Element
 from biolinkml.utils.formatutils import camelcase, underscore
-from biolinkml.utils.generator import Generator
+from biolinkml.utils.generator import Generator, shared_arguments
 from biolinkml.utils.schemaloader import SchemaLoader
 
 
@@ -25,19 +25,19 @@ class ElementDefinition(object):
 
 class OwlSchemaGenerator(Generator):
     generatorname = os.path.basename(__file__)
-    generatorversion = "0.0.2"
-    valid_formats = [x.name for x in rdflib_plugins(None, rdflib_Parser) if '/' not in str(x.name)]
+    generatorversion = "0.1.1"
+    valid_formats = ['ttl'] + [x.name for x in rdflib_plugins(None, rdflib_Parser) if '/' not in str(x.name)]
     visits_are_sorted = True
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], format: str = 'ttl') -> None:
-        super().__init__(schema, format)
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], **kwargs) -> None:
+        super().__init__(schema, **kwargs)
         self.graph: Optional[Graph] = None
         self.metamodel = SchemaLoader(LOCAL_YAML_PATH) if os.path.exists(LOCAL_YAML_PATH) else\
             SchemaLoader(METAMODEL_YAML_URI, base_dir=META_BASE_URI)
         self.metamodel.resolve()
         self.top_value_uri: Optional[URIRef] = None
 
-    def visit_schema(self, output: Optional[str] = None):
+    def visit_schema(self, output: Optional[str] = None, **_):
         base = URIRef(self.schema.id)
         self.graph = Graph(identifier=base)
         for prefix in self.metamodel.schema.emit_prefixes:
@@ -55,7 +55,7 @@ class OwlSchemaGenerator(Generator):
         self.graph.add((self.top_value_uri, RDF.type, OWL.DatatypeProperty))
         self.graph.add((self.top_value_uri, RDFS.label, Literal("value")))
 
-    def end_schema(self, output: Optional[str] = None) -> None:
+    def end_schema(self, output: Optional[str] = None, **_) -> None:
         data = self.graph.serialize(format='turtle' if self.format == 'ttl' else self.format).decode()
         if output:
             with open(output, 'w') as outf:
@@ -258,11 +258,9 @@ class OwlSchemaGenerator(Generator):
         self._add_element_properties(metac_uri, metac)
 
 
+@shared_arguments(OwlSchemaGenerator)
 @click.command()
-@click.argument("yamlfile", type=click.Path(exists=True, dir_okay=False))
-@click.option("--format", "-f", default='ttl', type=click.Choice(OwlSchemaGenerator.valid_formats),
-              help="Output format")
 @click.option("-o", "--output", help="Output file name")
-def cli(yamlfile, format, output):
+def cli(yamlfile, **kwargs):
     """ Generate an OWL representation of a biolink model """
-    print(OwlSchemaGenerator(yamlfile, format).serialize(output=output))
+    print(OwlSchemaGenerator(yamlfile, **kwargs).serialize(**kwargs))

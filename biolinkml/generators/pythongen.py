@@ -1,6 +1,7 @@
 import inspect
 import os
 import re
+import sys
 from typing import Optional, Tuple, List, Union, TextIO, Callable, Dict, Iterator, cast, Set
 
 import click
@@ -10,7 +11,7 @@ from biolinkml.generators import PYTHON_GEN_VERSION
 from biolinkml.meta import SchemaDefinition, SlotDefinition, ClassDefinition, ClassDefinitionName, \
     SlotDefinitionName, DefinitionName, Element, TypeDefinition, Definition
 from biolinkml.utils.formatutils import camelcase, underscore, be, wrapped_annotation, split_line, sfx
-from biolinkml.utils.generator import Generator
+from biolinkml.utils.generator import Generator, shared_arguments
 from biolinkml.utils.ifabsent_functions import ifabsent_value_declaration, ifabsent_postinit_declaration, \
     default_curie_or_uri
 from biolinkml.utils.metamodelcore import builtinnames
@@ -24,12 +25,12 @@ class PythonGenerator(Generator):
     visit_all_class_slots = False
 
     def __init__(self, schema: Union[str, TextIO, SchemaDefinition], format: str = valid_formats[0],
-                 emit_metadata: bool=True) -> None:
+                 emit_metadata: bool = True, **kwargs) -> None:
         self.sourcefile = schema
         self.emit_prefixes: Set[str] = set()
         if format is None:
             format = self.valid_formats[0]
-        super().__init__(schema, format, emit_metadata)
+        super().__init__(schema, format, emit_metadata=emit_metadata, **kwargs)
         if not self.schema.source_file and isinstance(self.sourcefile, str) and '\n' not in self.sourcefile:
             self.schema.source_file = os.path.basename(self.sourcefile)
 
@@ -66,13 +67,12 @@ class PythonGenerator(Generator):
         """
         Process any mappings in defn, adding all of the mappings prefixes to the namespace map
         :param defn: Class or Slot Definition
-        :param target: context target
         """
         self.add_id_prefixes(defn)
         for mapping in defn.mappings:
             if '://' in mapping:
                 mcurie = self.namespaces.curie_for(mapping)
-                print(f"No namespace defined for URI: {mapping}")
+                print(f"No namespace defined for URI: {mapping}", file=sys.stderr)
                 if mcurie is None:
                     return        # Absolute path - no prefix/name
                 else:
@@ -119,7 +119,7 @@ metamodel_version = "{self.schema.metamodel_version}"
 
 {self.gen_classdefs()}'''
 
-    def end_schema(self):
+    def end_schema(self, **_):
         print(re.sub(r' +\n', '\n', self.gen_schema().replace('\t', '    ')).strip(' '), end='')
 
     def gen_imports(self) -> str:
@@ -587,10 +587,9 @@ metamodel_version = "{self.schema.metamodel_version}"
 
 
 
+@shared_arguments(PythonGenerator)
 @click.command()
-@click.argument("yamlfile", type=click.Path(exists=True, dir_okay=False))
-@click.option("--format", "-f", default='py', type=click.Choice(PythonGenerator.valid_formats), help="Output format")
 @click.option("--head/--no-head", default=True, help="Emit metadata heading")
-def cli(yamlfile, format, head):
+def cli(yamlfile, head=True, **args):
     """ Generate python classes to represent a biolink model """
-    print(PythonGenerator(yamlfile, format, head).serialize())
+    print(PythonGenerator(yamlfile, emit_metadata=head, **args).serialize(emit_metadata=head, **args))

@@ -10,21 +10,21 @@ import click
 
 from biolinkml.meta import ClassDefinition, ClassDefinitionName, SchemaDefinition
 from biolinkml.utils.formatutils import underscore, be
-from biolinkml.utils.generator import Generator
+from biolinkml.utils.generator import Generator, shared_arguments
 
 
 class CsvGenerator(Generator):
     generatorname = os.path.basename(__file__)
-    generatorversion = "0.1.0"
+    generatorversion = "0.1.1"
     valid_formats = ['csv', 'tsv']
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], format: str=None) -> None:
-        super().__init__(schema, format)
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], **kwargs) -> None:
+        super().__init__(schema, **kwargs)
         self.sep: str = None
         self.closure: Set[ClassDefinitionName] = None       # List of classes to include in output
         self.writer: DictWriter = None
         
-    def visit_schema(self, classes: List[ClassDefinitionName] = None) -> None:
+    def visit_schema(self, classes: List[ClassDefinitionName] = None, **_) -> None:
         # Note: classes comes from the "root" argument
         self.closure = set()
 
@@ -53,10 +53,9 @@ class CsvGenerator(Generator):
         return False
 
 
+@shared_arguments(CsvGenerator)
 @click.command()
-@click.argument("yamlfile", type=click.Path(exists=True, dir_okay=False))
 @click.option("--root", "-r", default=None, multiple=True, help="Class(es) to transform")
-@click.option("--format", "-f", default='csv', type=click.Choice(['csv', 'tsv']), help="Output format")
-def cli(yamlfile, root, format):
+def cli(yamlfile, root=None, **args):
     """ Generate CSV/TSV file from biolink model """
-    print(CsvGenerator(yamlfile, format).serialize(classes=root))
+    print(CsvGenerator(yamlfile, **args).serialize(classes=root, **args))

@@ -5,17 +5,17 @@ import click
 
 from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition
 from biolinkml.utils.formatutils import camelcase, lcamelcase
-from biolinkml.utils.generator import Generator
+from biolinkml.utils.generator import Generator, shared_arguments
 
 
 class GraphqlGenerator(Generator):
     generatorname = os.path.basename(__file__)
-    generatorversion = "0.0.2"
+    generatorversion = "0.1.1"
     valid_formats = ['graphql']
     visit_all_class_slots = True
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], format: Optional[str] = None) -> None:
-        super().__init__(schema, format)
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], **kwargs) -> None:
+        super().__init__(schema, **kwargs)
 
     def visit_class(self, cls: ClassDefinition) -> bool:
         etype = 'interface' if (cls.abstract or cls.mixin) and not cls.mixins else 'type'
@@ -37,9 +37,8 @@ class GraphqlGenerator(Generator):
         print(f"    {lcamelcase(aliased_slot_name)}: {slotrange}")
 
 
+@shared_arguments(GraphqlGenerator)
 @click.command()
-@click.argument("yamlfile", type=click.Path(exists=True, dir_okay=False))
-@click.option("--format", "-f", default='graphql', type=click.Choice(['graphql']), help="Output format")
-def cli(yamlfile, format):
+def cli(yamlfile, **args):
     """ Generate graphql representation of a biolink model """
-    print(GraphqlGenerator(yamlfile, format).serialize())
+    print(GraphqlGenerator(yamlfile, **args).serialize(**args))

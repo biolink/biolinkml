@@ -12,7 +12,7 @@ from typing import Union, TextIO, List, Optional
 import click
 from dataclasses import dataclass
 
-from biolinkml.utils.generator import Generator
+from biolinkml.utils.generator import Generator, shared_arguments
 from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition
 from biolinkml.utils.metamodelcore import empty_list
 from biolinkml.utils.formatutils import underscore
@@ -41,16 +41,16 @@ class GOLRClass(YAMLRoot):
 
 class GolrSchemaGenerator(Generator):
     generatorname = os.path.basename(__file__)
-    generatorversion = "0.0.2"
-    valid_formats = "[golr]"
+    generatorversion = "0.1.1"
+    valid_formats = ["golr"]
     visit_all_class_slots = True
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], format: Optional[str] = None) -> None:
-        super().__init__(schema, format)
-        self.dirname: str = None
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], directory: str = None, **kwargs) -> None:
+        super().__init__(schema, **kwargs)
+        self.dirname: str = directory
         self.class_obj: GOLRClass = None
 
-    def visit_schema(self, directory: str) -> None:
+    def visit_schema(self, directory: str, **_) -> None:
         self.dirname = directory
         if directory:
             os.makedirs(directory, exist_ok=True)
@@ -80,10 +80,9 @@ class GolrSchemaGenerator(Generator):
         self.class_obj.fields.append(field)
 
 
+@shared_arguments(GolrSchemaGenerator)
 @click.command()
 @click.option("--dir", "-d", default='golr-views', help="Output directory")
-@click.argument("file", type=click.Path(exists=True, dir_okay=False))
-@click.option("--format", "-f", default='golr', type=click.Choice(['golr']), help="Output format")
-def cli(file, dir, format):
+def cli(yamlfile, dir=None, **args):
     """ Generate GOLR representation of a biolink model """
-    print(GolrSchemaGenerator(file, format).serialize(directory=dir))
+    print(GolrSchemaGenerator(yamlfile, directory=dir, **args).serialize(directory=dir, **args))

@@ -15,7 +15,7 @@ from biolinkml.meta import ClassDefinitionName, SchemaDefinition, SlotDefinition
     ClassDefinition
 
 from biolinkml.utils.formatutils import camelcase, underscore
-from biolinkml.utils.generator import Generator
+from biolinkml.utils.generator import Generator, shared_arguments
 
 yuml_is_a = '^-'
 yuml_uses = 'uses -.->'
@@ -34,12 +34,12 @@ YUML = Namespace(yuml_base + yuml_scale + yuml_dir + yuml_class)
 
 class YumlGenerator(Generator):
     generatorname = os.path.basename(__file__)
-    generatorversion = "0.0.2"
+    generatorversion = "0.1.1"
     valid_formats = ['yuml', 'png', 'pdf', 'jpg', 'json', 'svg']
     visit_all_class_slots = False
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], format: str='yuml') -> None:
-        super().__init__(schema, format)
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], **args) -> None:
+        super().__init__(schema, **args)
         self.referenced: Set[ClassDefinitionName] = None        # List of classes that have to be emitted
         self.generated: Set[ClassDefinitionName] = None         # List of classes that have been emitted
         self.box_generated: Set[ClassDefinitionName] = None     # Class boxes that have been emitted
@@ -49,7 +49,7 @@ class YumlGenerator(Generator):
         self.output_file_name: Optional[str] = None             # Location of output file if directory used
 
     def visit_schema(self, classes: Set[ClassDefinitionName]=None, directory: Optional[str] = None,
-                     load_image: bool=True) -> None:
+                     load_image: bool=True, **_) -> None:
         if directory:
             os.makedirs(directory, exist_ok=True)
         if classes is not None:
@@ -228,13 +228,10 @@ class YumlGenerator(Generator):
         return pk + ('(a)' if injected else '(m)' if mixin else '(i)' if inherited else '')
 
 
+@shared_arguments(YumlGenerator)
 @click.command()
-@click.argument("yamlfile", type=click.Path(exists=True, dir_okay=False))
 @click.option("--classes", "-c", default=None, multiple=True, help="Class(es) to emit")
-@click.option("--format", "-f", default='yuml', type=click.Choice(YumlGenerator.valid_formats),
-              help="Output format if directory supplied")
 @click.option("--directory", "-d", help="Output directory - if supplied, YUML rendering will be saved in file")
-def cli(yamlfile, format, classes, directory):
+def cli(yamlfile, **args):
     """ Generate a UML representation of a biolink model """
-    print(YumlGenerator(yamlfile, format).serialize(classes=classes, directory=directory), end="")
-
+    print(YumlGenerator(yamlfile, **args).serialize(**args), end="")
