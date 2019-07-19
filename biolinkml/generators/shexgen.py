@@ -2,20 +2,18 @@
 
 """
 import os
-from typing import Union, TextIO, Optional, List, cast
+from typing import Union, TextIO, Optional, List
 
 import click
 from ShExJSG import ShExC
 from ShExJSG.SchemaWithContext import Schema
-from ShExJSG.ShExJ import Shape, IRIREF, ShapeAnd, EachOf, TripleConstraint, NodeConstraint, ShapeOr, tripleExprLabel, \
-    OneOf
+from ShExJSG.ShExJ import Shape, IRIREF, EachOf, TripleConstraint, NodeConstraint, ShapeOr
 from jsonasobj import as_json
-from pyjsg.jsglib import isinstance_
 from rdflib import Graph, OWL, RDF, Namespace, XSD
 
 from biolinkml import METAMODEL_LOCAL_NAME, METAMODEL_NAMESPACE
-from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, ClassDefinitionName, \
-    SlotDefinitionName, ElementName, SHEX
+from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, SlotDefinitionName, ElementName, SHEX, \
+    TypeDefinition
 from biolinkml.utils.formatutils import camelcase, sfx
 from biolinkml.utils.generator import Generator, shared_arguments
 from biolinkml.utils.metamodelcore import URIorCURIE
@@ -31,7 +29,7 @@ class ShExGenerator(Generator):
         super().__init__(schema, **args)
         self.shex: Schema = Schema()                # ShEx Schema being generated
         self.shapes = []
-        self.shape: Shape = None                    # Current shape being defined
+        self.shape: Optional[Shape] = None                    # Current shape being defined
         self.list_shapes: List[IRIREF] = []         # Shapes that have been defined as lists
 
         if METAMODEL_LOCAL_NAME not in self.namespaces:
@@ -45,20 +43,18 @@ class ShExGenerator(Generator):
         self.shex['@context'] = [context, {'@base': self.namespaces._base}]
         # Emit all of the type definitions
         for typ in self.schema.types.values():
+            model_uri = self._class_or_type_uri(typ)
             if typ.uri:
-                uri = self.namespaces.uri_for(typ.uri)
-                if uri in (XSD.anyURI, SHEX.iri):
-                    self.shapes.append(NodeConstraint(id=self._shape_iri(typ.name), nodeKind="iri"))
-                elif uri == SHEX.nonLiteral:
-                    self.shapes.append(NodeConstraint(id=self._shape_iri(typ.name), nodeKind="nonliteral"))
+                typ_type_uri = self.namespaces.uri_for(typ.uri)
+                if typ_type_uri in (XSD.anyURI, SHEX.iri):
+                    self.shapes.append(NodeConstraint(id=model_uri, nodeKind="iri"))
+                elif typ_type_uri == SHEX.nonLiteral:
+                    self.shapes.append(NodeConstraint(id=model_uri, nodeKind="nonliteral"))
                 else:
-                    self.shapes.append(NodeConstraint(id=self._shape_iri(typ.name),
-                                                      datatype=self.namespaces.uri_for(typ.uri)))
+                    self.shapes.append(NodeConstraint(id=model_uri, datatype=self.namespaces.uri_for(typ.uri)))
             else:
-                self.shapes.append(Shape(id=self._shape_iri(typ.name), expression=self._shape_iri(typ.typeof)))
-
-    def _shape_iri(self, name: ElementName) -> IRIREF:
-        return IRIREF(self.base[camelcase(name)])
+                typeof_uri = self._class_or_type_uri(typ.typeof)
+                self.shapes.append(Shape(id=model_uri, expression=typeof_uri))
 
     def visit_class(self, cls: ClassDefinition) -> bool:
         self.shape = Shape()
@@ -70,7 +66,7 @@ class ShExGenerator(Generator):
             for applier in self.synopsis.applytorefs[cls.name].classrefs:
                 struct_ref_list.append(applier)
         for sr in struct_ref_list:
-            self._add_constraint(self._shape_iri(sr) + '_tes')
+            self._add_constraint(self._class_or_type_uri(sr, '_tes'))
             self._add_constraint(self._type_arc(self.schema.classes[sr].class_uri, opt=True))
         return True
 
@@ -83,7 +79,7 @@ class ShExGenerator(Generator):
         # type arcs.  NOTE: Here is where you can sink other things as well if you want to ignore categories of things
         if self.shape.expression is None:
             self._add_constraint(TripleConstraint(predicate=RDF.type, min=0, max=-1))
-        self.shape.expression.id = self._shape_iri(cls.name) + '_tes'
+        self.shape.expression.id = self._class_or_type_uri(cls, '_tes')
         self.shape.expression = EachOf(expressions=[self.shape.expression,
                                                     self._type_arc(cls.class_uri,
                                                                    not bool(self.class_identifier(cls)))])
@@ -91,17 +87,18 @@ class ShExGenerator(Generator):
 
         # If this class has subtypes, define the class as the union of its subtypes and itself (if not abstract)
         if cls.name in self.synopsis.isarefs:
-            childrenExprs = [self._shape_iri(child_name)
-                             for child_name in sorted(list(self.synopsis.isarefs[cls.name].classrefs))]
+            childrenExprs = []
+            for child_classname in sorted(list(self.synopsis.isarefs[cls.name].classrefs)):
+                childrenExprs.append(self._class_or_type_uri(child_classname))
             if not cls.abstract or len(childrenExprs) == 1:
                 childrenExprs.insert(0, self.shape)
-                self.shapes.append(ShapeOr(id=self._shape_iri(cls.name), shapeExprs=childrenExprs))
+                self.shapes.append(ShapeOr(id=self._class_or_type_uri(cls), shapeExprs=childrenExprs))
             else:
-                self.shapes.append(ShapeOr(id=self._shape_iri(cls.name), shapeExprs=childrenExprs))
-                self.shape.id = self._shape_iri(cls.name) + "_struct"
+                self.shapes.append(ShapeOr(id=self._class_or_type_uri(cls), shapeExprs=childrenExprs))
+                self.shape.id = self._class_or_type_uri(cls, "_struct")
                 self.shapes.append(self.shape)
         else:
-            self.shape.id = self._shape_iri(cls.name)
+            self.shape.id = self._class_or_type_uri(cls)
             self.shapes.append(self.shape)
 
     def visit_class_slot(self, cls: ClassDefinition, aliased_slot_name: SlotDefinitionName, slot: SlotDefinition) \
@@ -112,9 +109,9 @@ class ShExGenerator(Generator):
             constraint.predicate = self.namespaces.uri_for(slot.slot_uri)
             constraint.min = int(bool(slot.required))
             constraint.max = 1 if not slot.multivalued else -1
-            constraint.valueExpr = self._shape_iri(slot.range)
+            constraint.valueExpr = self._class_or_type_uri(slot.range)
 
-    def end_schema(self, output: Optional[str]=None, **_) -> None:
+    def end_schema(self, output: Optional[str] = None, **_) -> None:
         self.shex.shapes = self.shapes
         shex = as_json(self.shex)
         if self.format == 'rdf':
@@ -132,12 +129,20 @@ class ShExGenerator(Generator):
         else:
             print(shex)
 
-    def _class_has_expressions(self, classname: ClassDefinitionName) -> bool:
-        """ Return true if classname has a tripleExprLabel """
-        for slot in self.own_slots(classname):
-            if not (slot.identifier or slot.abstract):
-                return True
-        return False
+    def _class_or_type_uri(self, item: Union[TypeDefinition, ClassDefinition, ElementName],
+                           suffix: Optional[str] = '') -> URIorCURIE:
+        if isinstance(item, (TypeDefinition, ClassDefinition)):
+            cls_or_type = item
+        else:
+            cls_or_type = self.class_or_type_for(item)
+        return self.namespaces.uri_for(
+            self.namespaces.uri_or_curie_for(self.schema_defaults[cls_or_type.from_schema],
+                                             camelcase(cls_or_type.name) + suffix))
+
+    def _slot_uri(self, name: str, suffix: Optional[str] = '') -> URIorCURIE:
+        slot = self.schema.slots[name]
+        return self.namespaces.uri_for(
+            self.namespaces.uri_or_curie_for(self.schema_defaults[slot.from_schema], camelcase(name) + suffix))
 
     def _add_constraint(self, constraint) -> None:
         # No constraints
@@ -153,7 +158,8 @@ class ShExGenerator(Generator):
     def _type_arc(self, target: URIorCURIE, opt: bool = False) -> TripleConstraint:
         return TripleConstraint(predicate=RDF.type,
                                 valueExpr=NodeConstraint(values=[IRIREF(self.namespaces.uri_for(target))]),
-                                min = 0 if opt else 1)
+                                min=0 if opt else 1)
+
 
 @shared_arguments(ShExGenerator)
 @click.command()

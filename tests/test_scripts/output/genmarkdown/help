@@ -1,0 +1,13 @@
+Usage: gen-markdown [OPTIONS] YAMLFILE
+
+  Generate markdown documentation of a biolink model
+
+Options:
+  -d, --dir TEXT              Output directory
+  -c, --classes TEXT          Class(es) to emit
+  -i, --img                   Download YUML images to 'image' directory
+  --noimages                  Do not (re-)generate images
+  -f, --format [md]           Output format
+  --metadata / --no-metadata  Include metadata in output
+  --useuris / --metauris      Include metadata in output
+  --help                      Show this message and exit.

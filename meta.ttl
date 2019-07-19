@@ -39,22 +39,22 @@
         "rdfs",
         "skos",
         "xsd" ;
-    :generation_date "2019-07-16 20:17"^^xsd:dateTime ;
+    :generation_date "2019-07-17 12:56"^^xsd:dateTime ;
     :id <https://w3id.org/biolink/biolinkml/meta> ;
     :imports <https://w3id.org/biolink/biolinkml/meta/includes/types> ;
     :metamodel_version "1.4.0" ;
-    :prefixes [ :prefix_prefix "shex" ;
-            :prefix_reference shex: ],
-        [ :prefix_prefix "OIO" ;
-            :prefix_reference OIO: ],
-        [ :prefix_prefix "pav" ;
-            :prefix_reference pav: ],
-        [ :prefix_prefix "xsd" ;
-            :prefix_reference xsd: ],
+    :prefixes [ :prefix_prefix "meta" ;
+            :prefix_reference : ],
         [ :prefix_prefix "metatype" ;
             :prefix_reference metatype: ],
-        [ :prefix_prefix "meta" ;
-            :prefix_reference : ],
+        [ :prefix_prefix "OIO" ;
+            :prefix_reference OIO: ],
+        [ :prefix_prefix "xsd" ;
+            :prefix_reference xsd: ],
+        [ :prefix_prefix "pav" ;
+            :prefix_reference pav: ],
+        [ :prefix_prefix "shex" ;
+            :prefix_reference shex: ],
         [ :prefix_prefix "skos" ;
             :prefix_reference skos: ] ;
     :slots :abstract,
@@ -231,6 +231,7 @@
     :slot_uri :description .
 
 :class_definition_apply_to a :SlotDefinition ;
+    skos:inScheme <https://w3id.org/biolink/biolinkml/meta> ;
     :alias "apply_to" ;
     :domain :ClassDefinition ;
     :is_a :apply_to ;
@@ -241,6 +242,7 @@
     :slot_uri :apply_to .
 
 :class_definition_is_a a :SlotDefinition ;
+    skos:inScheme <https://w3id.org/biolink/biolinkml/meta> ;
     :alias "is_a" ;
     :domain :ClassDefinition ;
     :is_a :is_a ;
@@ -250,6 +252,7 @@
     :slot_uri :is_a .
 
 :class_definition_mixins a :SlotDefinition ;
+    skos:inScheme <https://w3id.org/biolink/biolinkml/meta> ;
     :alias "mixins" ;
     :domain :ClassDefinition ;
     :is_a :mixins ;
@@ -305,6 +308,7 @@
     :slot_uri skos:altLabel .
 
 :slot_definition_apply_to a :SlotDefinition ;
+    skos:inScheme <https://w3id.org/biolink/biolinkml/meta> ;
     :alias "apply_to" ;
     :domain :SlotDefinition ;
     :is_a :apply_to ;
@@ -315,6 +319,7 @@
     :slot_uri :apply_to .
 
 :slot_definition_is_a a :SlotDefinition ;
+    skos:inScheme <https://w3id.org/biolink/biolinkml/meta> ;
     :alias "is_a" ;
     :domain :SlotDefinition ;
     :is_a :is_a ;
@@ -324,6 +329,7 @@
     :slot_uri :is_a .
 
 :slot_definition_mixins a :SlotDefinition ;
+    skos:inScheme <https://w3id.org/biolink/biolinkml/meta> ;
     :alias "mixins" ;
     :domain :SlotDefinition ;
     :is_a :mixins ;

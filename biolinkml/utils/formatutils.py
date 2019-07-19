@@ -1,6 +1,8 @@
 import re
 from typing import List
 
+from pyshex.shex_evaluator import EvaluationResult
+
 ws_pattern = re.compile(r'\s+')
 us_pattern = re.compile(r'_+')
 
@@ -21,7 +23,6 @@ def lcamelcase(txt: str) -> str:
     return s[0].lower() + s[1:]
 
 
-
 def be(entry: object) -> str:
     """ Return a stringified version of object replacing Nones with empty strings """
     return str(entry).strip() if entry else ''
@@ -34,7 +35,8 @@ def sfx(uri: str) -> str:
     """
     Add a separator to a uri if none exists.
 
-    Note: This should only be used with module id's -- it is not uncommon to use partial prefixes, e.g. PREFIX bfo: http://purl.obolibrary.org/obo/BFO_
+    Note: This should only be used with module id's -- it is not uncommon to use partial prefixes,
+    e.g. PREFIX bfo: http://purl.obolibrary.org/obo/BFO_
     :param uri: uri to be suffixed
     :return: URI with suffix
     """
@@ -49,7 +51,7 @@ def uri_for(prefix: str, suffix: str) -> str:
         return prefix + ':' + suffix
 
 
-def split_line(txt: str, split_len: int=split_col) -> List[str]:
+def split_line(txt: str, split_len: int = split_col) -> List[str]:
     # TODO: consider replacing by textwrap.fill function, but note that its behavior is a bit different
     out_lines = []
     words = txt.split()
@@ -76,3 +78,15 @@ def wrapped_annotation(txt: str) -> str:
         else:
             rval.append(line)
     return '\n\t'.join(rval)
+
+
+def shex_results_as_string(rslts: EvaluationResult) -> str:
+    """ Pretty print ShEx Evaluation result """
+    # TODO: Add this method to ShEx itself
+    rval = [f"Evalutating: {str(rslts.focus)} against {str(rslts.start)}"]
+    if rslts.result:
+        rval.append("Result: CONFORMS")
+    else:
+        rval.append("Result: NonConforming")
+    rval += rslts.reason.split('\n')
+    return '\n'.join(rval)

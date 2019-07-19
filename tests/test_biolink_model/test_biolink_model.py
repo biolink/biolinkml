@@ -22,6 +22,7 @@ from biolinkml.generators.protogen import ProtoGenerator
 from biolinkml.generators.pythongen import PythonGenerator
 from biolinkml.generators.rdfgen import RDFGenerator
 from biolinkml.generators.shexgen import ShExGenerator
+from biolinkml.utils.formatutils import shex_results_as_string
 from tests.test_scripts.clicktestcase import metadata_filter
 from tests.utils.generator_utils import GeneratorTestCase
 
@@ -89,6 +90,9 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
             return re.sub(r'Generation date: .*?\\n', r'Generation date: \\n',
                           re.sub(r' version: .*?\\n', r' version: \\n', s))
         self.single_file_generator('context.jsonld', ContextGenerator, filtr=filtr)
+        # Generate a second copy with native identifiers
+        self.single_file_generator('context.native.jsonld', ContextGenerator, filtr=filtr,
+                                   generator_args=dict(use_class_slot_uris=False))
 
     def test_biolink_json_schema(self):
         """ Test the jsonld context generator for the biolink model """
@@ -97,6 +101,9 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
     def test_biolink_owl_schema(self):
         """ Test the owl schema generator for the biolink model """
         self.single_file_generator('owl', OwlSchemaGenerator, comparator=GeneratorTestCase.rdf_comparator)
+        # Generate a second copy with native identifiers
+        self.single_file_generator('native.owl', OwlSchemaGenerator, comparator=GeneratorTestCase.rdf_comparator,
+                                   generator_args=dict(use_class_slot_uris=False))
 
     def test_biolink_proto(self):
         """ Test the proto schema generator for the biolink model """
@@ -139,6 +146,10 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
         """ Just Generate the ShEx file untested """
         self.single_file_generator('shex', ShExGenerator)
         self.single_file_generator('shexj', ShExGenerator, format='json')
+        # Generate native ShEx
+        self.single_file_generator('native.shex', ShExGenerator, generator_args=dict(use_class_slot_uris=False))
+        self.single_file_generator('native.shexj', ShExGenerator, format='json',
+                                   generator_args=dict(use_class_slot_uris=False))
 
     def test_biolink_shex_incorrect_rdf(self):
         """ Test some non-conforming RDF  """
@@ -161,7 +172,13 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
         self.assertEqual(13, ntabs)
         if not os.path.exists(errs_file):
             with open(errs_file, 'w') as f:
-                f.write(repr(results))
+                f.write(shex_results_as_string(results[0]))
+        # TODO:
+        #     self.assertTrue(False, f"{errs_file} created - run test again")
+        # else:
+        #     with open(errs_file) as f:
+        #         expected = f.read()
+        #     self.assertEqual(expected, shex_results_as_string(results[0]))
 
     def test_biolink_correct_rdf(self):
         """ Test some conforming RDF  """

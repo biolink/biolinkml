@@ -1,0 +1,13 @@
+Usage: gen-rdf [OPTIONS] YAMLFILE
+
+  Generate an RDF representation of a biolink model
+
+Options:
+  -o, --output TEXT               Output file name
+  --context TEXT                  JSONLD context file (default: https://w3id.o
+                                  rg/biolink/biolinkml/context.jsonld)
+  -f, --format [ttl|html|hturtle|json-ld|mdata|microdata|n3|nquads|nt|nt11|ntriples|rdfa|rdfa1.0|rdfa1.1|trig|trix|ttl|turtle|xml]
+                                  Output format
+  --metadata / --no-metadata      Include metadata in output
+  --useuris / --metauris          Include metadata in output
+  --help                          Show this message and exit.

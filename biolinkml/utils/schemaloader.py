@@ -1,6 +1,6 @@
 import os
 import sys
-from typing import Union, TextIO, Optional, Set, List, cast
+from typing import Union, TextIO, Optional, Set, List, cast, Dict
 from urllib.parse import urlparse
 
 from biolinkml.meta import SchemaDefinition, SlotDefinition, SlotDefinitionName, ClassDefinition, \
@@ -37,6 +37,7 @@ class SchemaLoader:
         self.use_class_slot_uris = use_class_slot_uris if use_class_slot_uris is not None else True
         self.synopsis: Optional[SchemaSynopsis] = None
         self.schema_location: Optional[str] = None
+        self.schema_defaults: Dict[str, str] = {}           # Map from schema URI to default namespace
 
     def resolve(self) -> SchemaDefinition:
         """Reconcile a loaded schema, applying is_a, mixins, apply_to's and other such things.  Also validate the
@@ -52,6 +53,7 @@ class SchemaLoader:
         # Process the namespace declarations
         if not self.schema.default_prefix:
             self.schema.default_prefix = sfx(self.schema.id)
+        self.schema_defaults[self.schema.id] = self.schema.default_prefix
         for prefix in self.schema.prefixes.values():
             self.namespaces[prefix.prefix_prefix] = prefix.prefix_reference
         for cmap in self.schema.default_curi_maps:
@@ -69,8 +71,9 @@ class SchemaLoader:
             sloc = self.namespaces.uri_for(sname) if ':' in sname else sname
             if sloc not in self.loaded:
                 self.loaded.add(sloc)
-                merge_schemas(self.schema, load_raw_schema(sloc + '.yaml', base_dir=self.base_dir), sloc,
-                              self.namespaces)
+                import_schemadefinition = load_raw_schema(sloc + '.yaml', base_dir=self.base_dir)
+                merge_schemas(self.schema, import_schemadefinition, sloc, self.namespaces)
+                self.schema_defaults[import_schemadefinition.id] = import_schemadefinition.default_prefix
 
         self.namespaces._base = self.schema.default_prefix if ':' in self.schema.default_prefix else \
             self.namespaces[self.schema.default_prefix]
@@ -135,7 +138,9 @@ class SchemaLoader:
             if cls.class_uri is not None:
                 cls.mappings.insert(0, cls.class_uri)
             if cls.class_uri is None or not self.use_class_slot_uris:
-                cls.class_uri = self.namespaces.uri_or_curie_for(self.schema.default_prefix, camelcase(cls.name))
+                cls.class_uri = \
+                    self.namespaces.uri_or_curie_for(self.schema_defaults.get(cls.from_schema, sfx(cls.from_schema)),
+                                                                 camelcase(cls.name))
 
         # Update slots with parental information
         merged_slots: List[SlotDefinitionName] = []
@@ -217,8 +222,9 @@ class SchemaLoader:
                 else:
                     self.raise_value_error(f'Class "{cls.name}" - unknown slot: "{slotname}"')
 
-
         for slot in self.schema.slots.values():
+            if slot.from_schema is None:
+                slot.from_schema = self.schema.id
             # Inline any class definitions that don't have identifiers.  Note that keys ARE inlined
             if slot.range in self.schema.classes:
                 range_class = self.schema.classes[cast(ClassDefinitionName, slot.range)]
@@ -229,7 +235,9 @@ class SchemaLoader:
                 slot.mappings.insert(0, slot.slot_uri)
             # Assign missing predicates
             if slot.slot_uri is None or not self.use_class_slot_uris:
-                slot.slot_uri = self.namespaces.uri_or_curie_for(self.schema.default_prefix, self.slot_name_for(slot))
+                slot.slot_uri = \
+                    self.namespaces.uri_or_curie_for(self.schema_defaults.get(slot.from_schema, sfx(slot.from_schema)),
+                                                                 self.slot_name_for(slot))
 
         # Check for duplicate class and type names
         def check_dups(s1: Set[ElementName], s2: Set[ElementName]) -> str:

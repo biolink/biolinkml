@@ -1,0 +1,10 @@
+Usage: gen-csv [OPTIONS] YAMLFILE
+
+  Generate CSV/TSV file from biolink model
+
+Options:
+  -r, --root TEXT             Class(es) to transform
+  -f, --format [csv|tsv]      Output format
+  --metadata / --no-metadata  Include metadata in output
+  --useuris / --metauris      Include metadata in output
+  --help                      Show this message and exit.

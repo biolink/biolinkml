@@ -1,0 +1,11 @@
+Usage: gen-jsonld [OPTIONS] YAMLFILE
+
+  Generate JSONLD file from biolink schema
+
+Options:
+  --context TEXT              JSONLD context file (default: https://w3id.org/b
+                              iolink/biolinkml/context.jsonld)
+  -f, --format [jsonld]       Output format
+  --metadata / --no-metadata  Include metadata in output
+  --useuris / --metauris      Include metadata in output
+  --help                      Show this message and exit.

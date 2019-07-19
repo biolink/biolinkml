@@ -1,0 +1,9 @@
+Usage: gen-graphql [OPTIONS] YAMLFILE
+
+  Generate graphql representation of a biolink model
+
+Options:
+  -f, --format [graphql]      Output format
+  --metadata / --no-metadata  Include metadata in output
+  --useuris / --metauris      Include metadata in output
+  --help                      Show this message and exit.
