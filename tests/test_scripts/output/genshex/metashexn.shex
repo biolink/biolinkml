@@ -1,0 +1,203 @@
+BASE <https://w3id.org/biolink/biolinkml/meta/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX metatype: <https://w3id.org/biolink/biolinkml/type/>
+
+
+metatype:String xsd:string
+
+metatype:Integer xsd:integer
+
+metatype:Boolean xsd:boolean
+
+metatype:Float xsd:float
+
+metatype:Double xsd:double
+
+metatype:Time xsd:dateTime
+
+metatype:Date xsd:date
+
+metatype:Datetime xsd:dateTime
+
+metatype:Uriorcurie IRI
+
+metatype:Uri IRI
+
+metatype:Ncname xsd:string
+
+metatype:Objectidentifier IRI
+
+metatype:Nodeidentifier NONLITERAL
+
+<AltDescription> CLOSED {
+    (  $<AltDescription_tes> (  <source> @metatype:Ncname ;
+          <description> @metatype:String
+       ) ;
+       rdf:type [ <AltDescription> ] ?
+    )
+}
+
+<ClassDefinition> CLOSED {
+    (  $<ClassDefinition_tes> (  &<Definition_tes> ;
+          rdf:type [ <Definition> ] ? ;
+          <is_a> @<ClassDefinition> ? ;
+          <mixins> @<ClassDefinition> * ;
+          <apply_to> @<ClassDefinition> * ;
+          <slots> @<SlotDefinition> * ;
+          <slot_usage> @<SlotDefinition> * ;
+          <class_uri> @metatype:Uriorcurie ? ;
+          <subclass_of> @metatype:Uriorcurie ? ;
+          <union_of> @<ClassDefinition> * ;
+          <defining_slots> @<SlotDefinition> *
+       ) ;
+       rdf:type [ <ClassDefinition> ]
+    )
+}
+
+<Definition>  (
+    @<ClassDefinition> OR @<SlotDefinition>
+)
+
+<Definition_struct> {
+    (  $<Definition_tes> (  &<Element_tes> ;
+          rdf:type [ <Element> ] ? ;
+          <abstract> @metatype:Boolean ? ;
+          <mixin> @metatype:Boolean ? ;
+          <mixins> @<Definition> * ;
+          <apply_to> @<Definition> * ;
+          <values_from> @metatype:Uriorcurie *
+       ) ;
+       rdf:type [ <Definition> ]
+    )
+}
+
+<Element>  (
+    @<Definition> OR @<SchemaDefinition> OR @<SubsetDefinition> OR @<TypeDefinition>
+)
+
+<Element_struct> {
+    (  $<Element_tes> (  <id_prefixes> @metatype:Ncname * ;
+          <aliases> @metatype:String * ;
+          <local_names> @<LocalName> * ;
+          <mappings> @metatype:Uriorcurie * ;
+          <description> @metatype:String ? ;
+          <alt_descriptions> @<AltDescription> * ;
+          <deprecated> @metatype:String ? ;
+          <todos> @metatype:String * ;
+          <notes> @metatype:String * ;
+          <comments> @metatype:String * ;
+          <examples> @<Example> * ;
+          <in_subset> @<SubsetDefinition> * ;
+          <from_schema> @metatype:Uri ? ;
+          <imported_from> @metatype:String ? ;
+          <see_also> @metatype:Uriorcurie *
+       ) ;
+       rdf:type [ <Element> ]
+    )
+}
+
+<Example> CLOSED {
+    (  $<Example_tes> (  <value> @metatype:String ? ;
+          <description> @metatype:String ?
+       ) ;
+       rdf:type [ <Example> ] ?
+    )
+}
+
+<LocalName> CLOSED {
+    (  $<LocalName_tes> (  <local_name_source> @metatype:Ncname ;
+          <local_name_value> @metatype:String
+       ) ;
+       rdf:type [ <LocalName> ] ?
+    )
+}
+
+<Prefix> CLOSED {
+    (  $<Prefix_tes> (  <prefix_prefix> @metatype:Ncname ;
+          <prefix_reference> @metatype:Uri
+       ) ;
+       rdf:type [ <Prefix> ] ?
+    )
+}
+
+<SchemaDefinition> CLOSED {
+    (  $<SchemaDefinition_tes> (  &<Element_tes> ;
+          rdf:type [ <Element> ] ? ;
+          <id> @metatype:Uri ;
+          <title> @metatype:String ? ;
+          <version> @metatype:String ? ;
+          <imports> @metatype:Uriorcurie * ;
+          <license> @metatype:String ? ;
+          <prefixes> @<Prefix> * ;
+          <emit_prefixes> @metatype:Ncname * ;
+          <default_curi_maps> @metatype:String * ;
+          <default_prefix> @metatype:String ? ;
+          <default_range> @<TypeDefinition> ? ;
+          <subsets> @<SubsetDefinition> * ;
+          <types> @<TypeDefinition> * ;
+          <slots> @<SlotDefinition> * ;
+          <classes> @<ClassDefinition> * ;
+          <metamodel_version> @metatype:String ? ;
+          <source_file> @metatype:String ? ;
+          <source_file_date> @metatype:Datetime ? ;
+          <source_file_size> @metatype:Integer ? ;
+          <generation_date> @metatype:Datetime ?
+       ) ;
+       rdf:type [ <SchemaDefinition> ]
+    )
+}
+
+<SlotDefinition> CLOSED {
+    (  $<SlotDefinition_tes> (  &<Definition_tes> ;
+          rdf:type [ <Definition> ] ? ;
+          <is_a> @<SlotDefinition> ? ;
+          <mixins> @<SlotDefinition> * ;
+          <apply_to> @<SlotDefinition> * ;
+          <singular_name> @metatype:String ? ;
+          <domain> @<ClassDefinition> ;
+          <range> @<Element> ? ;
+          <slot_uri> @metatype:Uriorcurie ? ;
+          <multivalued> @metatype:Boolean ? ;
+          <inherited> @metatype:Boolean ? ;
+          <readonly> @metatype:String ? ;
+          <ifabsent> @metatype:String ? ;
+          <required> @metatype:Boolean ? ;
+          <inlined> @metatype:Boolean ? ;
+          <key> @metatype:Boolean ? ;
+          <identifier> @metatype:Boolean ? ;
+          <alias> @metatype:String ? ;
+          <owner> @<Definition> ;
+          <subproperty_of> @metatype:Uriorcurie ? ;
+          <symmetric> @metatype:Boolean ? ;
+          <inverse> @<SlotDefinition> ? ;
+          <is_class_field> @metatype:Boolean ? ;
+          <role> @metatype:String ? ;
+          <is_usage_slot> @metatype:Boolean ?
+       ) ;
+       rdf:type [ <SlotDefinition> ]
+    )
+}
+
+<SubsetDefinition> CLOSED {
+    (  $<SubsetDefinition_tes> (  &<Element_tes> ;
+          rdf:type [ <Element> ] ?
+       ) ;
+       rdf:type [ <SubsetDefinition> ]
+    )
+}
+
+<TypeDefinition> CLOSED {
+    (  $<TypeDefinition_tes> (  &<Element_tes> ;
+          rdf:type [ <Element> ] ? ;
+          <typeof> @<TypeDefinition> ? ;
+          <base> @metatype:String ? ;
+          <uri> @metatype:Uriorcurie ? ;
+          <repr> @metatype:String ?
+       ) ;
+       rdf:type [ <TypeDefinition> ]
+    )
+}
+
+
+

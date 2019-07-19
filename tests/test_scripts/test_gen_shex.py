@@ -29,6 +29,10 @@ class GenShExTestCase(ClickTestCase):
         self.do_test(source_yaml_path + ' -f json', 'metashex.json')
         self.do_test(source_yaml_path + ' -f rdf', 'metashex.ttl')
         self.do_test(source_yaml_path + ' -f shex', 'metashex.shex')
+        self.do_test(source_yaml_path + ' --metauris', 'metashexn.shex')
+        self.do_test(source_yaml_path + ' -f json', 'metashex.json')
+        self.do_test(source_yaml_path + ' -f rdf', 'metashex.ttl')
+        self.do_test(source_yaml_path + ' -f shex', 'metashex.shex')
         self.do_test(source_yaml_path + f' -f xsv', 'meta_error', error=click.exceptions.BadParameter)
 
     def test_rdf_shex(self):

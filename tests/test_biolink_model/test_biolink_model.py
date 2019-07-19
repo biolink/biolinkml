@@ -92,7 +92,7 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
         self.single_file_generator('context.jsonld', ContextGenerator, filtr=filtr)
         # Generate a second copy with native identifiers
         self.single_file_generator('context.native.jsonld', ContextGenerator, filtr=filtr,
-                                   generator_args=dict(use_class_slot_uris=False))
+                                   generator_args=dict(useuris=False))
 
     def test_biolink_json_schema(self):
         """ Test the jsonld context generator for the biolink model """
@@ -103,7 +103,7 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
         self.single_file_generator('owl', OwlSchemaGenerator, comparator=GeneratorTestCase.rdf_comparator)
         # Generate a second copy with native identifiers
         self.single_file_generator('native.owl', OwlSchemaGenerator, comparator=GeneratorTestCase.rdf_comparator,
-                                   generator_args=dict(use_class_slot_uris=False))
+                                   generator_args=dict(useuris=False))
 
     def test_biolink_proto(self):
         """ Test the proto schema generator for the biolink model """
@@ -147,9 +147,9 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
         self.single_file_generator('shex', ShExGenerator)
         self.single_file_generator('shexj', ShExGenerator, format='json')
         # Generate native ShEx
-        self.single_file_generator('native.shex', ShExGenerator, generator_args=dict(use_class_slot_uris=False))
+        self.single_file_generator('native.shex', ShExGenerator, generator_args=dict(useuris=False))
         self.single_file_generator('native.shexj', ShExGenerator, format='json',
-                                   generator_args=dict(use_class_slot_uris=False))
+                                   generator_args=dict(useuris=False))
 
     def test_biolink_shex_incorrect_rdf(self):
         """ Test some non-conforming RDF  """

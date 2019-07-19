@@ -1,0 +1,161 @@
+{
+   "_comments": "Auto generated from meta.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2019-07-19 17:26\nSchema: metamodel\n\nid: https://w3id.org/biolink/biolinkml/meta\ndescription: A metamodel for defining biolink related schemas\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
+   "@context": {
+      "_comments": null,
+      "type": "@type",
+      "OIO": "http://www.geneontology.org/formats/oboInOwl#",
+      "dcterms": "http://purl.org/dc/terms/",
+      "metatype": "https://w3id.org/biolink/biolinkml/type/",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "pav": "http://purl.org/pav/",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "shex": "http://www.w3.org/ns/shex#",
+      "skos": "http://www.w3.org/2004/02/skos/core#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "@vocab": "https://w3id.org/biolink/biolinkml/meta/",
+      "abstract": {
+         "@type": "xsd:boolean"
+      },
+      "alt_descriptions": {
+         "@type": "@id"
+      },
+      "apply_to": {
+         "@type": "@id"
+      },
+      "class_uri": {
+         "@type": "@id"
+      },
+      "classes": {
+         "@type": "@id"
+      },
+      "default_range": {
+         "@type": "@id"
+      },
+      "defining_slots": {
+         "@type": "@id"
+      },
+      "domain": {
+         "@type": "@id"
+      },
+      "examples": {
+         "@type": "@id"
+      },
+      "from_schema": {
+         "@type": "@id"
+      },
+      "generation_date": {
+         "@type": "xsd:dateTime"
+      },
+      "id": {
+         "@type": "@id"
+      },
+      "identifier": {
+         "@type": "xsd:boolean"
+      },
+      "imports": {
+         "@type": "@id"
+      },
+      "in_subset": {
+         "@type": "@id"
+      },
+      "inherited": {
+         "@type": "xsd:boolean"
+      },
+      "inlined": {
+         "@type": "xsd:boolean"
+      },
+      "inverse": {
+         "@type": "@id"
+      },
+      "is_a": {
+         "@type": "@id"
+      },
+      "is_class_field": {
+         "@type": "xsd:boolean"
+      },
+      "is_usage_slot": {
+         "@type": "xsd:boolean"
+      },
+      "key": {
+         "@type": "xsd:boolean"
+      },
+      "local_names": {
+         "@type": "@id"
+      },
+      "mappings": {
+         "@type": "@id"
+      },
+      "mixin": {
+         "@type": "xsd:boolean"
+      },
+      "mixins": {
+         "@type": "@id"
+      },
+      "multivalued": {
+         "@type": "xsd:boolean"
+      },
+      "name": "@id",
+      "owner": {
+         "@type": "@id"
+      },
+      "prefix_reference": {
+         "@type": "@id"
+      },
+      "prefixes": {
+         "@type": "@id"
+      },
+      "range": {
+         "@type": "@id"
+      },
+      "required": {
+         "@type": "xsd:boolean"
+      },
+      "see_also": {
+         "@type": "@id"
+      },
+      "slots": {
+         "@type": "@id"
+      },
+      "slot_uri": {
+         "@type": "@id"
+      },
+      "slot_usage": {
+         "@type": "@id"
+      },
+      "source_file_date": {
+         "@type": "xsd:dateTime"
+      },
+      "source_file_size": {
+         "@type": "xsd:integer"
+      },
+      "subclass_of": {
+         "@type": "@id"
+      },
+      "subproperty_of": {
+         "@type": "@id"
+      },
+      "subsets": {
+         "@type": "@id"
+      },
+      "symmetric": {
+         "@type": "xsd:boolean"
+      },
+      "uri": {
+         "@type": "@id"
+      },
+      "typeof": {
+         "@type": "@id"
+      },
+      "types": {
+         "@type": "@id"
+      },
+      "union_of": {
+         "@type": "@id"
+      },
+      "values_from": {
+         "@type": "@id"
+      }
+   }
+}
+

@@ -31,7 +31,7 @@ class Generator(metaclass=abc.ABCMeta):
                  schema: Union[str, TextIO, SchemaDefinition, "Generator"],
                  format: Optional[str] = None,
                  emit_metadata: bool = False,
-                 use_class_slot_uris: Optional[bool] = None,
+                 useuris: Optional[bool] = None,
                  **kwargs) -> None:
         """
         Constructor
@@ -40,7 +40,7 @@ class Generator(metaclass=abc.ABCMeta):
         open file or a pre-parsed schema.
         :param fmt: expected output format
         :param emit_metadata: True means include date, generator, etc. information in source header if appropriate
-        :param use_class_slot_uris: True means declared class slot uri's are used.  False means use model uris
+        :param useuris: True means declared class slot uri's are used.  False means use model uris
         """
         if format is None:
             format = self.valid_formats[0]
@@ -56,7 +56,7 @@ class Generator(metaclass=abc.ABCMeta):
             self.schema_location = gen.schema_location
             self.schema_defaults = gen.schema_defaults
         else:
-            loader = SchemaLoader(schema, self.base_dir, use_class_slot_uris=use_class_slot_uris)
+            loader = SchemaLoader(schema, self.base_dir, useuris=useuris)
             loader.resolve()
             self.schema = loader.schema
             self.synopsis = loader.synopsis

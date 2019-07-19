@@ -27,7 +27,9 @@ class GenContextTestCase(ClickTestCase):
     def test_meta(self):
         self.maxDiff = None
         self.do_test(source_yaml_path, 'meta_context.jsonld', filtr=json_metadata_filter)
+        self.do_test(source_yaml_path + ' --metauris', 'meta_contextn.jsonld', filtr=json_metadata_filter)
         self.do_test(source_yaml_path + ' -f xsv', 'meta_error', error=click.exceptions.BadParameter)
+        self.do_test(source_yaml_path + ' --niggles', 'meta2_error', error=click.exceptions.NoSuchOption)
 
     def test_slot_class_uri(self):
         uri_tests_yaml = os.path.join(sourcedir, 'uri_tests.yaml')

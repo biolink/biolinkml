@@ -18,14 +18,14 @@ class SchemaLoader:
                  data: Union[str, TextIO, SchemaDefinition, dict],
                  base_dir: Optional[str] = None,
                  namespaces: Optional[Namespaces] = None,
-                 use_class_slot_uris: Optional[bool] = None) \
+                 useuris: Optional[bool] = None) \
             -> None:
         """ Constructor - load and process a YAML or pre-processed schema
 
         :param data: YAML schema text, python dict loaded from yaml,  URL, file name, open file or SchemaDefinition
         :param base_dir: base directory or URL where Schema came from
         :param namespaces: namespaces collector
-        :param use_class_slot_uris: True means class_uri and slot_uri are identifiers.  False means they are mappings.
+        :param useuris: True means class_uri and slot_uri are identifiers.  False means they are mappings.
         """
         if isinstance(data, SchemaDefinition):
             self.schema = data
@@ -34,7 +34,7 @@ class SchemaLoader:
         self.loaded: Set[str] = {self.schema.name}
         self.base_dir = self._get_base_dir(base_dir)
         self.namespaces = namespaces if namespaces else Namespaces()
-        self.use_class_slot_uris = use_class_slot_uris if use_class_slot_uris is not None else True
+        self.useuris = useuris if useuris is not None else True
         self.synopsis: Optional[SchemaSynopsis] = None
         self.schema_location: Optional[str] = None
         self.schema_defaults: Dict[str, str] = {}           # Map from schema URI to default namespace
@@ -137,7 +137,7 @@ class SchemaLoader:
             # Class URI's also count as (trivial) mappings
             if cls.class_uri is not None:
                 cls.mappings.insert(0, cls.class_uri)
-            if cls.class_uri is None or not self.use_class_slot_uris:
+            if cls.class_uri is None or not self.useuris:
                 cls.class_uri = \
                     self.namespaces.uri_or_curie_for(self.schema_defaults.get(cls.from_schema, sfx(cls.from_schema)),
                                                                  camelcase(cls.name))
@@ -234,7 +234,7 @@ class SchemaLoader:
             if slot.slot_uri is not None:
                 slot.mappings.insert(0, slot.slot_uri)
             # Assign missing predicates
-            if slot.slot_uri is None or not self.use_class_slot_uris:
+            if slot.slot_uri is None or not self.useuris:
                 slot.slot_uri = \
                     self.namespaces.uri_or_curie_for(self.schema_defaults.get(slot.from_schema, sfx(slot.from_schema)),
                                                                  self.slot_name_for(slot))
