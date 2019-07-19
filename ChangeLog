@@ -1,9 +1,23 @@
 CHANGES
 =======
 
-v1.3.8
+v1.4.0
 ------
 
+* Add one more test file
+* Implemented native URI mode
+* Added the metauris parameter
+* Addresses some issues in incorrect type arcs
+* Shex Generation completely revised
+* Checkpoint -- NodeIdentifier and ElementIdentifier more or less in place
+* Checkpoint to allow folks to look at current state of model.py
+* Experiment with NamedThingId type checking
+* First cut at the yamlutils.as\_rdf function
+* Add all namespaces to python file
+* Partial implementation of issue #21
+* Part 1 of computable isabsent
+* Partial implementation of issue #21
+* Partial implementation of issue #21
 * Fix for Issues #24, #25 and #26
 * Fix for Issues #24, #25 and #26
 * Fix for Issues #24, #25 and #26
