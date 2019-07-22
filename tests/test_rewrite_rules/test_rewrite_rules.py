@@ -65,7 +65,8 @@ class TestLists:
             TestEntry(self.metas, 'biolinkml/meta.shex', 'text/shex'),
             TestEntry(self.metas['.owl'], 'biolinkml/meta.owl'),
             TestEntry(self.metas['.foo'], 'biolinkml/meta.foo'),
-            TestEntry(self.biolinkml + 'context.jsonld', 'biolinkml/context.jsonld')
+            TestEntry(self.biolinkml + 'context.jsonld', 'biolinkml/context.jsonld'),
+            TestEntry(self.biolinkml + 'contextn.jsonld', 'biolinkml/contextn.jsonld')
         ]
         self.meta_vocab_entries: List[TestEntry] = [
             TestEntry(self.meta.Element, 'biolinkml/docs/Element'),
@@ -80,6 +81,8 @@ class TestLists:
         self.biolinkmodel_entries: List[TestEntry] = [
             TestEntry(self.biolink + 'vocab/Element', 'biolink-model/docs/Element'),
             TestEntry(self.biolink + 'vocab', 'biolink-model/docs'),
+            TestEntry(self.biolink + 'context.jsonld', 'biolink-model/context.jsonld'),
+            TestEntry(self.biolink + 'contextn.jsonld', 'biolink-model/contextn.jsonld'),
             TestEntry(self.biolink + 'biolink-model.yaml', 'biolink-model/biolink-model.yaml')
         ]
 
