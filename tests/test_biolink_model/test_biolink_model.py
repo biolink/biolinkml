@@ -8,7 +8,7 @@ from pyshex import ShExEvaluator
 from pyshex.shex_evaluator import EvaluationResult
 from rdflib import Graph, Namespace, URIRef
 
-from biolinkml import METAMODEL_NAMESPACE, LOCAL_SHEX_PATH, LOCAL_CONTEXT_PATH
+from biolinkml import METAMODEL_NAMESPACE, LOCAL_SHEXJ_PATH, LOCAL_CONTEXT_PATH
 from biolinkml.generators.csvgen import CsvGenerator
 from biolinkml.generators.dotgen import DotGenerator
 from biolinkml.generators.golrgen import GolrSchemaGenerator
@@ -136,7 +136,7 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
             g.load(rdf_file, format='ttl')
             focus = BIOLINK_NS.biolink_model
             start = METAMODEL_NAMESPACE.SchemaDefinition
-            results = ShExEvaluator(g, LOCAL_SHEX_PATH, focus, start).evaluate(debug=False)
+            results = ShExEvaluator(g, LOCAL_SHEXJ_PATH, focus, start).evaluate(debug=False)
             self.assertTrue(self._evaluate_shex_results(results))
 
         else:

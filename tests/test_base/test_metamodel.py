@@ -5,7 +5,7 @@ from typing import List
 from pyshex.shex_evaluator import EvaluationResult, ShExEvaluator
 from rdflib import Graph
 
-from biolinkml import LOCAL_CONTEXT_PATH, METAMODEL_NAMESPACE, LOCAL_SHEX_PATH, \
+from biolinkml import LOCAL_CONTEXT_PATH, METAMODEL_NAMESPACE, LOCAL_SHEXJ_PATH, \
     LOCAL_RDF_PATH, MODULE_DIR
 from biolinkml.generators.markdowngen import MarkdownGenerator
 from biolinkml.generators.owlgen import OwlSchemaGenerator
@@ -67,7 +67,7 @@ class MetaModelTestCase(GeneratorTestCase):
             g.load(rdf_file, format='turtle')
             focus = METAMODEL_NAMESPACE.metamodel
             start = METAMODEL_NAMESPACE.SchemaDefinition
-            results = ShExEvaluator(g, LOCAL_SHEX_PATH, focus, start).evaluate(debug=False)
+            results = ShExEvaluator(g, LOCAL_SHEXJ_PATH, focus, start).evaluate(debug=False)
             self.assertTrue(self._evaluate_shex_results(results))
         else:
             print("*** RDF Model validation step was skipped. Set: tests.__init__.DO_SHEX_VALIDATION to run it")

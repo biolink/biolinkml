@@ -2,7 +2,7 @@ import os
 import re
 import unittest
 
-from biolinkml import LOCAL_YAML_PATH, LOCAL_CONTEXT_PATH, META_BASE_URI
+from biolinkml import LOCAL_YAML_PATH, LOCAL_CONTEXT_PATH, META_BASE_URI, METAMODEL_LDCONTEXT_NAME
 from biolinkml.generators.jsonldcontextgen import ContextGenerator
 from tests import targetdir
 
@@ -15,7 +15,7 @@ class LDContextTestCase(unittest.TestCase):
     def test_context(self):
         """ Verify that the root context.jsonld is current """
         new_context = ContextGenerator(LOCAL_YAML_PATH).serialize(base=META_BASE_URI)
-        target = os.path.join(targetdir, 'context.jsonld')
+        target = os.path.join(targetdir, METAMODEL_LDCONTEXT_NAME)
         with open(target, 'w') as f:
             f.write(new_context)
 
