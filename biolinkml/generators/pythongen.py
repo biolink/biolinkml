@@ -5,6 +5,7 @@ import sys
 from typing import Optional, Tuple, List, Union, TextIO, Callable, Dict, Iterator, cast, Set
 
 import click
+from rdflib import URIRef
 
 import biolinkml
 from biolinkml.generators import PYTHON_GEN_VERSION
@@ -143,9 +144,9 @@ metamodel_version = "{self.schema.metamodel_version}"
                         # TODO: figure out how to make this sort of stuff part of the model
                         self.v.setdefault(types.__name__, set()).add(camelcase(e.name))
                     elif str(e.imported_from) == biolinkml.BIOLINK_MODEL_URI:
-                        self.v.setdefault(types.__name__, set()).add(camelcase(e.name))
+                        self.v.setdefault(biolinkml.BIOLINK_MODEL_PYTHON_LOC, set()).add(camelcase(e.name))
                     elif e.imported_from.__contains__('://'):
-                        raise(NotImplementedError, f"Cannot map {e.imported_from} into a python import statement")
+                        raise ValueError(f"Cannot map {e.imported_from} into a python import statement")
                     else:
                         anchor_path = os.path.dirname(self.schema_location)
                         abs_import_path = os.path.join(anchor_path, e.imported_from) \
@@ -154,8 +155,17 @@ metamodel_version = "{self.schema.metamodel_version}"
                         python_import_dir = os.path.relpath(abs_import_path, python_base_dir)
                         self.v.setdefault(python_import_dir.replace('/', '.'), set()).add(camelcase(e.name))
 
-            def add_entry(self, path: str, name: str) -> None:
-                self.v.setdefault(path.replace('/', '.'), set()).add(name)
+            def add_entry(self, path: Union[str, URIRef], name: str) -> None:
+                path = str(path)
+                if path == biolinkml.METATYPE_URI:
+                    # TODO: figure out how to make this sort of stuff part of the model
+                    self.v.setdefault(types.__name__, set()).add(name)
+                elif path == biolinkml.BIOLINK_MODEL_URI:
+                    self.v.setdefault(biolinkml.BIOLINK_MODEL_PYTHON_LOC, set()).add(name)
+                elif path.__contains__('://'):
+                    raise ValueError(f"Cannot map {path} into a python import statement")
+                else:
+                    self.v.setdefault(path.replace('/', '.'), set()).add(name)
 
             def values(self) -> Dict[str, List[str]]:
                 return {k: sorted(self.v[k]) for k in sorted(self.v.keys())}

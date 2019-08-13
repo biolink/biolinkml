@@ -113,3 +113,4 @@ METAMODEL_YAML_URI = META_BASE_URI + 'meta.yaml'
 
 # Biolink model file -- this needs a more official fix
 BIOLINK_MODEL_URI = "https://w3id.org/biolink/biolink-model"
+BIOLINK_MODEL_PYTHON_LOC = "biolink.model"
