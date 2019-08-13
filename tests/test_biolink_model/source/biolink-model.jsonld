@@ -10044,7 +10044,7 @@
   "metamodel_version": "1.4.0",
   "source_file": "biolink-model.yaml",
   "source_file_date": "2019-01-01-12:00",
-  "source_file_size": 107140,
+  "source_file_size": 107142,
   "generation_date": "2019-01-01 12:00",
   "type": "SchemaDefinition",
   "@context": [

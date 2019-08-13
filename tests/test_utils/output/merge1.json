@@ -13,6 +13,10 @@
       {
          "name": "s1",
          "from_schema": "http://example.org/schema1"
+      },
+      {
+         "name": "s2",
+         "from_schema": "http://example.org/schema2"
       }
    ],
    "types": [

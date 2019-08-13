@@ -1314,6 +1314,8 @@ slots:
       connects an association to an instance of supporting evidence
     slot_uri: RO:0002558
 
+
+
   provided by:
     is_a: association slot
     range: provider

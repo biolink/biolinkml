@@ -23,6 +23,7 @@ def merge_schemas(target: SchemaDefinition, mergee: SchemaDefinition, imported_f
     merge_dicts(target.classes, mergee.classes, imported_from)
     merge_dicts(target.slots, mergee.slots, imported_from)
     merge_dicts(target.types, mergee.types, imported_from)
+    merge_dicts(target.subsets, mergee.subsets, imported_from)
 
 
 def merge_namespaces(target: SchemaDefinition, mergee: SchemaDefinition, namespaces) -> None:
