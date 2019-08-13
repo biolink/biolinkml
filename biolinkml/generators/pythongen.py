@@ -142,6 +142,8 @@ metamodel_version = "{self.schema.metamodel_version}"
                     if str(e.imported_from) == biolinkml.METATYPE_URI:
                         # TODO: figure out how to make this sort of stuff part of the model
                         self.v.setdefault(types.__name__, set()).add(camelcase(e.name))
+                    elif str(e.imported_from) == biolinkml.BIOLINK_MODEL_URI:
+                        self.v.setdefault(types.__name__, set()).add(camelcase(e.name))
                     elif e.imported_from.__contains__('://'):
                         raise(NotImplementedError, f"Cannot map {e.imported_from} into a python import statement")
                     else:
