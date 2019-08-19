@@ -1,0 +1,147 @@
+description: the definition of a class or interface
+display_name: !!python/object/new:biolinkml.meta.ClassDefinitionName
+- class_definition
+document_category: !!python/object/new:biolinkml.meta.ClassDefinitionName
+- class_definition
+fields:
+- cardinality: multi
+  description: the identifier of this class or slot must begin with one of the URIs
+    referenced by this prefix
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - id_prefixes
+  id: id_prefixes
+- description: the unique name of the element within the context of the schema.  Name
+    is combined with the default prefix to form the globally unique subject of the
+    target class.
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - name
+  id: name
+- cardinality: multi
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - aliases
+  id: aliases
+- cardinality: multi
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - local_names
+  id: local_names
+- cardinality: multi
+  description: A list of terms from different schemas or terminology systems that
+    have comparable meaning. These may include terms that are precisely equivalent,
+    broader or narrower in meaning, or otherwise semantically related but not equivalent
+    from a strict ontological perspective.
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - mappings
+  id: mappings
+- description: a description of the element's purpose and use
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - description
+  id: description
+- cardinality: multi
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - alt_descriptions
+  id: alt_descriptions
+- description: Description of why and when this element will no longer be used
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - deprecated
+  id: deprecated
+- cardinality: multi
+  description: Outstanding issue that needs resolution
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - todos
+  id: todos
+- cardinality: multi
+  description: notes and comments about an element intended for external consumption
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - comments
+  id: comments
+- cardinality: multi
+  description: editorial notes about an element intended for internal consumption
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - notes
+  id: notes
+- cardinality: multi
+  description: example usages of an element
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - examples
+  id: examples
+- cardinality: multi
+  description: used to indicate membership of a term in a defined subset of biolink
+    terms used for a particular domain or application (e.g. the translator_minimal
+    subset holding the minimal set of predicates used in a translator knowledge graph)
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - in_subset
+  id: in_subset
+- description: id of the schema that defined the element
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - from_schema
+  id: from_schema
+- description: the imports entry that this element was derived from.  Empty means
+    primary source
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - imported_from
+  id: imported_from
+- cardinality: multi
+  description: a reference
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - see_also
+  id: see_also
+- display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - class_definition_is_a
+  id: is_a
+- description: an abstract class is a high level class or slot that is typically used
+    to group common slots together and cannot be directly instantiated.
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - abstract
+  id: abstract
+- description: this slot or class can only be used as a mixin -- equivalent to abstract
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - mixin
+  id: mixin
+- cardinality: multi
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - class_definition_mixins
+  id: mixins
+- cardinality: multi
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - class_definition_apply_to
+  id: apply_to
+- cardinality: multi
+  description: the identifier of a "value set" -- a set of identifiers that form the
+    possible values for the range of a slot
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - values_from
+  id: values_from
+- cardinality: multi
+  description: list of slot names that are applicable to a class
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - slots
+  id: slots
+- cardinality: multi
+  description: the redefinition of a slot in the context of the containing class definition.
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - slot_usage
+  id: slot_usage
+- description: URI of the class in an RDF environment
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - class_uri
+  id: class_uri
+- description: rdfs:subClassOf to be emitted in OWL generation
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - subclass_of
+  id: subclass_of
+- cardinality: multi
+  description: indicates that the domain class consists exactly of the members of
+    the classes in the range
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - union_of
+  id: union_of
+- cardinality: multi
+  description: The combination of is a plus defining slots form a genus-differentia
+    definition, or the set of necessary and sufficient conditions that can be transformed
+    into an OWL equivalence axiom
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - defining_slots
+  id: defining_slots
+id: class_definition
+schema_generating: true
+weight: 20

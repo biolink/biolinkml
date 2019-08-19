@@ -1,0 +1,25 @@
+
+# Slot: mixins
+
+
+List of definitions to be mixed in. Targets may be any definition of the same type
+
+URI: [meta:mixins](https://w3id.org/biolink/biolinkml/meta/mixins)
+
+## Domain and Range
+
+[Definition](Definition.md) ->  <sub>0..*</sub> [Definition](Definition.md)
+
+## Parents
+
+
+## Children
+
+ *  [mixins](class_definition_mixins.md)
+ *  [mixins](slot_definition_mixins.md)
+
+## Used by
+
+ * [ClassDefinition](ClassDefinition.md)
+ * [Definition](Definition.md)
+ * [SlotDefinition](SlotDefinition.md)
