@@ -22,7 +22,7 @@ class IfAbsentTestCase(GeneratorTestCase):
         self.single_file_generator('py', PythonGenerator, filtr=metadata_filter)
 
         # Make sure the python is valid
-        with open(os.path.join(self.source_path, 'ifabsents.py')) as f:
+        with open(os.path.join(self.source_path, f'{IfAbsentTestCase.model_name}.py')) as f:
             pydata = f.read()
         spec = compile(pydata, 'test', 'exec')
         module = ModuleType('test')
@@ -47,6 +47,10 @@ class IfAbsentTestCase(GeneratorTestCase):
         IfAbsentTestCase.model_name = "ifabsents_error"
         with self.assertRaises(ValueError):
             self.single_file_generator('py', PythonGenerator, filtr=metadata_filter)
+
+    def test_ifabsent_uri(self):
+        IfAbsentTestCase.model_name = "ifabsent_uri"
+        self.do_test()
 
 
 if __name__ == '__main__':

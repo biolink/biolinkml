@@ -36,6 +36,11 @@ def curie_for(loader: SchemaLoader, is_class: bool) -> Optional[str]:
         return ('"' + pn + '" + ' + suffix) if pn else None
 
 
+def uri_for(s: str, loader: SchemaLoader) -> str:
+    uri = str(loader.namespaces.uri_for(s))
+    return loader.namespaces.curie_for(uri, True, True) or strval(uri)
+
+
 def default_ns_for(loader: SchemaLoader, cls: ClassDefinition) -> str:
     """ Return code to produce the default namespace for the supplied class """
     # TODO: figure out how to mark a slot as a namespace
@@ -48,6 +53,10 @@ def default_ns_for(loader: SchemaLoader, cls: ClassDefinition) -> str:
     # return f"sfx(str(self.{cls_id}))" if cls_id else "None"
 
 # Library of named default values -- this is here to prevent code injection
+# Contents: Match text (as re),
+#           flag that indicates whether we're generating a default value expression or postinig code
+#           Function that takes the match string, SchemaLoader, ClassDefinition, and SlotDefinition and returns the
+#           appropriate string
 default_library: List[Tuple[Text, bool, Callable[[Match[str], SchemaLoader, ClassDefinition, SlotDefinition], str]]] = [
     (r"[Tt]rue", False, lambda _, __, ___, ____: "True"),
     (r"[Ff]alse", False, lambda _, __, ___, ____: "False"),
@@ -68,6 +77,7 @@ default_library: List[Tuple[Text, bool, Callable[[Match[str], SchemaLoader, Clas
     ("default_range", False, lambda _, __, ___, ____: "None"),
     ("bnode", False, lambda _, __, ___, ____: "bnode()"),
     (r"string\((.*)\)", False, lambda m, __, ___, ____: strval(m[1])),
+    ("uri\((.*)\)", False, lambda m, loader, _, __: uri_for(m[1], loader)),
     ("default_ns", True, lambda _, loader, cls, ____: default_ns_for(loader, cls))
 ]
 
