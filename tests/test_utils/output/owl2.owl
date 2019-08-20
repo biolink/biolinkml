@@ -11,8 +11,8 @@
 
 <http://example.org/owl2> a owl:Ontology ;
     rdfs:label "owl2" ;
-    meta:generation_date "2019-07-11 14:07" ;
-    meta:metamodel_version "1.4.0" ;
+    meta:generation_date "2019-08-19 21:27" ;
+    meta:metamodel_version "1.4.1" ;
     meta:source_file "owl2.yaml" ;
     meta:source_file_date "Fri Jun 28 10:28:33 2019" ;
     meta:source_file_size 519 .

@@ -12,7 +12,7 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.metamodelcore import XSDTime
 from includes.types import String, Time
 
-metamodel_version = "1.4.0"
+metamodel_version = "1.4.1"
 
 
 # Namespaces
@@ -51,7 +51,9 @@ class GeographicLocation(YAMLRoot):
     k: Union[str, GeographicLocationK]
 
     def __post_init__(self):
-        if not isinstance(self.k, GeographicLocationK):
+        if self.k is None:
+            raise ValueError(f"k must be supplied")
+        if self.k is not None and not isinstance(self.k, GeographicLocationK):
             self.k = GeographicLocationK(self.k)
         super().__post_init__()
 
@@ -69,6 +71,8 @@ class GeographicLocationAtTime(GeographicLocation):
     timepoint: Optional[Union[str, TimeType]] = None
 
     def __post_init__(self):
+        if self.k is None:
+            raise ValueError(f"k must be supplied")
         if self.k is not None and not isinstance(self.k, GeographicLocationAtTimeK):
             self.k = GeographicLocationAtTimeK(self.k)
         if self.timepoint is not None and not isinstance(self.timepoint, TimeType):

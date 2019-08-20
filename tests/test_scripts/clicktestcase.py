@@ -215,7 +215,7 @@ class ClickTestCase(unittest.TestCase):
                         self.assertEqual(old_txt, new_txt)
                     else:
                         print(compare_text)
-                        self.assertFalse(True, "Mismatch")
+                        self.fail("Mismatch")
 
     def temp_directory(self, base: str) -> str:
         """

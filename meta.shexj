@@ -789,7 +789,7 @@
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/domain",
                         "valueExpr": "https://w3id.org/biolink/biolinkml/meta/ClassDefinition",
-                        "min": 1,
+                        "min": 0,
                         "max": 1
                      },
                      {
@@ -873,7 +873,7 @@
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/owner",
                         "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Definition",
-                        "min": 1,
+                        "min": 0,
                         "max": 1
                      },
                      {

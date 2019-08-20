@@ -400,7 +400,7 @@ slots:
   domain:
     domain: slot_definition
     range: class_definition
-    required: true
+    readonly: set to owning class if not supplied
     inherited: true
     description: |
       defines the type of the subject of the slot.  Given the following slot definition
@@ -532,7 +532,7 @@ slots:
     range: definition
     description: >-
       the "owner" of the slot. It is the class if it appears in the slots list, otherwise the declaring slot
-    required: true
+    readonly: filled in by the loader
 
   is_usage_slot:
     domain: slot_definition

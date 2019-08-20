@@ -161,7 +161,7 @@ metatype:Nodeidentifier NONLITERAL
           <mixins> @<SlotDefinition> * ;
           <apply_to> @<SlotDefinition> * ;
           skos:altLabel @metatype:String ? ;
-          <domain> @<ClassDefinition> ;
+          <domain> @<ClassDefinition> ? ;
           <range> @<Element> ? ;
           <slot_uri> @metatype:Uriorcurie ? ;
           <multivalued> @metatype:Boolean ? ;
@@ -173,7 +173,7 @@ metatype:Nodeidentifier NONLITERAL
           <key> @metatype:Boolean ? ;
           <identifier> @metatype:Boolean ? ;
           <alias> @metatype:String ? ;
-          <owner> @<Definition> ;
+          <owner> @<Definition> ? ;
           rdfs:subPropertyOf @metatype:Uriorcurie ? ;
           <symmetric> @metatype:Boolean ? ;
           owl:inverseOf @<SlotDefinition> ? ;

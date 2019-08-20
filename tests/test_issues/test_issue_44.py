@@ -20,7 +20,7 @@ class Issue44UnitTest(unittest.TestCase):
         else:
             with open(outfile) as f:
                 old_python = f.read()
-        self.assertEqual(old_python, python, "Remove {outfile} to update target")
+        self.assertEqual(old_python, python, f"Remove {outfile} to update target")
 
 
 if __name__ == '__main__':

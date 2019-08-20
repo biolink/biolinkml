@@ -338,11 +338,11 @@
       "description": "A relationship that is asserted between two named things",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "domain": "NamedThing",
-      "owner": "related_to",
       "range": "NamedThing",
       "slot_uri": "http://www.w3.org/2002/07/owl#ObjectProperty",
       "multivalued": true,
       "inherited": true,
+      "owner": "related_to",
       "type": "SlotDefinition"
     },
     {
@@ -357,11 +357,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
       "domain": "NamedThing",
-      "owner": "interacts_with",
       "range": "NamedThing",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_0002434",
       "multivalued": true,
       "inherited": true,
+      "owner": "interacts_with",
       "type": "SlotDefinition"
     },
     {
@@ -377,11 +377,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "interacts_with",
       "domain": "NamedThing",
-      "owner": "physically_interacts_with",
       "range": "NamedThing",
       "slot_uri": "http://example.org/UNKNOWN/WD/P129",
       "multivalued": true,
       "inherited": true,
+      "owner": "physically_interacts_with",
       "symmetric": true,
       "type": "SlotDefinition"
     },
@@ -396,11 +396,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "physically_interacts_with",
       "domain": "MolecularEntity",
-      "owner": "molecularly_interacts_with",
       "range": "MolecularEntity",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_0002436",
       "multivalued": true,
       "inherited": true,
+      "owner": "molecularly_interacts_with",
       "type": "SlotDefinition"
     },
     {
@@ -415,11 +415,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "interacts_with",
       "domain": "Gene",
-      "owner": "genetically_interacts_with",
       "range": "Gene",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_0002435",
       "multivalued": true,
       "inherited": true,
+      "owner": "genetically_interacts_with",
       "type": "SlotDefinition"
     },
     {
@@ -434,11 +434,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
       "domain": "NamedThing",
-      "owner": "affects",
       "range": "NamedThing",
       "slot_uri": "http://example.org/UNKNOWN/SEMMEDDB/AFFECTS",
       "multivalued": true,
       "inherited": true,
+      "owner": "affects",
       "type": "SlotDefinition"
     },
     {
@@ -450,11 +450,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects",
       "domain": "MolecularEntity",
-      "owner": "affects_abundance_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/affects_abundance_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "affects_abundance_of",
       "type": "SlotDefinition"
     },
     {
@@ -466,11 +466,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_abundance_of",
       "domain": "MolecularEntity",
-      "owner": "increases_abundance_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/increases_abundance_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "increases_abundance_of",
       "type": "SlotDefinition"
     },
     {
@@ -482,11 +482,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_abundance_of",
       "domain": "MolecularEntity",
-      "owner": "decreases_abundance_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/decreases_abundance_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "decreases_abundance_of",
       "type": "SlotDefinition"
     },
     {
@@ -498,11 +498,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects",
       "domain": "MolecularEntity",
-      "owner": "affects_activity_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/affects_activity_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "affects_activity_of",
       "type": "SlotDefinition"
     },
     {
@@ -514,11 +514,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_activity_of",
       "domain": "MolecularEntity",
-      "owner": "increases_activity_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/increases_activity_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "increases_activity_of",
       "type": "SlotDefinition"
     },
     {
@@ -530,11 +530,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_activity_of",
       "domain": "MolecularEntity",
-      "owner": "decreases_activity_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/decreases_activity_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "decreases_activity_of",
       "type": "SlotDefinition"
     },
     {
@@ -546,11 +546,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects",
       "domain": "MolecularEntity",
-      "owner": "affects_expression_of",
       "range": "GenomicEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/affects_expression_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "affects_expression_of",
       "type": "SlotDefinition"
     },
     {
@@ -562,11 +562,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_expression_of",
       "domain": "MolecularEntity",
-      "owner": "increases_expression_of",
       "range": "GenomicEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/increases_expression_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "increases_expression_of",
       "type": "SlotDefinition"
     },
     {
@@ -578,11 +578,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_expression_of",
       "domain": "MolecularEntity",
-      "owner": "decreases_expression_of",
       "range": "GenomicEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/decreases_expression_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "decreases_expression_of",
       "type": "SlotDefinition"
     },
     {
@@ -594,11 +594,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects",
       "domain": "MolecularEntity",
-      "owner": "affects_folding_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/affects_folding_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "affects_folding_of",
       "type": "SlotDefinition"
     },
     {
@@ -610,11 +610,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_folding_of",
       "domain": "MolecularEntity",
-      "owner": "increases_folding_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/increases_folding_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "increases_folding_of",
       "type": "SlotDefinition"
     },
     {
@@ -626,11 +626,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_folding_of",
       "domain": "MolecularEntity",
-      "owner": "decreases_folding_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/decreases_folding_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "decreases_folding_of",
       "type": "SlotDefinition"
     },
     {
@@ -642,11 +642,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects",
       "domain": "MolecularEntity",
-      "owner": "affects_localization_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/affects_localization_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "affects_localization_of",
       "type": "SlotDefinition"
     },
     {
@@ -658,11 +658,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_localization_of",
       "domain": "MolecularEntity",
-      "owner": "increases_localization_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/increases_localization_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "increases_localization_of",
       "type": "SlotDefinition"
     },
     {
@@ -674,11 +674,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_localization_of",
       "domain": "MolecularEntity",
-      "owner": "decreases_localization_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/decreases_localization_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "decreases_localization_of",
       "type": "SlotDefinition"
     },
     {
@@ -690,11 +690,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects",
       "domain": "MolecularEntity",
-      "owner": "affects_metabolic_processing_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/affects_metabolic_processing_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "affects_metabolic_processing_of",
       "type": "SlotDefinition"
     },
     {
@@ -706,11 +706,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_metabolic_processing_of",
       "domain": "MolecularEntity",
-      "owner": "increases_metabolic_processing_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/increases_metabolic_processing_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "increases_metabolic_processing_of",
       "type": "SlotDefinition"
     },
     {
@@ -722,11 +722,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_metabolic_processing_of",
       "domain": "MolecularEntity",
-      "owner": "decreases_metabolic_processing_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/decreases_metabolic_processing_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "decreases_metabolic_processing_of",
       "type": "SlotDefinition"
     },
     {
@@ -738,11 +738,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects",
       "domain": "MolecularEntity",
-      "owner": "affects_molecular_modification_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/affects_molecular_modification_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "affects_molecular_modification_of",
       "type": "SlotDefinition"
     },
     {
@@ -754,11 +754,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_molecular_modification_of",
       "domain": "MolecularEntity",
-      "owner": "increases_molecular_modification_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/increases_molecular_modification_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "increases_molecular_modification_of",
       "type": "SlotDefinition"
     },
     {
@@ -770,11 +770,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_molecular_modification_of",
       "domain": "MolecularEntity",
-      "owner": "decreases_molecular_modification_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/decreases_molecular_modification_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "decreases_molecular_modification_of",
       "type": "SlotDefinition"
     },
     {
@@ -786,11 +786,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects",
       "domain": "MolecularEntity",
-      "owner": "affects_synthesis_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/affects_synthesis_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "affects_synthesis_of",
       "type": "SlotDefinition"
     },
     {
@@ -802,11 +802,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_synthesis_of",
       "domain": "MolecularEntity",
-      "owner": "increases_synthesis_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/increases_synthesis_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "increases_synthesis_of",
       "type": "SlotDefinition"
     },
     {
@@ -818,11 +818,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_synthesis_of",
       "domain": "MolecularEntity",
-      "owner": "decreases_synthesis_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/decreases_synthesis_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "decreases_synthesis_of",
       "type": "SlotDefinition"
     },
     {
@@ -834,11 +834,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects",
       "domain": "MolecularEntity",
-      "owner": "affects_degradation_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/affects_degradation_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "affects_degradation_of",
       "type": "SlotDefinition"
     },
     {
@@ -850,11 +850,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_degradation_of",
       "domain": "MolecularEntity",
-      "owner": "increases_degradation_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/increases_degradation_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "increases_degradation_of",
       "type": "SlotDefinition"
     },
     {
@@ -866,11 +866,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_degradation_of",
       "domain": "MolecularEntity",
-      "owner": "decreases_degradation_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/decreases_degradation_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "decreases_degradation_of",
       "type": "SlotDefinition"
     },
     {
@@ -882,11 +882,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects",
       "domain": "MolecularEntity",
-      "owner": "affects_mutation_rate_of",
       "range": "GenomicEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/affects_mutation_rate_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "affects_mutation_rate_of",
       "type": "SlotDefinition"
     },
     {
@@ -898,11 +898,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_mutation_rate_of",
       "domain": "MolecularEntity",
-      "owner": "increases_mutation_rate_of",
       "range": "GenomicEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/increases_mutation_rate_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "increases_mutation_rate_of",
       "type": "SlotDefinition"
     },
     {
@@ -914,11 +914,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_mutation_rate_of",
       "domain": "MolecularEntity",
-      "owner": "decreases_mutation_rate_of",
       "range": "GenomicEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/decreases_mutation_rate_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "decreases_mutation_rate_of",
       "type": "SlotDefinition"
     },
     {
@@ -930,11 +930,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects",
       "domain": "MolecularEntity",
-      "owner": "affects_response_to",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/affects_response_to",
       "multivalued": true,
       "inherited": true,
+      "owner": "affects_response_to",
       "type": "SlotDefinition"
     },
     {
@@ -946,11 +946,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_response_to",
       "domain": "MolecularEntity",
-      "owner": "increases_response_to",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/increases_response_to",
       "multivalued": true,
       "inherited": true,
+      "owner": "increases_response_to",
       "type": "SlotDefinition"
     },
     {
@@ -962,11 +962,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_response_to",
       "domain": "MolecularEntity",
-      "owner": "decreases_response_to",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/decreases_response_to",
       "multivalued": true,
       "inherited": true,
+      "owner": "decreases_response_to",
       "type": "SlotDefinition"
     },
     {
@@ -978,11 +978,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects",
       "domain": "MolecularEntity",
-      "owner": "affects_splicing_of",
       "range": "Transcript",
       "slot_uri": "https://w3id.org/biolink/vocab/affects_splicing_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "affects_splicing_of",
       "type": "SlotDefinition"
     },
     {
@@ -994,11 +994,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_splicing_of",
       "domain": "MolecularEntity",
-      "owner": "increases_splicing_of",
       "range": "Transcript",
       "slot_uri": "https://w3id.org/biolink/vocab/increases_splicing_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "increases_splicing_of",
       "type": "SlotDefinition"
     },
     {
@@ -1010,11 +1010,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_splicing_of",
       "domain": "MolecularEntity",
-      "owner": "decreases_splicing_of",
       "range": "Transcript",
       "slot_uri": "https://w3id.org/biolink/vocab/decreases_splicing_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "decreases_splicing_of",
       "type": "SlotDefinition"
     },
     {
@@ -1026,11 +1026,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects",
       "domain": "MolecularEntity",
-      "owner": "affects_stability_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/affects_stability_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "affects_stability_of",
       "type": "SlotDefinition"
     },
     {
@@ -1042,11 +1042,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_stability_of",
       "domain": "MolecularEntity",
-      "owner": "increases_stability_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/increases_stability_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "increases_stability_of",
       "type": "SlotDefinition"
     },
     {
@@ -1058,11 +1058,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_stability_of",
       "domain": "MolecularEntity",
-      "owner": "decreases_stability_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/decreases_stability_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "decreases_stability_of",
       "type": "SlotDefinition"
     },
     {
@@ -1074,11 +1074,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects",
       "domain": "MolecularEntity",
-      "owner": "affects_transport_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/affects_transport_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "affects_transport_of",
       "type": "SlotDefinition"
     },
     {
@@ -1090,11 +1090,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_transport_of",
       "domain": "MolecularEntity",
-      "owner": "increases_transport_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/increases_transport_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "increases_transport_of",
       "type": "SlotDefinition"
     },
     {
@@ -1106,11 +1106,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_transport_of",
       "domain": "MolecularEntity",
-      "owner": "decreases_transport_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/decreases_transport_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "decreases_transport_of",
       "type": "SlotDefinition"
     },
     {
@@ -1122,11 +1122,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects",
       "domain": "MolecularEntity",
-      "owner": "affects_secretion_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/affects_secretion_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "affects_secretion_of",
       "type": "SlotDefinition"
     },
     {
@@ -1138,11 +1138,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_secretion_of",
       "domain": "MolecularEntity",
-      "owner": "increases_secretion_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/increases_secretion_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "increases_secretion_of",
       "type": "SlotDefinition"
     },
     {
@@ -1154,11 +1154,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_secretion_of",
       "domain": "MolecularEntity",
-      "owner": "decreases_secretion_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/decreases_secretion_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "decreases_secretion_of",
       "type": "SlotDefinition"
     },
     {
@@ -1170,11 +1170,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects",
       "domain": "MolecularEntity",
-      "owner": "affects_uptake_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/affects_uptake_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "affects_uptake_of",
       "type": "SlotDefinition"
     },
     {
@@ -1186,11 +1186,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_uptake_of",
       "domain": "MolecularEntity",
-      "owner": "increases_uptake_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/increases_uptake_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "increases_uptake_of",
       "type": "SlotDefinition"
     },
     {
@@ -1202,11 +1202,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_uptake_of",
       "domain": "MolecularEntity",
-      "owner": "decreases_uptake_of",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/decreases_uptake_of",
       "multivalued": true,
       "inherited": true,
+      "owner": "decreases_uptake_of",
       "type": "SlotDefinition"
     },
     {
@@ -1222,11 +1222,11 @@
       "abstract": true,
       "mixin": true,
       "domain": "NamedThing",
-      "owner": "regulates",
       "range": "NamedThing",
       "slot_uri": "http://example.org/UNKNOWN/WD/P128",
       "multivalued": true,
       "inherited": true,
+      "owner": "regulates",
       "type": "SlotDefinition"
     },
     {
@@ -1239,11 +1239,11 @@
       "abstract": true,
       "mixin": true,
       "domain": "NamedThing",
-      "owner": "positively_regulates",
       "range": "NamedThing",
       "slot_uri": "https://w3id.org/biolink/vocab/positively_regulates",
       "multivalued": true,
       "inherited": true,
+      "owner": "positively_regulates",
       "type": "SlotDefinition"
     },
     {
@@ -1256,11 +1256,11 @@
       "abstract": true,
       "mixin": true,
       "domain": "NamedThing",
-      "owner": "negatively_regulates",
       "range": "NamedThing",
       "slot_uri": "https://w3id.org/biolink/vocab/negatively_regulates",
       "multivalued": true,
       "inherited": true,
+      "owner": "negatively_regulates",
       "type": "SlotDefinition"
     },
     {
@@ -1271,11 +1271,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "regulates",
       "domain": "Occurrent",
-      "owner": "regulates_process_to_process",
       "range": "Occurrent",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_0002211",
       "multivalued": true,
       "inherited": true,
+      "owner": "regulates_process_to_process",
       "type": "SlotDefinition"
     },
     {
@@ -1289,11 +1289,11 @@
         "positively_regulates"
       ],
       "domain": "Occurrent",
-      "owner": "positively_regulates_process_to_process",
       "range": "Occurrent",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_0002213",
       "multivalued": true,
       "inherited": true,
+      "owner": "positively_regulates_process_to_process",
       "type": "SlotDefinition"
     },
     {
@@ -1307,11 +1307,11 @@
         "negatively_regulates"
       ],
       "domain": "Occurrent",
-      "owner": "negatively_regulates_process_to_process",
       "range": "Occurrent",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_0002212",
       "multivalued": true,
       "inherited": true,
+      "owner": "negatively_regulates_process_to_process",
       "type": "SlotDefinition"
     },
     {
@@ -1340,11 +1340,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "regulates",
       "domain": "MolecularEntity",
-      "owner": "regulates_entity_to_entity",
       "range": "MolecularEntity",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_0002448",
       "multivalued": true,
       "inherited": true,
+      "owner": "regulates_entity_to_entity",
       "type": "SlotDefinition"
     },
     {
@@ -1377,11 +1377,11 @@
         "positively_regulates"
       ],
       "domain": "MolecularEntity",
-      "owner": "positively_regulates_entity_to_entity",
       "range": "MolecularEntity",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_0002450",
       "multivalued": true,
       "inherited": true,
+      "owner": "positively_regulates_entity_to_entity",
       "type": "SlotDefinition"
     },
     {
@@ -1414,11 +1414,11 @@
         "negatively_regulates"
       ],
       "domain": "MolecularEntity",
-      "owner": "negatively_regulates_entity_to_entity",
       "range": "MolecularEntity",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_0002449",
       "multivalued": true,
       "inherited": true,
+      "owner": "negatively_regulates_entity_to_entity",
       "type": "SlotDefinition"
     },
     {
@@ -1433,11 +1433,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects",
       "domain": "NamedThing",
-      "owner": "disrupts",
       "range": "NamedThing",
       "slot_uri": "http://example.org/UNKNOWN/SEMMEDDB/DISRUPTS",
       "multivalued": true,
       "inherited": true,
+      "owner": "disrupts",
       "type": "SlotDefinition"
     },
     {
@@ -1453,11 +1453,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
       "domain": "Gene",
-      "owner": "has_gene_product",
       "range": "GeneProduct",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_0002205",
       "multivalued": true,
       "inherited": true,
+      "owner": "has_gene_product",
       "type": "SlotDefinition"
     },
     {
@@ -1479,11 +1479,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
       "domain": "NamedThing",
-      "owner": "homologous_to",
       "range": "NamedThing",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_HOM0000001",
       "multivalued": true,
       "inherited": true,
+      "owner": "homologous_to",
       "type": "SlotDefinition"
     },
     {
@@ -1498,11 +1498,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "homologous_to",
       "domain": "NamedThing",
-      "owner": "paralogous_to",
       "range": "NamedThing",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_HOM0000011",
       "multivalued": true,
       "inherited": true,
+      "owner": "paralogous_to",
       "type": "SlotDefinition"
     },
     {
@@ -1518,11 +1518,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "homologous_to",
       "domain": "NamedThing",
-      "owner": "orthologous_to",
       "range": "NamedThing",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_HOM0000017",
       "multivalued": true,
       "inherited": true,
+      "owner": "orthologous_to",
       "type": "SlotDefinition"
     },
     {
@@ -1537,11 +1537,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "homologous_to",
       "domain": "NamedThing",
-      "owner": "xenologous_to",
       "range": "NamedThing",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_HOM0000018",
       "multivalued": true,
       "inherited": true,
+      "owner": "xenologous_to",
       "type": "SlotDefinition"
     },
     {
@@ -1556,11 +1556,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
       "domain": "NamedThing",
-      "owner": "coexists_with",
       "range": "NamedThing",
       "slot_uri": "http://example.org/UNKNOWN/SEMMEDDB/COEXISTS_WITH",
       "multivalued": true,
       "inherited": true,
+      "owner": "coexists_with",
       "type": "SlotDefinition"
     },
     {
@@ -1572,11 +1572,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "coexists_with",
       "domain": "GeneOrGeneProduct",
-      "owner": "in_pathway_with",
       "range": "GeneOrGeneProduct",
       "slot_uri": "https://w3id.org/biolink/vocab/in_pathway_with",
       "multivalued": true,
       "inherited": true,
+      "owner": "in_pathway_with",
       "type": "SlotDefinition"
     },
     {
@@ -1588,11 +1588,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "coexists_with",
       "domain": "GeneOrGeneProduct",
-      "owner": "in_complex_with",
       "range": "GeneOrGeneProduct",
       "slot_uri": "https://w3id.org/biolink/vocab/in_complex_with",
       "multivalued": true,
       "inherited": true,
+      "owner": "in_complex_with",
       "type": "SlotDefinition"
     },
     {
@@ -1604,11 +1604,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "coexists_with",
       "domain": "GeneOrGeneProduct",
-      "owner": "in_cell_population_with",
       "range": "GeneOrGeneProduct",
       "slot_uri": "https://w3id.org/biolink/vocab/in_cell_population_with",
       "multivalued": true,
       "inherited": true,
+      "owner": "in_cell_population_with",
       "type": "SlotDefinition"
     },
     {
@@ -1623,11 +1623,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "coexists_with",
       "domain": "NamedThing",
-      "owner": "colocalizes_with",
       "range": "NamedThing",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_00002325",
       "multivalued": true,
       "inherited": true,
+      "owner": "colocalizes_with",
       "type": "SlotDefinition"
     },
     {
@@ -1642,11 +1642,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
       "domain": "Gene",
-      "owner": "gene_associated_with_condition",
       "range": "DiseaseOrPhenotypicFeature",
       "slot_uri": "http://example.org/UNKNOWN/WD/P2293",
       "multivalued": true,
       "inherited": true,
+      "owner": "gene_associated_with_condition",
       "type": "SlotDefinition"
     },
     {
@@ -1658,11 +1658,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
       "domain": "NamedThing",
-      "owner": "affects_risk_for",
       "range": "NamedThing",
       "slot_uri": "https://w3id.org/biolink/vocab/affects_risk_for",
       "multivalued": true,
       "inherited": true,
+      "owner": "affects_risk_for",
       "type": "SlotDefinition"
     },
     {
@@ -1677,11 +1677,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_risk_for",
       "domain": "NamedThing",
-      "owner": "predisposes",
       "range": "NamedThing",
       "slot_uri": "http://example.org/UNKNOWN/SEMMEDDB/PREDISPOSES",
       "multivalued": true,
       "inherited": true,
+      "owner": "predisposes",
       "type": "SlotDefinition"
     },
     {
@@ -1696,11 +1696,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
       "domain": "NamedThing",
-      "owner": "contributes_to",
       "range": "NamedThing",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_0002326",
       "multivalued": true,
       "inherited": true,
+      "owner": "contributes_to",
       "type": "SlotDefinition"
     },
     {
@@ -1717,11 +1717,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "contributes_to",
       "domain": "NamedThing",
-      "owner": "causes",
       "range": "NamedThing",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_0002410",
       "multivalued": true,
       "inherited": true,
+      "owner": "causes",
       "type": "SlotDefinition"
     },
     {
@@ -1742,12 +1742,12 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects",
       "domain": "Treatment",
-      "owner": "treats",
       "range": "DiseaseOrPhenotypicFeature",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_0002606",
       "multivalued": true,
       "inherited": true,
       "required": true,
+      "owner": "treats",
       "inverse": "treated_by",
       "type": "SlotDefinition"
     },
@@ -1764,11 +1764,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_risk_for",
       "domain": "NamedThing",
-      "owner": "prevents",
       "range": "NamedThing",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_0002599",
       "multivalued": true,
       "inherited": true,
+      "owner": "prevents",
       "type": "SlotDefinition"
     },
     {
@@ -1783,11 +1783,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
       "domain": "DiseaseOrPhenotypicFeature",
-      "owner": "correlated_with",
       "range": "MolecularEntity",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_0002610",
       "multivalued": true,
       "inherited": true,
+      "owner": "correlated_with",
       "type": "SlotDefinition"
     },
     {
@@ -1799,11 +1799,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "correlated_with",
       "domain": "DiseaseOrPhenotypicFeature",
-      "owner": "has_biomarker",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/has_biomarker",
       "multivalued": true,
       "inherited": true,
+      "owner": "has_biomarker",
       "inverse": "biomarker_for",
       "type": "SlotDefinition"
     },
@@ -1819,11 +1819,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "correlated_with",
       "domain": "MolecularEntity",
-      "owner": "biomarker_for",
       "range": "DiseaseOrPhenotypicFeature",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_0002607",
       "multivalued": true,
       "inherited": true,
+      "owner": "biomarker_for",
       "inverse": "has_biomarker",
       "type": "SlotDefinition"
     },
@@ -1840,11 +1840,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
       "domain": "DiseaseOrPhenotypicFeature",
-      "owner": "treated_by",
       "range": "NamedThing",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_0002302",
       "multivalued": true,
       "inherited": true,
+      "owner": "treated_by",
       "inverse": "treats",
       "type": "SlotDefinition"
     },
@@ -1860,11 +1860,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
       "domain": "GeneOrGeneProduct",
-      "owner": "expressed_in",
       "range": "AnatomicalEntity",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_0002206",
       "multivalued": true,
       "inherited": true,
+      "owner": "expressed_in",
       "inverse": "expresses",
       "type": "SlotDefinition"
     },
@@ -1880,11 +1880,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
       "domain": "AnatomicalEntity",
-      "owner": "expresses",
       "range": "GeneOrGeneProduct",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_0002292",
       "multivalued": true,
       "inherited": true,
+      "owner": "expresses",
       "inverse": "expressed_in",
       "type": "SlotDefinition"
     },
@@ -1903,11 +1903,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
       "domain": "BiologicalEntity",
-      "owner": "has_phenotype",
       "range": "PhenotypicFeature",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_0002200",
       "multivalued": true,
       "inherited": true,
+      "owner": "has_phenotype",
       "type": "SlotDefinition"
     },
     {
@@ -1924,11 +1924,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
       "domain": "NamedThing",
-      "owner": "occurs_in",
       "range": "NamedThing",
       "slot_uri": "http://purl.obolibrary.org/obo/BFO_0000066",
       "multivalued": true,
       "inherited": true,
+      "owner": "occurs_in",
       "type": "SlotDefinition"
     },
     {
@@ -1943,11 +1943,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
       "domain": "NamedThing",
-      "owner": "located_in",
       "range": "NamedThing",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_0001025",
       "multivalued": true,
       "inherited": true,
+      "owner": "located_in",
       "inverse": "location_of",
       "type": "SlotDefinition"
     },
@@ -1965,11 +1965,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
       "domain": "NamedThing",
-      "owner": "location_of",
       "range": "NamedThing",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_0001015",
       "multivalued": true,
       "inherited": true,
+      "owner": "location_of",
       "inverse": "located_in",
       "type": "SlotDefinition"
     },
@@ -1985,11 +1985,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
       "domain": "NamedThing",
-      "owner": "model_of",
       "range": "NamedThing",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_0003301",
       "multivalued": true,
       "inherited": true,
+      "owner": "model_of",
       "type": "SlotDefinition"
     },
     {
@@ -2004,11 +2004,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
       "domain": "NamedThing",
-      "owner": "overlaps",
       "range": "NamedThing",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_0002131",
       "multivalued": true,
       "inherited": true,
+      "owner": "overlaps",
       "type": "SlotDefinition"
     },
     {
@@ -2024,11 +2024,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "overlaps",
       "domain": "NamedThing",
-      "owner": "has_part",
       "range": "NamedThing",
       "slot_uri": "http://purl.obolibrary.org/obo/BFO_0000051",
       "multivalued": true,
       "inherited": true,
+      "owner": "has_part",
       "inverse": "part_of",
       "type": "SlotDefinition"
     },
@@ -2046,11 +2046,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "overlaps",
       "domain": "NamedThing",
-      "owner": "part_of",
       "range": "NamedThing",
       "slot_uri": "http://purl.obolibrary.org/obo/BFO_0000050",
       "multivalued": true,
       "inherited": true,
+      "owner": "part_of",
       "inverse": "has_part",
       "type": "SlotDefinition"
     },
@@ -2067,11 +2067,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
       "domain": "Occurrent",
-      "owner": "has_participant",
       "range": "NamedThing",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_0000057",
       "multivalued": true,
       "inherited": true,
+      "owner": "has_participant",
       "inverse": "participates_in",
       "type": "SlotDefinition"
     },
@@ -2088,11 +2088,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "has_participant",
       "domain": "Occurrent",
-      "owner": "has_input",
       "range": "NamedThing",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_0002233",
       "multivalued": true,
       "inherited": true,
+      "owner": "has_input",
       "type": "SlotDefinition"
     },
     {
@@ -2107,11 +2107,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
       "domain": "NamedThing",
-      "owner": "participates_in",
       "range": "Occurrent",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_0000056",
       "multivalued": true,
       "inherited": true,
+      "owner": "participates_in",
       "inverse": "has_participant",
       "type": "SlotDefinition"
     },
@@ -2127,11 +2127,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "participates_in",
       "domain": "NamedThing",
-      "owner": "actively_involved_in",
       "range": "Occurrent",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_0002331",
       "multivalued": true,
       "inherited": true,
+      "owner": "actively_involved_in",
       "type": "SlotDefinition"
     },
     {
@@ -2146,11 +2146,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "actively_involved_in",
       "domain": "NamedThing",
-      "owner": "capable_of",
       "range": "Occurrent",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_0002215",
       "multivalued": true,
       "inherited": true,
+      "owner": "capable_of",
       "type": "SlotDefinition"
     },
     {
@@ -2166,11 +2166,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
       "domain": "NamedThing",
-      "owner": "derives_into",
       "range": "NamedThing",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_0001001",
       "multivalued": true,
       "inherited": true,
+      "owner": "derives_into",
       "inverse": "derives_from",
       "type": "SlotDefinition"
     },
@@ -2186,11 +2186,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
       "domain": "NamedThing",
-      "owner": "derives_from",
       "range": "NamedThing",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_0001000",
       "multivalued": true,
       "inherited": true,
+      "owner": "derives_from",
       "inverse": "derives_into",
       "type": "SlotDefinition"
     },
@@ -2207,11 +2207,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
       "domain": "NamedThing",
-      "owner": "manifestation_of",
       "range": "Disease",
       "slot_uri": "http://example.org/UNKNOWN/SEMMEDDB/MANIFESTATION_OF",
       "multivalued": true,
       "inherited": true,
+      "owner": "manifestation_of",
       "type": "SlotDefinition"
     },
     {
@@ -2228,11 +2228,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
       "domain": "NamedThing",
-      "owner": "produces",
       "range": "NamedThing",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_0003000",
       "multivalued": true,
       "inherited": true,
+      "owner": "produces",
       "type": "SlotDefinition"
     },
     {
@@ -2249,11 +2249,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
       "domain": "Occurrent",
-      "owner": "precedes",
       "range": "Occurrent",
       "slot_uri": "http://purl.obolibrary.org/obo/BFO_0000063",
       "multivalued": true,
       "inherited": true,
+      "owner": "precedes",
       "type": "SlotDefinition"
     },
     {
@@ -2271,11 +2271,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
       "domain": "NamedThing",
-      "owner": "same_as",
       "range": "NamedThing",
       "slot_uri": "http://www.w3.org/2002/07/owl#equivalentClass",
       "multivalued": true,
       "inherited": true,
+      "owner": "same_as",
       "type": "SlotDefinition"
     },
     {
@@ -2292,11 +2292,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
       "domain": "OntologyClass",
-      "owner": "subclass_of",
       "range": "iri_type",
       "slot_uri": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
       "multivalued": true,
       "inherited": true,
+      "owner": "subclass_of",
       "type": "SlotDefinition"
     },
     {
@@ -2304,9 +2304,9 @@
       "description": "A grouping for any property that holds between a node and a value",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "domain": "NamedThing",
-      "owner": "node_property",
       "range": "string",
       "slot_uri": "https://w3id.org/biolink/vocab/node_property",
+      "owner": "node_property",
       "type": "SlotDefinition"
     },
     {
@@ -2318,11 +2318,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
       "domain": "NamedThing",
-      "owner": "NamedThing",
       "range": "identifier_type",
       "slot_uri": "https://w3id.org/biolink/vocab/id",
       "required": true,
       "identifier": true,
+      "owner": "NamedThing",
       "type": "SlotDefinition"
     },
     {
@@ -2334,13 +2334,13 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
       "domain": "Association",
-      "owner": "Association",
       "range": "identifier_type",
       "slot_uri": "https://w3id.org/biolink/vocab/id",
       "ifabsent": "bnode",
       "required": true,
       "identifier": true,
       "alias": "id",
+      "owner": "Association",
       "type": "SlotDefinition"
     },
     {
@@ -2352,9 +2352,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
       "domain": "NamedThing",
-      "owner": "iri",
       "range": "iri_type",
       "slot_uri": "https://w3id.org/biolink/vocab/iri",
+      "owner": "iri",
       "type": "SlotDefinition"
     },
     {
@@ -2373,10 +2373,10 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
       "domain": "NamedThing",
-      "owner": "NamedThing",
       "range": "label_type",
       "slot_uri": "http://www.w3.org/2000/01/rdf-schema#label",
       "required": true,
+      "owner": "NamedThing",
       "type": "SlotDefinition"
     },
     {
@@ -2391,10 +2391,10 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
       "domain": "NamedThing",
-      "owner": "synonym",
       "range": "label_type",
       "slot_uri": "https://w3id.org/biolink/vocab/synonym",
       "multivalued": true,
+      "owner": "synonym",
       "type": "SlotDefinition"
     },
     {
@@ -2409,11 +2409,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
       "domain": "NamedThing",
-      "owner": "NamedThing",
       "range": "iri_type",
       "slot_uri": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
       "multivalued": true,
       "required": true,
+      "owner": "NamedThing",
       "is_class_field": true,
       "type": "SlotDefinition"
     },
@@ -2423,9 +2423,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
       "domain": "NamedThing",
-      "owner": "full_name",
       "range": "label_type",
       "slot_uri": "https://w3id.org/biolink/vocab/full_name",
+      "owner": "full_name",
       "type": "SlotDefinition"
     },
     {
@@ -2440,9 +2440,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
       "domain": "NamedThing",
-      "owner": "description",
       "range": "narrative_text",
       "slot_uri": "http://purl.org/dc/terms/description",
+      "owner": "description",
       "type": "SlotDefinition"
     },
     {
@@ -2451,10 +2451,10 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
       "domain": "NamedThing",
-      "owner": "systematic_synonym",
       "range": "label_type",
       "slot_uri": "https://w3id.org/biolink/vocab/systematic_synonym",
       "multivalued": true,
+      "owner": "systematic_synonym",
       "type": "SlotDefinition"
     },
     {
@@ -2467,9 +2467,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "abstract": true,
       "domain": "Association",
-      "owner": "association_slot",
       "range": "string",
       "slot_uri": "https://w3id.org/biolink/vocab/association_slot",
+      "owner": "association_slot",
       "type": "SlotDefinition"
     },
     {
@@ -2495,10 +2495,10 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "association_slot",
       "domain": "Association",
-      "owner": "Association",
       "range": "NamedThing",
       "slot_uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#subject",
       "required": true,
+      "owner": "Association",
       "type": "SlotDefinition"
     },
     {
@@ -2524,10 +2524,10 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "association_slot",
       "domain": "Association",
-      "owner": "Association",
       "range": "NamedThing",
       "slot_uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#object",
       "required": true,
+      "owner": "Association",
       "type": "SlotDefinition"
     },
     {
@@ -2539,10 +2539,10 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "association_slot",
       "domain": "Association",
-      "owner": "edge_label",
       "range": "label_type",
       "slot_uri": "https://w3id.org/biolink/vocab/edge_label",
       "required": true,
+      "owner": "edge_label",
       "type": "SlotDefinition"
     },
     {
@@ -2568,10 +2568,10 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "association_slot",
       "domain": "Association",
-      "owner": "Association",
       "range": "uriorcurie",
       "slot_uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#predicate",
       "required": true,
+      "owner": "Association",
       "type": "SlotDefinition"
     },
     {
@@ -2580,9 +2580,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "association_slot",
       "domain": "Association",
-      "owner": "Association",
       "range": "boolean",
       "slot_uri": "https://w3id.org/biolink/vocab/negated",
+      "owner": "Association",
       "type": "SlotDefinition"
     },
     {
@@ -2591,9 +2591,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "association_slot",
       "domain": "Association",
-      "owner": "has_confidence_level",
       "range": "ConfidenceLevel",
       "slot_uri": "https://w3id.org/biolink/vocab/has_confidence_level",
+      "owner": "has_confidence_level",
       "type": "SlotDefinition"
     },
     {
@@ -2605,9 +2605,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "association_slot",
       "domain": "Association",
-      "owner": "has_evidence",
       "range": "EvidenceType",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_0002558",
+      "owner": "has_evidence",
       "type": "SlotDefinition"
     },
     {
@@ -2619,9 +2619,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "association_slot",
       "domain": "Association",
-      "owner": "Association",
       "range": "Provider",
       "slot_uri": "http://purl.org/pav/providedBy",
+      "owner": "Association",
       "type": "SlotDefinition"
     },
     {
@@ -2633,9 +2633,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "association_slot",
       "domain": "Association",
-      "owner": "Association",
       "range": "OntologyClass",
       "slot_uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "owner": "Association",
       "type": "SlotDefinition"
     },
     {
@@ -2647,9 +2647,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
       "domain": "NamedThing",
-      "owner": "creation_date",
       "range": "date",
       "slot_uri": "http://purl.org/dc/terms/created",
+      "owner": "creation_date",
       "type": "SlotDefinition"
     },
     {
@@ -2658,9 +2658,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
       "domain": "NamedThing",
-      "owner": "update_date",
       "range": "date",
       "slot_uri": "https://w3id.org/biolink/vocab/update_date",
+      "owner": "update_date",
       "type": "SlotDefinition"
     },
     {
@@ -2676,11 +2676,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
       "domain": "ThingWithTaxon",
-      "owner": "ThingWithTaxon",
       "range": "OrganismTaxon",
       "slot_uri": "http://purl.obolibrary.org/obo/RO_0002162",
       "multivalued": true,
       "inherited": true,
+      "owner": "ThingWithTaxon",
       "type": "SlotDefinition"
     },
     {
@@ -2692,9 +2692,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
       "domain": "GeographicLocation",
-      "owner": "GeographicLocation",
       "range": "float",
       "slot_uri": "http://www.w3.org/2003/01/geo/wgs84_poslat",
+      "owner": "GeographicLocation",
       "type": "SlotDefinition"
     },
     {
@@ -2706,9 +2706,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
       "domain": "GeographicLocation",
-      "owner": "GeographicLocation",
       "range": "float",
       "slot_uri": "http://www.w3.org/2003/01/geo/wgs84_poslong",
+      "owner": "GeographicLocation",
       "type": "SlotDefinition"
     },
     {
@@ -2720,9 +2720,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
       "domain": "NamedThing",
-      "owner": "has_chemical_formula",
       "range": "chemical_formula_value",
       "slot_uri": "http://example.org/UNKNOWN/WD/P274",
+      "owner": "has_chemical_formula",
       "type": "SlotDefinition"
     },
     {
@@ -2731,9 +2731,9 @@
       "is_a": "node_property",
       "abstract": true,
       "domain": "NamedThing",
-      "owner": "aggregate_statistic",
       "range": "string",
       "slot_uri": "https://w3id.org/biolink/vocab/aggregate_statistic",
+      "owner": "aggregate_statistic",
       "type": "SlotDefinition"
     },
     {
@@ -2742,9 +2742,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "aggregate_statistic",
       "domain": "FrequencyQuantifier",
-      "owner": "FrequencyQuantifier",
       "range": "integer",
       "slot_uri": "https://w3id.org/biolink/vocab/has_count",
+      "owner": "FrequencyQuantifier",
       "type": "SlotDefinition"
     },
     {
@@ -2753,9 +2753,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "aggregate_statistic",
       "domain": "FrequencyQuantifier",
-      "owner": "FrequencyQuantifier",
       "range": "integer",
       "slot_uri": "https://w3id.org/biolink/vocab/has_total",
+      "owner": "FrequencyQuantifier",
       "type": "SlotDefinition"
     },
     {
@@ -2763,9 +2763,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "aggregate_statistic",
       "domain": "FrequencyQuantifier",
-      "owner": "FrequencyQuantifier",
       "range": "double",
       "slot_uri": "https://w3id.org/biolink/vocab/has_quotient",
+      "owner": "FrequencyQuantifier",
       "type": "SlotDefinition"
     },
     {
@@ -2774,9 +2774,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "aggregate_statistic",
       "domain": "FrequencyQuantifier",
-      "owner": "FrequencyQuantifier",
       "range": "double",
       "slot_uri": "https://w3id.org/biolink/vocab/has_percentage",
+      "owner": "FrequencyQuantifier",
       "type": "SlotDefinition"
     },
     {
@@ -2785,9 +2785,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
       "domain": "GeographicLocationAtTime",
-      "owner": "GeographicLocationAtTime",
       "range": "time_type",
       "slot_uri": "https://w3id.org/biolink/vocab/timepoint",
+      "owner": "GeographicLocationAtTime",
       "type": "SlotDefinition"
     },
     {
@@ -2796,9 +2796,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "association_slot",
       "domain": "GeneToExpressionSiteAssociation",
-      "owner": "stage_qualifier",
       "range": "LifeStage",
       "slot_uri": "https://w3id.org/biolink/vocab/stage_qualifier",
+      "owner": "stage_qualifier",
       "type": "SlotDefinition"
     },
     {
@@ -2807,9 +2807,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "association_slot",
       "domain": "GeneToExpressionSiteAssociation",
-      "owner": "quantifier_qualifier",
       "range": "OntologyClass",
       "slot_uri": "https://w3id.org/biolink/vocab/quantifier_qualifier",
+      "owner": "quantifier_qualifier",
       "type": "SlotDefinition"
     },
     {
@@ -2824,12 +2824,12 @@
       "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "association_slot",
-      "domain": "Association",
-      "owner": "Association",
       "singular_name": "qualifier",
+      "domain": "Association",
       "range": "OntologyClass",
       "slot_uri": "https://w3id.org/biolink/vocab/qualifiers",
       "multivalued": true,
+      "owner": "Association",
       "type": "SlotDefinition"
     },
     {
@@ -2838,9 +2838,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "association_slot",
       "domain": "FrequencyQualifierMixin",
-      "owner": "FrequencyQualifierMixin",
       "range": "FrequencyValue",
       "slot_uri": "https://w3id.org/biolink/vocab/frequency_qualifier",
+      "owner": "FrequencyQualifierMixin",
       "type": "SlotDefinition"
     },
     {
@@ -2849,9 +2849,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "association_slot",
       "domain": "EntityToFeatureOrDiseaseQualifiers",
-      "owner": "EntityToFeatureOrDiseaseQualifiers",
       "range": "SeverityValue",
       "slot_uri": "https://w3id.org/biolink/vocab/severity_qualifier",
+      "owner": "EntityToFeatureOrDiseaseQualifiers",
       "type": "SlotDefinition"
     },
     {
@@ -2860,9 +2860,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "association_slot",
       "domain": "EntityToPhenotypicFeatureAssociation",
-      "owner": "EntityToPhenotypicFeatureAssociation",
       "range": "BiologicalSex",
       "slot_uri": "https://w3id.org/biolink/vocab/sex_qualifier",
+      "owner": "EntityToPhenotypicFeatureAssociation",
       "type": "SlotDefinition"
     },
     {
@@ -2871,9 +2871,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "association_slot",
       "domain": "EntityToFeatureOrDiseaseQualifiers",
-      "owner": "EntityToFeatureOrDiseaseQualifiers",
       "range": "Onset",
       "slot_uri": "https://w3id.org/biolink/vocab/onset_qualifier",
+      "owner": "EntityToFeatureOrDiseaseQualifiers",
       "type": "SlotDefinition"
     },
     {
@@ -2882,9 +2882,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "association_slot",
       "domain": "Association",
-      "owner": "clinical_modifier_qualifier",
       "range": "ClinicalModifier",
       "slot_uri": "https://w3id.org/biolink/vocab/clinical_modifier_qualifier",
+      "owner": "clinical_modifier_qualifier",
       "type": "SlotDefinition"
     },
     {
@@ -2893,9 +2893,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "association_slot",
       "domain": "GeneHasVariantThatContributesToDiseaseAssociation",
-      "owner": "GeneHasVariantThatContributesToDiseaseAssociation",
       "range": "SequenceVariant",
       "slot_uri": "https://w3id.org/biolink/vocab/sequence_variant_qualifier",
+      "owner": "GeneHasVariantThatContributesToDiseaseAssociation",
       "type": "SlotDefinition"
     },
     {
@@ -2903,12 +2903,12 @@
       "description": "connects an association to publications supporting the association",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "association_slot",
-      "domain": "Association",
-      "owner": "Association",
       "singular_name": "publication",
+      "domain": "Association",
       "range": "Publication",
       "slot_uri": "https://w3id.org/biolink/vocab/publications",
       "multivalued": true,
+      "owner": "Association",
       "type": "SlotDefinition"
     },
     {
@@ -2917,9 +2917,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
       "domain": "GenomicEntity",
-      "owner": "GenomicEntity",
       "range": "biological_sequence",
       "slot_uri": "https://w3id.org/biolink/vocab/has_biological_sequence",
+      "owner": "GenomicEntity",
       "type": "SlotDefinition"
     },
     {
@@ -2928,11 +2928,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
       "domain": "NamedThing",
-      "owner": "has_molecular_consequence",
       "range": "OntologyClass",
       "slot_uri": "https://w3id.org/biolink/vocab/has_molecular_consequence",
       "multivalued": true,
       "inherited": true,
+      "owner": "has_molecular_consequence",
       "type": "SlotDefinition"
     },
     {
@@ -2941,9 +2941,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
       "domain": "SequenceVariant",
-      "owner": "has_gene",
       "range": "Gene",
       "slot_uri": "https://w3id.org/biolink/vocab/has_gene",
+      "owner": "has_gene",
       "type": "SlotDefinition"
     },
     {
@@ -2951,9 +2951,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
       "domain": "Genotype",
-      "owner": "Genotype",
       "range": "Zygosity",
       "slot_uri": "https://w3id.org/biolink/vocab/has_zygosity",
+      "owner": "Genotype",
       "type": "SlotDefinition"
     },
     {
@@ -2962,9 +2962,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
       "domain": "NamedThing",
-      "owner": "filler",
       "range": "NamedThing",
       "slot_uri": "https://w3id.org/biolink/vocab/filler",
+      "owner": "filler",
       "type": "SlotDefinition"
     },
     {
@@ -2973,9 +2973,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
       "domain": "GenomicSequenceLocalization",
-      "owner": "GenomicSequenceLocalization",
       "range": "string",
       "slot_uri": "https://w3id.org/biolink/vocab/phase",
+      "owner": "GenomicSequenceLocalization",
       "type": "SlotDefinition"
     },
     {
@@ -2984,9 +2984,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
       "domain": "GenomicSequenceLocalization",
-      "owner": "GenomicSequenceLocalization",
       "range": "string",
       "slot_uri": "https://w3id.org/biolink/vocab/genome_build",
+      "owner": "GenomicSequenceLocalization",
       "type": "SlotDefinition"
     },
     {
@@ -2995,9 +2995,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
       "domain": "NamedThing",
-      "owner": "interbase_coordinate",
       "range": "string",
       "slot_uri": "https://w3id.org/biolink/vocab/interbase_coordinate",
+      "owner": "interbase_coordinate",
       "type": "SlotDefinition"
     },
     {
@@ -3005,9 +3005,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "interbase_coordinate",
       "domain": "GenomicSequenceLocalization",
-      "owner": "GenomicSequenceLocalization",
       "range": "string",
       "slot_uri": "https://w3id.org/biolink/vocab/start_interbase_coordinate",
+      "owner": "GenomicSequenceLocalization",
       "type": "SlotDefinition"
     },
     {
@@ -3015,9 +3015,9 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "interbase_coordinate",
       "domain": "GenomicSequenceLocalization",
-      "owner": "GenomicSequenceLocalization",
       "range": "string",
       "slot_uri": "https://w3id.org/biolink/vocab/end_interbase_coordinate",
+      "owner": "GenomicSequenceLocalization",
       "type": "SlotDefinition"
     },
     {
@@ -3025,11 +3025,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "name",
       "domain": "MacromolecularMachine",
-      "owner": "MacromolecularMachine",
       "range": "symbol_type",
       "slot_uri": "https://w3id.org/biolink/vocab/name",
       "required": true,
       "alias": "name",
+      "owner": "MacromolecularMachine",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3038,11 +3038,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "has_gene",
       "domain": "SequenceVariant",
-      "owner": "SequenceVariant",
       "range": "Gene",
       "slot_uri": "https://w3id.org/biolink/vocab/has_gene",
       "multivalued": true,
       "alias": "has gene",
+      "owner": "SequenceVariant",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3051,10 +3051,10 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "has_biological_sequence",
       "domain": "SequenceVariant",
-      "owner": "SequenceVariant",
       "range": "biological_sequence",
       "slot_uri": "https://w3id.org/biolink/vocab/has_biological_sequence",
       "alias": "has biological sequence",
+      "owner": "SequenceVariant",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3063,12 +3063,12 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "id",
       "domain": "SequenceVariant",
-      "owner": "SequenceVariant",
       "range": "identifier_type",
       "slot_uri": "https://w3id.org/biolink/vocab/id",
       "required": true,
       "identifier": true,
       "alias": "id",
+      "owner": "SequenceVariant",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3076,11 +3076,11 @@
       "name": "drug",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "domain": "DrugExposure",
-      "owner": "drug",
       "range": "ChemicalSubstance",
       "slot_uri": "https://w3id.org/biolink/vocab/drug",
       "multivalued": true,
       "required": true,
+      "owner": "drug",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3088,11 +3088,11 @@
       "name": "has_exposure_parts",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "domain": "Treatment",
-      "owner": "has_exposure_parts",
       "range": "DrugExposure",
       "slot_uri": "https://w3id.org/biolink/vocab/has_exposure_parts",
       "multivalued": true,
       "required": true,
+      "owner": "has_exposure_parts",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3101,11 +3101,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "relation",
       "domain": "GenotypeToGenotypePartAssociation",
-      "owner": "GenotypeToGenotypePartAssociation",
       "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/vocab/relation",
       "required": true,
       "alias": "relation",
+      "owner": "GenotypeToGenotypePartAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3114,11 +3114,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "GenotypeToGenotypePartAssociation",
-      "owner": "GenotypeToGenotypePartAssociation",
       "range": "Genotype",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "GenotypeToGenotypePartAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3127,11 +3127,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "object",
       "domain": "GenotypeToGenotypePartAssociation",
-      "owner": "GenotypeToGenotypePartAssociation",
       "range": "Genotype",
       "slot_uri": "https://w3id.org/biolink/vocab/object",
       "required": true,
       "alias": "object",
+      "owner": "GenotypeToGenotypePartAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3140,11 +3140,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "relation",
       "domain": "GenotypeToGeneAssociation",
-      "owner": "GenotypeToGeneAssociation",
       "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/vocab/relation",
       "required": true,
       "alias": "relation",
+      "owner": "GenotypeToGeneAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3153,11 +3153,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "GenotypeToGeneAssociation",
-      "owner": "GenotypeToGeneAssociation",
       "range": "Genotype",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "GenotypeToGeneAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3166,11 +3166,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "object",
       "domain": "GenotypeToGeneAssociation",
-      "owner": "GenotypeToGeneAssociation",
       "range": "Gene",
       "slot_uri": "https://w3id.org/biolink/vocab/object",
       "required": true,
       "alias": "object",
+      "owner": "GenotypeToGeneAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3179,11 +3179,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "relation",
       "domain": "GenotypeToVariantAssociation",
-      "owner": "GenotypeToVariantAssociation",
       "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/vocab/relation",
       "required": true,
       "alias": "relation",
+      "owner": "GenotypeToVariantAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3192,11 +3192,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "GenotypeToVariantAssociation",
-      "owner": "GenotypeToVariantAssociation",
       "range": "Genotype",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "GenotypeToVariantAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3205,11 +3205,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "object",
       "domain": "GenotypeToVariantAssociation",
-      "owner": "GenotypeToVariantAssociation",
       "range": "SequenceVariant",
       "slot_uri": "https://w3id.org/biolink/vocab/object",
       "required": true,
       "alias": "object",
+      "owner": "GenotypeToVariantAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3218,11 +3218,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "GeneToGeneAssociation",
-      "owner": "GeneToGeneAssociation",
       "range": "GeneOrGeneProduct",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "GeneToGeneAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3231,11 +3231,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "object",
       "domain": "GeneToGeneAssociation",
-      "owner": "GeneToGeneAssociation",
       "range": "GeneOrGeneProduct",
       "slot_uri": "https://w3id.org/biolink/vocab/object",
       "required": true,
       "alias": "object",
+      "owner": "GeneToGeneAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3244,11 +3244,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "relation",
       "domain": "GeneToGeneHomologyAssociation",
-      "owner": "GeneToGeneHomologyAssociation",
       "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/vocab/relation",
       "required": true,
       "alias": "relation",
+      "owner": "GeneToGeneHomologyAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3257,11 +3257,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "PairwiseInteractionAssociation",
-      "owner": "PairwiseInteractionAssociation",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "PairwiseInteractionAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3270,13 +3270,13 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "association_id",
       "domain": "PairwiseInteractionAssociation",
-      "owner": "PairwiseInteractionAssociation",
       "range": "identifier_type",
       "slot_uri": "https://w3id.org/biolink/vocab/id",
       "ifabsent": "bnode",
       "required": true,
       "identifier": true,
       "alias": "id",
+      "owner": "PairwiseInteractionAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3285,11 +3285,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "relation",
       "domain": "PairwiseInteractionAssociation",
-      "owner": "PairwiseInteractionAssociation",
       "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/vocab/relation",
       "required": true,
       "alias": "relation",
+      "owner": "PairwiseInteractionAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3298,11 +3298,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "object",
       "domain": "PairwiseInteractionAssociation",
-      "owner": "PairwiseInteractionAssociation",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/object",
       "required": true,
       "alias": "object",
+      "owner": "PairwiseInteractionAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3310,9 +3310,9 @@
       "name": "interacting_molecules_category",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "domain": "PairwiseInteractionAssociation",
-      "owner": "interacting_molecules_category",
       "range": "OntologyClass",
       "slot_uri": "https://w3id.org/biolink/vocab/interacting_molecules_category",
+      "owner": "interacting_molecules_category",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3321,11 +3321,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "relation",
       "domain": "PairwiseGeneToGeneInteraction",
-      "owner": "PairwiseGeneToGeneInteraction",
       "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/vocab/relation",
       "required": true,
       "alias": "relation",
+      "owner": "PairwiseGeneToGeneInteraction",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3334,11 +3334,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "CellLineToThingAssociation",
-      "owner": "CellLineToThingAssociation",
       "range": "CellLine",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "CellLineToThingAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3347,11 +3347,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "CellLineToDiseaseOrPhenotypicFeatureAssociation",
-      "owner": "CellLineToDiseaseOrPhenotypicFeatureAssociation",
       "range": "DiseaseOrPhenotypicFeature",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "CellLineToDiseaseOrPhenotypicFeatureAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3360,11 +3360,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "object",
       "domain": "ThingToDiseaseOrPhenotypicFeatureAssociation",
-      "owner": "ThingToDiseaseOrPhenotypicFeatureAssociation",
       "range": "DiseaseOrPhenotypicFeature",
       "slot_uri": "https://w3id.org/biolink/vocab/object",
       "required": true,
       "alias": "object",
+      "owner": "ThingToDiseaseOrPhenotypicFeatureAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3373,11 +3373,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "ChemicalToThingAssociation",
-      "owner": "ChemicalToThingAssociation",
       "range": "ChemicalSubstance",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "ChemicalToThingAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3386,11 +3386,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "CaseToThingAssociation",
-      "owner": "CaseToThingAssociation",
       "range": "Case",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "CaseToThingAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3399,11 +3399,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "object",
       "domain": "ChemicalToDiseaseOrPhenotypicFeatureAssociation",
-      "owner": "ChemicalToDiseaseOrPhenotypicFeatureAssociation",
       "range": "DiseaseOrPhenotypicFeature",
       "slot_uri": "https://w3id.org/biolink/vocab/object",
       "required": true,
       "alias": "object",
+      "owner": "ChemicalToDiseaseOrPhenotypicFeatureAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3412,11 +3412,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "object",
       "domain": "ChemicalToPathwayAssociation",
-      "owner": "ChemicalToPathwayAssociation",
       "range": "Pathway",
       "slot_uri": "https://w3id.org/biolink/vocab/object",
       "required": true,
       "alias": "object",
+      "owner": "ChemicalToPathwayAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3425,11 +3425,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "object",
       "domain": "ChemicalToGeneAssociation",
-      "owner": "ChemicalToGeneAssociation",
       "range": "GeneOrGeneProduct",
       "slot_uri": "https://w3id.org/biolink/vocab/object",
       "required": true,
       "alias": "object",
+      "owner": "ChemicalToGeneAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3438,11 +3438,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "BiosampleToThingAssociation",
-      "owner": "BiosampleToThingAssociation",
       "range": "Biosample",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "BiosampleToThingAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3451,10 +3451,10 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "description",
       "domain": "EntityToPhenotypicFeatureAssociation",
-      "owner": "entity_to_phenotypic_feature_association_description",
       "range": "narrative_text",
       "slot_uri": "https://w3id.org/biolink/vocab/description",
       "alias": "description",
+      "owner": "entity_to_phenotypic_feature_association_description",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3463,11 +3463,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "object",
       "domain": "EntityToPhenotypicFeatureAssociation",
-      "owner": "EntityToPhenotypicFeatureAssociation",
       "range": "PhenotypicFeature",
       "slot_uri": "https://w3id.org/biolink/vocab/object",
       "required": true,
       "alias": "object",
+      "owner": "EntityToPhenotypicFeatureAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3476,11 +3476,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "object",
       "domain": "EntityToDiseaseAssociation",
-      "owner": "entity_to_disease_association_object",
       "range": "Disease",
       "slot_uri": "https://w3id.org/biolink/vocab/object",
       "required": true,
       "alias": "object",
+      "owner": "entity_to_disease_association_object",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3489,11 +3489,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "DiseaseOrPhenotypicFeatureAssociationToThingAssociation",
-      "owner": "DiseaseOrPhenotypicFeatureAssociationToThingAssociation",
       "range": "DiseaseOrPhenotypicFeature",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "DiseaseOrPhenotypicFeatureAssociationToThingAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3502,11 +3502,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "object",
       "domain": "DiseaseOrPhenotypicFeatureAssociationToLocationAssociation",
-      "owner": "DiseaseOrPhenotypicFeatureAssociationToLocationAssociation",
       "range": "AnatomicalEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/object",
       "required": true,
       "alias": "object",
+      "owner": "DiseaseOrPhenotypicFeatureAssociationToLocationAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3515,11 +3515,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "DiseaseToThingAssociation",
-      "owner": "DiseaseToThingAssociation",
       "range": "Disease",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "DiseaseToThingAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3528,11 +3528,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "relation",
       "domain": "GenotypeToPhenotypicFeatureAssociation",
-      "owner": "GenotypeToPhenotypicFeatureAssociation",
       "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/vocab/relation",
       "required": true,
       "alias": "relation",
+      "owner": "GenotypeToPhenotypicFeatureAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3541,11 +3541,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "GenotypeToPhenotypicFeatureAssociation",
-      "owner": "GenotypeToPhenotypicFeatureAssociation",
       "range": "Genotype",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "GenotypeToPhenotypicFeatureAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3554,11 +3554,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "GenotypeToThingAssociation",
-      "owner": "GenotypeToThingAssociation",
       "range": "Genotype",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "GenotypeToThingAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3567,11 +3567,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "EnvironmentToPhenotypicFeatureAssociation",
-      "owner": "EnvironmentToPhenotypicFeatureAssociation",
       "range": "Environment",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "EnvironmentToPhenotypicFeatureAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3580,11 +3580,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "GeneToThingAssociation",
-      "owner": "GeneToThingAssociation",
       "range": "GeneOrGeneProduct",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "GeneToThingAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3593,11 +3593,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "VariantToThingAssociation",
-      "owner": "VariantToThingAssociation",
       "range": "SequenceVariant",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "VariantToThingAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3606,11 +3606,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "GeneToPhenotypicFeatureAssociation",
-      "owner": "GeneToPhenotypicFeatureAssociation",
       "range": "GeneOrGeneProduct",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "GeneToPhenotypicFeatureAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3619,11 +3619,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "GeneToDiseaseAssociation",
-      "owner": "GeneToDiseaseAssociation",
       "range": "GeneOrGeneProduct",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "GeneToDiseaseAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3632,11 +3632,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "VariantToPopulationAssociation",
-      "owner": "VariantToPopulationAssociation",
       "range": "SequenceVariant",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "VariantToPopulationAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3645,11 +3645,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "object",
       "domain": "VariantToPopulationAssociation",
-      "owner": "VariantToPopulationAssociation",
       "range": "PopulationOfIndividualOrganisms",
       "slot_uri": "https://w3id.org/biolink/vocab/object",
       "required": true,
       "alias": "object",
+      "owner": "VariantToPopulationAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3658,10 +3658,10 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "has_quotient",
       "domain": "VariantToPopulationAssociation",
-      "owner": "VariantToPopulationAssociation",
       "range": "double",
       "slot_uri": "https://w3id.org/biolink/vocab/has_quotient",
       "alias": "has quotient",
+      "owner": "VariantToPopulationAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3670,10 +3670,10 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "has_count",
       "domain": "VariantToPopulationAssociation",
-      "owner": "VariantToPopulationAssociation",
       "range": "integer",
       "slot_uri": "https://w3id.org/biolink/vocab/has_count",
       "alias": "has count",
+      "owner": "VariantToPopulationAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3682,10 +3682,10 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "has_total",
       "domain": "VariantToPopulationAssociation",
-      "owner": "VariantToPopulationAssociation",
       "range": "integer",
       "slot_uri": "https://w3id.org/biolink/vocab/has_total",
       "alias": "has total",
+      "owner": "VariantToPopulationAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3694,11 +3694,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "PopulationToPopulationAssociation",
-      "owner": "PopulationToPopulationAssociation",
       "range": "PopulationOfIndividualOrganisms",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "PopulationToPopulationAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3707,11 +3707,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "object",
       "domain": "PopulationToPopulationAssociation",
-      "owner": "PopulationToPopulationAssociation",
       "range": "PopulationOfIndividualOrganisms",
       "slot_uri": "https://w3id.org/biolink/vocab/object",
       "required": true,
       "alias": "object",
+      "owner": "PopulationToPopulationAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3720,11 +3720,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "relation",
       "domain": "PopulationToPopulationAssociation",
-      "owner": "PopulationToPopulationAssociation",
       "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/vocab/relation",
       "required": true,
       "alias": "relation",
+      "owner": "PopulationToPopulationAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3733,11 +3733,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "VariantToPhenotypicFeatureAssociation",
-      "owner": "VariantToPhenotypicFeatureAssociation",
       "range": "SequenceVariant",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "VariantToPhenotypicFeatureAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3746,11 +3746,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "VariantToDiseaseAssociation",
-      "owner": "VariantToDiseaseAssociation",
       "range": "NamedThing",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "VariantToDiseaseAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3759,11 +3759,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "relation",
       "domain": "VariantToDiseaseAssociation",
-      "owner": "VariantToDiseaseAssociation",
       "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/vocab/relation",
       "required": true,
       "alias": "relation",
+      "owner": "VariantToDiseaseAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3772,11 +3772,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "object",
       "domain": "VariantToDiseaseAssociation",
-      "owner": "VariantToDiseaseAssociation",
       "range": "NamedThing",
       "slot_uri": "https://w3id.org/biolink/vocab/object",
       "required": true,
       "alias": "object",
+      "owner": "VariantToDiseaseAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3785,11 +3785,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "ModelToDiseaseMixin",
-      "owner": "model_to_disease_mixin_subject",
       "range": "NamedThing",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "model_to_disease_mixin_subject",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3798,11 +3798,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "relation",
       "domain": "ModelToDiseaseMixin",
-      "owner": "model_to_disease_mixin_relation",
       "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/vocab/relation",
       "required": true,
       "alias": "relation",
+      "owner": "model_to_disease_mixin_relation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3811,11 +3811,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "gene_to_disease_association_subject",
       "domain": "GeneAsAModelOfDiseaseAssociation",
-      "owner": "GeneAsAModelOfDiseaseAssociation",
       "range": "GeneOrGeneProduct",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "GeneAsAModelOfDiseaseAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3824,11 +3824,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "gene_to_disease_association_subject",
       "domain": "GeneHasVariantThatContributesToDiseaseAssociation",
-      "owner": "GeneHasVariantThatContributesToDiseaseAssociation",
       "range": "GeneOrGeneProduct",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "GeneHasVariantThatContributesToDiseaseAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3837,11 +3837,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "GeneToExpressionSiteAssociation",
-      "owner": "GeneToExpressionSiteAssociation",
       "range": "GeneOrGeneProduct",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "GeneToExpressionSiteAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3850,11 +3850,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "object",
       "domain": "GeneToExpressionSiteAssociation",
-      "owner": "GeneToExpressionSiteAssociation",
       "range": "AnatomicalEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/object",
       "required": true,
       "alias": "object",
+      "owner": "GeneToExpressionSiteAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3863,11 +3863,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "relation",
       "domain": "GeneToExpressionSiteAssociation",
-      "owner": "GeneToExpressionSiteAssociation",
       "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/vocab/relation",
       "required": true,
       "alias": "relation",
+      "owner": "GeneToExpressionSiteAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3876,10 +3876,10 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "stage_qualifier",
       "domain": "GeneToExpressionSiteAssociation",
-      "owner": "GeneToExpressionSiteAssociation",
       "range": "LifeStage",
       "slot_uri": "https://w3id.org/biolink/vocab/stage_qualifier",
       "alias": "stage qualifier",
+      "owner": "GeneToExpressionSiteAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3888,10 +3888,10 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "quantifier_qualifier",
       "domain": "GeneToExpressionSiteAssociation",
-      "owner": "GeneToExpressionSiteAssociation",
       "range": "OntologyClass",
       "slot_uri": "https://w3id.org/biolink/vocab/quantifier_qualifier",
       "alias": "quantifier qualifier",
+      "owner": "GeneToExpressionSiteAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3900,11 +3900,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "SequenceVariantModulatesTreatmentAssociation",
-      "owner": "SequenceVariantModulatesTreatmentAssociation",
       "range": "SequenceVariant",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "SequenceVariantModulatesTreatmentAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3913,11 +3913,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "object",
       "domain": "SequenceVariantModulatesTreatmentAssociation",
-      "owner": "SequenceVariantModulatesTreatmentAssociation",
       "range": "Treatment",
       "slot_uri": "https://w3id.org/biolink/vocab/object",
       "required": true,
       "alias": "object",
+      "owner": "SequenceVariantModulatesTreatmentAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3926,11 +3926,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "FunctionalAssociation",
-      "owner": "FunctionalAssociation",
       "range": "MacromolecularMachine",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "FunctionalAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3939,11 +3939,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "object",
       "domain": "FunctionalAssociation",
-      "owner": "FunctionalAssociation",
       "range": "GeneOntologyClass",
       "slot_uri": "https://w3id.org/biolink/vocab/object",
       "required": true,
       "alias": "object",
+      "owner": "FunctionalAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3952,11 +3952,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "functional_association_object",
       "domain": "MacromolecularMachineToMolecularActivityAssociation",
-      "owner": "MacromolecularMachineToMolecularActivityAssociation",
       "range": "MolecularActivity",
       "slot_uri": "https://w3id.org/biolink/vocab/object",
       "required": true,
       "alias": "object",
+      "owner": "MacromolecularMachineToMolecularActivityAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3965,11 +3965,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "functional_association_object",
       "domain": "MacromolecularMachineToBiologicalProcessAssociation",
-      "owner": "MacromolecularMachineToBiologicalProcessAssociation",
       "range": "BiologicalProcess",
       "slot_uri": "https://w3id.org/biolink/vocab/object",
       "required": true,
       "alias": "object",
+      "owner": "MacromolecularMachineToBiologicalProcessAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3978,11 +3978,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "functional_association_object",
       "domain": "MacromolecularMachineToCellularComponentAssociation",
-      "owner": "MacromolecularMachineToCellularComponentAssociation",
       "range": "CellularComponent",
       "slot_uri": "https://w3id.org/biolink/vocab/object",
       "required": true,
       "alias": "object",
+      "owner": "MacromolecularMachineToCellularComponentAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3991,11 +3991,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "functional_association_subject",
       "domain": "GeneToGoTermAssociation",
-      "owner": "GeneToGoTermAssociation",
       "range": "MolecularEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "GeneToGoTermAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4004,11 +4004,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "functional_association_object",
       "domain": "GeneToGoTermAssociation",
-      "owner": "GeneToGoTermAssociation",
       "range": "GeneOntologyClass",
       "slot_uri": "https://w3id.org/biolink/vocab/object",
       "required": true,
       "alias": "object",
+      "owner": "GeneToGoTermAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4017,11 +4017,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "GenomicSequenceLocalization",
-      "owner": "GenomicSequenceLocalization",
       "range": "GenomicEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "GenomicSequenceLocalization",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4030,11 +4030,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "object",
       "domain": "GenomicSequenceLocalization",
-      "owner": "GenomicSequenceLocalization",
       "range": "GenomicEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/object",
       "required": true,
       "alias": "object",
+      "owner": "GenomicSequenceLocalization",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4043,11 +4043,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "SequenceFeatureRelationship",
-      "owner": "SequenceFeatureRelationship",
       "range": "GenomicEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "SequenceFeatureRelationship",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4056,11 +4056,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "object",
       "domain": "SequenceFeatureRelationship",
-      "owner": "SequenceFeatureRelationship",
       "range": "GenomicEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/object",
       "required": true,
       "alias": "object",
+      "owner": "SequenceFeatureRelationship",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4069,11 +4069,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "sequence_feature_relationship_subject",
       "domain": "TranscriptToGeneRelationship",
-      "owner": "TranscriptToGeneRelationship",
       "range": "Transcript",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "TranscriptToGeneRelationship",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4082,11 +4082,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "sequence_feature_relationship_object",
       "domain": "TranscriptToGeneRelationship",
-      "owner": "TranscriptToGeneRelationship",
       "range": "Gene",
       "slot_uri": "https://w3id.org/biolink/vocab/object",
       "required": true,
       "alias": "object",
+      "owner": "TranscriptToGeneRelationship",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4095,11 +4095,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "sequence_feature_relationship_subject",
       "domain": "GeneToGeneProductRelationship",
-      "owner": "GeneToGeneProductRelationship",
       "range": "Gene",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "GeneToGeneProductRelationship",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4108,11 +4108,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "sequence_feature_relationship_object",
       "domain": "GeneToGeneProductRelationship",
-      "owner": "GeneToGeneProductRelationship",
       "range": "GeneProduct",
       "slot_uri": "https://w3id.org/biolink/vocab/object",
       "required": true,
       "alias": "object",
+      "owner": "GeneToGeneProductRelationship",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4121,11 +4121,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "relation",
       "domain": "GeneToGeneProductRelationship",
-      "owner": "GeneToGeneProductRelationship",
       "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/vocab/relation",
       "required": true,
       "alias": "relation",
+      "owner": "GeneToGeneProductRelationship",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4134,11 +4134,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "sequence_feature_relationship_subject",
       "domain": "ExonToTranscriptRelationship",
-      "owner": "ExonToTranscriptRelationship",
       "range": "Exon",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "ExonToTranscriptRelationship",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4147,11 +4147,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "sequence_feature_relationship_object",
       "domain": "ExonToTranscriptRelationship",
-      "owner": "ExonToTranscriptRelationship",
       "range": "Transcript",
       "slot_uri": "https://w3id.org/biolink/vocab/object",
       "required": true,
       "alias": "object",
+      "owner": "ExonToTranscriptRelationship",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4160,11 +4160,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "relation",
       "domain": "GeneRegulatoryRelationship",
-      "owner": "GeneRegulatoryRelationship",
       "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/vocab/relation",
       "required": true,
       "alias": "relation",
+      "owner": "GeneRegulatoryRelationship",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4173,11 +4173,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "GeneRegulatoryRelationship",
-      "owner": "GeneRegulatoryRelationship",
       "range": "GeneOrGeneProduct",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "GeneRegulatoryRelationship",
       "role": "regulatory gene",
       "is_usage_slot": true,
       "type": "SlotDefinition"
@@ -4187,11 +4187,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "object",
       "domain": "GeneRegulatoryRelationship",
-      "owner": "GeneRegulatoryRelationship",
       "range": "GeneOrGeneProduct",
       "slot_uri": "https://w3id.org/biolink/vocab/object",
       "required": true,
       "alias": "object",
+      "owner": "GeneRegulatoryRelationship",
       "role": "regulated gene",
       "is_usage_slot": true,
       "type": "SlotDefinition"
@@ -4201,11 +4201,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "AnatomicalEntityToAnatomicalEntityAssociation",
-      "owner": "AnatomicalEntityToAnatomicalEntityAssociation",
       "range": "AnatomicalEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "AnatomicalEntityToAnatomicalEntityAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4214,11 +4214,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "object",
       "domain": "AnatomicalEntityToAnatomicalEntityAssociation",
-      "owner": "AnatomicalEntityToAnatomicalEntityAssociation",
       "range": "AnatomicalEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/object",
       "required": true,
       "alias": "object",
+      "owner": "AnatomicalEntityToAnatomicalEntityAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4227,11 +4227,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "anatomical_entity_to_anatomical_entity_association_subject",
       "domain": "AnatomicalEntityToAnatomicalEntityPartOfAssociation",
-      "owner": "AnatomicalEntityToAnatomicalEntityPartOfAssociation",
       "range": "AnatomicalEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "AnatomicalEntityToAnatomicalEntityPartOfAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4240,11 +4240,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "anatomical_entity_to_anatomical_entity_association_object",
       "domain": "AnatomicalEntityToAnatomicalEntityPartOfAssociation",
-      "owner": "AnatomicalEntityToAnatomicalEntityPartOfAssociation",
       "range": "AnatomicalEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/object",
       "required": true,
       "alias": "object",
+      "owner": "AnatomicalEntityToAnatomicalEntityPartOfAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4253,11 +4253,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "relation",
       "domain": "AnatomicalEntityToAnatomicalEntityPartOfAssociation",
-      "owner": "AnatomicalEntityToAnatomicalEntityPartOfAssociation",
       "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/vocab/relation",
       "required": true,
       "alias": "relation",
+      "owner": "AnatomicalEntityToAnatomicalEntityPartOfAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4266,11 +4266,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "anatomical_entity_to_anatomical_entity_association_subject",
       "domain": "AnatomicalEntityToAnatomicalEntityOntogenicAssociation",
-      "owner": "AnatomicalEntityToAnatomicalEntityOntogenicAssociation",
       "range": "AnatomicalEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
+      "owner": "AnatomicalEntityToAnatomicalEntityOntogenicAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4279,11 +4279,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "anatomical_entity_to_anatomical_entity_association_object",
       "domain": "AnatomicalEntityToAnatomicalEntityOntogenicAssociation",
-      "owner": "AnatomicalEntityToAnatomicalEntityOntogenicAssociation",
       "range": "AnatomicalEntity",
       "slot_uri": "https://w3id.org/biolink/vocab/object",
       "required": true,
       "alias": "object",
+      "owner": "AnatomicalEntityToAnatomicalEntityOntogenicAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4292,11 +4292,11 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "relation",
       "domain": "AnatomicalEntityToAnatomicalEntityOntogenicAssociation",
-      "owner": "AnatomicalEntityToAnatomicalEntityOntogenicAssociation",
       "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/vocab/relation",
       "required": true,
       "alias": "relation",
+      "owner": "AnatomicalEntityToAnatomicalEntityOntogenicAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     }
@@ -10041,7 +10041,7 @@
       "type": "ClassDefinition"
     }
   ],
-  "metamodel_version": "1.4.0",
+  "metamodel_version": "1.4.1",
   "source_file": "biolink-model.yaml",
   "source_file_date": "2019-01-01-12:00",
   "source_file_size": 107142,

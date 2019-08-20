@@ -155,7 +155,7 @@ metatype:Nodeidentifier NONLITERAL
           <mixins> @<SlotDefinition> * ;
           <apply_to> @<SlotDefinition> * ;
           <singular_name> @metatype:String ? ;
-          <domain> @<ClassDefinition> ;
+          <domain> @<ClassDefinition> ? ;
           <range> @<Element> ? ;
           <slot_uri> @metatype:Uriorcurie ? ;
           <multivalued> @metatype:Boolean ? ;
@@ -167,7 +167,7 @@ metatype:Nodeidentifier NONLITERAL
           <key> @metatype:Boolean ? ;
           <identifier> @metatype:Boolean ? ;
           <alias> @metatype:String ? ;
-          <owner> @<Definition> ;
+          <owner> @<Definition> ? ;
           <subproperty_of> @metatype:Uriorcurie ? ;
           <symmetric> @metatype:Boolean ? ;
           <inverse> @<SlotDefinition> ? ;

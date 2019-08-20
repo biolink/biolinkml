@@ -14,7 +14,7 @@ from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace, URIRef
 from biolinkml.utils.metamodelcore import Bool, ElementIdentifier, NCName, NodeIdentifier, URI, URIorCURIE, XSDDate, XSDDateTime, XSDTime
 
-metamodel_version = "1.4.0"
+metamodel_version = "1.4.1"
 
 
 # Namespaces

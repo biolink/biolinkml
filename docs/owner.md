@@ -8,7 +8,7 @@ URI: [meta:owner](https://w3id.org/biolink/biolinkml/meta/owner)
 
 ## Domain and Range
 
-[SlotDefinition](SlotDefinition.md) ->  <sub>REQ</sub> [Definition](Definition.md)
+[SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [Definition](Definition.md)
 
 ## Parents
 

@@ -1,5 +1,5 @@
 # Auto generated from None by pythongen.py version: 0.2.1
-# Generation date: 2019-08-19 15:57
+# Generation date: 2019-08-20 09:00
 # Schema: synopsis2
 #
 # id: http://example.org/sample/example1
@@ -14,7 +14,7 @@ from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace, URIRef
 from biolinkml.utils.metamodelcore import Bool
 
-metamodel_version = "1.4.0"
+metamodel_version = "1.4.1"
 
 
 # Namespaces
@@ -75,8 +75,12 @@ class Person(YAMLRoot):
     knows: List[Union[str, PersonId]] = empty_list()
 
     def __post_init__(self):
-        if not isinstance(self.id, PersonId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if self.id is not None and not isinstance(self.id, PersonId):
             self.id = PersonId(self.id)
+        if self.last_name is None:
+            raise ValueError(f"last_name must be supplied")
         self.knows = [v if isinstance(v, PersonId)
                       else PersonId(v) for v in self.knows]
         super().__post_init__()
@@ -99,8 +103,12 @@ class FriendlyPerson(Person):
     knows: List[Union[str, PersonId]] = empty_list()
 
     def __post_init__(self):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
         if self.id is not None and not isinstance(self.id, FriendlyPersonId):
             self.id = FriendlyPersonId(self.id)
+        if not isinstance(self.knows, list) or len(self.knows) == 0:
+            raise ValueError(f"knows must be a non-empty list")
         self.knows = [v if isinstance(v, PersonId)
                       else PersonId(v) for v in self.knows]
         super().__post_init__()
@@ -111,7 +119,7 @@ class FriendlyPerson(Person):
 http://yuml.me/diagram/nofunky;dir:TB/class/[Person]<knows 0..*- [Person|id:string;first_name:string *;last_name:string;age:int %3F;living:boolean %3F], [FriendlyPerson|id(i):string;first_name(i):string *;last_name(i):string;age(i):int %3F;living(i):boolean %3F]- knows 1..*>[Person], [Person]^-[FriendlyPerson]
 
 {
-   "_comments": "Auto generated from None by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2019-08-19 15:57\nSchema: synopsis2\n\nid: http://example.org/sample/example1\ndescription: \nlicense: \n",
+   "_comments": "Auto generated from None by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2019-08-20 09:00\nSchema: synopsis2\n\nid: http://example.org/sample/example1\ndescription: \nlicense: \n",
    "@context": {
       "_comments": null,
       "type": "@type",
@@ -187,7 +195,7 @@ Person(id='42', last_name='smith', first_name=['Joe', 'Bob'], age=43, living=Non
    "living": null,
    "knows": [],
    "type": "Person",
-   "_comments": "Auto generated from None by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2019-08-19 15:57\nSchema: synopsis2\n\nid: http://example.org/sample/example1\ndescription: \nlicense: \n",
+   "_comments": "Auto generated from None by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2019-08-20 09:00\nSchema: synopsis2\n\nid: http://example.org/sample/example1\ndescription: \nlicense: \n",
    "@context": {
       "_comments": null,
       "type": "@type",

@@ -6,7 +6,7 @@ the definition of a property or a slot
 
 URI: [meta:SlotDefinition](https://w3id.org/biolink/biolinkml/meta/SlotDefinition)
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[SubsetDefinition]<in_subset(i)%200..*-%20\[SlotDefinition|singular_name:string%20%3F;slot_uri:uriorcurie%20%3F;multivalued:boolean%20%3F;inherited:boolean%20%3F;readonly:string%20%3F;ifabsent:string%20%3F;required:boolean%20%3F;inlined:boolean%20%3F;key:boolean%20%3F;identifier:boolean%20%3F;alias:string%20%3F;subproperty_of:uriorcurie%20%3F;symmetric:boolean%20%3F;is_class_field:boolean%20%3F;role:string%20%3F;is_usage_slot:boolean%20%3F;abstract(i):boolean%20%3F;mixin(i):boolean%20%3F;values_from(i):uriorcurie%20*;id_prefixes(i):ncname%20*;name(pk)(i):string;aliases(i):string%20*;mappings(i):uriorcurie%20*;description(i):string%20%3F;deprecated(i):string%20%3F;todos(i):string%20*;notes(i):string%20*;comments(i):string%20*;from_schema(i):uri%20%3F;imported_from(i):string%20%3F;see_also(i):uriorcurie%20*],%20\[Example]<examples(i)%200..*-++\[SlotDefinition],%20\[AltDescription]<alt_descriptions(i)%200..*-++\[SlotDefinition],%20\[LocalName]<local_names(i)%200..*-++\[SlotDefinition],%20\[SlotDefinition]<inverse%200..1-%20\[SlotDefinition],%20\[Definition]<owner%201..1-%20\[SlotDefinition],%20\[Element]<range%200..1-%20\[SlotDefinition],%20\[ClassDefinition]<domain%201..1-%20\[SlotDefinition],%20\[SlotDefinition]<apply_to%200..*-%20\[SlotDefinition],%20\[SlotDefinition]<mixins%200..*-%20\[SlotDefinition],%20\[SlotDefinition]<is_a%200..1-%20\[SlotDefinition],%20\[ClassDefinition]-%20defining_slots%200..*>\[SlotDefinition],%20\[SchemaDefinition]++-%20slots%200..*>\[SlotDefinition],%20\[ClassDefinition]++-%20slot_usage%200..*>\[SlotDefinition],%20\[ClassDefinition]-%20slots%200..*>\[SlotDefinition],%20\[Definition]^-\[SlotDefinition])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[SubsetDefinition]<in_subset(i)%200..*-%20\[SlotDefinition|singular_name:string%20%3F;slot_uri:uriorcurie%20%3F;multivalued:boolean%20%3F;inherited:boolean%20%3F;readonly:string%20%3F;ifabsent:string%20%3F;required:boolean%20%3F;inlined:boolean%20%3F;key:boolean%20%3F;identifier:boolean%20%3F;alias:string%20%3F;subproperty_of:uriorcurie%20%3F;symmetric:boolean%20%3F;is_class_field:boolean%20%3F;role:string%20%3F;is_usage_slot:boolean%20%3F;abstract(i):boolean%20%3F;mixin(i):boolean%20%3F;values_from(i):uriorcurie%20*;id_prefixes(i):ncname%20*;name(pk)(i):string;aliases(i):string%20*;mappings(i):uriorcurie%20*;description(i):string%20%3F;deprecated(i):string%20%3F;todos(i):string%20*;notes(i):string%20*;comments(i):string%20*;from_schema(i):uri%20%3F;imported_from(i):string%20%3F;see_also(i):uriorcurie%20*],%20\[Example]<examples(i)%200..*-++\[SlotDefinition],%20\[AltDescription]<alt_descriptions(i)%200..*-++\[SlotDefinition],%20\[LocalName]<local_names(i)%200..*-++\[SlotDefinition],%20\[SlotDefinition]<inverse%200..1-%20\[SlotDefinition],%20\[Definition]<owner%200..1-%20\[SlotDefinition],%20\[Element]<range%200..1-%20\[SlotDefinition],%20\[ClassDefinition]<domain%200..1-%20\[SlotDefinition],%20\[SlotDefinition]<apply_to%200..*-%20\[SlotDefinition],%20\[SlotDefinition]<mixins%200..*-%20\[SlotDefinition],%20\[SlotDefinition]<is_a%200..1-%20\[SlotDefinition],%20\[ClassDefinition]-%20defining_slots%200..*>\[SlotDefinition],%20\[SchemaDefinition]++-%20slots%200..*>\[SlotDefinition],%20\[ClassDefinition]++-%20slot_usage%200..*>\[SlotDefinition],%20\[ClassDefinition]-%20slots%200..*>\[SlotDefinition],%20\[Definition]^-\[SlotDefinition])
 
 ## Parents
 
@@ -31,7 +31,7 @@ URI: [meta:SlotDefinition](https://w3id.org/biolink/biolinkml/meta/SlotDefinitio
  * [alias](alias.md)  <sub>OPT</sub>
     * Description: the name used for a slot in the context of its owning class.  If present, this is used instead of the actual slot name.
     * range: [String](String.md)
- * [domain](domain.md)  <sub>REQ</sub>
+ * [domain](domain.md)  <sub>OPT</sub>
     * Description: defines the type of the subject of the slot.  Given the following slot definition
   S1:
     domain: C1
@@ -79,7 +79,7 @@ implicitly asserts that X is an instance of C1
  * [multivalued](multivalued.md)  <sub>OPT</sub>
     * Description: true means that slot can have more than one value
     * range: [Boolean](Boolean.md)
- * [owner](owner.md)  <sub>REQ</sub>
+ * [owner](owner.md)  <sub>OPT</sub>
     * Description: the "owner" of the slot. It is the class if it appears in the slots list, otherwise the declaring slot
     * range: [Definition](Definition.md)
  * [range](range.md)  <sub>OPT</sub>
@@ -229,7 +229,7 @@ implicitly asserts Y is an instance of C2
  * [alias](alias.md)  <sub>OPT</sub>
     * Description: the name used for a slot in the context of its owning class.  If present, this is used instead of the actual slot name.
     * range: [String](String.md)
- * [domain](domain.md)  <sub>REQ</sub>
+ * [domain](domain.md)  <sub>OPT</sub>
     * Description: defines the type of the subject of the slot.  Given the following slot definition
   S1:
     domain: C1
@@ -277,7 +277,7 @@ implicitly asserts that X is an instance of C1
  * [multivalued](multivalued.md)  <sub>OPT</sub>
     * Description: true means that slot can have more than one value
     * range: [Boolean](Boolean.md)
- * [owner](owner.md)  <sub>REQ</sub>
+ * [owner](owner.md)  <sub>OPT</sub>
     * Description: the "owner" of the slot. It is the class if it appears in the slots list, otherwise the declaring slot
     * range: [Definition](Definition.md)
  * [range](range.md)  <sub>OPT</sub>
