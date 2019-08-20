@@ -67,7 +67,7 @@ class Identifier(str):
     def is_valid(cls, v: Union[str, URIRef, BNode, "URIorCURIE", "Identifier"]) -> bool:
         if v.startswith('_:'):
             pfx, ln = v.split(':')
-            return len(ln) == 1 and bool(Curie.term_name.match(ln))
+            return len(ln) == 1 or bool(Curie.term_name.match(ln))
         else:
             return URIorCURIE.is_valid(v)
 

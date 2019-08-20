@@ -118,7 +118,14 @@ class DupCheckYamlLoader(yaml.loader.SafeLoader):
         return mapping
 
 
-def as_rdf(schema: YAMLRoot, context_loc: Optional[Union[str, JsonObj]] = None) -> Graph:
+def as_rdf(element: YAMLRoot, context_loc: Optional[Union[str, JsonObj]] = None, graph: Optional[Graph] = None) -> Graph:
+    """Return RDF rendering of element
+
+    :param element: Biolink python representation of biolink element
+    :param context_loc: json-ld context location
+    :param graph: Optional graph to load RDF into.  If absent, new graph is created
+    :return: graph containing element in RDF
+    """
     if context_loc is not None:
         if isinstance(context_loc, str):
             if context_loc.strip().startswith('{'):
@@ -129,7 +136,8 @@ def as_rdf(schema: YAMLRoot, context_loc: Optional[Union[str, JsonObj]] = None) 
             context = context_loc
     else:
         context = None
-    jsonld = as_json_object(schema, context)
-    graph = Graph()
+    jsonld = as_json_object(element, context)
+    if graph is None:
+        graph = Graph()
     graph.parse(data=as_json(jsonld), format="json-ld")
     return graph
