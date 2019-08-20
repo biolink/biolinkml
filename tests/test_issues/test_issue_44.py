@@ -1,0 +1,27 @@
+import os
+import unittest
+
+from biolinkml.generators.pythongen import PythonGenerator
+
+sourcedir = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'source')
+outputdir = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'output')
+
+
+class Issue44UnitTest(unittest.TestCase):
+    def test_multiple_postinit(self):
+        """ Generate postinit code for a multi-occurring element """
+        python = PythonGenerator(os.path.join(sourcedir, 'issue_44.yaml'), emit_metadata=False).serialize()
+        os.makedirs(outputdir, exist_ok=True)
+        outfile = os.path.join(outputdir, 'issue_44.py')
+        if not os.path.exists(outfile):
+            with open(outfile, 'w') as f:
+                f.write(python)
+            self.fail(f"Writing {outfile} - rerun test")
+        else:
+            with open(outfile) as f:
+                old_python = f.read()
+        self.assertEqual(old_python, python, "Remove {outfile} to update target")
+
+
+if __name__ == '__main__':
+    unittest.main()

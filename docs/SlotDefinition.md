@@ -54,7 +54,6 @@ implicitly asserts that X is an instance of C1
   * str(value) -- string value
   * default_range -- schema default range
   * bnode -- blank node identifier
-  * class_uri -- URI for the containing class
   * slot_uri -- URI for the slot
   * class_curie -- CURIE for the containing class
   * class_uri -- URI for the containing class
@@ -253,7 +252,6 @@ implicitly asserts that X is an instance of C1
   * str(value) -- string value
   * default_range -- schema default range
   * bnode -- blank node identifier
-  * class_uri -- URI for the containing class
   * slot_uri -- URI for the slot
   * class_curie -- CURIE for the containing class
   * class_uri -- URI for the containing class

@@ -9,7 +9,6 @@ function that provides a default value for the slot.  Possible values for this s
   * str(value) -- string value
   * default_range -- schema default range
   * bnode -- blank node identifier
-  * class_uri -- URI for the containing class
   * slot_uri -- URI for the slot
   * class_curie -- CURIE for the containing class
   * class_uri -- URI for the containing class

@@ -1,6 +1,21 @@
 CHANGES
 =======
 
+v1.4.4
+------
+
+* Add test outputs
+* Fix issue #41
+
+v1.4.3
+------
+
+* Hard code biolink.model path for python import
+* Fix Issue #39
+* Fix Issue #38
+* Remove all native contexts except in the biolink model
+* Add biolink-model contextn.jsonld test case
+
 v1.4.2
 ------
 

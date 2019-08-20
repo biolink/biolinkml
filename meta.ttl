@@ -39,7 +39,7 @@
         "rdfs",
         "skos",
         "xsd" ;
-    :generation_date "2019-07-17 12:56"^^xsd:dateTime ;
+    :generation_date "2019-08-19 15:32"^^xsd:dateTime ;
     :id <https://w3id.org/biolink/biolinkml/meta> ;
     :imports <https://w3id.org/biolink/biolinkml/meta/includes/types> ;
     :metamodel_version "1.4.0" ;
@@ -47,16 +47,16 @@
             :prefix_reference : ],
         [ :prefix_prefix "metatype" ;
             :prefix_reference metatype: ],
-        [ :prefix_prefix "OIO" ;
-            :prefix_reference OIO: ],
         [ :prefix_prefix "xsd" ;
             :prefix_reference xsd: ],
         [ :prefix_prefix "pav" ;
             :prefix_reference pav: ],
-        [ :prefix_prefix "shex" ;
-            :prefix_reference shex: ],
+        [ :prefix_prefix "OIO" ;
+            :prefix_reference OIO: ],
         [ :prefix_prefix "skos" ;
-            :prefix_reference skos: ] ;
+            :prefix_reference skos: ],
+        [ :prefix_prefix "shex" ;
+            :prefix_reference shex: ] ;
     :slots :abstract,
         :alias,
         :aliases,
@@ -143,8 +143,8 @@
         :values_from,
         :version ;
     :source_file "meta.yaml" ;
-    :source_file_date "Thu Jul 11 10:41:27 2019"^^xsd:dateTime ;
-    :source_file_size 23434 ;
+    :source_file_date "Thu Aug 15 16:28:18 2019"^^xsd:dateTime ;
+    :source_file_size 23382 ;
     :subsets :owl ;
     :types :boolean,
         :date,
@@ -567,7 +567,6 @@ implicitly asserts that X is an instance of C1
   * str(value) -- string value
   * default_range -- schema default range
   * bnode -- blank node identifier
-  * class_uri -- URI for the containing class
   * slot_uri -- URI for the slot
   * class_curie -- CURIE for the containing class
   * class_uri -- URI for the containing class""" ;

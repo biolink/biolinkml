@@ -84,6 +84,8 @@ class Attribute(YAMLRoot):
     id: Union[str, AttributeId]
 
     def __post_init__(self):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
         if not isinstance(self.id, AttributeId):
             self.id = AttributeId(self.id)
         super().__post_init__()
@@ -101,7 +103,7 @@ class BiologicalSex(Attribute):
     id: Union[str, BiologicalSexId] = None
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, BiologicalSexId):
+        if not isinstance(self.id, BiologicalSexId):
             self.id = BiologicalSexId(self.id)
         super().__post_init__()
 
@@ -121,7 +123,7 @@ class OntologyClass(NamedThing):
     id: Union[str, OntologyClassId] = None
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, OntologyClassId):
+        if not isinstance(self.id, OntologyClassId):
             self.id = OntologyClassId(self.id)
         super().__post_init__()
 
@@ -142,6 +144,8 @@ class NamedThing(YAMLRoot):
     name: Optional[Union[str, LabelType]] = None
 
     def __post_init__(self):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
         if not isinstance(self.id, NamedThingId):
             self.id = NamedThingId(self.id)
         if self.name is not None and not isinstance(self.name, LabelType):
