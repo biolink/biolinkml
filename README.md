@@ -1,15 +1,20 @@
 [![Build Status](https://travis-ci.org/biolink/biolinkml.svg?branch=master)](https://travis-ci.org/biolink/biolinkml)
 
 [Binder Link](https://mybinder.org/v2/gh/biolink/biolinkml/master?filepath=notebooks)
+
 # biolinkml - biolink modeling language
+
+biolinkml is a general purpose modeling language following object-oriented and ontological principles. Models are authored in YAML. A variety of artefacts can be generated from the model, including ShEx, JSON-Schema, OWL, Python dataclasses, UML diagrams, Markdown pages for deployment in a GitHub pages site, and more.
+
+biolinkml is used for development of the [BioLink Model](https://biolink.github.io/biolink-model), but the framework is general purpose and can be used for any kind of modeling.
 
 Quickstart docs:
 
- * Browse the model: [https://biolink.github.io/biolinkml](https://biolink.github.io/biolinkml/docs)
-    * [class definition](https://biolink.github.io/docs/biolinkml/ClassDefinition) Class definitions
-    * [slot definition](https://biolink.github.io/ddocs/SlotDefinition) Class properties
-    * [type definition](https://biolink.github.io/ddocs/TypeDefinition) Data types
-    * [schema ddefinition](https://biolink.github.io/ddocs/SchemaDefinition) Schema definition
+ * Browse the model: [https://biolink.github.io/biolinkml/docs](https://biolink.github.io/biolinkml/docs)
+    * [class definition](https://biolink.github.io/biolinkml/docs/ClassDefinition) Class definitions
+    * [slot definition](https://biolink.github.io/biolinkml/docs/SlotDefinition) Class properties
+    * [type definition](https://biolink.github.io/biolinkml/docs/TypeDefinition) Data types
+    * [schema ddefinition](https://biolink.github.io/biolinkml/docs/SchemaDefinition) Schema definition
 
 For an example, see the [Jupyter notebook example](https://github.com/biolink/biolinkml/blob/master/notebooks/examples.ipynb)
 
