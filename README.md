@@ -11,7 +11,7 @@ Quickstart docs:
     * [type definition](docs/TypeDefinition.html) Data types
     * [schema ddefinition](docs/SchemaDefinition.html) Schema definition
 
-
+For an example, see the [Jupyter notebook example](https://github.com/biolink/biolinkml/blob/master/notebooks/examples.ipynb)
 
 ## Installation
 ```bash
