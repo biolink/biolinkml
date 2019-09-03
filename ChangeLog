@@ -1,6 +1,18 @@
 CHANGES
 =======
 
+v1.4.6
+------
+
+* Allow graph to be passed into yaml to\_rdf function.  Fixed bnode validation bug in metmodelcore
+
+v1.4.5
+------
+
+* Fix for issue #44
+* More test files
+* Update (minor) test output changes for issue 41
+
 v1.4.4
 ------
 
