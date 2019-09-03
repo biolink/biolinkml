@@ -5,11 +5,11 @@
 
 Quickstart docs:
 
- * Browse the model: [https://biolink.github.io/biolinkml](https://biolink.github.io/biolikml)
-    * [class definition](docs/ClassDefinition.html) Class definitions
-    * [slot definition](docs/SlotDefinition.html) Class properties
-    * [type definition](docs/TypeDefinition.html) Data types
-    * [schema ddefinition](docs/SchemaDefinition.html) Schema definition
+ * Browse the model: [https://biolink.github.io/biolinkml](https://biolink.github.io/biolinkml/docs)
+    * [class definition](https://biolink.github.io/docs/biolinkml/ClassDefinition) Class definitions
+    * [slot definition](https://biolink.github.io/ddocs/SlotDefinition) Class properties
+    * [type definition](https://biolink.github.io/ddocs/TypeDefinition) Data types
+    * [schema ddefinition](https://biolink.github.io/ddocs/SchemaDefinition) Schema definition
 
 For an example, see the [Jupyter notebook example](https://github.com/biolink/biolinkml/blob/master/notebooks/examples.ipynb)
 
