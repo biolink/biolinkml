@@ -25,6 +25,19 @@ For an example, see the [Jupyter notebook example](https://github.com/biolink/bi
 
 ## Examples
 
+## Generated Aretfacts
+
+* Python 3 dataclasses
+* [ShEx](http://shex.io/shex-semantics/index.html) - Shape Expressions Langauge
+* [YUML](https://yuml.me/) - UML diagram drawing tool
+* Class and interface definitions for [GraphQL](https://graphql.org/)
+* Graphviz -- fairly basic representation of hierarchies
+* [JSON](https://json.org/) and [JSON-LD](https://json-ld.org/)
+* [JSON Schema](https://json-schema.org/)
+* [Markdown](https://daringfireball.net/projects/markdown/) - markup language used by github and others
+* [OWL](https://www.w3.org/TR/2012/REC-owl2-overview-20121211/) - Web Ontology Language
+* [RDF](https://www.w3.org/2001/sw/wiki/RDF) - Resource Description Format
+
 
 ## FAQ
 
@@ -57,6 +70,8 @@ that is flexible enough to be used here.
 ## Biolink Modeling Language
 
 ### Type Definitions
+
+```
 typeof:
     domain: type definition
     range: type definition
@@ -78,7 +93,7 @@ typeof:
     range: string
     description: the python representation of this type if different than the base type
     inherited: true
-
+```
 
 
 ### Slot Definitions
