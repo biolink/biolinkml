@@ -6,8 +6,6 @@ from rdflib import Namespace, Graph, XSD
 from biolinkml import LOCAL_TYPES_PATH
 from biolinkml.generators.rdfgen import RDFGenerator
 
-sourcedir = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'source')
-
 META = Namespace("https://w3id.org/biolink/biolinkml/meta/")
 METATYPE = Namespace("https://w3id.org/biolink/biolinkml/type/")
 

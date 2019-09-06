@@ -6,7 +6,7 @@ The age group in which manifestations appear
 
 URI: [biolink:Onset](https://w3id.org/biolink/vocab/Onset)
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[EntityToFeatureOrDiseaseQualifiers]-%20onset%20qualifier%200..1>\[Onset|id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],%20\[Attribute]^-\[Onset])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Attribute]^-\[Onset|id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B])
 
 ## Parents
 
@@ -14,7 +14,7 @@ URI: [biolink:Onset](https://w3id.org/biolink/vocab/Onset)
 
 ## Referenced by class
 
- *  **[EntityToFeatureOrDiseaseQualifiers](EntityToFeatureOrDiseaseQualifiers.md)** *[onset qualifier](onset_qualifier.md)*  <sub>OPT</sub>  **[Onset](Onset.md)**
+ *  **[Association](Association.md)** *[onset qualifier](onset_qualifier.md)*  <sub>OPT</sub>  **[Onset](Onset.md)**
 
 ## Attributes
 

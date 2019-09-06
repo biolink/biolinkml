@@ -95,7 +95,14 @@ message Association
   edgeLabel None = 11
   optional hasConfidenceLevel None = 12
   optional hasEvidence None = 13
-  optional clinicalModifierQualifier None = 14
+  optional stageQualifier None = 14
+  optional quantifierQualifier None = 15
+  optional frequencyQualifier None = 16
+  optional severityQualifier None = 17
+  optional sexQualifier None = 18
+  optional onsetQualifier None = 19
+  optional clinicalModifierQualifier None = 20
+  optional sequenceVariantQualifier None = 21
  }
 // A property or characteristic of an entity
 message Attribute
@@ -2361,11 +2368,25 @@ message NamedThing
   repeated sameAs None = 43
   optional creationDate None = 44
   optional updateDate None = 45
-  optional hasChemicalFormula None = 46
-  optional aggregateStatistic None = 47
-  repeated hasMolecularConsequence None = 48
-  optional filler None = 49
-  optional interbaseCoordinate None = 50
+  optional latitude None = 46
+  optional longitude None = 47
+  optional hasChemicalFormula None = 48
+  optional aggregateStatistic None = 49
+  optional hasCount None = 50
+  optional hasTotal None = 51
+  optional hasQuotient None = 52
+  optional hasPercentage None = 53
+  optional timepoint None = 54
+  optional hasBiologicalSequence None = 55
+  repeated hasMolecularConsequence None = 56
+  optional hasGene None = 57
+  optional hasZygosity None = 58
+  optional filler None = 59
+  optional phase None = 60
+  optional genomeBuild None = 61
+  optional interbaseCoordinate None = 62
+  optional startInterbaseCoordinate None = 63
+  optional endInterbaseCoordinate None = 64
  }
 message NoncodingRNAProduct
  {

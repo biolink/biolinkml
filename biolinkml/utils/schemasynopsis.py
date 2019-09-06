@@ -208,9 +208,9 @@ class SchemaSynopsis:
         # Look for slot domain / class slot mismatches
         for slotname, owners in self.owners.items():
             owners = list(owners)
-            if len(owners) > 1:
-                owners_str = ', '.join(owners)
-                rval += [f"\tSlot {slotname} has multiple owners: ({owners_str})"]
+            # if len(owners) > 1:
+            #     owners_str = ', '.join(owners)
+            #     rval += [f"\tSlot {slotname} has multiple owners: ({owners_str})"]
             real_owner = self.schema.slots[slotname].owner
             if real_owner is None or (real_owner != slotname and real_owner != owners[0]):
                 rval += [f'\tSlot "{slotname}"" owner ({self.schema.slots[slotname].owner}) does not match {owners[0]}']
@@ -220,14 +220,14 @@ class SchemaSynopsis:
                     rval += [f"\tSlot {slotname} has no owners"]
             else:
                 owner = self.owners[slotname]
-                if slot.domain not in self.ownslots or slotname not in self.ownslots[slot.domain]:
+                if slot.domain and (slot.domain not in self.ownslots or slotname not in self.ownslots[slot.domain]):
                     rval += [f'\tDomain mismatch: slot "{slotname}" domain is: '
                             f'"{slot.domain}" class "{owner}" claims ownership']
 
         # Inlined slots must be multivalued (not a inviolable rule, but we make assumptions about this elsewhere in
         # the python generator
         for slot in self.schema.slots.values():
-            if slot.inlined and not slot.multivalued:
+            if slot.inlined and not slot.multivalued and slot.identifier:
                 rval += [f'\tSlot {slot.name} is declared inline but single valued']
         return rval
 

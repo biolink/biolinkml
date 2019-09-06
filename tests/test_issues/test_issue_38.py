@@ -2,8 +2,7 @@ import os
 import unittest
 
 from biolinkml.generators.csvgen import CsvGenerator
-
-sourcedir = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'source')
+from tests.test_issues import sourcedir
 
 
 class Issue38UnitTest(unittest.TestCase):

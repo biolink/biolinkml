@@ -6,7 +6,7 @@ An association between a variant and a population, where the variant has particu
 
 URI: [biolink:VariantToPopulationAssociation](https://w3id.org/biolink/vocab/VariantToPopulationAssociation)
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[VariantToPopulationAssociation|has_count:integer%20%3F;has_total:integer%20%3F;has_quotient:double%20%3F;has_percentage:double%20%3F;relation(i):uriorcurie;id(i):identifier_type;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[VariantToPopulationAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[VariantToPopulationAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[VariantToPopulationAssociation],%20\[FrequencyValue]<frequency%20qualifier%200..1-%20\[VariantToPopulationAssociation],%20\[PopulationOfIndividualOrganisms]<object%201..1-%20\[VariantToPopulationAssociation],%20\[SequenceVariant]<subject%201..1-%20\[VariantToPopulationAssociation],%20\[VariantToPopulationAssociation]uses%20-.->\[VariantToThingAssociation],%20\[VariantToPopulationAssociation]uses%20-.->\[FrequencyQuantifier],%20\[VariantToPopulationAssociation]uses%20-.->\[FrequencyQualifierMixin],%20\[Association]^-\[VariantToPopulationAssociation])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[VariantToPopulationAssociation|has_count:integer%20%3F;has_total:integer%20%3F;has_quotient:double%20%3F;relation(i):uriorcurie;id(i):identifier_type;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[VariantToPopulationAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[VariantToPopulationAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[VariantToPopulationAssociation],%20\[PopulationOfIndividualOrganisms]<object%201..1-%20\[VariantToPopulationAssociation],%20\[SequenceVariant]<subject%201..1-%20\[VariantToPopulationAssociation],%20\[VariantToPopulationAssociation]uses%20-.->\[VariantToThingAssociation],%20\[VariantToPopulationAssociation]uses%20-.->\[FrequencyQuantifier],%20\[VariantToPopulationAssociation]uses%20-.->\[FrequencyQualifierMixin],%20\[Association]^-\[VariantToPopulationAssociation])
 
 ## Parents
 
@@ -76,29 +76,6 @@ URI: [biolink:VariantToPopulationAssociation](https://w3id.org/biolink/vocab/Var
     * Description: connects an association to the agent (person, organization or group) that provided it
     * range: [Provider](Provider.md)
     * inherited from: [Association](Association.md)
-
-### Inherited from frequency qualifier mixin:
-
- * [frequency qualifier](frequency_qualifier.md)  <sub>OPT</sub>
-    * Description: a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject
-    * range: [FrequencyValue](FrequencyValue.md)
-
-### Inherited from frequency quantifier:
-
- * [has count](has_count.md)  <sub>OPT</sub>
-    * Description: number of things with a particular property
-    * range: [Integer](Integer.md)
-    * inherited from: [FrequencyQuantifier](FrequencyQuantifier.md)
- * [has total](has_total.md)  <sub>OPT</sub>
-    * Description: total number of things in a particular reference set
-    * range: [Integer](Integer.md)
-    * inherited from: [FrequencyQuantifier](FrequencyQuantifier.md)
- * [has quotient](has_quotient.md)  <sub>OPT</sub>
-    * range: [Double](Double.md)
-    * inherited from: [FrequencyQuantifier](FrequencyQuantifier.md)
- * [has percentage](has_percentage.md)  <sub>OPT</sub>
-    * Description: equivalent to has quotient multiplied by 100
-    * range: [Double](Double.md)
 
 ### Domain for slot:
 

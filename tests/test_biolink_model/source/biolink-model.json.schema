@@ -1078,6 +1078,10 @@
                "required": true,
                "type": "string"
             },
+            "frequency_qualifier": {
+               "description": "a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject",
+               "type": "string"
+            },
             "has_confidence_level": {
                "description": "connects an association to a qualitative term denoting the level of confidence",
                "type": "string"
@@ -1100,6 +1104,10 @@
                "required": true,
                "type": "string"
             },
+            "onset_qualifier": {
+               "description": "a qualifier used in a phenotypic association to state when the phenotype appears is in the subject",
+               "type": "string"
+            },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
                "type": "string"
@@ -1118,9 +1126,29 @@
                },
                "type": "array"
             },
+            "quantifier_qualifier": {
+               "description": "A measurable quantity for the object of the association",
+               "type": "string"
+            },
             "relation": {
                "description": "the relationship type by which a subject is connected to an object in an association",
                "required": true,
+               "type": "string"
+            },
+            "sequence_variant_qualifier": {
+               "description": "a qualifier used in an association where the variant",
+               "type": "string"
+            },
+            "severity_qualifier": {
+               "description": "a qualifier used in a phenotypic association to state how severe the phenotype is in the subject",
+               "type": "string"
+            },
+            "sex_qualifier": {
+               "description": "a qualifier used in a phenotypic association to state whether the association is specific to a particular sex.",
+               "type": "string"
+            },
+            "stage_qualifier": {
+               "description": "stage at which expression takes place",
                "type": "string"
             },
             "subject": {
@@ -1288,24 +1316,7 @@
       },
       "CaseToPhenotypicFeatureAssociation": {
          "description": "An association between a case (e.g. individual patient) and a phenotypic feature in which the individual has or has had the phenotype",
-         "properties": {
-            "frequency_qualifier": {
-               "description": "a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject",
-               "type": "string"
-            },
-            "onset_qualifier": {
-               "description": "a qualifier used in a phenotypic association to state when the phenotype appears is in the subject",
-               "type": "string"
-            },
-            "severity_qualifier": {
-               "description": "a qualifier used in a phenotypic association to state how severe the phenotype is in the subject",
-               "type": "string"
-            },
-            "sex_qualifier": {
-               "description": "a qualifier used in a phenotypic association to state whether the association is specific to a particular sex.",
-               "type": "string"
-            }
-         },
+         "properties": {},
          "title": "CaseToPhenotypicFeatureAssociation",
          "type": "object"
       },
@@ -1473,24 +1484,7 @@
       },
       "DiseaseToPhenotypicFeatureAssociation": {
          "description": "An association between a disease and a phenotypic feature in which the phenotypic feature is associated with the disease in some way",
-         "properties": {
-            "frequency_qualifier": {
-               "description": "a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject",
-               "type": "string"
-            },
-            "onset_qualifier": {
-               "description": "a qualifier used in a phenotypic association to state when the phenotype appears is in the subject",
-               "type": "string"
-            },
-            "severity_qualifier": {
-               "description": "a qualifier used in a phenotypic association to state how severe the phenotype is in the subject",
-               "type": "string"
-            },
-            "sex_qualifier": {
-               "description": "a qualifier used in a phenotypic association to state whether the association is specific to a particular sex.",
-               "type": "string"
-            }
-         },
+         "properties": {},
          "title": "DiseaseToPhenotypicFeatureAssociation",
          "type": "object"
       },
@@ -1523,22 +1517,6 @@
       "EnvironmentToPhenotypicFeatureAssociation": {
          "description": "Any association between an environment and a phenotypic feature, where being in the environment influences the phenotype",
          "properties": {
-            "frequency_qualifier": {
-               "description": "a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject",
-               "type": "string"
-            },
-            "onset_qualifier": {
-               "description": "a qualifier used in a phenotypic association to state when the phenotype appears is in the subject",
-               "type": "string"
-            },
-            "severity_qualifier": {
-               "description": "a qualifier used in a phenotypic association to state how severe the phenotype is in the subject",
-               "type": "string"
-            },
-            "sex_qualifier": {
-               "description": "a qualifier used in a phenotypic association to state whether the association is specific to a particular sex.",
-               "type": "string"
-            },
             "subject": {
                "required": true,
                "type": "string"
@@ -1797,18 +1775,6 @@
       "GeneToDiseaseAssociation": {
          "description": "",
          "properties": {
-            "frequency_qualifier": {
-               "description": "a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject",
-               "type": "string"
-            },
-            "onset_qualifier": {
-               "description": "a qualifier used in a phenotypic association to state when the phenotype appears is in the subject",
-               "type": "string"
-            },
-            "severity_qualifier": {
-               "description": "a qualifier used in a phenotypic association to state how severe the phenotype is in the subject",
-               "type": "string"
-            },
             "subject": {
                "required": true,
                "type": "string"
@@ -1890,22 +1856,6 @@
       "GeneToPhenotypicFeatureAssociation": {
          "description": "",
          "properties": {
-            "frequency_qualifier": {
-               "description": "a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject",
-               "type": "string"
-            },
-            "onset_qualifier": {
-               "description": "a qualifier used in a phenotypic association to state when the phenotype appears is in the subject",
-               "type": "string"
-            },
-            "severity_qualifier": {
-               "description": "a qualifier used in a phenotypic association to state how severe the phenotype is in the subject",
-               "type": "string"
-            },
-            "sex_qualifier": {
-               "description": "a qualifier used in a phenotypic association to state whether the association is specific to a particular sex.",
-               "type": "string"
-            },
             "subject": {
                "required": true,
                "type": "string"
@@ -2011,24 +1961,8 @@
       "GenotypeToPhenotypicFeatureAssociation": {
          "description": "Any association between one genotype and a phenotypic feature, where having the genotype confers the phenotype, either in isolation or through environment",
          "properties": {
-            "frequency_qualifier": {
-               "description": "a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject",
-               "type": "string"
-            },
-            "onset_qualifier": {
-               "description": "a qualifier used in a phenotypic association to state when the phenotype appears is in the subject",
-               "type": "string"
-            },
             "relation": {
                "required": true,
-               "type": "string"
-            },
-            "severity_qualifier": {
-               "description": "a qualifier used in a phenotypic association to state how severe the phenotype is in the subject",
-               "type": "string"
-            },
-            "sex_qualifier": {
-               "description": "a qualifier used in a phenotypic association to state whether the association is specific to a particular sex.",
                "type": "string"
             },
             "subject": {
@@ -2706,6 +2640,9 @@
                },
                "type": "array"
             },
+            "end_interbase_coordinate": {
+               "type": "string"
+            },
             "filler": {
                "description": "The value in a property-value tuple",
                "type": "string"
@@ -2714,8 +2651,24 @@
                "description": "a long-form human readable name for a thing",
                "type": "string"
             },
+            "genome_build": {
+               "description": "TODO",
+               "type": "string"
+            },
+            "has_biological_sequence": {
+               "description": "connects a genomic feature to its sequence",
+               "type": "string"
+            },
             "has_chemical_formula": {
                "description": "description of chemical compound based on element symbols",
+               "type": "string"
+            },
+            "has_count": {
+               "description": "number of things with a particular property",
+               "type": "string"
+            },
+            "has_gene": {
+               "description": "connects and entity to a single gene",
                "type": "string"
             },
             "has_molecular_consequence": {
@@ -2731,6 +2684,20 @@
                   "type": "string"
                },
                "type": "array"
+            },
+            "has_percentage": {
+               "description": "equivalent to has quotient multiplied by 100",
+               "type": "string"
+            },
+            "has_quotient": {
+               "type": "string"
+            },
+            "has_total": {
+               "description": "total number of things in a particular reference set",
+               "type": "string"
+            },
+            "has_zygosity": {
+               "type": "string"
             },
             "homologous_to": {
                "description": "holds between two biological entities that have common evolutionary origin",
@@ -2759,6 +2726,10 @@
                "description": "An IRI for the node. This is determined by the id using expansion rules.",
                "type": "string"
             },
+            "latitude": {
+               "description": "latitude",
+               "type": "string"
+            },
             "located_in": {
                "description": "holds between a material entity and a material entity or site within which it is located (but of which it is not considered a part)",
                "items": {
@@ -2772,6 +2743,10 @@
                   "type": "string"
                },
                "type": "array"
+            },
+            "longitude": {
+               "description": "longitude",
+               "type": "string"
             },
             "manifestation_of": {
                "description": "used in SemMedDB for linking things like dysfunctions and processes to some disease or syndrome",
@@ -2844,6 +2819,10 @@
                },
                "type": "array"
             },
+            "phase": {
+               "description": "TODO",
+               "type": "string"
+            },
             "physically_interacts_with": {
                "description": "holds between two entities that make physical contact as part of some interaction",
                "items": {
@@ -2898,6 +2877,9 @@
                },
                "type": "array"
             },
+            "start_interbase_coordinate": {
+               "type": "string"
+            },
             "synonym": {
                "description": "Alternate human-readable names for a thing",
                "items": {
@@ -2911,6 +2893,10 @@
                   "type": "string"
                },
                "type": "array"
+            },
+            "timepoint": {
+               "description": "a point in time",
+               "type": "string"
             },
             "update_date": {
                "description": "date on which thing was updated. This can be applied to nodes or edges",
@@ -3238,24 +3224,12 @@
       "VariantToDiseaseAssociation": {
          "description": "",
          "properties": {
-            "frequency_qualifier": {
-               "description": "a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject",
-               "type": "string"
-            },
             "object": {
                "required": true,
                "type": "string"
             },
-            "onset_qualifier": {
-               "description": "a qualifier used in a phenotypic association to state when the phenotype appears is in the subject",
-               "type": "string"
-            },
             "relation": {
                "required": true,
-               "type": "string"
-            },
-            "severity_qualifier": {
-               "description": "a qualifier used in a phenotypic association to state how severe the phenotype is in the subject",
                "type": "string"
             },
             "subject": {
@@ -3269,22 +3243,6 @@
       "VariantToPhenotypicFeatureAssociation": {
          "description": "",
          "properties": {
-            "frequency_qualifier": {
-               "description": "a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject",
-               "type": "string"
-            },
-            "onset_qualifier": {
-               "description": "a qualifier used in a phenotypic association to state when the phenotype appears is in the subject",
-               "type": "string"
-            },
-            "severity_qualifier": {
-               "description": "a qualifier used in a phenotypic association to state how severe the phenotype is in the subject",
-               "type": "string"
-            },
-            "sex_qualifier": {
-               "description": "a qualifier used in a phenotypic association to state whether the association is specific to a particular sex.",
-               "type": "string"
-            },
             "subject": {
                "required": true,
                "type": "string"
@@ -3296,10 +3254,6 @@
       "VariantToPopulationAssociation": {
          "description": "An association between a variant and a population, where the variant has particular frequency in the population",
          "properties": {
-            "frequency_qualifier": {
-               "description": "a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject",
-               "type": "string"
-            },
             "has_count": {
                "type": "string"
             },

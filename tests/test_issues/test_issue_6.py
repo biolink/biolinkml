@@ -5,8 +5,8 @@ from jsonasobj import loads
 from rdflib import Namespace
 
 from biolinkml.generators.shexgen import ShExGenerator
+from tests.test_issues import sourcedir
 
-sourcedir = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'source')
 DCT = Namespace("http://purl.org/dc/terms/")
 
 class DefinedPrefixTestCase(unittest.TestCase):

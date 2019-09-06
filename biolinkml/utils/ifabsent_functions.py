@@ -77,7 +77,7 @@ default_library: List[Tuple[Text, bool, Callable[[Match[str], SchemaLoader, Clas
     ("default_range", False, lambda _, __, ___, ____: "None"),
     ("bnode", False, lambda _, __, ___, ____: "bnode()"),
     (r"string\((.*)\)", False, lambda m, __, ___, ____: strval(m[1])),
-    ("uri\((.*)\)", False, lambda m, loader, _, __: uri_for(m[1], loader)),
+    (r"uri\((.*)\)", False, lambda m, loader, _, __: uri_for(m[1], loader)),
     ("default_ns", True, lambda _, loader, cls, ____: default_ns_for(loader, cls))
 ]
 

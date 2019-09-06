@@ -2,13 +2,11 @@ import os
 import unittest
 
 from jsonasobj import loads
-from rdflib import Namespace, Graph, XSD
+from rdflib import Namespace
 
 from biolinkml import LOCAL_TYPES_PATH
-from biolinkml.generators.rdfgen import RDFGenerator
 from biolinkml.generators.shexgen import ShExGenerator
 
-sourcedir = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'source')
 
 METATYPE = Namespace("https://w3id.org/biolink/biolinkml/type/")
 

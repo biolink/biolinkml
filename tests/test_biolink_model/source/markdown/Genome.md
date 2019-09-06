@@ -6,7 +6,7 @@ A genome is the sum of genetic material within a cell or virion.
 
 URI: [biolink:Genome](https://w3id.org/biolink/vocab/Genome)
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[Genome|has_biological_sequence(i):biological_sequence%20%3F;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],%20\[GenomicEntity]^-\[Genome])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[Genome|id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],%20\[GenomicEntity]^-\[Genome])
 
 ## Parents
 
@@ -14,13 +14,6 @@ URI: [biolink:Genome](https://w3id.org/biolink/vocab/Genome)
 
 ## Attributes
 
-
-### Inherited from genomic entity:
-
- * [has biological sequence](has_biological_sequence.md)  <sub>OPT</sub>
-    * Description: connects a genomic feature to its sequence
-    * range: [BiologicalSequence](BiologicalSequence.md)
-    * inherited from: [GenomicEntity](GenomicEntity.md)
 
 ### Inherited from named thing:
 

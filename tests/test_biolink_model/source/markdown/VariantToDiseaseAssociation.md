@@ -6,7 +6,7 @@
 
 URI: [biolink:VariantToDiseaseAssociation](https://w3id.org/biolink/vocab/VariantToDiseaseAssociation)
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[VariantToDiseaseAssociation|relation:uriorcurie;id(i):identifier_type;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[VariantToDiseaseAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[VariantToDiseaseAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[VariantToDiseaseAssociation],%20\[Onset]<onset%20qualifier%200..1-%20\[VariantToDiseaseAssociation],%20\[SeverityValue]<severity%20qualifier%200..1-%20\[VariantToDiseaseAssociation],%20\[FrequencyValue]<frequency%20qualifier%200..1-%20\[VariantToDiseaseAssociation],%20\[NamedThing]<object%201..1-%20\[VariantToDiseaseAssociation],%20\[NamedThing]<subject%201..1-%20\[VariantToDiseaseAssociation],%20\[VariantToDiseaseAssociation]uses%20-.->\[VariantToThingAssociation],%20\[VariantToDiseaseAssociation]uses%20-.->\[EntityToDiseaseAssociation],%20\[Association]^-\[VariantToDiseaseAssociation])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[VariantToDiseaseAssociation|relation:uriorcurie;id(i):identifier_type;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[VariantToDiseaseAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[VariantToDiseaseAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[VariantToDiseaseAssociation],%20\[NamedThing]<object%201..1-%20\[VariantToDiseaseAssociation],%20\[NamedThing]<subject%201..1-%20\[VariantToDiseaseAssociation],%20\[VariantToDiseaseAssociation]uses%20-.->\[VariantToThingAssociation],%20\[VariantToDiseaseAssociation]uses%20-.->\[EntityToDiseaseAssociation],%20\[Association]^-\[VariantToDiseaseAssociation])
 
 ## Parents
 
@@ -71,21 +71,6 @@ URI: [biolink:VariantToDiseaseAssociation](https://w3id.org/biolink/vocab/Varian
     * Description: connects an association to the agent (person, organization or group) that provided it
     * range: [Provider](Provider.md)
     * inherited from: [Association](Association.md)
-
-### Inherited from entity to feature or disease qualifiers:
-
- * [severity qualifier](severity_qualifier.md)  <sub>OPT</sub>
-    * Description: a qualifier used in a phenotypic association to state how severe the phenotype is in the subject
-    * range: [SeverityValue](SeverityValue.md)
- * [onset qualifier](onset_qualifier.md)  <sub>OPT</sub>
-    * Description: a qualifier used in a phenotypic association to state when the phenotype appears is in the subject
-    * range: [Onset](Onset.md)
-
-### Inherited from frequency qualifier mixin:
-
- * [frequency qualifier](frequency_qualifier.md)  <sub>OPT</sub>
-    * Description: a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject
-    * range: [FrequencyValue](FrequencyValue.md)
 
 ### Domain for slot:
 

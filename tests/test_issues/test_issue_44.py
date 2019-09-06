@@ -2,9 +2,7 @@ import os
 import unittest
 
 from biolinkml.generators.pythongen import PythonGenerator
-
-sourcedir = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'source')
-outputdir = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'output')
+from tests.test_issues import sourcedir, outputdir
 
 
 class Issue44UnitTest(unittest.TestCase):

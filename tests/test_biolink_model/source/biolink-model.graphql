@@ -110,7 +110,14 @@ type Association
     edgeLabel: LabelType!
     hasConfidenceLevel: ConfidenceLevel
     hasEvidence: EvidenceType
+    stageQualifier: LifeStage
+    quantifierQualifier: OntologyClass
+    frequencyQualifier: FrequencyValue
+    severityQualifier: SeverityValue
+    sexQualifier: BiologicalSex
+    onsetQualifier: Onset
     clinicalModifierQualifier: ClinicalModifier
+    sequenceVariantQualifier: SequenceVariant
   }
 
 type Attribute implements OntologyClass
@@ -2694,11 +2701,25 @@ type NamedThing
     sameAs: [NamedThing]
     creationDate: Date
     updateDate: Date
+    latitude: Float
+    longitude: Float
     hasChemicalFormula: ChemicalFormulaValue
     aggregateStatistic: String
+    hasCount: Integer
+    hasTotal: Integer
+    hasQuotient: Double
+    hasPercentage: Double
+    timepoint: TimeType
+    hasBiologicalSequence: BiologicalSequence
     hasMolecularConsequence: [OntologyClass]
+    hasGene: Gene
+    hasZygosity: Zygosity
     filler: NamedThing
+    phase: String
+    genomeBuild: String
     interbaseCoordinate: String
+    startInterbaseCoordinate: String
+    endInterbaseCoordinate: String
   }
 
 type NoncodingRNAProduct
