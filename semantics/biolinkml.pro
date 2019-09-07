@@ -1,5 +1,11 @@
 /*
 
+  This document contains logical formulae specifying the semantics of
+  the biolink modeling language (biolinkml).
+
+  These rules are executable and can be used for validation, or
+  inferring useful type information.
+  
   the prefix `_i` denotes an inferred predicate
   
 */
@@ -69,7 +75,7 @@ definition_induced_instance_of(I,C) :-
         defining_slots(C,Slots),is_a(C,Genus),instance_of(I,Genus),
         forall(member(Slot,Slots),
                (   (   class_slot_range(C,Slot,Range),
-                       fact(I,Slot,J),
+                       direct_fact(I,Slot,J),
                        instance_of(J,Range)))).
 
 

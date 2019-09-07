@@ -1,7 +1,7 @@
 This folder contains a FOL specification of the biolinkml semantics.
 
 The semantics are specified by the rules in
-[semantics.pro](semantics.pro). This rules operate over a set of
+[biolinkml.pro](biolinkml.pro). This rules operate over a set of
 ground predicates such as is_a/2, class/1, which are generated from a
 biolinkml yaml file using gen-lp, e.g.:
 
@@ -11,7 +11,8 @@ See [semantics/tests/biolink.pro](semantics/tests/biolink.pro) for an
 example.
 
 The rules can be used with any logic programming system. NAF or WFS
-both fine (TODO: check this claim).
+both fine (TODO: check this claim). The rules are stratified such that
+SLD resolution/backtracking can be used if preferred.
 
 For convenience, wrappers for swi-prolog are provided. To run these
 you will need to install swi-prolog (v8 series) and to be on a system
@@ -26,3 +27,5 @@ To run a test you can use the Makefile, from this repo run:
     make test-subclass_of
 
 Substituting `subclass_of` with the name of the test.
+
+TODO: instructions on how to validate

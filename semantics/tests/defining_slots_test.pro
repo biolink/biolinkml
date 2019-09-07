@@ -5,7 +5,7 @@ class(g2g).
 class(a).
 is_a(g2g,a).
 is_a(pc_gene,gene).
-defining_slots(g2g, [s]).
+defining_slots(g2g, [o]).
 class_slot_range(g2g, s, gene).
 class_slot_range(g2g, o, gene).
 
@@ -22,4 +22,10 @@ rdf(g2g_inst1, s, g1).
 rdf(g2g_inst1, o, g2).
 
 % TODO
-%expected(definition_induced_instance_of(g2g_inst1, g2g)).
+expected(instance_of(g1,gene)).
+expected(instance_of(g2,gene)).
+expected(instance_of(g2g_inst1,a)).
+expected(direct_fact(g2g_inst1,s,g1)).
+expected(class_slot_range(g2g,s,gene)).
+expected(class_slot_range(g2g,o,gene)).
+expected(definition_induced_instance_of(g2g_inst1, g2g)).
