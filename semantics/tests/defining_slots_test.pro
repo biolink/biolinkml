@@ -5,7 +5,7 @@ class(g2g).
 class(a).
 is_a(g2g,a).
 is_a(pc_gene,gene).
-defining_slots(g2g, [s,o]).
+defining_slots(g2g, [s]).
 class_slot_range(g2g, s, gene).
 class_slot_range(g2g, o, gene).
 
