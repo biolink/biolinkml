@@ -65,4 +65,11 @@ invalid(I) :- range_induced_instance_of(I,C),\+ instance_of(I,C).
 domain_induced_instance_of(I,C) :- direct_fact(I,P,_), instance_of(I,C1),i_domain_in(P,C,C1).
 range_induced_instance_of(I,C) :- direct_fact(_,P,I), instance_of(I,C1),i_range_in(P,C,C1).
 
+definition_induced_instance_of(I,C) :-
+        defining_slots(C,Slots),is_a(C,Genus),instance_of(I,Genus),
+        forall(member(Slot,Slots),
+               (   (   class_slot_range(C,Slot,Range),
+                       fact(I,Slot,J),
+                       instance_of(J,Range)))).
+
 
