@@ -6,7 +6,7 @@
 
 URI: [biolink:BiologicalSex](https://w3id.org/biolink/vocab/BiologicalSex)
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[EntityToPhenotypicFeatureAssociation]-%20sex%20qualifier%200..1>\[BiologicalSex|id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],%20\[BiologicalSex]^-\[PhenotypicSex],%20\[BiologicalSex]^-\[GenotypicSex],%20\[Attribute]^-\[BiologicalSex])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[BiologicalSex|id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B]^-\[PhenotypicSex],%20\[BiologicalSex]^-\[GenotypicSex],%20\[Attribute]^-\[BiologicalSex])
 
 ## Parents
 
@@ -19,7 +19,7 @@ URI: [biolink:BiologicalSex](https://w3id.org/biolink/vocab/BiologicalSex)
 
 ## Referenced by class
 
- *  **[EntityToPhenotypicFeatureAssociation](EntityToPhenotypicFeatureAssociation.md)** *[sex qualifier](sex_qualifier.md)*  <sub>OPT</sub>  **[BiologicalSex](BiologicalSex.md)**
+ *  **[Association](Association.md)** *[sex qualifier](sex_qualifier.md)*  <sub>OPT</sub>  **[BiologicalSex](BiologicalSex.md)**
 
 ## Attributes
 

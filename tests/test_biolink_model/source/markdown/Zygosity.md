@@ -6,7 +6,7 @@
 
 URI: [biolink:Zygosity](https://w3id.org/biolink/vocab/Zygosity)
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Genotype]-%20has%20zygosity%200..1>\[Zygosity|id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],%20\[Attribute]^-\[Zygosity])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Attribute]^-\[Zygosity|id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B])
 
 ## Parents
 
@@ -14,7 +14,7 @@ URI: [biolink:Zygosity](https://w3id.org/biolink/vocab/Zygosity)
 
 ## Referenced by class
 
- *  **[Genotype](Genotype.md)** *[has zygosity](has_zygosity.md)*  <sub>OPT</sub>  **[Zygosity](Zygosity.md)**
+ *  **[NamedThing](NamedThing.md)** *[has zygosity](has_zygosity.md)*  <sub>OPT</sub>  **[Zygosity](Zygosity.md)**
 
 ## Attributes
 

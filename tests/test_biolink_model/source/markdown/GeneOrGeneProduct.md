@@ -6,7 +6,7 @@ a union of genes or gene products. Frequently an identifier for one will be used
 
 URI: [biolink:GeneOrGeneProduct](https://w3id.org/biolink/vocab/GeneOrGeneProduct)
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[GeneOrGeneProduct|name(i):symbol_type;has_biological_sequence(i):biological_sequence%20%3F;id(i):identifier_type;category(i):iri_type%20%2B],%20\[ChemicalToGeneAssociation]-%20object%201..1>\[GeneOrGeneProduct],%20\[GeneAsAModelOfDiseaseAssociation]-%20subject%201..1>\[GeneOrGeneProduct],%20\[GeneHasVariantThatContributesToDiseaseAssociation]-%20subject%201..1>\[GeneOrGeneProduct],%20\[GeneRegulatoryRelationship]-%20object%201..1>\[GeneOrGeneProduct],%20\[GeneRegulatoryRelationship]-%20subject%201..1>\[GeneOrGeneProduct],%20\[GeneToDiseaseAssociation]-%20subject%201..1>\[GeneOrGeneProduct],%20\[GeneToExpressionSiteAssociation]-%20subject%201..1>\[GeneOrGeneProduct],%20\[GeneToGeneAssociation]-%20object%201..1>\[GeneOrGeneProduct],%20\[GeneToGeneAssociation]-%20subject%201..1>\[GeneOrGeneProduct],%20\[GeneToPhenotypicFeatureAssociation]-%20subject%201..1>\[GeneOrGeneProduct],%20\[GeneToThingAssociation]-%20subject%201..1>\[GeneOrGeneProduct],%20\[GeneOrGeneProduct]^-\[GeneProduct],%20\[GeneOrGeneProduct]^-\[Gene],%20\[MacromolecularMachine]^-\[GeneOrGeneProduct])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[GeneOrGeneProduct|name(i):symbol_type;id(i):identifier_type;category(i):iri_type%20%2B],%20\[ChemicalToGeneAssociation]-%20object%201..1>\[GeneOrGeneProduct],%20\[GeneAsAModelOfDiseaseAssociation]-%20subject%201..1>\[GeneOrGeneProduct],%20\[GeneHasVariantThatContributesToDiseaseAssociation]-%20subject%201..1>\[GeneOrGeneProduct],%20\[GeneRegulatoryRelationship]-%20object%201..1>\[GeneOrGeneProduct],%20\[GeneRegulatoryRelationship]-%20subject%201..1>\[GeneOrGeneProduct],%20\[GeneToDiseaseAssociation]-%20subject%201..1>\[GeneOrGeneProduct],%20\[GeneToExpressionSiteAssociation]-%20subject%201..1>\[GeneOrGeneProduct],%20\[GeneToGeneAssociation]-%20object%201..1>\[GeneOrGeneProduct],%20\[GeneToGeneAssociation]-%20subject%201..1>\[GeneOrGeneProduct],%20\[GeneToPhenotypicFeatureAssociation]-%20subject%201..1>\[GeneOrGeneProduct],%20\[GeneToThingAssociation]-%20subject%201..1>\[GeneOrGeneProduct],%20\[GeneOrGeneProduct]^-\[GeneProduct],%20\[GeneOrGeneProduct]^-\[Gene],%20\[MacromolecularMachine]^-\[GeneOrGeneProduct])
 
 ## Parents
 
@@ -37,13 +37,6 @@ URI: [biolink:GeneOrGeneProduct](https://w3id.org/biolink/vocab/GeneOrGeneProduc
 
 ## Attributes
 
-
-### Inherited from genomic entity:
-
- * [has biological sequence](has_biological_sequence.md)  <sub>OPT</sub>
-    * Description: connects a genomic feature to its sequence
-    * range: [BiologicalSequence](BiologicalSequence.md)
-    * inherited from: [GenomicEntity](GenomicEntity.md)
 
 ### Inherited from macromolecular machine:
 

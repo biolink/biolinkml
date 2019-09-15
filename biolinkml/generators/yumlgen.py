@@ -138,7 +138,8 @@ class YumlGenerator(Generator):
                 slot = self.schema.slots[slotname]
                 # Don't do self references twice
                 # Also, slot must be owned by the class
-                if slot.owner and slot.owner != slotname and (slot.domain != cls.name or slot.range != cls.name) and\
+                if slot.owner and slot.owner != slotname and slot.domain and \
+                        (slot.domain != cls.name or slot.range != cls.name) and\
                         slot.domain not in self.associations_generated:
                     dom = self.schema.classes[slot.domain]
                     assocs.append(self.class_box(slot.domain) + (yuml_inline if slot.inlined else yuml_ref) +

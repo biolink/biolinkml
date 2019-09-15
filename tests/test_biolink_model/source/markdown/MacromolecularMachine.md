@@ -6,7 +6,7 @@ A union of gene, gene product, and macromolecular complex. These are the basic u
 
 URI: [biolink:MacromolecularMachine](https://w3id.org/biolink/vocab/MacromolecularMachine)
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[MacromolecularMachine|name:symbol_type;has_biological_sequence(i):biological_sequence%20%3F;id(i):identifier_type;category(i):iri_type%20%2B],%20\[FunctionalAssociation]-%20subject%201..1>\[MacromolecularMachine],%20\[MacromolecularMachine]^-\[MacromolecularComplex],%20\[MacromolecularMachine]^-\[GeneOrGeneProduct],%20\[GenomicEntity]^-\[MacromolecularMachine])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[MacromolecularMachine|name:symbol_type;id(i):identifier_type;category(i):iri_type%20%2B],%20\[FunctionalAssociation]-%20subject%201..1>\[MacromolecularMachine],%20\[MacromolecularMachine]^-\[MacromolecularComplex],%20\[MacromolecularMachine]^-\[GeneOrGeneProduct],%20\[GenomicEntity]^-\[MacromolecularMachine])
 
 ## Parents
 
@@ -28,13 +28,6 @@ URI: [biolink:MacromolecularMachine](https://w3id.org/biolink/vocab/Macromolecul
 
  * [name](macromolecular_machine_name.md)  <sub>REQ</sub>
     * range: [SymbolType](SymbolType.md)
-
-### Inherited from genomic entity:
-
- * [has biological sequence](has_biological_sequence.md)  <sub>OPT</sub>
-    * Description: connects a genomic feature to its sequence
-    * range: [BiologicalSequence](BiologicalSequence.md)
-    * inherited from: [GenomicEntity](GenomicEntity.md)
 
 ### Inherited from named thing:
 

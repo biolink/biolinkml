@@ -122,7 +122,7 @@ class SchemaLoader:
                 if slotname in self.schema.slots:
                     slot = self.schema.slots[cast(SlotDefinitionName, slotname)]
                     if slot.domain is None:
-                        slot.domain = cls.name
+                        pass
                     elif slot.domain != cls.name:
                         self.raise_value_error(f'Slot: {slot.name} domain ({slot.domain}) '
                                                f'does not match declaring class "({cls.name})"')
@@ -212,13 +212,6 @@ class SchemaLoader:
             for slotname in cls.slots:
                 if slotname in self.schema.slots:
                     slot = self.schema.slots[cast(SlotDefinitionName, slotname)]
-                    if slot.domain is None:
-                        slot.domain = cls.name
-
-                    # TODO: fix this check
-                    # elif slot.domain != cls.name:
-                    #     self.raise_value_error(f'Slot: {slot.name} domain ({slot.domain}) '
-                    #                            f'does not match declaring class "({cls.name})"')
                 else:
                     self.raise_value_error(f'Class "{cls.name}" - unknown slot: "{slotname}"')
 

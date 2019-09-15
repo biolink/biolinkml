@@ -6,7 +6,7 @@ Qualifier for freqency type associations
 
 URI: [biolink:FrequencyQualifierMixin](https://w3id.org/biolink/vocab/FrequencyQualifierMixin)
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[FrequencyValue]<frequency%20qualifier%200..1-%20\[FrequencyQualifierMixin],%20\[VariantToPopulationAssociation]uses%20-.->\[FrequencyQualifierMixin],%20\[FrequencyQualifierMixin]^-\[EntityToFeatureOrDiseaseQualifiers])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[VariantToPopulationAssociation]uses%20-.->\[FrequencyQualifierMixin],%20\[FrequencyQualifierMixin]^-\[EntityToFeatureOrDiseaseQualifiers])
 
 ## Children
 
@@ -21,15 +21,3 @@ URI: [biolink:FrequencyQualifierMixin](https://w3id.org/biolink/vocab/FrequencyQ
 
 ## Attributes
 
-
-### Own
-
- * [frequency qualifier](frequency_qualifier.md)  <sub>OPT</sub>
-    * Description: a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject
-    * range: [FrequencyValue](FrequencyValue.md)
-
-### Domain for slot:
-
- * [frequency qualifier](frequency_qualifier.md)  <sub>OPT</sub>
-    * Description: a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject
-    * range: [FrequencyValue](FrequencyValue.md)

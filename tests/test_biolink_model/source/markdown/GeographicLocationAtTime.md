@@ -6,34 +6,14 @@ a location that can be described in lat/long coordinates, for a particular time
 
 URI: [biolink:GeographicLocationAtTime](https://w3id.org/biolink/vocab/GeographicLocationAtTime)
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[GeographicLocation]^-\[GeographicLocationAtTime|timepoint:time_type%20%3F;latitude(i):float%20%3F;longitude(i):float%20%3F;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[GeographicLocation]^-\[GeographicLocationAtTime|id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B])
 
 ## Parents
 
  *  is_a: [GeographicLocation](GeographicLocation.md) - a location that can be described in lat/long coordinates
 
-## Referenced by class
-
-
 ## Attributes
 
-
-### Own
-
- * [timepoint](timepoint.md)  <sub>OPT</sub>
-    * Description: a point in time
-    * range: [TimeType](TimeType.md)
-
-### Inherited from geographic location:
-
- * [latitude](latitude.md)  <sub>OPT</sub>
-    * Description: latitude
-    * range: [Float](Float.md)
-    * inherited from: [GeographicLocation](GeographicLocation.md)
- * [longitude](longitude.md)  <sub>OPT</sub>
-    * Description: longitude
-    * range: [Float](Float.md)
-    * inherited from: [GeographicLocation](GeographicLocation.md)
 
 ### Inherited from named thing:
 
@@ -52,9 +32,3 @@ URI: [biolink:GeographicLocationAtTime](https://w3id.org/biolink/vocab/Geographi
     * range: [IriType](IriType.md)
     * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
-
-### Domain for slot:
-
- * [timepoint](timepoint.md)  <sub>OPT</sub>
-    * Description: a point in time
-    * range: [TimeType](TimeType.md)
