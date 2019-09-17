@@ -29,3 +29,5 @@ expected(direct_fact(g2g_inst1,s,g1)).
 expected(class_slot_range(g2g,s,gene)).
 expected(class_slot_range(g2g,o,gene)).
 expected(definition_induced_instance_of(g2g_inst1, g2g)).
+
+not_expected(incoherent).

@@ -50,6 +50,6 @@ expected(instance_of(bad4,c)).
 not_expected(instance_of(bad4,c1)).
 expected(invalid(bad4)).
 
-
+not_expected(incoherent).
 
 

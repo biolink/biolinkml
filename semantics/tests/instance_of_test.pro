@@ -10,3 +10,4 @@ not_expected(instance_of(i,c)).
 not_expected(instance_of(_,i)).
 not_expected(instance_of(c,_)).
 
+not_expected(incoherent).
