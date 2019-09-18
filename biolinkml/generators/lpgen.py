@@ -8,7 +8,7 @@ from biolinkml.utils.formatutils import camelcase, lcamelcase
 from biolinkml.utils.generator import Generator
 from biolinkml.utils.formatutils import camelcase, underscore
 #from owlgen import OwlSchemaGenerator
-from prologterms import Term, TermGenerator, PrologRenderer, Program, Var
+from prologterms import Term, TermGenerator, PrologRenderer, SExpressionRenderer, Program, Var
 
 
 class LogicProgramGenerator(Generator):

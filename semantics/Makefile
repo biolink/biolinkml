@@ -8,7 +8,10 @@ test-%:
 	./tests/run-test.sh tests/$*_test.pro
 
 tests/biolink.pro: 
-	cd .. && pipenv run python3 biolinkml/generators/lpgen.py tests/test_biolink_model/yaml/biolink-model.yaml > $@
+	cd .. && pipenv run python3 biolinkml/generators/lpgen.py tests/test_biolink_model/yaml/biolink-model.yaml > semantics/$@
+
+tests/biolink.sexpr: 
+	cd .. && pipenv run python3 biolinkml/generators/lpgen.py -f sexpr tests/test_biolink_model/yaml/biolink-model.yaml > semantics/$@
 
 %-is-coherent: %.pro
 	swipl  -l biolinkml.pro -g "['tests/std_header.pro'],['$<'],forall(nr_unsatisfiable(X),writeln(unsat(X))),forall(inconsistent(X),writeln(inconsistent(X)))"
