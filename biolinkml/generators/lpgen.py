@@ -14,13 +14,13 @@ from prologterms import Term, TermGenerator, PrologRenderer, Program, Var
 class LogicProgramGenerator(Generator):
     generatorname = os.path.basename(__file__)
     generatorversion = "0.0.2"
-    valid_formats = ['lp']
+    valid_formats = ['lp', 'sexpr']
     visit_all_class_slots = True
 
     def __init__(self, schema: Union[str, TextIO, SchemaDefinition], fmt: Optional[str] = None) -> None:
         super().__init__(schema, fmt)
-        self.P = TermGenerator()
-        self.R = PrologRenderer()
+        self.P = TermGenerator() 
+        self.R = PrologRenderer() if fmt == 'lp' else SExpressionRenderer()
         #self.owlgen = OwlSchemaGenerator(schema)
 
     def visit_class(self, cls: ClassDefinition) -> bool:
@@ -90,7 +90,7 @@ class LogicProgramGenerator(Generator):
 
 @click.command()
 @click.argument("yamlfile", type=click.Path(exists=True, dir_okay=False))
-@click.option("--format", "-f", default='lp', type=click.Choice(['lp']), help="Output format")
+@click.option("--format", "-f", default='lp', type=click.Choice(['lp', 'sexpr']), help="Output format")
 def cli(yamlfile, format):
     """ Generate logic program representation of a biolink model """
     print(LogicProgramGenerator(yamlfile, format).serialize())
