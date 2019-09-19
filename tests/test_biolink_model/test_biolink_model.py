@@ -29,7 +29,7 @@ from tests.utils.generator_utils import GeneratorTestCase
 BIOLINK_NS = Namespace("https://w3id.org/biolink/vocab/")
 
 # ShEx validation of the biolink model takes a loooong time, so we only do it on rare occasions
-DO_SHEX_VALIDATION = True
+DO_SHEX_VALIDATION = False
 
 
 class CurrentBiolinkModelTestCase(GeneratorTestCase):
