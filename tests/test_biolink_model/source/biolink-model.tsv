@@ -1,4 +1,5 @@
 id	mappings	description
+abstract_entity		Any thing that is not a process or a physical mass-bearing entity
 activity_and_behavior		Activity or behavior of any independent integral living, organization or mechanical actor in the world
 administrative_entity		
 anatomical_entity		A subcellular location, cell type or gross anatomical part
@@ -6,14 +7,11 @@ anatomical_entity_to_anatomical_entity_association
 anatomical_entity_to_anatomical_entity_ontogenic_association		A relationship between two anatomical entities where the relationship is ontogenic, i.e the two entities are related by development. A number of different relationship types can be used to specify the precise nature of the relationship
 anatomical_entity_to_anatomical_entity_part_of_association		A relationship between two anatomical entities where the relationship is mereological, i.e the two entities are related by parthood. This includes relationships between cellular components and cells, between cells and tissues, tissues and whole organisms
 association		A typed association between two entities, supported by evidence
-attribute		A property or characteristic of an entity
+attribute		A property or characteristic of an entity. For example, an apple may have properties such as color, shape, age, crispiness. An environmental sample may have attributes such as depth, lat, long, material.
 biological_entity		
 biological_process		One or more causally connected executions of molecular functions
 biological_process_or_activity		Either an individual molecular activity, or a collection of causally connected molecular activities
 biological_sex		
-biosample		
-biosample_to_disease_or_phenotypic_feature_association		An association between a biosample and a disease or phenotype
-biosample_to_thing_association		An association between a biosample and something
 carbohydrate		
 case		An individual organism that has a patient role in some clinical context.
 case_to_phenotypic_feature_association		An association between a case (e.g. individual patient) and a phenotypic feature in which the individual has or has had the phenotype
@@ -24,6 +22,15 @@ cell_line_to_disease_or_phenotypic_feature_association		An relationship between 
 cell_line_to_thing_association		An relationship between a cell line and another entity
 cellular_component		A location in or around a cell
 chemical_substance		May be a chemical entity or a formulation with a chemical entity as active ingredient, or a complex material with multiple chemical entities as part
+chemical_to_chemical_association		A relationship between two chemical entities. This can encompass actual interactions as well as temporal causal edges, e.g. one chemical converted to another.
+chemical_to_chemical_derivation_association		"A causal relationship between two chemical entities, where the subject represents the upstream entity and the object represents the downstream. For any such association there is an implicit reaction:
+  IF
+  R has-input C1 AND
+  R has-output C2 AND
+  R enabled-by P AND
+  R type Reaction
+  THEN
+  C1 derives-into C2 <<change is catalyzed by P>>"
 chemical_to_disease_or_phenotypic_feature_association		An interaction between a chemical entity and a phenotype or disease, where the presence of the chemical gives rise to or exacerbates the phenotype
 chemical_to_gene_association		An interaction between a chemical entity and a gene or gene product
 chemical_to_pathway_association		An interaction between a chemical entity and a biological process or pathway
@@ -34,6 +41,10 @@ clinical_modifier		Used to characterize and specify the phenotypic abnormalities
 clinical_trial		
 coding_sequence		
 confidence_level		Level of confidence in a statement
+data_file		
+data_set		
+data_set_summary		
+data_set_version		
 device		A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment
 disease		
 disease_or_phenotypic_feature		Either one of a disease or an individual phenotypic feature. Some knowledge resources such as Monarch treat these as distinct, others such as MESH conflate.
@@ -41,6 +52,7 @@ disease_or_phenotypic_feature_association_to_location_association		An associatio
 disease_or_phenotypic_feature_association_to_thing_association		
 disease_to_phenotypic_feature_association		An association between a disease and a phenotypic feature in which the phenotypic feature is associated with the disease in some way
 disease_to_thing_association		
+distribution_level		
 drug		A substance intended for use in the diagnosis, cure, mitigation, treatment, or prevention of disease
 drug_exposure		A drug exposure is an intake of a particular chemical substance
 entity_to_disease_association		mixin class for any association whose object (target node) is a disease
@@ -97,6 +109,10 @@ macromolecular_machine		A union of gene, gene product, and macromolecular comple
 macromolecular_machine_to_biological_process_association		A functional association between a macromolecular machine (gene, gene product or complex) and a biological process or pathway (as represented in the GO biological process branch), where the entity carries out some part of the process, regulates it, or acts upstream of it
 macromolecular_machine_to_cellular_component_association		A functional association between a macromolecular machine (gene, gene product or complex) and a cellular component (as represented in the GO cellular component branch), where the entity carries out its function in the cellular component
 macromolecular_machine_to_molecular_activity_association		A functional association between a macromolecular machine (gene, gene product or complex) and a molecular activity (as represented in the GO molecular function branch), where the entity carries out the activity, or contributes to its execution
+material_sample		A sample is a limited quantity of something (e.g. an individual or set of individuals from a population, or a portion of a substance) to be used for testing, analysis, inspection, investigation, demonstration, or trial use. [SIO]
+material_sample_derivation_association		An association between a material sample and the material entity it is derived from
+material_sample_to_disease_or_phenotypic_feature_association		An association between a material sample and a disease or phenotype
+material_sample_to_thing_association		An association between a material sample and something
 metabolite		Any intermediate or product resulting from metabolism. Includes primary and secondary metabolites.
 microRNA		
 model_to_disease_mixin		This mixin is used for any association class for which the subject (source node) plays the role of a 'model', in that it recapitulates some features of the disease in a way that is useful for studying the disease outside a patient carrying the disease
@@ -116,6 +132,7 @@ pathway
 phenomenon		a fact or situation that is observed to exist or happen, especially one whose cause or explanation is in question
 phenotypic_feature		
 phenotypic_sex		An attribute corresponding to the phenotypic sex of the individual, based upon the reproductive organs present.
+physical_entity		An entity that has physical properties such as mass, volume, or charge
 physiological_process		
 planetary_entity		Any entity or process that exists at the level of the whole planet
 population_of_individual_organisms		A collection of individuals from the same taxonomic class distinguished by one or more characteristics. Characteristics can include, but are not limited to, shared geographic location, genetics, phenotypes [Alliance for Genome Resources]
@@ -125,6 +142,7 @@ protein		A gene product that is composed of a chain of amino acid sequences and 
 protein_isoform		Represents a protein that is a specific isoform of the canonical or reference protein. See https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4114032/
 provider		person, group, organization or project that provides a piece of information
 publication		Any published piece of information. Can refer to a whole publication, or to a part of it (e.g. a figure, figure legend, or section highlighted by NLP). The scope is intended to be general and include information published on the web as well as journals.
+quantity_value		A value of an attribute that is quantitative and measurable, expressed as a combination of a unit and a numeric value
 relationship_quantifier		
 relationship_type		An OWL property used as an edge label
 RNA_product		
@@ -134,7 +152,9 @@ sequence_feature_relationship		For example, a particular exon is part of a parti
 sequence_variant		An allele that varies in its sequence from what is considered the reference allele at that locus.
 sequence_variant_modulates_treatment_association		An association between a sequence variant and a treatment or health intervention. The treatment object itself encompasses both the disease and the drug used.
 severity_value		describes the severity of a phenotypic feature or disease
+source_file		
 specificity_quantifier		
+subject_of_investigation		An entity that has the role of being studied in an investigation, study, or experiment
 thing_to_disease_or_phenotypic_feature_association		
 thing_with_taxon		A mixin that can be used on any entity with a taxon
 transcript		An RNA synthesized on a DNA or RNA template by an RNA polymerase

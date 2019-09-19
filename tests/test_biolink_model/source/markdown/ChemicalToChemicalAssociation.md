@@ -1,12 +1,12 @@
 
-# Class: biosample to disease or phenotypic feature association
+# Class: chemical to chemical association
 
 
-An association between a biosample and a disease or phenotype
+A relationship between two chemical entities. This can encompass actual interactions as well as temporal causal edges, e.g. one chemical converted to another.
 
-URI: [biolink:BiosampleToDiseaseOrPhenotypicFeatureAssociation](https://w3id.org/biolink/vocab/BiosampleToDiseaseOrPhenotypicFeatureAssociation)
+URI: [biolink:ChemicalToChemicalAssociation](https://w3id.org/biolink/vocab/ChemicalToChemicalAssociation)
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[BiosampleToDiseaseOrPhenotypicFeatureAssociation|relation(i):uriorcurie;id(i):identifier_type;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[BiosampleToDiseaseOrPhenotypicFeatureAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[BiosampleToDiseaseOrPhenotypicFeatureAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[BiosampleToDiseaseOrPhenotypicFeatureAssociation],%20\[NamedThing]<object(i)%201..1-%20\[BiosampleToDiseaseOrPhenotypicFeatureAssociation],%20\[NamedThing]<subject(i)%201..1-%20\[BiosampleToDiseaseOrPhenotypicFeatureAssociation],%20\[BiosampleToDiseaseOrPhenotypicFeatureAssociation]uses%20-.->\[BiosampleToThingAssociation],%20\[BiosampleToDiseaseOrPhenotypicFeatureAssociation]uses%20-.->\[ThingToDiseaseOrPhenotypicFeatureAssociation],%20\[Association]^-\[BiosampleToDiseaseOrPhenotypicFeatureAssociation])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[ChemicalToChemicalAssociation|relation(i):uriorcurie;id(i):identifier_type;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[ChemicalToChemicalAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[ChemicalToChemicalAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[ChemicalToChemicalAssociation],%20\[NamedThing]<subject(i)%201..1-%20\[ChemicalToChemicalAssociation],%20\[ChemicalSubstance]<object%201..1-%20\[ChemicalToChemicalAssociation],%20\[ChemicalToChemicalAssociation]uses%20-.->\[ChemicalToThingAssociation],%20\[ChemicalToChemicalAssociation]^-\[ChemicalToChemicalDerivationAssociation],%20\[Association]^-\[ChemicalToChemicalAssociation])
 
 ## Parents
 
@@ -14,11 +14,22 @@ URI: [biolink:BiosampleToDiseaseOrPhenotypicFeatureAssociation](https://w3id.org
 
 ## Uses Mixins
 
- *  mixin: [BiosampleToThingAssociation](BiosampleToThingAssociation.md) - An association between a biosample and something
- *  mixin: [ThingToDiseaseOrPhenotypicFeatureAssociation](ThingToDiseaseOrPhenotypicFeatureAssociation.md)
+ *  mixin: [ChemicalToThingAssociation](ChemicalToThingAssociation.md) - An interaction between a chemical entity and another entity
+
+## Children
+
+ * [ChemicalToChemicalDerivationAssociation](ChemicalToChemicalDerivationAssociation.md) - A causal relationship between two chemical entities, where the subject represents the upstream entity and the object represents the downstream. For any such association there is an implicit reaction:
+
+## Referenced by class
+
 
 ## Attributes
 
+
+### Own
+
+ * [object](chemical_to_chemical_association_object.md)  <sub>REQ</sub>
+    * range: [ChemicalSubstance](ChemicalSubstance.md)
 
 ### Inherited from association:
 
@@ -59,3 +70,8 @@ URI: [biolink:BiosampleToDiseaseOrPhenotypicFeatureAssociation](https://w3id.org
     * Description: connects an association to the agent (person, organization or group) that provided it
     * range: [Provider](Provider.md)
     * inherited from: [Association](Association.md)
+
+### Domain for slot:
+
+ * [object](chemical_to_chemical_association_object.md)  <sub>REQ</sub>
+    * range: [ChemicalSubstance](ChemicalSubstance.md)

@@ -15,7 +15,7 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.metamodelcore import Bool, NCName, URI, URIorCURIE, XSDDateTime
 from includes.types import Boolean, Datetime, Integer, Ncname, String, Uri, Uriorcurie
 
-metamodel_version = "1.4.0"
+metamodel_version = "1.4.1"
 
 
 # Namespaces
@@ -107,6 +107,8 @@ class Element(YAMLRoot):
     def __post_init__(self):
         self.id_prefixes = [v if isinstance(v, NCName)
                             else NCName(v) for v in self.id_prefixes]
+        if self.name is None:
+            raise ValueError(f"name must be supplied")
         if not isinstance(self.name, ElementName):
             self.name = ElementName(self.name)
         for k, v in self.local_names.items():
@@ -164,9 +166,13 @@ class SchemaDefinition(Element):
     def __post_init__(self):
         if self.default_prefix is None:
             self.default_prefix = sfx(str(self.id))
-        if self.name is not None and not isinstance(self.name, SchemaDefinitionName):
+        if self.name is None:
+            raise ValueError(f"name must be supplied")
+        if not isinstance(self.name, SchemaDefinitionName):
             self.name = SchemaDefinitionName(self.name)
-        if self.id is not None and not isinstance(self.id, URI):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, URI):
             self.id = URI(self.id)
         self.imports = [v if isinstance(v, URIorCURIE)
                         else URIorCURIE(v) for v in self.imports]
@@ -215,7 +221,9 @@ class TypeDefinition(Element):
     repr: Optional[str] = None
 
     def __post_init__(self):
-        if self.name is not None and not isinstance(self.name, TypeDefinitionName):
+        if self.name is None:
+            raise ValueError(f"name must be supplied")
+        if not isinstance(self.name, TypeDefinitionName):
             self.name = TypeDefinitionName(self.name)
         if self.typeof is not None and not isinstance(self.typeof, TypeDefinitionName):
             self.typeof = TypeDefinitionName(self.typeof)
@@ -239,7 +247,9 @@ class SubsetDefinition(Element):
     name: Union[str, SubsetDefinitionName] = None
 
     def __post_init__(self):
-        if self.name is not None and not isinstance(self.name, SubsetDefinitionName):
+        if self.name is None:
+            raise ValueError(f"name must be supplied")
+        if not isinstance(self.name, SubsetDefinitionName):
             self.name = SubsetDefinitionName(self.name)
         super().__post_init__()
 
@@ -289,12 +299,11 @@ class SlotDefinition(Definition):
     class_model_uri: ClassVar[URIRef] = META.SlotDefinition
 
     name: Union[str, SlotDefinitionName] = None
-    domain: Union[str, ClassDefinitionName] = None
-    owner: Union[str, DefinitionName] = None
     is_a: Optional[Union[str, SlotDefinitionName]] = None
     mixins: List[Union[str, SlotDefinitionName]] = empty_list()
     apply_to: List[Union[str, SlotDefinitionName]] = empty_list()
     singular_name: Optional[str] = None
+    domain: Optional[Union[str, ClassDefinitionName]] = None
     range: Optional[Union[str, ElementName]] = None
     slot_uri: Optional[Union[str, URIorCURIE]] = None
     multivalued: Optional[Bool] = None
@@ -306,6 +315,7 @@ class SlotDefinition(Definition):
     key: Optional[Bool] = None
     identifier: Optional[Bool] = None
     alias: Optional[str] = None
+    owner: Optional[Union[str, DefinitionName]] = None
     subproperty_of: Optional[Union[str, URIorCURIE]] = None
     symmetric: Optional[Bool] = None
     inverse: Optional[Union[str, SlotDefinitionName]] = None
@@ -314,7 +324,9 @@ class SlotDefinition(Definition):
     is_usage_slot: Optional[Bool] = None
 
     def __post_init__(self):
-        if self.name is not None and not isinstance(self.name, SlotDefinitionName):
+        if self.name is None:
+            raise ValueError(f"name must be supplied")
+        if not isinstance(self.name, SlotDefinitionName):
             self.name = SlotDefinitionName(self.name)
         if self.is_a is not None and not isinstance(self.is_a, SlotDefinitionName):
             self.is_a = SlotDefinitionName(self.is_a)
@@ -361,7 +373,9 @@ class ClassDefinition(Definition):
     defining_slots: List[Union[str, SlotDefinitionName]] = empty_list()
 
     def __post_init__(self):
-        if self.name is not None and not isinstance(self.name, ClassDefinitionName):
+        if self.name is None:
+            raise ValueError(f"name must be supplied")
+        if not isinstance(self.name, ClassDefinitionName):
             self.name = ClassDefinitionName(self.name)
         if self.is_a is not None and not isinstance(self.is_a, ClassDefinitionName):
             self.is_a = ClassDefinitionName(self.is_a)
@@ -401,8 +415,12 @@ class Prefix(YAMLRoot):
     prefix_reference: Union[str, URI]
 
     def __post_init__(self):
+        if self.prefix_prefix is None:
+            raise ValueError(f"prefix_prefix must be supplied")
         if not isinstance(self.prefix_prefix, PrefixPrefixPrefix):
             self.prefix_prefix = PrefixPrefixPrefix(self.prefix_prefix)
+        if self.prefix_reference is None:
+            raise ValueError(f"prefix_reference must be supplied")
         if not isinstance(self.prefix_reference, URI):
             self.prefix_reference = URI(self.prefix_reference)
         super().__post_init__()
@@ -424,8 +442,12 @@ class LocalName(YAMLRoot):
     local_name_value: str
 
     def __post_init__(self):
+        if self.local_name_source is None:
+            raise ValueError(f"local_name_source must be supplied")
         if not isinstance(self.local_name_source, LocalNameLocalNameSource):
             self.local_name_source = LocalNameLocalNameSource(self.local_name_source)
+        if self.local_name_value is None:
+            raise ValueError(f"local_name_value must be supplied")
         super().__post_init__()
 
 
@@ -460,6 +482,10 @@ class AltDescription(YAMLRoot):
     description: str
 
     def __post_init__(self):
+        if self.source is None:
+            raise ValueError(f"source must be supplied")
         if not isinstance(self.source, AltDescriptionSource):
             self.source = AltDescriptionSource(self.source)
+        if self.description is None:
+            raise ValueError(f"description must be supplied")
         super().__post_init__()

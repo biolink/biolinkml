@@ -14,7 +14,7 @@ from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace, URIRef
 
 
-metamodel_version = "1.4.0"
+metamodel_version = "1.4.1"
 
 
 # Namespaces
@@ -56,7 +56,9 @@ class TestClass1(YAMLRoot):
     required_mixin_slot: str
 
     def __post_init__(self):
-        if not isinstance(self.id, TestClass1Id):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if self.id is not None and not isinstance(self.id, TestClass1Id):
             self.id = TestClass1Id(self.id)
         super().__post_init__()
 
@@ -75,8 +77,12 @@ class TestClass2(YAMLRoot):
     optional_mixin_slot: Optional[str] = None
 
     def __post_init__(self):
-        if not isinstance(self.id, TestClass2Id):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if self.id is not None and not isinstance(self.id, TestClass2Id):
             self.id = TestClass2Id(self.id)
+        if self.required_mixin_slot is None:
+            raise ValueError(f"required_mixin_slot must be supplied")
         super().__post_init__()
 
 
@@ -93,6 +99,8 @@ class TestClass3(YAMLRoot):
     required_domain_slot: str
 
     def __post_init__(self):
-        if not isinstance(self.id, TestClass3Id):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if self.id is not None and not isinstance(self.id, TestClass3Id):
             self.id = TestClass3Id(self.id)
         super().__post_init__()

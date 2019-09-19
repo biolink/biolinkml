@@ -6,11 +6,11 @@
 
 URI: [biolink:BiologicalSex](https://w3id.org/biolink/vocab/BiologicalSex)
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[BiologicalSex|id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B]^-\[PhenotypicSex],%20\[BiologicalSex]^-\[GenotypicSex],%20\[Attribute]^-\[BiologicalSex])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[NamedThing]<has%20qualitative%20value(i)%200..1-%20\[BiologicalSex|id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],%20\[QuantityValue]<has%20quantitative%20value(i)%200..*-++\[BiologicalSex],%20\[OntologyClass]<has%20attribute%20type(i)%200..1-%20\[BiologicalSex],%20\[BiologicalSex]^-\[PhenotypicSex],%20\[BiologicalSex]^-\[GenotypicSex],%20\[Attribute]^-\[BiologicalSex])
 
 ## Parents
 
- *  is_a: [Attribute](Attribute.md) - A property or characteristic of an entity
+ *  is_a: [Attribute](Attribute.md) - A property or characteristic of an entity. For example, an apple may have properties such as color, shape, age, crispiness. An environmental sample may have attributes such as depth, lat, long, material.
 
 ## Children
 
@@ -23,6 +23,24 @@ URI: [biolink:BiologicalSex](https://w3id.org/biolink/vocab/BiologicalSex)
 
 ## Attributes
 
+
+### Inherited from attribute:
+
+ * [has attribute type](has_attribute_type.md)  <sub>OPT</sub>
+    * Description: connects an attribute to a class that describes it
+    * range: [OntologyClass](OntologyClass.md)
+    * inherited from: [Attribute](Attribute.md)
+    * in subsets: (samples)
+ * [has quantitative value](has_quantitative_value.md)  <sub>0..*</sub>
+    * Description: connects an attribute to a value
+    * range: [QuantityValue](QuantityValue.md)
+    * inherited from: [Attribute](Attribute.md)
+    * in subsets: (samples)
+ * [has qualitative value](has_qualitative_value.md)  <sub>OPT</sub>
+    * Description: connects an attribute to a value
+    * range: [NamedThing](NamedThing.md)
+    * inherited from: [Attribute](Attribute.md)
+    * in subsets: (samples)
 
 ### Inherited from named thing:
 

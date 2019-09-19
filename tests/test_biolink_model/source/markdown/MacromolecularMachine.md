@@ -6,7 +6,7 @@ A union of gene, gene product, and macromolecular complex. These are the basic u
 
 URI: [biolink:MacromolecularMachine](https://w3id.org/biolink/vocab/MacromolecularMachine)
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[MacromolecularMachine|name:symbol_type;id(i):identifier_type;category(i):iri_type%20%2B],%20\[FunctionalAssociation]-%20subject%201..1>\[MacromolecularMachine],%20\[MacromolecularMachine]^-\[MacromolecularComplex],%20\[MacromolecularMachine]^-\[GeneOrGeneProduct],%20\[GenomicEntity]^-\[MacromolecularMachine])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[MacromolecularMachine|name:symbol_type;id(i):identifier_type;category(i):iri_type%20%2B],%20\[ChemicalToChemicalDerivationAssociation]-%20change%20is%20catalyzed%20by%200..*>\[MacromolecularMachine],%20\[FunctionalAssociation]-%20subject%201..1>\[MacromolecularMachine],%20\[MolecularActivity]-%20enabled%20by%200..*>\[MacromolecularMachine],%20\[MacromolecularMachine]^-\[MacromolecularComplex],%20\[MacromolecularMachine]^-\[GeneOrGeneProduct],%20\[GenomicEntity]^-\[MacromolecularMachine])
 
 ## Parents
 
@@ -19,7 +19,10 @@ URI: [biolink:MacromolecularMachine](https://w3id.org/biolink/vocab/Macromolecul
 
 ## Referenced by class
 
+ *  **[Association](Association.md)** *[change is catalyzed by](change_is_catalyzed_by.md)*  <sub>0..*</sub>  **[MacromolecularMachine](MacromolecularMachine.md)**
+ *  **[ChemicalToChemicalDerivationAssociation](ChemicalToChemicalDerivationAssociation.md)** *[change is catalyzed by](chemical_to_chemical_derivation_association_change_is_catalyzed_by.md)*  <sub>0..*</sub>  **[MacromolecularMachine](MacromolecularMachine.md)**
  *  **[FunctionalAssociation](FunctionalAssociation.md)** *[subject](functional_association_subject.md)*  <sub>REQ</sub>  **[MacromolecularMachine](MacromolecularMachine.md)**
+ *  **[MolecularActivity](MolecularActivity.md)** *[enabled by](molecular_activity_enabled_by.md)*  <sub>0..*</sub>  **[MacromolecularMachine](MacromolecularMachine.md)**
 
 ## Attributes
 

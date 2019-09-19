@@ -6,7 +6,7 @@ An attribute corresponding to the phenotypic sex of the individual, based upon t
 
 URI: [biolink:PhenotypicSex](https://w3id.org/biolink/vocab/PhenotypicSex)
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[BiologicalSex]^-\[PhenotypicSex|id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[NamedThing]<has%20qualitative%20value(i)%200..1-%20\[PhenotypicSex|id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],%20\[QuantityValue]<has%20quantitative%20value(i)%200..*-++\[PhenotypicSex],%20\[OntologyClass]<has%20attribute%20type(i)%200..1-%20\[PhenotypicSex],%20\[BiologicalSex]^-\[PhenotypicSex])
 
 ## Parents
 
@@ -14,6 +14,24 @@ URI: [biolink:PhenotypicSex](https://w3id.org/biolink/vocab/PhenotypicSex)
 
 ## Attributes
 
+
+### Inherited from attribute:
+
+ * [has attribute type](has_attribute_type.md)  <sub>OPT</sub>
+    * Description: connects an attribute to a class that describes it
+    * range: [OntologyClass](OntologyClass.md)
+    * inherited from: [Attribute](Attribute.md)
+    * in subsets: (samples)
+ * [has quantitative value](has_quantitative_value.md)  <sub>0..*</sub>
+    * Description: connects an attribute to a value
+    * range: [QuantityValue](QuantityValue.md)
+    * inherited from: [Attribute](Attribute.md)
+    * in subsets: (samples)
+ * [has qualitative value](has_qualitative_value.md)  <sub>OPT</sub>
+    * Description: connects an attribute to a value
+    * range: [NamedThing](NamedThing.md)
+    * inherited from: [Attribute](Attribute.md)
+    * in subsets: (samples)
 
 ### Inherited from named thing:
 

@@ -11,7 +11,7 @@ from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace, URIRef
 from biolinkml.utils.metamodelcore import URI
 
-metamodel_version = "1.4.0"
+metamodel_version = "1.4.1"
 
 
 # Namespaces
@@ -103,6 +103,8 @@ class BiologicalSex(Attribute):
     id: Union[str, BiologicalSexId] = None
 
     def __post_init__(self):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
         if not isinstance(self.id, BiologicalSexId):
             self.id = BiologicalSexId(self.id)
         super().__post_init__()
@@ -123,6 +125,8 @@ class OntologyClass(NamedThing):
     id: Union[str, OntologyClassId] = None
 
     def __post_init__(self):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
         if not isinstance(self.id, OntologyClassId):
             self.id = OntologyClassId(self.id)
         super().__post_init__()

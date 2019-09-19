@@ -15,12 +15,13 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.metamodelcore import Bool, ElementIdentifier, URIorCURIE, XSDDate, XSDTime
 from includes.types import Boolean, Date, Double, Float, Integer, String, Time, Uriorcurie
 
-metamodel_version = "1.4.0"
+metamodel_version = "1.4.1"
 
 
 # Namespaces
 BFO = Namespace('http://purl.obolibrary.org/obo/BFO_')
 BIOGRID = Namespace('http://thebiogrid.org/')
+BIOSAMPLE = Namespace('http://example.org/UNKNOWN/BioSample/')
 CHEBI = Namespace('http://purl.obolibrary.org/obo/CHEBI_')
 CHEMBL_COMPOUND = Namespace('http://identifiers.org/chembl.compound/')
 CHEMBL_TARGET = Namespace('http://identifiers.org/chembl.target/')
@@ -31,10 +32,12 @@ CLO = Namespace('http://purl.obolibrary.org/obo/CLO_')
 CLINVAR = Namespace('http://www.ncbi.nlm.nih.gov/clinvar/')
 ECO = Namespace('http://purl.obolibrary.org/obo/ECO_')
 ECTO = Namespace('http://example.org/UNKNOWN/ECTO/')
+EFO = Namespace('http://purl.obolibrary.org/obo/EFO_')
 ENSEMBL = Namespace('http://ensembl.org/id/')
 FAO = Namespace('http://purl.obolibrary.org/obo/FAO_')
 GENO = Namespace('http://purl.obolibrary.org/obo/GENO_')
 GO = Namespace('http://purl.obolibrary.org/obo/GO_')
+GOLD_META = Namespace('http://identifiers.org/gold.meta/')
 HANCESTRO = Namespace('http://example.org/UNKNOWN/HANCESTRO/')
 HGNC = Namespace('http://www.genenames.org/cgi-bin/gene_symbol_report?hgnc_id=')
 HP = Namespace('http://purl.obolibrary.org/obo/HP_')
@@ -46,6 +49,7 @@ MONDO = Namespace('http://purl.obolibrary.org/obo/MONDO_')
 NCBIGENE = Namespace('http://www.ncbi.nlm.nih.gov/gene/')
 NCIT = Namespace('http://purl.obolibrary.org/obo/NCIT_')
 OBAN = Namespace('http://purl.org/oban/')
+OBI = Namespace('http://purl.obolibrary.org/obo/OBI_')
 OGMS = Namespace('http://purl.obolibrary.org/obo/OGMS_')
 OIO = Namespace('http://www.geneontology.org/formats/oboInOwl#')
 PANTHER = Namespace('http://www.pantherdb.org/panther/family.do?clsAccession=')
@@ -54,6 +58,7 @@ PO = Namespace('http://purl.obolibrary.org/obo/PO_')
 PR = Namespace('http://purl.obolibrary.org/obo/PR_')
 PW = Namespace('http://purl.obolibrary.org/obo/PW_')
 POMBASE = Namespace('https://www.pombase.org/spombe/result/')
+RHEA = Namespace('http://identifiers.org/rhea/')
 RNACENTRAL = Namespace('http://example.org/UNKNOWN/RNAcentral/')
 RO = Namespace('http://purl.obolibrary.org/obo/RO_')
 REACTOME = Namespace('http://example.org/UNKNOWN/Reactome/')
@@ -73,16 +78,19 @@ WB = Namespace('http://identifiers.org/wb/')
 WD = Namespace('http://example.org/UNKNOWN/WD/')
 ZFIN = Namespace('http://zfin.org/')
 BIOLINK = Namespace('https://w3id.org/biolink/vocab/')
+DCT = Namespace('http://example.org/UNKNOWN/dct/')
 DCTERMS = Namespace('http://purl.org/dc/terms/')
 DICTYBASE = Namespace('http://dictybase.org/gene/')
 FALDO = Namespace('http://biohackathon.org/resource/faldo#')
 OBAN = Namespace('http://example.org/UNKNOWN/oban/')
 OWL = Namespace('http://www.w3.org/2002/07/owl#')
 PAV = Namespace('http://purl.org/pav/')
+QUD = Namespace('http://qudt.org/1.1/schema/qudt#')
 RDF = Namespace('http://www.w3.org/1999/02/22-rdf-syntax-ns#')
 RDFS = Namespace('http://www.w3.org/2000/01/rdf-schema#')
 SHEX = Namespace('http://www.w3.org/ns/shex#')
 SKOS = Namespace('https://www.w3.org/TR/skos-reference/#')
+VOID = Namespace('http://rdfs.org/ns/void#')
 WGS = Namespace('http://www.w3.org/2003/01/geo/wgs84_pos')
 XSD = Namespace('http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = BIOLINK
@@ -143,11 +151,11 @@ class Frequency(String):
     type_model_uri = BIOLINK.Frequency
 
 
-class PerecentageFrequencyValue(Double):
+class PercentageFrequencyValue(Double):
     type_class_uri = UO["0000187"]
     type_class_curie = "UO:0000187"
-    type_name = "perecentage frequency value"
-    type_model_uri = BIOLINK.PerecentageFrequencyValue
+    type_name = "percentage frequency value"
+    type_model_uri = BIOLINK.PercentageFrequencyValue
 
 
 class Quotient(Double):
@@ -215,6 +223,30 @@ class NamedThingId(ElementIdentifier):
     pass
 
 
+class DataFileId(NamedThingId):
+    pass
+
+
+class SourceFileId(DataFileId):
+    pass
+
+
+class DataSetId(NamedThingId):
+    pass
+
+
+class DataSetVersionId(DataSetId):
+    pass
+
+
+class DistributionLevelId(DataSetVersionId):
+    pass
+
+
+class DataSetSummaryId(DataSetVersionId):
+    pass
+
+
 class BiologicalEntityId(NamedThingId):
     pass
 
@@ -251,7 +283,7 @@ class PopulationOfIndividualOrganismsId(OrganismalEntityId):
     pass
 
 
-class BiosampleId(OrganismalEntityId):
+class MaterialSampleId(NamedThingId):
     pass
 
 
@@ -503,6 +535,14 @@ class CaseToThingAssociationId(AssociationId):
     pass
 
 
+class ChemicalToChemicalAssociationId(AssociationId):
+    pass
+
+
+class ChemicalToChemicalDerivationAssociationId(ChemicalToChemicalAssociationId):
+    pass
+
+
 class ChemicalToDiseaseOrPhenotypicFeatureAssociationId(AssociationId):
     pass
 
@@ -515,11 +555,15 @@ class ChemicalToGeneAssociationId(AssociationId):
     pass
 
 
-class BiosampleToThingAssociationId(AssociationId):
+class MaterialSampleToThingAssociationId(AssociationId):
     pass
 
 
-class BiosampleToDiseaseOrPhenotypicFeatureAssociationId(AssociationId):
+class MaterialSampleDerivationAssociationId(AssociationId):
+    pass
+
+
+class MaterialSampleToDiseaseOrPhenotypicFeatureAssociationId(AssociationId):
     pass
 
 
@@ -671,6 +715,10 @@ class OccurrentId(NamedThingId):
     pass
 
 
+class PhysicalEntityId(NamedThingId):
+    pass
+
+
 class BiologicalProcessOrActivityId(BiologicalEntityId):
     pass
 
@@ -711,7 +759,7 @@ class CellId(AnatomicalEntityId):
     pass
 
 
-class CellLineId(BiosampleId):
+class CellLineId(OrganismalEntityId):
     pass
 
 
@@ -719,10 +767,23 @@ class GrossAnatomicalStructureId(AnatomicalEntityId):
     pass
 
 
-@dataclass
-class Attribute(YAMLRoot):
+class AbstractEntity(YAMLRoot):
     """
-    A property or characteristic of an entity
+    Any thing that is not a process or a physical mass-bearing entity
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = BIOLINK.AbstractEntity
+    class_class_curie: ClassVar[str] = "biolink:AbstractEntity"
+    class_name: ClassVar[str] = "abstract entity"
+    class_model_uri: ClassVar[URIRef] = BIOLINK.AbstractEntity
+
+
+@dataclass
+class Attribute(AbstractEntity):
+    """
+    A property or characteristic of an entity. For example, an apple may have properties such as color, shape, age,
+    crispiness. An environmental sample may have attributes such as depth, lat, long, material.
     """
     _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "subclass_of"]
 
@@ -731,13 +792,46 @@ class Attribute(YAMLRoot):
     class_name: ClassVar[str] = "attribute"
     class_model_uri: ClassVar[URIRef] = BIOLINK.Attribute
 
-    id: Union[ElementIdentifier, AttributeId]
-    name: Union[str, LabelType]
+    id: Union[ElementIdentifier, AttributeId] = None
+    name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
+    has_attribute_type: Optional[Union[ElementIdentifier, OntologyClassId]] = None
+    has_quantitative_value: List[Union[dict, "QuantityValue"]] = empty_list()
+    has_qualitative_value: Optional[Union[ElementIdentifier, NamedThingId]] = None
 
     def __post_init__(self):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
         if not isinstance(self.id, AttributeId):
             self.id = AttributeId(self.id)
+        if self.has_attribute_type is not None and not isinstance(self.has_attribute_type, OntologyClassId):
+            self.has_attribute_type = OntologyClassId(self.has_attribute_type)
+        self.has_quantitative_value = [v if isinstance(v, QuantityValue)
+                                       else QuantityValue(**v) for v in self.has_quantitative_value]
+        if self.has_qualitative_value is not None and not isinstance(self.has_qualitative_value, NamedThingId):
+            self.has_qualitative_value = NamedThingId(self.has_qualitative_value)
+        super().__post_init__()
+
+
+@dataclass
+class QuantityValue(AbstractEntity):
+    """
+    A value of an attribute that is quantitative and measurable, expressed as a combination of a unit and a numeric
+    value
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = BIOLINK.QuantityValue
+    class_class_curie: ClassVar[str] = "biolink:QuantityValue"
+    class_name: ClassVar[str] = "quantity value"
+    class_model_uri: ClassVar[URIRef] = BIOLINK.QuantityValue
+
+    has_unit: Optional[Union[str, Unit]] = None
+    has_numeric_value: Optional[float] = None
+
+    def __post_init__(self):
+        if self.has_unit is not None and not isinstance(self.has_unit, Unit):
+            self.has_unit = Unit(self.has_unit)
         super().__post_init__()
 
 
@@ -755,7 +849,9 @@ class BiologicalSex(Attribute):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, BiologicalSexId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, BiologicalSexId):
             self.id = BiologicalSexId(self.id)
         super().__post_init__()
 
@@ -777,7 +873,9 @@ class PhenotypicSex(BiologicalSex):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, PhenotypicSexId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, PhenotypicSexId):
             self.id = PhenotypicSexId(self.id)
         super().__post_init__()
 
@@ -800,7 +898,9 @@ class GenotypicSex(BiologicalSex):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, GenotypicSexId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, GenotypicSexId):
             self.id = GenotypicSexId(self.id)
         super().__post_init__()
 
@@ -822,7 +922,9 @@ class SeverityValue(Attribute):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, SeverityValueId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, SeverityValueId):
             self.id = SeverityValueId(self.id)
         super().__post_init__()
 
@@ -844,7 +946,9 @@ class FrequencyValue(Attribute):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, FrequencyValueId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, FrequencyValueId):
             self.id = FrequencyValueId(self.id)
         super().__post_init__()
 
@@ -867,7 +971,9 @@ class ClinicalModifier(Attribute):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, ClinicalModifierId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, ClinicalModifierId):
             self.id = ClinicalModifierId(self.id)
         super().__post_init__()
 
@@ -889,7 +995,9 @@ class Onset(Attribute):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, OnsetId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, OnsetId):
             self.id = OnsetId(self.id)
         super().__post_init__()
 
@@ -911,12 +1019,116 @@ class NamedThing(YAMLRoot):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
         if not isinstance(self.id, NamedThingId):
             self.id = NamedThingId(self.id)
+        if self.name is None:
+            raise ValueError(f"name must be supplied")
         if not isinstance(self.name, LabelType):
             self.name = LabelType(self.name)
-        if not isinstance(self.category, IriType):
-            self.category = IriType(self.category)
+        if not isinstance(self.category, list) or len(self.category) == 0:
+            raise ValueError(f"category must be a non-empty list")
+        self.category = [v if isinstance(v, IriType)
+                         else IriType(v) for v in self.category]
+        super().__post_init__()
+
+
+@dataclass
+class DataFile(NamedThing):
+    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with"]
+
+    class_class_uri: ClassVar[URIRef] = EFO["0004095"]
+    class_class_curie: ClassVar[str] = "EFO:0004095"
+    class_name: ClassVar[str] = "data file"
+    class_model_uri: ClassVar[URIRef] = BIOLINK.DataFile
+
+    id: Union[ElementIdentifier, DataFileId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
+
+    def __post_init__(self):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, DataFileId):
+            self.id = DataFileId(self.id)
+        super().__post_init__()
+
+
+@dataclass
+class SourceFile(DataFile):
+    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with"]
+
+    class_class_uri: ClassVar[URIRef] = BIOLINK.SourceFile
+    class_class_curie: ClassVar[str] = "biolink:SourceFile"
+    class_name: ClassVar[str] = "source file"
+    class_model_uri: ClassVar[URIRef] = BIOLINK.SourceFile
+
+    id: Union[ElementIdentifier, SourceFileId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
+    source_version: Optional[str] = None
+    retrievedOn: Optional[Union[str, XSDDate]] = None
+
+    def __post_init__(self):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, SourceFileId):
+            self.id = SourceFileId(self.id)
+        if self.retrievedOn is not None and not isinstance(self.retrievedOn, XSDDate):
+            self.retrievedOn = XSDDate(self.retrievedOn)
+        super().__post_init__()
+
+
+@dataclass
+class DataSet(NamedThing):
+    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with"]
+
+    class_class_uri: ClassVar[URIRef] = IAO["0000100"]
+    class_class_curie: ClassVar[str] = "IAO:0000100"
+    class_name: ClassVar[str] = "data set"
+    class_model_uri: ClassVar[URIRef] = BIOLINK.DataSet
+
+    id: Union[ElementIdentifier, DataSetId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
+
+    def __post_init__(self):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, DataSetId):
+            self.id = DataSetId(self.id)
+        super().__post_init__()
+
+
+@dataclass
+class DataSetVersion(DataSet):
+    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with"]
+
+    class_class_uri: ClassVar[URIRef] = BIOLINK.DataSetVersion
+    class_class_curie: ClassVar[str] = "biolink:DataSetVersion"
+    class_name: ClassVar[str] = "data set version"
+    class_model_uri: ClassVar[URIRef] = BIOLINK.DataSetVersion
+
+    id: Union[ElementIdentifier, DataSetVersionId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
+    title: Optional[str] = None
+    source_data_file: Optional[Union[ElementIdentifier, DataFileId]] = None
+    versionOf: Optional[Union[ElementIdentifier, DataSetId]] = None
+    distribution: Optional[Union[ElementIdentifier, DistributionLevelId]] = None
+
+    def __post_init__(self):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, DataSetVersionId):
+            self.id = DataSetVersionId(self.id)
+        if self.source_data_file is not None and not isinstance(self.source_data_file, DataFileId):
+            self.source_data_file = DataFileId(self.source_data_file)
+        if self.versionOf is not None and not isinstance(self.versionOf, DataSetId):
+            self.versionOf = DataSetId(self.versionOf)
+        if self.distribution is not None and not isinstance(self.distribution, DistributionLevelId):
+            self.distribution = DistributionLevelId(self.distribution)
         super().__post_init__()
 
 
@@ -950,7 +1162,9 @@ class OntologyClass(NamedThing):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, OntologyClassId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, OntologyClassId):
             self.id = OntologyClassId(self.id)
         super().__post_init__()
 
@@ -972,7 +1186,9 @@ class RelationshipType(OntologyClass):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, RelationshipTypeId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, RelationshipTypeId):
             self.id = RelationshipTypeId(self.id)
         super().__post_init__()
 
@@ -994,7 +1210,9 @@ class GeneOntologyClass(OntologyClass):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, GeneOntologyClassId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, GeneOntologyClassId):
             self.id = GeneOntologyClassId(self.id)
         super().__post_init__()
 
@@ -1013,7 +1231,9 @@ class OrganismTaxon(OntologyClass):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, OrganismTaxonId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, OrganismTaxonId):
             self.id = OrganismTaxonId(self.id)
         super().__post_init__()
 
@@ -1049,7 +1269,9 @@ class IndividualOrganism(OrganismalEntity):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, IndividualOrganismId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, IndividualOrganismId):
             self.id = IndividualOrganismId(self.id)
         super().__post_init__()
 
@@ -1071,7 +1293,9 @@ class Case(IndividualOrganism):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, CaseId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, CaseId):
             self.id = CaseId(self.id)
         super().__post_init__()
 
@@ -1095,27 +1319,39 @@ class PopulationOfIndividualOrganisms(OrganismalEntity):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, PopulationOfIndividualOrganismsId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, PopulationOfIndividualOrganismsId):
             self.id = PopulationOfIndividualOrganismsId(self.id)
         super().__post_init__()
 
 
 @dataclass
-class Biosample(OrganismalEntity):
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "in_taxon"]
+class MaterialSample(NamedThing):
+    """
+    A sample is a limited quantity of something (e.g. an individual or set of individuals from a population, or a
+    portion of a substance) to be used for testing, analysis, inspection, investigation, demonstration, or trial use.
+    [SIO]
+    """
+    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with"]
 
-    class_class_uri: ClassVar[URIRef] = SIO["001050"]
-    class_class_curie: ClassVar[str] = "SIO:001050"
-    class_name: ClassVar[str] = "biosample"
-    class_model_uri: ClassVar[URIRef] = BIOLINK.Biosample
+    class_class_uri: ClassVar[URIRef] = BIOLINK.MaterialSample
+    class_class_curie: ClassVar[str] = "biolink:MaterialSample"
+    class_name: ClassVar[str] = "material sample"
+    class_model_uri: ClassVar[URIRef] = BIOLINK.MaterialSample
 
-    id: Union[ElementIdentifier, BiosampleId] = None
+    id: Union[ElementIdentifier, MaterialSampleId] = None
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
+    has_attribute: List[Union[ElementIdentifier, AttributeId]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, BiosampleId):
-            self.id = BiosampleId(self.id)
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, MaterialSampleId):
+            self.id = MaterialSampleId(self.id)
+        self.has_attribute = [v if isinstance(v, AttributeId)
+                              else AttributeId(v) for v in self.has_attribute]
         super().__post_init__()
 
 
@@ -1137,7 +1373,9 @@ class DiseaseOrPhenotypicFeature(BiologicalEntity):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, DiseaseOrPhenotypicFeatureId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, DiseaseOrPhenotypicFeatureId):
             self.id = DiseaseOrPhenotypicFeatureId(self.id)
         super().__post_init__()
 
@@ -1156,7 +1394,9 @@ class Disease(DiseaseOrPhenotypicFeature):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, DiseaseId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, DiseaseId):
             self.id = DiseaseId(self.id)
         super().__post_init__()
 
@@ -1175,7 +1415,9 @@ class PhenotypicFeature(DiseaseOrPhenotypicFeature):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, PhenotypicFeatureId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, PhenotypicFeatureId):
             self.id = PhenotypicFeatureId(self.id)
         super().__post_init__()
 
@@ -1198,7 +1440,9 @@ class Environment(BiologicalEntity):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, EnvironmentId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, EnvironmentId):
             self.id = EnvironmentId(self.id)
         super().__post_init__()
 
@@ -1236,7 +1480,9 @@ class ConfidenceLevel(InformationContentEntity):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, ConfidenceLevelId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, ConfidenceLevelId):
             self.id = ConfidenceLevelId(self.id)
         super().__post_init__()
 
@@ -1258,7 +1504,9 @@ class EvidenceType(InformationContentEntity):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, EvidenceTypeId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, EvidenceTypeId):
             self.id = EvidenceTypeId(self.id)
         super().__post_init__()
 
@@ -1282,7 +1530,9 @@ class Publication(InformationContentEntity):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, PublicationId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, PublicationId):
             self.id = PublicationId(self.id)
         super().__post_init__()
 
@@ -1317,7 +1567,9 @@ class Provider(AdministrativeEntity):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, ProviderId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, ProviderId):
             self.id = ProviderId(self.id)
         super().__post_init__()
 
@@ -1329,8 +1581,8 @@ class MolecularEntity(BiologicalEntity):
     """
     _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "molecularly_interacts_with", "affects_abundance_of", "increases_abundance_of", "decreases_abundance_of", "affects_activity_of", "increases_activity_of", "decreases_activity_of", "affects_expression_of", "increases_expression_of", "decreases_expression_of", "affects_folding_of", "increases_folding_of", "decreases_folding_of", "affects_localization_of", "increases_localization_of", "decreases_localization_of", "affects_metabolic_processing_of", "increases_metabolic_processing_of", "decreases_metabolic_processing_of", "affects_molecular_modification_of", "increases_molecular_modification_of", "decreases_molecular_modification_of", "affects_synthesis_of", "increases_synthesis_of", "decreases_synthesis_of", "affects_degradation_of", "increases_degradation_of", "decreases_degradation_of", "affects_mutation_rate_of", "increases_mutation_rate_of", "decreases_mutation_rate_of", "affects_response_to", "increases_response_to", "decreases_response_to", "affects_splicing_of", "increases_splicing_of", "decreases_splicing_of", "affects_stability_of", "increases_stability_of", "decreases_stability_of", "affects_transport_of", "increases_transport_of", "decreases_transport_of", "affects_secretion_of", "increases_secretion_of", "decreases_secretion_of", "affects_uptake_of", "increases_uptake_of", "decreases_uptake_of", "regulates_entity_to_entity", "biomarker_for", "in_taxon", "positively_regulates_entity_to_entity", "negatively_regulates_entity_to_entity"]
 
-    class_class_uri: ClassVar[URIRef] = SIO["010004"]
-    class_class_curie: ClassVar[str] = "SIO:010004"
+    class_class_uri: ClassVar[URIRef] = SIO["010341"]
+    class_class_curie: ClassVar[str] = "SIO:010341"
     class_name: ClassVar[str] = "molecular entity"
     class_model_uri: ClassVar[URIRef] = BIOLINK.MolecularEntity
 
@@ -1339,7 +1591,9 @@ class MolecularEntity(BiologicalEntity):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, MolecularEntityId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, MolecularEntityId):
             self.id = MolecularEntityId(self.id)
         super().__post_init__()
 
@@ -1362,7 +1616,9 @@ class ChemicalSubstance(MolecularEntity):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, ChemicalSubstanceId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, ChemicalSubstanceId):
             self.id = ChemicalSubstanceId(self.id)
         super().__post_init__()
 
@@ -1381,7 +1637,9 @@ class Carbohydrate(ChemicalSubstance):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, CarbohydrateId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, CarbohydrateId):
             self.id = CarbohydrateId(self.id)
         super().__post_init__()
 
@@ -1403,7 +1661,9 @@ class Drug(ChemicalSubstance):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, DrugId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, DrugId):
             self.id = DrugId(self.id)
         super().__post_init__()
 
@@ -1425,7 +1685,9 @@ class Metabolite(ChemicalSubstance):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, MetaboliteId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, MetaboliteId):
             self.id = MetaboliteId(self.id)
         super().__post_init__()
 
@@ -1447,7 +1709,9 @@ class AnatomicalEntity(OrganismalEntity):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, AnatomicalEntityId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, AnatomicalEntityId):
             self.id = AnatomicalEntityId(self.id)
         super().__post_init__()
 
@@ -1469,7 +1733,9 @@ class LifeStage(OrganismalEntity):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, LifeStageId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, LifeStageId):
             self.id = LifeStageId(self.id)
         super().__post_init__()
 
@@ -1491,14 +1757,16 @@ class PlanetaryEntity(NamedThing):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, PlanetaryEntityId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, PlanetaryEntityId):
             self.id = PlanetaryEntityId(self.id)
         super().__post_init__()
 
 
 @dataclass
 class EnvironmentalProcess(PlanetaryEntity):
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "regulates_process_to_process", "has_participant", "has_input", "precedes"]
+    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "regulates_process_to_process", "has_participant", "has_input", "has_output", "precedes"]
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.EnvironmentalProcess
     class_class_curie: ClassVar[str] = "biolink:EnvironmentalProcess"
@@ -1510,7 +1778,9 @@ class EnvironmentalProcess(PlanetaryEntity):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, EnvironmentalProcessId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, EnvironmentalProcessId):
             self.id = EnvironmentalProcessId(self.id)
         super().__post_init__()
 
@@ -1529,7 +1799,9 @@ class EnvironmentalFeature(PlanetaryEntity):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, EnvironmentalFeatureId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, EnvironmentalFeatureId):
             self.id = EnvironmentalFeatureId(self.id)
         super().__post_init__()
 
@@ -1552,7 +1824,9 @@ class ClinicalEntity(NamedThing):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, ClinicalEntityId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, ClinicalEntityId):
             self.id = ClinicalEntityId(self.id)
         super().__post_init__()
 
@@ -1571,7 +1845,9 @@ class ClinicalTrial(ClinicalEntity):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, ClinicalTrialId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, ClinicalTrialId):
             self.id = ClinicalTrialId(self.id)
         super().__post_init__()
 
@@ -1590,7 +1866,9 @@ class ClinicalIntervention(ClinicalEntity):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, ClinicalInterventionId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, ClinicalInterventionId):
             self.id = ClinicalInterventionId(self.id)
         super().__post_init__()
 
@@ -1612,7 +1890,9 @@ class Device(NamedThing):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, DeviceId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, DeviceId):
             self.id = DeviceId(self.id)
         super().__post_init__()
 
@@ -1635,7 +1915,9 @@ class GenomicEntity(MolecularEntity):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, GenomicEntityId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, GenomicEntityId):
             self.id = GenomicEntityId(self.id)
         super().__post_init__()
 
@@ -1657,7 +1939,9 @@ class Genome(GenomicEntity):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, GenomeId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, GenomeId):
             self.id = GenomeId(self.id)
         super().__post_init__()
 
@@ -1679,7 +1963,9 @@ class Transcript(GenomicEntity):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, TranscriptId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, TranscriptId):
             self.id = TranscriptId(self.id)
         super().__post_init__()
 
@@ -1702,7 +1988,9 @@ class Exon(GenomicEntity):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, ExonId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, ExonId):
             self.id = ExonId(self.id)
         super().__post_init__()
 
@@ -1721,7 +2009,9 @@ class CodingSequence(GenomicEntity):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, CodingSequenceId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, CodingSequenceId):
             self.id = CodingSequenceId(self.id)
         super().__post_init__()
 
@@ -1744,9 +2034,13 @@ class MacromolecularMachine(GenomicEntity):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, MacromolecularMachineId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, MacromolecularMachineId):
             self.id = MacromolecularMachineId(self.id)
-        if self.name is not None and not isinstance(self.name, SymbolType):
+        if self.name is None:
+            raise ValueError(f"name must be supplied")
+        if not isinstance(self.name, SymbolType):
             self.name = SymbolType(self.name)
         super().__post_init__()
 
@@ -1768,7 +2062,9 @@ class GeneOrGeneProduct(MacromolecularMachine):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, GeneOrGeneProductId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, GeneOrGeneProductId):
             self.id = GeneOrGeneProductId(self.id)
         super().__post_init__()
 
@@ -1787,7 +2083,9 @@ class Gene(GeneOrGeneProduct):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, GeneId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, GeneId):
             self.id = GeneId(self.id)
         super().__post_init__()
 
@@ -1809,7 +2107,9 @@ class GeneProduct(GeneOrGeneProduct):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, GeneProductId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, GeneProductId):
             self.id = GeneProductId(self.id)
         super().__post_init__()
 
@@ -1832,7 +2132,9 @@ class Protein(GeneProduct):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, ProteinId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, ProteinId):
             self.id = ProteinId(self.id)
         super().__post_init__()
 
@@ -1873,7 +2175,9 @@ class ProteinIsoform(Protein):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, ProteinIsoformId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, ProteinIsoformId):
             self.id = ProteinIsoformId(self.id)
         super().__post_init__()
 
@@ -1892,7 +2196,9 @@ class RNAProduct(GeneProduct):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, RNAProductId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, RNAProductId):
             self.id = RNAProductId(self.id)
         super().__post_init__()
 
@@ -1914,7 +2220,9 @@ class RNAProductIsoform(RNAProduct):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, RNAProductIsoformId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, RNAProductIsoformId):
             self.id = RNAProductIsoformId(self.id)
         super().__post_init__()
 
@@ -1933,7 +2241,9 @@ class NoncodingRNAProduct(RNAProduct):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, NoncodingRNAProductId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, NoncodingRNAProductId):
             self.id = NoncodingRNAProductId(self.id)
         super().__post_init__()
 
@@ -1952,7 +2262,9 @@ class MicroRNA(NoncodingRNAProduct):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, MicroRNAId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, MicroRNAId):
             self.id = MicroRNAId(self.id)
         super().__post_init__()
 
@@ -1971,7 +2283,9 @@ class MacromolecularComplex(MacromolecularMachine):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, MacromolecularComplexId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, MacromolecularComplexId):
             self.id = MacromolecularComplexId(self.id)
         super().__post_init__()
 
@@ -1993,7 +2307,9 @@ class GeneFamily(MolecularEntity):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, GeneFamilyId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, GeneFamilyId):
             self.id = GeneFamilyId(self.id)
         super().__post_init__()
 
@@ -2012,7 +2328,9 @@ class Zygosity(Attribute):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, ZygosityId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, ZygosityId):
             self.id = ZygosityId(self.id)
         super().__post_init__()
 
@@ -2035,7 +2353,9 @@ class Genotype(GenomicEntity):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, GenotypeId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, GenotypeId):
             self.id = GenotypeId(self.id)
         super().__post_init__()
 
@@ -2057,7 +2377,9 @@ class Haplotype(GenomicEntity):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, HaplotypeId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, HaplotypeId):
             self.id = HaplotypeId(self.id)
         super().__post_init__()
 
@@ -2081,7 +2403,9 @@ class SequenceVariant(GenomicEntity):
     has_gene: List[Union[ElementIdentifier, GeneId]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, SequenceVariantId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, SequenceVariantId):
             self.id = SequenceVariantId(self.id)
         if self.has_biological_sequence is not None and not isinstance(self.has_biological_sequence, BiologicalSequence):
             self.has_biological_sequence = BiologicalSequence(self.has_biological_sequence)
@@ -2108,7 +2432,9 @@ class DrugExposure(Environment):
     drug: List[Union[ElementIdentifier, ChemicalSubstanceId]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, DrugExposureId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, DrugExposureId):
             self.id = DrugExposureId(self.id)
         super().__post_init__()
 
@@ -2132,7 +2458,9 @@ class Treatment(Environment):
     has_exposure_parts: List[Union[ElementIdentifier, DrugExposureId]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, TreatmentId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, TreatmentId):
             self.id = TreatmentId(self.id)
         super().__post_init__()
 
@@ -2154,7 +2482,9 @@ class GeographicLocation(PlanetaryEntity):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, GeographicLocationId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, GeographicLocationId):
             self.id = GeographicLocationId(self.id)
         super().__post_init__()
 
@@ -2176,7 +2506,9 @@ class GeographicLocationAtTime(GeographicLocation):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, GeographicLocationAtTimeId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, GeographicLocationAtTimeId):
             self.id = GeographicLocationAtTimeId(self.id)
         super().__post_init__()
 
@@ -2205,12 +2537,20 @@ class Association(YAMLRoot):
     provided_by: Optional[Union[ElementIdentifier, ProviderId]] = None
 
     def __post_init__(self):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
         if not isinstance(self.id, AssociationId):
             self.id = AssociationId(self.id)
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
         if not isinstance(self.subject, NamedThingId):
             self.subject = NamedThingId(self.subject)
+        if self.relation is None:
+            raise ValueError(f"relation must be supplied")
         if not isinstance(self.relation, URIorCURIE):
             self.relation = URIorCURIE(self.relation)
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
         if not isinstance(self.object, NamedThingId):
             self.object = NamedThingId(self.object)
         if self.association_type is not None and not isinstance(self.association_type, OntologyClassId):
@@ -2243,13 +2583,21 @@ class GenotypeToGenotypePartAssociation(Association):
     id: Union[ElementIdentifier, GenotypeToGenotypePartAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, GenotypeToGenotypePartAssociationId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, GenotypeToGenotypePartAssociationId):
             self.id = GenotypeToGenotypePartAssociationId(self.id)
-        if self.subject is not None and not isinstance(self.subject, GenotypeId):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, GenotypeId):
             self.subject = GenotypeId(self.subject)
-        if self.relation is not None and not isinstance(self.relation, URIorCURIE):
+        if self.relation is None:
+            raise ValueError(f"relation must be supplied")
+        if not isinstance(self.relation, URIorCURIE):
             self.relation = URIorCURIE(self.relation)
-        if self.object is not None and not isinstance(self.object, GenotypeId):
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, GenotypeId):
             self.object = GenotypeId(self.object)
         super().__post_init__()
 
@@ -2274,13 +2622,21 @@ class GenotypeToGeneAssociation(Association):
     id: Union[ElementIdentifier, GenotypeToGeneAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, GenotypeToGeneAssociationId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, GenotypeToGeneAssociationId):
             self.id = GenotypeToGeneAssociationId(self.id)
-        if self.subject is not None and not isinstance(self.subject, GenotypeId):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, GenotypeId):
             self.subject = GenotypeId(self.subject)
-        if self.relation is not None and not isinstance(self.relation, URIorCURIE):
+        if self.relation is None:
+            raise ValueError(f"relation must be supplied")
+        if not isinstance(self.relation, URIorCURIE):
             self.relation = URIorCURIE(self.relation)
-        if self.object is not None and not isinstance(self.object, GeneId):
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, GeneId):
             self.object = GeneId(self.object)
         super().__post_init__()
 
@@ -2304,13 +2660,21 @@ class GenotypeToVariantAssociation(Association):
     id: Union[ElementIdentifier, GenotypeToVariantAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, GenotypeToVariantAssociationId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, GenotypeToVariantAssociationId):
             self.id = GenotypeToVariantAssociationId(self.id)
-        if self.subject is not None and not isinstance(self.subject, GenotypeId):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, GenotypeId):
             self.subject = GenotypeId(self.subject)
-        if self.relation is not None and not isinstance(self.relation, URIorCURIE):
+        if self.relation is None:
+            raise ValueError(f"relation must be supplied")
+        if not isinstance(self.relation, URIorCURIE):
             self.relation = URIorCURIE(self.relation)
-        if self.object is not None and not isinstance(self.object, SequenceVariantId):
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, SequenceVariantId):
             self.object = SequenceVariantId(self.object)
         super().__post_init__()
 
@@ -2335,9 +2699,13 @@ class GeneToGeneAssociation(Association):
     id: Union[ElementIdentifier, GeneToGeneAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.subject is not None and not isinstance(self.subject, GeneOrGeneProductId):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, GeneOrGeneProductId):
             self.subject = GeneOrGeneProductId(self.subject)
-        if self.object is not None and not isinstance(self.object, GeneOrGeneProductId):
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, GeneOrGeneProductId):
             self.object = GeneOrGeneProductId(self.object)
         super().__post_init__()
 
@@ -2362,9 +2730,13 @@ class GeneToGeneHomologyAssociation(GeneToGeneAssociation):
     id: Union[ElementIdentifier, GeneToGeneHomologyAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, GeneToGeneHomologyAssociationId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, GeneToGeneHomologyAssociationId):
             self.id = GeneToGeneHomologyAssociationId(self.id)
-        if self.relation is not None and not isinstance(self.relation, URIorCURIE):
+        if self.relation is None:
+            raise ValueError(f"relation must be supplied")
+        if not isinstance(self.relation, URIorCURIE):
             self.relation = URIorCURIE(self.relation)
         super().__post_init__()
 
@@ -2389,9 +2761,13 @@ class PairwiseGeneToGeneInteraction(GeneToGeneAssociation):
     id: Union[ElementIdentifier, PairwiseGeneToGeneInteractionId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, PairwiseGeneToGeneInteractionId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, PairwiseGeneToGeneInteractionId):
             self.id = PairwiseGeneToGeneInteractionId(self.id)
-        if self.relation is not None and not isinstance(self.relation, URIorCURIE):
+        if self.relation is None:
+            raise ValueError(f"relation must be supplied")
+        if not isinstance(self.relation, URIorCURIE):
             self.relation = URIorCURIE(self.relation)
         super().__post_init__()
 
@@ -2415,7 +2791,9 @@ class CellLineToThingAssociation(Association):
     id: Union[ElementIdentifier, CellLineToThingAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.subject is not None and not isinstance(self.subject, CellLineId):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, CellLineId):
             self.subject = CellLineId(self.subject)
         super().__post_init__()
 
@@ -2440,9 +2818,13 @@ class CellLineToDiseaseOrPhenotypicFeatureAssociation(Association):
     id: Union[ElementIdentifier, CellLineToDiseaseOrPhenotypicFeatureAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, CellLineToDiseaseOrPhenotypicFeatureAssociationId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, CellLineToDiseaseOrPhenotypicFeatureAssociationId):
             self.id = CellLineToDiseaseOrPhenotypicFeatureAssociationId(self.id)
-        if self.subject is not None and not isinstance(self.subject, DiseaseOrPhenotypicFeatureId):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, DiseaseOrPhenotypicFeatureId):
             self.subject = DiseaseOrPhenotypicFeatureId(self.subject)
         super().__post_init__()
 
@@ -2466,7 +2848,9 @@ class ChemicalToThingAssociation(Association):
     id: Union[ElementIdentifier, ChemicalToThingAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.subject is not None and not isinstance(self.subject, ChemicalSubstanceId):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, ChemicalSubstanceId):
             self.subject = ChemicalSubstanceId(self.subject)
         super().__post_init__()
 
@@ -2490,8 +2874,90 @@ class CaseToThingAssociation(Association):
     id: Union[ElementIdentifier, CaseToThingAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.subject is not None and not isinstance(self.subject, CaseId):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, CaseId):
             self.subject = CaseId(self.subject)
+        super().__post_init__()
+
+
+@dataclass
+class ChemicalToChemicalAssociation(Association):
+    """
+    A relationship between two chemical entities. This can encompass actual interactions as well as temporal causal
+    edges, e.g. one chemical converted to another.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = BIOLINK.ChemicalToChemicalAssociation
+    class_class_curie: ClassVar[str] = "biolink:ChemicalToChemicalAssociation"
+    class_name: ClassVar[str] = "chemical to chemical association"
+    class_model_uri: ClassVar[URIRef] = BIOLINK.ChemicalToChemicalAssociation
+
+    subject: Union[ElementIdentifier, NamedThingId] = None
+    relation: Union[str, URIorCURIE] = None
+    object: Union[ElementIdentifier, ChemicalSubstanceId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[ElementIdentifier, ChemicalToChemicalAssociationId] = bnode()
+
+    def __post_init__(self):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, ChemicalToChemicalAssociationId):
+            self.id = ChemicalToChemicalAssociationId(self.id)
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, ChemicalSubstanceId):
+            self.object = ChemicalSubstanceId(self.object)
+        super().__post_init__()
+
+
+@dataclass
+class ChemicalToChemicalDerivationAssociation(ChemicalToChemicalAssociation):
+    """
+    A causal relationship between two chemical entities, where the subject represents the upstream entity and the
+    object represents the downstream. For any such association there is an implicit reaction:
+    IF
+    R has-input C1 AND
+    R has-output C2 AND
+    R enabled-by P AND
+    R type Reaction
+    THEN
+    C1 derives-into C2 <<change is catalyzed by P>>
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = BIOLINK.ChemicalToChemicalDerivationAssociation
+    class_class_curie: ClassVar[str] = "biolink:ChemicalToChemicalDerivationAssociation"
+    class_name: ClassVar[str] = "chemical to chemical derivation association"
+    class_model_uri: ClassVar[URIRef] = BIOLINK.ChemicalToChemicalDerivationAssociation
+
+    subject: Union[ElementIdentifier, ChemicalSubstanceId] = None
+    relation: Union[str, URIorCURIE] = None
+    object: Union[ElementIdentifier, ChemicalSubstanceId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[ElementIdentifier, ChemicalToChemicalDerivationAssociationId] = bnode()
+    change_is_catalyzed_by: List[Union[ElementIdentifier, MacromolecularMachineId]] = empty_list()
+
+    def __post_init__(self):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, ChemicalToChemicalDerivationAssociationId):
+            self.id = ChemicalToChemicalDerivationAssociationId(self.id)
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, ChemicalSubstanceId):
+            self.subject = ChemicalSubstanceId(self.subject)
+        if self.relation is None:
+            raise ValueError(f"relation must be supplied")
+        if not isinstance(self.relation, URIorCURIE):
+            self.relation = URIorCURIE(self.relation)
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, ChemicalSubstanceId):
+            self.object = ChemicalSubstanceId(self.object)
+        self.change_is_catalyzed_by = [v if isinstance(v, MacromolecularMachineId)
+                                       else MacromolecularMachineId(v) for v in self.change_is_catalyzed_by]
         super().__post_init__()
 
 
@@ -2515,9 +2981,13 @@ class ChemicalToDiseaseOrPhenotypicFeatureAssociation(Association):
     id: Union[ElementIdentifier, ChemicalToDiseaseOrPhenotypicFeatureAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, ChemicalToDiseaseOrPhenotypicFeatureAssociationId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, ChemicalToDiseaseOrPhenotypicFeatureAssociationId):
             self.id = ChemicalToDiseaseOrPhenotypicFeatureAssociationId(self.id)
-        if self.object is not None and not isinstance(self.object, DiseaseOrPhenotypicFeatureId):
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, DiseaseOrPhenotypicFeatureId):
             self.object = DiseaseOrPhenotypicFeatureId(self.object)
         super().__post_init__()
 
@@ -2541,9 +3011,13 @@ class ChemicalToPathwayAssociation(Association):
     id: Union[ElementIdentifier, ChemicalToPathwayAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, ChemicalToPathwayAssociationId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, ChemicalToPathwayAssociationId):
             self.id = ChemicalToPathwayAssociationId(self.id)
-        if self.object is not None and not isinstance(self.object, PathwayId):
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, PathwayId):
             self.object = PathwayId(self.object)
         super().__post_init__()
 
@@ -2567,58 +3041,104 @@ class ChemicalToGeneAssociation(Association):
     id: Union[ElementIdentifier, ChemicalToGeneAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, ChemicalToGeneAssociationId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, ChemicalToGeneAssociationId):
             self.id = ChemicalToGeneAssociationId(self.id)
-        if self.object is not None and not isinstance(self.object, GeneOrGeneProductId):
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, GeneOrGeneProductId):
             self.object = GeneOrGeneProductId(self.object)
         super().__post_init__()
 
 
 @dataclass
-class BiosampleToThingAssociation(Association):
+class MaterialSampleToThingAssociation(Association):
     """
-    An association between a biosample and something
+    An association between a material sample and something
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = BIOLINK.BiosampleToThingAssociation
-    class_class_curie: ClassVar[str] = "biolink:BiosampleToThingAssociation"
-    class_name: ClassVar[str] = "biosample to thing association"
-    class_model_uri: ClassVar[URIRef] = BIOLINK.BiosampleToThingAssociation
+    class_class_uri: ClassVar[URIRef] = BIOLINK.MaterialSampleToThingAssociation
+    class_class_curie: ClassVar[str] = "biolink:MaterialSampleToThingAssociation"
+    class_name: ClassVar[str] = "material sample to thing association"
+    class_model_uri: ClassVar[URIRef] = BIOLINK.MaterialSampleToThingAssociation
 
-    subject: Union[ElementIdentifier, BiosampleId] = None
+    subject: Union[ElementIdentifier, MaterialSampleId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, NamedThingId] = None
     edge_label: Union[str, LabelType] = None
-    id: Union[ElementIdentifier, BiosampleToThingAssociationId] = bnode()
+    id: Union[ElementIdentifier, MaterialSampleToThingAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.subject is not None and not isinstance(self.subject, BiosampleId):
-            self.subject = BiosampleId(self.subject)
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, MaterialSampleId):
+            self.subject = MaterialSampleId(self.subject)
         super().__post_init__()
 
 
 @dataclass
-class BiosampleToDiseaseOrPhenotypicFeatureAssociation(Association):
+class MaterialSampleDerivationAssociation(Association):
     """
-    An association between a biosample and a disease or phenotype
+    An association between a material sample and the material entity it is derived from
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = BIOLINK.BiosampleToDiseaseOrPhenotypicFeatureAssociation
-    class_class_curie: ClassVar[str] = "biolink:BiosampleToDiseaseOrPhenotypicFeatureAssociation"
-    class_name: ClassVar[str] = "biosample to disease or phenotypic feature association"
-    class_model_uri: ClassVar[URIRef] = BIOLINK.BiosampleToDiseaseOrPhenotypicFeatureAssociation
+    class_class_uri: ClassVar[URIRef] = BIOLINK.MaterialSampleDerivationAssociation
+    class_class_curie: ClassVar[str] = "biolink:MaterialSampleDerivationAssociation"
+    class_name: ClassVar[str] = "material sample derivation association"
+    class_model_uri: ClassVar[URIRef] = BIOLINK.MaterialSampleDerivationAssociation
+
+    subject: Union[ElementIdentifier, MaterialSampleId] = None
+    relation: Union[str, URIorCURIE] = None
+    object: Union[ElementIdentifier, NamedThingId] = None
+    edge_label: Union[str, LabelType] = None
+    id: Union[ElementIdentifier, MaterialSampleDerivationAssociationId] = bnode()
+
+    def __post_init__(self):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, MaterialSampleDerivationAssociationId):
+            self.id = MaterialSampleDerivationAssociationId(self.id)
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, MaterialSampleId):
+            self.subject = MaterialSampleId(self.subject)
+        if self.relation is None:
+            raise ValueError(f"relation must be supplied")
+        if not isinstance(self.relation, URIorCURIE):
+            self.relation = URIorCURIE(self.relation)
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, NamedThingId):
+            self.object = NamedThingId(self.object)
+        super().__post_init__()
+
+
+@dataclass
+class MaterialSampleToDiseaseOrPhenotypicFeatureAssociation(Association):
+    """
+    An association between a material sample and a disease or phenotype
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = BIOLINK.MaterialSampleToDiseaseOrPhenotypicFeatureAssociation
+    class_class_curie: ClassVar[str] = "biolink:MaterialSampleToDiseaseOrPhenotypicFeatureAssociation"
+    class_name: ClassVar[str] = "material sample to disease or phenotypic feature association"
+    class_model_uri: ClassVar[URIRef] = BIOLINK.MaterialSampleToDiseaseOrPhenotypicFeatureAssociation
 
     subject: Union[ElementIdentifier, NamedThingId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, NamedThingId] = None
     edge_label: Union[str, LabelType] = None
-    id: Union[ElementIdentifier, BiosampleToDiseaseOrPhenotypicFeatureAssociationId] = bnode()
+    id: Union[ElementIdentifier, MaterialSampleToDiseaseOrPhenotypicFeatureAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, BiosampleToDiseaseOrPhenotypicFeatureAssociationId):
-            self.id = BiosampleToDiseaseOrPhenotypicFeatureAssociationId(self.id)
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, MaterialSampleToDiseaseOrPhenotypicFeatureAssociationId):
+            self.id = MaterialSampleToDiseaseOrPhenotypicFeatureAssociationId(self.id)
         super().__post_init__()
 
 
@@ -2638,7 +3158,9 @@ class EntityToPhenotypicFeatureAssociation(Association):
     id: Union[ElementIdentifier, EntityToPhenotypicFeatureAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.object is not None and not isinstance(self.object, PhenotypicFeatureId):
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, PhenotypicFeatureId):
             self.object = PhenotypicFeatureId(self.object)
         super().__post_init__()
 
@@ -2659,7 +3181,9 @@ class DiseaseOrPhenotypicFeatureAssociationToThingAssociation(Association):
     id: Union[ElementIdentifier, DiseaseOrPhenotypicFeatureAssociationToThingAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.subject is not None and not isinstance(self.subject, DiseaseOrPhenotypicFeatureId):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, DiseaseOrPhenotypicFeatureId):
             self.subject = DiseaseOrPhenotypicFeatureId(self.subject)
         super().__post_init__()
 
@@ -2684,9 +3208,13 @@ class DiseaseOrPhenotypicFeatureAssociationToLocationAssociation(DiseaseOrPhenot
     id: Union[ElementIdentifier, DiseaseOrPhenotypicFeatureAssociationToLocationAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, DiseaseOrPhenotypicFeatureAssociationToLocationAssociationId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, DiseaseOrPhenotypicFeatureAssociationToLocationAssociationId):
             self.id = DiseaseOrPhenotypicFeatureAssociationToLocationAssociationId(self.id)
-        if self.object is not None and not isinstance(self.object, AnatomicalEntityId):
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, AnatomicalEntityId):
             self.object = AnatomicalEntityId(self.object)
         super().__post_init__()
 
@@ -2707,7 +3235,9 @@ class ThingToDiseaseOrPhenotypicFeatureAssociation(Association):
     id: Union[ElementIdentifier, ThingToDiseaseOrPhenotypicFeatureAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.object is not None and not isinstance(self.object, DiseaseOrPhenotypicFeatureId):
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, DiseaseOrPhenotypicFeatureId):
             self.object = DiseaseOrPhenotypicFeatureId(self.object)
         super().__post_init__()
 
@@ -2728,7 +3258,9 @@ class DiseaseToThingAssociation(Association):
     id: Union[ElementIdentifier, DiseaseToThingAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.subject is not None and not isinstance(self.subject, DiseaseId):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, DiseaseId):
             self.subject = DiseaseId(self.subject)
         super().__post_init__()
 
@@ -2753,11 +3285,17 @@ class GenotypeToPhenotypicFeatureAssociation(Association):
     id: Union[ElementIdentifier, GenotypeToPhenotypicFeatureAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, GenotypeToPhenotypicFeatureAssociationId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, GenotypeToPhenotypicFeatureAssociationId):
             self.id = GenotypeToPhenotypicFeatureAssociationId(self.id)
-        if self.subject is not None and not isinstance(self.subject, GenotypeId):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, GenotypeId):
             self.subject = GenotypeId(self.subject)
-        if self.relation is not None and not isinstance(self.relation, URIorCURIE):
+        if self.relation is None:
+            raise ValueError(f"relation must be supplied")
+        if not isinstance(self.relation, URIorCURIE):
             self.relation = URIorCURIE(self.relation)
         super().__post_init__()
 
@@ -2782,9 +3320,13 @@ class EnvironmentToPhenotypicFeatureAssociation(Association):
     id: Union[ElementIdentifier, EnvironmentToPhenotypicFeatureAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, EnvironmentToPhenotypicFeatureAssociationId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, EnvironmentToPhenotypicFeatureAssociationId):
             self.id = EnvironmentToPhenotypicFeatureAssociationId(self.id)
-        if self.subject is not None and not isinstance(self.subject, EnvironmentId):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, EnvironmentId):
             self.subject = EnvironmentId(self.subject)
         super().__post_init__()
 
@@ -2809,7 +3351,9 @@ class DiseaseToPhenotypicFeatureAssociation(Association):
     id: Union[ElementIdentifier, DiseaseToPhenotypicFeatureAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, DiseaseToPhenotypicFeatureAssociationId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, DiseaseToPhenotypicFeatureAssociationId):
             self.id = DiseaseToPhenotypicFeatureAssociationId(self.id)
         super().__post_init__()
 
@@ -2834,7 +3378,9 @@ class CaseToPhenotypicFeatureAssociation(Association):
     id: Union[ElementIdentifier, CaseToPhenotypicFeatureAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, CaseToPhenotypicFeatureAssociationId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, CaseToPhenotypicFeatureAssociationId):
             self.id = CaseToPhenotypicFeatureAssociationId(self.id)
         super().__post_init__()
 
@@ -2855,7 +3401,9 @@ class GeneToThingAssociation(Association):
     id: Union[ElementIdentifier, GeneToThingAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.subject is not None and not isinstance(self.subject, GeneOrGeneProductId):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, GeneOrGeneProductId):
             self.subject = GeneOrGeneProductId(self.subject)
         super().__post_init__()
 
@@ -2876,9 +3424,13 @@ class GeneToPhenotypicFeatureAssociation(Association):
     id: Union[ElementIdentifier, GeneToPhenotypicFeatureAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, GeneToPhenotypicFeatureAssociationId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, GeneToPhenotypicFeatureAssociationId):
             self.id = GeneToPhenotypicFeatureAssociationId(self.id)
-        if self.subject is not None and not isinstance(self.subject, GeneOrGeneProductId):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, GeneOrGeneProductId):
             self.subject = GeneOrGeneProductId(self.subject)
         super().__post_init__()
 
@@ -2899,9 +3451,13 @@ class GeneToDiseaseAssociation(Association):
     id: Union[ElementIdentifier, GeneToDiseaseAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, GeneToDiseaseAssociationId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, GeneToDiseaseAssociationId):
             self.id = GeneToDiseaseAssociationId(self.id)
-        if self.subject is not None and not isinstance(self.subject, GeneOrGeneProductId):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, GeneOrGeneProductId):
             self.subject = GeneOrGeneProductId(self.subject)
         super().__post_init__()
 
@@ -2928,11 +3484,17 @@ class VariantToPopulationAssociation(Association):
     has_quotient: Optional[float] = None
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, VariantToPopulationAssociationId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, VariantToPopulationAssociationId):
             self.id = VariantToPopulationAssociationId(self.id)
-        if self.subject is not None and not isinstance(self.subject, SequenceVariantId):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, SequenceVariantId):
             self.subject = SequenceVariantId(self.subject)
-        if self.object is not None and not isinstance(self.object, PopulationOfIndividualOrganismsId):
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, PopulationOfIndividualOrganismsId):
             self.object = PopulationOfIndividualOrganismsId(self.object)
         super().__post_init__()
 
@@ -2956,13 +3518,21 @@ class PopulationToPopulationAssociation(Association):
     id: Union[ElementIdentifier, PopulationToPopulationAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, PopulationToPopulationAssociationId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, PopulationToPopulationAssociationId):
             self.id = PopulationToPopulationAssociationId(self.id)
-        if self.subject is not None and not isinstance(self.subject, PopulationOfIndividualOrganismsId):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, PopulationOfIndividualOrganismsId):
             self.subject = PopulationOfIndividualOrganismsId(self.subject)
-        if self.relation is not None and not isinstance(self.relation, URIorCURIE):
+        if self.relation is None:
+            raise ValueError(f"relation must be supplied")
+        if not isinstance(self.relation, URIorCURIE):
             self.relation = URIorCURIE(self.relation)
-        if self.object is not None and not isinstance(self.object, PopulationOfIndividualOrganismsId):
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, PopulationOfIndividualOrganismsId):
             self.object = PopulationOfIndividualOrganismsId(self.object)
         super().__post_init__()
 
@@ -2983,9 +3553,13 @@ class VariantToPhenotypicFeatureAssociation(Association):
     id: Union[ElementIdentifier, VariantToPhenotypicFeatureAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, VariantToPhenotypicFeatureAssociationId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, VariantToPhenotypicFeatureAssociationId):
             self.id = VariantToPhenotypicFeatureAssociationId(self.id)
-        if self.subject is not None and not isinstance(self.subject, SequenceVariantId):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, SequenceVariantId):
             self.subject = SequenceVariantId(self.subject)
         super().__post_init__()
 
@@ -3006,13 +3580,21 @@ class VariantToDiseaseAssociation(Association):
     id: Union[ElementIdentifier, VariantToDiseaseAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, VariantToDiseaseAssociationId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, VariantToDiseaseAssociationId):
             self.id = VariantToDiseaseAssociationId(self.id)
-        if self.subject is not None and not isinstance(self.subject, NamedThingId):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, NamedThingId):
             self.subject = NamedThingId(self.subject)
-        if self.relation is not None and not isinstance(self.relation, URIorCURIE):
+        if self.relation is None:
+            raise ValueError(f"relation must be supplied")
+        if not isinstance(self.relation, URIorCURIE):
             self.relation = URIorCURIE(self.relation)
-        if self.object is not None and not isinstance(self.object, NamedThingId):
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, NamedThingId):
             self.object = NamedThingId(self.object)
         super().__post_init__()
 
@@ -3033,9 +3615,13 @@ class GeneAsAModelOfDiseaseAssociation(GeneToDiseaseAssociation):
     id: Union[ElementIdentifier, GeneAsAModelOfDiseaseAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, GeneAsAModelOfDiseaseAssociationId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, GeneAsAModelOfDiseaseAssociationId):
             self.id = GeneAsAModelOfDiseaseAssociationId(self.id)
-        if self.subject is not None and not isinstance(self.subject, GeneOrGeneProductId):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, GeneOrGeneProductId):
             self.subject = GeneOrGeneProductId(self.subject)
         super().__post_init__()
 
@@ -3056,9 +3642,13 @@ class GeneHasVariantThatContributesToDiseaseAssociation(GeneToDiseaseAssociation
     id: Union[ElementIdentifier, GeneHasVariantThatContributesToDiseaseAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, GeneHasVariantThatContributesToDiseaseAssociationId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, GeneHasVariantThatContributesToDiseaseAssociationId):
             self.id = GeneHasVariantThatContributesToDiseaseAssociationId(self.id)
-        if self.subject is not None and not isinstance(self.subject, GeneOrGeneProductId):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, GeneOrGeneProductId):
             self.subject = GeneOrGeneProductId(self.subject)
         super().__post_init__()
 
@@ -3079,7 +3669,9 @@ class GenotypeToThingAssociation(Association):
     id: Union[ElementIdentifier, GenotypeToThingAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.subject is not None and not isinstance(self.subject, GenotypeId):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, GenotypeId):
             self.subject = GenotypeId(self.subject)
         super().__post_init__()
 
@@ -3105,13 +3697,21 @@ class GeneToExpressionSiteAssociation(Association):
     quantifier_qualifier: Optional[Union[ElementIdentifier, OntologyClassId]] = None
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, GeneToExpressionSiteAssociationId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, GeneToExpressionSiteAssociationId):
             self.id = GeneToExpressionSiteAssociationId(self.id)
-        if self.subject is not None and not isinstance(self.subject, GeneOrGeneProductId):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, GeneOrGeneProductId):
             self.subject = GeneOrGeneProductId(self.subject)
-        if self.relation is not None and not isinstance(self.relation, URIorCURIE):
+        if self.relation is None:
+            raise ValueError(f"relation must be supplied")
+        if not isinstance(self.relation, URIorCURIE):
             self.relation = URIorCURIE(self.relation)
-        if self.object is not None and not isinstance(self.object, AnatomicalEntityId):
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, AnatomicalEntityId):
             self.object = AnatomicalEntityId(self.object)
         if self.stage_qualifier is not None and not isinstance(self.stage_qualifier, LifeStageId):
             self.stage_qualifier = LifeStageId(self.stage_qualifier)
@@ -3140,9 +3740,13 @@ class SequenceVariantModulatesTreatmentAssociation(Association):
     id: Union[ElementIdentifier, SequenceVariantModulatesTreatmentAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.subject is not None and not isinstance(self.subject, SequenceVariantId):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, SequenceVariantId):
             self.subject = SequenceVariantId(self.subject)
-        if self.object is not None and not isinstance(self.object, TreatmentId):
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, TreatmentId):
             self.object = TreatmentId(self.object)
         super().__post_init__()
 
@@ -3167,11 +3771,17 @@ class FunctionalAssociation(Association):
     id: Union[ElementIdentifier, FunctionalAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, FunctionalAssociationId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, FunctionalAssociationId):
             self.id = FunctionalAssociationId(self.id)
-        if self.subject is not None and not isinstance(self.subject, MacromolecularMachineId):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, MacromolecularMachineId):
             self.subject = MacromolecularMachineId(self.subject)
-        if self.object is not None and not isinstance(self.object, GeneOntologyClassId):
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, GeneOntologyClassId):
             self.object = GeneOntologyClassId(self.object)
         super().__post_init__()
 
@@ -3197,9 +3807,13 @@ class MacromolecularMachineToMolecularActivityAssociation(FunctionalAssociation)
     id: Union[ElementIdentifier, MacromolecularMachineToMolecularActivityAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, MacromolecularMachineToMolecularActivityAssociationId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, MacromolecularMachineToMolecularActivityAssociationId):
             self.id = MacromolecularMachineToMolecularActivityAssociationId(self.id)
-        if self.object is not None and not isinstance(self.object, MolecularActivityId):
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, MolecularActivityId):
             self.object = MolecularActivityId(self.object)
         super().__post_init__()
 
@@ -3225,9 +3839,13 @@ class MacromolecularMachineToBiologicalProcessAssociation(FunctionalAssociation)
     id: Union[ElementIdentifier, MacromolecularMachineToBiologicalProcessAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, MacromolecularMachineToBiologicalProcessAssociationId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, MacromolecularMachineToBiologicalProcessAssociationId):
             self.id = MacromolecularMachineToBiologicalProcessAssociationId(self.id)
-        if self.object is not None and not isinstance(self.object, BiologicalProcessId):
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, BiologicalProcessId):
             self.object = BiologicalProcessId(self.object)
         super().__post_init__()
 
@@ -3253,9 +3871,13 @@ class MacromolecularMachineToCellularComponentAssociation(FunctionalAssociation)
     id: Union[ElementIdentifier, MacromolecularMachineToCellularComponentAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, MacromolecularMachineToCellularComponentAssociationId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, MacromolecularMachineToCellularComponentAssociationId):
             self.id = MacromolecularMachineToCellularComponentAssociationId(self.id)
-        if self.object is not None and not isinstance(self.object, CellularComponentId):
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, CellularComponentId):
             self.object = CellularComponentId(self.object)
         super().__post_init__()
 
@@ -3276,11 +3898,17 @@ class GeneToGoTermAssociation(FunctionalAssociation):
     id: Union[ElementIdentifier, GeneToGoTermAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, GeneToGoTermAssociationId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, GeneToGoTermAssociationId):
             self.id = GeneToGoTermAssociationId(self.id)
-        if self.subject is not None and not isinstance(self.subject, MolecularEntityId):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, MolecularEntityId):
             self.subject = MolecularEntityId(self.subject)
-        if self.object is not None and not isinstance(self.object, GeneOntologyClassId):
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, GeneOntologyClassId):
             self.object = GeneOntologyClassId(self.object)
         super().__post_init__()
 
@@ -3305,11 +3933,17 @@ class GenomicSequenceLocalization(Association):
     id: Union[ElementIdentifier, GenomicSequenceLocalizationId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, GenomicSequenceLocalizationId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, GenomicSequenceLocalizationId):
             self.id = GenomicSequenceLocalizationId(self.id)
-        if self.subject is not None and not isinstance(self.subject, GenomicEntityId):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, GenomicEntityId):
             self.subject = GenomicEntityId(self.subject)
-        if self.object is not None and not isinstance(self.object, GenomicEntityId):
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, GenomicEntityId):
             self.object = GenomicEntityId(self.object)
         super().__post_init__()
 
@@ -3333,11 +3967,17 @@ class SequenceFeatureRelationship(Association):
     id: Union[ElementIdentifier, SequenceFeatureRelationshipId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, SequenceFeatureRelationshipId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, SequenceFeatureRelationshipId):
             self.id = SequenceFeatureRelationshipId(self.id)
-        if self.subject is not None and not isinstance(self.subject, GenomicEntityId):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, GenomicEntityId):
             self.subject = GenomicEntityId(self.subject)
-        if self.object is not None and not isinstance(self.object, GenomicEntityId):
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, GenomicEntityId):
             self.object = GenomicEntityId(self.object)
         super().__post_init__()
 
@@ -3361,11 +4001,17 @@ class TranscriptToGeneRelationship(SequenceFeatureRelationship):
     id: Union[ElementIdentifier, TranscriptToGeneRelationshipId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, TranscriptToGeneRelationshipId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, TranscriptToGeneRelationshipId):
             self.id = TranscriptToGeneRelationshipId(self.id)
-        if self.subject is not None and not isinstance(self.subject, TranscriptId):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, TranscriptId):
             self.subject = TranscriptId(self.subject)
-        if self.object is not None and not isinstance(self.object, GeneId):
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, GeneId):
             self.object = GeneId(self.object)
         super().__post_init__()
 
@@ -3389,13 +4035,21 @@ class GeneToGeneProductRelationship(SequenceFeatureRelationship):
     id: Union[ElementIdentifier, GeneToGeneProductRelationshipId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, GeneToGeneProductRelationshipId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, GeneToGeneProductRelationshipId):
             self.id = GeneToGeneProductRelationshipId(self.id)
-        if self.subject is not None and not isinstance(self.subject, GeneId):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, GeneId):
             self.subject = GeneId(self.subject)
-        if self.relation is not None and not isinstance(self.relation, URIorCURIE):
+        if self.relation is None:
+            raise ValueError(f"relation must be supplied")
+        if not isinstance(self.relation, URIorCURIE):
             self.relation = URIorCURIE(self.relation)
-        if self.object is not None and not isinstance(self.object, GeneProductId):
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, GeneProductId):
             self.object = GeneProductId(self.object)
         super().__post_init__()
 
@@ -3419,11 +4073,17 @@ class ExonToTranscriptRelationship(SequenceFeatureRelationship):
     id: Union[ElementIdentifier, ExonToTranscriptRelationshipId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, ExonToTranscriptRelationshipId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, ExonToTranscriptRelationshipId):
             self.id = ExonToTranscriptRelationshipId(self.id)
-        if self.subject is not None and not isinstance(self.subject, ExonId):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, ExonId):
             self.subject = ExonId(self.subject)
-        if self.object is not None and not isinstance(self.object, TranscriptId):
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, TranscriptId):
             self.object = TranscriptId(self.object)
         super().__post_init__()
 
@@ -3447,13 +4107,21 @@ class GeneRegulatoryRelationship(Association):
     id: Union[ElementIdentifier, GeneRegulatoryRelationshipId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, GeneRegulatoryRelationshipId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, GeneRegulatoryRelationshipId):
             self.id = GeneRegulatoryRelationshipId(self.id)
-        if self.subject is not None and not isinstance(self.subject, GeneOrGeneProductId):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, GeneOrGeneProductId):
             self.subject = GeneOrGeneProductId(self.subject)
-        if self.relation is not None and not isinstance(self.relation, URIorCURIE):
+        if self.relation is None:
+            raise ValueError(f"relation must be supplied")
+        if not isinstance(self.relation, URIorCURIE):
             self.relation = URIorCURIE(self.relation)
-        if self.object is not None and not isinstance(self.object, GeneOrGeneProductId):
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, GeneOrGeneProductId):
             self.object = GeneOrGeneProductId(self.object)
         super().__post_init__()
 
@@ -3474,11 +4142,17 @@ class AnatomicalEntityToAnatomicalEntityAssociation(Association):
     id: Union[ElementIdentifier, AnatomicalEntityToAnatomicalEntityAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, AnatomicalEntityToAnatomicalEntityAssociationId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, AnatomicalEntityToAnatomicalEntityAssociationId):
             self.id = AnatomicalEntityToAnatomicalEntityAssociationId(self.id)
-        if self.subject is not None and not isinstance(self.subject, AnatomicalEntityId):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, AnatomicalEntityId):
             self.subject = AnatomicalEntityId(self.subject)
-        if self.object is not None and not isinstance(self.object, AnatomicalEntityId):
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, AnatomicalEntityId):
             self.object = AnatomicalEntityId(self.object)
         super().__post_init__()
 
@@ -3504,13 +4178,21 @@ class AnatomicalEntityToAnatomicalEntityPartOfAssociation(AnatomicalEntityToAnat
     id: Union[ElementIdentifier, AnatomicalEntityToAnatomicalEntityPartOfAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, AnatomicalEntityToAnatomicalEntityPartOfAssociationId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, AnatomicalEntityToAnatomicalEntityPartOfAssociationId):
             self.id = AnatomicalEntityToAnatomicalEntityPartOfAssociationId(self.id)
-        if self.subject is not None and not isinstance(self.subject, AnatomicalEntityId):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, AnatomicalEntityId):
             self.subject = AnatomicalEntityId(self.subject)
-        if self.relation is not None and not isinstance(self.relation, URIorCURIE):
+        if self.relation is None:
+            raise ValueError(f"relation must be supplied")
+        if not isinstance(self.relation, URIorCURIE):
             self.relation = URIorCURIE(self.relation)
-        if self.object is not None and not isinstance(self.object, AnatomicalEntityId):
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, AnatomicalEntityId):
             self.object = AnatomicalEntityId(self.object)
         super().__post_init__()
 
@@ -3536,13 +4218,21 @@ class AnatomicalEntityToAnatomicalEntityOntogenicAssociation(AnatomicalEntityToA
     id: Union[ElementIdentifier, AnatomicalEntityToAnatomicalEntityOntogenicAssociationId] = bnode()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, AnatomicalEntityToAnatomicalEntityOntogenicAssociationId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, AnatomicalEntityToAnatomicalEntityOntogenicAssociationId):
             self.id = AnatomicalEntityToAnatomicalEntityOntogenicAssociationId(self.id)
-        if self.subject is not None and not isinstance(self.subject, AnatomicalEntityId):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, AnatomicalEntityId):
             self.subject = AnatomicalEntityId(self.subject)
-        if self.relation is not None and not isinstance(self.relation, URIorCURIE):
+        if self.relation is None:
+            raise ValueError(f"relation must be supplied")
+        if not isinstance(self.relation, URIorCURIE):
             self.relation = URIorCURIE(self.relation)
-        if self.object is not None and not isinstance(self.object, AnatomicalEntityId):
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, AnatomicalEntityId):
             self.object = AnatomicalEntityId(self.object)
         super().__post_init__()
 
@@ -3552,7 +4242,7 @@ class Occurrent(NamedThing):
     """
     A processual entity
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "regulates_process_to_process", "has_participant", "has_input", "precedes", "positively_regulates_process_to_process", "negatively_regulates_process_to_process"]
+    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "regulates_process_to_process", "has_participant", "has_input", "has_output", "precedes", "positively_regulates_process_to_process", "negatively_regulates_process_to_process", "enabled_by"]
 
     class_class_uri: ClassVar[URIRef] = BFO["0000003"]
     class_class_curie: ClassVar[str] = "BFO:0000003"
@@ -3564,8 +4254,34 @@ class Occurrent(NamedThing):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, OccurrentId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, OccurrentId):
             self.id = OccurrentId(self.id)
+        super().__post_init__()
+
+
+@dataclass
+class PhysicalEntity(NamedThing):
+    """
+    An entity that has physical properties such as mass, volume, or charge
+    """
+    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with"]
+
+    class_class_uri: ClassVar[URIRef] = BIOLINK.PhysicalEntity
+    class_class_curie: ClassVar[str] = "biolink:PhysicalEntity"
+    class_name: ClassVar[str] = "physical entity"
+    class_model_uri: ClassVar[URIRef] = BIOLINK.PhysicalEntity
+
+    id: Union[ElementIdentifier, PhysicalEntityId] = None
+    name: Union[str, LabelType] = None
+    category: List[Union[str, IriType]] = empty_list()
+
+    def __post_init__(self):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, PhysicalEntityId):
+            self.id = PhysicalEntityId(self.id)
         super().__post_init__()
 
 
@@ -3574,7 +4290,7 @@ class BiologicalProcessOrActivity(BiologicalEntity):
     """
     Either an individual molecular activity, or a collection of causally connected molecular activities
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype"]
+    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "has_input", "has_output", "enabled_by", "regulates_process_to_process", "has_participant", "precedes"]
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.BiologicalProcessOrActivity
     class_class_curie: ClassVar[str] = "biolink:BiologicalProcessOrActivity"
@@ -3586,7 +4302,9 @@ class BiologicalProcessOrActivity(BiologicalEntity):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, BiologicalProcessOrActivityId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, BiologicalProcessOrActivityId):
             self.id = BiologicalProcessOrActivityId(self.id)
         super().__post_init__()
 
@@ -3596,7 +4314,7 @@ class MolecularActivity(BiologicalProcessOrActivity):
     """
     An execution of a molecular function carried out by a gene product or macromolecular complex.
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "regulates_process_to_process", "has_participant", "has_input", "precedes"]
+    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "has_input", "has_output", "enabled_by", "regulates_process_to_process", "has_participant", "precedes"]
 
     class_class_uri: ClassVar[URIRef] = GO["0003674"]
     class_class_curie: ClassVar[str] = "GO:0003674"
@@ -3606,10 +4324,21 @@ class MolecularActivity(BiologicalProcessOrActivity):
     id: Union[ElementIdentifier, MolecularActivityId] = None
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
+    has_input: List[Union[ElementIdentifier, ChemicalSubstanceId]] = empty_list()
+    has_output: List[Union[ElementIdentifier, ChemicalSubstanceId]] = empty_list()
+    enabled_by: List[Union[ElementIdentifier, MacromolecularMachineId]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, MolecularActivityId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, MolecularActivityId):
             self.id = MolecularActivityId(self.id)
+        self.has_input = [v if isinstance(v, ChemicalSubstanceId)
+                          else ChemicalSubstanceId(v) for v in self.has_input]
+        self.has_output = [v if isinstance(v, ChemicalSubstanceId)
+                           else ChemicalSubstanceId(v) for v in self.has_output]
+        self.enabled_by = [v if isinstance(v, MacromolecularMachineId)
+                           else MacromolecularMachineId(v) for v in self.enabled_by]
         super().__post_init__()
 
 
@@ -3618,7 +4347,7 @@ class ActivityAndBehavior(Occurrent):
     """
     Activity or behavior of any independent integral living, organization or mechanical actor in the world
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "regulates_process_to_process", "has_participant", "has_input", "precedes"]
+    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "regulates_process_to_process", "has_participant", "has_input", "has_output", "precedes"]
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.ActivityAndBehavior
     class_class_curie: ClassVar[str] = "biolink:ActivityAndBehavior"
@@ -3630,7 +4359,9 @@ class ActivityAndBehavior(Occurrent):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, ActivityAndBehaviorId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, ActivityAndBehaviorId):
             self.id = ActivityAndBehaviorId(self.id)
         super().__post_init__()
 
@@ -3640,7 +4371,7 @@ class Procedure(Occurrent):
     """
     A series of actions conducted in a certain order or manner
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "regulates_process_to_process", "has_participant", "has_input", "precedes"]
+    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "regulates_process_to_process", "has_participant", "has_input", "has_output", "precedes"]
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.Procedure
     class_class_curie: ClassVar[str] = "biolink:Procedure"
@@ -3652,7 +4383,9 @@ class Procedure(Occurrent):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, ProcedureId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, ProcedureId):
             self.id = ProcedureId(self.id)
         super().__post_init__()
 
@@ -3662,7 +4395,7 @@ class Phenomenon(Occurrent):
     """
     a fact or situation that is observed to exist or happen, especially one whose cause or explanation is in question
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "regulates_process_to_process", "has_participant", "has_input", "precedes"]
+    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "regulates_process_to_process", "has_participant", "has_input", "has_output", "precedes"]
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.Phenomenon
     class_class_curie: ClassVar[str] = "biolink:Phenomenon"
@@ -3674,7 +4407,9 @@ class Phenomenon(Occurrent):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, PhenomenonId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, PhenomenonId):
             self.id = PhenomenonId(self.id)
         super().__post_init__()
 
@@ -3684,7 +4419,7 @@ class BiologicalProcess(BiologicalProcessOrActivity):
     """
     One or more causally connected executions of molecular functions
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "regulates_process_to_process", "has_participant", "has_input", "precedes"]
+    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "has_input", "has_output", "enabled_by", "regulates_process_to_process", "has_participant", "precedes"]
 
     class_class_uri: ClassVar[URIRef] = GO["0008150"]
     class_class_curie: ClassVar[str] = "GO:0008150"
@@ -3696,14 +4431,16 @@ class BiologicalProcess(BiologicalProcessOrActivity):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, BiologicalProcessId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, BiologicalProcessId):
             self.id = BiologicalProcessId(self.id)
         super().__post_init__()
 
 
 @dataclass
 class Pathway(BiologicalProcess):
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "regulates_process_to_process", "has_participant", "has_input", "precedes"]
+    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "has_input", "has_output", "enabled_by", "regulates_process_to_process", "has_participant", "precedes"]
 
     class_class_uri: ClassVar[URIRef] = GO["0007165"]
     class_class_curie: ClassVar[str] = "GO:0007165"
@@ -3715,14 +4452,16 @@ class Pathway(BiologicalProcess):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, PathwayId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, PathwayId):
             self.id = PathwayId(self.id)
         super().__post_init__()
 
 
 @dataclass
 class PhysiologicalProcess(BiologicalProcess):
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "regulates_process_to_process", "has_participant", "has_input", "precedes"]
+    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "has_input", "has_output", "enabled_by", "regulates_process_to_process", "has_participant", "precedes"]
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.PhysiologicalProcess
     class_class_curie: ClassVar[str] = "biolink:PhysiologicalProcess"
@@ -3734,7 +4473,9 @@ class PhysiologicalProcess(BiologicalProcess):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, PhysiologicalProcessId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, PhysiologicalProcessId):
             self.id = PhysiologicalProcessId(self.id)
         super().__post_init__()
 
@@ -3756,7 +4497,9 @@ class CellularComponent(AnatomicalEntity):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, CellularComponentId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, CellularComponentId):
             self.id = CellularComponentId(self.id)
         super().__post_init__()
 
@@ -3775,14 +4518,16 @@ class Cell(AnatomicalEntity):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, CellId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, CellId):
             self.id = CellId(self.id)
         super().__post_init__()
 
 
 @dataclass
-class CellLine(Biosample):
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "in_taxon"]
+class CellLine(OrganismalEntity):
+    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype"]
 
     class_class_uri: ClassVar[URIRef] = CLO["0000031"]
     class_class_curie: ClassVar[str] = "CLO:0000031"
@@ -3794,7 +4539,9 @@ class CellLine(Biosample):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, CellLineId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, CellLineId):
             self.id = CellLineId(self.id)
         super().__post_init__()
 
@@ -3813,6 +4560,8 @@ class GrossAnatomicalStructure(AnatomicalEntity):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, GrossAnatomicalStructureId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, GrossAnatomicalStructureId):
             self.id = GrossAnatomicalStructureId(self.id)
         super().__post_init__()

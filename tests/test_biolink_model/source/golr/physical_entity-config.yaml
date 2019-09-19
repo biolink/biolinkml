@@ -1,7 +1,8 @@
+description: An entity that has physical properties such as mass, volume, or charge
 display_name: !!python/object/new:biolinkml.meta.ClassDefinitionName
-- biosample
+- physical entity
 document_category: !!python/object/new:biolinkml.meta.ClassDefinitionName
-- biosample
+- physical entity
 fields:
 - description: A unique identifier for a thing. Must be either a CURIE shorthand for
     a URI or a complete URI
@@ -56,19 +57,6 @@ fields:
   display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
   - systematic synonym
   id: systematic_synonym
-- cardinality: multi
-  description: holds between a biological entity and a phenotype, where a phenotype
-    is construed broadly as any kind of quality of an organism part, a collection
-    of these qualities, or a change in quality or qualities (e.g. abnormally increased
-    temperature).
-  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
-  - has phenotype
-  id: has_phenotype
-- cardinality: multi
-  description: connects a thing to a class representing a taxon
-  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
-  - in taxon
-  id: in_taxon
-id: biosample
+id: physical_entity
 schema_generating: true
 weight: 20

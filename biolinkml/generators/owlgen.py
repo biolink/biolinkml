@@ -188,7 +188,8 @@ class OwlSchemaGenerator(Generator):
         self.graph.add((slot_uri, RDF.type,
                         self.metamodel.namespaces[METAMODEL_LOCAL_NAME][camelcase('slot definition')]))
         self.graph.add((slot_uri, RDFS.range, self._range_uri(slot)))
-        self.graph.add((slot_uri, RDFS.domain, self._class_uri(slot.domain)))
+        if slot.domain:
+            self.graph.add((slot_uri, RDFS.domain, self._class_uri(slot.domain)))
 
         # Parent slots
         if slot.is_a:

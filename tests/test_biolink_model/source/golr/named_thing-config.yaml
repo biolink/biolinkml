@@ -177,7 +177,7 @@ fields:
   id: location_of
 - cardinality: multi
   description: holds between an entity and some other entity it approximates for purposes
-    of scientific study, in virtue of its exibiting similar features of the studied
+    of scientific study, in virtue of its exhibiting similar features of the studied
     entity.
   display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
   - model of
@@ -210,8 +210,8 @@ fields:
   - actively involved in
   id: actively_involved_in
 - cardinality: multi
-  description: holds between a continuant and process or function, where the continuant
-    alone has the ability to carry out the process or function.
+  description: holds between a physical entity and process or function, where the
+    continuant alone has the ability to carry out the process or function.
   display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
   - capable of
   id: capable_of
@@ -248,6 +248,9 @@ fields:
   display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
   - same as
   id: same_as
+- display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - type
+  id: type
 - description: date on which thing was created. This can be applied to nodes or edges
   display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
   - creation date

@@ -1,31 +1,24 @@
 
-# Class: biosample to thing association
+# Class: material sample to disease or phenotypic feature association
 
 
-An association between a biosample and something
+An association between a material sample and a disease or phenotype
 
-URI: [biolink:BiosampleToThingAssociation](https://w3id.org/biolink/vocab/BiosampleToThingAssociation)
+URI: [biolink:MaterialSampleToDiseaseOrPhenotypicFeatureAssociation](https://w3id.org/biolink/vocab/MaterialSampleToDiseaseOrPhenotypicFeatureAssociation)
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[BiosampleToThingAssociation|relation(i):uriorcurie;id(i):identifier_type;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[BiosampleToThingAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[BiosampleToThingAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[BiosampleToThingAssociation],%20\[NamedThing]<object(i)%201..1-%20\[BiosampleToThingAssociation],%20\[Biosample]<subject%201..1-%20\[BiosampleToThingAssociation],%20\[BiosampleToDiseaseOrPhenotypicFeatureAssociation]uses%20-.->\[BiosampleToThingAssociation],%20\[Association]^-\[BiosampleToThingAssociation])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[MaterialSampleToDiseaseOrPhenotypicFeatureAssociation|relation(i):uriorcurie;id(i):identifier_type;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[MaterialSampleToDiseaseOrPhenotypicFeatureAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[MaterialSampleToDiseaseOrPhenotypicFeatureAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[MaterialSampleToDiseaseOrPhenotypicFeatureAssociation],%20\[NamedThing]<object(i)%201..1-%20\[MaterialSampleToDiseaseOrPhenotypicFeatureAssociation],%20\[NamedThing]<subject(i)%201..1-%20\[MaterialSampleToDiseaseOrPhenotypicFeatureAssociation],%20\[MaterialSampleToDiseaseOrPhenotypicFeatureAssociation]uses%20-.->\[MaterialSampleToThingAssociation],%20\[MaterialSampleToDiseaseOrPhenotypicFeatureAssociation]uses%20-.->\[ThingToDiseaseOrPhenotypicFeatureAssociation],%20\[Association]^-\[MaterialSampleToDiseaseOrPhenotypicFeatureAssociation])
 
 ## Parents
 
  *  is_a: [Association](Association.md) - A typed association between two entities, supported by evidence
 
-## Mixin for
+## Uses Mixins
 
- * [BiosampleToDiseaseOrPhenotypicFeatureAssociation](BiosampleToDiseaseOrPhenotypicFeatureAssociation.md) (mixin)  - An association between a biosample and a disease or phenotype
-
-## Referenced by class
-
+ *  mixin: [MaterialSampleToThingAssociation](MaterialSampleToThingAssociation.md) - An association between a material sample and something
+ *  mixin: [ThingToDiseaseOrPhenotypicFeatureAssociation](ThingToDiseaseOrPhenotypicFeatureAssociation.md)
 
 ## Attributes
 
-
-### Own
-
- * [subject](biosample_to_thing_association_subject.md)  <sub>REQ</sub>
-    * range: [Biosample](Biosample.md)
 
 ### Inherited from association:
 
@@ -66,8 +59,3 @@ URI: [biolink:BiosampleToThingAssociation](https://w3id.org/biolink/vocab/Biosam
     * Description: connects an association to the agent (person, organization or group) that provided it
     * range: [Provider](Provider.md)
     * inherited from: [Association](Association.md)
-
-### Domain for slot:
-
- * [subject](biosample_to_thing_association_subject.md)  <sub>REQ</sub>
-    * range: [Biosample](Biosample.md)

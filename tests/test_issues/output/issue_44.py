@@ -12,7 +12,7 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.metamodelcore import URIorCURIE
 from includes.types import Uriorcurie
 
-metamodel_version = "1.4.0"
+metamodel_version = "1.4.1"
 
 
 # Namespaces
@@ -47,6 +47,8 @@ class NamedThing(YAMLRoot):
     category: List[Union[str, IriType]] = empty_list()
 
     def __post_init__(self):
-        if not isinstance(self.category, IriType):
-            self.category = IriType(self.category)
+        if not isinstance(self.category, list) or len(self.category) == 0:
+            raise ValueError(f"category must be a non-empty list")
+        self.category = [v if isinstance(v, IriType)
+                         else IriType(v) for v in self.category]
         super().__post_init__()

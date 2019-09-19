@@ -6,7 +6,7 @@ base class for definitions
 
 URI: [meta:Definition](https://w3id.org/biolink/biolinkml/meta/Definition)
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[SubsetDefinition]<in_subset(i)%200..*-%20\[Definition|abstract:boolean%20%3F;mixin:boolean%20%3F;values_from:uriorcurie%20*;id_prefixes(i):ncname%20*;name(pk)(i):string;aliases(i):string%20*;mappings(i):uriorcurie%20*;description(i):string%20%3F;deprecated(i):string%20%3F;todos(i):string%20*;notes(i):string%20*;comments(i):string%20*;from_schema(i):uri%20%3F;imported_from(i):string%20%3F;see_also(i):uriorcurie%20*],%20\[Example]<examples(i)%200..*-++\[Definition],%20\[AltDescription]<alt_descriptions(i)%200..*-++\[Definition],%20\[LocalName]<local_names(i)%200..*-++\[Definition],%20\[Definition]<apply_to%200..*-%20\[Definition],%20\[Definition]<mixins%200..*-%20\[Definition],%20\[Definition]<is_a%200..1-%20\[Definition],%20\[SlotDefinition]-%20owner%201..1>\[Definition],%20\[Definition]^-\[SlotDefinition],%20\[Definition]^-\[ClassDefinition],%20\[Element]^-\[Definition])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[SubsetDefinition]<in_subset(i)%200..*-%20\[Definition|abstract:boolean%20%3F;mixin:boolean%20%3F;values_from:uriorcurie%20*;id_prefixes(i):ncname%20*;name(pk)(i):string;aliases(i):string%20*;mappings(i):uriorcurie%20*;description(i):string%20%3F;deprecated(i):string%20%3F;todos(i):string%20*;notes(i):string%20*;comments(i):string%20*;from_schema(i):uri%20%3F;imported_from(i):string%20%3F;see_also(i):uriorcurie%20*],%20\[Example]<examples(i)%200..*-++\[Definition],%20\[AltDescription]<alt_descriptions(i)%200..*-++\[Definition],%20\[LocalName]<local_names(i)%200..*-++\[Definition],%20\[Definition]<apply_to%200..*-%20\[Definition],%20\[Definition]<mixins%200..*-%20\[Definition],%20\[Definition]<is_a%200..1-%20\[Definition],%20\[SlotDefinition]-%20owner%200..1>\[Definition],%20\[Definition]^-\[SlotDefinition],%20\[Definition]^-\[ClassDefinition],%20\[Element]^-\[Definition])
 
 ## Parents
 
@@ -22,7 +22,7 @@ URI: [meta:Definition](https://w3id.org/biolink/biolinkml/meta/Definition)
  *  **[Definition](Definition.md)** *[apply_to](apply_to.md)*  <sub>0..*</sub>  **[Definition](Definition.md)**
  *  **[Definition](Definition.md)** *[is_a](is_a.md)*  <sub>OPT</sub>  **[Definition](Definition.md)**
  *  **[Definition](Definition.md)** *[mixins](mixins.md)*  <sub>0..*</sub>  **[Definition](Definition.md)**
- *  **[SlotDefinition](SlotDefinition.md)** *[owner](owner.md)*  <sub>REQ</sub>  **[Definition](Definition.md)**
+ *  **[SlotDefinition](SlotDefinition.md)** *[owner](owner.md)*  <sub>OPT</sub>  **[Definition](Definition.md)**
 
 ## Attributes
 

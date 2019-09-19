@@ -216,7 +216,7 @@
                 shex:predicate <http://www.w3.org/2004/02/skos/core#altLabel> ;
                 shex:valueExpr <https://w3id.org/biolink/biolinkml/type/String> ] [ a shex:TripleConstraint ;
                 shex:max 1 ;
-                shex:min 1 ;
+                shex:min 0 ;
                 shex:predicate <https://w3id.org/biolink/biolinkml/meta/domain> ;
                 shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/ClassDefinition> ] [ a shex:TripleConstraint ;
                 shex:max 1 ;
@@ -264,7 +264,7 @@
                 shex:predicate <https://w3id.org/biolink/biolinkml/meta/alias> ;
                 shex:valueExpr <https://w3id.org/biolink/biolinkml/type/String> ] [ a shex:TripleConstraint ;
                 shex:max 1 ;
-                shex:min 1 ;
+                shex:min 0 ;
                 shex:predicate <https://w3id.org/biolink/biolinkml/meta/owner> ;
                 shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/Definition> ] [ a shex:TripleConstraint ;
                 shex:max 1 ;

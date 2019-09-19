@@ -6,7 +6,7 @@ An execution of a molecular function carried out by a gene product or macromolec
 
 URI: [biolink:MolecularActivity](https://w3id.org/biolink/vocab/MolecularActivity)
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[MacromolecularMachineToMolecularActivityAssociation]-%20object%201..1>\[MolecularActivity|id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],%20\[MolecularActivity]uses%20-.->\[Occurrent],%20\[BiologicalProcessOrActivity]^-\[MolecularActivity])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[MacromolecularMachine]<enabled%20by%200..*-%20\[MolecularActivity|id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],%20\[ChemicalSubstance]<has%20output%200..*-%20\[MolecularActivity],%20\[ChemicalSubstance]<has%20input%200..*-%20\[MolecularActivity],%20\[MacromolecularMachineToMolecularActivityAssociation]-%20object%201..1>\[MolecularActivity],%20\[MolecularActivity]uses%20-.->\[Occurrent],%20\[BiologicalProcessOrActivity]^-\[MolecularActivity])
 
 ## Parents
 
@@ -22,6 +22,15 @@ URI: [biolink:MolecularActivity](https://w3id.org/biolink/vocab/MolecularActivit
 
 ## Attributes
 
+
+### Own
+
+ * [enabled by](molecular_activity_enabled_by.md)  <sub>0..*</sub>
+    * range: [MacromolecularMachine](MacromolecularMachine.md)
+ * [has input](molecular_activity_has_input.md)  <sub>0..*</sub>
+    * range: [ChemicalSubstance](ChemicalSubstance.md)
+ * [has output](molecular_activity_has_output.md)  <sub>0..*</sub>
+    * range: [ChemicalSubstance](ChemicalSubstance.md)
 
 ### Inherited from named thing:
 
@@ -40,3 +49,12 @@ URI: [biolink:MolecularActivity](https://w3id.org/biolink/vocab/MolecularActivit
     * range: [IriType](IriType.md)
     * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
+
+### Domain for slot:
+
+ * [enabled by](molecular_activity_enabled_by.md)  <sub>0..*</sub>
+    * range: [MacromolecularMachine](MacromolecularMachine.md)
+ * [has input](molecular_activity_has_input.md)  <sub>0..*</sub>
+    * range: [ChemicalSubstance](ChemicalSubstance.md)
+ * [has output](molecular_activity_has_output.md)  <sub>0..*</sub>
+    * range: [ChemicalSubstance](ChemicalSubstance.md)

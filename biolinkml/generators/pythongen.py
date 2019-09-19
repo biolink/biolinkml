@@ -505,19 +505,24 @@ metamodel_version = "{self.schema.metamodel_version}"
 
         # Generate existence check for required slots.  Note that inherited classes have to check post-init because
         # named variables can't be mixed in the class signature
-        if slot.required and root_definition:
-            if not root_definition:
+        if slot.required:
+            # If we have a root class, the required part is set by the type.  If it is inherited, we have to add
+            # the following
+            if not slot.multivalued:
                 rlines.append(f'if self.{slotname} is None:')
                 rlines.append(f'\traise ValueError(f"{slotname} must be supplied")')
-            if not single_typed:
-                rlines.append(f'if not isinstance(self.{slotname}, {base_type_name}):')
-                rlines.append(f'\tself.{slotname} = {base_type_name}(self.{slotname})')
-        elif slot.range in self.schema.classes or slot.range in self.schema.types:
+            else:
+                rlines.append(f'if not isinstance(self.{slotname}, list) or len(self.{slotname}) == 0:')
+                rlines.append(f'\traise ValueError(f"{slotname} must be a non-empty list")')
+        if slot.range in self.schema.classes or slot.range in self.schema.types:
             indent = len(f'self.{slotname} = [') * ' '
             if not slot.multivalued:
                 if not single_typed:
-                    rlines.append(f'if self.{slotname} is not None and '
-                                  f'not isinstance(self.{slotname}, {base_type_name}):')
+                    if slot.required:
+                        rlines.append(f'if not isinstance(self.{slotname}, {base_type_name}):')
+                    else:
+                        rlines.append(f'if self.{slotname} is not None and '
+                                      f'not isinstance(self.{slotname}, {base_type_name}):')
                     # Another really wierd case -- a class that has no properties
                     if slot.range in self.schema.classes and not self.schema.classes[slot.range].slots:
                         rlines.append(f'\tself.{slotname} = {base_type_name}()')

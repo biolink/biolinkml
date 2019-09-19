@@ -9,6 +9,7 @@ prefixes:
   OBAN: http://purl.org/oban/
   SIO: http://semanticscience.org/resource/SIO_
   wgs: http://www.w3.org/2003/01/geo/wgs84_pos
+  qud: http://qudt.org/1.1/schema/qudt#
   UMLSSG: https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/GROUP/
   UMLSST: https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/STY/
   UMLSSC: https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/TUI/
@@ -32,11 +33,16 @@ emit_prefixes:
 
 subsets:
   translator_minimal:
-    description: Minimum subset of translator work
+    description: >-
+      Minimum subset of translator work
+
+  samples:
+    description: >-
+      Sample/biosample datamodel
 
   testing:
-    description: (tbd)
-
+    description: >-
+      TBD
 
 imports:
   - biolinkml:types
@@ -79,7 +85,7 @@ types:
     typeof: string
     uri: UO:0000105
 
-  perecentage frequency value:
+  percentage frequency value:
     typeof: double
     uri: UO:0000187
 
@@ -93,6 +99,8 @@ types:
     uri: UO:0000000
     id_prefixes:
       - UO
+    mappings:
+      - qud:Unit
 
   time type:
     typeof: time
@@ -962,7 +970,7 @@ slots:
   model of:
     is_a: related to
     description: >-
-      holds between an entity and some other entity it approximates for purposes of scientific study, in virtue of its exibiting similar features of the studied entity.
+      holds between an entity and some other entity it approximates for purposes of scientific study, in virtue of its exhibiting similar features of the studied entity.
     in_subset:
       - translator_minimal
     slot_uri: RO:0003301
@@ -1021,6 +1029,15 @@ slots:
     mappings:
       - SEMMEDDB:USES
 
+  has output:
+    is_a: has participant
+    description: >-
+      holds between a process and a continuant, where the continuant is an output of the process
+    domain: occurrent
+    in_subset:
+      - translator_minimal
+    slot_uri: RO:0002234
+
   participates in:
     is_a: related to
     description: >-
@@ -1043,11 +1060,20 @@ slots:
   capable of:
     is_a: actively involved in
     description: >-
-      holds between a continuant and process or function, where the continuant alone has the ability to carry out the process or function.
+      holds between a physical entity and process or function, where the continuant alone has the ability to carry out the process or function.
     range: occurrent
     in_subset:
       - translator_minimal
     slot_uri: RO:0002215
+
+  enabled by:
+    is_a: has participant
+    description: >-
+      holds between a process and a physical entity, where the physical entity executes the process
+    range: biological process or activity
+    in_subset:
+      - translator_minimal
+    slot_uri: RO:0002333
 
   derives into:
     is_a: related to
@@ -1066,6 +1092,7 @@ slots:
       holds between two distinct material entities, the new entity and the old entity, in which the new entity begins to exist when the old entity ceases to exist, and the new entity inherits the significant portion of the matter of the old entity
     in_subset:
       - translator_minimal
+      - samples
     inverse: derives into
     slot_uri: RO:0001000
 
@@ -1136,6 +1163,54 @@ slots:
     description: >-
       A grouping for any property that holds between a node and a value
     domain: named thing
+
+  title:
+    is_a: node property
+    domain: data set version
+    slot_uri: dct:title
+
+  source data file:
+    is_a: node property
+    domain: data set version
+    range: data file
+    slot_uri: dcterms:source
+
+  source web page:
+    is_a: node property
+    domain: data set summary
+    slot_uri: dcterms:source
+
+  retrievedOn:
+    is_a: node property
+    domain: source file
+    range: date
+    slot_uri: pav:retrievedOn
+
+  versionOf:
+    is_a: node property
+    domain: data set version
+    range: data set
+    slot_uri: dct:isVersionOf
+
+  source version:
+    is_a: node property
+    domain: source file
+    slot_uri: pav:version
+
+  downloadURL:
+    is_a: node property
+    domain: distribution level
+    slot_uri: dct:downloadURL
+
+  distribution:
+    is_a: node property
+    domain: data set version
+    range: distribution level
+    slot_uri: void:Dataset
+
+  type:
+    is_a: node property
+    slot_uri: rdf:type
 
   id:
     is_a: node property
@@ -1314,8 +1389,6 @@ slots:
       connects an association to an instance of supporting evidence
     slot_uri: RO:0002558
 
-
-
   provided by:
     is_a: association slot
     range: provider
@@ -1476,6 +1549,14 @@ slots:
     multivalued: true
     range: publication
 
+  change is catalyzed by:
+    is_a: association slot
+    multivalued: true
+    range: macromolecular machine
+    description: >-
+      hyperedge connecting an association between two causally connected entities (for example, two chemical entities, or a chemical entity in
+      that changes location) and the gene product, gene, or complex that enables or catalyzes the change.
+
   has biological sequence:
     is_a: node property
     description: >-
@@ -1529,15 +1610,101 @@ slots:
   end interbase coordinate:
     is_a: interbase coordinate
 
+  has attribute:
+    description: >-
+      connects any named thing to an attribute
+    mappings:
+      - SIO:000008
+      - RO:0000053
+    range: attribute
+    multivalued: true
+    in_subset:
+      - samples
+
+  has attribute type:
+    description: >-
+      connects an attribute to a class that describes it
+    domain: attribute
+    range: ontology class
+    multivalued: false
+    in_subset:
+      - samples
+
+  has qualitative value:
+    description: >-
+      connects an attribute to a value
+    domain: attribute
+    range: named thing
+    multivalued: false
+    in_subset:
+      - samples
+
+  has quantitative value:
+    description: >-
+      connects an attribute to a value
+    domain: attribute
+    range: quantity value
+#    multivalued: false
+    multivalued: true
+    mappings:
+      - qud:quantityValue
+    in_subset:
+      - samples
+
+  has numeric value:
+    description: >-
+      connects a quantity value to a number
+    domain: quantity value
+    range: double
+    multivalued: false
+    mappings:
+      - qud:quantityValue
+    in_subset:
+      - samples
+
+  has unit:
+    description: >-
+      connects a quantity value to a unit
+    domain: quantity value
+    range: unit
+    multivalued: false
+    mappings:
+      - qud:unit
+    in_subset:
+      - samples
 
 classes:
 
+  abstract entity:
+    description: >-
+      Any thing that is not a process or a physical mass-bearing entity
+
   attribute:
     subclass_of: PATO:0000001
+    mappings:
+      - SIO:000614
+    is_a: abstract entity
     mixins:
       - ontology class
     description: >-
-      A property or characteristic of an entity
+      A property or characteristic of an entity.
+      For example, an apple may have properties such as color, shape, age, crispiness.
+      An environmental sample may have attributes such as depth, lat, long, material.
+    slots:
+      - has attribute type
+      - has quantitative value
+      - has qualitative value
+    in_subset:
+      - samples
+
+  quantity value:
+    is_a: abstract entity
+    description: >-
+      A value of an attribute that is quantitative and measurable, expressed as a combination
+      of a unit and a numeric value
+    slots:
+      - has unit
+      - has numeric value
 
   ## ------
   ## THINGS
@@ -1633,6 +1800,46 @@ classes:
       # Food
       - UMLSSC:T168
       - UMLSST:food
+
+  data file:
+    is_a: named thing
+    class_uri: EFO:0004095
+
+  source file:
+    is_a: data file
+    slots:
+      - source version
+      - retrievedOn
+
+#  data set descriptor:
+#    abstract: true
+#    mixin: true
+
+  data set:
+    is_a: named thing
+    class_uri: IAO:0000100
+
+  data set version:
+    is_a: data set
+    slots:
+      - title
+#      - description
+      - source data file
+      - versionOf
+      - type
+      - distribution
+
+  distribution level:
+    is_a: data set version
+    mixin: true
+    slots:
+      - downloadURL
+
+  data set summary:
+    is_a: data set version
+    mixin: true
+    slots:
+      - source web page
 
   biological entity:
     is_a: named thing
@@ -1778,12 +1985,28 @@ classes:
     id_prefixes:
       - HANCESTRO
 
-  biosample:
-    aliases: ['biospecimen', 'sample']
+  subject of investigation:
+    abstract: true
+    mixin: true
+    description: >-
+      An entity that has the role of being studied in an investigation, study, or experiment
+
+  material sample:
+    aliases: ['biospecimen', 'sample', 'biosample', 'physical sample']
+    is_a: named thing
     mixins:
-      - thing with taxon
-    is_a: organismal entity
-    class_uri: SIO:001050
+      - subject of investigation
+      - physical entity
+    description: >-
+      A sample is a limited quantity of something (e.g. an individual or set of individuals from a population, or a portion of a substance) to be used for testing, analysis, inspection, investigation, demonstration, or trial use. [SIO]
+    mappings:
+      - OBI:0000747
+      - SIO:001050
+    slots:
+      - has attribute
+    id_prefixes:
+      - BioSample
+      - GOLD.META
 
   disease or phenotypic feature:
     aliases: ['phenome']
@@ -1962,11 +2185,12 @@ classes:
     is_a: biological entity
     mixins:
       - thing with taxon
+      - physical entity
     aliases: ['bioentity']
     description: "A gene, gene product, small molecule or macromolecule (including protein complex)"
-    notes:
-      - Check SIO mapping - also mapped to chemical substance.
-    class_uri: SIO:010004
+    #notes:
+    #  - "Check SIO mapping - also mapped to chemical substance.": Resolved by changing SIO:010004 to SIO:010341
+    class_uri: SIO:010341
     mappings:
       - WD:Q43460564
       # UMLS Semantic Group "Genes & Molecular Sequences"
@@ -1974,6 +2198,7 @@ classes:
       # Molecular Sequence
       - UMLSSC:T085
       - UMLSST:mosq
+        
 
   chemical substance:
     is_a: molecular entity
@@ -2086,6 +2311,7 @@ classes:
     is_a: organismal entity
     mixins:
       - thing with taxon
+      - physical entity
     subclass_of: UBERON:0001062
     description: >-
       A subcellular location, cell type or gross anatomical part
@@ -2718,6 +2944,54 @@ classes:
         range: case
         description: "the case (e.g. patient) that has the property"
 
+  chemical to chemical association:
+    is_a: association
+    defining_slots:
+      - subject
+      - object
+    mixins:
+      - chemical to thing association
+    description: >-
+      A relationship between two chemical entities. This can encompass actual interactions as well as temporal causal edges, e.g. one chemical converted to another.
+    slot_usage:
+      object:
+        range: chemical substance
+        description: "the chemical element that is the target of the statement"
+
+  chemical to chemical derivation association:
+    is_a: chemical to chemical association
+    defining_slots:
+      - subject
+      - object
+      - relation
+    slots:
+      - change is catalyzed by
+    description: >-
+      A causal relationship between two chemical entities, where the subject represents the upstream entity and the object represents the downstream.
+      For any such association there is an implicit reaction:
+        IF
+        R has-input C1 AND
+        R has-output C2 AND
+        R enabled-by P AND
+        R type Reaction
+        THEN
+        C1 derives-into C2 <<change is catalyzed by P>>
+    slot_usage:
+      subject:
+        range: chemical substance
+        description: >-
+          the upstream chemical entity
+      object:
+        range: chemical substance
+        description: >-
+          the downstream chemical entity
+      relation:
+        subproperty_of: derives into
+      change is catalyzed by:
+        description: >-
+          this connects the derivation edge to the molecular entity that catalyzes the reaction that causes the
+          subject chemical to transform into the object chemical
+
   chemical to disease or phenotypic feature association:
     is_a: association
     class_uri: SIO:000993
@@ -2765,29 +3039,51 @@ classes:
         range: gene or gene product
         description: "the gene or gene product that is affected by the chemical"
 
-  biosample to thing association:
+  material sample to thing association:
     is_a: association
     defining_slots:
       - subject
     abstract: true
     description: >-
-      An association between a biosample and something
+      An association between a material sample and something
     slot_usage:
       subject:
-        range: biosample
+        range: material sample
         description: >-
-          the biosample being described
+          the material sample being described
 
-  biosample to disease or phenotypic feature association:
+  material sample derivation association:
+    is_a: association
+    defining_slots:
+      - subject
+      - relation
+    description: >-
+      An association between a material sample and the material entity it is derived from
+    slot_usage:
+      subject:
+        range: material sample
+        description: >-
+          the material sample being described
+      object:
+        description: >-
+          the material entity the sample was derived from. This may be another material sample, or
+          any other material entity, including for example an organism, a geographic feature, or some
+          environmental material.
+      relation:
+        description: >-
+          derivation relationship
+        subproperty_of: derives from
+
+  material sample to disease or phenotypic feature association:
     is_a: association
     defining_slots:
       - subject
       - object
     mixins:
-      - biosample to thing association
+      - material sample to thing association
       - thing to disease or phenotypic feature association
     description: >-
-      An association between a biosample and a disease or phenotype
+      An association between a material sample and a disease or phenotype
 
   frequency qualifier mixin:
     mixin: true
@@ -3198,7 +3494,7 @@ classes:
     description: >-
       An association between a gene and an expression site, possibly qualified by stage/timing info.
     notes:
-      - TBD: introduce subclasses for distinction between wild-type and experimental conditions?
+      - "TBD: introduce subclasses for distinction between wild-type and experimental conditions?"
     see_also: "https://github.com/monarch-initiative/ingest-artifacts/tree/master/sources/BGee"
     slots:
       - stage qualifier
@@ -3484,8 +3780,15 @@ classes:
     is_a: named thing
     class_uri: BFO:0000003
 
+  physical entity:
+    description: >-
+      An entity that has physical properties such as mass, volume, or charge
+    is_a: named thing
+
   biological process or activity:
     is_a: biological entity
+    mixins:
+      - occurrent
     description: >-
       Either an individual molecular activity, or a collection of causally connected molecular activities
 #    union_of:
@@ -3494,6 +3797,10 @@ classes:
     id_prefixes:
       - GO
       - Reactome
+    slots:
+      - has input
+      - has output
+      - enabled by
 
   molecular activity:
     is_a: biological process or activity
@@ -3503,6 +3810,19 @@ classes:
     description: >-
       An execution of a molecular function carried out by a gene product or macromolecular complex.
     class_uri: GO:0003674
+    slot_usage:
+      has input:
+        range: chemical substance
+        description: >-
+          A chemical entity that is the input for the reaction
+      has output:
+        range: chemical substance
+        description: >-
+          A chemical entity that is the output for the reaction
+      enabled by:
+        range: macromolecular machine
+        description: >-
+          The gene product, gene, or complex that catalyzes the reaction
     mappings:
       # UMLS Semantic Type "Molecular Function"
       - UMLSSC:T044
@@ -3510,6 +3830,7 @@ classes:
     id_prefixes:
       - GO
       - Reactome
+      - RHEA
 
   activity and behavior:
     is_a: occurrent
@@ -3684,7 +4005,7 @@ classes:
       - PO
 
   cell line:
-    is_a: biosample
+    is_a: organismal entity
     class_uri: CLO:0000031
     id_prefixes:
       - CLO

@@ -11,7 +11,7 @@ from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace, URIRef
 from biolinkml.utils.metamodelcore import URIorCURIE
 
-metamodel_version = "1.4.0"
+metamodel_version = "1.4.1"
 
 
 # Namespaces
@@ -57,6 +57,8 @@ class NamedThing(YAMLRoot):
     not_overridden: Optional[Union[URIorCURIE, IdentifierType]] = None
 
     def __post_init__(self):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
         if not isinstance(self.id, NamedThingId):
             self.id = NamedThingId(self.id)
         if self.node_property is not None and not isinstance(self.node_property, IdentifierType):
@@ -79,7 +81,9 @@ class SequenceVariant(NamedThing):
     node_property: Optional[Union[URIorCURIE, IdentifierType]] = None
 
     def __post_init__(self):
-        if self.id is not None and not isinstance(self.id, SequenceVariantId):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, SequenceVariantId):
             self.id = SequenceVariantId(self.id)
         if self.node_property is not None and not isinstance(self.node_property, IdentifierType):
             self.node_property = IdentifierType(self.node_property)

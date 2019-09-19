@@ -3,7 +3,7 @@ title: Biolink Schema Metamodel
 name: metamodel
 description: A metamodel for defining biolink related schemas
 license: https://creativecommons.org/publicdomain/zero/1.0/
-version: 1.4.0
+version: 1.4.1
 
 prefixes:
   meta: https://w3id.org/biolink/biolinkml/meta/
@@ -400,7 +400,6 @@ slots:
   domain:
     domain: slot_definition
     range: class_definition
-    required: true
     inherited: true
     description: |
       defines the type of the subject of the slot.  Given the following slot definition
@@ -532,7 +531,7 @@ slots:
     range: definition
     description: >-
       the "owner" of the slot. It is the class if it appears in the slots list, otherwise the declaring slot
-    required: true
+    readonly: filled in by loader -- either class domain or slot domain
 
   is_usage_slot:
     domain: slot_definition

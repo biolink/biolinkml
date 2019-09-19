@@ -29,7 +29,7 @@ from tests.utils.generator_utils import GeneratorTestCase
 BIOLINK_NS = Namespace("https://w3id.org/biolink/vocab/")
 
 # ShEx validation of the biolink model takes a loooong time, so we only do it on rare occasions
-DO_SHEX_VALIDATION = True
+DO_SHEX_VALIDATION = False
 
 
 class CurrentBiolinkModelTestCase(GeneratorTestCase):
@@ -123,7 +123,6 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
                     print(r.reason)
         return success
 
-    @unittest.skipIf(True, "Biolink validation against itself takes time...")
     def test_biolink_rdf(self):
         """ Test the rdf generator for the biolink model """
         self.single_file_generator('ttl', RDFGenerator, serialize_args={"context": LOCAL_CONTEXT_PATH},
@@ -180,6 +179,7 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
         #         expected = f.read()
         #     self.assertEqual(expected, shex_results_as_string(results[0]))
 
+    @unittest.skipIf(not DO_SHEX_VALIDATION, "Skipping ShEx Validation")
     def test_biolink_correct_rdf(self):
         """ Test some conforming RDF  """
         self.single_file_generator('shexj', ShExGenerator, format='json')    # Make sure ShEx is current

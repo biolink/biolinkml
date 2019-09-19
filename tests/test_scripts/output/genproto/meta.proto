@@ -119,7 +119,7 @@ message SlotDefinition
   repeated applyTo None = 21
   repeated valuesFrom None = 22
   optional singularName None = 23
-  domain None = 24
+  optional domain None = 24
   optional range None = 25
   optional slotUri None = 26
   optional multivalued None = 27
@@ -131,7 +131,7 @@ message SlotDefinition
   optional key None = 33
   optional identifier None = 34
   optional alias None = 35
-  owner None = 36
+  optional owner None = 36
   optional subpropertyOf None = 37
   optional symmetric None = 38
   optional inverse None = 39

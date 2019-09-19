@@ -1,8 +1,8 @@
-description: An association between a biosample and a disease or phenotype
+description: An association between a material sample and a disease or phenotype
 display_name: !!python/object/new:biolinkml.meta.ClassDefinitionName
-- biosample to disease or phenotypic feature association
+- material sample to disease or phenotypic feature association
 document_category: !!python/object/new:biolinkml.meta.ClassDefinitionName
-- biosample to disease or phenotypic feature association
+- material sample to disease or phenotypic feature association
 fields:
 - description: connects an association to the subject of the association. For example,
     in a gene-to-phenotype association, the gene is subject and phenotype is object.
@@ -56,6 +56,6 @@ fields:
   display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
   - edge label
   id: edge_label
-id: biosample_to_disease_or_phenotypic_feature_association
+id: material_sample_to_disease_or_phenotypic_feature_association
 schema_generating: true
 weight: 20

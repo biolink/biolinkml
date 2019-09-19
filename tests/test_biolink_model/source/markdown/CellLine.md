@@ -6,11 +6,11 @@
 
 URI: [biolink:CellLine](https://w3id.org/biolink/vocab/CellLine)
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[CellLine|id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],%20\[CellLineToThingAssociation]-%20subject%201..1>\[CellLine],%20\[Biosample]^-\[CellLine])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[CellLineToThingAssociation]-%20subject%201..1>\[CellLine|id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],%20\[OrganismalEntity]^-\[CellLine])
 
 ## Parents
 
- *  is_a: [Biosample](Biosample.md)
+ *  is_a: [OrganismalEntity](OrganismalEntity.md) - A named entity that is either a part of an organism, a whole organism, population or clade of organisms, excluding molecular entities
 
 ## Referenced by class
 
@@ -35,12 +35,4 @@ URI: [biolink:CellLine](https://w3id.org/biolink/vocab/CellLine)
     * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
     * range: [IriType](IriType.md)
     * inherited from: [NamedThing](NamedThing.md)
-    * in subsets: (translator_minimal)
-
-### Inherited from thing with taxon:
-
- * [in taxon](in_taxon.md)  <sub>0..*</sub>
-    * Description: connects a thing to a class representing a taxon
-    * range: [OrganismTaxon](OrganismTaxon.md)
-    * inherited from: [ThingWithTaxon](ThingWithTaxon.md)
     * in subsets: (translator_minimal)

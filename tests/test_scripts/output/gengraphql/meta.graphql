@@ -164,7 +164,7 @@ type SlotDefinition
     applyTo: [SlotDefinition]
     valuesFrom: [Uriorcurie]
     singularName: String
-    domain: ClassDefinition!
+    domain: ClassDefinition
     range: Element
     slotUri: Uriorcurie
     multivalued: Boolean
@@ -176,7 +176,7 @@ type SlotDefinition
     key: Boolean
     identifier: Boolean
     alias: String
-    owner: Definition!
+    owner: Definition
     subpropertyOf: Uriorcurie
     symmetric: Boolean
     inverse: SlotDefinition
