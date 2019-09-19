@@ -1,15 +1,30 @@
 CHANGES
 =======
 
-v1.4.6
+v1.4.8
 ------
 
-* Allow graph to be passed into yaml to\_rdf function.  Fixed bnode validation bug in metmodelcore
+* Turn of ShEx validation tests
+* Adding a couple more tests
 
-v1.4.5
+v1.4.7
 ------
 
-* Fix for issue #44
+* Fix to issue #56. Do not check slot domain/class slot for now
+* sexpr
+* adding sxpr
+* more docs and tests
+* defining slots
+* defining slots
+* defining slots
+* domain test
+* Fix to issue 50.  class.slots entry does not set slot.domain
+* Documenting slot model
+* Contents now in README
+* Moving stuff from index.md to README
+* Fixing broken README links and adding intro
+* Correct doc links in README
+* Adding link to notebook from README
 * More test files
 * Update (minor) test output changes for issue 41
 
