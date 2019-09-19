@@ -1,5 +1,5 @@
-# Auto generated from issue_50.yaml by pythongen.py version: 0.2.1
-# Generation date: 2019-09-06 12:55
+# Auto generated from .yaml by pythongen.py version:
+# Generation date:
 # Schema:
 #
 # id: http://example.com

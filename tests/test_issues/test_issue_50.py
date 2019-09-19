@@ -4,6 +4,7 @@ import unittest
 from biolinkml.generators.pythongen import PythonGenerator
 from biolinkml.generators.shexgen import ShExGenerator
 from tests.test_issues import sourcedir, outputdir
+from tests.test_scripts.clicktestcase import metadata_filter
 
 expected_shex = """BASE <http://example.com/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -39,14 +40,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 
 class MultipleDomainTestCase(unittest.TestCase):
+
     def test_multiple_domains(self):
         """ Test multiple domains for the same slot """
 
         yaml_fname = os.path.join(sourcedir, 'issue_50.yaml')
         shex = ShExGenerator(yaml_fname, format='shex').serialize()
         self.assertEqual(expected_shex.strip(), shex.strip())
-        python = PythonGenerator(yaml_fname).serialize()
-
+        python = metadata_filter(PythonGenerator(yaml_fname).serialize())
         outfile = os.path.join(outputdir, 'issue_50.py')
         if not os.path.exists(outfile):
             with open(outfile, 'w') as f:

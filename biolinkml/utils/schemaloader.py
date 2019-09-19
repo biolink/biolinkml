@@ -116,17 +116,6 @@ class SchemaLoader:
                     slot.range not in self.schema.classes:
                 self.raise_value_error(f"slot: {slot.name} - unrecognized range ({slot.range})")
 
-        # Massage classes, propagating class slots entries domain back to the target slots
-        for cls in self.schema.classes.values():
-            for slotname in cls.slots:
-                if slotname in self.schema.slots:
-                    slot = self.schema.slots[cast(SlotDefinitionName, slotname)]
-                    if slot.domain is None:
-                        pass
-                    elif slot.domain != cls.name:
-                        self.raise_value_error(f'Slot: {slot.name} domain ({slot.domain}) '
-                                               f'does not match declaring class "({cls.name})"')
-
         # apply to --> mixins
         for cls in self.schema.classes.values():
             for apply_to_cls in cls.apply_to:
