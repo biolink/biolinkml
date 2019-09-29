@@ -14,11 +14,11 @@
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "Biolink Schema Metamodel" ;
     skos:definition "A metamodel for defining biolink related schemas" ;
-    meta:generation_date "2019-09-18 20:04" ;
-    meta:metamodel_version "1.4.1" ;
+    meta:generation_date "2019-09-29 14:32" ;
+    meta:metamodel_version "1.4.2" ;
     meta:source_file "meta.yaml" ;
-    meta:source_file_date "Wed Sep 18 19:58:27 2019" ;
-    meta:source_file_size 23416 .
+    meta:source_file_date "Fri Sep 27 11:18:15 2019" ;
+    meta:source_file_size 23610 .
 
 meta:abstract a owl:AnnotationProperty,
         meta:SlotDefinition ;
@@ -95,6 +95,14 @@ meta:classes a owl:AnnotationProperty,
     rdfs:range meta:ClassDefinition ;
     skos:definition "class definitions" .
 
+meta:close_mappings a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "close mappings" ;
+    rdfs:domain meta:Element ;
+    rdfs:range meta:uriorcurie ;
+    rdfs:subPropertyOf meta:mappings ;
+    skos:definition "A list of terms from different schemas or terminology systems that have close meaning." .
+
 meta:comments a owl:AnnotationProperty,
         meta:SlotDefinition ;
     rdfs:label "comments" ;
@@ -141,6 +149,18 @@ meta:deprecated a owl:AnnotationProperty,
     rdfs:range meta:string ;
     skos:definition "Description of why and when this element will no longer be used" .
 
+meta:deprecated_element_has_exact_replacement a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "deprecated element has exact replacement" ;
+    rdfs:range meta:uriorcurie ;
+    skos:definition "When an element is deprecated, it can be automatically replaced by this uri or curie" .
+
+meta:deprecated_element_has_possible_replacement a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "deprecated element has possible replacement" ;
+    rdfs:range meta:uriorcurie ;
+    skos:definition "When an element is deprecated, it can be potentially replaced by this uri or curie" .
+
 meta:description a owl:AnnotationProperty,
         meta:SlotDefinition ;
     rdfs:label "description" ;
@@ -163,6 +183,14 @@ meta:emit_prefixes a owl:AnnotationProperty,
     rdfs:domain meta:SchemaDefinition ;
     rdfs:range meta:ncname ;
     skos:definition "a list of Curie prefixes that are used in the representation of instances of the model.  All prefixes in this list are added to the prefix sections of the target models." .
+
+meta:exact_mappings a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "exact mappings" ;
+    rdfs:domain meta:Element ;
+    rdfs:range meta:uriorcurie ;
+    rdfs:subPropertyOf meta:mappings ;
+    skos:definition "A list of terms from different schemas or terminology systems that have identical meaning." .
 
 meta:examples a owl:AnnotationProperty,
         meta:SlotDefinition ;
@@ -278,13 +306,6 @@ meta:local_names a owl:AnnotationProperty,
     rdfs:domain meta:Element ;
     rdfs:range meta:LocalName .
 
-meta:mappings a owl:AnnotationProperty,
-        meta:SlotDefinition ;
-    rdfs:label "mappings" ;
-    rdfs:domain meta:Element ;
-    rdfs:range meta:uriorcurie ;
-    skos:definition "A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective." .
-
 meta:metamodel_version a owl:AnnotationProperty,
         meta:SlotDefinition ;
     rdfs:label "metamodel_version" ;
@@ -359,6 +380,14 @@ meta:prefixes a owl:AnnotationProperty,
     rdfs:domain meta:SchemaDefinition ;
     rdfs:range meta:Prefix ;
     skos:definition "prefix / URI definitions to be added to the context beyond those fetched from prefixcommons in id prefixes" .
+
+meta:related_mappings a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "related mappings" ;
+    rdfs:domain meta:Element ;
+    rdfs:range meta:uriorcurie ;
+    rdfs:subPropertyOf meta:mappings ;
+    skos:definition "A list of terms from different schemas or terminology systems that have related meaning." .
 
 meta:see_also a owl:AnnotationProperty,
         meta:SlotDefinition ;
@@ -760,6 +789,13 @@ meta:Prefix a owl:Class,
     rdfs:label "prefix" ;
     skos:definition "prefix URI tuple" .
 
+meta:mappings a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "mappings" ;
+    rdfs:domain meta:Element ;
+    rdfs:range meta:uriorcurie ;
+    skos:definition "A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective." .
+
 meta:uri a owl:Class,
         meta:TypeDefinition ;
     rdfs:label "uri" ;
@@ -778,15 +814,6 @@ meta:ncname a owl:Class,
             owl:qualifiedCardinality 1 ] ;
     skos:definition "Prefix part of CURIE" .
 
-meta:uriorcurie a owl:Class,
-        meta:TypeDefinition ;
-    rdfs:label "uriorcurie" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onDataRange xsd:anyURI ;
-            owl:onProperty meta:topValue ;
-            owl:qualifiedCardinality 1 ] ;
-    skos:definition "a URI or a CURIE" .
-
 meta:Definition a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "definition" ;
@@ -795,6 +822,15 @@ meta:Definition a owl:Class,
 
 meta:topValue a owl:DatatypeProperty ;
     rdfs:label "value" .
+
+meta:uriorcurie a owl:Class,
+        meta:TypeDefinition ;
+    rdfs:label "uriorcurie" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:anyURI ;
+            owl:onProperty meta:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "a URI or a CURIE" .
 
 meta:boolean a owl:Class,
         meta:TypeDefinition ;
@@ -816,12 +852,12 @@ meta:TypeDefinition a owl:Class,
     rdfs:label "type_definition" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:string ;
-            owl:onProperty meta:repr ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:uriorcurie ;
             owl:onProperty meta:uri ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:string ;
+            owl:onProperty meta:repr ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:string ;
@@ -858,6 +894,10 @@ meta:SlotDefinition a owl:Class,
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:boolean ;
+            owl:onProperty meta:required ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:boolean ;
             owl:onProperty meta:inherited ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
@@ -865,16 +905,12 @@ meta:SlotDefinition a owl:Class,
             owl:onProperty meta:multivalued ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:string ;
-            owl:onProperty meta:role ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:string ;
-            owl:onProperty meta:readonly ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:boolean ;
             owl:onProperty meta:identifier ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:Element ;
+            owl:onProperty meta:range ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:boolean ;
@@ -885,20 +921,20 @@ meta:SlotDefinition a owl:Class,
             owl:onProperty meta:ifabsent ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:Element ;
-            owl:onProperty meta:range ],
+            owl:onClass meta:boolean ;
+            owl:onProperty meta:inlined ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:string ;
+            owl:onProperty meta:role ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:ClassDefinition ;
             owl:onProperty meta:domain ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:boolean ;
-            owl:onProperty meta:required ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:boolean ;
-            owl:onProperty meta:inlined ],
+            owl:onClass meta:string ;
+            owl:onProperty meta:readonly ],
         meta:Definition ;
     skos:definition "the definition of a property or a slot" .
 

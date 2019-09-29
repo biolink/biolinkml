@@ -15,6 +15,9 @@ URI: [meta:mappings](https://w3id.org/biolink/biolinkml/meta/mappings)
 
 ## Children
 
+ *  [close mappings](close_mappings.md)
+ *  [exact mappings](exact_mappings.md)
+ *  [related mappings](related_mappings.md)
 
 ## Used by
 

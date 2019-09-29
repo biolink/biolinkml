@@ -1,8 +1,9 @@
 {
-   "_comments": "Auto generated from meta.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2019-07-19 17:26\nSchema: metamodel\n\nid: https://w3id.org/biolink/biolinkml/meta\ndescription: A metamodel for defining biolink related schemas\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
+   "_comments": "Auto generated from meta.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2019-09-29 14:30\nSchema: metamodel\n\nid: https://w3id.org/biolink/biolinkml/meta\ndescription: A metamodel for defining biolink related schemas\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
    "@context": {
       "_comments": null,
       "type": "@type",
+      "IAO": "http://purl.obolibrary.org/obo/IAO_",
       "OIO": "http://www.geneontology.org/formats/oboInOwl#",
       "dcterms": "http://purl.org/dc/terms/",
       "metatype": "https://w3id.org/biolink/biolinkml/type/",
@@ -29,13 +30,25 @@
       "classes": {
          "@type": "@id"
       },
+      "close_mappings": {
+         "@type": "@id"
+      },
       "default_range": {
          "@type": "@id"
       },
       "defining_slots": {
          "@type": "@id"
       },
+      "deprecated_element_has_exact_replacement": {
+         "@type": "@id"
+      },
+      "deprecated_element_has_possible_replacement": {
+         "@type": "@id"
+      },
       "domain": {
+         "@type": "@id"
+      },
+      "exact_mappings": {
          "@type": "@id"
       },
       "examples": {
@@ -106,6 +119,9 @@
          "@type": "@id"
       },
       "range": {
+         "@type": "@id"
+      },
+      "related_mappings": {
          "@type": "@id"
       },
       "required": {

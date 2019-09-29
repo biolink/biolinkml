@@ -3,9 +3,10 @@
   "description": "A metamodel for defining biolink related schemas",
   "id": "https://w3id.org/biolink/biolinkml/meta",
   "title": "Biolink Schema Metamodel",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "imports": [
-    "includes/types"
+    "includes/types",
+    "includes/mappings"
   ],
   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
   "prefixes": [
@@ -36,6 +37,10 @@
     {
       "prefix_prefix": "shex",
       "prefix_reference": "http://www.w3.org/ns/shex#"
+    },
+    {
+      "prefix_prefix": "IAO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/IAO_"
     }
   ],
   "emit_prefixes": [
@@ -1208,6 +1213,80 @@
       "type": "SlotDefinition"
     },
     {
+      "name": "exact_mappings",
+      "mappings": [
+        "skos:exactMatch"
+      ],
+      "description": "A list of terms from different schemas or terminology systems that have identical meaning.",
+      "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
+      "imported_from": "includes/mappings",
+      "is_a": "mappings",
+      "domain": "Element",
+      "range": "uriorcurie",
+      "slot_uri": "http://www.w3.org/2004/02/skos/core#exactMatch",
+      "multivalued": true,
+      "owner": "Element",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "close_mappings",
+      "mappings": [
+        "skos:closeMatch"
+      ],
+      "description": "A list of terms from different schemas or terminology systems that have close meaning.",
+      "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
+      "imported_from": "includes/mappings",
+      "is_a": "mappings",
+      "domain": "Element",
+      "range": "uriorcurie",
+      "slot_uri": "http://www.w3.org/2004/02/skos/core#closeMatch",
+      "multivalued": true,
+      "owner": "Element",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "related_mappings",
+      "mappings": [
+        "skos:relatedMatch"
+      ],
+      "description": "A list of terms from different schemas or terminology systems that have related meaning.",
+      "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
+      "imported_from": "includes/mappings",
+      "is_a": "mappings",
+      "domain": "Element",
+      "range": "uriorcurie",
+      "slot_uri": "http://www.w3.org/2004/02/skos/core#relatedMatch",
+      "multivalued": true,
+      "owner": "Element",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "deprecated_element_has_exact_replacement",
+      "mappings": [
+        "IAO:0100001"
+      ],
+      "description": "When an element is deprecated, it can be automatically replaced by this uri or curie",
+      "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
+      "imported_from": "includes/mappings",
+      "range": "uriorcurie",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/deprecated_element_has_exact_replacement",
+      "owner": "Element",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "deprecated_element_has_possible_replacement",
+      "mappings": [
+        "OIO:consider"
+      ],
+      "description": "When an element is deprecated, it can be potentially replaced by this uri or curie",
+      "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
+      "imported_from": "includes/mappings",
+      "range": "uriorcurie",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/deprecated_element_has_possible_replacement",
+      "owner": "Element",
+      "type": "SlotDefinition"
+    },
+    {
       "name": "slot_definition_is_a",
       "from_schema": "https://w3id.org/biolink/biolinkml/meta",
       "is_a": "is_a",
@@ -1307,7 +1386,12 @@
         "in_subset",
         "from_schema",
         "imported_from",
-        "see_also"
+        "see_also",
+        "exact_mappings",
+        "close_mappings",
+        "related_mappings",
+        "deprecated_element_has_exact_replacement",
+        "deprecated_element_has_possible_replacement"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/Element",
       "type": "ClassDefinition"
@@ -1334,6 +1418,11 @@
         "from_schema",
         "imported_from",
         "see_also",
+        "exact_mappings",
+        "close_mappings",
+        "related_mappings",
+        "deprecated_element_has_exact_replacement",
+        "deprecated_element_has_possible_replacement",
         "id",
         "title",
         "version",
@@ -1379,6 +1468,11 @@
         "from_schema",
         "imported_from",
         "see_also",
+        "exact_mappings",
+        "close_mappings",
+        "related_mappings",
+        "deprecated_element_has_exact_replacement",
+        "deprecated_element_has_possible_replacement",
         "typeof",
         "base",
         "type_uri",
@@ -1408,7 +1502,12 @@
         "in_subset",
         "from_schema",
         "imported_from",
-        "see_also"
+        "see_also",
+        "exact_mappings",
+        "close_mappings",
+        "related_mappings",
+        "deprecated_element_has_exact_replacement",
+        "deprecated_element_has_possible_replacement"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/SubsetDefinition",
       "type": "ClassDefinition"
@@ -1436,6 +1535,11 @@
         "from_schema",
         "imported_from",
         "see_also",
+        "exact_mappings",
+        "close_mappings",
+        "related_mappings",
+        "deprecated_element_has_exact_replacement",
+        "deprecated_element_has_possible_replacement",
         "is_a",
         "abstract",
         "mixin",
@@ -1468,6 +1572,11 @@
         "from_schema",
         "imported_from",
         "see_also",
+        "exact_mappings",
+        "close_mappings",
+        "related_mappings",
+        "deprecated_element_has_exact_replacement",
+        "deprecated_element_has_possible_replacement",
         "slot_definition_is_a",
         "abstract",
         "mixin",
@@ -1520,6 +1629,11 @@
         "from_schema",
         "imported_from",
         "see_also",
+        "exact_mappings",
+        "close_mappings",
+        "related_mappings",
+        "deprecated_element_has_exact_replacement",
+        "deprecated_element_has_possible_replacement",
         "class_definition_is_a",
         "abstract",
         "mixin",
@@ -1581,11 +1695,11 @@
       "type": "ClassDefinition"
     }
   ],
-  "metamodel_version": "1.4.1",
+  "metamodel_version": "1.4.2",
   "source_file": "meta.yaml",
-  "source_file_date": "Wed Sep 18 18:55:24 2019",
-  "source_file_size": 23416,
-  "generation_date": "2019-09-18 19:50",
+  "source_file_date": "Fri Sep 27 11:18:15 2019",
+  "source_file_size": 23610,
+  "generation_date": "2019-09-29 14:35",
   "type": "SchemaDefinition",
   "@context": [
     "file:///Users/solbrig/git/biolink/biolinkml/tests/test_scripts/output/gencontext/meta.jsonld",

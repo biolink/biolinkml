@@ -97,7 +97,12 @@ metatype:Nodeidentifier NONLITERAL
           oboInOwl:inSubset @<SubsetDefinition> * ;
           skos:inScheme @metatype:Uri ? ;
           <imported_from> @metatype:String ? ;
-          rdfs:seeAlso @metatype:Uriorcurie *
+          rdfs:seeAlso @metatype:Uriorcurie * ;
+          skos:exactMatch @metatype:Uriorcurie * ;
+          skos:closeMatch @metatype:Uriorcurie * ;
+          skos:relatedMatch @metatype:Uriorcurie * ;
+          <deprecated_element_has_exact_replacement> @metatype:Uriorcurie ? ;
+          <deprecated_element_has_possible_replacement> @metatype:Uriorcurie ?
        ) ;
        rdf:type [ <Element> ]
     )

@@ -12,7 +12,7 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.metamodelcore import XSDTime
 from includes.types import String, Time
 
-metamodel_version = "1.4.1"
+metamodel_version = "1.4.2"
 
 
 # Namespaces

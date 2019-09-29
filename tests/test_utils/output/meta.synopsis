@@ -1,6 +1,6 @@
 
 Classes: 11
-	Referenced by: 6 classes, 85 slots, 0 types 
+	Referenced by: 6 classes, 88 slots, 0 types 
 	Root: 5
 	Leaf: 9
 	Standalone: 10
@@ -8,14 +8,15 @@ Classes: 11
 	Undeclared mixin: 0
 	Abstract: 2
 
-Slots: 85
-	Referenced by: 11 classes, 6 slots, 0 types 
-	Root: 79
-	Leaf: 82
-	Standalone: 87
+Slots: 90
+	Referenced by: 11 classes, 9 slots, 0 types 
+	Root: 81
+	Leaf: 86
+	Standalone: 91
 	Declared mixin: 0
 	Undeclared mixin: 0
 	Abstract: 1
+	* Unspecified domain: deprecated element has exact replacement, deprecated element has possible replacement
 	Ranges:
 		Type:
 			boolean: 11
@@ -24,7 +25,7 @@ Slots: 85
 			ncname: 5
 			string: 26
 			uri: 3
-			uriorcurie: 9
+			uriorcurie: 14
 		Class:
 			alt_description: 1
 			class_definition: 6
@@ -38,7 +39,7 @@ Slots: 85
 			type_definition: 3
 
 Types: 13
-	Referenced by: 0 classes, 57 slots, 0 types 
+	Referenced by: 0 classes, 62 slots, 0 types 
 	Bases:
 		Bool:
 			boolean

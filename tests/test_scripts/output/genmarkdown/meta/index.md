@@ -42,6 +42,8 @@ A metamodel for defining biolink related schemas
  * [default_range](default_range.md) - default slot range to be used if range element is omitted from a slot definition
  * [defining_slots](defining_slots.md) - The combination of is a plus defining slots form a genus-differentia definition, or the set of necessary and sufficient conditions that can be transformed into an OWL equivalence axiom
  * [deprecated](deprecated.md) - Description of why and when this element will no longer be used
+ * [deprecated element has exact replacement](deprecated_element_has_exact_replacement.md) - When an element is deprecated, it can be automatically replaced by this uri or curie
+ * [deprecated element has possible replacement](deprecated_element_has_possible_replacement.md) - When an element is deprecated, it can be potentially replaced by this uri or curie
  * [description](description.md) - a description of the element's purpose and use
  * [domain](domain.md) - defines the type of the subject of the slot.  Given the following slot definition
  * [emit_prefixes](emit_prefixes.md) - a list of Curie prefixes that are used in the representation of instances of the model.  All prefixes in this list are added to the prefix sections of the target models.
@@ -69,6 +71,9 @@ A metamodel for defining biolink related schemas
  * [local_name_value](local_name_value.md) - a name assigned to an element in a given ontology
  * [local_names](local_names.md)
  * [mappings](mappings.md) - A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective.
+    * [close mappings](close_mappings.md) - A list of terms from different schemas or terminology systems that have close meaning.
+    * [exact mappings](exact_mappings.md) - A list of terms from different schemas or terminology systems that have identical meaning.
+    * [related mappings](related_mappings.md) - A list of terms from different schemas or terminology systems that have related meaning.
  * [metamodel_version](metamodel_version.md) - Version of the metamodel used to load the schema
  * [mixin](mixin.md) - this slot or class can only be used as a mixin -- equivalent to abstract
  * [mixins](mixins.md) - List of definitions to be mixed in. Targets may be any definition of the same type

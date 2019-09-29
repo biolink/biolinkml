@@ -3,7 +3,7 @@ title: Biolink Schema Metamodel
 name: metamodel
 description: A metamodel for defining biolink related schemas
 license: https://creativecommons.org/publicdomain/zero/1.0/
-version: 1.4.1
+version: 1.4.2
 
 prefixes:
   meta: https://w3id.org/biolink/biolinkml/meta/
@@ -30,6 +30,7 @@ emit_prefixes:
 
 imports:
   - includes/types
+  - includes/mappings
 
 subsets:
   owl:
@@ -722,6 +723,11 @@ classes:
       - from_schema
       - imported_from
       - see_also
+      - exact mappings
+      - close mappings
+      - related mappings
+      - deprecated element has exact replacement
+      - deprecated element has possible replacement
 
   schema_definition:
     description: "a collection of subset, type, slot and class definitions"

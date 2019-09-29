@@ -3,9 +3,10 @@
    "description": "A metamodel for defining biolink related schemas",
    "id": "https://w3id.org/biolink/biolinkml/meta",
    "title": "Biolink Schema Metamodel",
-   "version": "1.4.1",
+   "version": "1.4.2",
    "imports": [
-      "includes/types"
+      "includes/types",
+      "includes/mappings"
    ],
    "license": "https://creativecommons.org/publicdomain/zero/1.0/",
    "prefixes": [
@@ -36,6 +37,10 @@
       {
          "prefix_prefix": "shex",
          "prefix_reference": "http://www.w3.org/ns/shex#"
+      },
+      {
+         "prefix_prefix": "IAO",
+         "prefix_reference": "http://purl.obolibrary.org/obo/IAO_"
       }
    ],
    "emit_prefixes": [
@@ -1113,6 +1118,75 @@
          "owner": "element"
       },
       {
+         "name": "exact mappings",
+         "mappings": [
+            "skos:exactMatch"
+         ],
+         "description": "A list of terms from different schemas or terminology systems that have identical meaning.",
+         "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
+         "imported_from": "includes/mappings",
+         "is_a": "mappings",
+         "domain": "element",
+         "range": "uriorcurie",
+         "slot_uri": "skos:exactMatch",
+         "multivalued": true,
+         "owner": "element"
+      },
+      {
+         "name": "close mappings",
+         "mappings": [
+            "skos:closeMatch"
+         ],
+         "description": "A list of terms from different schemas or terminology systems that have close meaning.",
+         "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
+         "imported_from": "includes/mappings",
+         "is_a": "mappings",
+         "domain": "element",
+         "range": "uriorcurie",
+         "slot_uri": "skos:closeMatch",
+         "multivalued": true,
+         "owner": "element"
+      },
+      {
+         "name": "related mappings",
+         "mappings": [
+            "skos:relatedMatch"
+         ],
+         "description": "A list of terms from different schemas or terminology systems that have related meaning.",
+         "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
+         "imported_from": "includes/mappings",
+         "is_a": "mappings",
+         "domain": "element",
+         "range": "uriorcurie",
+         "slot_uri": "skos:relatedMatch",
+         "multivalued": true,
+         "owner": "element"
+      },
+      {
+         "name": "deprecated element has exact replacement",
+         "mappings": [
+            "IAO:0100001"
+         ],
+         "description": "When an element is deprecated, it can be automatically replaced by this uri or curie",
+         "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
+         "imported_from": "includes/mappings",
+         "range": "uriorcurie",
+         "slot_uri": "meta:deprecated_element_has_exact_replacement",
+         "owner": "element"
+      },
+      {
+         "name": "deprecated element has possible replacement",
+         "mappings": [
+            "OIO:consider"
+         ],
+         "description": "When an element is deprecated, it can be potentially replaced by this uri or curie",
+         "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
+         "imported_from": "includes/mappings",
+         "range": "uriorcurie",
+         "slot_uri": "meta:deprecated_element_has_possible_replacement",
+         "owner": "element"
+      },
+      {
          "name": "slot_definition_is_a",
          "from_schema": "https://w3id.org/biolink/biolinkml/meta",
          "is_a": "is_a",
@@ -1206,7 +1280,12 @@
             "in_subset",
             "from_schema",
             "imported_from",
-            "see_also"
+            "see_also",
+            "exact mappings",
+            "close mappings",
+            "related mappings",
+            "deprecated element has exact replacement",
+            "deprecated element has possible replacement"
          ],
          "class_uri": "meta:Element"
       },
@@ -1232,6 +1311,11 @@
             "from_schema",
             "imported_from",
             "see_also",
+            "exact mappings",
+            "close mappings",
+            "related mappings",
+            "deprecated element has exact replacement",
+            "deprecated element has possible replacement",
             "id",
             "title",
             "version",
@@ -1276,6 +1360,11 @@
             "from_schema",
             "imported_from",
             "see_also",
+            "exact mappings",
+            "close mappings",
+            "related mappings",
+            "deprecated element has exact replacement",
+            "deprecated element has possible replacement",
             "typeof",
             "base",
             "type_uri",
@@ -1304,7 +1393,12 @@
             "in_subset",
             "from_schema",
             "imported_from",
-            "see_also"
+            "see_also",
+            "exact mappings",
+            "close mappings",
+            "related mappings",
+            "deprecated element has exact replacement",
+            "deprecated element has possible replacement"
          ],
          "class_uri": "meta:SubsetDefinition"
       },
@@ -1331,6 +1425,11 @@
             "from_schema",
             "imported_from",
             "see_also",
+            "exact mappings",
+            "close mappings",
+            "related mappings",
+            "deprecated element has exact replacement",
+            "deprecated element has possible replacement",
             "is_a",
             "abstract",
             "mixin",
@@ -1362,6 +1461,11 @@
             "from_schema",
             "imported_from",
             "see_also",
+            "exact mappings",
+            "close mappings",
+            "related mappings",
+            "deprecated element has exact replacement",
+            "deprecated element has possible replacement",
             "slot_definition_is_a",
             "abstract",
             "mixin",
@@ -1427,6 +1531,11 @@
             "from_schema",
             "imported_from",
             "see_also",
+            "exact mappings",
+            "close mappings",
+            "related mappings",
+            "deprecated element has exact replacement",
+            "deprecated element has possible replacement",
             "class_definition_is_a",
             "abstract",
             "mixin",

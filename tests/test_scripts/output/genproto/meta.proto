@@ -23,18 +23,23 @@ message ClassDefinition
   optional fromSchema None = 14
   optional importedFrom None = 15
   repeated seeAlso None = 16
-  optional isA None = 17
-  optional abstract None = 18
-  optional mixin None = 19
-  repeated mixins None = 20
-  repeated applyTo None = 21
-  repeated valuesFrom None = 22
-  repeated slots None = 23
-  repeated slotUsage None = 24
-  optional classUri None = 25
-  optional subclassOf None = 26
-  repeated unionOf None = 27
-  repeated definingSlots None = 28
+  repeated exactMappings None = 17
+  repeated closeMappings None = 18
+  repeated relatedMappings None = 19
+  optional deprecatedElementHasExactReplacement None = 20
+  optional deprecatedElementHasPossibleReplacement None = 21
+  optional isA None = 22
+  optional abstract None = 23
+  optional mixin None = 24
+  repeated mixins None = 25
+  repeated applyTo None = 26
+  repeated valuesFrom None = 27
+  repeated slots None = 28
+  repeated slotUsage None = 29
+  optional classUri None = 30
+  optional subclassOf None = 31
+  repeated unionOf None = 32
+  repeated definingSlots None = 33
  }
 // usage example and description
 message Example
@@ -73,25 +78,30 @@ message SchemaDefinition
   optional fromSchema None = 14
   optional importedFrom None = 15
   repeated seeAlso None = 16
-  id None = 17
-  optional title None = 18
-  optional version None = 19
-  repeated imports None = 20
-  optional license None = 21
-  repeated prefixes None = 22
-  repeated emitPrefixes None = 23
-  repeated defaultCuriMaps None = 24
-  optional defaultPrefix None = 25
-  optional defaultRange None = 26
-  repeated subsets None = 27
-  repeated types None = 28
-  repeated slots None = 29
-  repeated classes None = 30
-  optional metamodelVersion None = 31
-  optional sourceFile None = 32
-  optional sourceFileDate None = 33
-  optional sourceFileSize None = 34
-  optional generationDate None = 35
+  repeated exactMappings None = 17
+  repeated closeMappings None = 18
+  repeated relatedMappings None = 19
+  optional deprecatedElementHasExactReplacement None = 20
+  optional deprecatedElementHasPossibleReplacement None = 21
+  id None = 22
+  optional title None = 23
+  optional version None = 24
+  repeated imports None = 25
+  optional license None = 26
+  repeated prefixes None = 27
+  repeated emitPrefixes None = 28
+  repeated defaultCuriMaps None = 29
+  optional defaultPrefix None = 30
+  optional defaultRange None = 31
+  repeated subsets None = 32
+  repeated types None = 33
+  repeated slots None = 34
+  repeated classes None = 35
+  optional metamodelVersion None = 36
+  optional sourceFile None = 37
+  optional sourceFileDate None = 38
+  optional sourceFileSize None = 39
+  optional generationDate None = 40
  }
 // the definition of a property or a slot
 message SlotDefinition
@@ -112,32 +122,37 @@ message SlotDefinition
   optional fromSchema None = 14
   optional importedFrom None = 15
   repeated seeAlso None = 16
-  optional isA None = 17
-  optional abstract None = 18
-  optional mixin None = 19
-  repeated mixins None = 20
-  repeated applyTo None = 21
-  repeated valuesFrom None = 22
-  optional singularName None = 23
-  optional domain None = 24
-  optional range None = 25
-  optional slotUri None = 26
-  optional multivalued None = 27
-  optional inherited None = 28
-  optional readonly None = 29
-  optional ifabsent None = 30
-  optional required None = 31
-  optional inlined None = 32
-  optional key None = 33
-  optional identifier None = 34
-  optional alias None = 35
-  optional owner None = 36
-  optional subpropertyOf None = 37
-  optional symmetric None = 38
-  optional inverse None = 39
-  optional isClassField None = 40
-  optional role None = 41
-  optional isUsageSlot None = 42
+  repeated exactMappings None = 17
+  repeated closeMappings None = 18
+  repeated relatedMappings None = 19
+  optional deprecatedElementHasExactReplacement None = 20
+  optional deprecatedElementHasPossibleReplacement None = 21
+  optional isA None = 22
+  optional abstract None = 23
+  optional mixin None = 24
+  repeated mixins None = 25
+  repeated applyTo None = 26
+  repeated valuesFrom None = 27
+  optional singularName None = 28
+  optional domain None = 29
+  optional range None = 30
+  optional slotUri None = 31
+  optional multivalued None = 32
+  optional inherited None = 33
+  optional readonly None = 34
+  optional ifabsent None = 35
+  optional required None = 36
+  optional inlined None = 37
+  optional key None = 38
+  optional identifier None = 39
+  optional alias None = 40
+  optional owner None = 41
+  optional subpropertyOf None = 42
+  optional symmetric None = 43
+  optional inverse None = 44
+  optional isClassField None = 45
+  optional role None = 46
+  optional isUsageSlot None = 47
  }
 // the name and description of a subset
 message SubsetDefinition
@@ -158,6 +173,11 @@ message SubsetDefinition
   optional fromSchema None = 14
   optional importedFrom None = 15
   repeated seeAlso None = 16
+  repeated exactMappings None = 17
+  repeated closeMappings None = 18
+  repeated relatedMappings None = 19
+  optional deprecatedElementHasExactReplacement None = 20
+  optional deprecatedElementHasPossibleReplacement None = 21
  }
 // A data type definition.
 message TypeDefinition
@@ -178,9 +198,14 @@ message TypeDefinition
   optional fromSchema None = 14
   optional importedFrom None = 15
   repeated seeAlso None = 16
-  optional typeof None = 17
-  optional base None = 18
-  optional uri None = 19
-  optional repr None = 20
+  repeated exactMappings None = 17
+  repeated closeMappings None = 18
+  repeated relatedMappings None = 19
+  optional deprecatedElementHasExactReplacement None = 20
+  optional deprecatedElementHasPossibleReplacement None = 21
+  optional typeof None = 22
+  optional base None = 23
+  optional uri None = 24
+  optional repr None = 25
  }
 

@@ -82,7 +82,7 @@ class GenJSONLDTestCase(ClickTestCase):
         new_ttl = g.serialize(format="turtle").decode()
         new_g = Graph()
         new_g.parse(data=new_ttl, format="turtle")
-        self.check_size(g, new_g, URIRef(base), 11, 85, 13, "meta")
+        self.check_size(g, new_g, URIRef(base), 11, 90, 13, "meta")
 
 
 if __name__ == '__main__':

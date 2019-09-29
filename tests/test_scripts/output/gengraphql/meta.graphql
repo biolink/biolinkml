@@ -22,6 +22,11 @@ type ClassDefinition
     fromSchema: Uri
     importedFrom: String
     seeAlso: [Uriorcurie]
+    exactMappings: [Uriorcurie]
+    closeMappings: [Uriorcurie]
+    relatedMappings: [Uriorcurie]
+    deprecatedElementHasExactReplacement: Uriorcurie
+    deprecatedElementHasPossibleReplacement: Uriorcurie
     isA: ClassDefinition
     abstract: Boolean
     mixin: Boolean
@@ -54,6 +59,11 @@ interface Definition
     fromSchema: Uri
     importedFrom: String
     seeAlso: [Uriorcurie]
+    exactMappings: [Uriorcurie]
+    closeMappings: [Uriorcurie]
+    relatedMappings: [Uriorcurie]
+    deprecatedElementHasExactReplacement: Uriorcurie
+    deprecatedElementHasPossibleReplacement: Uriorcurie
     isA: Definition
     abstract: Boolean
     mixin: Boolean
@@ -80,6 +90,11 @@ interface Element
     fromSchema: Uri
     importedFrom: String
     seeAlso: [Uriorcurie]
+    exactMappings: [Uriorcurie]
+    closeMappings: [Uriorcurie]
+    relatedMappings: [Uriorcurie]
+    deprecatedElementHasExactReplacement: Uriorcurie
+    deprecatedElementHasPossibleReplacement: Uriorcurie
   }
 
 type Example
@@ -118,6 +133,11 @@ type SchemaDefinition
     fromSchema: Uri
     importedFrom: String
     seeAlso: [Uriorcurie]
+    exactMappings: [Uriorcurie]
+    closeMappings: [Uriorcurie]
+    relatedMappings: [Uriorcurie]
+    deprecatedElementHasExactReplacement: Uriorcurie
+    deprecatedElementHasPossibleReplacement: Uriorcurie
     id: Uri!
     title: String
     version: String
@@ -157,6 +177,11 @@ type SlotDefinition
     fromSchema: Uri
     importedFrom: String
     seeAlso: [Uriorcurie]
+    exactMappings: [Uriorcurie]
+    closeMappings: [Uriorcurie]
+    relatedMappings: [Uriorcurie]
+    deprecatedElementHasExactReplacement: Uriorcurie
+    deprecatedElementHasPossibleReplacement: Uriorcurie
     isA: SlotDefinition
     abstract: Boolean
     mixin: Boolean
@@ -203,6 +228,11 @@ type SubsetDefinition
     fromSchema: Uri
     importedFrom: String
     seeAlso: [Uriorcurie]
+    exactMappings: [Uriorcurie]
+    closeMappings: [Uriorcurie]
+    relatedMappings: [Uriorcurie]
+    deprecatedElementHasExactReplacement: Uriorcurie
+    deprecatedElementHasPossibleReplacement: Uriorcurie
   }
 
 type TypeDefinition
@@ -223,6 +253,11 @@ type TypeDefinition
     fromSchema: Uri
     importedFrom: String
     seeAlso: [Uriorcurie]
+    exactMappings: [Uriorcurie]
+    closeMappings: [Uriorcurie]
+    relatedMappings: [Uriorcurie]
+    deprecatedElementHasExactReplacement: Uriorcurie
+    deprecatedElementHasPossibleReplacement: Uriorcurie
     typeof: TypeDefinition
     base: String
     uri: Uriorcurie

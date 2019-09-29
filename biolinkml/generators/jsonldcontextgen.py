@@ -13,7 +13,9 @@ from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, De
     Element
 from biolinkml.utils.formatutils import camelcase, underscore, be
 from biolinkml.utils.generator import Generator, shared_arguments
+from includes.types import SHEX
 
+URI_RANGES = (XSD.anyURI, SHEX.nonliteral, SHEX.bnode, SHEX.iri)
 
 class ContextGenerator(Generator):
     generatorname = os.path.basename(__file__)
@@ -108,7 +110,7 @@ license: {be(self.schema.license)}
                     range_type = self.schema.types[slot.range]
                     if self.namespaces.uri_for(range_type.uri) == XSD.string:
                         pass
-                    elif self.namespaces.uri_for(range_type.uri) == XSD.anyURI:
+                    elif self.namespaces.uri_for(range_type.uri) in URI_RANGES:
                         slot_def['@type'] = '@id'
                     else:
                         slot_def['@type'] = range_type.uri

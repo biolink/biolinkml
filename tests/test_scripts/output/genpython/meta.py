@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by pythongen.py version: 0.2.1
-# Generation date: 2019-09-19 06:36
+# Generation date: 2019-09-29 14:30
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta
@@ -15,10 +15,11 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.metamodelcore import Bool, NCName, URI, URIorCURIE, XSDDateTime
 from includes.types import Boolean, Datetime, Integer, Ncname, String, Uri, Uriorcurie
 
-metamodel_version = "1.4.1"
+metamodel_version = "1.4.2"
 
 
 # Namespaces
+IAO = Namespace('http://purl.obolibrary.org/obo/IAO_')
 OIO = Namespace('http://www.geneontology.org/formats/oboInOwl#')
 DCTERMS = Namespace('http://purl.org/dc/terms/')
 META = Namespace('https://w3id.org/biolink/biolinkml/meta/')
@@ -103,6 +104,11 @@ class Element(YAMLRoot):
     from_schema: Optional[Union[str, URI]] = None
     imported_from: Optional[str] = None
     see_also: List[Union[str, URIorCURIE]] = empty_list()
+    exact_mappings: List[Union[str, URIorCURIE]] = empty_list()
+    close_mappings: List[Union[str, URIorCURIE]] = empty_list()
+    related_mappings: List[Union[str, URIorCURIE]] = empty_list()
+    deprecated_element_has_exact_replacement: Optional[Union[str, URIorCURIE]] = None
+    deprecated_element_has_possible_replacement: Optional[Union[str, URIorCURIE]] = None
 
     def __post_init__(self):
         self.id_prefixes = [v if isinstance(v, NCName)
@@ -127,6 +133,16 @@ class Element(YAMLRoot):
             self.from_schema = URI(self.from_schema)
         self.see_also = [v if isinstance(v, URIorCURIE)
                          else URIorCURIE(v) for v in self.see_also]
+        self.exact_mappings = [v if isinstance(v, URIorCURIE)
+                               else URIorCURIE(v) for v in self.exact_mappings]
+        self.close_mappings = [v if isinstance(v, URIorCURIE)
+                               else URIorCURIE(v) for v in self.close_mappings]
+        self.related_mappings = [v if isinstance(v, URIorCURIE)
+                                 else URIorCURIE(v) for v in self.related_mappings]
+        if self.deprecated_element_has_exact_replacement is not None and not isinstance(self.deprecated_element_has_exact_replacement, URIorCURIE):
+            self.deprecated_element_has_exact_replacement = URIorCURIE(self.deprecated_element_has_exact_replacement)
+        if self.deprecated_element_has_possible_replacement is not None and not isinstance(self.deprecated_element_has_possible_replacement, URIorCURIE):
+            self.deprecated_element_has_possible_replacement = URIorCURIE(self.deprecated_element_has_possible_replacement)
         super().__post_init__()
 
 

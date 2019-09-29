@@ -12,7 +12,7 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.metamodelcore import URIorCURIE
 from includes.types import Uriorcurie
 
-metamodel_version = "1.4.1"
+metamodel_version = "1.4.2"
 
 
 # Namespaces

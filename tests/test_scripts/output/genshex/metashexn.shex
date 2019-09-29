@@ -91,7 +91,12 @@ metatype:Nodeidentifier NONLITERAL
           <in_subset> @<SubsetDefinition> * ;
           <from_schema> @metatype:Uri ? ;
           <imported_from> @metatype:String ? ;
-          <see_also> @metatype:Uriorcurie *
+          <see_also> @metatype:Uriorcurie * ;
+          <exact_mappings> @metatype:Uriorcurie * ;
+          <close_mappings> @metatype:Uriorcurie * ;
+          <related_mappings> @metatype:Uriorcurie * ;
+          <deprecated_element_has_exact_replacement> @metatype:Uriorcurie ? ;
+          <deprecated_element_has_possible_replacement> @metatype:Uriorcurie ?
        ) ;
        rdf:type [ <Element> ]
     )

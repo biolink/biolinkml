@@ -14,7 +14,7 @@
 :metamodel a :SchemaDefinition ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "Biolink Schema Metamodel" ;
-    pav:version "1.4.1" ;
+    pav:version "1.4.2" ;
     skos:definition "A metamodel for defining biolink related schemas" ;
     :classes :AltDescription,
         :ClassDefinition,
@@ -39,24 +39,27 @@
         "rdfs",
         "skos",
         "xsd" ;
-    :generation_date "2019-09-18 20:07"^^xsd:dateTime ;
+    :generation_date "2019-09-29 14:30"^^xsd:dateTime ;
     :id <https://w3id.org/biolink/biolinkml/meta> ;
-    :imports <https://w3id.org/biolink/biolinkml/meta/includes/types> ;
-    :metamodel_version "1.4.1" ;
+    :imports <https://w3id.org/biolink/biolinkml/meta/includes/mappings>,
+        <https://w3id.org/biolink/biolinkml/meta/includes/types> ;
+    :metamodel_version "1.4.2" ;
     :prefixes [ :prefix_prefix "meta" ;
             :prefix_reference : ],
-        [ :prefix_prefix "skos" ;
-            :prefix_reference skos: ],
-        [ :prefix_prefix "pav" ;
-            :prefix_reference pav: ],
-        [ :prefix_prefix "metatype" ;
-            :prefix_reference metatype: ],
+        [ :prefix_prefix "IAO" ;
+            :prefix_reference <http://purl.obolibrary.org/obo/IAO_> ],
         [ :prefix_prefix "shex" ;
             :prefix_reference shex: ],
+        [ :prefix_prefix "metatype" ;
+            :prefix_reference metatype: ],
+        [ :prefix_prefix "pav" ;
+            :prefix_reference pav: ],
+        [ :prefix_prefix "xsd" ;
+            :prefix_reference xsd: ],
         [ :prefix_prefix "OIO" ;
             :prefix_reference OIO: ],
-        [ :prefix_prefix "xsd" ;
-            :prefix_reference xsd: ] ;
+        [ :prefix_prefix "skos" ;
+            :prefix_reference skos: ] ;
     :slots :abstract,
         :alias,
         :aliases,
@@ -70,15 +73,19 @@
         :class_definition_mixins,
         :class_uri,
         :classes,
+        :close_mappings,
         :comments,
         :default_curi_maps,
         :default_prefix,
         :default_range,
         :defining_slots,
         :deprecated,
+        :deprecated_element_has_exact_replacement,
+        :deprecated_element_has_possible_replacement,
         :description,
         :domain,
         :emit_prefixes,
+        :exact_mappings,
         :examples,
         :from_schema,
         :generation_date,
@@ -113,6 +120,7 @@
         :prefixes,
         :range,
         :readonly,
+        :related_mappings,
         :repr,
         :required,
         :role,
@@ -143,8 +151,8 @@
         :values_from,
         :version ;
     :source_file "meta.yaml" ;
-    :source_file_date "Wed Sep 18 19:58:27 2019"^^xsd:dateTime ;
-    :source_file_size 23416 ;
+    :source_file_date "Fri Sep 27 11:18:15 2019"^^xsd:dateTime ;
+    :source_file_size 23610 ;
     :subsets :owl ;
     :types :boolean,
         :date,
@@ -872,9 +880,13 @@ implicitly asserts Y is an instance of C2
     :is_a :Element ;
     :slots :aliases,
         :alt_descriptions,
+        :close_mappings,
         :comments,
         :deprecated,
+        :deprecated_element_has_exact_replacement,
+        :deprecated_element_has_possible_replacement,
         :description,
+        :exact_mappings,
         :examples,
         :from_schema,
         :id_prefixes,
@@ -884,6 +896,7 @@ implicitly asserts Y is an instance of C2
         :mappings,
         :name,
         :notes,
+        :related_mappings,
         :see_also,
         :todos .
 
@@ -992,6 +1005,18 @@ implicitly asserts Y is an instance of C2
     :range :string ;
     :slot_uri skos:altLabel .
 
+:close_mappings a :SlotDefinition ;
+    skos:definition "A list of terms from different schemas or terminology systems that have close meaning." ;
+    skos:inScheme <https://w3id.org/biolink/biolinkml/mappings> ;
+    skos:mappingRelation skos:closeMatch ;
+    :domain :Element ;
+    :imported_from "includes/mappings" ;
+    :is_a :mappings ;
+    :multivalued true ;
+    :owner :Element ;
+    :range :uriorcurie ;
+    :slot_uri skos:closeMatch .
+
 :comments a :SlotDefinition ;
     OIO:inSubset :owl ;
     skos:definition "notes and comments about an element intended for external consumption" ;
@@ -1002,6 +1027,18 @@ implicitly asserts Y is an instance of C2
     :owner :Element ;
     :range :string ;
     :slot_uri skos:note .
+
+:exact_mappings a :SlotDefinition ;
+    skos:definition "A list of terms from different schemas or terminology systems that have identical meaning." ;
+    skos:inScheme <https://w3id.org/biolink/biolinkml/mappings> ;
+    skos:mappingRelation skos:exactMatch ;
+    :domain :Element ;
+    :imported_from "includes/mappings" ;
+    :is_a :mappings ;
+    :multivalued true ;
+    :owner :Element ;
+    :range :uriorcurie ;
+    :slot_uri skos:exactMatch .
 
 :from_schema a :SlotDefinition ;
     skos:definition "id of the schema that defined the element" ;
@@ -1023,16 +1060,6 @@ implicitly asserts Y is an instance of C2
     :owner :Element ;
     :range :SubsetDefinition ;
     :slot_uri OIO:inSubset .
-
-:mappings a :SlotDefinition ;
-    skos:definition "A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective." ;
-    skos:inScheme <https://w3id.org/biolink/biolinkml/meta> ;
-    skos:mappingRelation skos:mappingRelation ;
-    :domain :Element ;
-    :multivalued true ;
-    :owner :Element ;
-    :range :uriorcurie ;
-    :slot_uri skos:mappingRelation .
 
 :name a :SlotDefinition ;
     OIO:inSubset :owl ;
@@ -1057,6 +1084,18 @@ implicitly asserts Y is an instance of C2
     :owner :Element ;
     :range :string ;
     :slot_uri skos:editorialNote .
+
+:related_mappings a :SlotDefinition ;
+    skos:definition "A list of terms from different schemas or terminology systems that have related meaning." ;
+    skos:inScheme <https://w3id.org/biolink/biolinkml/mappings> ;
+    skos:mappingRelation skos:relatedMatch ;
+    :domain :Element ;
+    :imported_from "includes/mappings" ;
+    :is_a :mappings ;
+    :multivalued true ;
+    :owner :Element ;
+    :range :uriorcurie ;
+    :slot_uri skos:relatedMatch .
 
 :see_also a :SlotDefinition ;
     OIO:inSubset :owl ;
@@ -1085,6 +1124,24 @@ implicitly asserts Y is an instance of C2
     :owner :Element ;
     :range :string ;
     :slot_uri :deprecated .
+
+:deprecated_element_has_exact_replacement a :SlotDefinition ;
+    skos:definition "When an element is deprecated, it can be automatically replaced by this uri or curie" ;
+    skos:inScheme <https://w3id.org/biolink/biolinkml/mappings> ;
+    skos:mappingRelation <http://purl.obolibrary.org/obo/IAO_0100001> ;
+    :imported_from "includes/mappings" ;
+    :owner :Element ;
+    :range :uriorcurie ;
+    :slot_uri :deprecated_element_has_exact_replacement .
+
+:deprecated_element_has_possible_replacement a :SlotDefinition ;
+    skos:definition "When an element is deprecated, it can be potentially replaced by this uri or curie" ;
+    skos:inScheme <https://w3id.org/biolink/biolinkml/mappings> ;
+    skos:mappingRelation OIO:consider ;
+    :imported_from "includes/mappings" ;
+    :owner :Element ;
+    :range :uriorcurie ;
+    :slot_uri :deprecated_element_has_possible_replacement .
 
 :examples a :SlotDefinition ;
     OIO:inSubset :owl ;
@@ -1143,13 +1200,15 @@ implicitly asserts Y is an instance of C2
     :range :string ;
     :slot_uri skos:definition .
 
-:uriorcurie a :TypeDefinition ;
-    skos:definition "a URI or a CURIE" ;
-    skos:inScheme <https://w3id.org/biolink/biolinkml/types> ;
-    :base "URIorCURIE" ;
-    :imported_from "includes/types" ;
-    :repr "str" ;
-    :uri xsd:anyURI .
+:mappings a :SlotDefinition ;
+    skos:definition "A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective." ;
+    skos:inScheme <https://w3id.org/biolink/biolinkml/meta> ;
+    skos:mappingRelation skos:mappingRelation ;
+    :domain :Element ;
+    :multivalued true ;
+    :owner :Element ;
+    :range :uriorcurie ;
+    :slot_uri skos:mappingRelation .
 
 :boolean a :TypeDefinition ;
     skos:definition "A binary (true or false) value" ;
@@ -1162,6 +1221,14 @@ implicitly asserts Y is an instance of C2
     skos:definition "Set of slots that appear in the OWL representation of a model" ;
     skos:inScheme <https://w3id.org/biolink/biolinkml/meta> .
 
+:uriorcurie a :TypeDefinition ;
+    skos:definition "a URI or a CURIE" ;
+    skos:inScheme <https://w3id.org/biolink/biolinkml/types> ;
+    :base "URIorCURIE" ;
+    :imported_from "includes/types" ;
+    :repr "str" ;
+    :uri xsd:anyURI .
+
 :Definition a :ClassDefinition ;
     skos:definition "base class for definitions" ;
     skos:inScheme <https://w3id.org/biolink/biolinkml/meta> ;
@@ -1172,9 +1239,13 @@ implicitly asserts Y is an instance of C2
         :aliases,
         :alt_descriptions,
         :apply_to,
+        :close_mappings,
         :comments,
         :deprecated,
+        :deprecated_element_has_exact_replacement,
+        :deprecated_element_has_possible_replacement,
         :description,
+        :exact_mappings,
         :examples,
         :from_schema,
         :id_prefixes,
@@ -1187,6 +1258,7 @@ implicitly asserts Y is an instance of C2
         :mixins,
         :name,
         :notes,
+        :related_mappings,
         :see_also,
         :todos,
         :values_from .
@@ -1199,9 +1271,13 @@ implicitly asserts Y is an instance of C2
     :slots :aliases,
         :alt_descriptions,
         :base,
+        :close_mappings,
         :comments,
         :deprecated,
+        :deprecated_element_has_exact_replacement,
+        :deprecated_element_has_possible_replacement,
         :description,
+        :exact_mappings,
         :examples,
         :from_schema,
         :id_prefixes,
@@ -1211,6 +1287,7 @@ implicitly asserts Y is an instance of C2
         :mappings,
         :name,
         :notes,
+        :related_mappings,
         :repr,
         :see_also,
         :todos,
@@ -1236,10 +1313,14 @@ implicitly asserts Y is an instance of C2
         :class_definition_is_a,
         :class_definition_mixins,
         :class_uri,
+        :close_mappings,
         :comments,
         :defining_slots,
         :deprecated,
+        :deprecated_element_has_exact_replacement,
+        :deprecated_element_has_possible_replacement,
         :description,
+        :exact_mappings,
         :examples,
         :from_schema,
         :id_prefixes,
@@ -1250,6 +1331,7 @@ implicitly asserts Y is an instance of C2
         :mixin,
         :name,
         :notes,
+        :related_mappings,
         :see_also,
         :slot_usage,
         :slots,
@@ -1257,28 +1339,6 @@ implicitly asserts Y is an instance of C2
         :todos,
         :union_of,
         :values_from .
-
-:Element a :ClassDefinition ;
-    skos:definition "a named element in the model" ;
-    skos:inScheme <https://w3id.org/biolink/biolinkml/meta> ;
-    :abstract true ;
-    :class_uri :Element ;
-    :slots :aliases,
-        :alt_descriptions,
-        :comments,
-        :deprecated,
-        :description,
-        :examples,
-        :from_schema,
-        :id_prefixes,
-        :imported_from,
-        :in_subset,
-        :local_names,
-        :mappings,
-        :name,
-        :notes,
-        :see_also,
-        :todos .
 
 :SchemaDefinition a :ClassDefinition ;
     skos:definition "a collection of subset, type, slot and class definitions" ;
@@ -1288,13 +1348,17 @@ implicitly asserts Y is an instance of C2
     :slots :aliases,
         :alt_descriptions,
         :classes,
+        :close_mappings,
         :comments,
         :default_curi_maps,
         :default_prefix,
         :default_range,
         :deprecated,
+        :deprecated_element_has_exact_replacement,
+        :deprecated_element_has_possible_replacement,
         :description,
         :emit_prefixes,
+        :exact_mappings,
         :examples,
         :from_schema,
         :generation_date,
@@ -1310,6 +1374,7 @@ implicitly asserts Y is an instance of C2
         :name,
         :notes,
         :prefixes,
+        :related_mappings,
         :see_also,
         :slot_definitions,
         :source_file,
@@ -1321,6 +1386,33 @@ implicitly asserts Y is an instance of C2
         :types,
         :version .
 
+:Element a :ClassDefinition ;
+    skos:definition "a named element in the model" ;
+    skos:inScheme <https://w3id.org/biolink/biolinkml/meta> ;
+    :abstract true ;
+    :class_uri :Element ;
+    :slots :aliases,
+        :alt_descriptions,
+        :close_mappings,
+        :comments,
+        :deprecated,
+        :deprecated_element_has_exact_replacement,
+        :deprecated_element_has_possible_replacement,
+        :description,
+        :exact_mappings,
+        :examples,
+        :from_schema,
+        :id_prefixes,
+        :imported_from,
+        :in_subset,
+        :local_names,
+        :mappings,
+        :name,
+        :notes,
+        :related_mappings,
+        :see_also,
+        :todos .
+
 :SlotDefinition a :ClassDefinition ;
     skos:definition "the definition of a property or a slot" ;
     skos:inScheme <https://w3id.org/biolink/biolinkml/meta> ;
@@ -1330,10 +1422,14 @@ implicitly asserts Y is an instance of C2
         :alias,
         :aliases,
         :alt_descriptions,
+        :close_mappings,
         :comments,
         :deprecated,
+        :deprecated_element_has_exact_replacement,
+        :deprecated_element_has_possible_replacement,
         :description,
         :domain,
+        :exact_mappings,
         :examples,
         :from_schema,
         :id_prefixes,
@@ -1356,6 +1452,7 @@ implicitly asserts Y is an instance of C2
         :owner,
         :range,
         :readonly,
+        :related_mappings,
         :required,
         :role,
         :see_also,

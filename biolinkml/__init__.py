@@ -29,7 +29,7 @@ Physical layout:
         +------ biolinkml/
         |          |
         |           +--- meta.py
-        +------ docs/
+        +------ meta_mappings_docs/
                   |
                   +--- abstract.md
                   |
@@ -50,13 +50,13 @@ URI Maps:
     https://w3id.org/biolink/biolinkml/meta   --> biolinkml/meta   (.yaml, .shex, .ttl, .owl) -- conneg
     
     # Access to documentation on metamodel components
-    https://w3id.org/biolink/biolinkml/meta/  --> biolink/docs/
+    https://w3id.org/biolink/biolinkml/meta/  --> biolink/meta_mappings_docs/
     
     # Access to the entire types model in various formats
     https://w3id.org/biolink/biolinkml/types  --> biolink/includes/types (.yaml, .shex, .ttl, .owl) -- conneg
     
     # Access to documentation on type components
-    https://w3id.org/biolink/biolinkml/types/ --> biolink/docs/types/
+    https://w3id.org/biolink/biolinkml/types/ --> biolink/meta_mappings_docs/types/
 
 
 
