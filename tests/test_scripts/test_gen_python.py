@@ -9,7 +9,8 @@ import click
 
 from biolinkml.generators.pythongen import cli, PythonGenerator
 from tests import sourcedir, targetdir, source_yaml_path
-from tests.test_scripts.clicktestcase import ClickTestCase, metadata_filter
+from tests.test_scripts.clicktestcase import ClickTestCase
+from tests.utils.metadata_filters import metadata_filter
 
 
 class GenPythonTestCase(ClickTestCase):

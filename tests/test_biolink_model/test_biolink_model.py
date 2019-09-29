@@ -23,7 +23,7 @@ from biolinkml.generators.pythongen import PythonGenerator
 from biolinkml.generators.rdfgen import RDFGenerator
 from biolinkml.generators.shexgen import ShExGenerator
 from biolinkml.utils.formatutils import shex_results_as_string
-from tests.test_scripts.clicktestcase import metadata_filter
+from tests.utils.metadata_filters import metadata_filter
 from tests.utils.generator_utils import GeneratorTestCase
 
 BIOLINK_NS = Namespace("https://w3id.org/biolink/vocab/")

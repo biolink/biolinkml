@@ -5,8 +5,7 @@ from types import ModuleType
 from biolinkml.generators.jsonldcontextgen import ContextGenerator
 from biolinkml.generators.pythongen import PythonGenerator
 from biolinkml.utils.yamlutils import as_rdf
-from tests.test_scripts.clicktestcase import metadata_filter
-from tests.test_scripts.test_gen_jsonld_context import json_metadata_filter
+from tests.utils.metadata_filters import ldcontext_metadata_filter, metadata_filter
 from tests.test_utils import inputdir
 from tests.test_utils import outputdir
 
@@ -48,7 +47,7 @@ class URIAndCurieTestCase(GeneratorTestCase):
         exec(spec, module.__dict__)
 
         # Check that the interpretations are correct
-        self.single_file_generator('jsonld', ContextGenerator, filtr=json_metadata_filter)
+        self.single_file_generator('jsonld', ContextGenerator, filtr=ldcontext_metadata_filter)
         curie_obj = module.C1("ex:obj1",
                               hasCurie="ex:curie",
                               hasURI="http://example.org/test/uri",

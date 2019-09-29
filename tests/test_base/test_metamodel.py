@@ -1,4 +1,3 @@
-import os
 import unittest
 from typing import List
 
@@ -13,8 +12,8 @@ from biolinkml.generators.owlgen import OwlSchemaGenerator
 from biolinkml.generators.rdfgen import RDFGenerator
 from biolinkml.generators.shexgen import ShExGenerator
 from tests import targetdir, DO_SHEX_VALIDATION
-from tests.test_scripts.clicktestcase import metadata_filter, json_metadata_filter
 from tests.utils.generator_utils import GeneratorTestCase
+from tests.utils.metadata_filters import json_metadata_filter
 
 
 class MetaModelTestCase(GeneratorTestCase):
