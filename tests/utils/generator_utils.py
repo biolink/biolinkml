@@ -1,16 +1,17 @@
 import os
 import re
 import unittest
-from typing import Optional, Callable
+from typing import Optional, Callable, Union
 
 from rdflib import Graph, Namespace, OWL
-from rdflib.compare import to_isomorphic, graph_diff
+from rdflib.compare import to_isomorphic, graph_diff, IsomorphicGraph
 
 from biolinkml import METAMODEL_NAMESPACE, MODULE_DIR
 from biolinkml.utils.generator import Generator
 from tests.test_scripts.clicktestcase import ClickTestCase
 from tests.utils.compare_directories import are_dir_trees_equal
 from tests.utils.dirutils import make_and_clear_directory
+from tests.utils.rdf_comparator import compare_rdf
 
 BIOLINK_NS = Namespace("https://w3id.org/biolink/vocab/")
 
@@ -40,7 +41,7 @@ class GeneratorTestCase(unittest.TestCase):
 
     def _default_comparator(self, old_data: str, new_data: str, new_file: str, msg: Optional[str] = None) -> None:
         """ Simple file comparator.  Compare old to new and, if they don't match, save an image of new in
-        new_file and raise an error
+        file_name_for_actual and raise an error
 
         :param old_data: Expected data
         :param new_data: Actual data
@@ -58,47 +59,23 @@ class GeneratorTestCase(unittest.TestCase):
                 print(ClickTestCase.closein_comparison(old_data, new_data))
             self.assertEqual(old_data, new_data)
 
-    def rdf_comparator(self, old_data: str, new_data: str, new_file: str, msg: Optional[str] = None) -> None:
+    def rdf_comparator(self, expected_rdf: Union[Graph, str], actual_rdf: Union[Graph, str],
+                       file_name_for_actual: Optional[str] = None, msg: Optional[str] = None) -> None:
         """
         RDF comparator.  Compare two graphs and, if they don't match, save a turtle image of new_data in
         new_file and raise an error
-        :param old_data: Turtle representation of expected RDF
-        :param new_data: Turtle representation of actual RDF
-        :param new_file: Save actual RDF here if mismatch
+        :param expected_rdf: Turtle representation of expected RDF
+        :param actual_rdf: Turtle representation of actual RDF
+        :param file_name_for_actual: Save actual RDF here if mismatch
         :param msg: If present, add to assert message
         :return:
         """
-        old_graph = Graph()
-        new_graph = Graph()
-        old_graph.parse(data=old_data, format="turtle")
-        new_graph.parse(data=new_data, format="turtle")
-        old_iso = to_isomorphic(old_graph)
-        # Remove the metadata specific triples
-        for t in list(old_iso.triples((None, METAMODEL_NAMESPACE.generation_date, None))):
-            old_iso.remove(t)
-        for t in list(old_iso.triples((None, METAMODEL_NAMESPACE.source_file_date, None))):
-            old_iso.remove(t)
-        new_iso = to_isomorphic(new_graph)
-        for t in list(new_iso.triples((None, METAMODEL_NAMESPACE.generation_date, None))):
-            new_iso.remove(t)
-        for t in list(new_iso.triples((None, METAMODEL_NAMESPACE.source_file_date, None))):
-            new_iso.remove(t)
-
-        in_both, in_old, in_new = graph_diff(old_iso, new_iso)
-        # Graph compare takes a Looong time
-        # if old_iso != new_iso:
-        #     in_both, in_old, in_new = graph_diff(old_iso, new_iso)
-        old_len = len(list(in_old))
-        new_len = len(list(in_new))
-        if old_len or new_len:
-            if old_len:
-                print("----- Old graph only -----")
-                self._print_triples(in_old)
-            if new_len:
-                print("----- New Grapn Only -----")
-                self._print_triples(in_new)
-            with open(new_file, 'w') as newf:
-                newf.write(new_data)
+        error_msg = compare_rdf(expected_rdf, actual_rdf)
+        if error_msg:
+            if file_name_for_actual:
+                with open(file_name_for_actual, 'w') as newf:
+                    newf.write(actual_rdf)
+            print(error_msg)
             self.assertTrue(False, "RDF file mismatch" if not msg else msg)
 
     def single_file_generator(self, suffix: str, gen: type(Generator), *,
@@ -139,7 +116,6 @@ class GeneratorTestCase(unittest.TestCase):
             os.remove(new_file)
 
         new_data = str(gen(yaml_file, **generator_args).serialize(**serialize_args))
-
         if not os.path.exists(old_file):
             with open(old_file, 'w') as oldf:
                 oldf.write(new_data if preserve_metadata else filtr(new_data))
