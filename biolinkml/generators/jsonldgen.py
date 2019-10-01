@@ -2,6 +2,7 @@
 
 """
 import os
+from collections import Iterable
 from typing import Any, Optional
 
 import click
@@ -96,18 +97,22 @@ class JSONLDGenerator(Generator):
         # JSON LD adjusts context reference using '@base'.  If context is supplied and not a URI, generate an
         # absolute URI for it
         if context is None:
-            context = METAMODEL_CONTEXT_URI
-        elif '://' not in context:
-            context = 'file://' + os.path.abspath(os.path.join(os.getcwd(), context))
+            context = [METAMODEL_CONTEXT_URI]
+        elif isinstance(context, str):               # Some of the older code doesn't do multiple contexts
+            context = [context]
+        abs_contexts = ['file://' + os.path.abspath(os.path.join(os.getcwd(), c))
+                        if '://' not in c else c for c in context]
 
-        json_obj["@context"] = [context, {'@base': base_prefix}] if base_prefix else context
+        json_obj["@context"] = abs_contexts[0] if len(abs_contexts) == 1 and not base_prefix else abs_contexts
+        if base_prefix:
+            json_obj["@context"].append({'@base': base_prefix})
         # json_obj["@id"] = self.schema.id
         print(as_json(json_obj, indent="  "))
 
 
 @shared_arguments(JSONLDGenerator)
 @click.command()
-@click.option("--context", default=METAMODEL_CONTEXT_URI,
+@click.option("--context", default=METAMODEL_CONTEXT_URI, multiple=True,
               help=f"JSONLD context file (default: {METAMODEL_CONTEXT_URI})")
 def cli(yamlfile, **kwargs):
     """ Generate JSONLD file from biolink schema """

@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Optional, Union
+from typing import Optional, Union, List, Tuple
 
 import yaml
 from jsonasobj import JsonObj, as_dict, as_json, load, loads
@@ -70,28 +70,36 @@ def root_representer(dumper: yaml.Dumper, data: YAMLRoot):
 yaml.add_multi_representer(YAMLRoot, root_representer)
 
 
-def as_yaml(schema: YAMLRoot) -> str:
+def as_yaml(element: YAMLRoot) -> str:
     """
-    Return schema in a YAML representation
+    Return element in a YAML representation
 
-    :param schema: YAML object
+    :param element: YAML object
     :return: Stringified representation
     """
     # TODO: figure out how do to a safe dump;
     # def default_representer(_, data) -> str:
     #     return ScalarNode(None, str(data))
     # SafeDumper.add_representer(None, default_representer)
-    return yaml.dump(schema)
+    return yaml.dump(element)
 
 
-def as_json_object(schema: YAMLRoot, context: Optional[Union[JsonObj, dict]] = None) -> JsonObj:
-    rval = JsonObj(**schema.__dict__)
-    rval['type'] = schema.__class__.__name__
-    if context:
-        if isinstance(context, JsonObj):
-            context = context.__dict__
-        for k, v in context.items():
-            rval[k] = JsonObj(**v) if isinstance(v, dict) else v
+def as_json_object(element: YAMLRoot,
+                   contexts: Optional[Union[JsonObj, dict, List[Union[JsonObj, dict]]]] = None) -> JsonObj:
+    """
+    Return the representation of element as a JsonObj object
+    :param element: element to return
+    :param contexts: context(s) to include in the output
+    :return: JsonObj representation of element
+    """
+    rval = JsonObj(**element.__dict__)
+    rval['type'] = element.__class__.__name__
+    if contexts:
+        for context in contexts:
+            if isinstance(context, JsonObj):
+                context = context.__dict__
+            for k, v in context.items():
+                rval[k] = JsonObj(**v) if isinstance(v, dict) else v
     return rval
 
 
@@ -118,18 +126,28 @@ class DupCheckYamlLoader(yaml.loader.SafeLoader):
         return mapping
 
 
-def as_rdf(schema: YAMLRoot, context_loc: Optional[Union[str, JsonObj]] = None) -> Graph:
-    if context_loc is not None:
-        if isinstance(context_loc, str):
-            if context_loc.strip().startswith('{'):
-                context = loads(context_loc)
+def as_rdf(element: YAMLRoot, contexts: Optional[Union[str, JsonObj, List[Union[str, JsonObj]]]] = None) -> Graph:
+    """
+    Convert element into an RDF graph guided by the context(s) in contexts
+    :param element: element to represent in RDF
+    :param contexts: JSON-LD context(s) in the form of a file or URL name, a json string or a json obj
+    :return: rdflib Graph containing element
+    """
+    if contexts is not None:
+        if not isinstance(contexts, (list, tuple, set)):
+            contexts = [contexts]
+        context_list = []
+        for context in contexts:
+            if isinstance(context, str):
+                if context.strip().startswith('{'):
+                    context_list.append(context)
+                else:
+                    context_list.append(load(context))
             else:
-                context = load(context_loc)
-        else:
-            context = context_loc
+                context_list.append(context)
     else:
-        context = None
-    jsonld = as_json_object(schema, context)
+        context_list = None
+    jsonld = as_json_object(element, context_list)
     graph = Graph()
     graph.parse(data=as_json(jsonld), format="json-ld")
     return graph

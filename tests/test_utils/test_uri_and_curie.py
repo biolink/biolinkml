@@ -3,9 +3,10 @@ import unittest
 from types import ModuleType
 
 from biolinkml.generators.jsonldcontextgen import ContextGenerator
+from biolinkml.generators.jsonldgen import JSONLDGenerator
 from biolinkml.generators.pythongen import PythonGenerator
 from biolinkml.utils.yamlutils import as_rdf
-from tests.utils.metadata_filters import ldcontext_metadata_filter, metadata_filter
+from tests.utils.metadata_filters import ldcontext_metadata_filter, metadata_filter, json_metadata_filter
 from tests.test_utils import inputdir
 from tests.test_utils import outputdir
 
@@ -48,13 +49,14 @@ class URIAndCurieTestCase(GeneratorTestCase):
 
         # Check that the interpretations are correct
         self.single_file_generator('jsonld', ContextGenerator, filtr=ldcontext_metadata_filter)
+        self.single_file_generator('json', JSONLDGenerator, filtr=json_metadata_filter)
         curie_obj = module.C1("ex:obj1",
                               hasCurie="ex:curie",
                               hasURI="http://example.org/test/uri",
                               hasNcName="A123",
                               id2="ex:id2")
         g = as_rdf(curie_obj, os.path.join(self.source_path, self.model_name + '.jsonld'))
-        self.rdf_comparator(expected_rdf, g, os.path.join(self.target_path, expected_rdf))
+        self.rdf_comparator(expected_rdf, g, os.path.join(self.target_path, self.model_name + '.jsonld'))
 
 
 if __name__ == '__main__':

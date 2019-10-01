@@ -11,7 +11,7 @@ from biolinkml.utils.generator import Generator
 from tests.test_scripts.clicktestcase import ClickTestCase
 from tests.utils.compare_directories import are_dir_trees_equal
 from tests.utils.dirutils import make_and_clear_directory
-from tests.utils.rdf_comparator import compare_rdf
+from tests.utils.rdf_comparator import compare_rdf, to_graph
 
 BIOLINK_NS = Namespace("https://w3id.org/biolink/vocab/")
 
@@ -73,10 +73,10 @@ class GeneratorTestCase(unittest.TestCase):
         error_msg = compare_rdf(expected_rdf, actual_rdf)
         if error_msg:
             if file_name_for_actual:
-                with open(file_name_for_actual, 'w') as newf:
-                    newf.write(actual_rdf)
+                to_graph(actual_rdf).serialize(file_name_for_actual, format="turtle")
+                print(f"***** New graph saved in {file_name_for_actual} *****")
             print(error_msg)
-            self.assertTrue(False, "RDF file mismatch" if not msg else msg)
+            self.fail("RDF file mismatch" if not msg else msg)
 
     def single_file_generator(self, suffix: str, gen: type(Generator), *,
                               format: Optional[str] = None,
@@ -110,7 +110,9 @@ class GeneratorTestCase(unittest.TestCase):
         old_file = os.path.join(self.source_path, output_base + '.' + suffix)
         new_file = os.path.join(self.target_path, output_base + '.' + suffix)
         message = \
-            f"\n***** Move {os.path.relpath(new_file, MODULE_DIR)} to {os.path.relpath(old_file, MODULE_DIR)} *****\n"
+            f"\n***** Expected output is in {os.path.relpath(old_file, MODULE_DIR)} " \
+            f"and actual is in {os.path.relpath(new_file, MODULE_DIR)} *****\n" \
+            f"***** Remove {os.path.relpath(old_file, MODULE_DIR)} and re-run to update"
         yaml_file = os.path.join(self.model_path, self.model_name + '.yaml')
         if os.path.exists(new_file):
             os.remove(new_file)

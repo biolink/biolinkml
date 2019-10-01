@@ -11,6 +11,7 @@ default_curi_maps:
     - semweb_context
 
 default_prefix: ex
+default_range: string
 
 types:
   string:
@@ -36,10 +37,8 @@ slots:
     related_mappings:
       - ex:slot1_related
       - http://example.org/fulluri/slot1_related
-    deprecated_element_has_exact_replacement:
-      - s3
-    deprecated_element_has_possible_replacement:
-      - s4
+    deprecated_element_has_exact_replacement: s3
+    deprecated_element_has_possible_replacement: s4
 
   s2:
     identifier: true
@@ -54,10 +53,8 @@ slots:
     related_mappings:
       - ex:slot2_related
       - http://example.org/fulluri/slot2_related
-    deprecated_element_has_exact_replacement:
-      - s3
-    deprecated_element_has_possible_replacement:
-      - s4
+    deprecated_element_has_exact_replacement: s3
+    deprecated_element_has_possible_replacement: s4
 
 
 classes:
@@ -74,10 +71,8 @@ classes:
     related_mappings:
       - ex:class1_related
       - http://example.org/fulluri/class1_related
-    deprecated_element_has_exact_replacement:
-      - c2
-    deprecated_element_has_possible_replacement:
-      - c3
+    deprecated_element_has_exact_replacement: c2
+    deprecated_element_has_possible_replacement: c3
 
   c2:
     is_a: c1

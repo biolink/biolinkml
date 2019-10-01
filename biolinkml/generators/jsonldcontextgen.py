@@ -17,6 +17,7 @@ from includes.types import SHEX
 
 URI_RANGES = (XSD.anyURI, SHEX.nonliteral, SHEX.bnode, SHEX.iri)
 
+
 class ContextGenerator(Generator):
     generatorname = os.path.basename(__file__)
     generatorversion = "0.1.1"
@@ -33,7 +34,6 @@ class ContextGenerator(Generator):
         self.slot_class_maps = dict()
 
     def visit_schema(self, base: Optional[str]=None, output: Optional[str]=None, **_):
-
         # Add any explicitly declared prefixes
         for prefix in self.schema.prefixes.values():
             self.emit_prefixes.add(prefix.prefix_prefix)
@@ -70,8 +70,7 @@ license: {be(self.schema.license)}
             else:
                 self.context_body['@base'] = base
         for prefix in sorted(self.emit_prefixes):
-            if self.namespaces[prefix] != self.context_body['@vocab']:
-                context_content[prefix] = self.namespaces[prefix]
+            context_content[prefix] = self.namespaces[prefix]
         for k, v in self.context_body.items():
             context_content[k] = v
         for k, v in self.slot_class_maps.items():
