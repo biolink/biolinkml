@@ -7,7 +7,8 @@ CONTEXT_TYPE = Union[str, dict, JsonObj]
 CONTEXTS_PARAM_TYPE = Optional[Union[CONTEXT_TYPE, List[CONTEXT_TYPE]]]
 
 
-def merge_contexts(contexts: CONTEXTS_PARAM_TYPE = None, base: Optional[Any] = None) -> JsonObj:
+def merge_contexts(contexts: CONTEXTS_PARAM_TYPE = None, base: Optional[Any] = None,
+                   root_directory: Optional[str] = None) -> JsonObj:
     """ Take a list of JSON-LD contexts, which can be one of:
         * the name of a JSON-LD file
         * the URI of a JSON-lD file
@@ -28,10 +29,10 @@ def merge_contexts(contexts: CONTEXTS_PARAM_TYPE = None, base: Optional[Any] = N
         return ctxt['@context'] if isinstance(ctxt, JsonObj) and '@context' in ctxt else ctxt
 
     def to_file_uri(fname: str) -> str:
-        return 'file://' + os.path.abspath(os.path.join(os.getcwd(), fname))
+        return 'file://' + fname
 
     context_list = []
-    for context in [] if contexts is None else [contexts] if isinstance(contexts, str) else contexts:
+    for context in [] if contexts is None else [contexts] if not isinstance(contexts, (list, tuple, set)) else contexts:
         if isinstance(context, str):
             # One of filename, URL or json text
             if context.strip().startswith("{"):
@@ -42,9 +43,6 @@ def merge_contexts(contexts: CONTEXTS_PARAM_TYPE = None, base: Optional[Any] = N
             context = JsonObj(**context)    # dict
         context_list.append(prune_context_node(context))
     if base:
-        base = str(base)
-        if '://' not in base:
-            base = to_file_uri(base)
-        context_list.append(JsonObj(**{'@base': base}))
+        context_list.append(JsonObj(**{'@base': str(base)}))
     return None if not context_list else \
         JsonObj(**{"@context": context_list[0] if len(context_list) == 1 else context_list})

@@ -12,7 +12,7 @@ json_2 = '{ "foo": 17, "@context": { "ex": "http://example.org/test3/", "ex2": {
 
 context_output = """{
    "@context": [
-      "file:///Users/solbrig/git/biolink/biolinkml/tests/test_utils/local.jsonld",
+      "file://local.jsonld",
       "https://w3id.org/biolink/biolinkml/context.jsonld",
       {
          "ex": "http://example.org/test/",
@@ -31,8 +31,8 @@ context_output = """{
 class ContextUtilsTestCase(unittest.TestCase):
     def test_merge_contexts(self):
         self.assertIsNone(merge_contexts())
-        self.assertIsNotNone(re.match(r'file:///.*/local.jsonld', merge_contexts("local.jsonld")['@context']))
-        self.assertIsNotNone(re.match(r'file:///.*/local.jsonld', merge_contexts(["local.jsonld"])['@context']))
+        self.assertEqual('file://local.jsonld', merge_contexts("local.jsonld")['@context'])
+        self.assertEqual('file://local.jsonld', merge_contexts(["local.jsonld"])['@context'])
         self.assertEqual(METAMODEL_CONTEXT_URI, merge_contexts(METAMODEL_CONTEXT_URI)['@context'])
         self.assertEqual(METAMODEL_CONTEXT_URI, merge_contexts([METAMODEL_CONTEXT_URI])['@context'])
         self.assertEqual(JsonObj(ex='http://example.org/test/', ex2='http://example.org/test2/'),
@@ -43,7 +43,7 @@ class ContextUtilsTestCase(unittest.TestCase):
                          merge_contexts(json_2)['@context'])
         self.assertEqual(JsonObj(ex='http://example.org/test3/', ex2=JsonObj(**{'@id': 'http://example.org/test4/'})),
                          merge_contexts([json_2])['@context'])
-        self.assertEqual(['file:///Users/solbrig/git/biolink/biolinkml/tests/test_utils/local.jsonld',
+        self.assertEqual([f'file://local.jsonld',
                           'https://w3id.org/biolink/biolinkml/context.jsonld',
                           JsonObj(ex='http://example.org/test/', ex2='http://example.org/test2/'),
                           JsonObj(ex='http://example.org/test3/', ex2=JsonObj(**{'@id': 'http://example.org/test4/'}))],
@@ -56,13 +56,13 @@ class ContextUtilsTestCase(unittest.TestCase):
             JsonObj(**{'@context': [JsonObj(ex='http://example.org/test/', ex2='http://example.org/test2/'),
                                     JsonObj(ex='http://example.org/test/', ex2='http://example.org/test2/')]}),
             merge_contexts([json_1, json_1]))
-        self.assertIsNotNone(re.match(r'file:///.*/local.jsonld', merge_contexts("local.jsonld")['@context']))
+        self.assertEqual('file://local.jsonld', merge_contexts("local.jsonld")['@context'])
 
     def test_merge_contexts_base(self):
         self.assertEqual(
             JsonObj(**{'@context':
-                           JsonObj(**{'@base': 'file://' + os.path.abspath(os.path.join(os.getcwd(), 'relloc'))})}),
-            merge_contexts(base='relloc'))
+                           JsonObj(**{'@base': 'file://relloc'})}),
+            merge_contexts(base='file://relloc'))
         self.assertEqual(loads(f'{{"@context": {{"@base": "{META_BASE_URI}"}}}}'), merge_contexts(base=META_BASE_URI))
         self.assertEqual(loads("""
 {"@context": [

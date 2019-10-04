@@ -7,6 +7,8 @@ from rdflib import Graph
 from yaml import SafeDumper, ScalarNode
 from yaml.representer import BaseRepresenter
 
+from biolinkml.utils.context_utils import CONTEXTS_PARAM_TYPE, merge_contexts
+
 
 @dataclass(init=True)
 class YAMLRoot(JsonObj):
@@ -84,8 +86,7 @@ def as_yaml(element: YAMLRoot) -> str:
     return yaml.dump(element)
 
 
-def as_json_object(element: YAMLRoot,
-                   contexts: Optional[Union[JsonObj, dict, List[Union[JsonObj, dict]]]] = None) -> JsonObj:
+def as_json_object(element: YAMLRoot, contexts: CONTEXTS_PARAM_TYPE = None) -> JsonObj:
     """
     Return the representation of element as a JsonObj object
     :param element: element to return
@@ -94,12 +95,9 @@ def as_json_object(element: YAMLRoot,
     """
     rval = JsonObj(**element.__dict__)
     rval['type'] = element.__class__.__name__
-    if contexts:
-        for context in contexts:
-            if isinstance(context, JsonObj):
-                context = context.__dict__
-            for k, v in context.items():
-                rval[k] = JsonObj(**v) if isinstance(v, dict) else v
+    context_element = merge_contexts(contexts)
+    if context_element:
+        rval['@context'] = context_element['@context']
     return rval
 
 
@@ -126,28 +124,15 @@ class DupCheckYamlLoader(yaml.loader.SafeLoader):
         return mapping
 
 
-def as_rdf(element: YAMLRoot, contexts: Optional[Union[str, JsonObj, List[Union[str, JsonObj]]]] = None) -> Graph:
+def as_rdf(element: YAMLRoot, contexts: CONTEXTS_PARAM_TYPE = None) -> Graph:
     """
     Convert element into an RDF graph guided by the context(s) in contexts
     :param element: element to represent in RDF
     :param contexts: JSON-LD context(s) in the form of a file or URL name, a json string or a json obj
     :return: rdflib Graph containing element
     """
-    if contexts is not None:
-        if not isinstance(contexts, (list, tuple, set)):
-            contexts = [contexts]
-        context_list = []
-        for context in contexts:
-            if isinstance(context, str):
-                if context.strip().startswith('{'):
-                    context_list.append(context)
-                else:
-                    context_list.append(load(context))
-            else:
-                context_list.append(context)
-    else:
-        context_list = None
-    jsonld = as_json_object(element, context_list)
+
+    jsonld = as_json_object(element, contexts)
     graph = Graph()
     graph.parse(data=as_json(jsonld), format="json-ld")
     return graph

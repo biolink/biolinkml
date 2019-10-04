@@ -2,6 +2,8 @@ import os
 import unittest
 from types import ModuleType
 
+from jsonasobj import loads
+
 from biolinkml.generators.jsonldcontextgen import ContextGenerator
 from biolinkml.generators.jsonldgen import JSONLDGenerator
 from biolinkml.generators.pythongen import PythonGenerator
@@ -14,17 +16,18 @@ from tests.utils.generator_utils import GeneratorTestCase
 
 expected_rdf = """
 @prefix : <http://example.org/test/uriandcurie> .
-@prefix ex: <http://example.org/test/> .
+@prefix ex: <http://example.org/test/inst#> .
+@prefix test: <http://example.org/test/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:obj1> a ex:uriandcurieC1 ;
-    ex:uriandcuriehasCurie ex:curie ;
-    ex:uriandcuriehasNcName "A123" ;
-    ex:uriandcuriehasURI ex:uri ;
-    ex:uriandcurieid2 ex:id2 .
+ex:obj1 a test:uriandcurieC1 ;
+    test:uriandcuriehasCurie ex:curie ;
+    test:uriandcuriehasNcName "A123" ;
+    test:uriandcuriehasURI <http://example.org/test/uri> ;
+    test:uriandcurieid2 ex:id2 .
 """
 
 
@@ -36,7 +39,7 @@ class URIAndCurieTestCase(GeneratorTestCase):
     model_name: str = 'uriandcurie'
     output_name: str = 'uriandcurie'
     
-    def test_uri_and_curie(self):
+    def test_uriÎ_and_curie(self):
         """ Compile a model of URI's and Curies and then test the various types """
         self.single_file_generator('py', PythonGenerator, filtr=metadata_filter)
 
@@ -55,7 +58,9 @@ class URIAndCurieTestCase(GeneratorTestCase):
                               hasURI="http://example.org/test/uri",
                               hasNcName="A123",
                               id2="ex:id2")
-        g = as_rdf(curie_obj, os.path.join(self.source_path, self.model_name + '.jsonld'))
+        instance_jsonld = loads('{ "ex": "http://example.org/test/inst#" }')
+
+        g = as_rdf(curie_obj, [os.path.join(self.source_path, self.model_name + '.jsonld'), instance_jsonld])
         self.rdf_comparator(expected_rdf, g, os.path.join(self.target_path, self.model_name + '.jsonld'))
 
 

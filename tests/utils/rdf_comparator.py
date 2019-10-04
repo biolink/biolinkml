@@ -67,10 +67,10 @@ def compare_rdf(expected: Union[Graph, str], actual: Union[Graph, str], fmt: Opt
         txt = StringIO()
         with redirect_stdout(txt):
             if old_len:
-                print("----- Old graph only -----")
+                print("----- Expected graph -----")
                 print_triples(in_old)
             if new_len:
-                print("----- New Grapn Only -----")
+                print("----- Actual Graph -----")
                 print_triples(in_new)
         return txt.getvalue()
     return None
