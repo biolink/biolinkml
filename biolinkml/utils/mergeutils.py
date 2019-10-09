@@ -57,7 +57,7 @@ def set_from_schema(schema: SchemaDefinition) -> None:
 def merge_dicts(target: Dict[str, Element], source: Dict[str, Element], imported_from: str) -> None:
     for k, v in source.items():
         if k in target and source[k].from_schema != target[k].from_schema:
-            raise ValueError(f"Conflicting URIs for namespace: {k}")
+            raise ValueError(f"Conflicting URIs ({source[k].from_schema}, {target[k].from_schema}) for item: {k}")
         target[k] = deepcopy(v)
         target[k].imported_from = imported_from
 

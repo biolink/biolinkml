@@ -1,9 +1,11 @@
 import copy
 import os
+import sys
 import time
 from datetime import datetime
 from io import StringIO
-from typing import Union, TextIO, Optional, List
+from typing import Union, TextIO, Optional, List, Mapping
+from urllib.error import HTTPError
 from urllib.parse import urlparse
 from urllib.request import Request, urlopen
 
@@ -22,36 +24,44 @@ def load_raw_schema(data: Union[str, dict, TextIO],
                     base_dir: Optional[str] = None) -> SchemaDefinition:
     """ Load and flatten SchemaDefinition from a file name, a URL or a block of text
 
-    @param data: URL, file name or block of text
+    @param data: URL, file name or block of text YAML Object or open file handle
     @param source_file: Source file name for the schema if data is type TextIO
     @param source_file_date: timestamp of source file if data is type TextIO
     @param source_file_size: size of source file if data is type TextIO
     @param base_dir: Working directory or base URL of sources
-
-    @return: Map from schema name to SchemaDefinition
+    @return: Un-processed Schema Definition object
     """
     def _name_from_url(url) -> str:
         return urlparse(url).path.rsplit('/', 1)[-1].rsplit('.', 1)[0]
 
     if isinstance(data, str):
+        # If passing the actual YAML
         if '\n' in data:
-            # Actual data file being passed
             return load_raw_schema(StringIO(data), source_file, source_file_date, source_file_size, base_dir)
 
+        # Passing a URL or file name
         assert source_file is None, "source_file parameter not allowed if data is a file or URL"
         assert source_file_date is None, "source_file_date parameter not allowed if data is a file or URL"
         assert source_file_size is None, "source_file_size parameter not allowed if data is a file or URL"
 
         if '://' in data or (base_dir and '://' in base_dir):
-            # URL being passed
+            # URL
             fname = Namespaces.join(base_dir, data) if '://' not in data else data
             req = Request(fname)
             req.add_header("Accept", "text/yaml, application/yaml;q=0.9")
-            with urlopen(req) as response:
+            try:
+                response = urlopen(req)
+            except HTTPError as e:
+                # This is here because the message out of urllib doesn't include the file name
+                e.msg = f"{e.filename}"
+                raise e
+            with response:
                 return load_raw_schema(response, fname, response.info()['Last-Modified'],
                                        response.info()['Content-Length'])
+
+
         else:
-            # File name being passed
+            # File name
             if not base_dir:
                 fname = os.path.abspath(data)
                 base_dir = os.path.dirname(fname)
@@ -60,6 +70,7 @@ def load_raw_schema(data: Union[str, dict, TextIO],
             with open(fname) as f:
                 return load_raw_schema(f, fname, time.ctime(os.path.getmtime(fname)), os.path.getsize(fname), base_dir)
     else:
+        # Loaded YAML or file handle that references YAML
         schemadefs = copy.deepcopy(data) if isinstance(data, dict) else yaml.load(data, DupCheckYamlLoader)
 
         # Convert the schema into a "name: definition" form
@@ -76,12 +87,18 @@ def load_raw_schema(data: Union[str, dict, TextIO],
             schema_body = list(schemadefs.values())
 
         def check_is_dict(element: str) -> None:
+            """ Verify that element is an instance of a dictionary """
             for schemaname, body in schemadefs.items():
                 if element in body and not isinstance(body[element], dict):
                     raise ValueError(f'Schema: {schemaname} - {element} must be a dictionary')
 
         def fix_multiples(container:  str, element: str) -> None:
-            """ Convert strings to lists in common elements that have both single and multiple options """
+            """
+            A common error is representing a list object as a singleton.  This fixes this problem
+            :param container: name of container to fix (e.g. a specific clas instance)
+            :param element:  name or list element to adjust (e.g. notes"
+            """
+            # Note: multiple bodies in the schema are an at-risk feature.  Doesn't seem to have a real use case.
             for body in schema_body:
                 if container in body:
                     for c in body[container].values():
@@ -89,6 +106,7 @@ def load_raw_schema(data: Union[str, dict, TextIO],
                             c[element] = [c[element]]
 
         for e in ['slots', 'classes', 'types', 'subsets']:
+            """ Validate the basic categories, fixing multiples where appropriate """
             check_is_dict(e)
             fix_multiples(e, 'in_subset')
             fix_multiples(e, 'apply_to')

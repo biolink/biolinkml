@@ -1,6 +1,6 @@
 import os
 import sys
-from typing import Union, TextIO, Optional, Set, List, cast, Dict, Tuple
+from typing import Union, TextIO, Optional, Set, List, cast, Dict, Tuple, Mapping
 from urllib.parse import urlparse
 
 from biolinkml.meta import SchemaDefinition, SlotDefinition, SlotDefinitionName, ClassDefinition, \
@@ -18,7 +18,8 @@ class SchemaLoader:
                  data: Union[str, TextIO, SchemaDefinition, dict],
                  base_dir: Optional[str] = None,
                  namespaces: Optional[Namespaces] = None,
-                 useuris: Optional[bool] = None) \
+                 useuris: Optional[bool] = None,
+                 import_map: Optional[Mapping[str, str]] = None) \
             -> None:
         """ Constructor - load and process a YAML or pre-processed schema
 
@@ -26,6 +27,7 @@ class SchemaLoader:
         :param base_dir: base directory or URL where Schema came from
         :param namespaces: namespaces collector
         :param useuris: True means class_uri and slot_uri are identifiers.  False means they are mappings.
+        :param import_map: A map from import entries to URI or file name.
         """
         if isinstance(data, SchemaDefinition):
             self.schema = data
@@ -35,6 +37,7 @@ class SchemaLoader:
         self.base_dir = self._get_base_dir(base_dir)
         self.namespaces = namespaces if namespaces else Namespaces()
         self.useuris = useuris if useuris is not None else True
+        self.import_map = import_map if import_map is not None else dict()
         self.synopsis: Optional[SchemaSynopsis] = None
         self.schema_location: Optional[str] = None
         self.schema_defaults: Dict[str, str] = {}           # Map from schema URI to default namespace
@@ -68,14 +71,18 @@ class SchemaLoader:
 
         # Process imports
         for sname in self.schema.imports:
-            sloc = self.namespaces.uri_for(sname) if ':' in sname else sname
-            import_schemadefinition = load_raw_schema(sloc + '.yaml', base_dir=os.path.dirname(self.schema.source_file))
+            sname = self.import_map.get(str(sname), sname)               # Import map may use CURIE
+            sname = self.namespaces.uri_for(sname) if ':' in sname else sname
+            sname = self.import_map.get(str(sname), sname)               # It may also use URI or other forms
+            import_schemadefinition = load_raw_schema(sname + '.yaml',
+                                                      base_dir=os.path.dirname(self.schema.source_file))
             if import_schemadefinition.id in self.loaded:
+                # If we've already loaded this, make sure that we've got the same version
                 if self.loaded[import_schemadefinition.id] != import_schemadefinition.version:
                     self.raise_value_error(f"Schema {import_schemadefinition.name} - version mismatch")
             else:
                 self.loaded[import_schemadefinition.id] = import_schemadefinition.version
-                merge_schemas(self.schema, import_schemadefinition, sloc, self.namespaces)
+                merge_schemas(self.schema, import_schemadefinition, sname, self.namespaces)
                 self.schema_defaults[import_schemadefinition.id] = import_schemadefinition.default_prefix
 
         self.namespaces._base = self.schema.default_prefix if ':' in self.schema.default_prefix else \
