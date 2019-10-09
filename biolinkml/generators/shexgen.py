@@ -11,7 +11,7 @@ from ShExJSG.ShExJ import Shape, IRIREF, EachOf, TripleConstraint, NodeConstrain
 from jsonasobj import as_json
 from rdflib import Graph, OWL, RDF, Namespace, XSD
 
-from biolinkml import METAMODEL_LOCAL_NAME, METAMODEL_NAMESPACE
+from biolinkml import METAMODEL_NAMESPACE_NAME, METAMODEL_NAMESPACE
 from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, SlotDefinitionName, ElementName, SHEX, \
     TypeDefinition
 from biolinkml.utils.formatutils import camelcase, sfx
@@ -32,9 +32,9 @@ class ShExGenerator(Generator):
         self.shape: Optional[Shape] = None                    # Current shape being defined
         self.list_shapes: List[IRIREF] = []         # Shapes that have been defined as lists
 
-        if METAMODEL_LOCAL_NAME not in self.namespaces:
-            self.namespaces[METAMODEL_LOCAL_NAME] = METAMODEL_NAMESPACE
-        self.meta = Namespace(self.namespaces.join(self.namespaces[METAMODEL_LOCAL_NAME], ''))  # URI for the metamodel
+        if METAMODEL_NAMESPACE_NAME not in self.namespaces:
+            self.namespaces[METAMODEL_NAMESPACE_NAME] = METAMODEL_NAMESPACE
+        self.meta = Namespace(self.namespaces.join(self.namespaces[METAMODEL_NAMESPACE_NAME], ''))  # URI for the metamodel
         self.base = Namespace(self.namespaces.join(self.namespaces._base, ''))    # Base URI for what is being modeled
 
     def visit_schema(self, **_):

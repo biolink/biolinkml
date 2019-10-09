@@ -8,6 +8,9 @@ RewriteRule ^meta\/(.*)$ docs
 # type/ --> docs/types
 RewriteRule ^type\/(.*)$ docs/types
 
+# mapping/ --> docs/types
+RewriteRule ^type\/(.*)$ docs/types
+
 # types --> includes/types
 RewriteRule ^types(\/?)$ includes/types
 

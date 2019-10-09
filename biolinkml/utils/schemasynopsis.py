@@ -338,7 +338,7 @@ class SchemaSynopsis:
         if unkdomains:
             rval += [f"\t* Unknown domain: {', '.join(sorted(unkdomains))}"]
         if emptydomains:
-            rval += [f"\t* Unspecified domain: {', '.join(sorted(emptydomains))}"]
+            rval += [f"\tDomain unspecified: {len(emptydomains)}"]
 
         rval += ["\tRanges:"]
         rval += ["\t\tType:"]

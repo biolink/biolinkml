@@ -80,6 +80,10 @@
          },
          "type": "array"
       },
+      "definition_uri": {
+         "description": "the \"native\" URI of the element",
+         "type": "string"
+      },
       "deprecated": {
          "description": "Description of why and when this element will no longer be used",
          "type": "string"

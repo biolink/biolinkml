@@ -1,14 +1,15 @@
 
-# Slot: required
+# Type: required
 
 
 true means that the slot must be present in the loaded definition
 
 URI: [meta:required](https://w3id.org/biolink/biolinkml/meta/required)
 
+
 ## Domain and Range
 
-[SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [Boolean](Boolean.md)
+[slot_definition](slot_definition.md) ->  <sub>OPT</sub> [Boolean](type/Boolean.md)
 
 ## Parents
 
@@ -18,4 +19,4 @@ URI: [meta:required](https://w3id.org/biolink/biolinkml/meta/required)
 
 ## Used by
 
- * [SlotDefinition](SlotDefinition.md)
+ * [slot_definition](slot_definition.md)

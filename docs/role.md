@@ -1,14 +1,15 @@
 
-# Slot: role
+# Type: role
 
 
 the role played by the slot range
 
 URI: [meta:role](https://w3id.org/biolink/biolinkml/meta/role)
 
+
 ## Domain and Range
 
-[SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [String](String.md)
+[slot_definition](slot_definition.md) ->  <sub>OPT</sub> [String](type/String.md)
 
 ## Parents
 
@@ -18,4 +19,4 @@ URI: [meta:role](https://w3id.org/biolink/biolinkml/meta/role)
 
 ## Used by
 
- * [SlotDefinition](SlotDefinition.md)
+ * [slot_definition](slot_definition.md)

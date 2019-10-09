@@ -84,7 +84,8 @@ class GeneratorTestCase(unittest.TestCase):
                               serialize_args: Optional[dict] = None,
                               filtr: Optional[Callable[[str], str]] = None,
                               comparator: Callable[[type(unittest.TestCase), str, str, str], None] = None,
-                              preserve_metadata: bool = False) -> None:
+                              preserve_metadata: bool = False,
+                              fail_if_expected_missing: bool = False) -> str:
         """ Invoke Generator gen.  If
 
         :param suffix: File suffix (without '.')
@@ -95,6 +96,8 @@ class GeneratorTestCase(unittest.TestCase):
         :param filtr: Filter to remove metadata specific info from the output.  Default: identity
         :param comparator: Comparison method to use.  Default: GeneratorTestCase._default_comparator
         :param preserve_metadata: True means metadata is to preserved in old_file
+        :param fail_if_expected_missing: True means return error message rather than fail
+        :return: Empty string if success else error message if fail_if_expected_missing is false
         """
         if serialize_args is None:
             serialize_args = {}
@@ -121,11 +124,15 @@ class GeneratorTestCase(unittest.TestCase):
         if not os.path.exists(old_file):
             with open(old_file, 'w') as oldf:
                 oldf.write(new_data if preserve_metadata else filtr(new_data))
-            self.assertTrue(False, f"Created {old_file} - run again")
+            msg = f"Created {old_file} - run again"
+            if fail_if_expected_missing:
+                self.fail(msg)
+            return msg + '\n'
 
         with open(old_file) as oldf:
             old_data = filtr(oldf.read())
         comparator(self, old_data, filtr(new_data), new_file, message)
+        return ''
 
     def directory_generator(self, dirname: str, gen: type(Generator), gen_args: Optional[dict] = None,
                             serialize_args: Optional[dict] = None):

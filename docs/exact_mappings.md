@@ -1,14 +1,15 @@
 
-# Slot: exact mappings
+# Type: exact mappings
 
 
 A list of terms from different schemas or terminology systems that have identical meaning.
 
 URI: [meta:exact_mappings](https://w3id.org/biolink/biolinkml/meta/exact_mappings)
 
+
 ## Domain and Range
 
-[Element](Element.md) ->  <sub>0..*</sub> [Uriorcurie](Uriorcurie.md)
+None ->  <sub>0..*</sub> [Uriorcurie](type/Uriorcurie.md)
 
 ## Parents
 
@@ -19,10 +20,17 @@ URI: [meta:exact_mappings](https://w3id.org/biolink/biolinkml/meta/exact_mapping
 
 ## Used by
 
- * [ClassDefinition](ClassDefinition.md)
- * [Definition](Definition.md)
- * [Element](Element.md)
- * [SchemaDefinition](SchemaDefinition.md)
- * [SlotDefinition](SlotDefinition.md)
- * [SubsetDefinition](SubsetDefinition.md)
- * [TypeDefinition](TypeDefinition.md)
+ * [class_definition](class_definition.md)
+ * [definition](definition.md)
+ * [element](element.md)
+ * [schema_definition](schema_definition.md)
+ * [slot_definition](slot_definition.md)
+ * [subset_definition](subset_definition.md)
+ * [type_definition](type_definition.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | skos:exactMatch |
+

@@ -15,7 +15,7 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.metamodelcore import Bool, NCName, URI, URIorCURIE, XSDDateTime
 from includes.types import Boolean, Datetime, Integer, Ncname, String, Uri, Uriorcurie
 
-metamodel_version = "1.4.2"
+metamodel_version = "1.4.3"
 
 
 # Namespaces
@@ -90,6 +90,7 @@ class Element(YAMLRoot):
 
     name: Union[str, ElementName]
     id_prefixes: List[Union[str, NCName]] = empty_list()
+    definition_uri: Optional[Union[str, URIorCURIE]] = None
     aliases: List[str] = empty_list()
     local_names: Union[dict, "LocalName"] = empty_dict()
     mappings: List[Union[str, URIorCURIE]] = empty_list()
@@ -117,6 +118,8 @@ class Element(YAMLRoot):
             raise ValueError(f"name must be supplied")
         if not isinstance(self.name, ElementName):
             self.name = ElementName(self.name)
+        if self.definition_uri is not None and not isinstance(self.definition_uri, URIorCURIE):
+            self.definition_uri = URIorCURIE(self.definition_uri)
         for k, v in self.local_names.items():
             if not isinstance(v, LocalName):
                 self.local_names[k] = LocalName(k, v)

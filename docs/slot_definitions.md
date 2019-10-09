@@ -1,14 +1,15 @@
 
-# Slot: slots
+# Type: slot_definitions
 
 
 slot definitions
 
 URI: [meta:slot_definitions](https://w3id.org/biolink/biolinkml/meta/slot_definitions)
 
+
 ## Domain and Range
 
-[SchemaDefinition](SchemaDefinition.md) ->  <sub>0..*</sub> [SlotDefinition](SlotDefinition.md)
+[schema_definition](schema_definition.md) ->  <sub>0..*</sub> [slot_definition](slot_definition.md)
 
 ## Parents
 
@@ -18,4 +19,4 @@ URI: [meta:slot_definitions](https://w3id.org/biolink/biolinkml/meta/slot_defini
 
 ## Used by
 
- * [SchemaDefinition](SchemaDefinition.md)
+ * [schema_definition](schema_definition.md)

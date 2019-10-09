@@ -1,14 +1,15 @@
 
-# Slot: value
+# Type: value
 
 
 example value
 
 URI: [meta:value](https://w3id.org/biolink/biolinkml/meta/value)
 
+
 ## Domain and Range
 
-[Example](Example.md) ->  <sub>OPT</sub> [String](String.md)
+[example](example.md) ->  <sub>OPT</sub> [String](type/String.md)
 
 ## Parents
 
@@ -18,4 +19,11 @@ URI: [meta:value](https://w3id.org/biolink/biolinkml/meta/value)
 
 ## Used by
 
- * [Example](Example.md)
+ * [example](example.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | skos:example |
+

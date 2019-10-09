@@ -17,6 +17,7 @@
   "types": [
     {
       "name": "string",
+      "definition_uri": "ex:String",
       "from_schema": "http://example.org/mappings/",
       "base": "str",
       "uri": "http://www.w3.org/2001/XMLSchema#string",
@@ -24,6 +25,7 @@
     },
     {
       "name": "identifier_type",
+      "definition_uri": "ex:IdentifierType",
       "description": "A string that is intended to uniquely identify a thing May be URI in full or compact (CURIE) form",
       "from_schema": "http://example.org/mappings/",
       "typeof": "string",
@@ -35,6 +37,7 @@
   "slots": [
     {
       "name": "s1",
+      "definition_uri": "ex:s1",
       "from_schema": "http://example.org/mappings/",
       "exact_mappings": [
         "ex:slot1",
@@ -58,6 +61,7 @@
     },
     {
       "name": "s2",
+      "definition_uri": "ex:s2",
       "from_schema": "http://example.org/mappings/",
       "exact_mappings": [
         "ex:slot2",
@@ -85,6 +89,7 @@
   "classes": [
     {
       "name": "C1",
+      "definition_uri": "ex:C1",
       "from_schema": "http://example.org/mappings/",
       "exact_mappings": [
         "ex:class1",
@@ -109,6 +114,7 @@
     },
     {
       "name": "C2",
+      "definition_uri": "ex:C2",
       "from_schema": "http://example.org/mappings/",
       "is_a": "C1",
       "slots": [
@@ -120,6 +126,7 @@
     },
     {
       "name": "C3",
+      "definition_uri": "ex:C3",
       "from_schema": "http://example.org/mappings/",
       "is_a": "C1",
       "slots": [
@@ -130,7 +137,7 @@
       "type": "ClassDefinition"
     }
   ],
-  "metamodel_version": "1.4.2",
+  "metamodel_version": "1.4.3",
   "source_file": "meta_mappings.yaml",
   "source_file_date": "Friday Sep 27 12:00:00 2003",
   "source_file_size": 1810,

@@ -1,14 +1,15 @@
 
-# Slot: default_range
+# Type: default_range
 
 
 default slot range to be used if range element is omitted from a slot definition
 
 URI: [meta:default_range](https://w3id.org/biolink/biolinkml/meta/default_range)
 
+
 ## Domain and Range
 
-[SchemaDefinition](SchemaDefinition.md) ->  <sub>OPT</sub> [TypeDefinition](TypeDefinition.md)
+[schema_definition](schema_definition.md) ->  <sub>OPT</sub> [type_definition](type_definition.md)
 
 ## Parents
 
@@ -18,4 +19,4 @@ URI: [meta:default_range](https://w3id.org/biolink/biolinkml/meta/default_range)
 
 ## Used by
 
- * [SchemaDefinition](SchemaDefinition.md)
+ * [schema_definition](schema_definition.md)

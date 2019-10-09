@@ -3,6 +3,7 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX OBO: <http://purl.obolibrary.org/obo/>
 PREFIX metatype: <https://w3id.org/biolink/biolinkml/type/>
+PREFIX meta: <https://w3id.org/biolink/biolinkml/meta/>
 
 
 <ChemicalFormulaValue> xsd:string
@@ -185,6 +186,7 @@ metatype:Nodeidentifier NONLITERAL
              <name> @<LabelType> ;
              <category> @<IriType> + ;
              <related_to> @<NamedThing> * ;
+             <mappings> @metatype:Uriorcurie * ;
              <interacts_with> @<NamedThing> * ;
              <node_property> @metatype:String ? ;
              <iri> @<IriType> ? ;
@@ -1328,6 +1330,7 @@ metatype:Nodeidentifier NONLITERAL
        (  $<NamedThing_tes> (  <name> @<LabelType> ;
              <category> @<IriType> + ;
              <related_to> @<NamedThing> * ;
+             <mappings> @metatype:Uriorcurie * ;
              <interacts_with> @<NamedThing> * ;
              <node_property> @metatype:String ? ;
              <iri> @<IriType> ? ;
@@ -1384,7 +1387,10 @@ metatype:Nodeidentifier NONLITERAL
              <genome_build> @metatype:String ? ;
              <interbase_coordinate> @metatype:String ? ;
              <start_interbase_coordinate> @metatype:String ? ;
-             <end_interbase_coordinate> @metatype:String ?
+             <end_interbase_coordinate> @metatype:String ? ;
+             meta:exact_mappings @metatype:Uriorcurie * ;
+             meta:close_mappings @metatype:Uriorcurie * ;
+             meta:related_mappings @metatype:Uriorcurie *
           ) ;
           rdf:type [ <NamedThing> ]
        )

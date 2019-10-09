@@ -78,6 +78,7 @@ metatype:Nodeidentifier NONLITERAL
 
 <Element_struct> {
     (  $<Element_tes> (  <id_prefixes> @metatype:Ncname * ;
+          <definition_uri> @metatype:Uriorcurie ? ;
           <aliases> @metatype:String * ;
           <local_names> @<LocalName> * ;
           <mappings> @metatype:Uriorcurie * ;

@@ -2,12 +2,12 @@ import os
 import unittest
 from typing import Callable
 
-from jsonasobj import as_json, loads, as_dict
+from jsonasobj import as_json, loads, load, as_dict, JsonObj
 
 from biolinkml.meta import SchemaDefinition
 from biolinkml.utils.rawloader import load_raw_schema
 from biolinkml.utils.schemaloader import SchemaLoader
-from tests.test_utils import inputdir
+from tests.test_utils import inputdir, outputdir
 
 
 class RawLoaderTestCase(unittest.TestCase):
@@ -25,6 +25,7 @@ class RawLoaderTestCase(unittest.TestCase):
            "source_file_size": 76,
            "generation_date": "2018-12-31 11:50"
         }}""")
+
         schema.source_file = os.path.basename(schema.source_file)
         if addl_checks:
             addl_checks(schema)
@@ -36,7 +37,6 @@ class RawLoaderTestCase(unittest.TestCase):
         expected.source_file_size = schema.source_file_size
         self.assertTrue(isinstance(schema.generation_date, str))
         expected.generation_date = schema.generation_date
-
         self.assertEqual(expected, loads(as_json(schema)))
 
     def test_load_raw_file(self):
@@ -54,14 +54,15 @@ class RawLoaderTestCase(unittest.TestCase):
     def test_multi_schemas(self):
         """ Test multiple schemas in the same file """
         def check_types(s: SchemaDefinition) -> None:
-            self.assertEqual({
-                'integer': {'base': 'int',
-                            'from_schema': 'http://example.org/schema5',
-                            'name': 'integer'},
-                'string': {'base': 'str',
-                           'from_schema': 'http://example.org/schema4',
-                           'name': 'string'}},
-                             {k: as_dict(loads(as_json(v))) for k, v in s.types.items()})
+            output = os.path.join(outputdir, 'schema4.json')
+            if not os.path.exists(output):
+                with open(output, 'w') as f:
+                    f.write(as_json(JsonObj(**{k: as_dict(loads(as_json(v))) for k, v in s.types.items()})))
+                    self.fail(f"File {output} created - rerun test")
+
+            with open(output) as f:
+                expected = as_dict(load(f))
+            self.assertEqual(expected, {k: as_dict(loads(as_json(v))) for k, v in s.types.items()})
             s.types = None
 
         self._verify_schema1_content(load_raw_schema(os.path.join(inputdir, 'schema4.yaml')), 'schema4', check_types)

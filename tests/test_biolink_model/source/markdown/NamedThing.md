@@ -114,6 +114,9 @@ URI: [biolink:NamedThing](https://w3id.org/biolink/vocab/NamedThing)
     * Description: holds between two entities where the occurrence, existence, or activity of one causes the occurrence or  generation of the other
     * range: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
+ * [close mappings](close_mappings.md)  <sub>0..*</sub>
+    * Description: A list of terms from different schemas or terminology systems that have close meaning.
+    * range: [Uriorcurie](Uriorcurie.md)
  * [coexists with](coexists_with.md)  <sub>0..*</sub>
     * Description: holds between two entities that are co-located in the same aggregate object, process, or spatio-temporal region
     * range: [NamedThing](NamedThing.md)
@@ -147,6 +150,9 @@ URI: [biolink:NamedThing](https://w3id.org/biolink/vocab/NamedThing)
     * in subsets: (translator_minimal)
  * [end interbase coordinate](end_interbase_coordinate.md)  <sub>OPT</sub>
     * range: [String](String.md)
+ * [exact mappings](exact_mappings.md)  <sub>0..*</sub>
+    * Description: A list of terms from different schemas or terminology systems that have identical meaning.
+    * range: [Uriorcurie](Uriorcurie.md)
  * [filler](filler.md)  <sub>OPT</sub>
     * Description: The value in a property-value tuple
     * range: [NamedThing](NamedThing.md)
@@ -222,6 +228,9 @@ URI: [biolink:NamedThing](https://w3id.org/biolink/vocab/NamedThing)
     * Description: used in SemMedDB for linking things like dysfunctions and processes to some disease or syndrome
     * range: [Disease](Disease.md)
     * in subsets: (translator_minimal)
+ * [mappings](mappings.md)  <sub>0..*</sub>
+    * Description: A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective.
+    * range: [Uriorcurie](Uriorcurie.md)
  * [model of](model_of.md)  <sub>0..*</sub>
     * Description: holds between an entity and some other entity it approximates for purposes of scientific study, in virtue of its exhibiting similar features of the studied entity.
     * range: [NamedThing](NamedThing.md)
@@ -282,6 +291,9 @@ URI: [biolink:NamedThing](https://w3id.org/biolink/vocab/NamedThing)
     * in subsets: (translator_minimal)
  * [regulates](regulates.md)  <sub>0..*</sub>
     * range: [NamedThing](NamedThing.md)
+ * [related mappings](related_mappings.md)  <sub>0..*</sub>
+    * Description: A list of terms from different schemas or terminology systems that have related meaning.
+    * range: [Uriorcurie](Uriorcurie.md)
  * [related to](related_to.md)  <sub>0..*</sub>
     * Description: A relationship that is asserted between two named things
     * range: [NamedThing](NamedThing.md)

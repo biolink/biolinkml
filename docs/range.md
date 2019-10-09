@@ -1,5 +1,5 @@
 
-# Slot: range
+# Type: range
 
 
 defines the type of the object of the slot.  Given the following slot definition
@@ -14,9 +14,10 @@ implicitly asserts Y is an instance of C2
 
 URI: [meta:range](https://w3id.org/biolink/biolinkml/meta/range)
 
+
 ## Domain and Range
 
-[SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [Element](Element.md)
+[slot_definition](slot_definition.md) ->  <sub>OPT</sub> [element](element.md)
 
 ## Parents
 
@@ -26,4 +27,4 @@ URI: [meta:range](https://w3id.org/biolink/biolinkml/meta/range)
 
 ## Used by
 
- * [SlotDefinition](SlotDefinition.md)
+ * [slot_definition](slot_definition.md)

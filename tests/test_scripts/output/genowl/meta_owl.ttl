@@ -14,11 +14,11 @@
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "Biolink Schema Metamodel" ;
     skos:definition "A metamodel for defining biolink related schemas" ;
-    meta:generation_date "2019-09-29 14:32" ;
-    meta:metamodel_version "1.4.2" ;
+    meta:generation_date "2019-10-08 18:34" ;
+    meta:metamodel_version "1.4.3" ;
     meta:source_file "meta.yaml" ;
-    meta:source_file_date "Fri Sep 27 11:18:15 2019" ;
-    meta:source_file_size 23610 .
+    meta:source_file_date "Tue Oct  8 12:45:47 2019" ;
+    meta:source_file_size 23439 .
 
 meta:abstract a owl:AnnotationProperty,
         meta:SlotDefinition ;
@@ -98,7 +98,6 @@ meta:classes a owl:AnnotationProperty,
 meta:close_mappings a owl:AnnotationProperty,
         meta:SlotDefinition ;
     rdfs:label "close mappings" ;
-    rdfs:domain meta:Element ;
     rdfs:range meta:uriorcurie ;
     rdfs:subPropertyOf meta:mappings ;
     skos:definition "A list of terms from different schemas or terminology systems that have close meaning." .
@@ -141,6 +140,14 @@ meta:default_range a owl:AnnotationProperty,
     rdfs:range meta:TypeDefinition ;
     skos:definition "default slot range to be used if range element is omitted from a slot definition" ;
     skos:editorialNote "restricted to type definitions for the time being.  Could be broadened if required" .
+
+meta:definition_uri a owl:AnnotationProperty,
+        meta:SlotDefinition ;
+    rdfs:label "definition_uri" ;
+    rdfs:domain meta:Element ;
+    rdfs:range meta:uriorcurie ;
+    skos:definition "the \"native\" URI of the element" ;
+    skos:note "Formed by combining the default_prefix with the mangled element" .
 
 meta:deprecated a owl:AnnotationProperty,
         meta:SlotDefinition ;
@@ -187,7 +194,6 @@ meta:emit_prefixes a owl:AnnotationProperty,
 meta:exact_mappings a owl:AnnotationProperty,
         meta:SlotDefinition ;
     rdfs:label "exact mappings" ;
-    rdfs:domain meta:Element ;
     rdfs:range meta:uriorcurie ;
     rdfs:subPropertyOf meta:mappings ;
     skos:definition "A list of terms from different schemas or terminology systems that have identical meaning." .
@@ -384,7 +390,6 @@ meta:prefixes a owl:AnnotationProperty,
 meta:related_mappings a owl:AnnotationProperty,
         meta:SlotDefinition ;
     rdfs:label "related mappings" ;
-    rdfs:domain meta:Element ;
     rdfs:range meta:uriorcurie ;
     rdfs:subPropertyOf meta:mappings ;
     skos:definition "A list of terms from different schemas or terminology systems that have related meaning." .
@@ -792,7 +797,6 @@ meta:Prefix a owl:Class,
 meta:mappings a owl:AnnotationProperty,
         meta:SlotDefinition ;
     rdfs:label "mappings" ;
-    rdfs:domain meta:Element ;
     rdfs:range meta:uriorcurie ;
     skos:definition "A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective." .
 
@@ -852,16 +856,16 @@ meta:TypeDefinition a owl:Class,
     rdfs:label "type_definition" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:uriorcurie ;
-            owl:onProperty meta:uri ],
+            owl:onClass meta:string ;
+            owl:onProperty meta:base ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:string ;
             owl:onProperty meta:repr ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:string ;
-            owl:onProperty meta:base ],
+            owl:onClass meta:uriorcurie ;
+            owl:onProperty meta:uri ],
         meta:Element ;
     skos:definition "A data type definition." .
 
@@ -897,16 +901,20 @@ meta:SlotDefinition a owl:Class,
             owl:onProperty meta:required ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:ClassDefinition ;
+            owl:onProperty meta:domain ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:string ;
+            owl:onProperty meta:ifabsent ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:string ;
+            owl:onProperty meta:role ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:boolean ;
             owl:onProperty meta:inherited ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:boolean ;
-            owl:onProperty meta:multivalued ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:boolean ;
-            owl:onProperty meta:identifier ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:Element ;
@@ -914,27 +922,23 @@ meta:SlotDefinition a owl:Class,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:boolean ;
+            owl:onProperty meta:inlined ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:boolean ;
             owl:onProperty meta:key ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:string ;
-            owl:onProperty meta:ifabsent ],
+            owl:onProperty meta:readonly ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:boolean ;
-            owl:onProperty meta:inlined ],
+            owl:onProperty meta:identifier ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:string ;
-            owl:onProperty meta:role ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:ClassDefinition ;
-            owl:onProperty meta:domain ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:string ;
-            owl:onProperty meta:readonly ],
+            owl:onClass meta:boolean ;
+            owl:onProperty meta:multivalued ],
         meta:Definition ;
     skos:definition "the definition of a property or a slot" .
 

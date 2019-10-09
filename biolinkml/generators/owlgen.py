@@ -11,7 +11,7 @@ from rdflib.collection import Collection
 from rdflib.namespace import RDFS
 from rdflib.plugin import plugins as rdflib_plugins, Parser as rdflib_Parser
 
-from biolinkml import LOCAL_YAML_PATH, METAMODEL_LOCAL_NAME, METAMODEL_NAMESPACE, METAMODEL_YAML_URI, META_BASE_URI
+from biolinkml import LOCAL_YAML_PATH, METAMODEL_NAMESPACE_NAME, METAMODEL_NAMESPACE, METAMODEL_YAML_URI, META_BASE_URI
 from biolinkml.meta import ClassDefinitionName, SchemaDefinition, ClassDefinition, SlotDefinitionName, \
     TypeDefinitionName, SlotDefinition, TypeDefinition, Element
 from biolinkml.utils.formatutils import camelcase, underscore
@@ -51,7 +51,7 @@ class OwlSchemaGenerator(Generator):
             self._add_metamodel_class(name)
 
         # add value placeholder
-        self.top_value_uri = self.metamodel.namespaces[METAMODEL_LOCAL_NAME]['topValue']
+        self.top_value_uri = self.metamodel.namespaces[METAMODEL_NAMESPACE_NAME]['topValue']
         self.graph.add((self.top_value_uri, RDF.type, OWL.DatatypeProperty))
         self.graph.add((self.top_value_uri, RDFS.label, Literal("value")))
 
@@ -67,7 +67,7 @@ class OwlSchemaGenerator(Generator):
         cls_uri = self._class_uri(cls.name)
         self.graph.add((cls_uri, RDF.type, OWL.Class))
         self.graph.add((cls_uri, RDF.type,
-                        self.metamodel.namespaces[METAMODEL_LOCAL_NAME][camelcase('class definition')]))
+                        self.metamodel.namespaces[METAMODEL_NAMESPACE_NAME][camelcase('class definition')]))
         self._add_element_properties(cls_uri, cls)
 
         # Parent classes
@@ -186,7 +186,7 @@ class OwlSchemaGenerator(Generator):
         # All others are annotation properties
         self.graph.add((slot_uri, RDF.type, OWL.ObjectProperty if slot.inherited else OWL.AnnotationProperty))
         self.graph.add((slot_uri, RDF.type,
-                        self.metamodel.namespaces[METAMODEL_LOCAL_NAME][camelcase('slot definition')]))
+                        self.metamodel.namespaces[METAMODEL_NAMESPACE_NAME][camelcase('slot definition')]))
         self.graph.add((slot_uri, RDFS.range, self._range_uri(slot)))
         if slot.domain:
             self.graph.add((slot_uri, RDFS.domain, self._class_uri(slot.domain)))
@@ -204,7 +204,7 @@ class OwlSchemaGenerator(Generator):
         type_uri = self._type_uri(typ.name)
         self.graph.add((type_uri, RDF.type, OWL.Class))
         self.graph.add((type_uri, RDF.type,
-                        self.metamodel.namespaces[METAMODEL_LOCAL_NAME][camelcase('type definition')]))
+                        self.metamodel.namespaces[METAMODEL_NAMESPACE_NAME][camelcase('type definition')]))
         self._add_element_properties(type_uri, typ)
         if typ.typeof:
             self.graph.add((type_uri, RDFS.subClassOf, self._type_uri(typ.typeof)))
@@ -244,17 +244,17 @@ class OwlSchemaGenerator(Generator):
             return self._class_uri(cast(ClassDefinitionName, slot.range))
 
     def _class_uri(self, cn: ClassDefinitionName) -> URIRef:
-        return self.metamodel.namespaces[METAMODEL_LOCAL_NAME][camelcase(cn)]
+        return self.metamodel.namespaces[METAMODEL_NAMESPACE_NAME][camelcase(cn)]
 
     def _prop_uri(self, pn: SlotDefinitionName) -> URIRef:
-        return self.metamodel.namespaces[METAMODEL_LOCAL_NAME][underscore(pn)]
+        return self.metamodel.namespaces[METAMODEL_NAMESPACE_NAME][underscore(pn)]
 
     def _type_uri(self, tn: TypeDefinitionName) -> URIRef:
-        return self.metamodel.namespaces[METAMODEL_LOCAL_NAME][underscore(tn)]
+        return self.metamodel.namespaces[METAMODEL_NAMESPACE_NAME][underscore(tn)]
 
     def _add_metamodel_class(self, cname: str) -> None:
         metac = self.metamodel.schema.classes[cname]
-        metac_uri = self.metamodel.namespaces[METAMODEL_LOCAL_NAME][camelcase(metac.name)]
+        metac_uri = self.metamodel.namespaces[METAMODEL_NAMESPACE_NAME][camelcase(metac.name)]
         self.graph.add((metac_uri, RDF.type, OWL.Class))
         self._add_element_properties(metac_uri, metac)
 

@@ -1,14 +1,15 @@
 
-# Slot: prefixes
+# Type: prefixes
 
 
 prefix / URI definitions to be added to the context beyond those fetched from prefixcommons in id prefixes
 
 URI: [meta:prefixes](https://w3id.org/biolink/biolinkml/meta/prefixes)
 
+
 ## Domain and Range
 
-[SchemaDefinition](SchemaDefinition.md) ->  <sub>0..*</sub> [Prefix](Prefix.md)
+[schema_definition](schema_definition.md) ->  <sub>0..*</sub> [prefix](prefix.md)
 
 ## Parents
 
@@ -18,4 +19,4 @@ URI: [meta:prefixes](https://w3id.org/biolink/biolinkml/meta/prefixes)
 
 ## Used by
 
- * [SchemaDefinition](SchemaDefinition.md)
+ * [schema_definition](schema_definition.md)

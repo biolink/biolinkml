@@ -1,14 +1,15 @@
 
-# Slot: classes
+# Type: classes
 
 
 class definitions
 
 URI: [meta:classes](https://w3id.org/biolink/biolinkml/meta/classes)
 
+
 ## Domain and Range
 
-[SchemaDefinition](SchemaDefinition.md) ->  <sub>0..*</sub> [ClassDefinition](ClassDefinition.md)
+[schema_definition](schema_definition.md) ->  <sub>0..*</sub> [class_definition](class_definition.md)
 
 ## Parents
 
@@ -18,4 +19,4 @@ URI: [meta:classes](https://w3id.org/biolink/biolinkml/meta/classes)
 
 ## Used by
 
- * [SchemaDefinition](SchemaDefinition.md)
+ * [schema_definition](schema_definition.md)

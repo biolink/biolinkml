@@ -1,14 +1,15 @@
 
-# Slot: union_of
+# Type: union_of
 
 
 indicates that the domain class consists exactly of the members of the classes in the range
 
 URI: [meta:union_of](https://w3id.org/biolink/biolinkml/meta/union_of)
 
+
 ## Domain and Range
 
-[ClassDefinition](ClassDefinition.md) ->  <sub>0..*</sub> [ClassDefinition](ClassDefinition.md)
+[class_definition](class_definition.md) ->  <sub>0..*</sub> [class_definition](class_definition.md)
 
 ## Parents
 
@@ -18,4 +19,4 @@ URI: [meta:union_of](https://w3id.org/biolink/biolinkml/meta/union_of)
 
 ## Used by
 
- * [ClassDefinition](ClassDefinition.md)
+ * [class_definition](class_definition.md)

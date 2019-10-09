@@ -3,10 +3,12 @@ title: Biolink Schema Mappings
 name: mappings
 description: Biolink model for mappings
 license: https://creativecommons.org/publicdomain/zero/1.0/
-version: 1.0.0
+version: 1.0.1
 
 prefixes:
   meta: https://w3id.org/biolink/biolinkml/meta/
+  metatype: https://w3id.org/biolink/biolinkml/type/
+  biolinkml: https://w3id.org/biolink/biolinkml/
   skos: http://www.w3.org/2004/02/skos/core#
   OIO: http://www.geneontology.org/formats/oboInOwl#
   IAO: http://purl.obolibrary.org/obo/IAO_
@@ -28,6 +30,15 @@ imports:
   - includes/types
 
 slots:
+  mappings:
+    range: uriorcurie
+    multivalued: true
+    description: >-
+      A list of terms from different schemas or terminology systems that have comparable meaning.
+      These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically
+      related but not equivalent from a strict ontological perspective.
+    slot_uri: skos:mappingRelation
+
   exact mappings:
     is_a: mappings
     range: uriorcurie

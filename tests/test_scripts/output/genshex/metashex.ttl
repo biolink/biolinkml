@@ -427,6 +427,10 @@
                 shex:min 0 ;
                 shex:predicate <https://w3id.org/biolink/biolinkml/meta/id_prefixes> ;
                 shex:valueExpr <https://w3id.org/biolink/biolinkml/type/Ncname> ] [ a shex:TripleConstraint ;
+                shex:max 1 ;
+                shex:min 0 ;
+                shex:predicate <https://w3id.org/biolink/biolinkml/meta/definition_uri> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/type/Uriorcurie> ] [ a shex:TripleConstraint ;
                 shex:max -1 ;
                 shex:min 0 ;
                 shex:predicate <http://www.w3.org/2004/02/skos/core#altLabel> ;

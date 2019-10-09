@@ -1,14 +1,15 @@
 
-# Slot: base
+# Type: base
 
 
 python base type that implements this type definition
 
 URI: [meta:base](https://w3id.org/biolink/biolinkml/meta/base)
 
+
 ## Domain and Range
 
-[TypeDefinition](TypeDefinition.md) ->  <sub>OPT</sub> [String](String.md)
+[type_definition](type_definition.md) ->  <sub>OPT</sub> [String](type/String.md)
 
 ## Parents
 
@@ -18,4 +19,12 @@ URI: [meta:base](https://w3id.org/biolink/biolinkml/meta/base)
 
 ## Used by
 
- * [TypeDefinition](TypeDefinition.md)
+ * [type_definition](type_definition.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Comments:** | | every root type must have a base |
+|  | | the base is inherited by child types but may be overriden.  Base compatibility is not checked. |
+

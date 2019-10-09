@@ -1,5 +1,5 @@
 
-# Slot: ifabsent
+# Type: ifabsent
 
 
 function that provides a default value for the slot.  Possible values for this slot are defined in biolink.utils.ifabsent_functions.default_library:
@@ -15,9 +15,10 @@ function that provides a default value for the slot.  Possible values for this s
 
 URI: [meta:ifabsent](https://w3id.org/biolink/biolinkml/meta/ifabsent)
 
+
 ## Domain and Range
 
-[SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [String](String.md)
+[slot_definition](slot_definition.md) ->  <sub>OPT</sub> [String](type/String.md)
 
 ## Parents
 
@@ -27,4 +28,4 @@ URI: [meta:ifabsent](https://w3id.org/biolink/biolinkml/meta/ifabsent)
 
 ## Used by
 
- * [SlotDefinition](SlotDefinition.md)
+ * [slot_definition](slot_definition.md)

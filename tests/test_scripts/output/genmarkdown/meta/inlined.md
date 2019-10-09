@@ -1,14 +1,15 @@
 
-# Slot: inlined
+# Type: inlined
 
 
 an inlined definition a list of actual values rather than references.  Only applies to slots whose range is a class.
 
 URI: [meta:inlined](https://w3id.org/biolink/biolinkml/meta/inlined)
 
+
 ## Domain and Range
 
-[SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [Boolean](Boolean.md)
+[slot_definition](slot_definition.md) ->  <sub>OPT</sub> [Boolean](type/Boolean.md)
 
 ## Parents
 
@@ -18,4 +19,4 @@ URI: [meta:inlined](https://w3id.org/biolink/biolinkml/meta/inlined)
 
 ## Used by
 
- * [SlotDefinition](SlotDefinition.md)
+ * [slot_definition](slot_definition.md)

@@ -1,14 +1,15 @@
 
-# Slot: generation_date
+# Type: generation_date
 
 
 date and time that the schema was loaded/generated
 
 URI: [meta:generation_date](https://w3id.org/biolink/biolinkml/meta/generation_date)
 
+
 ## Domain and Range
 
-[SchemaDefinition](SchemaDefinition.md) ->  <sub>OPT</sub> [Datetime](Datetime.md)
+[schema_definition](schema_definition.md) ->  <sub>OPT</sub> [Datetime](type/Datetime.md)
 
 ## Parents
 
@@ -18,4 +19,11 @@ URI: [meta:generation_date](https://w3id.org/biolink/biolinkml/meta/generation_d
 
 ## Used by
 
- * [SchemaDefinition](SchemaDefinition.md)
+ * [schema_definition](schema_definition.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **In Subsets:** | | owl |
+

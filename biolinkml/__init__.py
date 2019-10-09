@@ -94,8 +94,8 @@ METAMODEL_URI = META_BASE_URI + 'meta'
 METATYPE_URI = META_BASE_URI + 'types'
 
 # Preferred local name for metamodel elements
-METAMODEL_LOCAL_NAME = "meta"
-METATYPE_LOCAL_NAME = 'metatype'
+METAMODEL_NAMESPACE_NAME = "meta"
+METATYPE_NAMESPACE_NAME = 'metatype'
 
 # Namespace for metamodel elements
 METAMODEL_NAMESPACE = Namespace(METAMODEL_URI + '/')

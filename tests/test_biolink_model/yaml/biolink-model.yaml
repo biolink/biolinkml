@@ -10,6 +10,7 @@ prefixes:
   SIO: http://semanticscience.org/resource/SIO_
   wgs: http://www.w3.org/2003/01/geo/wgs84_pos
   qud: http://qudt.org/1.1/schema/qudt#
+  skos: http://www.w3.org/2004/02/skos/core#
   UMLSSG: https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/GROUP/
   UMLSST: https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/STY/
   UMLSSC: https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/TUI/
@@ -46,6 +47,7 @@ subsets:
 
 imports:
   - biolinkml:types
+  - file:///Users/solbrig/git/biolink/biolinkml/includes/mappings
 
 types:
 
@@ -122,6 +124,16 @@ slots:
     inherited: true
     mappings:
       - SEMMEDDB:ASSOCIATED_WITH
+#
+#  mappings:
+#    domain: named thing
+#    range: uriorcurie
+#    multivalued: true
+#    description: >-
+#      A list of terms from different schemas or terminology systems that have comparable meaning.
+#      These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically
+#      related but not equivalent from a strict ontological perspective.
+#    slot_uri: skos:mappingRelation
 
   interacts with:
     domain: named thing

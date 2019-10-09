@@ -66,6 +66,7 @@
       "dcterms": "http://purl.org/dc/terms/",
       "dictyBase": "http://dictybase.org/gene/",
       "faldo": "http://biohackathon.org/resource/faldo#",
+      "meta": "https://w3id.org/biolink/biolinkml/meta/",
       "metatype": "https://w3id.org/biolink/biolinkml/type/",
       "oban": "http://example.org/UNKNOWN/oban/",
       "owl": "http://www.w3.org/2002/07/owl#",
@@ -74,7 +75,7 @@
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
       "shex": "http://www.w3.org/ns/shex#",
-      "skos": "https://www.w3.org/TR/skos-reference/#",
+      "skos": "http://www.w3.org/2004/02/skos/core#",
       "void": "http://rdfs.org/ns/void#",
       "wgs": "http://www.w3.org/2003/01/geo/wgs84_pos",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
@@ -158,6 +159,10 @@
       "clinical_modifier_qualifier": {
          "@type": "@id"
       },
+      "close_mappings": {
+         "@type": "@id",
+         "@id": "meta:close_mappings"
+      },
       "coexists_with": {
          "@type": "@id"
       },
@@ -221,6 +226,14 @@
       "decreases_uptake_of": {
          "@type": "@id"
       },
+      "deprecated_element_has_exact_replacement": {
+         "@type": "@id",
+         "@id": "meta:deprecated_element_has_exact_replacement"
+      },
+      "deprecated_element_has_possible_replacement": {
+         "@type": "@id",
+         "@id": "meta:deprecated_element_has_possible_replacement"
+      },
       "derives_from": {
          "@type": "@id"
       },
@@ -235,6 +248,10 @@
       },
       "enabled_by": {
          "@type": "@id"
+      },
+      "exact_mappings": {
+         "@type": "@id",
+         "@id": "meta:exact_mappings"
       },
       "expressed_in": {
          "@type": "@id"
@@ -404,6 +421,9 @@
       "manifestation_of": {
          "@type": "@id"
       },
+      "mappings": {
+         "@type": "@id"
+      },
       "model_of": {
          "@type": "@id"
       },
@@ -490,6 +510,10 @@
       },
       "regulates_process_to_process": {
          "@type": "@id"
+      },
+      "related_mappings": {
+         "@type": "@id",
+         "@id": "meta:related_mappings"
       },
       "related_to": {
          "@type": "@id"

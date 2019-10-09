@@ -28,6 +28,5 @@ class TypesTestCase(GeneratorTestCase):
         module = ModuleType('test')
         exec(spec, module.__dict__)
 
-
 if __name__ == '__main__':
     unittest.main()

@@ -24,6 +24,14 @@ fields:
   - related to
   id: related_to
 - cardinality: multi
+  description: A list of terms from different schemas or terminology systems that
+    have comparable meaning. These may include terms that are precisely equivalent,
+    broader or narrower in meaning, or otherwise semantically related but not equivalent
+    from a strict ontological perspective.
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - mappings
+  id: mappings
+- cardinality: multi
   description: holds between any two entities that directly or indirectly interact
     with each other
   display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName

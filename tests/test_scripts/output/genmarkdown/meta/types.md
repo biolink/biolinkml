@@ -1,14 +1,15 @@
 
-# Slot: types
+# Type: types
 
 
 data types used in the model
 
 URI: [meta:types](https://w3id.org/biolink/biolinkml/meta/types)
 
+
 ## Domain and Range
 
-[SchemaDefinition](SchemaDefinition.md) ->  <sub>0..*</sub> [TypeDefinition](TypeDefinition.md)
+[schema_definition](schema_definition.md) ->  <sub>0..*</sub> [type_definition](type_definition.md)
 
 ## Parents
 
@@ -18,4 +19,4 @@ URI: [meta:types](https://w3id.org/biolink/biolinkml/meta/types)
 
 ## Used by
 
- * [SchemaDefinition](SchemaDefinition.md)
+ * [schema_definition](schema_definition.md)

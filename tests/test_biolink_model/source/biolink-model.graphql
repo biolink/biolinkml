@@ -8,6 +8,7 @@ type ActivityAndBehavior
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -28,6 +29,7 @@ interface AdministrativeEntity
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -43,6 +45,7 @@ type AnatomicalEntity implements ThingWithTaxon, PhysicalEntity
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -135,6 +138,7 @@ type Attribute implements OntologyClass
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -151,6 +155,7 @@ interface BiologicalEntity
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -167,6 +172,7 @@ type BiologicalProcess implements Occurrent
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -189,6 +195,7 @@ type BiologicalProcessOrActivity implements Occurrent
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -214,6 +221,7 @@ type BiologicalSex
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -230,6 +238,7 @@ type Carbohydrate
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -298,6 +307,7 @@ type Case
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -349,6 +359,7 @@ type Cell
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -367,6 +378,7 @@ type CellLine
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -413,6 +425,7 @@ type CellularComponent
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -431,6 +444,7 @@ type ChemicalSubstance
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -590,6 +604,7 @@ type ClinicalEntity
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -605,6 +620,7 @@ type ClinicalIntervention
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -623,6 +639,7 @@ type ClinicalModifier
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -639,6 +656,7 @@ type ClinicalTrial
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -654,6 +672,7 @@ type CodingSequence
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -723,6 +742,7 @@ type ConfidenceLevel
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -738,6 +758,7 @@ type DataFile
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -753,6 +774,7 @@ type DataSet
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -768,6 +790,7 @@ interface DataSetSummary
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -789,6 +812,7 @@ type DataSetVersion
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -809,6 +833,7 @@ type Device
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -824,6 +849,7 @@ type Disease
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -844,6 +870,7 @@ type DiseaseOrPhenotypicFeature implements ThingWithTaxon
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -928,6 +955,7 @@ interface DistributionLevel
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -949,6 +977,7 @@ type Drug
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -1017,6 +1046,7 @@ type DrugExposure
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -1069,6 +1099,7 @@ type Environment
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -1104,6 +1135,7 @@ type EnvironmentalFeature
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -1119,6 +1151,7 @@ type EnvironmentalProcess implements Occurrent
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -1139,6 +1172,7 @@ type EvidenceType
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -1154,6 +1188,7 @@ type Exon
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -1254,6 +1289,7 @@ type FrequencyValue
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -1285,6 +1321,7 @@ type Gene
     name: SymbolType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -1379,6 +1416,7 @@ type GeneFamily implements GeneGrouping
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -1470,6 +1508,7 @@ type GeneOntologyClass
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -1486,6 +1525,7 @@ type GeneOrGeneProduct
     name: SymbolType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -1559,6 +1599,7 @@ type GeneProduct
     name: SymbolType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -1632,6 +1673,7 @@ interface GeneProductIsoform
     name: SymbolType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -1849,6 +1891,7 @@ type Genome
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -1918,6 +1961,7 @@ type GenomicEntity
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -2006,6 +2050,7 @@ type Genotype
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -2158,6 +2203,7 @@ type GenotypicSex
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -2174,6 +2220,7 @@ type GeographicLocation
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -2191,6 +2238,7 @@ type GeographicLocationAtTime
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -2209,6 +2257,7 @@ type GrossAnatomicalStructure
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -2227,6 +2276,7 @@ type Haplotype
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -2296,6 +2346,7 @@ type IndividualOrganism implements ThingWithTaxon
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -2313,6 +2364,7 @@ interface InformationContentEntity
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -2328,6 +2380,7 @@ type LifeStage implements ThingWithTaxon
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -2345,6 +2398,7 @@ type MacromolecularComplex
     name: SymbolType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -2414,6 +2468,7 @@ type MacromolecularMachine
     name: SymbolType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -2528,6 +2583,7 @@ type MaterialSample implements SubjectOfInvestigation, PhysicalEntity
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -2589,6 +2645,7 @@ type Metabolite
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -2657,6 +2714,7 @@ type MicroRNA
     name: SymbolType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -2736,6 +2794,7 @@ type MolecularActivity implements Occurrent
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -2758,6 +2817,7 @@ type MolecularEntity implements ThingWithTaxon, PhysicalEntity
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -2828,6 +2888,7 @@ type NamedThing
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -2889,6 +2950,9 @@ type NamedThing
     interbaseCoordinate: String
     startInterbaseCoordinate: String
     endInterbaseCoordinate: String
+    exactMappings: [Uriorcurie]
+    closeMappings: [Uriorcurie]
+    relatedMappings: [Uriorcurie]
   }
 
 type NoncodingRNAProduct
@@ -2897,6 +2961,7 @@ type NoncodingRNAProduct
     name: SymbolType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -2970,6 +3035,7 @@ type Occurrent
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -2996,6 +3062,7 @@ type Onset
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -3012,6 +3079,7 @@ type OntologyClass
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -3028,6 +3096,7 @@ type OrganismTaxon
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -3044,6 +3113,7 @@ interface OrganismalEntity
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -3095,6 +3165,7 @@ type Pathway
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -3117,6 +3188,7 @@ type Phenomenon
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -3137,6 +3209,7 @@ type PhenotypicFeature
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -3160,6 +3233,7 @@ type PhenotypicSex
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -3176,6 +3250,7 @@ type PhysicalEntity
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -3191,6 +3266,7 @@ type PhysiologicalProcess
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -3213,6 +3289,7 @@ type PlanetaryEntity
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -3228,6 +3305,7 @@ type PopulationOfIndividualOrganisms implements ThingWithTaxon
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -3260,6 +3338,7 @@ type Procedure
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -3280,6 +3359,7 @@ type Protein
     name: SymbolType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -3353,6 +3433,7 @@ type ProteinIsoform implements GeneProductIsoform
     name: SymbolType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -3426,6 +3507,7 @@ type Provider
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -3441,6 +3523,7 @@ type Publication
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -3466,6 +3549,7 @@ type RelationshipType
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -3482,6 +3566,7 @@ type RNAProduct
     name: SymbolType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -3555,6 +3640,7 @@ type RNAProductIsoform implements GeneProductIsoform
     name: SymbolType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -3647,6 +3733,7 @@ type SequenceVariant
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -3735,6 +3822,7 @@ type SeverityValue
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -3751,6 +3839,7 @@ type SourceFile
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -3796,6 +3885,7 @@ type Transcript
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -3880,6 +3970,7 @@ type Treatment
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType
@@ -3973,6 +4064,7 @@ type Zygosity
     name: LabelType!
     category: [IriType]!
     relatedTo: [NamedThing]
+    mappings: [Uriorcurie]
     interactsWith: [NamedThing]
     nodeProperty: String
     iri: IriType

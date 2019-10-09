@@ -16,6 +16,10 @@ fields:
   display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
   - name
   id: name
+- description: the "native" URI of the element
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - definition_uri
+  id: definition_uri
 - cardinality: multi
   display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
   - aliases
@@ -50,15 +54,15 @@ fields:
   - todos
   id: todos
 - cardinality: multi
-  description: notes and comments about an element intended for external consumption
-  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
-  - comments
-  id: comments
-- cardinality: multi
   description: editorial notes about an element intended for internal consumption
   display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
   - notes
   id: notes
+- cardinality: multi
+  description: notes and comments about an element intended for external consumption
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - comments
+  id: comments
 - cardinality: multi
   description: example usages of an element
   display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName

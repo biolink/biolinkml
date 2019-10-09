@@ -1,14 +1,15 @@
 
-# Slot: from_schema
+# Type: from_schema
 
 
 id of the schema that defined the element
 
 URI: [meta:from_schema](https://w3id.org/biolink/biolinkml/meta/from_schema)
 
+
 ## Domain and Range
 
-[Element](Element.md) ->  <sub>OPT</sub> [Uri](Uri.md)
+[element](element.md) ->  <sub>OPT</sub> [Uri](type/Uri.md)
 
 ## Parents
 
@@ -18,10 +19,17 @@ URI: [meta:from_schema](https://w3id.org/biolink/biolinkml/meta/from_schema)
 
 ## Used by
 
- * [ClassDefinition](ClassDefinition.md)
- * [Definition](Definition.md)
- * [Element](Element.md)
- * [SchemaDefinition](SchemaDefinition.md)
- * [SlotDefinition](SlotDefinition.md)
- * [SubsetDefinition](SubsetDefinition.md)
- * [TypeDefinition](TypeDefinition.md)
+ * [class_definition](class_definition.md)
+ * [definition](definition.md)
+ * [element](element.md)
+ * [schema_definition](schema_definition.md)
+ * [slot_definition](slot_definition.md)
+ * [subset_definition](subset_definition.md)
+ * [type_definition](type_definition.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | skos:inScheme |
+

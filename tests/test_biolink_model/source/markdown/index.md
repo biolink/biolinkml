@@ -300,6 +300,8 @@ Entity and association taxonomy and datamodel for life-sciences data
        * [subject](variant_to_phenotypic_feature_association_subject.md)
        * [subject](variant_to_population_association_subject.md)
        * [subject](variant_to_thing_association_subject.md)
+ * [deprecated element has exact replacement](deprecated_element_has_exact_replacement.md) - When an element is deprecated, it can be automatically replaced by this uri or curie
+ * [deprecated element has possible replacement](deprecated_element_has_possible_replacement.md) - When an element is deprecated, it can be potentially replaced by this uri or curie
  * [drug](drug.md)
  * [has attribute](has_attribute.md) - connects any named thing to an attribute
  * [has attribute type](has_attribute_type.md) - connects an attribute to a class that describes it
@@ -309,6 +311,10 @@ Entity and association taxonomy and datamodel for life-sciences data
  * [has quantitative value](has_quantitative_value.md) - connects an attribute to a value
  * [has unit](has_unit.md) - connects a quantity value to a unit
  * [interacting molecules category](interacting_molecules_category.md)
+ * [mappings](mappings.md) - A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective.
+    * [close mappings](close_mappings.md) - A list of terms from different schemas or terminology systems that have close meaning.
+    * [exact mappings](exact_mappings.md) - A list of terms from different schemas or terminology systems that have identical meaning.
+    * [related mappings](related_mappings.md) - A list of terms from different schemas or terminology systems that have related meaning.
  * [node property](node_property.md) - A grouping for any property that holds between a node and a value
     * [aggregate statistic](aggregate_statistic.md)
        * [has count](has_count.md) - number of things with a particular property

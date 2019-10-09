@@ -1,14 +1,15 @@
 
-# Slot: values_from
+# Type: values_from
 
 
 the identifier of a "value set" -- a set of identifiers that form the possible values for the range of a slot
 
 URI: [meta:values_from](https://w3id.org/biolink/biolinkml/meta/values_from)
 
+
 ## Domain and Range
 
-[Definition](Definition.md) ->  <sub>0..*</sub> [Uriorcurie](Uriorcurie.md)
+[definition](definition.md) ->  <sub>0..*</sub> [Uriorcurie](type/Uriorcurie.md)
 
 ## Parents
 
@@ -18,6 +19,6 @@ URI: [meta:values_from](https://w3id.org/biolink/biolinkml/meta/values_from)
 
 ## Used by
 
- * [ClassDefinition](ClassDefinition.md)
- * [Definition](Definition.md)
- * [SlotDefinition](SlotDefinition.md)
+ * [class_definition](class_definition.md)
+ * [definition](definition.md)
+ * [slot_definition](slot_definition.md)

@@ -7,17 +7,17 @@ A metamodel for defining biolink related schemas
 
 ### Classes
 
- * [AltDescription](AltDescription.md) - an attributed description
- * [Element](Element.md) - a named element in the model
-    * [Definition](Definition.md) - base class for definitions
-       * [ClassDefinition](ClassDefinition.md) - the definition of a class or interface
-       * [SlotDefinition](SlotDefinition.md) - the definition of a property or a slot
-    * [SchemaDefinition](SchemaDefinition.md) - a collection of subset, type, slot and class definitions
-    * [SubsetDefinition](SubsetDefinition.md) - the name and description of a subset
-    * [TypeDefinition](TypeDefinition.md) - A data type definition.
- * [Example](Example.md) - usage example and description
- * [LocalName](LocalName.md) - an attributed label
- * [Prefix](Prefix.md) - prefix URI tuple
+ * [alt_description](alt_description.md) - an attributed description
+ * [element](element.md) - a named element in the model
+    * [definition](definition.md) - base class for definitions
+       * [class_definition](class_definition.md) - the definition of a class or interface
+       * [slot_definition](slot_definition.md) - the definition of a property or a slot
+    * [schema_definition](schema_definition.md) - a collection of subset, type, slot and class definitions
+    * [subset_definition](subset_definition.md) - the name and description of a subset
+    * [type_definition](type_definition.md) - A data type definition.
+ * [example](example.md) - usage example and description
+ * [local_name](local_name.md) - an attributed label
+ * [prefix](prefix.md) - prefix URI tuple
 
 ### Mixins
 
@@ -41,6 +41,7 @@ A metamodel for defining biolink related schemas
  * [default_prefix](default_prefix.md) - default and base prefix -- used for ':' identifiers, @base and @vocab
  * [default_range](default_range.md) - default slot range to be used if range element is omitted from a slot definition
  * [defining_slots](defining_slots.md) - The combination of is a plus defining slots form a genus-differentia definition, or the set of necessary and sufficient conditions that can be transformed into an OWL equivalence axiom
+ * [definition_uri](definition_uri.md) - the "native" URI of the element
  * [deprecated](deprecated.md) - Description of why and when this element will no longer be used
  * [deprecated element has exact replacement](deprecated_element_has_exact_replacement.md) - When an element is deprecated, it can be automatically replaced by this uri or curie
  * [deprecated element has possible replacement](deprecated_element_has_possible_replacement.md) - When an element is deprecated, it can be potentially replaced by this uri or curie
@@ -135,16 +136,16 @@ A metamodel for defining biolink related schemas
 
 #### Defined
 
- * [Boolean](Boolean.md)  (**Bool**)  - A binary (true or false) value
- * [Date](Date.md)  (**XSDDate**)  - a date (year, month and day) in an idealized calendar
- * [Datetime](Datetime.md)  (**XSDDateTime**)  - The combination of a date and time
- * [Double](Double.md)  (**float**)  - A real number that conforms to the xsd:double specification
- * [Float](Float.md)  (**float**)  - A real number that conforms to the xsd:float specification
- * [Integer](Integer.md)  (**int**)  - An integer
- * [Ncname](Ncname.md)  (**NCName**)  - Prefix part of CURIE
- * [Nodeidentifier](Nodeidentifier.md)  (**NodeIdentifier**)  - A URI, CURIE or BNODE that represents a node in a model.
- * [Objectidentifier](Objectidentifier.md)  (**ElementIdentifier**)  - A URI or CURIE that represents an object in the model.
- * [String](String.md)  (**str**)  - A character string
- * [Time](Time.md)  (**XSDTime**)  - A time object represents a (local) time of day, independent of any particular day
- * [Uri](Uri.md)  (**URI**)  - a complete URI
- * [Uriorcurie](Uriorcurie.md)  (**URIorCURIE**)  - a URI or a CURIE
+ * [Boolean](type/Boolean.md)  (**Bool**)  - A binary (true or false) value
+ * [Date](type/Date.md)  (**XSDDate**)  - a date (year, month and day) in an idealized calendar
+ * [Datetime](type/Datetime.md)  (**XSDDateTime**)  - The combination of a date and time
+ * [Double](type/Double.md)  (**float**)  - A real number that conforms to the xsd:double specification
+ * [Float](type/Float.md)  (**float**)  - A real number that conforms to the xsd:float specification
+ * [Integer](type/Integer.md)  (**int**)  - An integer
+ * [Ncname](type/Ncname.md)  (**NCName**)  - Prefix part of CURIE
+ * [Nodeidentifier](type/Nodeidentifier.md)  (**NodeIdentifier**)  - A URI, CURIE or BNODE that represents a node in a model.
+ * [Objectidentifier](type/Objectidentifier.md)  (**ElementIdentifier**)  - A URI or CURIE that represents an object in the model.
+ * [String](type/String.md)  (**str**)  - A character string
+ * [Time](type/Time.md)  (**XSDTime**)  - A time object represents a (local) time of day, independent of any particular day
+ * [Uri](type/Uri.md)  (**URI**)  - a complete URI
+ * [Uriorcurie](type/Uriorcurie.md)  (**URIorCURIE**)  - a URI or a CURIE

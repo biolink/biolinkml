@@ -1,9 +1,10 @@
 @prefix : <http://example.org/mappings/> .
 @prefix OIO: <http://www.geneontology.org/formats/oboInOwl#> .
+@prefix biolinkml: <https://w3id.org/biolink/biolinkml/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ex: <http://example.org/mappings/> .
+@prefix meta: <https://w3id.org/biolink/biolinkml/meta/> .
 @prefix metatype: <https://w3id.org/biolink/biolinkml/type/> .
-@prefix ns1: <https://w3id.org/biolink/biolinkml/meta/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix pav: <http://purl.org/pav/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -16,50 +17,54 @@
 ex:testMetamodelMappings a ex:SchemaDefinition ;
     ex:default_curi_maps "semweb_context" ;
     ex:default_prefix "ex" ;
-    ex:metamodel_version "1.4.2" ;
+    ex:metamodel_version "1.4.3" ;
     ex:source_file "meta_mappings.yaml" ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     skos:definition "Mappings test" ;
-    ns1:classes ex:C1,
+    meta:classes ex:C1,
         ex:C2,
         ex:C3 ;
-    ns1:default_range ex:string ;
-    ns1:generation_date "2019-09-30 16:11"^^xsd:dateTime ;
-    ns1:id ex: ;
-    ns1:prefixes [ ex:prefix_prefix "ex" ;
-            ns1:prefix_reference ex: ] ;
-    ns1:slots ex:s1,
+    meta:default_range ex:string ;
+    meta:generation_date "2019-10-08 13:34"^^xsd:dateTime ;
+    meta:id ex: ;
+    meta:prefixes [ ex:prefix_prefix "ex" ;
+            meta:prefix_reference ex: ] ;
+    meta:slots ex:s1,
         ex:s2 ;
-    ns1:source_file_date "Mon Sep 30 16:10:53 2019"^^xsd:dateTime ;
-    ns1:source_file_size 1810 ;
-    ns1:types ex:identifier_type,
+    meta:source_file_date "Mon Sep 30 16:10:53 2019"^^xsd:dateTime ;
+    meta:source_file_size 1810 ;
+    meta:types ex:identifier_type,
         ex:string .
-
-ex:C2 a ex:ClassDefinition ;
-    skos:inScheme ex: ;
-    ns1:class_uri ex:C2 ;
-    ns1:is_a ex:C1 ;
-    ns1:slots ex:s1,
-        ex:s2 .
-
-ex:C3 a ex:ClassDefinition ;
-    skos:inScheme ex: ;
-    ns1:class_uri ex:C3 ;
-    ns1:is_a ex:C1 ;
-    ns1:slots ex:s1,
-        ex:s2 .
 
 ex:identifier_type a ex:TypeDefinition ;
     ex:base "str" ;
     skos:definition "A string that is intended to uniquely identify a thing May be URI in full or compact (CURIE) form" ;
     skos:inScheme ex: ;
-    ns1:typeof ex:string ;
-    ns1:uri xsd:string .
+    meta:definition_uri ex:IdentifierType ;
+    meta:typeof ex:string ;
+    meta:uri xsd:string .
+
+ex:C2 a ex:ClassDefinition ;
+    skos:inScheme ex: ;
+    meta:class_uri ex:C2 ;
+    meta:definition_uri ex:C2 ;
+    meta:is_a ex:C1 ;
+    meta:slots ex:s1,
+        ex:s2 .
+
+ex:C3 a ex:ClassDefinition ;
+    skos:inScheme ex: ;
+    meta:class_uri ex:C3 ;
+    meta:definition_uri ex:C3 ;
+    meta:is_a ex:C1 ;
+    meta:slots ex:s1,
+        ex:s2 .
 
 ex:string a ex:TypeDefinition ;
     ex:base "str" ;
     skos:inScheme ex: ;
-    ns1:uri xsd:string .
+    meta:definition_uri ex:String ;
+    meta:uri xsd:string .
 
 ex:s1 a ex:SlotDefinition ;
     skos:closeMatch <http://example.org/fulluri/slot1_close>,
@@ -69,12 +74,13 @@ ex:s1 a ex:SlotDefinition ;
     skos:inScheme ex: ;
     skos:relatedMatch <http://example.org/fulluri/slot1_related>,
         ex:slot1_related ;
-    ns1:deprecated_element_has_exact_replacement ex:s3 ;
-    ns1:deprecated_element_has_possible_replacement ex:s4 ;
-    ns1:domain ex:C1 ;
-    ns1:owner ex:C1 ;
-    ns1:range ex:string ;
-    ns1:slot_uri ex:s1 .
+    meta:definition_uri ex:s1 ;
+    meta:deprecated_element_has_exact_replacement ex:s3 ;
+    meta:deprecated_element_has_possible_replacement ex:s4 ;
+    meta:domain ex:C1 ;
+    meta:owner ex:C1 ;
+    meta:range ex:string ;
+    meta:slot_uri ex:s1 .
 
 ex:s2 a ex:SlotDefinition ;
     skos:closeMatch <http://example.org/fulluri/slot2_close>,
@@ -84,14 +90,15 @@ ex:s2 a ex:SlotDefinition ;
     skos:inScheme ex: ;
     skos:relatedMatch <http://example.org/fulluri/slot2_related>,
         ex:slot2_related ;
-    ns1:deprecated_element_has_exact_replacement ex:s3 ;
-    ns1:deprecated_element_has_possible_replacement ex:s4 ;
-    ns1:domain ex:C1 ;
-    ns1:identifier true ;
-    ns1:owner ex:C1 ;
-    ns1:range ex:identifier_type ;
-    ns1:required true ;
-    ns1:slot_uri ex:s2 .
+    meta:definition_uri ex:s2 ;
+    meta:deprecated_element_has_exact_replacement ex:s3 ;
+    meta:deprecated_element_has_possible_replacement ex:s4 ;
+    meta:domain ex:C1 ;
+    meta:identifier true ;
+    meta:owner ex:C1 ;
+    meta:range ex:identifier_type ;
+    meta:required true ;
+    meta:slot_uri ex:s2 .
 
 ex:C1 a ex:ClassDefinition ;
     skos:closeMatch <http://example.org/fulluri/class1_close>,
@@ -101,10 +108,11 @@ ex:C1 a ex:ClassDefinition ;
     skos:inScheme ex: ;
     skos:relatedMatch <http://example.org/fulluri/class1_related>,
         ex:class1_related ;
-    ns1:class_uri ex:C1 ;
-    ns1:deprecated_element_has_exact_replacement ex:c2 ;
-    ns1:deprecated_element_has_possible_replacement ex:c3 ;
-    ns1:slots ex:s1,
+    meta:class_uri ex:C1 ;
+    meta:definition_uri ex:C1 ;
+    meta:deprecated_element_has_exact_replacement ex:c2 ;
+    meta:deprecated_element_has_possible_replacement ex:c3 ;
+    meta:slots ex:s1,
         ex:s2 .
 
 

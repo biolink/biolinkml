@@ -2,8 +2,8 @@ import os
 import unittest
 
 from biolinkml.utils.schemaloader import SchemaLoader
-from jsonasobj import as_dict
-from tests.test_utils import inputdir
+from jsonasobj import as_dict, as_json, JsonObj, load
+from tests.test_utils import inputdir, outputdir
 
 
 class ResolverTestCase(unittest.TestCase):
@@ -25,26 +25,15 @@ class ResolverTestCase(unittest.TestCase):
         """ Test all element slots and their inheritence """
         schema = SchemaLoader(os.path.join(inputdir, 'resolver3.yaml')).resolve()
         x = {k:v for k, v in as_dict(schema.slots['s1']).items() if v is not None and v != []}
-        self.assertEqual(
-            {'alt_descriptions': {},
-             'comments': ["I'm a little comment"],
-             'description': 'this is s1 it is good',
-             'domain': 'c1',
-             'examples': [{'description': 'an example', 'value': 'test: foo'},
-                          {'description': None, 'value': 17}],
-             'from_schema': 'http://example.org/yaml4',
-             'in_subset': ['subset1', 'subset 2'],
-             'local_names': {},
-             'inlined': True,
-             'name': 's1',
-             'notes': ['Pay attention here', 'Something might be happening'],
-             'owner': 's1',
-             'range': 'c2',
-             'required': False,
-             'see_also': ['http://example.org/e1', 'ex:e2'],
-             'slot_uri': 'http://example.org/yaml4/s1'}, x)
+        outfile = os.path.join(outputdir, 'resolver3.json')
+        if not os.path.exists(outfile):
+            with open(outfile, 'w') as f:
+                f.write(as_json(JsonObj(**x)))
+                self.fail(f"File {outfile} created - rerun test")
+        with open(outfile) as f:
+            expected = as_dict(load(f))
 
-
+        self.assertEqual(expected, x)
 
 
 if __name__ == '__main__':

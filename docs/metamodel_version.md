@@ -1,14 +1,15 @@
 
-# Slot: metamodel_version
+# Type: metamodel_version
 
 
 Version of the metamodel used to load the schema
 
 URI: [meta:metamodel_version](https://w3id.org/biolink/biolinkml/meta/metamodel_version)
 
+
 ## Domain and Range
 
-[SchemaDefinition](SchemaDefinition.md) ->  <sub>OPT</sub> [String](String.md)
+[schema_definition](schema_definition.md) ->  <sub>OPT</sub> [String](type/String.md)
 
 ## Parents
 
@@ -18,4 +19,11 @@ URI: [meta:metamodel_version](https://w3id.org/biolink/biolinkml/meta/metamodel_
 
 ## Used by
 
- * [SchemaDefinition](SchemaDefinition.md)
+ * [schema_definition](schema_definition.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **In Subsets:** | | owl |
+

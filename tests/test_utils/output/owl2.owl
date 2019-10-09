@@ -11,10 +11,10 @@
 
 <http://example.org/owl2> a owl:Ontology ;
     rdfs:label "owl2" ;
-    meta:generation_date "2019-09-18 19:11" ;
-    meta:metamodel_version "1.4.2" ;
+    meta:generation_date "2019-10-08 18:17" ;
+    meta:metamodel_version "1.4.3" ;
     meta:source_file "owl2.yaml" ;
-    meta:source_file_date "Fri Sep  6 09:59:07 2019" ;
+    meta:source_file_date "Fri Sep  6 11:59:07 2019" ;
     meta:source_file_size 519 .
 
 meta:SubsetDefinition a owl:Class ;

@@ -3,7 +3,7 @@ title: Biolink Schema Metamodel
 name: metamodel
 description: A metamodel for defining biolink related schemas
 license: https://creativecommons.org/publicdomain/zero/1.0/
-version: 1.4.2
+version: 1.4.3
 
 prefixes:
   meta: https://w3id.org/biolink/biolinkml/meta/
@@ -56,6 +56,14 @@ slots:
     in_subset:
       - owl
 
+  definition_uri:
+    domain: element
+    description: the "native" URI of the element
+    comments:
+      - Formed by combining the default_prefix with the mangled element
+    range: uriorcurie
+    readonly: filled in by the schema loader
+
   id_prefixes:
     domain: element
     multivalued: true
@@ -75,16 +83,6 @@ slots:
     range: string
     multivalued: true
     slot_uri: skos:altLabel
-
-  mappings:
-    domain: element
-    range: uriorcurie
-    multivalued: true
-    description: >-
-      A list of terms from different schemas or terminology systems that have comparable meaning.
-      These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically
-      related but not equivalent from a strict ontological perspective.
-    slot_uri: skos:mappingRelation
 
   deprecated:
     domain: element
@@ -708,6 +706,7 @@ classes:
     slots:
       - id_prefixes
       - name
+      - definition_uri
       - aliases
       - local_names
       - mappings
@@ -717,7 +716,6 @@ classes:
       - todos
       - notes
       - comments
-      - notes
       - examples
       - in_subset
       - from_schema

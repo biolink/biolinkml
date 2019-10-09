@@ -1,14 +1,15 @@
 
-# Slot: version
+# Type: version
 
 
 particular version of schema
 
 URI: [meta:version](https://w3id.org/biolink/biolinkml/meta/version)
 
+
 ## Domain and Range
 
-[SchemaDefinition](SchemaDefinition.md) ->  <sub>OPT</sub> [String](String.md)
+[schema_definition](schema_definition.md) ->  <sub>OPT</sub> [String](type/String.md)
 
 ## Parents
 
@@ -18,4 +19,11 @@ URI: [meta:version](https://w3id.org/biolink/biolinkml/meta/version)
 
 ## Used by
 
- * [SchemaDefinition](SchemaDefinition.md)
+ * [schema_definition](schema_definition.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | pav:version |
+

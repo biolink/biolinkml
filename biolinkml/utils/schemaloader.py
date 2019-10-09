@@ -1,6 +1,6 @@
 import os
 import sys
-from typing import Union, TextIO, Optional, Set, List, cast, Dict
+from typing import Union, TextIO, Optional, Set, List, cast, Dict, Tuple
 from urllib.parse import urlparse
 
 from biolinkml.meta import SchemaDefinition, SlotDefinition, SlotDefinitionName, ClassDefinition, \
@@ -31,7 +31,7 @@ class SchemaLoader:
             self.schema = data
         else:
             self.schema = load_raw_schema(data, base_dir=base_dir)
-        self.loaded: Set[str] = {self.schema.name}
+        self.loaded: Dict[str, str] = {self.schema.id: self.schema.version}
         self.base_dir = self._get_base_dir(base_dir)
         self.namespaces = namespaces if namespaces else Namespaces()
         self.useuris = useuris if useuris is not None else True
@@ -69,9 +69,12 @@ class SchemaLoader:
         # Process imports
         for sname in self.schema.imports:
             sloc = self.namespaces.uri_for(sname) if ':' in sname else sname
-            if sloc not in self.loaded:
-                self.loaded.add(sloc)
-                import_schemadefinition = load_raw_schema(sloc + '.yaml', base_dir=self.base_dir)
+            import_schemadefinition = load_raw_schema(sloc + '.yaml', base_dir=os.path.dirname(self.schema.source_file))
+            if import_schemadefinition.id in self.loaded:
+                if self.loaded[import_schemadefinition.id] != import_schemadefinition.version:
+                    self.raise_value_error(f"Schema {import_schemadefinition.name} - version mismatch")
+            else:
+                self.loaded[import_schemadefinition.id] = import_schemadefinition.version
                 merge_schemas(self.schema, import_schemadefinition, sloc, self.namespaces)
                 self.schema_defaults[import_schemadefinition.id] = import_schemadefinition.default_prefix
 

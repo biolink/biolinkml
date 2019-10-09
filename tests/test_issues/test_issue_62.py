@@ -1,0 +1,22 @@
+import os
+import unittest
+
+from biolinkml.generators.markdowngen import cli, MarkdownGenerator
+from tests import source_yaml_path
+from tests.test_issues import sourcedir, outputdir
+from tests.test_scripts.clicktestcase import ClickTestCase
+from tests.utils.dirutils import make_and_clear_directory
+
+
+class Issue62TestCase(unittest.TestCase):
+
+    def test_issue_62(self):
+        """ Make sure that types are generated as part of the output """
+        outdir = os.path.join(outputdir, 'issue62')
+        make_and_clear_directory(outdir)
+        yaml_fname = os.path.join(sourcedir, 'issue_62.yaml')
+        MarkdownGenerator(yaml_fname).serialize(directory=outdir)
+
+
+if __name__ == '__main__':
+    unittest.main()

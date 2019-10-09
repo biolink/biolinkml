@@ -1,14 +1,15 @@
 
-# Slot: apply_to
+# Type: slot_definition_apply_to
 
 
 
 
 URI: [meta:slot_definition_apply_to](https://w3id.org/biolink/biolinkml/meta/slot_definition_apply_to)
 
+
 ## Domain and Range
 
-[SlotDefinition](SlotDefinition.md) ->  <sub>0..*</sub> [SlotDefinition](SlotDefinition.md)
+[slot_definition](slot_definition.md) ->  <sub>0..*</sub> [slot_definition](slot_definition.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [meta:slot_definition_apply_to](https://w3id.org/biolink/biolinkml/meta/slo
 
 ## Used by
 
- * [SlotDefinition](SlotDefinition.md)
+ * [slot_definition](slot_definition.md)

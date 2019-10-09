@@ -1,14 +1,15 @@
 
-# Slot: mixins
+# Type: slot_definition_mixins
 
 
 
 
 URI: [meta:slot_definition_mixins](https://w3id.org/biolink/biolinkml/meta/slot_definition_mixins)
 
+
 ## Domain and Range
 
-[SlotDefinition](SlotDefinition.md) ->  <sub>0..*</sub> [SlotDefinition](SlotDefinition.md)
+[slot_definition](slot_definition.md) ->  <sub>0..*</sub> [slot_definition](slot_definition.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [meta:slot_definition_mixins](https://w3id.org/biolink/biolinkml/meta/slot_
 
 ## Used by
 
- * [SlotDefinition](SlotDefinition.md)
+ * [slot_definition](slot_definition.md)

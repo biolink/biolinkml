@@ -1,14 +1,15 @@
 
-# Slot: subsets
+# Type: subsets
 
 
 list of subsets referenced in this model
 
 URI: [meta:subsets](https://w3id.org/biolink/biolinkml/meta/subsets)
 
+
 ## Domain and Range
 
-[SchemaDefinition](SchemaDefinition.md) ->  <sub>0..*</sub> [SubsetDefinition](SubsetDefinition.md)
+[schema_definition](schema_definition.md) ->  <sub>0..*</sub> [subset_definition](subset_definition.md)
 
 ## Parents
 
@@ -18,4 +19,4 @@ URI: [meta:subsets](https://w3id.org/biolink/biolinkml/meta/subsets)
 
 ## Used by
 
- * [SchemaDefinition](SchemaDefinition.md)
+ * [schema_definition](schema_definition.md)
