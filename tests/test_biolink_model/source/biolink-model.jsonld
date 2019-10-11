@@ -4,7 +4,8 @@
   "id": "https://w3id.org/biolink/biolink-model",
   "imports": [
     "biolinkml:types",
-    "file:///Users/solbrig/git/biolink/biolinkml/includes/mappings"
+    "biolinkml:mappings",
+    "includes/types"
   ],
   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
   "prefixes": [
@@ -92,18 +93,21 @@
   "subsets": [
     {
       "name": "translator_minimal",
+      "definition_uri": "biolink:TranslatorMinimal",
       "description": "Minimum subset of translator work",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "type": "SubsetDefinition"
     },
     {
       "name": "samples",
+      "definition_uri": "biolink:Samples",
       "description": "Sample/biosample datamodel",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "type": "SubsetDefinition"
     },
     {
       "name": "testing",
+      "definition_uri": "biolink:Testing",
       "description": "TBD",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "type": "SubsetDefinition"
@@ -112,6 +116,7 @@
   "types": [
     {
       "name": "chemical_formula_value",
+      "definition_uri": "biolink:ChemicalFormulaValue",
       "description": "A chemical formula",
       "notes": [
         "Should be implemented as a stronger type"
@@ -123,6 +128,7 @@
     },
     {
       "name": "identifier_type",
+      "definition_uri": "biolink:IdentifierType",
       "description": "A string that is intended to uniquely identify a thing May be URI in full or compact (CURIE) form",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "base": "ElementIdentifier",
@@ -131,6 +137,7 @@
     },
     {
       "name": "iri_type",
+      "definition_uri": "biolink:IriType",
       "description": "An IRI",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "typeof": "uriorcurie",
@@ -141,6 +148,7 @@
     },
     {
       "name": "label_type",
+      "definition_uri": "biolink:LabelType",
       "description": "A string that provides a human-readable name for a thing",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "typeof": "string",
@@ -150,6 +158,7 @@
     },
     {
       "name": "narrative_text",
+      "definition_uri": "biolink:NarrativeText",
       "description": "A string that provides a human-readable description of something",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "typeof": "string",
@@ -159,6 +168,7 @@
     },
     {
       "name": "symbol_type",
+      "definition_uri": "biolink:SymbolType",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "typeof": "string",
       "base": "str",
@@ -167,6 +177,7 @@
     },
     {
       "name": "frequency",
+      "definition_uri": "biolink:Frequency",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "typeof": "string",
       "base": "str",
@@ -175,6 +186,7 @@
     },
     {
       "name": "percentage_frequency_value",
+      "definition_uri": "biolink:PercentageFrequencyValue",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "typeof": "double",
       "base": "float",
@@ -183,6 +195,7 @@
     },
     {
       "name": "quotient",
+      "definition_uri": "biolink:Quotient",
       "aliases": [
         "ratio"
       ],
@@ -197,6 +210,7 @@
       "id_prefixes": [
         "UO"
       ],
+      "definition_uri": "biolink:Unit",
       "mappings": [
         "qud:Unit"
       ],
@@ -208,6 +222,7 @@
     },
     {
       "name": "time_type",
+      "definition_uri": "biolink:TimeType",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "typeof": "time",
       "base": "XSDTime",
@@ -217,6 +232,7 @@
     },
     {
       "name": "biological_sequence",
+      "definition_uri": "biolink:BiologicalSequence",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "typeof": "string",
       "base": "str",
@@ -225,57 +241,63 @@
     },
     {
       "name": "string",
+      "definition_uri": "metatype:String",
       "description": "A character string",
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "https://w3id.org/biolink/biolinkml/types",
+      "imported_from": "../../../includes/types",
       "base": "str",
       "uri": "http://www.w3.org/2001/XMLSchema#string",
       "type": "TypeDefinition"
     },
     {
       "name": "integer",
+      "definition_uri": "metatype:Integer",
       "description": "An integer",
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "https://w3id.org/biolink/biolinkml/types",
+      "imported_from": "../../../includes/types",
       "base": "int",
       "uri": "http://www.w3.org/2001/XMLSchema#integer",
       "type": "TypeDefinition"
     },
     {
       "name": "boolean",
+      "definition_uri": "metatype:Boolean",
       "description": "A binary (true or false) value",
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "https://w3id.org/biolink/biolinkml/types",
+      "imported_from": "../../../includes/types",
       "base": "Bool",
       "uri": "http://www.w3.org/2001/XMLSchema#boolean",
       "type": "TypeDefinition"
     },
     {
       "name": "float",
+      "definition_uri": "metatype:Float",
       "description": "A real number that conforms to the xsd:float specification",
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "https://w3id.org/biolink/biolinkml/types",
+      "imported_from": "../../../includes/types",
       "base": "float",
       "uri": "http://www.w3.org/2001/XMLSchema#float",
       "type": "TypeDefinition"
     },
     {
       "name": "double",
+      "definition_uri": "metatype:Double",
       "description": "A real number that conforms to the xsd:double specification",
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "https://w3id.org/biolink/biolinkml/types",
+      "imported_from": "../../../includes/types",
       "base": "float",
       "uri": "http://www.w3.org/2001/XMLSchema#double",
       "type": "TypeDefinition"
     },
     {
       "name": "time",
+      "definition_uri": "metatype:Time",
       "description": "A time object represents a (local) time of day, independent of any particular day",
       "notes": [
         "URI is dateTime because OWL reasoners don't work with straight date or time"
       ],
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "https://w3id.org/biolink/biolinkml/types",
+      "imported_from": "../../../includes/types",
       "base": "XSDTime",
       "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
       "repr": "str",
@@ -283,12 +305,13 @@
     },
     {
       "name": "date",
+      "definition_uri": "metatype:Date",
       "description": "a date (year, month and day) in an idealized calendar",
       "notes": [
         "URI is dateTime because OWL reasoners don't work with straight date or time"
       ],
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "https://w3id.org/biolink/biolinkml/types",
+      "imported_from": "../../../includes/types",
       "base": "XSDDate",
       "uri": "http://www.w3.org/2001/XMLSchema#date",
       "repr": "str",
@@ -296,9 +319,10 @@
     },
     {
       "name": "datetime",
+      "definition_uri": "metatype:Datetime",
       "description": "The combination of a date and time",
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "https://w3id.org/biolink/biolinkml/types",
+      "imported_from": "../../../includes/types",
       "base": "XSDDateTime",
       "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
       "repr": "str",
@@ -306,9 +330,10 @@
     },
     {
       "name": "uriorcurie",
+      "definition_uri": "metatype:Uriorcurie",
       "description": "a URI or a CURIE",
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "https://w3id.org/biolink/biolinkml/types",
+      "imported_from": "../../../includes/types",
       "base": "URIorCURIE",
       "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
       "repr": "str",
@@ -316,9 +341,10 @@
     },
     {
       "name": "uri",
+      "definition_uri": "metatype:Uri",
       "description": "a complete URI",
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "https://w3id.org/biolink/biolinkml/types",
+      "imported_from": "../../../includes/types",
       "base": "URI",
       "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
       "repr": "str",
@@ -326,9 +352,10 @@
     },
     {
       "name": "ncname",
+      "definition_uri": "metatype:Ncname",
       "description": "Prefix part of CURIE",
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "https://w3id.org/biolink/biolinkml/types",
+      "imported_from": "../../../includes/types",
       "base": "NCName",
       "uri": "http://www.w3.org/2001/XMLSchema#string",
       "repr": "str",
@@ -336,12 +363,13 @@
     },
     {
       "name": "objectidentifier",
+      "definition_uri": "metatype:Objectidentifier",
       "description": "A URI or CURIE that represents an object in the model.",
       "comments": [
         "Used for inheritence and type checking"
       ],
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "https://w3id.org/biolink/biolinkml/types",
+      "imported_from": "../../../includes/types",
       "base": "ElementIdentifier",
       "uri": "http://www.w3.org/ns/shex#iri",
       "repr": "str",
@@ -349,9 +377,10 @@
     },
     {
       "name": "nodeidentifier",
+      "definition_uri": "metatype:Nodeidentifier",
       "description": "A URI, CURIE or BNODE that represents a node in a model.",
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "https://w3id.org/biolink/biolinkml/types",
+      "imported_from": "../../../includes/types",
       "base": "NodeIdentifier",
       "uri": "http://www.w3.org/ns/shex#nonLiteral",
       "repr": "str",
@@ -361,6 +390,7 @@
   "slots": [
     {
       "name": "related_to",
+      "definition_uri": "biolink:related_to",
       "mappings": [
         "owl:ObjectProperty",
         "SEMMEDDB:ASSOCIATED_WITH"
@@ -376,21 +406,8 @@
       "type": "SlotDefinition"
     },
     {
-      "name": "mappings",
-      "mappings": [
-        "skos:mappingRelation"
-      ],
-      "description": "A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective.",
-      "from_schema": "https://w3id.org/biolink/biolink-model",
-      "domain": "NamedThing",
-      "range": "uriorcurie",
-      "slot_uri": "http://www.w3.org/2004/02/skos/core#mappingRelation",
-      "multivalued": true,
-      "owner": "mappings",
-      "type": "SlotDefinition"
-    },
-    {
       "name": "interacts_with",
+      "definition_uri": "biolink:interacts_with",
       "mappings": [
         "RO:0002434"
       ],
@@ -410,6 +427,7 @@
     },
     {
       "name": "physically_interacts_with",
+      "definition_uri": "biolink:physically_interacts_with",
       "mappings": [
         "WD:P129",
         "SEMMEDDB:INTERACTS_WITH"
@@ -431,6 +449,7 @@
     },
     {
       "name": "molecularly_interacts_with",
+      "definition_uri": "biolink:molecularly_interacts_with",
       "mappings": [
         "RO:0002436"
       ],
@@ -449,6 +468,7 @@
     },
     {
       "name": "genetically_interacts_with",
+      "definition_uri": "biolink:genetically_interacts_with",
       "mappings": [
         "RO:0002435"
       ],
@@ -468,6 +488,7 @@
     },
     {
       "name": "affects",
+      "definition_uri": "biolink:affects",
       "mappings": [
         "SEMMEDDB:AFFECTS"
       ],
@@ -487,6 +508,7 @@
     },
     {
       "name": "affects_abundance_of",
+      "definition_uri": "biolink:affects_abundance_of",
       "description": "holds between two molecular entities where the action or effect of one changes the amount of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
@@ -503,6 +525,7 @@
     },
     {
       "name": "increases_abundance_of",
+      "definition_uri": "biolink:increases_abundance_of",
       "description": "holds between two molecular entities where the action or effect of one increases the amount of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
@@ -519,6 +542,7 @@
     },
     {
       "name": "decreases_abundance_of",
+      "definition_uri": "biolink:decreases_abundance_of",
       "description": "holds between two molecular entities where the action or effect of one decreases the amount of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
@@ -535,6 +559,7 @@
     },
     {
       "name": "affects_activity_of",
+      "definition_uri": "biolink:affects_activity_of",
       "description": "holds between two molecular entities where the action or effect of one changes the activity of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
@@ -551,6 +576,7 @@
     },
     {
       "name": "increases_activity_of",
+      "definition_uri": "biolink:increases_activity_of",
       "description": "holds between two molecular entities where the action or effect of one increases the activity of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
@@ -567,6 +593,7 @@
     },
     {
       "name": "decreases_activity_of",
+      "definition_uri": "biolink:decreases_activity_of",
       "description": "holds between two molecular entities where the action or effect of one decreases the activity of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
@@ -583,6 +610,7 @@
     },
     {
       "name": "affects_expression_of",
+      "definition_uri": "biolink:affects_expression_of",
       "description": "holds between two molecular entities where the action or effect of one changes the level of expression of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
@@ -599,6 +627,7 @@
     },
     {
       "name": "increases_expression_of",
+      "definition_uri": "biolink:increases_expression_of",
       "description": "holds between two molecular entities where the action or effect of one increases the level of expression of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
@@ -615,6 +644,7 @@
     },
     {
       "name": "decreases_expression_of",
+      "definition_uri": "biolink:decreases_expression_of",
       "description": "holds between two molecular entities where the action or effect of one decreases the level of expression of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
@@ -631,6 +661,7 @@
     },
     {
       "name": "affects_folding_of",
+      "definition_uri": "biolink:affects_folding_of",
       "description": "holds between two molecular entities where the action or effect of one changes the rate or quality of folding of the other",
       "in_subset": [
         "translator_minimal"
@@ -647,6 +678,7 @@
     },
     {
       "name": "increases_folding_of",
+      "definition_uri": "biolink:increases_folding_of",
       "description": "holds between two molecular entities where the action or effect of one increases the rate or quality of folding of the other",
       "in_subset": [
         "translator_minimal"
@@ -663,6 +695,7 @@
     },
     {
       "name": "decreases_folding_of",
+      "definition_uri": "biolink:decreases_folding_of",
       "description": "holds between two molecular entities where the action or effect of one decreases the rate or quality of folding of the other",
       "in_subset": [
         "translator_minimal"
@@ -679,6 +712,7 @@
     },
     {
       "name": "affects_localization_of",
+      "definition_uri": "biolink:affects_localization_of",
       "description": "holds between two molecular entities where the action or effect of one changes the localization of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
@@ -695,6 +729,7 @@
     },
     {
       "name": "increases_localization_of",
+      "definition_uri": "biolink:increases_localization_of",
       "description": "holds between two molecular entities where the action or effect of one increases the proper localization of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
@@ -711,6 +746,7 @@
     },
     {
       "name": "decreases_localization_of",
+      "definition_uri": "biolink:decreases_localization_of",
       "description": "holds between two molecular entities where the action or effect of one decreases the proper localization of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
@@ -727,6 +763,7 @@
     },
     {
       "name": "affects_metabolic_processing_of",
+      "definition_uri": "biolink:affects_metabolic_processing_of",
       "description": "holds between two molecular entities where the action or effect of one impacts the metabolic processing of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
@@ -743,6 +780,7 @@
     },
     {
       "name": "increases_metabolic_processing_of",
+      "definition_uri": "biolink:increases_metabolic_processing_of",
       "description": "holds between two molecular entities where the action or effect of one increases the rate of metabolic processing of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
@@ -759,6 +797,7 @@
     },
     {
       "name": "decreases_metabolic_processing_of",
+      "definition_uri": "biolink:decreases_metabolic_processing_of",
       "description": "holds between two molecular entities where the action or effect of one decreases the rate of metabolic processing of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
@@ -775,6 +814,7 @@
     },
     {
       "name": "affects_molecular_modification_of",
+      "definition_uri": "biolink:affects_molecular_modification_of",
       "description": "holds between two molecular entities where the action or effect of one leads changes in the molecular modification(s) of the other (e.g. via post-translational modifications of proteins such as the addition of phosphoryl group, or via redox reaction that adds or subtracts electrons)",
       "in_subset": [
         "translator_minimal"
@@ -791,6 +831,7 @@
     },
     {
       "name": "increases_molecular_modification_of",
+      "definition_uri": "biolink:increases_molecular_modification_of",
       "description": "holds between two molecular entities where the action or effect of one leads to increased molecular modification(s) of the other (e.g. via post-translational modifications of proteins such as the addition of phosphoryl group, or via redox reaction that adds or subtracts electrons)",
       "in_subset": [
         "translator_minimal"
@@ -807,6 +848,7 @@
     },
     {
       "name": "decreases_molecular_modification_of",
+      "definition_uri": "biolink:decreases_molecular_modification_of",
       "description": "holds between two molecular entities where the action or effect of one leads to decreased molecular modification(s) of the other (e.g. via post-translational modifications of proteins such as the addition of phosphoryl group, or via redox reaction that adds or subtracts electrons)",
       "in_subset": [
         "translator_minimal"
@@ -823,6 +865,7 @@
     },
     {
       "name": "affects_synthesis_of",
+      "definition_uri": "biolink:affects_synthesis_of",
       "description": "holds between two molecular entities where the action or effect of one impacts the rate of chemical synthesis of the other",
       "in_subset": [
         "translator_minimal"
@@ -839,6 +882,7 @@
     },
     {
       "name": "increases_synthesis_of",
+      "definition_uri": "biolink:increases_synthesis_of",
       "description": "holds between two molecular entities where the action or effect of one increases the rate of chemical synthesis of the other",
       "in_subset": [
         "translator_minimal"
@@ -855,6 +899,7 @@
     },
     {
       "name": "decreases_synthesis_of",
+      "definition_uri": "biolink:decreases_synthesis_of",
       "description": "holds between two molecular entities where the action or effect of one decreases the rate of chemical synthesis of the other",
       "in_subset": [
         "translator_minimal"
@@ -871,6 +916,7 @@
     },
     {
       "name": "affects_degradation_of",
+      "definition_uri": "biolink:affects_degradation_of",
       "description": "holds between two molecular entities where the action or effect of one impacts the rate of degradation of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
@@ -887,6 +933,7 @@
     },
     {
       "name": "increases_degradation_of",
+      "definition_uri": "biolink:increases_degradation_of",
       "description": "holds between two molecular entities where the action or effect of one increases the rate of degradation of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
@@ -903,6 +950,7 @@
     },
     {
       "name": "decreases_degradation_of",
+      "definition_uri": "biolink:decreases_degradation_of",
       "description": "holds between two molecular entities where the action or effect of one decreases the rate of degradation of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
@@ -919,6 +967,7 @@
     },
     {
       "name": "affects_mutation_rate_of",
+      "definition_uri": "biolink:affects_mutation_rate_of",
       "description": "holds between a molecular entity and a genomic entity where the action or effect of the molecular entity impacts the rate of mutation of the genomic entity within a system of interest",
       "in_subset": [
         "translator_minimal"
@@ -935,6 +984,7 @@
     },
     {
       "name": "increases_mutation_rate_of",
+      "definition_uri": "biolink:increases_mutation_rate_of",
       "description": "holds between a molecular entity and a genomic entity where the action or effect of the molecular entity increases the rate of mutation of the genomic entity within a system of interest",
       "in_subset": [
         "translator_minimal"
@@ -951,6 +1001,7 @@
     },
     {
       "name": "decreases_mutation_rate_of",
+      "definition_uri": "biolink:decreases_mutation_rate_of",
       "description": "holds between a molecular entity and a genomic entity where the action or effect of the molecular entity decreases the rate of mutation of the genomic entity within a system of interest",
       "in_subset": [
         "translator_minimal"
@@ -967,6 +1018,7 @@
     },
     {
       "name": "affects_response_to",
+      "definition_uri": "biolink:affects_response_to",
       "description": "holds between two molecular entities where the action or effect of one impacts the susceptibility of a biological entity or system (e.g. an organism, cell, cellular component, macromolecular machine, biological or pathological process) to the other",
       "in_subset": [
         "translator_minimal"
@@ -983,6 +1035,7 @@
     },
     {
       "name": "increases_response_to",
+      "definition_uri": "biolink:increases_response_to",
       "description": "holds between two molecular entities where the action or effect of one increases the susceptibility of a biological entity or system (e.g. an organism, cell, cellular component, macromolecular machine, biological or pathological process) to the other",
       "in_subset": [
         "translator_minimal"
@@ -999,6 +1052,7 @@
     },
     {
       "name": "decreases_response_to",
+      "definition_uri": "biolink:decreases_response_to",
       "description": "holds between two molecular entities where the action or effect of one decreases the susceptibility of a biological entity or system (e.g. an organism, cell, cellular component, macromolecular machine, biological or pathological process) to the other",
       "in_subset": [
         "translator_minimal"
@@ -1015,6 +1069,7 @@
     },
     {
       "name": "affects_splicing_of",
+      "definition_uri": "biolink:affects_splicing_of",
       "description": "holds between a molecular entity and an mRNA where the action or effect of the molecular entity impacts the splicing of the mRNA",
       "in_subset": [
         "translator_minimal"
@@ -1031,6 +1086,7 @@
     },
     {
       "name": "increases_splicing_of",
+      "definition_uri": "biolink:increases_splicing_of",
       "description": "holds between a molecular entity and an mRNA where the action or effect of the molecular entity increases the proper splicing of the mRNA",
       "in_subset": [
         "translator_minimal"
@@ -1047,6 +1103,7 @@
     },
     {
       "name": "decreases_splicing_of",
+      "definition_uri": "biolink:decreases_splicing_of",
       "description": "holds between a molecular entity and an mRNA where the action or effect of the molecular entity decreases the proper splicing of the mRNA",
       "in_subset": [
         "translator_minimal"
@@ -1063,6 +1120,7 @@
     },
     {
       "name": "affects_stability_of",
+      "definition_uri": "biolink:affects_stability_of",
       "description": "holds between two molecular entities where the action or effect of one impacts the stability of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
@@ -1079,6 +1137,7 @@
     },
     {
       "name": "increases_stability_of",
+      "definition_uri": "biolink:increases_stability_of",
       "description": "holds between two molecular entities where the action or effect of one increases the stability of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
@@ -1095,6 +1154,7 @@
     },
     {
       "name": "decreases_stability_of",
+      "definition_uri": "biolink:decreases_stability_of",
       "description": "holds between two molecular entities where the action or effect of one decreases the stability of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
@@ -1111,6 +1171,7 @@
     },
     {
       "name": "affects_transport_of",
+      "definition_uri": "biolink:affects_transport_of",
       "description": "holds between two molecular entities where the action or effect of one impacts the rate of transport of the other across some boundary in a system of interest",
       "in_subset": [
         "translator_minimal"
@@ -1127,6 +1188,7 @@
     },
     {
       "name": "increases_transport_of",
+      "definition_uri": "biolink:increases_transport_of",
       "description": "holds between two molecular entities where the action or effect of one increases the rate of transport of the other across some boundary in a system of interest",
       "in_subset": [
         "translator_minimal"
@@ -1143,6 +1205,7 @@
     },
     {
       "name": "decreases_transport_of",
+      "definition_uri": "biolink:decreases_transport_of",
       "description": "holds between two molecular entities where the action or effect of one decreases the rate of transport of the other across some boundary in a system of interest",
       "in_subset": [
         "translator_minimal"
@@ -1159,6 +1222,7 @@
     },
     {
       "name": "affects_secretion_of",
+      "definition_uri": "biolink:affects_secretion_of",
       "description": "holds between two molecular entities where the action or effect of one impacts the rate of secretion of the other out of a cell, gland, or organ",
       "in_subset": [
         "translator_minimal"
@@ -1175,6 +1239,7 @@
     },
     {
       "name": "increases_secretion_of",
+      "definition_uri": "biolink:increases_secretion_of",
       "description": "holds between two molecular entities where the action or effect of one increases the rate of secretion of the other out of a cell, gland, or organ",
       "in_subset": [
         "translator_minimal"
@@ -1191,6 +1256,7 @@
     },
     {
       "name": "decreases_secretion_of",
+      "definition_uri": "biolink:decreases_secretion_of",
       "description": "holds between two molecular entities where the action or effect of one decreases the rate of secretion of the other out of a cell, gland, or organ",
       "in_subset": [
         "translator_minimal"
@@ -1207,6 +1273,7 @@
     },
     {
       "name": "affects_uptake_of",
+      "definition_uri": "biolink:affects_uptake_of",
       "description": "holds between two molecular entities where the action or effect of one impacts the rate of uptake of the other into of a cell, gland, or organ",
       "in_subset": [
         "translator_minimal"
@@ -1223,6 +1290,7 @@
     },
     {
       "name": "increases_uptake_of",
+      "definition_uri": "biolink:increases_uptake_of",
       "description": "holds between two molecular entities where the action or effect of one increases the rate of uptake of the other into of a cell, gland, or organ",
       "in_subset": [
         "translator_minimal"
@@ -1239,6 +1307,7 @@
     },
     {
       "name": "decreases_uptake_of",
+      "definition_uri": "biolink:decreases_uptake_of",
       "description": "holds between two molecular entities where the action or effect of one decreases the rate of uptake of the other into of a cell, gland, or organ",
       "in_subset": [
         "translator_minimal"
@@ -1255,6 +1324,7 @@
     },
     {
       "name": "regulates",
+      "definition_uri": "biolink:regulates",
       "mappings": [
         "WD:P128"
       ],
@@ -1275,6 +1345,7 @@
     },
     {
       "name": "positively_regulates",
+      "definition_uri": "biolink:positively_regulates",
       "comments": [
         "This is a grouping for process-process and entity-entity relations"
       ],
@@ -1292,6 +1363,7 @@
     },
     {
       "name": "negatively_regulates",
+      "definition_uri": "biolink:negatively_regulates",
       "comments": [
         "This is a grouping for process-process and entity-entity relations"
       ],
@@ -1309,6 +1381,7 @@
     },
     {
       "name": "regulates_process_to_process",
+      "definition_uri": "biolink:regulates_process_to_process",
       "mappings": [
         "RO:0002211"
       ],
@@ -1324,6 +1397,7 @@
     },
     {
       "name": "positively_regulates_process_to_process",
+      "definition_uri": "biolink:positively_regulates_process_to_process",
       "mappings": [
         "RO:0002213"
       ],
@@ -1342,6 +1416,7 @@
     },
     {
       "name": "negatively_regulates_process_to_process",
+      "definition_uri": "biolink:negatively_regulates_process_to_process",
       "mappings": [
         "RO:0002212"
       ],
@@ -1360,6 +1435,7 @@
     },
     {
       "name": "regulates_entity_to_entity",
+      "definition_uri": "biolink:regulates_entity_to_entity",
       "aliases": [
         "activity directly regulates activity of"
       ],
@@ -1393,6 +1469,7 @@
     },
     {
       "name": "positively_regulates_entity_to_entity",
+      "definition_uri": "biolink:positively_regulates_entity_to_entity",
       "aliases": [
         "activity directly positively regulates activity of"
       ],
@@ -1430,6 +1507,7 @@
     },
     {
       "name": "negatively_regulates_entity_to_entity",
+      "definition_uri": "biolink:negatively_regulates_entity_to_entity",
       "aliases": [
         "activity directly negatively regulates activity of"
       ],
@@ -1467,6 +1545,7 @@
     },
     {
       "name": "disrupts",
+      "definition_uri": "biolink:disrupts",
       "mappings": [
         "SEMMEDDB:DISRUPTS"
       ],
@@ -1486,6 +1565,7 @@
     },
     {
       "name": "has_gene_product",
+      "definition_uri": "biolink:has_gene_product",
       "mappings": [
         "RO:0002205",
         "WD:P688"
@@ -1506,6 +1586,7 @@
     },
     {
       "name": "homologous_to",
+      "definition_uri": "biolink:homologous_to",
       "aliases": [
         "in homology relationship with"
       ],
@@ -1532,6 +1613,7 @@
     },
     {
       "name": "paralogous_to",
+      "definition_uri": "biolink:paralogous_to",
       "mappings": [
         "RO:HOM0000011"
       ],
@@ -1551,6 +1633,7 @@
     },
     {
       "name": "orthologous_to",
+      "definition_uri": "biolink:orthologous_to",
       "mappings": [
         "RO:HOM0000017",
         "WD:P684"
@@ -1571,6 +1654,7 @@
     },
     {
       "name": "xenologous_to",
+      "definition_uri": "biolink:xenologous_to",
       "mappings": [
         "RO:HOM0000018"
       ],
@@ -1590,6 +1674,7 @@
     },
     {
       "name": "coexists_with",
+      "definition_uri": "biolink:coexists_with",
       "mappings": [
         "SEMMEDDB:COEXISTS_WITH"
       ],
@@ -1609,6 +1694,7 @@
     },
     {
       "name": "in_pathway_with",
+      "definition_uri": "biolink:in_pathway_with",
       "description": "holds between two genes or gene products that are part of in the same biological pathway",
       "in_subset": [
         "translator_minimal"
@@ -1625,6 +1711,7 @@
     },
     {
       "name": "in_complex_with",
+      "definition_uri": "biolink:in_complex_with",
       "description": "holds between two genes or gene products that are part of (or code for products that are part of) in the same macromolecular complex",
       "in_subset": [
         "translator_minimal"
@@ -1641,6 +1728,7 @@
     },
     {
       "name": "in_cell_population_with",
+      "definition_uri": "biolink:in_cell_population_with",
       "description": "holds between two genes or gene products that are expressed in the same cell type or population",
       "in_subset": [
         "translator_minimal"
@@ -1657,6 +1745,7 @@
     },
     {
       "name": "colocalizes_with",
+      "definition_uri": "biolink:colocalizes_with",
       "mappings": [
         "RO:00002325"
       ],
@@ -1676,6 +1765,7 @@
     },
     {
       "name": "gene_associated_with_condition",
+      "definition_uri": "biolink:gene_associated_with_condition",
       "mappings": [
         "WD:P2293"
       ],
@@ -1695,6 +1785,7 @@
     },
     {
       "name": "affects_risk_for",
+      "definition_uri": "biolink:affects_risk_for",
       "description": "holds between two entities where exposure to one entity alters the chance of developing the other",
       "in_subset": [
         "translator_minimal"
@@ -1711,6 +1802,7 @@
     },
     {
       "name": "predisposes",
+      "definition_uri": "biolink:predisposes",
       "mappings": [
         "SEMMEDDB:PREDISPOSES"
       ],
@@ -1730,6 +1822,7 @@
     },
     {
       "name": "contributes_to",
+      "definition_uri": "biolink:contributes_to",
       "mappings": [
         "RO:0002326"
       ],
@@ -1749,6 +1842,7 @@
     },
     {
       "name": "causes",
+      "definition_uri": "biolink:causes",
       "mappings": [
         "RO:0002410",
         "SEMMEDDB:CAUSES",
@@ -1770,6 +1864,7 @@
     },
     {
       "name": "treats",
+      "definition_uri": "biolink:treats",
       "aliases": [
         "is substance that treats"
       ],
@@ -1797,6 +1892,7 @@
     },
     {
       "name": "prevents",
+      "definition_uri": "biolink:prevents",
       "mappings": [
         "RO:0002599",
         "SEMMEDDB:PREVENTS"
@@ -1817,6 +1913,7 @@
     },
     {
       "name": "correlated_with",
+      "definition_uri": "biolink:correlated_with",
       "mappings": [
         "RO:0002610"
       ],
@@ -1836,6 +1933,7 @@
     },
     {
       "name": "has_biomarker",
+      "definition_uri": "biolink:has_biomarker",
       "description": "holds between a disease or phenotypic feature and a measurable molecular entity that is used as an indicator of the presence or state of the disease or feature.",
       "in_subset": [
         "translator_minimal"
@@ -1853,6 +1951,7 @@
     },
     {
       "name": "biomarker_for",
+      "definition_uri": "biolink:biomarker_for",
       "mappings": [
         "RO:0002607"
       ],
@@ -1873,6 +1972,7 @@
     },
     {
       "name": "treated_by",
+      "definition_uri": "biolink:treated_by",
       "mappings": [
         "RO:0002302",
         "WD:P2176"
@@ -1894,6 +1994,7 @@
     },
     {
       "name": "expressed_in",
+      "definition_uri": "biolink:expressed_in",
       "mappings": [
         "RO:0002206"
       ],
@@ -1914,6 +2015,7 @@
     },
     {
       "name": "expresses",
+      "definition_uri": "biolink:expresses",
       "mappings": [
         "RO:0002292"
       ],
@@ -1934,6 +2036,7 @@
     },
     {
       "name": "has_phenotype",
+      "definition_uri": "biolink:has_phenotype",
       "mappings": [
         "RO:0002200"
       ],
@@ -1956,6 +2059,7 @@
     },
     {
       "name": "occurs_in",
+      "definition_uri": "biolink:occurs_in",
       "mappings": [
         "BFO:0000066",
         "SEMMEDDB:OCCURS_IN",
@@ -1977,6 +2081,7 @@
     },
     {
       "name": "located_in",
+      "definition_uri": "biolink:located_in",
       "mappings": [
         "RO:0001025"
       ],
@@ -1997,6 +2102,7 @@
     },
     {
       "name": "location_of",
+      "definition_uri": "biolink:location_of",
       "mappings": [
         "RO:0001015",
         "SEMMEDDB:LOCATION_OF",
@@ -2019,6 +2125,7 @@
     },
     {
       "name": "model_of",
+      "definition_uri": "biolink:model_of",
       "mappings": [
         "RO:0003301"
       ],
@@ -2038,6 +2145,7 @@
     },
     {
       "name": "overlaps",
+      "definition_uri": "biolink:overlaps",
       "mappings": [
         "RO:0002131"
       ],
@@ -2057,6 +2165,7 @@
     },
     {
       "name": "has_part",
+      "definition_uri": "biolink:has_part",
       "mappings": [
         "BFO:0000051",
         "WD:P527"
@@ -2078,6 +2187,7 @@
     },
     {
       "name": "part_of",
+      "definition_uri": "biolink:part_of",
       "mappings": [
         "BFO:0000050",
         "SEMMEDDB:PART_OF",
@@ -2100,6 +2210,7 @@
     },
     {
       "name": "has_participant",
+      "definition_uri": "biolink:has_participant",
       "mappings": [
         "RO:0000057",
         "WD:P2283"
@@ -2121,6 +2232,7 @@
     },
     {
       "name": "has_input",
+      "definition_uri": "biolink:has_input",
       "mappings": [
         "RO:0002233",
         "SEMMEDDB:USES"
@@ -2141,6 +2253,7 @@
     },
     {
       "name": "has_output",
+      "definition_uri": "biolink:has_output",
       "mappings": [
         "RO:0002234"
       ],
@@ -2160,6 +2273,7 @@
     },
     {
       "name": "participates_in",
+      "definition_uri": "biolink:participates_in",
       "mappings": [
         "RO:0000056"
       ],
@@ -2180,6 +2294,7 @@
     },
     {
       "name": "actively_involved_in",
+      "definition_uri": "biolink:actively_involved_in",
       "mappings": [
         "RO:0002331"
       ],
@@ -2199,6 +2314,7 @@
     },
     {
       "name": "capable_of",
+      "definition_uri": "biolink:capable_of",
       "mappings": [
         "RO:0002215"
       ],
@@ -2218,6 +2334,7 @@
     },
     {
       "name": "enabled_by",
+      "definition_uri": "biolink:enabled_by",
       "mappings": [
         "RO:0002333"
       ],
@@ -2237,6 +2354,7 @@
     },
     {
       "name": "derives_into",
+      "definition_uri": "biolink:derives_into",
       "mappings": [
         "RO:0001001",
         "SEMMEDDB:CONVERTS_TO"
@@ -2258,6 +2376,7 @@
     },
     {
       "name": "derives_from",
+      "definition_uri": "biolink:derives_from",
       "mappings": [
         "RO:0001000"
       ],
@@ -2279,6 +2398,7 @@
     },
     {
       "name": "manifestation_of",
+      "definition_uri": "biolink:manifestation_of",
       "mappings": [
         "SEMMEDDB:MANIFESTATION_OF",
         "WD:P1557"
@@ -2299,6 +2419,7 @@
     },
     {
       "name": "produces",
+      "definition_uri": "biolink:produces",
       "mappings": [
         "RO:0003000",
         "WD:P1056",
@@ -2320,6 +2441,7 @@
     },
     {
       "name": "precedes",
+      "definition_uri": "biolink:precedes",
       "mappings": [
         "BFO:0000063",
         "SEMMEDDB:PRECEDES",
@@ -2341,6 +2463,7 @@
     },
     {
       "name": "same_as",
+      "definition_uri": "biolink:same_as",
       "mappings": [
         "owl:equivalentClass",
         "owl:sameAs",
@@ -2363,6 +2486,7 @@
     },
     {
       "name": "subclass_of",
+      "definition_uri": "biolink:subclass_of",
       "mappings": [
         "rdfs:subClassOf",
         "SEMMEDDB:IS_A",
@@ -2384,6 +2508,7 @@
     },
     {
       "name": "node_property",
+      "definition_uri": "biolink:node_property",
       "description": "A grouping for any property that holds between a node and a value",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "domain": "NamedThing",
@@ -2394,6 +2519,7 @@
     },
     {
       "name": "title",
+      "definition_uri": "biolink:title",
       "mappings": [
         "dct:title"
       ],
@@ -2407,6 +2533,7 @@
     },
     {
       "name": "source_data_file",
+      "definition_uri": "biolink:source_data_file",
       "mappings": [
         "dcterms:source"
       ],
@@ -2420,6 +2547,7 @@
     },
     {
       "name": "source_web_page",
+      "definition_uri": "biolink:source_web_page",
       "mappings": [
         "dcterms:source"
       ],
@@ -2433,6 +2561,7 @@
     },
     {
       "name": "retrievedOn",
+      "definition_uri": "biolink:retrievedOn",
       "mappings": [
         "pav:retrievedOn"
       ],
@@ -2446,6 +2575,7 @@
     },
     {
       "name": "versionOf",
+      "definition_uri": "biolink:versionOf",
       "mappings": [
         "dct:isVersionOf"
       ],
@@ -2459,6 +2589,7 @@
     },
     {
       "name": "source_version",
+      "definition_uri": "biolink:source_version",
       "mappings": [
         "pav:version"
       ],
@@ -2472,6 +2603,7 @@
     },
     {
       "name": "downloadURL",
+      "definition_uri": "biolink:downloadURL",
       "mappings": [
         "dct:downloadURL"
       ],
@@ -2485,6 +2617,7 @@
     },
     {
       "name": "distribution",
+      "definition_uri": "biolink:distribution",
       "mappings": [
         "void:Dataset"
       ],
@@ -2498,6 +2631,7 @@
     },
     {
       "name": "type",
+      "definition_uri": "biolink:type",
       "mappings": [
         "rdf:type"
       ],
@@ -2511,6 +2645,7 @@
     },
     {
       "name": "id",
+      "definition_uri": "biolink:id",
       "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
       "in_subset": [
         "translator_minimal"
@@ -2527,6 +2662,7 @@
     },
     {
       "name": "association_id",
+      "definition_uri": "biolink:association_id",
       "description": "A unique identifier for an association",
       "in_subset": [
         "translator_minimal"
@@ -2545,6 +2681,7 @@
     },
     {
       "name": "iri",
+      "definition_uri": "biolink:iri",
       "description": "An IRI for the node. This is determined by the id using expansion rules.",
       "in_subset": [
         "translator_minimal"
@@ -2559,6 +2696,7 @@
     },
     {
       "name": "name",
+      "definition_uri": "biolink:name",
       "aliases": [
         "label",
         "display name"
@@ -2581,6 +2719,7 @@
     },
     {
       "name": "synonym",
+      "definition_uri": "biolink:synonym",
       "aliases": [
         "alias"
       ],
@@ -2599,6 +2738,7 @@
     },
     {
       "name": "category",
+      "definition_uri": "biolink:category",
       "mappings": [
         "rdfs:subClassOf"
       ],
@@ -2619,6 +2759,7 @@
     },
     {
       "name": "full_name",
+      "definition_uri": "biolink:full_name",
       "description": "a long-form human readable name for a thing",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
@@ -2630,6 +2771,7 @@
     },
     {
       "name": "description",
+      "definition_uri": "biolink:description",
       "mappings": [
         "dcterms:description"
       ],
@@ -2647,6 +2789,7 @@
     },
     {
       "name": "systematic_synonym",
+      "definition_uri": "biolink:systematic_synonym",
       "description": "more commonly used for gene symbols in yeast",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
@@ -2659,6 +2802,7 @@
     },
     {
       "name": "association_slot",
+      "definition_uri": "biolink:association_slot",
       "aliases": [
         "edge property",
         "statement property"
@@ -2674,6 +2818,7 @@
     },
     {
       "name": "subject",
+      "definition_uri": "biolink:subject",
       "local_names": [
         {
           "local_name_source": "ga4gh",
@@ -2703,6 +2848,7 @@
     },
     {
       "name": "object",
+      "definition_uri": "biolink:object",
       "local_names": [
         {
           "local_name_source": "ga4gh",
@@ -2732,6 +2878,7 @@
     },
     {
       "name": "edge_label",
+      "definition_uri": "biolink:edge_label",
       "description": "A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.",
       "notes": [
         "in neo4j this corresponds to the relationship type and the convention is for a snake_case label"
@@ -2747,6 +2894,7 @@
     },
     {
       "name": "relation",
+      "definition_uri": "biolink:relation",
       "local_names": [
         {
           "local_name_source": "ga4gh",
@@ -2776,6 +2924,7 @@
     },
     {
       "name": "negated",
+      "definition_uri": "biolink:negated",
       "description": "if set to true, then the association is negated i.e. is not true",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "association_slot",
@@ -2787,6 +2936,7 @@
     },
     {
       "name": "has_confidence_level",
+      "definition_uri": "biolink:has_confidence_level",
       "description": "connects an association to a qualitative term denoting the level of confidence",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "association_slot",
@@ -2798,6 +2948,7 @@
     },
     {
       "name": "has_evidence",
+      "definition_uri": "biolink:has_evidence",
       "mappings": [
         "RO:0002558"
       ],
@@ -2812,6 +2963,7 @@
     },
     {
       "name": "provided_by",
+      "definition_uri": "biolink:provided_by",
       "mappings": [
         "pav:providedBy"
       ],
@@ -2826,6 +2978,7 @@
     },
     {
       "name": "association_type",
+      "definition_uri": "biolink:association_type",
       "mappings": [
         "rdf:type"
       ],
@@ -2840,6 +2993,7 @@
     },
     {
       "name": "creation_date",
+      "definition_uri": "biolink:creation_date",
       "mappings": [
         "dcterms:created"
       ],
@@ -2854,6 +3008,7 @@
     },
     {
       "name": "update_date",
+      "definition_uri": "biolink:update_date",
       "description": "date on which thing was updated. This can be applied to nodes or edges",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
@@ -2865,6 +3020,7 @@
     },
     {
       "name": "in_taxon",
+      "definition_uri": "biolink:in_taxon",
       "mappings": [
         "RO:0002162",
         "WD:P703"
@@ -2885,6 +3041,7 @@
     },
     {
       "name": "latitude",
+      "definition_uri": "biolink:latitude",
       "mappings": [
         "wgs:lat"
       ],
@@ -2899,6 +3056,7 @@
     },
     {
       "name": "longitude",
+      "definition_uri": "biolink:longitude",
       "mappings": [
         "wgs:long"
       ],
@@ -2913,6 +3071,7 @@
     },
     {
       "name": "has_chemical_formula",
+      "definition_uri": "biolink:has_chemical_formula",
       "mappings": [
         "WD:P274"
       ],
@@ -2927,6 +3086,7 @@
     },
     {
       "name": "aggregate_statistic",
+      "definition_uri": "biolink:aggregate_statistic",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
       "abstract": true,
@@ -2938,6 +3098,7 @@
     },
     {
       "name": "has_count",
+      "definition_uri": "biolink:has_count",
       "description": "number of things with a particular property",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "aggregate_statistic",
@@ -2949,6 +3110,7 @@
     },
     {
       "name": "has_total",
+      "definition_uri": "biolink:has_total",
       "description": "total number of things in a particular reference set",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "aggregate_statistic",
@@ -2960,6 +3122,7 @@
     },
     {
       "name": "has_quotient",
+      "definition_uri": "biolink:has_quotient",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "aggregate_statistic",
       "domain": "NamedThing",
@@ -2970,6 +3133,7 @@
     },
     {
       "name": "has_percentage",
+      "definition_uri": "biolink:has_percentage",
       "description": "equivalent to has quotient multiplied by 100",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "aggregate_statistic",
@@ -2981,6 +3145,7 @@
     },
     {
       "name": "timepoint",
+      "definition_uri": "biolink:timepoint",
       "description": "a point in time",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
@@ -2992,6 +3157,7 @@
     },
     {
       "name": "stage_qualifier",
+      "definition_uri": "biolink:stage_qualifier",
       "description": "stage at which expression takes place",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "association_slot",
@@ -3003,6 +3169,7 @@
     },
     {
       "name": "quantifier_qualifier",
+      "definition_uri": "biolink:quantifier_qualifier",
       "description": "A measurable quantity for the object of the association",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "association_slot",
@@ -3014,6 +3181,7 @@
     },
     {
       "name": "qualifiers",
+      "definition_uri": "biolink:qualifiers",
       "local_names": [
         {
           "local_name_source": "ga4gh",
@@ -3034,6 +3202,7 @@
     },
     {
       "name": "frequency_qualifier",
+      "definition_uri": "biolink:frequency_qualifier",
       "description": "a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "association_slot",
@@ -3045,6 +3214,7 @@
     },
     {
       "name": "severity_qualifier",
+      "definition_uri": "biolink:severity_qualifier",
       "description": "a qualifier used in a phenotypic association to state how severe the phenotype is in the subject",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "association_slot",
@@ -3056,6 +3226,7 @@
     },
     {
       "name": "sex_qualifier",
+      "definition_uri": "biolink:sex_qualifier",
       "description": "a qualifier used in a phenotypic association to state whether the association is specific to a particular sex.",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "association_slot",
@@ -3067,6 +3238,7 @@
     },
     {
       "name": "onset_qualifier",
+      "definition_uri": "biolink:onset_qualifier",
       "description": "a qualifier used in a phenotypic association to state when the phenotype appears is in the subject",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "association_slot",
@@ -3078,6 +3250,7 @@
     },
     {
       "name": "clinical_modifier_qualifier",
+      "definition_uri": "biolink:clinical_modifier_qualifier",
       "description": "Used to characterize and specify the phenotypic abnormalities defined in the Phenotypic abnormality subontology, with respect to severity, laterality, age of onset, and other aspects",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "association_slot",
@@ -3089,6 +3262,7 @@
     },
     {
       "name": "sequence_variant_qualifier",
+      "definition_uri": "biolink:sequence_variant_qualifier",
       "description": "a qualifier used in an association where the variant",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "association_slot",
@@ -3100,6 +3274,7 @@
     },
     {
       "name": "publications",
+      "definition_uri": "biolink:publications",
       "description": "connects an association to publications supporting the association",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "association_slot",
@@ -3113,6 +3288,7 @@
     },
     {
       "name": "change_is_catalyzed_by",
+      "definition_uri": "biolink:change_is_catalyzed_by",
       "description": "hyperedge connecting an association between two causally connected entities (for example, two chemical entities, or a chemical entity in that changes location) and the gene product, gene, or complex that enables or catalyzes the change.",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "association_slot",
@@ -3125,6 +3301,7 @@
     },
     {
       "name": "has_biological_sequence",
+      "definition_uri": "biolink:has_biological_sequence",
       "description": "connects a genomic feature to its sequence",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
@@ -3136,6 +3313,7 @@
     },
     {
       "name": "has_molecular_consequence",
+      "definition_uri": "biolink:has_molecular_consequence",
       "description": "connects a sequence variant to a class describing the molecular consequence. E.g.  SO:0001583",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
@@ -3149,6 +3327,7 @@
     },
     {
       "name": "has_gene",
+      "definition_uri": "biolink:has_gene",
       "description": "connects and entity to a single gene",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
@@ -3160,6 +3339,7 @@
     },
     {
       "name": "has_zygosity",
+      "definition_uri": "biolink:has_zygosity",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
       "domain": "NamedThing",
@@ -3170,6 +3350,7 @@
     },
     {
       "name": "filler",
+      "definition_uri": "biolink:filler",
       "description": "The value in a property-value tuple",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
@@ -3181,6 +3362,7 @@
     },
     {
       "name": "phase",
+      "definition_uri": "biolink:phase",
       "description": "TODO",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
@@ -3192,6 +3374,7 @@
     },
     {
       "name": "genome_build",
+      "definition_uri": "biolink:genome_build",
       "description": "TODO",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
@@ -3203,6 +3386,7 @@
     },
     {
       "name": "interbase_coordinate",
+      "definition_uri": "biolink:interbase_coordinate",
       "description": "TODO",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
@@ -3214,6 +3398,7 @@
     },
     {
       "name": "start_interbase_coordinate",
+      "definition_uri": "biolink:start_interbase_coordinate",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "interbase_coordinate",
       "domain": "NamedThing",
@@ -3224,6 +3409,7 @@
     },
     {
       "name": "end_interbase_coordinate",
+      "definition_uri": "biolink:end_interbase_coordinate",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "interbase_coordinate",
       "domain": "NamedThing",
@@ -3234,6 +3420,7 @@
     },
     {
       "name": "has_attribute",
+      "definition_uri": "biolink:has_attribute",
       "mappings": [
         "SIO:000008",
         "RO:0000053"
@@ -3251,6 +3438,7 @@
     },
     {
       "name": "has_attribute_type",
+      "definition_uri": "biolink:has_attribute_type",
       "description": "connects an attribute to a class that describes it",
       "in_subset": [
         "samples"
@@ -3264,6 +3452,7 @@
     },
     {
       "name": "has_qualitative_value",
+      "definition_uri": "biolink:has_qualitative_value",
       "description": "connects an attribute to a value",
       "in_subset": [
         "samples"
@@ -3277,6 +3466,7 @@
     },
     {
       "name": "has_quantitative_value",
+      "definition_uri": "biolink:has_quantitative_value",
       "mappings": [
         "qud:quantityValue"
       ],
@@ -3295,6 +3485,7 @@
     },
     {
       "name": "has_numeric_value",
+      "definition_uri": "biolink:has_numeric_value",
       "mappings": [
         "qud:quantityValue"
       ],
@@ -3311,6 +3502,7 @@
     },
     {
       "name": "has_unit",
+      "definition_uri": "biolink:has_unit",
       "mappings": [
         "qud:unit"
       ],
@@ -3326,73 +3518,86 @@
       "type": "SlotDefinition"
     },
     {
+      "name": "mappings",
+      "definition_uri": "meta:mappings",
+      "mappings": [
+        "skos:mappingRelation"
+      ],
+      "description": "A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective.",
+      "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
+      "imported_from": "../../../includes/mappings",
+      "range": "uriorcurie",
+      "slot_uri": "http://www.w3.org/2004/02/skos/core#mappingRelation",
+      "multivalued": true,
+      "type": "SlotDefinition"
+    },
+    {
       "name": "exact_mappings",
+      "definition_uri": "meta:exact_mappings",
       "mappings": [
         "skos:exactMatch"
       ],
       "description": "A list of terms from different schemas or terminology systems that have identical meaning.",
       "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
-      "imported_from": "file:///Users/solbrig/git/biolink/biolinkml/includes/mappings",
+      "imported_from": "../../../includes/mappings",
       "is_a": "mappings",
-      "domain": "NamedThing",
       "range": "uriorcurie",
       "slot_uri": "http://www.w3.org/2004/02/skos/core#exactMatch",
       "multivalued": true,
-      "owner": "exact_mappings",
       "type": "SlotDefinition"
     },
     {
       "name": "close_mappings",
+      "definition_uri": "meta:close_mappings",
       "mappings": [
         "skos:closeMatch"
       ],
       "description": "A list of terms from different schemas or terminology systems that have close meaning.",
       "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
-      "imported_from": "file:///Users/solbrig/git/biolink/biolinkml/includes/mappings",
+      "imported_from": "../../../includes/mappings",
       "is_a": "mappings",
-      "domain": "NamedThing",
       "range": "uriorcurie",
       "slot_uri": "http://www.w3.org/2004/02/skos/core#closeMatch",
       "multivalued": true,
-      "owner": "close_mappings",
       "type": "SlotDefinition"
     },
     {
       "name": "related_mappings",
+      "definition_uri": "meta:related_mappings",
       "mappings": [
         "skos:relatedMatch"
       ],
       "description": "A list of terms from different schemas or terminology systems that have related meaning.",
       "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
-      "imported_from": "file:///Users/solbrig/git/biolink/biolinkml/includes/mappings",
+      "imported_from": "../../../includes/mappings",
       "is_a": "mappings",
-      "domain": "NamedThing",
       "range": "uriorcurie",
       "slot_uri": "http://www.w3.org/2004/02/skos/core#relatedMatch",
       "multivalued": true,
-      "owner": "related_mappings",
       "type": "SlotDefinition"
     },
     {
       "name": "deprecated_element_has_exact_replacement",
+      "definition_uri": "meta:deprecated_element_has_exact_replacement",
       "mappings": [
         "IAO:0100001"
       ],
       "description": "When an element is deprecated, it can be automatically replaced by this uri or curie",
       "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
-      "imported_from": "file:///Users/solbrig/git/biolink/biolinkml/includes/mappings",
+      "imported_from": "../../../includes/mappings",
       "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/deprecated_element_has_exact_replacement",
       "type": "SlotDefinition"
     },
     {
       "name": "deprecated_element_has_possible_replacement",
+      "definition_uri": "meta:deprecated_element_has_possible_replacement",
       "mappings": [
         "OIO:consider"
       ],
       "description": "When an element is deprecated, it can be potentially replaced by this uri or curie",
       "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
-      "imported_from": "file:///Users/solbrig/git/biolink/biolinkml/includes/mappings",
+      "imported_from": "../../../includes/mappings",
       "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/deprecated_element_has_possible_replacement",
       "type": "SlotDefinition"
@@ -4827,6 +5032,7 @@
   "classes": [
     {
       "name": "AbstractEntity",
+      "definition_uri": "biolink:AbstractEntity",
       "description": "Any thing that is not a process or a physical mass-bearing entity",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "class_uri": "https://w3id.org/biolink/vocab/AbstractEntity",
@@ -4834,6 +5040,7 @@
     },
     {
       "name": "Attribute",
+      "definition_uri": "biolink:Attribute",
       "mappings": [
         "SIO:000614"
       ],
@@ -4854,7 +5061,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -4870,6 +5076,7 @@
     },
     {
       "name": "QuantityValue",
+      "definition_uri": "biolink:QuantityValue",
       "description": "A value of an attribute that is quantitative and measurable, expressed as a combination of a unit and a numeric value",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "AbstractEntity",
@@ -4882,6 +5089,7 @@
     },
     {
       "name": "BiologicalSex",
+      "definition_uri": "biolink:BiologicalSex",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Attribute",
       "slots": [
@@ -4892,7 +5100,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -4908,6 +5115,7 @@
     },
     {
       "name": "PhenotypicSex",
+      "definition_uri": "biolink:PhenotypicSex",
       "description": "An attribute corresponding to the phenotypic sex of the individual, based upon the reproductive organs present.",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "BiologicalSex",
@@ -4919,7 +5127,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -4935,6 +5142,7 @@
     },
     {
       "name": "GenotypicSex",
+      "definition_uri": "biolink:GenotypicSex",
       "description": "An attribute corresponding to the genotypic sex of the individual, based upon genotypic composition of sex chromosomes.",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "BiologicalSex",
@@ -4946,7 +5154,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -4962,6 +5169,7 @@
     },
     {
       "name": "SeverityValue",
+      "definition_uri": "biolink:SeverityValue",
       "description": "describes the severity of a phenotypic feature or disease",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Attribute",
@@ -4973,7 +5181,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -4988,6 +5195,7 @@
     },
     {
       "name": "FrequencyValue",
+      "definition_uri": "biolink:FrequencyValue",
       "description": "describes the frequency of occurrence of an event or condition",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Attribute",
@@ -4999,7 +5207,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -5014,6 +5221,7 @@
     },
     {
       "name": "ClinicalModifier",
+      "definition_uri": "biolink:ClinicalModifier",
       "description": "Used to characterize and specify the phenotypic abnormalities defined in the Phenotypic abnormality subontology, with respect to severity, laterality, age of onset, and other aspects",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Attribute",
@@ -5025,7 +5233,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -5041,6 +5248,7 @@
     },
     {
       "name": "Onset",
+      "definition_uri": "biolink:Onset",
       "mappings": [
         "HP:0003674"
       ],
@@ -5055,7 +5263,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -5070,6 +5277,7 @@
     },
     {
       "name": "RelationshipQuantifier",
+      "definition_uri": "biolink:RelationshipQuantifier",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "abstract": true,
       "mixin": true,
@@ -5078,6 +5286,7 @@
     },
     {
       "name": "SensitivityQuantifier",
+      "definition_uri": "biolink:SensitivityQuantifier",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "RelationshipQuantifier",
       "mixin": true,
@@ -5086,6 +5295,7 @@
     },
     {
       "name": "SpecificityQuantifier",
+      "definition_uri": "biolink:SpecificityQuantifier",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "RelationshipQuantifier",
       "mixin": true,
@@ -5094,6 +5304,7 @@
     },
     {
       "name": "PathognomonicityQuantifier",
+      "definition_uri": "biolink:PathognomonicityQuantifier",
       "description": "A relationship quantifier between a variant or symptom and a disease, which is high when the presence of the feature implies the existence of the disease",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "SpecificityQuantifier",
@@ -5103,6 +5314,7 @@
     },
     {
       "name": "FrequencyQuantifier",
+      "definition_uri": "biolink:FrequencyQuantifier",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "RelationshipQuantifier",
       "mixin": true,
@@ -5117,6 +5329,7 @@
     },
     {
       "name": "NamedThing",
+      "definition_uri": "biolink:NamedThing",
       "mappings": [
         "WD:Q35120",
         "UMLSSG:OBJC",
@@ -5136,7 +5349,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -5197,10 +5409,7 @@
         "genome_build",
         "interbase_coordinate",
         "start_interbase_coordinate",
-        "end_interbase_coordinate",
-        "exact_mappings",
-        "close_mappings",
-        "related_mappings"
+        "end_interbase_coordinate"
       ],
       "class_uri": "http://example.org/UNKNOWN/WD/Q35120",
       "subclass_of": "BFO:0000001",
@@ -5208,6 +5417,7 @@
     },
     {
       "name": "DataFile",
+      "definition_uri": "biolink:DataFile",
       "mappings": [
         "EFO:0004095"
       ],
@@ -5218,7 +5428,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -5232,6 +5441,7 @@
     },
     {
       "name": "SourceFile",
+      "definition_uri": "biolink:SourceFile",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "DataFile",
       "slots": [
@@ -5239,7 +5449,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -5255,6 +5464,7 @@
     },
     {
       "name": "DataSet",
+      "definition_uri": "biolink:DataSet",
       "mappings": [
         "IAO:0000100"
       ],
@@ -5265,7 +5475,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -5279,6 +5488,7 @@
     },
     {
       "name": "DataSetVersion",
+      "definition_uri": "biolink:DataSetVersion",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "DataSet",
       "slots": [
@@ -5286,7 +5496,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -5305,6 +5514,7 @@
     },
     {
       "name": "DistributionLevel",
+      "definition_uri": "biolink:DistributionLevel",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "DataSetVersion",
       "mixin": true,
@@ -5313,7 +5523,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -5333,6 +5542,7 @@
     },
     {
       "name": "DataSetSummary",
+      "definition_uri": "biolink:DataSetSummary",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "DataSetVersion",
       "mixin": true,
@@ -5341,7 +5551,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -5361,6 +5570,7 @@
     },
     {
       "name": "BiologicalEntity",
+      "definition_uri": "biolink:BiologicalEntity",
       "mappings": [
         "WD:Q28845870",
         "UMLSSC:T050",
@@ -5374,7 +5584,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -5389,6 +5598,7 @@
     },
     {
       "name": "OntologyClass",
+      "definition_uri": "biolink:OntologyClass",
       "description": "a concept or class in an ontology, vocabulary or thesaurus",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "NamedThing",
@@ -5397,7 +5607,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -5412,6 +5621,7 @@
     },
     {
       "name": "RelationshipType",
+      "definition_uri": "biolink:RelationshipType",
       "description": "An OWL property used as an edge label",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "OntologyClass",
@@ -5420,7 +5630,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -5435,6 +5644,7 @@
     },
     {
       "name": "GeneOntologyClass",
+      "definition_uri": "biolink:GeneOntologyClass",
       "description": "an ontology class that describes a functional aspect of a gene, gene prodoct or complex",
       "in_subset": [
         "testing"
@@ -5446,7 +5656,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -5461,6 +5670,7 @@
     },
     {
       "name": "ThingWithTaxon",
+      "definition_uri": "biolink:ThingWithTaxon",
       "description": "A mixin that can be used on any entity with a taxon",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "abstract": true,
@@ -5473,6 +5683,7 @@
     },
     {
       "name": "OrganismTaxon",
+      "definition_uri": "biolink:OrganismTaxon",
       "mappings": [
         "WD:Q16521"
       ],
@@ -5486,7 +5697,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -5501,6 +5711,7 @@
     },
     {
       "name": "OrganismalEntity",
+      "definition_uri": "biolink:OrganismalEntity",
       "mappings": [
         "WD:Q7239"
       ],
@@ -5513,7 +5724,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -5528,6 +5738,7 @@
     },
     {
       "name": "IndividualOrganism",
+      "definition_uri": "biolink:IndividualOrganism",
       "mappings": [
         "SIO:010000",
         "WD:Q795052",
@@ -5583,7 +5794,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -5600,6 +5810,7 @@
     },
     {
       "name": "Case",
+      "definition_uri": "biolink:Case",
       "aliases": [
         "patient",
         "proband"
@@ -5612,7 +5823,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -5631,6 +5841,7 @@
       "id_prefixes": [
         "HANCESTRO"
       ],
+      "definition_uri": "biolink:PopulationOfIndividualOrganisms",
       "local_names": [
         {
           "local_name_source": "ga4gh",
@@ -5659,7 +5870,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -5676,6 +5886,7 @@
     },
     {
       "name": "SubjectOfInvestigation",
+      "definition_uri": "biolink:SubjectOfInvestigation",
       "description": "An entity that has the role of being studied in an investigation, study, or experiment",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "abstract": true,
@@ -5689,6 +5900,7 @@
         "BioSample",
         "GOLD.META"
       ],
+      "definition_uri": "biolink:MaterialSample",
       "aliases": [
         "biospecimen",
         "sample",
@@ -5711,7 +5923,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -5726,6 +5937,7 @@
     },
     {
       "name": "DiseaseOrPhenotypicFeature",
+      "definition_uri": "biolink:DiseaseOrPhenotypicFeature",
       "aliases": [
         "phenome"
       ],
@@ -5744,7 +5956,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -5767,6 +5978,7 @@
     },
     {
       "name": "Disease",
+      "definition_uri": "biolink:Disease",
       "aliases": [
         "condition",
         "disorder",
@@ -5805,7 +6017,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -5824,6 +6035,7 @@
     },
     {
       "name": "PhenotypicFeature",
+      "definition_uri": "biolink:PhenotypicFeature",
       "aliases": [
         "sign",
         "symptom",
@@ -5843,7 +6055,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -5863,6 +6074,7 @@
     },
     {
       "name": "Environment",
+      "definition_uri": "biolink:Environment",
       "aliases": [
         "environment",
         "exposure",
@@ -5879,7 +6091,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -5894,6 +6105,7 @@
     },
     {
       "name": "InformationContentEntity",
+      "definition_uri": "biolink:InformationContentEntity",
       "aliases": [
         "information",
         "information artefact",
@@ -5934,7 +6146,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -5948,6 +6159,7 @@
     },
     {
       "name": "ConfidenceLevel",
+      "definition_uri": "biolink:ConfidenceLevel",
       "mappings": [
         "CIO:0000028"
       ],
@@ -5962,7 +6174,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -5976,6 +6187,7 @@
     },
     {
       "name": "EvidenceType",
+      "definition_uri": "biolink:EvidenceType",
       "aliases": [
         "evidence code"
       ],
@@ -5993,7 +6205,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -6010,6 +6221,7 @@
       "id_prefixes": [
         "PMID"
       ],
+      "definition_uri": "biolink:Publication",
       "aliases": [
         "reference"
       ],
@@ -6026,7 +6238,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -6040,6 +6251,7 @@
     },
     {
       "name": "AdministrativeEntity",
+      "definition_uri": "biolink:AdministrativeEntity",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "NamedThing",
       "abstract": true,
@@ -6048,7 +6260,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -6062,6 +6273,7 @@
     },
     {
       "name": "Provider",
+      "definition_uri": "biolink:Provider",
       "aliases": [
         "agent",
         "group"
@@ -6085,7 +6297,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -6099,6 +6310,7 @@
     },
     {
       "name": "MolecularEntity",
+      "definition_uri": "biolink:MolecularEntity",
       "aliases": [
         "bioentity"
       ],
@@ -6121,7 +6333,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -6194,6 +6405,7 @@
         "CHEBI",
         "CHEMBL.COMPOUND"
       ],
+      "definition_uri": "biolink:ChemicalSubstance",
       "mappings": [
         "SIO:010004",
         "WD:Q79529",
@@ -6245,7 +6457,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -6313,6 +6524,7 @@
     },
     {
       "name": "Carbohydrate",
+      "definition_uri": "biolink:Carbohydrate",
       "mappings": [
         "UMLSSC:T088",
         "UMLSST:crbs"
@@ -6324,7 +6536,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -6391,6 +6602,7 @@
     },
     {
       "name": "Drug",
+      "definition_uri": "biolink:Drug",
       "mappings": [
         "WD:Q12140",
         "CHEBI:23888",
@@ -6408,7 +6620,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -6475,6 +6686,7 @@
     },
     {
       "name": "Metabolite",
+      "definition_uri": "biolink:Metabolite",
       "mappings": [
         "CHEBI:25212"
       ],
@@ -6489,7 +6701,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -6556,6 +6767,7 @@
     },
     {
       "name": "AnatomicalEntity",
+      "definition_uri": "biolink:AnatomicalEntity",
       "mappings": [
         "SIO:010046",
         "WD:Q4936952",
@@ -6581,7 +6793,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -6599,6 +6810,7 @@
     },
     {
       "name": "LifeStage",
+      "definition_uri": "biolink:LifeStage",
       "description": "A stage of development or growth of an organism, including post-natal adult stages",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "OrganismalEntity",
@@ -6610,7 +6822,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -6627,6 +6838,7 @@
     },
     {
       "name": "PlanetaryEntity",
+      "definition_uri": "biolink:PlanetaryEntity",
       "description": "Any entity or process that exists at the level of the whole planet",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "NamedThing",
@@ -6635,7 +6847,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -6649,6 +6860,7 @@
     },
     {
       "name": "EnvironmentalProcess",
+      "definition_uri": "biolink:EnvironmentalProcess",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "PlanetaryEntity",
       "mixins": [
@@ -6659,7 +6871,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -6679,6 +6890,7 @@
     },
     {
       "name": "EnvironmentalFeature",
+      "definition_uri": "biolink:EnvironmentalFeature",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "PlanetaryEntity",
       "slots": [
@@ -6686,7 +6898,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -6701,6 +6912,7 @@
     },
     {
       "name": "ClinicalEntity",
+      "definition_uri": "biolink:ClinicalEntity",
       "description": "Any entity or process that exists in the clinical domain and outside the biological realm. Diseases are placed under biological entities",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "NamedThing",
@@ -6709,7 +6921,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -6723,6 +6934,7 @@
     },
     {
       "name": "ClinicalTrial",
+      "definition_uri": "biolink:ClinicalTrial",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "ClinicalEntity",
       "slots": [
@@ -6730,7 +6942,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -6744,6 +6955,7 @@
     },
     {
       "name": "ClinicalIntervention",
+      "definition_uri": "biolink:ClinicalIntervention",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "ClinicalEntity",
       "slots": [
@@ -6751,7 +6963,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -6765,6 +6976,7 @@
     },
     {
       "name": "Device",
+      "definition_uri": "biolink:Device",
       "mappings": [
         "UMLSSG:DEVI",
         "UMLSSC:T074",
@@ -6782,7 +6994,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -6796,6 +7007,7 @@
     },
     {
       "name": "GenomicEntity",
+      "definition_uri": "biolink:GenomicEntity",
       "aliases": [
         "sequence feature"
       ],
@@ -6814,7 +7026,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -6882,6 +7093,7 @@
     },
     {
       "name": "Genome",
+      "definition_uri": "biolink:Genome",
       "mappings": [
         "SO:0001026",
         "SIO:000984",
@@ -6895,7 +7107,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -6963,6 +7174,7 @@
     },
     {
       "name": "Transcript",
+      "definition_uri": "biolink:Transcript",
       "mappings": [
         "SO:0000673",
         "SIO:010450"
@@ -6975,7 +7187,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -7043,6 +7254,7 @@
     },
     {
       "name": "Exon",
+      "definition_uri": "biolink:Exon",
       "mappings": [
         "SO:0000147",
         "SIO:010445",
@@ -7056,7 +7268,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -7124,6 +7335,7 @@
     },
     {
       "name": "CodingSequence",
+      "definition_uri": "biolink:CodingSequence",
       "mappings": [
         "SO:0000316",
         "SIO:001390"
@@ -7135,7 +7347,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -7203,6 +7414,7 @@
     },
     {
       "name": "MacromolecularMachine",
+      "definition_uri": "biolink:MacromolecularMachine",
       "description": "A union of gene, gene product, and macromolecular complex. These are the basic units of function in a cell. They either carry out individual biological activities, or they encode molecules which do this.",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "GenomicEntity",
@@ -7211,7 +7423,6 @@
         "macromolecular_machine_name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -7287,6 +7498,7 @@
       "id_prefixes": [
         "CHEMBL.TARGET"
       ],
+      "definition_uri": "biolink:GeneOrGeneProduct",
       "description": "a union of genes or gene products. Frequently an identifier for one will be used as proxy for another",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "MacromolecularMachine",
@@ -7295,7 +7507,6 @@
         "macromolecular_machine_name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -7382,6 +7593,7 @@
         "SGD",
         "PomBase"
       ],
+      "definition_uri": "biolink:Gene",
       "aliases": [
         "locus"
       ],
@@ -7397,7 +7609,6 @@
         "macromolecular_machine_name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -7472,6 +7683,7 @@
     },
     {
       "name": "GeneProduct",
+      "definition_uri": "biolink:GeneProduct",
       "mappings": [
         "WD:Q424689"
       ],
@@ -7483,7 +7695,6 @@
         "macromolecular_machine_name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -7564,6 +7775,7 @@
         "PR",
         "ENSEMBL"
       ],
+      "definition_uri": "biolink:Protein",
       "aliases": [
         "polypeptide"
       ],
@@ -7584,7 +7796,6 @@
         "macromolecular_machine_name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -7656,6 +7867,7 @@
     },
     {
       "name": "GeneProductIsoform",
+      "definition_uri": "biolink:GeneProductIsoform",
       "description": "This is an abstract class that can be mixed in with different kinds of gene products to indicate that the gene product is intended to represent a specific isoform rather than a canonical or reference or generic product. The designation of canonical or reference may be arbitrary, or it may represent the superclass of all isoforms.",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "GeneProduct",
@@ -7665,7 +7877,6 @@
         "macromolecular_machine_name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -7742,6 +7953,7 @@
         "PR",
         "ENSEMBL"
       ],
+      "definition_uri": "biolink:ProteinIsoform",
       "aliases": [
         "proteoform"
       ],
@@ -7756,7 +7968,6 @@
         "macromolecular_machine_name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -7831,6 +8042,7 @@
       "id_prefixes": [
         "RNAcentral"
       ],
+      "definition_uri": "biolink:RNAProduct",
       "mappings": [
         "CHEBI:33697",
         "SIO:010450",
@@ -7843,7 +8055,6 @@
         "macromolecular_machine_name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -7918,6 +8129,7 @@
       "id_prefixes": [
         "RNAcentral"
       ],
+      "definition_uri": "biolink:RNAProductIsoform",
       "description": "Represents a protein that is a specific isoform of the canonical or reference RNA",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "RNAProduct",
@@ -7929,7 +8141,6 @@
         "macromolecular_machine_name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -8006,6 +8217,7 @@
         "NCBIGene",
         "ENSEMBL"
       ],
+      "definition_uri": "biolink:NoncodingRNAProduct",
       "mappings": [
         "SIO:001235"
       ],
@@ -8016,7 +8228,6 @@
         "macromolecular_machine_name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -8092,6 +8303,7 @@
       "id_prefixes": [
         "MIR"
       ],
+      "definition_uri": "biolink:MicroRNA",
       "mappings": [
         "SIO:001397",
         "WD:Q310899"
@@ -8103,7 +8315,6 @@
         "macromolecular_machine_name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -8182,6 +8393,7 @@
         "PR",
         "Reactome"
       ],
+      "definition_uri": "biolink:MacromolecularComplex",
       "mappings": [
         "SIO:010046",
         "WD:Q22325163"
@@ -8193,7 +8405,6 @@
         "macromolecular_machine_name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -8262,6 +8473,7 @@
     },
     {
       "name": "GeneGrouping",
+      "definition_uri": "biolink:GeneGrouping",
       "description": "any grouping of multiple genes or gene products",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "abstract": true,
@@ -8274,6 +8486,7 @@
       "id_prefixes": [
         "PANTHER"
       ],
+      "definition_uri": "biolink:GeneFamily",
       "mappings": [
         "SIO:001380",
         "NCIT:C20130",
@@ -8290,7 +8503,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -8357,6 +8569,7 @@
     },
     {
       "name": "Zygosity",
+      "definition_uri": "biolink:Zygosity",
       "mappings": [
         "GENO:0000133"
       ],
@@ -8370,7 +8583,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -8385,6 +8597,7 @@
     },
     {
       "name": "Genotype",
+      "definition_uri": "biolink:Genotype",
       "mappings": [
         "GENO:0000536",
         "SIO:001079"
@@ -8400,7 +8613,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -8469,6 +8681,7 @@
     },
     {
       "name": "Haplotype",
+      "definition_uri": "biolink:Haplotype",
       "mappings": [
         "GENO:0000871",
         "VMC:Haplotype"
@@ -8481,7 +8694,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -8554,6 +8766,7 @@
         "WD",
         "CIViC"
       ],
+      "definition_uri": "biolink:SequenceVariant",
       "aliases": [
         "allele"
       ],
@@ -8593,7 +8806,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -8662,6 +8874,7 @@
     },
     {
       "name": "DrugExposure",
+      "definition_uri": "biolink:DrugExposure",
       "aliases": [
         "drug intake",
         "drug dose"
@@ -8678,7 +8891,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -8694,6 +8906,7 @@
     },
     {
       "name": "Treatment",
+      "definition_uri": "biolink:Treatment",
       "aliases": [
         "medical action"
       ],
@@ -8709,7 +8922,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -8726,6 +8938,7 @@
     },
     {
       "name": "GeographicLocation",
+      "definition_uri": "biolink:GeographicLocation",
       "mappings": [
         "UMLSSG:GEOG",
         "UMLSST:geoa",
@@ -8739,7 +8952,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -8755,6 +8967,7 @@
     },
     {
       "name": "GeographicLocationAtTime",
+      "definition_uri": "biolink:GeographicLocationAtTime",
       "description": "a location that can be described in lat/long coordinates, for a particular time",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "GeographicLocation",
@@ -8763,7 +8976,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -8780,6 +8992,7 @@
     },
     {
       "name": "Association",
+      "definition_uri": "biolink:Association",
       "mappings": [
         "OBAN:association",
         "rdf:Statement",
@@ -8819,6 +9032,7 @@
     },
     {
       "name": "GenotypeToGenotypePartAssociation",
+      "definition_uri": "biolink:GenotypeToGenotypePartAssociation",
       "description": "Any association between one genotype and a genotypic entity that is a sub-component of it",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
@@ -8844,6 +9058,7 @@
     },
     {
       "name": "GenotypeToGeneAssociation",
+      "definition_uri": "biolink:GenotypeToGeneAssociation",
       "description": "Any association between a genotype and a gene. The genotype have have multiple variants in that gene or a single one. There is no assumption of cardinality",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
@@ -8869,6 +9084,7 @@
     },
     {
       "name": "GenotypeToVariantAssociation",
+      "definition_uri": "biolink:GenotypeToVariantAssociation",
       "description": "Any association between a genotype and a sequence variant.",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
@@ -8894,6 +9110,7 @@
     },
     {
       "name": "GeneToGeneAssociation",
+      "definition_uri": "biolink:GeneToGeneAssociation",
       "aliases": [
         "molecular or genetic interaction"
       ],
@@ -8923,6 +9140,7 @@
     },
     {
       "name": "GeneToGeneHomologyAssociation",
+      "definition_uri": "biolink:GeneToGeneHomologyAssociation",
       "description": "A homology association between two genes. May be orthology (in which case the species of subject and object should differ) or paralogy (in which case the species may be the same)",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "GeneToGeneAssociation",
@@ -8949,6 +9167,7 @@
     },
     {
       "name": "PairwiseInteractionAssociation",
+      "definition_uri": "biolink:PairwiseInteractionAssociation",
       "description": "An interaction at the molecular level between two physical entities",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
@@ -8978,6 +9197,7 @@
     },
     {
       "name": "PairwiseGeneToGeneInteraction",
+      "definition_uri": "biolink:PairwiseGeneToGeneInteraction",
       "description": "An interaction between two genes or two gene products. May be physical (e.g. protein binding) or genetic (between genes). May be symmetric (e.g. protein interaction) or directed (e.g. phosphorylation)",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "GeneToGeneAssociation",
@@ -9007,6 +9227,7 @@
     },
     {
       "name": "CellLineToThingAssociation",
+      "definition_uri": "biolink:CellLineToThingAssociation",
       "description": "An relationship between a cell line and another entity",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
@@ -9032,6 +9253,7 @@
     },
     {
       "name": "CellLineToDiseaseOrPhenotypicFeatureAssociation",
+      "definition_uri": "biolink:CellLineToDiseaseOrPhenotypicFeatureAssociation",
       "description": "An relationship between a cell line and a disease or a phenotype, where the cell line is derived from an individual with that disease or phenotype",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
@@ -9057,6 +9279,7 @@
     },
     {
       "name": "ChemicalToThingAssociation",
+      "definition_uri": "biolink:ChemicalToThingAssociation",
       "description": "An interaction between a chemical entity and another entity",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
@@ -9082,6 +9305,7 @@
     },
     {
       "name": "CaseToThingAssociation",
+      "definition_uri": "biolink:CaseToThingAssociation",
       "description": "An abstract association for use where the case is the subject",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
@@ -9107,6 +9331,7 @@
     },
     {
       "name": "ChemicalToChemicalAssociation",
+      "definition_uri": "biolink:ChemicalToChemicalAssociation",
       "description": "A relationship between two chemical entities. This can encompass actual interactions as well as temporal causal edges, e.g. one chemical converted to another.",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
@@ -9135,6 +9360,7 @@
     },
     {
       "name": "ChemicalToChemicalDerivationAssociation",
+      "definition_uri": "biolink:ChemicalToChemicalDerivationAssociation",
       "description": "A causal relationship between two chemical entities, where the subject represents the upstream entity and the object represents the downstream. For any such association there is an implicit reaction:\n  IF\n  R has-input C1 AND\n  R has-output C2 AND\n  R enabled-by P AND\n  R type Reaction\n  THEN\n  C1 derives-into C2 <<change is catalyzed by P>>",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "ChemicalToChemicalAssociation",
@@ -9162,6 +9388,7 @@
     },
     {
       "name": "ChemicalToDiseaseOrPhenotypicFeatureAssociation",
+      "definition_uri": "biolink:ChemicalToDiseaseOrPhenotypicFeatureAssociation",
       "mappings": [
         "SIO:000993"
       ],
@@ -9194,6 +9421,7 @@
     },
     {
       "name": "ChemicalToPathwayAssociation",
+      "definition_uri": "biolink:ChemicalToPathwayAssociation",
       "mappings": [
         "SIO:001250"
       ],
@@ -9225,6 +9453,7 @@
     },
     {
       "name": "ChemicalToGeneAssociation",
+      "definition_uri": "biolink:ChemicalToGeneAssociation",
       "mappings": [
         "SIO:001257"
       ],
@@ -9256,6 +9485,7 @@
     },
     {
       "name": "MaterialSampleToThingAssociation",
+      "definition_uri": "biolink:MaterialSampleToThingAssociation",
       "description": "An association between a material sample and something",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
@@ -9281,6 +9511,7 @@
     },
     {
       "name": "MaterialSampleDerivationAssociation",
+      "definition_uri": "biolink:MaterialSampleDerivationAssociation",
       "description": "An association between a material sample and the material entity it is derived from",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
@@ -9306,6 +9537,7 @@
     },
     {
       "name": "MaterialSampleToDiseaseOrPhenotypicFeatureAssociation",
+      "definition_uri": "biolink:MaterialSampleToDiseaseOrPhenotypicFeatureAssociation",
       "description": "An association between a material sample and a disease or phenotype",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
@@ -9335,6 +9567,7 @@
     },
     {
       "name": "FrequencyQualifierMixin",
+      "definition_uri": "biolink:FrequencyQualifierMixin",
       "description": "Qualifier for freqency type associations",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "mixin": true,
@@ -9346,6 +9579,7 @@
     },
     {
       "name": "EntityToFeatureOrDiseaseQualifiers",
+      "definition_uri": "biolink:EntityToFeatureOrDiseaseQualifiers",
       "description": "Qualifiers for entity to disease or phenotype associations",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "FrequencyQualifierMixin",
@@ -9361,6 +9595,7 @@
     },
     {
       "name": "EntityToPhenotypicFeatureAssociation",
+      "definition_uri": "biolink:EntityToPhenotypicFeatureAssociation",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
       "abstract": true,
@@ -9393,6 +9628,7 @@
     },
     {
       "name": "EntityToDiseaseAssociation",
+      "definition_uri": "biolink:EntityToDiseaseAssociation",
       "description": "mixin class for any association whose object (target node) is a disease",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "EntityToFeatureOrDiseaseQualifiers",
@@ -9412,6 +9648,7 @@
     },
     {
       "name": "DiseaseOrPhenotypicFeatureAssociationToThingAssociation",
+      "definition_uri": "biolink:DiseaseOrPhenotypicFeatureAssociationToThingAssociation",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
       "abstract": true,
@@ -9436,6 +9673,7 @@
     },
     {
       "name": "DiseaseOrPhenotypicFeatureAssociationToLocationAssociation",
+      "definition_uri": "biolink:DiseaseOrPhenotypicFeatureAssociationToLocationAssociation",
       "mappings": [
         "NCIT:R100"
       ],
@@ -9460,6 +9698,7 @@
     },
     {
       "name": "ThingToDiseaseOrPhenotypicFeatureAssociation",
+      "definition_uri": "biolink:ThingToDiseaseOrPhenotypicFeatureAssociation",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
       "abstract": true,
@@ -9484,6 +9723,7 @@
     },
     {
       "name": "DiseaseToThingAssociation",
+      "definition_uri": "biolink:DiseaseToThingAssociation",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
       "abstract": true,
@@ -9508,6 +9748,7 @@
     },
     {
       "name": "GenotypeToPhenotypicFeatureAssociation",
+      "definition_uri": "biolink:GenotypeToPhenotypicFeatureAssociation",
       "description": "Any association between one genotype and a phenotypic feature, where having the genotype confers the phenotype, either in isolation or through environment",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
@@ -9541,6 +9782,7 @@
     },
     {
       "name": "EnvironmentToPhenotypicFeatureAssociation",
+      "definition_uri": "biolink:EnvironmentToPhenotypicFeatureAssociation",
       "description": "Any association between an environment and a phenotypic feature, where being in the environment influences the phenotype",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
@@ -9573,6 +9815,7 @@
     },
     {
       "name": "DiseaseToPhenotypicFeatureAssociation",
+      "definition_uri": "biolink:DiseaseToPhenotypicFeatureAssociation",
       "description": "An association between a disease and a phenotypic feature in which the phenotypic feature is associated with the disease in some way",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
@@ -9606,6 +9849,7 @@
     },
     {
       "name": "CaseToPhenotypicFeatureAssociation",
+      "definition_uri": "biolink:CaseToPhenotypicFeatureAssociation",
       "description": "An association between a case (e.g. individual patient) and a phenotypic feature in which the individual has or has had the phenotype",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
@@ -9639,6 +9883,7 @@
     },
     {
       "name": "GeneToThingAssociation",
+      "definition_uri": "biolink:GeneToThingAssociation",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
       "abstract": true,
@@ -9663,6 +9908,7 @@
     },
     {
       "name": "VariantToThingAssociation",
+      "definition_uri": "biolink:VariantToThingAssociation",
       "local_names": [
         {
           "local_name_source": "ga4gh",
@@ -9695,6 +9941,7 @@
     },
     {
       "name": "GeneToPhenotypicFeatureAssociation",
+      "definition_uri": "biolink:GeneToPhenotypicFeatureAssociation",
       "mappings": [
         "http://bio2rdf.org/wormbase_vocabulary:Gene-Phenotype-Association"
       ],
@@ -9730,6 +9977,7 @@
     },
     {
       "name": "GeneToDiseaseAssociation",
+      "definition_uri": "biolink:GeneToDiseaseAssociation",
       "mappings": [
         "SIO:000983"
       ],
@@ -9767,6 +10015,7 @@
     },
     {
       "name": "VariantToPopulationAssociation",
+      "definition_uri": "biolink:VariantToPopulationAssociation",
       "description": "An association between a variant and a population, where the variant has particular frequency in the population",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
@@ -9802,6 +10051,7 @@
     },
     {
       "name": "PopulationToPopulationAssociation",
+      "definition_uri": "biolink:PopulationToPopulationAssociation",
       "description": "An association between a two populations",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
@@ -9827,6 +10077,7 @@
     },
     {
       "name": "VariantToPhenotypicFeatureAssociation",
+      "definition_uri": "biolink:VariantToPhenotypicFeatureAssociation",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
       "mixins": [
@@ -9859,6 +10110,7 @@
     },
     {
       "name": "VariantToDiseaseAssociation",
+      "definition_uri": "biolink:VariantToDiseaseAssociation",
       "comments": [
         "TODO decide no how to model pathogenicity"
       ],
@@ -9893,6 +10145,7 @@
     },
     {
       "name": "ModelToDiseaseMixin",
+      "definition_uri": "biolink:ModelToDiseaseMixin",
       "description": "This mixin is used for any association class for which the subject (source node) plays the role of a 'model', in that it recapitulates some features of the disease in a way that is useful for studying the disease outside a patient carrying the disease",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "abstract": true,
@@ -9906,6 +10159,7 @@
     },
     {
       "name": "GeneAsAModelOfDiseaseAssociation",
+      "definition_uri": "biolink:GeneAsAModelOfDiseaseAssociation",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "GeneToDiseaseAssociation",
       "mixins": [
@@ -9938,6 +10192,7 @@
     },
     {
       "name": "GeneHasVariantThatContributesToDiseaseAssociation",
+      "definition_uri": "biolink:GeneHasVariantThatContributesToDiseaseAssociation",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "GeneToDiseaseAssociation",
       "slots": [
@@ -9967,6 +10222,7 @@
     },
     {
       "name": "GenotypeToThingAssociation",
+      "definition_uri": "biolink:GenotypeToThingAssociation",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
       "abstract": true,
@@ -9991,6 +10247,7 @@
     },
     {
       "name": "GeneToExpressionSiteAssociation",
+      "definition_uri": "biolink:GeneToExpressionSiteAssociation",
       "description": "An association between a gene and an expression site, possibly qualified by stage/timing info.",
       "notes": [
         "TBD: introduce subclasses for distinction between wild-type and experimental conditions?"
@@ -10103,6 +10360,7 @@
     },
     {
       "name": "SequenceVariantModulatesTreatmentAssociation",
+      "definition_uri": "biolink:SequenceVariantModulatesTreatmentAssociation",
       "description": "An association between a sequence variant and a treatment or health intervention. The treatment object itself encompasses both the disease and the drug used.",
       "comments": [
         "An alternate way to model the same information could be via a qualifier"
@@ -10132,6 +10390,7 @@
     },
     {
       "name": "FunctionalAssociation",
+      "definition_uri": "biolink:FunctionalAssociation",
       "description": "An association between a macromolecular machine (gene, gene product or complex of gene products) and either a molecular activity, a biological process or a cellular location in which a function is executed",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
@@ -10153,6 +10412,7 @@
     },
     {
       "name": "MacromolecularMachineToMolecularActivityAssociation",
+      "definition_uri": "biolink:MacromolecularMachineToMolecularActivityAssociation",
       "description": "A functional association between a macromolecular machine (gene, gene product or complex) and a molecular activity (as represented in the GO molecular function branch), where the entity carries out the activity, or contributes to its execution",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "FunctionalAssociation",
@@ -10174,6 +10434,7 @@
     },
     {
       "name": "MacromolecularMachineToBiologicalProcessAssociation",
+      "definition_uri": "biolink:MacromolecularMachineToBiologicalProcessAssociation",
       "description": "A functional association between a macromolecular machine (gene, gene product or complex) and a biological process or pathway (as represented in the GO biological process branch), where the entity carries out some part of the process, regulates it, or acts upstream of it",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "FunctionalAssociation",
@@ -10195,6 +10456,7 @@
     },
     {
       "name": "MacromolecularMachineToCellularComponentAssociation",
+      "definition_uri": "biolink:MacromolecularMachineToCellularComponentAssociation",
       "description": "A functional association between a macromolecular machine (gene, gene product or complex) and a cellular component (as represented in the GO cellular component branch), where the entity carries out its function in the cellular component",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "FunctionalAssociation",
@@ -10216,6 +10478,7 @@
     },
     {
       "name": "GeneToGoTermAssociation",
+      "definition_uri": "biolink:GeneToGoTermAssociation",
       "aliases": [
         "functional association"
       ],
@@ -10246,6 +10509,7 @@
     },
     {
       "name": "GenomicSequenceLocalization",
+      "definition_uri": "biolink:GenomicSequenceLocalization",
       "mappings": [
         "faldo:location"
       ],
@@ -10274,6 +10538,7 @@
     },
     {
       "name": "SequenceFeatureRelationship",
+      "definition_uri": "biolink:SequenceFeatureRelationship",
       "description": "For example, a particular exon is part of a particular transcript or gene",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
@@ -10299,6 +10564,7 @@
     },
     {
       "name": "TranscriptToGeneRelationship",
+      "definition_uri": "biolink:TranscriptToGeneRelationship",
       "description": "A gene is a collection of transcripts",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "SequenceFeatureRelationship",
@@ -10324,6 +10590,7 @@
     },
     {
       "name": "GeneToGeneProductRelationship",
+      "definition_uri": "biolink:GeneToGeneProductRelationship",
       "description": "A gene is transcribed and potentially translated to a gene product",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "SequenceFeatureRelationship",
@@ -10349,6 +10616,7 @@
     },
     {
       "name": "ExonToTranscriptRelationship",
+      "definition_uri": "biolink:ExonToTranscriptRelationship",
       "description": "A transcript is formed from multiple exons",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "SequenceFeatureRelationship",
@@ -10374,6 +10642,7 @@
     },
     {
       "name": "GeneRegulatoryRelationship",
+      "definition_uri": "biolink:GeneRegulatoryRelationship",
       "description": "A regulatory relationship between two genes",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
@@ -10395,6 +10664,7 @@
     },
     {
       "name": "AnatomicalEntityToAnatomicalEntityAssociation",
+      "definition_uri": "biolink:AnatomicalEntityToAnatomicalEntityAssociation",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
       "slots": [
@@ -10419,6 +10689,7 @@
     },
     {
       "name": "AnatomicalEntityToAnatomicalEntityPartOfAssociation",
+      "definition_uri": "biolink:AnatomicalEntityToAnatomicalEntityPartOfAssociation",
       "description": "A relationship between two anatomical entities where the relationship is mereological, i.e the two entities are related by parthood. This includes relationships between cellular components and cells, between cells and tissues, tissues and whole organisms",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "AnatomicalEntityToAnatomicalEntityAssociation",
@@ -10443,6 +10714,7 @@
     },
     {
       "name": "AnatomicalEntityToAnatomicalEntityOntogenicAssociation",
+      "definition_uri": "biolink:AnatomicalEntityToAnatomicalEntityOntogenicAssociation",
       "description": "A relationship between two anatomical entities where the relationship is ontogenic, i.e the two entities are related by development. A number of different relationship types can be used to specify the precise nature of the relationship",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "AnatomicalEntityToAnatomicalEntityAssociation",
@@ -10467,6 +10739,7 @@
     },
     {
       "name": "Occurrent",
+      "definition_uri": "biolink:Occurrent",
       "mappings": [
         "BFO:0000003"
       ],
@@ -10478,7 +10751,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -10500,6 +10772,7 @@
     },
     {
       "name": "PhysicalEntity",
+      "definition_uri": "biolink:PhysicalEntity",
       "description": "An entity that has physical properties such as mass, volume, or charge",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "NamedThing",
@@ -10508,7 +10781,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -10526,6 +10798,7 @@
         "GO",
         "Reactome"
       ],
+      "definition_uri": "biolink:BiologicalProcessOrActivity",
       "description": "Either an individual molecular activity, or a collection of causally connected molecular activities",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "BiologicalEntity",
@@ -10537,7 +10810,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -10563,6 +10835,7 @@
         "Reactome",
         "RHEA"
       ],
+      "definition_uri": "biolink:MolecularActivity",
       "aliases": [
         "molecular function",
         "molecular event",
@@ -10584,7 +10857,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -10605,6 +10877,7 @@
     },
     {
       "name": "ActivityAndBehavior",
+      "definition_uri": "biolink:ActivityAndBehavior",
       "mappings": [
         "UMLSSG:ACTI",
         "UMLSSC:T051",
@@ -10634,7 +10907,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -10653,6 +10925,7 @@
     },
     {
       "name": "Procedure",
+      "definition_uri": "biolink:Procedure",
       "mappings": [
         "UMLSSG:PROC",
         "UMLSSC:T058",
@@ -10678,7 +10951,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -10697,6 +10969,7 @@
     },
     {
       "name": "Phenomenon",
+      "definition_uri": "biolink:Phenomenon",
       "mappings": [
         "UMLSSG:PHEN",
         "UMLSSC:T034",
@@ -10720,7 +10993,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -10743,6 +11015,7 @@
         "GO",
         "Reactome"
       ],
+      "definition_uri": "biolink:BiologicalProcess",
       "mappings": [
         "GO:0008150",
         "SIO:000006",
@@ -10759,7 +11032,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -10784,6 +11056,7 @@
         "GO",
         "Reactome"
       ],
+      "definition_uri": "biolink:Pathway",
       "mappings": [
         "GO:0007165",
         "SIO:010526",
@@ -10797,7 +11070,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -10818,6 +11090,7 @@
     },
     {
       "name": "PhysiologicalProcess",
+      "definition_uri": "biolink:PhysiologicalProcess",
       "aliases": [
         "physiology"
       ],
@@ -10847,7 +11120,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -10871,6 +11143,7 @@
       "id_prefixes": [
         "GO"
       ],
+      "definition_uri": "biolink:CellularComponent",
       "mappings": [
         "GO:0005575",
         "SIO:001400",
@@ -10886,7 +11159,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -10907,6 +11179,7 @@
         "CL",
         "PO"
       ],
+      "definition_uri": "biolink:Cell",
       "mappings": [
         "GO:0005623",
         "CL:0000000",
@@ -10922,7 +11195,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -10942,6 +11214,7 @@
       "id_prefixes": [
         "CLO"
       ],
+      "definition_uri": "biolink:CellLine",
       "mappings": [
         "CLO:0000031"
       ],
@@ -10952,7 +11225,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -10972,6 +11244,7 @@
         "PO",
         "FAO"
       ],
+      "definition_uri": "biolink:GrossAnatomicalStructure",
       "aliases": [
         "tissue",
         "organ"
@@ -10998,7 +11271,6 @@
         "name",
         "category",
         "related_to",
-        "mappings",
         "interacts_with",
         "node_property",
         "iri",
@@ -11014,10 +11286,10 @@
       "type": "ClassDefinition"
     }
   ],
-  "metamodel_version": "1.4.2",
+  "metamodel_version": "1.4.3",
   "source_file": "biolink-model.yaml",
   "source_file_date": "2019-01-01-12:00",
-  "source_file_size": 116139,
+  "source_file_size": 116106,
   "generation_date": "2019-01-01 12:00",
   "type": "SchemaDefinition",
   "@context": [

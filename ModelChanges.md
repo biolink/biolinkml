@@ -30,4 +30,5 @@ needed.  The following items should be updated by a model change:
 4) Run tests/test_utils.  `tests/test_utils/new_model.sh` can be used to reset output
 5) Run tests/test_scripts.  `tests/test_scripts/new_model.sh` can be used to reset output.  You also may need to edit
 line 85 in `test_gen_jsonld.py`
-6) Run tests/test_issues.
+6) Run tests/test_issues. `tests/test_scripts/new_model.sh` can be used to reset output.
+7) Run tests/test_biolinkml. `tests/test_scripts/new_model.sh` can be used to reset output.

@@ -1,14 +1,15 @@
 
-# Slot: object
+# Type: macromolecular machine to molecular activity association_object
 
 
 
 
 URI: [biolink:macromolecular_machine_to_molecular_activity_association_object](https://w3id.org/biolink/vocab/macromolecular_machine_to_molecular_activity_association_object)
 
+
 ## Domain and Range
 
-[MacromolecularMachineToMolecularActivityAssociation](MacromolecularMachineToMolecularActivityAssociation.md) ->  <sub>REQ</sub> [MolecularActivity](MolecularActivity.md)
+[macromolecular machine to molecular activity association](macromolecular machine to molecular activity association.md) ->  <sub>REQ</sub> [molecular activity](molecular activity.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:macromolecular_machine_to_molecular_activity_association_object](h
 
 ## Used by
 
- * [MacromolecularMachineToMolecularActivityAssociation](MacromolecularMachineToMolecularActivityAssociation.md)
+ * [macromolecular machine to molecular activity association](macromolecular machine to molecular activity association.md)

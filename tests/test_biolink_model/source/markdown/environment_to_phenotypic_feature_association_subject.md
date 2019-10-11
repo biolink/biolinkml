@@ -1,14 +1,15 @@
 
-# Slot: subject
+# Type: environment to phenotypic feature association_subject
 
 
 
 
 URI: [biolink:environment_to_phenotypic_feature_association_subject](https://w3id.org/biolink/vocab/environment_to_phenotypic_feature_association_subject)
 
+
 ## Domain and Range
 
-[EnvironmentToPhenotypicFeatureAssociation](EnvironmentToPhenotypicFeatureAssociation.md) ->  <sub>REQ</sub> [Environment](Environment.md)
+[environment to phenotypic feature association](environment to phenotypic feature association.md) ->  <sub>REQ</sub> [environment](environment.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:environment_to_phenotypic_feature_association_subject](https://w3i
 
 ## Used by
 
- * [EnvironmentToPhenotypicFeatureAssociation](EnvironmentToPhenotypicFeatureAssociation.md)
+ * [environment to phenotypic feature association](environment to phenotypic feature association.md)

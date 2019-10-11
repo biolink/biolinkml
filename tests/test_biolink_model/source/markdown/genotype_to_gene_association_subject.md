@@ -1,14 +1,15 @@
 
-# Slot: subject
+# Type: genotype to gene association_subject
 
 
 
 
 URI: [biolink:genotype_to_gene_association_subject](https://w3id.org/biolink/vocab/genotype_to_gene_association_subject)
 
+
 ## Domain and Range
 
-[GenotypeToGeneAssociation](GenotypeToGeneAssociation.md) ->  <sub>REQ</sub> [Genotype](Genotype.md)
+[genotype to gene association](genotype to gene association.md) ->  <sub>REQ</sub> [genotype](genotype.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:genotype_to_gene_association_subject](https://w3id.org/biolink/voc
 
 ## Used by
 
- * [GenotypeToGeneAssociation](GenotypeToGeneAssociation.md)
+ * [genotype to gene association](genotype to gene association.md)

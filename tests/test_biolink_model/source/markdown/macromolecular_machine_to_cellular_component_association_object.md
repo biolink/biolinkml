@@ -1,14 +1,15 @@
 
-# Slot: object
+# Type: macromolecular machine to cellular component association_object
 
 
 
 
 URI: [biolink:macromolecular_machine_to_cellular_component_association_object](https://w3id.org/biolink/vocab/macromolecular_machine_to_cellular_component_association_object)
 
+
 ## Domain and Range
 
-[MacromolecularMachineToCellularComponentAssociation](MacromolecularMachineToCellularComponentAssociation.md) ->  <sub>REQ</sub> [CellularComponent](CellularComponent.md)
+[macromolecular machine to cellular component association](macromolecular machine to cellular component association.md) ->  <sub>REQ</sub> [cellular component](cellular component.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:macromolecular_machine_to_cellular_component_association_object](h
 
 ## Used by
 
- * [MacromolecularMachineToCellularComponentAssociation](MacromolecularMachineToCellularComponentAssociation.md)
+ * [macromolecular machine to cellular component association](macromolecular machine to cellular component association.md)

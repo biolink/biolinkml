@@ -1,14 +1,15 @@
 
-# Slot: has unit
+# Type: has unit
 
 
 connects a quantity value to a unit
 
 URI: [biolink:has_unit](https://w3id.org/biolink/vocab/has_unit)
 
+
 ## Domain and Range
 
-[QuantityValue](QuantityValue.md) ->  <sub>OPT</sub> [Unit](Unit.md)
+[quantity value](quantity value.md) ->  <sub>OPT</sub> [Unit](type/Unit.md)
 
 ## Parents
 
@@ -18,4 +19,12 @@ URI: [biolink:has_unit](https://w3id.org/biolink/vocab/has_unit)
 
 ## Used by
 
- * [QuantityValue](QuantityValue.md)
+ * [quantity value](quantity value.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | qud:unit |
+| **In Subsets:** | | samples |
+

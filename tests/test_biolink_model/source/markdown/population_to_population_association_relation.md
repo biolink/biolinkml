@@ -1,14 +1,15 @@
 
-# Slot: relation
+# Type: population to population association_relation
 
 
 
 
 URI: [biolink:population_to_population_association_relation](https://w3id.org/biolink/vocab/population_to_population_association_relation)
 
+
 ## Domain and Range
 
-[PopulationToPopulationAssociation](PopulationToPopulationAssociation.md) ->  <sub>REQ</sub> [Uriorcurie](Uriorcurie.md)
+[population to population association](population to population association.md) ->  <sub>REQ</sub> [Uriorcurie](type/Uriorcurie.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:population_to_population_association_relation](https://w3id.org/bi
 
 ## Used by
 
- * [PopulationToPopulationAssociation](PopulationToPopulationAssociation.md)
+ * [population to population association](population to population association.md)

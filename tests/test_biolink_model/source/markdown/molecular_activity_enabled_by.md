@@ -1,14 +1,15 @@
 
-# Slot: enabled by
+# Type: molecular activity_enabled by
 
 
 
 
 URI: [biolink:molecular_activity_enabled_by](https://w3id.org/biolink/vocab/molecular_activity_enabled_by)
 
+
 ## Domain and Range
 
-[MolecularActivity](MolecularActivity.md) ->  <sub>0..*</sub> [MacromolecularMachine](MacromolecularMachine.md)
+[molecular activity](molecular activity.md) ->  <sub>0..*</sub> [macromolecular machine](macromolecular machine.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:molecular_activity_enabled_by](https://w3id.org/biolink/vocab/mole
 
 ## Used by
 
- * [MolecularActivity](MolecularActivity.md)
+ * [molecular activity](molecular activity.md)

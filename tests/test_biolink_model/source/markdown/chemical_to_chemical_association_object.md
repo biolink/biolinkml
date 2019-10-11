@@ -1,14 +1,15 @@
 
-# Slot: object
+# Type: chemical to chemical association_object
 
 
 
 
 URI: [biolink:chemical_to_chemical_association_object](https://w3id.org/biolink/vocab/chemical_to_chemical_association_object)
 
+
 ## Domain and Range
 
-[ChemicalToChemicalAssociation](ChemicalToChemicalAssociation.md) ->  <sub>REQ</sub> [ChemicalSubstance](ChemicalSubstance.md)
+[chemical to chemical association](chemical to chemical association.md) ->  <sub>REQ</sub> [chemical substance](chemical substance.md)
 
 ## Parents
 
@@ -20,4 +21,4 @@ URI: [biolink:chemical_to_chemical_association_object](https://w3id.org/biolink/
 
 ## Used by
 
- * [ChemicalToChemicalAssociation](ChemicalToChemicalAssociation.md)
+ * [chemical to chemical association](chemical to chemical association.md)

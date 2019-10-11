@@ -1,14 +1,15 @@
 
-# Slot: genome build
+# Type: genome build
 
 
 TODO
 
 URI: [biolink:genome_build](https://w3id.org/biolink/vocab/genome_build)
 
+
 ## Domain and Range
 
-[NamedThing](NamedThing.md) ->  <sub>OPT</sub> [String](String.md)
+[named thing](named thing.md) ->  <sub>OPT</sub> [String](type/String.md)
 
 ## Parents
 
@@ -19,5 +20,5 @@ URI: [biolink:genome_build](https://w3id.org/biolink/vocab/genome_build)
 
 ## Used by
 
- * [GenomicSequenceLocalization](GenomicSequenceLocalization.md)
- * [NamedThing](NamedThing.md)
+ * [genomic sequence localization](genomic sequence localization.md)
+ * [named thing](named thing.md)

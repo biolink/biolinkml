@@ -1337,13 +1337,6 @@
                "description": "An IRI for the node. This is determined by the id using expansion rules.",
                "type": "string"
             },
-            "mappings": {
-               "description": "A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective.",
-               "items": {
-                  "type": "string"
-               },
-               "type": "array"
-            },
             "name": {
                "description": "A human-readable name for a thing",
                "required": true,
@@ -2860,13 +2853,6 @@
                },
                "type": "array"
             },
-            "close_mappings": {
-               "description": "A list of terms from different schemas or terminology systems that have close meaning.",
-               "items": {
-                  "type": "string"
-               },
-               "type": "array"
-            },
             "coexists_with": {
                "description": "holds between two entities that are co-located in the same aggregate object, process, or spatio-temporal region",
                "items": {
@@ -2919,13 +2905,6 @@
             },
             "end_interbase_coordinate": {
                "type": "string"
-            },
-            "exact_mappings": {
-               "description": "A list of terms from different schemas or terminology systems that have identical meaning.",
-               "items": {
-                  "type": "string"
-               },
-               "type": "array"
             },
             "filler": {
                "description": "The value in a property-value tuple",
@@ -3039,13 +3018,6 @@
                },
                "type": "array"
             },
-            "mappings": {
-               "description": "A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective.",
-               "items": {
-                  "type": "string"
-               },
-               "type": "array"
-            },
             "model_of": {
                "description": "holds between an entity and some other entity it approximates for purposes of scientific study, in virtue of its exhibiting similar features of the studied entity.",
                "items": {
@@ -3149,13 +3121,6 @@
                "type": "array"
             },
             "regulates": {
-               "items": {
-                  "type": "string"
-               },
-               "type": "array"
-            },
-            "related_mappings": {
-               "description": "A list of terms from different schemas or terminology systems that have related meaning.",
                "items": {
                   "type": "string"
                },

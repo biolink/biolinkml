@@ -1,14 +1,15 @@
 
-# Slot: has exposure parts
+# Type: has exposure parts
 
 
 
 
 URI: [biolink:has_exposure_parts](https://w3id.org/biolink/vocab/has_exposure_parts)
 
+
 ## Domain and Range
 
-[Treatment](Treatment.md) ->  <sub>1..*</sub> [DrugExposure](DrugExposure.md)
+[treatment](treatment.md) ->  <sub>1..*</sub> [drug exposure](drug exposure.md)
 
 ## Parents
 
@@ -18,4 +19,4 @@ URI: [biolink:has_exposure_parts](https://w3id.org/biolink/vocab/has_exposure_pa
 
 ## Used by
 
- * [Treatment](Treatment.md)
+ * [treatment](treatment.md)

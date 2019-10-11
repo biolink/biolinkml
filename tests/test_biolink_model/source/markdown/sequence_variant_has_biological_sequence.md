@@ -1,14 +1,15 @@
 
-# Slot: has biological sequence
+# Type: sequence variant_has biological sequence
 
 
 
 
 URI: [biolink:sequence_variant_has_biological_sequence](https://w3id.org/biolink/vocab/sequence_variant_has_biological_sequence)
 
+
 ## Domain and Range
 
-[SequenceVariant](SequenceVariant.md) ->  <sub>OPT</sub> [BiologicalSequence](BiologicalSequence.md)
+[sequence variant](sequence variant.md) ->  <sub>OPT</sub> [BiologicalSequence](type/BiologicalSequence.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:sequence_variant_has_biological_sequence](https://w3id.org/biolink
 
 ## Used by
 
- * [SequenceVariant](SequenceVariant.md)
+ * [sequence variant](sequence variant.md)

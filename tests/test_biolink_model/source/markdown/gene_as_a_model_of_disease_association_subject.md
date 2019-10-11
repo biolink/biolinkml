@@ -1,14 +1,15 @@
 
-# Slot: subject
+# Type: gene as a model of disease association_subject
 
 
 
 
 URI: [biolink:gene_as_a_model_of_disease_association_subject](https://w3id.org/biolink/vocab/gene_as_a_model_of_disease_association_subject)
 
+
 ## Domain and Range
 
-[GeneAsAModelOfDiseaseAssociation](GeneAsAModelOfDiseaseAssociation.md) ->  <sub>REQ</sub> [GeneOrGeneProduct](GeneOrGeneProduct.md)
+[gene as a model of disease association](gene as a model of disease association.md) ->  <sub>REQ</sub> [gene or gene product](gene or gene product.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:gene_as_a_model_of_disease_association_subject](https://w3id.org/b
 
 ## Used by
 
- * [GeneAsAModelOfDiseaseAssociation](GeneAsAModelOfDiseaseAssociation.md)
+ * [gene as a model of disease association](gene as a model of disease association.md)

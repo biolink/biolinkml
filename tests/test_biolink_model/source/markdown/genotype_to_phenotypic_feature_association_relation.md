@@ -1,14 +1,15 @@
 
-# Slot: relation
+# Type: genotype to phenotypic feature association_relation
 
 
 
 
 URI: [biolink:genotype_to_phenotypic_feature_association_relation](https://w3id.org/biolink/vocab/genotype_to_phenotypic_feature_association_relation)
 
+
 ## Domain and Range
 
-[GenotypeToPhenotypicFeatureAssociation](GenotypeToPhenotypicFeatureAssociation.md) ->  <sub>REQ</sub> [Uriorcurie](Uriorcurie.md)
+[genotype to phenotypic feature association](genotype to phenotypic feature association.md) ->  <sub>REQ</sub> [Uriorcurie](type/Uriorcurie.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:genotype_to_phenotypic_feature_association_relation](https://w3id.
 
 ## Used by
 
- * [GenotypeToPhenotypicFeatureAssociation](GenotypeToPhenotypicFeatureAssociation.md)
+ * [genotype to phenotypic feature association](genotype to phenotypic feature association.md)

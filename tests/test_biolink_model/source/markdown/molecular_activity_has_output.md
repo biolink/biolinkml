@@ -1,14 +1,15 @@
 
-# Slot: has output
+# Type: molecular activity_has output
 
 
 
 
 URI: [biolink:molecular_activity_has_output](https://w3id.org/biolink/vocab/molecular_activity_has_output)
 
+
 ## Domain and Range
 
-[MolecularActivity](MolecularActivity.md) ->  <sub>0..*</sub> [ChemicalSubstance](ChemicalSubstance.md)
+[molecular activity](molecular activity.md) ->  <sub>0..*</sub> [chemical substance](chemical substance.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:molecular_activity_has_output](https://w3id.org/biolink/vocab/mole
 
 ## Used by
 
- * [MolecularActivity](MolecularActivity.md)
+ * [molecular activity](molecular activity.md)

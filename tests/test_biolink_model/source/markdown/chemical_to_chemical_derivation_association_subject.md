@@ -1,14 +1,15 @@
 
-# Slot: subject
+# Type: chemical to chemical derivation association_subject
 
 
 
 
 URI: [biolink:chemical_to_chemical_derivation_association_subject](https://w3id.org/biolink/vocab/chemical_to_chemical_derivation_association_subject)
 
+
 ## Domain and Range
 
-[ChemicalToChemicalDerivationAssociation](ChemicalToChemicalDerivationAssociation.md) ->  <sub>REQ</sub> [ChemicalSubstance](ChemicalSubstance.md)
+[chemical to chemical derivation association](chemical to chemical derivation association.md) ->  <sub>REQ</sub> [chemical substance](chemical substance.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:chemical_to_chemical_derivation_association_subject](https://w3id.
 
 ## Used by
 
- * [ChemicalToChemicalDerivationAssociation](ChemicalToChemicalDerivationAssociation.md)
+ * [chemical to chemical derivation association](chemical to chemical derivation association.md)

@@ -1,14 +1,15 @@
 
-# Slot: relation
+# Type: genotype to variant association_relation
 
 
 
 
 URI: [biolink:genotype_to_variant_association_relation](https://w3id.org/biolink/vocab/genotype_to_variant_association_relation)
 
+
 ## Domain and Range
 
-[GenotypeToVariantAssociation](GenotypeToVariantAssociation.md) ->  <sub>REQ</sub> [Uriorcurie](Uriorcurie.md)
+[genotype to variant association](genotype to variant association.md) ->  <sub>REQ</sub> [Uriorcurie](type/Uriorcurie.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:genotype_to_variant_association_relation](https://w3id.org/biolink
 
 ## Used by
 
- * [GenotypeToVariantAssociation](GenotypeToVariantAssociation.md)
+ * [genotype to variant association](genotype to variant association.md)

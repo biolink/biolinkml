@@ -15,7 +15,7 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.metamodelcore import Bool, ElementIdentifier, URIorCURIE, XSDDate, XSDTime
 from includes.types import Boolean, Date, Double, Float, Integer, String, Time, Uriorcurie
 
-metamodel_version = "1.4.2"
+metamodel_version = "1.4.3"
 
 
 # Namespaces

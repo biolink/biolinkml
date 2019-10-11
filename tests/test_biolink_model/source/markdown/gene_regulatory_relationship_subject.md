@@ -1,14 +1,15 @@
 
-# Slot: subject
+# Type: gene regulatory relationship_subject
 
 
 
 
 URI: [biolink:gene_regulatory_relationship_subject](https://w3id.org/biolink/vocab/gene_regulatory_relationship_subject)
 
+
 ## Domain and Range
 
-[GeneRegulatoryRelationship](GeneRegulatoryRelationship.md) ->  <sub>REQ</sub> [GeneOrGeneProduct](GeneOrGeneProduct.md)
+[gene regulatory relationship](gene regulatory relationship.md) ->  <sub>REQ</sub> [gene or gene product](gene or gene product.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:gene_regulatory_relationship_subject](https://w3id.org/biolink/voc
 
 ## Used by
 
- * [GeneRegulatoryRelationship](GeneRegulatoryRelationship.md)
+ * [gene regulatory relationship](gene regulatory relationship.md)

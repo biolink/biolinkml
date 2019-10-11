@@ -1,14 +1,15 @@
 
-# Slot: object
+# Type: population to population association_object
 
 
 
 
 URI: [biolink:population_to_population_association_object](https://w3id.org/biolink/vocab/population_to_population_association_object)
 
+
 ## Domain and Range
 
-[PopulationToPopulationAssociation](PopulationToPopulationAssociation.md) ->  <sub>REQ</sub> [PopulationOfIndividualOrganisms](PopulationOfIndividualOrganisms.md)
+[population to population association](population to population association.md) ->  <sub>REQ</sub> [population of individual organisms](population of individual organisms.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:population_to_population_association_object](https://w3id.org/biol
 
 ## Used by
 
- * [PopulationToPopulationAssociation](PopulationToPopulationAssociation.md)
+ * [population to population association](population to population association.md)

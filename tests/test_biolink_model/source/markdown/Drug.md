@@ -1,14 +1,15 @@
 
-# Slot: drug
+# Type: drug
 
 
 
 
 URI: [biolink:drug](https://w3id.org/biolink/vocab/drug)
 
+
 ## Domain and Range
 
-[DrugExposure](DrugExposure.md) ->  <sub>1..*</sub> [ChemicalSubstance](ChemicalSubstance.md)
+[drug exposure](drug exposure.md) ->  <sub>1..*</sub> [chemical substance](chemical substance.md)
 
 ## Parents
 
@@ -18,4 +19,4 @@ URI: [biolink:drug](https://w3id.org/biolink/vocab/drug)
 
 ## Used by
 
- * [DrugExposure](DrugExposure.md)
+ * [drug exposure](drug exposure.md)

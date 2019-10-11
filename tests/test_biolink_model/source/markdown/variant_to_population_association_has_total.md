@@ -1,14 +1,15 @@
 
-# Slot: has total
+# Type: variant to population association_has total
 
 
 
 
 URI: [biolink:variant_to_population_association_has_total](https://w3id.org/biolink/vocab/variant_to_population_association_has_total)
 
+
 ## Domain and Range
 
-[VariantToPopulationAssociation](VariantToPopulationAssociation.md) ->  <sub>OPT</sub> [Integer](Integer.md)
+[variant to population association](variant to population association.md) ->  <sub>OPT</sub> [Integer](type/Integer.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:variant_to_population_association_has_total](https://w3id.org/biol
 
 ## Used by
 
- * [VariantToPopulationAssociation](VariantToPopulationAssociation.md)
+ * [variant to population association](variant to population association.md)

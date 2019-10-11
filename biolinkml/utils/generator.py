@@ -1,12 +1,12 @@
 import abc
 import sys
 from contextlib import redirect_stdout
-from functools import lru_cache
 from io import StringIO
-from typing import List, Set, Union, TextIO, Optional, cast, Type, Callable
+from typing import List, Set, Union, TextIO, Optional, cast, Callable, Mapping
 
 import click
 from click import Command, Argument, Option
+from json import load
 
 from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, ClassDefinitionName, \
     TypeDefinition, Element, SlotDefinitionName, TypeDefinitionName, PrefixPrefixPrefix, ElementName, \
@@ -32,6 +32,7 @@ class Generator(metaclass=abc.ABCMeta):
                  format: Optional[str] = None,
                  emit_metadata: bool = False,
                  useuris: Optional[bool] = None,
+                 import_map: Optional[str] = None,
                  **kwargs) -> None:
         """
         Constructor
@@ -41,6 +42,7 @@ class Generator(metaclass=abc.ABCMeta):
         :param fmt: expected output format
         :param emit_metadata: True means include date, generator, etc. information in source header if appropriate
         :param useuris: True means declared class slot uri's are used.  False means use model uris
+        :param import_map: File name of import mapping file -- maps import name/uri to target
         """
         if format is None:
             format = self.valid_formats[0]
@@ -53,15 +55,17 @@ class Generator(metaclass=abc.ABCMeta):
             self.synopsis = gen.synopsis
             self.namespaces = gen.namespaces
             self.base_dir = gen.base_dir
+            self.import_map = gen.import_map
             self.schema_location = gen.schema_location
             self.schema_defaults = gen.schema_defaults
         else:
-            loader = SchemaLoader(schema, self.base_dir, useuris=useuris)
+            loader = SchemaLoader(schema, self.base_dir, useuris=useuris, import_map=parse_import_map(import_map))
             loader.resolve()
             self.schema = loader.schema
             self.synopsis = loader.synopsis
             self.namespaces = loader.namespaces
             self.base_dir = loader.base_dir
+            self.import_map = loader.import_map
             self.schema_location = loader.schema_location
             self.schema_defaults = loader.schema_defaults
 
@@ -519,5 +523,12 @@ def shared_arguments(g: Generator) -> Callable[[Command], Command]:
             Option(("--metadata/--no-metadata", ), default=True, help="Include metadata in output"))
         f.params.append(
             Option(("--useuris/--metauris", ), default=True, help="Include metadata in output"))
+        f.params.append(
+            Option(("--importmap", "-im"), type=click.File(), help="Import mapping file")
+        )
         return f
     return decorator
+
+
+def parse_import_map(map_loc: Optional[str]) -> Mapping[str, str]:
+    return load(open(map_loc)) if map_loc is not None else dict()

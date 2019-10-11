@@ -422,7 +422,8 @@
          "@type": "@id"
       },
       "mappings": {
-         "@type": "@id"
+         "@type": "@id",
+         "@id": "meta:mappings"
       },
       "model_of": {
          "@type": "@id"

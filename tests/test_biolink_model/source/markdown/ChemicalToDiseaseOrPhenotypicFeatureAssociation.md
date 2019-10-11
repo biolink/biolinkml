@@ -1,21 +1,22 @@
 
-# Class: chemical to disease or phenotypic feature association
+# Type: chemical to disease or phenotypic feature association
 
 
 An interaction between a chemical entity and a phenotype or disease, where the presence of the chemical gives rise to or exacerbates the phenotype
 
 URI: [biolink:ChemicalToDiseaseOrPhenotypicFeatureAssociation](https://w3id.org/biolink/vocab/ChemicalToDiseaseOrPhenotypicFeatureAssociation)
 
+
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[ChemicalToDiseaseOrPhenotypicFeatureAssociation|relation(i):uriorcurie;id(i):identifier_type;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[ChemicalToDiseaseOrPhenotypicFeatureAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[ChemicalToDiseaseOrPhenotypicFeatureAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[ChemicalToDiseaseOrPhenotypicFeatureAssociation],%20\[NamedThing]<subject(i)%201..1-%20\[ChemicalToDiseaseOrPhenotypicFeatureAssociation],%20\[DiseaseOrPhenotypicFeature]<object%201..1-%20\[ChemicalToDiseaseOrPhenotypicFeatureAssociation],%20\[ChemicalToDiseaseOrPhenotypicFeatureAssociation]uses%20-.->\[ChemicalToThingAssociation],%20\[ChemicalToDiseaseOrPhenotypicFeatureAssociation]uses%20-.->\[ThingToDiseaseOrPhenotypicFeatureAssociation],%20\[Association]^-\[ChemicalToDiseaseOrPhenotypicFeatureAssociation])
 
 ## Parents
 
- *  is_a: [Association](Association.md) - A typed association between two entities, supported by evidence
+ *  is_a: [association](association.md) - A typed association between two entities, supported by evidence
 
 ## Uses Mixins
 
- *  mixin: [ChemicalToThingAssociation](ChemicalToThingAssociation.md) - An interaction between a chemical entity and another entity
- *  mixin: [ThingToDiseaseOrPhenotypicFeatureAssociation](ThingToDiseaseOrPhenotypicFeatureAssociation.md)
+ *  mixin: [chemical to thing association](chemical to thing association.md) - An interaction between a chemical entity and another entity
+ *  mixin: [thing to disease or phenotypic feature association](thing to disease or phenotypic feature association.md)
 
 ## Referenced by class
 
@@ -26,49 +27,56 @@ URI: [biolink:ChemicalToDiseaseOrPhenotypicFeatureAssociation](https://w3id.org/
 ### Own
 
  * [object](chemical_to_disease_or_phenotypic_feature_association_object.md)  <sub>REQ</sub>
-    * range: [DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md)
+    * range: [disease or phenotypic feature](disease or phenotypic feature.md)
 
 ### Inherited from association:
 
  * [subject](subject.md)  <sub>REQ</sub>
     * Description: connects an association to the subject of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
-    * range: [NamedThing](NamedThing.md)
-    * inherited from: [Association](Association.md)
+    * range: [named thing](named thing.md)
+    * inherited from: [association](association.md)
  * [relation](relation.md)  <sub>REQ</sub>
     * Description: the relationship type by which a subject is connected to an object in an association
-    * range: [Uriorcurie](Uriorcurie.md)
-    * inherited from: [Association](Association.md)
+    * range: [Uriorcurie](type/Uriorcurie.md)
+    * inherited from: [association](association.md)
  * [object](object.md)  <sub>REQ</sub>
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
-    * range: [NamedThing](NamedThing.md)
-    * inherited from: [Association](Association.md)
+    * range: [named thing](named thing.md)
+    * inherited from: [association](association.md)
  * [id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
-    * range: [IdentifierType](IdentifierType.md)
-    * inherited from: [Association](Association.md)
+    * range: [IdentifierType](type/IdentifierType.md)
+    * inherited from: [association](association.md)
     * in subsets: (translator_minimal)
  * [negated](negated.md)  <sub>OPT</sub>
     * Description: if set to true, then the association is negated i.e. is not true
-    * range: [Boolean](Boolean.md)
-    * inherited from: [Association](Association.md)
+    * range: [Boolean](type/Boolean.md)
+    * inherited from: [association](association.md)
  * [association type](association_type.md)  <sub>OPT</sub>
     * Description: connects an association to the type of association (e.g. gene to phenotype)
-    * range: [OntologyClass](OntologyClass.md)
-    * inherited from: [Association](Association.md)
+    * range: [ontology class](ontology class.md)
+    * inherited from: [association](association.md)
  * [qualifiers](qualifiers.md)  <sub>0..*</sub>
     * Description: connects an association to qualifiers that modify or qualify the meaning of that association
-    * range: [OntologyClass](OntologyClass.md)
-    * inherited from: [Association](Association.md)
+    * range: [ontology class](ontology class.md)
+    * inherited from: [association](association.md)
  * [publications](publications.md)  <sub>0..*</sub>
     * Description: connects an association to publications supporting the association
-    * range: [Publication](Publication.md)
-    * inherited from: [Association](Association.md)
+    * range: [publication](publication.md)
+    * inherited from: [association](association.md)
  * [provided by](provided_by.md)  <sub>OPT</sub>
     * Description: connects an association to the agent (person, organization or group) that provided it
-    * range: [Provider](Provider.md)
-    * inherited from: [Association](Association.md)
+    * range: [provider](provider.md)
+    * inherited from: [association](association.md)
 
 ### Domain for slot:
 
  * [object](chemical_to_disease_or_phenotypic_feature_association_object.md)  <sub>REQ</sub>
-    * range: [DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md)
+    * range: [disease or phenotypic feature](disease or phenotypic feature.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | SIO:000993 |
+

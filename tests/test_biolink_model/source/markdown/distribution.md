@@ -1,14 +1,15 @@
 
-# Slot: distribution
+# Type: distribution
 
 
 
 
 URI: [biolink:distribution](https://w3id.org/biolink/vocab/distribution)
 
+
 ## Domain and Range
 
-[DataSetVersion](DataSetVersion.md) ->  <sub>OPT</sub> [DistributionLevel](DistributionLevel.md)
+[data set version](data set version.md) ->  <sub>OPT</sub> [distribution level](distribution level.md)
 
 ## Parents
 
@@ -19,6 +20,13 @@ URI: [biolink:distribution](https://w3id.org/biolink/vocab/distribution)
 
 ## Used by
 
- * [DataSetSummary](DataSetSummary.md)
- * [DataSetVersion](DataSetVersion.md)
- * [DistributionLevel](DistributionLevel.md)
+ * [data set summary](data set summary.md)
+ * [data set version](data set version.md)
+ * [distribution level](distribution level.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | void:Dataset |
+

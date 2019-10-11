@@ -1,14 +1,15 @@
 
-# Slot: has biomarker
+# Type: has biomarker
 
 
 holds between a disease or phenotypic feature and a measurable molecular entity that is used as an indicator of the presence or state of the disease or feature.
 
 URI: [biolink:has_biomarker](https://w3id.org/biolink/vocab/has_biomarker)
 
+
 ## Domain and Range
 
-[DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md) ->  <sub>0..*</sub> [MolecularEntity](MolecularEntity.md)
+[disease or phenotypic feature](disease or phenotypic feature.md) ->  <sub>0..*</sub> [molecular entity](molecular entity.md)
 
 ## Parents
 
@@ -19,6 +20,13 @@ URI: [biolink:has_biomarker](https://w3id.org/biolink/vocab/has_biomarker)
 
 ## Used by
 
- * [Disease](Disease.md)
- * [DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md)
- * [PhenotypicFeature](PhenotypicFeature.md)
+ * [disease](disease.md)
+ * [disease or phenotypic feature](disease or phenotypic feature.md)
+ * [phenotypic feature](phenotypic feature.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **In Subsets:** | | translator_minimal |
+

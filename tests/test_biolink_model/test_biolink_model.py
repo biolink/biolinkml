@@ -39,6 +39,7 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
     target_path = os.path.join(cwd, 'target')
     model_path = os.path.join(cwd, 'yaml')
     model_name = 'biolink-model'
+    import_map_file = os.path.join(model_path, 'biolink-model-map.json')
 
     def tearDown(self) -> None:
         self.output_name = None

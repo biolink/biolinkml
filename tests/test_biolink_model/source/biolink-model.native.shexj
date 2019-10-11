@@ -810,13 +810,6 @@
                            },
                            {
                               "type": "TripleConstraint",
-                              "predicate": "https://w3id.org/biolink/vocab/mappings",
-                              "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uriorcurie",
-                              "min": 0,
-                              "max": -1
-                           },
-                           {
-                              "type": "TripleConstraint",
                               "predicate": "https://w3id.org/biolink/vocab/interacts_with",
                               "valueExpr": "https://w3id.org/biolink/vocab/NamedThing",
                               "min": 0,
@@ -6753,13 +6746,6 @@
                            },
                            {
                               "type": "TripleConstraint",
-                              "predicate": "https://w3id.org/biolink/vocab/mappings",
-                              "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uriorcurie",
-                              "min": 0,
-                              "max": -1
-                           },
-                           {
-                              "type": "TripleConstraint",
                               "predicate": "https://w3id.org/biolink/vocab/interacts_with",
                               "valueExpr": "https://w3id.org/biolink/vocab/NamedThing",
                               "min": 0,
@@ -7156,27 +7142,6 @@
                               "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
                               "min": 0,
                               "max": 1
-                           },
-                           {
-                              "type": "TripleConstraint",
-                              "predicate": "https://w3id.org/biolink/biolinkml/meta/exact_mappings",
-                              "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uriorcurie",
-                              "min": 0,
-                              "max": -1
-                           },
-                           {
-                              "type": "TripleConstraint",
-                              "predicate": "https://w3id.org/biolink/biolinkml/meta/close_mappings",
-                              "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uriorcurie",
-                              "min": 0,
-                              "max": -1
-                           },
-                           {
-                              "type": "TripleConstraint",
-                              "predicate": "https://w3id.org/biolink/biolinkml/meta/related_mappings",
-                              "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uriorcurie",
-                              "min": 0,
-                              "max": -1
                            }
                         ]
                      },

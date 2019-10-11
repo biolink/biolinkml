@@ -1,14 +1,15 @@
 
-# Slot: subject
+# Type: cell line to disease or phenotypic feature association_subject
 
 
 
 
 URI: [biolink:cell_line_to_disease_or_phenotypic_feature_association_subject](https://w3id.org/biolink/vocab/cell_line_to_disease_or_phenotypic_feature_association_subject)
 
+
 ## Domain and Range
 
-[CellLineToDiseaseOrPhenotypicFeatureAssociation](CellLineToDiseaseOrPhenotypicFeatureAssociation.md) ->  <sub>REQ</sub> [DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md)
+[cell line to disease or phenotypic feature association](cell line to disease or phenotypic feature association.md) ->  <sub>REQ</sub> [disease or phenotypic feature](disease or phenotypic feature.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:cell_line_to_disease_or_phenotypic_feature_association_subject](ht
 
 ## Used by
 
- * [CellLineToDiseaseOrPhenotypicFeatureAssociation](CellLineToDiseaseOrPhenotypicFeatureAssociation.md)
+ * [cell line to disease or phenotypic feature association](cell line to disease or phenotypic feature association.md)

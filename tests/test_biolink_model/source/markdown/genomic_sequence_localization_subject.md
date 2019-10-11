@@ -1,14 +1,15 @@
 
-# Slot: subject
+# Type: genomic sequence localization_subject
 
 
 
 
 URI: [biolink:genomic_sequence_localization_subject](https://w3id.org/biolink/vocab/genomic_sequence_localization_subject)
 
+
 ## Domain and Range
 
-[GenomicSequenceLocalization](GenomicSequenceLocalization.md) ->  <sub>REQ</sub> [GenomicEntity](GenomicEntity.md)
+[genomic sequence localization](genomic sequence localization.md) ->  <sub>REQ</sub> [genomic entity](genomic entity.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:genomic_sequence_localization_subject](https://w3id.org/biolink/vo
 
 ## Used by
 
- * [GenomicSequenceLocalization](GenomicSequenceLocalization.md)
+ * [genomic sequence localization](genomic sequence localization.md)

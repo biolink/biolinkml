@@ -1,14 +1,15 @@
 
-# Slot: object
+# Type: macromolecular machine to biological process association_object
 
 
 
 
 URI: [biolink:macromolecular_machine_to_biological_process_association_object](https://w3id.org/biolink/vocab/macromolecular_machine_to_biological_process_association_object)
 
+
 ## Domain and Range
 
-[MacromolecularMachineToBiologicalProcessAssociation](MacromolecularMachineToBiologicalProcessAssociation.md) ->  <sub>REQ</sub> [BiologicalProcess](BiologicalProcess.md)
+[macromolecular machine to biological process association](macromolecular machine to biological process association.md) ->  <sub>REQ</sub> [biological process](biological process.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:macromolecular_machine_to_biological_process_association_object](h
 
 ## Used by
 
- * [MacromolecularMachineToBiologicalProcessAssociation](MacromolecularMachineToBiologicalProcessAssociation.md)
+ * [macromolecular machine to biological process association](macromolecular machine to biological process association.md)

@@ -1,14 +1,15 @@
 
-# Slot: has zygosity
+# Type: has zygosity
 
 
 
 
 URI: [biolink:has_zygosity](https://w3id.org/biolink/vocab/has_zygosity)
 
+
 ## Domain and Range
 
-[NamedThing](NamedThing.md) ->  <sub>OPT</sub> [Zygosity](Zygosity.md)
+[named thing](named thing.md) ->  <sub>OPT</sub> [zygosity](zygosity.md)
 
 ## Parents
 
@@ -19,5 +20,5 @@ URI: [biolink:has_zygosity](https://w3id.org/biolink/vocab/has_zygosity)
 
 ## Used by
 
- * [Genotype](Genotype.md)
- * [NamedThing](NamedThing.md)
+ * [genotype](genotype.md)
+ * [named thing](named thing.md)

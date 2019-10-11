@@ -1,14 +1,15 @@
 
-# Slot: update date
+# Type: update date
 
 
 date on which thing was updated. This can be applied to nodes or edges
 
 URI: [biolink:update_date](https://w3id.org/biolink/vocab/update_date)
 
+
 ## Domain and Range
 
-[NamedThing](NamedThing.md) ->  <sub>OPT</sub> [Date](Date.md)
+[named thing](named thing.md) ->  <sub>OPT</sub> [Date](type/Date.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:update_date](https://w3id.org/biolink/vocab/update_date)
 
 ## Used by
 
- * [NamedThing](NamedThing.md)
+ * [named thing](named thing.md)

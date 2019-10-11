@@ -1,14 +1,15 @@
 
-# Slot: has attribute type
+# Type: has attribute type
 
 
 connects an attribute to a class that describes it
 
 URI: [biolink:has_attribute_type](https://w3id.org/biolink/vocab/has_attribute_type)
 
+
 ## Domain and Range
 
-[Attribute](Attribute.md) ->  <sub>OPT</sub> [OntologyClass](OntologyClass.md)
+[attribute](attribute.md) ->  <sub>OPT</sub> [ontology class](ontology class.md)
 
 ## Parents
 
@@ -18,12 +19,19 @@ URI: [biolink:has_attribute_type](https://w3id.org/biolink/vocab/has_attribute_t
 
 ## Used by
 
- * [Attribute](Attribute.md)
- * [BiologicalSex](BiologicalSex.md)
- * [ClinicalModifier](ClinicalModifier.md)
- * [FrequencyValue](FrequencyValue.md)
- * [GenotypicSex](GenotypicSex.md)
- * [Onset](Onset.md)
- * [PhenotypicSex](PhenotypicSex.md)
- * [SeverityValue](SeverityValue.md)
- * [Zygosity](Zygosity.md)
+ * [attribute](attribute.md)
+ * [biological sex](biological sex.md)
+ * [clinical modifier](clinical modifier.md)
+ * [frequency value](frequency value.md)
+ * [genotypic sex](genotypic sex.md)
+ * [onset](onset.md)
+ * [phenotypic sex](phenotypic sex.md)
+ * [severity value](severity value.md)
+ * [zygosity](zygosity.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **In Subsets:** | | samples |
+

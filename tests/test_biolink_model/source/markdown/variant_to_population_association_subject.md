@@ -1,14 +1,15 @@
 
-# Slot: subject
+# Type: variant to population association_subject
 
 
 
 
 URI: [biolink:variant_to_population_association_subject](https://w3id.org/biolink/vocab/variant_to_population_association_subject)
 
+
 ## Domain and Range
 
-[VariantToPopulationAssociation](VariantToPopulationAssociation.md) ->  <sub>REQ</sub> [SequenceVariant](SequenceVariant.md)
+[variant to population association](variant to population association.md) ->  <sub>REQ</sub> [sequence variant](sequence variant.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:variant_to_population_association_subject](https://w3id.org/biolin
 
 ## Used by
 
- * [VariantToPopulationAssociation](VariantToPopulationAssociation.md)
+ * [variant to population association](variant to population association.md)

@@ -1,14 +1,15 @@
 
-# Slot: object
+# Type: disease or phenotypic feature association to location association_object
 
 
 
 
 URI: [biolink:disease_or_phenotypic_feature_association_to_location_association_object](https://w3id.org/biolink/vocab/disease_or_phenotypic_feature_association_to_location_association_object)
 
+
 ## Domain and Range
 
-[DiseaseOrPhenotypicFeatureAssociationToLocationAssociation](DiseaseOrPhenotypicFeatureAssociationToLocationAssociation.md) ->  <sub>REQ</sub> [AnatomicalEntity](AnatomicalEntity.md)
+[disease or phenotypic feature association to location association](disease or phenotypic feature association to location association.md) ->  <sub>REQ</sub> [anatomical entity](anatomical entity.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:disease_or_phenotypic_feature_association_to_location_association_
 
 ## Used by
 
- * [DiseaseOrPhenotypicFeatureAssociationToLocationAssociation](DiseaseOrPhenotypicFeatureAssociationToLocationAssociation.md)
+ * [disease or phenotypic feature association to location association](disease or phenotypic feature association to location association.md)

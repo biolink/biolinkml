@@ -1,14 +1,15 @@
 
-# Slot: has chemical formula
+# Type: has chemical formula
 
 
 description of chemical compound based on element symbols
 
 URI: [biolink:has_chemical_formula](https://w3id.org/biolink/vocab/has_chemical_formula)
 
+
 ## Domain and Range
 
-[NamedThing](NamedThing.md) ->  <sub>OPT</sub> [ChemicalFormulaValue](ChemicalFormulaValue.md)
+[named thing](named thing.md) ->  <sub>OPT</sub> [ChemicalFormulaValue](type/ChemicalFormulaValue.md)
 
 ## Parents
 
@@ -19,4 +20,11 @@ URI: [biolink:has_chemical_formula](https://w3id.org/biolink/vocab/has_chemical_
 
 ## Used by
 
- * [NamedThing](NamedThing.md)
+ * [named thing](named thing.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | WD:P274 |
+

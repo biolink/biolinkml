@@ -1,14 +1,15 @@
 
-# Slot: change is catalyzed by
+# Type: change is catalyzed by
 
 
 hyperedge connecting an association between two causally connected entities (for example, two chemical entities, or a chemical entity in that changes location) and the gene product, gene, or complex that enables or catalyzes the change.
 
 URI: [biolink:change_is_catalyzed_by](https://w3id.org/biolink/vocab/change_is_catalyzed_by)
 
+
 ## Domain and Range
 
-[Association](Association.md) ->  <sub>0..*</sub> [MacromolecularMachine](MacromolecularMachine.md)
+[association](association.md) ->  <sub>0..*</sub> [macromolecular machine](macromolecular machine.md)
 
 ## Parents
 
@@ -20,5 +21,5 @@ URI: [biolink:change_is_catalyzed_by](https://w3id.org/biolink/vocab/change_is_c
 
 ## Used by
 
- * [Association](Association.md)
- * [ChemicalToChemicalDerivationAssociation](ChemicalToChemicalDerivationAssociation.md)
+ * [association](association.md)
+ * [chemical to chemical derivation association](chemical to chemical derivation association.md)

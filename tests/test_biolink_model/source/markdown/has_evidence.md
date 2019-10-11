@@ -1,14 +1,15 @@
 
-# Slot: has evidence
+# Type: has evidence
 
 
 connects an association to an instance of supporting evidence
 
 URI: [biolink:has_evidence](https://w3id.org/biolink/vocab/has_evidence)
 
+
 ## Domain and Range
 
-[Association](Association.md) ->  <sub>OPT</sub> [EvidenceType](EvidenceType.md)
+[association](association.md) ->  <sub>OPT</sub> [evidence type](evidence type.md)
 
 ## Parents
 
@@ -19,4 +20,11 @@ URI: [biolink:has_evidence](https://w3id.org/biolink/vocab/has_evidence)
 
 ## Used by
 
- * [Association](Association.md)
+ * [association](association.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | RO:0002558 |
+

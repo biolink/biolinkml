@@ -1,14 +1,15 @@
 
-# Slot: relation
+# Type: gene to gene homology association_relation
 
 
 
 
 URI: [biolink:gene_to_gene_homology_association_relation](https://w3id.org/biolink/vocab/gene_to_gene_homology_association_relation)
 
+
 ## Domain and Range
 
-[GeneToGeneHomologyAssociation](GeneToGeneHomologyAssociation.md) ->  <sub>REQ</sub> [Uriorcurie](Uriorcurie.md)
+[gene to gene homology association](gene to gene homology association.md) ->  <sub>REQ</sub> [Uriorcurie](type/Uriorcurie.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:gene_to_gene_homology_association_relation](https://w3id.org/bioli
 
 ## Used by
 
- * [GeneToGeneHomologyAssociation](GeneToGeneHomologyAssociation.md)
+ * [gene to gene homology association](gene to gene homology association.md)

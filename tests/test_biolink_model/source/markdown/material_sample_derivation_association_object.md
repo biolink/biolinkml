@@ -1,14 +1,15 @@
 
-# Slot: object
+# Type: material sample derivation association_object
 
 
 
 
 URI: [biolink:material_sample_derivation_association_object](https://w3id.org/biolink/vocab/material_sample_derivation_association_object)
 
+
 ## Domain and Range
 
-[MaterialSampleDerivationAssociation](MaterialSampleDerivationAssociation.md) ->  <sub>REQ</sub> [NamedThing](NamedThing.md)
+[material sample derivation association](material sample derivation association.md) ->  <sub>REQ</sub> [named thing](named thing.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:material_sample_derivation_association_object](https://w3id.org/bi
 
 ## Used by
 
- * [MaterialSampleDerivationAssociation](MaterialSampleDerivationAssociation.md)
+ * [material sample derivation association](material sample derivation association.md)

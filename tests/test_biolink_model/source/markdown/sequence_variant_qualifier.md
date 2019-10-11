@@ -1,14 +1,15 @@
 
-# Slot: sequence variant qualifier
+# Type: sequence variant qualifier
 
 
 a qualifier used in an association where the variant
 
 URI: [biolink:sequence_variant_qualifier](https://w3id.org/biolink/vocab/sequence_variant_qualifier)
 
+
 ## Domain and Range
 
-[Association](Association.md) ->  <sub>OPT</sub> [SequenceVariant](SequenceVariant.md)
+[association](association.md) ->  <sub>OPT</sub> [sequence variant](sequence variant.md)
 
 ## Parents
 
@@ -19,5 +20,5 @@ URI: [biolink:sequence_variant_qualifier](https://w3id.org/biolink/vocab/sequenc
 
 ## Used by
 
- * [Association](Association.md)
- * [GeneHasVariantThatContributesToDiseaseAssociation](GeneHasVariantThatContributesToDiseaseAssociation.md)
+ * [association](association.md)
+ * [gene has variant that contributes to disease association](gene has variant that contributes to disease association.md)

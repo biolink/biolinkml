@@ -1,14 +1,15 @@
 
-# Slot: subject
+# Type: disease to thing association_subject
 
 
 
 
 URI: [biolink:disease_to_thing_association_subject](https://w3id.org/biolink/vocab/disease_to_thing_association_subject)
 
+
 ## Domain and Range
 
-[DiseaseToThingAssociation](DiseaseToThingAssociation.md) ->  <sub>REQ</sub> [Disease](Disease.md)
+[disease to thing association](disease to thing association.md) ->  <sub>REQ</sub> [disease](disease.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:disease_to_thing_association_subject](https://w3id.org/biolink/voc
 
 ## Used by
 
- * [DiseaseToThingAssociation](DiseaseToThingAssociation.md)
+ * [disease to thing association](disease to thing association.md)

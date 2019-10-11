@@ -1,14 +1,15 @@
 
-# Slot: model of
+# Type: model of
 
 
 holds between an entity and some other entity it approximates for purposes of scientific study, in virtue of its exhibiting similar features of the studied entity.
 
 URI: [biolink:model_of](https://w3id.org/biolink/vocab/model_of)
 
+
 ## Domain and Range
 
-[NamedThing](NamedThing.md) ->  <sub>0..*</sub> [NamedThing](NamedThing.md)
+[named thing](named thing.md) ->  <sub>0..*</sub> [named thing](named thing.md)
 
 ## Parents
 
@@ -19,4 +20,12 @@ URI: [biolink:model_of](https://w3id.org/biolink/vocab/model_of)
 
 ## Used by
 
- * [NamedThing](NamedThing.md)
+ * [named thing](named thing.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | RO:0003301 |
+| **In Subsets:** | | translator_minimal |
+

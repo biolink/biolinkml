@@ -1,14 +1,15 @@
 
-# Slot: subject
+# Type: gene to gene product relationship_subject
 
 
 
 
 URI: [biolink:gene_to_gene_product_relationship_subject](https://w3id.org/biolink/vocab/gene_to_gene_product_relationship_subject)
 
+
 ## Domain and Range
 
-[GeneToGeneProductRelationship](GeneToGeneProductRelationship.md) ->  <sub>REQ</sub> [Gene](Gene.md)
+[gene to gene product relationship](gene to gene product relationship.md) ->  <sub>REQ</sub> [gene](gene.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:gene_to_gene_product_relationship_subject](https://w3id.org/biolin
 
 ## Used by
 
- * [GeneToGeneProductRelationship](GeneToGeneProductRelationship.md)
+ * [gene to gene product relationship](gene to gene product relationship.md)

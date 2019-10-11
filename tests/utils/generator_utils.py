@@ -25,6 +25,7 @@ class GeneratorTestCase(unittest.TestCase):
     model_path: str = None
     model_name: str = None
     output_name: str = None             # If different than model name
+    import_map_file: str = None
 
     @classmethod
     def setUpClass(cls) -> None:
@@ -109,6 +110,8 @@ class GeneratorTestCase(unittest.TestCase):
             def filtr(s): return s
         if comparator is None:
             comparator = GeneratorTestCase._default_comparator
+        if self.import_map_file is not None and 'import_map' not in generator_args:
+            generator_args['import_map'] = self.import_map_file
         output_base = self.output_name if self.output_name else self.model_name
         old_file = os.path.join(self.source_path, output_base + '.' + suffix)
         new_file = os.path.join(self.target_path, output_base + '.' + suffix)
@@ -140,7 +143,8 @@ class GeneratorTestCase(unittest.TestCase):
             gen_args = {}
         if serialize_args is None:
             serialize_args = {}
-
+        if self.import_map_file is not None and 'import_map' not in gen_args:
+            gen_args['import_map'] = self.import_map_file
         source_dir = os.path.join(self.source_path, dirname)
         if not os.path.exists(source_dir):
             make_and_clear_directory(source_dir)

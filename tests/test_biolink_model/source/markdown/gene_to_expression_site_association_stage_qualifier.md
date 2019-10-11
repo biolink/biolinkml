@@ -1,14 +1,15 @@
 
-# Slot: stage qualifier
+# Type: gene to expression site association_stage qualifier
 
 
 
 
 URI: [biolink:gene_to_expression_site_association_stage_qualifier](https://w3id.org/biolink/vocab/gene_to_expression_site_association_stage_qualifier)
 
+
 ## Domain and Range
 
-[GeneToExpressionSiteAssociation](GeneToExpressionSiteAssociation.md) ->  <sub>OPT</sub> [LifeStage](LifeStage.md)
+[gene to expression site association](gene to expression site association.md) ->  <sub>OPT</sub> [life stage](life stage.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:gene_to_expression_site_association_stage_qualifier](https://w3id.
 
 ## Used by
 
- * [GeneToExpressionSiteAssociation](GeneToExpressionSiteAssociation.md)
+ * [gene to expression site association](gene to expression site association.md)

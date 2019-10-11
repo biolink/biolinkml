@@ -1,14 +1,15 @@
 
-# Slot: has percentage
+# Type: has percentage
 
 
 equivalent to has quotient multiplied by 100
 
 URI: [biolink:has_percentage](https://w3id.org/biolink/vocab/has_percentage)
 
+
 ## Domain and Range
 
-[NamedThing](NamedThing.md) ->  <sub>OPT</sub> [Double](Double.md)
+[named thing](named thing.md) ->  <sub>OPT</sub> [Double](type/Double.md)
 
 ## Parents
 
@@ -19,6 +20,6 @@ URI: [biolink:has_percentage](https://w3id.org/biolink/vocab/has_percentage)
 
 ## Used by
 
- * [FrequencyQuantifier](FrequencyQuantifier.md)
- * [NamedThing](NamedThing.md)
- * [VariantToPopulationAssociation](VariantToPopulationAssociation.md)
+ * [frequency quantifier](frequency quantifier.md)
+ * [named thing](named thing.md)
+ * [variant to population association](variant to population association.md)

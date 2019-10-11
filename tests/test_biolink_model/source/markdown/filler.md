@@ -1,14 +1,15 @@
 
-# Slot: filler
+# Type: filler
 
 
 The value in a property-value tuple
 
 URI: [biolink:filler](https://w3id.org/biolink/vocab/filler)
 
+
 ## Domain and Range
 
-[NamedThing](NamedThing.md) ->  <sub>OPT</sub> [NamedThing](NamedThing.md)
+[named thing](named thing.md) ->  <sub>OPT</sub> [named thing](named thing.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:filler](https://w3id.org/biolink/vocab/filler)
 
 ## Used by
 
- * [NamedThing](NamedThing.md)
+ * [named thing](named thing.md)

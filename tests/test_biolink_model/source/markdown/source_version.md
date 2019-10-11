@@ -1,14 +1,15 @@
 
-# Slot: source version
+# Type: source version
 
 
 
 
 URI: [biolink:source_version](https://w3id.org/biolink/vocab/source_version)
 
+
 ## Domain and Range
 
-[SourceFile](SourceFile.md) ->  <sub>OPT</sub> [String](String.md)
+[source file](source file.md) ->  <sub>OPT</sub> [String](type/String.md)
 
 ## Parents
 
@@ -19,4 +20,11 @@ URI: [biolink:source_version](https://w3id.org/biolink/vocab/source_version)
 
 ## Used by
 
- * [SourceFile](SourceFile.md)
+ * [source file](source file.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | pav:version |
+

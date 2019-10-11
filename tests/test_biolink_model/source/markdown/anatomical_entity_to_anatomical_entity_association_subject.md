@@ -1,14 +1,15 @@
 
-# Slot: subject
+# Type: anatomical entity to anatomical entity association_subject
 
 
 
 
 URI: [biolink:anatomical_entity_to_anatomical_entity_association_subject](https://w3id.org/biolink/vocab/anatomical_entity_to_anatomical_entity_association_subject)
 
+
 ## Domain and Range
 
-[AnatomicalEntityToAnatomicalEntityAssociation](AnatomicalEntityToAnatomicalEntityAssociation.md) ->  <sub>REQ</sub> [AnatomicalEntity](AnatomicalEntity.md)
+[anatomical entity to anatomical entity association](anatomical entity to anatomical entity association.md) ->  <sub>REQ</sub> [anatomical entity](anatomical entity.md)
 
 ## Parents
 
@@ -21,4 +22,4 @@ URI: [biolink:anatomical_entity_to_anatomical_entity_association_subject](https:
 
 ## Used by
 
- * [AnatomicalEntityToAnatomicalEntityAssociation](AnatomicalEntityToAnatomicalEntityAssociation.md)
+ * [anatomical entity to anatomical entity association](anatomical entity to anatomical entity association.md)

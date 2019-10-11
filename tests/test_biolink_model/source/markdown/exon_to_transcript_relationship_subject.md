@@ -1,14 +1,15 @@
 
-# Slot: subject
+# Type: exon to transcript relationship_subject
 
 
 
 
 URI: [biolink:exon_to_transcript_relationship_subject](https://w3id.org/biolink/vocab/exon_to_transcript_relationship_subject)
 
+
 ## Domain and Range
 
-[ExonToTranscriptRelationship](ExonToTranscriptRelationship.md) ->  <sub>REQ</sub> [Exon](Exon.md)
+[exon to transcript relationship](exon to transcript relationship.md) ->  <sub>REQ</sub> [exon](exon.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:exon_to_transcript_relationship_subject](https://w3id.org/biolink/
 
 ## Used by
 
- * [ExonToTranscriptRelationship](ExonToTranscriptRelationship.md)
+ * [exon to transcript relationship](exon to transcript relationship.md)

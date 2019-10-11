@@ -1,14 +1,15 @@
 
-# Slot: type
+# Type: type
 
 
 
 
 URI: [biolink:type](https://w3id.org/biolink/vocab/type)
 
+
 ## Domain and Range
 
-[NamedThing](NamedThing.md) ->  <sub>OPT</sub> [String](String.md)
+[named thing](named thing.md) ->  <sub>OPT</sub> [String](type/String.md)
 
 ## Parents
 
@@ -19,7 +20,14 @@ URI: [biolink:type](https://w3id.org/biolink/vocab/type)
 
 ## Used by
 
- * [DataSetSummary](DataSetSummary.md)
- * [DataSetVersion](DataSetVersion.md)
- * [DistributionLevel](DistributionLevel.md)
- * [NamedThing](NamedThing.md)
+ * [data set summary](data set summary.md)
+ * [data set version](data set version.md)
+ * [distribution level](distribution level.md)
+ * [named thing](named thing.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | rdf:type |
+

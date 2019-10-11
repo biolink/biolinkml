@@ -1,14 +1,15 @@
 
-# Slot: has gene
+# Type: sequence variant_has gene
 
 
 
 
 URI: [biolink:sequence_variant_has_gene](https://w3id.org/biolink/vocab/sequence_variant_has_gene)
 
+
 ## Domain and Range
 
-[SequenceVariant](SequenceVariant.md) ->  <sub>0..*</sub> [Gene](Gene.md)
+[sequence variant](sequence variant.md) ->  <sub>0..*</sub> [gene](gene.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:sequence_variant_has_gene](https://w3id.org/biolink/vocab/sequence
 
 ## Used by
 
- * [SequenceVariant](SequenceVariant.md)
+ * [sequence variant](sequence variant.md)

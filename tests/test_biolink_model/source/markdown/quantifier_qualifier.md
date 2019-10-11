@@ -1,14 +1,15 @@
 
-# Slot: quantifier qualifier
+# Type: quantifier qualifier
 
 
 A measurable quantity for the object of the association
 
 URI: [biolink:quantifier_qualifier](https://w3id.org/biolink/vocab/quantifier_qualifier)
 
+
 ## Domain and Range
 
-[Association](Association.md) ->  <sub>OPT</sub> [OntologyClass](OntologyClass.md)
+[association](association.md) ->  <sub>OPT</sub> [ontology class](ontology class.md)
 
 ## Parents
 
@@ -20,5 +21,5 @@ URI: [biolink:quantifier_qualifier](https://w3id.org/biolink/vocab/quantifier_qu
 
 ## Used by
 
- * [Association](Association.md)
- * [GeneToExpressionSiteAssociation](GeneToExpressionSiteAssociation.md)
+ * [association](association.md)
+ * [gene to expression site association](gene to expression site association.md)
