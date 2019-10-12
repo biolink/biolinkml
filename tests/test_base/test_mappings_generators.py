@@ -67,7 +67,7 @@ class MappingsGeneratorTestCase(GeneratorTestCase):
         self.single_file_generator('json', JSONLDGenerator,  serialize_args=context_args,  filtr=json_metadata_filter)
 
         # Make a fresh copy of the RDF and validate it as well
-        self.single_file_generator('rdf', RDFGenerator, serialize_args=context_args,
+        self.single_file_generator('ttl', RDFGenerator, serialize_args=context_args,
                                    comparator=GeneratorTestCase.rdf_comparator)
 
         g = Graph()
