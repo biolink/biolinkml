@@ -27,6 +27,7 @@ zipp = "*"
 virtualenv = "*"
 tox = "*"
 pipenv-to-requirements = "*"
+prologterms = "*"
 
 [requires]
 python_version = "3.7"

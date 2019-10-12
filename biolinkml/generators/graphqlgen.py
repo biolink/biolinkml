@@ -1,5 +1,5 @@
 import os
-from typing import Union, TextIO, Optional
+from typing import Union, TextIO
 
 import click
 

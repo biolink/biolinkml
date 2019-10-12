@@ -67,7 +67,7 @@ class MappingsGeneratorTestCase(GeneratorTestCase):
         self.single_file_generator('json', JSONLDGenerator,  serialize_args=context_args,  filtr=json_metadata_filter)
 
         # Make a fresh copy of the RDF and validate it as well
-        self.single_file_generator('ttl', RDFGenerator, serialize_args=context_args,
+        self.single_file_generator('rdf', RDFGenerator, serialize_args=context_args,
                                    comparator=GeneratorTestCase.rdf_comparator)
 
         g = Graph()
@@ -79,31 +79,12 @@ class MappingsGeneratorTestCase(GeneratorTestCase):
         ns['EX'] = "http://example.org/mappings/"
         ns['META'] = "https://w3id.org/biolink/biolinkml/meta/"
         # Make sure that the expected triples got added
-        # ex:s1 a ex:SlotDefinition ;
-        #     skos:closeMatch <http://example.org/fulluri/slot1_close>,
-        #         ex:slot1_close ;
-        #     skos:exactMatch <http://example.org/fulluri/slot1>,
-        #         ex:slot1 ;
-        #     skos:inScheme ex: ;
-        #     skos:relatedMatch <http://example.org/fulluri/slot1_related>,
-        #         ex:slot1_related ;
-        #     ns1:deprecated_element_has_exact_replacement ex:s3 ;
-        #     ns1:deprecated_element_has_possible_replacement ex:s4 ;;
+
         self.assertEqual({ns.EX.slot1_close, ns.FULL.slot1_close}, set(g.objects(ns.EX.s1, ns.SKOS.closeMatch)))
         self.assertEqual({ns.EX.slot1, ns.FULL.slot1}, set(g.objects(ns.EX.s1, ns.SKOS.exactMatch)))
         self.assertEqual(ns.EX.s3, g.value(ns.EX.s1, ns.META.deprecated_element_has_exact_replacement, any=False))
         self.assertEqual(ns.EX.s4, g.value(ns.EX.s1, ns.META.deprecated_element_has_possible_replacement, any=False))
-        # ex:C1 a ex:ClassDefinition ;
-        #     skos:closeMatch <http://example.org/fulluri/class1_close>,
-        #         ex:class1_close ;
-        #     skos:exactMatch <http://example.org/fulluri/class1>,
-        #         ex:class1 ;
-        #     skos:inScheme ex: ;
-        #     skos:relatedMatch <http://example.org/fulluri/class1_related>,
-        #         ex:class1_related ;
-        #     ns1:class_uri ex:C1 ;
-        #     ns1:deprecated_element_has_exact_replacement ex:c2 ;
-        #     ns1:deprecated_element_has_possible_replacement ex:c3 ;
+
         self.assertEqual({ns.EX.class1_close, ns.FULL.class1_close}, set(g.objects(ns.EX.C1, ns.SKOS.closeMatch)))
         self.assertEqual({ns.EX.class1, ns.FULL.class1}, set(g.objects(ns.EX.C1, ns.SKOS.exactMatch)))
         self.assertEqual(ns.EX.c2, g.value(ns.EX.C1, ns.META.deprecated_element_has_exact_replacement, any=False))

@@ -1,10 +1,9 @@
 import copy
 import os
-import sys
 import time
 from datetime import datetime
 from io import StringIO
-from typing import Union, TextIO, Optional, List, Mapping
+from typing import Union, TextIO, Optional
 from urllib.error import HTTPError
 from urllib.parse import urlparse
 from urllib.request import Request, urlopen
@@ -12,8 +11,8 @@ from urllib.request import Request, urlopen
 import yaml
 
 from biolinkml.meta import SchemaDefinition, metamodel_version
-from biolinkml.utils.namespaces import Namespaces
 from biolinkml.utils.mergeutils import merge_schemas, set_from_schema
+from biolinkml.utils.namespaces import Namespaces
 from biolinkml.utils.yamlutils import DupCheckYamlLoader
 
 

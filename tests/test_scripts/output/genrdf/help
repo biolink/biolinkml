@@ -11,4 +11,6 @@ Options:
   --metadata / --no-metadata      Include metadata in output
   --useuris / --metauris          Include metadata in output
   -im, --importmap FILENAME       Import mapping file
+  --log_level [CRITICAL|ERROR|WARNING|INFO|DEBUG]
+                                  Logging level (default=WARNING)
   --help                          Show this message and exit.

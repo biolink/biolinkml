@@ -1,3 +1,4 @@
+import logging
 from collections import OrderedDict
 from typing import Any, Tuple, Optional, Union
 
@@ -224,7 +225,7 @@ class Namespaces(OrderedDict):
                 if is_ncname(k):
                     self[k] = v
                 else:
-                    # print(f"Warning: biocontext map {map_name} has illegal prefix: {k}", file=sys.stderr)
+                    logging.getLogger('Namespaces').warning(f"biocontext map {map_name} has illegal prefix: {k}")
                     pass
 
 

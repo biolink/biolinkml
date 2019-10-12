@@ -1,15 +1,16 @@
+import logging
 import os
 import sys
-from typing import Union, TextIO, Optional, Set, List, cast, Dict, Tuple, Mapping
+from typing import Union, TextIO, Optional, Set, List, cast, Dict, Mapping
 from urllib.parse import urlparse
 
 from biolinkml.meta import SchemaDefinition, SlotDefinition, SlotDefinitionName, ClassDefinition, \
     ClassDefinitionName, TypeDefinitionName, TypeDefinition, ElementName
 from biolinkml.utils.formatutils import underscore, camelcase, sfx
+from biolinkml.utils.mergeutils import merge_schemas, merge_slots, merge_classes, slot_usage_name
 from biolinkml.utils.metamodelcore import Bool
 from biolinkml.utils.namespaces import Namespaces
 from biolinkml.utils.rawloader import load_raw_schema
-from biolinkml.utils.mergeutils import merge_schemas, merge_slots, merge_classes, slot_usage_name
 from biolinkml.utils.schemasynopsis import SchemaSynopsis
 
 
@@ -19,7 +20,8 @@ class SchemaLoader:
                  base_dir: Optional[str] = None,
                  namespaces: Optional[Namespaces] = None,
                  useuris: Optional[bool] = None,
-                 import_map: Optional[Mapping[str, str]] = None) \
+                 import_map: Optional[Mapping[str, str]] = None,
+                 logger: Optional[logging.Logger] = None) \
             -> None:
         """ Constructor - load and process a YAML or pre-processed schema
 
@@ -28,7 +30,9 @@ class SchemaLoader:
         :param namespaces: namespaces collector
         :param useuris: True means class_uri and slot_uri are identifiers.  False means they are mappings.
         :param import_map: A map from import entries to URI or file name.
+        :param logger: Target Logger, if any
         """
+        self.logger = logger if logger is not None else logging.getLogger(self.__class__.__name__)
         if isinstance(data, SchemaDefinition):
             self.schema = data
         else:
@@ -94,7 +98,7 @@ class SchemaLoader:
                 name = cls['name'] if 'name' in cls else 'Unknown'
                 self.raise_value_error(f'Class "{name} (type: {type(cls)})" definition is not a class definition')
             if isinstance(cls.slots, str):
-                print(f"File: {self.schema.source_file} Class: {cls.name} Slots are not an array", file=sys.stderr)
+                self.logger.warning(f"File: {self.schema.source_file} Class: {cls.name} Slots are not an array")
                 cls.slots = [cls.slots]
             for slotname in cls.slots:
                 if slotname in self.schema.slots:
@@ -206,7 +210,7 @@ class SchemaLoader:
                 name = cls['name'] if 'name' in cls else 'Unknown'
                 self.raise_value_error(f'Class "{name} (type: {type(cls)})" definition is not a class definition')
             if isinstance(cls.slots, str):
-                print(f"File: {self.schema.source_file} Class: {cls.name} Slots are not an array", file=sys.stderr)
+                self.logger.warning(f"File: {self.schema.source_file} Class: {cls.name} Slots are not an array")
                 cls.slots = [cls.slots]
             for slotname in cls.slots:
                 if slotname in self.schema.slots:
@@ -270,19 +274,19 @@ class SchemaLoader:
 
         dups = check_dups(classes, slots)
         if dups:
-            print(f"Warning: Shared class and slot names: {dups}", file=sys.stderr)
+            self.logger.warning(f"Shared class and slot names: {dups}")
         dups = check_dups(classes, subsets)
         if dups:
-            print(f"Warning: Shared class and subset names: {dups}", file=sys.stderr)
+            self.logger.warning(f"Shared class and subset names: {dups}")
         dups = check_dups(slots, types)
         if dups:
-            print(f"Warning: Shared type and slot names: {dups}", file=sys.stderr)
+            self.logger.warning(f"Shared type and slot names: {dups}")
         dups = check_dups(slots, subsets)
         if dups:
-            print(f"Warning: Shared slot and subset names: {dups}", file=sys.stderr)
+            self.logger.warning(f"Shared slot and subset names: {dups}")
         dups = check_dups(types, subsets)
         if dups:
-            print(f"Warning: Shared type and subset names: {dups}", file=sys.stderr)
+            self.logger.warning(f"Shared type and subset names: {dups}")
 
         # Make the source file relative if it is locally generated
         self.schema_location = self.schema.source_file
@@ -466,7 +470,7 @@ class SchemaLoader:
     def check_prefix(self, prefix: str) -> None:
         prefix = self.namespaces.prefix_for(prefix)
         if prefix and prefix not in self.namespaces:
-            print(f"Unrecognized prefix: {prefix}", file=sys.stderr)
+            self.logger.warning(f"Unrecognized prefix: {prefix}")
             self.namespaces[prefix] = f"http://example.org/UNKNOWN/{prefix}/"
 
     @staticmethod

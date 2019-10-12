@@ -1,4 +1,4 @@
-# YAMM representation generators
+# BiolinkML representation generators
 
 * [contextgen.py]() - generate a JSON-LD @context block (see: [contextgen help](../../tests/test_scripts/output/gencontext/help))
 * [csvgen.py]() - generate a csv summary (see: [csvgen help](../../tests/test_scripts/output/gencsv/help))

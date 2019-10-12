@@ -43,7 +43,8 @@ class SchemaSynopsisTestCase(Base):
 
     def test_unitialized_domain(self):
         self.loadit(os.path.join(inputdir, 'synopsis1.yaml'))
-        self.assert_error('Slot s1 has no owners')
+        # Owners check no longer occurs
+        # self.assert_error('Slot s1 has no owners')
         self.assert_warning('Unspecified domain: s1')
 
     def test_applyto(self):

@@ -1,16 +1,16 @@
-"""Generate JSON-LD contexts
+"""
+Generate JSON-LD contexts
 
 """
+import logging
 import os
-import sys
-from typing import Union, TextIO, Dict, Set, Optional
+from typing import Union, TextIO, Set, Optional
 
 import click
 from jsonasobj import JsonObj, as_json
 from rdflib import XSD
 
-from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, Definition, TypeDefinition, \
-    Element
+from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, Definition, Element
 from biolinkml.utils.formatutils import camelcase, underscore, be
 from biolinkml.utils.generator import Generator, shared_arguments
 from includes.types import SHEX
@@ -128,7 +128,7 @@ license: {be(self.schema.license)}
         @param ncname: name to add
         """
         if ncname not in self.namespaces:
-            print(f"Unrecognized prefix: {ncname}", file=sys.stderr)
+            self.logger.warning(f"Unrecognized prefix: {ncname}")
             self.namespaces[ncname] = f"http://example.org/UNKNOWN/{ncname}/"
         self.emit_prefixes.add(ncname)
 
@@ -141,7 +141,7 @@ license: {be(self.schema.license)}
         for mapping in defn.mappings:
             if '://' in mapping:
                 mcurie = self.namespaces.curie_for(mapping)
-                print(f"No namespace defined for URI: {mapping}", file=sys.stderr)
+                self.logger.warning(f"No namespace defined for URI: {mapping}")
                 if mcurie is None:
                     return        # Absolute path - no prefix/name
                 else:

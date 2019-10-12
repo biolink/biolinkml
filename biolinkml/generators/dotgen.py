@@ -1,8 +1,8 @@
-"""Generate dotfiles
-
+"""
+Generate dotfiles
 """
 import os
-from typing import TextIO, Union, List, Optional, Set
+from typing import TextIO, Union, List, Optional
 
 import click
 from graphviz import Digraph, FORMATS
@@ -13,6 +13,7 @@ from biolinkml.utils.generator import Generator, shared_arguments
 
 valid_formats = sorted(list(FORMATS))
 
+
 class DotGenerator(Generator):
     generatorname = os.path.basename(__file__)
     generatorversion = "0.1.1"
@@ -21,7 +22,7 @@ class DotGenerator(Generator):
 
     def __init__(self, schema: Union[str, TextIO, SchemaDefinition], **kwargs) -> None:
         super().__init__(schema, **kwargs)
-        self.classnames: List[str] = None
+        self.classnames: Optional[List[str]] = None
         self.filename: Optional[str] = None
         self.dirname: Optional[str] = None
         self.filedot: Optional[Digraph] = None

@@ -1,5 +1,5 @@
 # Auto generated from None by pythongen.py version: 0.2.1
-# Generation date: 2019-10-11 18:12
+# Generation date: 2019-10-12 10:44
 # Schema: synopsis2
 #
 # id: http://example.org/sample/example1
@@ -119,7 +119,7 @@ class FriendlyPerson(Person):
 http://yuml.me/diagram/nofunky;dir:TB/class/[Person]<knows 0..*- [Person|id:string;first_name:string *;last_name:string;age:int %3F;living:boolean %3F], [FriendlyPerson|id(i):string;first_name(i):string *;last_name(i):string;age(i):int %3F;living(i):boolean %3F]- knows 1..*>[Person], [Person]^-[FriendlyPerson]
 
 {
-   "_comments": "Auto generated from None by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2019-10-11 18:12\nSchema: synopsis2\n\nid: http://example.org/sample/example1\ndescription: \nlicense: \n",
+   "_comments": "Auto generated from None by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2019-10-12 10:44\nSchema: synopsis2\n\nid: http://example.org/sample/example1\ndescription: \nlicense: \n",
    "@context": {
       "_comments": null,
       "type": "@type",

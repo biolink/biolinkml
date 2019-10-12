@@ -2,7 +2,6 @@
 
 """
 import os
-from collections import Iterable
 from typing import Any, Optional
 
 import click

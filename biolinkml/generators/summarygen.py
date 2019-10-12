@@ -4,7 +4,7 @@
 import os
 import sys
 from csv import DictWriter
-from typing import Union, TextIO
+from typing import Union, TextIO, Optional
 
 import click
 
@@ -21,8 +21,8 @@ class SummaryGenerator(Generator):
     def __init__(self, schema: Union[str, TextIO, SchemaDefinition], **args) -> None:
         super().__init__(schema, **args)
         self.dirname = None
-        self.classtab: DictWriter = None
-        self.slottab: DictWriter = None
+        self.classtab: Optional[DictWriter] = None
+        self.slottab: Optional[DictWriter] = None
         self.dialect = 'excel-tab'
 
     def visit_schema(self, **_) -> None:

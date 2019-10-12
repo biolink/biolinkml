@@ -48,7 +48,7 @@ class GolrSchemaGenerator(Generator):
     def __init__(self, schema: Union[str, TextIO, SchemaDefinition], directory: str = None, **kwargs) -> None:
         super().__init__(schema, **kwargs)
         self.dirname: str = directory
-        self.class_obj: GOLRClass = None
+        self.class_obj: Optional[GOLRClass] = None
 
     def visit_schema(self, directory: str, **_) -> None:
         self.dirname = directory

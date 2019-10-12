@@ -1,11 +1,8 @@
 from dataclasses import dataclass
-from typing import Optional, Union, List, Tuple
 
 import yaml
-from jsonasobj import JsonObj, as_dict, as_json, load, loads
+from jsonasobj import JsonObj, as_json
 from rdflib import Graph
-from yaml import SafeDumper, ScalarNode
-from yaml.representer import BaseRepresenter
 
 from biolinkml.utils.context_utils import CONTEXTS_PARAM_TYPE, merge_contexts
 

@@ -1,10 +1,10 @@
-"""Generate CSVs
-
+"""
+Generate CSVs
 """
 import os
 import sys
 from csv import DictWriter
-from typing import List, Union, TextIO, Set
+from typing import List, Union, TextIO, Set, Optional
 
 import click
 
@@ -20,9 +20,9 @@ class CsvGenerator(Generator):
 
     def __init__(self, schema: Union[str, TextIO, SchemaDefinition], **kwargs) -> None:
         super().__init__(schema, **kwargs)
-        self.sep: str = None
-        self.closure: Set[ClassDefinitionName] = None       # List of classes to include in output
-        self.writer: DictWriter = None
+        self.sep: Optional[str] = None
+        self.closure: Optional[Set[ClassDefinitionName]] = None       # List of classes to include in output
+        self.writer: Optional[DictWriter] = None
         
     def visit_schema(self, classes: List[ClassDefinitionName] = None, **_) -> None:
         # Note: classes comes from the "root" argument

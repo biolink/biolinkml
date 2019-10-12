@@ -3,17 +3,16 @@
 https://yuml.me/diagram/scruffy/class/samples
 
 """
+import logging
 import os
-import sys
 from typing import Union, TextIO, Set, List, Optional, Callable, cast
 
 import click
 import requests
 from rdflib import Namespace
 
-from biolinkml.meta import ClassDefinitionName, SchemaDefinition, SlotDefinitionName, SlotDefinition, \
+from biolinkml.meta import ClassDefinitionName, SchemaDefinition, SlotDefinition, \
     ClassDefinition
-
 from biolinkml.utils.formatutils import camelcase, underscore
 from biolinkml.utils.generator import Generator, shared_arguments
 
@@ -40,12 +39,12 @@ class YumlGenerator(Generator):
 
     def __init__(self, schema: Union[str, TextIO, SchemaDefinition], **args) -> None:
         super().__init__(schema, **args)
-        self.referenced: Set[ClassDefinitionName] = None        # List of classes that have to be emitted
-        self.generated: Set[ClassDefinitionName] = None         # List of classes that have been emitted
-        self.box_generated: Set[ClassDefinitionName] = None     # Class boxes that have been emitted
-        self.associations_generated: Set[ClassDefinitionName] = None    # Classes with associations generated
+        self.referenced:Optional[Set[ClassDefinitionName]] = None        # List of classes that have to be emitted
+        self.generated:Optional[Set[ClassDefinitionName]] = None         # List of classes that have been emitted
+        self.box_generated:Optional[Set[ClassDefinitionName]] = None     # Class boxes that have been emitted
+        self.associations_generated:Optional[Set[ClassDefinitionName]] = None    # Classes with associations generated
         self.focus_classes: Optional[Set[ClassDefinitionName]] = None   # Classes to be completely filled
-        self.gen_classes: Set[ClassDefinitionName] = None           # Classes to be generated
+        self.gen_classes:Optional[Set[ClassDefinitionName]] = None           # Classes to be generated
         self.output_file_name: Optional[str] = None             # Location of output file if directory used
 
     def visit_schema(self, classes: Set[ClassDefinitionName]=None, directory: Optional[str] = None,
@@ -78,7 +77,7 @@ class YumlGenerator(Generator):
         file_suffix = '.png' if self.format == 'yuml' else '.' + self.format
         if directory:
             self.output_file_name = os.path.join(directory,
-                                       camelcase(sorted(classes)[0] if classes else self.schema.name) + file_suffix)
+                                    camelcase(sorted(classes)[0] if classes else self.schema.name) + file_suffix)
             if load_image:
                 resp = requests.get(yuml_url, stream=True)
                 if resp.ok:
@@ -86,7 +85,7 @@ class YumlGenerator(Generator):
                         for chunk in resp.iter_content(chunk_size=2048):
                             f.write(chunk)
                 else:
-                    print(f"Error: {resp.reason} accessing {yuml_url}", file=sys.stderr)
+                    self.logger.error(f"{resp.reason} accessing {yuml_url}")
         else:
             print(str(YUML)+', '.join(yumlclassdef), end='')
 

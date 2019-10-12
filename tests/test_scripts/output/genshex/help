@@ -3,9 +3,11 @@ Usage: gen-shex [OPTIONS] YAMLFILE
   Generate a ShEx Schema for a  biolink model
 
 Options:
-  -o, --output TEXT             Output file name
-  -f, --format [shex|json|rdf]  Output format
-  --metadata / --no-metadata    Include metadata in output
-  --useuris / --metauris        Include metadata in output
-  -im, --importmap FILENAME     Import mapping file
-  --help                        Show this message and exit.
+  -o, --output TEXT               Output file name
+  -f, --format [shex|json|rdf]    Output format
+  --metadata / --no-metadata      Include metadata in output
+  --useuris / --metauris          Include metadata in output
+  -im, --importmap FILENAME       Import mapping file
+  --log_level [CRITICAL|ERROR|WARNING|INFO|DEBUG]
+                                  Logging level (default=WARNING)
+  --help                          Show this message and exit.

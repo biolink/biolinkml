@@ -9,7 +9,6 @@ from biolinkml.generators.yumlgen import YumlGenerator
 from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, Element, ClassDefinitionName, \
     TypeDefinition
 from biolinkml.utils.formatutils import camelcase, be, underscore, sfx
-from biolinkml.utils.namespaces import Namespaces
 from biolinkml.utils.generator import Generator, shared_arguments
 from biolinkml.utils.typereferences import References
 
@@ -24,13 +23,13 @@ class MarkdownGenerator(Generator):
         super().__init__(schema, **kwargs)
         self.directory: Optional[str] = None
         self.image_directory: Optional[str] = None
-        self.types_directory: str = None
+        self.types_directory: Optional[str] = None
         self.noimages: bool = False
         self.gen_classes: Optional[Set[ClassDefinitionName]] = None
         self.gen_classes_neighborhood: Optional[References] = None
         self.BASE = None
 
-    def visit_schema(self, directory: str = None, classes: Set[ClassDefinitionName]=None, image_dir: bool = False,
+    def visit_schema(self, directory: str = None, classes: Set[ClassDefinitionName] = None, image_dir: bool = False,
                      noimages: bool = False, **_) -> None:
         self.gen_classes = classes if classes else []
         for cls in self.gen_classes:
