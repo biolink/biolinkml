@@ -558,4 +558,8 @@ def shared_arguments(g: Generator) -> Callable[[Command], Command]:
 
 
 def parse_import_map(map_loc: Optional[str]) -> Mapping[str, str]:
-    return load(open(map_loc)) if map_loc is not None else dict()
+    if map_loc is None:
+        return dict()
+    else:
+        with open(map_loc) as ml:
+            return load(ml)

@@ -53,11 +53,12 @@ URI: [biolink:relation](https://w3id.org/biolink/vocab/relation)
  * [chemical to thing association](chemical to thing association.md)
  * [disease or phenotypic feature association to location association](disease or phenotypic feature association to location association.md)
  * [disease or phenotypic feature association to thing association](disease or phenotypic feature association to thing association.md)
+ * [disease to exposure association](disease to exposure association.md)
  * [disease to phenotypic feature association](disease to phenotypic feature association.md)
  * [disease to thing association](disease to thing association.md)
  * [entity to phenotypic feature association](entity to phenotypic feature association.md)
- * [environment to phenotypic feature association](environment to phenotypic feature association.md)
  * [exon to transcript relationship](exon to transcript relationship.md)
+ * [exposure event to phenotypic feature association](exposure event to phenotypic feature association.md)
  * [functional association](functional association.md)
  * [gene as a model of disease association](gene as a model of disease association.md)
  * [gene has variant that contributes to disease association](gene has variant that contributes to disease association.md)
@@ -103,5 +104,5 @@ URI: [biolink:relation](https://w3id.org/biolink/vocab/relation)
 |  | | predicate (translator) |
 | **Mappings:** | | rdf:predicate |
 |  | | owl:annotatedProperty |
-|  | | oban:association_has_predicate |
+|  | | OBAN:association_has_predicate |
 

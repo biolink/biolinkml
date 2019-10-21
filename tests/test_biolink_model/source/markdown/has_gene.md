@@ -2,7 +2,7 @@
 # Type: has gene
 
 
-connects and entity to a single gene
+connects an entity to a single gene
 
 URI: [biolink:has_gene](https://w3id.org/biolink/vocab/has_gene)
 

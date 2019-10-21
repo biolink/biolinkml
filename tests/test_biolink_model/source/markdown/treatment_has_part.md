@@ -1,10 +1,10 @@
 
-# Type: has exposure parts
+# Type: treatment_has part
 
 
 
 
-URI: [biolink:has_exposure_parts](https://w3id.org/biolink/vocab/has_exposure_parts)
+URI: [biolink:treatment_has_part](https://w3id.org/biolink/vocab/treatment_has_part)
 
 
 ## Domain and Range
@@ -13,6 +13,7 @@ URI: [biolink:has_exposure_parts](https://w3id.org/biolink/vocab/has_exposure_pa
 
 ## Parents
 
+ *  is_a: [has part](has_part.md)
 
 ## Children
 

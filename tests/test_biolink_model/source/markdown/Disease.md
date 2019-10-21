@@ -7,7 +7,7 @@
 URI: [biolink:Disease](https://w3id.org/biolink/vocab/Disease)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[Disease|id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],%20\[DiseaseToThingAssociation]-%20subject%201..1>\[Disease],%20\[DiseaseOrPhenotypicFeature]^-\[Disease])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[Disease|id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],%20\[DiseaseToExposureAssociation]-%20subject%201..1>\[Disease],%20\[DiseaseToThingAssociation]-%20subject%201..1>\[Disease],%20\[DiseaseOrPhenotypicFeature]^-\[Disease])
 
 ## Parents
 
@@ -15,6 +15,7 @@ URI: [biolink:Disease](https://w3id.org/biolink/vocab/Disease)
 
 ## Referenced by class
 
+ *  **[disease to exposure association](disease to exposure association.md)** *[subject](disease_to_exposure_association_subject.md)*  <sub>REQ</sub>  **[disease](disease.md)**
  *  **[disease to thing association](disease to thing association.md)** *[subject](disease_to_thing_association_subject.md)*  <sub>REQ</sub>  **[disease](disease.md)**
  *  **[entity to disease association](entity to disease association.md)** *[object](entity_to_disease_association_object.md)*  <sub>REQ</sub>  **[disease](disease.md)**
  *  **[named thing](named thing.md)** *[manifestation of](manifestation_of.md)*  <sub>0..*</sub>  **[disease](disease.md)**

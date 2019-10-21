@@ -161,7 +161,7 @@ metatype:Nodeidentifier NONLITERAL
     @<ChemicalToDiseaseOrPhenotypicFeatureAssociation> OR @<ChemicalToGeneAssociation> OR @<ChemicalToPathwayAssociation> OR
     @<ChemicalToThingAssociation> OR @<DiseaseOrPhenotypicFeatureAssociationToThingAssociation> OR
     @<DiseaseToPhenotypicFeatureAssociation> OR @<DiseaseToThingAssociation> OR @<EntityToPhenotypicFeatureAssociation> OR
-    @<EnvironmentToPhenotypicFeatureAssociation> OR @<FunctionalAssociation> OR @<GeneRegulatoryRelationship> OR
+    @<ExposureEventToPhenotypicFeatureAssociation> OR @<FunctionalAssociation> OR @<GeneRegulatoryRelationship> OR
     @<GeneToDiseaseAssociation> OR @<GeneToExpressionSiteAssociation> OR @<GeneToGeneAssociation> OR
     @<GeneToPhenotypicFeatureAssociation> OR @<GeneToThingAssociation> OR @<GenomicSequenceLocalization> OR
     @<GenotypeToGeneAssociation> OR @<GenotypeToGenotypePartAssociation> OR @<GenotypeToPhenotypicFeatureAssociation> OR
@@ -200,7 +200,8 @@ metatype:Nodeidentifier NONLITERAL
 )
 
 <BiologicalEntity>  (
-    @<BiologicalProcessOrActivity> OR @<DiseaseOrPhenotypicFeature> OR @<Environment> OR @<MolecularEntity> OR @<OrganismalEntity>
+    @<BiologicalProcessOrActivity> OR @<DiseaseOrPhenotypicFeature> OR @<ExposureEvent> OR @<MolecularEntity> OR
+    @<OrganismalEntity>
 )
 
 <BiologicalEntity_struct> {
@@ -334,6 +335,16 @@ metatype:Nodeidentifier NONLITERAL
        rdf:type [ <CellularComponent> ]
     )
 }
+
+<ChemicalExposure>  (
+    CLOSED {
+       (  $<ChemicalExposure_tes> (  &<ExposureEvent_tes> ;
+             rdf:type [ <ExposureEvent> ] ?
+          ) ;
+          rdf:type [ <ChemicalExposure> ]
+       )
+    } OR @<DrugExposure>
+)
 
 <ChemicalSubstance>  (
     CLOSED {
@@ -561,6 +572,16 @@ metatype:Nodeidentifier NONLITERAL
     } OR @<DiseaseOrPhenotypicFeatureAssociationToLocationAssociation>
 )
 
+<DiseaseToExposureAssociation> CLOSED {
+    (  $<DiseaseToExposureAssociation_tes> (  &<DiseaseToThingAssociation_tes> ;
+          rdf:type [ <DiseaseToThingAssociation> ] ? ;
+          <subject> @<Disease> ;
+          <object> @<ExposureEvent>
+       ) ;
+       rdf:type [ <DiseaseToExposureAssociation> ]
+    )
+}
+
 <DiseaseToPhenotypicFeatureAssociation> CLOSED {
     (  $<DiseaseToPhenotypicFeatureAssociation_tes> (  &<Association_tes> ;
           rdf:type [ <Association> ] ? ;
@@ -573,14 +594,16 @@ metatype:Nodeidentifier NONLITERAL
     )
 }
 
-<DiseaseToThingAssociation> {
-    (  $<DiseaseToThingAssociation_tes> (  &<Association_tes> ;
-          rdf:type [ <Association> ] ? ;
-          <subject> @<Disease>
-       ) ;
-       rdf:type [ <DiseaseToThingAssociation> ]
-    )
-}
+<DiseaseToThingAssociation>  (
+    {
+       (  $<DiseaseToThingAssociation_tes> (  &<Association_tes> ;
+             rdf:type [ <Association> ] ? ;
+             <subject> @<Disease>
+          ) ;
+          rdf:type [ <DiseaseToThingAssociation> ]
+       )
+    } OR @<DiseaseToExposureAssociation>
+)
 
 <DistributionLevel> {
     (  $<DistributionLevel_tes> (  &<DataSetVersion_tes> ;
@@ -600,9 +623,9 @@ metatype:Nodeidentifier NONLITERAL
 }
 
 <DrugExposure> CLOSED {
-    (  $<DrugExposure_tes> (  &<Environment_tes> ;
-          rdf:type [ <Environment> ] ? ;
-          <drug> @<ChemicalSubstance> +
+    (  $<DrugExposure_tes> (  &<ChemicalExposure_tes> ;
+          rdf:type [ <ChemicalExposure> ] ? ;
+          <has_drug> @<ChemicalSubstance> +
        ) ;
        rdf:type [ <DrugExposure> ]
     )
@@ -638,27 +661,6 @@ metatype:Nodeidentifier NONLITERAL
           <description> @<NarrativeText> ?
        ) ;
        rdf:type [ <EntityToPhenotypicFeatureAssociation> ]
-    )
-}
-
-<Environment>  (
-    CLOSED {
-       (  $<Environment_tes> (  &<BiologicalEntity_tes> ;
-             rdf:type [ <BiologicalEntity> ] ?
-          ) ;
-          rdf:type [ <Environment> ]
-       )
-    } OR @<DrugExposure> OR @<Treatment>
-)
-
-<EnvironmentToPhenotypicFeatureAssociation> CLOSED {
-    (  $<EnvironmentToPhenotypicFeatureAssociation_tes> (  &<Association_tes> ;
-          rdf:type [ <Association> ] ? ;
-          &<EntityToPhenotypicFeatureAssociation_tes> ;
-          rdf:type [ <EntityToPhenotypicFeatureAssociation> ] ? ;
-          <subject> @<Environment>
-       ) ;
-       rdf:type [ <EnvironmentToPhenotypicFeatureAssociation> ]
     )
 }
 
@@ -708,6 +710,30 @@ metatype:Nodeidentifier NONLITERAL
           <object> @<Transcript>
        ) ;
        rdf:type [ <ExonToTranscriptRelationship> ]
+    )
+}
+
+<ExposureEvent>  (
+    CLOSED {
+       (  $<ExposureEvent_tes> (  &<BiologicalEntity_tes> ;
+             rdf:type [ <BiologicalEntity> ] ? ;
+             <has_receptor> @<OrganismalEntity> ? ;
+             <has_stressor> @metatype:String ? ;
+             <has_route> @metatype:String ?
+          ) ;
+          rdf:type [ <ExposureEvent> ]
+       )
+    } OR @<ChemicalExposure> OR @<Treatment>
+)
+
+<ExposureEventToPhenotypicFeatureAssociation> CLOSED {
+    (  $<ExposureEventToPhenotypicFeatureAssociation_tes> (  &<Association_tes> ;
+          rdf:type [ <Association> ] ? ;
+          &<EntityToPhenotypicFeatureAssociation_tes> ;
+          rdf:type [ <EntityToPhenotypicFeatureAssociation> ] ? ;
+          <subject> @<ExposureEvent>
+       ) ;
+       rdf:type [ <ExposureEventToPhenotypicFeatureAssociation> ]
     )
 }
 
@@ -1377,6 +1403,7 @@ metatype:Nodeidentifier NONLITERAL
              <timepoint> @<TimeType> ? ;
              <has_biological_sequence> @<BiologicalSequence> ? ;
              <has_molecular_consequence> @<OntologyClass> * ;
+             <has_drug> @<Drug> ? ;
              <has_gene> @<Gene> ? ;
              <has_zygosity> @<Zygosity> ? ;
              <filler> @<NamedThing> ? ;
@@ -1770,10 +1797,10 @@ metatype:Nodeidentifier NONLITERAL
 }
 
 <Treatment> CLOSED {
-    (  $<Treatment_tes> (  &<Environment_tes> ;
-          rdf:type [ <Environment> ] ? ;
+    (  $<Treatment_tes> (  &<ExposureEvent_tes> ;
+          rdf:type [ <ExposureEvent> ] ? ;
           <treats> @<DiseaseOrPhenotypicFeature> + ;
-          <has_exposure_parts> @<DrugExposure> +
+          <has_part> @<DrugExposure> +
        ) ;
        rdf:type [ <Treatment> ]
     )

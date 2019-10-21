@@ -9,7 +9,7 @@ URI: [biolink:association_id](https://w3id.org/biolink/vocab/association_id)
 
 ## Domain and Range
 
-[association](association.md) ->  <sub>REQ</sub> [IdentifierType](type/IdentifierType.md)
+[association](association.md) ->  <sub>REQ</sub> [Nodeidentifier](type/Nodeidentifier.md)
 
 ## Parents
 
@@ -37,11 +37,12 @@ URI: [biolink:association_id](https://w3id.org/biolink/vocab/association_id)
  * [chemical to thing association](chemical to thing association.md)
  * [disease or phenotypic feature association to location association](disease or phenotypic feature association to location association.md)
  * [disease or phenotypic feature association to thing association](disease or phenotypic feature association to thing association.md)
+ * [disease to exposure association](disease to exposure association.md)
  * [disease to phenotypic feature association](disease to phenotypic feature association.md)
  * [disease to thing association](disease to thing association.md)
  * [entity to phenotypic feature association](entity to phenotypic feature association.md)
- * [environment to phenotypic feature association](environment to phenotypic feature association.md)
  * [exon to transcript relationship](exon to transcript relationship.md)
+ * [exposure event to phenotypic feature association](exposure event to phenotypic feature association.md)
  * [functional association](functional association.md)
  * [gene as a model of disease association](gene as a model of disease association.md)
  * [gene has variant that contributes to disease association](gene has variant that contributes to disease association.md)

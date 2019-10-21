@@ -23,6 +23,7 @@ URI: [biolink:OrganismalEntity](https://w3id.org/biolink/vocab/OrganismalEntity)
 
 ## Referenced by class
 
+ *  **[exposure event](exposure event.md)** *[has receptor](has_receptor.md)*  <sub>OPT</sub>  **[organismal entity](organismal entity.md)**
 
 ## Attributes
 

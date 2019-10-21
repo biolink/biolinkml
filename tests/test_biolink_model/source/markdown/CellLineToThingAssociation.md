@@ -7,7 +7,7 @@ An relationship between a cell line and another entity
 URI: [biolink:CellLineToThingAssociation](https://w3id.org/biolink/vocab/CellLineToThingAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[CellLineToThingAssociation|relation(i):uriorcurie;id(i):identifier_type;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[CellLineToThingAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[CellLineToThingAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[CellLineToThingAssociation],%20\[NamedThing]<object(i)%201..1-%20\[CellLineToThingAssociation],%20\[CellLine]<subject%201..1-%20\[CellLineToThingAssociation],%20\[CellLineToDiseaseOrPhenotypicFeatureAssociation]uses%20-.->\[CellLineToThingAssociation],%20\[Association]^-\[CellLineToThingAssociation])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[CellLineToThingAssociation|relation(i):uriorcurie;id(i):nodeidentifier;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[CellLineToThingAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[CellLineToThingAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[CellLineToThingAssociation],%20\[NamedThing]<object(i)%201..1-%20\[CellLineToThingAssociation],%20\[CellLine]<subject%201..1-%20\[CellLineToThingAssociation],%20\[CellLineToDiseaseOrPhenotypicFeatureAssociation]uses%20-.->\[CellLineToThingAssociation],%20\[Association]^-\[CellLineToThingAssociation])
 
 ## Parents
 
@@ -44,7 +44,7 @@ URI: [biolink:CellLineToThingAssociation](https://w3id.org/biolink/vocab/CellLin
     * inherited from: [association](association.md)
  * [id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
-    * range: [IdentifierType](type/IdentifierType.md)
+    * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
     * in subsets: (translator_minimal)
  * [negated](negated.md)  <sub>OPT</sub>

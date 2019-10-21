@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "619a5424ba99dcae11b7ed27434854ea1731851204c68483b8c1b340b5a3e287"
+            "sha256": "097e001d464b20e55b2327d12d17ff57d458835300e3ede95d0ea5c151ac5287"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -39,10 +39,10 @@
         },
         "attrs": {
             "hashes": [
-                "sha256:ec20e7a4825331c1b5ebf261d111e16fa9612c1f7a5e1f884f12bd53a664dfd2",
-                "sha256:f913492e1663d3c36f502e5e9ba6cd13cf19d7fab50aa13239e420fef95e1396"
+                "sha256:08a96c641c3a74e44eb59afb61a24f2cb9f4d7188748e76ba4bb5edfa3cb7d1c",
+                "sha256:f7b7ce16570fe9965acd6d30101a28f62fb4a7f9e926b3bbc9b61f8b04247e72"
             ],
-            "version": "==19.2.0"
+            "version": "==19.3.0"
         },
         "cachier": {
             "hashes": [
@@ -130,10 +130,6 @@
             ],
             "index": "pypi",
             "version": "==3.1.1"
-        },
-        "master-zip": {
-            "git": "https://github.com/hsolbrig/rdflib-jsonld",
-            "ref": "0fc75e320b0a3074931457fe3e2e4f8f49463071"
         },
         "more-itertools": {
             "hashes": [
@@ -278,10 +274,8 @@
             "version": "==4.2.2"
         },
         "rdflib-jsonld": {
-            "hashes": [
-                "sha256:144774786a2fc7de09b24a9309cbcccc78bc48b152536d2ea1c1df2ad715bc2d"
-            ],
-            "version": "==0.4.0"
+            "git": "https://github.com/hsolbrig/rdflib-jsonld",
+            "ref": "0fc75e320b0a3074931457fe3e2e4f8f49463071"
         },
         "requests": {
             "hashes": [
@@ -342,11 +336,11 @@
         },
         "virtualenv": {
             "hashes": [
-                "sha256:680af46846662bb38c5504b78bad9ed9e4f3ba2d54f54ba42494fdf94337fe30",
-                "sha256:f78d81b62d3147396ac33fc9d77579ddc42cc2a98dd9ea38886f616b33bc7fb2"
+                "sha256:3e3597e89c73df9313f5566e8fc582bd7037938d15b05329c232ec57a11a7ad5",
+                "sha256:5d370508bf32e522d79096e8cbea3499d47e624ac7e11e9089f9397a0b3318df"
             ],
             "index": "pypi",
-            "version": "==16.7.5"
+            "version": "==16.7.6"
         },
         "virtualenv-clone": {
             "hashes": [
@@ -359,6 +353,7 @@
             "hashes": [
                 "sha256:965f658d0732de3188211932aeb0bb457587f04f63ab4c1e33eab878e9de961d"
             ],
+            "index": "pypi",
             "version": "==0.9.0"
         },
         "zipp": {
@@ -513,11 +508,11 @@
         },
         "virtualenv": {
             "hashes": [
-                "sha256:680af46846662bb38c5504b78bad9ed9e4f3ba2d54f54ba42494fdf94337fe30",
-                "sha256:f78d81b62d3147396ac33fc9d77579ddc42cc2a98dd9ea38886f616b33bc7fb2"
+                "sha256:3e3597e89c73df9313f5566e8fc582bd7037938d15b05329c232ec57a11a7ad5",
+                "sha256:5d370508bf32e522d79096e8cbea3499d47e624ac7e11e9089f9397a0b3318df"
             ],
             "index": "pypi",
-            "version": "==16.7.5"
+            "version": "==16.7.6"
         },
         "virtualenv-clone": {
             "hashes": [

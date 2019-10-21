@@ -7,7 +7,7 @@ An association between a disease and a phenotypic feature in which the phenotypi
 URI: [biolink:DiseaseToPhenotypicFeatureAssociation](https://w3id.org/biolink/vocab/DiseaseToPhenotypicFeatureAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[DiseaseToPhenotypicFeatureAssociation|relation(i):uriorcurie;id(i):identifier_type;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[DiseaseToPhenotypicFeatureAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[DiseaseToPhenotypicFeatureAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[DiseaseToPhenotypicFeatureAssociation],%20\[NamedThing]<object(i)%201..1-%20\[DiseaseToPhenotypicFeatureAssociation],%20\[NamedThing]<subject(i)%201..1-%20\[DiseaseToPhenotypicFeatureAssociation],%20\[DiseaseToPhenotypicFeatureAssociation]uses%20-.->\[EntityToPhenotypicFeatureAssociation],%20\[DiseaseToPhenotypicFeatureAssociation]uses%20-.->\[DiseaseToThingAssociation],%20\[Association]^-\[DiseaseToPhenotypicFeatureAssociation])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[DiseaseToPhenotypicFeatureAssociation|relation(i):uriorcurie;id(i):nodeidentifier;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[DiseaseToPhenotypicFeatureAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[DiseaseToPhenotypicFeatureAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[DiseaseToPhenotypicFeatureAssociation],%20\[NamedThing]<object(i)%201..1-%20\[DiseaseToPhenotypicFeatureAssociation],%20\[NamedThing]<subject(i)%201..1-%20\[DiseaseToPhenotypicFeatureAssociation],%20\[DiseaseToPhenotypicFeatureAssociation]uses%20-.->\[EntityToPhenotypicFeatureAssociation],%20\[DiseaseToPhenotypicFeatureAssociation]uses%20-.->\[DiseaseToThingAssociation],%20\[Association]^-\[DiseaseToPhenotypicFeatureAssociation])
 
 ## Parents
 
@@ -37,7 +37,7 @@ URI: [biolink:DiseaseToPhenotypicFeatureAssociation](https://w3id.org/biolink/vo
     * inherited from: [association](association.md)
  * [id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
-    * range: [IdentifierType](type/IdentifierType.md)
+    * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
     * in subsets: (translator_minimal)
  * [negated](negated.md)  <sub>OPT</sub>

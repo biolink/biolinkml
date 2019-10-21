@@ -2,21 +2,57 @@
 # Type: drug
 
 
+A substance intended for use in the diagnosis, cure, mitigation, treatment, or prevention of disease
+
+URI: [biolink:Drug](https://w3id.org/biolink/vocab/Drug)
 
 
-URI: [biolink:drug](https://w3id.org/biolink/vocab/drug)
-
-
-## Domain and Range
-
-[drug exposure](drug exposure.md) ->  <sub>1..*</sub> [chemical substance](chemical substance.md)
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[Drug|id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],%20\[ChemicalSubstance]^-\[Drug])
 
 ## Parents
 
+ *  is_a: [chemical substance](chemical substance.md) - May be a chemical entity or a formulation with a chemical entity as active ingredient, or a complex material with multiple chemical entities as part
 
-## Children
+## Referenced by class
+
+ *  **[named thing](named thing.md)** *[has drug](has_drug.md)*  <sub>OPT</sub>  **[drug](drug.md)**
+
+## Attributes
 
 
-## Used by
+### Inherited from named thing:
 
- * [drug exposure](drug exposure.md)
+ * [id](id.md)  <sub>REQ</sub>
+    * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
+    * range: [IdentifierType](type/IdentifierType.md)
+    * inherited from: [named thing](named thing.md)
+    * in subsets: (translator_minimal)
+ * [name](name.md)  <sub>REQ</sub>
+    * Description: A human-readable name for a thing
+    * range: [LabelType](type/LabelType.md)
+    * inherited from: [named thing](named thing.md)
+    * in subsets: (translator_minimal)
+ * [category](category.md)  <sub>1..*</sub>
+    * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
+    * range: [IriType](type/IriType.md)
+    * inherited from: [named thing](named thing.md)
+    * in subsets: (translator_minimal)
+
+### Inherited from thing with taxon:
+
+ * [in taxon](in_taxon.md)  <sub>0..*</sub>
+    * Description: connects a thing to a class representing a taxon
+    * range: [organism taxon](organism taxon.md)
+    * inherited from: [thing with taxon](thing with taxon.md)
+    * in subsets: (translator_minimal)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | WD:Q12140 |
+|  | | CHEBI:23888 |
+|  | | UMLSSC:T200 |
+|  | | UMLSST:clnd |
+| **Comments:** | | The CHEBI ID represents a role rather than a substance |
+

@@ -7,7 +7,7 @@ Any association between one genotype and a phenotypic feature, where having the 
 URI: [biolink:GenotypeToPhenotypicFeatureAssociation](https://w3id.org/biolink/vocab/GenotypeToPhenotypicFeatureAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[GenotypeToPhenotypicFeatureAssociation|relation:uriorcurie;id(i):identifier_type;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[GenotypeToPhenotypicFeatureAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[GenotypeToPhenotypicFeatureAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[GenotypeToPhenotypicFeatureAssociation],%20\[NamedThing]<object(i)%201..1-%20\[GenotypeToPhenotypicFeatureAssociation],%20\[Genotype]<subject%201..1-%20\[GenotypeToPhenotypicFeatureAssociation],%20\[GenotypeToPhenotypicFeatureAssociation]uses%20-.->\[EntityToPhenotypicFeatureAssociation],%20\[GenotypeToPhenotypicFeatureAssociation]uses%20-.->\[GenotypeToThingAssociation],%20\[Association]^-\[GenotypeToPhenotypicFeatureAssociation])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[GenotypeToPhenotypicFeatureAssociation|relation:uriorcurie;id(i):nodeidentifier;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[GenotypeToPhenotypicFeatureAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[GenotypeToPhenotypicFeatureAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[GenotypeToPhenotypicFeatureAssociation],%20\[NamedThing]<object(i)%201..1-%20\[GenotypeToPhenotypicFeatureAssociation],%20\[Genotype]<subject%201..1-%20\[GenotypeToPhenotypicFeatureAssociation],%20\[GenotypeToPhenotypicFeatureAssociation]uses%20-.->\[EntityToPhenotypicFeatureAssociation],%20\[GenotypeToPhenotypicFeatureAssociation]uses%20-.->\[GenotypeToThingAssociation],%20\[Association]^-\[GenotypeToPhenotypicFeatureAssociation])
 
 ## Parents
 
@@ -47,7 +47,7 @@ URI: [biolink:GenotypeToPhenotypicFeatureAssociation](https://w3id.org/biolink/v
     * inherited from: [association](association.md)
  * [id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
-    * range: [IdentifierType](type/IdentifierType.md)
+    * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
     * in subsets: (translator_minimal)
  * [negated](negated.md)  <sub>OPT</sub>

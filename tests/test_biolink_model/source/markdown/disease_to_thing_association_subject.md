@@ -17,6 +17,7 @@ URI: [biolink:disease_to_thing_association_subject](https://w3id.org/biolink/voc
 
 ## Children
 
+ *  [subject](disease_to_exposure_association_subject.md)
 
 ## Used by
 

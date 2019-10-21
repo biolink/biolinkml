@@ -7,15 +7,15 @@ A drug exposure is an intake of a particular chemical substance
 URI: [biolink:DrugExposure](https://w3id.org/biolink/vocab/DrugExposure)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Environment]^-\[DrugExposure|id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[ChemicalExposure]^-\[DrugExposure|id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B])
 
 ## Parents
 
- *  is_a: [environment](environment.md) - A feature of the environment of an organism that influences one or more phenotypic features of that organism, potentially mediated by genes
+ *  is_a: [chemical exposure](chemical exposure.md) - A chemical exposure is an intake of a particular chemical substance
 
 ## Referenced by class
 
- *  **[treatment](treatment.md)** *[has exposure parts](has_exposure_parts.md)*  <sub>1..*</sub>  **[drug exposure](drug exposure.md)**
+ *  **[treatment](treatment.md)** *[has part](treatment_has_part.md)*  <sub>1..*</sub>  **[drug exposure](drug exposure.md)**
 
 ## Attributes
 
@@ -40,7 +40,7 @@ URI: [biolink:DrugExposure](https://w3id.org/biolink/vocab/DrugExposure)
 
 ### Domain for slot:
 
- * [drug](drug.md)  <sub>1..*</sub>
+ * [has drug](drug_exposure_has_drug.md)  <sub>1..*</sub>
     * range: [chemical substance](chemical substance.md)
 
 ## Other properties

@@ -7,7 +7,7 @@ A homology association between two genes. May be orthology (in which case the sp
 URI: [biolink:GeneToGeneHomologyAssociation](https://w3id.org/biolink/vocab/GeneToGeneHomologyAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[GeneToGeneHomologyAssociation|relation:uriorcurie;id(i):identifier_type;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[GeneToGeneHomologyAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[GeneToGeneHomologyAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[GeneToGeneHomologyAssociation],%20\[GeneOrGeneProduct]<object(i)%201..1-%20\[GeneToGeneHomologyAssociation],%20\[GeneOrGeneProduct]<subject(i)%201..1-%20\[GeneToGeneHomologyAssociation],%20\[GeneToGeneAssociation]^-\[GeneToGeneHomologyAssociation])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[GeneToGeneHomologyAssociation|relation:uriorcurie;id(i):nodeidentifier;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[GeneToGeneHomologyAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[GeneToGeneHomologyAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[GeneToGeneHomologyAssociation],%20\[GeneOrGeneProduct]<object(i)%201..1-%20\[GeneToGeneHomologyAssociation],%20\[GeneOrGeneProduct]<subject(i)%201..1-%20\[GeneToGeneHomologyAssociation],%20\[GeneToGeneAssociation]^-\[GeneToGeneHomologyAssociation])
 
 ## Parents
 
@@ -40,7 +40,7 @@ URI: [biolink:GeneToGeneHomologyAssociation](https://w3id.org/biolink/vocab/Gene
     * inherited from: [association](association.md)
  * [id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
-    * range: [IdentifierType](type/IdentifierType.md)
+    * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
     * in subsets: (translator_minimal)
  * [negated](negated.md)  <sub>OPT</sub>

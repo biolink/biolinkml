@@ -11,7 +11,7 @@ URI: [biolink:EntityToFeatureOrDiseaseQualifiers](https://w3id.org/biolink/vocab
 
 ## Parents
 
- *  is_a: [frequency qualifier mixin](frequency qualifier mixin.md) - Qualifier for freqency type associations
+ *  is_a: [frequency qualifier mixin](frequency qualifier mixin.md) - Qualifier for frequency type associations
 
 ## Children
 

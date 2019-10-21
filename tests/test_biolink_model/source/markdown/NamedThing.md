@@ -166,8 +166,11 @@ URI: [biolink:NamedThing](https://w3id.org/biolink/vocab/NamedThing)
  * [has count](has_count.md)  <sub>OPT</sub>
     * Description: number of things with a particular property
     * range: [Integer](type/Integer.md)
+ * [has drug](has_drug.md)  <sub>OPT</sub>
+    * Description: connects an entity to a single drug
+    * range: [drug](drug.md)
  * [has gene](has_gene.md)  <sub>OPT</sub>
-    * Description: connects and entity to a single gene
+    * Description: connects an entity to a single gene
     * range: [gene](gene.md)
  * [has molecular consequence](has_molecular_consequence.md)  <sub>0..*</sub>
     * Description: connects a sequence variant to a class describing the molecular consequence. E.g.  SO:0001583

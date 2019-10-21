@@ -7,7 +7,7 @@ Any association between a genotype and a sequence variant.
 URI: [biolink:GenotypeToVariantAssociation](https://w3id.org/biolink/vocab/GenotypeToVariantAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[GenotypeToVariantAssociation|relation:uriorcurie;id(i):identifier_type;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[GenotypeToVariantAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[GenotypeToVariantAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[GenotypeToVariantAssociation],%20\[SequenceVariant]<object%201..1-%20\[GenotypeToVariantAssociation],%20\[Genotype]<subject%201..1-%20\[GenotypeToVariantAssociation],%20\[Association]^-\[GenotypeToVariantAssociation])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[GenotypeToVariantAssociation|relation:uriorcurie;id(i):nodeidentifier;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[GenotypeToVariantAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[GenotypeToVariantAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[GenotypeToVariantAssociation],%20\[SequenceVariant]<object%201..1-%20\[GenotypeToVariantAssociation],%20\[Genotype]<subject%201..1-%20\[GenotypeToVariantAssociation],%20\[Association]^-\[GenotypeToVariantAssociation])
 
 ## Parents
 
@@ -44,7 +44,7 @@ URI: [biolink:GenotypeToVariantAssociation](https://w3id.org/biolink/vocab/Genot
     * inherited from: [association](association.md)
  * [id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
-    * range: [IdentifierType](type/IdentifierType.md)
+    * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
     * in subsets: (translator_minimal)
  * [negated](negated.md)  <sub>OPT</sub>

@@ -7,7 +7,7 @@ An association between a sequence variant and a treatment or health intervention
 URI: [biolink:SequenceVariantModulatesTreatmentAssociation](https://w3id.org/biolink/vocab/SequenceVariantModulatesTreatmentAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[SequenceVariantModulatesTreatmentAssociation|relation(i):uriorcurie;id(i):identifier_type;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[SequenceVariantModulatesTreatmentAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[SequenceVariantModulatesTreatmentAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[SequenceVariantModulatesTreatmentAssociation],%20\[Treatment]<object%201..1-%20\[SequenceVariantModulatesTreatmentAssociation],%20\[SequenceVariant]<subject%201..1-%20\[SequenceVariantModulatesTreatmentAssociation],%20\[Association]^-\[SequenceVariantModulatesTreatmentAssociation])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[SequenceVariantModulatesTreatmentAssociation|relation(i):uriorcurie;id(i):nodeidentifier;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[SequenceVariantModulatesTreatmentAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[SequenceVariantModulatesTreatmentAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[SequenceVariantModulatesTreatmentAssociation],%20\[Treatment]<object%201..1-%20\[SequenceVariantModulatesTreatmentAssociation],%20\[SequenceVariant]<subject%201..1-%20\[SequenceVariantModulatesTreatmentAssociation],%20\[Association]^-\[SequenceVariantModulatesTreatmentAssociation])
 
 ## Parents
 
@@ -42,7 +42,7 @@ URI: [biolink:SequenceVariantModulatesTreatmentAssociation](https://w3id.org/bio
     * inherited from: [association](association.md)
  * [id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
-    * range: [IdentifierType](type/IdentifierType.md)
+    * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
     * in subsets: (translator_minimal)
  * [negated](negated.md)  <sub>OPT</sub>

@@ -18,6 +18,7 @@
       "ECTO": "http://example.org/UNKNOWN/ECTO/",
       "EFO": "http://purl.obolibrary.org/obo/EFO_",
       "ENSEMBL": "http://ensembl.org/id/",
+      "ExO": "http://example.org/UNKNOWN/ExO/",
       "FAO": "http://purl.obolibrary.org/obo/FAO_",
       "GENO": "http://purl.obolibrary.org/obo/GENO_",
       "GO": "http://purl.obolibrary.org/obo/GO_",
@@ -68,7 +69,6 @@
       "faldo": "http://biohackathon.org/resource/faldo#",
       "meta": "https://w3id.org/biolink/biolinkml/meta/",
       "metatype": "https://w3id.org/biolink/biolinkml/type/",
-      "oban": "http://example.org/UNKNOWN/oban/",
       "owl": "http://www.w3.org/2002/07/owl#",
       "pav": "http://purl.org/pav/",
       "qud": "http://qudt.org/1.1/schema/qudt#",
@@ -286,6 +286,9 @@
       "has_count": {
          "@type": "xsd:integer"
       },
+      "has_drug": {
+         "@type": "@id"
+      },
       "has_evidence": {
          "@type": "@id"
       },
@@ -327,6 +330,9 @@
       },
       "has_quotient": {
          "@type": "xsd:double"
+      },
+      "has_receptor": {
+         "@type": "@id"
       },
       "has_total": {
          "@type": "xsd:integer"

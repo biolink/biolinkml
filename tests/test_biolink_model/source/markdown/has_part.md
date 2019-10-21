@@ -17,10 +17,12 @@ URI: [biolink:has_part](https://w3id.org/biolink/vocab/has_part)
 
 ## Children
 
+ *  [has part](treatment_has_part.md)
 
 ## Used by
 
  * [named thing](named thing.md)
+ * [treatment](treatment.md)
 
 ## Other properties
 

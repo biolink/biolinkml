@@ -1,21 +1,17 @@
 
-# Type: environment to phenotypic feature association
+# Type: disease to exposure association
 
 
-Any association between an environment and a phenotypic feature, where being in the environment influences the phenotype
+An association between an exposure event and a disease
 
-URI: [biolink:EnvironmentToPhenotypicFeatureAssociation](https://w3id.org/biolink/vocab/EnvironmentToPhenotypicFeatureAssociation)
+URI: [biolink:DiseaseToExposureAssociation](https://w3id.org/biolink/vocab/DiseaseToExposureAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[EnvironmentToPhenotypicFeatureAssociation|relation(i):uriorcurie;id(i):identifier_type;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[EnvironmentToPhenotypicFeatureAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[EnvironmentToPhenotypicFeatureAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[EnvironmentToPhenotypicFeatureAssociation],%20\[NamedThing]<object(i)%201..1-%20\[EnvironmentToPhenotypicFeatureAssociation],%20\[Environment]<subject%201..1-%20\[EnvironmentToPhenotypicFeatureAssociation],%20\[EnvironmentToPhenotypicFeatureAssociation]uses%20-.->\[EntityToPhenotypicFeatureAssociation],%20\[Association]^-\[EnvironmentToPhenotypicFeatureAssociation])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[DiseaseToExposureAssociation|relation(i):uriorcurie;id(i):nodeidentifier;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[DiseaseToExposureAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[DiseaseToExposureAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[DiseaseToExposureAssociation],%20\[ExposureEvent]<object%201..1-%20\[DiseaseToExposureAssociation],%20\[Disease]<subject%201..1-%20\[DiseaseToExposureAssociation],%20\[DiseaseToThingAssociation]^-\[DiseaseToExposureAssociation])
 
 ## Parents
 
- *  is_a: [association](association.md) - A typed association between two entities, supported by evidence
-
-## Uses Mixins
-
- *  mixin: [entity to phenotypic feature association](entity to phenotypic feature association.md)
+ *  is_a: [disease to thing association](disease to thing association.md)
 
 ## Referenced by class
 
@@ -25,8 +21,10 @@ URI: [biolink:EnvironmentToPhenotypicFeatureAssociation](https://w3id.org/biolin
 
 ### Own
 
- * [subject](environment_to_phenotypic_feature_association_subject.md)  <sub>REQ</sub>
-    * range: [environment](environment.md)
+ * [object](disease_to_exposure_association_object.md)  <sub>REQ</sub>
+    * range: [exposure event](exposure event.md)
+ * [subject](disease_to_exposure_association_subject.md)  <sub>REQ</sub>
+    * range: [disease](disease.md)
 
 ### Inherited from association:
 
@@ -44,7 +42,7 @@ URI: [biolink:EnvironmentToPhenotypicFeatureAssociation](https://w3id.org/biolin
     * inherited from: [association](association.md)
  * [id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
-    * range: [IdentifierType](type/IdentifierType.md)
+    * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
     * in subsets: (translator_minimal)
  * [negated](negated.md)  <sub>OPT</sub>
@@ -70,5 +68,7 @@ URI: [biolink:EnvironmentToPhenotypicFeatureAssociation](https://w3id.org/biolin
 
 ### Domain for slot:
 
- * [subject](environment_to_phenotypic_feature_association_subject.md)  <sub>REQ</sub>
-    * range: [environment](environment.md)
+ * [object](disease_to_exposure_association_object.md)  <sub>REQ</sub>
+    * range: [exposure event](exposure event.md)
+ * [subject](disease_to_exposure_association_subject.md)  <sub>REQ</sub>
+    * range: [disease](disease.md)

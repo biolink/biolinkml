@@ -2670,7 +2670,7 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
       "domain": "Association",
-      "range": "identifier_type",
+      "range": "nodeidentifier",
       "slot_uri": "https://w3id.org/biolink/vocab/id",
       "ifabsent": "bnode",
       "required": true,
@@ -2834,7 +2834,7 @@
       "mappings": [
         "rdf:subject",
         "owl:annotatedSource",
-        "oban:association_has_subject"
+        "OBAN:association_has_subject"
       ],
       "description": "connects an association to the subject of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.",
       "from_schema": "https://w3id.org/biolink/biolink-model",
@@ -2864,7 +2864,7 @@
       "mappings": [
         "rdf:object",
         "owl:annotatedTarget",
-        "oban:association_has_object"
+        "OBAN:association_has_object"
       ],
       "description": "connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.",
       "from_schema": "https://w3id.org/biolink/biolink-model",
@@ -2910,7 +2910,7 @@
       "mappings": [
         "rdf:predicate",
         "owl:annotatedProperty",
-        "oban:association_has_predicate"
+        "OBAN:association_has_predicate"
       ],
       "description": "the relationship type by which a subject is connected to an object in an association",
       "from_schema": "https://w3id.org/biolink/biolink-model",
@@ -3004,6 +3004,54 @@
       "range": "date",
       "slot_uri": "http://purl.org/dc/terms/created",
       "owner": "creation_date",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "has_receptor",
+      "definition_uri": "biolink:has_receptor",
+      "mappings": [
+        "ExO:0000001"
+      ],
+      "description": "the organism or organism part being exposed",
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "is_a": "node_property",
+      "domain": "ExposureEvent",
+      "range": "OrganismalEntity",
+      "slot_uri": "http://example.org/UNKNOWN/ExO/0000001",
+      "owner": "has_receptor",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "has_stressor",
+      "definition_uri": "biolink:has_stressor",
+      "aliases": [
+        "has stimulus"
+      ],
+      "mappings": [
+        "ExO:0000000"
+      ],
+      "description": "the process or entity that the receptor is being exposed to",
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "is_a": "node_property",
+      "domain": "ExposureEvent",
+      "range": "string",
+      "slot_uri": "http://example.org/UNKNOWN/ExO/0000000",
+      "owner": "has_stressor",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "has_route",
+      "definition_uri": "biolink:has_route",
+      "mappings": [
+        "ExO:0000055"
+      ],
+      "description": "the process that results in the stressor coming into direct contact with the receptor",
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "is_a": "node_property",
+      "domain": "ExposureEvent",
+      "range": "string",
+      "slot_uri": "http://example.org/UNKNOWN/ExO/0000055",
+      "owner": "has_route",
       "type": "SlotDefinition"
     },
     {
@@ -3326,9 +3374,21 @@
       "type": "SlotDefinition"
     },
     {
+      "name": "has_drug",
+      "definition_uri": "biolink:has_drug",
+      "description": "connects an entity to a single drug",
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "is_a": "node_property",
+      "domain": "NamedThing",
+      "range": "Drug",
+      "slot_uri": "https://w3id.org/biolink/vocab/has_drug",
+      "owner": "has_drug",
+      "type": "SlotDefinition"
+    },
+    {
       "name": "has_gene",
       "definition_uri": "biolink:has_gene",
-      "description": "connects and entity to a single gene",
+      "description": "connects an entity to a single gene",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
       "domain": "NamedThing",
@@ -3655,26 +3715,31 @@
       "type": "SlotDefinition"
     },
     {
-      "name": "drug",
+      "name": "drug_exposure_has_drug",
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "is_a": "has_drug",
       "domain": "DrugExposure",
       "range": "ChemicalSubstance",
-      "slot_uri": "https://w3id.org/biolink/vocab/drug",
+      "slot_uri": "https://w3id.org/biolink/vocab/has_drug",
       "multivalued": true,
       "required": true,
-      "owner": "drug",
+      "alias": "has drug",
+      "owner": "drug_exposure_has_drug",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
     {
-      "name": "has_exposure_parts",
+      "name": "treatment_has_part",
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "is_a": "has_part",
       "domain": "Treatment",
       "range": "DrugExposure",
-      "slot_uri": "https://w3id.org/biolink/vocab/has_exposure_parts",
+      "slot_uri": "https://w3id.org/biolink/vocab/has_part",
       "multivalued": true,
+      "inherited": true,
       "required": true,
-      "owner": "has_exposure_parts",
+      "alias": "has part",
+      "owner": "treatment_has_part",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3852,7 +3917,7 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "association_id",
       "domain": "PairwiseInteractionAssociation",
-      "range": "identifier_type",
+      "range": "nodeidentifier",
       "slot_uri": "https://w3id.org/biolink/vocab/id",
       "ifabsent": "bnode",
       "required": true,
@@ -4210,6 +4275,32 @@
       "type": "SlotDefinition"
     },
     {
+      "name": "disease_to_exposure_association_subject",
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "is_a": "disease_to_thing_association_subject",
+      "domain": "DiseaseToExposureAssociation",
+      "range": "Disease",
+      "slot_uri": "https://w3id.org/biolink/vocab/subject",
+      "required": true,
+      "alias": "subject",
+      "owner": "DiseaseToExposureAssociation",
+      "is_usage_slot": true,
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "disease_to_exposure_association_object",
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "is_a": "object",
+      "domain": "DiseaseToExposureAssociation",
+      "range": "ExposureEvent",
+      "slot_uri": "https://w3id.org/biolink/vocab/object",
+      "required": true,
+      "alias": "object",
+      "owner": "DiseaseToExposureAssociation",
+      "is_usage_slot": true,
+      "type": "SlotDefinition"
+    },
+    {
       "name": "genotype_to_phenotypic_feature_association_relation",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "relation",
@@ -4249,15 +4340,15 @@
       "type": "SlotDefinition"
     },
     {
-      "name": "environment_to_phenotypic_feature_association_subject",
+      "name": "exposure_event_to_phenotypic_feature_association_subject",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
-      "domain": "EnvironmentToPhenotypicFeatureAssociation",
-      "range": "Environment",
+      "domain": "ExposureEventToPhenotypicFeatureAssociation",
+      "range": "ExposureEvent",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
-      "owner": "EnvironmentToPhenotypicFeatureAssociation",
+      "owner": "ExposureEventToPhenotypicFeatureAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -5402,6 +5493,7 @@
         "timepoint",
         "has_biological_sequence",
         "has_molecular_consequence",
+        "has_drug",
         "has_gene",
         "has_zygosity",
         "filler",
@@ -6073,8 +6165,8 @@
       "type": "ClassDefinition"
     },
     {
-      "name": "Environment",
-      "definition_uri": "biolink:Environment",
+      "name": "ExposureEvent",
+      "definition_uri": "biolink:ExposureEvent",
       "aliases": [
         "environment",
         "exposure",
@@ -6098,7 +6190,10 @@
         "full_name",
         "description",
         "systematic_synonym",
-        "has_phenotype"
+        "has_phenotype",
+        "has_receptor",
+        "has_stressor",
+        "has_route"
       ],
       "class_uri": "http://semanticscience.org/resource/SIO_000955",
       "type": "ClassDefinition"
@@ -8873,19 +8968,14 @@
       "type": "ClassDefinition"
     },
     {
-      "name": "DrugExposure",
-      "definition_uri": "biolink:DrugExposure",
-      "aliases": [
-        "drug intake",
-        "drug dose"
-      ],
+      "name": "ChemicalExposure",
+      "definition_uri": "biolink:ChemicalExposure",
       "mappings": [
-        "ECTO:0000509",
-        "SIO:001005"
+        "ECTO:9000000"
       ],
-      "description": "A drug exposure is an intake of a particular chemical substance",
+      "description": "A chemical exposure is an intake of a particular chemical substance",
       "from_schema": "https://w3id.org/biolink/biolink-model",
-      "is_a": "Environment",
+      "is_a": "ExposureEvent",
       "slots": [
         "id",
         "name",
@@ -8899,7 +8989,44 @@
         "description",
         "systematic_synonym",
         "has_phenotype",
-        "drug"
+        "has_receptor",
+        "has_stressor",
+        "has_route"
+      ],
+      "class_uri": "http://example.org/UNKNOWN/ECTO/9000000",
+      "type": "ClassDefinition"
+    },
+    {
+      "name": "DrugExposure",
+      "definition_uri": "biolink:DrugExposure",
+      "aliases": [
+        "drug intake",
+        "drug dose"
+      ],
+      "mappings": [
+        "ECTO:0000509",
+        "SIO:001005"
+      ],
+      "description": "A drug exposure is an intake of a particular chemical substance",
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "is_a": "ChemicalExposure",
+      "slots": [
+        "id",
+        "name",
+        "category",
+        "related_to",
+        "interacts_with",
+        "node_property",
+        "iri",
+        "synonym",
+        "full_name",
+        "description",
+        "systematic_synonym",
+        "has_phenotype",
+        "has_receptor",
+        "has_stressor",
+        "has_route",
+        "drug_exposure_has_drug"
       ],
       "class_uri": "http://example.org/UNKNOWN/ECTO/0000509",
       "type": "ClassDefinition"
@@ -8916,7 +9043,7 @@
       ],
       "description": "A treatment is targeted at a disease or phenotype and may involve multiple drug 'exposures'",
       "from_schema": "https://w3id.org/biolink/biolink-model",
-      "is_a": "Environment",
+      "is_a": "ExposureEvent",
       "slots": [
         "id",
         "name",
@@ -8930,8 +9057,11 @@
         "description",
         "systematic_synonym",
         "has_phenotype",
+        "has_receptor",
+        "has_stressor",
+        "has_route",
         "treats",
-        "has_exposure_parts"
+        "treatment_has_part"
       ],
       "class_uri": "http://purl.obolibrary.org/obo/OGMS_0000090",
       "type": "ClassDefinition"
@@ -9568,7 +9698,7 @@
     {
       "name": "FrequencyQualifierMixin",
       "definition_uri": "biolink:FrequencyQualifierMixin",
-      "description": "Qualifier for freqency type associations",
+      "description": "Qualifier for frequency type associations",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "mixin": true,
       "slots": [
@@ -9747,6 +9877,32 @@
       "type": "ClassDefinition"
     },
     {
+      "name": "DiseaseToExposureAssociation",
+      "definition_uri": "biolink:DiseaseToExposureAssociation",
+      "description": "An association between an exposure event and a disease",
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "is_a": "DiseaseToThingAssociation",
+      "slots": [
+        "disease_to_exposure_association_subject",
+        "relation",
+        "disease_to_exposure_association_object",
+        "association_id",
+        "negated",
+        "association_type",
+        "qualifiers",
+        "publications",
+        "provided_by",
+        "association_slot",
+        "edge_label"
+      ],
+      "class_uri": "https://w3id.org/biolink/vocab/DiseaseToExposureAssociation",
+      "defining_slots": [
+        "subject",
+        "object"
+      ],
+      "type": "ClassDefinition"
+    },
+    {
       "name": "GenotypeToPhenotypicFeatureAssociation",
       "definition_uri": "biolink:GenotypeToPhenotypicFeatureAssociation",
       "description": "Any association between one genotype and a phenotypic feature, where having the genotype confers the phenotype, either in isolation or through environment",
@@ -9781,8 +9937,8 @@
       "type": "ClassDefinition"
     },
     {
-      "name": "EnvironmentToPhenotypicFeatureAssociation",
-      "definition_uri": "biolink:EnvironmentToPhenotypicFeatureAssociation",
+      "name": "ExposureEventToPhenotypicFeatureAssociation",
+      "definition_uri": "biolink:ExposureEventToPhenotypicFeatureAssociation",
       "description": "Any association between an environment and a phenotypic feature, where being in the environment influences the phenotype",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
@@ -9790,7 +9946,7 @@
         "EntityToPhenotypicFeatureAssociation"
       ],
       "slots": [
-        "environment_to_phenotypic_feature_association_subject",
+        "exposure_event_to_phenotypic_feature_association_subject",
         "relation",
         "object",
         "association_id",
@@ -9806,7 +9962,7 @@
         "severity_qualifier",
         "onset_qualifier"
       ],
-      "class_uri": "https://w3id.org/biolink/vocab/EnvironmentToPhenotypicFeatureAssociation",
+      "class_uri": "https://w3id.org/biolink/vocab/ExposureEventToPhenotypicFeatureAssociation",
       "defining_slots": [
         "subject",
         "object"
@@ -11289,7 +11445,7 @@
   "metamodel_version": "1.4.3",
   "source_file": "biolink-model.yaml",
   "source_file_date": "2019-01-01-12:00",
-  "source_file_size": 116106,
+  "source_file_size": 117070,
   "generation_date": "2019-01-01 12:00",
   "type": "SchemaDefinition",
   "@context": [

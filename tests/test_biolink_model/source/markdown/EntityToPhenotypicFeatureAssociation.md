@@ -7,7 +7,7 @@
 URI: [biolink:EntityToPhenotypicFeatureAssociation](https://w3id.org/biolink/vocab/EntityToPhenotypicFeatureAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[EntityToPhenotypicFeatureAssociation|relation(i):uriorcurie;id(i):identifier_type;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[EntityToPhenotypicFeatureAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[EntityToPhenotypicFeatureAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[EntityToPhenotypicFeatureAssociation],%20\[NamedThing]<subject(i)%201..1-%20\[EntityToPhenotypicFeatureAssociation],%20\[PhenotypicFeature]<object%201..1-%20\[EntityToPhenotypicFeatureAssociation],%20\[EntityToPhenotypicFeatureAssociation]uses%20-.->\[EntityToFeatureOrDiseaseQualifiers],%20\[VariantToPhenotypicFeatureAssociation]uses%20-.->\[EntityToPhenotypicFeatureAssociation],%20\[GenotypeToPhenotypicFeatureAssociation]uses%20-.->\[EntityToPhenotypicFeatureAssociation],%20\[GeneToPhenotypicFeatureAssociation]uses%20-.->\[EntityToPhenotypicFeatureAssociation],%20\[EnvironmentToPhenotypicFeatureAssociation]uses%20-.->\[EntityToPhenotypicFeatureAssociation],%20\[DiseaseToPhenotypicFeatureAssociation]uses%20-.->\[EntityToPhenotypicFeatureAssociation],%20\[CaseToPhenotypicFeatureAssociation]uses%20-.->\[EntityToPhenotypicFeatureAssociation],%20\[Association]^-\[EntityToPhenotypicFeatureAssociation])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[EntityToPhenotypicFeatureAssociation|relation(i):uriorcurie;id(i):nodeidentifier;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[EntityToPhenotypicFeatureAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[EntityToPhenotypicFeatureAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[EntityToPhenotypicFeatureAssociation],%20\[NamedThing]<subject(i)%201..1-%20\[EntityToPhenotypicFeatureAssociation],%20\[PhenotypicFeature]<object%201..1-%20\[EntityToPhenotypicFeatureAssociation],%20\[EntityToPhenotypicFeatureAssociation]uses%20-.->\[EntityToFeatureOrDiseaseQualifiers],%20\[VariantToPhenotypicFeatureAssociation]uses%20-.->\[EntityToPhenotypicFeatureAssociation],%20\[GenotypeToPhenotypicFeatureAssociation]uses%20-.->\[EntityToPhenotypicFeatureAssociation],%20\[GeneToPhenotypicFeatureAssociation]uses%20-.->\[EntityToPhenotypicFeatureAssociation],%20\[ExposureEventToPhenotypicFeatureAssociation]uses%20-.->\[EntityToPhenotypicFeatureAssociation],%20\[DiseaseToPhenotypicFeatureAssociation]uses%20-.->\[EntityToPhenotypicFeatureAssociation],%20\[CaseToPhenotypicFeatureAssociation]uses%20-.->\[EntityToPhenotypicFeatureAssociation],%20\[Association]^-\[EntityToPhenotypicFeatureAssociation])
 
 ## Parents
 
@@ -21,7 +21,7 @@ URI: [biolink:EntityToPhenotypicFeatureAssociation](https://w3id.org/biolink/voc
 
  * [case to phenotypic feature association](case to phenotypic feature association.md) (mixin)  - An association between a case (e.g. individual patient) and a phenotypic feature in which the individual has or has had the phenotype
  * [disease to phenotypic feature association](disease to phenotypic feature association.md) (mixin)  - An association between a disease and a phenotypic feature in which the phenotypic feature is associated with the disease in some way
- * [environment to phenotypic feature association](environment to phenotypic feature association.md) (mixin)  - Any association between an environment and a phenotypic feature, where being in the environment influences the phenotype
+ * [exposure event to phenotypic feature association](exposure event to phenotypic feature association.md) (mixin)  - Any association between an environment and a phenotypic feature, where being in the environment influences the phenotype
  * [gene to phenotypic feature association](gene to phenotypic feature association.md) (mixin) 
  * [genotype to phenotypic feature association](genotype to phenotypic feature association.md) (mixin)  - Any association between one genotype and a phenotypic feature, where having the genotype confers the phenotype, either in isolation or through environment
  * [variant to phenotypic feature association](variant to phenotypic feature association.md) (mixin) 
@@ -53,7 +53,7 @@ URI: [biolink:EntityToPhenotypicFeatureAssociation](https://w3id.org/biolink/voc
     * inherited from: [association](association.md)
  * [id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
-    * range: [IdentifierType](type/IdentifierType.md)
+    * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
     * in subsets: (translator_minimal)
  * [negated](negated.md)  <sub>OPT</sub>

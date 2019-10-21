@@ -36,8 +36,9 @@ Entity and association taxonomy and datamodel for life-sciences data
        * [disease or phenotypic feature association to location association](disease or phenotypic feature association to location association.md) - An association between either a disease or a phenotypic feature and an anatomical entity, where the disease/feature manifests in that site.
     * [disease to phenotypic feature association](disease to phenotypic feature association.md) - An association between a disease and a phenotypic feature in which the phenotypic feature is associated with the disease in some way
     * [disease to thing association](disease to thing association.md)
+       * [disease to exposure association](disease to exposure association.md) - An association between an exposure event and a disease
     * [entity to phenotypic feature association](entity to phenotypic feature association.md)
-    * [environment to phenotypic feature association](environment to phenotypic feature association.md) - Any association between an environment and a phenotypic feature, where being in the environment influences the phenotype
+    * [exposure event to phenotypic feature association](exposure event to phenotypic feature association.md) - Any association between an environment and a phenotypic feature, where being in the environment influences the phenotype
     * [functional association](functional association.md) - An association between a macromolecular machine (gene, gene product or complex of gene products) and either a molecular activity, a biological process or a cellular location in which a function is executed
        * [gene to go term association](gene to go term association.md)
        * [macromolecular machine to biological process association](macromolecular machine to biological process association.md) - A functional association between a macromolecular machine (gene, gene product or complex) and a biological process or pathway (as represented in the GO biological process branch), where the entity carries out some part of the process, regulates it, or acts upstream of it
@@ -86,8 +87,9 @@ Entity and association taxonomy and datamodel for life-sciences data
        * [disease or phenotypic feature](disease or phenotypic feature.md) - Either one of a disease or an individual phenotypic feature. Some knowledge resources such as Monarch treat these as distinct, others such as MESH conflate.
           * [disease](disease.md)
           * [phenotypic feature](phenotypic feature.md)
-       * [environment](environment.md) - A feature of the environment of an organism that influences one or more phenotypic features of that organism, potentially mediated by genes
-          * [drug exposure](drug exposure.md) - A drug exposure is an intake of a particular chemical substance
+       * [exposure event](exposure event.md) - A feature of the environment of an organism that influences one or more phenotypic features of that organism, potentially mediated by genes
+          * [chemical exposure](chemical exposure.md) - A chemical exposure is an intake of a particular chemical substance
+             * [drug exposure](drug exposure.md) - A drug exposure is an intake of a particular chemical substance
           * [treatment](treatment.md) - A treatment is targeted at a disease or phenotype and may involve multiple drug 'exposures'
        * [molecular entity](molecular entity.md) - A gene, gene product, small molecule or macromolecule (including protein complex)
           * [chemical substance](chemical substance.md) - May be a chemical entity or a formulation with a chemical entity as active ingredient, or a complex material with multiple chemical entities as part
@@ -162,7 +164,7 @@ Entity and association taxonomy and datamodel for life-sciences data
  * [entity to disease association](entity to disease association.md) - mixin class for any association whose object (target node) is a disease
  * [entity to feature or disease qualifiers](entity to feature or disease qualifiers.md) - Qualifiers for entity to disease or phenotype associations
     * [entity to disease association](entity to disease association.md) - mixin class for any association whose object (target node) is a disease
- * [frequency qualifier mixin](frequency qualifier mixin.md) - Qualifier for freqency type associations
+ * [frequency qualifier mixin](frequency qualifier mixin.md) - Qualifier for frequency type associations
     * [entity to feature or disease qualifiers](entity to feature or disease qualifiers.md) - Qualifiers for entity to disease or phenotype associations
        * [entity to disease association](entity to disease association.md) - mixin class for any association whose object (target node) is a disease
  * [frequency quantifier](frequency quantifier.md)
@@ -204,6 +206,7 @@ Entity and association taxonomy and datamodel for life-sciences data
        * [object](chemical_to_gene_association_object.md)
        * [object](chemical_to_pathway_association_object.md)
        * [object](disease_or_phenotypic_feature_association_to_location_association_object.md)
+       * [object](disease_to_exposure_association_object.md)
        * [object](entity_to_disease_association_object.md)
        * [object](entity_to_phenotypic_feature_association_object.md)
        * [object](functional_association_object.md)
@@ -269,7 +272,8 @@ Entity and association taxonomy and datamodel for life-sciences data
        * [subject](chemical_to_thing_association_subject.md)
        * [subject](disease_or_phenotypic_feature_association_to_thing_association_subject.md)
        * [subject](disease_to_thing_association_subject.md)
-       * [subject](environment_to_phenotypic_feature_association_subject.md)
+          * [subject](disease_to_exposure_association_subject.md)
+       * [subject](exposure_event_to_phenotypic_feature_association_subject.md)
        * [subject](functional_association_subject.md)
           * [subject](gene_to_go_term_association_subject.md)
        * [subject](gene_regulatory_relationship_subject.md)
@@ -302,10 +306,8 @@ Entity and association taxonomy and datamodel for life-sciences data
        * [subject](variant_to_thing_association_subject.md)
  * [deprecated element has exact replacement](deprecated_element_has_exact_replacement.md) - When an element is deprecated, it can be automatically replaced by this uri or curie
  * [deprecated element has possible replacement](deprecated_element_has_possible_replacement.md) - When an element is deprecated, it can be potentially replaced by this uri or curie
- * [drug](drug.md)
  * [has attribute](has_attribute.md) - connects any named thing to an attribute
  * [has attribute type](has_attribute_type.md) - connects an attribute to a class that describes it
- * [has exposure parts](has_exposure_parts.md)
  * [has numeric value](has_numeric_value.md) - connects a quantity value to a number
  * [has qualitative value](has_qualitative_value.md) - connects an attribute to a value
  * [has quantitative value](has_quantitative_value.md) - connects an attribute to a value
@@ -338,8 +340,13 @@ Entity and association taxonomy and datamodel for life-sciences data
     * [has biological sequence](has_biological_sequence.md) - connects a genomic feature to its sequence
        * [has biological sequence](sequence_variant_has_biological_sequence.md)
     * [has chemical formula](has_chemical_formula.md) - description of chemical compound based on element symbols
-    * [has gene](has_gene.md) - connects and entity to a single gene
+    * [has drug](has_drug.md) - connects an entity to a single drug
+       * [has drug](drug_exposure_has_drug.md)
+    * [has gene](has_gene.md) - connects an entity to a single gene
        * [has gene](sequence_variant_has_gene.md)
+    * [has receptor](has_receptor.md) - the organism or organism part being exposed
+    * [has route](has_route.md) - the process that results in the stressor coming into direct contact with the receptor
+    * [has stressor](has_stressor.md) - the process or entity that the receptor is being exposed to
     * [has zygosity](has_zygosity.md)
     * [id](id.md) - A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
        * [id](sequence_variant_id.md)
@@ -468,6 +475,7 @@ Entity and association taxonomy and datamodel for life-sciences data
     * [occurs in](occurs_in.md) - holds between a process and a material entity or site within which the process occurs
     * [overlaps](overlaps.md) - holds between entties that overlap in their extents (materials or processes)
        * [has part](has_part.md) - holds between wholes and their parts (material entities or processes)
+          * [has part](treatment_has_part.md)
        * [part of](part_of.md) - holds between parts and wholes (material entities or processes)
     * [participates in](participates_in.md) - holds between a continuant and a process, where the continuant is somehow involved in the process
        * [actively involved in](actively_involved_in.md) - holds between a continuant and a process or function, where the continuant actively contributes to part or all of the process or function it realizes

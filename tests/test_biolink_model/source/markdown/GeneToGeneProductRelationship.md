@@ -7,7 +7,7 @@ A gene is transcribed and potentially translated to a gene product
 URI: [biolink:GeneToGeneProductRelationship](https://w3id.org/biolink/vocab/GeneToGeneProductRelationship)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[GeneToGeneProductRelationship|relation:uriorcurie;id(i):identifier_type;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[GeneToGeneProductRelationship],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[GeneToGeneProductRelationship],%20\[OntologyClass]<association%20type(i)%200..1-%20\[GeneToGeneProductRelationship],%20\[GeneProduct]<object%201..1-%20\[GeneToGeneProductRelationship],%20\[Gene]<subject%201..1-%20\[GeneToGeneProductRelationship],%20\[SequenceFeatureRelationship]^-\[GeneToGeneProductRelationship])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[GeneToGeneProductRelationship|relation:uriorcurie;id(i):nodeidentifier;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[GeneToGeneProductRelationship],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[GeneToGeneProductRelationship],%20\[OntologyClass]<association%20type(i)%200..1-%20\[GeneToGeneProductRelationship],%20\[GeneProduct]<object%201..1-%20\[GeneToGeneProductRelationship],%20\[Gene]<subject%201..1-%20\[GeneToGeneProductRelationship],%20\[SequenceFeatureRelationship]^-\[GeneToGeneProductRelationship])
 
 ## Parents
 
@@ -44,7 +44,7 @@ URI: [biolink:GeneToGeneProductRelationship](https://w3id.org/biolink/vocab/Gene
     * inherited from: [association](association.md)
  * [id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
-    * range: [IdentifierType](type/IdentifierType.md)
+    * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
     * in subsets: (translator_minimal)
  * [negated](negated.md)  <sub>OPT</sub>

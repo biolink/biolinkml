@@ -23,6 +23,7 @@ URI: [biolink:object](https://w3id.org/biolink/vocab/object)
  *  [object](chemical_to_gene_association_object.md)
  *  [object](chemical_to_pathway_association_object.md)
  *  [object](disease_or_phenotypic_feature_association_to_location_association_object.md)
+ *  [object](disease_to_exposure_association_object.md)
  *  [object](entity_to_disease_association_object.md)
  *  [object](entity_to_phenotypic_feature_association_object.md)
  *  [object](functional_association_object.md)
@@ -60,12 +61,13 @@ URI: [biolink:object](https://w3id.org/biolink/vocab/object)
  * [chemical to thing association](chemical to thing association.md)
  * [disease or phenotypic feature association to location association](disease or phenotypic feature association to location association.md)
  * [disease or phenotypic feature association to thing association](disease or phenotypic feature association to thing association.md)
+ * [disease to exposure association](disease to exposure association.md)
  * [disease to phenotypic feature association](disease to phenotypic feature association.md)
  * [disease to thing association](disease to thing association.md)
  * [entity to disease association](entity to disease association.md)
  * [entity to phenotypic feature association](entity to phenotypic feature association.md)
- * [environment to phenotypic feature association](environment to phenotypic feature association.md)
  * [exon to transcript relationship](exon to transcript relationship.md)
+ * [exposure event to phenotypic feature association](exposure event to phenotypic feature association.md)
  * [functional association](functional association.md)
  * [gene as a model of disease association](gene as a model of disease association.md)
  * [gene has variant that contributes to disease association](gene has variant that contributes to disease association.md)
@@ -108,5 +110,5 @@ URI: [biolink:object](https://w3id.org/biolink/vocab/object)
 |  | | node with incoming relationship (neo4j) |
 | **Mappings:** | | rdf:object |
 |  | | owl:annotatedTarget |
-|  | | oban:association_has_object |
+|  | | OBAN:association_has_object |
 

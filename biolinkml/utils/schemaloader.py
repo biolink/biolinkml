@@ -377,8 +377,8 @@ class SchemaLoader:
 
             # If parent slot is still not defined, it means that we introduced a NEW slot in the slot usages
             if not parent_slot:
-                print(f'Warning: class "{cls.name}" slot "{slotname}" does not reference an existing slot.  '
-                      f'New slot was created.', file=sys.stderr)
+                self.logger.warning(f'class "{cls.name}" slot "{slotname}" does not reference an existing slot.  '
+                                    f'New slot was created.')
                 child_name = slotname
                 slot_alias = None
             else:

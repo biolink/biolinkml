@@ -303,7 +303,11 @@ fields:
   display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
   - has molecular consequence
   id: has_molecular_consequence
-- description: connects and entity to a single gene
+- description: connects an entity to a single drug
+  display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
+  - has drug
+  id: has_drug
+- description: connects an entity to a single gene
   display_name: !!python/object/new:biolinkml.meta.SlotDefinitionName
   - has gene
   id: has_gene

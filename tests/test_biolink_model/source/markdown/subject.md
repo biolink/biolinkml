@@ -25,7 +25,7 @@ URI: [biolink:subject](https://w3id.org/biolink/vocab/subject)
  *  [subject](chemical_to_thing_association_subject.md)
  *  [subject](disease_or_phenotypic_feature_association_to_thing_association_subject.md)
  *  [subject](disease_to_thing_association_subject.md)
- *  [subject](environment_to_phenotypic_feature_association_subject.md)
+ *  [subject](exposure_event_to_phenotypic_feature_association_subject.md)
  *  [subject](functional_association_subject.md)
  *  [subject](gene_regulatory_relationship_subject.md)
  *  [subject](gene_to_disease_association_subject.md)
@@ -68,11 +68,12 @@ URI: [biolink:subject](https://w3id.org/biolink/vocab/subject)
  * [chemical to pathway association](chemical to pathway association.md)
  * [chemical to thing association](chemical to thing association.md)
  * [disease or phenotypic feature association to thing association](disease or phenotypic feature association to thing association.md)
+ * [disease to exposure association](disease to exposure association.md)
  * [disease to phenotypic feature association](disease to phenotypic feature association.md)
  * [disease to thing association](disease to thing association.md)
  * [entity to phenotypic feature association](entity to phenotypic feature association.md)
- * [environment to phenotypic feature association](environment to phenotypic feature association.md)
  * [exon to transcript relationship](exon to transcript relationship.md)
+ * [exposure event to phenotypic feature association](exposure event to phenotypic feature association.md)
  * [functional association](functional association.md)
  * [gene as a model of disease association](gene as a model of disease association.md)
  * [gene has variant that contributes to disease association](gene has variant that contributes to disease association.md)
@@ -113,5 +114,5 @@ URI: [biolink:subject](https://w3id.org/biolink/vocab/subject)
 |  | | node with outgoing relationship (neo4j) |
 | **Mappings:** | | rdf:subject |
 |  | | owl:annotatedSource |
-|  | | oban:association_has_subject |
+|  | | OBAN:association_has_subject |
 

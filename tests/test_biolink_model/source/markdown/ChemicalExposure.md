@@ -1,26 +1,24 @@
 
-# Type: environment
+# Type: chemical exposure
 
 
-A feature of the environment of an organism that influences one or more phenotypic features of that organism, potentially mediated by genes
+A chemical exposure is an intake of a particular chemical substance
 
-URI: [biolink:Environment](https://w3id.org/biolink/vocab/Environment)
+URI: [biolink:ChemicalExposure](https://w3id.org/biolink/vocab/ChemicalExposure)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[EnvironmentToPhenotypicFeatureAssociation]-%20subject%201..1>\[Environment|id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],%20\[Environment]^-\[Treatment],%20\[Environment]^-\[DrugExposure],%20\[BiologicalEntity]^-\[Environment])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[ChemicalExposure|id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B]^-\[DrugExposure],%20\[ExposureEvent]^-\[ChemicalExposure])
 
 ## Parents
 
- *  is_a: [biological entity](biological entity.md)
+ *  is_a: [exposure event](exposure event.md) - A feature of the environment of an organism that influences one or more phenotypic features of that organism, potentially mediated by genes
 
 ## Children
 
  * [drug exposure](drug exposure.md) - A drug exposure is an intake of a particular chemical substance
- * [treatment](treatment.md) - A treatment is targeted at a disease or phenotype and may involve multiple drug 'exposures'
 
 ## Referenced by class
 
- *  **[environment to phenotypic feature association](environment to phenotypic feature association.md)** *[subject](environment_to_phenotypic_feature_association_subject.md)*  <sub>REQ</sub>  **[environment](environment.md)**
 
 ## Attributes
 
@@ -47,8 +45,5 @@ URI: [biolink:Environment](https://w3id.org/biolink/vocab/Environment)
 
 |  |  |  |
 | --- | --- | --- |
-| **Aliases:** | | environment |
-|  | | exposure |
-|  | | experimental condition |
-| **Mappings:** | | SIO:000955 |
+| **Mappings:** | | ECTO:9000000 |
 

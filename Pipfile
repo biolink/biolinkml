@@ -28,7 +28,8 @@ virtualenv = "*"
 tox = "*"
 pipenv-to-requirements = "*"
 prologterms = "*"
-master-zip = {git = "https://github.com/hsolbrig/rdflib-jsonld"}
+rdflib-jsonld = {git = "https://github.com/hsolbrig/rdflib-jsonld"}
+watchdog = "*"
 
 [requires]
 python_version = "3.7"
