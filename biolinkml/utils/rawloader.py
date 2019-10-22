@@ -86,10 +86,13 @@ def load_raw_schema(data: Union[str, dict, TextIO],
             schema_body = list(schemadefs.values())
 
         def check_is_dict(element: str) -> None:
-            """ Verify that element is an instance of a dictionary """
+            """ Verify that element is an instance of a dictionary, mapping empty elements to dictionaries """
             for schemaname, body in schemadefs.items():
-                if element in body and not isinstance(body[element], dict):
-                    raise ValueError(f'Schema: {schemaname} - {element} must be a dictionary')
+                if element in body:
+                    if body[element] is None:
+                        body[element] = dict()
+                    elif not isinstance(body[element], dict):
+                        raise ValueError(f'Schema: {schemaname} - Element: {element} must be a dictionary')
 
         def fix_multiples(container:  str, element: str) -> None:
             """

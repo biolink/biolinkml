@@ -78,8 +78,9 @@ class SchemaLoader:
             sname = self.import_map.get(str(sname), sname)               # Import map may use CURIE
             sname = self.namespaces.uri_for(sname) if ':' in sname else sname
             sname = self.import_map.get(str(sname), sname)               # It may also use URI or other forms
-            import_schemadefinition = load_raw_schema(sname + '.yaml',
-                                                      base_dir=os.path.dirname(self.schema.source_file))
+            import_schemadefinition = \
+                load_raw_schema(sname + '.yaml',
+                                base_dir=os.path.dirname(self.schema.source_file) if self.schema.source_file else None)
             if import_schemadefinition.id in self.loaded:
                 # If we've already loaded this, make sure that we've got the same version
                 if self.loaded[import_schemadefinition.id] != import_schemadefinition.version:
