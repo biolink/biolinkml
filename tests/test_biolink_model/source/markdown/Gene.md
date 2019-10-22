@@ -15,19 +15,19 @@ URI: [biolink:Gene](https://w3id.org/biolink/vocab/Gene)
 
 ## Referenced by class
 
- *  **[gene to gene product relationship](gene to gene product relationship.md)** *[subject](gene_to_gene_product_relationship_subject.md)*  <sub>REQ</sub>  **[gene](gene.md)**
+ *  **[gene to gene product relationship](gene to gene product relationship.md)** *[gene to gene product relationship➞subject](gene_to_gene_product_relationship_subject.md)*  <sub>REQ</sub>  **[gene](gene.md)**
  *  **[gene](gene.md)** *[genetically interacts with](genetically_interacts_with.md)*  <sub>0..*</sub>  **[gene](gene.md)**
- *  **[genotype to gene association](genotype to gene association.md)** *[object](genotype_to_gene_association_object.md)*  <sub>REQ</sub>  **[gene](gene.md)**
+ *  **[genotype to gene association](genotype to gene association.md)** *[genotype to gene association➞object](genotype_to_gene_association_object.md)*  <sub>REQ</sub>  **[gene](gene.md)**
  *  **[named thing](named thing.md)** *[has gene](has_gene.md)*  <sub>OPT</sub>  **[gene](gene.md)**
- *  **[sequence variant](sequence variant.md)** *[has gene](sequence_variant_has_gene.md)*  <sub>0..*</sub>  **[gene](gene.md)**
- *  **[transcript to gene relationship](transcript to gene relationship.md)** *[object](transcript_to_gene_relationship_object.md)*  <sub>REQ</sub>  **[gene](gene.md)**
+ *  **[sequence variant](sequence variant.md)** *[sequence variant➞has gene](sequence_variant_has_gene.md)*  <sub>0..*</sub>  **[gene](gene.md)**
+ *  **[transcript to gene relationship](transcript to gene relationship.md)** *[transcript to gene relationship➞object](transcript_to_gene_relationship_object.md)*  <sub>REQ</sub>  **[gene](gene.md)**
 
 ## Attributes
 
 
 ### Inherited from macromolecular machine:
 
- * [name](macromolecular_machine_name.md)  <sub>REQ</sub>
+ * [macromolecular machine➞name](macromolecular_machine_name.md)  <sub>REQ</sub>
     * range: [SymbolType](type/SymbolType.md)
     * inherited from: [macromolecular machine](macromolecular machine.md)
 

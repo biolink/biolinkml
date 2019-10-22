@@ -13,7 +13,7 @@ URI: [biolink:transcript_to_gene_relationship_subject](https://w3id.org/biolink/
 
 ## Parents
 
- *  is_a: [subject](sequence_feature_relationship_subject.md)
+ *  is_a: [sequence feature relationship➞subject](sequence_feature_relationship_subject.md)
 
 ## Children
 

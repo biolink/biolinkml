@@ -21,9 +21,9 @@ URI: [biolink:ExonToTranscriptRelationship](https://w3id.org/biolink/vocab/ExonT
 
 ### Own
 
- * [object](exon_to_transcript_relationship_object.md)  <sub>REQ</sub>
+ * [exon to transcript relationship➞object](exon_to_transcript_relationship_object.md)  <sub>REQ</sub>
     * range: [transcript](transcript.md)
- * [subject](exon_to_transcript_relationship_subject.md)  <sub>REQ</sub>
+ * [exon to transcript relationship➞subject](exon_to_transcript_relationship_subject.md)  <sub>REQ</sub>
     * range: [exon](exon.md)
 
 ### Inherited from association:
@@ -40,7 +40,7 @@ URI: [biolink:ExonToTranscriptRelationship](https://w3id.org/biolink/vocab/ExonT
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [named thing](named thing.md)
     * inherited from: [association](association.md)
- * [id](association_id.md)  <sub>REQ</sub>
+ * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
@@ -68,7 +68,7 @@ URI: [biolink:ExonToTranscriptRelationship](https://w3id.org/biolink/vocab/ExonT
 
 ### Domain for slot:
 
- * [object](exon_to_transcript_relationship_object.md)  <sub>REQ</sub>
+ * [exon to transcript relationship➞object](exon_to_transcript_relationship_object.md)  <sub>REQ</sub>
     * range: [transcript](transcript.md)
- * [subject](exon_to_transcript_relationship_subject.md)  <sub>REQ</sub>
+ * [exon to transcript relationship➞subject](exon_to_transcript_relationship_subject.md)  <sub>REQ</sub>
     * range: [exon](exon.md)

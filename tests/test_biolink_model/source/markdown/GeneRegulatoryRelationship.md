@@ -21,11 +21,11 @@ URI: [biolink:GeneRegulatoryRelationship](https://w3id.org/biolink/vocab/GeneReg
 
 ### Own
 
- * [object](gene_regulatory_relationship_object.md)  <sub>REQ</sub>
+ * [gene regulatory relationship➞object](gene_regulatory_relationship_object.md)  <sub>REQ</sub>
     * range: [gene or gene product](gene or gene product.md)
- * [relation](gene_regulatory_relationship_relation.md)  <sub>REQ</sub>
+ * [gene regulatory relationship➞relation](gene_regulatory_relationship_relation.md)  <sub>REQ</sub>
     * range: [Uriorcurie](type/Uriorcurie.md)
- * [subject](gene_regulatory_relationship_subject.md)  <sub>REQ</sub>
+ * [gene regulatory relationship➞subject](gene_regulatory_relationship_subject.md)  <sub>REQ</sub>
     * range: [gene or gene product](gene or gene product.md)
 
 ### Inherited from association:
@@ -42,7 +42,7 @@ URI: [biolink:GeneRegulatoryRelationship](https://w3id.org/biolink/vocab/GeneReg
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [named thing](named thing.md)
     * inherited from: [association](association.md)
- * [id](association_id.md)  <sub>REQ</sub>
+ * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
@@ -70,9 +70,9 @@ URI: [biolink:GeneRegulatoryRelationship](https://w3id.org/biolink/vocab/GeneReg
 
 ### Domain for slot:
 
- * [object](gene_regulatory_relationship_object.md)  <sub>REQ</sub>
+ * [gene regulatory relationship➞object](gene_regulatory_relationship_object.md)  <sub>REQ</sub>
     * range: [gene or gene product](gene or gene product.md)
- * [relation](gene_regulatory_relationship_relation.md)  <sub>REQ</sub>
+ * [gene regulatory relationship➞relation](gene_regulatory_relationship_relation.md)  <sub>REQ</sub>
     * range: [Uriorcurie](type/Uriorcurie.md)
- * [subject](gene_regulatory_relationship_subject.md)  <sub>REQ</sub>
+ * [gene regulatory relationship➞subject](gene_regulatory_relationship_subject.md)  <sub>REQ</sub>
     * range: [gene or gene product](gene or gene product.md)

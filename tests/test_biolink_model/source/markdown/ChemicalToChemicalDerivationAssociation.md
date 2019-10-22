@@ -28,13 +28,13 @@ URI: [biolink:ChemicalToChemicalDerivationAssociation](https://w3id.org/biolink/
 
 ### Own
 
- * [change is catalyzed by](chemical_to_chemical_derivation_association_change_is_catalyzed_by.md)  <sub>0..*</sub>
+ * [chemical to chemical derivation association➞change is catalyzed by](chemical_to_chemical_derivation_association_change_is_catalyzed_by.md)  <sub>0..*</sub>
     * range: [macromolecular machine](macromolecular machine.md)
- * [object](chemical_to_chemical_derivation_association_object.md)  <sub>REQ</sub>
+ * [chemical to chemical derivation association➞object](chemical_to_chemical_derivation_association_object.md)  <sub>REQ</sub>
     * range: [chemical substance](chemical substance.md)
- * [relation](chemical_to_chemical_derivation_association_relation.md)  <sub>REQ</sub>
+ * [chemical to chemical derivation association➞relation](chemical_to_chemical_derivation_association_relation.md)  <sub>REQ</sub>
     * range: [Uriorcurie](type/Uriorcurie.md)
- * [subject](chemical_to_chemical_derivation_association_subject.md)  <sub>REQ</sub>
+ * [chemical to chemical derivation association➞subject](chemical_to_chemical_derivation_association_subject.md)  <sub>REQ</sub>
     * range: [chemical substance](chemical substance.md)
 
 ### Inherited from association:
@@ -51,7 +51,7 @@ URI: [biolink:ChemicalToChemicalDerivationAssociation](https://w3id.org/biolink/
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [named thing](named thing.md)
     * inherited from: [association](association.md)
- * [id](association_id.md)  <sub>REQ</sub>
+ * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
@@ -79,11 +79,11 @@ URI: [biolink:ChemicalToChemicalDerivationAssociation](https://w3id.org/biolink/
 
 ### Domain for slot:
 
- * [change is catalyzed by](chemical_to_chemical_derivation_association_change_is_catalyzed_by.md)  <sub>0..*</sub>
+ * [chemical to chemical derivation association➞change is catalyzed by](chemical_to_chemical_derivation_association_change_is_catalyzed_by.md)  <sub>0..*</sub>
     * range: [macromolecular machine](macromolecular machine.md)
- * [object](chemical_to_chemical_derivation_association_object.md)  <sub>REQ</sub>
+ * [chemical to chemical derivation association➞object](chemical_to_chemical_derivation_association_object.md)  <sub>REQ</sub>
     * range: [chemical substance](chemical substance.md)
- * [relation](chemical_to_chemical_derivation_association_relation.md)  <sub>REQ</sub>
+ * [chemical to chemical derivation association➞relation](chemical_to_chemical_derivation_association_relation.md)  <sub>REQ</sub>
     * range: [Uriorcurie](type/Uriorcurie.md)
- * [subject](chemical_to_chemical_derivation_association_subject.md)  <sub>REQ</sub>
+ * [chemical to chemical derivation association➞subject](chemical_to_chemical_derivation_association_subject.md)  <sub>REQ</sub>
     * range: [chemical substance](chemical substance.md)

@@ -27,15 +27,15 @@ URI: [biolink:VariantToPopulationAssociation](https://w3id.org/biolink/vocab/Var
 
 ### Own
 
- * [has count](variant_to_population_association_has_count.md)  <sub>OPT</sub>
+ * [variant to population association➞has count](variant_to_population_association_has_count.md)  <sub>OPT</sub>
     * range: [Integer](type/Integer.md)
- * [has quotient](variant_to_population_association_has_quotient.md)  <sub>OPT</sub>
+ * [variant to population association➞has quotient](variant_to_population_association_has_quotient.md)  <sub>OPT</sub>
     * range: [Double](type/Double.md)
- * [has total](variant_to_population_association_has_total.md)  <sub>OPT</sub>
+ * [variant to population association➞has total](variant_to_population_association_has_total.md)  <sub>OPT</sub>
     * range: [Integer](type/Integer.md)
- * [object](variant_to_population_association_object.md)  <sub>REQ</sub>
+ * [variant to population association➞object](variant_to_population_association_object.md)  <sub>REQ</sub>
     * range: [population of individual organisms](population of individual organisms.md)
- * [subject](variant_to_population_association_subject.md)  <sub>REQ</sub>
+ * [variant to population association➞subject](variant_to_population_association_subject.md)  <sub>REQ</sub>
     * range: [sequence variant](sequence variant.md)
 
 ### Inherited from association:
@@ -52,7 +52,7 @@ URI: [biolink:VariantToPopulationAssociation](https://w3id.org/biolink/vocab/Var
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [named thing](named thing.md)
     * inherited from: [association](association.md)
- * [id](association_id.md)  <sub>REQ</sub>
+ * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
@@ -80,13 +80,13 @@ URI: [biolink:VariantToPopulationAssociation](https://w3id.org/biolink/vocab/Var
 
 ### Domain for slot:
 
- * [has count](variant_to_population_association_has_count.md)  <sub>OPT</sub>
+ * [variant to population association➞has count](variant_to_population_association_has_count.md)  <sub>OPT</sub>
     * range: [Integer](type/Integer.md)
- * [has quotient](variant_to_population_association_has_quotient.md)  <sub>OPT</sub>
+ * [variant to population association➞has quotient](variant_to_population_association_has_quotient.md)  <sub>OPT</sub>
     * range: [Double](type/Double.md)
- * [has total](variant_to_population_association_has_total.md)  <sub>OPT</sub>
+ * [variant to population association➞has total](variant_to_population_association_has_total.md)  <sub>OPT</sub>
     * range: [Integer](type/Integer.md)
- * [object](variant_to_population_association_object.md)  <sub>REQ</sub>
+ * [variant to population association➞object](variant_to_population_association_object.md)  <sub>REQ</sub>
     * range: [population of individual organisms](population of individual organisms.md)
- * [subject](variant_to_population_association_subject.md)  <sub>REQ</sub>
+ * [variant to population association➞subject](variant_to_population_association_subject.md)  <sub>REQ</sub>
     * range: [sequence variant](sequence variant.md)

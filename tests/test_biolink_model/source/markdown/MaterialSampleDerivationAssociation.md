@@ -21,11 +21,11 @@ URI: [biolink:MaterialSampleDerivationAssociation](https://w3id.org/biolink/voca
 
 ### Own
 
- * [object](material_sample_derivation_association_object.md)  <sub>REQ</sub>
+ * [material sample derivation association➞object](material_sample_derivation_association_object.md)  <sub>REQ</sub>
     * range: [named thing](named thing.md)
- * [relation](material_sample_derivation_association_relation.md)  <sub>REQ</sub>
+ * [material sample derivation association➞relation](material_sample_derivation_association_relation.md)  <sub>REQ</sub>
     * range: [Uriorcurie](type/Uriorcurie.md)
- * [subject](material_sample_derivation_association_subject.md)  <sub>REQ</sub>
+ * [material sample derivation association➞subject](material_sample_derivation_association_subject.md)  <sub>REQ</sub>
     * range: [material sample](material sample.md)
 
 ### Inherited from association:
@@ -42,7 +42,7 @@ URI: [biolink:MaterialSampleDerivationAssociation](https://w3id.org/biolink/voca
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [named thing](named thing.md)
     * inherited from: [association](association.md)
- * [id](association_id.md)  <sub>REQ</sub>
+ * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
@@ -70,9 +70,9 @@ URI: [biolink:MaterialSampleDerivationAssociation](https://w3id.org/biolink/voca
 
 ### Domain for slot:
 
- * [object](material_sample_derivation_association_object.md)  <sub>REQ</sub>
+ * [material sample derivation association➞object](material_sample_derivation_association_object.md)  <sub>REQ</sub>
     * range: [named thing](named thing.md)
- * [relation](material_sample_derivation_association_relation.md)  <sub>REQ</sub>
+ * [material sample derivation association➞relation](material_sample_derivation_association_relation.md)  <sub>REQ</sub>
     * range: [Uriorcurie](type/Uriorcurie.md)
- * [subject](material_sample_derivation_association_subject.md)  <sub>REQ</sub>
+ * [material sample derivation association➞subject](material_sample_derivation_association_subject.md)  <sub>REQ</sub>
     * range: [material sample](material sample.md)

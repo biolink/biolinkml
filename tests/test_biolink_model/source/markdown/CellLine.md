@@ -15,7 +15,7 @@ URI: [biolink:CellLine](https://w3id.org/biolink/vocab/CellLine)
 
 ## Referenced by class
 
- *  **[cell line to thing association](cell line to thing association.md)** *[subject](cell_line_to_thing_association_subject.md)*  <sub>REQ</sub>  **[cell line](cell line.md)**
+ *  **[cell line to thing association](cell line to thing association.md)** *[cell line to thing association➞subject](cell_line_to_thing_association_subject.md)*  <sub>REQ</sub>  **[cell line](cell line.md)**
 
 ## Attributes
 

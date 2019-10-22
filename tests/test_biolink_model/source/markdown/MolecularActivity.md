@@ -19,18 +19,18 @@ URI: [biolink:MolecularActivity](https://w3id.org/biolink/vocab/MolecularActivit
 
 ## Referenced by class
 
- *  **[macromolecular machine to molecular activity association](macromolecular machine to molecular activity association.md)** *[object](macromolecular_machine_to_molecular_activity_association_object.md)*  <sub>REQ</sub>  **[molecular activity](molecular activity.md)**
+ *  **[macromolecular machine to molecular activity association](macromolecular machine to molecular activity association.md)** *[macromolecular machine to molecular activity association➞object](macromolecular_machine_to_molecular_activity_association_object.md)*  <sub>REQ</sub>  **[molecular activity](molecular activity.md)**
 
 ## Attributes
 
 
 ### Own
 
- * [enabled by](molecular_activity_enabled_by.md)  <sub>0..*</sub>
+ * [molecular activity➞enabled by](molecular_activity_enabled_by.md)  <sub>0..*</sub>
     * range: [macromolecular machine](macromolecular machine.md)
- * [has input](molecular_activity_has_input.md)  <sub>0..*</sub>
+ * [molecular activity➞has input](molecular_activity_has_input.md)  <sub>0..*</sub>
     * range: [chemical substance](chemical substance.md)
- * [has output](molecular_activity_has_output.md)  <sub>0..*</sub>
+ * [molecular activity➞has output](molecular_activity_has_output.md)  <sub>0..*</sub>
     * range: [chemical substance](chemical substance.md)
 
 ### Inherited from named thing:
@@ -53,11 +53,11 @@ URI: [biolink:MolecularActivity](https://w3id.org/biolink/vocab/MolecularActivit
 
 ### Domain for slot:
 
- * [enabled by](molecular_activity_enabled_by.md)  <sub>0..*</sub>
+ * [molecular activity➞enabled by](molecular_activity_enabled_by.md)  <sub>0..*</sub>
     * range: [macromolecular machine](macromolecular machine.md)
- * [has input](molecular_activity_has_input.md)  <sub>0..*</sub>
+ * [molecular activity➞has input](molecular_activity_has_input.md)  <sub>0..*</sub>
     * range: [chemical substance](chemical substance.md)
- * [has output](molecular_activity_has_output.md)  <sub>0..*</sub>
+ * [molecular activity➞has output](molecular_activity_has_output.md)  <sub>0..*</sub>
     * range: [chemical substance](chemical substance.md)
 
 ## Other properties

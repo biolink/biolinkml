@@ -17,7 +17,7 @@ URI: [biolink:has_count](https://w3id.org/biolink/vocab/has_count)
 
 ## Children
 
- *  [has count](variant_to_population_association_has_count.md)
+ *  [variant to population association➞has count](variant_to_population_association_has_count.md)
 
 ## Used by
 

@@ -21,11 +21,11 @@ URI: [biolink:GenotypeToGenotypePartAssociation](https://w3id.org/biolink/vocab/
 
 ### Own
 
- * [object](genotype_to_genotype_part_association_object.md)  <sub>REQ</sub>
+ * [genotype to genotype part association➞object](genotype_to_genotype_part_association_object.md)  <sub>REQ</sub>
     * range: [genotype](genotype.md)
- * [relation](genotype_to_genotype_part_association_relation.md)  <sub>REQ</sub>
+ * [genotype to genotype part association➞relation](genotype_to_genotype_part_association_relation.md)  <sub>REQ</sub>
     * range: [Uriorcurie](type/Uriorcurie.md)
- * [subject](genotype_to_genotype_part_association_subject.md)  <sub>REQ</sub>
+ * [genotype to genotype part association➞subject](genotype_to_genotype_part_association_subject.md)  <sub>REQ</sub>
     * range: [genotype](genotype.md)
 
 ### Inherited from association:
@@ -42,7 +42,7 @@ URI: [biolink:GenotypeToGenotypePartAssociation](https://w3id.org/biolink/vocab/
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [named thing](named thing.md)
     * inherited from: [association](association.md)
- * [id](association_id.md)  <sub>REQ</sub>
+ * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
@@ -70,9 +70,9 @@ URI: [biolink:GenotypeToGenotypePartAssociation](https://w3id.org/biolink/vocab/
 
 ### Domain for slot:
 
- * [object](genotype_to_genotype_part_association_object.md)  <sub>REQ</sub>
+ * [genotype to genotype part association➞object](genotype_to_genotype_part_association_object.md)  <sub>REQ</sub>
     * range: [genotype](genotype.md)
- * [relation](genotype_to_genotype_part_association_relation.md)  <sub>REQ</sub>
+ * [genotype to genotype part association➞relation](genotype_to_genotype_part_association_relation.md)  <sub>REQ</sub>
     * range: [Uriorcurie](type/Uriorcurie.md)
- * [subject](genotype_to_genotype_part_association_subject.md)  <sub>REQ</sub>
+ * [genotype to genotype part association➞subject](genotype_to_genotype_part_association_subject.md)  <sub>REQ</sub>
     * range: [genotype](genotype.md)

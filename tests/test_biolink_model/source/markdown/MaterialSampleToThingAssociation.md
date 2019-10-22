@@ -25,7 +25,7 @@ URI: [biolink:MaterialSampleToThingAssociation](https://w3id.org/biolink/vocab/M
 
 ### Own
 
- * [subject](material_sample_to_thing_association_subject.md)  <sub>REQ</sub>
+ * [material sample to thing association➞subject](material_sample_to_thing_association_subject.md)  <sub>REQ</sub>
     * range: [material sample](material sample.md)
 
 ### Inherited from association:
@@ -42,7 +42,7 @@ URI: [biolink:MaterialSampleToThingAssociation](https://w3id.org/biolink/vocab/M
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [named thing](named thing.md)
     * inherited from: [association](association.md)
- * [id](association_id.md)  <sub>REQ</sub>
+ * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
@@ -70,5 +70,5 @@ URI: [biolink:MaterialSampleToThingAssociation](https://w3id.org/biolink/vocab/M
 
 ### Domain for slot:
 
- * [subject](material_sample_to_thing_association_subject.md)  <sub>REQ</sub>
+ * [material sample to thing association➞subject](material_sample_to_thing_association_subject.md)  <sub>REQ</sub>
     * range: [material sample](material sample.md)

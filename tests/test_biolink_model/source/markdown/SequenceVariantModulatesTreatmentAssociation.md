@@ -21,9 +21,9 @@ URI: [biolink:SequenceVariantModulatesTreatmentAssociation](https://w3id.org/bio
 
 ### Own
 
- * [object](sequence_variant_modulates_treatment_association_object.md)  <sub>REQ</sub>
+ * [sequence variant modulates treatment association➞object](sequence_variant_modulates_treatment_association_object.md)  <sub>REQ</sub>
     * range: [treatment](treatment.md)
- * [subject](sequence_variant_modulates_treatment_association_subject.md)  <sub>REQ</sub>
+ * [sequence variant modulates treatment association➞subject](sequence_variant_modulates_treatment_association_subject.md)  <sub>REQ</sub>
     * range: [sequence variant](sequence variant.md)
 
 ### Inherited from association:
@@ -40,7 +40,7 @@ URI: [biolink:SequenceVariantModulatesTreatmentAssociation](https://w3id.org/bio
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [named thing](named thing.md)
     * inherited from: [association](association.md)
- * [id](association_id.md)  <sub>REQ</sub>
+ * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
@@ -68,9 +68,9 @@ URI: [biolink:SequenceVariantModulatesTreatmentAssociation](https://w3id.org/bio
 
 ### Domain for slot:
 
- * [object](sequence_variant_modulates_treatment_association_object.md)  <sub>REQ</sub>
+ * [sequence variant modulates treatment association➞object](sequence_variant_modulates_treatment_association_object.md)  <sub>REQ</sub>
     * range: [treatment](treatment.md)
- * [subject](sequence_variant_modulates_treatment_association_subject.md)  <sub>REQ</sub>
+ * [sequence variant modulates treatment association➞subject](sequence_variant_modulates_treatment_association_subject.md)  <sub>REQ</sub>
     * range: [sequence variant](sequence variant.md)
 
 ## Other properties

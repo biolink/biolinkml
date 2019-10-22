@@ -21,9 +21,9 @@ URI: [biolink:TranscriptToGeneRelationship](https://w3id.org/biolink/vocab/Trans
 
 ### Own
 
- * [object](transcript_to_gene_relationship_object.md)  <sub>REQ</sub>
+ * [transcript to gene relationship➞object](transcript_to_gene_relationship_object.md)  <sub>REQ</sub>
     * range: [gene](gene.md)
- * [subject](transcript_to_gene_relationship_subject.md)  <sub>REQ</sub>
+ * [transcript to gene relationship➞subject](transcript_to_gene_relationship_subject.md)  <sub>REQ</sub>
     * range: [transcript](transcript.md)
 
 ### Inherited from association:
@@ -40,7 +40,7 @@ URI: [biolink:TranscriptToGeneRelationship](https://w3id.org/biolink/vocab/Trans
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [named thing](named thing.md)
     * inherited from: [association](association.md)
- * [id](association_id.md)  <sub>REQ</sub>
+ * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
@@ -68,7 +68,7 @@ URI: [biolink:TranscriptToGeneRelationship](https://w3id.org/biolink/vocab/Trans
 
 ### Domain for slot:
 
- * [object](transcript_to_gene_relationship_object.md)  <sub>REQ</sub>
+ * [transcript to gene relationship➞object](transcript_to_gene_relationship_object.md)  <sub>REQ</sub>
     * range: [gene](gene.md)
- * [subject](transcript_to_gene_relationship_subject.md)  <sub>REQ</sub>
+ * [transcript to gene relationship➞subject](transcript_to_gene_relationship_subject.md)  <sub>REQ</sub>
     * range: [transcript](transcript.md)

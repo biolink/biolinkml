@@ -15,8 +15,8 @@ URI: [biolink:GeneOntologyClass](https://w3id.org/biolink/vocab/GeneOntologyClas
 
 ## Referenced by class
 
- *  **[functional association](functional association.md)** *[object](functional_association_object.md)*  <sub>REQ</sub>  **[gene ontology class](gene ontology class.md)**
- *  **[gene to go term association](gene to go term association.md)** *[object](gene_to_go_term_association_object.md)*  <sub>REQ</sub>  **[gene ontology class](gene ontology class.md)**
+ *  **[functional association](functional association.md)** *[functional association➞object](functional_association_object.md)*  <sub>REQ</sub>  **[gene ontology class](gene ontology class.md)**
+ *  **[gene to go term association](gene to go term association.md)** *[gene to go term association➞object](gene_to_go_term_association_object.md)*  <sub>REQ</sub>  **[gene ontology class](gene ontology class.md)**
 
 ## Attributes
 

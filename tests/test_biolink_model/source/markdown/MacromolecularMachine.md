@@ -21,16 +21,16 @@ URI: [biolink:MacromolecularMachine](https://w3id.org/biolink/vocab/Macromolecul
 ## Referenced by class
 
  *  **[association](association.md)** *[change is catalyzed by](change_is_catalyzed_by.md)*  <sub>0..*</sub>  **[macromolecular machine](macromolecular machine.md)**
- *  **[chemical to chemical derivation association](chemical to chemical derivation association.md)** *[change is catalyzed by](chemical_to_chemical_derivation_association_change_is_catalyzed_by.md)*  <sub>0..*</sub>  **[macromolecular machine](macromolecular machine.md)**
- *  **[functional association](functional association.md)** *[subject](functional_association_subject.md)*  <sub>REQ</sub>  **[macromolecular machine](macromolecular machine.md)**
- *  **[molecular activity](molecular activity.md)** *[enabled by](molecular_activity_enabled_by.md)*  <sub>0..*</sub>  **[macromolecular machine](macromolecular machine.md)**
+ *  **[chemical to chemical derivation association](chemical to chemical derivation association.md)** *[chemical to chemical derivation association➞change is catalyzed by](chemical_to_chemical_derivation_association_change_is_catalyzed_by.md)*  <sub>0..*</sub>  **[macromolecular machine](macromolecular machine.md)**
+ *  **[functional association](functional association.md)** *[functional association➞subject](functional_association_subject.md)*  <sub>REQ</sub>  **[macromolecular machine](macromolecular machine.md)**
+ *  **[molecular activity](molecular activity.md)** *[molecular activity➞enabled by](molecular_activity_enabled_by.md)*  <sub>0..*</sub>  **[macromolecular machine](macromolecular machine.md)**
 
 ## Attributes
 
 
 ### Own
 
- * [name](macromolecular_machine_name.md)  <sub>REQ</sub>
+ * [macromolecular machine➞name](macromolecular_machine_name.md)  <sub>REQ</sub>
     * range: [SymbolType](type/SymbolType.md)
 
 ### Inherited from named thing:
@@ -61,5 +61,5 @@ URI: [biolink:MacromolecularMachine](https://w3id.org/biolink/vocab/Macromolecul
 
 ### Domain for slot:
 
- * [name](macromolecular_machine_name.md)  <sub>REQ</sub>
+ * [macromolecular machine➞name](macromolecular_machine_name.md)  <sub>REQ</sub>
     * range: [SymbolType](type/SymbolType.md)

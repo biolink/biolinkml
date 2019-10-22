@@ -13,7 +13,7 @@ URI: [biolink:anatomical_entity_to_anatomical_entity_part_of_association_subject
 
 ## Parents
 
- *  is_a: [subject](anatomical_entity_to_anatomical_entity_association_subject.md)
+ *  is_a: [anatomical entity to anatomical entity association➞subject](anatomical_entity_to_anatomical_entity_association_subject.md)
 
 ## Children
 

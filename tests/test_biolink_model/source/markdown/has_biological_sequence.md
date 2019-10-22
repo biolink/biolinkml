@@ -17,7 +17,7 @@ URI: [biolink:has_biological_sequence](https://w3id.org/biolink/vocab/has_biolog
 
 ## Children
 
- *  [has biological sequence](sequence_variant_has_biological_sequence.md)
+ *  [sequence variant➞has biological sequence](sequence_variant_has_biological_sequence.md)
 
 ## Used by
 

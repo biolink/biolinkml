@@ -57,7 +57,7 @@ URI: [meta:SchemaDefinition](https://w3id.org/biolink/biolinkml/meta/SchemaDefin
  * [prefixes](prefixes.md)  <sub>0..*</sub>
     * Description: prefix / URI definitions to be added to the context beyond those fetched from prefixcommons in id prefixes
     * range: [prefix](prefix.md)
- * [slots](slot_definitions.md)  <sub>0..*</sub>
+ * [schema_definition➞slots](slot_definitions.md)  <sub>0..*</sub>
     * Description: slot definitions
     * range: [slot_definition](slot_definition.md)
  * [source_file](source_file.md)  <sub>OPT</sub>
@@ -218,7 +218,7 @@ URI: [meta:SchemaDefinition](https://w3id.org/biolink/biolinkml/meta/SchemaDefin
  * [prefixes](prefixes.md)  <sub>0..*</sub>
     * Description: prefix / URI definitions to be added to the context beyond those fetched from prefixcommons in id prefixes
     * range: [prefix](prefix.md)
- * [slots](slot_definitions.md)  <sub>0..*</sub>
+ * [schema_definition➞slots](slot_definitions.md)  <sub>0..*</sub>
     * Description: slot definitions
     * range: [slot_definition](slot_definition.md)
  * [source_file](source_file.md)  <sub>OPT</sub>

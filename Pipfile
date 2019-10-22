@@ -25,6 +25,7 @@ argparse = ">=1.4.0"
 pyshex = ">=0.7.11"
 pyshexc = "*"
 prologterms = "*"
+watchdog = "*"
 
 [requires]
 python_version = "3.7"

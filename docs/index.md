@@ -27,12 +27,12 @@ A metamodel for defining biolink related schemas
  * [abstract](abstract.md) - an abstract class is a high level class or slot that is typically used to group common slots together and cannot be directly instantiated.
  * [alias](alias.md) - the name used for a slot in the context of its owning class.  If present, this is used instead of the actual slot name.
  * [aliases](aliases.md)
- * [source](alt_description_source.md) - the source of an attributed description
- * [description](alt_description_text.md) - text of an attributed description
+ * [alt_description➞source](alt_description_source.md) - the source of an attributed description
+ * [alt_description➞description](alt_description_text.md) - text of an attributed description
  * [alt_descriptions](alt_descriptions.md)
  * [apply_to](apply_to.md) - Used to extend class or slot definitions. For example, if we have a core schema where a gene has two slots for identifier and symbol, and we have a specialized schema for my_organism where we wish to add a slot systematic_name, we can avoid subclassing by defining a class gene_my_organism, adding the slot to this class, and then adding an apply_to pointing to the gene class. The new slot will be 'injected into' the gene class.
-    * [apply_to](class_definition_apply_to.md)
-    * [apply_to](slot_definition_apply_to.md)
+    * [class_definition➞apply_to](class_definition_apply_to.md)
+    * [slot_definition➞apply_to](slot_definition_apply_to.md)
  * [base](base.md) - python base type that implements this type definition
  * [class_uri](class_uri.md) - URI of the class in an RDF environment
  * [classes](classes.md) - class definitions
@@ -62,8 +62,8 @@ A metamodel for defining biolink related schemas
  * [inlined](inlined.md) - an inlined definition a list of actual values rather than references.  Only applies to slots whose range is a class.
  * [inverse](inverse.md) - indicates that any instance of d s r implies that there is also an instance of r s' d
  * [is_a](is_a.md) - specifies single-inheritance between classes or slots. While multiple inheritance is not allowed, mixins can be provided effectively providing the same thing. The semantics are the same when translated to formalisms that allow MI (e.g. RDFS/OWL). When translating to a SI framework (e.g. java classes, python classes) then is a is used. When translating a framework without polymorphism (e.g. json-schema, solr document schema) then is a and mixins are recursively unfolded
-    * [is_a](class_definition_is_a.md)
-    * [is_a](slot_definition_is_a.md)
+    * [class_definition➞is_a](class_definition_is_a.md)
+    * [slot_definition➞is_a](slot_definition_is_a.md)
  * [is_class_field](is_class_field.md) - indicates that any instance, i,  the domain of this slot will include an assert of i s range
  * [is_usage_slot](is_usage_slot.md) - True means that this slot was defined in a slot_usage situation
  * [key](key.md) - true means that the slot uniquely identifies the element within the context of its container.  Key slots are NOT identifiers - they do not serve as subjects
@@ -78,8 +78,8 @@ A metamodel for defining biolink related schemas
  * [metamodel_version](metamodel_version.md) - Version of the metamodel used to load the schema
  * [mixin](mixin.md) - this slot or class can only be used as a mixin -- equivalent to abstract
  * [mixins](mixins.md) - List of definitions to be mixed in. Targets may be any definition of the same type
-    * [mixins](class_definition_mixins.md)
-    * [mixins](slot_definition_mixins.md)
+    * [class_definition➞mixins](class_definition_mixins.md)
+    * [slot_definition➞mixins](slot_definition_mixins.md)
  * [multivalued](multivalued.md) - true means that slot can have more than one value
  * [name](name.md) - the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class.
  * [notes](notes.md) - editorial notes about an element intended for internal consumption
@@ -94,7 +94,7 @@ A metamodel for defining biolink related schemas
  * [role](role.md) - the role played by the slot range
  * [see_also](see_also.md) - a reference
  * [singular_name](singular_name.md) - a name that is used in the singular form
- * [slots](slot_definitions.md) - slot definitions
+ * [schema_definition➞slots](slot_definitions.md) - slot definitions
  * [slot_uri](slot_uri.md) - predicate of this slot for semantic web application
  * [slot_usage](slot_usage.md) - the redefinition of a slot in the context of the containing class definition.
  * [slots](slots.md) - list of slot names that are applicable to a class
@@ -107,12 +107,12 @@ A metamodel for defining biolink related schemas
  * [symmetric](symmetric.md) - True means that any instance of  d s r implies that there is also an instance of r s d
  * [title](title.md) - the official title of the schema
  * [todos](todos.md) - Outstanding issue that needs resolution
- * [uri](type_uri.md) - The uri that defines the possible values for the type definition
+ * [type_definition➞uri](type_uri.md) - The uri that defines the possible values for the type definition
  * [typeof](typeof.md) - Names a parent type
  * [types](types.md) - data types used in the model
  * [union_of](union_of.md) - indicates that the domain class consists exactly of the members of the classes in the range
  * [value](value.md) - example value
- * [description](value_description.md) - description of what the value is doing
+ * [example➞description](value_description.md) - description of what the value is doing
  * [values_from](values_from.md) - the identifier of a "value set" -- a set of identifiers that form the possible values for the range of a slot
  * [version](version.md) - particular version of schema
 

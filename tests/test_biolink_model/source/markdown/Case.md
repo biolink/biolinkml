@@ -15,7 +15,7 @@ URI: [biolink:Case](https://w3id.org/biolink/vocab/Case)
 
 ## Referenced by class
 
- *  **[case to thing association](case to thing association.md)** *[subject](case_to_thing_association_subject.md)*  <sub>REQ</sub>  **[case](case.md)**
+ *  **[case to thing association](case to thing association.md)** *[case to thing association➞subject](case_to_thing_association_subject.md)*  <sub>REQ</sub>  **[case](case.md)**
 
 ## Attributes
 

@@ -21,15 +21,15 @@ URI: [biolink:GeneToExpressionSiteAssociation](https://w3id.org/biolink/vocab/Ge
 
 ### Own
 
- * [object](gene_to_expression_site_association_object.md)  <sub>REQ</sub>
+ * [gene to expression site association➞object](gene_to_expression_site_association_object.md)  <sub>REQ</sub>
     * range: [anatomical entity](anatomical entity.md)
- * [quantifier qualifier](gene_to_expression_site_association_quantifier_qualifier.md)  <sub>OPT</sub>
+ * [gene to expression site association➞quantifier qualifier](gene_to_expression_site_association_quantifier_qualifier.md)  <sub>OPT</sub>
     * range: [ontology class](ontology class.md)
- * [relation](gene_to_expression_site_association_relation.md)  <sub>REQ</sub>
+ * [gene to expression site association➞relation](gene_to_expression_site_association_relation.md)  <sub>REQ</sub>
     * range: [Uriorcurie](type/Uriorcurie.md)
- * [stage qualifier](gene_to_expression_site_association_stage_qualifier.md)  <sub>OPT</sub>
+ * [gene to expression site association➞stage qualifier](gene_to_expression_site_association_stage_qualifier.md)  <sub>OPT</sub>
     * range: [life stage](life stage.md)
- * [subject](gene_to_expression_site_association_subject.md)  <sub>REQ</sub>
+ * [gene to expression site association➞subject](gene_to_expression_site_association_subject.md)  <sub>REQ</sub>
     * range: [gene or gene product](gene or gene product.md)
 
 ### Inherited from association:
@@ -46,7 +46,7 @@ URI: [biolink:GeneToExpressionSiteAssociation](https://w3id.org/biolink/vocab/Ge
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [named thing](named thing.md)
     * inherited from: [association](association.md)
- * [id](association_id.md)  <sub>REQ</sub>
+ * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
@@ -74,15 +74,15 @@ URI: [biolink:GeneToExpressionSiteAssociation](https://w3id.org/biolink/vocab/Ge
 
 ### Domain for slot:
 
- * [object](gene_to_expression_site_association_object.md)  <sub>REQ</sub>
+ * [gene to expression site association➞object](gene_to_expression_site_association_object.md)  <sub>REQ</sub>
     * range: [anatomical entity](anatomical entity.md)
- * [quantifier qualifier](gene_to_expression_site_association_quantifier_qualifier.md)  <sub>OPT</sub>
+ * [gene to expression site association➞quantifier qualifier](gene_to_expression_site_association_quantifier_qualifier.md)  <sub>OPT</sub>
     * range: [ontology class](ontology class.md)
- * [relation](gene_to_expression_site_association_relation.md)  <sub>REQ</sub>
+ * [gene to expression site association➞relation](gene_to_expression_site_association_relation.md)  <sub>REQ</sub>
     * range: [Uriorcurie](type/Uriorcurie.md)
- * [stage qualifier](gene_to_expression_site_association_stage_qualifier.md)  <sub>OPT</sub>
+ * [gene to expression site association➞stage qualifier](gene_to_expression_site_association_stage_qualifier.md)  <sub>OPT</sub>
     * range: [life stage](life stage.md)
- * [subject](gene_to_expression_site_association_subject.md)  <sub>REQ</sub>
+ * [gene to expression site association➞subject](gene_to_expression_site_association_subject.md)  <sub>REQ</sub>
     * range: [gene or gene product](gene or gene product.md)
 
 ## Other properties

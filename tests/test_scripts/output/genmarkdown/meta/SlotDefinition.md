@@ -17,10 +17,10 @@ URI: [meta:SlotDefinition](https://w3id.org/biolink/biolinkml/meta/SlotDefinitio
 
  *  **[class_definition](class_definition.md)** *[defining_slots](defining_slots.md)*  <sub>0..*</sub>  **[slot_definition](slot_definition.md)**
  *  **[slot_definition](slot_definition.md)** *[inverse](inverse.md)*  <sub>OPT</sub>  **[slot_definition](slot_definition.md)**
- *  **[slot_definition](slot_definition.md)** *[apply_to](slot_definition_apply_to.md)*  <sub>0..*</sub>  **[slot_definition](slot_definition.md)**
- *  **[slot_definition](slot_definition.md)** *[is_a](slot_definition_is_a.md)*  <sub>OPT</sub>  **[slot_definition](slot_definition.md)**
- *  **[slot_definition](slot_definition.md)** *[mixins](slot_definition_mixins.md)*  <sub>0..*</sub>  **[slot_definition](slot_definition.md)**
- *  **[schema_definition](schema_definition.md)** *[slots](slot_definitions.md)*  <sub>0..*</sub>  **[slot_definition](slot_definition.md)**
+ *  **[slot_definition](slot_definition.md)** *[slot_definition➞apply_to](slot_definition_apply_to.md)*  <sub>0..*</sub>  **[slot_definition](slot_definition.md)**
+ *  **[slot_definition](slot_definition.md)** *[slot_definition➞is_a](slot_definition_is_a.md)*  <sub>OPT</sub>  **[slot_definition](slot_definition.md)**
+ *  **[slot_definition](slot_definition.md)** *[slot_definition➞mixins](slot_definition_mixins.md)*  <sub>0..*</sub>  **[slot_definition](slot_definition.md)**
+ *  **[schema_definition](schema_definition.md)** *[schema_definition➞slots](slot_definitions.md)*  <sub>0..*</sub>  **[slot_definition](slot_definition.md)**
  *  **[class_definition](class_definition.md)** *[slot_usage](slot_usage.md)*  <sub>0..*</sub>  **[slot_definition](slot_definition.md)**
  *  **[class_definition](class_definition.md)** *[slots](slots.md)*  <sub>0..*</sub>  **[slot_definition](slot_definition.md)**
 
@@ -107,11 +107,11 @@ implicitly asserts Y is an instance of C2
  * [singular_name](singular_name.md)  <sub>OPT</sub>
     * Description: a name that is used in the singular form
     * range: [String](type/String.md)
- * [apply_to](slot_definition_apply_to.md)  <sub>0..*</sub>
+ * [slot_definition➞apply_to](slot_definition_apply_to.md)  <sub>0..*</sub>
     * range: [slot_definition](slot_definition.md)
- * [is_a](slot_definition_is_a.md)  <sub>OPT</sub>
+ * [slot_definition➞is_a](slot_definition_is_a.md)  <sub>OPT</sub>
     * range: [slot_definition](slot_definition.md)
- * [mixins](slot_definition_mixins.md)  <sub>0..*</sub>
+ * [slot_definition➞mixins](slot_definition_mixins.md)  <sub>0..*</sub>
     * range: [slot_definition](slot_definition.md)
  * [slot_uri](slot_uri.md)  <sub>OPT</sub>
     * Description: predicate of this slot for semantic web application
@@ -324,11 +324,11 @@ implicitly asserts Y is an instance of C2
  * [singular_name](singular_name.md)  <sub>OPT</sub>
     * Description: a name that is used in the singular form
     * range: [String](type/String.md)
- * [apply_to](slot_definition_apply_to.md)  <sub>0..*</sub>
+ * [slot_definition➞apply_to](slot_definition_apply_to.md)  <sub>0..*</sub>
     * range: [slot_definition](slot_definition.md)
- * [is_a](slot_definition_is_a.md)  <sub>OPT</sub>
+ * [slot_definition➞is_a](slot_definition_is_a.md)  <sub>OPT</sub>
     * range: [slot_definition](slot_definition.md)
- * [mixins](slot_definition_mixins.md)  <sub>0..*</sub>
+ * [slot_definition➞mixins](slot_definition_mixins.md)  <sub>0..*</sub>
     * range: [slot_definition](slot_definition.md)
  * [slot_uri](slot_uri.md)  <sub>OPT</sub>
     * Description: predicate of this slot for semantic web application

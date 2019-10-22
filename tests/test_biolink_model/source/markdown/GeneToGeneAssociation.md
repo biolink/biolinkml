@@ -26,9 +26,9 @@ URI: [biolink:GeneToGeneAssociation](https://w3id.org/biolink/vocab/GeneToGeneAs
 
 ### Own
 
- * [object](gene_to_gene_association_object.md)  <sub>REQ</sub>
+ * [gene to gene association➞object](gene_to_gene_association_object.md)  <sub>REQ</sub>
     * range: [gene or gene product](gene or gene product.md)
- * [subject](gene_to_gene_association_subject.md)  <sub>REQ</sub>
+ * [gene to gene association➞subject](gene_to_gene_association_subject.md)  <sub>REQ</sub>
     * range: [gene or gene product](gene or gene product.md)
 
 ### Inherited from association:
@@ -45,7 +45,7 @@ URI: [biolink:GeneToGeneAssociation](https://w3id.org/biolink/vocab/GeneToGeneAs
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [named thing](named thing.md)
     * inherited from: [association](association.md)
- * [id](association_id.md)  <sub>REQ</sub>
+ * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
@@ -73,9 +73,9 @@ URI: [biolink:GeneToGeneAssociation](https://w3id.org/biolink/vocab/GeneToGeneAs
 
 ### Domain for slot:
 
- * [object](gene_to_gene_association_object.md)  <sub>REQ</sub>
+ * [gene to gene association➞object](gene_to_gene_association_object.md)  <sub>REQ</sub>
     * range: [gene or gene product](gene or gene product.md)
- * [subject](gene_to_gene_association_subject.md)  <sub>REQ</sub>
+ * [gene to gene association➞subject](gene_to_gene_association_subject.md)  <sub>REQ</sub>
     * range: [gene or gene product](gene or gene product.md)
 
 ## Other properties

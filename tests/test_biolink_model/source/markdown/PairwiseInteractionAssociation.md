@@ -25,13 +25,13 @@ URI: [biolink:PairwiseInteractionAssociation](https://w3id.org/biolink/vocab/Pai
 
 ### Own
 
- * [id](pairwise_interaction_association_id.md)  <sub>REQ</sub>
+ * [pairwise interaction association➞id](pairwise_interaction_association_id.md)  <sub>REQ</sub>
     * range: [Nodeidentifier](type/Nodeidentifier.md)
- * [object](pairwise_interaction_association_object.md)  <sub>REQ</sub>
+ * [pairwise interaction association➞object](pairwise_interaction_association_object.md)  <sub>REQ</sub>
     * range: [molecular entity](molecular entity.md)
- * [relation](pairwise_interaction_association_relation.md)  <sub>REQ</sub>
+ * [pairwise interaction association➞relation](pairwise_interaction_association_relation.md)  <sub>REQ</sub>
     * range: [Uriorcurie](type/Uriorcurie.md)
- * [subject](pairwise_interaction_association_subject.md)  <sub>REQ</sub>
+ * [pairwise interaction association➞subject](pairwise_interaction_association_subject.md)  <sub>REQ</sub>
     * range: [molecular entity](molecular entity.md)
 
 ### Inherited from association:
@@ -48,7 +48,7 @@ URI: [biolink:PairwiseInteractionAssociation](https://w3id.org/biolink/vocab/Pai
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [named thing](named thing.md)
     * inherited from: [association](association.md)
- * [id](association_id.md)  <sub>REQ</sub>
+ * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
@@ -78,11 +78,11 @@ URI: [biolink:PairwiseInteractionAssociation](https://w3id.org/biolink/vocab/Pai
 
  * [interacting molecules category](interacting_molecules_category.md)  <sub>OPT</sub>
     * range: [ontology class](ontology class.md)
- * [id](pairwise_interaction_association_id.md)  <sub>REQ</sub>
+ * [pairwise interaction association➞id](pairwise_interaction_association_id.md)  <sub>REQ</sub>
     * range: [Nodeidentifier](type/Nodeidentifier.md)
- * [object](pairwise_interaction_association_object.md)  <sub>REQ</sub>
+ * [pairwise interaction association➞object](pairwise_interaction_association_object.md)  <sub>REQ</sub>
     * range: [molecular entity](molecular entity.md)
- * [relation](pairwise_interaction_association_relation.md)  <sub>REQ</sub>
+ * [pairwise interaction association➞relation](pairwise_interaction_association_relation.md)  <sub>REQ</sub>
     * range: [Uriorcurie](type/Uriorcurie.md)
- * [subject](pairwise_interaction_association_subject.md)  <sub>REQ</sub>
+ * [pairwise interaction association➞subject](pairwise_interaction_association_subject.md)  <sub>REQ</sub>
     * range: [molecular entity](molecular entity.md)

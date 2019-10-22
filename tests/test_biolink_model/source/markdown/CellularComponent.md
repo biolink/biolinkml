@@ -15,7 +15,7 @@ URI: [biolink:CellularComponent](https://w3id.org/biolink/vocab/CellularComponen
 
 ## Referenced by class
 
- *  **[macromolecular machine to cellular component association](macromolecular machine to cellular component association.md)** *[object](macromolecular_machine_to_cellular_component_association_object.md)*  <sub>REQ</sub>  **[cellular component](cellular component.md)**
+ *  **[macromolecular machine to cellular component association](macromolecular machine to cellular component association.md)** *[macromolecular machine to cellular component association➞object](macromolecular_machine_to_cellular_component_association_object.md)*  <sub>REQ</sub>  **[cellular component](cellular component.md)**
 
 ## Attributes
 

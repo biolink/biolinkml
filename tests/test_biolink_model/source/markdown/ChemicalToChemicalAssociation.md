@@ -29,7 +29,7 @@ URI: [biolink:ChemicalToChemicalAssociation](https://w3id.org/biolink/vocab/Chem
 
 ### Own
 
- * [object](chemical_to_chemical_association_object.md)  <sub>REQ</sub>
+ * [chemical to chemical association➞object](chemical_to_chemical_association_object.md)  <sub>REQ</sub>
     * range: [chemical substance](chemical substance.md)
 
 ### Inherited from association:
@@ -46,7 +46,7 @@ URI: [biolink:ChemicalToChemicalAssociation](https://w3id.org/biolink/vocab/Chem
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [named thing](named thing.md)
     * inherited from: [association](association.md)
- * [id](association_id.md)  <sub>REQ</sub>
+ * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
@@ -74,5 +74,5 @@ URI: [biolink:ChemicalToChemicalAssociation](https://w3id.org/biolink/vocab/Chem
 
 ### Domain for slot:
 
- * [object](chemical_to_chemical_association_object.md)  <sub>REQ</sub>
+ * [chemical to chemical association➞object](chemical_to_chemical_association_object.md)  <sub>REQ</sub>
     * range: [chemical substance](chemical substance.md)

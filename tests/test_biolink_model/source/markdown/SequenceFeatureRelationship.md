@@ -27,9 +27,9 @@ URI: [biolink:SequenceFeatureRelationship](https://w3id.org/biolink/vocab/Sequen
 
 ### Own
 
- * [object](sequence_feature_relationship_object.md)  <sub>REQ</sub>
+ * [sequence feature relationship➞object](sequence_feature_relationship_object.md)  <sub>REQ</sub>
     * range: [genomic entity](genomic entity.md)
- * [subject](sequence_feature_relationship_subject.md)  <sub>REQ</sub>
+ * [sequence feature relationship➞subject](sequence_feature_relationship_subject.md)  <sub>REQ</sub>
     * range: [genomic entity](genomic entity.md)
 
 ### Inherited from association:
@@ -46,7 +46,7 @@ URI: [biolink:SequenceFeatureRelationship](https://w3id.org/biolink/vocab/Sequen
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [named thing](named thing.md)
     * inherited from: [association](association.md)
- * [id](association_id.md)  <sub>REQ</sub>
+ * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
@@ -74,7 +74,7 @@ URI: [biolink:SequenceFeatureRelationship](https://w3id.org/biolink/vocab/Sequen
 
 ### Domain for slot:
 
- * [object](sequence_feature_relationship_object.md)  <sub>REQ</sub>
+ * [sequence feature relationship➞object](sequence_feature_relationship_object.md)  <sub>REQ</sub>
     * range: [genomic entity](genomic entity.md)
- * [subject](sequence_feature_relationship_subject.md)  <sub>REQ</sub>
+ * [sequence feature relationship➞subject](sequence_feature_relationship_subject.md)  <sub>REQ</sub>
     * range: [genomic entity](genomic entity.md)

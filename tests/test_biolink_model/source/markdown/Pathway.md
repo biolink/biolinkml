@@ -15,7 +15,7 @@ URI: [biolink:Pathway](https://w3id.org/biolink/vocab/Pathway)
 
 ## Referenced by class
 
- *  **[chemical to pathway association](chemical to pathway association.md)** *[object](chemical_to_pathway_association_object.md)*  <sub>REQ</sub>  **[pathway](pathway.md)**
+ *  **[chemical to pathway association](chemical to pathway association.md)** *[chemical to pathway association➞object](chemical_to_pathway_association_object.md)*  <sub>REQ</sub>  **[pathway](pathway.md)**
 
 ## Attributes
 

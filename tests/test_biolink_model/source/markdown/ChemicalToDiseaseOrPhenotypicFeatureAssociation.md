@@ -26,7 +26,7 @@ URI: [biolink:ChemicalToDiseaseOrPhenotypicFeatureAssociation](https://w3id.org/
 
 ### Own
 
- * [object](chemical_to_disease_or_phenotypic_feature_association_object.md)  <sub>REQ</sub>
+ * [chemical to disease or phenotypic feature association➞object](chemical_to_disease_or_phenotypic_feature_association_object.md)  <sub>REQ</sub>
     * range: [disease or phenotypic feature](disease or phenotypic feature.md)
 
 ### Inherited from association:
@@ -43,7 +43,7 @@ URI: [biolink:ChemicalToDiseaseOrPhenotypicFeatureAssociation](https://w3id.org/
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [named thing](named thing.md)
     * inherited from: [association](association.md)
- * [id](association_id.md)  <sub>REQ</sub>
+ * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
@@ -71,7 +71,7 @@ URI: [biolink:ChemicalToDiseaseOrPhenotypicFeatureAssociation](https://w3id.org/
 
 ### Domain for slot:
 
- * [object](chemical_to_disease_or_phenotypic_feature_association_object.md)  <sub>REQ</sub>
+ * [chemical to disease or phenotypic feature association➞object](chemical_to_disease_or_phenotypic_feature_association_object.md)  <sub>REQ</sub>
     * range: [disease or phenotypic feature](disease or phenotypic feature.md)
 
 ## Other properties

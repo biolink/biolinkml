@@ -45,9 +45,9 @@ URI: [biolink:NamedThing](https://w3id.org/biolink/vocab/NamedThing)
  *  **[named thing](named thing.md)** *[interacts with](interacts_with.md)*  <sub>0..*</sub>  **[named thing](named thing.md)**
  *  **[named thing](named thing.md)** *[located in](located_in.md)*  <sub>0..*</sub>  **[named thing](named thing.md)**
  *  **[named thing](named thing.md)** *[location of](location_of.md)*  <sub>0..*</sub>  **[named thing](named thing.md)**
- *  **[material sample derivation association](material sample derivation association.md)** *[object](material_sample_derivation_association_object.md)*  <sub>REQ</sub>  **[named thing](named thing.md)**
+ *  **[material sample derivation association](material sample derivation association.md)** *[material sample derivation association➞object](material_sample_derivation_association_object.md)*  <sub>REQ</sub>  **[named thing](named thing.md)**
  *  **[named thing](named thing.md)** *[model of](model_of.md)*  <sub>0..*</sub>  **[named thing](named thing.md)**
- *  **[model to disease mixin](model to disease mixin.md)** *[subject](model_to_disease_mixin_subject.md)*  <sub>REQ</sub>  **[named thing](named thing.md)**
+ *  **[model to disease mixin](model to disease mixin.md)** *[model to disease mixin➞subject](model_to_disease_mixin_subject.md)*  <sub>REQ</sub>  **[named thing](named thing.md)**
  *  **[named thing](named thing.md)** *[negatively regulates](negatively_regulates.md)*  <sub>0..*</sub>  **[named thing](named thing.md)**
  *  **[association](association.md)** *[object](object.md)*  <sub>REQ</sub>  **[named thing](named thing.md)**
  *  **[named thing](named thing.md)** *[occurs in](occurs_in.md)*  <sub>0..*</sub>  **[named thing](named thing.md)**
@@ -65,8 +65,8 @@ URI: [biolink:NamedThing](https://w3id.org/biolink/vocab/NamedThing)
  *  **[named thing](named thing.md)** *[same as](same_as.md)*  <sub>0..*</sub>  **[named thing](named thing.md)**
  *  **[association](association.md)** *[subject](subject.md)*  <sub>REQ</sub>  **[named thing](named thing.md)**
  *  **[disease or phenotypic feature](disease or phenotypic feature.md)** *[treated by](treated_by.md)*  <sub>0..*</sub>  **[named thing](named thing.md)**
- *  **[variant to disease association](variant to disease association.md)** *[object](variant_to_disease_association_object.md)*  <sub>REQ</sub>  **[named thing](named thing.md)**
- *  **[variant to disease association](variant to disease association.md)** *[subject](variant_to_disease_association_subject.md)*  <sub>REQ</sub>  **[named thing](named thing.md)**
+ *  **[variant to disease association](variant to disease association.md)** *[variant to disease association➞object](variant_to_disease_association_object.md)*  <sub>REQ</sub>  **[named thing](named thing.md)**
+ *  **[variant to disease association](variant to disease association.md)** *[variant to disease association➞subject](variant_to_disease_association_subject.md)*  <sub>REQ</sub>  **[named thing](named thing.md)**
  *  **[named thing](named thing.md)** *[xenologous to](xenologous_to.md)*  <sub>0..*</sub>  **[named thing](named thing.md)**
 
 ## Attributes

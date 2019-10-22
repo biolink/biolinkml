@@ -15,7 +15,7 @@ URI: [biolink:PhenotypicFeature](https://w3id.org/biolink/vocab/PhenotypicFeatur
 
 ## Referenced by class
 
- *  **[entity to phenotypic feature association](entity to phenotypic feature association.md)** *[object](entity_to_phenotypic_feature_association_object.md)*  <sub>REQ</sub>  **[phenotypic feature](phenotypic feature.md)**
+ *  **[entity to phenotypic feature association](entity to phenotypic feature association.md)** *[entity to phenotypic feature association➞object](entity_to_phenotypic_feature_association_object.md)*  <sub>REQ</sub>  **[phenotypic feature](phenotypic feature.md)**
  *  **[biological entity](biological entity.md)** *[has phenotype](has_phenotype.md)*  <sub>0..*</sub>  **[phenotypic feature](phenotypic feature.md)**
 
 ## Attributes

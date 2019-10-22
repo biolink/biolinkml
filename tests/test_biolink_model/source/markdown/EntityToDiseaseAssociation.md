@@ -27,5 +27,5 @@ URI: [biolink:EntityToDiseaseAssociation](https://w3id.org/biolink/vocab/EntityT
 
 ### Domain for slot:
 
- * [object](entity_to_disease_association_object.md)  <sub>REQ</sub>
+ * [entity to disease association➞object](entity_to_disease_association_object.md)  <sub>REQ</sub>
     * range: [disease](disease.md)

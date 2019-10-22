@@ -21,9 +21,9 @@ URI: [biolink:GeneToGoTermAssociation](https://w3id.org/biolink/vocab/GeneToGoTe
 
 ### Own
 
- * [object](gene_to_go_term_association_object.md)  <sub>REQ</sub>
+ * [gene to go term association➞object](gene_to_go_term_association_object.md)  <sub>REQ</sub>
     * range: [gene ontology class](gene ontology class.md)
- * [subject](gene_to_go_term_association_subject.md)  <sub>REQ</sub>
+ * [gene to go term association➞subject](gene_to_go_term_association_subject.md)  <sub>REQ</sub>
     * range: [molecular entity](molecular entity.md)
 
 ### Inherited from association:
@@ -40,7 +40,7 @@ URI: [biolink:GeneToGoTermAssociation](https://w3id.org/biolink/vocab/GeneToGoTe
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [named thing](named thing.md)
     * inherited from: [association](association.md)
- * [id](association_id.md)  <sub>REQ</sub>
+ * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
@@ -68,9 +68,9 @@ URI: [biolink:GeneToGoTermAssociation](https://w3id.org/biolink/vocab/GeneToGoTe
 
 ### Domain for slot:
 
- * [object](gene_to_go_term_association_object.md)  <sub>REQ</sub>
+ * [gene to go term association➞object](gene_to_go_term_association_object.md)  <sub>REQ</sub>
     * range: [gene ontology class](gene ontology class.md)
- * [subject](gene_to_go_term_association_subject.md)  <sub>REQ</sub>
+ * [gene to go term association➞subject](gene_to_go_term_association_subject.md)  <sub>REQ</sub>
     * range: [molecular entity](molecular entity.md)
 
 ## Other properties

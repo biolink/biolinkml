@@ -20,8 +20,8 @@ URI: [biolink:ExposureEvent](https://w3id.org/biolink/vocab/ExposureEvent)
 
 ## Referenced by class
 
- *  **[disease to exposure association](disease to exposure association.md)** *[object](disease_to_exposure_association_object.md)*  <sub>REQ</sub>  **[exposure event](exposure event.md)**
- *  **[exposure event to phenotypic feature association](exposure event to phenotypic feature association.md)** *[subject](exposure_event_to_phenotypic_feature_association_subject.md)*  <sub>REQ</sub>  **[exposure event](exposure event.md)**
+ *  **[disease to exposure association](disease to exposure association.md)** *[disease to exposure association➞object](disease_to_exposure_association_object.md)*  <sub>REQ</sub>  **[exposure event](exposure event.md)**
+ *  **[exposure event to phenotypic feature association](exposure event to phenotypic feature association.md)** *[exposure event to phenotypic feature association➞subject](exposure_event_to_phenotypic_feature_association_subject.md)*  <sub>REQ</sub>  **[exposure event](exposure event.md)**
 
 ## Attributes
 

@@ -21,7 +21,7 @@ URI: [meta:Example](https://w3id.org/biolink/biolinkml/meta/Example)
  * [value](value.md)  <sub>OPT</sub>
     * Description: example value
     * range: [String](type/String.md)
- * [description](value_description.md)  <sub>OPT</sub>
+ * [example➞description](value_description.md)  <sub>OPT</sub>
     * Description: description of what the value is doing
     * range: [String](type/String.md)
 
@@ -30,6 +30,6 @@ URI: [meta:Example](https://w3id.org/biolink/biolinkml/meta/Example)
  * [value](value.md)  <sub>OPT</sub>
     * Description: example value
     * range: [String](type/String.md)
- * [description](value_description.md)  <sub>OPT</sub>
+ * [example➞description](value_description.md)  <sub>OPT</sub>
     * Description: description of what the value is doing
     * range: [String](type/String.md)

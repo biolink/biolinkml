@@ -21,7 +21,7 @@ URI: [biolink:MacromolecularMachineToBiologicalProcessAssociation](https://w3id.
 
 ### Own
 
- * [object](macromolecular_machine_to_biological_process_association_object.md)  <sub>REQ</sub>
+ * [macromolecular machine to biological process association➞object](macromolecular_machine_to_biological_process_association_object.md)  <sub>REQ</sub>
     * range: [biological process](biological process.md)
 
 ### Inherited from association:
@@ -38,7 +38,7 @@ URI: [biolink:MacromolecularMachineToBiologicalProcessAssociation](https://w3id.
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [named thing](named thing.md)
     * inherited from: [association](association.md)
- * [id](association_id.md)  <sub>REQ</sub>
+ * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
@@ -66,14 +66,14 @@ URI: [biolink:MacromolecularMachineToBiologicalProcessAssociation](https://w3id.
 
 ### Inherited from functional association:
 
- * [subject](functional_association_subject.md)  <sub>REQ</sub>
+ * [functional association➞subject](functional_association_subject.md)  <sub>REQ</sub>
     * range: [macromolecular machine](macromolecular machine.md)
     * inherited from: [functional association](functional association.md)
- * [object](functional_association_object.md)  <sub>REQ</sub>
+ * [functional association➞object](functional_association_object.md)  <sub>REQ</sub>
     * range: [gene ontology class](gene ontology class.md)
     * inherited from: [functional association](functional association.md)
 
 ### Domain for slot:
 
- * [object](macromolecular_machine_to_biological_process_association_object.md)  <sub>REQ</sub>
+ * [macromolecular machine to biological process association➞object](macromolecular_machine_to_biological_process_association_object.md)  <sub>REQ</sub>
     * range: [biological process](biological process.md)
