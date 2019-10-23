@@ -49,6 +49,7 @@
    "types": [
       {
          "name": "extended",
+         "definition_uri": "meta:Extended",
          "from_schema": "http://example.org/base",
          "typeof": "boolean",
          "base": "Bool",
@@ -56,6 +57,7 @@
       },
       {
          "name": "double_extended",
+         "definition_uri": "meta:DoubleExtended",
          "from_schema": "http://example.org/base",
          "typeof": "extended",
          "base": "Bool",
@@ -63,6 +65,7 @@
       },
       {
          "name": "string",
+         "definition_uri": "metatype:String",
          "description": "A character string",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "imported_from": "../../../includes/types",
@@ -71,6 +74,7 @@
       },
       {
          "name": "integer",
+         "definition_uri": "metatype:Integer",
          "description": "An integer",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "imported_from": "../../../includes/types",
@@ -79,6 +83,7 @@
       },
       {
          "name": "boolean",
+         "definition_uri": "metatype:Boolean",
          "description": "A binary (true or false) value",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "imported_from": "../../../includes/types",
@@ -87,6 +92,7 @@
       },
       {
          "name": "float",
+         "definition_uri": "metatype:Float",
          "description": "A real number that conforms to the xsd:float specification",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "imported_from": "../../../includes/types",
@@ -95,6 +101,7 @@
       },
       {
          "name": "double",
+         "definition_uri": "metatype:Double",
          "description": "A real number that conforms to the xsd:double specification",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "imported_from": "../../../includes/types",
@@ -103,6 +110,7 @@
       },
       {
          "name": "time",
+         "definition_uri": "metatype:Time",
          "description": "A time object represents a (local) time of day, independent of any particular day",
          "notes": [
             "URI is dateTime because OWL reasoners don't work with straight date or time"
@@ -115,6 +123,7 @@
       },
       {
          "name": "date",
+         "definition_uri": "metatype:Date",
          "description": "a date (year, month and day) in an idealized calendar",
          "notes": [
             "URI is dateTime because OWL reasoners don't work with straight date or time"
@@ -127,6 +136,7 @@
       },
       {
          "name": "datetime",
+         "definition_uri": "metatype:Datetime",
          "description": "The combination of a date and time",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "imported_from": "../../../includes/types",
@@ -136,6 +146,7 @@
       },
       {
          "name": "uriorcurie",
+         "definition_uri": "metatype:Uriorcurie",
          "description": "a URI or a CURIE",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "imported_from": "../../../includes/types",
@@ -145,6 +156,7 @@
       },
       {
          "name": "uri",
+         "definition_uri": "metatype:Uri",
          "description": "a complete URI",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "imported_from": "../../../includes/types",
@@ -154,6 +166,7 @@
       },
       {
          "name": "ncname",
+         "definition_uri": "metatype:Ncname",
          "description": "Prefix part of CURIE",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "imported_from": "../../../includes/types",
@@ -163,6 +176,7 @@
       },
       {
          "name": "objectidentifier",
+         "definition_uri": "metatype:Objectidentifier",
          "description": "A URI or CURIE that represents an object in the model.",
          "comments": [
             "Used for inheritence and type checking"
@@ -175,6 +189,7 @@
       },
       {
          "name": "nodeidentifier",
+         "definition_uri": "metatype:Nodeidentifier",
          "description": "A URI, CURIE or BNODE that represents a node in a model.",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "imported_from": "../../../includes/types",

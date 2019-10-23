@@ -1,14 +1,15 @@
 
-# Slot: subject
+# Type: case to thing association_subject
 
 
 
 
 URI: [biolink:case_to_thing_association_subject](https://w3id.org/biolink/vocab/case_to_thing_association_subject)
 
+
 ## Domain and Range
 
-[CaseToThingAssociation](CaseToThingAssociation.md) ->  <sub>REQ</sub> [Case](Case.md)
+[case to thing association](case to thing association.md) ->  <sub>REQ</sub> [case](case.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:case_to_thing_association_subject](https://w3id.org/biolink/vocab/
 
 ## Used by
 
- * [CaseToThingAssociation](CaseToThingAssociation.md)
+ * [case to thing association](case to thing association.md)

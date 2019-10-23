@@ -1,4 +1,3 @@
-import os
 import unittest
 from typing import List
 
@@ -7,12 +6,14 @@ from rdflib import Graph
 
 from biolinkml import LOCAL_CONTEXT_PATH, METAMODEL_NAMESPACE, LOCAL_SHEXJ_PATH, \
     LOCAL_RDF_PATH, MODULE_DIR
+from biolinkml.generators.jsonldgen import JSONLDGenerator
 from biolinkml.generators.markdowngen import MarkdownGenerator
 from biolinkml.generators.owlgen import OwlSchemaGenerator
 from biolinkml.generators.rdfgen import RDFGenerator
 from biolinkml.generators.shexgen import ShExGenerator
 from tests import targetdir, DO_SHEX_VALIDATION
 from tests.utils.generator_utils import GeneratorTestCase
+from tests.utils.metadata_filters import json_metadata_filter
 
 
 class MetaModelTestCase(GeneratorTestCase):
@@ -50,6 +51,10 @@ class MetaModelTestCase(GeneratorTestCase):
     def test_meta_shecj(self):
         """ Test the shex ShExJ generation """
         self.single_file_generator('shexj', ShExGenerator, format="json")
+
+    def test_meta_json(self):
+        """ Test the shex ShExJ generation """
+        self.single_file_generator('json', JSONLDGenerator, filtr=json_metadata_filter)
 
     def test_meta_rdf(self):
         """ Test the rdf generator for the biolink model """

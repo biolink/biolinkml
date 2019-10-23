@@ -1,20 +1,21 @@
 
-# Class: quantity value
+# Type: quantity value
 
 
 A value of an attribute that is quantitative and measurable, expressed as a combination of a unit and a numeric value
 
 URI: [biolink:QuantityValue](https://w3id.org/biolink/vocab/QuantityValue)
 
+
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Attribute]++-%20has%20quantitative%20value%200..*>\[QuantityValue|has_unit:unit%20%3F;has_numeric_value:double%20%3F],%20\[AbstractEntity]^-\[QuantityValue])
 
 ## Parents
 
- *  is_a: [AbstractEntity](AbstractEntity.md) - Any thing that is not a process or a physical mass-bearing entity
+ *  is_a: [abstract entity](abstract entity.md) - Any thing that is not a process or a physical mass-bearing entity
 
 ## Referenced by class
 
- *  **[Attribute](Attribute.md)** *[has quantitative value](has_quantitative_value.md)*  <sub>0..*</sub>  **[QuantityValue](QuantityValue.md)**
+ *  **[attribute](attribute.md)** *[has quantitative value](has_quantitative_value.md)*  <sub>0..*</sub>  **[quantity value](quantity value.md)**
 
 ## Attributes
 
@@ -23,20 +24,20 @@ URI: [biolink:QuantityValue](https://w3id.org/biolink/vocab/QuantityValue)
 
  * [has numeric value](has_numeric_value.md)  <sub>OPT</sub>
     * Description: connects a quantity value to a number
-    * range: [Double](Double.md)
+    * range: [Double](type/Double.md)
     * in subsets: (samples)
  * [has unit](has_unit.md)  <sub>OPT</sub>
     * Description: connects a quantity value to a unit
-    * range: [Unit](Unit.md)
+    * range: [Unit](type/Unit.md)
     * in subsets: (samples)
 
 ### Domain for slot:
 
  * [has numeric value](has_numeric_value.md)  <sub>OPT</sub>
     * Description: connects a quantity value to a number
-    * range: [Double](Double.md)
+    * range: [Double](type/Double.md)
     * in subsets: (samples)
  * [has unit](has_unit.md)  <sub>OPT</sub>
     * Description: connects a quantity value to a unit
-    * range: [Unit](Unit.md)
+    * range: [Unit](type/Unit.md)
     * in subsets: (samples)

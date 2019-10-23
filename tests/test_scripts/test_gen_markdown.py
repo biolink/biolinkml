@@ -5,6 +5,7 @@ from biolinkml.generators.markdowngen import cli
 from tests import source_yaml_path
 from tests.test_scripts.clicktestcase import ClickTestCase
 
+
 class GenMarkdownTestCase(ClickTestCase):
     testdir = "genmarkdown"
     click_ep = cli

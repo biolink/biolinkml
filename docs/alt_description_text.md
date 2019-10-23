@@ -1,14 +1,15 @@
 
-# Slot: description
+# Type: alt_description_text
 
 
 text of an attributed description
 
 URI: [meta:alt_description_text](https://w3id.org/biolink/biolinkml/meta/alt_description_text)
 
+
 ## Domain and Range
 
-[AltDescription](AltDescription.md) ->  <sub>REQ</sub> [String](String.md)
+[alt_description](alt_description.md) ->  <sub>REQ</sub> [String](type/String.md)
 
 ## Parents
 
@@ -18,4 +19,4 @@ URI: [meta:alt_description_text](https://w3id.org/biolink/biolinkml/meta/alt_des
 
 ## Used by
 
- * [AltDescription](AltDescription.md)
+ * [alt_description](alt_description.md)

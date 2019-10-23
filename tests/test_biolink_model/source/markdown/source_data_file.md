@@ -1,14 +1,15 @@
 
-# Slot: source data file
+# Type: source data file
 
 
 
 
 URI: [biolink:source_data_file](https://w3id.org/biolink/vocab/source_data_file)
 
+
 ## Domain and Range
 
-[DataSetVersion](DataSetVersion.md) ->  <sub>OPT</sub> [DataFile](DataFile.md)
+[data set version](data set version.md) ->  <sub>OPT</sub> [data file](data file.md)
 
 ## Parents
 
@@ -19,6 +20,13 @@ URI: [biolink:source_data_file](https://w3id.org/biolink/vocab/source_data_file)
 
 ## Used by
 
- * [DataSetSummary](DataSetSummary.md)
- * [DataSetVersion](DataSetVersion.md)
- * [DistributionLevel](DistributionLevel.md)
+ * [data set summary](data set summary.md)
+ * [data set version](data set version.md)
+ * [distribution level](distribution level.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | dcterms:source |
+

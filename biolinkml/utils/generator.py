@@ -1,12 +1,13 @@
 import abc
+import logging
 import sys
 from contextlib import redirect_stdout
-from functools import lru_cache
 from io import StringIO
-from typing import List, Set, Union, TextIO, Optional, cast, Type, Callable
+from typing import List, Set, Union, TextIO, Optional, cast, Callable, Mapping
 
 import click
 from click import Command, Argument, Option
+from json import load
 
 from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, ClassDefinitionName, \
     TypeDefinition, Element, SlotDefinitionName, TypeDefinitionName, PrefixPrefixPrefix, ElementName, \
@@ -15,6 +16,9 @@ from biolinkml.utils.formatutils import camelcase, underscore
 from biolinkml.utils.mergeutils import alias_root
 from biolinkml.utils.schemaloader import SchemaLoader
 from biolinkml.utils.typereferences import References
+
+DEFAULT_LOG_LEVEL: str = "WARNING"
+DEFAULT_LOG_LEVEL_INT: str = logging.WARNING
 
 
 class Generator(metaclass=abc.ABCMeta):
@@ -32,6 +36,8 @@ class Generator(metaclass=abc.ABCMeta):
                  format: Optional[str] = None,
                  emit_metadata: bool = False,
                  useuris: Optional[bool] = None,
+                 import_map: Optional[str] = None,
+                 log_level: int = DEFAULT_LOG_LEVEL_INT,
                  **kwargs) -> None:
         """
         Constructor
@@ -41,7 +47,12 @@ class Generator(metaclass=abc.ABCMeta):
         :param fmt: expected output format
         :param emit_metadata: True means include date, generator, etc. information in source header if appropriate
         :param useuris: True means declared class slot uri's are used.  False means use model uris
+        :param import_map: File name of import mapping file -- maps import name/uri to target
+        :param log_level: Logging level
         """
+        logging.basicConfig(level=log_level)
+        self.logger = logging.getLogger(self.__class__.__name__)
+
         if format is None:
             format = self.valid_formats[0]
         assert format in self.valid_formats, f"Unrecognized format: {format}"
@@ -53,15 +64,19 @@ class Generator(metaclass=abc.ABCMeta):
             self.synopsis = gen.synopsis
             self.namespaces = gen.namespaces
             self.base_dir = gen.base_dir
+            self.import_map = gen.import_map
             self.schema_location = gen.schema_location
             self.schema_defaults = gen.schema_defaults
+            self.logger = gen.logger
         else:
-            loader = SchemaLoader(schema, self.base_dir, useuris=useuris)
+            loader = SchemaLoader(schema, self.base_dir, useuris=useuris, import_map=parse_import_map(import_map),
+                                  logger=self.logger)
             loader.resolve()
             self.schema = loader.schema
             self.synopsis = loader.synopsis
             self.namespaces = loader.namespaces
             self.base_dir = loader.base_dir
+            self.import_map = loader.import_map
             self.schema_location = loader.schema_location
             self.schema_defaults = loader.schema_defaults
 
@@ -309,7 +324,7 @@ class Generator(metaclass=abc.ABCMeta):
                 if element in self.synopsis.subsetrefs:
                     touches.update(self.synopsis.subsetrefs[cast(SubsetDefinitionName, element)])
             if not bool(touches):
-                print(f"Warning: neighborhood({element}) - {element} is undefined", file=sys.stderr)
+                self.logger.warning(f"neighborhood({element}) - {element} is undefined")
 
         return touches
 
@@ -509,6 +524,17 @@ class Generator(metaclass=abc.ABCMeta):
 
 
 def shared_arguments(g: Generator) -> Callable[[Command], Command]:
+    _LOG_LEVEL_STRINGS = ['CRITICAL', 'ERROR', 'WARNING', 'INFO', 'DEBUG']
+
+    def _log_level_string_to_int(log_level_string: str) -> int:
+        log_level_string = log_level_string.upper()
+        level = [e for e in log_level_string if e.startswith(log_level_string)]
+        if not level:
+            pass
+        log_level_int = getattr(logging, log_level_string[0], logging.INFO)
+        assert isinstance(log_level_int, int)
+        return log_level_int
+
     def decorator(f: Command) -> Command:
         f.params.append(
             Argument(("yamlfile", ), type=click.Path(exists=True, dir_okay=False)))
@@ -519,5 +545,21 @@ def shared_arguments(g: Generator) -> Callable[[Command], Command]:
             Option(("--metadata/--no-metadata", ), default=True, help="Include metadata in output"))
         f.params.append(
             Option(("--useuris/--metauris", ), default=True, help="Include metadata in output"))
+        f.params.append(
+            Option(("--importmap", "-im"), type=click.File(), help="Import mapping file")
+        )
+        f.params.append(
+            Option(("--log_level", ), type=click.Choice(_LOG_LEVEL_STRINGS),
+                   help=f"Logging level (default={DEFAULT_LOG_LEVEL})",
+                   default=DEFAULT_LOG_LEVEL)
+        )
         return f
     return decorator
+
+
+def parse_import_map(map_loc: Optional[str]) -> Mapping[str, str]:
+    if map_loc is None:
+        return dict()
+    else:
+        with open(map_loc) as ml:
+            return load(ml)

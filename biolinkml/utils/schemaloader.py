@@ -1,15 +1,16 @@
+import logging
 import os
 import sys
-from typing import Union, TextIO, Optional, Set, List, cast, Dict
+from typing import Union, TextIO, Optional, Set, List, cast, Dict, Mapping
 from urllib.parse import urlparse
 
 from biolinkml.meta import SchemaDefinition, SlotDefinition, SlotDefinitionName, ClassDefinition, \
     ClassDefinitionName, TypeDefinitionName, TypeDefinition, ElementName
 from biolinkml.utils.formatutils import underscore, camelcase, sfx
+from biolinkml.utils.mergeutils import merge_schemas, merge_slots, merge_classes, slot_usage_name
 from biolinkml.utils.metamodelcore import Bool
 from biolinkml.utils.namespaces import Namespaces
 from biolinkml.utils.rawloader import load_raw_schema
-from biolinkml.utils.mergeutils import merge_schemas, merge_slots, merge_classes, slot_usage_name
 from biolinkml.utils.schemasynopsis import SchemaSynopsis
 
 
@@ -18,7 +19,9 @@ class SchemaLoader:
                  data: Union[str, TextIO, SchemaDefinition, dict],
                  base_dir: Optional[str] = None,
                  namespaces: Optional[Namespaces] = None,
-                 useuris: Optional[bool] = None) \
+                 useuris: Optional[bool] = None,
+                 import_map: Optional[Mapping[str, str]] = None,
+                 logger: Optional[logging.Logger] = None) \
             -> None:
         """ Constructor - load and process a YAML or pre-processed schema
 
@@ -26,15 +29,19 @@ class SchemaLoader:
         :param base_dir: base directory or URL where Schema came from
         :param namespaces: namespaces collector
         :param useuris: True means class_uri and slot_uri are identifiers.  False means they are mappings.
+        :param import_map: A map from import entries to URI or file name.
+        :param logger: Target Logger, if any
         """
+        self.logger = logger if logger is not None else logging.getLogger(self.__class__.__name__)
         if isinstance(data, SchemaDefinition):
             self.schema = data
         else:
             self.schema = load_raw_schema(data, base_dir=base_dir)
-        self.loaded: Set[str] = {self.schema.name}
+        self.loaded: Dict[str, str] = {self.schema.id: self.schema.version}
         self.base_dir = self._get_base_dir(base_dir)
         self.namespaces = namespaces if namespaces else Namespaces()
         self.useuris = useuris if useuris is not None else True
+        self.import_map = import_map if import_map is not None else dict()
         self.synopsis: Optional[SchemaSynopsis] = None
         self.schema_location: Optional[str] = None
         self.schema_defaults: Dict[str, str] = {}           # Map from schema URI to default namespace
@@ -68,11 +75,19 @@ class SchemaLoader:
 
         # Process imports
         for sname in self.schema.imports:
-            sloc = self.namespaces.uri_for(sname) if ':' in sname else sname
-            if sloc not in self.loaded:
-                self.loaded.add(sloc)
-                import_schemadefinition = load_raw_schema(sloc + '.yaml', base_dir=self.base_dir)
-                merge_schemas(self.schema, import_schemadefinition, sloc, self.namespaces)
+            sname = self.import_map.get(str(sname), sname)               # Import map may use CURIE
+            sname = self.namespaces.uri_for(sname) if ':' in sname else sname
+            sname = self.import_map.get(str(sname), sname)               # It may also use URI or other forms
+            import_schemadefinition = \
+                load_raw_schema(sname + '.yaml',
+                                base_dir=os.path.dirname(self.schema.source_file) if self.schema.source_file else None)
+            if import_schemadefinition.id in self.loaded:
+                # If we've already loaded this, make sure that we've got the same version
+                if self.loaded[import_schemadefinition.id] != import_schemadefinition.version:
+                    self.raise_value_error(f"Schema {import_schemadefinition.name} - version mismatch")
+            else:
+                self.loaded[import_schemadefinition.id] = import_schemadefinition.version
+                merge_schemas(self.schema, import_schemadefinition, sname, self.namespaces)
                 self.schema_defaults[import_schemadefinition.id] = import_schemadefinition.default_prefix
 
         self.namespaces._base = self.schema.default_prefix if ':' in self.schema.default_prefix else \
@@ -84,7 +99,7 @@ class SchemaLoader:
                 name = cls['name'] if 'name' in cls else 'Unknown'
                 self.raise_value_error(f'Class "{name} (type: {type(cls)})" definition is not a class definition')
             if isinstance(cls.slots, str):
-                print(f"File: {self.schema.source_file} Class: {cls.name} Slots are not an array", file=sys.stderr)
+                self.logger.warning(f"File: {self.schema.source_file} Class: {cls.name} Slots are not an array")
                 cls.slots = [cls.slots]
             for slotname in cls.slots:
                 if slotname in self.schema.slots:
@@ -196,7 +211,7 @@ class SchemaLoader:
                 name = cls['name'] if 'name' in cls else 'Unknown'
                 self.raise_value_error(f'Class "{name} (type: {type(cls)})" definition is not a class definition')
             if isinstance(cls.slots, str):
-                print(f"File: {self.schema.source_file} Class: {cls.name} Slots are not an array", file=sys.stderr)
+                self.logger.warning(f"File: {self.schema.source_file} Class: {cls.name} Slots are not an array")
                 cls.slots = [cls.slots]
             for slotname in cls.slots:
                 if slotname in self.schema.slots:
@@ -260,19 +275,19 @@ class SchemaLoader:
 
         dups = check_dups(classes, slots)
         if dups:
-            print(f"Warning: Shared class and slot names: {dups}", file=sys.stderr)
+            self.logger.warning(f"Shared class and slot names: {dups}")
         dups = check_dups(classes, subsets)
         if dups:
-            print(f"Warning: Shared class and subset names: {dups}", file=sys.stderr)
+            self.logger.warning(f"Shared class and subset names: {dups}")
         dups = check_dups(slots, types)
         if dups:
-            print(f"Warning: Shared type and slot names: {dups}", file=sys.stderr)
+            self.logger.warning(f"Shared type and slot names: {dups}")
         dups = check_dups(slots, subsets)
         if dups:
-            print(f"Warning: Shared slot and subset names: {dups}", file=sys.stderr)
+            self.logger.warning(f"Shared slot and subset names: {dups}")
         dups = check_dups(types, subsets)
         if dups:
-            print(f"Warning: Shared type and subset names: {dups}", file=sys.stderr)
+            self.logger.warning(f"Shared type and subset names: {dups}")
 
         # Make the source file relative if it is locally generated
         self.schema_location = self.schema.source_file
@@ -363,8 +378,8 @@ class SchemaLoader:
 
             # If parent slot is still not defined, it means that we introduced a NEW slot in the slot usages
             if not parent_slot:
-                print(f'Warning: class "{cls.name}" slot "{slotname}" does not reference an existing slot.  '
-                      f'New slot was created.', file=sys.stderr)
+                self.logger.warning(f'class "{cls.name}" slot "{slotname}" does not reference an existing slot.  '
+                                    f'New slot was created.')
                 child_name = slotname
                 slot_alias = None
             else:
@@ -456,7 +471,7 @@ class SchemaLoader:
     def check_prefix(self, prefix: str) -> None:
         prefix = self.namespaces.prefix_for(prefix)
         if prefix and prefix not in self.namespaces:
-            print(f"Unrecognized prefix: {prefix}", file=sys.stderr)
+            self.logger.warning(f"Unrecognized prefix: {prefix}")
             self.namespaces[prefix] = f"http://example.org/UNKNOWN/{prefix}/"
 
     @staticmethod

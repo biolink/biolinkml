@@ -14,7 +14,7 @@ from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace, URIRef
 from includes.types import String
 
-metamodel_version = "1.4.1"
+metamodel_version = "1.4.3"
 
 
 # Namespaces
@@ -38,7 +38,7 @@ class C1(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = TEST.C1
     class_class_curie: ClassVar[str] = "test:C1"
     class_name: ClassVar[str] = "c1"
-    class_model_uri: ClassVar[URIRef] = TEST.C1
+    class_model_uri: ClassVar[URIRef] = URIRef("http://example.org/tests/ifabsent/C1")
 
     s1: Optional[str] = SKOS.label
     s2: Optional[str] = SKOS.definition

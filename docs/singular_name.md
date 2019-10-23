@@ -1,14 +1,15 @@
 
-# Slot: singular_name
+# Type: singular_name
 
 
 a name that is used in the singular form
 
 URI: [meta:singular_name](https://w3id.org/biolink/biolinkml/meta/singular_name)
 
+
 ## Domain and Range
 
-[SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [String](String.md)
+[slot_definition](slot_definition.md) ->  <sub>OPT</sub> [String](type/String.md)
 
 ## Parents
 
@@ -18,4 +19,11 @@ URI: [meta:singular_name](https://w3id.org/biolink/biolinkml/meta/singular_name)
 
 ## Used by
 
- * [SlotDefinition](SlotDefinition.md)
+ * [slot_definition](slot_definition.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | skos:altLabel |
+

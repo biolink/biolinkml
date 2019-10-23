@@ -1,14 +1,15 @@
 
-# Slot: subject
+# Type: gene to phenotypic feature association_subject
 
 
 
 
 URI: [biolink:gene_to_phenotypic_feature_association_subject](https://w3id.org/biolink/vocab/gene_to_phenotypic_feature_association_subject)
 
+
 ## Domain and Range
 
-[GeneToPhenotypicFeatureAssociation](GeneToPhenotypicFeatureAssociation.md) ->  <sub>REQ</sub> [GeneOrGeneProduct](GeneOrGeneProduct.md)
+[gene to phenotypic feature association](gene to phenotypic feature association.md) ->  <sub>REQ</sub> [gene or gene product](gene or gene product.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:gene_to_phenotypic_feature_association_subject](https://w3id.org/b
 
 ## Used by
 
- * [GeneToPhenotypicFeatureAssociation](GeneToPhenotypicFeatureAssociation.md)
+ * [gene to phenotypic feature association](gene to phenotypic feature association.md)

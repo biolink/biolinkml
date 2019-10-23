@@ -1,14 +1,15 @@
 
-# Slot: part of
+# Type: part of
 
 
 holds between parts and wholes (material entities or processes)
 
 URI: [biolink:part_of](https://w3id.org/biolink/vocab/part_of)
 
+
 ## Domain and Range
 
-[NamedThing](NamedThing.md) ->  <sub>0..*</sub> [NamedThing](NamedThing.md)
+[named thing](named thing.md) ->  <sub>0..*</sub> [named thing](named thing.md)
 
 ## Parents
 
@@ -19,4 +20,14 @@ URI: [biolink:part_of](https://w3id.org/biolink/vocab/part_of)
 
 ## Used by
 
- * [NamedThing](NamedThing.md)
+ * [named thing](named thing.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | BFO:0000050 |
+|  | | SEMMEDDB:PART_OF |
+|  | | WD:P361 |
+| **In Subsets:** | | translator_minimal |
+

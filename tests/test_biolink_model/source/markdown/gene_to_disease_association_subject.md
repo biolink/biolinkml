@@ -1,14 +1,15 @@
 
-# Slot: subject
+# Type: gene to disease association_subject
 
 
 
 
 URI: [biolink:gene_to_disease_association_subject](https://w3id.org/biolink/vocab/gene_to_disease_association_subject)
 
+
 ## Domain and Range
 
-[GeneToDiseaseAssociation](GeneToDiseaseAssociation.md) ->  <sub>REQ</sub> [GeneOrGeneProduct](GeneOrGeneProduct.md)
+[gene to disease association](gene to disease association.md) ->  <sub>REQ</sub> [gene or gene product](gene or gene product.md)
 
 ## Parents
 
@@ -21,4 +22,4 @@ URI: [biolink:gene_to_disease_association_subject](https://w3id.org/biolink/voca
 
 ## Used by
 
- * [GeneToDiseaseAssociation](GeneToDiseaseAssociation.md)
+ * [gene to disease association](gene to disease association.md)

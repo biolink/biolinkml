@@ -1,14 +1,15 @@
 
-# Slot: subject
+# Type: transcript to gene relationship_subject
 
 
 
 
 URI: [biolink:transcript_to_gene_relationship_subject](https://w3id.org/biolink/vocab/transcript_to_gene_relationship_subject)
 
+
 ## Domain and Range
 
-[TranscriptToGeneRelationship](TranscriptToGeneRelationship.md) ->  <sub>REQ</sub> [Transcript](Transcript.md)
+[transcript to gene relationship](transcript to gene relationship.md) ->  <sub>REQ</sub> [transcript](transcript.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:transcript_to_gene_relationship_subject](https://w3id.org/biolink/
 
 ## Used by
 
- * [TranscriptToGeneRelationship](TranscriptToGeneRelationship.md)
+ * [transcript to gene relationship](transcript to gene relationship.md)

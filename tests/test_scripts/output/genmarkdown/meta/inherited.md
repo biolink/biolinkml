@@ -1,14 +1,15 @@
 
-# Slot: inherited
+# Type: inherited
 
 
 true means that the *value* of a slot is inherited by subclasses
 
 URI: [meta:inherited](https://w3id.org/biolink/biolinkml/meta/inherited)
 
+
 ## Domain and Range
 
-[SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [Boolean](Boolean.md)
+[slot_definition](slot_definition.md) ->  <sub>OPT</sub> [Boolean](type/Boolean.md)
 
 ## Parents
 
@@ -18,4 +19,11 @@ URI: [meta:inherited](https://w3id.org/biolink/biolinkml/meta/inherited)
 
 ## Used by
 
- * [SlotDefinition](SlotDefinition.md)
+ * [slot_definition](slot_definition.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Comments:** | | Inherited applies to slot values.  Parent *slots* are always inherited by subclasses |
+

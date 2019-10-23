@@ -10,13 +10,12 @@ from typing import Union, List, Optional, Callable
 
 # Make sure you import click from here rather than the root
 import click
-# Stop click from doing a sys.exit
-from rdflib import Graph, Namespace
-from rdflib.compare import to_isomorphic, graph_diff
 
+from biolinkml import MODULE_DIR
 from tests.utils.compare_directories import are_dir_trees_equal
 from tests.utils.dirutils import make_and_clear_directory
-from biolinkml import MODULE_DIR, METAMODEL_NAMESPACE
+# Stop click from doing a sys.exit
+from tests.utils.rdf_comparator import compare_rdf
 
 
 class CLIExitException(Exception):
@@ -28,11 +27,6 @@ def no_click_exit(_self, _code=0):
 
 
 click.core.Context.exit = no_click_exit
-
-
-def metadata_filter(s: str) -> str:
-    return re.sub(r'(# Auto generated from ).*(\.yaml by pythongen\.py version:) .*', r'\1\2',
-                  re.sub(r'(# Generation date:) .*', r'\1', re.sub(r'\r\n', '\n', s)))
 
 
 class ClickTestCase(unittest.TestCase):
@@ -68,47 +62,11 @@ class ClickTestCase(unittest.TestCase):
             cls.creation_messages = []
             assert False, "Tests failed because baseline files were being created"
 
-    @staticmethod
-    def _print_triples(g: Graph):
-        g.bind('meta', METAMODEL_NAMESPACE)
-        g_text = re.sub(r'@prefix.*\n', '', g.serialize(format="turtle").decode())
-        print(g_text)
-
     def n3_comparator(self, old_data: str, new_data: str) -> str:
-        return self.compare_rdf(old_data, new_data, "n3")
+        return compare_rdf(old_data, new_data, "n3")
 
     def rdf_comparator(self, old_data: str, new_data: str) -> str:
-        return self.compare_rdf(old_data, new_data, "turtle")
-
-    def compare_rdf(self, old_data: str, new_data: str, fmt: str) -> Optional[str]:
-        old_graph = Graph()
-        new_graph = Graph()
-        old_graph.parse(data=old_data, format=fmt)
-        new_graph.parse(data=new_data, format=fmt)
-        old_iso = to_isomorphic(old_graph)
-        # Remove the metadata specific triples
-        for t in list(old_iso.triples((None, METAMODEL_NAMESPACE.generation_date, None))):
-            old_iso.remove(t)
-        new_iso = to_isomorphic(new_graph)
-        for t in list(new_iso.triples((None, METAMODEL_NAMESPACE.generation_date, None))):
-            new_iso.remove(t)
-        # Graph compare takes a Looong time
-        in_both, in_old, in_new = graph_diff(old_iso, new_iso)
-        # if old_iso != new_iso:
-        #     in_both, in_old, in_new = graph_diff(old_iso, new_iso)
-        old_len = len(list(in_old))
-        new_len = len(list(in_new))
-        if old_len or new_len:
-            txt = StringIO()
-            with redirect_stdout(txt):
-                if old_len:
-                    print("----- Old graph only -----")
-                    self._print_triples(in_old)
-                if new_len:
-                    print("----- New Grapn Only -----")
-                    self._print_triples(in_new)
-            return txt.getvalue()
-        return None
+        return compare_rdf(old_data, new_data)
 
     @staticmethod
     def closein_comparison(old_txt: str, new_txt: str) -> None:

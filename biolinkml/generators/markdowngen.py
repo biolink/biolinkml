@@ -1,14 +1,14 @@
 import os
 from contextlib import redirect_stdout
-from typing import Union, TextIO, Optional, Set
+from io import StringIO
+from typing import Union, TextIO, Optional, Set, List, Any, Callable, Dict
 
 import click
 
 from biolinkml.generators.yumlgen import YumlGenerator
 from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, Element, ClassDefinitionName, \
     TypeDefinition
-from biolinkml.utils.formatutils import camelcase, be, underscore
-from biolinkml.utils.namespaces import Namespaces
+from biolinkml.utils.formatutils import camelcase, be, underscore, sfx
 from biolinkml.utils.generator import Generator, shared_arguments
 from biolinkml.utils.typereferences import References
 
@@ -23,13 +23,14 @@ class MarkdownGenerator(Generator):
         super().__init__(schema, **kwargs)
         self.directory: Optional[str] = None
         self.image_directory: Optional[str] = None
+        self.types_directory: Optional[str] = None
         self.noimages: bool = False
         self.gen_classes: Optional[Set[ClassDefinitionName]] = None
         self.gen_classes_neighborhood: Optional[References] = None
         self.BASE = None
 
-    def visit_schema(self, directory: str=None, classes: Set[ClassDefinitionName]=None, image_dir: bool=False,
-                     noimages: bool=False, **_) -> None:
+    def visit_schema(self, directory: str = None, classes: Set[ClassDefinitionName] = None, image_dir: bool = False,
+                     noimages: bool = False, **_) -> None:
         self.gen_classes = classes if classes else []
         for cls in self.gen_classes:
             if cls not in self.schema.classes:
@@ -47,6 +48,8 @@ class MarkdownGenerator(Generator):
             if not noimages:
                 os.makedirs(self.image_directory, exist_ok=True)
         self.noimages = noimages
+        self.types_directory = os.path.join(directory, 'types')
+        os.makedirs(self.types_directory, exist_ok=True)
 
         with open(os.path.join(directory, 'index.md'), 'w') as ixfile:
             with redirect_stdout(ixfile):
@@ -87,12 +90,9 @@ class MarkdownGenerator(Generator):
             return False
         with open(self.dir_path(cls), 'w') as clsfile:
             with redirect_stdout(clsfile):
-                self.frontmatter(f"Class: {cls.name}")
-                self.para(be(cls.description))
-
                 class_curi = self.namespaces.uri_or_curie_for(self.namespaces._base, camelcase(cls.name))
                 class_uri = self.namespaces.uri_for(class_curi)
-                print(f'URI: [{class_curi}]({class_uri})')
+                self.element_header(cls, cls.name, class_curi, class_uri)
                 print()
                 if self.image_directory:
                     yg = YumlGenerator(self)
@@ -156,16 +156,33 @@ class MarkdownGenerator(Generator):
                     for slot in domain_for_slots:
                         self.slot_field(cls, slot)
 
+                self.element_properties(cls)
+
         return True
+
+    def visit_type(self, typ: TypeDefinition) -> None:
+        with open(self.dir_path(typ), 'w') as typefile:
+            with redirect_stdout(typefile):
+                full_path = sfx(self.namespaces._base) + (sfx(typ.imported_from) if typ.imported_from else '')
+                type_curie = self.namespaces.uri_or_curie_for(full_path, camelcase(typ.name))
+                type_uri = self.namespaces.uri_for(type_curie)
+                self.element_header(typ, typ.name, type_curie, type_uri)
+
+                print("|  |  |  |")
+                print("| --- | --- | --- |")
+                if typ.typeof:
+                    print(f"| Parent type | | {self.class_type_link(typ.typeof)} |")
+                print(f"| Root (builtin) type | | **{typ.base}** |")
+                if typ.repr:
+                    print(f"| Representation | | {typ.repr} |")
+                self.element_properties(typ)
 
     def visit_class_slot(self, cls: ClassDefinition, aliased_slot_name: str, slot: SlotDefinition) -> None:
         with open(self.dir_path(slot), 'w') as slotfile:
             with redirect_stdout(slotfile):
-                self.frontmatter(f"Slot: {aliased_slot_name}")
-                self.para(be(slot.description))
-                slot_curi = self.namespaces.uri_or_curie_for(self.namespaces._base, underscore(slot.name))
-                slot_uri = self.namespaces.uri_for(slot_curi)
-                print(f'URI: [{slot_curi}]({slot_uri})')
+                slot_curie = self.namespaces.uri_or_curie_for(self.namespaces._base, underscore(slot.name))
+                slot_uri = self.namespaces.uri_for(slot_curie)
+                self.element_header(slot,aliased_slot_name, slot_curie, slot_uri)
                 self.mappings(slot)
 
                 self.header(2, 'Domain and Range')
@@ -188,6 +205,53 @@ class MarkdownGenerator(Generator):
                 if aliased_slot_name == 'relation':
                     if slot.subproperty_of:
                         self.bullet(f' reifies: {self.slot_link(slot.subproperty_of)}')
+                self.element_properties(slot)
+
+    def element_header(self, obj: Element, name: str, curie: str, uri: str) -> None:
+        self.frontmatter(f"Type: {obj.name}" + (f" _(deprecated)_" if obj.deprecated else ""))
+        self.para(be(obj.description))
+        print(f'URI: [{curie}]({uri})')
+        print()
+
+    def element_properties(self, obj: Element) -> None:
+        def identity(e: Any) -> Any:
+            return e
+
+        def prop_list(title: str, entries: Union[List, Dict], formatter: Optional[Callable[[Element], str]] = None) \
+                -> None:
+            if formatter is None:
+                formatter = identity
+            if entries:
+                if isinstance(entries, Dict):
+                    entries = list(entries.values())
+                print(f"| **{title}:** | | {formatter(entries[0])} |")
+                for entry in entries[1:]:
+                    print(f"|  | | {formatter(entry)} |")
+
+        attributes = StringIO()
+        with redirect_stdout(attributes):
+            prop_list('Aliases', obj.aliases)
+            prop_list('Local names', obj.local_names, lambda e: f"{e.local_name_value} ({e.local_name_source})")
+            prop_list('Mappings', obj.mappings)
+            prop_list('Alt Descriptions', obj.alt_descriptions, lambda e: f"{e.description} ({e.source})")
+            # todos
+            # notes
+            prop_list('Comments', obj.comments)
+            prop_list('Examples', obj.examples)
+            prop_list('In Subsets', obj.in_subset)
+            # from_schema
+            # imported_from
+            prop_list('See also', obj.see_also)
+            #       - exact mappings
+            #       - close mappings
+            #       - related mappings
+            #       - deprecated element has exact replacement
+            #       - deprecated element has possible replacement
+        if attributes.getvalue():
+            self.header(2, 'Other properties')
+            print("|  |  |  |")
+            print("| --- | --- | --- |")
+            print(attributes.getvalue())
 
     def class_hier(self, cls: ClassDefinition, level=0) -> None:
         self.bullet(self.class_link(cls, use_desc=True), level)
@@ -201,9 +265,12 @@ class MarkdownGenerator(Generator):
             for child in sorted(self.synopsis.isarefs[slot.name].slotrefs):
                 self.pred_hier(self.schema.slots[child], level+1)
 
-    def dir_path(self, obj: Union[ClassDefinition, SlotDefinition]) -> str:
-        filename = self.formatted_element_name(obj) if isinstance(obj, ClassDefinition) else underscore(obj.name)
-        return f'{self.directory}/{filename}.md'
+    def dir_path(self, obj: Union[ClassDefinition, SlotDefinition, TypeDefinition]) -> str:
+        filename = self.formatted_element_name(obj) if isinstance(obj, ClassDefinition) \
+            else underscore(obj.name) if isinstance(obj, SlotDefinition) \
+            else camelcase(obj.name)
+        subdir = '/types' if isinstance(obj, TypeDefinition) else ''
+        return f'{self.directory}{subdir}/{filename}.md'
 
     def mappings(self, obj: [SlotDefinition, ClassDefinition]) -> None:
         # TODO: get rid of this?
@@ -343,8 +410,11 @@ class MarkdownGenerator(Generator):
             # link_name = ((be(obj.domain) + '.') if obj.alias else '') + self.aliased_slot_name(obj)
             link_name = self.aliased_slot_name(obj)
             link_ref = underscore(obj.name)
-        else:
+        elif isinstance(obj, TypeDefinition):
             link_name = camelcase(obj.name)
+            link_ref = f"type/{link_name}"
+        else:
+            link_name = obj.name
             link_ref = link_name
         desc = self.desc_for(obj, use_desc)
         return f'[{link_name}]' \

@@ -1,14 +1,15 @@
 
-# Slot: phase
+# Type: phase
 
 
 TODO
 
 URI: [biolink:phase](https://w3id.org/biolink/vocab/phase)
 
+
 ## Domain and Range
 
-[NamedThing](NamedThing.md) ->  <sub>OPT</sub> [String](String.md)
+[named thing](named thing.md) ->  <sub>OPT</sub> [String](type/String.md)
 
 ## Parents
 
@@ -19,5 +20,5 @@ URI: [biolink:phase](https://w3id.org/biolink/vocab/phase)
 
 ## Used by
 
- * [GenomicSequenceLocalization](GenomicSequenceLocalization.md)
- * [NamedThing](NamedThing.md)
+ * [genomic sequence localization](genomic sequence localization.md)
+ * [named thing](named thing.md)

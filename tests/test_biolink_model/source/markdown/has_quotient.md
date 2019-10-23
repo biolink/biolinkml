@@ -1,14 +1,15 @@
 
-# Slot: has quotient
+# Type: has quotient
 
 
 
 
 URI: [biolink:has_quotient](https://w3id.org/biolink/vocab/has_quotient)
 
+
 ## Domain and Range
 
-[NamedThing](NamedThing.md) ->  <sub>OPT</sub> [Double](Double.md)
+[named thing](named thing.md) ->  <sub>OPT</sub> [Double](type/Double.md)
 
 ## Parents
 
@@ -20,6 +21,6 @@ URI: [biolink:has_quotient](https://w3id.org/biolink/vocab/has_quotient)
 
 ## Used by
 
- * [FrequencyQuantifier](FrequencyQuantifier.md)
- * [NamedThing](NamedThing.md)
- * [VariantToPopulationAssociation](VariantToPopulationAssociation.md)
+ * [frequency quantifier](frequency quantifier.md)
+ * [named thing](named thing.md)
+ * [variant to population association](variant to population association.md)

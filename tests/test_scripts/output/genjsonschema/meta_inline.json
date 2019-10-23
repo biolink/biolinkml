@@ -67,6 +67,13 @@
          },
          "type": "array"
       },
+      "close_mappings": {
+         "description": "A list of terms from different schemas or terminology systems that have close meaning.",
+         "items": {
+            "type": "string"
+         },
+         "type": "array"
+      },
       "comments": {
          "description": "notes and comments about an element intended for external consumption",
          "items": {
@@ -96,8 +103,20 @@
          },
          "type": "array"
       },
+      "definition_uri": {
+         "description": "the \"native\" URI of the element",
+         "type": "string"
+      },
       "deprecated": {
          "description": "Description of why and when this element will no longer be used",
+         "type": "string"
+      },
+      "deprecated_element_has_exact_replacement": {
+         "description": "When an element is deprecated, it can be automatically replaced by this uri or curie",
+         "type": "string"
+      },
+      "deprecated_element_has_possible_replacement": {
+         "description": "When an element is deprecated, it can be potentially replaced by this uri or curie",
          "type": "string"
       },
       "description": {
@@ -110,6 +129,13 @@
       },
       "emit_prefixes": {
          "description": "a list of Curie prefixes that are used in the representation of instances of the model.  All prefixes in this list are added to the prefix sections of the target models.",
+         "items": {
+            "type": "string"
+         },
+         "type": "array"
+      },
+      "exact_mappings": {
+         "description": "A list of terms from different schemas or terminology systems that have identical meaning.",
          "items": {
             "type": "string"
          },
@@ -276,6 +302,13 @@
       "readonly": {
          "description": "If present, slot is read only.  Text explains why",
          "type": "string"
+      },
+      "related_mappings": {
+         "description": "A list of terms from different schemas or terminology systems that have related meaning.",
+         "items": {
+            "type": "string"
+         },
+         "type": "array"
       },
       "repr": {
          "description": "the name of the python object that implements this type definition",

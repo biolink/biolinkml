@@ -1,0 +1,153 @@
+{
+  "name": "testMetamodelMappings",
+  "description": "Mappings test",
+  "id": "http://example.org/mappings/",
+  "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "prefixes": [
+    {
+      "prefix_prefix": "ex",
+      "prefix_reference": "http://example.org/mappings/"
+    }
+  ],
+  "default_curi_maps": [
+    "semweb_context"
+  ],
+  "default_prefix": "ex",
+  "default_range": "string",
+  "types": [
+    {
+      "name": "string",
+      "definition_uri": "ex:String",
+      "from_schema": "http://example.org/mappings/",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "type": "TypeDefinition"
+    },
+    {
+      "name": "identifier_type",
+      "definition_uri": "ex:IdentifierType",
+      "description": "A string that is intended to uniquely identify a thing May be URI in full or compact (CURIE) form",
+      "from_schema": "http://example.org/mappings/",
+      "typeof": "string",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "type": "TypeDefinition"
+    }
+  ],
+  "slots": [
+    {
+      "name": "s1",
+      "definition_uri": "ex:s1",
+      "from_schema": "http://example.org/mappings/",
+      "exact_mappings": [
+        "ex:slot1",
+        "http://example.org/fulluri/slot1"
+      ],
+      "close_mappings": [
+        "ex:slot1_close",
+        "http://example.org/fulluri/slot1_close"
+      ],
+      "related_mappings": [
+        "ex:slot1_related",
+        "http://example.org/fulluri/slot1_related"
+      ],
+      "deprecated_element_has_exact_replacement": "s3",
+      "deprecated_element_has_possible_replacement": "s4",
+      "domain": "C1",
+      "range": "string",
+      "slot_uri": "http://example.org/mappings/s1",
+      "owner": "C1",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "s2",
+      "definition_uri": "ex:s2",
+      "from_schema": "http://example.org/mappings/",
+      "exact_mappings": [
+        "ex:slot2",
+        "http://example.org/fulluri/slot2"
+      ],
+      "close_mappings": [
+        "ex:slot2_close",
+        "http://example.org/fulluri/slot2_close"
+      ],
+      "related_mappings": [
+        "ex:slot2_related",
+        "http://example.org/fulluri/slot2_related"
+      ],
+      "deprecated_element_has_exact_replacement": "s3",
+      "deprecated_element_has_possible_replacement": "s4",
+      "domain": "C1",
+      "range": "identifier_type",
+      "slot_uri": "http://example.org/mappings/s2",
+      "required": true,
+      "identifier": true,
+      "owner": "C1",
+      "type": "SlotDefinition"
+    }
+  ],
+  "classes": [
+    {
+      "name": "C1",
+      "definition_uri": "ex:C1",
+      "from_schema": "http://example.org/mappings/",
+      "exact_mappings": [
+        "ex:class1",
+        "http://example.org/fulluri/class1"
+      ],
+      "close_mappings": [
+        "ex:class1_close",
+        "http://example.org/fulluri/class1_close"
+      ],
+      "related_mappings": [
+        "ex:class1_related",
+        "http://example.org/fulluri/class1_related"
+      ],
+      "deprecated_element_has_exact_replacement": "c2",
+      "deprecated_element_has_possible_replacement": "c3",
+      "slots": [
+        "s1",
+        "s2"
+      ],
+      "class_uri": "http://example.org/mappings/C1",
+      "type": "ClassDefinition"
+    },
+    {
+      "name": "C2",
+      "definition_uri": "ex:C2",
+      "from_schema": "http://example.org/mappings/",
+      "is_a": "C1",
+      "slots": [
+        "s1",
+        "s2"
+      ],
+      "class_uri": "http://example.org/mappings/C2",
+      "type": "ClassDefinition"
+    },
+    {
+      "name": "C3",
+      "definition_uri": "ex:C3",
+      "from_schema": "http://example.org/mappings/",
+      "is_a": "C1",
+      "slots": [
+        "s1",
+        "s2"
+      ],
+      "class_uri": "http://example.org/mappings/C3",
+      "type": "ClassDefinition"
+    }
+  ],
+  "metamodel_version": "1.4.3",
+  "source_file": "meta_mappings.yaml",
+  "source_file_date": "Friday Sep 27 12:00:00 2003",
+  "source_file_size": 1810,
+  "generation_date": "Friday Sep 27 12:00:00 2003",
+  "type": "SchemaDefinition",
+  "@context": [
+    "file:///Users/solbrig/git/biolink/biolinkml/context.jsonld",
+    "file:///Users/solbrig/git/biolink/biolinkml/tests/source/meta_mappings.jsonld",
+    {
+      "@base": "http://example.org/mappings/"
+    }
+  ]
+}

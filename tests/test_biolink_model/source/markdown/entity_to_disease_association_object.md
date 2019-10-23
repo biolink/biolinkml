@@ -1,14 +1,15 @@
 
-# Slot: object
+# Type: entity to disease association_object
 
 
 
 
 URI: [biolink:entity_to_disease_association_object](https://w3id.org/biolink/vocab/entity_to_disease_association_object)
 
+
 ## Domain and Range
 
-[EntityToDiseaseAssociation](EntityToDiseaseAssociation.md) ->  <sub>REQ</sub> [Disease](Disease.md)
+[entity to disease association](entity to disease association.md) ->  <sub>REQ</sub> [disease](disease.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:entity_to_disease_association_object](https://w3id.org/biolink/voc
 
 ## Used by
 
- * [EntityToDiseaseAssociation](EntityToDiseaseAssociation.md)
+ * [entity to disease association](entity to disease association.md)

@@ -8,14 +8,15 @@ Classes: 11
 	Undeclared mixin: 0
 	Abstract: 2
 
-Slots: 85
-	Referenced by: 11 classes, 6 slots, 0 types 
-	Root: 79
-	Leaf: 82
-	Standalone: 87
+Slots: 91
+	Referenced by: 11 classes, 9 slots, 0 types 
+	Root: 82
+	Leaf: 87
+	Standalone: 92
 	Declared mixin: 0
 	Undeclared mixin: 0
 	Abstract: 1
+	Domain unspecified: 6
 	Ranges:
 		Type:
 			boolean: 11
@@ -24,7 +25,7 @@ Slots: 85
 			ncname: 5
 			string: 26
 			uri: 3
-			uriorcurie: 9
+			uriorcurie: 15
 		Class:
 			alt_description: 1
 			class_definition: 6
@@ -38,7 +39,7 @@ Slots: 85
 			type_definition: 3
 
 Types: 13
-	Referenced by: 0 classes, 57 slots, 0 types 
+	Referenced by: 0 classes, 63 slots, 0 types 
 	Bases:
 		Bool:
 			boolean

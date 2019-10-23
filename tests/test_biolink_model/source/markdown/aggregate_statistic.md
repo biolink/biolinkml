@@ -1,14 +1,15 @@
 
-# Slot: aggregate statistic
+# Type: aggregate statistic
 
 
 
 
 URI: [biolink:aggregate_statistic](https://w3id.org/biolink/vocab/aggregate_statistic)
 
+
 ## Domain and Range
 
-[NamedThing](NamedThing.md) ->  <sub>OPT</sub> [String](String.md)
+[named thing](named thing.md) ->  <sub>OPT</sub> [String](type/String.md)
 
 ## Parents
 
@@ -23,4 +24,4 @@ URI: [biolink:aggregate_statistic](https://w3id.org/biolink/vocab/aggregate_stat
 
 ## Used by
 
- * [NamedThing](NamedThing.md)
+ * [named thing](named thing.md)

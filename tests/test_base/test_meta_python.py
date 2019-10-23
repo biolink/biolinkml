@@ -5,7 +5,7 @@ from types import ModuleType
 from biolinkml import MODULE_DIR
 from biolinkml.generators.pythongen import PythonGenerator
 from tests import targetdir
-from tests.test_scripts.clicktestcase import metadata_filter
+from tests.utils.metadata_filters import metadata_filter
 from tests.utils.generator_utils import GeneratorTestCase
 
 

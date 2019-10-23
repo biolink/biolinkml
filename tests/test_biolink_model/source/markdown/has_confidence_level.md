@@ -1,14 +1,15 @@
 
-# Slot: has confidence level
+# Type: has confidence level
 
 
 connects an association to a qualitative term denoting the level of confidence
 
 URI: [biolink:has_confidence_level](https://w3id.org/biolink/vocab/has_confidence_level)
 
+
 ## Domain and Range
 
-[Association](Association.md) ->  <sub>OPT</sub> [ConfidenceLevel](ConfidenceLevel.md)
+[association](association.md) ->  <sub>OPT</sub> [confidence level](confidence level.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:has_confidence_level](https://w3id.org/biolink/vocab/has_confidenc
 
 ## Used by
 
- * [Association](Association.md)
+ * [association](association.md)

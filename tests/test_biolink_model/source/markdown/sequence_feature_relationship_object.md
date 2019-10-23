@@ -1,14 +1,15 @@
 
-# Slot: object
+# Type: sequence feature relationship_object
 
 
 
 
 URI: [biolink:sequence_feature_relationship_object](https://w3id.org/biolink/vocab/sequence_feature_relationship_object)
 
+
 ## Domain and Range
 
-[SequenceFeatureRelationship](SequenceFeatureRelationship.md) ->  <sub>REQ</sub> [GenomicEntity](GenomicEntity.md)
+[sequence feature relationship](sequence feature relationship.md) ->  <sub>REQ</sub> [genomic entity](genomic entity.md)
 
 ## Parents
 
@@ -22,4 +23,4 @@ URI: [biolink:sequence_feature_relationship_object](https://w3id.org/biolink/voc
 
 ## Used by
 
- * [SequenceFeatureRelationship](SequenceFeatureRelationship.md)
+ * [sequence feature relationship](sequence feature relationship.md)

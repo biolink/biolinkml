@@ -1,14 +1,15 @@
 
-# Slot: has count
+# Type: has count
 
 
 number of things with a particular property
 
 URI: [biolink:has_count](https://w3id.org/biolink/vocab/has_count)
 
+
 ## Domain and Range
 
-[NamedThing](NamedThing.md) ->  <sub>OPT</sub> [Integer](Integer.md)
+[named thing](named thing.md) ->  <sub>OPT</sub> [Integer](type/Integer.md)
 
 ## Parents
 
@@ -20,6 +21,6 @@ URI: [biolink:has_count](https://w3id.org/biolink/vocab/has_count)
 
 ## Used by
 
- * [FrequencyQuantifier](FrequencyQuantifier.md)
- * [NamedThing](NamedThing.md)
- * [VariantToPopulationAssociation](VariantToPopulationAssociation.md)
+ * [frequency quantifier](frequency quantifier.md)
+ * [named thing](named thing.md)
+ * [variant to population association](variant to population association.md)

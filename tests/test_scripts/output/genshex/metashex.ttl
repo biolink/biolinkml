@@ -427,6 +427,10 @@
                 shex:min 0 ;
                 shex:predicate <https://w3id.org/biolink/biolinkml/meta/id_prefixes> ;
                 shex:valueExpr <https://w3id.org/biolink/biolinkml/type/Ncname> ] [ a shex:TripleConstraint ;
+                shex:max 1 ;
+                shex:min 0 ;
+                shex:predicate <https://w3id.org/biolink/biolinkml/meta/definition_uri> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/type/Uriorcurie> ] [ a shex:TripleConstraint ;
                 shex:max -1 ;
                 shex:min 0 ;
                 shex:predicate <http://www.w3.org/2004/02/skos/core#altLabel> ;
@@ -482,6 +486,26 @@
                 shex:max -1 ;
                 shex:min 0 ;
                 shex:predicate rdfs:seeAlso ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/type/Uriorcurie> ] [ a shex:TripleConstraint ;
+                shex:max -1 ;
+                shex:min 0 ;
+                shex:predicate <http://www.w3.org/2004/02/skos/core#exactMatch> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/type/Uriorcurie> ] [ a shex:TripleConstraint ;
+                shex:max -1 ;
+                shex:min 0 ;
+                shex:predicate <http://www.w3.org/2004/02/skos/core#closeMatch> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/type/Uriorcurie> ] [ a shex:TripleConstraint ;
+                shex:max -1 ;
+                shex:min 0 ;
+                shex:predicate <http://www.w3.org/2004/02/skos/core#relatedMatch> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/type/Uriorcurie> ] [ a shex:TripleConstraint ;
+                shex:max 1 ;
+                shex:min 0 ;
+                shex:predicate <https://w3id.org/biolink/biolinkml/meta/deprecated_element_has_exact_replacement> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/type/Uriorcurie> ] [ a shex:TripleConstraint ;
+                shex:max 1 ;
+                shex:min 0 ;
+                shex:predicate <https://w3id.org/biolink/biolinkml/meta/deprecated_element_has_possible_replacement> ;
                 shex:valueExpr <https://w3id.org/biolink/biolinkml/type/Uriorcurie> ] ) .
 
 <https://w3id.org/biolink/biolinkml/meta/SubsetDefinition> a shex:Shape ;
@@ -520,9 +544,6 @@
                         shex:valueExpr [ a shex:NodeConstraint ;
                                 shex:values ( <https://w3id.org/biolink/biolinkml/meta/ClassDefinition> ) ] ] ) ] .
 
-<https://w3id.org/biolink/biolinkml/type/Uriorcurie> a shex:NodeConstraint ;
-    shex:nodeKind shex:iri .
-
 <https://w3id.org/biolink/biolinkml/meta/SlotDefinition> a shex:Shape ;
     shex:closed true ;
     shex:expression [ a shex:EachOf ;
@@ -534,6 +555,9 @@
 
 <https://w3id.org/biolink/biolinkml/type/Boolean> a shex:NodeConstraint ;
     shex:datatype xsd:boolean .
+
+<https://w3id.org/biolink/biolinkml/type/Uriorcurie> a shex:NodeConstraint ;
+    shex:nodeKind shex:iri .
 
 <https://w3id.org/biolink/biolinkml/type/String> a shex:NodeConstraint ;
     shex:datatype xsd:string .

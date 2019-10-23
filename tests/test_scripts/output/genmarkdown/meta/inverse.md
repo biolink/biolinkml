@@ -1,14 +1,15 @@
 
-# Slot: inverse
+# Type: inverse
 
 
 indicates that any instance of d s r implies that there is also an instance of r s' d
 
 URI: [meta:inverse](https://w3id.org/biolink/biolinkml/meta/inverse)
 
+
 ## Domain and Range
 
-[SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [SlotDefinition](SlotDefinition.md)
+[slot_definition](slot_definition.md) ->  <sub>OPT</sub> [slot_definition](slot_definition.md)
 
 ## Parents
 
@@ -18,4 +19,11 @@ URI: [meta:inverse](https://w3id.org/biolink/biolinkml/meta/inverse)
 
 ## Used by
 
- * [SlotDefinition](SlotDefinition.md)
+ * [slot_definition](slot_definition.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | owl:inverseOf |
+

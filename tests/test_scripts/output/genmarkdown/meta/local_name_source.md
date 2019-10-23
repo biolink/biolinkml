@@ -1,14 +1,15 @@
 
-# Slot: local_name_source
+# Type: local_name_source
 
 
 the ncname of the source of the name
 
 URI: [meta:local_name_source](https://w3id.org/biolink/biolinkml/meta/local_name_source)
 
+
 ## Domain and Range
 
-[LocalName](LocalName.md) ->  <sub>REQ</sub> [Ncname](Ncname.md)
+[local_name](local_name.md) ->  <sub>REQ</sub> [Ncname](type/Ncname.md)
 
 ## Parents
 
@@ -18,4 +19,4 @@ URI: [meta:local_name_source](https://w3id.org/biolink/biolinkml/meta/local_name
 
 ## Used by
 
- * [LocalName](LocalName.md)
+ * [local_name](local_name.md)

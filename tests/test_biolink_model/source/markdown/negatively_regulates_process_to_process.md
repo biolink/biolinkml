@@ -1,14 +1,15 @@
 
-# Slot: negatively regulates, process to process
+# Type: negatively regulates, process to process
 
 
 
 
 URI: [biolink:negatively_regulates_process_to_process](https://w3id.org/biolink/vocab/negatively_regulates_process_to_process)
 
+
 ## Domain and Range
 
-[Occurrent](Occurrent.md) ->  <sub>0..*</sub> [Occurrent](Occurrent.md)
+[occurrent](occurrent.md) ->  <sub>0..*</sub> [occurrent](occurrent.md)
 
 ## Parents
 
@@ -19,4 +20,11 @@ URI: [biolink:negatively_regulates_process_to_process](https://w3id.org/biolink/
 
 ## Used by
 
- * [Occurrent](Occurrent.md)
+ * [occurrent](occurrent.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | RO:0002212 |
+

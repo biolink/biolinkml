@@ -1,14 +1,15 @@
 
-# Slot: id
+# Type: id
 
 
 The official schema URI
 
 URI: [meta:id](https://w3id.org/biolink/biolinkml/meta/id)
 
+
 ## Domain and Range
 
-[SchemaDefinition](SchemaDefinition.md) ->  <sub>REQ</sub> [Uri](Uri.md)
+[schema_definition](schema_definition.md) ->  <sub>REQ</sub> [Uri](type/Uri.md)
 
 ## Parents
 
@@ -18,4 +19,4 @@ URI: [meta:id](https://w3id.org/biolink/biolinkml/meta/id)
 
 ## Used by
 
- * [SchemaDefinition](SchemaDefinition.md)
+ * [schema_definition](schema_definition.md)

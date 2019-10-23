@@ -1,14 +1,15 @@
 
-# Slot: object
+# Type: anatomical entity to anatomical entity ontogenic association_object
 
 
 
 
 URI: [biolink:anatomical_entity_to_anatomical_entity_ontogenic_association_object](https://w3id.org/biolink/vocab/anatomical_entity_to_anatomical_entity_ontogenic_association_object)
 
+
 ## Domain and Range
 
-[AnatomicalEntityToAnatomicalEntityOntogenicAssociation](AnatomicalEntityToAnatomicalEntityOntogenicAssociation.md) ->  <sub>REQ</sub> [AnatomicalEntity](AnatomicalEntity.md)
+[anatomical entity to anatomical entity ontogenic association](anatomical entity to anatomical entity ontogenic association.md) ->  <sub>REQ</sub> [anatomical entity](anatomical entity.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:anatomical_entity_to_anatomical_entity_ontogenic_association_objec
 
 ## Used by
 
- * [AnatomicalEntityToAnatomicalEntityOntogenicAssociation](AnatomicalEntityToAnatomicalEntityOntogenicAssociation.md)
+ * [anatomical entity to anatomical entity ontogenic association](anatomical entity to anatomical entity ontogenic association.md)

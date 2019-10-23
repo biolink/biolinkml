@@ -1,18 +1,21 @@
-"""Generate JSON-LD contexts
+"""
+Generate JSON-LD contexts
 
 """
+import logging
 import os
-import sys
-from typing import Union, TextIO, Dict, Set, Optional
+from typing import Union, TextIO, Set, Optional
 
 import click
 from jsonasobj import JsonObj, as_json
 from rdflib import XSD
 
-from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, Definition, TypeDefinition, \
-    Element
+from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, Definition, Element
 from biolinkml.utils.formatutils import camelcase, underscore, be
 from biolinkml.utils.generator import Generator, shared_arguments
+from includes.types import SHEX
+
+URI_RANGES = (XSD.anyURI, SHEX.nonliteral, SHEX.bnode, SHEX.iri)
 
 
 class ContextGenerator(Generator):
@@ -31,7 +34,6 @@ class ContextGenerator(Generator):
         self.slot_class_maps = dict()
 
     def visit_schema(self, base: Optional[str]=None, output: Optional[str]=None, **_):
-
         # Add any explicitly declared prefixes
         for prefix in self.schema.prefixes.values():
             self.emit_prefixes.add(prefix.prefix_prefix)
@@ -68,8 +70,7 @@ license: {be(self.schema.license)}
             else:
                 self.context_body['@base'] = base
         for prefix in sorted(self.emit_prefixes):
-            if self.namespaces[prefix] != self.context_body['@vocab']:
-                context_content[prefix] = self.namespaces[prefix]
+            context_content[prefix] = self.namespaces[prefix]
         for k, v in self.context_body.items():
             context_content[k] = v
         for k, v in self.slot_class_maps.items():
@@ -108,7 +109,7 @@ license: {be(self.schema.license)}
                     range_type = self.schema.types[slot.range]
                     if self.namespaces.uri_for(range_type.uri) == XSD.string:
                         pass
-                    elif self.namespaces.uri_for(range_type.uri) == XSD.anyURI:
+                    elif self.namespaces.uri_for(range_type.uri) in URI_RANGES:
                         slot_def['@type'] = '@id'
                     else:
                         slot_def['@type'] = range_type.uri
@@ -127,7 +128,7 @@ license: {be(self.schema.license)}
         @param ncname: name to add
         """
         if ncname not in self.namespaces:
-            print(f"Unrecognized prefix: {ncname}", file=sys.stderr)
+            self.logger.warning(f"Unrecognized prefix: {ncname}")
             self.namespaces[ncname] = f"http://example.org/UNKNOWN/{ncname}/"
         self.emit_prefixes.add(ncname)
 
@@ -140,7 +141,7 @@ license: {be(self.schema.license)}
         for mapping in defn.mappings:
             if '://' in mapping:
                 mcurie = self.namespaces.curie_for(mapping)
-                print(f"No namespace defined for URI: {mapping}", file=sys.stderr)
+                self.logger.warning(f"No namespace defined for URI: {mapping}")
                 if mcurie is None:
                     return        # Absolute path - no prefix/name
                 else:

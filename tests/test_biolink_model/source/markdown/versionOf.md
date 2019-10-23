@@ -1,14 +1,15 @@
 
-# Slot: versionOf
+# Type: versionOf
 
 
 
 
 URI: [biolink:versionOf](https://w3id.org/biolink/vocab/versionOf)
 
+
 ## Domain and Range
 
-[DataSetVersion](DataSetVersion.md) ->  <sub>OPT</sub> [DataSet](DataSet.md)
+[data set version](data set version.md) ->  <sub>OPT</sub> [data set](data set.md)
 
 ## Parents
 
@@ -19,6 +20,13 @@ URI: [biolink:versionOf](https://w3id.org/biolink/vocab/versionOf)
 
 ## Used by
 
- * [DataSetSummary](DataSetSummary.md)
- * [DataSetVersion](DataSetVersion.md)
- * [DistributionLevel](DistributionLevel.md)
+ * [data set summary](data set summary.md)
+ * [data set version](data set version.md)
+ * [distribution level](distribution level.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | dct:isVersionOf |
+

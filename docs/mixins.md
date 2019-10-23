@@ -1,14 +1,15 @@
 
-# Slot: mixins
+# Type: mixins
 
 
 List of definitions to be mixed in. Targets may be any definition of the same type
 
 URI: [meta:mixins](https://w3id.org/biolink/biolinkml/meta/mixins)
 
+
 ## Domain and Range
 
-[Definition](Definition.md) ->  <sub>0..*</sub> [Definition](Definition.md)
+[definition](definition.md) ->  <sub>0..*</sub> [definition](definition.md)
 
 ## Parents
 
@@ -20,6 +21,6 @@ URI: [meta:mixins](https://w3id.org/biolink/biolinkml/meta/mixins)
 
 ## Used by
 
- * [ClassDefinition](ClassDefinition.md)
- * [Definition](Definition.md)
- * [SlotDefinition](SlotDefinition.md)
+ * [class_definition](class_definition.md)
+ * [definition](definition.md)
+ * [slot_definition](slot_definition.md)

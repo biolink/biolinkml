@@ -1,14 +1,15 @@
 
-# Slot: relation
+# Type: anatomical entity to anatomical entity ontogenic association_relation
 
 
 
 
 URI: [biolink:anatomical_entity_to_anatomical_entity_ontogenic_association_relation](https://w3id.org/biolink/vocab/anatomical_entity_to_anatomical_entity_ontogenic_association_relation)
 
+
 ## Domain and Range
 
-[AnatomicalEntityToAnatomicalEntityOntogenicAssociation](AnatomicalEntityToAnatomicalEntityOntogenicAssociation.md) ->  <sub>REQ</sub> [Uriorcurie](Uriorcurie.md)
+[anatomical entity to anatomical entity ontogenic association](anatomical entity to anatomical entity ontogenic association.md) ->  <sub>REQ</sub> [Uriorcurie](type/Uriorcurie.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:anatomical_entity_to_anatomical_entity_ontogenic_association_relat
 
 ## Used by
 
- * [AnatomicalEntityToAnatomicalEntityOntogenicAssociation](AnatomicalEntityToAnatomicalEntityOntogenicAssociation.md)
+ * [anatomical entity to anatomical entity ontogenic association](anatomical entity to anatomical entity ontogenic association.md)

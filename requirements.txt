@@ -16,10 +16,11 @@ graphviz>=0.10.1
 jsonasobj>=1.2.1
 jsonschema>=3.0.1
 prefixcommons>=0.1.7
+prologterms
 pyjsg>=0.9.1
-pyshex>=0.7.10
+pyshex>=0.7.11
 pyshexc
 pyyaml>=5.1
-rdflib-jsonld>=0.4
+rdflib-jsonld
 rdflib>=4.2.2
 requests>=2.22

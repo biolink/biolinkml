@@ -1,14 +1,15 @@
 
-# Slot: change is catalyzed by
+# Type: chemical to chemical derivation association_change is catalyzed by
 
 
 
 
 URI: [biolink:chemical_to_chemical_derivation_association_change_is_catalyzed_by](https://w3id.org/biolink/vocab/chemical_to_chemical_derivation_association_change_is_catalyzed_by)
 
+
 ## Domain and Range
 
-[ChemicalToChemicalDerivationAssociation](ChemicalToChemicalDerivationAssociation.md) ->  <sub>0..*</sub> [MacromolecularMachine](MacromolecularMachine.md)
+[chemical to chemical derivation association](chemical to chemical derivation association.md) ->  <sub>0..*</sub> [macromolecular machine](macromolecular machine.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:chemical_to_chemical_derivation_association_change_is_catalyzed_by
 
 ## Used by
 
- * [ChemicalToChemicalDerivationAssociation](ChemicalToChemicalDerivationAssociation.md)
+ * [chemical to chemical derivation association](chemical to chemical derivation association.md)

@@ -2,8 +2,7 @@ import os
 import unittest
 
 from biolinkml.generators.pythongen import PythonGenerator
-from biolinkml.generators.shexgen import ShExGenerator
-from tests.test_issues import sourcedir, outputdir
+from tests.test_issues import sourcedir
 
 
 class SlotSubclassTestCase(unittest.TestCase):

@@ -1,14 +1,15 @@
 
-# Slot: object
+# Type: chemical to disease or phenotypic feature association_object
 
 
 
 
 URI: [biolink:chemical_to_disease_or_phenotypic_feature_association_object](https://w3id.org/biolink/vocab/chemical_to_disease_or_phenotypic_feature_association_object)
 
+
 ## Domain and Range
 
-[ChemicalToDiseaseOrPhenotypicFeatureAssociation](ChemicalToDiseaseOrPhenotypicFeatureAssociation.md) ->  <sub>REQ</sub> [DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md)
+[chemical to disease or phenotypic feature association](chemical to disease or phenotypic feature association.md) ->  <sub>REQ</sub> [disease or phenotypic feature](disease or phenotypic feature.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:chemical_to_disease_or_phenotypic_feature_association_object](http
 
 ## Used by
 
- * [ChemicalToDiseaseOrPhenotypicFeatureAssociation](ChemicalToDiseaseOrPhenotypicFeatureAssociation.md)
+ * [chemical to disease or phenotypic feature association](chemical to disease or phenotypic feature association.md)

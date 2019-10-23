@@ -1,14 +1,15 @@
 
-# Slot: title
+# Type: title
 
 
 
 
 URI: [biolink:title](https://w3id.org/biolink/vocab/title)
 
+
 ## Domain and Range
 
-[DataSetVersion](DataSetVersion.md) ->  <sub>OPT</sub> [String](String.md)
+[data set version](data set version.md) ->  <sub>OPT</sub> [String](type/String.md)
 
 ## Parents
 
@@ -19,6 +20,13 @@ URI: [biolink:title](https://w3id.org/biolink/vocab/title)
 
 ## Used by
 
- * [DataSetSummary](DataSetSummary.md)
- * [DataSetVersion](DataSetVersion.md)
- * [DistributionLevel](DistributionLevel.md)
+ * [data set summary](data set summary.md)
+ * [data set version](data set version.md)
+ * [distribution level](distribution level.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | dct:title |
+

@@ -1,14 +1,15 @@
 
-# Slot: homologous to
+# Type: homologous to
 
 
 holds between two biological entities that have common evolutionary origin
 
 URI: [biolink:homologous_to](https://w3id.org/biolink/vocab/homologous_to)
 
+
 ## Domain and Range
 
-[NamedThing](NamedThing.md) ->  <sub>0..*</sub> [NamedThing](NamedThing.md)
+[named thing](named thing.md) ->  <sub>0..*</sub> [named thing](named thing.md)
 
 ## Parents
 
@@ -22,4 +23,15 @@ URI: [biolink:homologous_to](https://w3id.org/biolink/vocab/homologous_to)
 
 ## Used by
 
- * [NamedThing](NamedThing.md)
+ * [named thing](named thing.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Aliases:** | | in homology relationship with |
+| **Mappings:** | | RO:HOM0000001 |
+|  | | SIO:010302 |
+| **Comments:** | | typically used to describe homology relationships between genes or gene products |
+| **In Subsets:** | | translator_minimal |
+

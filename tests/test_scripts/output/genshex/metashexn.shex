@@ -78,6 +78,7 @@ metatype:Nodeidentifier NONLITERAL
 
 <Element_struct> {
     (  $<Element_tes> (  <id_prefixes> @metatype:Ncname * ;
+          <definition_uri> @metatype:Uriorcurie ? ;
           <aliases> @metatype:String * ;
           <local_names> @<LocalName> * ;
           <mappings> @metatype:Uriorcurie * ;
@@ -91,7 +92,12 @@ metatype:Nodeidentifier NONLITERAL
           <in_subset> @<SubsetDefinition> * ;
           <from_schema> @metatype:Uri ? ;
           <imported_from> @metatype:String ? ;
-          <see_also> @metatype:Uriorcurie *
+          <see_also> @metatype:Uriorcurie * ;
+          <exact_mappings> @metatype:Uriorcurie * ;
+          <close_mappings> @metatype:Uriorcurie * ;
+          <related_mappings> @metatype:Uriorcurie * ;
+          <deprecated_element_has_exact_replacement> @metatype:Uriorcurie ? ;
+          <deprecated_element_has_possible_replacement> @metatype:Uriorcurie ?
        ) ;
        rdf:type [ <Element> ]
     )

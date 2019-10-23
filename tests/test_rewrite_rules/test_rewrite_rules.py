@@ -51,10 +51,10 @@ class TestLists:
         ]
 
         self.vocab_entries: List[TestEntry] = [
-            TestEntry(self.type['index'], 'biolinkml/docs/types/index'),
-            TestEntry(self.type.Element, 'biolinkml/docs/types/Element.yaml', 'text/yaml'),
-            TestEntry(self.type.Element, 'biolinkml/docs/types/Element.ttl', 'text/turtle'),
-            TestEntry(self.type.slots, 'biolinkml/docs/types/slots.jsonld', 'application/json')
+            TestEntry(self.type['index'], 'biolinkml/meta_mappings_docs/types/index'),
+            TestEntry(self.type.Element, 'biolinkml/meta_mappings_docs/types/Element.yaml', 'text/yaml'),
+            TestEntry(self.type.Element, 'biolinkml/meta_mappings_docs/types/Element.ttl', 'text/turtle'),
+            TestEntry(self.type.slots, 'biolinkml/meta_mappings_docs/types/slots.jsonld', 'application/json')
         ]
 
         self.meta_model_entries: List[TestEntry] = [
@@ -69,18 +69,18 @@ class TestLists:
             TestEntry(self.biolinkml + 'contextn.jsonld', 'biolinkml/contextn.jsonld')
         ]
         self.meta_vocab_entries: List[TestEntry] = [
-            TestEntry(self.meta.Element, 'biolinkml/docs/Element'),
-            TestEntry(self.meta.slot, 'biolinkml/docs/slot'),
-            TestEntry(self.meta.Element, 'biolinkml/docs/Element.yaml', 'text/yaml'),
-            TestEntry(self.meta.Element, 'biolinkml/docs/Element.ttl', 'text/turtle'),
-            TestEntry(self.meta.Element, 'biolinkml/docs/Element.jsonld', 'application/json'),
-            TestEntry(self.meta.Element, 'biolinkml/docs/Element.shex', 'text/shex'),
-            TestEntry(self.meta.Element, 'biolinkml/docs/Element', 'text/foo'),
+            TestEntry(self.meta.Element, 'biolinkml/meta_mappings_docs/Element'),
+            TestEntry(self.meta.slot, 'biolinkml/meta_mappings_docs/slot'),
+            TestEntry(self.meta.Element, 'biolinkml/meta_mappings_docs/Element.yaml', 'text/yaml'),
+            TestEntry(self.meta.Element, 'biolinkml/meta_mappings_docs/Element.ttl', 'text/turtle'),
+            TestEntry(self.meta.Element, 'biolinkml/meta_mappings_docs/Element.jsonld', 'application/json'),
+            TestEntry(self.meta.Element, 'biolinkml/meta_mappings_docs/Element.shex', 'text/shex'),
+            TestEntry(self.meta.Element, 'biolinkml/meta_mappings_docs/Element', 'text/foo'),
         ]
 
         self.biolinkmodel_entries: List[TestEntry] = [
-            TestEntry(self.biolink + 'vocab/Element', 'biolink-model/docs/Element'),
-            TestEntry(self.biolink + 'vocab', 'biolink-model/docs'),
+            TestEntry(self.biolink + 'vocab/Element', 'biolink-model/meta_mappings_docs/Element'),
+            TestEntry(self.biolink + 'vocab', 'biolink-model/meta_mappings_docs'),
             TestEntry(self.biolink + 'context.jsonld', 'biolink-model/context.jsonld'),
             TestEntry(self.biolink + 'contextn.jsonld', 'biolink-model/contextn.jsonld'),
             TestEntry(self.biolink + 'biolink-model.yaml', 'biolink-model/biolink-model.yaml')

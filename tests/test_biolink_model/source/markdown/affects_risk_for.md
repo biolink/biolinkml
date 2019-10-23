@@ -1,14 +1,15 @@
 
-# Slot: affects risk for
+# Type: affects risk for
 
 
 holds between two entities where exposure to one entity alters the chance of developing the other
 
 URI: [biolink:affects_risk_for](https://w3id.org/biolink/vocab/affects_risk_for)
 
+
 ## Domain and Range
 
-[NamedThing](NamedThing.md) ->  <sub>0..*</sub> [NamedThing](NamedThing.md)
+[named thing](named thing.md) ->  <sub>0..*</sub> [named thing](named thing.md)
 
 ## Parents
 
@@ -21,4 +22,11 @@ URI: [biolink:affects_risk_for](https://w3id.org/biolink/vocab/affects_risk_for)
 
 ## Used by
 
- * [NamedThing](NamedThing.md)
+ * [named thing](named thing.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **In Subsets:** | | translator_minimal |
+

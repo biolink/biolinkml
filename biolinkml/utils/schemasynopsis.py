@@ -216,8 +216,10 @@ class SchemaSynopsis:
                 rval += [f'\tSlot "{slotname}"" owner ({self.schema.slots[slotname].owner}) does not match {owners[0]}']
         for slotname, slot in sorted(self.schema.slots.items(), key=lambda e: e[0]):
             if slotname not in self.owners:
-                if not self._ancestor_is_owned(slot):
-                    rval += [f"\tSlot {slotname} has no owners"]
+                # Lack of ownership is no longer a sin
+                # if not self._ancestor_is_owned(slot):
+                #     rval += [f"\tSlot {slotname} has no owners"]
+                pass
             else:
                 owner = self.owners[slotname]
                 if slot.domain and (slot.domain not in self.ownslots or slotname not in self.ownslots[slot.domain]):
@@ -338,7 +340,7 @@ class SchemaSynopsis:
         if unkdomains:
             rval += [f"\t* Unknown domain: {', '.join(sorted(unkdomains))}"]
         if emptydomains:
-            rval += [f"\t* Unspecified domain: {', '.join(sorted(emptydomains))}"]
+            rval += [f"\tDomain unspecified: {len(emptydomains)}"]
 
         rval += ["\tRanges:"]
         rval += ["\t\tType:"]

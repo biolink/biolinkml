@@ -1,14 +1,15 @@
 
-# Slot: same as
+# Type: same as
 
 
 holds between two entities that are considered equivalent to each other
 
 URI: [biolink:same_as](https://w3id.org/biolink/vocab/same_as)
 
+
 ## Domain and Range
 
-[NamedThing](NamedThing.md) ->  <sub>0..*</sub> [NamedThing](NamedThing.md)
+[named thing](named thing.md) ->  <sub>0..*</sub> [named thing](named thing.md)
 
 ## Parents
 
@@ -19,4 +20,15 @@ URI: [biolink:same_as](https://w3id.org/biolink/vocab/same_as)
 
 ## Used by
 
- * [NamedThing](NamedThing.md)
+ * [named thing](named thing.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | owl:equivalentClass |
+|  | | owl:sameAs |
+|  | | skos:exactMatch |
+|  | | WD:P2888 |
+| **In Subsets:** | | translator_minimal |
+

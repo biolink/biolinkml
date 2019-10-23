@@ -15,10 +15,11 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.metamodelcore import Bool, NCName, URI, URIorCURIE, XSDDateTime
 from includes.types import Boolean, Datetime, Integer, Ncname, String, Uri, Uriorcurie
 
-metamodel_version = "1.4.1"
+metamodel_version = "1.4.3"
 
 
 # Namespaces
+IAO = Namespace('http://purl.obolibrary.org/obo/IAO_')
 OIO = Namespace('http://www.geneontology.org/formats/oboInOwl#')
 DCTERMS = Namespace('http://purl.org/dc/terms/')
 META = Namespace('https://w3id.org/biolink/biolinkml/meta/')
@@ -89,6 +90,7 @@ class Element(YAMLRoot):
 
     name: Union[str, ElementName]
     id_prefixes: List[Union[str, NCName]] = empty_list()
+    definition_uri: Optional[Union[str, URIorCURIE]] = None
     aliases: List[str] = empty_list()
     local_names: Union[dict, "LocalName"] = empty_dict()
     mappings: List[Union[str, URIorCURIE]] = empty_list()
@@ -103,6 +105,11 @@ class Element(YAMLRoot):
     from_schema: Optional[Union[str, URI]] = None
     imported_from: Optional[str] = None
     see_also: List[Union[str, URIorCURIE]] = empty_list()
+    exact_mappings: List[Union[str, URIorCURIE]] = empty_list()
+    close_mappings: List[Union[str, URIorCURIE]] = empty_list()
+    related_mappings: List[Union[str, URIorCURIE]] = empty_list()
+    deprecated_element_has_exact_replacement: Optional[Union[str, URIorCURIE]] = None
+    deprecated_element_has_possible_replacement: Optional[Union[str, URIorCURIE]] = None
 
     def __post_init__(self):
         self.id_prefixes = [v if isinstance(v, NCName)
@@ -111,6 +118,8 @@ class Element(YAMLRoot):
             raise ValueError(f"name must be supplied")
         if not isinstance(self.name, ElementName):
             self.name = ElementName(self.name)
+        if self.definition_uri is not None and not isinstance(self.definition_uri, URIorCURIE):
+            self.definition_uri = URIorCURIE(self.definition_uri)
         for k, v in self.local_names.items():
             if not isinstance(v, LocalName):
                 self.local_names[k] = LocalName(k, v)
@@ -127,6 +136,16 @@ class Element(YAMLRoot):
             self.from_schema = URI(self.from_schema)
         self.see_also = [v if isinstance(v, URIorCURIE)
                          else URIorCURIE(v) for v in self.see_also]
+        self.exact_mappings = [v if isinstance(v, URIorCURIE)
+                               else URIorCURIE(v) for v in self.exact_mappings]
+        self.close_mappings = [v if isinstance(v, URIorCURIE)
+                               else URIorCURIE(v) for v in self.close_mappings]
+        self.related_mappings = [v if isinstance(v, URIorCURIE)
+                                 else URIorCURIE(v) for v in self.related_mappings]
+        if self.deprecated_element_has_exact_replacement is not None and not isinstance(self.deprecated_element_has_exact_replacement, URIorCURIE):
+            self.deprecated_element_has_exact_replacement = URIorCURIE(self.deprecated_element_has_exact_replacement)
+        if self.deprecated_element_has_possible_replacement is not None and not isinstance(self.deprecated_element_has_possible_replacement, URIorCURIE):
+            self.deprecated_element_has_possible_replacement = URIorCURIE(self.deprecated_element_has_possible_replacement)
         super().__post_init__()
 
 

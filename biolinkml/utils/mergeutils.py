@@ -4,6 +4,7 @@ from typing import Dict, Optional, Union, cast, List
 
 from biolinkml.meta import SchemaDefinition, Element, SlotDefinition, ClassDefinition, TypeDefinition, \
     SlotDefinitionName, TypeDefinitionName
+from biolinkml.utils.formatutils import uri_for, camelcase, underscore
 from biolinkml.utils.namespaces import Namespaces
 
 
@@ -49,12 +50,14 @@ def set_from_schema(schema: SchemaDefinition) -> None:
     for t in [schema.subsets, schema.classes, schema.slots, schema.types]:
         for k in t.keys():
             t[k].from_schema = schema.id
+            t[k].definition_uri = uri_for(schema.default_prefix, underscore(t[k].name
+                                  if isinstance(t[k], SlotDefinition) else camelcase(t[k].name)))
 
 
 def merge_dicts(target: Dict[str, Element], source: Dict[str, Element], imported_from: str) -> None:
     for k, v in source.items():
-        if k in target:
-            raise ValueError(f"Conflicting definitions for {k}")
+        if k in target and source[k].from_schema != target[k].from_schema:
+            raise ValueError(f"Conflicting URIs ({source[k].from_schema}, {target[k].from_schema}) for item: {k}")
         target[k] = deepcopy(v)
         target[k].imported_from = imported_from
 

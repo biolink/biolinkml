@@ -1,14 +1,15 @@
 
-# Slot: precedes
+# Type: precedes
 
 
 holds between two processes, where one completes before the other begins
 
 URI: [biolink:precedes](https://w3id.org/biolink/vocab/precedes)
 
+
 ## Domain and Range
 
-[Occurrent](Occurrent.md) ->  <sub>0..*</sub> [Occurrent](Occurrent.md)
+[occurrent](occurrent.md) ->  <sub>0..*</sub> [occurrent](occurrent.md)
 
 ## Parents
 
@@ -19,13 +20,23 @@ URI: [biolink:precedes](https://w3id.org/biolink/vocab/precedes)
 
 ## Used by
 
- * [ActivityAndBehavior](ActivityAndBehavior.md)
- * [BiologicalProcess](BiologicalProcess.md)
- * [BiologicalProcessOrActivity](BiologicalProcessOrActivity.md)
- * [EnvironmentalProcess](EnvironmentalProcess.md)
- * [MolecularActivity](MolecularActivity.md)
- * [Occurrent](Occurrent.md)
- * [Pathway](Pathway.md)
- * [Phenomenon](Phenomenon.md)
- * [PhysiologicalProcess](PhysiologicalProcess.md)
- * [Procedure](Procedure.md)
+ * [activity and behavior](activity and behavior.md)
+ * [biological process](biological process.md)
+ * [biological process or activity](biological process or activity.md)
+ * [environmental process](environmental process.md)
+ * [molecular activity](molecular activity.md)
+ * [occurrent](occurrent.md)
+ * [pathway](pathway.md)
+ * [phenomenon](phenomenon.md)
+ * [physiological process](physiological process.md)
+ * [procedure](procedure.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | BFO:0000063 |
+|  | | SEMMEDDB:PRECEDES |
+|  | | WD:P156 |
+| **In Subsets:** | | translator_minimal |
+

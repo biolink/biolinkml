@@ -700,7 +700,7 @@
             "https://w3id.org/biolink/vocab/DiseaseToPhenotypicFeatureAssociation",
             "https://w3id.org/biolink/vocab/DiseaseToThingAssociation",
             "https://w3id.org/biolink/vocab/EntityToPhenotypicFeatureAssociation",
-            "https://w3id.org/biolink/vocab/EnvironmentToPhenotypicFeatureAssociation",
+            "https://w3id.org/biolink/vocab/ExposureEventToPhenotypicFeatureAssociation",
             "https://w3id.org/biolink/vocab/FunctionalAssociation",
             "https://w3id.org/biolink/vocab/GeneRegulatoryRelationship",
             "https://w3id.org/biolink/vocab/GeneToDiseaseAssociation",
@@ -894,7 +894,7 @@
          "shapeExprs": [
             "https://w3id.org/biolink/vocab/BiologicalProcessOrActivity",
             "https://w3id.org/biolink/vocab/DiseaseOrPhenotypicFeature",
-            "https://w3id.org/biolink/vocab/Environment",
+            "https://w3id.org/biolink/vocab/ExposureEvent",
             "https://w3id.org/biolink/vocab/MolecularEntity",
             "https://w3id.org/biolink/vocab/OrganismalEntity"
          ]
@@ -1568,6 +1568,51 @@
                }
             ]
          }
+      },
+      {
+         "type": "ShapeOr",
+         "id": "https://w3id.org/biolink/vocab/ChemicalExposure",
+         "shapeExprs": [
+            {
+               "type": "Shape",
+               "closed": true,
+               "expression": {
+                  "type": "EachOf",
+                  "expressions": [
+                     {
+                        "type": "EachOf",
+                        "id": "https://w3id.org/biolink/vocab/ChemicalExposure_tes",
+                        "expressions": [
+                           "https://w3id.org/biolink/vocab/ExposureEvent_tes",
+                           {
+                              "type": "TripleConstraint",
+                              "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                              "valueExpr": {
+                                 "type": "NodeConstraint",
+                                 "values": [
+                                    "http://semanticscience.org/resource/SIO_000955"
+                                 ]
+                              },
+                              "min": 0
+                           }
+                        ]
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "http://example.org/UNKNOWN/ECTO/9000000"
+                           ]
+                        },
+                        "min": 1
+                     }
+                  ]
+               }
+            },
+            "https://w3id.org/biolink/vocab/DrugExposure"
+         ]
       },
       {
          "type": "ShapeOr",
@@ -2701,6 +2746,59 @@
       },
       {
          "type": "Shape",
+         "id": "https://w3id.org/biolink/vocab/DiseaseToExposureAssociation",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://w3id.org/biolink/vocab/DiseaseToExposureAssociation_tes",
+                  "expressions": [
+                     "https://w3id.org/biolink/vocab/DiseaseToThingAssociation_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://w3id.org/biolink/vocab/DiseaseToThingAssociation"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/subject",
+                        "valueExpr": "https://w3id.org/biolink/vocab/Disease",
+                        "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/object",
+                        "valueExpr": "https://w3id.org/biolink/vocab/ExposureEvent",
+                        "min": 1,
+                        "max": 1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://w3id.org/biolink/vocab/DiseaseToExposureAssociation"
+                     ]
+                  },
+                  "min": 1
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
          "id": "https://w3id.org/biolink/vocab/DiseaseToPhenotypicFeatureAssociation",
          "closed": true,
          "expression": {
@@ -2763,50 +2861,56 @@
          }
       },
       {
-         "type": "Shape",
+         "type": "ShapeOr",
          "id": "https://w3id.org/biolink/vocab/DiseaseToThingAssociation",
-         "closed": false,
-         "expression": {
-            "type": "EachOf",
-            "expressions": [
-               {
+         "shapeExprs": [
+            {
+               "type": "Shape",
+               "closed": false,
+               "expression": {
                   "type": "EachOf",
-                  "id": "https://w3id.org/biolink/vocab/DiseaseToThingAssociation_tes",
                   "expressions": [
-                     "https://w3id.org/biolink/vocab/Association_tes",
+                     {
+                        "type": "EachOf",
+                        "id": "https://w3id.org/biolink/vocab/DiseaseToThingAssociation_tes",
+                        "expressions": [
+                           "https://w3id.org/biolink/vocab/Association_tes",
+                           {
+                              "type": "TripleConstraint",
+                              "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                              "valueExpr": {
+                                 "type": "NodeConstraint",
+                                 "values": [
+                                    "http://purl.org/oban/association"
+                                 ]
+                              },
+                              "min": 0
+                           },
+                           {
+                              "type": "TripleConstraint",
+                              "predicate": "https://w3id.org/biolink/vocab/subject",
+                              "valueExpr": "https://w3id.org/biolink/vocab/Disease",
+                              "min": 1,
+                              "max": 1
+                           }
+                        ]
+                     },
                      {
                         "type": "TripleConstraint",
                         "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.org/oban/association"
+                              "https://w3id.org/biolink/vocab/DiseaseToThingAssociation"
                            ]
                         },
-                        "min": 0
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/subject",
-                        "valueExpr": "https://w3id.org/biolink/vocab/Disease",
-                        "min": 1,
-                        "max": 1
+                        "min": 1
                      }
                   ]
-               },
-               {
-                  "type": "TripleConstraint",
-                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
-                  "valueExpr": {
-                     "type": "NodeConstraint",
-                     "values": [
-                        "https://w3id.org/biolink/vocab/DiseaseToThingAssociation"
-                     ]
-                  },
-                  "min": 1
                }
-            ]
-         }
+            },
+            "https://w3id.org/biolink/vocab/DiseaseToExposureAssociation"
+         ]
       },
       {
          "type": "Shape",
@@ -2904,21 +3008,21 @@
                   "type": "EachOf",
                   "id": "https://w3id.org/biolink/vocab/DrugExposure_tes",
                   "expressions": [
-                     "https://w3id.org/biolink/vocab/Environment_tes",
+                     "https://w3id.org/biolink/vocab/ChemicalExposure_tes",
                      {
                         "type": "TripleConstraint",
                         "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://semanticscience.org/resource/SIO_000955"
+                              "http://example.org/UNKNOWN/ECTO/9000000"
                            ]
                         },
                         "min": 0
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/drug",
+                        "predicate": "https://w3id.org/biolink/vocab/has_drug",
                         "valueExpr": "https://w3id.org/biolink/vocab/ChemicalSubstance",
                         "min": 1,
                         "max": -1
@@ -3102,110 +3206,6 @@
                      "type": "NodeConstraint",
                      "values": [
                         "https://w3id.org/biolink/vocab/EntityToPhenotypicFeatureAssociation"
-                     ]
-                  },
-                  "min": 1
-               }
-            ]
-         }
-      },
-      {
-         "type": "ShapeOr",
-         "id": "https://w3id.org/biolink/vocab/Environment",
-         "shapeExprs": [
-            {
-               "type": "Shape",
-               "closed": true,
-               "expression": {
-                  "type": "EachOf",
-                  "expressions": [
-                     {
-                        "type": "EachOf",
-                        "id": "https://w3id.org/biolink/vocab/Environment_tes",
-                        "expressions": [
-                           "https://w3id.org/biolink/vocab/BiologicalEntity_tes",
-                           {
-                              "type": "TripleConstraint",
-                              "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
-                              "valueExpr": {
-                                 "type": "NodeConstraint",
-                                 "values": [
-                                    "http://example.org/UNKNOWN/WD/Q28845870"
-                                 ]
-                              },
-                              "min": 0
-                           }
-                        ]
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
-                        "valueExpr": {
-                           "type": "NodeConstraint",
-                           "values": [
-                              "http://semanticscience.org/resource/SIO_000955"
-                           ]
-                        },
-                        "min": 1
-                     }
-                  ]
-               }
-            },
-            "https://w3id.org/biolink/vocab/DrugExposure",
-            "https://w3id.org/biolink/vocab/Treatment"
-         ]
-      },
-      {
-         "type": "Shape",
-         "id": "https://w3id.org/biolink/vocab/EnvironmentToPhenotypicFeatureAssociation",
-         "closed": true,
-         "expression": {
-            "type": "EachOf",
-            "expressions": [
-               {
-                  "type": "EachOf",
-                  "id": "https://w3id.org/biolink/vocab/EnvironmentToPhenotypicFeatureAssociation_tes",
-                  "expressions": [
-                     "https://w3id.org/biolink/vocab/Association_tes",
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
-                        "valueExpr": {
-                           "type": "NodeConstraint",
-                           "values": [
-                              "http://purl.org/oban/association"
-                           ]
-                        },
-                        "min": 0
-                     },
-                     "https://w3id.org/biolink/vocab/EntityToPhenotypicFeatureAssociation_tes",
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
-                        "valueExpr": {
-                           "type": "NodeConstraint",
-                           "values": [
-                              "https://w3id.org/biolink/vocab/EntityToPhenotypicFeatureAssociation"
-                           ]
-                        },
-                        "min": 0
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/subject",
-                        "valueExpr": "https://w3id.org/biolink/vocab/Environment",
-                        "min": 1,
-                        "max": 1
-                     }
-                  ]
-               },
-               {
-                  "type": "TripleConstraint",
-                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
-                  "valueExpr": {
-                     "type": "NodeConstraint",
-                     "values": [
-                        "https://w3id.org/biolink/vocab/EnvironmentToPhenotypicFeatureAssociation"
                      ]
                   },
                   "min": 1
@@ -3462,6 +3462,131 @@
                      "type": "NodeConstraint",
                      "values": [
                         "https://w3id.org/biolink/vocab/ExonToTranscriptRelationship"
+                     ]
+                  },
+                  "min": 1
+               }
+            ]
+         }
+      },
+      {
+         "type": "ShapeOr",
+         "id": "https://w3id.org/biolink/vocab/ExposureEvent",
+         "shapeExprs": [
+            {
+               "type": "Shape",
+               "closed": true,
+               "expression": {
+                  "type": "EachOf",
+                  "expressions": [
+                     {
+                        "type": "EachOf",
+                        "id": "https://w3id.org/biolink/vocab/ExposureEvent_tes",
+                        "expressions": [
+                           "https://w3id.org/biolink/vocab/BiologicalEntity_tes",
+                           {
+                              "type": "TripleConstraint",
+                              "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                              "valueExpr": {
+                                 "type": "NodeConstraint",
+                                 "values": [
+                                    "http://example.org/UNKNOWN/WD/Q28845870"
+                                 ]
+                              },
+                              "min": 0
+                           },
+                           {
+                              "type": "TripleConstraint",
+                              "predicate": "http://example.org/UNKNOWN/ExO/0000001",
+                              "valueExpr": "https://w3id.org/biolink/vocab/OrganismalEntity",
+                              "min": 0,
+                              "max": 1
+                           },
+                           {
+                              "type": "TripleConstraint",
+                              "predicate": "http://example.org/UNKNOWN/ExO/0000000",
+                              "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
+                              "min": 0,
+                              "max": 1
+                           },
+                           {
+                              "type": "TripleConstraint",
+                              "predicate": "http://example.org/UNKNOWN/ExO/0000055",
+                              "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
+                              "min": 0,
+                              "max": 1
+                           }
+                        ]
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "http://semanticscience.org/resource/SIO_000955"
+                           ]
+                        },
+                        "min": 1
+                     }
+                  ]
+               }
+            },
+            "https://w3id.org/biolink/vocab/ChemicalExposure",
+            "https://w3id.org/biolink/vocab/Treatment"
+         ]
+      },
+      {
+         "type": "Shape",
+         "id": "https://w3id.org/biolink/vocab/ExposureEventToPhenotypicFeatureAssociation",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://w3id.org/biolink/vocab/ExposureEventToPhenotypicFeatureAssociation_tes",
+                  "expressions": [
+                     "https://w3id.org/biolink/vocab/Association_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "http://purl.org/oban/association"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     "https://w3id.org/biolink/vocab/EntityToPhenotypicFeatureAssociation_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://w3id.org/biolink/vocab/EntityToPhenotypicFeatureAssociation"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/subject",
+                        "valueExpr": "https://w3id.org/biolink/vocab/ExposureEvent",
+                        "min": 1,
+                        "max": 1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://w3id.org/biolink/vocab/ExposureEventToPhenotypicFeatureAssociation"
                      ]
                   },
                   "min": 1
@@ -7089,6 +7214,13 @@
                            },
                            {
                               "type": "TripleConstraint",
+                              "predicate": "https://w3id.org/biolink/vocab/has_drug",
+                              "valueExpr": "https://w3id.org/biolink/vocab/Drug",
+                              "min": 0,
+                              "max": 1
+                           },
+                           {
+                              "type": "TripleConstraint",
                               "predicate": "https://w3id.org/biolink/vocab/has_gene",
                               "valueExpr": "https://w3id.org/biolink/vocab/Gene",
                               "min": 0,
@@ -9054,7 +9186,7 @@
                   "type": "EachOf",
                   "id": "https://w3id.org/biolink/vocab/Treatment_tes",
                   "expressions": [
-                     "https://w3id.org/biolink/vocab/Environment_tes",
+                     "https://w3id.org/biolink/vocab/ExposureEvent_tes",
                      {
                         "type": "TripleConstraint",
                         "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
@@ -9075,7 +9207,7 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/has_exposure_parts",
+                        "predicate": "https://w3id.org/biolink/vocab/has_part",
                         "valueExpr": "https://w3id.org/biolink/vocab/DrugExposure",
                         "min": 1,
                         "max": -1

@@ -1,14 +1,15 @@
 
-# Slot: has quotient
+# Type: variant to population association_has quotient
 
 
 
 
 URI: [biolink:variant_to_population_association_has_quotient](https://w3id.org/biolink/vocab/variant_to_population_association_has_quotient)
 
+
 ## Domain and Range
 
-[VariantToPopulationAssociation](VariantToPopulationAssociation.md) ->  <sub>OPT</sub> [Double](Double.md)
+[variant to population association](variant to population association.md) ->  <sub>OPT</sub> [Double](type/Double.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:variant_to_population_association_has_quotient](https://w3id.org/b
 
 ## Used by
 
- * [VariantToPopulationAssociation](VariantToPopulationAssociation.md)
+ * [variant to population association](variant to population association.md)

@@ -1,14 +1,15 @@
 
-# Slot: relation
+# Type: material sample derivation association_relation
 
 
 
 
 URI: [biolink:material_sample_derivation_association_relation](https://w3id.org/biolink/vocab/material_sample_derivation_association_relation)
 
+
 ## Domain and Range
 
-[MaterialSampleDerivationAssociation](MaterialSampleDerivationAssociation.md) ->  <sub>REQ</sub> [Uriorcurie](Uriorcurie.md)
+[material sample derivation association](material sample derivation association.md) ->  <sub>REQ</sub> [Uriorcurie](type/Uriorcurie.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:material_sample_derivation_association_relation](https://w3id.org/
 
 ## Used by
 
- * [MaterialSampleDerivationAssociation](MaterialSampleDerivationAssociation.md)
+ * [material sample derivation association](material sample derivation association.md)

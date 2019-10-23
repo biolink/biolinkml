@@ -1,14 +1,15 @@
 
-# Slot: relation
+# Type: variant to disease association_relation
 
 
 
 
 URI: [biolink:variant_to_disease_association_relation](https://w3id.org/biolink/vocab/variant_to_disease_association_relation)
 
+
 ## Domain and Range
 
-[VariantToDiseaseAssociation](VariantToDiseaseAssociation.md) ->  <sub>REQ</sub> [Uriorcurie](Uriorcurie.md)
+[variant to disease association](variant to disease association.md) ->  <sub>REQ</sub> [Uriorcurie](type/Uriorcurie.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:variant_to_disease_association_relation](https://w3id.org/biolink/
 
 ## Used by
 
- * [VariantToDiseaseAssociation](VariantToDiseaseAssociation.md)
+ * [variant to disease association](variant to disease association.md)

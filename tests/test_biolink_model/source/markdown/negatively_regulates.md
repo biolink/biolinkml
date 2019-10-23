@@ -1,14 +1,15 @@
 
-# Slot: negatively regulates
+# Type: negatively regulates
 
 
 
 
 URI: [biolink:negatively_regulates](https://w3id.org/biolink/vocab/negatively_regulates)
 
+
 ## Domain and Range
 
-[NamedThing](NamedThing.md) ->  <sub>0..*</sub> [NamedThing](NamedThing.md)
+[named thing](named thing.md) ->  <sub>0..*</sub> [named thing](named thing.md)
 
 ## Parents
 
@@ -19,4 +20,11 @@ URI: [biolink:negatively_regulates](https://w3id.org/biolink/vocab/negatively_re
 
 ## Used by
 
- * [NamedThing](NamedThing.md)
+ * [named thing](named thing.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Comments:** | | This is a grouping for process-process and entity-entity relations |
+

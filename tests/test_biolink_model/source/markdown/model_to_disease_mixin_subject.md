@@ -1,14 +1,15 @@
 
-# Slot: subject
+# Type: model to disease mixin_subject
 
 
 
 
 URI: [biolink:model_to_disease_mixin_subject](https://w3id.org/biolink/vocab/model_to_disease_mixin_subject)
 
+
 ## Domain and Range
 
-[ModelToDiseaseMixin](ModelToDiseaseMixin.md) ->  <sub>REQ</sub> [NamedThing](NamedThing.md)
+[model to disease mixin](model to disease mixin.md) ->  <sub>REQ</sub> [named thing](named thing.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:model_to_disease_mixin_subject](https://w3id.org/biolink/vocab/mod
 
 ## Used by
 
- * [ModelToDiseaseMixin](ModelToDiseaseMixin.md)
+ * [model to disease mixin](model to disease mixin.md)

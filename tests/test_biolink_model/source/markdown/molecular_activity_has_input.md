@@ -1,14 +1,15 @@
 
-# Slot: has input
+# Type: molecular activity_has input
 
 
 
 
 URI: [biolink:molecular_activity_has_input](https://w3id.org/biolink/vocab/molecular_activity_has_input)
 
+
 ## Domain and Range
 
-[MolecularActivity](MolecularActivity.md) ->  <sub>0..*</sub> [ChemicalSubstance](ChemicalSubstance.md)
+[molecular activity](molecular activity.md) ->  <sub>0..*</sub> [chemical substance](chemical substance.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:molecular_activity_has_input](https://w3id.org/biolink/vocab/molec
 
 ## Used by
 
- * [MolecularActivity](MolecularActivity.md)
+ * [molecular activity](molecular activity.md)

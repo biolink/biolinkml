@@ -1,14 +1,15 @@
 
-# Slot: timepoint
+# Type: timepoint
 
 
 a point in time
 
 URI: [biolink:timepoint](https://w3id.org/biolink/vocab/timepoint)
 
+
 ## Domain and Range
 
-[NamedThing](NamedThing.md) ->  <sub>OPT</sub> [TimeType](TimeType.md)
+[named thing](named thing.md) ->  <sub>OPT</sub> [TimeType](type/TimeType.md)
 
 ## Parents
 
@@ -19,5 +20,5 @@ URI: [biolink:timepoint](https://w3id.org/biolink/vocab/timepoint)
 
 ## Used by
 
- * [GeographicLocationAtTime](GeographicLocationAtTime.md)
- * [NamedThing](NamedThing.md)
+ * [geographic location at time](geographic location at time.md)
+ * [named thing](named thing.md)

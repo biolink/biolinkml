@@ -1,14 +1,15 @@
 
-# Slot: imports
+# Type: imports
 
 
 other schemas that are included in this schema
 
 URI: [meta:imports](https://w3id.org/biolink/biolinkml/meta/imports)
 
+
 ## Domain and Range
 
-[SchemaDefinition](SchemaDefinition.md) ->  <sub>0..*</sub> [Uriorcurie](Uriorcurie.md)
+[schema_definition](schema_definition.md) ->  <sub>0..*</sub> [Uriorcurie](type/Uriorcurie.md)
 
 ## Parents
 
@@ -18,4 +19,4 @@ URI: [meta:imports](https://w3id.org/biolink/biolinkml/meta/imports)
 
 ## Used by
 
- * [SchemaDefinition](SchemaDefinition.md)
+ * [schema_definition](schema_definition.md)

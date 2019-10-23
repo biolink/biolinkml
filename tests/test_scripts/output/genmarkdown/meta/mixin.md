@@ -1,14 +1,15 @@
 
-# Slot: mixin
+# Type: mixin
 
 
 this slot or class can only be used as a mixin -- equivalent to abstract
 
 URI: [meta:mixin](https://w3id.org/biolink/biolinkml/meta/mixin)
 
+
 ## Domain and Range
 
-[Definition](Definition.md) ->  <sub>OPT</sub> [Boolean](Boolean.md)
+[definition](definition.md) ->  <sub>OPT</sub> [Boolean](type/Boolean.md)
 
 ## Parents
 
@@ -18,6 +19,6 @@ URI: [meta:mixin](https://w3id.org/biolink/biolinkml/meta/mixin)
 
 ## Used by
 
- * [ClassDefinition](ClassDefinition.md)
- * [Definition](Definition.md)
- * [SlotDefinition](SlotDefinition.md)
+ * [class_definition](class_definition.md)
+ * [definition](definition.md)
+ * [slot_definition](slot_definition.md)

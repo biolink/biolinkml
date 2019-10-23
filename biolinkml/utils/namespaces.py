@@ -1,3 +1,4 @@
+import logging
 from collections import OrderedDict
 from typing import Any, Tuple, Optional, Union
 
@@ -49,7 +50,8 @@ class Namespaces(OrderedDict):
             v = Namespace(str(value))
             if key in self:
                 if self[key] != v:
-                    raise ValueError(f"Namespace {key} is already mapped to {self[key]}")
+                    logging.getLogger('Namespaces').\
+                        warning(f"{key} namespace is already mapped to {self[key]} - Mapping to {v} ignored")
             else:
                 super().__setitem__(key, v)
         else:
@@ -224,7 +226,7 @@ class Namespaces(OrderedDict):
                 if is_ncname(k):
                     self[k] = v
                 else:
-                    # print(f"Warning: biocontext map {map_name} has illegal prefix: {k}", file=sys.stderr)
+                    logging.getLogger('Namespaces').info(f"biocontext map {map_name} has illegal prefix: {k}")
                     pass
 
 

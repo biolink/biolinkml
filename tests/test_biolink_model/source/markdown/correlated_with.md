@@ -1,14 +1,15 @@
 
-# Slot: correlated with
+# Type: correlated with
 
 
 holds between a disease or phenotypic feature and a measurable molecular entity that is used as an indicator of the presence or state of the disease or feature.
 
 URI: [biolink:correlated_with](https://w3id.org/biolink/vocab/correlated_with)
 
+
 ## Domain and Range
 
-[DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md) ->  <sub>0..*</sub> [MolecularEntity](MolecularEntity.md)
+[disease or phenotypic feature](disease or phenotypic feature.md) ->  <sub>0..*</sub> [molecular entity](molecular entity.md)
 
 ## Parents
 
@@ -21,6 +22,14 @@ URI: [biolink:correlated_with](https://w3id.org/biolink/vocab/correlated_with)
 
 ## Used by
 
- * [Disease](Disease.md)
- * [DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md)
- * [PhenotypicFeature](PhenotypicFeature.md)
+ * [disease](disease.md)
+ * [disease or phenotypic feature](disease or phenotypic feature.md)
+ * [phenotypic feature](phenotypic feature.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | RO:0002610 |
+| **In Subsets:** | | translator_minimal |
+

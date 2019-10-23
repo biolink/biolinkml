@@ -1,14 +1,15 @@
 
-# Slot: onset qualifier
+# Type: onset qualifier
 
 
 a qualifier used in a phenotypic association to state when the phenotype appears is in the subject
 
 URI: [biolink:onset_qualifier](https://w3id.org/biolink/vocab/onset_qualifier)
 
+
 ## Domain and Range
 
-[Association](Association.md) ->  <sub>OPT</sub> [Onset](Onset.md)
+[association](association.md) ->  <sub>OPT</sub> [onset](onset.md)
 
 ## Parents
 
@@ -19,17 +20,17 @@ URI: [biolink:onset_qualifier](https://w3id.org/biolink/vocab/onset_qualifier)
 
 ## Used by
 
- * [Association](Association.md)
- * [CaseToPhenotypicFeatureAssociation](CaseToPhenotypicFeatureAssociation.md)
- * [DiseaseToPhenotypicFeatureAssociation](DiseaseToPhenotypicFeatureAssociation.md)
- * [EntityToDiseaseAssociation](EntityToDiseaseAssociation.md)
- * [EntityToFeatureOrDiseaseQualifiers](EntityToFeatureOrDiseaseQualifiers.md)
- * [EntityToPhenotypicFeatureAssociation](EntityToPhenotypicFeatureAssociation.md)
- * [EnvironmentToPhenotypicFeatureAssociation](EnvironmentToPhenotypicFeatureAssociation.md)
- * [GeneAsAModelOfDiseaseAssociation](GeneAsAModelOfDiseaseAssociation.md)
- * [GeneHasVariantThatContributesToDiseaseAssociation](GeneHasVariantThatContributesToDiseaseAssociation.md)
- * [GeneToDiseaseAssociation](GeneToDiseaseAssociation.md)
- * [GeneToPhenotypicFeatureAssociation](GeneToPhenotypicFeatureAssociation.md)
- * [GenotypeToPhenotypicFeatureAssociation](GenotypeToPhenotypicFeatureAssociation.md)
- * [VariantToDiseaseAssociation](VariantToDiseaseAssociation.md)
- * [VariantToPhenotypicFeatureAssociation](VariantToPhenotypicFeatureAssociation.md)
+ * [association](association.md)
+ * [case to phenotypic feature association](case to phenotypic feature association.md)
+ * [disease to phenotypic feature association](disease to phenotypic feature association.md)
+ * [entity to disease association](entity to disease association.md)
+ * [entity to feature or disease qualifiers](entity to feature or disease qualifiers.md)
+ * [entity to phenotypic feature association](entity to phenotypic feature association.md)
+ * [exposure event to phenotypic feature association](exposure event to phenotypic feature association.md)
+ * [gene as a model of disease association](gene as a model of disease association.md)
+ * [gene has variant that contributes to disease association](gene has variant that contributes to disease association.md)
+ * [gene to disease association](gene to disease association.md)
+ * [gene to phenotypic feature association](gene to phenotypic feature association.md)
+ * [genotype to phenotypic feature association](genotype to phenotypic feature association.md)
+ * [variant to disease association](variant to disease association.md)
+ * [variant to phenotypic feature association](variant to phenotypic feature association.md)

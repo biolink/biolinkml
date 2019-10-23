@@ -1,14 +1,15 @@
 
-# Slot: has gene
+# Type: has gene
 
 
-connects and entity to a single gene
+connects an entity to a single gene
 
 URI: [biolink:has_gene](https://w3id.org/biolink/vocab/has_gene)
 
+
 ## Domain and Range
 
-[NamedThing](NamedThing.md) ->  <sub>OPT</sub> [Gene](Gene.md)
+[named thing](named thing.md) ->  <sub>OPT</sub> [gene](gene.md)
 
 ## Parents
 
@@ -20,5 +21,5 @@ URI: [biolink:has_gene](https://w3id.org/biolink/vocab/has_gene)
 
 ## Used by
 
- * [NamedThing](NamedThing.md)
- * [SequenceVariant](SequenceVariant.md)
+ * [named thing](named thing.md)
+ * [sequence variant](sequence variant.md)

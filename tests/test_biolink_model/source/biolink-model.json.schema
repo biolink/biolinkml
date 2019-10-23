@@ -185,6 +185,13 @@
          "description": "Used to characterize and specify the phenotypic abnormalities defined in the Phenotypic abnormality subontology, with respect to severity, laterality, age of onset, and other aspects",
          "type": "string"
       },
+      "close_mappings": {
+         "description": "A list of terms from different schemas or terminology systems that have close meaning.",
+         "items": {
+            "type": "string"
+         },
+         "type": "array"
+      },
       "coexists_with": {
          "description": "holds between two entities that are co-located in the same aggregate object, process, or spatio-temporal region",
          "items": {
@@ -329,6 +336,14 @@
          },
          "type": "array"
       },
+      "deprecated_element_has_exact_replacement": {
+         "description": "When an element is deprecated, it can be automatically replaced by this uri or curie",
+         "type": "string"
+      },
+      "deprecated_element_has_possible_replacement": {
+         "description": "When an element is deprecated, it can be potentially replaced by this uri or curie",
+         "type": "string"
+      },
       "derives_from": {
          "description": "holds between two distinct material entities, the new entity and the old entity, in which the new entity begins to exist when the old entity ceases to exist, and the new entity inherits the significant portion of the matter of the old entity",
          "items": {
@@ -360,12 +375,6 @@
       "downloadURL": {
          "type": "string"
       },
-      "drug": {
-         "items": {
-            "type": "string"
-         },
-         "type": "array"
-      },
       "edge_label": {
          "description": "A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.",
          "type": "string"
@@ -379,6 +388,13 @@
       },
       "end_interbase_coordinate": {
          "type": "string"
+      },
+      "exact_mappings": {
+         "description": "A list of terms from different schemas or terminology systems that have identical meaning.",
+         "items": {
+            "type": "string"
+         },
+         "type": "array"
       },
       "expressed_in": {
          "description": "holds between a gene or gene product and an anatomical entity in which it is expressed",
@@ -458,18 +474,16 @@
          "description": "number of things with a particular property",
          "type": "string"
       },
+      "has_drug": {
+         "description": "connects an entity to a single drug",
+         "type": "string"
+      },
       "has_evidence": {
          "description": "connects an association to an instance of supporting evidence",
          "type": "string"
       },
-      "has_exposure_parts": {
-         "items": {
-            "type": "string"
-         },
-         "type": "array"
-      },
       "has_gene": {
-         "description": "connects and entity to a single gene",
+         "description": "connects an entity to a single gene",
          "type": "string"
       },
       "has_gene_product": {
@@ -541,6 +555,18 @@
          "type": "array"
       },
       "has_quotient": {
+         "type": "string"
+      },
+      "has_receptor": {
+         "description": "the organism or organism part being exposed",
+         "type": "string"
+      },
+      "has_route": {
+         "description": "the process that results in the stressor coming into direct contact with the receptor",
+         "type": "string"
+      },
+      "has_stressor": {
+         "description": "the process or entity that the receptor is being exposed to",
          "type": "string"
       },
       "has_total": {
@@ -752,6 +778,13 @@
          },
          "type": "array"
       },
+      "mappings": {
+         "description": "A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective.",
+         "items": {
+            "type": "string"
+         },
+         "type": "array"
+      },
       "model_of": {
          "description": "holds between an entity and some other entity it approximates for purposes of scientific study, in virtue of its exhibiting similar features of the studied entity.",
          "items": {
@@ -937,6 +970,13 @@
          "type": "array"
       },
       "regulates_process_to_process": {
+         "items": {
+            "type": "string"
+         },
+         "type": "array"
+      },
+      "related_mappings": {
+         "description": "A list of terms from different schemas or terminology systems that have related meaning.",
          "items": {
             "type": "string"
          },
@@ -1449,6 +1489,12 @@
          "title": "CellularComponent",
          "type": "object"
       },
+      "ChemicalExposure": {
+         "description": "A chemical exposure is an intake of a particular chemical substance",
+         "properties": {},
+         "title": "ChemicalExposure",
+         "type": "object"
+      },
       "ChemicalSubstance": {
          "description": "May be a chemical entity or a formulation with a chemical entity as active ingredient, or a complex material with multiple chemical entities as part",
          "properties": {},
@@ -1662,6 +1708,21 @@
          "title": "DiseaseOrPhenotypicFeatureAssociationToLocationAssociation",
          "type": "object"
       },
+      "DiseaseToExposureAssociation": {
+         "description": "An association between an exposure event and a disease",
+         "properties": {
+            "object": {
+               "required": true,
+               "type": "string"
+            },
+            "subject": {
+               "required": true,
+               "type": "string"
+            }
+         },
+         "title": "DiseaseToExposureAssociation",
+         "type": "object"
+      },
       "DiseaseToPhenotypicFeatureAssociation": {
          "description": "An association between a disease and a phenotypic feature in which the phenotypic feature is associated with the disease in some way",
          "properties": {},
@@ -1687,7 +1748,7 @@
       "DrugExposure": {
          "description": "A drug exposure is an intake of a particular chemical substance",
          "properties": {
-            "drug": {
+            "has_drug": {
                "items": {
                   "type": "string"
                },
@@ -1696,23 +1757,6 @@
             }
          },
          "title": "DrugExposure",
-         "type": "object"
-      },
-      "Environment": {
-         "description": "A feature of the environment of an organism that influences one or more phenotypic features of that organism, potentially mediated by genes",
-         "properties": {},
-         "title": "Environment",
-         "type": "object"
-      },
-      "EnvironmentToPhenotypicFeatureAssociation": {
-         "description": "Any association between an environment and a phenotypic feature, where being in the environment influences the phenotype",
-         "properties": {
-            "subject": {
-               "required": true,
-               "type": "string"
-            }
-         },
-         "title": "EnvironmentToPhenotypicFeatureAssociation",
          "type": "object"
       },
       "EnvironmentalFeature": {
@@ -1789,8 +1833,38 @@
          "title": "ExonToTranscriptRelationship",
          "type": "object"
       },
+      "ExposureEvent": {
+         "description": "A feature of the environment of an organism that influences one or more phenotypic features of that organism, potentially mediated by genes",
+         "properties": {
+            "has_receptor": {
+               "description": "the organism or organism part being exposed",
+               "type": "string"
+            },
+            "has_route": {
+               "description": "the process that results in the stressor coming into direct contact with the receptor",
+               "type": "string"
+            },
+            "has_stressor": {
+               "description": "the process or entity that the receptor is being exposed to",
+               "type": "string"
+            }
+         },
+         "title": "ExposureEvent",
+         "type": "object"
+      },
+      "ExposureEventToPhenotypicFeatureAssociation": {
+         "description": "Any association between an environment and a phenotypic feature, where being in the environment influences the phenotype",
+         "properties": {
+            "subject": {
+               "required": true,
+               "type": "string"
+            }
+         },
+         "title": "ExposureEventToPhenotypicFeatureAssociation",
+         "type": "object"
+      },
       "FrequencyQualifierMixin": {
-         "description": "Qualifier for freqency type associations",
+         "description": "Qualifier for frequency type associations",
          "properties": {
             "frequency_qualifier": {
                "description": "a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject",
@@ -2894,8 +2968,12 @@
                "description": "number of things with a particular property",
                "type": "string"
             },
+            "has_drug": {
+               "description": "connects an entity to a single drug",
+               "type": "string"
+            },
             "has_gene": {
-               "description": "connects and entity to a single gene",
+               "description": "connects an entity to a single gene",
                "type": "string"
             },
             "has_molecular_consequence": {
@@ -3480,7 +3558,7 @@
       "Treatment": {
          "description": "A treatment is targeted at a disease or phenotype and may involve multiple drug 'exposures'",
          "properties": {
-            "has_exposure_parts": {
+            "has_part": {
                "items": {
                   "type": "string"
                },

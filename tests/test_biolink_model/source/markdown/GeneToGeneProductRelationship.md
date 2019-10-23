@@ -1,16 +1,17 @@
 
-# Class: gene to gene product relationship
+# Type: gene to gene product relationship
 
 
 A gene is transcribed and potentially translated to a gene product
 
 URI: [biolink:GeneToGeneProductRelationship](https://w3id.org/biolink/vocab/GeneToGeneProductRelationship)
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[GeneToGeneProductRelationship|relation:uriorcurie;id(i):identifier_type;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[GeneToGeneProductRelationship],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[GeneToGeneProductRelationship],%20\[OntologyClass]<association%20type(i)%200..1-%20\[GeneToGeneProductRelationship],%20\[GeneProduct]<object%201..1-%20\[GeneToGeneProductRelationship],%20\[Gene]<subject%201..1-%20\[GeneToGeneProductRelationship],%20\[SequenceFeatureRelationship]^-\[GeneToGeneProductRelationship])
+
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[GeneToGeneProductRelationship|relation:uriorcurie;id(i):nodeidentifier;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[GeneToGeneProductRelationship],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[GeneToGeneProductRelationship],%20\[OntologyClass]<association%20type(i)%200..1-%20\[GeneToGeneProductRelationship],%20\[GeneProduct]<object%201..1-%20\[GeneToGeneProductRelationship],%20\[Gene]<subject%201..1-%20\[GeneToGeneProductRelationship],%20\[SequenceFeatureRelationship]^-\[GeneToGeneProductRelationship])
 
 ## Parents
 
- *  is_a: [SequenceFeatureRelationship](SequenceFeatureRelationship.md) - For example, a particular exon is part of a particular transcript or gene
+ *  is_a: [sequence feature relationship](sequence feature relationship.md) - For example, a particular exon is part of a particular transcript or gene
 
 ## Referenced by class
 
@@ -21,57 +22,57 @@ URI: [biolink:GeneToGeneProductRelationship](https://w3id.org/biolink/vocab/Gene
 ### Own
 
  * [object](gene_to_gene_product_relationship_object.md)  <sub>REQ</sub>
-    * range: [GeneProduct](GeneProduct.md)
+    * range: [gene product](gene product.md)
  * [relation](gene_to_gene_product_relationship_relation.md)  <sub>REQ</sub>
-    * range: [Uriorcurie](Uriorcurie.md)
+    * range: [Uriorcurie](type/Uriorcurie.md)
  * [subject](gene_to_gene_product_relationship_subject.md)  <sub>REQ</sub>
-    * range: [Gene](Gene.md)
+    * range: [gene](gene.md)
 
 ### Inherited from association:
 
  * [subject](subject.md)  <sub>REQ</sub>
     * Description: connects an association to the subject of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
-    * range: [NamedThing](NamedThing.md)
-    * inherited from: [Association](Association.md)
+    * range: [named thing](named thing.md)
+    * inherited from: [association](association.md)
  * [relation](relation.md)  <sub>REQ</sub>
     * Description: the relationship type by which a subject is connected to an object in an association
-    * range: [Uriorcurie](Uriorcurie.md)
-    * inherited from: [Association](Association.md)
+    * range: [Uriorcurie](type/Uriorcurie.md)
+    * inherited from: [association](association.md)
  * [object](object.md)  <sub>REQ</sub>
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
-    * range: [NamedThing](NamedThing.md)
-    * inherited from: [Association](Association.md)
+    * range: [named thing](named thing.md)
+    * inherited from: [association](association.md)
  * [id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
-    * range: [IdentifierType](IdentifierType.md)
-    * inherited from: [Association](Association.md)
+    * range: [Nodeidentifier](type/Nodeidentifier.md)
+    * inherited from: [association](association.md)
     * in subsets: (translator_minimal)
  * [negated](negated.md)  <sub>OPT</sub>
     * Description: if set to true, then the association is negated i.e. is not true
-    * range: [Boolean](Boolean.md)
-    * inherited from: [Association](Association.md)
+    * range: [Boolean](type/Boolean.md)
+    * inherited from: [association](association.md)
  * [association type](association_type.md)  <sub>OPT</sub>
     * Description: connects an association to the type of association (e.g. gene to phenotype)
-    * range: [OntologyClass](OntologyClass.md)
-    * inherited from: [Association](Association.md)
+    * range: [ontology class](ontology class.md)
+    * inherited from: [association](association.md)
  * [qualifiers](qualifiers.md)  <sub>0..*</sub>
     * Description: connects an association to qualifiers that modify or qualify the meaning of that association
-    * range: [OntologyClass](OntologyClass.md)
-    * inherited from: [Association](Association.md)
+    * range: [ontology class](ontology class.md)
+    * inherited from: [association](association.md)
  * [publications](publications.md)  <sub>0..*</sub>
     * Description: connects an association to publications supporting the association
-    * range: [Publication](Publication.md)
-    * inherited from: [Association](Association.md)
+    * range: [publication](publication.md)
+    * inherited from: [association](association.md)
  * [provided by](provided_by.md)  <sub>OPT</sub>
     * Description: connects an association to the agent (person, organization or group) that provided it
-    * range: [Provider](Provider.md)
-    * inherited from: [Association](Association.md)
+    * range: [provider](provider.md)
+    * inherited from: [association](association.md)
 
 ### Domain for slot:
 
  * [object](gene_to_gene_product_relationship_object.md)  <sub>REQ</sub>
-    * range: [GeneProduct](GeneProduct.md)
+    * range: [gene product](gene product.md)
  * [relation](gene_to_gene_product_relationship_relation.md)  <sub>REQ</sub>
-    * range: [Uriorcurie](Uriorcurie.md)
+    * range: [Uriorcurie](type/Uriorcurie.md)
  * [subject](gene_to_gene_product_relationship_subject.md)  <sub>REQ</sub>
-    * range: [Gene](Gene.md)
+    * range: [gene](gene.md)

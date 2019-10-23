@@ -1,14 +1,15 @@
 
-# Slot: identifier
+# Type: identifier
 
 
 true means that this slot is the subject of a set of assertions.  Identifiers do not appear as predicates in the model
 
 URI: [meta:identifier](https://w3id.org/biolink/biolinkml/meta/identifier)
 
+
 ## Domain and Range
 
-[SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [Boolean](Boolean.md)
+[slot_definition](slot_definition.md) ->  <sub>OPT</sub> [Boolean](type/Boolean.md)
 
 ## Parents
 
@@ -18,4 +19,13 @@ URI: [meta:identifier](https://w3id.org/biolink/biolinkml/meta/identifier)
 
 ## Used by
 
- * [SlotDefinition](SlotDefinition.md)
+ * [slot_definition](slot_definition.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Comments:** | | identifier is inherited |
+|  | | identifier slots are always required |
+|  | | a given domain can have at most one identifier |
+

@@ -1,14 +1,15 @@
 
-# Slot: object
+# Type: variant to disease association_object
 
 
 
 
 URI: [biolink:variant_to_disease_association_object](https://w3id.org/biolink/vocab/variant_to_disease_association_object)
 
+
 ## Domain and Range
 
-[VariantToDiseaseAssociation](VariantToDiseaseAssociation.md) ->  <sub>REQ</sub> [NamedThing](NamedThing.md)
+[variant to disease association](variant to disease association.md) ->  <sub>REQ</sub> [named thing](named thing.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:variant_to_disease_association_object](https://w3id.org/biolink/vo
 
 ## Used by
 
- * [VariantToDiseaseAssociation](VariantToDiseaseAssociation.md)
+ * [variant to disease association](variant to disease association.md)

@@ -1,14 +1,15 @@
 
-# Slot: is_a
+# Type: slot_definition_is_a
 
 
 
 
 URI: [meta:slot_definition_is_a](https://w3id.org/biolink/biolinkml/meta/slot_definition_is_a)
 
+
 ## Domain and Range
 
-[SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [SlotDefinition](SlotDefinition.md)
+[slot_definition](slot_definition.md) ->  <sub>OPT</sub> [slot_definition](slot_definition.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [meta:slot_definition_is_a](https://w3id.org/biolink/biolinkml/meta/slot_de
 
 ## Used by
 
- * [SlotDefinition](SlotDefinition.md)
+ * [slot_definition](slot_definition.md)

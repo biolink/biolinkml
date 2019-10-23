@@ -1,14 +1,15 @@
 
-# Slot: source web page
+# Type: source web page
 
 
 
 
 URI: [biolink:source_web_page](https://w3id.org/biolink/vocab/source_web_page)
 
+
 ## Domain and Range
 
-[DataSetSummary](DataSetSummary.md) ->  <sub>OPT</sub> [String](String.md)
+[data set summary](data set summary.md) ->  <sub>OPT</sub> [String](type/String.md)
 
 ## Parents
 
@@ -19,4 +20,11 @@ URI: [biolink:source_web_page](https://w3id.org/biolink/vocab/source_web_page)
 
 ## Used by
 
- * [DataSetSummary](DataSetSummary.md)
+ * [data set summary](data set summary.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | dcterms:source |
+

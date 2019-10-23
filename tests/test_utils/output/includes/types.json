@@ -3,7 +3,7 @@
    "description": "Shared type definitions for the core biolink mode and metamodel",
    "id": "https://w3id.org/biolink/biolinkml/types",
    "title": "Core Biolink metamodel types",
-   "version": "1.1.0",
+   "version": "1.1.1",
    "license": "https://creativecommons.org/publicdomain/zero/1.0/",
    "prefixes": [
       {
@@ -24,6 +24,7 @@
    "types": [
       {
          "name": "string",
+         "definition_uri": "metatype:String",
          "description": "A character string",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "str",
@@ -31,6 +32,7 @@
       },
       {
          "name": "integer",
+         "definition_uri": "metatype:Integer",
          "description": "An integer",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "int",
@@ -38,6 +40,7 @@
       },
       {
          "name": "boolean",
+         "definition_uri": "metatype:Boolean",
          "description": "A binary (true or false) value",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "Bool",
@@ -45,6 +48,7 @@
       },
       {
          "name": "float",
+         "definition_uri": "metatype:Float",
          "description": "A real number that conforms to the xsd:float specification",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "float",
@@ -52,6 +56,7 @@
       },
       {
          "name": "double",
+         "definition_uri": "metatype:Double",
          "description": "A real number that conforms to the xsd:double specification",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "float",
@@ -59,6 +64,7 @@
       },
       {
          "name": "time",
+         "definition_uri": "metatype:Time",
          "description": "A time object represents a (local) time of day, independent of any particular day",
          "notes": [
             "URI is dateTime because OWL reasoners don't work with straight date or time"
@@ -70,6 +76,7 @@
       },
       {
          "name": "date",
+         "definition_uri": "metatype:Date",
          "description": "a date (year, month and day) in an idealized calendar",
          "notes": [
             "URI is dateTime because OWL reasoners don't work with straight date or time"
@@ -81,6 +88,7 @@
       },
       {
          "name": "datetime",
+         "definition_uri": "metatype:Datetime",
          "description": "The combination of a date and time",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "XSDDateTime",
@@ -89,6 +97,7 @@
       },
       {
          "name": "uriorcurie",
+         "definition_uri": "metatype:Uriorcurie",
          "description": "a URI or a CURIE",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "URIorCURIE",
@@ -97,6 +106,7 @@
       },
       {
          "name": "uri",
+         "definition_uri": "metatype:Uri",
          "description": "a complete URI",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "URI",
@@ -105,6 +115,7 @@
       },
       {
          "name": "ncname",
+         "definition_uri": "metatype:Ncname",
          "description": "Prefix part of CURIE",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "NCName",
@@ -113,6 +124,7 @@
       },
       {
          "name": "objectidentifier",
+         "definition_uri": "metatype:Objectidentifier",
          "description": "A URI or CURIE that represents an object in the model.",
          "comments": [
             "Used for inheritence and type checking"
@@ -124,6 +136,7 @@
       },
       {
          "name": "nodeidentifier",
+         "definition_uri": "metatype:Nodeidentifier",
          "description": "A URI, CURIE or BNODE that represents a node in a model.",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "NodeIdentifier",

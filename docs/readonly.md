@@ -1,14 +1,15 @@
 
-# Slot: readonly
+# Type: readonly
 
 
 If present, slot is read only.  Text explains why
 
 URI: [meta:readonly](https://w3id.org/biolink/biolinkml/meta/readonly)
 
+
 ## Domain and Range
 
-[SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [String](String.md)
+[slot_definition](slot_definition.md) ->  <sub>OPT</sub> [String](type/String.md)
 
 ## Parents
 
@@ -18,4 +19,4 @@ URI: [meta:readonly](https://w3id.org/biolink/biolinkml/meta/readonly)
 
 ## Used by
 
- * [SlotDefinition](SlotDefinition.md)
+ * [slot_definition](slot_definition.md)

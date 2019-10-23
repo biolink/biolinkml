@@ -1,14 +1,15 @@
 
-# Slot: has phenotype
+# Type: has phenotype
 
 
 holds between a biological entity and a phenotype, where a phenotype is construed broadly as any kind of quality of an organism part, a collection of these qualities, or a change in quality or qualities (e.g. abnormally increased temperature).
 
 URI: [biolink:has_phenotype](https://w3id.org/biolink/vocab/has_phenotype)
 
+
 ## Domain and Range
 
-[BiologicalEntity](BiologicalEntity.md) ->  <sub>0..*</sub> [PhenotypicFeature](PhenotypicFeature.md)
+[biological entity](biological entity.md) ->  <sub>0..*</sub> [phenotypic feature](phenotypic feature.md)
 
 ## Parents
 
@@ -19,51 +20,60 @@ URI: [biolink:has_phenotype](https://w3id.org/biolink/vocab/has_phenotype)
 
 ## Used by
 
- * [RNAProduct](RNAProduct.md)
- * [RNAProductIsoform](RNAProductIsoform.md)
- * [AnatomicalEntity](AnatomicalEntity.md)
- * [BiologicalEntity](BiologicalEntity.md)
- * [BiologicalProcess](BiologicalProcess.md)
- * [BiologicalProcessOrActivity](BiologicalProcessOrActivity.md)
- * [Carbohydrate](Carbohydrate.md)
- * [Case](Case.md)
- * [Cell](Cell.md)
- * [CellLine](CellLine.md)
- * [CellularComponent](CellularComponent.md)
- * [ChemicalSubstance](ChemicalSubstance.md)
- * [CodingSequence](CodingSequence.md)
- * [Disease](Disease.md)
- * [DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md)
- * [Drug](Drug.md)
- * [DrugExposure](DrugExposure.md)
- * [Environment](Environment.md)
- * [Exon](Exon.md)
- * [Gene](Gene.md)
- * [GeneFamily](GeneFamily.md)
- * [GeneOrGeneProduct](GeneOrGeneProduct.md)
- * [GeneProduct](GeneProduct.md)
- * [GeneProductIsoform](GeneProductIsoform.md)
- * [Genome](Genome.md)
- * [GenomicEntity](GenomicEntity.md)
- * [Genotype](Genotype.md)
- * [GrossAnatomicalStructure](GrossAnatomicalStructure.md)
- * [Haplotype](Haplotype.md)
- * [IndividualOrganism](IndividualOrganism.md)
- * [LifeStage](LifeStage.md)
- * [MacromolecularComplex](MacromolecularComplex.md)
- * [MacromolecularMachine](MacromolecularMachine.md)
- * [Metabolite](Metabolite.md)
- * [MicroRNA](MicroRNA.md)
- * [MolecularActivity](MolecularActivity.md)
- * [MolecularEntity](MolecularEntity.md)
- * [NoncodingRNAProduct](NoncodingRNAProduct.md)
- * [OrganismalEntity](OrganismalEntity.md)
- * [Pathway](Pathway.md)
- * [PhenotypicFeature](PhenotypicFeature.md)
- * [PhysiologicalProcess](PhysiologicalProcess.md)
- * [PopulationOfIndividualOrganisms](PopulationOfIndividualOrganisms.md)
- * [Protein](Protein.md)
- * [ProteinIsoform](ProteinIsoform.md)
- * [SequenceVariant](SequenceVariant.md)
- * [Transcript](Transcript.md)
- * [Treatment](Treatment.md)
+ * [RNA product](RNA product.md)
+ * [RNA product isoform](RNA product isoform.md)
+ * [anatomical entity](anatomical entity.md)
+ * [biological entity](biological entity.md)
+ * [biological process](biological process.md)
+ * [biological process or activity](biological process or activity.md)
+ * [carbohydrate](carbohydrate.md)
+ * [case](case.md)
+ * [cell](cell.md)
+ * [cell line](cell line.md)
+ * [cellular component](cellular component.md)
+ * [chemical exposure](chemical exposure.md)
+ * [chemical substance](chemical substance.md)
+ * [coding sequence](coding sequence.md)
+ * [disease](disease.md)
+ * [disease or phenotypic feature](disease or phenotypic feature.md)
+ * [drug](drug.md)
+ * [drug exposure](drug exposure.md)
+ * [exon](exon.md)
+ * [exposure event](exposure event.md)
+ * [gene](gene.md)
+ * [gene family](gene family.md)
+ * [gene or gene product](gene or gene product.md)
+ * [gene product](gene product.md)
+ * [gene product isoform](gene product isoform.md)
+ * [genome](genome.md)
+ * [genomic entity](genomic entity.md)
+ * [genotype](genotype.md)
+ * [gross anatomical structure](gross anatomical structure.md)
+ * [haplotype](haplotype.md)
+ * [individual organism](individual organism.md)
+ * [life stage](life stage.md)
+ * [macromolecular complex](macromolecular complex.md)
+ * [macromolecular machine](macromolecular machine.md)
+ * [metabolite](metabolite.md)
+ * [microRNA](microRNA.md)
+ * [molecular activity](molecular activity.md)
+ * [molecular entity](molecular entity.md)
+ * [noncoding RNA product](noncoding RNA product.md)
+ * [organismal entity](organismal entity.md)
+ * [pathway](pathway.md)
+ * [phenotypic feature](phenotypic feature.md)
+ * [physiological process](physiological process.md)
+ * [population of individual organisms](population of individual organisms.md)
+ * [protein](protein.md)
+ * [protein isoform](protein isoform.md)
+ * [sequence variant](sequence variant.md)
+ * [transcript](transcript.md)
+ * [treatment](treatment.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | RO:0002200 |
+| **In Subsets:** | | translator_minimal |
+

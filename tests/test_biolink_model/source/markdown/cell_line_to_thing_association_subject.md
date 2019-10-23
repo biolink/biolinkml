@@ -1,14 +1,15 @@
 
-# Slot: subject
+# Type: cell line to thing association_subject
 
 
 
 
 URI: [biolink:cell_line_to_thing_association_subject](https://w3id.org/biolink/vocab/cell_line_to_thing_association_subject)
 
+
 ## Domain and Range
 
-[CellLineToThingAssociation](CellLineToThingAssociation.md) ->  <sub>REQ</sub> [CellLine](CellLine.md)
+[cell line to thing association](cell line to thing association.md) ->  <sub>REQ</sub> [cell line](cell line.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:cell_line_to_thing_association_subject](https://w3id.org/biolink/v
 
 ## Used by
 
- * [CellLineToThingAssociation](CellLineToThingAssociation.md)
+ * [cell line to thing association](cell line to thing association.md)

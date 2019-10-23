@@ -1,14 +1,15 @@
 
-# Slot: object
+# Type: chemical to gene association_object
 
 
 
 
 URI: [biolink:chemical_to_gene_association_object](https://w3id.org/biolink/vocab/chemical_to_gene_association_object)
 
+
 ## Domain and Range
 
-[ChemicalToGeneAssociation](ChemicalToGeneAssociation.md) ->  <sub>REQ</sub> [GeneOrGeneProduct](GeneOrGeneProduct.md)
+[chemical to gene association](chemical to gene association.md) ->  <sub>REQ</sub> [gene or gene product](gene or gene product.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:chemical_to_gene_association_object](https://w3id.org/biolink/voca
 
 ## Used by
 
- * [ChemicalToGeneAssociation](ChemicalToGeneAssociation.md)
+ * [chemical to gene association](chemical to gene association.md)

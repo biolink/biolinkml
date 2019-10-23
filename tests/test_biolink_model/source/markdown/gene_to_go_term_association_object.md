@@ -1,14 +1,15 @@
 
-# Slot: object
+# Type: gene to go term association_object
 
 
 
 
 URI: [biolink:gene_to_go_term_association_object](https://w3id.org/biolink/vocab/gene_to_go_term_association_object)
 
+
 ## Domain and Range
 
-[GeneToGoTermAssociation](GeneToGoTermAssociation.md) ->  <sub>REQ</sub> [GeneOntologyClass](GeneOntologyClass.md)
+[gene to go term association](gene to go term association.md) ->  <sub>REQ</sub> [gene ontology class](gene ontology class.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:gene_to_go_term_association_object](https://w3id.org/biolink/vocab
 
 ## Used by
 
- * [GeneToGoTermAssociation](GeneToGoTermAssociation.md)
+ * [gene to go term association](gene to go term association.md)

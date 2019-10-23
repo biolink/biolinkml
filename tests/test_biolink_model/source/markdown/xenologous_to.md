@@ -1,14 +1,15 @@
 
-# Slot: xenologous to
+# Type: xenologous to
 
 
 a homology relationship characterized by an interspecies (horizontal) transfer since the common ancestor.
 
 URI: [biolink:xenologous_to](https://w3id.org/biolink/vocab/xenologous_to)
 
+
 ## Domain and Range
 
-[NamedThing](NamedThing.md) ->  <sub>0..*</sub> [NamedThing](NamedThing.md)
+[named thing](named thing.md) ->  <sub>0..*</sub> [named thing](named thing.md)
 
 ## Parents
 
@@ -19,4 +20,12 @@ URI: [biolink:xenologous_to](https://w3id.org/biolink/vocab/xenologous_to)
 
 ## Used by
 
- * [NamedThing](NamedThing.md)
+ * [named thing](named thing.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | RO:HOM0000018 |
+| **In Subsets:** | | translator_minimal |
+

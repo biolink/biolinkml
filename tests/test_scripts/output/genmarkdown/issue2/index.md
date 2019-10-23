@@ -7,14 +7,14 @@ A metamodel for defining biolink related schemas
 
 ### Classes
 
- * [Element](Element.md) - a named element in the model
+ * [element](element.md) - a named element in the model
     * definition
        * class_definition
        * slot_definition
     * schema_definition
     * subset_definition
     * type_definition
- * [Example](Example.md) - usage example and description
+ * [example](example.md) - usage example and description
 
 ### Mixins
 
@@ -43,4 +43,4 @@ A metamodel for defining biolink related schemas
 
 #### Defined
 
- * [String](String.md)  (**str**)  - A character string
+ * [String](type/String.md)  (**str**)  - A character string

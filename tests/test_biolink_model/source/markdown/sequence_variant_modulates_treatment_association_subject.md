@@ -1,14 +1,15 @@
 
-# Slot: subject
+# Type: sequence variant modulates treatment association_subject
 
 
 
 
 URI: [biolink:sequence_variant_modulates_treatment_association_subject](https://w3id.org/biolink/vocab/sequence_variant_modulates_treatment_association_subject)
 
+
 ## Domain and Range
 
-[SequenceVariantModulatesTreatmentAssociation](SequenceVariantModulatesTreatmentAssociation.md) ->  <sub>REQ</sub> [SequenceVariant](SequenceVariant.md)
+[sequence variant modulates treatment association](sequence variant modulates treatment association.md) ->  <sub>REQ</sub> [sequence variant](sequence variant.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:sequence_variant_modulates_treatment_association_subject](https://
 
 ## Used by
 
- * [SequenceVariantModulatesTreatmentAssociation](SequenceVariantModulatesTreatmentAssociation.md)
+ * [sequence variant modulates treatment association](sequence variant modulates treatment association.md)

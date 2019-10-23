@@ -1,14 +1,15 @@
 
-# Slot: is_a
+# Type: class_definition_is_a
 
 
 
 
 URI: [meta:class_definition_is_a](https://w3id.org/biolink/biolinkml/meta/class_definition_is_a)
 
+
 ## Domain and Range
 
-[ClassDefinition](ClassDefinition.md) ->  <sub>OPT</sub> [ClassDefinition](ClassDefinition.md)
+[class_definition](class_definition.md) ->  <sub>OPT</sub> [class_definition](class_definition.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [meta:class_definition_is_a](https://w3id.org/biolink/biolinkml/meta/class_
 
 ## Used by
 
- * [ClassDefinition](ClassDefinition.md)
+ * [class_definition](class_definition.md)

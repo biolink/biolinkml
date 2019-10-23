@@ -8,6 +8,7 @@ type ClassDefinition
   {
     idPrefixes: [Ncname]
     name: String!
+    definitionUri: Uriorcurie
     aliases: [String]
     localNames: [LocalName]
     mappings: [Uriorcurie]
@@ -15,13 +16,18 @@ type ClassDefinition
     altDescriptions: [AltDescription]
     deprecated: String
     todos: [String]
-    comments: [String]
     notes: [String]
+    comments: [String]
     examples: [Example]
     inSubset: [SubsetDefinition]
     fromSchema: Uri
     importedFrom: String
     seeAlso: [Uriorcurie]
+    exactMappings: [Uriorcurie]
+    closeMappings: [Uriorcurie]
+    relatedMappings: [Uriorcurie]
+    deprecatedElementHasExactReplacement: Uriorcurie
+    deprecatedElementHasPossibleReplacement: Uriorcurie
     isA: ClassDefinition
     abstract: Boolean
     mixin: Boolean
@@ -40,6 +46,7 @@ interface Definition
   {
     idPrefixes: [Ncname]
     name: String!
+    definitionUri: Uriorcurie
     aliases: [String]
     localNames: [LocalName]
     mappings: [Uriorcurie]
@@ -47,13 +54,18 @@ interface Definition
     altDescriptions: [AltDescription]
     deprecated: String
     todos: [String]
-    comments: [String]
     notes: [String]
+    comments: [String]
     examples: [Example]
     inSubset: [SubsetDefinition]
     fromSchema: Uri
     importedFrom: String
     seeAlso: [Uriorcurie]
+    exactMappings: [Uriorcurie]
+    closeMappings: [Uriorcurie]
+    relatedMappings: [Uriorcurie]
+    deprecatedElementHasExactReplacement: Uriorcurie
+    deprecatedElementHasPossibleReplacement: Uriorcurie
     isA: Definition
     abstract: Boolean
     mixin: Boolean
@@ -66,6 +78,7 @@ interface Element
   {
     idPrefixes: [Ncname]
     name: String!
+    definitionUri: Uriorcurie
     aliases: [String]
     localNames: [LocalName]
     mappings: [Uriorcurie]
@@ -80,6 +93,11 @@ interface Element
     fromSchema: Uri
     importedFrom: String
     seeAlso: [Uriorcurie]
+    exactMappings: [Uriorcurie]
+    closeMappings: [Uriorcurie]
+    relatedMappings: [Uriorcurie]
+    deprecatedElementHasExactReplacement: Uriorcurie
+    deprecatedElementHasPossibleReplacement: Uriorcurie
   }
 
 type Example
@@ -104,6 +122,7 @@ type SchemaDefinition
   {
     idPrefixes: [Ncname]
     name: String!
+    definitionUri: Uriorcurie
     aliases: [String]
     localNames: [LocalName]
     mappings: [Uriorcurie]
@@ -111,13 +130,18 @@ type SchemaDefinition
     altDescriptions: [AltDescription]
     deprecated: String
     todos: [String]
-    comments: [String]
     notes: [String]
+    comments: [String]
     examples: [Example]
     inSubset: [SubsetDefinition]
     fromSchema: Uri
     importedFrom: String
     seeAlso: [Uriorcurie]
+    exactMappings: [Uriorcurie]
+    closeMappings: [Uriorcurie]
+    relatedMappings: [Uriorcurie]
+    deprecatedElementHasExactReplacement: Uriorcurie
+    deprecatedElementHasPossibleReplacement: Uriorcurie
     id: Uri!
     title: String
     version: String
@@ -143,6 +167,7 @@ type SlotDefinition
   {
     idPrefixes: [Ncname]
     name: String!
+    definitionUri: Uriorcurie
     aliases: [String]
     localNames: [LocalName]
     mappings: [Uriorcurie]
@@ -150,13 +175,18 @@ type SlotDefinition
     altDescriptions: [AltDescription]
     deprecated: String
     todos: [String]
-    comments: [String]
     notes: [String]
+    comments: [String]
     examples: [Example]
     inSubset: [SubsetDefinition]
     fromSchema: Uri
     importedFrom: String
     seeAlso: [Uriorcurie]
+    exactMappings: [Uriorcurie]
+    closeMappings: [Uriorcurie]
+    relatedMappings: [Uriorcurie]
+    deprecatedElementHasExactReplacement: Uriorcurie
+    deprecatedElementHasPossibleReplacement: Uriorcurie
     isA: SlotDefinition
     abstract: Boolean
     mixin: Boolean
@@ -189,6 +219,7 @@ type SubsetDefinition
   {
     idPrefixes: [Ncname]
     name: String!
+    definitionUri: Uriorcurie
     aliases: [String]
     localNames: [LocalName]
     mappings: [Uriorcurie]
@@ -196,19 +227,25 @@ type SubsetDefinition
     altDescriptions: [AltDescription]
     deprecated: String
     todos: [String]
-    comments: [String]
     notes: [String]
+    comments: [String]
     examples: [Example]
     inSubset: [SubsetDefinition]
     fromSchema: Uri
     importedFrom: String
     seeAlso: [Uriorcurie]
+    exactMappings: [Uriorcurie]
+    closeMappings: [Uriorcurie]
+    relatedMappings: [Uriorcurie]
+    deprecatedElementHasExactReplacement: Uriorcurie
+    deprecatedElementHasPossibleReplacement: Uriorcurie
   }
 
 type TypeDefinition
   {
     idPrefixes: [Ncname]
     name: String!
+    definitionUri: Uriorcurie
     aliases: [String]
     localNames: [LocalName]
     mappings: [Uriorcurie]
@@ -216,13 +253,18 @@ type TypeDefinition
     altDescriptions: [AltDescription]
     deprecated: String
     todos: [String]
-    comments: [String]
     notes: [String]
+    comments: [String]
     examples: [Example]
     inSubset: [SubsetDefinition]
     fromSchema: Uri
     importedFrom: String
     seeAlso: [Uriorcurie]
+    exactMappings: [Uriorcurie]
+    closeMappings: [Uriorcurie]
+    relatedMappings: [Uriorcurie]
+    deprecatedElementHasExactReplacement: Uriorcurie
+    deprecatedElementHasPossibleReplacement: Uriorcurie
     typeof: TypeDefinition
     base: String
     uri: Uriorcurie

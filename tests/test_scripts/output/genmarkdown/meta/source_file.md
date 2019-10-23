@@ -1,14 +1,15 @@
 
-# Slot: source_file
+# Type: source_file
 
 
 name, uri or description of the source of the schema
 
 URI: [meta:source_file](https://w3id.org/biolink/biolinkml/meta/source_file)
 
+
 ## Domain and Range
 
-[SchemaDefinition](SchemaDefinition.md) ->  <sub>OPT</sub> [String](String.md)
+[schema_definition](schema_definition.md) ->  <sub>OPT</sub> [String](type/String.md)
 
 ## Parents
 
@@ -18,4 +19,11 @@ URI: [meta:source_file](https://w3id.org/biolink/biolinkml/meta/source_file)
 
 ## Used by
 
- * [SchemaDefinition](SchemaDefinition.md)
+ * [schema_definition](schema_definition.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **In Subsets:** | | owl |
+

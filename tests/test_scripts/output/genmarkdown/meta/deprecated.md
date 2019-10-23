@@ -1,14 +1,15 @@
 
-# Slot: deprecated
+# Type: deprecated
 
 
 Description of why and when this element will no longer be used
 
 URI: [meta:deprecated](https://w3id.org/biolink/biolinkml/meta/deprecated)
 
+
 ## Domain and Range
 
-[Element](Element.md) ->  <sub>OPT</sub> [String](String.md)
+[element](element.md) ->  <sub>OPT</sub> [String](type/String.md)
 
 ## Parents
 
@@ -18,10 +19,10 @@ URI: [meta:deprecated](https://w3id.org/biolink/biolinkml/meta/deprecated)
 
 ## Used by
 
- * [ClassDefinition](ClassDefinition.md)
- * [Definition](Definition.md)
- * [Element](Element.md)
- * [SchemaDefinition](SchemaDefinition.md)
- * [SlotDefinition](SlotDefinition.md)
- * [SubsetDefinition](SubsetDefinition.md)
- * [TypeDefinition](TypeDefinition.md)
+ * [class_definition](class_definition.md)
+ * [definition](definition.md)
+ * [element](element.md)
+ * [schema_definition](schema_definition.md)
+ * [slot_definition](slot_definition.md)
+ * [subset_definition](subset_definition.md)
+ * [type_definition](type_definition.md)

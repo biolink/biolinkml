@@ -1,14 +1,15 @@
 
-# Slot: object
+# Type: variant to population association_object
 
 
 
 
 URI: [biolink:variant_to_population_association_object](https://w3id.org/biolink/vocab/variant_to_population_association_object)
 
+
 ## Domain and Range
 
-[VariantToPopulationAssociation](VariantToPopulationAssociation.md) ->  <sub>REQ</sub> [PopulationOfIndividualOrganisms](PopulationOfIndividualOrganisms.md)
+[variant to population association](variant to population association.md) ->  <sub>REQ</sub> [population of individual organisms](population of individual organisms.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:variant_to_population_association_object](https://w3id.org/biolink
 
 ## Used by
 
- * [VariantToPopulationAssociation](VariantToPopulationAssociation.md)
+ * [variant to population association](variant to population association.md)

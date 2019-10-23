@@ -1,14 +1,15 @@
 
-# Slot: description
+# Type: value_description
 
 
 description of what the value is doing
 
 URI: [meta:value_description](https://w3id.org/biolink/biolinkml/meta/value_description)
 
+
 ## Domain and Range
 
-[Example](Example.md) ->  <sub>OPT</sub> [String](String.md)
+[example](example.md) ->  <sub>OPT</sub> [String](type/String.md)
 
 ## Parents
 
@@ -18,4 +19,4 @@ URI: [meta:value_description](https://w3id.org/biolink/biolinkml/meta/value_desc
 
 ## Used by
 
- * [Example](Example.md)
+ * [example](example.md)

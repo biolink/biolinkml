@@ -6,7 +6,7 @@ from typing import Union, Optional, Tuple
 from urllib.parse import urlparse
 
 from rdflib import Literal, BNode, URIRef
-from rdflib.namespace import NamespaceManager, is_ncname
+from rdflib.namespace import is_ncname
 from rdflib.term import Identifier as rdflib_Identifier
 
 from biolinkml.utils.namespaces import Namespaces

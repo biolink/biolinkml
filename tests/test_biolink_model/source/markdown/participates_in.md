@@ -1,14 +1,15 @@
 
-# Slot: participates in
+# Type: participates in
 
 
 holds between a continuant and a process, where the continuant is somehow involved in the process
 
 URI: [biolink:participates_in](https://w3id.org/biolink/vocab/participates_in)
 
+
 ## Domain and Range
 
-[NamedThing](NamedThing.md) ->  <sub>0..*</sub> [Occurrent](Occurrent.md)
+[named thing](named thing.md) ->  <sub>0..*</sub> [occurrent](occurrent.md)
 
 ## Parents
 
@@ -20,4 +21,12 @@ URI: [biolink:participates_in](https://w3id.org/biolink/vocab/participates_in)
 
 ## Used by
 
- * [NamedThing](NamedThing.md)
+ * [named thing](named thing.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | RO:0000056 |
+| **In Subsets:** | | translator_minimal |
+

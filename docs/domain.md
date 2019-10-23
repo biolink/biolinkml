@@ -1,5 +1,5 @@
 
-# Slot: domain
+# Type: domain
 
 
 defines the type of the subject of the slot.  Given the following slot definition
@@ -14,9 +14,10 @@ implicitly asserts that X is an instance of C1
 
 URI: [meta:domain](https://w3id.org/biolink/biolinkml/meta/domain)
 
+
 ## Domain and Range
 
-[SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [ClassDefinition](ClassDefinition.md)
+[slot_definition](slot_definition.md) ->  <sub>OPT</sub> [class_definition](class_definition.md)
 
 ## Parents
 
@@ -26,4 +27,4 @@ URI: [meta:domain](https://w3id.org/biolink/biolinkml/meta/domain)
 
 ## Used by
 
- * [SlotDefinition](SlotDefinition.md)
+ * [slot_definition](slot_definition.md)

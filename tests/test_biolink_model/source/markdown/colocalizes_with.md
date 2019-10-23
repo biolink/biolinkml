@@ -1,14 +1,15 @@
 
-# Slot: colocalizes with
+# Type: colocalizes with
 
 
 holds between two entities that are observed to be located in the same place.
 
 URI: [biolink:colocalizes_with](https://w3id.org/biolink/vocab/colocalizes_with)
 
+
 ## Domain and Range
 
-[NamedThing](NamedThing.md) ->  <sub>0..*</sub> [NamedThing](NamedThing.md)
+[named thing](named thing.md) ->  <sub>0..*</sub> [named thing](named thing.md)
 
 ## Parents
 
@@ -19,4 +20,12 @@ URI: [biolink:colocalizes_with](https://w3id.org/biolink/vocab/colocalizes_with)
 
 ## Used by
 
- * [NamedThing](NamedThing.md)
+ * [named thing](named thing.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | RO:00002325 |
+| **In Subsets:** | | translator_minimal |
+

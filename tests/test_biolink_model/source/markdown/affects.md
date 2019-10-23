@@ -1,14 +1,15 @@
 
-# Slot: affects
+# Type: affects
 
 
 describes an entity that has a direct affect on the state or quality of another existing entity. Use of the 'affects' predicate implies that the affected entity already exists, unlike predicates such as 'affects risk for' and 'prevents, where the outcome is something that may or may not come to be.
 
 URI: [biolink:affects](https://w3id.org/biolink/vocab/affects)
 
+
 ## Domain and Range
 
-[NamedThing](NamedThing.md) ->  <sub>0..*</sub> [NamedThing](NamedThing.md)
+[named thing](named thing.md) ->  <sub>0..*</sub> [named thing](named thing.md)
 
 ## Parents
 
@@ -38,4 +39,12 @@ URI: [biolink:affects](https://w3id.org/biolink/vocab/affects)
 
 ## Used by
 
- * [NamedThing](NamedThing.md)
+ * [named thing](named thing.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | SEMMEDDB:AFFECTS |
+| **In Subsets:** | | translator_minimal |
+

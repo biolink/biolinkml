@@ -1,14 +1,15 @@
 
-# Slot: source_file_size
+# Type: source_file_size
 
 
 size in bytes of the source of the schema
 
 URI: [meta:source_file_size](https://w3id.org/biolink/biolinkml/meta/source_file_size)
 
+
 ## Domain and Range
 
-[SchemaDefinition](SchemaDefinition.md) ->  <sub>OPT</sub> [Integer](Integer.md)
+[schema_definition](schema_definition.md) ->  <sub>OPT</sub> [Integer](type/Integer.md)
 
 ## Parents
 
@@ -18,4 +19,11 @@ URI: [meta:source_file_size](https://w3id.org/biolink/biolinkml/meta/source_file
 
 ## Used by
 
- * [SchemaDefinition](SchemaDefinition.md)
+ * [schema_definition](schema_definition.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **In Subsets:** | | owl |
+

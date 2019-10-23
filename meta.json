@@ -1,928 +1,1841 @@
 {
-   "type": "Schema",
-   "@context": [
-      "http://www.w3.org/ns/shex.jsonld",
-      {
-         "@base": "https://w3id.org/biolink/biolinkml/meta/"
-      }
-   ],
-   "shapes": [
-      {
-         "type": "NodeConstraint",
-         "id": "https://w3id.org/biolink/biolinkml/meta/String",
-         "datatype": "http://www.w3.org/2001/XMLSchema#string"
-      },
-      {
-         "type": "NodeConstraint",
-         "id": "https://w3id.org/biolink/biolinkml/meta/Integer",
-         "datatype": "http://www.w3.org/2001/XMLSchema#integer"
-      },
-      {
-         "type": "NodeConstraint",
-         "id": "https://w3id.org/biolink/biolinkml/meta/Boolean",
-         "datatype": "http://www.w3.org/2001/XMLSchema#boolean"
-      },
-      {
-         "type": "NodeConstraint",
-         "id": "https://w3id.org/biolink/biolinkml/meta/Float",
-         "datatype": "http://www.w3.org/2001/XMLSchema#float"
-      },
-      {
-         "type": "NodeConstraint",
-         "id": "https://w3id.org/biolink/biolinkml/meta/Double",
-         "datatype": "http://www.w3.org/2001/XMLSchema#double"
-      },
-      {
-         "type": "NodeConstraint",
-         "id": "https://w3id.org/biolink/biolinkml/meta/Time",
-         "datatype": "http://www.w3.org/2001/XMLSchema#dateTime"
-      },
-      {
-         "type": "NodeConstraint",
-         "id": "https://w3id.org/biolink/biolinkml/meta/Date",
-         "datatype": "http://www.w3.org/2001/XMLSchema#date"
-      },
-      {
-         "type": "NodeConstraint",
-         "id": "https://w3id.org/biolink/biolinkml/meta/Datetime",
-         "datatype": "http://www.w3.org/2001/XMLSchema#dateTime"
-      },
-      {
-         "type": "NodeConstraint",
-         "id": "https://w3id.org/biolink/biolinkml/meta/Uriorcurie",
-         "nodeKind": "iri"
-      },
-      {
-         "type": "NodeConstraint",
-         "id": "https://w3id.org/biolink/biolinkml/meta/Uri",
-         "nodeKind": "iri"
-      },
-      {
-         "type": "NodeConstraint",
-         "id": "https://w3id.org/biolink/biolinkml/meta/Ncname",
-         "datatype": "http://www.w3.org/2001/XMLSchema#string"
-      },
-      {
-         "type": "Shape",
-         "id": "https://w3id.org/biolink/biolinkml/meta/AltDescription",
-         "closed": true,
-         "extra": [
-            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
-         ],
-         "expression": {
-            "type": "EachOf",
-            "id": "https://w3id.org/biolink/biolinkml/meta/AltDescription_struct",
-            "expressions": [
-               {
-                  "type": "TripleConstraint",
-                  "predicate": "https://w3id.org/biolink/biolinkml/meta/source",
-                  "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Ncname",
-                  "min": 1,
-                  "max": 1
-               },
-               {
-                  "type": "TripleConstraint",
-                  "predicate": "https://w3id.org/biolink/biolinkml/meta/description",
-                  "valueExpr": "https://w3id.org/biolink/biolinkml/meta/String",
-                  "min": 1,
-                  "max": 1
-               }
-            ]
-         }
-      },
-      {
-         "type": "Shape",
-         "id": "https://w3id.org/biolink/biolinkml/meta/ClassDefinition",
-         "closed": true,
-         "extra": [
-            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
-         ],
-         "expression": {
-            "type": "EachOf",
-            "expressions": [
-               {
-                  "type": "EachOf",
-                  "id": "https://w3id.org/biolink/biolinkml/meta/ClassDefinition_struct",
-                  "expressions": [
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/is_a",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/ClassDefinition",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/mixins",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/ClassDefinition",
-                        "min": 0,
-                        "max": -1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/apply_to",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/ClassDefinition",
-                        "min": 0,
-                        "max": -1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/slots",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/SlotDefinition",
-                        "min": 0,
-                        "max": -1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/slot_usage",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/SlotDefinition",
-                        "min": 0,
-                        "max": -1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/class_uri",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Uriorcurie",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Uriorcurie",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/union_of",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/ClassDefinition",
-                        "min": 0,
-                        "max": -1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/defining_slots",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/SlotDefinition",
-                        "min": 0,
-                        "max": -1
-                     },
-                     "https://w3id.org/biolink/biolinkml/meta/Definition_struct"
-                  ]
-               },
-               {
-                  "type": "TripleConstraint",
-                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
-                  "valueExpr": {
-                     "type": "NodeConstraint",
-                     "values": [
-                        "https://w3id.org/biolink/biolinkml/meta/ClassDefinition"
-                     ]
-                  }
-               }
-            ]
-         }
-      },
-      {
-         "type": "ShapeOr",
-         "id": "https://w3id.org/biolink/biolinkml/meta/Definition",
-         "shapeExprs": [
-            "https://w3id.org/biolink/biolinkml/meta/ClassDefinition",
-            "https://w3id.org/biolink/biolinkml/meta/SlotDefinition"
-         ]
-      },
-      {
-         "type": "Shape",
-         "id": "https://w3id.org/biolink/biolinkml/meta/Definition_type",
-         "expression": {
-            "type": "EachOf",
-            "expressions": [
-               {
-                  "type": "EachOf",
-                  "id": "https://w3id.org/biolink/biolinkml/meta/Definition_struct",
-                  "expressions": [
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/abstract",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Boolean",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/mixin",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Boolean",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/mixins",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Definition",
-                        "min": 0,
-                        "max": -1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/apply_to",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Definition",
-                        "min": 0,
-                        "max": -1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/values_from",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Uriorcurie",
-                        "min": 0,
-                        "max": -1
-                     },
-                     "https://w3id.org/biolink/biolinkml/meta/Element_struct"
-                  ]
-               },
-               {
-                  "type": "TripleConstraint",
-                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
-                  "valueExpr": {
-                     "type": "NodeConstraint",
-                     "values": [
-                        "https://w3id.org/biolink/biolinkml/meta/Definition"
-                     ]
-                  }
-               }
-            ]
-         }
-      },
-      {
-         "type": "ShapeOr",
-         "id": "https://w3id.org/biolink/biolinkml/meta/Element",
-         "shapeExprs": [
-            "https://w3id.org/biolink/biolinkml/meta/Definition",
-            "https://w3id.org/biolink/biolinkml/meta/SchemaDefinition",
-            "https://w3id.org/biolink/biolinkml/meta/SubsetDefinition",
-            "https://w3id.org/biolink/biolinkml/meta/TypeDefinition"
-         ]
-      },
-      {
-         "type": "Shape",
-         "id": "https://w3id.org/biolink/biolinkml/meta/Element_type",
-         "expression": {
-            "type": "EachOf",
-            "expressions": [
-               {
-                  "type": "EachOf",
-                  "id": "https://w3id.org/biolink/biolinkml/meta/Element_struct",
-                  "expressions": [
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/id_prefixes",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Ncname",
-                        "min": 0,
-                        "max": -1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "http://www.w3.org/2004/02/skos/core#altLabel",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/String",
-                        "min": 0,
-                        "max": -1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/local_names",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/LocalName",
-                        "min": 0,
-                        "max": -1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "http://www.w3.org/2004/02/skos/core#mappingRelation",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Uriorcurie",
-                        "min": 0,
-                        "max": -1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "http://www.w3.org/2004/02/skos/core#definition",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/String",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/alt_descriptions",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/AltDescription",
-                        "min": 0,
-                        "max": -1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/deprecated",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/String",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/todos",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/String",
-                        "min": 0,
-                        "max": -1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "http://www.w3.org/2004/02/skos/core#editorialNote",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/String",
-                        "min": 0,
-                        "max": -1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "http://www.w3.org/2004/02/skos/core#note",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/String",
-                        "min": 0,
-                        "max": -1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/examples",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Example",
-                        "min": 0,
-                        "max": -1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "http://www.geneontology.org/formats/oboInOwl#inSubset",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/SubsetDefinition",
-                        "min": 0,
-                        "max": -1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "http://www.w3.org/2004/02/skos/core#inScheme",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Uri",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/imported_from",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/String",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Uriorcurie",
-                        "min": 0,
-                        "max": -1
-                     }
-                  ]
-               },
-               {
-                  "type": "TripleConstraint",
-                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
-                  "valueExpr": {
-                     "type": "NodeConstraint",
-                     "values": [
-                        "https://w3id.org/biolink/biolinkml/meta/Element"
-                     ]
-                  }
-               }
-            ]
-         }
-      },
-      {
-         "type": "Shape",
-         "id": "https://w3id.org/biolink/biolinkml/meta/Example",
-         "closed": true,
-         "extra": [
-            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
-         ],
-         "expression": {
-            "type": "EachOf",
-            "id": "https://w3id.org/biolink/biolinkml/meta/Example_struct",
-            "expressions": [
-               {
-                  "type": "TripleConstraint",
-                  "predicate": "http://www.w3.org/2004/02/skos/core#example",
-                  "valueExpr": "https://w3id.org/biolink/biolinkml/meta/String",
-                  "min": 0,
-                  "max": 1
-               },
-               {
-                  "type": "TripleConstraint",
-                  "predicate": "https://w3id.org/biolink/biolinkml/meta/description",
-                  "valueExpr": "https://w3id.org/biolink/biolinkml/meta/String",
-                  "min": 0,
-                  "max": 1
-               }
-            ]
-         }
-      },
-      {
-         "type": "Shape",
-         "id": "https://w3id.org/biolink/biolinkml/meta/LocalName",
-         "closed": true,
-         "extra": [
-            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
-         ],
-         "expression": {
-            "type": "EachOf",
-            "id": "https://w3id.org/biolink/biolinkml/meta/LocalName_struct",
-            "expressions": [
-               {
-                  "type": "TripleConstraint",
-                  "predicate": "https://w3id.org/biolink/biolinkml/meta/local_name_source",
-                  "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Ncname",
-                  "min": 1,
-                  "max": 1
-               },
-               {
-                  "type": "TripleConstraint",
-                  "predicate": "http://www.w3.org/2004/02/skos/core#altLabel",
-                  "valueExpr": "https://w3id.org/biolink/biolinkml/meta/String",
-                  "min": 1,
-                  "max": 1
-               }
-            ]
-         }
-      },
-      {
-         "type": "Shape",
-         "id": "https://w3id.org/biolink/biolinkml/meta/Prefix",
-         "closed": true,
-         "extra": [
-            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
-         ],
-         "expression": {
-            "type": "EachOf",
-            "id": "https://w3id.org/biolink/biolinkml/meta/Prefix_struct",
-            "expressions": [
-               {
-                  "type": "TripleConstraint",
-                  "predicate": "https://w3id.org/biolink/biolinkml/meta/prefix_prefix",
-                  "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Ncname",
-                  "min": 1,
-                  "max": 1
-               },
-               {
-                  "type": "TripleConstraint",
-                  "predicate": "https://w3id.org/biolink/biolinkml/meta/prefix_reference",
-                  "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Uri",
-                  "min": 1,
-                  "max": 1
-               }
-            ]
-         }
-      },
-      {
-         "type": "Shape",
-         "id": "https://w3id.org/biolink/biolinkml/meta/SchemaDefinition",
-         "closed": true,
-         "extra": [
-            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
-         ],
-         "expression": {
-            "type": "EachOf",
-            "expressions": [
-               {
-                  "type": "EachOf",
-                  "id": "https://w3id.org/biolink/biolinkml/meta/SchemaDefinition_struct",
-                  "expressions": [
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/id",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Uri",
-                        "min": 1,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "http://purl.org/dc/terms/title",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/String",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "http://purl.org/pav/version",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/String",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/imports",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Uriorcurie",
-                        "min": 0,
-                        "max": -1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "http://purl.org/dc/terms/license",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/String",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/prefixes",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Prefix",
-                        "min": 0,
-                        "max": -1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/emit_prefixes",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Ncname",
-                        "min": 0,
-                        "max": -1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/default_curi_maps",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/String",
-                        "min": 0,
-                        "max": -1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/default_prefix",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/String",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/default_range",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/TypeDefinition",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/subsets",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/SubsetDefinition",
-                        "min": 0,
-                        "max": -1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/types",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/TypeDefinition",
-                        "min": 0,
-                        "max": -1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/slots",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/SlotDefinition",
-                        "min": 0,
-                        "max": -1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/classes",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/ClassDefinition",
-                        "min": 0,
-                        "max": -1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/metamodel_version",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/String",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/source_file",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/String",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/source_file_date",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Datetime",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/source_file_size",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Integer",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/generation_date",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Datetime",
-                        "min": 0,
-                        "max": 1
-                     },
-                     "https://w3id.org/biolink/biolinkml/meta/Element_struct"
-                  ]
-               },
-               {
-                  "type": "TripleConstraint",
-                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
-                  "valueExpr": {
-                     "type": "NodeConstraint",
-                     "values": [
-                        "https://w3id.org/biolink/biolinkml/meta/SchemaDefinition"
-                     ]
-                  }
-               }
-            ]
-         }
-      },
-      {
-         "type": "Shape",
-         "id": "https://w3id.org/biolink/biolinkml/meta/SlotDefinition",
-         "closed": true,
-         "extra": [
-            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
-         ],
-         "expression": {
-            "type": "EachOf",
-            "expressions": [
-               {
-                  "type": "EachOf",
-                  "id": "https://w3id.org/biolink/biolinkml/meta/SlotDefinition_struct",
-                  "expressions": [
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/is_a",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/SlotDefinition",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/mixins",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/SlotDefinition",
-                        "min": 0,
-                        "max": -1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/apply_to",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/SlotDefinition",
-                        "min": 0,
-                        "max": -1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "http://www.w3.org/2004/02/skos/core#altLabel",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/String",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/domain",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/ClassDefinition",
-                        "min": 1,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/range",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Element",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/slot_uri",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Uriorcurie",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/multivalued",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Boolean",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/inherited",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Boolean",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/readonly",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/String",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/ifabsent",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/String",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/required",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Boolean",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/inlined",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Boolean",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/key",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Boolean",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/identifier",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Boolean",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/alias",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/String",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/owner",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Definition",
-                        "min": 1,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "http://www.w3.org/2000/01/rdf-schema#subPropertyOf",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Uriorcurie",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/symmetric",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Boolean",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "http://www.w3.org/2002/07/owl#inverseOf",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/SlotDefinition",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/is_class_field",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Boolean",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/role",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/String",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/is_usage_slot",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Boolean",
-                        "min": 0,
-                        "max": 1
-                     },
-                     "https://w3id.org/biolink/biolinkml/meta/Definition_struct"
-                  ]
-               },
-               {
-                  "type": "TripleConstraint",
-                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
-                  "valueExpr": {
-                     "type": "NodeConstraint",
-                     "values": [
-                        "https://w3id.org/biolink/biolinkml/meta/SlotDefinition"
-                     ]
-                  }
-               }
-            ]
-         }
-      },
-      {
-         "type": "Shape",
-         "id": "https://w3id.org/biolink/biolinkml/meta/SubsetDefinition",
-         "closed": true,
-         "extra": [
-            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
-         ],
-         "expression": {
-            "type": "EachOf",
-            "expressions": [
-               {
-                  "type": "EachOf",
-                  "id": "https://w3id.org/biolink/biolinkml/meta/SubsetDefinition_struct",
-                  "expressions": [
-                     "https://w3id.org/biolink/biolinkml/meta/Element_struct",
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "http://ex.org/dummy",
-                        "min": 0,
-                        "max": 1
-                     }
-                  ]
-               },
-               {
-                  "type": "TripleConstraint",
-                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
-                  "valueExpr": {
-                     "type": "NodeConstraint",
-                     "values": [
-                        "https://w3id.org/biolink/biolinkml/meta/SubsetDefinition"
-                     ]
-                  }
-               }
-            ]
-         }
-      },
-      {
-         "type": "Shape",
-         "id": "https://w3id.org/biolink/biolinkml/meta/TypeDefinition",
-         "closed": true,
-         "extra": [
-            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
-         ],
-         "expression": {
-            "type": "EachOf",
-            "expressions": [
-               {
-                  "type": "EachOf",
-                  "id": "https://w3id.org/biolink/biolinkml/meta/TypeDefinition_struct",
-                  "expressions": [
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/typeof",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/TypeDefinition",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/base",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/String",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/uri",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Uriorcurie",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/repr",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/String",
-                        "min": 0,
-                        "max": 1
-                     },
-                     "https://w3id.org/biolink/biolinkml/meta/Element_struct"
-                  ]
-               },
-               {
-                  "type": "TripleConstraint",
-                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
-                  "valueExpr": {
-                     "type": "NodeConstraint",
-                     "values": [
-                        "https://w3id.org/biolink/biolinkml/meta/TypeDefinition"
-                     ]
-                  }
-               }
-            ]
-         }
-      }
-   ]
+  "name": "metamodel",
+  "description": "A metamodel for defining biolink related schemas",
+  "id": "https://w3id.org/biolink/biolinkml/meta",
+  "title": "Biolink Schema Metamodel",
+  "version": "1.4.3",
+  "imports": [
+    "includes/types",
+    "includes/mappings"
+  ],
+  "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "prefixes": [
+    {
+      "prefix_prefix": "meta",
+      "prefix_reference": "https://w3id.org/biolink/biolinkml/meta/"
+    },
+    {
+      "prefix_prefix": "skos",
+      "prefix_reference": "http://www.w3.org/2004/02/skos/core#"
+    },
+    {
+      "prefix_prefix": "OIO",
+      "prefix_reference": "http://www.geneontology.org/formats/oboInOwl#"
+    },
+    {
+      "prefix_prefix": "pav",
+      "prefix_reference": "http://purl.org/pav/"
+    },
+    {
+      "prefix_prefix": "metatype",
+      "prefix_reference": "https://w3id.org/biolink/biolinkml/type/"
+    },
+    {
+      "prefix_prefix": "xsd",
+      "prefix_reference": "http://www.w3.org/2001/XMLSchema#"
+    },
+    {
+      "prefix_prefix": "shex",
+      "prefix_reference": "http://www.w3.org/ns/shex#"
+    },
+    {
+      "prefix_prefix": "biolinkml",
+      "prefix_reference": "https://w3id.org/biolink/biolinkml/"
+    },
+    {
+      "prefix_prefix": "IAO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/IAO_"
+    }
+  ],
+  "emit_prefixes": [
+    "meta",
+    "rdf",
+    "rdfs",
+    "xsd",
+    "skos",
+    "dcterms",
+    "OIO",
+    "owl",
+    "pav"
+  ],
+  "default_curi_maps": [
+    "semweb_context"
+  ],
+  "default_prefix": "meta",
+  "default_range": "string",
+  "subsets": [
+    {
+      "name": "owl",
+      "definition_uri": "meta:Owl",
+      "description": "Set of slots that appear in the OWL representation of a model",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "type": "SubsetDefinition"
+    }
+  ],
+  "types": [
+    {
+      "name": "string",
+      "definition_uri": "metatype:String",
+      "description": "A character string",
+      "from_schema": "https://w3id.org/biolink/biolinkml/types",
+      "imported_from": "includes/types",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "type": "TypeDefinition"
+    },
+    {
+      "name": "integer",
+      "definition_uri": "metatype:Integer",
+      "description": "An integer",
+      "from_schema": "https://w3id.org/biolink/biolinkml/types",
+      "imported_from": "includes/types",
+      "base": "int",
+      "uri": "http://www.w3.org/2001/XMLSchema#integer",
+      "type": "TypeDefinition"
+    },
+    {
+      "name": "boolean",
+      "definition_uri": "metatype:Boolean",
+      "description": "A binary (true or false) value",
+      "from_schema": "https://w3id.org/biolink/biolinkml/types",
+      "imported_from": "includes/types",
+      "base": "Bool",
+      "uri": "http://www.w3.org/2001/XMLSchema#boolean",
+      "type": "TypeDefinition"
+    },
+    {
+      "name": "float",
+      "definition_uri": "metatype:Float",
+      "description": "A real number that conforms to the xsd:float specification",
+      "from_schema": "https://w3id.org/biolink/biolinkml/types",
+      "imported_from": "includes/types",
+      "base": "float",
+      "uri": "http://www.w3.org/2001/XMLSchema#float",
+      "type": "TypeDefinition"
+    },
+    {
+      "name": "double",
+      "definition_uri": "metatype:Double",
+      "description": "A real number that conforms to the xsd:double specification",
+      "from_schema": "https://w3id.org/biolink/biolinkml/types",
+      "imported_from": "includes/types",
+      "base": "float",
+      "uri": "http://www.w3.org/2001/XMLSchema#double",
+      "type": "TypeDefinition"
+    },
+    {
+      "name": "time",
+      "definition_uri": "metatype:Time",
+      "description": "A time object represents a (local) time of day, independent of any particular day",
+      "notes": [
+        "URI is dateTime because OWL reasoners don't work with straight date or time"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/types",
+      "imported_from": "includes/types",
+      "base": "XSDTime",
+      "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "repr": "str",
+      "type": "TypeDefinition"
+    },
+    {
+      "name": "date",
+      "definition_uri": "metatype:Date",
+      "description": "a date (year, month and day) in an idealized calendar",
+      "notes": [
+        "URI is dateTime because OWL reasoners don't work with straight date or time"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/types",
+      "imported_from": "includes/types",
+      "base": "XSDDate",
+      "uri": "http://www.w3.org/2001/XMLSchema#date",
+      "repr": "str",
+      "type": "TypeDefinition"
+    },
+    {
+      "name": "datetime",
+      "definition_uri": "metatype:Datetime",
+      "description": "The combination of a date and time",
+      "from_schema": "https://w3id.org/biolink/biolinkml/types",
+      "imported_from": "includes/types",
+      "base": "XSDDateTime",
+      "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "repr": "str",
+      "type": "TypeDefinition"
+    },
+    {
+      "name": "uriorcurie",
+      "definition_uri": "metatype:Uriorcurie",
+      "description": "a URI or a CURIE",
+      "from_schema": "https://w3id.org/biolink/biolinkml/types",
+      "imported_from": "includes/types",
+      "base": "URIorCURIE",
+      "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
+      "repr": "str",
+      "type": "TypeDefinition"
+    },
+    {
+      "name": "uri",
+      "definition_uri": "metatype:Uri",
+      "description": "a complete URI",
+      "from_schema": "https://w3id.org/biolink/biolinkml/types",
+      "imported_from": "includes/types",
+      "base": "URI",
+      "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
+      "repr": "str",
+      "type": "TypeDefinition"
+    },
+    {
+      "name": "ncname",
+      "definition_uri": "metatype:Ncname",
+      "description": "Prefix part of CURIE",
+      "from_schema": "https://w3id.org/biolink/biolinkml/types",
+      "imported_from": "includes/types",
+      "base": "NCName",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "repr": "str",
+      "type": "TypeDefinition"
+    },
+    {
+      "name": "objectidentifier",
+      "definition_uri": "metatype:Objectidentifier",
+      "description": "A URI or CURIE that represents an object in the model.",
+      "comments": [
+        "Used for inheritence and type checking"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/types",
+      "imported_from": "includes/types",
+      "base": "ElementIdentifier",
+      "uri": "http://www.w3.org/ns/shex#iri",
+      "repr": "str",
+      "type": "TypeDefinition"
+    },
+    {
+      "name": "nodeidentifier",
+      "definition_uri": "metatype:Nodeidentifier",
+      "description": "A URI, CURIE or BNODE that represents a node in a model.",
+      "from_schema": "https://w3id.org/biolink/biolinkml/types",
+      "imported_from": "includes/types",
+      "base": "NodeIdentifier",
+      "uri": "http://www.w3.org/ns/shex#nonLiteral",
+      "repr": "str",
+      "type": "TypeDefinition"
+    }
+  ],
+  "slots": [
+    {
+      "name": "name",
+      "definition_uri": "meta:name",
+      "mappings": [
+        "rdfs:label"
+      ],
+      "description": "the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class.",
+      "in_subset": [
+        "owl"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "Element",
+      "range": "string",
+      "slot_uri": "http://www.w3.org/2000/01/rdf-schema#label",
+      "required": true,
+      "key": true,
+      "identifier": true,
+      "owner": "Element",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "definition_uri",
+      "definition_uri": "meta:definition_uri",
+      "description": "the \"native\" URI of the element",
+      "comments": [
+        "Formed by combining the default_prefix with the mangled element"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "Element",
+      "range": "uriorcurie",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/definition_uri",
+      "readonly": "filled in by the schema loader",
+      "owner": "Element",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "id_prefixes",
+      "definition_uri": "meta:id_prefixes",
+      "description": "the identifier of this class or slot must begin with one of the URIs referenced by this prefix",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "Element",
+      "range": "ncname",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/id_prefixes",
+      "multivalued": true,
+      "owner": "Element",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "description",
+      "definition_uri": "meta:description",
+      "mappings": [
+        "skos:definition"
+      ],
+      "description": "a description of the element's purpose and use",
+      "in_subset": [
+        "owl"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "Element",
+      "range": "string",
+      "slot_uri": "http://www.w3.org/2004/02/skos/core#definition",
+      "owner": "Element",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "aliases",
+      "definition_uri": "meta:aliases",
+      "mappings": [
+        "skos:altLabel"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "Element",
+      "range": "string",
+      "slot_uri": "http://www.w3.org/2004/02/skos/core#altLabel",
+      "multivalued": true,
+      "owner": "Element",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "deprecated",
+      "definition_uri": "meta:deprecated",
+      "description": "Description of why and when this element will no longer be used",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "Element",
+      "range": "string",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/deprecated",
+      "owner": "Element",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "todos",
+      "definition_uri": "meta:todos",
+      "description": "Outstanding issue that needs resolution",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "Element",
+      "range": "string",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/todos",
+      "multivalued": true,
+      "owner": "Element",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "notes",
+      "definition_uri": "meta:notes",
+      "mappings": [
+        "skos:editorialNote"
+      ],
+      "description": "editorial notes about an element intended for internal consumption",
+      "in_subset": [
+        "owl"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "Element",
+      "range": "string",
+      "slot_uri": "http://www.w3.org/2004/02/skos/core#editorialNote",
+      "multivalued": true,
+      "owner": "Element",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "comments",
+      "definition_uri": "meta:comments",
+      "mappings": [
+        "skos:note"
+      ],
+      "description": "notes and comments about an element intended for external consumption",
+      "in_subset": [
+        "owl"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "Element",
+      "range": "string",
+      "slot_uri": "http://www.w3.org/2004/02/skos/core#note",
+      "multivalued": true,
+      "owner": "Element",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "in_subset",
+      "definition_uri": "meta:in_subset",
+      "mappings": [
+        "OIO:inSubset"
+      ],
+      "description": "used to indicate membership of a term in a defined subset of biolink terms used for a particular domain or application (e.g. the translator_minimal subset holding the minimal set of predicates used in a translator knowledge graph)",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "Element",
+      "range": "SubsetDefinition",
+      "slot_uri": "http://www.geneontology.org/formats/oboInOwl#inSubset",
+      "multivalued": true,
+      "owner": "Element",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "from_schema",
+      "definition_uri": "meta:from_schema",
+      "mappings": [
+        "skos:inScheme"
+      ],
+      "description": "id of the schema that defined the element",
+      "notes": [
+        "A stronger model would be range schema_definition, but this doesn't address the import model"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "Element",
+      "range": "uri",
+      "slot_uri": "http://www.w3.org/2004/02/skos/core#inScheme",
+      "readonly": "supplied by the schema loader",
+      "owner": "Element",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "imported_from",
+      "definition_uri": "meta:imported_from",
+      "description": "the imports entry that this element was derived from.  Empty means primary source",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "Element",
+      "range": "string",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/imported_from",
+      "readonly": "supplied by the schema loader",
+      "owner": "Element",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "see_also",
+      "definition_uri": "meta:see_also",
+      "mappings": [
+        "rdfs:seeAlso"
+      ],
+      "description": "a reference",
+      "in_subset": [
+        "owl"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "Element",
+      "range": "uriorcurie",
+      "slot_uri": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+      "multivalued": true,
+      "owner": "Element",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "is_a",
+      "definition_uri": "meta:is_a",
+      "description": "specifies single-inheritance between classes or slots. While multiple inheritance is not allowed, mixins can be provided effectively providing the same thing. The semantics are the same when translated to formalisms that allow MI (e.g. RDFS/OWL). When translating to a SI framework (e.g. java classes, python classes) then is a is used. When translating a framework without polymorphism (e.g. json-schema, solr document schema) then is a and mixins are recursively unfolded",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "abstract": true,
+      "domain": "Definition",
+      "range": "Definition",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/is_a",
+      "owner": "Definition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "abstract",
+      "definition_uri": "meta:abstract",
+      "description": "an abstract class is a high level class or slot that is typically used to group common slots together and cannot be directly instantiated.",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "Definition",
+      "range": "boolean",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/abstract",
+      "owner": "Definition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "mixin",
+      "definition_uri": "meta:mixin",
+      "description": "this slot or class can only be used as a mixin -- equivalent to abstract",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "Definition",
+      "range": "boolean",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/mixin",
+      "owner": "Definition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "mixins",
+      "definition_uri": "meta:mixins",
+      "description": "List of definitions to be mixed in. Targets may be any definition of the same type",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "Definition",
+      "range": "Definition",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/mixins",
+      "multivalued": true,
+      "owner": "Definition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "apply_to",
+      "definition_uri": "meta:apply_to",
+      "description": "Used to extend class or slot definitions. For example, if we have a core schema where a gene has two slots for identifier and symbol, and we have a specialized schema for my_organism where we wish to add a slot systematic_name, we can avoid subclassing by defining a class gene_my_organism, adding the slot to this class, and then adding an apply_to pointing to the gene class. The new slot will be 'injected into' the gene class.",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "Definition",
+      "range": "Definition",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/apply_to",
+      "multivalued": true,
+      "owner": "Definition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "values_from",
+      "definition_uri": "meta:values_from",
+      "description": "the identifier of a \"value set\" -- a set of identifiers that form the possible values for the range of a slot",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "Definition",
+      "range": "uriorcurie",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/values_from",
+      "multivalued": true,
+      "owner": "Definition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "id",
+      "definition_uri": "meta:id",
+      "description": "The official schema URI",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SchemaDefinition",
+      "range": "uri",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/id",
+      "required": true,
+      "owner": "SchemaDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "emit_prefixes",
+      "definition_uri": "meta:emit_prefixes",
+      "description": "a list of Curie prefixes that are used in the representation of instances of the model.  All prefixes in this list are added to the prefix sections of the target models.",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SchemaDefinition",
+      "range": "ncname",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/emit_prefixes",
+      "multivalued": true,
+      "owner": "SchemaDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "title",
+      "definition_uri": "meta:title",
+      "mappings": [
+        "dcterms:title"
+      ],
+      "description": "the official title of the schema",
+      "in_subset": [
+        "owl"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SchemaDefinition",
+      "range": "string",
+      "slot_uri": "http://purl.org/dc/terms/title",
+      "owner": "SchemaDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "version",
+      "definition_uri": "meta:version",
+      "mappings": [
+        "pav:version"
+      ],
+      "description": "particular version of schema",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SchemaDefinition",
+      "range": "string",
+      "slot_uri": "http://purl.org/pav/version",
+      "owner": "SchemaDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "imports",
+      "definition_uri": "meta:imports",
+      "description": "other schemas that are included in this schema",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SchemaDefinition",
+      "range": "uriorcurie",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/imports",
+      "multivalued": true,
+      "owner": "SchemaDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "license",
+      "definition_uri": "meta:license",
+      "mappings": [
+        "dcterms:license"
+      ],
+      "description": "license for the schema",
+      "in_subset": [
+        "owl"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SchemaDefinition",
+      "range": "string",
+      "slot_uri": "http://purl.org/dc/terms/license",
+      "owner": "SchemaDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "default_curi_maps",
+      "definition_uri": "meta:default_curi_maps",
+      "description": "ordered list of prefixcommon biocontexts to be fetched to resolve id prefixes and inline prefix variables",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SchemaDefinition",
+      "range": "string",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/default_curi_maps",
+      "multivalued": true,
+      "owner": "SchemaDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "default_prefix",
+      "definition_uri": "meta:default_prefix",
+      "description": "default and base prefix -- used for ':' identifiers, @base and @vocab",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SchemaDefinition",
+      "range": "string",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/default_prefix",
+      "ifabsent": "default_ns",
+      "owner": "SchemaDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "default_range",
+      "definition_uri": "meta:default_range",
+      "description": "default slot range to be used if range element is omitted from a slot definition",
+      "notes": [
+        "restricted to type definitions for the time being.  Could be broadened if required"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SchemaDefinition",
+      "range": "TypeDefinition",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/default_range",
+      "owner": "SchemaDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "subsets",
+      "definition_uri": "meta:subsets",
+      "description": "list of subsets referenced in this model",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SchemaDefinition",
+      "range": "SubsetDefinition",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/subsets",
+      "multivalued": true,
+      "inlined": true,
+      "owner": "SchemaDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "types",
+      "definition_uri": "meta:types",
+      "description": "data types used in the model",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SchemaDefinition",
+      "range": "TypeDefinition",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/types",
+      "multivalued": true,
+      "inlined": true,
+      "owner": "SchemaDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "slot_definitions",
+      "definition_uri": "meta:slot_definitions",
+      "description": "slot definitions",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SchemaDefinition",
+      "range": "SlotDefinition",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/slots",
+      "multivalued": true,
+      "inlined": true,
+      "alias": "slots",
+      "owner": "SchemaDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "classes",
+      "definition_uri": "meta:classes",
+      "description": "class definitions",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SchemaDefinition",
+      "range": "ClassDefinition",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/classes",
+      "multivalued": true,
+      "inlined": true,
+      "owner": "SchemaDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "metamodel_version",
+      "definition_uri": "meta:metamodel_version",
+      "description": "Version of the metamodel used to load the schema",
+      "in_subset": [
+        "owl"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SchemaDefinition",
+      "range": "string",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/metamodel_version",
+      "readonly": "supplied by the schema loader",
+      "owner": "SchemaDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "source_file",
+      "definition_uri": "meta:source_file",
+      "description": "name, uri or description of the source of the schema",
+      "in_subset": [
+        "owl"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SchemaDefinition",
+      "range": "string",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/source_file",
+      "readonly": "suppplied by the schema loader",
+      "owner": "SchemaDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "source_file_date",
+      "definition_uri": "meta:source_file_date",
+      "description": "modification date of the source of the schema",
+      "in_subset": [
+        "owl"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SchemaDefinition",
+      "range": "datetime",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/source_file_date",
+      "readonly": "supplied by the loader",
+      "owner": "SchemaDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "source_file_size",
+      "definition_uri": "meta:source_file_size",
+      "description": "size in bytes of the source of the schema",
+      "in_subset": [
+        "owl"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SchemaDefinition",
+      "range": "integer",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/source_file_size",
+      "readonly": "supplied by the schema loader",
+      "owner": "SchemaDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "generation_date",
+      "definition_uri": "meta:generation_date",
+      "description": "date and time that the schema was loaded/generated",
+      "in_subset": [
+        "owl"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SchemaDefinition",
+      "range": "datetime",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/generation_date",
+      "readonly": "supplied by the schema loader",
+      "owner": "SchemaDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "slots",
+      "definition_uri": "meta:slots",
+      "description": "list of slot names that are applicable to a class",
+      "comments": [
+        "This defines the set of slots that are allowed to be used for a given class. The final list of slots for a class is the combination of the parent (is a) slots, mixins slots, apply to slots minus the slot usage entries. Formally, "
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "ClassDefinition",
+      "range": "SlotDefinition",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/slots",
+      "multivalued": true,
+      "owner": "ClassDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "slot_usage",
+      "definition_uri": "meta:slot_usage",
+      "description": "the redefinition of a slot in the context of the containing class definition.",
+      "comments": [
+        "Many slots may be re-used across different classes, but the meaning of the slot may be refined by context. For example, a generic association model may use slots subject/predicate/object with generic semantics and minimal constraints. When this is subclasses, e.g. to disease-phenotype associations then slot usage may specify both local naming (e.g. subject=disease) and local constraints"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "ClassDefinition",
+      "range": "SlotDefinition",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/slot_usage",
+      "multivalued": true,
+      "inlined": true,
+      "owner": "ClassDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "class_uri",
+      "definition_uri": "meta:class_uri",
+      "description": "URI of the class in an RDF environment",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "ClassDefinition",
+      "range": "uriorcurie",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/class_uri",
+      "ifabsent": "class_curie",
+      "owner": "ClassDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "subclass_of",
+      "definition_uri": "meta:subclass_of",
+      "mappings": [
+        "rdfs:subClassOf"
+      ],
+      "description": "rdfs:subClassOf to be emitted in OWL generation",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "ClassDefinition",
+      "range": "uriorcurie",
+      "slot_uri": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+      "owner": "ClassDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "defining_slots",
+      "definition_uri": "meta:defining_slots",
+      "description": "The combination of is a plus defining slots form a genus-differentia definition, or the set of necessary and sufficient conditions that can be transformed into an OWL equivalence axiom",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "ClassDefinition",
+      "range": "SlotDefinition",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/defining_slots",
+      "multivalued": true,
+      "inherited": true,
+      "owner": "ClassDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "union_of",
+      "definition_uri": "meta:union_of",
+      "description": "indicates that the domain class consists exactly of the members of the classes in the range",
+      "notes": [
+        "this only applies in the OWL generation"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "ClassDefinition",
+      "range": "ClassDefinition",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/union_of",
+      "multivalued": true,
+      "owner": "ClassDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "domain",
+      "definition_uri": "meta:domain",
+      "description": "defines the type of the subject of the slot.  Given the following slot definition\n  S1:\n    domain: C1\n    range:  C2\nthe declaration\n  X:\n    S1: Y\n\nimplicitly asserts that X is an instance of C1\n",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SlotDefinition",
+      "range": "ClassDefinition",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/domain",
+      "inherited": true,
+      "owner": "SlotDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "range",
+      "definition_uri": "meta:range",
+      "description": "defines the type of the object of the slot.  Given the following slot definition\n  S1:\n    domain: C1\n    range:  C2\nthe declaration\n  X:\n    S1: Y\n\nimplicitly asserts Y is an instance of C2\n",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SlotDefinition",
+      "range": "Element",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/range",
+      "inherited": true,
+      "ifabsent": "default_range",
+      "owner": "SlotDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "slot_uri",
+      "definition_uri": "meta:slot_uri",
+      "description": "predicate of this slot for semantic web application",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SlotDefinition",
+      "range": "uriorcurie",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/slot_uri",
+      "ifabsent": "slot_curie",
+      "owner": "SlotDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "multivalued",
+      "definition_uri": "meta:multivalued",
+      "description": "true means that slot can have more than one value",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SlotDefinition",
+      "range": "boolean",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/multivalued",
+      "inherited": true,
+      "owner": "SlotDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "inherited",
+      "definition_uri": "meta:inherited",
+      "description": "true means that the *value* of a slot is inherited by subclasses",
+      "comments": [
+        "Inherited applies to slot values.  Parent *slots* are always inherited by subclasses"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SlotDefinition",
+      "range": "boolean",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/inherited",
+      "inherited": true,
+      "owner": "SlotDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "readonly",
+      "definition_uri": "meta:readonly",
+      "description": "If present, slot is read only.  Text explains why",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SlotDefinition",
+      "range": "string",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/readonly",
+      "inherited": true,
+      "owner": "SlotDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "ifabsent",
+      "definition_uri": "meta:ifabsent",
+      "description": "function that provides a default value for the slot.  Possible values for this slot are defined in biolink.utils.ifabsent_functions.default_library:\n  * [Tt]rue -- boolean True\n  * [Ff]alse -- boolean False\n  * int(value) -- integer value\n  * str(value) -- string value\n  * default_range -- schema default range\n  * bnode -- blank node identifier\n  * slot_uri -- URI for the slot\n  * class_curie -- CURIE for the containing class\n  * class_uri -- URI for the containing class",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SlotDefinition",
+      "range": "string",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/ifabsent",
+      "inherited": true,
+      "owner": "SlotDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "singular_name",
+      "definition_uri": "meta:singular_name",
+      "mappings": [
+        "skos:altLabel"
+      ],
+      "description": "a name that is used in the singular form",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SlotDefinition",
+      "range": "string",
+      "slot_uri": "http://www.w3.org/2004/02/skos/core#altLabel",
+      "owner": "SlotDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "required",
+      "definition_uri": "meta:required",
+      "description": "true means that the slot must be present in the loaded definition",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SlotDefinition",
+      "range": "boolean",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/required",
+      "inherited": true,
+      "owner": "SlotDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "inlined",
+      "definition_uri": "meta:inlined",
+      "description": "an inlined definition a list of actual values rather than references.  Only applies to slots whose range is a class.",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SlotDefinition",
+      "range": "boolean",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/inlined",
+      "inherited": true,
+      "owner": "SlotDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "key",
+      "definition_uri": "meta:key",
+      "description": "true means that the slot uniquely identifies the element within the context of its container.  Key slots are NOT identifiers - they do not serve as subjects",
+      "notes": [
+        "key is inherited",
+        "a given domain can have at most one key",
+        "key slots are always required"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SlotDefinition",
+      "range": "boolean",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/key",
+      "inherited": true,
+      "owner": "SlotDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "identifier",
+      "definition_uri": "meta:identifier",
+      "description": "true means that this slot is the subject of a set of assertions.  Identifiers do not appear as predicates in the model",
+      "comments": [
+        "identifier is inherited",
+        "identifier slots are always required",
+        "a given domain can have at most one identifier"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SlotDefinition",
+      "range": "boolean",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/identifier",
+      "inherited": true,
+      "owner": "SlotDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "alias",
+      "definition_uri": "meta:alias",
+      "description": "the name used for a slot in the context of its owning class.  If present, this is used instead of the actual slot name.",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SlotDefinition",
+      "range": "string",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/alias",
+      "owner": "SlotDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "owner",
+      "definition_uri": "meta:owner",
+      "description": "the \"owner\" of the slot. It is the class if it appears in the slots list, otherwise the declaring slot",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SlotDefinition",
+      "range": "Definition",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/owner",
+      "readonly": "filled in by loader -- either class domain or slot domain",
+      "owner": "SlotDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "is_usage_slot",
+      "definition_uri": "meta:is_usage_slot",
+      "description": "True means that this slot was defined in a slot_usage situation",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SlotDefinition",
+      "range": "boolean",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/is_usage_slot",
+      "readonly": "filled in by the loader",
+      "owner": "SlotDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "subproperty_of",
+      "definition_uri": "meta:subproperty_of",
+      "mappings": [
+        "rdfs:subPropertyOf"
+      ],
+      "description": "Ontology property which this slot is a subproperty of",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SlotDefinition",
+      "range": "uriorcurie",
+      "slot_uri": "http://www.w3.org/2000/01/rdf-schema#subPropertyOf",
+      "owner": "SlotDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "symmetric",
+      "definition_uri": "meta:symmetric",
+      "description": "True means that any instance of  d s r implies that there is also an instance of r s d",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SlotDefinition",
+      "range": "boolean",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/symmetric",
+      "owner": "SlotDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "inverse",
+      "definition_uri": "meta:inverse",
+      "mappings": [
+        "owl:inverseOf"
+      ],
+      "description": "indicates that any instance of d s r implies that there is also an instance of r s' d",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SlotDefinition",
+      "range": "SlotDefinition",
+      "slot_uri": "http://www.w3.org/2002/07/owl#inverseOf",
+      "owner": "SlotDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "is_class_field",
+      "definition_uri": "meta:is_class_field",
+      "description": "indicates that any instance, i,  the domain of this slot will include an assert of i s range",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SlotDefinition",
+      "range": "boolean",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/is_class_field",
+      "owner": "SlotDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "role",
+      "definition_uri": "meta:role",
+      "description": "the role played by the slot range",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SlotDefinition",
+      "range": "string",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/role",
+      "inherited": true,
+      "owner": "SlotDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "typeof",
+      "definition_uri": "meta:typeof",
+      "description": "Names a parent type",
+      "comments": [
+        "the target type definition of the typeof slot is referred to as the \"parent type\"",
+        "the type definition containing the typeof slot is referred to as the \"child type\"",
+        "type definitions without a typeof slot are referred to as a \"root type\""
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "TypeDefinition",
+      "range": "TypeDefinition",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/typeof",
+      "owner": "TypeDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "base",
+      "definition_uri": "meta:base",
+      "description": "python base type that implements this type definition",
+      "comments": [
+        "every root type must have a base",
+        "the base is inherited by child types but may be overriden.  Base compatibility is not checked."
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "TypeDefinition",
+      "range": "string",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/base",
+      "inherited": true,
+      "owner": "TypeDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "type_uri",
+      "definition_uri": "meta:type_uri",
+      "description": "The uri that defines the possible values for the type definition",
+      "comments": [
+        "uri is typically drawn from the set of URI's defined in OWL (https://www.w3.org/TR/2012/REC-owl2-syntax-20121211/#Datatype_Maps)",
+        "every root type must have a type uri"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "TypeDefinition",
+      "range": "uriorcurie",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/uri",
+      "inherited": true,
+      "alias": "uri",
+      "owner": "TypeDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "repr",
+      "definition_uri": "meta:repr",
+      "description": "the name of the python object that implements this type definition",
+      "examples": [
+        {
+          "type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "TypeDefinition",
+      "range": "string",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/repr",
+      "inherited": true,
+      "owner": "TypeDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "alt_description_text",
+      "definition_uri": "meta:alt_description_text",
+      "description": "text of an attributed description",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "AltDescription",
+      "range": "string",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/description",
+      "required": true,
+      "alias": "description",
+      "owner": "AltDescription",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "alt_description_source",
+      "definition_uri": "meta:alt_description_source",
+      "description": "the source of an attributed description",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "AltDescription",
+      "range": "ncname",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/source",
+      "required": true,
+      "key": true,
+      "alias": "source",
+      "owner": "AltDescription",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "alt_descriptions",
+      "definition_uri": "meta:alt_descriptions",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "Element",
+      "range": "AltDescription",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/alt_descriptions",
+      "multivalued": true,
+      "inlined": true,
+      "owner": "Element",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "value",
+      "definition_uri": "meta:value",
+      "mappings": [
+        "skos:example"
+      ],
+      "description": "example value",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "Example",
+      "range": "string",
+      "slot_uri": "http://www.w3.org/2004/02/skos/core#example",
+      "owner": "Example",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "value_description",
+      "definition_uri": "meta:value_description",
+      "description": "description of what the value is doing",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "Example",
+      "range": "string",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/description",
+      "alias": "description",
+      "owner": "Example",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "examples",
+      "definition_uri": "meta:examples",
+      "description": "example usages of an element",
+      "in_subset": [
+        "owl"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "Element",
+      "range": "Example",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/examples",
+      "multivalued": true,
+      "inlined": true,
+      "owner": "Element",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "prefix_prefix",
+      "definition_uri": "meta:prefix_prefix",
+      "description": "the nsname (sans ':' for a given prefix)",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "Prefix",
+      "range": "ncname",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/prefix_prefix",
+      "required": true,
+      "key": true,
+      "owner": "Prefix",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "prefix_reference",
+      "definition_uri": "meta:prefix_reference",
+      "description": "A URI associated with a given prefix",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "Prefix",
+      "range": "uri",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/prefix_reference",
+      "required": true,
+      "owner": "Prefix",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "prefixes",
+      "definition_uri": "meta:prefixes",
+      "description": "prefix / URI definitions to be added to the context beyond those fetched from prefixcommons in id prefixes",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SchemaDefinition",
+      "range": "Prefix",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/prefixes",
+      "multivalued": true,
+      "inlined": true,
+      "owner": "SchemaDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "local_name_source",
+      "definition_uri": "meta:local_name_source",
+      "description": "the ncname of the source of the name",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "LocalName",
+      "range": "ncname",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/local_name_source",
+      "required": true,
+      "key": true,
+      "owner": "LocalName",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "local_name_value",
+      "definition_uri": "meta:local_name_value",
+      "mappings": [
+        "skos:altLabel"
+      ],
+      "description": "a name assigned to an element in a given ontology",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "LocalName",
+      "range": "string",
+      "slot_uri": "http://www.w3.org/2004/02/skos/core#altLabel",
+      "required": true,
+      "owner": "LocalName",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "local_names",
+      "definition_uri": "meta:local_names",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "Element",
+      "range": "LocalName",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/local_names",
+      "multivalued": true,
+      "inlined": true,
+      "owner": "Element",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "mappings",
+      "definition_uri": "meta:mappings",
+      "mappings": [
+        "skos:mappingRelation"
+      ],
+      "description": "A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective.",
+      "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
+      "imported_from": "includes/mappings",
+      "range": "uriorcurie",
+      "slot_uri": "http://www.w3.org/2004/02/skos/core#mappingRelation",
+      "multivalued": true,
+      "owner": "Element",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "exact_mappings",
+      "definition_uri": "meta:exact_mappings",
+      "mappings": [
+        "skos:exactMatch"
+      ],
+      "description": "A list of terms from different schemas or terminology systems that have identical meaning.",
+      "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
+      "imported_from": "includes/mappings",
+      "is_a": "mappings",
+      "range": "uriorcurie",
+      "slot_uri": "http://www.w3.org/2004/02/skos/core#exactMatch",
+      "multivalued": true,
+      "owner": "Element",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "close_mappings",
+      "definition_uri": "meta:close_mappings",
+      "mappings": [
+        "skos:closeMatch"
+      ],
+      "description": "A list of terms from different schemas or terminology systems that have close meaning.",
+      "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
+      "imported_from": "includes/mappings",
+      "is_a": "mappings",
+      "range": "uriorcurie",
+      "slot_uri": "http://www.w3.org/2004/02/skos/core#closeMatch",
+      "multivalued": true,
+      "owner": "Element",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "related_mappings",
+      "definition_uri": "meta:related_mappings",
+      "mappings": [
+        "skos:relatedMatch"
+      ],
+      "description": "A list of terms from different schemas or terminology systems that have related meaning.",
+      "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
+      "imported_from": "includes/mappings",
+      "is_a": "mappings",
+      "range": "uriorcurie",
+      "slot_uri": "http://www.w3.org/2004/02/skos/core#relatedMatch",
+      "multivalued": true,
+      "owner": "Element",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "deprecated_element_has_exact_replacement",
+      "definition_uri": "meta:deprecated_element_has_exact_replacement",
+      "mappings": [
+        "IAO:0100001"
+      ],
+      "description": "When an element is deprecated, it can be automatically replaced by this uri or curie",
+      "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
+      "imported_from": "includes/mappings",
+      "range": "uriorcurie",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/deprecated_element_has_exact_replacement",
+      "owner": "Element",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "deprecated_element_has_possible_replacement",
+      "definition_uri": "meta:deprecated_element_has_possible_replacement",
+      "mappings": [
+        "OIO:consider"
+      ],
+      "description": "When an element is deprecated, it can be potentially replaced by this uri or curie",
+      "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
+      "imported_from": "includes/mappings",
+      "range": "uriorcurie",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/deprecated_element_has_possible_replacement",
+      "owner": "Element",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "slot_definition_is_a",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "is_a": "is_a",
+      "domain": "SlotDefinition",
+      "range": "SlotDefinition",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/is_a",
+      "alias": "is_a",
+      "owner": "SlotDefinition",
+      "is_usage_slot": true,
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "slot_definition_mixins",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "is_a": "mixins",
+      "domain": "SlotDefinition",
+      "range": "SlotDefinition",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/mixins",
+      "multivalued": true,
+      "alias": "mixins",
+      "owner": "SlotDefinition",
+      "is_usage_slot": true,
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "slot_definition_apply_to",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "is_a": "apply_to",
+      "domain": "SlotDefinition",
+      "range": "SlotDefinition",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/apply_to",
+      "multivalued": true,
+      "alias": "apply_to",
+      "owner": "SlotDefinition",
+      "is_usage_slot": true,
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "class_definition_is_a",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "is_a": "is_a",
+      "domain": "ClassDefinition",
+      "range": "ClassDefinition",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/is_a",
+      "alias": "is_a",
+      "owner": "ClassDefinition",
+      "is_usage_slot": true,
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "class_definition_mixins",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "is_a": "mixins",
+      "domain": "ClassDefinition",
+      "range": "ClassDefinition",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/mixins",
+      "multivalued": true,
+      "alias": "mixins",
+      "owner": "ClassDefinition",
+      "is_usage_slot": true,
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "class_definition_apply_to",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "is_a": "apply_to",
+      "domain": "ClassDefinition",
+      "range": "ClassDefinition",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/apply_to",
+      "multivalued": true,
+      "alias": "apply_to",
+      "owner": "ClassDefinition",
+      "is_usage_slot": true,
+      "type": "SlotDefinition"
+    }
+  ],
+  "classes": [
+    {
+      "name": "Element",
+      "definition_uri": "meta:Element",
+      "description": "a named element in the model",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "abstract": true,
+      "slots": [
+        "id_prefixes",
+        "name",
+        "definition_uri",
+        "aliases",
+        "local_names",
+        "mappings",
+        "description",
+        "alt_descriptions",
+        "deprecated",
+        "todos",
+        "notes",
+        "comments",
+        "examples",
+        "in_subset",
+        "from_schema",
+        "imported_from",
+        "see_also",
+        "exact_mappings",
+        "close_mappings",
+        "related_mappings",
+        "deprecated_element_has_exact_replacement",
+        "deprecated_element_has_possible_replacement"
+      ],
+      "class_uri": "https://w3id.org/biolink/biolinkml/meta/Element",
+      "type": "ClassDefinition"
+    },
+    {
+      "name": "SchemaDefinition",
+      "definition_uri": "meta:SchemaDefinition",
+      "description": "a collection of subset, type, slot and class definitions",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "is_a": "Element",
+      "slots": [
+        "id_prefixes",
+        "name",
+        "definition_uri",
+        "aliases",
+        "local_names",
+        "mappings",
+        "description",
+        "alt_descriptions",
+        "deprecated",
+        "todos",
+        "notes",
+        "comments",
+        "examples",
+        "in_subset",
+        "from_schema",
+        "imported_from",
+        "see_also",
+        "exact_mappings",
+        "close_mappings",
+        "related_mappings",
+        "deprecated_element_has_exact_replacement",
+        "deprecated_element_has_possible_replacement",
+        "id",
+        "title",
+        "version",
+        "imports",
+        "license",
+        "prefixes",
+        "emit_prefixes",
+        "default_curi_maps",
+        "default_prefix",
+        "default_range",
+        "subsets",
+        "types",
+        "slot_definitions",
+        "classes",
+        "metamodel_version",
+        "source_file",
+        "source_file_date",
+        "source_file_size",
+        "generation_date"
+      ],
+      "class_uri": "https://w3id.org/biolink/biolinkml/meta/SchemaDefinition",
+      "type": "ClassDefinition"
+    },
+    {
+      "name": "TypeDefinition",
+      "definition_uri": "meta:TypeDefinition",
+      "description": "A data type definition.",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "is_a": "Element",
+      "slots": [
+        "id_prefixes",
+        "name",
+        "definition_uri",
+        "aliases",
+        "local_names",
+        "mappings",
+        "description",
+        "alt_descriptions",
+        "deprecated",
+        "todos",
+        "notes",
+        "comments",
+        "examples",
+        "in_subset",
+        "from_schema",
+        "imported_from",
+        "see_also",
+        "exact_mappings",
+        "close_mappings",
+        "related_mappings",
+        "deprecated_element_has_exact_replacement",
+        "deprecated_element_has_possible_replacement",
+        "typeof",
+        "base",
+        "type_uri",
+        "repr"
+      ],
+      "class_uri": "https://w3id.org/biolink/biolinkml/meta/TypeDefinition",
+      "type": "ClassDefinition"
+    },
+    {
+      "name": "SubsetDefinition",
+      "definition_uri": "meta:SubsetDefinition",
+      "description": "the name and description of a subset",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "is_a": "Element",
+      "slots": [
+        "id_prefixes",
+        "name",
+        "definition_uri",
+        "aliases",
+        "local_names",
+        "mappings",
+        "description",
+        "alt_descriptions",
+        "deprecated",
+        "todos",
+        "notes",
+        "comments",
+        "examples",
+        "in_subset",
+        "from_schema",
+        "imported_from",
+        "see_also",
+        "exact_mappings",
+        "close_mappings",
+        "related_mappings",
+        "deprecated_element_has_exact_replacement",
+        "deprecated_element_has_possible_replacement"
+      ],
+      "class_uri": "https://w3id.org/biolink/biolinkml/meta/SubsetDefinition",
+      "type": "ClassDefinition"
+    },
+    {
+      "name": "Definition",
+      "definition_uri": "meta:Definition",
+      "description": "base class for definitions",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "is_a": "Element",
+      "abstract": true,
+      "slots": [
+        "id_prefixes",
+        "name",
+        "definition_uri",
+        "aliases",
+        "local_names",
+        "mappings",
+        "description",
+        "alt_descriptions",
+        "deprecated",
+        "todos",
+        "notes",
+        "comments",
+        "examples",
+        "in_subset",
+        "from_schema",
+        "imported_from",
+        "see_also",
+        "exact_mappings",
+        "close_mappings",
+        "related_mappings",
+        "deprecated_element_has_exact_replacement",
+        "deprecated_element_has_possible_replacement",
+        "is_a",
+        "abstract",
+        "mixin",
+        "mixins",
+        "apply_to",
+        "values_from"
+      ],
+      "class_uri": "https://w3id.org/biolink/biolinkml/meta/Definition",
+      "type": "ClassDefinition"
+    },
+    {
+      "name": "SlotDefinition",
+      "definition_uri": "meta:SlotDefinition",
+      "description": "the definition of a property or a slot",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "is_a": "Definition",
+      "slots": [
+        "id_prefixes",
+        "name",
+        "definition_uri",
+        "aliases",
+        "local_names",
+        "mappings",
+        "description",
+        "alt_descriptions",
+        "deprecated",
+        "todos",
+        "notes",
+        "comments",
+        "examples",
+        "in_subset",
+        "from_schema",
+        "imported_from",
+        "see_also",
+        "exact_mappings",
+        "close_mappings",
+        "related_mappings",
+        "deprecated_element_has_exact_replacement",
+        "deprecated_element_has_possible_replacement",
+        "slot_definition_is_a",
+        "abstract",
+        "mixin",
+        "slot_definition_mixins",
+        "slot_definition_apply_to",
+        "values_from",
+        "singular_name",
+        "domain",
+        "range",
+        "slot_uri",
+        "multivalued",
+        "inherited",
+        "readonly",
+        "ifabsent",
+        "required",
+        "inlined",
+        "key",
+        "identifier",
+        "alias",
+        "owner",
+        "subproperty_of",
+        "symmetric",
+        "inverse",
+        "is_class_field",
+        "role",
+        "is_usage_slot"
+      ],
+      "class_uri": "https://w3id.org/biolink/biolinkml/meta/SlotDefinition",
+      "type": "ClassDefinition"
+    },
+    {
+      "name": "ClassDefinition",
+      "definition_uri": "meta:ClassDefinition",
+      "description": "the definition of a class or interface",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "is_a": "Definition",
+      "slots": [
+        "id_prefixes",
+        "name",
+        "definition_uri",
+        "aliases",
+        "local_names",
+        "mappings",
+        "description",
+        "alt_descriptions",
+        "deprecated",
+        "todos",
+        "notes",
+        "comments",
+        "examples",
+        "in_subset",
+        "from_schema",
+        "imported_from",
+        "see_also",
+        "exact_mappings",
+        "close_mappings",
+        "related_mappings",
+        "deprecated_element_has_exact_replacement",
+        "deprecated_element_has_possible_replacement",
+        "class_definition_is_a",
+        "abstract",
+        "mixin",
+        "class_definition_mixins",
+        "class_definition_apply_to",
+        "values_from",
+        "slots",
+        "slot_usage",
+        "class_uri",
+        "subclass_of",
+        "union_of",
+        "defining_slots"
+      ],
+      "class_uri": "https://w3id.org/biolink/biolinkml/meta/ClassDefinition",
+      "type": "ClassDefinition"
+    },
+    {
+      "name": "Prefix",
+      "definition_uri": "meta:Prefix",
+      "description": "prefix URI tuple",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "slots": [
+        "prefix_prefix",
+        "prefix_reference"
+      ],
+      "class_uri": "https://w3id.org/biolink/biolinkml/meta/Prefix",
+      "type": "ClassDefinition"
+    },
+    {
+      "name": "LocalName",
+      "definition_uri": "meta:LocalName",
+      "description": "an attributed label",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "slots": [
+        "local_name_source",
+        "local_name_value"
+      ],
+      "class_uri": "https://w3id.org/biolink/biolinkml/meta/LocalName",
+      "type": "ClassDefinition"
+    },
+    {
+      "name": "Example",
+      "definition_uri": "meta:Example",
+      "description": "usage example and description",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "slots": [
+        "value",
+        "value_description"
+      ],
+      "class_uri": "https://w3id.org/biolink/biolinkml/meta/Example",
+      "type": "ClassDefinition"
+    },
+    {
+      "name": "AltDescription",
+      "definition_uri": "meta:AltDescription",
+      "description": "an attributed description",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "slots": [
+        "alt_description_source",
+        "alt_description_text"
+      ],
+      "class_uri": "https://w3id.org/biolink/biolinkml/meta/AltDescription",
+      "type": "ClassDefinition"
+    }
+  ],
+  "metamodel_version": "1.4.3",
+  "source_file": "meta.yaml",
+  "source_file_date": "Friday Sep 27 12:00:00 2003",
+  "source_file_size": 23439,
+  "generation_date": "Friday Sep 27 12:00:00 2003",
+  "type": "SchemaDefinition",
+  "@context": [
+    "https://w3id.org/biolink/biolinkml/context.jsonld",
+    {
+      "@base": "https://w3id.org/biolink/biolinkml/meta/"
+    }
+  ]
 }

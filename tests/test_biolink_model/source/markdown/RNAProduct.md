@@ -1,21 +1,22 @@
 
-# Class: RNA product
+# Type: RNA product
 
 
 
 
 URI: [biolink:RNAProduct](https://w3id.org/biolink/vocab/RNAProduct)
 
+
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[RNAProduct|name(i):symbol_type;id(i):identifier_type;category(i):iri_type%20%2B],%20\[RNAProduct]^-\[NoncodingRNAProduct],%20\[RNAProduct]^-\[RNAProductIsoform],%20\[GeneProduct]^-\[RNAProduct])
 
 ## Parents
 
- *  is_a: [GeneProduct](GeneProduct.md) - The functional molecular product of a single gene. Gene products are either proteins or functional RNA molecules
+ *  is_a: [gene product](gene product.md) - The functional molecular product of a single gene. Gene products are either proteins or functional RNA molecules
 
 ## Children
 
- * [RNAProductIsoform](RNAProductIsoform.md) - Represents a protein that is a specific isoform of the canonical or reference RNA
- * [NoncodingRNAProduct](NoncodingRNAProduct.md)
+ * [RNA product isoform](RNA product isoform.md) - Represents a protein that is a specific isoform of the canonical or reference RNA
+ * [noncoding RNA product](noncoding RNA product.md)
 
 ## Referenced by class
 
@@ -26,31 +27,40 @@ URI: [biolink:RNAProduct](https://w3id.org/biolink/vocab/RNAProduct)
 ### Inherited from macromolecular machine:
 
  * [name](macromolecular_machine_name.md)  <sub>REQ</sub>
-    * range: [SymbolType](SymbolType.md)
-    * inherited from: [MacromolecularMachine](MacromolecularMachine.md)
+    * range: [SymbolType](type/SymbolType.md)
+    * inherited from: [macromolecular machine](macromolecular machine.md)
 
 ### Inherited from named thing:
 
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
-    * range: [IdentifierType](IdentifierType.md)
-    * inherited from: [NamedThing](NamedThing.md)
+    * range: [IdentifierType](type/IdentifierType.md)
+    * inherited from: [named thing](named thing.md)
     * in subsets: (translator_minimal)
  * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing
-    * range: [LabelType](LabelType.md)
-    * inherited from: [NamedThing](NamedThing.md)
+    * range: [LabelType](type/LabelType.md)
+    * inherited from: [named thing](named thing.md)
     * in subsets: (translator_minimal)
  * [category](category.md)  <sub>1..*</sub>
     * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
-    * range: [IriType](IriType.md)
-    * inherited from: [NamedThing](NamedThing.md)
+    * range: [IriType](type/IriType.md)
+    * inherited from: [named thing](named thing.md)
     * in subsets: (translator_minimal)
 
 ### Inherited from thing with taxon:
 
  * [in taxon](in_taxon.md)  <sub>0..*</sub>
     * Description: connects a thing to a class representing a taxon
-    * range: [OrganismTaxon](OrganismTaxon.md)
-    * inherited from: [ThingWithTaxon](ThingWithTaxon.md)
+    * range: [organism taxon](organism taxon.md)
+    * inherited from: [thing with taxon](thing with taxon.md)
     * in subsets: (translator_minimal)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | CHEBI:33697 |
+|  | | SIO:010450 |
+|  | | WD:Q11053 |
+

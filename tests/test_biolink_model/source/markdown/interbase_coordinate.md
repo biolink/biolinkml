@@ -1,14 +1,15 @@
 
-# Slot: interbase coordinate
+# Type: interbase coordinate
 
 
 TODO
 
 URI: [biolink:interbase_coordinate](https://w3id.org/biolink/vocab/interbase_coordinate)
 
+
 ## Domain and Range
 
-[NamedThing](NamedThing.md) ->  <sub>OPT</sub> [String](String.md)
+[named thing](named thing.md) ->  <sub>OPT</sub> [String](type/String.md)
 
 ## Parents
 
@@ -21,4 +22,4 @@ URI: [biolink:interbase_coordinate](https://w3id.org/biolink/vocab/interbase_coo
 
 ## Used by
 
- * [NamedThing](NamedThing.md)
+ * [named thing](named thing.md)

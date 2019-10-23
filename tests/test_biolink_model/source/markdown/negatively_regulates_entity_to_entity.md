@@ -1,14 +1,15 @@
 
-# Slot: negatively regulates, entity to entity
+# Type: negatively regulates, entity to entity
 
 
 
 
 URI: [biolink:negatively_regulates_entity_to_entity](https://w3id.org/biolink/vocab/negatively_regulates_entity_to_entity)
 
+
 ## Domain and Range
 
-[MolecularEntity](MolecularEntity.md) ->  <sub>0..*</sub> [MolecularEntity](MolecularEntity.md)
+[molecular entity](molecular entity.md) ->  <sub>0..*</sub> [molecular entity](molecular entity.md)
 
 ## Parents
 
@@ -19,4 +20,16 @@ URI: [biolink:negatively_regulates_entity_to_entity](https://w3id.org/biolink/vo
 
 ## Used by
 
- * [MolecularEntity](MolecularEntity.md)
+ * [molecular entity](molecular entity.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Aliases:** | | activity directly negatively regulates activity of |
+| **Local names:** | | negatively regulates (translator) |
+|  | | activity directly negatively regulates activity of (ro) |
+| **Mappings:** | | RO:0002449 |
+|  | | SEMMEDDB:INHIBITS |
+| **In Subsets:** | | translator_minimal |
+

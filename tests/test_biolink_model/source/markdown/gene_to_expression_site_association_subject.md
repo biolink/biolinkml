@@ -1,14 +1,15 @@
 
-# Slot: subject
+# Type: gene to expression site association_subject
 
 
 
 
 URI: [biolink:gene_to_expression_site_association_subject](https://w3id.org/biolink/vocab/gene_to_expression_site_association_subject)
 
+
 ## Domain and Range
 
-[GeneToExpressionSiteAssociation](GeneToExpressionSiteAssociation.md) ->  <sub>REQ</sub> [GeneOrGeneProduct](GeneOrGeneProduct.md)
+[gene to expression site association](gene to expression site association.md) ->  <sub>REQ</sub> [gene or gene product](gene or gene product.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:gene_to_expression_site_association_subject](https://w3id.org/biol
 
 ## Used by
 
- * [GeneToExpressionSiteAssociation](GeneToExpressionSiteAssociation.md)
+ * [gene to expression site association](gene to expression site association.md)

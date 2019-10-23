@@ -1,14 +1,15 @@
 
-# Slot: local_name_value
+# Type: local_name_value
 
 
 a name assigned to an element in a given ontology
 
 URI: [meta:local_name_value](https://w3id.org/biolink/biolinkml/meta/local_name_value)
 
+
 ## Domain and Range
 
-[LocalName](LocalName.md) ->  <sub>REQ</sub> [String](String.md)
+[local_name](local_name.md) ->  <sub>REQ</sub> [String](type/String.md)
 
 ## Parents
 
@@ -18,4 +19,11 @@ URI: [meta:local_name_value](https://w3id.org/biolink/biolinkml/meta/local_name_
 
 ## Used by
 
- * [LocalName](LocalName.md)
+ * [local_name](local_name.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | skos:altLabel |
+

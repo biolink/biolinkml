@@ -1,0 +1,82 @@
+id: "http://example.org/mappings/"
+name: testMetamodelMappings
+description: Mappings test
+license: https://creativecommons.org/publicdomain/zero/1.0/
+
+prefixes:
+  ex: http://example.org/mappings/
+
+
+default_curi_maps:
+    - semweb_context
+
+default_prefix: ex
+default_range: string
+
+types:
+  string:
+    uri: xsd:string
+    base: str
+
+  identifier type:
+    typeof: string
+    description: >-
+      A string that is intended to uniquely identify a thing
+      May be URI in full or compact (CURIE) form
+
+slots:
+  s1:
+    domain: c1
+    range: string
+    exact_mappings:
+      - ex:slot1
+      - http://example.org/fulluri/slot1
+    close_mappings:
+      - ex:slot1_close
+      - http://example.org/fulluri/slot1_close
+    related_mappings:
+      - ex:slot1_related
+      - http://example.org/fulluri/slot1_related
+    deprecated_element_has_exact_replacement: s3
+    deprecated_element_has_possible_replacement: s4
+
+  s2:
+    identifier: true
+    domain: c1
+    range: identifier type
+    exact_mappings:
+      - ex:slot2
+      - http://example.org/fulluri/slot2
+    close_mappings:
+      - ex:slot2_close
+      - http://example.org/fulluri/slot2_close
+    related_mappings:
+      - ex:slot2_related
+      - http://example.org/fulluri/slot2_related
+    deprecated_element_has_exact_replacement: s3
+    deprecated_element_has_possible_replacement: s4
+
+
+classes:
+  c1:
+    slots:
+      - s1
+      - s2
+    exact_mappings:
+      - ex:class1
+      - http://example.org/fulluri/class1
+    close_mappings:
+      - ex:class1_close
+      - http://example.org/fulluri/class1_close
+    related_mappings:
+      - ex:class1_related
+      - http://example.org/fulluri/class1_related
+    deprecated_element_has_exact_replacement: c2
+    deprecated_element_has_possible_replacement: c3
+
+  c2:
+    is_a: c1
+
+  c3:
+    is_a: c1
+

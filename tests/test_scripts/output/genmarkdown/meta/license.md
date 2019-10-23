@@ -1,14 +1,15 @@
 
-# Slot: license
+# Type: license
 
 
 license for the schema
 
 URI: [meta:license](https://w3id.org/biolink/biolinkml/meta/license)
 
+
 ## Domain and Range
 
-[SchemaDefinition](SchemaDefinition.md) ->  <sub>OPT</sub> [String](String.md)
+[schema_definition](schema_definition.md) ->  <sub>OPT</sub> [String](type/String.md)
 
 ## Parents
 
@@ -18,4 +19,12 @@ URI: [meta:license](https://w3id.org/biolink/biolinkml/meta/license)
 
 ## Used by
 
- * [SchemaDefinition](SchemaDefinition.md)
+ * [schema_definition](schema_definition.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | dcterms:license |
+| **In Subsets:** | | owl |
+

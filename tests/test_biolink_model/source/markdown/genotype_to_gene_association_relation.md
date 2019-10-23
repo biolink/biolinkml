@@ -1,14 +1,15 @@
 
-# Slot: relation
+# Type: genotype to gene association_relation
 
 
 
 
 URI: [biolink:genotype_to_gene_association_relation](https://w3id.org/biolink/vocab/genotype_to_gene_association_relation)
 
+
 ## Domain and Range
 
-[GenotypeToGeneAssociation](GenotypeToGeneAssociation.md) ->  <sub>REQ</sub> [Uriorcurie](Uriorcurie.md)
+[genotype to gene association](genotype to gene association.md) ->  <sub>REQ</sub> [Uriorcurie](type/Uriorcurie.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:genotype_to_gene_association_relation](https://w3id.org/biolink/vo
 
 ## Used by
 
- * [GenotypeToGeneAssociation](GenotypeToGeneAssociation.md)
+ * [genotype to gene association](genotype to gene association.md)

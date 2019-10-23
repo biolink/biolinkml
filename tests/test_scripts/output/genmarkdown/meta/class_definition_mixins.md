@@ -1,14 +1,15 @@
 
-# Slot: mixins
+# Type: class_definition_mixins
 
 
 
 
 URI: [meta:class_definition_mixins](https://w3id.org/biolink/biolinkml/meta/class_definition_mixins)
 
+
 ## Domain and Range
 
-[ClassDefinition](ClassDefinition.md) ->  <sub>0..*</sub> [ClassDefinition](ClassDefinition.md)
+[class_definition](class_definition.md) ->  <sub>0..*</sub> [class_definition](class_definition.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [meta:class_definition_mixins](https://w3id.org/biolink/biolinkml/meta/clas
 
 ## Used by
 
- * [ClassDefinition](ClassDefinition.md)
+ * [class_definition](class_definition.md)

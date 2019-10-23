@@ -1,14 +1,15 @@
 
-# Slot: relation
+# Type: gene regulatory relationship_relation
 
 
 
 
 URI: [biolink:gene_regulatory_relationship_relation](https://w3id.org/biolink/vocab/gene_regulatory_relationship_relation)
 
+
 ## Domain and Range
 
-[GeneRegulatoryRelationship](GeneRegulatoryRelationship.md) ->  <sub>REQ</sub> [Uriorcurie](Uriorcurie.md)
+[gene regulatory relationship](gene regulatory relationship.md) ->  <sub>REQ</sub> [Uriorcurie](type/Uriorcurie.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:gene_regulatory_relationship_relation](https://w3id.org/biolink/vo
 
 ## Used by
 
- * [GeneRegulatoryRelationship](GeneRegulatoryRelationship.md)
+ * [gene regulatory relationship](gene regulatory relationship.md)

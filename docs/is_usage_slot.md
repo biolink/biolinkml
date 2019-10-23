@@ -1,14 +1,15 @@
 
-# Slot: is_usage_slot
+# Type: is_usage_slot
 
 
 True means that this slot was defined in a slot_usage situation
 
 URI: [meta:is_usage_slot](https://w3id.org/biolink/biolinkml/meta/is_usage_slot)
 
+
 ## Domain and Range
 
-[SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [Boolean](Boolean.md)
+[slot_definition](slot_definition.md) ->  <sub>OPT</sub> [Boolean](type/Boolean.md)
 
 ## Parents
 
@@ -18,4 +19,4 @@ URI: [meta:is_usage_slot](https://w3id.org/biolink/biolinkml/meta/is_usage_slot)
 
 ## Used by
 
- * [SlotDefinition](SlotDefinition.md)
+ * [slot_definition](slot_definition.md)

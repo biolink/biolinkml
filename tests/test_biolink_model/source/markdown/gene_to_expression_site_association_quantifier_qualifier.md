@@ -1,14 +1,15 @@
 
-# Slot: quantifier qualifier
+# Type: gene to expression site association_quantifier qualifier
 
 
 
 
 URI: [biolink:gene_to_expression_site_association_quantifier_qualifier](https://w3id.org/biolink/vocab/gene_to_expression_site_association_quantifier_qualifier)
 
+
 ## Domain and Range
 
-[GeneToExpressionSiteAssociation](GeneToExpressionSiteAssociation.md) ->  <sub>OPT</sub> [OntologyClass](OntologyClass.md)
+[gene to expression site association](gene to expression site association.md) ->  <sub>OPT</sub> [ontology class](ontology class.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [biolink:gene_to_expression_site_association_quantifier_qualifier](https://
 
 ## Used by
 
- * [GeneToExpressionSiteAssociation](GeneToExpressionSiteAssociation.md)
+ * [gene to expression site association](gene to expression site association.md)

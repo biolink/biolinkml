@@ -1,14 +1,15 @@
 
-# Slot: apply_to
+# Type: class_definition_apply_to
 
 
 
 
 URI: [meta:class_definition_apply_to](https://w3id.org/biolink/biolinkml/meta/class_definition_apply_to)
 
+
 ## Domain and Range
 
-[ClassDefinition](ClassDefinition.md) ->  <sub>0..*</sub> [ClassDefinition](ClassDefinition.md)
+[class_definition](class_definition.md) ->  <sub>0..*</sub> [class_definition](class_definition.md)
 
 ## Parents
 
@@ -19,4 +20,4 @@ URI: [meta:class_definition_apply_to](https://w3id.org/biolink/biolinkml/meta/cl
 
 ## Used by
 
- * [ClassDefinition](ClassDefinition.md)
+ * [class_definition](class_definition.md)

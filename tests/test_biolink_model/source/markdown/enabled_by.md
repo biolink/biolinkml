@@ -1,14 +1,15 @@
 
-# Slot: enabled by
+# Type: enabled by
 
 
 holds between a process and a physical entity, where the physical entity executes the process
 
 URI: [biolink:enabled_by](https://w3id.org/biolink/vocab/enabled_by)
 
+
 ## Domain and Range
 
-[Occurrent](Occurrent.md) ->  <sub>0..*</sub> [BiologicalProcessOrActivity](BiologicalProcessOrActivity.md)
+[occurrent](occurrent.md) ->  <sub>0..*</sub> [biological process or activity](biological process or activity.md)
 
 ## Parents
 
@@ -20,9 +21,17 @@ URI: [biolink:enabled_by](https://w3id.org/biolink/vocab/enabled_by)
 
 ## Used by
 
- * [BiologicalProcess](BiologicalProcess.md)
- * [BiologicalProcessOrActivity](BiologicalProcessOrActivity.md)
- * [MolecularActivity](MolecularActivity.md)
- * [Occurrent](Occurrent.md)
- * [Pathway](Pathway.md)
- * [PhysiologicalProcess](PhysiologicalProcess.md)
+ * [biological process](biological process.md)
+ * [biological process or activity](biological process or activity.md)
+ * [molecular activity](molecular activity.md)
+ * [occurrent](occurrent.md)
+ * [pathway](pathway.md)
+ * [physiological process](physiological process.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | RO:0002333 |
+| **In Subsets:** | | translator_minimal |
+

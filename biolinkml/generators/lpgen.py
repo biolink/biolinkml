@@ -2,13 +2,11 @@ import os
 from typing import Union, TextIO, Optional
 
 import click
+from prologterms import Term, TermGenerator, PrologRenderer, SExpressionRenderer
 
 from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition
-from biolinkml.utils.formatutils import camelcase, lcamelcase
-from biolinkml.utils.generator import Generator
 from biolinkml.utils.formatutils import camelcase, underscore
-#from owlgen import OwlSchemaGenerator
-from prologterms import Term, TermGenerator, PrologRenderer, SExpressionRenderer, Program, Var
+from biolinkml.utils.generator import Generator
 
 
 class LogicProgramGenerator(Generator):
@@ -21,7 +19,6 @@ class LogicProgramGenerator(Generator):
         super().__init__(schema, fmt)
         self.P = TermGenerator() 
         self.R = PrologRenderer() if fmt == 'lp' else SExpressionRenderer()
-        #self.owlgen = OwlSchemaGenerator(schema)
 
     def visit_class(self, cls: ClassDefinition) -> bool:
         cn = underscore(cls.name)
@@ -34,7 +31,6 @@ class LogicProgramGenerator(Generator):
             self.emit('is_a', cn, is_a)
             if cls.defining_slots:
                 self.emit('defining_slots', is_a, [underscore(s) for s in cls.defining_slots])
-        #uri = self.owlgen._prop_uri(cls.name)
         uri = f'http://w3id.org/biolink/vocab/{camelcase(cls.name)}'
 
         self.emit('has_uri', cn, uri)
