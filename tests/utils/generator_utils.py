@@ -40,7 +40,8 @@ class GeneratorTestCase(unittest.TestCase):
         g_text = re.sub(r'@prefix.*\n', '', g.serialize(format="turtle").decode())
         print(g_text)
 
-    def _default_comparator(self, old_data: str, new_data: str, new_file: str, msg: Optional[str] = None) -> None:
+    def _default_comparator(self, old_data: str, new_data: str, new_file: str, msg: Optional[str] = None,
+                            filtr: Optional[Callable[[str], str]] = None) -> None:
         """ Simple file comparator.  Compare old to new and, if they don't match, save an image of new in
         file_name_for_actual and raise an error
 
@@ -48,20 +49,24 @@ class GeneratorTestCase(unittest.TestCase):
         :param new_data: Actual data
         :param new_file: Save actual data here if mismatch
         :param msg: If present add to the assert message
+        :param filtr: data filter
         :return:
         """
         self.maxDiff = None
-        if old_data != new_data:
+        old_data_filtered = filtr(old_data) if filtr is not None else old_data
+        new_data_filtered = filtr(new_data) if filtr is not None else new_data
+        if old_data_filtered != new_data_filtered:
             if msg:
                 print(msg)
             with open(new_file, 'w') as newf:
                 newf.write(new_data)
             if len(new_data) > 20000:
-                print(ClickTestCase.closein_comparison(old_data, new_data))
-            self.assertEqual(old_data, new_data)
+                print(ClickTestCase.closein_comparison(old_data_filtered, new_data_filtered))
+            self.assertEqual(old_data_filtered, new_data_filtered)
 
     def rdf_comparator(self, expected_rdf: Union[Graph, str], actual_rdf: Union[Graph, str],
-                       file_name_for_actual: Optional[str] = None, msg: Optional[str] = None) -> None:
+                       file_name_for_actual: Optional[str] = None, msg: Optional[str] = None,
+                       filtr: Optional[Callable[[str], str]] = None) -> None:
         """
         RDF comparator.  Compare two graphs and, if they don't match, save a turtle image of new_data in
         new_file and raise an error
@@ -69,6 +74,7 @@ class GeneratorTestCase(unittest.TestCase):
         :param actual_rdf: Turtle representation of actual RDF
         :param file_name_for_actual: Save actual RDF here if mismatch
         :param msg: If present, add to assert message
+        :param filtr: data filter
         :return:
         """
         error_msg = compare_rdf(expected_rdf, actual_rdf)
@@ -84,7 +90,7 @@ class GeneratorTestCase(unittest.TestCase):
                               generator_args: Optional[dict] = None,
                               serialize_args: Optional[dict] = None,
                               filtr: Optional[Callable[[str], str]] = None,
-                              comparator: Callable[[type(unittest.TestCase), str, str, str], None] = None,
+                              comparator: Callable[[type(unittest.TestCase), str, str, str, Optional[Callable[[str], str]]], None] = None,
                               preserve_metadata: bool = False,
                               fail_if_expected_missing: bool = False) -> str:
         """ Invoke Generator gen.  If
@@ -134,7 +140,7 @@ class GeneratorTestCase(unittest.TestCase):
 
         with open(old_file) as oldf:
             old_data = filtr(oldf.read())
-        comparator(self, old_data, filtr(new_data), new_file, message)
+        comparator(self, old_data, new_data, new_file, message, filtr=filtr)
         return ''
 
     def directory_generator(self, dirname: str, gen: type(Generator), gen_args: Optional[dict] = None,

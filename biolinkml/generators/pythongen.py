@@ -1,7 +1,7 @@
 import inspect
-import logging
 import os
 import re
+import sys
 from typing import Optional, Tuple, List, Union, TextIO, Callable, Dict, Iterator, cast, Set
 
 import click
@@ -73,7 +73,7 @@ class PythonGenerator(Generator):
         for mapping in defn.mappings:
             if '://' in mapping:
                 mcurie = self.namespaces.curie_for(mapping)
-                self.logger.warning(f"No namespace defined for URI: {mapping}")
+                print(f"No namespace defined for URI: {mapping}", file=sys.stderr)
                 if mcurie is None:
                     return        # Absolute path - no prefix/name
                 else:
@@ -104,6 +104,7 @@ from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace, URIRef
+from biolinkml.utils.curienamespace import CurieNamespace
 {self.gen_imports()}
 
 metamodel_version = "{self.schema.metamodel_version}"
@@ -139,9 +140,9 @@ metamodel_version = "{self.schema.metamodel_version}"
                 self.v: Dict[str, Set[str]] = {}
 
             def add_element(self, e: Element) -> None:
-                # TODO: figure out a better way to map IMPORT URI's to local file names
                 if e.imported_from:
-                    if str(e.imported_from).startswith(biolinkml.META_BASE_URI):
+                    if str(e.imported_from) == biolinkml.METATYPE_URI:
+                        # TODO: figure out how to make this sort of stuff part of the model
                         self.v.setdefault(types.__name__, set()).add(camelcase(e.name))
                     elif str(e.imported_from) == biolinkml.BIOLINK_MODEL_URI:
                         self.v.setdefault(biolinkml.BIOLINK_MODEL_PYTHON_LOC, set()).add(camelcase(e.name))
@@ -211,7 +212,7 @@ metamodel_version = "{self.schema.metamodel_version}"
         dflt_prefix = default_curie_or_uri(self)
         dflt = f"Namespace('{sfx(dflt_prefix)}')" if ':/' in dflt_prefix else dflt_prefix.upper()
         return '\n'.join([
-            f"{pfx.upper().replace('.', '_')} = Namespace('{self.namespaces[pfx]}')"
+            f"{pfx.upper().replace('.', '_')} = CurieNamespace('{pfx.replace('.', '_')}', '{self.namespaces[pfx]}')"
             for pfx in sorted(self.emit_prefixes) if pfx in self.namespaces
         ] + [f"DEFAULT_ = {dflt}"])
 
@@ -293,10 +294,11 @@ metamodel_version = "{self.schema.metamodel_version}"
         if class_class_curie:
             class_class_curie = f'"{class_class_curie}"'
         class_class_uri = cls_python_uri if cls_python_uri else f'URIRef("{class_class_uri}")'
-        if ':/' in cls.definition_uri:
-            class_model_uri = f'URIRef("{cls.definition_uri}")'
+        class_model_uri = self.namespaces.uri_or_curie_for(self.schema.default_prefix, camelcase(cls.name))
+        if ':/' in class_model_uri:
+            class_model_uri = f'URIRef("{class_model_uri}")'
         else:
-            ns, ln = cls.definition_uri.split(':', 1)
+            ns, ln = class_model_uri.split(':', 1)
             class_model_uri = f"{ns.upper()}.{ln}"
 
         vars = [f'class_class_uri: ClassVar[URIRef] = {class_class_uri}',
@@ -316,10 +318,11 @@ metamodel_version = "{self.schema.metamodel_version}"
         if type_class_curie:
             type_class_curie = f'"{type_class_curie}"'
         type_class_uri = type_python_uri if type_python_uri else f'URIRef("{type_class_uri}")'
-        if ':/' in typ.definition_uri:
-            type_model_uri = f'URIRef("{typ.definition_uri}")'
+        type_model_uri = self.namespaces.uri_or_curie_for(self.schema.default_prefix, camelcase(typ.name))
+        if ':/' in type_model_uri:
+            type_model_uri = f'URIRef("{type_model_uri}")'
         else:
-            ns, ln = typ.definition_uri.split(':', 1)
+            ns, ln = type_model_uri.split(':', 1)
             ln_suffix = f".{ln}" if ln.isidentifier() else f'["{ln}"]'
             type_model_uri = f"{ns.upper()}{ln_suffix}"
         vars = [f'type_class_uri = {type_class_uri}',

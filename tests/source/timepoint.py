@@ -9,6 +9,7 @@ from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace, URIRef
+from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import XSDTime
 from includes.types import String, Time
 
@@ -16,8 +17,8 @@ metamodel_version = "1.4.3"
 
 
 # Namespaces
-SHEX = Namespace('http://www.w3.org/ns/shex#')
-XSD = Namespace('http://www.w3.org/2001/XMLSchema#')
+SHEX = CurieNamespace('shex', 'http://www.w3.org/ns/shex#')
+XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = Namespace('http://example.org/tests/timepoint/')
 
 

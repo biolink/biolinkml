@@ -1,5 +1,5 @@
-# Auto generated from meta.yaml by pythongen.py version: 0.2.1
-# Generation date: 2019-10-08 18:34
+# Auto generated from meta.yaml by pythongen.py version: 0.3.0
+# Generation date: 2019-10-23 14:06
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta
@@ -12,6 +12,7 @@ from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace, URIRef
+from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import Bool, NCName, URI, URIorCURIE, XSDDateTime
 from includes.types import Boolean, Datetime, Integer, Ncname, String, Uri, Uriorcurie
 
@@ -19,17 +20,17 @@ metamodel_version = "1.4.3"
 
 
 # Namespaces
-IAO = Namespace('http://purl.obolibrary.org/obo/IAO_')
-OIO = Namespace('http://www.geneontology.org/formats/oboInOwl#')
-DCTERMS = Namespace('http://purl.org/dc/terms/')
-META = Namespace('https://w3id.org/biolink/biolinkml/meta/')
-OWL = Namespace('http://www.w3.org/2002/07/owl#')
-PAV = Namespace('http://purl.org/pav/')
-RDF = Namespace('http://www.w3.org/1999/02/22-rdf-syntax-ns#')
-RDFS = Namespace('http://www.w3.org/2000/01/rdf-schema#')
-SHEX = Namespace('http://www.w3.org/ns/shex#')
-SKOS = Namespace('http://www.w3.org/2004/02/skos/core#')
-XSD = Namespace('http://www.w3.org/2001/XMLSchema#')
+IAO = CurieNamespace('IAO', 'http://purl.obolibrary.org/obo/IAO_')
+OIO = CurieNamespace('OIO', 'http://www.geneontology.org/formats/oboInOwl#')
+DCTERMS = CurieNamespace('dcterms', 'http://purl.org/dc/terms/')
+META = CurieNamespace('meta', 'https://w3id.org/biolink/biolinkml/meta/')
+OWL = CurieNamespace('owl', 'http://www.w3.org/2002/07/owl#')
+PAV = CurieNamespace('pav', 'http://purl.org/pav/')
+RDF = CurieNamespace('rdf', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#')
+RDFS = CurieNamespace('rdfs', 'http://www.w3.org/2000/01/rdf-schema#')
+SHEX = CurieNamespace('shex', 'http://www.w3.org/ns/shex#')
+SKOS = CurieNamespace('skos', 'http://www.w3.org/2004/02/skos/core#')
+XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = META
 
 
