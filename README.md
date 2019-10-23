@@ -10,13 +10,13 @@ biolinkml is used for development of the [BioLink Model](https://biolink.github.
 
 Quickstart docs:
 
- * Browse the model: [https://biolink.github.io/biolinkml/docs](https://biolink.github.io/biolinkml/docs)
+ * Browse the model (biolinkml is self-describing): [https://biolink.github.io/biolinkml/docs](https://biolink.github.io/biolinkml/docs)
     * [class definition](https://biolink.github.io/biolinkml/docs/ClassDefinition) Class definitions
     * [slot definition](https://biolink.github.io/biolinkml/docs/SlotDefinition) Class properties
     * [type definition](https://biolink.github.io/biolinkml/docs/TypeDefinition) Data types
     * [schema ddefinition](https://biolink.github.io/biolinkml/docs/SchemaDefinition) Schema definition
 
-For an example, see the [Jupyter notebook example](https://github.com/biolink/biolinkml/blob/master/notebooks/examples.ipynb)
+For an example, see the [Jupyter notebook example](https://nbviewer.jupyter.org/github/biolink/biolinkml/blob/master/notebooks/examples.ipynb)
 
 ## Installation
 ```bash
@@ -24,6 +24,48 @@ For an example, see the [Jupyter notebook example](https://github.com/biolink/bi
 ```
 
 ## Examples
+
+This basic example shows a schema with a single class together with slots that can be used for instances of that class:
+
+```
+id: http://example.org/sample/example1
+name: synopsis2
+
+types:
+  yearCount:
+    base: int
+    uri: xsd:int
+  string:
+    base: str
+    uri: xsd:string
+    
+classes:
+  person:
+    description: A person, living or dead
+    slots:
+      - id
+      - first name
+      - last name
+      - age
+
+slots:
+  id:
+    description: Unique identifier of a person
+    identifier: true
+
+  first name:
+    description: The first name of a person
+    range: string
+    
+  last name:
+    description: The last name of a person
+    range: string
+    required: true
+
+  age:
+    description: The age of a person if living or age of death if not
+    range: yearCount
+```        
 
 ## Generated Aretfacts
 
@@ -38,6 +80,18 @@ For an example, see the [Jupyter notebook example](https://github.com/biolink/bi
 * [OWL](https://www.w3.org/TR/2012/REC-owl2-overview-20121211/) - Web Ontology Language
 * [RDF](https://www.w3.org/2001/sw/wiki/RDF) - Resource Description Format
 
+## Language Features
+
+In future we will have examples for each of these.
+
+ * polymorphism/inheritance, see [is_a](https://biolink.github.io/biolinkml/docs/is_a)
+ * [abstract](https://biolink.github.io/biolinkml/docs/abstract) and [mixin](https://biolink.github.io/biolinkml/docs/mixin) classes
+ * control JSON-LD mappings to URIs via [prefixes](https://biolink.github.io/biolinkml/docs/prefixes) declarations
+ * ability to refine meaning of a slot in the context of a particular class via [slot usage](https://biolink.github.io/biolinkml/docs/slot_usage)
+
+## Formal Semantics
+
+These are specified using First Order Logic (FOL) axioms. See the [semantics](semantics) folder
 
 ## FAQ
 
