@@ -12,14 +12,15 @@ from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace, URIRef
+from biolinkml.utils.curienamespace import CurieNamespace
 
 
 metamodel_version = "1.4.3"
 
 
 # Namespaces
-EX = Namespace('http://example.org/mappings/')
-XSD = Namespace('http://www.w3.org/2001/XMLSchema#')
+EX = CurieNamespace('ex', 'http://example.org/mappings/')
+XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = EX
 
 

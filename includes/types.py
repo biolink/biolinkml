@@ -1,5 +1,5 @@
-# Auto generated from .yaml by pythongen.py version:
-# Generation date:
+# Auto generated from types.yaml by pythongen.py version: 0.3.0
+# Generation date: 2019-10-23 11:41
 # Schema: types
 #
 # id: https://w3id.org/biolink/biolinkml/types
@@ -12,15 +12,16 @@ from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace, URIRef
+from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import Bool, ElementIdentifier, NCName, NodeIdentifier, URI, URIorCURIE, XSDDate, XSDDateTime, XSDTime
 
 metamodel_version = "1.4.3"
 
 
 # Namespaces
-METATYPE = Namespace('https://w3id.org/biolink/biolinkml/type/')
-SHEX = Namespace('http://www.w3.org/ns/shex#')
-XSD = Namespace('http://www.w3.org/2001/XMLSchema#')
+METATYPE = CurieNamespace('metatype', 'https://w3id.org/biolink/biolinkml/type/')
+SHEX = CurieNamespace('shex', 'http://www.w3.org/ns/shex#')
+XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = METATYPE
 
 

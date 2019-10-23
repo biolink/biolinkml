@@ -51,10 +51,10 @@ class URIAndCurieTestCase(GeneratorTestCase):
         exec(spec, module.__dict__)
 
         # Check that the interpretations are correct
-        msg = self.single_file_generator(
-            'jsonld', ContextGenerator, filtr=ldcontext_metadata_filter, fail_if_expected_missing=False)
-        msg = self.single_file_generator(
-                'json', JSONLDGenerator, filtr=json_metadata_filter, fail_if_expected_missing=False)
+        msg = self.single_file_generator('jsonld', ContextGenerator, filtr=ldcontext_metadata_filter,
+                                         fail_if_expected_missing=False)
+        msg = self.single_file_generator('json', JSONLDGenerator, filtr=json_metadata_filter,
+                                         fail_if_expected_missing=False)
         if msg:
             self.fail(msg)
 

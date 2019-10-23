@@ -9,6 +9,7 @@ from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace, URIRef
+from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import URIorCURIE
 from includes.types import Uriorcurie
 
@@ -16,9 +17,9 @@ metamodel_version = "1.4.3"
 
 
 # Namespaces
-RDFS = Namespace('http://example.org/UNKNOWN/rdfs/')
-SHEX = Namespace('http://www.w3.org/ns/shex#')
-XSD = Namespace('http://www.w3.org/2001/XMLSchema#')
+RDFS = CurieNamespace('rdfs', 'http://example.org/UNKNOWN/rdfs/')
+SHEX = CurieNamespace('shex', 'http://www.w3.org/ns/shex#')
+XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = Namespace('https://example.com/test44/')
 
 
