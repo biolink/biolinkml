@@ -15,7 +15,7 @@ URI: [biolink:Exon](https://w3id.org/biolink/vocab/Exon)
 
 ## Referenced by class
 
- *  **[exon to transcript relationship](exon to transcript relationship.md)** *[subject](exon_to_transcript_relationship_subject.md)*  <sub>REQ</sub>  **[exon](exon.md)**
+ *  **[exon to transcript relationship](exon to transcript relationship.md)** *[exon to transcript relationship➞subject](exon_to_transcript_relationship_subject.md)*  <sub>REQ</sub>  **[exon](exon.md)**
 
 ## Attributes
 

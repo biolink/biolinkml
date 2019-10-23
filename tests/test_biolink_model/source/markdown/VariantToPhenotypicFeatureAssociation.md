@@ -26,7 +26,7 @@ URI: [biolink:VariantToPhenotypicFeatureAssociation](https://w3id.org/biolink/vo
 
 ### Own
 
- * [subject](variant_to_phenotypic_feature_association_subject.md)  <sub>REQ</sub>
+ * [variant to phenotypic feature association➞subject](variant_to_phenotypic_feature_association_subject.md)  <sub>REQ</sub>
     * range: [sequence variant](sequence variant.md)
 
 ### Inherited from association:
@@ -43,7 +43,7 @@ URI: [biolink:VariantToPhenotypicFeatureAssociation](https://w3id.org/biolink/vo
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [named thing](named thing.md)
     * inherited from: [association](association.md)
- * [id](association_id.md)  <sub>REQ</sub>
+ * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
@@ -71,5 +71,5 @@ URI: [biolink:VariantToPhenotypicFeatureAssociation](https://w3id.org/biolink/vo
 
 ### Domain for slot:
 
- * [subject](variant_to_phenotypic_feature_association_subject.md)  <sub>REQ</sub>
+ * [variant to phenotypic feature association➞subject](variant_to_phenotypic_feature_association_subject.md)  <sub>REQ</sub>
     * range: [sequence variant](sequence variant.md)

@@ -30,12 +30,12 @@ URI: [biolink:GenomicEntity](https://w3id.org/biolink/vocab/GenomicEntity)
  *  **[molecular entity](molecular entity.md)** *[affects mutation rate of](affects_mutation_rate_of.md)*  <sub>0..*</sub>  **[genomic entity](genomic entity.md)**
  *  **[molecular entity](molecular entity.md)** *[decreases expression of](decreases_expression_of.md)*  <sub>0..*</sub>  **[genomic entity](genomic entity.md)**
  *  **[molecular entity](molecular entity.md)** *[decreases mutation rate of](decreases_mutation_rate_of.md)*  <sub>0..*</sub>  **[genomic entity](genomic entity.md)**
- *  **[genomic sequence localization](genomic sequence localization.md)** *[object](genomic_sequence_localization_object.md)*  <sub>REQ</sub>  **[genomic entity](genomic entity.md)**
- *  **[genomic sequence localization](genomic sequence localization.md)** *[subject](genomic_sequence_localization_subject.md)*  <sub>REQ</sub>  **[genomic entity](genomic entity.md)**
+ *  **[genomic sequence localization](genomic sequence localization.md)** *[genomic sequence localization➞object](genomic_sequence_localization_object.md)*  <sub>REQ</sub>  **[genomic entity](genomic entity.md)**
+ *  **[genomic sequence localization](genomic sequence localization.md)** *[genomic sequence localization➞subject](genomic_sequence_localization_subject.md)*  <sub>REQ</sub>  **[genomic entity](genomic entity.md)**
  *  **[molecular entity](molecular entity.md)** *[increases expression of](increases_expression_of.md)*  <sub>0..*</sub>  **[genomic entity](genomic entity.md)**
  *  **[molecular entity](molecular entity.md)** *[increases mutation rate of](increases_mutation_rate_of.md)*  <sub>0..*</sub>  **[genomic entity](genomic entity.md)**
- *  **[sequence feature relationship](sequence feature relationship.md)** *[object](sequence_feature_relationship_object.md)*  <sub>REQ</sub>  **[genomic entity](genomic entity.md)**
- *  **[sequence feature relationship](sequence feature relationship.md)** *[subject](sequence_feature_relationship_subject.md)*  <sub>REQ</sub>  **[genomic entity](genomic entity.md)**
+ *  **[sequence feature relationship](sequence feature relationship.md)** *[sequence feature relationship➞object](sequence_feature_relationship_object.md)*  <sub>REQ</sub>  **[genomic entity](genomic entity.md)**
+ *  **[sequence feature relationship](sequence feature relationship.md)** *[sequence feature relationship➞subject](sequence_feature_relationship_subject.md)*  <sub>REQ</sub>  **[genomic entity](genomic entity.md)**
 
 ## Attributes
 

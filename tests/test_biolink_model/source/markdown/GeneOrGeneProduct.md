@@ -20,18 +20,18 @@ URI: [biolink:GeneOrGeneProduct](https://w3id.org/biolink/vocab/GeneOrGeneProduc
 
 ## Referenced by class
 
- *  **[chemical to gene association](chemical to gene association.md)** *[object](chemical_to_gene_association_object.md)*  <sub>REQ</sub>  **[gene or gene product](gene or gene product.md)**
+ *  **[chemical to gene association](chemical to gene association.md)** *[chemical to gene association➞object](chemical_to_gene_association_object.md)*  <sub>REQ</sub>  **[gene or gene product](gene or gene product.md)**
  *  **[anatomical entity](anatomical entity.md)** *[expresses](expresses.md)*  <sub>0..*</sub>  **[gene or gene product](gene or gene product.md)**
- *  **[gene as a model of disease association](gene as a model of disease association.md)** *[subject](gene_as_a_model_of_disease_association_subject.md)*  <sub>REQ</sub>  **[gene or gene product](gene or gene product.md)**
- *  **[gene has variant that contributes to disease association](gene has variant that contributes to disease association.md)** *[subject](gene_has_variant_that_contributes_to_disease_association_subject.md)*  <sub>REQ</sub>  **[gene or gene product](gene or gene product.md)**
- *  **[gene regulatory relationship](gene regulatory relationship.md)** *[object](gene_regulatory_relationship_object.md)*  <sub>REQ</sub>  **[gene or gene product](gene or gene product.md)**
- *  **[gene regulatory relationship](gene regulatory relationship.md)** *[subject](gene_regulatory_relationship_subject.md)*  <sub>REQ</sub>  **[gene or gene product](gene or gene product.md)**
- *  **[gene to disease association](gene to disease association.md)** *[subject](gene_to_disease_association_subject.md)*  <sub>REQ</sub>  **[gene or gene product](gene or gene product.md)**
- *  **[gene to expression site association](gene to expression site association.md)** *[subject](gene_to_expression_site_association_subject.md)*  <sub>REQ</sub>  **[gene or gene product](gene or gene product.md)**
- *  **[gene to gene association](gene to gene association.md)** *[object](gene_to_gene_association_object.md)*  <sub>REQ</sub>  **[gene or gene product](gene or gene product.md)**
- *  **[gene to gene association](gene to gene association.md)** *[subject](gene_to_gene_association_subject.md)*  <sub>REQ</sub>  **[gene or gene product](gene or gene product.md)**
- *  **[gene to phenotypic feature association](gene to phenotypic feature association.md)** *[subject](gene_to_phenotypic_feature_association_subject.md)*  <sub>REQ</sub>  **[gene or gene product](gene or gene product.md)**
- *  **[gene to thing association](gene to thing association.md)** *[subject](gene_to_thing_association_subject.md)*  <sub>REQ</sub>  **[gene or gene product](gene or gene product.md)**
+ *  **[gene as a model of disease association](gene as a model of disease association.md)** *[gene as a model of disease association➞subject](gene_as_a_model_of_disease_association_subject.md)*  <sub>REQ</sub>  **[gene or gene product](gene or gene product.md)**
+ *  **[gene has variant that contributes to disease association](gene has variant that contributes to disease association.md)** *[gene has variant that contributes to disease association➞subject](gene_has_variant_that_contributes_to_disease_association_subject.md)*  <sub>REQ</sub>  **[gene or gene product](gene or gene product.md)**
+ *  **[gene regulatory relationship](gene regulatory relationship.md)** *[gene regulatory relationship➞object](gene_regulatory_relationship_object.md)*  <sub>REQ</sub>  **[gene or gene product](gene or gene product.md)**
+ *  **[gene regulatory relationship](gene regulatory relationship.md)** *[gene regulatory relationship➞subject](gene_regulatory_relationship_subject.md)*  <sub>REQ</sub>  **[gene or gene product](gene or gene product.md)**
+ *  **[gene to disease association](gene to disease association.md)** *[gene to disease association➞subject](gene_to_disease_association_subject.md)*  <sub>REQ</sub>  **[gene or gene product](gene or gene product.md)**
+ *  **[gene to expression site association](gene to expression site association.md)** *[gene to expression site association➞subject](gene_to_expression_site_association_subject.md)*  <sub>REQ</sub>  **[gene or gene product](gene or gene product.md)**
+ *  **[gene to gene association](gene to gene association.md)** *[gene to gene association➞object](gene_to_gene_association_object.md)*  <sub>REQ</sub>  **[gene or gene product](gene or gene product.md)**
+ *  **[gene to gene association](gene to gene association.md)** *[gene to gene association➞subject](gene_to_gene_association_subject.md)*  <sub>REQ</sub>  **[gene or gene product](gene or gene product.md)**
+ *  **[gene to phenotypic feature association](gene to phenotypic feature association.md)** *[gene to phenotypic feature association➞subject](gene_to_phenotypic_feature_association_subject.md)*  <sub>REQ</sub>  **[gene or gene product](gene or gene product.md)**
+ *  **[gene to thing association](gene to thing association.md)** *[gene to thing association➞subject](gene_to_thing_association_subject.md)*  <sub>REQ</sub>  **[gene or gene product](gene or gene product.md)**
  *  **[gene or gene product](gene or gene product.md)** *[in cell population with](in_cell_population_with.md)*  <sub>0..*</sub>  **[gene or gene product](gene or gene product.md)**
  *  **[gene or gene product](gene or gene product.md)** *[in complex with](in_complex_with.md)*  <sub>0..*</sub>  **[gene or gene product](gene or gene product.md)**
  *  **[gene or gene product](gene or gene product.md)** *[in pathway with](in_pathway_with.md)*  <sub>0..*</sub>  **[gene or gene product](gene or gene product.md)**
@@ -41,7 +41,7 @@ URI: [biolink:GeneOrGeneProduct](https://w3id.org/biolink/vocab/GeneOrGeneProduc
 
 ### Inherited from macromolecular machine:
 
- * [name](macromolecular_machine_name.md)  <sub>REQ</sub>
+ * [macromolecular machine➞name](macromolecular_machine_name.md)  <sub>REQ</sub>
     * range: [SymbolType](type/SymbolType.md)
     * inherited from: [macromolecular machine](macromolecular machine.md)
 

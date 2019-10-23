@@ -21,11 +21,11 @@ URI: [biolink:AnatomicalEntityToAnatomicalEntityPartOfAssociation](https://w3id.
 
 ### Own
 
- * [object](anatomical_entity_to_anatomical_entity_part_of_association_object.md)  <sub>REQ</sub>
+ * [anatomical entity to anatomical entity part of association➞object](anatomical_entity_to_anatomical_entity_part_of_association_object.md)  <sub>REQ</sub>
     * range: [anatomical entity](anatomical entity.md)
- * [relation](anatomical_entity_to_anatomical_entity_part_of_association_relation.md)  <sub>REQ</sub>
+ * [anatomical entity to anatomical entity part of association➞relation](anatomical_entity_to_anatomical_entity_part_of_association_relation.md)  <sub>REQ</sub>
     * range: [Uriorcurie](type/Uriorcurie.md)
- * [subject](anatomical_entity_to_anatomical_entity_part_of_association_subject.md)  <sub>REQ</sub>
+ * [anatomical entity to anatomical entity part of association➞subject](anatomical_entity_to_anatomical_entity_part_of_association_subject.md)  <sub>REQ</sub>
     * range: [anatomical entity](anatomical entity.md)
 
 ### Inherited from association:
@@ -42,7 +42,7 @@ URI: [biolink:AnatomicalEntityToAnatomicalEntityPartOfAssociation](https://w3id.
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [named thing](named thing.md)
     * inherited from: [association](association.md)
- * [id](association_id.md)  <sub>REQ</sub>
+ * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
@@ -70,9 +70,9 @@ URI: [biolink:AnatomicalEntityToAnatomicalEntityPartOfAssociation](https://w3id.
 
 ### Domain for slot:
 
- * [object](anatomical_entity_to_anatomical_entity_part_of_association_object.md)  <sub>REQ</sub>
+ * [anatomical entity to anatomical entity part of association➞object](anatomical_entity_to_anatomical_entity_part_of_association_object.md)  <sub>REQ</sub>
     * range: [anatomical entity](anatomical entity.md)
- * [relation](anatomical_entity_to_anatomical_entity_part_of_association_relation.md)  <sub>REQ</sub>
+ * [anatomical entity to anatomical entity part of association➞relation](anatomical_entity_to_anatomical_entity_part_of_association_relation.md)  <sub>REQ</sub>
     * range: [Uriorcurie](type/Uriorcurie.md)
- * [subject](anatomical_entity_to_anatomical_entity_part_of_association_subject.md)  <sub>REQ</sub>
+ * [anatomical entity to anatomical entity part of association➞subject](anatomical_entity_to_anatomical_entity_part_of_association_subject.md)  <sub>REQ</sub>
     * range: [anatomical entity](anatomical entity.md)

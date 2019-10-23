@@ -17,7 +17,7 @@ URI: [biolink:change_is_catalyzed_by](https://w3id.org/biolink/vocab/change_is_c
 
 ## Children
 
- *  [change is catalyzed by](chemical_to_chemical_derivation_association_change_is_catalyzed_by.md)
+ *  [chemical to chemical derivation association➞change is catalyzed by](chemical_to_chemical_derivation_association_change_is_catalyzed_by.md)
 
 ## Used by
 

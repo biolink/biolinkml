@@ -27,7 +27,7 @@ URI: [biolink:ThingToDiseaseOrPhenotypicFeatureAssociation](https://w3id.org/bio
 
 ### Own
 
- * [object](thing_to_disease_or_phenotypic_feature_association_object.md)  <sub>REQ</sub>
+ * [thing to disease or phenotypic feature association➞object](thing_to_disease_or_phenotypic_feature_association_object.md)  <sub>REQ</sub>
     * range: [disease or phenotypic feature](disease or phenotypic feature.md)
 
 ### Inherited from association:
@@ -44,7 +44,7 @@ URI: [biolink:ThingToDiseaseOrPhenotypicFeatureAssociation](https://w3id.org/bio
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [named thing](named thing.md)
     * inherited from: [association](association.md)
- * [id](association_id.md)  <sub>REQ</sub>
+ * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
@@ -72,5 +72,5 @@ URI: [biolink:ThingToDiseaseOrPhenotypicFeatureAssociation](https://w3id.org/bio
 
 ### Domain for slot:
 
- * [object](thing_to_disease_or_phenotypic_feature_association_object.md)  <sub>REQ</sub>
+ * [thing to disease or phenotypic feature association➞object](thing_to_disease_or_phenotypic_feature_association_object.md)  <sub>REQ</sub>
     * range: [disease or phenotypic feature](disease or phenotypic feature.md)

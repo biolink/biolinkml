@@ -15,7 +15,7 @@ URI: [biolink:DrugExposure](https://w3id.org/biolink/vocab/DrugExposure)
 
 ## Referenced by class
 
- *  **[treatment](treatment.md)** *[has part](treatment_has_part.md)*  <sub>1..*</sub>  **[drug exposure](drug exposure.md)**
+ *  **[treatment](treatment.md)** *[treatment➞has part](treatment_has_part.md)*  <sub>1..*</sub>  **[drug exposure](drug exposure.md)**
 
 ## Attributes
 
@@ -40,7 +40,7 @@ URI: [biolink:DrugExposure](https://w3id.org/biolink/vocab/DrugExposure)
 
 ### Domain for slot:
 
- * [has drug](drug_exposure_has_drug.md)  <sub>1..*</sub>
+ * [drug exposure➞has drug](drug_exposure_has_drug.md)  <sub>1..*</sub>
     * range: [chemical substance](chemical substance.md)
 
 ## Other properties

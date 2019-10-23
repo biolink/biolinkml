@@ -17,7 +17,7 @@ URI: [biolink:association_id](https://w3id.org/biolink/vocab/association_id)
 
 ## Children
 
- *  [id](pairwise_interaction_association_id.md)
+ *  [pairwise interaction association➞id](pairwise_interaction_association_id.md)
 
 ## Used by
 

@@ -17,9 +17,9 @@ URI: [biolink:Transcript](https://w3id.org/biolink/vocab/Transcript)
 
  *  **[molecular entity](molecular entity.md)** *[affects splicing of](affects_splicing_of.md)*  <sub>0..*</sub>  **[transcript](transcript.md)**
  *  **[molecular entity](molecular entity.md)** *[decreases splicing of](decreases_splicing_of.md)*  <sub>0..*</sub>  **[transcript](transcript.md)**
- *  **[exon to transcript relationship](exon to transcript relationship.md)** *[object](exon_to_transcript_relationship_object.md)*  <sub>REQ</sub>  **[transcript](transcript.md)**
+ *  **[exon to transcript relationship](exon to transcript relationship.md)** *[exon to transcript relationship➞object](exon_to_transcript_relationship_object.md)*  <sub>REQ</sub>  **[transcript](transcript.md)**
  *  **[molecular entity](molecular entity.md)** *[increases splicing of](increases_splicing_of.md)*  <sub>0..*</sub>  **[transcript](transcript.md)**
- *  **[transcript to gene relationship](transcript to gene relationship.md)** *[subject](transcript_to_gene_relationship_subject.md)*  <sub>REQ</sub>  **[transcript](transcript.md)**
+ *  **[transcript to gene relationship](transcript to gene relationship.md)** *[transcript to gene relationship➞subject](transcript_to_gene_relationship_subject.md)*  <sub>REQ</sub>  **[transcript](transcript.md)**
 
 ## Attributes
 

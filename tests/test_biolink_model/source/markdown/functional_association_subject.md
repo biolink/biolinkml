@@ -17,7 +17,7 @@ URI: [biolink:functional_association_subject](https://w3id.org/biolink/vocab/fun
 
 ## Children
 
- *  [subject](gene_to_go_term_association_subject.md)
+ *  [gene to go term association➞subject](gene_to_go_term_association_subject.md)
 
 ## Used by
 

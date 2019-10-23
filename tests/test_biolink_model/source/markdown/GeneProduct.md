@@ -21,7 +21,7 @@ URI: [biolink:GeneProduct](https://w3id.org/biolink/vocab/GeneProduct)
 
 ## Referenced by class
 
- *  **[gene to gene product relationship](gene to gene product relationship.md)** *[object](gene_to_gene_product_relationship_object.md)*  <sub>REQ</sub>  **[gene product](gene product.md)**
+ *  **[gene to gene product relationship](gene to gene product relationship.md)** *[gene to gene product relationship➞object](gene_to_gene_product_relationship_object.md)*  <sub>REQ</sub>  **[gene product](gene product.md)**
  *  **[gene](gene.md)** *[has gene product](has_gene_product.md)*  <sub>0..*</sub>  **[gene product](gene product.md)**
 
 ## Attributes
@@ -29,7 +29,7 @@ URI: [biolink:GeneProduct](https://w3id.org/biolink/vocab/GeneProduct)
 
 ### Inherited from macromolecular machine:
 
- * [name](macromolecular_machine_name.md)  <sub>REQ</sub>
+ * [macromolecular machine➞name](macromolecular_machine_name.md)  <sub>REQ</sub>
     * range: [SymbolType](type/SymbolType.md)
     * inherited from: [macromolecular machine](macromolecular machine.md)
 

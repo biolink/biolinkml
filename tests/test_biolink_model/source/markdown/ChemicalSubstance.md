@@ -21,13 +21,13 @@ URI: [biolink:ChemicalSubstance](https://w3id.org/biolink/vocab/ChemicalSubstanc
 
 ## Referenced by class
 
- *  **[chemical to chemical association](chemical to chemical association.md)** *[object](chemical_to_chemical_association_object.md)*  <sub>REQ</sub>  **[chemical substance](chemical substance.md)**
- *  **[chemical to chemical derivation association](chemical to chemical derivation association.md)** *[object](chemical_to_chemical_derivation_association_object.md)*  <sub>REQ</sub>  **[chemical substance](chemical substance.md)**
- *  **[chemical to chemical derivation association](chemical to chemical derivation association.md)** *[subject](chemical_to_chemical_derivation_association_subject.md)*  <sub>REQ</sub>  **[chemical substance](chemical substance.md)**
- *  **[chemical to thing association](chemical to thing association.md)** *[subject](chemical_to_thing_association_subject.md)*  <sub>REQ</sub>  **[chemical substance](chemical substance.md)**
- *  **[drug exposure](drug exposure.md)** *[has drug](drug_exposure_has_drug.md)*  <sub>1..*</sub>  **[chemical substance](chemical substance.md)**
- *  **[molecular activity](molecular activity.md)** *[has input](molecular_activity_has_input.md)*  <sub>0..*</sub>  **[chemical substance](chemical substance.md)**
- *  **[molecular activity](molecular activity.md)** *[has output](molecular_activity_has_output.md)*  <sub>0..*</sub>  **[chemical substance](chemical substance.md)**
+ *  **[chemical to chemical association](chemical to chemical association.md)** *[chemical to chemical association➞object](chemical_to_chemical_association_object.md)*  <sub>REQ</sub>  **[chemical substance](chemical substance.md)**
+ *  **[chemical to chemical derivation association](chemical to chemical derivation association.md)** *[chemical to chemical derivation association➞object](chemical_to_chemical_derivation_association_object.md)*  <sub>REQ</sub>  **[chemical substance](chemical substance.md)**
+ *  **[chemical to chemical derivation association](chemical to chemical derivation association.md)** *[chemical to chemical derivation association➞subject](chemical_to_chemical_derivation_association_subject.md)*  <sub>REQ</sub>  **[chemical substance](chemical substance.md)**
+ *  **[chemical to thing association](chemical to thing association.md)** *[chemical to thing association➞subject](chemical_to_thing_association_subject.md)*  <sub>REQ</sub>  **[chemical substance](chemical substance.md)**
+ *  **[drug exposure](drug exposure.md)** *[drug exposure➞has drug](drug_exposure_has_drug.md)*  <sub>1..*</sub>  **[chemical substance](chemical substance.md)**
+ *  **[molecular activity](molecular activity.md)** *[molecular activity➞has input](molecular_activity_has_input.md)*  <sub>0..*</sub>  **[chemical substance](chemical substance.md)**
+ *  **[molecular activity](molecular activity.md)** *[molecular activity➞has output](molecular_activity_has_output.md)*  <sub>0..*</sub>  **[chemical substance](chemical substance.md)**
 
 ## Attributes
 

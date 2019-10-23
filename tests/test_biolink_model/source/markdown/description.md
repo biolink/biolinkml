@@ -17,7 +17,7 @@ URI: [biolink:description](https://w3id.org/biolink/vocab/description)
 
 ## Children
 
- *  [description](entity_to_phenotypic_feature_association_description.md)
+ *  [entity to phenotypic feature association➞description](entity_to_phenotypic_feature_association_description.md)
 
 ## Used by
 

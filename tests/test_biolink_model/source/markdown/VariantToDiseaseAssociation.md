@@ -26,11 +26,11 @@ URI: [biolink:VariantToDiseaseAssociation](https://w3id.org/biolink/vocab/Varian
 
 ### Own
 
- * [object](variant_to_disease_association_object.md)  <sub>REQ</sub>
+ * [variant to disease association➞object](variant_to_disease_association_object.md)  <sub>REQ</sub>
     * range: [named thing](named thing.md)
- * [relation](variant_to_disease_association_relation.md)  <sub>REQ</sub>
+ * [variant to disease association➞relation](variant_to_disease_association_relation.md)  <sub>REQ</sub>
     * range: [Uriorcurie](type/Uriorcurie.md)
- * [subject](variant_to_disease_association_subject.md)  <sub>REQ</sub>
+ * [variant to disease association➞subject](variant_to_disease_association_subject.md)  <sub>REQ</sub>
     * range: [named thing](named thing.md)
 
 ### Inherited from association:
@@ -47,7 +47,7 @@ URI: [biolink:VariantToDiseaseAssociation](https://w3id.org/biolink/vocab/Varian
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [named thing](named thing.md)
     * inherited from: [association](association.md)
- * [id](association_id.md)  <sub>REQ</sub>
+ * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
@@ -75,11 +75,11 @@ URI: [biolink:VariantToDiseaseAssociation](https://w3id.org/biolink/vocab/Varian
 
 ### Domain for slot:
 
- * [object](variant_to_disease_association_object.md)  <sub>REQ</sub>
+ * [variant to disease association➞object](variant_to_disease_association_object.md)  <sub>REQ</sub>
     * range: [named thing](named thing.md)
- * [relation](variant_to_disease_association_relation.md)  <sub>REQ</sub>
+ * [variant to disease association➞relation](variant_to_disease_association_relation.md)  <sub>REQ</sub>
     * range: [Uriorcurie](type/Uriorcurie.md)
- * [subject](variant_to_disease_association_subject.md)  <sub>REQ</sub>
+ * [variant to disease association➞subject](variant_to_disease_association_subject.md)  <sub>REQ</sub>
     * range: [named thing](named thing.md)
 
 ## Other properties

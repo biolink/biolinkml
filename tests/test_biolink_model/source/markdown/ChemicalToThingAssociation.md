@@ -28,7 +28,7 @@ URI: [biolink:ChemicalToThingAssociation](https://w3id.org/biolink/vocab/Chemica
 
 ### Own
 
- * [subject](chemical_to_thing_association_subject.md)  <sub>REQ</sub>
+ * [chemical to thing association➞subject](chemical_to_thing_association_subject.md)  <sub>REQ</sub>
     * range: [chemical substance](chemical substance.md)
 
 ### Inherited from association:
@@ -45,7 +45,7 @@ URI: [biolink:ChemicalToThingAssociation](https://w3id.org/biolink/vocab/Chemica
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [named thing](named thing.md)
     * inherited from: [association](association.md)
- * [id](association_id.md)  <sub>REQ</sub>
+ * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
@@ -73,5 +73,5 @@ URI: [biolink:ChemicalToThingAssociation](https://w3id.org/biolink/vocab/Chemica
 
 ### Domain for slot:
 
- * [subject](chemical_to_thing_association_subject.md)  <sub>REQ</sub>
+ * [chemical to thing association➞subject](chemical_to_thing_association_subject.md)  <sub>REQ</sub>
     * range: [chemical substance](chemical substance.md)

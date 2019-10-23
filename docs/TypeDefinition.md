@@ -31,7 +31,7 @@ URI: [meta:TypeDefinition](https://w3id.org/biolink/biolinkml/meta/TypeDefinitio
     * Description: the name of the python object that implements this type definition
     * range: [String](type/String.md)
     * Example: None None
- * [uri](type_uri.md)  <sub>OPT</sub>
+ * [type_definition➞uri](type_uri.md)  <sub>OPT</sub>
     * Description: The uri that defines the possible values for the type definition
     * range: [Uriorcurie](type/Uriorcurie.md)
  * [typeof](typeof.md)  <sub>OPT</sub>
@@ -141,7 +141,7 @@ URI: [meta:TypeDefinition](https://w3id.org/biolink/biolinkml/meta/TypeDefinitio
     * Description: the name of the python object that implements this type definition
     * range: [String](type/String.md)
     * Example: None None
- * [uri](type_uri.md)  <sub>OPT</sub>
+ * [type_definition➞uri](type_uri.md)  <sub>OPT</sub>
     * Description: The uri that defines the possible values for the type definition
     * range: [Uriorcurie](type/Uriorcurie.md)
  * [typeof](typeof.md)  <sub>OPT</sub>

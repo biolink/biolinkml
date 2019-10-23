@@ -20,8 +20,8 @@ URI: [biolink:MaterialSample](https://w3id.org/biolink/vocab/MaterialSample)
 
 ## Referenced by class
 
- *  **[material sample derivation association](material sample derivation association.md)** *[subject](material_sample_derivation_association_subject.md)*  <sub>REQ</sub>  **[material sample](material sample.md)**
- *  **[material sample to thing association](material sample to thing association.md)** *[subject](material_sample_to_thing_association_subject.md)*  <sub>REQ</sub>  **[material sample](material sample.md)**
+ *  **[material sample derivation association](material sample derivation association.md)** *[material sample derivation association➞subject](material_sample_derivation_association_subject.md)*  <sub>REQ</sub>  **[material sample](material sample.md)**
+ *  **[material sample to thing association](material sample to thing association.md)** *[material sample to thing association➞subject](material_sample_to_thing_association_subject.md)*  <sub>REQ</sub>  **[material sample](material sample.md)**
 
 ## Attributes
 

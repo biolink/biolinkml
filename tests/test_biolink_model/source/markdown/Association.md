@@ -63,7 +63,7 @@ URI: [biolink:Association](https://w3id.org/biolink/vocab/Association)
  * [association type](association_type.md)  <sub>OPT</sub>
     * Description: connects an association to the type of association (e.g. gene to phenotype)
     * range: [ontology class](ontology class.md)
- * [id](association_id.md)  <sub>REQ</sub>
+ * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [Nodeidentifier](type/Nodeidentifier.md)
     * in subsets: (translator_minimal)
@@ -97,7 +97,7 @@ URI: [biolink:Association](https://w3id.org/biolink/vocab/Association)
  * [association type](association_type.md)  <sub>OPT</sub>
     * Description: connects an association to the type of association (e.g. gene to phenotype)
     * range: [ontology class](ontology class.md)
- * [id](association_id.md)  <sub>REQ</sub>
+ * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [Nodeidentifier](type/Nodeidentifier.md)
     * in subsets: (translator_minimal)

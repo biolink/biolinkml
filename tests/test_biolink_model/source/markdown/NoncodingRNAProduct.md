@@ -25,7 +25,7 @@ URI: [biolink:NoncodingRNAProduct](https://w3id.org/biolink/vocab/NoncodingRNAPr
 
 ### Inherited from macromolecular machine:
 
- * [name](macromolecular_machine_name.md)  <sub>REQ</sub>
+ * [macromolecular machine➞name](macromolecular_machine_name.md)  <sub>REQ</sub>
     * range: [SymbolType](type/SymbolType.md)
     * inherited from: [macromolecular machine](macromolecular machine.md)
 

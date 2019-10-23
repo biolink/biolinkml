@@ -21,7 +21,7 @@ URI: [biolink:GeneHasVariantThatContributesToDiseaseAssociation](https://w3id.or
 
 ### Own
 
- * [subject](gene_has_variant_that_contributes_to_disease_association_subject.md)  <sub>REQ</sub>
+ * [gene has variant that contributes to disease association➞subject](gene_has_variant_that_contributes_to_disease_association_subject.md)  <sub>REQ</sub>
     * range: [gene or gene product](gene or gene product.md)
 
 ### Inherited from association:
@@ -38,7 +38,7 @@ URI: [biolink:GeneHasVariantThatContributesToDiseaseAssociation](https://w3id.or
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [named thing](named thing.md)
     * inherited from: [association](association.md)
- * [id](association_id.md)  <sub>REQ</sub>
+ * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
@@ -66,5 +66,5 @@ URI: [biolink:GeneHasVariantThatContributesToDiseaseAssociation](https://w3id.or
 
 ### Domain for slot:
 
- * [subject](gene_has_variant_that_contributes_to_disease_association_subject.md)  <sub>REQ</sub>
+ * [gene has variant that contributes to disease association➞subject](gene_has_variant_that_contributes_to_disease_association_subject.md)  <sub>REQ</sub>
     * range: [gene or gene product](gene or gene product.md)

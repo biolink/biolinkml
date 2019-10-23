@@ -21,9 +21,9 @@ URI: [biolink:DiseaseToExposureAssociation](https://w3id.org/biolink/vocab/Disea
 
 ### Own
 
- * [object](disease_to_exposure_association_object.md)  <sub>REQ</sub>
+ * [disease to exposure association➞object](disease_to_exposure_association_object.md)  <sub>REQ</sub>
     * range: [exposure event](exposure event.md)
- * [subject](disease_to_exposure_association_subject.md)  <sub>REQ</sub>
+ * [disease to exposure association➞subject](disease_to_exposure_association_subject.md)  <sub>REQ</sub>
     * range: [disease](disease.md)
 
 ### Inherited from association:
@@ -40,7 +40,7 @@ URI: [biolink:DiseaseToExposureAssociation](https://w3id.org/biolink/vocab/Disea
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [named thing](named thing.md)
     * inherited from: [association](association.md)
- * [id](association_id.md)  <sub>REQ</sub>
+ * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
@@ -68,7 +68,7 @@ URI: [biolink:DiseaseToExposureAssociation](https://w3id.org/biolink/vocab/Disea
 
 ### Domain for slot:
 
- * [object](disease_to_exposure_association_object.md)  <sub>REQ</sub>
+ * [disease to exposure association➞object](disease_to_exposure_association_object.md)  <sub>REQ</sub>
     * range: [exposure event](exposure event.md)
- * [subject](disease_to_exposure_association_subject.md)  <sub>REQ</sub>
+ * [disease to exposure association➞subject](disease_to_exposure_association_subject.md)  <sub>REQ</sub>
     * range: [disease](disease.md)

@@ -26,7 +26,7 @@ URI: [biolink:OntologyClass](https://w3id.org/biolink/vocab/OntologyClass)
 ## Referenced by class
 
  *  **[association](association.md)** *[association type](association_type.md)*  <sub>OPT</sub>  **[ontology class](ontology class.md)**
- *  **[gene to expression site association](gene to expression site association.md)** *[quantifier qualifier](gene_to_expression_site_association_quantifier_qualifier.md)*  <sub>OPT</sub>  **[ontology class](ontology class.md)**
+ *  **[gene to expression site association](gene to expression site association.md)** *[gene to expression site association➞quantifier qualifier](gene_to_expression_site_association_quantifier_qualifier.md)*  <sub>OPT</sub>  **[ontology class](ontology class.md)**
  *  **[attribute](attribute.md)** *[has attribute type](has_attribute_type.md)*  <sub>OPT</sub>  **[ontology class](ontology class.md)**
  *  **[named thing](named thing.md)** *[has molecular consequence](has_molecular_consequence.md)*  <sub>0..*</sub>  **[ontology class](ontology class.md)**
  *  **[pairwise interaction association](pairwise interaction association.md)** *[interacting molecules category](interacting_molecules_category.md)*  <sub>OPT</sub>  **[ontology class](ontology class.md)**

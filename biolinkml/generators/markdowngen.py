@@ -407,8 +407,7 @@ class MarkdownGenerator(Generator):
         if obj is None or not self.is_secondary_ref(obj.name):
             return self.bbin(obj)
         if isinstance(obj, SlotDefinition):
-            # link_name = ((be(obj.domain) + '.') if obj.alias else '') + self.aliased_slot_name(obj)
-            link_name = self.aliased_slot_name(obj)
+            link_name = ((be(obj.domain) + '➞') if obj.alias else '') + self.aliased_slot_name(obj)
             link_ref = underscore(obj.name)
         elif isinstance(obj, TypeDefinition):
             link_name = camelcase(obj.name)

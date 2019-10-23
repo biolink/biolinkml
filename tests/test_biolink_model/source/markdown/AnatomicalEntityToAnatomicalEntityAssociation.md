@@ -26,9 +26,9 @@ URI: [biolink:AnatomicalEntityToAnatomicalEntityAssociation](https://w3id.org/bi
 
 ### Own
 
- * [object](anatomical_entity_to_anatomical_entity_association_object.md)  <sub>REQ</sub>
+ * [anatomical entity to anatomical entity association➞object](anatomical_entity_to_anatomical_entity_association_object.md)  <sub>REQ</sub>
     * range: [anatomical entity](anatomical entity.md)
- * [subject](anatomical_entity_to_anatomical_entity_association_subject.md)  <sub>REQ</sub>
+ * [anatomical entity to anatomical entity association➞subject](anatomical_entity_to_anatomical_entity_association_subject.md)  <sub>REQ</sub>
     * range: [anatomical entity](anatomical entity.md)
 
 ### Inherited from association:
@@ -45,7 +45,7 @@ URI: [biolink:AnatomicalEntityToAnatomicalEntityAssociation](https://w3id.org/bi
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [named thing](named thing.md)
     * inherited from: [association](association.md)
- * [id](association_id.md)  <sub>REQ</sub>
+ * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
@@ -73,7 +73,7 @@ URI: [biolink:AnatomicalEntityToAnatomicalEntityAssociation](https://w3id.org/bi
 
 ### Domain for slot:
 
- * [object](anatomical_entity_to_anatomical_entity_association_object.md)  <sub>REQ</sub>
+ * [anatomical entity to anatomical entity association➞object](anatomical_entity_to_anatomical_entity_association_object.md)  <sub>REQ</sub>
     * range: [anatomical entity](anatomical entity.md)
- * [subject](anatomical_entity_to_anatomical_entity_association_subject.md)  <sub>REQ</sub>
+ * [anatomical entity to anatomical entity association➞subject](anatomical_entity_to_anatomical_entity_association_subject.md)  <sub>REQ</sub>
     * range: [anatomical entity](anatomical entity.md)

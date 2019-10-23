@@ -24,7 +24,7 @@ URI: [biolink:BiologicalProcess](https://w3id.org/biolink/vocab/BiologicalProces
 
 ## Referenced by class
 
- *  **[macromolecular machine to biological process association](macromolecular machine to biological process association.md)** *[object](macromolecular_machine_to_biological_process_association_object.md)*  <sub>REQ</sub>  **[biological process](biological process.md)**
+ *  **[macromolecular machine to biological process association](macromolecular machine to biological process association.md)** *[macromolecular machine to biological process association➞object](macromolecular_machine_to_biological_process_association_object.md)*  <sub>REQ</sub>  **[biological process](biological process.md)**
 
 ## Attributes
 

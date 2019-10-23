@@ -13,7 +13,7 @@ URI: [biolink:gene_has_variant_that_contributes_to_disease_association_subject](
 
 ## Parents
 
- *  is_a: [subject](gene_to_disease_association_subject.md)
+ *  is_a: [gene to disease association➞subject](gene_to_disease_association_subject.md)
 
 ## Children
 

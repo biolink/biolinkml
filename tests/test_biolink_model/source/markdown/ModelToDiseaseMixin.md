@@ -21,7 +21,7 @@ URI: [biolink:ModelToDiseaseMixin](https://w3id.org/biolink/vocab/ModelToDisease
 
 ### Domain for slot:
 
- * [relation](model_to_disease_mixin_relation.md)  <sub>REQ</sub>
+ * [model to disease mixin➞relation](model_to_disease_mixin_relation.md)  <sub>REQ</sub>
     * range: [Uriorcurie](type/Uriorcurie.md)
- * [subject](model_to_disease_mixin_subject.md)  <sub>REQ</sub>
+ * [model to disease mixin➞subject](model_to_disease_mixin_subject.md)  <sub>REQ</sub>
     * range: [named thing](named thing.md)

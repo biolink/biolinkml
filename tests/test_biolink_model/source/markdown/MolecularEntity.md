@@ -53,7 +53,7 @@ URI: [biolink:MolecularEntity](https://w3id.org/biolink/vocab/MolecularEntity)
  *  **[molecular entity](molecular entity.md)** *[decreases synthesis of](decreases_synthesis_of.md)*  <sub>0..*</sub>  **[molecular entity](molecular entity.md)**
  *  **[molecular entity](molecular entity.md)** *[decreases transport of](decreases_transport_of.md)*  <sub>0..*</sub>  **[molecular entity](molecular entity.md)**
  *  **[molecular entity](molecular entity.md)** *[decreases uptake of](decreases_uptake_of.md)*  <sub>0..*</sub>  **[molecular entity](molecular entity.md)**
- *  **[gene to go term association](gene to go term association.md)** *[subject](gene_to_go_term_association_subject.md)*  <sub>REQ</sub>  **[molecular entity](molecular entity.md)**
+ *  **[gene to go term association](gene to go term association.md)** *[gene to go term association➞subject](gene_to_go_term_association_subject.md)*  <sub>REQ</sub>  **[molecular entity](molecular entity.md)**
  *  **[disease or phenotypic feature](disease or phenotypic feature.md)** *[has biomarker](has_biomarker.md)*  <sub>0..*</sub>  **[molecular entity](molecular entity.md)**
  *  **[molecular entity](molecular entity.md)** *[increases abundance of](increases_abundance_of.md)*  <sub>0..*</sub>  **[molecular entity](molecular entity.md)**
  *  **[molecular entity](molecular entity.md)** *[increases activity of](increases_activity_of.md)*  <sub>0..*</sub>  **[molecular entity](molecular entity.md)**
@@ -70,8 +70,8 @@ URI: [biolink:MolecularEntity](https://w3id.org/biolink/vocab/MolecularEntity)
  *  **[molecular entity](molecular entity.md)** *[increases uptake of](increases_uptake_of.md)*  <sub>0..*</sub>  **[molecular entity](molecular entity.md)**
  *  **[molecular entity](molecular entity.md)** *[molecularly interacts with](molecularly_interacts_with.md)*  <sub>0..*</sub>  **[molecular entity](molecular entity.md)**
  *  **[molecular entity](molecular entity.md)** *[negatively regulates, entity to entity](negatively_regulates_entity_to_entity.md)*  <sub>0..*</sub>  **[molecular entity](molecular entity.md)**
- *  **[pairwise interaction association](pairwise interaction association.md)** *[object](pairwise_interaction_association_object.md)*  <sub>REQ</sub>  **[molecular entity](molecular entity.md)**
- *  **[pairwise interaction association](pairwise interaction association.md)** *[subject](pairwise_interaction_association_subject.md)*  <sub>REQ</sub>  **[molecular entity](molecular entity.md)**
+ *  **[pairwise interaction association](pairwise interaction association.md)** *[pairwise interaction association➞object](pairwise_interaction_association_object.md)*  <sub>REQ</sub>  **[molecular entity](molecular entity.md)**
+ *  **[pairwise interaction association](pairwise interaction association.md)** *[pairwise interaction association➞subject](pairwise_interaction_association_subject.md)*  <sub>REQ</sub>  **[molecular entity](molecular entity.md)**
  *  **[molecular entity](molecular entity.md)** *[positively regulates, entity to entity](positively_regulates_entity_to_entity.md)*  <sub>0..*</sub>  **[molecular entity](molecular entity.md)**
  *  **[molecular entity](molecular entity.md)** *[regulates, entity to entity](regulates_entity_to_entity.md)*  <sub>0..*</sub>  **[molecular entity](molecular entity.md)**
 

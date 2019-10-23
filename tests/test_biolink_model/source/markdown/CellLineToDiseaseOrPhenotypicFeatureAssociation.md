@@ -26,7 +26,7 @@ URI: [biolink:CellLineToDiseaseOrPhenotypicFeatureAssociation](https://w3id.org/
 
 ### Own
 
- * [subject](cell_line_to_disease_or_phenotypic_feature_association_subject.md)  <sub>REQ</sub>
+ * [cell line to disease or phenotypic feature association➞subject](cell_line_to_disease_or_phenotypic_feature_association_subject.md)  <sub>REQ</sub>
     * range: [disease or phenotypic feature](disease or phenotypic feature.md)
 
 ### Inherited from association:
@@ -43,7 +43,7 @@ URI: [biolink:CellLineToDiseaseOrPhenotypicFeatureAssociation](https://w3id.org/
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [named thing](named thing.md)
     * inherited from: [association](association.md)
- * [id](association_id.md)  <sub>REQ</sub>
+ * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
@@ -71,5 +71,5 @@ URI: [biolink:CellLineToDiseaseOrPhenotypicFeatureAssociation](https://w3id.org/
 
 ### Domain for slot:
 
- * [subject](cell_line_to_disease_or_phenotypic_feature_association_subject.md)  <sub>REQ</sub>
+ * [cell line to disease or phenotypic feature association➞subject](cell_line_to_disease_or_phenotypic_feature_association_subject.md)  <sub>REQ</sub>
     * range: [disease or phenotypic feature](disease or phenotypic feature.md)

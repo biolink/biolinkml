@@ -21,11 +21,11 @@ URI: [biolink:GeneToGeneProductRelationship](https://w3id.org/biolink/vocab/Gene
 
 ### Own
 
- * [object](gene_to_gene_product_relationship_object.md)  <sub>REQ</sub>
+ * [gene to gene product relationship➞object](gene_to_gene_product_relationship_object.md)  <sub>REQ</sub>
     * range: [gene product](gene product.md)
- * [relation](gene_to_gene_product_relationship_relation.md)  <sub>REQ</sub>
+ * [gene to gene product relationship➞relation](gene_to_gene_product_relationship_relation.md)  <sub>REQ</sub>
     * range: [Uriorcurie](type/Uriorcurie.md)
- * [subject](gene_to_gene_product_relationship_subject.md)  <sub>REQ</sub>
+ * [gene to gene product relationship➞subject](gene_to_gene_product_relationship_subject.md)  <sub>REQ</sub>
     * range: [gene](gene.md)
 
 ### Inherited from association:
@@ -42,7 +42,7 @@ URI: [biolink:GeneToGeneProductRelationship](https://w3id.org/biolink/vocab/Gene
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [named thing](named thing.md)
     * inherited from: [association](association.md)
- * [id](association_id.md)  <sub>REQ</sub>
+ * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
@@ -70,9 +70,9 @@ URI: [biolink:GeneToGeneProductRelationship](https://w3id.org/biolink/vocab/Gene
 
 ### Domain for slot:
 
- * [object](gene_to_gene_product_relationship_object.md)  <sub>REQ</sub>
+ * [gene to gene product relationship➞object](gene_to_gene_product_relationship_object.md)  <sub>REQ</sub>
     * range: [gene product](gene product.md)
- * [relation](gene_to_gene_product_relationship_relation.md)  <sub>REQ</sub>
+ * [gene to gene product relationship➞relation](gene_to_gene_product_relationship_relation.md)  <sub>REQ</sub>
     * range: [Uriorcurie](type/Uriorcurie.md)
- * [subject](gene_to_gene_product_relationship_subject.md)  <sub>REQ</sub>
+ * [gene to gene product relationship➞subject](gene_to_gene_product_relationship_subject.md)  <sub>REQ</sub>
     * range: [gene](gene.md)

@@ -15,9 +15,9 @@ URI: [meta:ClassDefinition](https://w3id.org/biolink/biolinkml/meta/ClassDefinit
 
 ## Referenced by class
 
- *  **[class_definition](class_definition.md)** *[apply_to](class_definition_apply_to.md)*  <sub>0..*</sub>  **[class_definition](class_definition.md)**
- *  **[class_definition](class_definition.md)** *[is_a](class_definition_is_a.md)*  <sub>OPT</sub>  **[class_definition](class_definition.md)**
- *  **[class_definition](class_definition.md)** *[mixins](class_definition_mixins.md)*  <sub>0..*</sub>  **[class_definition](class_definition.md)**
+ *  **[class_definition](class_definition.md)** *[class_definition➞apply_to](class_definition_apply_to.md)*  <sub>0..*</sub>  **[class_definition](class_definition.md)**
+ *  **[class_definition](class_definition.md)** *[class_definition➞is_a](class_definition_is_a.md)*  <sub>OPT</sub>  **[class_definition](class_definition.md)**
+ *  **[class_definition](class_definition.md)** *[class_definition➞mixins](class_definition_mixins.md)*  <sub>0..*</sub>  **[class_definition](class_definition.md)**
  *  **[schema_definition](schema_definition.md)** *[classes](classes.md)*  <sub>0..*</sub>  **[class_definition](class_definition.md)**
  *  **[slot_definition](slot_definition.md)** *[domain](domain.md)*  <sub>OPT</sub>  **[class_definition](class_definition.md)**
  *  **[class_definition](class_definition.md)** *[union_of](union_of.md)*  <sub>0..*</sub>  **[class_definition](class_definition.md)**
@@ -27,11 +27,11 @@ URI: [meta:ClassDefinition](https://w3id.org/biolink/biolinkml/meta/ClassDefinit
 
 ### Own
 
- * [apply_to](class_definition_apply_to.md)  <sub>0..*</sub>
+ * [class_definition➞apply_to](class_definition_apply_to.md)  <sub>0..*</sub>
     * range: [class_definition](class_definition.md)
- * [is_a](class_definition_is_a.md)  <sub>OPT</sub>
+ * [class_definition➞is_a](class_definition_is_a.md)  <sub>OPT</sub>
     * range: [class_definition](class_definition.md)
- * [mixins](class_definition_mixins.md)  <sub>0..*</sub>
+ * [class_definition➞mixins](class_definition_mixins.md)  <sub>0..*</sub>
     * range: [class_definition](class_definition.md)
  * [class_uri](class_uri.md)  <sub>OPT</sub>
     * Description: URI of the class in an RDF environment
@@ -175,11 +175,11 @@ URI: [meta:ClassDefinition](https://w3id.org/biolink/biolinkml/meta/ClassDefinit
 
 ### Domain for slot:
 
- * [apply_to](class_definition_apply_to.md)  <sub>0..*</sub>
+ * [class_definition➞apply_to](class_definition_apply_to.md)  <sub>0..*</sub>
     * range: [class_definition](class_definition.md)
- * [is_a](class_definition_is_a.md)  <sub>OPT</sub>
+ * [class_definition➞is_a](class_definition_is_a.md)  <sub>OPT</sub>
     * range: [class_definition](class_definition.md)
- * [mixins](class_definition_mixins.md)  <sub>0..*</sub>
+ * [class_definition➞mixins](class_definition_mixins.md)  <sub>0..*</sub>
     * range: [class_definition](class_definition.md)
  * [class_uri](class_uri.md)  <sub>OPT</sub>
     * Description: URI of the class in an RDF environment

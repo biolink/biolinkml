@@ -1,10 +1,8 @@
 import os
 import unittest
 
-from biolinkml.generators.markdowngen import cli, MarkdownGenerator
-from tests import source_yaml_path
+from biolinkml.generators.markdowngen import MarkdownGenerator
 from tests.test_issues import sourcedir, outputdir
-from tests.test_scripts.clicktestcase import ClickTestCase
 from tests.utils.dirutils import make_and_clear_directory
 
 

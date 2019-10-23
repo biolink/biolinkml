@@ -21,11 +21,11 @@ URI: [biolink:GenotypeToVariantAssociation](https://w3id.org/biolink/vocab/Genot
 
 ### Own
 
- * [object](genotype_to_variant_association_object.md)  <sub>REQ</sub>
+ * [genotype to variant association➞object](genotype_to_variant_association_object.md)  <sub>REQ</sub>
     * range: [sequence variant](sequence variant.md)
- * [relation](genotype_to_variant_association_relation.md)  <sub>REQ</sub>
+ * [genotype to variant association➞relation](genotype_to_variant_association_relation.md)  <sub>REQ</sub>
     * range: [Uriorcurie](type/Uriorcurie.md)
- * [subject](genotype_to_variant_association_subject.md)  <sub>REQ</sub>
+ * [genotype to variant association➞subject](genotype_to_variant_association_subject.md)  <sub>REQ</sub>
     * range: [genotype](genotype.md)
 
 ### Inherited from association:
@@ -42,7 +42,7 @@ URI: [biolink:GenotypeToVariantAssociation](https://w3id.org/biolink/vocab/Genot
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [named thing](named thing.md)
     * inherited from: [association](association.md)
- * [id](association_id.md)  <sub>REQ</sub>
+ * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [Nodeidentifier](type/Nodeidentifier.md)
     * inherited from: [association](association.md)
@@ -70,9 +70,9 @@ URI: [biolink:GenotypeToVariantAssociation](https://w3id.org/biolink/vocab/Genot
 
 ### Domain for slot:
 
- * [object](genotype_to_variant_association_object.md)  <sub>REQ</sub>
+ * [genotype to variant association➞object](genotype_to_variant_association_object.md)  <sub>REQ</sub>
     * range: [sequence variant](sequence variant.md)
- * [relation](genotype_to_variant_association_relation.md)  <sub>REQ</sub>
+ * [genotype to variant association➞relation](genotype_to_variant_association_relation.md)  <sub>REQ</sub>
     * range: [Uriorcurie](type/Uriorcurie.md)
- * [subject](genotype_to_variant_association_subject.md)  <sub>REQ</sub>
+ * [genotype to variant association➞subject](genotype_to_variant_association_subject.md)  <sub>REQ</sub>
     * range: [genotype](genotype.md)

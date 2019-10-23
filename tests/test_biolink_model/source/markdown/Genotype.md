@@ -15,12 +15,12 @@ URI: [biolink:Genotype](https://w3id.org/biolink/vocab/Genotype)
 
 ## Referenced by class
 
- *  **[genotype to gene association](genotype to gene association.md)** *[subject](genotype_to_gene_association_subject.md)*  <sub>REQ</sub>  **[genotype](genotype.md)**
- *  **[genotype to genotype part association](genotype to genotype part association.md)** *[object](genotype_to_genotype_part_association_object.md)*  <sub>REQ</sub>  **[genotype](genotype.md)**
- *  **[genotype to genotype part association](genotype to genotype part association.md)** *[subject](genotype_to_genotype_part_association_subject.md)*  <sub>REQ</sub>  **[genotype](genotype.md)**
- *  **[genotype to phenotypic feature association](genotype to phenotypic feature association.md)** *[subject](genotype_to_phenotypic_feature_association_subject.md)*  <sub>REQ</sub>  **[genotype](genotype.md)**
- *  **[genotype to thing association](genotype to thing association.md)** *[subject](genotype_to_thing_association_subject.md)*  <sub>REQ</sub>  **[genotype](genotype.md)**
- *  **[genotype to variant association](genotype to variant association.md)** *[subject](genotype_to_variant_association_subject.md)*  <sub>REQ</sub>  **[genotype](genotype.md)**
+ *  **[genotype to gene association](genotype to gene association.md)** *[genotype to gene association➞subject](genotype_to_gene_association_subject.md)*  <sub>REQ</sub>  **[genotype](genotype.md)**
+ *  **[genotype to genotype part association](genotype to genotype part association.md)** *[genotype to genotype part association➞object](genotype_to_genotype_part_association_object.md)*  <sub>REQ</sub>  **[genotype](genotype.md)**
+ *  **[genotype to genotype part association](genotype to genotype part association.md)** *[genotype to genotype part association➞subject](genotype_to_genotype_part_association_subject.md)*  <sub>REQ</sub>  **[genotype](genotype.md)**
+ *  **[genotype to phenotypic feature association](genotype to phenotypic feature association.md)** *[genotype to phenotypic feature association➞subject](genotype_to_phenotypic_feature_association_subject.md)*  <sub>REQ</sub>  **[genotype](genotype.md)**
+ *  **[genotype to thing association](genotype to thing association.md)** *[genotype to thing association➞subject](genotype_to_thing_association_subject.md)*  <sub>REQ</sub>  **[genotype](genotype.md)**
+ *  **[genotype to variant association](genotype to variant association.md)** *[genotype to variant association➞subject](genotype_to_variant_association_subject.md)*  <sub>REQ</sub>  **[genotype](genotype.md)**
 
 ## Attributes
 

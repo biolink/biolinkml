@@ -13,7 +13,7 @@ URI: [biolink:pairwise_interaction_association_id](https://w3id.org/biolink/voca
 
 ## Parents
 
- *  is_a: [id](association_id.md)
+ *  is_a: [association➞id](association_id.md)
 
 ## Children
 
