@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "728b1bfef0f543c3360c7e08ed7e6be00216c9e6e4d55f9407e2ceeacc00c3c9"
+            "sha256": "7f2cc34fae3fec5906678f97e41bdd54c968371531873665f7fc9a3a8ef10096"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -106,6 +106,7 @@
                 "sha256:2e364a3d5759479cdb2d37cce6b9376ea504db2ff90252a2e5b7cc89cc9ff2d8",
                 "sha256:aa4d33c06640f5352aca96e4b81afd8ab3b47337cc12089822d6f322ac772c81"
             ],
+            "index": "pypi",
             "version": "==0.6.0"
         },
         "jsonasobj": {
@@ -175,9 +176,9 @@
         },
         "pyrsistent": {
             "hashes": [
-                "sha256:34b47fa169d6006b32e99d4b3c4031f155e6e68ebcc107d6454852e8e0ee6533"
+                "sha256:eb6545dbeb1aa69ab1fb4809bfbf5a8705e44d92ef8fc7c2361682a47c46c778"
             ],
-            "version": "==0.15.4"
+            "version": "==0.15.5"
         },
         "pyshex": {
             "hashes": [

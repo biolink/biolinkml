@@ -15,6 +15,10 @@
          "prefix_reference": "https://w3id.org/biolink/biolinkml/meta/"
       },
       {
+         "prefix_prefix": "biolinkml",
+         "prefix_reference": "https://w3id.org/biolink/biolinkml/"
+      },
+      {
          "prefix_prefix": "skos",
          "prefix_reference": "http://www.w3.org/2004/02/skos/core#"
       },
@@ -25,26 +29,6 @@
       {
          "prefix_prefix": "pav",
          "prefix_reference": "http://purl.org/pav/"
-      },
-      {
-         "prefix_prefix": "metatype",
-         "prefix_reference": "https://w3id.org/biolink/biolinkml/type/"
-      },
-      {
-         "prefix_prefix": "xsd",
-         "prefix_reference": "http://www.w3.org/2001/XMLSchema#"
-      },
-      {
-         "prefix_prefix": "shex",
-         "prefix_reference": "http://www.w3.org/ns/shex#"
-      },
-      {
-         "prefix_prefix": "biolinkml",
-         "prefix_reference": "https://w3id.org/biolink/biolinkml/"
-      },
-      {
-         "prefix_prefix": "IAO",
-         "prefix_reference": "http://purl.obolibrary.org/obo/IAO_"
       }
    ],
    "emit_prefixes": [

@@ -13,6 +13,9 @@ prefixes:
   OIO: http://www.geneontology.org/formats/oboInOwl#
   IAO: http://purl.obolibrary.org/obo/IAO_
 
+default_curi_maps:
+    - semweb_context
+
 default_prefix: meta
 default_range: string
 

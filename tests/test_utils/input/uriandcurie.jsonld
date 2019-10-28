@@ -1,7 +1,6 @@
 {
    "_comments": "Auto generated from ... by jsonldcontextgen.py version: 0.1.1\nGeneration date: \nSchema: uriandcurie\n\nid: http://example.org/test/uriandcurie\ndescription: \nlicense: \n",
    "@context": {
-      "_comments": null,
       "type": "@type",
       "m": "http://example.org/test/uriandcurie",
       "shex": "http://www.w3.org/ns/shex#",

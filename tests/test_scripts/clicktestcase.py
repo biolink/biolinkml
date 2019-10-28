@@ -12,6 +12,7 @@ from typing import Union, List, Optional, Callable
 import click
 
 from biolinkml import MODULE_DIR
+from tests import sourcedir
 from tests.utils.compare_directories import are_dir_trees_equal
 from tests.utils.dirutils import make_and_clear_directory
 # Stop click from doing a sys.exit
@@ -95,7 +96,7 @@ class ClickTestCase(unittest.TestCase):
     def do_test(self, args: Union[str, List[str]], testfile: Optional[str] = "", *, error: type(Exception) = None,
                 filtr: Optional[Callable[[str], str]] = None, tox_wrap_fix: bool = False,
                 bypass_soft_compare: bool = False, dirbase: Optional[str] = None,
-                comparator: Callable[[type(unittest.TestCase), str, str, str], str] = None) -> None:
+                comparator: Callable[[type(unittest.TestCase), str, str, str], str] = None,) -> None:
         """ Execute a command test
 
         @param args: Argument string or list to command
@@ -112,6 +113,8 @@ class ClickTestCase(unittest.TestCase):
 
         outf = StringIO()
         arg_list = args.split() if isinstance(args, str) else args
+        if arg_list and arg_list[0] != '--help':
+            arg_list += ["--importmap", os.path.join(sourcedir, 'biolink_import_map.json')]
         if error:
             with self.assertRaises(error):
                 self.click_ep(arg_list, standalone_mode=False)

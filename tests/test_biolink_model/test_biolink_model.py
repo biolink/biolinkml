@@ -8,7 +8,7 @@ from pyshex import ShExEvaluator
 from pyshex.shex_evaluator import EvaluationResult
 from rdflib import Graph, Namespace, URIRef
 
-from biolinkml import METAMODEL_NAMESPACE, LOCAL_SHEXJ_PATH, LOCAL_CONTEXT_PATH
+from biolinkml import METAMODEL_NAMESPACE, LOCAL_SHEXJ_FILE_NAME, LOCAL_METAMODEL_LDCONTEXT_FILE, MODULE_DIR
 from biolinkml.generators.csvgen import CsvGenerator
 from biolinkml.generators.dotgen import DotGenerator
 from biolinkml.generators.golrgen import GolrSchemaGenerator
@@ -23,6 +23,7 @@ from biolinkml.generators.pythongen import PythonGenerator
 from biolinkml.generators.rdfgen import RDFGenerator
 from biolinkml.generators.shexgen import ShExGenerator
 from biolinkml.utils.formatutils import shex_results_as_string
+from biolinkml.utils.context_utils import parse_import_map
 from tests.utils.metadata_filters import metadata_filter
 from tests.utils.generator_utils import GeneratorTestCase
 
@@ -39,7 +40,7 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
     target_path = os.path.join(cwd, 'target')
     model_path = os.path.join(cwd, 'yaml')
     model_name = 'biolink-model'
-    import_map_file = os.path.join(model_path, 'biolink-model-map.json')
+    importmap = parse_import_map(os.path.join(model_path, 'biolink-model-map.json'), MODULE_DIR)
 
     def tearDown(self) -> None:
         self.output_name = None
@@ -126,7 +127,7 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
 
     def test_biolink_rdf(self):
         """ Test the rdf generator for the biolink model """
-        self.single_file_generator('ttl', RDFGenerator, serialize_args={"context": LOCAL_CONTEXT_PATH},
+        self.single_file_generator('ttl', RDFGenerator, serialize_args={"context": LOCAL_METAMODEL_LDCONTEXT_FILE},
                                    comparator=GeneratorTestCase.rdf_comparator)
 
         # Validate the RDF against the Biolink ShEx
@@ -136,7 +137,7 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
             g.load(rdf_file, format='ttl')
             focus = BIOLINK_NS.biolink_model
             start = METAMODEL_NAMESPACE.SchemaDefinition
-            results = ShExEvaluator(g, LOCAL_SHEXJ_PATH, focus, start).evaluate(debug=False)
+            results = ShExEvaluator(g, LOCAL_SHEXJ_FILE_NAME, focus, start).evaluate(debug=False)
             self.assertTrue(self._evaluate_shex_results(results))
 
         else:

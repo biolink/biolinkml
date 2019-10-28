@@ -63,7 +63,7 @@ license: {be(self.schema.license)}
 '''
         context = JsonObj()
         context["_comments"] = comments
-        context_content = {"_comments": None, "type": "@type"}
+        context_content = {"type": "@type"}
         if base:
             if '://' not in base:
                 self.context_body['@base'] = os.path.relpath(base, os.path.dirname(self.schema.source_file))

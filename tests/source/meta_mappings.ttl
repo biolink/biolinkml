@@ -4,12 +4,10 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ex: <http://example.org/mappings/> .
 @prefix meta: <https://w3id.org/biolink/biolinkml/meta/> .
-@prefix metatype: <https://w3id.org/biolink/biolinkml/type/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix pav: <http://purl.org/pav/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix shex: <http://www.w3.org/ns/shex#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -25,13 +23,13 @@ ex:testMetamodelMappings a ex:SchemaDefinition ;
         ex:C2,
         ex:C3 ;
     meta:default_range ex:string ;
-    meta:generation_date "2019-10-21 12:55"^^xsd:dateTime ;
+    meta:generation_date "2019-10-28 05:54"^^xsd:dateTime ;
     meta:id ex: ;
     meta:prefixes [ ex:prefix_prefix "ex" ;
             meta:prefix_reference ex: ] ;
     meta:slots ex:s1,
         ex:s2 ;
-    meta:source_file_date "Mon Sep 30 16:10:53 2019"^^xsd:dateTime ;
+    meta:source_file_date "Thu Oct 24 00:24:30 2019"^^xsd:dateTime ;
     meta:source_file_size 1810 ;
     meta:types ex:identifier_type,
         ex:string .

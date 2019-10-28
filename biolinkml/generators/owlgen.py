@@ -11,7 +11,7 @@ from rdflib.collection import Collection
 from rdflib.namespace import RDFS
 from rdflib.plugin import plugins as rdflib_plugins, Parser as rdflib_Parser
 
-from biolinkml import LOCAL_YAML_PATH, METAMODEL_NAMESPACE_NAME, METAMODEL_NAMESPACE, METAMODEL_YAML_URI, META_BASE_URI
+from biolinkml import LOCAL_METAMODEL_YAML_FILE, METAMODEL_NAMESPACE_NAME, METAMODEL_NAMESPACE, METAMODEL_YAML_URI, META_BASE_URI
 from biolinkml.meta import ClassDefinitionName, SchemaDefinition, ClassDefinition, SlotDefinitionName, \
     TypeDefinitionName, SlotDefinition, TypeDefinition, Element
 from biolinkml.utils.formatutils import camelcase, underscore
@@ -32,7 +32,7 @@ class OwlSchemaGenerator(Generator):
     def __init__(self, schema: Union[str, TextIO, SchemaDefinition], **kwargs) -> None:
         super().__init__(schema, **kwargs)
         self.graph: Optional[Graph] = None
-        self.metamodel = SchemaLoader(LOCAL_YAML_PATH) if os.path.exists(LOCAL_YAML_PATH) else\
+        self.metamodel = SchemaLoader(LOCAL_METAMODEL_YAML_FILE) if os.path.exists(LOCAL_METAMODEL_YAML_FILE) else\
             SchemaLoader(METAMODEL_YAML_URI, base_dir=META_BASE_URI)
         self.metamodel.resolve()
         self.top_value_uri: Optional[URIRef] = None

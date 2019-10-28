@@ -189,44 +189,31 @@
         "rdfs",
         "skos",
         "xsd" ;
-    meta:generation_date "2019-10-21 13:04"^^xsd:dateTime ;
+    meta:generation_date "2019-10-28 11:09"^^xsd:dateTime ;
     meta:id <https://w3id.org/biolink/biolink-model> ;
-    meta:imports biolinkml:mappings,
-        biolinkml:types,
+    meta:imports <https://w3id.org/biolink/vocab/includes/mappings>,
         <https://w3id.org/biolink/vocab/includes/types> ;
     meta:metamodel_version "1.4.3" ;
-    meta:prefixes [ meta:prefix_prefix "wgs" ;
+    meta:prefixes [ meta:prefix_prefix "UMLSSG" ;
+            meta:prefix_reference <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/GROUP/> ],
+        [ meta:prefix_prefix "UMLSST" ;
+            meta:prefix_reference <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/STY/> ],
+        [ meta:prefix_prefix "biolink" ;
+            meta:prefix_reference <https://w3id.org/biolink/vocab/> ],
+        [ meta:prefix_prefix "skos" ;
+            meta:prefix_reference skos: ],
+        [ meta:prefix_prefix "UMLSSC" ;
+            meta:prefix_reference <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/TUI/> ],
+        [ meta:prefix_prefix "wgs" ;
             meta:prefix_reference <http://www.w3.org/2003/01/geo/wgs84_pos> ],
         [ meta:prefix_prefix "biolinkml" ;
             meta:prefix_reference biolinkml: ],
-        [ meta:prefix_prefix "meta" ;
-            meta:prefix_reference meta: ],
         [ meta:prefix_prefix "qud" ;
             meta:prefix_reference <http://qudt.org/1.1/schema/qudt#> ],
-        [ meta:prefix_prefix "UMLSST" ;
-            meta:prefix_reference <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/STY/> ],
-        [ meta:prefix_prefix "skos" ;
-            meta:prefix_reference skos: ],
-        [ meta:prefix_prefix "SIO" ;
-            meta:prefix_reference <http://semanticscience.org/resource/SIO_> ],
         [ meta:prefix_prefix "OBAN" ;
             meta:prefix_reference <http://purl.org/oban/> ],
-        [ meta:prefix_prefix "biolink" ;
-            meta:prefix_reference <https://w3id.org/biolink/vocab/> ],
-        [ meta:prefix_prefix "UMLSSG" ;
-            meta:prefix_reference <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/GROUP/> ],
-        [ meta:prefix_prefix "OIO" ;
-            meta:prefix_reference OIO: ],
-        [ meta:prefix_prefix "metatype" ;
-            meta:prefix_reference metatype: ],
-        [ meta:prefix_prefix "xsd" ;
-            meta:prefix_reference xsd: ],
-        [ meta:prefix_prefix "IAO" ;
-            meta:prefix_reference <http://purl.obolibrary.org/obo/IAO_> ],
-        [ meta:prefix_prefix "shex" ;
-            meta:prefix_reference shex: ],
-        [ meta:prefix_prefix "UMLSSC" ;
-            meta:prefix_reference <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/TUI/> ] ;
+        [ meta:prefix_prefix "SIO" ;
+            meta:prefix_reference <http://semanticscience.org/resource/SIO_> ] ;
     meta:slots <https://w3id.org/biolink/vocab/actively_involved_in>,
         <https://w3id.org/biolink/vocab/affects>,
         <https://w3id.org/biolink/vocab/affects_abundance_of>,
@@ -527,8 +514,8 @@
         <https://w3id.org/biolink/vocab/versionOf>,
         <https://w3id.org/biolink/vocab/xenologous_to> ;
     meta:source_file "biolink-model.yaml" ;
-    meta:source_file_date "Mon Oct 21 13:00:15 2019"^^xsd:dateTime ;
-    meta:source_file_size 117070 ;
+    meta:source_file_date "Mon Oct 28 10:54:51 2019"^^xsd:dateTime ;
+    meta:source_file_size 117068 ;
     meta:subsets <https://w3id.org/biolink/vocab/samples>,
         <https://w3id.org/biolink/vocab/testing>,
         <https://w3id.org/biolink/vocab/translator_minimal> ;
@@ -1079,7 +1066,7 @@
     skos:inScheme biolinkml:mappings ;
     skos:mappingRelation skos:closeMatch ;
     meta:definition_uri meta:close_mappings ;
-    meta:imported_from "../../../includes/mappings" ;
+    meta:imported_from "includes/mappings" ;
     meta:is_a <https://w3id.org/biolink/vocab/mappings> ;
     meta:multivalued true ;
     meta:range <https://w3id.org/biolink/vocab/uriorcurie> ;
@@ -1090,7 +1077,7 @@
     skos:inScheme biolinkml:types ;
     meta:base "XSDDateTime" ;
     meta:definition_uri metatype:Datetime ;
-    meta:imported_from "../../../includes/types" ;
+    meta:imported_from "includes/types" ;
     meta:repr "str" ;
     meta:uri xsd:dateTime .
 
@@ -1099,7 +1086,7 @@
     skos:inScheme biolinkml:mappings ;
     skos:mappingRelation <http://purl.obolibrary.org/obo/IAO_0100001> ;
     meta:definition_uri meta:deprecated_element_has_exact_replacement ;
-    meta:imported_from "../../../includes/mappings" ;
+    meta:imported_from "includes/mappings" ;
     meta:range <https://w3id.org/biolink/vocab/uriorcurie> ;
     meta:slot_uri meta:deprecated_element_has_exact_replacement .
 
@@ -1108,7 +1095,7 @@
     skos:inScheme biolinkml:mappings ;
     skos:mappingRelation OIO:consider ;
     meta:definition_uri meta:deprecated_element_has_possible_replacement ;
-    meta:imported_from "../../../includes/mappings" ;
+    meta:imported_from "includes/mappings" ;
     meta:range <https://w3id.org/biolink/vocab/uriorcurie> ;
     meta:slot_uri meta:deprecated_element_has_possible_replacement .
 
@@ -1117,7 +1104,7 @@
     skos:inScheme biolinkml:mappings ;
     skos:mappingRelation skos:exactMatch ;
     meta:definition_uri meta:exact_mappings ;
-    meta:imported_from "../../../includes/mappings" ;
+    meta:imported_from "includes/mappings" ;
     meta:is_a <https://w3id.org/biolink/vocab/mappings> ;
     meta:multivalued true ;
     meta:range <https://w3id.org/biolink/vocab/uriorcurie> ;
@@ -1135,7 +1122,7 @@
     skos:inScheme biolinkml:types ;
     meta:base "NCName" ;
     meta:definition_uri metatype:Ncname ;
-    meta:imported_from "../../../includes/types" ;
+    meta:imported_from "includes/types" ;
     meta:repr "str" ;
     meta:uri xsd:string .
 
@@ -1145,7 +1132,7 @@
     skos:note "Used for inheritence and type checking" ;
     meta:base "ElementIdentifier" ;
     meta:definition_uri metatype:Objectidentifier ;
-    meta:imported_from "../../../includes/types" ;
+    meta:imported_from "includes/types" ;
     meta:repr "str" ;
     meta:uri shex:iri .
 
@@ -1169,7 +1156,7 @@
     skos:inScheme biolinkml:mappings ;
     skos:mappingRelation skos:relatedMatch ;
     meta:definition_uri meta:related_mappings ;
-    meta:imported_from "../../../includes/mappings" ;
+    meta:imported_from "includes/mappings" ;
     meta:is_a <https://w3id.org/biolink/vocab/mappings> ;
     meta:multivalued true ;
     meta:range <https://w3id.org/biolink/vocab/uriorcurie> ;
@@ -1180,7 +1167,7 @@
     skos:inScheme biolinkml:types ;
     meta:base "URI" ;
     meta:definition_uri metatype:Uri ;
-    meta:imported_from "../../../includes/types" ;
+    meta:imported_from "includes/types" ;
     meta:repr "str" ;
     meta:uri xsd:anyURI .
 
@@ -2522,7 +2509,7 @@
     skos:inScheme biolinkml:types ;
     meta:base "Bool" ;
     meta:definition_uri metatype:Boolean ;
-    meta:imported_from "../../../includes/types" ;
+    meta:imported_from "includes/types" ;
     meta:uri xsd:boolean .
 
 <https://w3id.org/biolink/vocab/case_to_thing_association_subject> a meta:SlotDefinition ;
@@ -3410,7 +3397,7 @@
     skos:inScheme biolinkml:types ;
     meta:base "XSDTime" ;
     meta:definition_uri metatype:Time ;
-    meta:imported_from "../../../includes/types" ;
+    meta:imported_from "includes/types" ;
     meta:repr "str" ;
     meta:uri xsd:dateTime .
 
@@ -4162,7 +4149,7 @@
     skos:inScheme biolinkml:types ;
     meta:base "float" ;
     meta:definition_uri metatype:Float ;
-    meta:imported_from "../../../includes/types" ;
+    meta:imported_from "includes/types" ;
     meta:uri xsd:float .
 
 <https://w3id.org/biolink/vocab/gene_associated_with_condition> a meta:SlotDefinition ;
@@ -4341,11 +4328,11 @@
     meta:inherited true ;
     meta:is_a <https://w3id.org/biolink/vocab/regulates_entity_to_entity> ;
     meta:local_names [ a meta:LocalName ;
-            skos:altLabel "activity directly negatively regulates activity of" ;
-            meta:local_name_source "ro" ],
-        [ a meta:LocalName ;
             skos:altLabel "negatively regulates" ;
-            meta:local_name_source "translator" ] ;
+            meta:local_name_source "translator" ],
+        [ a meta:LocalName ;
+            skos:altLabel "activity directly negatively regulates activity of" ;
+            meta:local_name_source "ro" ] ;
     meta:mixins <https://w3id.org/biolink/vocab/negatively_regulates> ;
     meta:multivalued true ;
     meta:owner <https://w3id.org/biolink/vocab/negatively_regulates_entity_to_entity> ;
@@ -4370,7 +4357,7 @@
     skos:inScheme biolinkml:types ;
     meta:base "NodeIdentifier" ;
     meta:definition_uri metatype:Nodeidentifier ;
-    meta:imported_from "../../../includes/types" ;
+    meta:imported_from "includes/types" ;
     meta:repr "str" ;
     meta:uri shex:nonLiteral .
 
@@ -4430,11 +4417,11 @@
     meta:inherited true ;
     meta:is_a <https://w3id.org/biolink/vocab/regulates_entity_to_entity> ;
     meta:local_names [ a meta:LocalName ;
-            skos:altLabel "positively regulates" ;
-            meta:local_name_source "translator" ],
-        [ a meta:LocalName ;
             skos:altLabel "activity directly positively regulates activity of" ;
-            meta:local_name_source "ro" ] ;
+            meta:local_name_source "ro" ],
+        [ a meta:LocalName ;
+            skos:altLabel "positively regulates" ;
+            meta:local_name_source "translator" ] ;
     meta:mixins <https://w3id.org/biolink/vocab/positively_regulates> ;
     meta:multivalued true ;
     meta:owner <https://w3id.org/biolink/vocab/positively_regulates_entity_to_entity> ;
@@ -5258,7 +5245,7 @@
     skos:inScheme biolinkml:types ;
     meta:base "XSDDate" ;
     meta:definition_uri metatype:Date ;
-    meta:imported_from "../../../includes/types" ;
+    meta:imported_from "includes/types" ;
     meta:repr "str" ;
     meta:uri xsd:date .
 
@@ -5423,7 +5410,7 @@
     skos:inScheme biolinkml:mappings ;
     skos:mappingRelation skos:mappingRelation ;
     meta:definition_uri meta:mappings ;
-    meta:imported_from "../../../includes/mappings" ;
+    meta:imported_from "includes/mappings" ;
     meta:multivalued true ;
     meta:range <https://w3id.org/biolink/vocab/uriorcurie> ;
     meta:slot_uri skos:mappingRelation .
@@ -5899,7 +5886,7 @@
     skos:inScheme biolinkml:types ;
     meta:base "int" ;
     meta:definition_uri metatype:Integer ;
-    meta:imported_from "../../../includes/types" ;
+    meta:imported_from "includes/types" ;
     meta:uri xsd:integer .
 
 <https://w3id.org/biolink/vocab/latitude> a meta:SlotDefinition ;
@@ -6754,7 +6741,7 @@
     skos:inScheme biolinkml:types ;
     meta:base "float" ;
     meta:definition_uri metatype:Double ;
-    meta:imported_from "../../../includes/types" ;
+    meta:imported_from "includes/types" ;
     meta:uri xsd:double .
 
 <https://w3id.org/biolink/vocab/expresses> a meta:SlotDefinition ;
@@ -7833,11 +7820,11 @@
         <wd:Q15304597> ;
     skos:note "This class is for modeling the specific state at a locus. A single dbSNP rs ID could correspond to more than one sequence variants (e.g CIViC:1252 and CIViC:1253, two distinct BRCA2 alleles for rs28897743)" ;
     meta:alt_descriptions [ a meta:AltDescription ;
-            skos:definition "A contiguous change at a Location" ;
-            meta:source "VMC" ],
-        [ a meta:AltDescription ;
             skos:definition "An enitity that describes a single affected, endogenous allele.  These can be of any type that matches that definition" ;
-            meta:source "AGR" ] ;
+            meta:source "AGR" ],
+        [ a meta:AltDescription ;
+            skos:definition "A contiguous change at a Location" ;
+            meta:source "VMC" ] ;
     meta:class_uri <http://purl.obolibrary.org/obo/GENO_0000002> ;
     meta:definition_uri <biolink:SequenceVariant> ;
     meta:id_prefixes "CIViC",
@@ -8394,7 +8381,7 @@
     skos:inScheme biolinkml:types ;
     meta:base "str" ;
     meta:definition_uri metatype:String ;
-    meta:imported_from "../../../includes/types" ;
+    meta:imported_from "includes/types" ;
     meta:uri xsd:string .
 
 <https://w3id.org/biolink/vocab/has_biological_sequence> a meta:SlotDefinition ;
@@ -8412,7 +8399,7 @@
     skos:inScheme biolinkml:types ;
     meta:base "URIorCURIE" ;
     meta:definition_uri metatype:Uriorcurie ;
-    meta:imported_from "../../../includes/types" ;
+    meta:imported_from "includes/types" ;
     meta:repr "str" ;
     meta:uri xsd:anyURI .
 
@@ -8870,11 +8857,11 @@
     meta:inherited true ;
     meta:is_a <https://w3id.org/biolink/vocab/regulates> ;
     meta:local_names [ a meta:LocalName ;
-            skos:altLabel "regulates" ;
-            meta:local_name_source "translator" ],
-        [ a meta:LocalName ;
             skos:altLabel "activity directly regulates activity of" ;
-            meta:local_name_source "ro" ] ;
+            meta:local_name_source "ro" ],
+        [ a meta:LocalName ;
+            skos:altLabel "regulates" ;
+            meta:local_name_source "translator" ] ;
     meta:multivalued true ;
     meta:owner <https://w3id.org/biolink/vocab/regulates_entity_to_entity> ;
     meta:range <https://w3id.org/biolink/vocab/MolecularEntity> ;

@@ -1,18 +1,19 @@
+import os
 import unittest
 from typing import List
 
 from pyshex.shex_evaluator import EvaluationResult, ShExEvaluator
 from rdflib import Graph
 
-from biolinkml import LOCAL_CONTEXT_PATH, METAMODEL_NAMESPACE, LOCAL_SHEXJ_PATH, \
-    LOCAL_RDF_PATH, MODULE_DIR
+from biolinkml import LOCAL_METAMODEL_LDCONTEXT_FILE, METAMODEL_NAMESPACE, LOCAL_SHEXJ_FILE_NAME, \
+    LOCAL_RDF_FILE_NAME, MODULE_DIR
 from biolinkml.generators.jsonldgen import JSONLDGenerator
 from biolinkml.generators.markdowngen import MarkdownGenerator
 from biolinkml.generators.owlgen import OwlSchemaGenerator
 from biolinkml.generators.rdfgen import RDFGenerator
 from biolinkml.generators.shexgen import ShExGenerator
-from tests import targetdir, DO_SHEX_VALIDATION
-from tests.utils.generator_utils import GeneratorTestCase
+from tests import targetdir, DO_SHEX_VALIDATION, sourcedir
+from tests.utils.generator_utils import GeneratorTestCase, BIOLINK_IMPORT_MAP
 from tests.utils.metadata_filters import json_metadata_filter
 
 
@@ -21,6 +22,7 @@ class MetaModelTestCase(GeneratorTestCase):
     target_path = targetdir
     model_path = MODULE_DIR
     model_name = 'meta'
+    importmap = BIOLINK_IMPORT_MAP
 
     def test_meta_markdown(self):
         """ Test the markdown generator for the biolink model """
@@ -52,27 +54,23 @@ class MetaModelTestCase(GeneratorTestCase):
         """ Test the shex ShExJ generation """
         self.single_file_generator('shexj', ShExGenerator, format="json")
 
-    def test_meta_json(self):
-        """ Test the shex ShExJ generation """
-        self.single_file_generator('json', JSONLDGenerator, filtr=json_metadata_filter)
-
     def test_meta_rdf(self):
         """ Test the rdf generator for the biolink model """
         # Make sure the ShEx is good
         self.single_file_generator('shexj', ShExGenerator, format="json")
 
         # Make a fresh copy of the RDF and validate it as well
-        self.single_file_generator('ttl', RDFGenerator, serialize_args={"context": LOCAL_CONTEXT_PATH},
+        self.single_file_generator('ttl', RDFGenerator, serialize_args={"context": LOCAL_METAMODEL_LDCONTEXT_FILE},
                                    comparator=GeneratorTestCase.rdf_comparator)
 
         # Validate the RDF against the Biolink ShEx
         if DO_SHEX_VALIDATION:
             g = Graph()
-            rdf_file = LOCAL_RDF_PATH
+            rdf_file = LOCAL_RDF_FILE_NAME
             g.load(rdf_file, format='turtle')
             focus = METAMODEL_NAMESPACE.metamodel
             start = METAMODEL_NAMESPACE.SchemaDefinition
-            results = ShExEvaluator(g, LOCAL_SHEXJ_PATH, focus, start).evaluate(debug=False)
+            results = ShExEvaluator(g, LOCAL_SHEXJ_FILE_NAME, focus, start).evaluate(debug=False)
             self.assertTrue(self._evaluate_shex_results(results))
         else:
             print("*** RDF Model validation step was skipped. Set: tests.__init__.DO_SHEX_VALIDATION to run it")

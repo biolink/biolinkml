@@ -10,6 +10,7 @@ from urllib.request import Request, urlopen
 
 import yaml
 
+from biolinkml import MODULE_DIR
 from biolinkml.meta import SchemaDefinition, metamodel_version
 from biolinkml.utils.mergeutils import merge_schemas, set_from_schema
 from biolinkml.utils.namespaces import Namespaces

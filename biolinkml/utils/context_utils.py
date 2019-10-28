@@ -1,5 +1,9 @@
-from typing import Optional, Union, List, Any
+import json
+import os
+from io import TextIOWrapper
+from typing import Optional, Union, List, Any, Dict
 
+import yaml
 from jsonasobj import JsonObj, loads
 
 CONTEXT_TYPE = Union[str, dict, JsonObj]
@@ -45,3 +49,36 @@ def merge_contexts(contexts: CONTEXTS_PARAM_TYPE = None, base: Optional[Any] = N
         context_list.append(JsonObj(**{'@base': str(base)}))
     return None if not context_list else \
         JsonObj(**{"@context": context_list[0] if len(context_list) == 1 else context_list})
+
+
+def parse_import_map(map: Optional[Union[str, Dict[str, str], TextIOWrapper]], base: Optional[str] = None) -> Dict[str, str]:
+    """
+    Process the import map
+    :param map: A map location, the JSON for a map, YAML for a map or an existing dictionary
+    :param base: Base location to turn relative locations into absolute
+    :return: Import mapp
+    """
+    if map is None:
+        rval = dict()
+    elif isinstance(map, TextIOWrapper):
+        return parse_import_map(map.read(), base)
+    elif isinstance(map, dict):
+        rval = map
+    elif map.strip().startswith('{'):
+        rval = json.loads(map)
+    elif '\n' in map or '\r' in map or ' ' in map:
+        rval = yaml.load(map)
+    else:
+        with open(map) as ml:
+            return parse_import_map(ml.read(), base)
+
+    if base:
+        outmap = dict()
+        for k, v in rval.items():
+            if ':' not in v:
+                v = os.path.join(base, v)
+                if ':/' not in v:
+                    v = os.path.abspath(v)
+            outmap[k] = v
+        rval = outmap
+    return rval

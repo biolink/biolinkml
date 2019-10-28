@@ -1,13 +1,11 @@
 import abc
 import logging
-import sys
 from contextlib import redirect_stdout
 from io import StringIO
-from typing import List, Set, Union, TextIO, Optional, cast, Callable, Mapping
+from typing import List, Set, Union, TextIO, Optional, cast, Callable
 
 import click
 from click import Command, Argument, Option
-from json import load
 
 from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, ClassDefinitionName, \
     TypeDefinition, Element, SlotDefinitionName, TypeDefinitionName, PrefixPrefixPrefix, ElementName, \
@@ -36,7 +34,7 @@ class Generator(metaclass=abc.ABCMeta):
                  format: Optional[str] = None,
                  emit_metadata: bool = False,
                  useuris: Optional[bool] = None,
-                 import_map: Optional[str] = None,
+                 importmap: Optional[str] = None,
                  log_level: int = DEFAULT_LOG_LEVEL_INT,
                  **kwargs) -> None:
         """
@@ -47,7 +45,7 @@ class Generator(metaclass=abc.ABCMeta):
         :param fmt: expected output format
         :param emit_metadata: True means include date, generator, etc. information in source header if appropriate
         :param useuris: True means declared class slot uri's are used.  False means use model uris
-        :param import_map: File name of import mapping file -- maps import name/uri to target
+        :param importmap: File name of import mapping file -- maps import name/uri to target
         :param log_level: Logging level
         """
         logging.basicConfig(level=log_level)
@@ -62,21 +60,22 @@ class Generator(metaclass=abc.ABCMeta):
             gen = schema
             self.schema = gen.schema
             self.synopsis = gen.synopsis
+            self.loaded = gen.loaded
             self.namespaces = gen.namespaces
             self.base_dir = gen.base_dir
-            self.import_map = gen.import_map
+            self.importmap = gen.importmap
             self.schema_location = gen.schema_location
             self.schema_defaults = gen.schema_defaults
             self.logger = gen.logger
         else:
-            loader = SchemaLoader(schema, self.base_dir, useuris=useuris, import_map=parse_import_map(import_map),
-                                  logger=self.logger)
+            loader = SchemaLoader(schema, self.base_dir, useuris=useuris, importmap=importmap, logger=self.logger)
             loader.resolve()
             self.schema = loader.schema
             self.synopsis = loader.synopsis
+            self.loaded = loader.loaded
             self.namespaces = loader.namespaces
             self.base_dir = loader.base_dir
-            self.import_map = loader.import_map
+            self.importmap = loader.importmap
             self.schema_location = loader.schema_location
             self.schema_defaults = loader.schema_defaults
 
@@ -557,9 +556,3 @@ def shared_arguments(g: Generator) -> Callable[[Command], Command]:
     return decorator
 
 
-def parse_import_map(map_loc: Optional[str]) -> Mapping[str, str]:
-    if map_loc is None:
-        return dict()
-    else:
-        with open(map_loc) as ml:
-            return load(ml)

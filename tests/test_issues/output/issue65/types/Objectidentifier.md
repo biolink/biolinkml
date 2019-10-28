@@ -4,7 +4,7 @@
 
 A URI or CURIE that represents an object in the model.
 
-URI: [https://example.com/test65/https://w3id.org/biolink/biolinkml/types/Objectidentifier](https://example.com/test65/https://w3id.org/biolink/biolinkml/types/Objectidentifier)
+URI: [https://example.com/test65/meta:types/Objectidentifier](https://example.com/test65/meta:types/Objectidentifier)
 
 |  |  |  |
 | --- | --- | --- |

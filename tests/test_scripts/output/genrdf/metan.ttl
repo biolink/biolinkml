@@ -38,7 +38,7 @@ meta:metamodel a meta:SchemaDefinition ;
         "rdfs",
         "skos",
         "xsd" ;
-    meta:generation_date "2019-10-08 18:34"^^xsd:dateTime ;
+    meta:generation_date "2019-10-28 12:53"^^xsd:dateTime ;
     meta:id biolinkml:meta ;
     meta:imports <https://w3id.org/biolink/biolinkml/meta/includes/mappings>,
         <https://w3id.org/biolink/biolinkml/meta/includes/types> ;
@@ -46,22 +46,14 @@ meta:metamodel a meta:SchemaDefinition ;
     meta:metamodel_version "1.4.3" ;
     meta:prefixes [ meta:prefix_prefix "pav" ;
             meta:prefix_reference pav: ],
+        [ meta:prefix_prefix "OIO" ;
+            meta:prefix_reference OIO: ],
         [ meta:prefix_prefix "meta" ;
             meta:prefix_reference meta: ],
         [ meta:prefix_prefix "skos" ;
             meta:prefix_reference skos: ],
-        [ meta:prefix_prefix "shex" ;
-            meta:prefix_reference shex: ],
-        [ meta:prefix_prefix "xsd" ;
-            meta:prefix_reference xsd: ],
-        [ meta:prefix_prefix "OIO" ;
-            meta:prefix_reference OIO: ],
-        [ meta:prefix_prefix "metatype" ;
-            meta:prefix_reference metatype: ],
         [ meta:prefix_prefix "biolinkml" ;
-            meta:prefix_reference biolinkml: ],
-        [ meta:prefix_prefix "IAO" ;
-            meta:prefix_reference <http://purl.obolibrary.org/obo/IAO_> ] ;
+            meta:prefix_reference biolinkml: ] ;
     meta:slots meta:abstract,
         meta:alias,
         meta:aliases,
@@ -154,8 +146,8 @@ meta:metamodel a meta:SchemaDefinition ;
         meta:values_from,
         meta:version ;
     meta:source_file "meta.yaml" ;
-    meta:source_file_date "Tue Oct  8 12:45:47 2019"^^xsd:dateTime ;
-    meta:source_file_size 23439 ;
+    meta:source_file_date "Mon Oct 28 09:51:43 2019"^^xsd:dateTime ;
+    meta:source_file_size 23488 ;
     meta:subsets meta:owl ;
     meta:title "Biolink Schema Metamodel" ;
     meta:types meta:boolean,
@@ -564,11 +556,11 @@ meta:inlined a meta:SlotDefinition ;
     meta:slot_uri meta:inlined .
 
 meta:inverse a meta:SlotDefinition ;
+    skos:mappingRelation owl:inverseOf ;
     meta:definition_uri meta:inverse ;
     meta:description "indicates that any instance of d s r implies that there is also an instance of r s' d" ;
     meta:domain meta:SlotDefinition ;
     meta:from_schema biolinkml:meta ;
-    meta:mappings owl:inverseOf ;
     meta:owner meta:SlotDefinition ;
     meta:range meta:SlotDefinition ;
     meta:slot_uri meta:inverse .
@@ -606,12 +598,12 @@ meta:key a meta:SlotDefinition ;
     meta:slot_uri meta:key .
 
 meta:license a meta:SlotDefinition ;
+    skos:mappingRelation dcterms:license ;
     meta:definition_uri meta:license ;
     meta:description "license for the schema" ;
     meta:domain meta:SchemaDefinition ;
     meta:from_schema biolinkml:meta ;
     meta:in_subset meta:owl ;
-    meta:mappings dcterms:license ;
     meta:owner meta:SchemaDefinition ;
     meta:range meta:string ;
     meta:slot_uri meta:license .
@@ -628,11 +620,11 @@ meta:local_name_source a meta:SlotDefinition ;
     meta:slot_uri meta:local_name_source .
 
 meta:local_name_value a meta:SlotDefinition ;
+    skos:mappingRelation skos:altLabel ;
     meta:definition_uri meta:local_name_value ;
     meta:description "a name assigned to an element in a given ontology" ;
     meta:domain meta:LocalName ;
     meta:from_schema biolinkml:meta ;
-    meta:mappings skos:altLabel ;
     meta:owner meta:LocalName ;
     meta:range meta:string ;
     meta:required true ;
@@ -763,11 +755,11 @@ meta:role a meta:SlotDefinition ;
     meta:slot_uri meta:role .
 
 meta:singular_name a meta:SlotDefinition ;
+    skos:mappingRelation skos:altLabel ;
     meta:definition_uri meta:singular_name ;
     meta:description "a name that is used in the singular form" ;
     meta:domain meta:SlotDefinition ;
     meta:from_schema biolinkml:meta ;
-    meta:mappings skos:altLabel ;
     meta:owner meta:SlotDefinition ;
     meta:range meta:string ;
     meta:slot_uri meta:singular_name .
@@ -828,21 +820,21 @@ meta:source_file_size a meta:SlotDefinition ;
     meta:slot_uri meta:source_file_size .
 
 meta:subclass_of a meta:SlotDefinition ;
+    skos:mappingRelation rdfs:subClassOf ;
     meta:definition_uri meta:subclass_of ;
     meta:description "rdfs:subClassOf to be emitted in OWL generation" ;
     meta:domain meta:ClassDefinition ;
     meta:from_schema biolinkml:meta ;
-    meta:mappings rdfs:subClassOf ;
     meta:owner meta:ClassDefinition ;
     meta:range meta:uriorcurie ;
     meta:slot_uri meta:subclass_of .
 
 meta:subproperty_of a meta:SlotDefinition ;
+    skos:mappingRelation rdfs:subPropertyOf ;
     meta:definition_uri meta:subproperty_of ;
     meta:description "Ontology property which this slot is a subproperty of" ;
     meta:domain meta:SlotDefinition ;
     meta:from_schema biolinkml:meta ;
-    meta:mappings rdfs:subPropertyOf ;
     meta:owner meta:SlotDefinition ;
     meta:range meta:uriorcurie ;
     meta:slot_uri meta:subproperty_of .
@@ -868,12 +860,12 @@ meta:symmetric a meta:SlotDefinition ;
     meta:slot_uri meta:symmetric .
 
 meta:title a meta:SlotDefinition ;
+    skos:mappingRelation dcterms:title ;
     meta:definition_uri meta:title ;
     meta:description "the official title of the schema" ;
     meta:domain meta:SchemaDefinition ;
     meta:from_schema biolinkml:meta ;
     meta:in_subset meta:owl ;
-    meta:mappings dcterms:title ;
     meta:owner meta:SchemaDefinition ;
     meta:range meta:string ;
     meta:slot_uri meta:title .
@@ -913,21 +905,21 @@ meta:union_of a meta:SlotDefinition ;
     meta:slot_uri meta:union_of .
 
 meta:value a meta:SlotDefinition ;
+    skos:mappingRelation skos:example ;
     meta:definition_uri meta:value ;
     meta:description "example value" ;
     meta:domain meta:Example ;
     meta:from_schema biolinkml:meta ;
-    meta:mappings skos:example ;
     meta:owner meta:Example ;
     meta:range meta:string ;
     meta:slot_uri meta:value .
 
 meta:version a meta:SlotDefinition ;
+    skos:mappingRelation pav:version ;
     meta:definition_uri meta:version ;
     meta:description "particular version of schema" ;
     meta:domain meta:SchemaDefinition ;
     meta:from_schema biolinkml:meta ;
-    meta:mappings pav:version ;
     meta:owner meta:SchemaDefinition ;
     meta:range meta:string ;
     meta:slot_uri meta:version .
@@ -1081,10 +1073,10 @@ meta:Example a meta:ClassDefinition ;
         meta:value_description .
 
 meta:aliases a meta:SlotDefinition ;
+    skos:mappingRelation skos:altLabel ;
     meta:definition_uri meta:aliases ;
     meta:domain meta:Element ;
     meta:from_schema biolinkml:meta ;
-    meta:mappings skos:altLabel ;
     meta:multivalued true ;
     meta:owner meta:Element ;
     meta:range meta:string ;
@@ -1101,24 +1093,24 @@ meta:alt_descriptions a meta:SlotDefinition ;
     meta:slot_uri meta:alt_descriptions .
 
 meta:close_mappings a meta:SlotDefinition ;
+    skos:mappingRelation skos:closeMatch ;
     meta:definition_uri meta:close_mappings ;
     meta:description "A list of terms from different schemas or terminology systems that have close meaning." ;
     meta:from_schema biolinkml:mappings ;
     meta:imported_from "includes/mappings" ;
     meta:is_a meta:mappings ;
-    meta:mappings skos:closeMatch ;
     meta:multivalued true ;
     meta:owner meta:Element ;
     meta:range meta:uriorcurie ;
     meta:slot_uri meta:close_mappings .
 
 meta:comments a meta:SlotDefinition ;
+    skos:mappingRelation skos:note ;
     meta:definition_uri meta:comments ;
     meta:description "notes and comments about an element intended for external consumption" ;
     meta:domain meta:Element ;
     meta:from_schema biolinkml:meta ;
     meta:in_subset meta:owl ;
-    meta:mappings skos:note ;
     meta:multivalued true ;
     meta:owner meta:Element ;
     meta:range meta:string ;
@@ -1145,32 +1137,32 @@ meta:deprecated a meta:SlotDefinition ;
     meta:slot_uri meta:deprecated .
 
 meta:deprecated_element_has_exact_replacement a meta:SlotDefinition ;
+    skos:mappingRelation <http://purl.obolibrary.org/obo/IAO_0100001> ;
     meta:definition_uri meta:deprecated_element_has_exact_replacement ;
     meta:description "When an element is deprecated, it can be automatically replaced by this uri or curie" ;
     meta:from_schema biolinkml:mappings ;
     meta:imported_from "includes/mappings" ;
-    meta:mappings <http://purl.obolibrary.org/obo/IAO_0100001> ;
     meta:owner meta:Element ;
     meta:range meta:uriorcurie ;
     meta:slot_uri meta:deprecated_element_has_exact_replacement .
 
 meta:deprecated_element_has_possible_replacement a meta:SlotDefinition ;
+    skos:mappingRelation OIO:consider ;
     meta:definition_uri meta:deprecated_element_has_possible_replacement ;
     meta:description "When an element is deprecated, it can be potentially replaced by this uri or curie" ;
     meta:from_schema biolinkml:mappings ;
     meta:imported_from "includes/mappings" ;
-    meta:mappings OIO:consider ;
     meta:owner meta:Element ;
     meta:range meta:uriorcurie ;
     meta:slot_uri meta:deprecated_element_has_possible_replacement .
 
 meta:exact_mappings a meta:SlotDefinition ;
+    skos:mappingRelation skos:exactMatch ;
     meta:definition_uri meta:exact_mappings ;
     meta:description "A list of terms from different schemas or terminology systems that have identical meaning." ;
     meta:from_schema biolinkml:mappings ;
     meta:imported_from "includes/mappings" ;
     meta:is_a meta:mappings ;
-    meta:mappings skos:exactMatch ;
     meta:multivalued true ;
     meta:owner meta:Element ;
     meta:range meta:uriorcurie ;
@@ -1189,11 +1181,11 @@ meta:examples a meta:SlotDefinition ;
     meta:slot_uri meta:examples .
 
 meta:from_schema a meta:SlotDefinition ;
+    skos:mappingRelation skos:inScheme ;
     meta:definition_uri meta:from_schema ;
     meta:description "id of the schema that defined the element" ;
     meta:domain meta:Element ;
     meta:from_schema biolinkml:meta ;
-    meta:mappings skos:inScheme ;
     meta:notes "A stronger model would be range schema_definition, but this doesn't address the import model" ;
     meta:owner meta:Element ;
     meta:range meta:uri ;
@@ -1221,11 +1213,11 @@ meta:imported_from a meta:SlotDefinition ;
     meta:slot_uri meta:imported_from .
 
 meta:in_subset a meta:SlotDefinition ;
+    skos:mappingRelation OIO:inSubset ;
     meta:definition_uri meta:in_subset ;
     meta:description "used to indicate membership of a term in a defined subset of biolink terms used for a particular domain or application (e.g. the translator_minimal subset holding the minimal set of predicates used in a translator knowledge graph)" ;
     meta:domain meta:Element ;
     meta:from_schema biolinkml:meta ;
-    meta:mappings OIO:inSubset ;
     meta:multivalued true ;
     meta:owner meta:Element ;
     meta:range meta:SubsetDefinition ;
@@ -1242,6 +1234,7 @@ meta:local_names a meta:SlotDefinition ;
     meta:slot_uri meta:local_names .
 
 meta:name a meta:SlotDefinition ;
+    skos:mappingRelation rdfs:label ;
     meta:definition_uri meta:name ;
     meta:description "the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class." ;
     meta:domain meta:Element ;
@@ -1249,43 +1242,42 @@ meta:name a meta:SlotDefinition ;
     meta:identifier true ;
     meta:in_subset meta:owl ;
     meta:key true ;
-    meta:mappings rdfs:label ;
     meta:owner meta:Element ;
     meta:range meta:string ;
     meta:required true ;
     meta:slot_uri meta:name .
 
 meta:notes a meta:SlotDefinition ;
+    skos:mappingRelation skos:editorialNote ;
     meta:definition_uri meta:notes ;
     meta:description "editorial notes about an element intended for internal consumption" ;
     meta:domain meta:Element ;
     meta:from_schema biolinkml:meta ;
     meta:in_subset meta:owl ;
-    meta:mappings skos:editorialNote ;
     meta:multivalued true ;
     meta:owner meta:Element ;
     meta:range meta:string ;
     meta:slot_uri meta:notes .
 
 meta:related_mappings a meta:SlotDefinition ;
+    skos:mappingRelation skos:relatedMatch ;
     meta:definition_uri meta:related_mappings ;
     meta:description "A list of terms from different schemas or terminology systems that have related meaning." ;
     meta:from_schema biolinkml:mappings ;
     meta:imported_from "includes/mappings" ;
     meta:is_a meta:mappings ;
-    meta:mappings skos:relatedMatch ;
     meta:multivalued true ;
     meta:owner meta:Element ;
     meta:range meta:uriorcurie ;
     meta:slot_uri meta:related_mappings .
 
 meta:see_also a meta:SlotDefinition ;
+    skos:mappingRelation rdfs:seeAlso ;
     meta:definition_uri meta:see_also ;
     meta:description "a reference" ;
     meta:domain meta:Element ;
     meta:from_schema biolinkml:meta ;
     meta:in_subset meta:owl ;
-    meta:mappings rdfs:seeAlso ;
     meta:multivalued true ;
     meta:owner meta:Element ;
     meta:range meta:uriorcurie ;
@@ -1310,22 +1302,22 @@ meta:boolean a meta:TypeDefinition ;
     meta:uri xsd:boolean .
 
 meta:description a meta:SlotDefinition ;
+    skos:mappingRelation skos:definition ;
     meta:definition_uri meta:description ;
     meta:description "a description of the element's purpose and use" ;
     meta:domain meta:Element ;
     meta:from_schema biolinkml:meta ;
     meta:in_subset meta:owl ;
-    meta:mappings skos:definition ;
     meta:owner meta:Element ;
     meta:range meta:string ;
     meta:slot_uri meta:description .
 
 meta:mappings a meta:SlotDefinition ;
+    skos:mappingRelation skos:mappingRelation ;
     meta:definition_uri meta:mappings ;
     meta:description "A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective." ;
     meta:from_schema biolinkml:mappings ;
     meta:imported_from "includes/mappings" ;
-    meta:mappings skos:mappingRelation ;
     meta:multivalued true ;
     meta:owner meta:Element ;
     meta:range meta:uriorcurie ;

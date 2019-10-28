@@ -1,4 +1,5 @@
 import dataclasses
+import os
 from copy import deepcopy
 from typing import Dict, Optional, Union, cast, List
 
@@ -38,9 +39,10 @@ def merge_namespaces(target: SchemaDefinition, mergee: SchemaDefinition, namespa
     """
     for prefix in mergee.prefixes.values():
         namespaces[prefix.prefix_prefix] = prefix.prefix_reference
-        if prefix.prefix_prefix not in target.prefixes:
-            target.prefixes[prefix.prefix_prefix] = prefix
-        elif target.prefixes[prefix.prefix_prefix].prefix_reference != prefix.prefix_reference:
+        # if prefix.prefix_prefix not in target.prefixes:
+        #     target.prefixes[prefix.prefix_prefix] = prefix
+        if prefix.prefix_prefix in target.prefixes and \
+                target.prefixes[prefix.prefix_prefix].prefix_reference != prefix.prefix_reference:
             raise ValueError(f'Prefix: {prefix.prefix_prefix} mismatch between {target.name} and {mergee.name}')
     for mmap in mergee.default_curi_maps:
         namespaces.add_prefixmap(mmap)

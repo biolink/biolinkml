@@ -1,6 +1,7 @@
 from logging import ERROR
 
-model = """# Every model must have a globally unique URI. This is the external name of the model
+model = """
+# Every model must have a globally unique URI. This is the external name of the model
 id: http://example.org/examples/distributeExample 
 
 # Every model should also have a globally unique name (well, global within the context of the particular modeling environment)
@@ -80,7 +81,7 @@ classes:
         slots:
             - gene has sequence
     
-
+    
 """
 
 

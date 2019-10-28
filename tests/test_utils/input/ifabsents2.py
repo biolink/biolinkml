@@ -1,5 +1,5 @@
-# Auto generated from ifabsents2.yaml by pythongen.py version: 0.3.0
-# Generation date: 2019-10-23 11:50
+# Auto generated from .yaml by pythongen.py version:
+# Generation date:
 # Schema: ifabsent
 #
 # id: http://example.org/tests/ifabsent
@@ -19,9 +19,8 @@ metamodel_version = "1.4.3"
 
 
 # Namespaces
-SHEX = CurieNamespace('shex', 'http://www.w3.org/ns/shex#')
+SKOS = CurieNamespace('skos', 'http://www.w3.org/2004/02/skos/core#')
 TEST = CurieNamespace('test', 'http://example.org/test/')
-XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = TEST
 
 

@@ -1,11 +1,13 @@
 import logging
 import os
 import sys
-from typing import Union, TextIO, Optional, Set, List, cast, Dict, Mapping
+from collections import OrderedDict
+from typing import Union, TextIO, Optional, Set, List, cast, Dict, Mapping, Tuple
 from urllib.parse import urlparse
 
 from biolinkml.meta import SchemaDefinition, SlotDefinition, SlotDefinitionName, ClassDefinition, \
     ClassDefinitionName, TypeDefinitionName, TypeDefinition, ElementName
+from biolinkml.utils.context_utils import parse_import_map
 from biolinkml.utils.formatutils import underscore, camelcase, sfx
 from biolinkml.utils.mergeutils import merge_schemas, merge_slots, merge_classes, slot_usage_name
 from biolinkml.utils.metamodelcore import Bool
@@ -20,7 +22,7 @@ class SchemaLoader:
                  base_dir: Optional[str] = None,
                  namespaces: Optional[Namespaces] = None,
                  useuris: Optional[bool] = None,
-                 import_map: Optional[Mapping[str, str]] = None,
+                 importmap: Optional[Mapping[str, str]] = None,
                  logger: Optional[logging.Logger] = None) \
             -> None:
         """ Constructor - load and process a YAML or pre-processed schema
@@ -29,7 +31,7 @@ class SchemaLoader:
         :param base_dir: base directory or URL where Schema came from
         :param namespaces: namespaces collector
         :param useuris: True means class_uri and slot_uri are identifiers.  False means they are mappings.
-        :param import_map: A map from import entries to URI or file name.
+        :param importmap: A map from import entries to URI or file name.
         :param logger: Target Logger, if any
         """
         self.logger = logger if logger is not None else logging.getLogger(self.__class__.__name__)
@@ -37,11 +39,12 @@ class SchemaLoader:
             self.schema = data
         else:
             self.schema = load_raw_schema(data, base_dir=base_dir)
-        self.loaded: Dict[str, str] = {self.schema.id: self.schema.version}
+        # Map from URI to source and version tuple
+        self.loaded: OrderedDict[str, Tuple[str, str]] = {self.schema.id: (self.schema.source_file, self.schema.version)}
         self.base_dir = self._get_base_dir(base_dir)
         self.namespaces = namespaces if namespaces else Namespaces()
         self.useuris = useuris if useuris is not None else True
-        self.import_map = import_map if import_map is not None else dict()
+        self.importmap = parse_import_map(importmap, self.base_dir) if importmap is not None else dict()
         self.synopsis: Optional[SchemaSynopsis] = None
         self.schema_location: Optional[str] = None
         self.schema_defaults: Dict[str, str] = {}           # Map from schema URI to default namespace
@@ -74,20 +77,26 @@ class SchemaLoader:
                 raise ValueError(f'Default prefix: {self.schema.default_prefix} is not defined')
 
         # Process imports
-        for sname in self.schema.imports:
-            sname = self.import_map.get(str(sname), sname)               # Import map may use CURIE
+        for imp in self.schema.imports:
+            sname = self.importmap.get(str(imp), imp)               # Import map may use CURIE
             sname = self.namespaces.uri_for(sname) if ':' in sname else sname
-            sname = self.import_map.get(str(sname), sname)               # It may also use URI or other forms
+            sname = self.importmap.get(str(sname), sname)               # It may also use URI or other forms
             import_schemadefinition = \
                 load_raw_schema(sname + '.yaml',
                                 base_dir=os.path.dirname(self.schema.source_file) if self.schema.source_file else None)
+            loaded_schema = (str(sname), import_schemadefinition.version)
             if import_schemadefinition.id in self.loaded:
                 # If we've already loaded this, make sure that we've got the same version
-                if self.loaded[import_schemadefinition.id] != import_schemadefinition.version:
+                if self.loaded[import_schemadefinition.id][1] != loaded_schema[1]:
                     self.raise_value_error(f"Schema {import_schemadefinition.name} - version mismatch")
+                # Note: for debugging purposes we also check whether the version came from the same spot.  This should
+                #       be loosened to version only once we're sure that everything is working
+                if self.loaded[import_schemadefinition.id] != loaded_schema:
+                    self.raise_value_error(f"Schema imported from different files: "
+                                           f"{self.loaded[import_schemadefinition.id][0]} : {loaded_schema[0]}")
             else:
-                self.loaded[import_schemadefinition.id] = import_schemadefinition.version
-                merge_schemas(self.schema, import_schemadefinition, sname, self.namespaces)
+                self.loaded[import_schemadefinition.id] = loaded_schema
+                merge_schemas(self.schema, import_schemadefinition, imp, self.namespaces)
                 self.schema_defaults[import_schemadefinition.id] = import_schemadefinition.default_prefix
 
         self.namespaces._base = self.schema.default_prefix if ':' in self.schema.default_prefix else \

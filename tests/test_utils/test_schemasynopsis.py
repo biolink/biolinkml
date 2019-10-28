@@ -2,7 +2,7 @@ import os
 import unittest
 from typing import Union, List, Optional
 
-from biolinkml import LOCAL_YAML_PATH
+from biolinkml import LOCAL_METAMODEL_YAML_FILE
 from biolinkml.utils.schemaloader import SchemaLoader
 from tests import sourcedir
 from tests.test_utils import inputdir
@@ -39,7 +39,7 @@ class SchemaSynopsisTestCase(Base):
 
     def test_meta_synopsis(self):
         """ Raise a flag if the number of classes, slots, types or other elements change in the model  """
-        self.eval_synopsis('meta', source=LOCAL_YAML_PATH)
+        self.eval_synopsis('meta', source=LOCAL_METAMODEL_YAML_FILE)
 
     def test_unitialized_domain(self):
         self.loadit(os.path.join(inputdir, 'synopsis1.yaml'))

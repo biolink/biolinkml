@@ -10,25 +10,40 @@ Physical layout:
         |
         +------ meta.yaml
         |
-        +------ context.jsonld
+        +------ context.jsonld  (Master context for metamodel)
         |
-        +------ meta.shex
+        +------ meta.jsonld     (Jsonld representation of metamodel)
         |
-        +------ meta.shexj
+        +------ meta.shex       (ShExC representation of metamodel)
         |
-        +------ meta.ttl
+        +------ meta.shexj      (ShExJ representation of metamodel)
+        |
+        +------ meta.ttl        (Metamodel in RDF)
         |
         +------ meta.owl
         |
         +------ includes/
         |          |
-        |          +--- types.yaml
+        |          +--- mappings.context.jsonld
+        |          |
+        |          +--- mappings.jsonld
+        |          |
+        |          +--- mappings.py
+        |          |
+        |          +--- mappings.yaml
+        |          |
+        |          +--- types.context.jsonld
+        |          |
+        |          +--- types.jsonld
         |          |
         |          +--- types.py
+        |          |
+        |          +--- types.yaml
         |
         +------ biolinkml/
         |          |
         |           +--- meta.py
+        |
         +------ meta_mappings_docs/
                   |
                   +--- abstract.md
@@ -67,39 +82,58 @@ METAMODEL_LDCONTEXT_NAME = 'context.jsonld'
 METAMODEL_SHEXC_NAME = 'meta.shex'
 METAMODEL_SHEXJ_NAME = 'meta.shexj'
 METAMODEL_RDF_NAME = 'meta.ttl'
+METAMODEL_JSONLD_NAME = 'meta.jsonld'
 TYPES_FILE_NAME = 'types.yaml'
+TYPES_LDCONTEXT_NAME = 'types.context.jsonld'
+TYPES_JSONLD_NAME = 'types.jsonld'
+MAPPING_FILE_NAME = 'mappings.yaml'
+MAPPING_LDCONTEXT_NAME = 'types.context.jsonld'
+MAPPING_JSONLD_NAME = 'types.jsonld'
 
 
 MODULE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 INCLUDES_DIR = os.path.join(MODULE_DIR, 'includes')
 
-# Local location of meta.yaml and types.yaml
-LOCAL_YAML_PATH = os.path.join(MODULE_DIR, METAMODEL_FILE_NAME)
-LOCAL_TYPES_PATH = os.path.join(INCLUDES_DIR, TYPES_FILE_NAME)
+# Local location of yaml files
+LOCAL_METAMODEL_YAML_FILE = os.path.join(MODULE_DIR, METAMODEL_FILE_NAME)
+LOCAL_TYPES_YAML_FILE = os.path.join(INCLUDES_DIR, TYPES_FILE_NAME)
+LOCAL_MAPPING_YAML_FILE = os.path.join(INCLUDES_DIR, MAPPING_FILE_NAME)
 
-# Local location of metamodel context.jsonld file
-LOCAL_CONTEXT_PATH = os.path.join(MODULE_DIR, METAMODEL_LDCONTEXT_NAME)
+# Local location of jsonld and context.jsonld files
+LOCAL_METAMODEL_LDCONTEXT_FILE = os.path.join(MODULE_DIR, METAMODEL_LDCONTEXT_NAME)
+LOCAL_METAMODEL_JSONLD_FILE = os.path.join(MODULE_DIR, METAMODEL_JSONLD_NAME)
+LOCAL_TYPES_LDCONTEXT_FILE = os.path.join(INCLUDES_DIR, TYPES_LDCONTEXT_NAME)
+LOCAL_TYPES_JSONLD_FILE = os.path.join(INCLUDES_DIR, TYPES_JSONLD_NAME)
+LOCAL_MAPPING_LDCONTEXT_FILE = os.path.join(INCLUDES_DIR, MAPPING_LDCONTEXT_NAME)
+LOCAL_MAPPING_JSONLD_FILE = os.path.join(INCLUDES_DIR, MAPPING_JSONLD_NAME)
 
 # Local location of metamodel shex file
-LOCAL_SHEXJ_PATH = os.path.join(MODULE_DIR, METAMODEL_SHEXJ_NAME)
+LOCAL_SHEXJ_FILE_NAME = os.path.join(MODULE_DIR, METAMODEL_SHEXJ_NAME)
+LOCAL_SHEXC_FILE_NAME = os.path.join(MODULE_DIR, METAMODEL_SHEXC_NAME)
 
 # Local location of the metamodel rdf file
-LOCAL_RDF_PATH = os.path.join(MODULE_DIR, METAMODEL_RDF_NAME)
+LOCAL_RDF_FILE_NAME = os.path.join(MODULE_DIR, METAMODEL_RDF_NAME)
 
 # Base URI for all things meta
 META_BASE_URI = 'https://w3id.org/biolink/biolinkml/'
 
 # URI for the entire metamodel itself.
+METAMODEL_NAME = 'metamodel'
 METAMODEL_URI = META_BASE_URI + 'meta'
-METATYPE_URI = META_BASE_URI + 'types'
+METATYPE_NAME = 'types'
+METATYPE_URI = META_BASE_URI + METATYPE_NAME
+METAMAPPING_NAME = 'mappings'
+METAMAPPING_URI = META_BASE_URI + METAMAPPING_NAME
 
 # Preferred local name for metamodel elements
 METAMODEL_NAMESPACE_NAME = "meta"
 METATYPE_NAMESPACE_NAME = 'metatype'
+METAMAPPING_NAMESPACE_NAME = 'meta'
 
 # Namespace for metamodel elements
 METAMODEL_NAMESPACE = Namespace(METAMODEL_URI + '/')
 METATYPE_NAMESPACE = Namespace(META_BASE_URI + 'type/')
+METAMAPPING_NAMESPACE = METAMODEL_NAMESPACE
 
 # Metamodel Context URI
 METAMODEL_CONTEXT_URI = META_BASE_URI + METAMODEL_LDCONTEXT_NAME

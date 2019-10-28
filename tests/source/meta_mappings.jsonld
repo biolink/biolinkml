@@ -1,7 +1,6 @@
 {
    "_comments": "Auto generated from ... by jsonldcontextgen.py version: 0.1.1\nGeneration date: \nSchema: testMetamodelMappings\n\nid: http://example.org/mappings/\ndescription: Mappings test\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
    "@context": {
-      "_comments": null,
       "type": "@type",
       "ex": "http://example.org/mappings/",
       "@vocab": "http://example.org/mappings/",

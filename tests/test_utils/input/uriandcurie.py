@@ -1,5 +1,5 @@
-# Auto generated from uriandcurie.yaml by pythongen.py version: 0.3.0
-# Generation date: 2019-10-23 11:50
+# Auto generated from .yaml by pythongen.py version:
+# Generation date:
 # Schema: uriandcurie
 #
 # id: http://example.org/test/uriandcurie

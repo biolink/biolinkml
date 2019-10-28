@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by pythongen.py version: 0.3.0
-# Generation date: 2019-10-23 11:40
+# Generation date: 2019-10-28 05:52
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta
@@ -20,15 +20,14 @@ metamodel_version = "1.4.3"
 
 
 # Namespaces
-IAO = CurieNamespace('IAO', 'http://purl.obolibrary.org/obo/IAO_')
 OIO = CurieNamespace('OIO', 'http://www.geneontology.org/formats/oboInOwl#')
+BIOLINKML = CurieNamespace('biolinkml', 'https://w3id.org/biolink/biolinkml/')
 DCTERMS = CurieNamespace('dcterms', 'http://purl.org/dc/terms/')
 META = CurieNamespace('meta', 'https://w3id.org/biolink/biolinkml/meta/')
 OWL = CurieNamespace('owl', 'http://www.w3.org/2002/07/owl#')
 PAV = CurieNamespace('pav', 'http://purl.org/pav/')
 RDF = CurieNamespace('rdf', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#')
 RDFS = CurieNamespace('rdfs', 'http://www.w3.org/2000/01/rdf-schema#')
-SHEX = CurieNamespace('shex', 'http://www.w3.org/ns/shex#')
 SKOS = CurieNamespace('skos', 'http://www.w3.org/2004/02/skos/core#')
 XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = META

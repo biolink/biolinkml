@@ -1,0 +1,69 @@
+# Auto generated from None by pythongen.py version: 0.3.0
+# Generation date: 2019-10-28 14:22
+# Schema: dist1
+#
+# id: http://example.org/examples/distributeExample
+# description: A toy extension to the base biolink model
+# license: https://creativecommons.org/publicdomain/zero/1.0/
+
+from typing import Optional, List, Union, Dict, ClassVar
+from dataclasses import dataclass
+from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
+from biolinkml.utils.yamlutils import YAMLRoot
+from biolinkml.utils.formatutils import camelcase, underscore, sfx
+from rdflib import Namespace, URIRef
+from biolinkml.utils.curienamespace import CurieNamespace
+from biolink.model import AnatomicalEntityId, BiologicalSequence, DiseaseOrPhenotypicFeatureId, Gene, GeneId, GeneOrGeneProductId, GeneProductId, GenomicEntityId, IdentifierType, IriType, LabelType, MolecularEntityId, NamedThingId, NarrativeText, OrganismTaxonId, PhenotypicFeatureId, SymbolType, TranscriptId
+from biolinkml.utils.metamodelcore import ElementIdentifier, URIorCURIE
+from includes.types import String, Uriorcurie
+
+metamodel_version = "1.4.3"
+
+
+# Namespaces
+BIOLINK = CurieNamespace('biolink', 'https://w3id.org/biolink/vocab/')
+BIOLINKML = CurieNamespace('biolinkml', 'https://w3id.org/biolink/biolinkml/')
+DIST = CurieNamespace('dist', 'http://example.org/examples/dist1#')
+RDF = CurieNamespace('rdf', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#')
+SKOS = CurieNamespace('skos', 'https://www.w3.org/TR/skos-reference/#')
+DEFAULT_ = DIST
+
+
+# Types
+class GeneSequence(String):
+    """ A gene sequence """
+    type_class_uri = DIST.seq
+    type_class_curie = "dist:seq"
+    type_name = "gene sequence"
+    type_model_uri = DIST.GeneSequence
+
+
+# Class references
+class MyGeneId(GeneId):
+    pass
+
+
+@dataclass
+class MyGene(Gene):
+    """
+    This is an example extension.  Doesn't do a lot
+    """
+    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "molecularly_interacts_with", "affects_abundance_of", "increases_abundance_of", "decreases_abundance_of", "affects_activity_of", "increases_activity_of", "decreases_activity_of", "affects_expression_of", "increases_expression_of", "decreases_expression_of", "affects_folding_of", "increases_folding_of", "decreases_folding_of", "affects_localization_of", "increases_localization_of", "decreases_localization_of", "affects_metabolic_processing_of", "increases_metabolic_processing_of", "decreases_metabolic_processing_of", "affects_molecular_modification_of", "increases_molecular_modification_of", "decreases_molecular_modification_of", "affects_synthesis_of", "increases_synthesis_of", "decreases_synthesis_of", "affects_degradation_of", "increases_degradation_of", "decreases_degradation_of", "affects_mutation_rate_of", "increases_mutation_rate_of", "decreases_mutation_rate_of", "affects_response_to", "increases_response_to", "decreases_response_to", "affects_splicing_of", "increases_splicing_of", "decreases_splicing_of", "affects_stability_of", "increases_stability_of", "decreases_stability_of", "affects_transport_of", "increases_transport_of", "decreases_transport_of", "affects_secretion_of", "increases_secretion_of", "decreases_secretion_of", "affects_uptake_of", "increases_uptake_of", "decreases_uptake_of", "regulates_entity_to_entity", "biomarker_for", "in_taxon", "in_pathway_with", "in_complex_with", "in_cell_population_with", "expressed_in", "genetically_interacts_with", "has_gene_product", "gene_associated_with_condition"]
+
+    class_class_uri: ClassVar[URIRef] = DIST.MyGene
+    class_class_curie: ClassVar[str] = "dist:MyGene"
+    class_name: ClassVar[str] = "my gene"
+    class_model_uri: ClassVar[URIRef] = DIST.MyGene
+
+    id: Union[ElementIdentifier, MyGeneId] = None
+    name: Union[str, SymbolType] = None
+    category: List[Union[str, IriType]] = empty_list()
+    gene_has_sequence: Union[str, GeneSequence] = None
+
+    def __post_init__(self):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, MyGeneId):
+            self.id = MyGeneId(self.id)
+        super().__post_init__()
+

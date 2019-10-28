@@ -17,7 +17,6 @@ metamodel_version = "1.4.3"
 
 
 # Namespaces
-SHEX = CurieNamespace('shex', 'http://www.w3.org/ns/shex#')
 XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = Namespace('http://example.org/tests/timepoint/')
 

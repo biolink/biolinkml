@@ -4,7 +4,7 @@
 
 a URI or a CURIE
 
-URI: [https://example.com/test62/https://w3id.org/biolink/biolinkml/types/Uriorcurie](https://example.com/test62/https://w3id.org/biolink/biolinkml/types/Uriorcurie)
+URI: [https://example.com/test62/meta:types/Uriorcurie](https://example.com/test62/meta:types/Uriorcurie)
 
 |  |  |  |
 | --- | --- | --- |

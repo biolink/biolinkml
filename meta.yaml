@@ -7,6 +7,7 @@ version: 1.4.3
 
 prefixes:
   meta: https://w3id.org/biolink/biolinkml/meta/
+  biolinkml: https://w3id.org/biolink/biolinkml/
   skos: http://www.w3.org/2004/02/skos/core#
   OIO: http://www.geneontology.org/formats/oboInOwl#
   pav: http://purl.org/pav/

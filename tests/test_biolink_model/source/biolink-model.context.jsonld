@@ -1,7 +1,6 @@
 {
    "_comments": "Auto generated from biolink-model.yaml by jsonldcontextgen.py version: \nGeneration date: \nSchema: biolink_model\n\nid: https://w3id.org/biolink/biolink-model\ndescription: Entity and association taxonomy and datamodel for life-sciences data\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
    "@context": {
-      "_comments": null,
       "type": {
          "@id": "rdf:type"
       },
@@ -70,13 +69,11 @@
       "dictyBase": "http://dictybase.org/gene/",
       "faldo": "http://biohackathon.org/resource/faldo#",
       "meta": "https://w3id.org/biolink/biolinkml/meta/",
-      "metatype": "https://w3id.org/biolink/biolinkml/type/",
       "owl": "http://www.w3.org/2002/07/owl#",
       "pav": "http://purl.org/pav/",
       "qud": "http://qudt.org/1.1/schema/qudt#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "shex": "http://www.w3.org/ns/shex#",
       "skos": "http://www.w3.org/2004/02/skos/core#",
       "void": "http://rdfs.org/ns/void#",
       "wgs": "http://www.w3.org/2003/01/geo/wgs84_pos",

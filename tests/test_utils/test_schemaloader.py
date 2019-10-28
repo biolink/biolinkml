@@ -6,7 +6,7 @@ from io import StringIO
 import jsonasobj
 from jsonasobj import as_json, load
 
-from biolinkml import LOCAL_YAML_PATH, LOCAL_TYPES_PATH
+from biolinkml import LOCAL_METAMODEL_YAML_FILE, LOCAL_TYPES_YAML_FILE
 from biolinkml.utils.schemaloader import SchemaLoader
 from tests.test_utils import inputdir, outputdir
 from tests.test_utils.support.base import Base
@@ -38,10 +38,10 @@ class SchemaLoaderTestCase(Base):
 
         Note: you may want to periodically refresh the metamodel in the data section """
         self.maxDiff = None
-        self.eval_loader('meta', source=LOCAL_YAML_PATH)
+        self.eval_loader('meta', source=LOCAL_METAMODEL_YAML_FILE)
 
     def test_types(self):
-        self.eval_loader('includes/types', source=LOCAL_TYPES_PATH)
+        self.eval_loader('includes/types', source=LOCAL_TYPES_YAML_FILE)
 
     def test_imports(self):
         self.eval_loader('base')
@@ -105,15 +105,15 @@ class SchemaLoaderTestCase(Base):
         with self.assertRaises(ValueError, msg="Subset references must be valid"):
             _ = SchemaLoader(fn).resolve()
 
-    def test_import_map(self):
-        """ Test the import_map parameter """
+    def test_importmap(self):
+        """ Test the importmap parameter """
         fn = os.path.join(inputdir, 'import_test_1.yaml')
-        import_map = {"http://example.org/import_test_2" : "import_test_2",
+        importmap = {"http://example.org/import_test_2" : "import_test_2",
                       "loc/imp3": "import_test_3",
                       "base:import_test_4": "http://example.org/import_test_4",
                       "http://example.org/import_test_4": "import_test_4",
                       "types": "http://w3id.org/biolink/biolinkml/types"}
-        schema = SchemaLoader(fn, import_map=import_map).resolve()
+        schema = SchemaLoader(fn, importmap=importmap).resolve()
         schema_image = as_json(schema)
         outfile = os.path.join(outputdir, 'import_test_1.json')
         if not os.path.exists(outfile):
@@ -121,6 +121,7 @@ class SchemaLoaderTestCase(Base):
                 f.write(schema_image)
                 self.fail("File {outfile} written - rerun test")
         expected = load(outfile)
+        self.maxDiff = None
         self.assertEqual(json_metadata_filter(jsonasobj.as_json(expected)), json_metadata_filter(schema_image))
 
 

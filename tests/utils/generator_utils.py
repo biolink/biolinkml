@@ -1,13 +1,15 @@
 import os
 import re
 import unittest
-from typing import Optional, Callable, Union
+from typing import Optional, Callable, Union, Dict
 
 from rdflib import Graph, Namespace, OWL
 from rdflib.compare import to_isomorphic, graph_diff, IsomorphicGraph
 
 from biolinkml import METAMODEL_NAMESPACE, MODULE_DIR
 from biolinkml.utils.generator import Generator
+from biolinkml.utils.context_utils import parse_import_map
+from tests import sourcedir
 from tests.test_scripts.clicktestcase import ClickTestCase
 from tests.utils.compare_directories import are_dir_trees_equal
 from tests.utils.dirutils import make_and_clear_directory
@@ -18,18 +20,20 @@ BIOLINK_NS = Namespace("https://w3id.org/biolink/vocab/")
 # ShEx validation of the biolink model takes a loooong time, so we only do it on rare occasions
 DO_SHEX_VALIDATION = False
 
+# Normally we import mappings and types directly from the URL, but for testing we use local maps
+BIOLINK_IMPORT_MAP = parse_import_map(os.path.join(sourcedir, 'biolink_import_map.json'),
+                                      os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
 class GeneratorTestCase(unittest.TestCase):
-    source_path: str = None
-    target_path: str = None
-    model_path: str = None
-    model_name: str = None
+    source_path: str = None             # Path to expected output
+    target_path: str = None             # Path to actual output
+    model_path: str = None              # Path for yaml
+    model_name: str = None              # yaml name (sans '.yaml')
     output_name: str = None             # If different than model name
-    import_map_file: str = None
+    importmap: Dict[str, str] = None   # Location of the import mappings if any
 
-    @classmethod
-    def setUpClass(cls) -> None:
-        assert cls.source_path and cls.target_path and cls.model_path and cls.model_name, "Paths must be set"
+    def verify_paths(self) -> None:
+        assert self.source_path and self.target_path and self.model_path and self.model_name, "Paths must be set"
 
     @staticmethod
     def _print_triples(g: Graph):
@@ -92,8 +96,8 @@ class GeneratorTestCase(unittest.TestCase):
                               filtr: Optional[Callable[[str], str]] = None,
                               comparator: Callable[[type(unittest.TestCase), str, str, str, Optional[Callable[[str], str]]], None] = None,
                               preserve_metadata: bool = False,
-                              fail_if_expected_missing: bool = False) -> str:
-        """ Invoke Generator gen.  If
+                              fail_if_expected_missing: bool = True) -> str:
+        """ Invoke generator specified in gen
 
         :param suffix: File suffix (without '.')
         :param gen: Generator to invoke
@@ -106,6 +110,7 @@ class GeneratorTestCase(unittest.TestCase):
         :param fail_if_expected_missing: True means return error message rather than fail
         :return: Empty string if success else error message if fail_if_expected_missing is false
         """
+        self.verify_paths()
         if serialize_args is None:
             serialize_args = {}
         if generator_args is None:
@@ -116,11 +121,11 @@ class GeneratorTestCase(unittest.TestCase):
             def filtr(s): return s
         if comparator is None:
             comparator = GeneratorTestCase._default_comparator
-        if self.import_map_file is not None and 'import_map' not in generator_args:
-            generator_args['import_map'] = self.import_map_file
-        output_base = self.output_name if self.output_name else self.model_name
-        old_file = os.path.join(self.source_path, output_base + '.' + suffix)
-        new_file = os.path.join(self.target_path, output_base + '.' + suffix)
+        if self.importmap is not None and 'importmap' not in generator_args:
+            generator_args['importmap'] = self.importmap
+        output_base = self.output_name if self.output_name is not None else self.model_name
+        old_file = os.path.join(self.source_path, output_base + ('.' if output_base else '') + suffix)
+        new_file = os.path.join(self.target_path, output_base + ('.' if output_base else '') + suffix)
         message = \
             f"\n***** Expected output is in {os.path.relpath(old_file, MODULE_DIR)} " \
             f"and actual is in {os.path.relpath(new_file, MODULE_DIR)} *****\n" \
@@ -145,12 +150,13 @@ class GeneratorTestCase(unittest.TestCase):
 
     def directory_generator(self, dirname: str, gen: type(Generator), gen_args: Optional[dict] = None,
                             serialize_args: Optional[dict] = None):
+        self.verify_paths()
         if gen_args is None:
             gen_args = {}
         if serialize_args is None:
             serialize_args = {}
-        if self.import_map_file is not None and 'import_map' not in gen_args:
-            gen_args['import_map'] = self.import_map_file
+        if self.importmap is not None and 'importmap' not in gen_args:
+            gen_args['importmap'] = self.importmap
         source_dir = os.path.join(self.source_path, dirname)
         if not os.path.exists(source_dir):
             make_and_clear_directory(source_dir)

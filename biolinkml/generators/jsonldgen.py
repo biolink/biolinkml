@@ -99,6 +99,14 @@ class JSONLDGenerator(Generator):
             context = [METAMODEL_CONTEXT_URI]
         elif isinstance(context, str):               # Some of the older code doesn't do multiple contexts
             context = [context]
+        elif isinstance(context, tuple):
+            context = list(context)
+        for imp in list(self.loaded.values())[1:]:
+            context.append(imp[0] + ".context.jsonld")
+
+        # TODO: For testing purposes we use local contexts.  JSON-LD requires absolute URI's for contexts (double check
+        #  that this is true), so we end up recording local path names in the tests.  All of these must be converted
+        #  to URL's before this can be submitted and used
         abs_contexts = ['file://' + os.path.abspath(os.path.join(os.getcwd(), c))
                         if '://' not in c else c for c in context]
 

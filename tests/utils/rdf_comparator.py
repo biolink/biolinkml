@@ -50,6 +50,8 @@ def compare_rdf(expected: Union[Graph, str], actual: Union[Graph, str], fmt: Opt
             g_iso.remove(t)
         for t in list(g_iso.triples((None, METAMODEL_NAMESPACE.source_file_date, None))):
             g_iso.remove(t)
+        for t in list(g_iso.triples((None, METAMODEL_NAMESPACE.source_file_size, None))):
+            g_iso.remove(t)
         return g_iso
 
     expected_graph = to_graph(expected, fmt)

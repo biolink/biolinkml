@@ -7,14 +7,14 @@ from pyshex import ShExEvaluator, PrefixLibrary
 from pyshex.shex_evaluator import EvaluationResult
 from rdflib import Graph, Namespace
 
-from biolinkml import METAMODEL_NAMESPACE, LOCAL_SHEXJ_PATH, LOCAL_CONTEXT_PATH
+from biolinkml import METAMODEL_NAMESPACE, LOCAL_SHEXJ_FILE_NAME, LOCAL_METAMODEL_LDCONTEXT_FILE
 from biolinkml.generators.jsonldcontextgen import ContextGenerator
 from biolinkml.generators.jsonldgen import JSONLDGenerator
 from biolinkml.generators.markdowngen import MarkdownGenerator
 from biolinkml.generators.pythongen import PythonGenerator
 from biolinkml.generators.rdfgen import RDFGenerator
 from tests import targetdir, sourcedir, DO_SHEX_VALIDATION
-from tests.utils.generator_utils import GeneratorTestCase
+from tests.utils.generator_utils import GeneratorTestCase, BIOLINK_IMPORT_MAP
 from tests.utils.metadata_filters import metadata_filter, ldcontext_metadata_filter, json_metadata_filter
 
 
@@ -25,6 +25,7 @@ class MappingsGeneratorTestCase(GeneratorTestCase):
     target_path = targetdir
     model_path = sourcedir
     model_name = 'meta_mappings'
+    importmap = BIOLINK_IMPORT_MAP
 
     def test_mappings_in_metamodel(self):
         """ Make sure that mappings can be specified in a metamodel """
@@ -63,7 +64,7 @@ class MappingsGeneratorTestCase(GeneratorTestCase):
 
         # Generate a copy of the JSON representation of the model
         context_loc = os.path.join(self.source_path, self.model_name + ".jsonld")
-        context_args = {"context": [LOCAL_CONTEXT_PATH, context_loc]}
+        context_args = {"context": [LOCAL_METAMODEL_LDCONTEXT_FILE, context_loc]}
         self.single_file_generator('json', JSONLDGenerator,  serialize_args=context_args,  filtr=json_metadata_filter)
 
         # Make a fresh copy of the RDF and validate it as well
@@ -93,7 +94,7 @@ class MappingsGeneratorTestCase(GeneratorTestCase):
             EX = Namespace("http://example.org/mappings/")
             focus = EX.testMetamodelMappings
             start = METAMODEL_NAMESPACE.SchemaDefinition
-            results = ShExEvaluator(g, LOCAL_SHEXJ_PATH, focus, start).evaluate(debug=False)
+            results = ShExEvaluator(g, LOCAL_SHEXJ_FILE_NAME, focus, start).evaluate(debug=False)
             self.assertTrue(self._evaluate_shex_results(results))
         else:
             print("*** RDF Model validation step was skipped. Set: tests.__init__.DO_SHEX_VALIDATION to run it")

@@ -18,17 +18,19 @@ follows:
 > cd httpd
 > docker image build . -t http_test
 > docker run --rm -d -p <port>:80 --name http_test http_test
-> cd ../..
+> cd ../../..
 > pipenv install
-> cd tests/test_rewrite_rules
-> export SERVER="http://localhost:<port>"
-> python test_rewrite_rules.py
-......
+> pipenv shell
+(biolinkml) > cd tests/test_rewrite_rules
+(biolinkml) > export SERVER="http://localhost:<port>"
+(biolinkml) > python test_rewrite_rules.py
+ssssss
 ----------------------------------------------------------------------
-Ran 6 tests in 0.423s
+Ran 6 tests in 0.000s
 
-OK
-> docker stop httptest
+OK (skipped=6)
+(biolinkml) > exit
+> docker stop http_test
 ```
 
 7. ** If necessary, make a pull request to w3id.org w/ changes **

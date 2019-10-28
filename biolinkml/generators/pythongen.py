@@ -37,7 +37,7 @@ class PythonGenerator(Generator):
 
     def visit_schema(self, **kwargs) -> None:
         # Add explicitly declared prefixes
-        self.emit_prefixes.update([str(p) for p in self.schema.prefixes.values()])
+        self.emit_prefixes.update([p.prefix_prefix for p in self.schema.prefixes.values()])
 
         # Add all emit statements
         self.emit_prefixes.update(self.schema.emit_prefixes)
@@ -47,22 +47,25 @@ class PythonGenerator(Generator):
             self.emit_prefixes.add(self.namespaces.prefix_for(self.schema.default_prefix))
 
     def visit_class(self, cls: ClassDefinition) -> bool:
-        cls_prefix = self.namespaces.prefix_for(cls.class_uri)
-        if cls_prefix:
-            self.emit_prefixes.add(cls_prefix)
-        self.add_mappings(cls)
+        if not cls.imported_from:
+            cls_prefix = self.namespaces.prefix_for(cls.class_uri)
+            if cls_prefix:
+                self.emit_prefixes.add(cls_prefix)
+            self.add_mappings(cls)
         return False
 
     def visit_slot(self, aliased_slot_name: str, slot: SlotDefinition) -> None:
-        slot_prefix = self.namespaces.prefix_for(slot.slot_uri)
-        if slot_prefix:
-            self.emit_prefixes.add(slot_prefix)
-        self.add_mappings(slot)
+        if not slot.imported_from:
+            slot_prefix = self.namespaces.prefix_for(slot.slot_uri)
+            if slot_prefix:
+                self.emit_prefixes.add(slot_prefix)
+            self.add_mappings(slot)
 
     def visit_type(self, typ: TypeDefinition) -> None:
-        type_prefix = self.namespaces.prefix_for(typ.uri)
-        if type_prefix:
-            self.emit_prefixes.add(type_prefix)
+        if not typ.imported_from:
+            type_prefix = self.namespaces.prefix_for(typ.uri)
+            if type_prefix:
+                self.emit_prefixes.add(type_prefix)
 
     def add_mappings(self, defn: Definition) -> None:
         """
@@ -149,12 +152,7 @@ metamodel_version = "{self.schema.metamodel_version}"
                     elif e.imported_from.__contains__('://'):
                         raise ValueError(f"Cannot map {e.imported_from} into a python import statement")
                     else:
-                        anchor_path = os.path.dirname(self.schema_location)
-                        abs_import_path = os.path.join(anchor_path, e.imported_from) \
-                            if not os.path.isabs(e.imported_from) else e.imported_from
-                        python_base_dir = os.path.dirname(os.path.dirname(inspect.getfile(biolinkml)))
-                        python_import_dir = os.path.relpath(abs_import_path, python_base_dir)
-                        self.v.setdefault(python_import_dir.replace('/', '.'), set()).add(camelcase(e.name))
+                        self.v.setdefault(types.__name__, set()).add(camelcase(e.name))
 
             def add_entry(self, path: Union[str, URIRef], name: str) -> None:
                 path = str(path)

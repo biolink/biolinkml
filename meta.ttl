@@ -41,29 +41,21 @@ meta:metamodel a meta:SchemaDefinition ;
         "rdfs",
         "skos",
         "xsd" ;
-    meta:generation_date "2019-10-08 13:34"^^xsd:dateTime ;
+    meta:generation_date "2019-10-28 10:44"^^xsd:dateTime ;
     meta:id biolinkml:meta ;
     meta:imports <https://w3id.org/biolink/biolinkml/meta/includes/mappings>,
         <https://w3id.org/biolink/biolinkml/meta/includes/types> ;
     meta:metamodel_version "1.4.3" ;
-    meta:prefixes [ meta:prefix_prefix "pav" ;
-            meta:prefix_reference pav: ],
-        [ meta:prefix_prefix "IAO" ;
-            meta:prefix_reference <http://purl.obolibrary.org/obo/IAO_> ],
-        [ meta:prefix_prefix "xsd" ;
-            meta:prefix_reference xsd: ],
-        [ meta:prefix_prefix "skos" ;
+    meta:prefixes [ meta:prefix_prefix "skos" ;
             meta:prefix_reference skos: ],
-        [ meta:prefix_prefix "OIO" ;
-            meta:prefix_reference OIO: ],
         [ meta:prefix_prefix "meta" ;
             meta:prefix_reference meta: ],
-        [ meta:prefix_prefix "shex" ;
-            meta:prefix_reference shex: ],
-        [ meta:prefix_prefix "metatype" ;
-            meta:prefix_reference metatype: ],
+        [ meta:prefix_prefix "OIO" ;
+            meta:prefix_reference OIO: ],
         [ meta:prefix_prefix "biolinkml" ;
-            meta:prefix_reference biolinkml: ] ;
+            meta:prefix_reference biolinkml: ],
+        [ meta:prefix_prefix "pav" ;
+            meta:prefix_reference pav: ] ;
     meta:slots meta:abstract,
         meta:alias,
         meta:aliases,
@@ -156,8 +148,8 @@ meta:metamodel a meta:SchemaDefinition ;
         meta:values_from,
         meta:version ;
     meta:source_file "meta.yaml" ;
-    meta:source_file_date "Tue Oct  8 12:45:47 2019"^^xsd:dateTime ;
-    meta:source_file_size 23439 ;
+    meta:source_file_date "Mon Oct 28 09:51:43 2019"^^xsd:dateTime ;
+    meta:source_file_size 23488 ;
     meta:subsets meta:owl ;
     meta:types meta:boolean,
         meta:date,
@@ -1594,5 +1586,4 @@ meta:SlotDefinition a meta:ClassDefinition ;
         meta:symmetric,
         meta:todos,
         meta:values_from .
-
 

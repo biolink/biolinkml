@@ -12,8 +12,9 @@ from jsonasobj import as_json
 from rdflib import Graph, OWL, RDF, Namespace, XSD
 
 from biolinkml import METAMODEL_NAMESPACE_NAME, METAMODEL_NAMESPACE
-from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, SlotDefinitionName, ElementName, SHEX, \
+from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, SlotDefinitionName, ElementName, \
     TypeDefinition
+from includes.types import SHEX
 from biolinkml.utils.formatutils import camelcase, sfx
 from biolinkml.utils.generator import Generator, shared_arguments
 from biolinkml.utils.metamodelcore import URIorCURIE

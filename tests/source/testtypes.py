@@ -16,6 +16,7 @@ metamodel_version = "1.4.3"
 
 
 # Namespaces
+METATYPE = CurieNamespace('metatype', 'https://w3id.org/biolink/biolinkml/types/')
 XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = Namespace('http://example.org/tests/types/')
 

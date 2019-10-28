@@ -18,6 +18,7 @@ from tests import source_context_path
 repl1: List[Tuple[str, str]] = [
     (r'(\s*):generation_date\s*".*"\^\^xsd:dateTime', r'\1:generation_date "2019-01-25 12:34"^^xsd:dateTime'),
     (r'(\s*):source_file_date\s*".*"\^\^xsd:dateTime', r'\1:source_file_date "2019-01-25 12:34"^^xsd:dateTime'),
+    (r'(\s*):source_file_size\s*[0-9]+', r'\1:source_file_size 10000'),
 ]
 
 

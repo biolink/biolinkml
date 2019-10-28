@@ -5,7 +5,7 @@ from io import StringIO
 from pprint import pprint
 from typing import Union, TextIO, cast
 
-from biolinkml import LOCAL_YAML_PATH
+from biolinkml import LOCAL_METAMODEL_YAML_FILE
 from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, TypeDefinition, SubsetDefinition, \
     ElementName, SlotDefinitionName, ClassDefinitionName, TypeDefinitionName, Element
 from biolinkml.utils.generator import Generator
@@ -644,7 +644,7 @@ classes:
 
     def test_meta_neighborhood(self):
         """ Test the neighborhood function in the metamodel """
-        gen = GeneratorTest(LOCAL_YAML_PATH)
+        gen = GeneratorTest(LOCAL_METAMODEL_YAML_FILE)
         errfile = StringIO()
         with redirect_stderr(errfile):
             gen.neighborhood([cast(ElementName, 'Definition')])

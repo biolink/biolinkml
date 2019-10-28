@@ -12,6 +12,7 @@ from rdflib import Graph
 from tests import source_yaml_path, DO_SHEX_VALIDATION
 from tests.test_scripts.clicktestcase import ClickTestCase
 from tests.utils.dirutils import make_and_clear_directory
+from tests.utils.generator_utils import BIOLINK_IMPORT_MAP
 
 
 class GenShExTestCase(ClickTestCase):
@@ -42,20 +43,20 @@ class GenShExTestCase(ClickTestCase):
         make_and_clear_directory(test_dir)
 
         json_file = os.path.join(test_dir, 'meta.jsonld')
-        json_str = JSONLDGenerator(source_yaml_path).serialize()
+        json_str = JSONLDGenerator(source_yaml_path, importmap=BIOLINK_IMPORT_MAP).serialize()
         with open(json_file, 'w') as f:
             f.write(json_str)
 
         context_file = os.path.join(test_dir, 'metacontext.jsonld')
-        ContextGenerator(source_yaml_path).serialize(output=context_file)
+        ContextGenerator(source_yaml_path, importmap=BIOLINK_IMPORT_MAP).serialize(output=context_file)
         self.assertTrue(os.path.exists(context_file))
 
         rdf_file = os.path.join(test_dir, 'meta.ttl')
-        RDFGenerator(source_yaml_path).serialize(output=rdf_file, context=context_file)
+        RDFGenerator(source_yaml_path, importmap=BIOLINK_IMPORT_MAP).serialize(output=rdf_file, context=context_file)
         self.assertTrue(os.path.exists(rdf_file))
 
         shex_file = os.path.join(test_dir, 'meta.shex')
-        ShExGenerator(source_yaml_path).serialize(output=shex_file, collections=False)
+        ShExGenerator(source_yaml_path, importmap=BIOLINK_IMPORT_MAP).serialize(output=shex_file, collections=False)
         self.assertTrue(os.path.exists(shex_file))
 
         if DO_SHEX_VALIDATION:

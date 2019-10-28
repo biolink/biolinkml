@@ -46,8 +46,8 @@ subsets:
       TBD
 
 imports:
-  - biolinkml:types
-  - biolinkml:mappings
+  - includes/types
+  - includes/mappings
 
 types:
 

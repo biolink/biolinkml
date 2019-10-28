@@ -17,8 +17,8 @@ metamodel_version = "1.4.3"
 
 
 # Namespaces
+META = CurieNamespace('meta', 'https://w3id.org/biolink/biolinkml/')
 RDFS = CurieNamespace('rdfs', 'http://example.org/UNKNOWN/rdfs/')
-SHEX = CurieNamespace('shex', 'http://www.w3.org/ns/shex#')
 XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = Namespace('https://example.com/test44/')
 

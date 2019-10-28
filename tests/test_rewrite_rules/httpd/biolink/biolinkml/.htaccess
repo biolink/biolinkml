@@ -5,17 +5,22 @@ RewriteEngine on
 # meta/ --> docs
 RewriteRule ^meta\/(.*)$ docs
 
-# type/ --> docs/types
 RewriteRule ^type\/(.*)$ docs/types
 
 # mapping/ --> docs/types
-RewriteRule ^type\/(.*)$ docs/types
+RewriteRule ^mapping\/(.*)$ docs/mappings
 
 # types --> includes/types
 RewriteRule ^types(\/?)$ includes/types
 
+# mappings --> includes/mappings
+RewriteRule ^mappings(\/?)$ includes/mappings
+
 # types.sfx --> includes/types.sfx
 RewriteRule ^(types\.)(.+)$ includes/types.$2
+
+# mappings.sfx --> includes/mappings.sfx
+RewriteRule ^(mappings\.)(.+)$ includes/mappings.$2
 
 
 # Poor man's conneg

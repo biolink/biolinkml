@@ -16,6 +16,7 @@ from biolinkml.generators.jsonldgen import cli, JSONLDGenerator
 from tests import source_yaml_path
 from tests.test_scripts import testscriptstempdir
 from tests.test_scripts.clicktestcase import ClickTestCase
+from tests.utils.generator_utils import BIOLINK_IMPORT_MAP
 
 cwd = os.path.dirname(__file__)
 meta_context = urljoin('file:', os.path.join(cwd, 'output', 'gencontext', 'meta.jsonld'))
@@ -65,7 +66,7 @@ class GenJSONLDTestCase(ClickTestCase):
         meta_context_path = os.path.join(testscriptstempdir, 'metacontext.jsonld')
 
         # Generate an image of the metamodel
-        gen = ContextGenerator(source_yaml_path)
+        gen = ContextGenerator(source_yaml_path, importmap=BIOLINK_IMPORT_MAP)
         base = gen.schema.id
         if base[-1] not in '/#':
             base += '/'
@@ -73,8 +74,8 @@ class GenJSONLDTestCase(ClickTestCase):
         with open(meta_context_path, 'w') as tfile:
             tfile.write(gen.serialize())
         with open(jsonld_path, 'w') as tfile:
-            tfile.write(JSONLDGenerator(source_yaml_path, fmt=JSONLDGenerator.valid_formats[0])\
-                .serialize(context=meta_context_path))
+            tfile.write(JSONLDGenerator(source_yaml_path, fmt=JSONLDGenerator.valid_formats[0],
+                                        importmap=BIOLINK_IMPORT_MAP).serialize(context=meta_context_path))
         g = Graph()
         g.load(jsonld_path, format="json-ld")
         g.serialize(rdf_path, format="ttl")

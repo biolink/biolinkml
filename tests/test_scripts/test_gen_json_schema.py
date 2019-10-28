@@ -17,8 +17,8 @@ class GenJSONSchemaTestCase(ClickTestCase):
 
     def test_meta(self):
         self.maxDiff = None
-        self.do_test(source_yaml_path, 'meta.json')
-        self.do_test(source_yaml_path + ' -f json', 'meta.json')
+        self.do_test(source_yaml_path, 'meta.jsonld')
+        self.do_test(source_yaml_path + ' -f json', 'meta.jsonld')
         self.do_test(source_yaml_path + ' -f xsv', 'meta_error', error=click.exceptions.BadParameter)
         self.do_test(source_yaml_path + " -i", 'meta_inline.json')
 

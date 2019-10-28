@@ -1,28 +1,37 @@
-import os
-import re
 import unittest
 
-from biolinkml import LOCAL_YAML_PATH, LOCAL_CONTEXT_PATH, META_BASE_URI, METAMODEL_LDCONTEXT_NAME
+from biolinkml import INCLUDES_DIR, META_BASE_URI, MODULE_DIR
 from biolinkml.generators.jsonldcontextgen import ContextGenerator
 from tests import targetdir
+from tests.utils.generator_utils import GeneratorTestCase, BIOLINK_IMPORT_MAP
+from tests.utils.metadata_filters import ldcontext_metadata_filter
 
 
-class LDContextTestCase(unittest.TestCase):
-    @staticmethod
-    def _strip_meta(txt: str) -> str:
-        return re.sub(r'"_comments": ".*"', '"_comments": "(REMOVED)"', txt).strip()
+class ContextTestCase(GeneratorTestCase):
+    """ Generate the context.jsonld for all of the models and compare them against what has been published """
+    target_path = targetdir
 
-    def test_context(self):
-        """ Verify that the root context.jsonld is current """
-        new_context = ContextGenerator(LOCAL_YAML_PATH).serialize(base=META_BASE_URI)
-        target = os.path.join(targetdir, METAMODEL_LDCONTEXT_NAME)
-        with open(target, 'w') as f:
-            f.write(new_context)
+    def test_types_context(self):
+        self.source_path = INCLUDES_DIR
+        self.model_path = INCLUDES_DIR
+        self.model_name = 'types'
+        self.single_file_generator('context.jsonld', ContextGenerator, filtr=ldcontext_metadata_filter)
 
-        with open(LOCAL_CONTEXT_PATH) as f:
-            old_context = f.read()
-        self.assertEqual(self._strip_meta(old_context), self._strip_meta(new_context),
-                         f'\n{LOCAL_CONTEXT_PATH} does not match output -- new file is in test/target')
+    def test_mappings_context(self):
+        self.source_path = INCLUDES_DIR
+        self.model_path = INCLUDES_DIR
+        self.model_name = 'mappings'
+        self.importmap = BIOLINK_IMPORT_MAP
+        self.single_file_generator('context.jsonld', ContextGenerator, filtr=ldcontext_metadata_filter)
+
+    def test_metamodel_context(self):
+        self.source_path = MODULE_DIR
+        self.model_path = MODULE_DIR
+        self.model_name = 'meta'
+        self.output_name = ''
+        self.importmap = BIOLINK_IMPORT_MAP
+        self.single_file_generator('context.jsonld', ContextGenerator, serialize_args=dict(base=META_BASE_URI),
+                                   filtr=ldcontext_metadata_filter)
 
 
 if __name__ == '__main__':
