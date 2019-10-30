@@ -9,6 +9,8 @@ prefixes:
 imports:
   - ../../../includes/types
 
+default_prefix: test
+
 
 slots:
   s1:

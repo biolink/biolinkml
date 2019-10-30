@@ -8,6 +8,7 @@
 
 from typing import Optional, List, Union, Dict, ClassVar
 from dataclasses import dataclass
+from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
@@ -42,3 +43,14 @@ class C1(YAMLRoot):
 
     s1: Optional[str] = SKOS.label
     s2: Optional[str] = SKOS.definition
+
+
+# Slots
+class slots:
+    pass
+
+slots.s1 = Slot(uri=TEST.s1, name="s1", curie=TEST.curie('s1'),
+                      model_uri=TEST.s1, domain=None, range=Optional[str])
+
+slots.s2 = Slot(uri=TEST.s2, name="s2", curie=TEST.curie('s2'),
+                      model_uri=TEST.s2, domain=None, range=Optional[str])

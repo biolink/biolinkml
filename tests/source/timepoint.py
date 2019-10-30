@@ -5,6 +5,7 @@
 
 from typing import Optional, List, Union, Dict, ClassVar
 from dataclasses import dataclass
+from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
@@ -18,7 +19,7 @@ metamodel_version = "1.4.3"
 
 # Namespaces
 XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
-DEFAULT_ = Namespace('http://example.org/tests/timepoint/')
+DEFAULT_ = CurieNamespace('', 'http://example.org/tests/timepoint/')
 
 
 # Types
@@ -78,3 +79,15 @@ class GeographicLocationAtTime(GeographicLocation):
         if self.timepoint is not None and not isinstance(self.timepoint, TimeType):
             self.timepoint = TimeType(self.timepoint)
         super().__post_init__()
+
+
+
+# Slots
+class slots:
+    pass
+
+slots.k = Slot(uri=DEFAULT_.k, name="k", curie=DEFAULT_.curie('k'),
+                      model_uri=DEFAULT_.k, domain=GeographicLocation, range=Union[str, GeographicLocationK])
+
+slots.timepoint = Slot(uri=DEFAULT_.timepoint, name="timepoint", curie=DEFAULT_.curie('timepoint'),
+                      model_uri=DEFAULT_.timepoint, domain=GeographicLocationAtTime, range=Optional[Union[str, TimeType]])

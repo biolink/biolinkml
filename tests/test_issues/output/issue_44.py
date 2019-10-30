@@ -5,6 +5,7 @@
 
 from typing import Optional, List, Union, Dict, ClassVar
 from dataclasses import dataclass
+from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
@@ -20,7 +21,7 @@ metamodel_version = "1.4.3"
 META = CurieNamespace('meta', 'https://w3id.org/biolink/biolinkml/')
 RDFS = CurieNamespace('rdfs', 'http://example.org/UNKNOWN/rdfs/')
 XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
-DEFAULT_ = Namespace('https://example.com/test44/')
+DEFAULT_ = CurieNamespace('', 'https://example.com/test44/')
 
 
 # Types
@@ -53,3 +54,12 @@ class NamedThing(YAMLRoot):
         self.category = [v if isinstance(v, IriType)
                          else IriType(v) for v in self.category]
         super().__post_init__()
+
+
+
+# Slots
+class slots:
+    pass
+
+slots.category = Slot(uri=RDFS.subClassOf, name="category", curie=RDFS.curie('subClassOf'),
+                      model_uri=DEFAULT_.category, domain=NamedThing, range=List[Union[str, IriType]])

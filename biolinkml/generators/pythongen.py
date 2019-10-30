@@ -1,4 +1,3 @@
-import inspect
 import os
 import re
 import sys
@@ -103,6 +102,7 @@ class PythonGenerator(Generator):
 
 from typing import Optional, List, Union, Dict, ClassVar
 from dataclasses import dataclass
+from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
@@ -122,7 +122,14 @@ metamodel_version = "{self.schema.metamodel_version}"
 # Class references
 {self.gen_references()}
 
-{self.gen_classdefs()}'''
+{self.gen_classdefs()}
+
+
+# Slots
+class slots:
+    pass
+
+{self.gen_slots()}'''
 
     def end_schema(self, **_):
         print(re.sub(r' +\n', '\n', self.gen_schema().replace('\t', '    ')).strip(' '), end='')
@@ -179,10 +186,33 @@ metamodel_version = "{self.schema.metamodel_version}"
                 add_type_ref(self.schema.types[typ.typeof])
             rval.add_element(typ)
 
+        def add_slot_range(slot: SlotDefinition) -> None:
+            if slot.range:
+                if slot.range in self.schema.types:
+                    add_type_ref(self.schema.types[slot.range])
+                else:
+                    cls = self.schema.classes[slot.range]
+                    if cls.imported_from:
+                        if self.class_identifier(cls):
+                            rval.add_entry(cls.imported_from, self.class_identifier_path(cls, False)[-1])
+                        if slot.inlined:
+                            rval.add_element(cls)
+
         rval = ImportList(self.schema_location)
         for typ in self.schema.types.values():
             if not typ.imported_from:
                 add_type_ref(typ)
+        for slot in self.schema.slots.values():
+            if not slot.imported_from:
+                if slot.is_a:
+                    parent = self.schema.slots[slot.is_a]
+                    if parent.imported_from:
+                        rval.add_element(self.schema.slots[slot.is_a])
+                if slot.domain:
+                    domain = self.schema.classes[slot.domain]
+                    if domain.imported_from:
+                        rval.add_element(self.schema.classes[slot.domain])
+                add_slot_range(slot)
         for cls in self.schema.classes.values():
             if not cls.imported_from:
                 if cls.is_a:
@@ -192,23 +222,13 @@ metamodel_version = "{self.schema.metamodel_version}"
                         if self.class_identifier(parent):
                             rval.add_entry(parent.imported_from, self.class_identifier_path(parent, False)[-1])
                 for slotname in cls.slots:
-                    slot = self.schema.slots[slotname]
-                    if slot.range:
-                        if slot.range in self.schema.types:
-                            add_type_ref(self.schema.types[slot.range])
-                        else:
-                            cls = self.schema.classes[slot.range]
-                            if cls.imported_from:
-                                if self.class_identifier(cls):
-                                    rval.add_entry(cls.imported_from, self.class_identifier_path(cls, False)[-1])
-                                if slot.inlined:
-                                    rval.add_element(cls)
+                    add_slot_range(self.schema.slots[slotname])
 
         return rval.values()
 
     def gen_namespaces(self) -> str:
         dflt_prefix = default_curie_or_uri(self)
-        dflt = f"Namespace('{sfx(dflt_prefix)}')" if ':/' in dflt_prefix else dflt_prefix.upper()
+        dflt = f"CurieNamespace('', '{sfx(dflt_prefix)}')" if ':/' in dflt_prefix else dflt_prefix.upper()
         return '\n'.join([
             f"{pfx.upper().replace('.', '_')} = CurieNamespace('{pfx.replace('.', '_')}', '{self.namespaces[pfx]}')"
             for pfx in sorted(self.emit_prefixes) if pfx in self.namespaces
@@ -292,7 +312,7 @@ metamodel_version = "{self.schema.metamodel_version}"
         if class_class_curie:
             class_class_curie = f'"{class_class_curie}"'
         class_class_uri = cls_python_uri if cls_python_uri else f'URIRef("{class_class_uri}")'
-        class_model_uri = self.namespaces.uri_or_curie_for(self.schema.default_prefix, camelcase(cls.name))
+        class_model_uri = self.namespaces.uri_or_curie_for(self.schema.default_prefix or "DEFAULT_", camelcase(cls.name))
         if ':/' in class_model_uri:
             class_model_uri = f'URIRef("{class_model_uri}")'
         else:
@@ -390,13 +410,13 @@ metamodel_version = "{self.schema.metamodel_version}"
             default = f'= {default_val}' if default_val else ''
         return f'''{slotname}: {slot_range} {default}'''
 
-    def range_cardinality(self, slot: SlotDefinition, cls: ClassDefinition, positional_allowed: bool) \
+    def range_cardinality(self, slot: SlotDefinition, cls: Optional[ClassDefinition], positional_allowed: bool) \
             -> Tuple[str, Optional[str]]:
         """
         Return the range type including initializers, etc.
 
         :param slot: slot to generate type for
-        :param cls: containing class -- used to render key slots correctly
+        :param cls: containing class -- used to render key slots correctly.  If absent, slot is an add-in
         :param positional_allowed: True Means that we are in the positional space
         :return: python property name and initializer (if any)
         """
@@ -416,7 +436,7 @@ metamodel_version = "{self.schema.metamodel_version}"
         else:
             return f'Optional[{range_type}]', 'None'
 
-    def class_reference_type(self, slot: SlotDefinition, cls: ClassDefinition) \
+    def class_reference_type(self, slot: SlotDefinition, cls: Optional[ClassDefinition]) \
             -> Tuple[str, str, str]:
         """
         Return the type of a slot referencing a class
@@ -425,12 +445,13 @@ metamodel_version = "{self.schema.metamodel_version}"
         :param cls: owning class.  Used for generating key references
         :return: Python class reference type, most proximal type, most proximal type name
         """
+        assert not (slot.key or slot.identifier) or cls, "Key slots must have a domain"
         rangelist = self.class_identifier_path(cls, False) if slot.key or slot.identifier else self.slot_type_path(slot)
         prox_type = self.slot_type_path(slot)[-1].rsplit('.')[-1]
         prox_type_name = rangelist[-1]
 
         # Python version < 3.7 requires quoting forward references
-        if slot.inlined and slot.range in self.schema.classes and self.forward_reference(slot.range, cls.name):
+        if cls and slot.inlined and slot.range in self.schema.classes and self.forward_reference(slot.range, cls.name):
             rangelist[-1] = f'"{rangelist[-1]}"'
         return f"{self.gen_class_reference(rangelist)}", prox_type, prox_type_name
 
@@ -601,6 +622,44 @@ metamodel_version = "{self.schema.metamodel_version}"
                 return False            # Occurs before
         return True
 
+    def python_uri_for(self, uriorcurie: Union[str, URIRef]) -> Tuple[str, Optional[str]]:
+        """ Return the python form of uriorcurie
+        :param uriorcurie:
+        :return: URI and CURIE form
+        """
+        ns, ln = self.namespaces.prefix_suffix(uriorcurie)
+        if ns == '':
+            ns = 'DEFAULT_'
+        if ns is None:
+            return f'"str(uriorcurie)"', None
+        return ns.upper() + (f".{ln}" if ln.isidentifier() else f"['{ln}']"), ns.upper() + f".curie('{ln}')"
+
+
+    def gen_slots(self) -> str:
+        return '\n\n'.join([self.gen_slot(slot) for slot in self.schema.slots.values() if not slot.imported_from])
+
+    def gen_slot(self, slot: SlotDefinition) -> str:
+        python_slot_name = underscore(slot.name)
+        slot_uri, slot_curie = self.python_uri_for(slot.slot_uri)
+        slot_model_uri, slot_model_curie = \
+            self.python_uri_for(self.namespaces.uri_or_curie_for(self.schema.default_prefix, python_slot_name))
+        domain = camelcase(slot.domain) if slot.domain and not self.schema.classes[slot.domain].mixin else "None"
+        # Going to omit the range on keys where the domain isn't specified (for now)
+        if slot.domain is None and (slot.key or slot.identifier):
+            rnge = "URIRef"
+        else:
+            rnge, _ = self.range_cardinality(slot, self.schema.classes[slot.domain] if slot.domain else None, True)
+        if slot.mappings:
+            map_texts = [self.namespaces.curie_for(self.namespaces.uri_for(m), default_ok=True, pythonform=True)
+                         for m in slot.mappings if m != slot.slot_uri]
+        else:
+            map_texts = []
+        if map_texts:
+            mappings = ', mappings = [' + ', '.join(map_texts)+ ']'
+        else:
+            mappings = ''
+        return f"""slots.{python_slot_name} = Slot(uri={slot_uri}, name="{slot.name}", curie={slot_curie},
+                      model_uri={slot_model_uri}, domain={domain}, range={rnge}{mappings})"""
 
 
 @shared_arguments(PythonGenerator)

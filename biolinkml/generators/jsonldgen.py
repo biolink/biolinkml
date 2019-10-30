@@ -107,7 +107,7 @@ class JSONLDGenerator(Generator):
         # TODO: For testing purposes we use local contexts.  JSON-LD requires absolute URI's for contexts (double check
         #  that this is true), so we end up recording local path names in the tests.  All of these must be converted
         #  to URL's before this can be submitted and used
-        abs_contexts = ['file://' + os.path.abspath(os.path.join(os.getcwd(), c))
+        abs_contexts = ['file://' + os.path.abspath(os.path.join(self.base_dir, c))
                         if '://' not in c else c for c in context]
 
         json_obj["@context"] = abs_contexts[0] if len(abs_contexts) == 1 and not base_prefix else abs_contexts

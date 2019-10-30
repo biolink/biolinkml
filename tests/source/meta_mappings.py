@@ -8,6 +8,7 @@
 
 from typing import Optional, List, Union, Dict, ClassVar
 from dataclasses import dataclass
+from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
@@ -109,3 +110,15 @@ class C3(C1):
         if not isinstance(self.s2, C3S2):
             self.s2 = C3S2(self.s2)
         super().__post_init__()
+
+
+
+# Slots
+class slots:
+    pass
+
+slots.s1 = Slot(uri=EX.s1, name="s1", curie=EX.curie('s1'),
+                      model_uri=EX.s1, domain=C1, range=Optional[str])
+
+slots.s2 = Slot(uri=EX.s2, name="s2", curie=EX.curie('s2'),
+                      model_uri=EX.s2, domain=C1, range=Union[str, C1S2])
