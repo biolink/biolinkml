@@ -27,7 +27,7 @@ For an example, see the [Jupyter notebook example](https://nbviewer.jupyter.org/
 
 This basic example shows a schema with a single class together with slots that can be used for instances of that class:
 
-```
+```yaml
 id: http://example.org/sample/example1
 name: synopsis2
 
