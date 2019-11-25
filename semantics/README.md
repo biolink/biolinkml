@@ -7,7 +7,7 @@ biolinkml yaml file using gen-lp, e.g.:
 
     pipenv run python3 biolinkml/generators/lpgen.py tests/test_biolink_model/yaml/biolink-model.yaml > semantics/tests/biolink.pro
 
-See [semantics/tests/biolink.pro](semantics/tests/biolink.pro) for an
+See [semantics/tests/biolink.pro](tests/biolink.pro) for an
 example.
 
 The rules can be used with any logic programming system. NAF or WFS
