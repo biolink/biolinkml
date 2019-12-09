@@ -7,6 +7,7 @@ prefixes:
   model: https://w3id.org/biolink/
   biolink: https://w3id.org/biolink/vocab/
   biolinkml: https://w3id.org/biolink/biolinkml/
+  ex: http://example.org/
 
 default_prefix: biolink
 default_range: string
@@ -31,6 +32,7 @@ slots:
 classes:
     person:
         description: A person, living or dead
+        class_uri: ex:PERSON
         slots:
             - id
             - name
