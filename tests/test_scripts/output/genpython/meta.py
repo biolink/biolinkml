@@ -1,5 +1,5 @@
-# Auto generated from meta.yaml by pythongen.py version: 0.3.0
-# Generation date: 2019-10-28 07:46
+# Auto generated from meta.yaml by pythongen.py version: 0.4.0
+# Generation date: 2019-10-30 07:20
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta
@@ -8,6 +8,7 @@
 
 from typing import Optional, List, Union, Dict, ClassVar
 from dataclasses import dataclass
+from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
@@ -509,3 +510,263 @@ class AltDescription(YAMLRoot):
             raise ValueError(f"description must be supplied")
         super().__post_init__()
 
+
+
+# Slots
+class slots:
+    pass
+
+slots.name = Slot(uri=RDFS.label, name="name", curie=RDFS.curie('label'),
+                      model_uri=META.name, domain=Element, range=Union[str, ElementName])
+
+slots.definition_uri = Slot(uri=META.definition_uri, name="definition_uri", curie=META.curie('definition_uri'),
+                      model_uri=META.definition_uri, domain=Element, range=Optional[Union[str, URIorCURIE]])
+
+slots.id_prefixes = Slot(uri=META.id_prefixes, name="id_prefixes", curie=META.curie('id_prefixes'),
+                      model_uri=META.id_prefixes, domain=Element, range=List[Union[str, NCName]])
+
+slots.description = Slot(uri=SKOS.definition, name="description", curie=SKOS.curie('definition'),
+                      model_uri=META.description, domain=Element, range=Optional[str])
+
+slots.aliases = Slot(uri=SKOS.altLabel, name="aliases", curie=SKOS.curie('altLabel'),
+                      model_uri=META.aliases, domain=Element, range=List[str])
+
+slots.deprecated = Slot(uri=META.deprecated, name="deprecated", curie=META.curie('deprecated'),
+                      model_uri=META.deprecated, domain=Element, range=Optional[str])
+
+slots.todos = Slot(uri=META.todos, name="todos", curie=META.curie('todos'),
+                      model_uri=META.todos, domain=Element, range=List[str])
+
+slots.notes = Slot(uri=SKOS.editorialNote, name="notes", curie=SKOS.curie('editorialNote'),
+                      model_uri=META.notes, domain=Element, range=List[str])
+
+slots.comments = Slot(uri=SKOS.note, name="comments", curie=SKOS.curie('note'),
+                      model_uri=META.comments, domain=Element, range=List[str])
+
+slots.in_subset = Slot(uri=OIO.inSubset, name="in_subset", curie=OIO.curie('inSubset'),
+                      model_uri=META.in_subset, domain=Element, range=List[Union[str, SubsetDefinitionName]])
+
+slots.from_schema = Slot(uri=SKOS.inScheme, name="from_schema", curie=SKOS.curie('inScheme'),
+                      model_uri=META.from_schema, domain=Element, range=Optional[Union[str, URI]])
+
+slots.imported_from = Slot(uri=META.imported_from, name="imported_from", curie=META.curie('imported_from'),
+                      model_uri=META.imported_from, domain=Element, range=Optional[str])
+
+slots.see_also = Slot(uri=RDFS.seeAlso, name="see_also", curie=RDFS.curie('seeAlso'),
+                      model_uri=META.see_also, domain=Element, range=List[Union[str, URIorCURIE]])
+
+slots.is_a = Slot(uri=META.is_a, name="is_a", curie=META.curie('is_a'),
+                      model_uri=META.is_a, domain=Definition, range=Optional[Union[str, DefinitionName]])
+
+slots.abstract = Slot(uri=META.abstract, name="abstract", curie=META.curie('abstract'),
+                      model_uri=META.abstract, domain=Definition, range=Optional[Bool])
+
+slots.mixin = Slot(uri=META.mixin, name="mixin", curie=META.curie('mixin'),
+                      model_uri=META.mixin, domain=Definition, range=Optional[Bool])
+
+slots.mixins = Slot(uri=META.mixins, name="mixins", curie=META.curie('mixins'),
+                      model_uri=META.mixins, domain=Definition, range=List[Union[str, DefinitionName]])
+
+slots.apply_to = Slot(uri=META.apply_to, name="apply_to", curie=META.curie('apply_to'),
+                      model_uri=META.apply_to, domain=Definition, range=List[Union[str, DefinitionName]])
+
+slots.values_from = Slot(uri=META.values_from, name="values_from", curie=META.curie('values_from'),
+                      model_uri=META.values_from, domain=Definition, range=List[Union[str, URIorCURIE]])
+
+slots.id = Slot(uri=META.id, name="id", curie=META.curie('id'),
+                      model_uri=META.id, domain=SchemaDefinition, range=Union[str, URI])
+
+slots.emit_prefixes = Slot(uri=META.emit_prefixes, name="emit_prefixes", curie=META.curie('emit_prefixes'),
+                      model_uri=META.emit_prefixes, domain=SchemaDefinition, range=List[Union[str, NCName]])
+
+slots.title = Slot(uri=DCTERMS.title, name="title", curie=DCTERMS.curie('title'),
+                      model_uri=META.title, domain=SchemaDefinition, range=Optional[str])
+
+slots.version = Slot(uri=PAV.version, name="version", curie=PAV.curie('version'),
+                      model_uri=META.version, domain=SchemaDefinition, range=Optional[str])
+
+slots.imports = Slot(uri=META.imports, name="imports", curie=META.curie('imports'),
+                      model_uri=META.imports, domain=SchemaDefinition, range=List[Union[str, URIorCURIE]])
+
+slots.license = Slot(uri=DCTERMS.license, name="license", curie=DCTERMS.curie('license'),
+                      model_uri=META.license, domain=SchemaDefinition, range=Optional[str])
+
+slots.default_curi_maps = Slot(uri=META.default_curi_maps, name="default_curi_maps", curie=META.curie('default_curi_maps'),
+                      model_uri=META.default_curi_maps, domain=SchemaDefinition, range=List[str])
+
+slots.default_prefix = Slot(uri=META.default_prefix, name="default_prefix", curie=META.curie('default_prefix'),
+                      model_uri=META.default_prefix, domain=SchemaDefinition, range=Optional[str])
+
+slots.default_range = Slot(uri=META.default_range, name="default_range", curie=META.curie('default_range'),
+                      model_uri=META.default_range, domain=SchemaDefinition, range=Optional[Union[str, TypeDefinitionName]])
+
+slots.subsets = Slot(uri=META.subsets, name="subsets", curie=META.curie('subsets'),
+                      model_uri=META.subsets, domain=SchemaDefinition, range=Dict[Union[str, SubsetDefinitionName], Union[dict, "SubsetDefinition"]])
+
+slots.types = Slot(uri=META.types, name="types", curie=META.curie('types'),
+                      model_uri=META.types, domain=SchemaDefinition, range=Dict[Union[str, TypeDefinitionName], Union[dict, "TypeDefinition"]])
+
+slots.slot_definitions = Slot(uri=META.slots, name="slot_definitions", curie=META.curie('slots'),
+                      model_uri=META.slot_definitions, domain=SchemaDefinition, range=Dict[Union[str, SlotDefinitionName], Union[dict, "SlotDefinition"]])
+
+slots.classes = Slot(uri=META.classes, name="classes", curie=META.curie('classes'),
+                      model_uri=META.classes, domain=SchemaDefinition, range=Dict[Union[str, ClassDefinitionName], Union[dict, "ClassDefinition"]])
+
+slots.metamodel_version = Slot(uri=META.metamodel_version, name="metamodel_version", curie=META.curie('metamodel_version'),
+                      model_uri=META.metamodel_version, domain=SchemaDefinition, range=Optional[str])
+
+slots.source_file = Slot(uri=META.source_file, name="source_file", curie=META.curie('source_file'),
+                      model_uri=META.source_file, domain=SchemaDefinition, range=Optional[str])
+
+slots.source_file_date = Slot(uri=META.source_file_date, name="source_file_date", curie=META.curie('source_file_date'),
+                      model_uri=META.source_file_date, domain=SchemaDefinition, range=Optional[Union[str, XSDDateTime]])
+
+slots.source_file_size = Slot(uri=META.source_file_size, name="source_file_size", curie=META.curie('source_file_size'),
+                      model_uri=META.source_file_size, domain=SchemaDefinition, range=Optional[int])
+
+slots.generation_date = Slot(uri=META.generation_date, name="generation_date", curie=META.curie('generation_date'),
+                      model_uri=META.generation_date, domain=SchemaDefinition, range=Optional[Union[str, XSDDateTime]])
+
+slots.slots = Slot(uri=META.slots, name="slots", curie=META.curie('slots'),
+                      model_uri=META.slots, domain=ClassDefinition, range=List[Union[str, SlotDefinitionName]])
+
+slots.slot_usage = Slot(uri=META.slot_usage, name="slot_usage", curie=META.curie('slot_usage'),
+                      model_uri=META.slot_usage, domain=ClassDefinition, range=Dict[Union[str, SlotDefinitionName], Union[dict, SlotDefinition]])
+
+slots.class_uri = Slot(uri=META.class_uri, name="class_uri", curie=META.curie('class_uri'),
+                      model_uri=META.class_uri, domain=ClassDefinition, range=Optional[Union[str, URIorCURIE]])
+
+slots.subclass_of = Slot(uri=RDFS.subClassOf, name="subclass_of", curie=RDFS.curie('subClassOf'),
+                      model_uri=META.subclass_of, domain=ClassDefinition, range=Optional[Union[str, URIorCURIE]])
+
+slots.defining_slots = Slot(uri=META.defining_slots, name="defining_slots", curie=META.curie('defining_slots'),
+                      model_uri=META.defining_slots, domain=ClassDefinition, range=List[Union[str, SlotDefinitionName]])
+
+slots.union_of = Slot(uri=META.union_of, name="union_of", curie=META.curie('union_of'),
+                      model_uri=META.union_of, domain=ClassDefinition, range=List[Union[str, ClassDefinitionName]])
+
+slots.domain = Slot(uri=META.domain, name="domain", curie=META.curie('domain'),
+                      model_uri=META.domain, domain=SlotDefinition, range=Optional[Union[str, ClassDefinitionName]])
+
+slots.range = Slot(uri=META.range, name="range", curie=META.curie('range'),
+                      model_uri=META.range, domain=SlotDefinition, range=Optional[Union[str, ElementName]])
+
+slots.slot_uri = Slot(uri=META.slot_uri, name="slot_uri", curie=META.curie('slot_uri'),
+                      model_uri=META.slot_uri, domain=SlotDefinition, range=Optional[Union[str, URIorCURIE]])
+
+slots.multivalued = Slot(uri=META.multivalued, name="multivalued", curie=META.curie('multivalued'),
+                      model_uri=META.multivalued, domain=SlotDefinition, range=Optional[Bool])
+
+slots.inherited = Slot(uri=META.inherited, name="inherited", curie=META.curie('inherited'),
+                      model_uri=META.inherited, domain=SlotDefinition, range=Optional[Bool])
+
+slots.readonly = Slot(uri=META.readonly, name="readonly", curie=META.curie('readonly'),
+                      model_uri=META.readonly, domain=SlotDefinition, range=Optional[str])
+
+slots.ifabsent = Slot(uri=META.ifabsent, name="ifabsent", curie=META.curie('ifabsent'),
+                      model_uri=META.ifabsent, domain=SlotDefinition, range=Optional[str])
+
+slots.singular_name = Slot(uri=SKOS.altLabel, name="singular_name", curie=SKOS.curie('altLabel'),
+                      model_uri=META.singular_name, domain=SlotDefinition, range=Optional[str])
+
+slots.required = Slot(uri=META.required, name="required", curie=META.curie('required'),
+                      model_uri=META.required, domain=SlotDefinition, range=Optional[Bool])
+
+slots.inlined = Slot(uri=META.inlined, name="inlined", curie=META.curie('inlined'),
+                      model_uri=META.inlined, domain=SlotDefinition, range=Optional[Bool])
+
+slots.key = Slot(uri=META.key, name="key", curie=META.curie('key'),
+                      model_uri=META.key, domain=SlotDefinition, range=Optional[Bool])
+
+slots.identifier = Slot(uri=META.identifier, name="identifier", curie=META.curie('identifier'),
+                      model_uri=META.identifier, domain=SlotDefinition, range=Optional[Bool])
+
+slots.alias = Slot(uri=META.alias, name="alias", curie=META.curie('alias'),
+                      model_uri=META.alias, domain=SlotDefinition, range=Optional[str])
+
+slots.owner = Slot(uri=META.owner, name="owner", curie=META.curie('owner'),
+                      model_uri=META.owner, domain=SlotDefinition, range=Optional[Union[str, DefinitionName]])
+
+slots.is_usage_slot = Slot(uri=META.is_usage_slot, name="is_usage_slot", curie=META.curie('is_usage_slot'),
+                      model_uri=META.is_usage_slot, domain=SlotDefinition, range=Optional[Bool])
+
+slots.subproperty_of = Slot(uri=RDFS.subPropertyOf, name="subproperty_of", curie=RDFS.curie('subPropertyOf'),
+                      model_uri=META.subproperty_of, domain=SlotDefinition, range=Optional[Union[str, URIorCURIE]])
+
+slots.symmetric = Slot(uri=META.symmetric, name="symmetric", curie=META.curie('symmetric'),
+                      model_uri=META.symmetric, domain=SlotDefinition, range=Optional[Bool])
+
+slots.inverse = Slot(uri=OWL.inverseOf, name="inverse", curie=OWL.curie('inverseOf'),
+                      model_uri=META.inverse, domain=SlotDefinition, range=Optional[Union[str, SlotDefinitionName]])
+
+slots.is_class_field = Slot(uri=META.is_class_field, name="is_class_field", curie=META.curie('is_class_field'),
+                      model_uri=META.is_class_field, domain=SlotDefinition, range=Optional[Bool])
+
+slots.role = Slot(uri=META.role, name="role", curie=META.curie('role'),
+                      model_uri=META.role, domain=SlotDefinition, range=Optional[str])
+
+slots.typeof = Slot(uri=META.typeof, name="typeof", curie=META.curie('typeof'),
+                      model_uri=META.typeof, domain=TypeDefinition, range=Optional[Union[str, TypeDefinitionName]])
+
+slots.base = Slot(uri=META.base, name="base", curie=META.curie('base'),
+                      model_uri=META.base, domain=TypeDefinition, range=Optional[str])
+
+slots.type_uri = Slot(uri=META.uri, name="type_uri", curie=META.curie('uri'),
+                      model_uri=META.type_uri, domain=TypeDefinition, range=Optional[Union[str, URIorCURIE]])
+
+slots.repr = Slot(uri=META.repr, name="repr", curie=META.curie('repr'),
+                      model_uri=META.repr, domain=TypeDefinition, range=Optional[str])
+
+slots.alt_description_text = Slot(uri=META.description, name="alt_description_text", curie=META.curie('description'),
+                      model_uri=META.alt_description_text, domain=AltDescription, range=str)
+
+slots.alt_description_source = Slot(uri=META.source, name="alt_description_source", curie=META.curie('source'),
+                      model_uri=META.alt_description_source, domain=AltDescription, range=Union[str, AltDescriptionSource])
+
+slots.alt_descriptions = Slot(uri=META.alt_descriptions, name="alt_descriptions", curie=META.curie('alt_descriptions'),
+                      model_uri=META.alt_descriptions, domain=Element, range=Union[dict, "AltDescription"])
+
+slots.value = Slot(uri=SKOS.example, name="value", curie=SKOS.curie('example'),
+                      model_uri=META.value, domain=Example, range=Optional[str])
+
+slots.value_description = Slot(uri=META.description, name="value_description", curie=META.curie('description'),
+                      model_uri=META.value_description, domain=Example, range=Optional[str])
+
+slots.examples = Slot(uri=META.examples, name="examples", curie=META.curie('examples'),
+                      model_uri=META.examples, domain=Element, range=List[Union[dict, "Example"]])
+
+slots.prefix_prefix = Slot(uri=META.prefix_prefix, name="prefix_prefix", curie=META.curie('prefix_prefix'),
+                      model_uri=META.prefix_prefix, domain=Prefix, range=Union[str, PrefixPrefixPrefix])
+
+slots.prefix_reference = Slot(uri=META.prefix_reference, name="prefix_reference", curie=META.curie('prefix_reference'),
+                      model_uri=META.prefix_reference, domain=Prefix, range=Union[str, URI])
+
+slots.prefixes = Slot(uri=META.prefixes, name="prefixes", curie=META.curie('prefixes'),
+                      model_uri=META.prefixes, domain=SchemaDefinition, range=Union[dict, "Prefix"])
+
+slots.local_name_source = Slot(uri=META.local_name_source, name="local_name_source", curie=META.curie('local_name_source'),
+                      model_uri=META.local_name_source, domain=LocalName, range=Union[str, LocalNameLocalNameSource])
+
+slots.local_name_value = Slot(uri=SKOS.altLabel, name="local_name_value", curie=SKOS.curie('altLabel'),
+                      model_uri=META.local_name_value, domain=LocalName, range=str)
+
+slots.local_names = Slot(uri=META.local_names, name="local_names", curie=META.curie('local_names'),
+                      model_uri=META.local_names, domain=Element, range=Union[dict, "LocalName"])
+
+slots.slot_definition_is_a = Slot(uri=META.is_a, name="slot_definition_is_a", curie=META.curie('is_a'),
+                      model_uri=META.slot_definition_is_a, domain=SlotDefinition, range=Optional[Union[str, SlotDefinitionName]])
+
+slots.slot_definition_mixins = Slot(uri=META.mixins, name="slot_definition_mixins", curie=META.curie('mixins'),
+                      model_uri=META.slot_definition_mixins, domain=SlotDefinition, range=List[Union[str, SlotDefinitionName]])
+
+slots.slot_definition_apply_to = Slot(uri=META.apply_to, name="slot_definition_apply_to", curie=META.curie('apply_to'),
+                      model_uri=META.slot_definition_apply_to, domain=SlotDefinition, range=List[Union[str, SlotDefinitionName]])
+
+slots.class_definition_is_a = Slot(uri=META.is_a, name="class_definition_is_a", curie=META.curie('is_a'),
+                      model_uri=META.class_definition_is_a, domain=ClassDefinition, range=Optional[Union[str, ClassDefinitionName]])
+
+slots.class_definition_mixins = Slot(uri=META.mixins, name="class_definition_mixins", curie=META.curie('mixins'),
+                      model_uri=META.class_definition_mixins, domain=ClassDefinition, range=List[Union[str, ClassDefinitionName]])
+
+slots.class_definition_apply_to = Slot(uri=META.apply_to, name="class_definition_apply_to", curie=META.curie('apply_to'),
+                      model_uri=META.class_definition_apply_to, domain=ClassDefinition, range=List[Union[str, ClassDefinitionName]])

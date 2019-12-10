@@ -137,10 +137,14 @@ class Namespaces(OrderedDict):
         return None
 
     def prefix_for(self, uri_or_curie: Any) -> Optional[str]:
+        return self.prefix_suffix(uri_or_curie)[0]
+
+    def prefix_suffix(self, uri_or_curie: Any) -> Tuple[Optional[str], Optional[str]]:
         uri_or_curie = str(uri_or_curie)
         if ':/' in uri_or_curie:
             uri_or_curie = self.curie_for(uri_or_curie)
-        return uri_or_curie.split(':')[0] if uri_or_curie else None
+        return uri_or_curie.split(':') if uri_or_curie else (None, None)
+
 
     def uri_for(self, uri_or_curie: Any) -> URIRef:
         """

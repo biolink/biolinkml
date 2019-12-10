@@ -5,6 +5,7 @@
 
 from typing import Optional, List, Union, Dict, ClassVar
 from dataclasses import dataclass
+from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
@@ -156,3 +157,15 @@ class OntologyClass(NamedThing):
         if not isinstance(self.id, OntologyClassId):
             self.id = OntologyClassId(self.id)
         super().__post_init__()
+
+
+
+# Slots
+class slots:
+    pass
+
+slots.id = Slot(uri=BIOLINKML.id, name="id", curie=BIOLINKML.curie('id'),
+                      model_uri=BIOLINKML.id, domain=NamedThing, range=Union[str, NamedThingId])
+
+slots.name = Slot(uri=BIOLINKML.name, name="name", curie=BIOLINKML.curie('name'),
+                      model_uri=BIOLINKML.name, domain=NamedThing, range=Optional[Union[str, LabelType]])

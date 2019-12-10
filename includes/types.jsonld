@@ -159,9 +159,9 @@
   ],
   "metamodel_version": "1.4.3",
   "source_file": "types.yaml",
-  "source_file_date": "Thu Oct 24 00:24:30 2019",
+  "source_file_date": "Friday Sep 27 12:00:00 2003",
   "source_file_size": 2540,
-  "generation_date": "2019-10-28 11:25",
+  "generation_date": "Friday Sep 27 12:00:00 2003",
   "type": "SchemaDefinition",
   "@context": [
     "file:///Users/solbrig/git/biolink/biolinkml/context.jsonld",

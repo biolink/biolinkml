@@ -1817,9 +1817,9 @@
   "generation_date": "2019-10-28 10:44",
   "type": "SchemaDefinition",
   "@context": [
-    "file:///Users/solbrig/git/biolink/biolinkml/context.jsonld",
-    "file:///Users/solbrig/git/biolink/biolinkml/includes/types.context.jsonld",
-    "file:///Users/solbrig/git/biolink/biolinkml/includes/mappings.context.jsonld",
+    "https://w3id.org/biolink/biolinkml/context.jsonld",
+    "https://w3id.org/biolink/biolinkml/includes/context.jsonld",
+    "https://w3id.org/biolink/biolinkml/includes/mappings.context.jsonld",
     {
       "@base": "https://w3id.org/biolink/biolinkml/meta/"
     }

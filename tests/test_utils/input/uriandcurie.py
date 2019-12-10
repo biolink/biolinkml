@@ -8,6 +8,7 @@
 
 from typing import Optional, List, Union, Dict, ClassVar
 from dataclasses import dataclass
+from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
@@ -116,3 +117,24 @@ class C1(YAMLRoot):
         if self.id2 is not None and not isinstance(self.id2, NodeIdentifier):
             self.id2 = NodeIdentifier(self.id2)
         super().__post_init__()
+
+
+
+# Slots
+class slots:
+    pass
+
+slots.id = Slot(uri=M.id, name="id", curie=M.curie('id'),
+                      model_uri=M.id, domain=None, range=URIRef)
+
+slots.hasCurie = Slot(uri=M.hasCurie, name="hasCurie", curie=M.curie('hasCurie'),
+                      model_uri=M.hasCurie, domain=None, range=Optional[Union[str, Curie]])
+
+slots.hasURI = Slot(uri=M.hasURI, name="hasURI", curie=M.curie('hasURI'),
+                      model_uri=M.hasURI, domain=None, range=Optional[Union[str, URI]])
+
+slots.hasNcName = Slot(uri=M.hasNcName, name="hasNcName", curie=M.curie('hasNcName'),
+                      model_uri=M.hasNcName, domain=None, range=Optional[Union[str, NCName]])
+
+slots.id2 = Slot(uri=M.id2, name="id2", curie=M.curie('id2'),
+                      model_uri=M.id2, domain=None, range=Optional[Union[str, NodeIdentifier]])

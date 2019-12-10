@@ -1,5 +1,5 @@
-# Auto generated from types.yaml by pythongen.py version: 0.3.0
-# Generation date: 2019-10-23 11:41
+# Auto generated from types.yaml by pythongen.py version: 0.4.0
+# Generation date: 2019-10-30 04:34
 # Schema: types
 #
 # id: https://w3id.org/biolink/biolinkml/types
@@ -8,6 +8,7 @@
 
 from typing import Optional, List, Union, Dict, ClassVar
 from dataclasses import dataclass
+from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
@@ -132,4 +133,11 @@ class Nodeidentifier(NodeIdentifier):
 
 # Class references
 
+
+
+
+
+# Slots
+class slots:
+    pass
 

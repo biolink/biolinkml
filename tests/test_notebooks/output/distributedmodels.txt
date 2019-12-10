@@ -1,5 +1,5 @@
-# Auto generated from None by pythongen.py version: 0.3.0
-# Generation date: 2019-12-09 18:20
+# Auto generated from None by pythongen.py version: 0.4.0
+# Generation date: 2019-10-30 08:37
 # Schema: dist1
 #
 # id: http://example.org/examples/distributeExample
@@ -8,14 +8,15 @@
 
 from typing import Optional, List, Union, Dict, ClassVar
 from dataclasses import dataclass
+from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
-from biolink.model import AnatomicalEntityId, BiologicalSequence, DiseaseOrPhenotypicFeatureId, Gene, GeneId, GeneOrGeneProductId, GeneProductId, GenomicEntityId, IdentifierType, IriType, LabelType, MolecularEntityId, NamedThingId, NarrativeText, OrganismTaxonId, PhenotypicFeatureId, SymbolType, TranscriptId
-from biolinkml.utils.metamodelcore import ElementIdentifier, URIorCURIE
-from includes.types import String, Uriorcurie
+from biolink.model import AnatomicalEntityId, AnatomicalEntityToAnatomicalEntityAssociation, AnatomicalEntityToAnatomicalEntityOntogenicAssociation, AnatomicalEntityToAnatomicalEntityPartOfAssociation, AssociationId, BiologicalProcessId, BiologicalSequence, CaseId, CaseToThingAssociation, CellLineId, CellLineToDiseaseOrPhenotypicFeatureAssociation, CellLineToThingAssociation, CellularComponentId, ChangeIsCatalyzedBy, ChemicalSubstanceId, ChemicalToChemicalAssociation, ChemicalToChemicalDerivationAssociation, ChemicalToDiseaseOrPhenotypicFeatureAssociation, ChemicalToGeneAssociation, ChemicalToPathwayAssociation, ChemicalToThingAssociation, Description, DiseaseId, DiseaseOrPhenotypicFeatureAssociationToLocationAssociation, DiseaseOrPhenotypicFeatureAssociationToThingAssociation, DiseaseOrPhenotypicFeatureId, DiseaseToExposureAssociation, DiseaseToThingAssociation, DrugExposure, DrugExposureId, EnabledBy, EntityToDiseaseAssociation, EntityToPhenotypicFeatureAssociation, ExonId, ExonToTranscriptRelationship, ExposureEventId, ExposureEventToPhenotypicFeatureAssociation, FunctionalAssociation, Gene, GeneAsAModelOfDiseaseAssociation, GeneHasVariantThatContributesToDiseaseAssociation, GeneId, GeneOntologyClassId, GeneOrGeneProductId, GeneProductId, GeneRegulatoryRelationship, GeneToDiseaseAssociation, GeneToExpressionSiteAssociation, GeneToGeneAssociation, GeneToGeneHomologyAssociation, GeneToGeneProductRelationship, GeneToGoTermAssociation, GeneToPhenotypicFeatureAssociation, GeneToThingAssociation, GenomicEntityId, GenomicSequenceLocalization, GenotypeId, GenotypeToGeneAssociation, GenotypeToGenotypePartAssociation, GenotypeToPhenotypicFeatureAssociation, GenotypeToThingAssociation, GenotypeToVariantAssociation, HasBiologicalSequence, HasCount, HasDrug, HasGene, HasInput, HasOutput, HasPart, HasQuotient, HasTotal, Id, IdentifierType, IriType, LabelType, LifeStageId, MacromolecularMachine, MacromolecularMachineId, MacromolecularMachineToBiologicalProcessAssociation, MacromolecularMachineToCellularComponentAssociation, MacromolecularMachineToMolecularActivityAssociation, MaterialSampleDerivationAssociation, MaterialSampleId, MaterialSampleToThingAssociation, ModelToDiseaseMixin, MolecularActivity, MolecularActivityId, MolecularEntityId, Name, NamedThingId, NarrativeText, Object, OntologyClassId, OrganismTaxonId, PairwiseGeneToGeneInteraction, PairwiseInteractionAssociation, PathwayId, PhenotypicFeatureId, PopulationOfIndividualOrganismsId, PopulationToPopulationAssociation, QuantifierQualifier, Relation, SequenceFeatureRelationship, SequenceVariant, SequenceVariantId, SequenceVariantModulatesTreatmentAssociation, StageQualifier, Subject, SymbolType, ThingToDiseaseOrPhenotypicFeatureAssociation, TranscriptId, TranscriptToGeneRelationship, Treatment, TreatmentId, VariantToDiseaseAssociation, VariantToPhenotypicFeatureAssociation, VariantToPopulationAssociation, VariantToThingAssociation
+from biolinkml.utils.metamodelcore import ElementIdentifier, NodeIdentifier, URIorCURIE
+from includes.types import Double, Integer, Nodeidentifier, String, Uriorcurie
 
 metamodel_version = "1.4.3"
 
@@ -67,3 +68,347 @@ class MyGene(Gene):
             self.id = MyGeneId(self.id)
         super().__post_init__()
 
+
+
+# Slots
+class slots:
+    pass
+
+slots.gene_has_sequence = Slot(uri=DIST.hasSeq, name="gene has sequence", curie=DIST.curie('hasSeq'),
+                      model_uri=DIST.gene_has_sequence, domain=Gene, range=Union[str, GeneSequence])
+
+slots.macromolecular_machine_name = Slot(uri=DIST.name, name="macromolecular machine_name", curie=DIST.curie('name'),
+                      model_uri=DIST.macromolecular_machine_name, domain=MacromolecularMachine, range=Union[str, SymbolType])
+
+slots.sequence_variant_has_gene = Slot(uri=DIST.has_gene, name="sequence variant_has gene", curie=DIST.curie('has_gene'),
+                      model_uri=DIST.sequence_variant_has_gene, domain=SequenceVariant, range=List[Union[ElementIdentifier, GeneId]])
+
+slots.sequence_variant_has_biological_sequence = Slot(uri=DIST.has_biological_sequence, name="sequence variant_has biological sequence", curie=DIST.curie('has_biological_sequence'),
+                      model_uri=DIST.sequence_variant_has_biological_sequence, domain=SequenceVariant, range=Optional[Union[str, BiologicalSequence]])
+
+slots.sequence_variant_id = Slot(uri=DIST.id, name="sequence variant_id", curie=DIST.curie('id'),
+                      model_uri=DIST.sequence_variant_id, domain=SequenceVariant, range=Union[ElementIdentifier, SequenceVariantId])
+
+slots.drug_exposure_has_drug = Slot(uri=DIST.has_drug, name="drug exposure_has drug", curie=DIST.curie('has_drug'),
+                      model_uri=DIST.drug_exposure_has_drug, domain=DrugExposure, range=List[Union[ElementIdentifier, ChemicalSubstanceId]])
+
+slots.treatment_has_part = Slot(uri=DIST.has_part, name="treatment_has part", curie=DIST.curie('has_part'),
+                      model_uri=DIST.treatment_has_part, domain=Treatment, range=List[Union[ElementIdentifier, DrugExposureId]])
+
+slots.genotype_to_genotype_part_association_relation = Slot(uri=DIST.relation, name="genotype to genotype part association_relation", curie=DIST.curie('relation'),
+                      model_uri=DIST.genotype_to_genotype_part_association_relation, domain=GenotypeToGenotypePartAssociation, range=Union[str, URIorCURIE])
+
+slots.genotype_to_genotype_part_association_subject = Slot(uri=DIST.subject, name="genotype to genotype part association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.genotype_to_genotype_part_association_subject, domain=GenotypeToGenotypePartAssociation, range=Union[ElementIdentifier, GenotypeId])
+
+slots.genotype_to_genotype_part_association_object = Slot(uri=DIST.object, name="genotype to genotype part association_object", curie=DIST.curie('object'),
+                      model_uri=DIST.genotype_to_genotype_part_association_object, domain=GenotypeToGenotypePartAssociation, range=Union[ElementIdentifier, GenotypeId])
+
+slots.genotype_to_gene_association_relation = Slot(uri=DIST.relation, name="genotype to gene association_relation", curie=DIST.curie('relation'),
+                      model_uri=DIST.genotype_to_gene_association_relation, domain=GenotypeToGeneAssociation, range=Union[str, URIorCURIE])
+
+slots.genotype_to_gene_association_subject = Slot(uri=DIST.subject, name="genotype to gene association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.genotype_to_gene_association_subject, domain=GenotypeToGeneAssociation, range=Union[ElementIdentifier, GenotypeId])
+
+slots.genotype_to_gene_association_object = Slot(uri=DIST.object, name="genotype to gene association_object", curie=DIST.curie('object'),
+                      model_uri=DIST.genotype_to_gene_association_object, domain=GenotypeToGeneAssociation, range=Union[ElementIdentifier, GeneId])
+
+slots.genotype_to_variant_association_relation = Slot(uri=DIST.relation, name="genotype to variant association_relation", curie=DIST.curie('relation'),
+                      model_uri=DIST.genotype_to_variant_association_relation, domain=GenotypeToVariantAssociation, range=Union[str, URIorCURIE])
+
+slots.genotype_to_variant_association_subject = Slot(uri=DIST.subject, name="genotype to variant association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.genotype_to_variant_association_subject, domain=GenotypeToVariantAssociation, range=Union[ElementIdentifier, GenotypeId])
+
+slots.genotype_to_variant_association_object = Slot(uri=DIST.object, name="genotype to variant association_object", curie=DIST.curie('object'),
+                      model_uri=DIST.genotype_to_variant_association_object, domain=GenotypeToVariantAssociation, range=Union[ElementIdentifier, SequenceVariantId])
+
+slots.gene_to_gene_association_subject = Slot(uri=DIST.subject, name="gene to gene association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.gene_to_gene_association_subject, domain=GeneToGeneAssociation, range=Union[ElementIdentifier, GeneOrGeneProductId])
+
+slots.gene_to_gene_association_object = Slot(uri=DIST.object, name="gene to gene association_object", curie=DIST.curie('object'),
+                      model_uri=DIST.gene_to_gene_association_object, domain=GeneToGeneAssociation, range=Union[ElementIdentifier, GeneOrGeneProductId])
+
+slots.gene_to_gene_homology_association_relation = Slot(uri=DIST.relation, name="gene to gene homology association_relation", curie=DIST.curie('relation'),
+                      model_uri=DIST.gene_to_gene_homology_association_relation, domain=GeneToGeneHomologyAssociation, range=Union[str, URIorCURIE])
+
+slots.pairwise_interaction_association_subject = Slot(uri=DIST.subject, name="pairwise interaction association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.pairwise_interaction_association_subject, domain=None, range=Union[ElementIdentifier, MolecularEntityId])
+
+slots.pairwise_interaction_association_id = Slot(uri=DIST.id, name="pairwise interaction association_id", curie=DIST.curie('id'),
+                      model_uri=DIST.pairwise_interaction_association_id, domain=None, range=Union[str, PairwiseInteractionAssociationId])
+
+slots.pairwise_interaction_association_relation = Slot(uri=DIST.relation, name="pairwise interaction association_relation", curie=DIST.curie('relation'),
+                      model_uri=DIST.pairwise_interaction_association_relation, domain=None, range=Union[str, URIorCURIE])
+
+slots.pairwise_interaction_association_object = Slot(uri=DIST.object, name="pairwise interaction association_object", curie=DIST.curie('object'),
+                      model_uri=DIST.pairwise_interaction_association_object, domain=None, range=Union[ElementIdentifier, MolecularEntityId])
+
+slots.interacting_molecules_category = Slot(uri=DIST.interacting_molecules_category, name="interacting molecules category", curie=DIST.curie('interacting_molecules_category'),
+                      model_uri=DIST.interacting_molecules_category, domain=None, range=Optional[Union[ElementIdentifier, OntologyClassId]])
+
+slots.pairwise_gene_to_gene_interaction_relation = Slot(uri=DIST.relation, name="pairwise gene to gene interaction_relation", curie=DIST.curie('relation'),
+                      model_uri=DIST.pairwise_gene_to_gene_interaction_relation, domain=PairwiseGeneToGeneInteraction, range=Union[str, URIorCURIE])
+
+slots.cell_line_to_thing_association_subject = Slot(uri=DIST.subject, name="cell line to thing association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.cell_line_to_thing_association_subject, domain=CellLineToThingAssociation, range=Union[ElementIdentifier, CellLineId])
+
+slots.cell_line_to_disease_or_phenotypic_feature_association_subject = Slot(uri=DIST.subject, name="cell line to disease or phenotypic feature association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.cell_line_to_disease_or_phenotypic_feature_association_subject, domain=CellLineToDiseaseOrPhenotypicFeatureAssociation, range=Union[ElementIdentifier, DiseaseOrPhenotypicFeatureId])
+
+slots.thing_to_disease_or_phenotypic_feature_association_object = Slot(uri=DIST.object, name="thing to disease or phenotypic feature association_object", curie=DIST.curie('object'),
+                      model_uri=DIST.thing_to_disease_or_phenotypic_feature_association_object, domain=ThingToDiseaseOrPhenotypicFeatureAssociation, range=Union[ElementIdentifier, DiseaseOrPhenotypicFeatureId])
+
+slots.chemical_to_thing_association_subject = Slot(uri=DIST.subject, name="chemical to thing association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.chemical_to_thing_association_subject, domain=ChemicalToThingAssociation, range=Union[ElementIdentifier, ChemicalSubstanceId])
+
+slots.case_to_thing_association_subject = Slot(uri=DIST.subject, name="case to thing association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.case_to_thing_association_subject, domain=CaseToThingAssociation, range=Union[ElementIdentifier, CaseId])
+
+slots.chemical_to_chemical_association_object = Slot(uri=DIST.object, name="chemical to chemical association_object", curie=DIST.curie('object'),
+                      model_uri=DIST.chemical_to_chemical_association_object, domain=ChemicalToChemicalAssociation, range=Union[ElementIdentifier, ChemicalSubstanceId])
+
+slots.chemical_to_chemical_derivation_association_subject = Slot(uri=DIST.subject, name="chemical to chemical derivation association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.chemical_to_chemical_derivation_association_subject, domain=ChemicalToChemicalDerivationAssociation, range=Union[ElementIdentifier, ChemicalSubstanceId])
+
+slots.chemical_to_chemical_derivation_association_object = Slot(uri=DIST.object, name="chemical to chemical derivation association_object", curie=DIST.curie('object'),
+                      model_uri=DIST.chemical_to_chemical_derivation_association_object, domain=ChemicalToChemicalDerivationAssociation, range=Union[ElementIdentifier, ChemicalSubstanceId])
+
+slots.chemical_to_chemical_derivation_association_relation = Slot(uri=DIST.relation, name="chemical to chemical derivation association_relation", curie=DIST.curie('relation'),
+                      model_uri=DIST.chemical_to_chemical_derivation_association_relation, domain=ChemicalToChemicalDerivationAssociation, range=Union[str, URIorCURIE])
+
+slots.chemical_to_chemical_derivation_association_change_is_catalyzed_by = Slot(uri=DIST.change_is_catalyzed_by, name="chemical to chemical derivation association_change is catalyzed by", curie=DIST.curie('change_is_catalyzed_by'),
+                      model_uri=DIST.chemical_to_chemical_derivation_association_change_is_catalyzed_by, domain=ChemicalToChemicalDerivationAssociation, range=List[Union[ElementIdentifier, MacromolecularMachineId]])
+
+slots.chemical_to_disease_or_phenotypic_feature_association_object = Slot(uri=DIST.object, name="chemical to disease or phenotypic feature association_object", curie=DIST.curie('object'),
+                      model_uri=DIST.chemical_to_disease_or_phenotypic_feature_association_object, domain=ChemicalToDiseaseOrPhenotypicFeatureAssociation, range=Union[ElementIdentifier, DiseaseOrPhenotypicFeatureId])
+
+slots.chemical_to_pathway_association_object = Slot(uri=DIST.object, name="chemical to pathway association_object", curie=DIST.curie('object'),
+                      model_uri=DIST.chemical_to_pathway_association_object, domain=ChemicalToPathwayAssociation, range=Union[ElementIdentifier, PathwayId])
+
+slots.chemical_to_gene_association_object = Slot(uri=DIST.object, name="chemical to gene association_object", curie=DIST.curie('object'),
+                      model_uri=DIST.chemical_to_gene_association_object, domain=ChemicalToGeneAssociation, range=Union[ElementIdentifier, GeneOrGeneProductId])
+
+slots.material_sample_to_thing_association_subject = Slot(uri=DIST.subject, name="material sample to thing association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.material_sample_to_thing_association_subject, domain=MaterialSampleToThingAssociation, range=Union[ElementIdentifier, MaterialSampleId])
+
+slots.material_sample_derivation_association_subject = Slot(uri=DIST.subject, name="material sample derivation association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.material_sample_derivation_association_subject, domain=MaterialSampleDerivationAssociation, range=Union[ElementIdentifier, MaterialSampleId])
+
+slots.material_sample_derivation_association_object = Slot(uri=DIST.object, name="material sample derivation association_object", curie=DIST.curie('object'),
+                      model_uri=DIST.material_sample_derivation_association_object, domain=MaterialSampleDerivationAssociation, range=Union[ElementIdentifier, NamedThingId])
+
+slots.material_sample_derivation_association_relation = Slot(uri=DIST.relation, name="material sample derivation association_relation", curie=DIST.curie('relation'),
+                      model_uri=DIST.material_sample_derivation_association_relation, domain=MaterialSampleDerivationAssociation, range=Union[str, URIorCURIE])
+
+slots.disease_to_exposure_association_subject = Slot(uri=DIST.subject, name="disease to exposure association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.disease_to_exposure_association_subject, domain=DiseaseToExposureAssociation, range=Union[ElementIdentifier, DiseaseId])
+
+slots.disease_to_exposure_association_object = Slot(uri=DIST.object, name="disease to exposure association_object", curie=DIST.curie('object'),
+                      model_uri=DIST.disease_to_exposure_association_object, domain=DiseaseToExposureAssociation, range=Union[ElementIdentifier, ExposureEventId])
+
+slots.disease_to_thing_association_subject = Slot(uri=DIST.subject, name="disease to thing association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.disease_to_thing_association_subject, domain=DiseaseToThingAssociation, range=Union[ElementIdentifier, DiseaseId])
+
+slots.entity_to_phenotypic_feature_association_description = Slot(uri=DIST.description, name="entity to phenotypic feature association_description", curie=DIST.curie('description'),
+                      model_uri=DIST.entity_to_phenotypic_feature_association_description, domain=EntityToPhenotypicFeatureAssociation, range=Optional[Union[str, NarrativeText]])
+
+slots.entity_to_phenotypic_feature_association_object = Slot(uri=DIST.object, name="entity to phenotypic feature association_object", curie=DIST.curie('object'),
+                      model_uri=DIST.entity_to_phenotypic_feature_association_object, domain=EntityToPhenotypicFeatureAssociation, range=Union[ElementIdentifier, PhenotypicFeatureId])
+
+slots.entity_to_disease_association_object = Slot(uri=DIST.object, name="entity to disease association_object", curie=DIST.curie('object'),
+                      model_uri=DIST.entity_to_disease_association_object, domain=None, range=Union[ElementIdentifier, DiseaseId])
+
+slots.disease_or_phenotypic_feature_association_to_thing_association_subject = Slot(uri=DIST.subject, name="disease or phenotypic feature association to thing association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.disease_or_phenotypic_feature_association_to_thing_association_subject, domain=DiseaseOrPhenotypicFeatureAssociationToThingAssociation, range=Union[ElementIdentifier, DiseaseOrPhenotypicFeatureId])
+
+slots.disease_or_phenotypic_feature_association_to_location_association_object = Slot(uri=DIST.object, name="disease or phenotypic feature association to location association_object", curie=DIST.curie('object'),
+                      model_uri=DIST.disease_or_phenotypic_feature_association_to_location_association_object, domain=DiseaseOrPhenotypicFeatureAssociationToLocationAssociation, range=Union[ElementIdentifier, AnatomicalEntityId])
+
+slots.genotype_to_phenotypic_feature_association_relation = Slot(uri=DIST.relation, name="genotype to phenotypic feature association_relation", curie=DIST.curie('relation'),
+                      model_uri=DIST.genotype_to_phenotypic_feature_association_relation, domain=GenotypeToPhenotypicFeatureAssociation, range=Union[str, URIorCURIE])
+
+slots.genotype_to_phenotypic_feature_association_subject = Slot(uri=DIST.subject, name="genotype to phenotypic feature association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.genotype_to_phenotypic_feature_association_subject, domain=GenotypeToPhenotypicFeatureAssociation, range=Union[ElementIdentifier, GenotypeId])
+
+slots.genotype_to_thing_association_subject = Slot(uri=DIST.subject, name="genotype to thing association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.genotype_to_thing_association_subject, domain=GenotypeToThingAssociation, range=Union[ElementIdentifier, GenotypeId])
+
+slots.exposure_event_to_phenotypic_feature_association_subject = Slot(uri=DIST.subject, name="exposure event to phenotypic feature association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.exposure_event_to_phenotypic_feature_association_subject, domain=ExposureEventToPhenotypicFeatureAssociation, range=Union[ElementIdentifier, ExposureEventId])
+
+slots.gene_to_thing_association_subject = Slot(uri=DIST.subject, name="gene to thing association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.gene_to_thing_association_subject, domain=GeneToThingAssociation, range=Union[ElementIdentifier, GeneOrGeneProductId])
+
+slots.variant_to_thing_association_subject = Slot(uri=DIST.subject, name="variant to thing association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.variant_to_thing_association_subject, domain=None, range=Union[ElementIdentifier, SequenceVariantId])
+
+slots.gene_to_phenotypic_feature_association_subject = Slot(uri=DIST.subject, name="gene to phenotypic feature association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.gene_to_phenotypic_feature_association_subject, domain=GeneToPhenotypicFeatureAssociation, range=Union[ElementIdentifier, GeneOrGeneProductId])
+
+slots.gene_to_disease_association_subject = Slot(uri=DIST.subject, name="gene to disease association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.gene_to_disease_association_subject, domain=GeneToDiseaseAssociation, range=Union[ElementIdentifier, GeneOrGeneProductId])
+
+slots.variant_to_population_association_subject = Slot(uri=DIST.subject, name="variant to population association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.variant_to_population_association_subject, domain=VariantToPopulationAssociation, range=Union[ElementIdentifier, SequenceVariantId])
+
+slots.variant_to_population_association_object = Slot(uri=DIST.object, name="variant to population association_object", curie=DIST.curie('object'),
+                      model_uri=DIST.variant_to_population_association_object, domain=VariantToPopulationAssociation, range=Union[ElementIdentifier, PopulationOfIndividualOrganismsId])
+
+slots.variant_to_population_association_has_quotient = Slot(uri=DIST.has_quotient, name="variant to population association_has quotient", curie=DIST.curie('has_quotient'),
+                      model_uri=DIST.variant_to_population_association_has_quotient, domain=VariantToPopulationAssociation, range=Optional[float])
+
+slots.variant_to_population_association_has_count = Slot(uri=DIST.has_count, name="variant to population association_has count", curie=DIST.curie('has_count'),
+                      model_uri=DIST.variant_to_population_association_has_count, domain=VariantToPopulationAssociation, range=Optional[int])
+
+slots.variant_to_population_association_has_total = Slot(uri=DIST.has_total, name="variant to population association_has total", curie=DIST.curie('has_total'),
+                      model_uri=DIST.variant_to_population_association_has_total, domain=VariantToPopulationAssociation, range=Optional[int])
+
+slots.population_to_population_association_subject = Slot(uri=DIST.subject, name="population to population association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.population_to_population_association_subject, domain=PopulationToPopulationAssociation, range=Union[ElementIdentifier, PopulationOfIndividualOrganismsId])
+
+slots.population_to_population_association_object = Slot(uri=DIST.object, name="population to population association_object", curie=DIST.curie('object'),
+                      model_uri=DIST.population_to_population_association_object, domain=PopulationToPopulationAssociation, range=Union[ElementIdentifier, PopulationOfIndividualOrganismsId])
+
+slots.population_to_population_association_relation = Slot(uri=DIST.relation, name="population to population association_relation", curie=DIST.curie('relation'),
+                      model_uri=DIST.population_to_population_association_relation, domain=PopulationToPopulationAssociation, range=Union[str, URIorCURIE])
+
+slots.variant_to_phenotypic_feature_association_subject = Slot(uri=DIST.subject, name="variant to phenotypic feature association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.variant_to_phenotypic_feature_association_subject, domain=VariantToPhenotypicFeatureAssociation, range=Union[ElementIdentifier, SequenceVariantId])
+
+slots.variant_to_disease_association_subject = Slot(uri=DIST.subject, name="variant to disease association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.variant_to_disease_association_subject, domain=VariantToDiseaseAssociation, range=Union[ElementIdentifier, NamedThingId])
+
+slots.variant_to_disease_association_relation = Slot(uri=DIST.relation, name="variant to disease association_relation", curie=DIST.curie('relation'),
+                      model_uri=DIST.variant_to_disease_association_relation, domain=VariantToDiseaseAssociation, range=Union[str, URIorCURIE])
+
+slots.variant_to_disease_association_object = Slot(uri=DIST.object, name="variant to disease association_object", curie=DIST.curie('object'),
+                      model_uri=DIST.variant_to_disease_association_object, domain=VariantToDiseaseAssociation, range=Union[ElementIdentifier, NamedThingId])
+
+slots.model_to_disease_mixin_subject = Slot(uri=DIST.subject, name="model to disease mixin_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.model_to_disease_mixin_subject, domain=None, range=Union[ElementIdentifier, NamedThingId])
+
+slots.model_to_disease_mixin_relation = Slot(uri=DIST.relation, name="model to disease mixin_relation", curie=DIST.curie('relation'),
+                      model_uri=DIST.model_to_disease_mixin_relation, domain=None, range=Union[str, URIorCURIE])
+
+slots.gene_as_a_model_of_disease_association_subject = Slot(uri=DIST.subject, name="gene as a model of disease association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.gene_as_a_model_of_disease_association_subject, domain=GeneAsAModelOfDiseaseAssociation, range=Union[ElementIdentifier, GeneOrGeneProductId])
+
+slots.gene_has_variant_that_contributes_to_disease_association_subject = Slot(uri=DIST.subject, name="gene has variant that contributes to disease association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.gene_has_variant_that_contributes_to_disease_association_subject, domain=GeneHasVariantThatContributesToDiseaseAssociation, range=Union[ElementIdentifier, GeneOrGeneProductId])
+
+slots.gene_to_expression_site_association_subject = Slot(uri=DIST.subject, name="gene to expression site association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.gene_to_expression_site_association_subject, domain=GeneToExpressionSiteAssociation, range=Union[ElementIdentifier, GeneOrGeneProductId])
+
+slots.gene_to_expression_site_association_object = Slot(uri=DIST.object, name="gene to expression site association_object", curie=DIST.curie('object'),
+                      model_uri=DIST.gene_to_expression_site_association_object, domain=GeneToExpressionSiteAssociation, range=Union[ElementIdentifier, AnatomicalEntityId])
+
+slots.gene_to_expression_site_association_relation = Slot(uri=DIST.relation, name="gene to expression site association_relation", curie=DIST.curie('relation'),
+                      model_uri=DIST.gene_to_expression_site_association_relation, domain=GeneToExpressionSiteAssociation, range=Union[str, URIorCURIE])
+
+slots.gene_to_expression_site_association_stage_qualifier = Slot(uri=DIST.stage_qualifier, name="gene to expression site association_stage qualifier", curie=DIST.curie('stage_qualifier'),
+                      model_uri=DIST.gene_to_expression_site_association_stage_qualifier, domain=GeneToExpressionSiteAssociation, range=Optional[Union[ElementIdentifier, LifeStageId]])
+
+slots.gene_to_expression_site_association_quantifier_qualifier = Slot(uri=DIST.quantifier_qualifier, name="gene to expression site association_quantifier qualifier", curie=DIST.curie('quantifier_qualifier'),
+                      model_uri=DIST.gene_to_expression_site_association_quantifier_qualifier, domain=GeneToExpressionSiteAssociation, range=Optional[Union[ElementIdentifier, OntologyClassId]])
+
+slots.sequence_variant_modulates_treatment_association_subject = Slot(uri=DIST.subject, name="sequence variant modulates treatment association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.sequence_variant_modulates_treatment_association_subject, domain=SequenceVariantModulatesTreatmentAssociation, range=Union[ElementIdentifier, SequenceVariantId])
+
+slots.sequence_variant_modulates_treatment_association_object = Slot(uri=DIST.object, name="sequence variant modulates treatment association_object", curie=DIST.curie('object'),
+                      model_uri=DIST.sequence_variant_modulates_treatment_association_object, domain=SequenceVariantModulatesTreatmentAssociation, range=Union[ElementIdentifier, TreatmentId])
+
+slots.functional_association_subject = Slot(uri=DIST.subject, name="functional association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.functional_association_subject, domain=FunctionalAssociation, range=Union[ElementIdentifier, MacromolecularMachineId])
+
+slots.functional_association_object = Slot(uri=DIST.object, name="functional association_object", curie=DIST.curie('object'),
+                      model_uri=DIST.functional_association_object, domain=FunctionalAssociation, range=Union[ElementIdentifier, GeneOntologyClassId])
+
+slots.macromolecular_machine_to_molecular_activity_association_object = Slot(uri=DIST.object, name="macromolecular machine to molecular activity association_object", curie=DIST.curie('object'),
+                      model_uri=DIST.macromolecular_machine_to_molecular_activity_association_object, domain=MacromolecularMachineToMolecularActivityAssociation, range=Union[ElementIdentifier, MolecularActivityId])
+
+slots.macromolecular_machine_to_biological_process_association_object = Slot(uri=DIST.object, name="macromolecular machine to biological process association_object", curie=DIST.curie('object'),
+                      model_uri=DIST.macromolecular_machine_to_biological_process_association_object, domain=MacromolecularMachineToBiologicalProcessAssociation, range=Union[ElementIdentifier, BiologicalProcessId])
+
+slots.macromolecular_machine_to_cellular_component_association_object = Slot(uri=DIST.object, name="macromolecular machine to cellular component association_object", curie=DIST.curie('object'),
+                      model_uri=DIST.macromolecular_machine_to_cellular_component_association_object, domain=MacromolecularMachineToCellularComponentAssociation, range=Union[ElementIdentifier, CellularComponentId])
+
+slots.gene_to_go_term_association_subject = Slot(uri=DIST.subject, name="gene to go term association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.gene_to_go_term_association_subject, domain=GeneToGoTermAssociation, range=Union[ElementIdentifier, MolecularEntityId])
+
+slots.gene_to_go_term_association_object = Slot(uri=DIST.object, name="gene to go term association_object", curie=DIST.curie('object'),
+                      model_uri=DIST.gene_to_go_term_association_object, domain=GeneToGoTermAssociation, range=Union[ElementIdentifier, GeneOntologyClassId])
+
+slots.genomic_sequence_localization_subject = Slot(uri=DIST.subject, name="genomic sequence localization_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.genomic_sequence_localization_subject, domain=GenomicSequenceLocalization, range=Union[ElementIdentifier, GenomicEntityId])
+
+slots.genomic_sequence_localization_object = Slot(uri=DIST.object, name="genomic sequence localization_object", curie=DIST.curie('object'),
+                      model_uri=DIST.genomic_sequence_localization_object, domain=GenomicSequenceLocalization, range=Union[ElementIdentifier, GenomicEntityId])
+
+slots.sequence_feature_relationship_subject = Slot(uri=DIST.subject, name="sequence feature relationship_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.sequence_feature_relationship_subject, domain=SequenceFeatureRelationship, range=Union[ElementIdentifier, GenomicEntityId])
+
+slots.sequence_feature_relationship_object = Slot(uri=DIST.object, name="sequence feature relationship_object", curie=DIST.curie('object'),
+                      model_uri=DIST.sequence_feature_relationship_object, domain=SequenceFeatureRelationship, range=Union[ElementIdentifier, GenomicEntityId])
+
+slots.transcript_to_gene_relationship_subject = Slot(uri=DIST.subject, name="transcript to gene relationship_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.transcript_to_gene_relationship_subject, domain=TranscriptToGeneRelationship, range=Union[ElementIdentifier, TranscriptId])
+
+slots.transcript_to_gene_relationship_object = Slot(uri=DIST.object, name="transcript to gene relationship_object", curie=DIST.curie('object'),
+                      model_uri=DIST.transcript_to_gene_relationship_object, domain=TranscriptToGeneRelationship, range=Union[ElementIdentifier, GeneId])
+
+slots.gene_to_gene_product_relationship_subject = Slot(uri=DIST.subject, name="gene to gene product relationship_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.gene_to_gene_product_relationship_subject, domain=GeneToGeneProductRelationship, range=Union[ElementIdentifier, GeneId])
+
+slots.gene_to_gene_product_relationship_object = Slot(uri=DIST.object, name="gene to gene product relationship_object", curie=DIST.curie('object'),
+                      model_uri=DIST.gene_to_gene_product_relationship_object, domain=GeneToGeneProductRelationship, range=Union[ElementIdentifier, GeneProductId])
+
+slots.gene_to_gene_product_relationship_relation = Slot(uri=DIST.relation, name="gene to gene product relationship_relation", curie=DIST.curie('relation'),
+                      model_uri=DIST.gene_to_gene_product_relationship_relation, domain=GeneToGeneProductRelationship, range=Union[str, URIorCURIE])
+
+slots.exon_to_transcript_relationship_subject = Slot(uri=DIST.subject, name="exon to transcript relationship_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.exon_to_transcript_relationship_subject, domain=ExonToTranscriptRelationship, range=Union[ElementIdentifier, ExonId])
+
+slots.exon_to_transcript_relationship_object = Slot(uri=DIST.object, name="exon to transcript relationship_object", curie=DIST.curie('object'),
+                      model_uri=DIST.exon_to_transcript_relationship_object, domain=ExonToTranscriptRelationship, range=Union[ElementIdentifier, TranscriptId])
+
+slots.gene_regulatory_relationship_relation = Slot(uri=DIST.relation, name="gene regulatory relationship_relation", curie=DIST.curie('relation'),
+                      model_uri=DIST.gene_regulatory_relationship_relation, domain=GeneRegulatoryRelationship, range=Union[str, URIorCURIE])
+
+slots.gene_regulatory_relationship_subject = Slot(uri=DIST.subject, name="gene regulatory relationship_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.gene_regulatory_relationship_subject, domain=GeneRegulatoryRelationship, range=Union[ElementIdentifier, GeneOrGeneProductId])
+
+slots.gene_regulatory_relationship_object = Slot(uri=DIST.object, name="gene regulatory relationship_object", curie=DIST.curie('object'),
+                      model_uri=DIST.gene_regulatory_relationship_object, domain=GeneRegulatoryRelationship, range=Union[ElementIdentifier, GeneOrGeneProductId])
+
+slots.anatomical_entity_to_anatomical_entity_association_subject = Slot(uri=DIST.subject, name="anatomical entity to anatomical entity association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.anatomical_entity_to_anatomical_entity_association_subject, domain=AnatomicalEntityToAnatomicalEntityAssociation, range=Union[ElementIdentifier, AnatomicalEntityId])
+
+slots.anatomical_entity_to_anatomical_entity_association_object = Slot(uri=DIST.object, name="anatomical entity to anatomical entity association_object", curie=DIST.curie('object'),
+                      model_uri=DIST.anatomical_entity_to_anatomical_entity_association_object, domain=AnatomicalEntityToAnatomicalEntityAssociation, range=Union[ElementIdentifier, AnatomicalEntityId])
+
+slots.anatomical_entity_to_anatomical_entity_part_of_association_subject = Slot(uri=DIST.subject, name="anatomical entity to anatomical entity part of association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.anatomical_entity_to_anatomical_entity_part_of_association_subject, domain=AnatomicalEntityToAnatomicalEntityPartOfAssociation, range=Union[ElementIdentifier, AnatomicalEntityId])
+
+slots.anatomical_entity_to_anatomical_entity_part_of_association_object = Slot(uri=DIST.object, name="anatomical entity to anatomical entity part of association_object", curie=DIST.curie('object'),
+                      model_uri=DIST.anatomical_entity_to_anatomical_entity_part_of_association_object, domain=AnatomicalEntityToAnatomicalEntityPartOfAssociation, range=Union[ElementIdentifier, AnatomicalEntityId])
+
+slots.anatomical_entity_to_anatomical_entity_part_of_association_relation = Slot(uri=DIST.relation, name="anatomical entity to anatomical entity part of association_relation", curie=DIST.curie('relation'),
+                      model_uri=DIST.anatomical_entity_to_anatomical_entity_part_of_association_relation, domain=AnatomicalEntityToAnatomicalEntityPartOfAssociation, range=Union[str, URIorCURIE])
+
+slots.anatomical_entity_to_anatomical_entity_ontogenic_association_subject = Slot(uri=DIST.subject, name="anatomical entity to anatomical entity ontogenic association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.anatomical_entity_to_anatomical_entity_ontogenic_association_subject, domain=AnatomicalEntityToAnatomicalEntityOntogenicAssociation, range=Union[ElementIdentifier, AnatomicalEntityId])
+
+slots.anatomical_entity_to_anatomical_entity_ontogenic_association_object = Slot(uri=DIST.object, name="anatomical entity to anatomical entity ontogenic association_object", curie=DIST.curie('object'),
+                      model_uri=DIST.anatomical_entity_to_anatomical_entity_ontogenic_association_object, domain=AnatomicalEntityToAnatomicalEntityOntogenicAssociation, range=Union[ElementIdentifier, AnatomicalEntityId])
+
+slots.anatomical_entity_to_anatomical_entity_ontogenic_association_relation = Slot(uri=DIST.relation, name="anatomical entity to anatomical entity ontogenic association_relation", curie=DIST.curie('relation'),
+                      model_uri=DIST.anatomical_entity_to_anatomical_entity_ontogenic_association_relation, domain=AnatomicalEntityToAnatomicalEntityOntogenicAssociation, range=Union[str, URIorCURIE])
+
+slots.molecular_activity_has_input = Slot(uri=DIST.has_input, name="molecular activity_has input", curie=DIST.curie('has_input'),
+                      model_uri=DIST.molecular_activity_has_input, domain=MolecularActivity, range=List[Union[ElementIdentifier, ChemicalSubstanceId]])
+
+slots.molecular_activity_has_output = Slot(uri=DIST.has_output, name="molecular activity_has output", curie=DIST.curie('has_output'),
+                      model_uri=DIST.molecular_activity_has_output, domain=MolecularActivity, range=List[Union[ElementIdentifier, ChemicalSubstanceId]])
+
+slots.molecular_activity_enabled_by = Slot(uri=DIST.enabled_by, name="molecular activity_enabled by", curie=DIST.curie('enabled_by'),
+                      model_uri=DIST.molecular_activity_enabled_by, domain=MolecularActivity, range=List[Union[ElementIdentifier, MacromolecularMachineId]])

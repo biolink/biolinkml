@@ -13,6 +13,11 @@ class CurieNamespaceTestCase(unittest.TestCase):
         self.assertEqual("bfo:test", BFO.curie('test'))
         self.assertEqual("bfo:", BFO.curie())
 
+    @unittest.expectedFailure
+    def test_curie_as_curie(self):
+        """ "curie can't be a local name at the moment" """
+        BFO = CurieNamespace('bfo', "http://purl.obolibrary.org/obo/BFO_")
+        self.assertEqual("bfo:curie", BFO.curie)
 
 if __name__ == '__main__':
     unittest.main()

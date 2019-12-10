@@ -5,6 +5,7 @@
 
 from typing import Optional, List, Union, Dict, ClassVar
 from dataclasses import dataclass
+from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
@@ -18,7 +19,7 @@ metamodel_version = "1.4.3"
 # Namespaces
 METATYPE = CurieNamespace('metatype', 'https://w3id.org/biolink/biolinkml/types/')
 XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
-DEFAULT_ = Namespace('http://example.org/tests/types/')
+DEFAULT_ = CurieNamespace('', 'http://example.org/tests/types/')
 
 
 # Types
@@ -52,4 +53,11 @@ class StringType(String):
 
 # Class references
 
+
+
+
+
+# Slots
+class slots:
+    pass
 

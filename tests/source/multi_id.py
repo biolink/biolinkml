@@ -5,6 +5,7 @@
 
 from typing import Optional, List, Union, Dict, ClassVar
 from dataclasses import dataclass
+from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
@@ -17,7 +18,7 @@ metamodel_version = "1.4.3"
 
 # Namespaces
 XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
-DEFAULT_ = Namespace('http://example.org/example/multi_id/')
+DEFAULT_ = CurieNamespace('', 'http://example.org/example/multi_id/')
 
 
 # Types
@@ -89,3 +90,24 @@ class SequenceVariant(NamedThing):
         if self.node_property is not None and not isinstance(self.node_property, IdentifierType):
             self.node_property = IdentifierType(self.node_property)
         super().__post_init__()
+
+
+
+# Slots
+class slots:
+    pass
+
+slots.node_property = Slot(uri=DEFAULT_.node_property, name="node property", curie=DEFAULT_.curie('node_property'),
+                      model_uri=DEFAULT_.node_property, domain=NamedThing, range=Optional[Union[URIorCURIE, IdentifierType]])
+
+slots.not_overridden = Slot(uri=DEFAULT_.not_overridden, name="not overridden", curie=DEFAULT_.curie('not_overridden'),
+                      model_uri=DEFAULT_.not_overridden, domain=NamedThing, range=Optional[Union[URIorCURIE, IdentifierType]])
+
+slots.id = Slot(uri=DEFAULT_.id, name="id", curie=DEFAULT_.curie('id'),
+                      model_uri=DEFAULT_.id, domain=NamedThing, range=Union[URIorCURIE, NamedThingId])
+
+slots.sequence_variant_id = Slot(uri=DEFAULT_.id, name="sequence variant_id", curie=DEFAULT_.curie('id'),
+                      model_uri=DEFAULT_.sequence_variant_id, domain=SequenceVariant, range=Union[URIorCURIE, SequenceVariantId])
+
+slots.sequence_variant_node_property = Slot(uri=DEFAULT_.node_property, name="sequence variant_node property", curie=DEFAULT_.curie('node_property'),
+                      model_uri=DEFAULT_.sequence_variant_node_property, domain=SequenceVariant, range=Optional[Union[URIorCURIE, IdentifierType]])
