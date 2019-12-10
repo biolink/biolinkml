@@ -4,7 +4,7 @@
 
 A character string
 
-URI: [https://w3id.org/biolink/vocab/../../../includes/types/String](https://w3id.org/biolink/vocab/../../../includes/types/String)
+URI: [https://w3id.org/biolink/vocab/includes/types/String](https://w3id.org/biolink/vocab/includes/types/String)
 
 |  |  |  |
 | --- | --- | --- |
