@@ -1,7 +1,7 @@
-<img src="http://yuml.me/diagram/nofunky;dir:TB/class/[Root]^-[Children|root_id:string], [Children]^-[Child2|description:string;root_id(i):string], [Children]^-[Child1|root_id(i):string], [Child2]^-[Child22|angry:boolean;description(i):string;root_id(i):string], [Child2]^-[Child21|description(i):string;root_id(i):string]"/>
+<img src="http://yuml.me/diagram/nofunky;dir:TB/class/[Root]^-[Children&#124;root_id:string], [Children]^-[Child2&#124;description:string;root_id(i):string], [Children]^-[Child1&#124;root_id(i):string], [Child2]^-[Child22&#124;angry:boolean;description(i):string;root_id(i):string], [Child2]^-[Child21&#124;description(i):string;root_id(i):string]"/>
 
 -----
-http://yuml.me/diagram/nofunky;dir:TB/class/[Root]^-[Children|root_id:string], [Children]^-[Child2|description:string;root_id(i):string], [Children]^-[Child1|root_id(i):string], [Child2]^-[Child22|angry:boolean;description(i):string;root_id(i):string], [Child2]^-[Child21|description(i):string;root_id(i):string]
+http://yuml.me/diagram/nofunky;dir:TB/class/[Root]^-[Children&#124;root_id:string], [Children]^-[Child2&#124;description:string;root_id(i):string], [Children]^-[Child1&#124;root_id(i):string], [Child2]^-[Child22&#124;angry:boolean;description(i):string;root_id(i):string], [Child2]^-[Child21&#124;description(i):string;root_id(i):string]
 
 BASE <http://example.org/model/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>

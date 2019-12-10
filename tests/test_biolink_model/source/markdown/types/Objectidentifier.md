@@ -4,7 +4,7 @@
 
 A URI or CURIE that represents an object in the model.
 
-URI: [https://w3id.org/biolink/vocab/../../../includes/types/Objectidentifier](https://w3id.org/biolink/vocab/../../../includes/types/Objectidentifier)
+URI: [https://w3id.org/biolink/vocab/includes/types/Objectidentifier](https://w3id.org/biolink/vocab/includes/types/Objectidentifier)
 
 |  |  |  |
 | --- | --- | --- |
