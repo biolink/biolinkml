@@ -1,4 +1,7 @@
-[![Build Status](https://travis-ci.org/biolink/biolinkml.svg?branch=master)](https://travis-ci.org/biolink/biolinkml)
+[![Pyversions](https://img.shields.io/pypi/pyversions/biolinkml.svg)](https://pypi.python.org/pypi/biolinkml)
+
+[![PyPi](https://img.shields.io/pypi/v/biolinkml.svg)](https://pypi.python.org/pypi/biolinkml)
+
 
 [Binder Link](https://mybinder.org/v2/gh/biolink/biolinkml/master?filepath=notebooks)
 

@@ -1,15 +1,47 @@
 CHANGES
 =======
 
-v1.4.8
+v1.4.9
 ------
 
+* Fix case issue introduced in documentation generator
+* Fix case issue introduced in documentation generator
+* Added test cases for issue 50 and 84
+* Added test cases for issue 50 and 84
+* Fix for issue #80
+* Update AltDescription.md
+* Update to include class URI
+* Proposed for Issue #80
+* Escape vertical bar as test for github docs
+* Escape vertical bar as test for github docs
+* Escape vertical bar as test for github docs
+* Fixed broken link
+* Update README.md
+* Manual fix for JSONld context uri's
+* Proposed fix for issue #70
+* Added ability to redirect imports
+* Implemented issue #68
+* Fix for issue #65
+* Add first cut at model import notebook
+* Allow empty slots/types/classes/subsets sections
+* Use the latest biolink-model for testing
+* adding basic example
+* Fix test\_mappings\_generators issue
+* Remove accidentally added files and add new ones
+* Switch to logger output
+* import\_map added to all generators
+* Add import\_mapping to SchemaLoader
+* Documented how to do a model change and updated all of test suite except biolink-model
+* Final set of issues resolved for the mappings import
+* Add central context utilities
+* Pass multiple contexts to context and rdf generators
+* Move test metadata filters to their own module
+* Add mappings as separate include file
+* Refactor RDF comparison test
+* Add code to emit the metamodel in JSON
+* Update for 1.4.6
 * Turn of ShEx validation tests
 * Adding a couple more tests
-
-v1.4.7
-------
-
 * Fix to issue #56. Do not check slot domain/class slot for now
 * sexpr
 * adding sxpr
