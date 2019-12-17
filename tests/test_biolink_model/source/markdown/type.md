@@ -9,7 +9,7 @@ URI: [biolink:type](https://w3id.org/biolink/vocab/type)
 
 ## Domain and Range
 
-[named thing](named thing.md) ->  <sub>OPT</sub> [String](type/String.md)
+[NamedThing](NamedThing.md) ->  <sub>OPT</sub> [String](type/String.md)
 
 ## Parents
 
@@ -20,10 +20,10 @@ URI: [biolink:type](https://w3id.org/biolink/vocab/type)
 
 ## Used by
 
- * [data set summary](data set summary.md)
- * [data set version](data set version.md)
- * [distribution level](distribution level.md)
- * [named thing](named thing.md)
+ * [DataSetSummary](DataSetSummary.md)
+ * [DataSetVersion](DataSetVersion.md)
+ * [DistributionLevel](DistributionLevel.md)
+ * [NamedThing](NamedThing.md)
 
 ## Other properties
 

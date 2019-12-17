@@ -7,7 +7,7 @@
 
 ### Classes
 
- * [named thing](named thing.md)
+ * [NamedThing](NamedThing.md)
 
 ### Mixins
 

@@ -9,7 +9,7 @@ URI: [biolink:pairwise_interaction_association_id](https://w3id.org/biolink/voca
 
 ## Domain and Range
 
-[pairwise interaction association](pairwise interaction association.md) ->  <sub>REQ</sub> [Nodeidentifier](type/Nodeidentifier.md)
+[PairwiseInteractionAssociation](PairwiseInteractionAssociation.md) ->  <sub>REQ</sub> [Nodeidentifier](type/Nodeidentifier.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:pairwise_interaction_association_id](https://w3id.org/biolink/voca
 
 ## Used by
 
- * [pairwise interaction association](pairwise interaction association.md)
+ * [PairwiseInteractionAssociation](PairwiseInteractionAssociation.md)

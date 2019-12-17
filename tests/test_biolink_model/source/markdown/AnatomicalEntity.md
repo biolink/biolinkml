@@ -11,30 +11,30 @@ URI: [biolink:AnatomicalEntity](https://w3id.org/biolink/vocab/AnatomicalEntity)
 
 ## Parents
 
- *  is_a: [organismal entity](organismal entity.md) - A named entity that is either a part of an organism, a whole organism, population or clade of organisms, excluding molecular entities
+ *  is_a: [OrganismalEntity](OrganismalEntity.md) - A named entity that is either a part of an organism, a whole organism, population or clade of organisms, excluding molecular entities
 
 ## Uses Mixins
 
- *  mixin: [thing with taxon](thing with taxon.md) - A mixin that can be used on any entity with a taxon
- *  mixin: [physical entity](physical entity.md) - An entity that has physical properties such as mass, volume, or charge
+ *  mixin: [ThingWithTaxon](ThingWithTaxon.md) - A mixin that can be used on any entity with a taxon
+ *  mixin: [PhysicalEntity](PhysicalEntity.md) - An entity that has physical properties such as mass, volume, or charge
 
 ## Children
 
- * [cell](cell.md)
- * [cellular component](cellular component.md) - A location in or around a cell
- * [gross anatomical structure](gross anatomical structure.md)
+ * [Cell](Cell.md)
+ * [CellularComponent](CellularComponent.md) - A location in or around a cell
+ * [GrossAnatomicalStructure](GrossAnatomicalStructure.md)
 
 ## Referenced by class
 
- *  **[anatomical entity to anatomical entity association](anatomical entity to anatomical entity association.md)** *[anatomical entity to anatomical entity association➞object](anatomical_entity_to_anatomical_entity_association_object.md)*  <sub>REQ</sub>  **[anatomical entity](anatomical entity.md)**
- *  **[anatomical entity to anatomical entity association](anatomical entity to anatomical entity association.md)** *[anatomical entity to anatomical entity association➞subject](anatomical_entity_to_anatomical_entity_association_subject.md)*  <sub>REQ</sub>  **[anatomical entity](anatomical entity.md)**
- *  **[anatomical entity to anatomical entity ontogenic association](anatomical entity to anatomical entity ontogenic association.md)** *[anatomical entity to anatomical entity ontogenic association➞object](anatomical_entity_to_anatomical_entity_ontogenic_association_object.md)*  <sub>REQ</sub>  **[anatomical entity](anatomical entity.md)**
- *  **[anatomical entity to anatomical entity ontogenic association](anatomical entity to anatomical entity ontogenic association.md)** *[anatomical entity to anatomical entity ontogenic association➞subject](anatomical_entity_to_anatomical_entity_ontogenic_association_subject.md)*  <sub>REQ</sub>  **[anatomical entity](anatomical entity.md)**
- *  **[anatomical entity to anatomical entity part of association](anatomical entity to anatomical entity part of association.md)** *[anatomical entity to anatomical entity part of association➞object](anatomical_entity_to_anatomical_entity_part_of_association_object.md)*  <sub>REQ</sub>  **[anatomical entity](anatomical entity.md)**
- *  **[anatomical entity to anatomical entity part of association](anatomical entity to anatomical entity part of association.md)** *[anatomical entity to anatomical entity part of association➞subject](anatomical_entity_to_anatomical_entity_part_of_association_subject.md)*  <sub>REQ</sub>  **[anatomical entity](anatomical entity.md)**
- *  **[disease or phenotypic feature association to location association](disease or phenotypic feature association to location association.md)** *[disease or phenotypic feature association to location association➞object](disease_or_phenotypic_feature_association_to_location_association_object.md)*  <sub>REQ</sub>  **[anatomical entity](anatomical entity.md)**
- *  **[gene or gene product](gene or gene product.md)** *[expressed in](expressed_in.md)*  <sub>0..*</sub>  **[anatomical entity](anatomical entity.md)**
- *  **[gene to expression site association](gene to expression site association.md)** *[gene to expression site association➞object](gene_to_expression_site_association_object.md)*  <sub>REQ</sub>  **[anatomical entity](anatomical entity.md)**
+ *  **[AnatomicalEntityToAnatomicalEntityAssociation](AnatomicalEntityToAnatomicalEntityAssociation.md)** *[anatomical entity to anatomical entity association➞object](anatomical_entity_to_anatomical_entity_association_object.md)*  <sub>REQ</sub>  **[AnatomicalEntity](AnatomicalEntity.md)**
+ *  **[AnatomicalEntityToAnatomicalEntityAssociation](AnatomicalEntityToAnatomicalEntityAssociation.md)** *[anatomical entity to anatomical entity association➞subject](anatomical_entity_to_anatomical_entity_association_subject.md)*  <sub>REQ</sub>  **[AnatomicalEntity](AnatomicalEntity.md)**
+ *  **[AnatomicalEntityToAnatomicalEntityOntogenicAssociation](AnatomicalEntityToAnatomicalEntityOntogenicAssociation.md)** *[anatomical entity to anatomical entity ontogenic association➞object](anatomical_entity_to_anatomical_entity_ontogenic_association_object.md)*  <sub>REQ</sub>  **[AnatomicalEntity](AnatomicalEntity.md)**
+ *  **[AnatomicalEntityToAnatomicalEntityOntogenicAssociation](AnatomicalEntityToAnatomicalEntityOntogenicAssociation.md)** *[anatomical entity to anatomical entity ontogenic association➞subject](anatomical_entity_to_anatomical_entity_ontogenic_association_subject.md)*  <sub>REQ</sub>  **[AnatomicalEntity](AnatomicalEntity.md)**
+ *  **[AnatomicalEntityToAnatomicalEntityPartOfAssociation](AnatomicalEntityToAnatomicalEntityPartOfAssociation.md)** *[anatomical entity to anatomical entity part of association➞object](anatomical_entity_to_anatomical_entity_part_of_association_object.md)*  <sub>REQ</sub>  **[AnatomicalEntity](AnatomicalEntity.md)**
+ *  **[AnatomicalEntityToAnatomicalEntityPartOfAssociation](AnatomicalEntityToAnatomicalEntityPartOfAssociation.md)** *[anatomical entity to anatomical entity part of association➞subject](anatomical_entity_to_anatomical_entity_part_of_association_subject.md)*  <sub>REQ</sub>  **[AnatomicalEntity](AnatomicalEntity.md)**
+ *  **[DiseaseOrPhenotypicFeatureAssociationToLocationAssociation](DiseaseOrPhenotypicFeatureAssociationToLocationAssociation.md)** *[disease or phenotypic feature association to location association➞object](disease_or_phenotypic_feature_association_to_location_association_object.md)*  <sub>REQ</sub>  **[AnatomicalEntity](AnatomicalEntity.md)**
+ *  **[GeneOrGeneProduct](GeneOrGeneProduct.md)** *[expressed in](expressed_in.md)*  <sub>0..*</sub>  **[AnatomicalEntity](AnatomicalEntity.md)**
+ *  **[GeneToExpressionSiteAssociation](GeneToExpressionSiteAssociation.md)** *[gene to expression site association➞object](gene_to_expression_site_association_object.md)*  <sub>REQ</sub>  **[AnatomicalEntity](AnatomicalEntity.md)**
 
 ## Attributes
 
@@ -44,31 +44,31 @@ URI: [biolink:AnatomicalEntity](https://w3id.org/biolink/vocab/AnatomicalEntity)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
     * range: [IdentifierType](type/IdentifierType.md)
-    * inherited from: [named thing](named thing.md)
+    * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
  * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing
     * range: [LabelType](type/LabelType.md)
-    * inherited from: [named thing](named thing.md)
+    * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
  * [category](category.md)  <sub>1..*</sub>
     * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
     * range: [IriType](type/IriType.md)
-    * inherited from: [named thing](named thing.md)
+    * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
 
 ### Inherited from thing with taxon:
 
  * [in taxon](in_taxon.md)  <sub>0..*</sub>
     * Description: connects a thing to a class representing a taxon
-    * range: [organism taxon](organism taxon.md)
+    * range: [OrganismTaxon](OrganismTaxon.md)
     * in subsets: (translator_minimal)
 
 ### Domain for slot:
 
  * [expresses](expresses.md)  <sub>0..*</sub>
     * Description: holds between an anatomical entity and gene or gene product that is expressed there
-    * range: [gene or gene product](gene or gene product.md)
+    * range: [GeneOrGeneProduct](GeneOrGeneProduct.md)
     * in subsets: (translator_minimal)
 
 ## Other properties

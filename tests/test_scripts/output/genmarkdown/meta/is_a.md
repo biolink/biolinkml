@@ -9,7 +9,7 @@ URI: [meta:is_a](https://w3id.org/biolink/biolinkml/meta/is_a)
 
 ## Domain and Range
 
-[definition](definition.md) ->  <sub>OPT</sub> [definition](definition.md)
+[Definition](Definition.md) ->  <sub>OPT</sub> [Definition](Definition.md)
 
 ## Parents
 
@@ -21,6 +21,6 @@ URI: [meta:is_a](https://w3id.org/biolink/biolinkml/meta/is_a)
 
 ## Used by
 
- * [class_definition](class_definition.md)
- * [definition](definition.md)
- * [slot_definition](slot_definition.md)
+ * [ClassDefinition](ClassDefinition.md)
+ * [Definition](Definition.md)
+ * [SlotDefinition](SlotDefinition.md)

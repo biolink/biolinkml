@@ -9,7 +9,7 @@ URI: [biolink:has_qualitative_value](https://w3id.org/biolink/vocab/has_qualitat
 
 ## Domain and Range
 
-[attribute](attribute.md) ->  <sub>OPT</sub> [named thing](named thing.md)
+[Attribute](Attribute.md) ->  <sub>OPT</sub> [NamedThing](NamedThing.md)
 
 ## Parents
 
@@ -19,15 +19,15 @@ URI: [biolink:has_qualitative_value](https://w3id.org/biolink/vocab/has_qualitat
 
 ## Used by
 
- * [attribute](attribute.md)
- * [biological sex](biological sex.md)
- * [clinical modifier](clinical modifier.md)
- * [frequency value](frequency value.md)
- * [genotypic sex](genotypic sex.md)
- * [onset](onset.md)
- * [phenotypic sex](phenotypic sex.md)
- * [severity value](severity value.md)
- * [zygosity](zygosity.md)
+ * [Attribute](Attribute.md)
+ * [BiologicalSex](BiologicalSex.md)
+ * [ClinicalModifier](ClinicalModifier.md)
+ * [FrequencyValue](FrequencyValue.md)
+ * [GenotypicSex](GenotypicSex.md)
+ * [Onset](Onset.md)
+ * [PhenotypicSex](PhenotypicSex.md)
+ * [SeverityValue](SeverityValue.md)
+ * [Zygosity](Zygosity.md)
 
 ## Other properties
 

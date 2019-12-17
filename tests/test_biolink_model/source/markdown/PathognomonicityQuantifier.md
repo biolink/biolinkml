@@ -11,7 +11,7 @@ URI: [biolink:PathognomonicityQuantifier](https://w3id.org/biolink/vocab/Pathogn
 
 ## Parents
 
- *  is_a: [specificity quantifier](specificity quantifier.md)
+ *  is_a: [SpecificityQuantifier](SpecificityQuantifier.md)
 
 ## Attributes
 

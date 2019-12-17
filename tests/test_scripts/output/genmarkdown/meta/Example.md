@@ -11,7 +11,7 @@ URI: [meta:Example](https://w3id.org/biolink/biolinkml/meta/Example)
 
 ## Referenced by class
 
- *  **[element](element.md)** *[examples](examples.md)*  <sub>0..*</sub>  **[example](example.md)**
+ *  **[Element](Element.md)** *[examples](examples.md)*  <sub>0..*</sub>  **[Example](Example.md)**
 
 ## Attributes
 

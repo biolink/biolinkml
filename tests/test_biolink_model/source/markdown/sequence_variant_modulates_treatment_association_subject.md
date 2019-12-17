@@ -9,7 +9,7 @@ URI: [biolink:sequence_variant_modulates_treatment_association_subject](https://
 
 ## Domain and Range
 
-[sequence variant modulates treatment association](sequence variant modulates treatment association.md) ->  <sub>REQ</sub> [sequence variant](sequence variant.md)
+[SequenceVariantModulatesTreatmentAssociation](SequenceVariantModulatesTreatmentAssociation.md) ->  <sub>REQ</sub> [SequenceVariant](SequenceVariant.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:sequence_variant_modulates_treatment_association_subject](https://
 
 ## Used by
 
- * [sequence variant modulates treatment association](sequence variant modulates treatment association.md)
+ * [SequenceVariantModulatesTreatmentAssociation](SequenceVariantModulatesTreatmentAssociation.md)

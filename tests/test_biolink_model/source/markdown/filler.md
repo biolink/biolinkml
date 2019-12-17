@@ -9,7 +9,7 @@ URI: [biolink:filler](https://w3id.org/biolink/vocab/filler)
 
 ## Domain and Range
 
-[named thing](named thing.md) ->  <sub>OPT</sub> [named thing](named thing.md)
+[NamedThing](NamedThing.md) ->  <sub>OPT</sub> [NamedThing](NamedThing.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:filler](https://w3id.org/biolink/vocab/filler)
 
 ## Used by
 
- * [named thing](named thing.md)
+ * [NamedThing](NamedThing.md)

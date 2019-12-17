@@ -11,7 +11,7 @@ URI: [biolink:ModelToDiseaseMixin](https://w3id.org/biolink/vocab/ModelToDisease
 
 ## Mixin for
 
- * [gene as a model of disease association](gene as a model of disease association.md) (mixin) 
+ * [GeneAsAModelOfDiseaseAssociation](GeneAsAModelOfDiseaseAssociation.md) (mixin) 
 
 ## Referenced by class
 
@@ -24,4 +24,4 @@ URI: [biolink:ModelToDiseaseMixin](https://w3id.org/biolink/vocab/ModelToDisease
  * [model to disease mixin➞relation](model_to_disease_mixin_relation.md)  <sub>REQ</sub>
     * range: [Uriorcurie](type/Uriorcurie.md)
  * [model to disease mixin➞subject](model_to_disease_mixin_subject.md)  <sub>REQ</sub>
-    * range: [named thing](named thing.md)
+    * range: [NamedThing](NamedThing.md)

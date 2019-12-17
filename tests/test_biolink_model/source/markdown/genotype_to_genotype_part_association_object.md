@@ -9,7 +9,7 @@ URI: [biolink:genotype_to_genotype_part_association_object](https://w3id.org/bio
 
 ## Domain and Range
 
-[genotype to genotype part association](genotype to genotype part association.md) ->  <sub>REQ</sub> [genotype](genotype.md)
+[GenotypeToGenotypePartAssociation](GenotypeToGenotypePartAssociation.md) ->  <sub>REQ</sub> [Genotype](Genotype.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:genotype_to_genotype_part_association_object](https://w3id.org/bio
 
 ## Used by
 
- * [genotype to genotype part association](genotype to genotype part association.md)
+ * [GenotypeToGenotypePartAssociation](GenotypeToGenotypePartAssociation.md)

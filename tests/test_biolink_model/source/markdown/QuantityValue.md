@@ -11,11 +11,11 @@ URI: [biolink:QuantityValue](https://w3id.org/biolink/vocab/QuantityValue)
 
 ## Parents
 
- *  is_a: [abstract entity](abstract entity.md) - Any thing that is not a process or a physical mass-bearing entity
+ *  is_a: [AbstractEntity](AbstractEntity.md) - Any thing that is not a process or a physical mass-bearing entity
 
 ## Referenced by class
 
- *  **[attribute](attribute.md)** *[has quantitative value](has_quantitative_value.md)*  <sub>0..*</sub>  **[quantity value](quantity value.md)**
+ *  **[Attribute](Attribute.md)** *[has quantitative value](has_quantitative_value.md)*  <sub>0..*</sub>  **[QuantityValue](QuantityValue.md)**
 
 ## Attributes
 

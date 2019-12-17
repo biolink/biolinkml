@@ -9,7 +9,7 @@ URI: [biolink:has_attribute_type](https://w3id.org/biolink/vocab/has_attribute_t
 
 ## Domain and Range
 
-[attribute](attribute.md) ->  <sub>OPT</sub> [ontology class](ontology class.md)
+[Attribute](Attribute.md) ->  <sub>OPT</sub> [OntologyClass](OntologyClass.md)
 
 ## Parents
 
@@ -19,15 +19,15 @@ URI: [biolink:has_attribute_type](https://w3id.org/biolink/vocab/has_attribute_t
 
 ## Used by
 
- * [attribute](attribute.md)
- * [biological sex](biological sex.md)
- * [clinical modifier](clinical modifier.md)
- * [frequency value](frequency value.md)
- * [genotypic sex](genotypic sex.md)
- * [onset](onset.md)
- * [phenotypic sex](phenotypic sex.md)
- * [severity value](severity value.md)
- * [zygosity](zygosity.md)
+ * [Attribute](Attribute.md)
+ * [BiologicalSex](BiologicalSex.md)
+ * [ClinicalModifier](ClinicalModifier.md)
+ * [FrequencyValue](FrequencyValue.md)
+ * [GenotypicSex](GenotypicSex.md)
+ * [Onset](Onset.md)
+ * [PhenotypicSex](PhenotypicSex.md)
+ * [SeverityValue](SeverityValue.md)
+ * [Zygosity](Zygosity.md)
 
 ## Other properties
 

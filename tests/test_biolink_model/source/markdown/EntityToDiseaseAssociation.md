@@ -11,13 +11,13 @@ URI: [biolink:EntityToDiseaseAssociation](https://w3id.org/biolink/vocab/EntityT
 
 ## Parents
 
- *  is_a: [entity to feature or disease qualifiers](entity to feature or disease qualifiers.md) - Qualifiers for entity to disease or phenotype associations
+ *  is_a: [EntityToFeatureOrDiseaseQualifiers](EntityToFeatureOrDiseaseQualifiers.md) - Qualifiers for entity to disease or phenotype associations
 
 ## Mixin for
 
- * [gene as a model of disease association](gene as a model of disease association.md) (mixin) 
- * [gene to disease association](gene to disease association.md) (mixin) 
- * [variant to disease association](variant to disease association.md) (mixin) 
+ * [GeneAsAModelOfDiseaseAssociation](GeneAsAModelOfDiseaseAssociation.md) (mixin) 
+ * [GeneToDiseaseAssociation](GeneToDiseaseAssociation.md) (mixin) 
+ * [VariantToDiseaseAssociation](VariantToDiseaseAssociation.md) (mixin) 
 
 ## Referenced by class
 
@@ -28,4 +28,4 @@ URI: [biolink:EntityToDiseaseAssociation](https://w3id.org/biolink/vocab/EntityT
 ### Domain for slot:
 
  * [entity to disease association➞object](entity_to_disease_association_object.md)  <sub>REQ</sub>
-    * range: [disease](disease.md)
+    * range: [Disease](Disease.md)

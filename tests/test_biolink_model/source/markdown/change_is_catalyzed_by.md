@@ -9,7 +9,7 @@ URI: [biolink:change_is_catalyzed_by](https://w3id.org/biolink/vocab/change_is_c
 
 ## Domain and Range
 
-[association](association.md) ->  <sub>0..*</sub> [macromolecular machine](macromolecular machine.md)
+[Association](Association.md) ->  <sub>0..*</sub> [MacromolecularMachine](MacromolecularMachine.md)
 
 ## Parents
 
@@ -21,5 +21,5 @@ URI: [biolink:change_is_catalyzed_by](https://w3id.org/biolink/vocab/change_is_c
 
 ## Used by
 
- * [association](association.md)
- * [chemical to chemical derivation association](chemical to chemical derivation association.md)
+ * [Association](Association.md)
+ * [ChemicalToChemicalDerivationAssociation](ChemicalToChemicalDerivationAssociation.md)

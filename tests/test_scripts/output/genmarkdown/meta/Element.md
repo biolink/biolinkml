@@ -11,14 +11,14 @@ URI: [meta:Element](https://w3id.org/biolink/biolinkml/meta/Element)
 
 ## Children
 
- * [definition](definition.md) - base class for definitions
- * [schema_definition](schema_definition.md) - a collection of subset, type, slot and class definitions
- * [subset_definition](subset_definition.md) - the name and description of a subset
- * [type_definition](type_definition.md) - A data type definition.
+ * [Definition](Definition.md) - base class for definitions
+ * [SchemaDefinition](SchemaDefinition.md) - a collection of subset, type, slot and class definitions
+ * [SubsetDefinition](SubsetDefinition.md) - the name and description of a subset
+ * [TypeDefinition](TypeDefinition.md) - A data type definition.
 
 ## Referenced by class
 
- *  **[slot_definition](slot_definition.md)** *[range](range.md)*  <sub>OPT</sub>  **[element](element.md)**
+ *  **[SlotDefinition](SlotDefinition.md)** *[range](range.md)*  <sub>OPT</sub>  **[Element](Element.md)**
 
 ## Attributes
 
@@ -28,7 +28,7 @@ URI: [meta:Element](https://w3id.org/biolink/biolinkml/meta/Element)
  * [aliases](aliases.md)  <sub>0..*</sub>
     * range: [String](type/String.md)
  * [alt_descriptions](alt_descriptions.md)  <sub>0..*</sub>
-    * range: [alt_description](alt_description.md)
+    * range: [AltDescription](AltDescription.md)
  * [close mappings](close_mappings.md)  <sub>0..*</sub>
     * Description: A list of terms from different schemas or terminology systems that have close meaning.
     * range: [Uriorcurie](type/Uriorcurie.md)
@@ -57,7 +57,7 @@ URI: [meta:Element](https://w3id.org/biolink/biolinkml/meta/Element)
     * range: [Uriorcurie](type/Uriorcurie.md)
  * [examples](examples.md)  <sub>0..*</sub>
     * Description: example usages of an element
-    * range: [example](example.md)
+    * range: [Example](Example.md)
     * in subsets: (owl)
  * [from_schema](from_schema.md)  <sub>OPT</sub>
     * Description: id of the schema that defined the element
@@ -70,9 +70,9 @@ URI: [meta:Element](https://w3id.org/biolink/biolinkml/meta/Element)
     * range: [String](type/String.md)
  * [in_subset](in_subset.md)  <sub>0..*</sub>
     * Description: used to indicate membership of a term in a defined subset of biolink terms used for a particular domain or application (e.g. the translator_minimal subset holding the minimal set of predicates used in a translator knowledge graph)
-    * range: [subset_definition](subset_definition.md)
+    * range: [SubsetDefinition](SubsetDefinition.md)
  * [local_names](local_names.md)  <sub>0..*</sub>
-    * range: [local_name](local_name.md)
+    * range: [LocalName](LocalName.md)
  * [mappings](mappings.md)  <sub>0..*</sub>
     * Description: A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective.
     * range: [Uriorcurie](type/Uriorcurie.md)
@@ -100,7 +100,7 @@ URI: [meta:Element](https://w3id.org/biolink/biolinkml/meta/Element)
  * [aliases](aliases.md)  <sub>0..*</sub>
     * range: [String](type/String.md)
  * [alt_descriptions](alt_descriptions.md)  <sub>0..*</sub>
-    * range: [alt_description](alt_description.md)
+    * range: [AltDescription](AltDescription.md)
  * [comments](comments.md)  <sub>0..*</sub>
     * Description: notes and comments about an element intended for external consumption
     * range: [String](type/String.md)
@@ -117,7 +117,7 @@ URI: [meta:Element](https://w3id.org/biolink/biolinkml/meta/Element)
     * in subsets: (owl)
  * [examples](examples.md)  <sub>0..*</sub>
     * Description: example usages of an element
-    * range: [example](example.md)
+    * range: [Example](Example.md)
     * in subsets: (owl)
  * [from_schema](from_schema.md)  <sub>OPT</sub>
     * Description: id of the schema that defined the element
@@ -130,9 +130,9 @@ URI: [meta:Element](https://w3id.org/biolink/biolinkml/meta/Element)
     * range: [String](type/String.md)
  * [in_subset](in_subset.md)  <sub>0..*</sub>
     * Description: used to indicate membership of a term in a defined subset of biolink terms used for a particular domain or application (e.g. the translator_minimal subset holding the minimal set of predicates used in a translator knowledge graph)
-    * range: [subset_definition](subset_definition.md)
+    * range: [SubsetDefinition](SubsetDefinition.md)
  * [local_names](local_names.md)  <sub>0..*</sub>
-    * range: [local_name](local_name.md)
+    * range: [LocalName](LocalName.md)
  * [name](name.md)  <sub>REQ</sub>
     * Description: the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class.
     * range: [String](type/String.md)

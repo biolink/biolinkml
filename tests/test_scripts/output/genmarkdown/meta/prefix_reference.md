@@ -9,7 +9,7 @@ URI: [meta:prefix_reference](https://w3id.org/biolink/biolinkml/meta/prefix_refe
 
 ## Domain and Range
 
-[prefix](prefix.md) ->  <sub>REQ</sub> [Uri](type/Uri.md)
+[Prefix](Prefix.md) ->  <sub>REQ</sub> [Uri](type/Uri.md)
 
 ## Parents
 
@@ -19,4 +19,4 @@ URI: [meta:prefix_reference](https://w3id.org/biolink/biolinkml/meta/prefix_refe
 
 ## Used by
 
- * [prefix](prefix.md)
+ * [Prefix](Prefix.md)

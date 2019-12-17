@@ -9,7 +9,7 @@ URI: [biolink:stage_qualifier](https://w3id.org/biolink/vocab/stage_qualifier)
 
 ## Domain and Range
 
-[association](association.md) ->  <sub>OPT</sub> [life stage](life stage.md)
+[Association](Association.md) ->  <sub>OPT</sub> [LifeStage](LifeStage.md)
 
 ## Parents
 
@@ -21,5 +21,5 @@ URI: [biolink:stage_qualifier](https://w3id.org/biolink/vocab/stage_qualifier)
 
 ## Used by
 
- * [association](association.md)
- * [gene to expression site association](gene to expression site association.md)
+ * [Association](Association.md)
+ * [GeneToExpressionSiteAssociation](GeneToExpressionSiteAssociation.md)

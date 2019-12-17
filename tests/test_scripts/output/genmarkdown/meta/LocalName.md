@@ -11,7 +11,7 @@ URI: [meta:LocalName](https://w3id.org/biolink/biolinkml/meta/LocalName)
 
 ## Referenced by class
 
- *  **[element](element.md)** *[local_names](local_names.md)*  <sub>0..*</sub>  **[local_name](local_name.md)**
+ *  **[Element](Element.md)** *[local_names](local_names.md)*  <sub>0..*</sub>  **[LocalName](LocalName.md)**
 
 ## Attributes
 

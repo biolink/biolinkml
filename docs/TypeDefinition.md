@@ -11,13 +11,13 @@ URI: [meta:TypeDefinition](https://w3id.org/biolink/biolinkml/meta/TypeDefinitio
 
 ## Parents
 
- *  is_a: [element](element.md) - a named element in the model
+ *  is_a: [Element](Element.md) - a named element in the model
 
 ## Referenced by class
 
- *  **[schema_definition](schema_definition.md)** *[default_range](default_range.md)*  <sub>OPT</sub>  **[type_definition](type_definition.md)**
- *  **[type_definition](type_definition.md)** *[typeof](typeof.md)*  <sub>OPT</sub>  **[type_definition](type_definition.md)**
- *  **[schema_definition](schema_definition.md)** *[types](types.md)*  <sub>0..*</sub>  **[type_definition](type_definition.md)**
+ *  **[SchemaDefinition](SchemaDefinition.md)** *[default_range](default_range.md)*  <sub>OPT</sub>  **[TypeDefinition](TypeDefinition.md)**
+ *  **[TypeDefinition](TypeDefinition.md)** *[typeof](typeof.md)*  <sub>OPT</sub>  **[TypeDefinition](TypeDefinition.md)**
+ *  **[SchemaDefinition](SchemaDefinition.md)** *[types](types.md)*  <sub>0..*</sub>  **[TypeDefinition](TypeDefinition.md)**
 
 ## Attributes
 
@@ -36,29 +36,29 @@ URI: [meta:TypeDefinition](https://w3id.org/biolink/biolinkml/meta/TypeDefinitio
     * range: [Uriorcurie](type/Uriorcurie.md)
  * [typeof](typeof.md)  <sub>OPT</sub>
     * Description: Names a parent type
-    * range: [type_definition](type_definition.md)
+    * range: [TypeDefinition](TypeDefinition.md)
 
 ### Inherited from element:
 
  * [id_prefixes](id_prefixes.md)  <sub>0..*</sub>
     * Description: the identifier of this class or slot must begin with one of the URIs referenced by this prefix
     * range: [Ncname](type/Ncname.md)
-    * inherited from: [element](element.md)
+    * inherited from: [Element](Element.md)
  * [name](name.md)  <sub>REQ</sub>
     * Description: the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class.
     * range: [String](type/String.md)
-    * inherited from: [element](element.md)
+    * inherited from: [Element](Element.md)
     * in subsets: (owl)
  * [definition_uri](definition_uri.md)  <sub>OPT</sub>
     * Description: the "native" URI of the element
     * range: [Uriorcurie](type/Uriorcurie.md)
-    * inherited from: [element](element.md)
+    * inherited from: [Element](Element.md)
  * [aliases](aliases.md)  <sub>0..*</sub>
     * range: [String](type/String.md)
-    * inherited from: [element](element.md)
+    * inherited from: [Element](Element.md)
  * [local_names](local_names.md)  <sub>0..*</sub>
-    * range: [local_name](local_name.md)
-    * inherited from: [element](element.md)
+    * range: [LocalName](LocalName.md)
+    * inherited from: [Element](Element.md)
  * [mappings](mappings.md)  <sub>0..*</sub>
     * Description: A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective.
     * range: [Uriorcurie](type/Uriorcurie.md)
@@ -66,50 +66,50 @@ URI: [meta:TypeDefinition](https://w3id.org/biolink/biolinkml/meta/TypeDefinitio
  * [description](description.md)  <sub>OPT</sub>
     * Description: a description of the element's purpose and use
     * range: [String](type/String.md)
-    * inherited from: [element](element.md)
+    * inherited from: [Element](Element.md)
     * in subsets: (owl)
  * [alt_descriptions](alt_descriptions.md)  <sub>0..*</sub>
-    * range: [alt_description](alt_description.md)
-    * inherited from: [element](element.md)
+    * range: [AltDescription](AltDescription.md)
+    * inherited from: [Element](Element.md)
  * [deprecated](deprecated.md)  <sub>OPT</sub>
     * Description: Description of why and when this element will no longer be used
     * range: [String](type/String.md)
-    * inherited from: [element](element.md)
+    * inherited from: [Element](Element.md)
  * [todos](todos.md)  <sub>0..*</sub>
     * Description: Outstanding issue that needs resolution
     * range: [String](type/String.md)
-    * inherited from: [element](element.md)
+    * inherited from: [Element](Element.md)
  * [notes](notes.md)  <sub>0..*</sub>
     * Description: editorial notes about an element intended for internal consumption
     * range: [String](type/String.md)
-    * inherited from: [element](element.md)
+    * inherited from: [Element](Element.md)
     * in subsets: (owl)
  * [comments](comments.md)  <sub>0..*</sub>
     * Description: notes and comments about an element intended for external consumption
     * range: [String](type/String.md)
-    * inherited from: [element](element.md)
+    * inherited from: [Element](Element.md)
     * in subsets: (owl)
  * [examples](examples.md)  <sub>0..*</sub>
     * Description: example usages of an element
-    * range: [example](example.md)
-    * inherited from: [element](element.md)
+    * range: [Example](Example.md)
+    * inherited from: [Element](Element.md)
     * in subsets: (owl)
  * [in_subset](in_subset.md)  <sub>0..*</sub>
     * Description: used to indicate membership of a term in a defined subset of biolink terms used for a particular domain or application (e.g. the translator_minimal subset holding the minimal set of predicates used in a translator knowledge graph)
-    * range: [subset_definition](subset_definition.md)
-    * inherited from: [element](element.md)
+    * range: [SubsetDefinition](SubsetDefinition.md)
+    * inherited from: [Element](Element.md)
  * [from_schema](from_schema.md)  <sub>OPT</sub>
     * Description: id of the schema that defined the element
     * range: [Uri](type/Uri.md)
-    * inherited from: [element](element.md)
+    * inherited from: [Element](Element.md)
  * [imported_from](imported_from.md)  <sub>OPT</sub>
     * Description: the imports entry that this element was derived from.  Empty means primary source
     * range: [String](type/String.md)
-    * inherited from: [element](element.md)
+    * inherited from: [Element](Element.md)
  * [see_also](see_also.md)  <sub>0..*</sub>
     * Description: a reference
     * range: [Uriorcurie](type/Uriorcurie.md)
-    * inherited from: [element](element.md)
+    * inherited from: [Element](Element.md)
     * in subsets: (owl)
  * [exact mappings](exact_mappings.md)  <sub>0..*</sub>
     * Description: A list of terms from different schemas or terminology systems that have identical meaning.
@@ -146,4 +146,4 @@ URI: [meta:TypeDefinition](https://w3id.org/biolink/biolinkml/meta/TypeDefinitio
     * range: [Uriorcurie](type/Uriorcurie.md)
  * [typeof](typeof.md)  <sub>OPT</sub>
     * Description: Names a parent type
-    * range: [type_definition](type_definition.md)
+    * range: [TypeDefinition](TypeDefinition.md)

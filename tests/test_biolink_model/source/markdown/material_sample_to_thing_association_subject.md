@@ -9,7 +9,7 @@ URI: [biolink:material_sample_to_thing_association_subject](https://w3id.org/bio
 
 ## Domain and Range
 
-[material sample to thing association](material sample to thing association.md) ->  <sub>REQ</sub> [material sample](material sample.md)
+[MaterialSampleToThingAssociation](MaterialSampleToThingAssociation.md) ->  <sub>REQ</sub> [MaterialSample](MaterialSample.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:material_sample_to_thing_association_subject](https://w3id.org/bio
 
 ## Used by
 
- * [material sample to thing association](material sample to thing association.md)
+ * [MaterialSampleToThingAssociation](MaterialSampleToThingAssociation.md)

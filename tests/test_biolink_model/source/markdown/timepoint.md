@@ -9,7 +9,7 @@ URI: [biolink:timepoint](https://w3id.org/biolink/vocab/timepoint)
 
 ## Domain and Range
 
-[named thing](named thing.md) ->  <sub>OPT</sub> [TimeType](type/TimeType.md)
+[NamedThing](NamedThing.md) ->  <sub>OPT</sub> [TimeType](type/TimeType.md)
 
 ## Parents
 
@@ -20,5 +20,5 @@ URI: [biolink:timepoint](https://w3id.org/biolink/vocab/timepoint)
 
 ## Used by
 
- * [geographic location at time](geographic location at time.md)
- * [named thing](named thing.md)
+ * [GeographicLocationAtTime](GeographicLocationAtTime.md)
+ * [NamedThing](NamedThing.md)

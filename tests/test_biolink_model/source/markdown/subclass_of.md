@@ -9,7 +9,7 @@ URI: [biolink:subclass_of](https://w3id.org/biolink/vocab/subclass_of)
 
 ## Domain and Range
 
-[ontology class](ontology class.md) ->  <sub>0..*</sub> [IriType](type/IriType.md)
+[OntologyClass](OntologyClass.md) ->  <sub>0..*</sub> [IriType](type/IriType.md)
 
 ## Parents
 
@@ -20,19 +20,19 @@ URI: [biolink:subclass_of](https://w3id.org/biolink/vocab/subclass_of)
 
 ## Used by
 
- * [attribute](attribute.md)
- * [biological sex](biological sex.md)
- * [clinical modifier](clinical modifier.md)
- * [frequency value](frequency value.md)
- * [gene ontology class](gene ontology class.md)
- * [genotypic sex](genotypic sex.md)
- * [onset](onset.md)
- * [ontology class](ontology class.md)
- * [organism taxon](organism taxon.md)
- * [phenotypic sex](phenotypic sex.md)
- * [relationship type](relationship type.md)
- * [severity value](severity value.md)
- * [zygosity](zygosity.md)
+ * [Attribute](Attribute.md)
+ * [BiologicalSex](BiologicalSex.md)
+ * [ClinicalModifier](ClinicalModifier.md)
+ * [FrequencyValue](FrequencyValue.md)
+ * [GeneOntologyClass](GeneOntologyClass.md)
+ * [GenotypicSex](GenotypicSex.md)
+ * [Onset](Onset.md)
+ * [OntologyClass](OntologyClass.md)
+ * [OrganismTaxon](OrganismTaxon.md)
+ * [PhenotypicSex](PhenotypicSex.md)
+ * [RelationshipType](RelationshipType.md)
+ * [SeverityValue](SeverityValue.md)
+ * [Zygosity](Zygosity.md)
 
 ## Other properties
 

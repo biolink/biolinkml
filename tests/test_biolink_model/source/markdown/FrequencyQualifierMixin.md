@@ -11,11 +11,11 @@ URI: [biolink:FrequencyQualifierMixin](https://w3id.org/biolink/vocab/FrequencyQ
 
 ## Children
 
- * [entity to feature or disease qualifiers](entity to feature or disease qualifiers.md) - Qualifiers for entity to disease or phenotype associations
+ * [EntityToFeatureOrDiseaseQualifiers](EntityToFeatureOrDiseaseQualifiers.md) - Qualifiers for entity to disease or phenotype associations
 
 ## Mixin for
 
- * [variant to population association](variant to population association.md) (mixin)  - An association between a variant and a population, where the variant has particular frequency in the population
+ * [VariantToPopulationAssociation](VariantToPopulationAssociation.md) (mixin)  - An association between a variant and a population, where the variant has particular frequency in the population
 
 ## Referenced by class
 

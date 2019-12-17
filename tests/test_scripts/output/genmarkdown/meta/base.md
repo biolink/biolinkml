@@ -9,7 +9,7 @@ URI: [meta:base](https://w3id.org/biolink/biolinkml/meta/base)
 
 ## Domain and Range
 
-[type_definition](type_definition.md) ->  <sub>OPT</sub> [String](type/String.md)
+[TypeDefinition](TypeDefinition.md) ->  <sub>OPT</sub> [String](type/String.md)
 
 ## Parents
 
@@ -19,7 +19,7 @@ URI: [meta:base](https://w3id.org/biolink/biolinkml/meta/base)
 
 ## Used by
 
- * [type_definition](type_definition.md)
+ * [TypeDefinition](TypeDefinition.md)
 
 ## Other properties
 

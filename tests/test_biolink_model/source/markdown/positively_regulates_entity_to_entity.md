@@ -9,7 +9,7 @@ URI: [biolink:positively_regulates_entity_to_entity](https://w3id.org/biolink/vo
 
 ## Domain and Range
 
-[molecular entity](molecular entity.md) ->  <sub>0..*</sub> [molecular entity](molecular entity.md)
+[MolecularEntity](MolecularEntity.md) ->  <sub>0..*</sub> [MolecularEntity](MolecularEntity.md)
 
 ## Parents
 
@@ -20,7 +20,7 @@ URI: [biolink:positively_regulates_entity_to_entity](https://w3id.org/biolink/vo
 
 ## Used by
 
- * [molecular entity](molecular entity.md)
+ * [MolecularEntity](MolecularEntity.md)
 
 ## Other properties
 

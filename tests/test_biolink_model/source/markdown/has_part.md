@@ -9,7 +9,7 @@ URI: [biolink:has_part](https://w3id.org/biolink/vocab/has_part)
 
 ## Domain and Range
 
-[named thing](named thing.md) ->  <sub>0..*</sub> [named thing](named thing.md)
+[NamedThing](NamedThing.md) ->  <sub>0..*</sub> [NamedThing](NamedThing.md)
 
 ## Parents
 
@@ -21,8 +21,8 @@ URI: [biolink:has_part](https://w3id.org/biolink/vocab/has_part)
 
 ## Used by
 
- * [named thing](named thing.md)
- * [treatment](treatment.md)
+ * [NamedThing](NamedThing.md)
+ * [Treatment](Treatment.md)
 
 ## Other properties
 

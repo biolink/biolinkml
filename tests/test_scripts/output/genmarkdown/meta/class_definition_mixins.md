@@ -9,7 +9,7 @@ URI: [meta:class_definition_mixins](https://w3id.org/biolink/biolinkml/meta/clas
 
 ## Domain and Range
 
-[class_definition](class_definition.md) ->  <sub>0..*</sub> [class_definition](class_definition.md)
+[ClassDefinition](ClassDefinition.md) ->  <sub>0..*</sub> [ClassDefinition](ClassDefinition.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [meta:class_definition_mixins](https://w3id.org/biolink/biolinkml/meta/clas
 
 ## Used by
 
- * [class_definition](class_definition.md)
+ * [ClassDefinition](ClassDefinition.md)

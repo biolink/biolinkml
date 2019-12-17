@@ -11,20 +11,20 @@ URI: [biolink:EntityToPhenotypicFeatureAssociation](https://w3id.org/biolink/voc
 
 ## Parents
 
- *  is_a: [association](association.md) - A typed association between two entities, supported by evidence
+ *  is_a: [Association](Association.md) - A typed association between two entities, supported by evidence
 
 ## Uses Mixins
 
- *  mixin: [entity to feature or disease qualifiers](entity to feature or disease qualifiers.md) - Qualifiers for entity to disease or phenotype associations
+ *  mixin: [EntityToFeatureOrDiseaseQualifiers](EntityToFeatureOrDiseaseQualifiers.md) - Qualifiers for entity to disease or phenotype associations
 
 ## Mixin for
 
- * [case to phenotypic feature association](case to phenotypic feature association.md) (mixin)  - An association between a case (e.g. individual patient) and a phenotypic feature in which the individual has or has had the phenotype
- * [disease to phenotypic feature association](disease to phenotypic feature association.md) (mixin)  - An association between a disease and a phenotypic feature in which the phenotypic feature is associated with the disease in some way
- * [exposure event to phenotypic feature association](exposure event to phenotypic feature association.md) (mixin)  - Any association between an environment and a phenotypic feature, where being in the environment influences the phenotype
- * [gene to phenotypic feature association](gene to phenotypic feature association.md) (mixin) 
- * [genotype to phenotypic feature association](genotype to phenotypic feature association.md) (mixin)  - Any association between one genotype and a phenotypic feature, where having the genotype confers the phenotype, either in isolation or through environment
- * [variant to phenotypic feature association](variant to phenotypic feature association.md) (mixin) 
+ * [CaseToPhenotypicFeatureAssociation](CaseToPhenotypicFeatureAssociation.md) (mixin)  - An association between a case (e.g. individual patient) and a phenotypic feature in which the individual has or has had the phenotype
+ * [DiseaseToPhenotypicFeatureAssociation](DiseaseToPhenotypicFeatureAssociation.md) (mixin)  - An association between a disease and a phenotypic feature in which the phenotypic feature is associated with the disease in some way
+ * [ExposureEventToPhenotypicFeatureAssociation](ExposureEventToPhenotypicFeatureAssociation.md) (mixin)  - Any association between an environment and a phenotypic feature, where being in the environment influences the phenotype
+ * [GeneToPhenotypicFeatureAssociation](GeneToPhenotypicFeatureAssociation.md) (mixin) 
+ * [GenotypeToPhenotypicFeatureAssociation](GenotypeToPhenotypicFeatureAssociation.md) (mixin)  - Any association between one genotype and a phenotypic feature, where having the genotype confers the phenotype, either in isolation or through environment
+ * [VariantToPhenotypicFeatureAssociation](VariantToPhenotypicFeatureAssociation.md) (mixin) 
 
 ## Referenced by class
 
@@ -35,51 +35,51 @@ URI: [biolink:EntityToPhenotypicFeatureAssociation](https://w3id.org/biolink/voc
 ### Own
 
  * [entity to phenotypic feature association➞object](entity_to_phenotypic_feature_association_object.md)  <sub>REQ</sub>
-    * range: [phenotypic feature](phenotypic feature.md)
+    * range: [PhenotypicFeature](PhenotypicFeature.md)
 
 ### Inherited from association:
 
  * [subject](subject.md)  <sub>REQ</sub>
     * Description: connects an association to the subject of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
-    * range: [named thing](named thing.md)
-    * inherited from: [association](association.md)
+    * range: [NamedThing](NamedThing.md)
+    * inherited from: [Association](Association.md)
  * [relation](relation.md)  <sub>REQ</sub>
     * Description: the relationship type by which a subject is connected to an object in an association
     * range: [Uriorcurie](type/Uriorcurie.md)
-    * inherited from: [association](association.md)
+    * inherited from: [Association](Association.md)
  * [object](object.md)  <sub>REQ</sub>
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
-    * range: [named thing](named thing.md)
-    * inherited from: [association](association.md)
+    * range: [NamedThing](NamedThing.md)
+    * inherited from: [Association](Association.md)
  * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [Nodeidentifier](type/Nodeidentifier.md)
-    * inherited from: [association](association.md)
+    * inherited from: [Association](Association.md)
     * in subsets: (translator_minimal)
  * [negated](negated.md)  <sub>OPT</sub>
     * Description: if set to true, then the association is negated i.e. is not true
     * range: [Boolean](type/Boolean.md)
-    * inherited from: [association](association.md)
+    * inherited from: [Association](Association.md)
  * [association type](association_type.md)  <sub>OPT</sub>
     * Description: connects an association to the type of association (e.g. gene to phenotype)
-    * range: [ontology class](ontology class.md)
-    * inherited from: [association](association.md)
+    * range: [OntologyClass](OntologyClass.md)
+    * inherited from: [Association](Association.md)
  * [qualifiers](qualifiers.md)  <sub>0..*</sub>
     * Description: connects an association to qualifiers that modify or qualify the meaning of that association
-    * range: [ontology class](ontology class.md)
-    * inherited from: [association](association.md)
+    * range: [OntologyClass](OntologyClass.md)
+    * inherited from: [Association](Association.md)
  * [publications](publications.md)  <sub>0..*</sub>
     * Description: connects an association to publications supporting the association
-    * range: [publication](publication.md)
-    * inherited from: [association](association.md)
+    * range: [Publication](Publication.md)
+    * inherited from: [Association](Association.md)
  * [provided by](provided_by.md)  <sub>OPT</sub>
     * Description: connects an association to the agent (person, organization or group) that provided it
-    * range: [provider](provider.md)
-    * inherited from: [association](association.md)
+    * range: [Provider](Provider.md)
+    * inherited from: [Association](Association.md)
 
 ### Domain for slot:
 
  * [entity to phenotypic feature association➞description](entity_to_phenotypic_feature_association_description.md)  <sub>OPT</sub>
     * range: [NarrativeText](type/NarrativeText.md)
  * [entity to phenotypic feature association➞object](entity_to_phenotypic_feature_association_object.md)  <sub>REQ</sub>
-    * range: [phenotypic feature](phenotypic feature.md)
+    * range: [PhenotypicFeature](PhenotypicFeature.md)

@@ -11,7 +11,7 @@ URI: [biolink:DiseaseOrPhenotypicFeatureAssociationToLocationAssociation](https:
 
 ## Parents
 
- *  is_a: [disease or phenotypic feature association to thing association](disease or phenotypic feature association to thing association.md)
+ *  is_a: [DiseaseOrPhenotypicFeatureAssociationToThingAssociation](DiseaseOrPhenotypicFeatureAssociationToThingAssociation.md)
 
 ## Referenced by class
 
@@ -22,58 +22,58 @@ URI: [biolink:DiseaseOrPhenotypicFeatureAssociationToLocationAssociation](https:
 ### Own
 
  * [disease or phenotypic feature association to location association➞object](disease_or_phenotypic_feature_association_to_location_association_object.md)  <sub>REQ</sub>
-    * range: [anatomical entity](anatomical entity.md)
+    * range: [AnatomicalEntity](AnatomicalEntity.md)
 
 ### Inherited from association:
 
  * [subject](subject.md)  <sub>REQ</sub>
     * Description: connects an association to the subject of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
-    * range: [named thing](named thing.md)
-    * inherited from: [association](association.md)
+    * range: [NamedThing](NamedThing.md)
+    * inherited from: [Association](Association.md)
  * [relation](relation.md)  <sub>REQ</sub>
     * Description: the relationship type by which a subject is connected to an object in an association
     * range: [Uriorcurie](type/Uriorcurie.md)
-    * inherited from: [association](association.md)
+    * inherited from: [Association](Association.md)
  * [object](object.md)  <sub>REQ</sub>
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
-    * range: [named thing](named thing.md)
-    * inherited from: [association](association.md)
+    * range: [NamedThing](NamedThing.md)
+    * inherited from: [Association](Association.md)
  * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [Nodeidentifier](type/Nodeidentifier.md)
-    * inherited from: [association](association.md)
+    * inherited from: [Association](Association.md)
     * in subsets: (translator_minimal)
  * [negated](negated.md)  <sub>OPT</sub>
     * Description: if set to true, then the association is negated i.e. is not true
     * range: [Boolean](type/Boolean.md)
-    * inherited from: [association](association.md)
+    * inherited from: [Association](Association.md)
  * [association type](association_type.md)  <sub>OPT</sub>
     * Description: connects an association to the type of association (e.g. gene to phenotype)
-    * range: [ontology class](ontology class.md)
-    * inherited from: [association](association.md)
+    * range: [OntologyClass](OntologyClass.md)
+    * inherited from: [Association](Association.md)
  * [qualifiers](qualifiers.md)  <sub>0..*</sub>
     * Description: connects an association to qualifiers that modify or qualify the meaning of that association
-    * range: [ontology class](ontology class.md)
-    * inherited from: [association](association.md)
+    * range: [OntologyClass](OntologyClass.md)
+    * inherited from: [Association](Association.md)
  * [publications](publications.md)  <sub>0..*</sub>
     * Description: connects an association to publications supporting the association
-    * range: [publication](publication.md)
-    * inherited from: [association](association.md)
+    * range: [Publication](Publication.md)
+    * inherited from: [Association](Association.md)
  * [provided by](provided_by.md)  <sub>OPT</sub>
     * Description: connects an association to the agent (person, organization or group) that provided it
-    * range: [provider](provider.md)
-    * inherited from: [association](association.md)
+    * range: [Provider](Provider.md)
+    * inherited from: [Association](Association.md)
 
 ### Inherited from disease or phenotypic feature association to thing association:
 
  * [disease or phenotypic feature association to thing association➞subject](disease_or_phenotypic_feature_association_to_thing_association_subject.md)  <sub>REQ</sub>
-    * range: [disease or phenotypic feature](disease or phenotypic feature.md)
-    * inherited from: [disease or phenotypic feature association to thing association](disease or phenotypic feature association to thing association.md)
+    * range: [DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md)
+    * inherited from: [DiseaseOrPhenotypicFeatureAssociationToThingAssociation](DiseaseOrPhenotypicFeatureAssociationToThingAssociation.md)
 
 ### Domain for slot:
 
  * [disease or phenotypic feature association to location association➞object](disease_or_phenotypic_feature_association_to_location_association_object.md)  <sub>REQ</sub>
-    * range: [anatomical entity](anatomical entity.md)
+    * range: [AnatomicalEntity](AnatomicalEntity.md)
 
 ## Other properties
 

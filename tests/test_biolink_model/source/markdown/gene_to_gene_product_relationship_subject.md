@@ -9,7 +9,7 @@ URI: [biolink:gene_to_gene_product_relationship_subject](https://w3id.org/biolin
 
 ## Domain and Range
 
-[gene to gene product relationship](gene to gene product relationship.md) ->  <sub>REQ</sub> [gene](gene.md)
+[GeneToGeneProductRelationship](GeneToGeneProductRelationship.md) ->  <sub>REQ</sub> [Gene](Gene.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:gene_to_gene_product_relationship_subject](https://w3id.org/biolin
 
 ## Used by
 
- * [gene to gene product relationship](gene to gene product relationship.md)
+ * [GeneToGeneProductRelationship](GeneToGeneProductRelationship.md)

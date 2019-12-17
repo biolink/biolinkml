@@ -9,7 +9,7 @@ URI: [meta:from_schema](https://w3id.org/biolink/biolinkml/meta/from_schema)
 
 ## Domain and Range
 
-[element](element.md) ->  <sub>OPT</sub> [Uri](type/Uri.md)
+[Element](Element.md) ->  <sub>OPT</sub> [Uri](type/Uri.md)
 
 ## Parents
 
@@ -19,13 +19,13 @@ URI: [meta:from_schema](https://w3id.org/biolink/biolinkml/meta/from_schema)
 
 ## Used by
 
- * [class_definition](class_definition.md)
- * [definition](definition.md)
- * [element](element.md)
- * [schema_definition](schema_definition.md)
- * [slot_definition](slot_definition.md)
- * [subset_definition](subset_definition.md)
- * [type_definition](type_definition.md)
+ * [ClassDefinition](ClassDefinition.md)
+ * [Definition](Definition.md)
+ * [Element](Element.md)
+ * [SchemaDefinition](SchemaDefinition.md)
+ * [SlotDefinition](SlotDefinition.md)
+ * [SubsetDefinition](SubsetDefinition.md)
+ * [TypeDefinition](TypeDefinition.md)
 
 ## Other properties
 

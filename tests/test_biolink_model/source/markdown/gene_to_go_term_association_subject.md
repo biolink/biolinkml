@@ -9,7 +9,7 @@ URI: [biolink:gene_to_go_term_association_subject](https://w3id.org/biolink/voca
 
 ## Domain and Range
 
-[gene to go term association](gene to go term association.md) ->  <sub>REQ</sub> [molecular entity](molecular entity.md)
+[GeneToGoTermAssociation](GeneToGoTermAssociation.md) ->  <sub>REQ</sub> [MolecularEntity](MolecularEntity.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:gene_to_go_term_association_subject](https://w3id.org/biolink/voca
 
 ## Used by
 
- * [gene to go term association](gene to go term association.md)
+ * [GeneToGoTermAssociation](GeneToGoTermAssociation.md)

@@ -11,7 +11,7 @@ URI: [meta:SchemaDefinition](https://w3id.org/biolink/biolinkml/meta/SchemaDefin
 
 ## Parents
 
- *  is_a: [element](element.md) - a named element in the model
+ *  is_a: [Element](Element.md) - a named element in the model
 
 ## Referenced by class
 
@@ -23,7 +23,7 @@ URI: [meta:SchemaDefinition](https://w3id.org/biolink/biolinkml/meta/SchemaDefin
 
  * [classes](classes.md)  <sub>0..*</sub>
     * Description: class definitions
-    * range: [class_definition](class_definition.md)
+    * range: [ClassDefinition](ClassDefinition.md)
  * [default_curi_maps](default_curi_maps.md)  <sub>0..*</sub>
     * Description: ordered list of prefixcommon biocontexts to be fetched to resolve id prefixes and inline prefix variables
     * range: [String](type/String.md)
@@ -32,7 +32,7 @@ URI: [meta:SchemaDefinition](https://w3id.org/biolink/biolinkml/meta/SchemaDefin
     * range: [String](type/String.md)
  * [default_range](default_range.md)  <sub>OPT</sub>
     * Description: default slot range to be used if range element is omitted from a slot definition
-    * range: [type_definition](type_definition.md)
+    * range: [TypeDefinition](TypeDefinition.md)
  * [emit_prefixes](emit_prefixes.md)  <sub>0..*</sub>
     * Description: a list of Curie prefixes that are used in the representation of instances of the model.  All prefixes in this list are added to the prefix sections of the target models.
     * range: [Ncname](type/Ncname.md)
@@ -56,10 +56,10 @@ URI: [meta:SchemaDefinition](https://w3id.org/biolink/biolinkml/meta/SchemaDefin
     * in subsets: (owl)
  * [prefixes](prefixes.md)  <sub>0..*</sub>
     * Description: prefix / URI definitions to be added to the context beyond those fetched from prefixcommons in id prefixes
-    * range: [prefix](prefix.md)
+    * range: [Prefix](Prefix.md)
  * [schema_definition➞slots](slot_definitions.md)  <sub>0..*</sub>
     * Description: slot definitions
-    * range: [slot_definition](slot_definition.md)
+    * range: [SlotDefinition](SlotDefinition.md)
  * [source_file](source_file.md)  <sub>OPT</sub>
     * Description: name, uri or description of the source of the schema
     * range: [String](type/String.md)
@@ -74,14 +74,14 @@ URI: [meta:SchemaDefinition](https://w3id.org/biolink/biolinkml/meta/SchemaDefin
     * in subsets: (owl)
  * [subsets](subsets.md)  <sub>0..*</sub>
     * Description: list of subsets referenced in this model
-    * range: [subset_definition](subset_definition.md)
+    * range: [SubsetDefinition](SubsetDefinition.md)
  * [title](title.md)  <sub>OPT</sub>
     * Description: the official title of the schema
     * range: [String](type/String.md)
     * in subsets: (owl)
  * [types](types.md)  <sub>0..*</sub>
     * Description: data types used in the model
-    * range: [type_definition](type_definition.md)
+    * range: [TypeDefinition](TypeDefinition.md)
  * [version](version.md)  <sub>OPT</sub>
     * Description: particular version of schema
     * range: [String](type/String.md)
@@ -91,22 +91,22 @@ URI: [meta:SchemaDefinition](https://w3id.org/biolink/biolinkml/meta/SchemaDefin
  * [id_prefixes](id_prefixes.md)  <sub>0..*</sub>
     * Description: the identifier of this class or slot must begin with one of the URIs referenced by this prefix
     * range: [Ncname](type/Ncname.md)
-    * inherited from: [element](element.md)
+    * inherited from: [Element](Element.md)
  * [name](name.md)  <sub>REQ</sub>
     * Description: the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class.
     * range: [String](type/String.md)
-    * inherited from: [element](element.md)
+    * inherited from: [Element](Element.md)
     * in subsets: (owl)
  * [definition_uri](definition_uri.md)  <sub>OPT</sub>
     * Description: the "native" URI of the element
     * range: [Uriorcurie](type/Uriorcurie.md)
-    * inherited from: [element](element.md)
+    * inherited from: [Element](Element.md)
  * [aliases](aliases.md)  <sub>0..*</sub>
     * range: [String](type/String.md)
-    * inherited from: [element](element.md)
+    * inherited from: [Element](Element.md)
  * [local_names](local_names.md)  <sub>0..*</sub>
-    * range: [local_name](local_name.md)
-    * inherited from: [element](element.md)
+    * range: [LocalName](LocalName.md)
+    * inherited from: [Element](Element.md)
  * [mappings](mappings.md)  <sub>0..*</sub>
     * Description: A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective.
     * range: [Uriorcurie](type/Uriorcurie.md)
@@ -114,50 +114,50 @@ URI: [meta:SchemaDefinition](https://w3id.org/biolink/biolinkml/meta/SchemaDefin
  * [description](description.md)  <sub>OPT</sub>
     * Description: a description of the element's purpose and use
     * range: [String](type/String.md)
-    * inherited from: [element](element.md)
+    * inherited from: [Element](Element.md)
     * in subsets: (owl)
  * [alt_descriptions](alt_descriptions.md)  <sub>0..*</sub>
-    * range: [alt_description](alt_description.md)
-    * inherited from: [element](element.md)
+    * range: [AltDescription](AltDescription.md)
+    * inherited from: [Element](Element.md)
  * [deprecated](deprecated.md)  <sub>OPT</sub>
     * Description: Description of why and when this element will no longer be used
     * range: [String](type/String.md)
-    * inherited from: [element](element.md)
+    * inherited from: [Element](Element.md)
  * [todos](todos.md)  <sub>0..*</sub>
     * Description: Outstanding issue that needs resolution
     * range: [String](type/String.md)
-    * inherited from: [element](element.md)
+    * inherited from: [Element](Element.md)
  * [notes](notes.md)  <sub>0..*</sub>
     * Description: editorial notes about an element intended for internal consumption
     * range: [String](type/String.md)
-    * inherited from: [element](element.md)
+    * inherited from: [Element](Element.md)
     * in subsets: (owl)
  * [comments](comments.md)  <sub>0..*</sub>
     * Description: notes and comments about an element intended for external consumption
     * range: [String](type/String.md)
-    * inherited from: [element](element.md)
+    * inherited from: [Element](Element.md)
     * in subsets: (owl)
  * [examples](examples.md)  <sub>0..*</sub>
     * Description: example usages of an element
-    * range: [example](example.md)
-    * inherited from: [element](element.md)
+    * range: [Example](Example.md)
+    * inherited from: [Element](Element.md)
     * in subsets: (owl)
  * [in_subset](in_subset.md)  <sub>0..*</sub>
     * Description: used to indicate membership of a term in a defined subset of biolink terms used for a particular domain or application (e.g. the translator_minimal subset holding the minimal set of predicates used in a translator knowledge graph)
-    * range: [subset_definition](subset_definition.md)
-    * inherited from: [element](element.md)
+    * range: [SubsetDefinition](SubsetDefinition.md)
+    * inherited from: [Element](Element.md)
  * [from_schema](from_schema.md)  <sub>OPT</sub>
     * Description: id of the schema that defined the element
     * range: [Uri](type/Uri.md)
-    * inherited from: [element](element.md)
+    * inherited from: [Element](Element.md)
  * [imported_from](imported_from.md)  <sub>OPT</sub>
     * Description: the imports entry that this element was derived from.  Empty means primary source
     * range: [String](type/String.md)
-    * inherited from: [element](element.md)
+    * inherited from: [Element](Element.md)
  * [see_also](see_also.md)  <sub>0..*</sub>
     * Description: a reference
     * range: [Uriorcurie](type/Uriorcurie.md)
-    * inherited from: [element](element.md)
+    * inherited from: [Element](Element.md)
     * in subsets: (owl)
  * [exact mappings](exact_mappings.md)  <sub>0..*</sub>
     * Description: A list of terms from different schemas or terminology systems that have identical meaning.
@@ -184,7 +184,7 @@ URI: [meta:SchemaDefinition](https://w3id.org/biolink/biolinkml/meta/SchemaDefin
 
  * [classes](classes.md)  <sub>0..*</sub>
     * Description: class definitions
-    * range: [class_definition](class_definition.md)
+    * range: [ClassDefinition](ClassDefinition.md)
  * [default_curi_maps](default_curi_maps.md)  <sub>0..*</sub>
     * Description: ordered list of prefixcommon biocontexts to be fetched to resolve id prefixes and inline prefix variables
     * range: [String](type/String.md)
@@ -193,7 +193,7 @@ URI: [meta:SchemaDefinition](https://w3id.org/biolink/biolinkml/meta/SchemaDefin
     * range: [String](type/String.md)
  * [default_range](default_range.md)  <sub>OPT</sub>
     * Description: default slot range to be used if range element is omitted from a slot definition
-    * range: [type_definition](type_definition.md)
+    * range: [TypeDefinition](TypeDefinition.md)
  * [emit_prefixes](emit_prefixes.md)  <sub>0..*</sub>
     * Description: a list of Curie prefixes that are used in the representation of instances of the model.  All prefixes in this list are added to the prefix sections of the target models.
     * range: [Ncname](type/Ncname.md)
@@ -217,10 +217,10 @@ URI: [meta:SchemaDefinition](https://w3id.org/biolink/biolinkml/meta/SchemaDefin
     * in subsets: (owl)
  * [prefixes](prefixes.md)  <sub>0..*</sub>
     * Description: prefix / URI definitions to be added to the context beyond those fetched from prefixcommons in id prefixes
-    * range: [prefix](prefix.md)
+    * range: [Prefix](Prefix.md)
  * [schema_definition➞slots](slot_definitions.md)  <sub>0..*</sub>
     * Description: slot definitions
-    * range: [slot_definition](slot_definition.md)
+    * range: [SlotDefinition](SlotDefinition.md)
  * [source_file](source_file.md)  <sub>OPT</sub>
     * Description: name, uri or description of the source of the schema
     * range: [String](type/String.md)
@@ -235,14 +235,14 @@ URI: [meta:SchemaDefinition](https://w3id.org/biolink/biolinkml/meta/SchemaDefin
     * in subsets: (owl)
  * [subsets](subsets.md)  <sub>0..*</sub>
     * Description: list of subsets referenced in this model
-    * range: [subset_definition](subset_definition.md)
+    * range: [SubsetDefinition](SubsetDefinition.md)
  * [title](title.md)  <sub>OPT</sub>
     * Description: the official title of the schema
     * range: [String](type/String.md)
     * in subsets: (owl)
  * [types](types.md)  <sub>0..*</sub>
     * Description: data types used in the model
-    * range: [type_definition](type_definition.md)
+    * range: [TypeDefinition](TypeDefinition.md)
  * [version](version.md)  <sub>OPT</sub>
     * Description: particular version of schema
     * range: [String](type/String.md)

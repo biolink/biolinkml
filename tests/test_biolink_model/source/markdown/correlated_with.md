@@ -9,7 +9,7 @@ URI: [biolink:correlated_with](https://w3id.org/biolink/vocab/correlated_with)
 
 ## Domain and Range
 
-[disease or phenotypic feature](disease or phenotypic feature.md) ->  <sub>0..*</sub> [molecular entity](molecular entity.md)
+[DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md) ->  <sub>0..*</sub> [MolecularEntity](MolecularEntity.md)
 
 ## Parents
 
@@ -22,9 +22,9 @@ URI: [biolink:correlated_with](https://w3id.org/biolink/vocab/correlated_with)
 
 ## Used by
 
- * [disease](disease.md)
- * [disease or phenotypic feature](disease or phenotypic feature.md)
- * [phenotypic feature](phenotypic feature.md)
+ * [Disease](Disease.md)
+ * [DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md)
+ * [PhenotypicFeature](PhenotypicFeature.md)
 
 ## Other properties
 

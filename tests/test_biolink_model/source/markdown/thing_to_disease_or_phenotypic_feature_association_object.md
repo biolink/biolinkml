@@ -9,7 +9,7 @@ URI: [biolink:thing_to_disease_or_phenotypic_feature_association_object](https:/
 
 ## Domain and Range
 
-[thing to disease or phenotypic feature association](thing to disease or phenotypic feature association.md) ->  <sub>REQ</sub> [disease or phenotypic feature](disease or phenotypic feature.md)
+[ThingToDiseaseOrPhenotypicFeatureAssociation](ThingToDiseaseOrPhenotypicFeatureAssociation.md) ->  <sub>REQ</sub> [DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:thing_to_disease_or_phenotypic_feature_association_object](https:/
 
 ## Used by
 
- * [thing to disease or phenotypic feature association](thing to disease or phenotypic feature association.md)
+ * [ThingToDiseaseOrPhenotypicFeatureAssociation](ThingToDiseaseOrPhenotypicFeatureAssociation.md)

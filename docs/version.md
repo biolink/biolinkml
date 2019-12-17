@@ -9,7 +9,7 @@ URI: [meta:version](https://w3id.org/biolink/biolinkml/meta/version)
 
 ## Domain and Range
 
-[schema_definition](schema_definition.md) ->  <sub>OPT</sub> [String](type/String.md)
+[SchemaDefinition](SchemaDefinition.md) ->  <sub>OPT</sub> [String](type/String.md)
 
 ## Parents
 
@@ -19,7 +19,7 @@ URI: [meta:version](https://w3id.org/biolink/biolinkml/meta/version)
 
 ## Used by
 
- * [schema_definition](schema_definition.md)
+ * [SchemaDefinition](SchemaDefinition.md)
 
 ## Other properties
 

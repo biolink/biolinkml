@@ -9,7 +9,7 @@ URI: [meta:emit_prefixes](https://w3id.org/biolink/biolinkml/meta/emit_prefixes)
 
 ## Domain and Range
 
-[schema_definition](schema_definition.md) ->  <sub>0..*</sub> [Ncname](type/Ncname.md)
+[SchemaDefinition](SchemaDefinition.md) ->  <sub>0..*</sub> [Ncname](type/Ncname.md)
 
 ## Parents
 
@@ -19,4 +19,4 @@ URI: [meta:emit_prefixes](https://w3id.org/biolink/biolinkml/meta/emit_prefixes)
 
 ## Used by
 
- * [schema_definition](schema_definition.md)
+ * [SchemaDefinition](SchemaDefinition.md)

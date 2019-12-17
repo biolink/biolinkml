@@ -9,7 +9,7 @@ URI: [biolink:gene_to_disease_association_subject](https://w3id.org/biolink/voca
 
 ## Domain and Range
 
-[gene to disease association](gene to disease association.md) ->  <sub>REQ</sub> [gene or gene product](gene or gene product.md)
+[GeneToDiseaseAssociation](GeneToDiseaseAssociation.md) ->  <sub>REQ</sub> [GeneOrGeneProduct](GeneOrGeneProduct.md)
 
 ## Parents
 
@@ -22,4 +22,4 @@ URI: [biolink:gene_to_disease_association_subject](https://w3id.org/biolink/voca
 
 ## Used by
 
- * [gene to disease association](gene to disease association.md)
+ * [GeneToDiseaseAssociation](GeneToDiseaseAssociation.md)

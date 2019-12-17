@@ -9,7 +9,7 @@ URI: [meta:license](https://w3id.org/biolink/biolinkml/meta/license)
 
 ## Domain and Range
 
-[schema_definition](schema_definition.md) ->  <sub>OPT</sub> [String](type/String.md)
+[SchemaDefinition](SchemaDefinition.md) ->  <sub>OPT</sub> [String](type/String.md)
 
 ## Parents
 
@@ -19,7 +19,7 @@ URI: [meta:license](https://w3id.org/biolink/biolinkml/meta/license)
 
 ## Used by
 
- * [schema_definition](schema_definition.md)
+ * [SchemaDefinition](SchemaDefinition.md)
 
 ## Other properties
 

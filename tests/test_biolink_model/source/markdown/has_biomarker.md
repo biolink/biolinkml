@@ -9,7 +9,7 @@ URI: [biolink:has_biomarker](https://w3id.org/biolink/vocab/has_biomarker)
 
 ## Domain and Range
 
-[disease or phenotypic feature](disease or phenotypic feature.md) ->  <sub>0..*</sub> [molecular entity](molecular entity.md)
+[DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md) ->  <sub>0..*</sub> [MolecularEntity](MolecularEntity.md)
 
 ## Parents
 
@@ -20,9 +20,9 @@ URI: [biolink:has_biomarker](https://w3id.org/biolink/vocab/has_biomarker)
 
 ## Used by
 
- * [disease](disease.md)
- * [disease or phenotypic feature](disease or phenotypic feature.md)
- * [phenotypic feature](phenotypic feature.md)
+ * [Disease](Disease.md)
+ * [DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md)
+ * [PhenotypicFeature](PhenotypicFeature.md)
 
 ## Other properties
 

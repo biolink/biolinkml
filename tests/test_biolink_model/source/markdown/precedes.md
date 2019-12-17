@@ -9,7 +9,7 @@ URI: [biolink:precedes](https://w3id.org/biolink/vocab/precedes)
 
 ## Domain and Range
 
-[occurrent](occurrent.md) ->  <sub>0..*</sub> [occurrent](occurrent.md)
+[Occurrent](Occurrent.md) ->  <sub>0..*</sub> [Occurrent](Occurrent.md)
 
 ## Parents
 
@@ -20,16 +20,16 @@ URI: [biolink:precedes](https://w3id.org/biolink/vocab/precedes)
 
 ## Used by
 
- * [activity and behavior](activity and behavior.md)
- * [biological process](biological process.md)
- * [biological process or activity](biological process or activity.md)
- * [environmental process](environmental process.md)
- * [molecular activity](molecular activity.md)
- * [occurrent](occurrent.md)
- * [pathway](pathway.md)
- * [phenomenon](phenomenon.md)
- * [physiological process](physiological process.md)
- * [procedure](procedure.md)
+ * [ActivityAndBehavior](ActivityAndBehavior.md)
+ * [BiologicalProcess](BiologicalProcess.md)
+ * [BiologicalProcessOrActivity](BiologicalProcessOrActivity.md)
+ * [EnvironmentalProcess](EnvironmentalProcess.md)
+ * [MolecularActivity](MolecularActivity.md)
+ * [Occurrent](Occurrent.md)
+ * [Pathway](Pathway.md)
+ * [Phenomenon](Phenomenon.md)
+ * [PhysiologicalProcess](PhysiologicalProcess.md)
+ * [Procedure](Procedure.md)
 
 ## Other properties
 

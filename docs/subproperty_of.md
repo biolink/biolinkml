@@ -9,7 +9,7 @@ URI: [meta:subproperty_of](https://w3id.org/biolink/biolinkml/meta/subproperty_o
 
 ## Domain and Range
 
-[slot_definition](slot_definition.md) ->  <sub>OPT</sub> [Uriorcurie](type/Uriorcurie.md)
+[SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [Uriorcurie](type/Uriorcurie.md)
 
 ## Parents
 
@@ -19,7 +19,7 @@ URI: [meta:subproperty_of](https://w3id.org/biolink/biolinkml/meta/subproperty_o
 
 ## Used by
 
- * [slot_definition](slot_definition.md)
+ * [SlotDefinition](SlotDefinition.md)
 
 ## Other properties
 

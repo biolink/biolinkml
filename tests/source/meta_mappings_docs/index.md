@@ -7,9 +7,9 @@ Mappings test
 
 ### Classes
 
- * [c1](c1.md)
-    * [c2](c2.md)
-    * [c3](c3.md)
+ * [C1](C1.md)
+    * [C2](C2.md)
+    * [C3](C3.md)
 
 ### Mixins
 

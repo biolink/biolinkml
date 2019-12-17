@@ -9,7 +9,7 @@ URI: [biolink:macromolecular_machine_to_biological_process_association_object](h
 
 ## Domain and Range
 
-[macromolecular machine to biological process association](macromolecular machine to biological process association.md) ->  <sub>REQ</sub> [biological process](biological process.md)
+[MacromolecularMachineToBiologicalProcessAssociation](MacromolecularMachineToBiologicalProcessAssociation.md) ->  <sub>REQ</sub> [BiologicalProcess](BiologicalProcess.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:macromolecular_machine_to_biological_process_association_object](h
 
 ## Used by
 
- * [macromolecular machine to biological process association](macromolecular machine to biological process association.md)
+ * [MacromolecularMachineToBiologicalProcessAssociation](MacromolecularMachineToBiologicalProcessAssociation.md)

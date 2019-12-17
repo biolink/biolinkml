@@ -9,7 +9,7 @@ URI: [biolink:creation_date](https://w3id.org/biolink/vocab/creation_date)
 
 ## Domain and Range
 
-[named thing](named thing.md) ->  <sub>OPT</sub> [Date](type/Date.md)
+[NamedThing](NamedThing.md) ->  <sub>OPT</sub> [Date](type/Date.md)
 
 ## Parents
 
@@ -20,7 +20,7 @@ URI: [biolink:creation_date](https://w3id.org/biolink/vocab/creation_date)
 
 ## Used by
 
- * [named thing](named thing.md)
+ * [NamedThing](NamedThing.md)
 
 ## Other properties
 

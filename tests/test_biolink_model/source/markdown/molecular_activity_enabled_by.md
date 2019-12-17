@@ -9,7 +9,7 @@ URI: [biolink:molecular_activity_enabled_by](https://w3id.org/biolink/vocab/mole
 
 ## Domain and Range
 
-[molecular activity](molecular activity.md) ->  <sub>0..*</sub> [macromolecular machine](macromolecular machine.md)
+[MolecularActivity](MolecularActivity.md) ->  <sub>0..*</sub> [MacromolecularMachine](MacromolecularMachine.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:molecular_activity_enabled_by](https://w3id.org/biolink/vocab/mole
 
 ## Used by
 
- * [molecular activity](molecular activity.md)
+ * [MolecularActivity](MolecularActivity.md)

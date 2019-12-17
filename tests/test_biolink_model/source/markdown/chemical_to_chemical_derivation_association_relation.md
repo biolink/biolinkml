@@ -9,7 +9,7 @@ URI: [biolink:chemical_to_chemical_derivation_association_relation](https://w3id
 
 ## Domain and Range
 
-[chemical to chemical derivation association](chemical to chemical derivation association.md) ->  <sub>REQ</sub> [Uriorcurie](type/Uriorcurie.md)
+[ChemicalToChemicalDerivationAssociation](ChemicalToChemicalDerivationAssociation.md) ->  <sub>REQ</sub> [Uriorcurie](type/Uriorcurie.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:chemical_to_chemical_derivation_association_relation](https://w3id
 
 ## Used by
 
- * [chemical to chemical derivation association](chemical to chemical derivation association.md)
+ * [ChemicalToChemicalDerivationAssociation](ChemicalToChemicalDerivationAssociation.md)

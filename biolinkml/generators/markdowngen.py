@@ -412,6 +412,9 @@ class MarkdownGenerator(Generator):
         elif isinstance(obj, TypeDefinition):
             link_name = camelcase(obj.name)
             link_ref = f"type/{link_name}"
+        elif isinstance(obj, ClassDefinition):
+            link_name = camelcase(obj.name)
+            link_ref = camelcase(link_name)
         else:
             link_name = obj.name
             link_ref = link_name

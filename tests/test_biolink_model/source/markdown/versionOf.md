@@ -9,7 +9,7 @@ URI: [biolink:versionOf](https://w3id.org/biolink/vocab/versionOf)
 
 ## Domain and Range
 
-[data set version](data set version.md) ->  <sub>OPT</sub> [data set](data set.md)
+[DataSetVersion](DataSetVersion.md) ->  <sub>OPT</sub> [DataSet](DataSet.md)
 
 ## Parents
 
@@ -20,9 +20,9 @@ URI: [biolink:versionOf](https://w3id.org/biolink/vocab/versionOf)
 
 ## Used by
 
- * [data set summary](data set summary.md)
- * [data set version](data set version.md)
- * [distribution level](distribution level.md)
+ * [DataSetSummary](DataSetSummary.md)
+ * [DataSetVersion](DataSetVersion.md)
+ * [DistributionLevel](DistributionLevel.md)
 
 ## Other properties
 

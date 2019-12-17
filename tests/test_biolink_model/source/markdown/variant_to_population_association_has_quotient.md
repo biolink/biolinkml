@@ -9,7 +9,7 @@ URI: [biolink:variant_to_population_association_has_quotient](https://w3id.org/b
 
 ## Domain and Range
 
-[variant to population association](variant to population association.md) ->  <sub>OPT</sub> [Double](type/Double.md)
+[VariantToPopulationAssociation](VariantToPopulationAssociation.md) ->  <sub>OPT</sub> [Double](type/Double.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:variant_to_population_association_has_quotient](https://w3id.org/b
 
 ## Used by
 
- * [variant to population association](variant to population association.md)
+ * [VariantToPopulationAssociation](VariantToPopulationAssociation.md)

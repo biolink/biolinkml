@@ -9,7 +9,7 @@ URI: [biolink:exon_to_transcript_relationship_object](https://w3id.org/biolink/v
 
 ## Domain and Range
 
-[exon to transcript relationship](exon to transcript relationship.md) ->  <sub>REQ</sub> [transcript](transcript.md)
+[ExonToTranscriptRelationship](ExonToTranscriptRelationship.md) ->  <sub>REQ</sub> [Transcript](Transcript.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:exon_to_transcript_relationship_object](https://w3id.org/biolink/v
 
 ## Used by
 
- * [exon to transcript relationship](exon to transcript relationship.md)
+ * [ExonToTranscriptRelationship](ExonToTranscriptRelationship.md)

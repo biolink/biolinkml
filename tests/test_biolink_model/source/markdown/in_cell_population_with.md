@@ -9,7 +9,7 @@ URI: [biolink:in_cell_population_with](https://w3id.org/biolink/vocab/in_cell_po
 
 ## Domain and Range
 
-[gene or gene product](gene or gene product.md) ->  <sub>0..*</sub> [gene or gene product](gene or gene product.md)
+[GeneOrGeneProduct](GeneOrGeneProduct.md) ->  <sub>0..*</sub> [GeneOrGeneProduct](GeneOrGeneProduct.md)
 
 ## Parents
 
@@ -20,16 +20,16 @@ URI: [biolink:in_cell_population_with](https://w3id.org/biolink/vocab/in_cell_po
 
 ## Used by
 
- * [RNA product](RNA product.md)
- * [RNA product isoform](RNA product isoform.md)
- * [gene](gene.md)
- * [gene or gene product](gene or gene product.md)
- * [gene product](gene product.md)
- * [gene product isoform](gene product isoform.md)
- * [microRNA](microRNA.md)
- * [noncoding RNA product](noncoding RNA product.md)
- * [protein](protein.md)
- * [protein isoform](protein isoform.md)
+ * [RNAProduct](RNAProduct.md)
+ * [RNAProductIsoform](RNAProductIsoform.md)
+ * [Gene](Gene.md)
+ * [GeneOrGeneProduct](GeneOrGeneProduct.md)
+ * [GeneProduct](GeneProduct.md)
+ * [GeneProductIsoform](GeneProductIsoform.md)
+ * [MicroRNA](MicroRNA.md)
+ * [NoncodingRNAProduct](NoncodingRNAProduct.md)
+ * [Protein](Protein.md)
+ * [ProteinIsoform](ProteinIsoform.md)
 
 ## Other properties
 

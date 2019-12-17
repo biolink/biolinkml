@@ -9,7 +9,7 @@ URI: [biolink:has_chemical_formula](https://w3id.org/biolink/vocab/has_chemical_
 
 ## Domain and Range
 
-[named thing](named thing.md) ->  <sub>OPT</sub> [ChemicalFormulaValue](type/ChemicalFormulaValue.md)
+[NamedThing](NamedThing.md) ->  <sub>OPT</sub> [ChemicalFormulaValue](type/ChemicalFormulaValue.md)
 
 ## Parents
 
@@ -20,7 +20,7 @@ URI: [biolink:has_chemical_formula](https://w3id.org/biolink/vocab/has_chemical_
 
 ## Used by
 
- * [named thing](named thing.md)
+ * [NamedThing](NamedThing.md)
 
 ## Other properties
 

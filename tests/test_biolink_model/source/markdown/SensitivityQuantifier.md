@@ -11,7 +11,7 @@ URI: [biolink:SensitivityQuantifier](https://w3id.org/biolink/vocab/SensitivityQ
 
 ## Parents
 
- *  is_a: [relationship quantifier](relationship quantifier.md)
+ *  is_a: [RelationshipQuantifier](RelationshipQuantifier.md)
 
 ## Attributes
 

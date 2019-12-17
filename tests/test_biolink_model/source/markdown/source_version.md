@@ -9,7 +9,7 @@ URI: [biolink:source_version](https://w3id.org/biolink/vocab/source_version)
 
 ## Domain and Range
 
-[source file](source file.md) ->  <sub>OPT</sub> [String](type/String.md)
+[SourceFile](SourceFile.md) ->  <sub>OPT</sub> [String](type/String.md)
 
 ## Parents
 
@@ -20,7 +20,7 @@ URI: [biolink:source_version](https://w3id.org/biolink/vocab/source_version)
 
 ## Used by
 
- * [source file](source file.md)
+ * [SourceFile](SourceFile.md)
 
 ## Other properties
 

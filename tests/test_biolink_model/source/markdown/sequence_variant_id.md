@@ -9,7 +9,7 @@ URI: [biolink:sequence_variant_id](https://w3id.org/biolink/vocab/sequence_varia
 
 ## Domain and Range
 
-[sequence variant](sequence variant.md) ->  <sub>REQ</sub> [IdentifierType](type/IdentifierType.md)
+[SequenceVariant](SequenceVariant.md) ->  <sub>REQ</sub> [IdentifierType](type/IdentifierType.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:sequence_variant_id](https://w3id.org/biolink/vocab/sequence_varia
 
 ## Used by
 
- * [sequence variant](sequence variant.md)
+ * [SequenceVariant](SequenceVariant.md)

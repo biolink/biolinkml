@@ -11,7 +11,7 @@ URI: [meta:AltDescription](https://w3id.org/biolink/biolinkml/meta/AltDescriptio
 
 ## Referenced by class
 
- *  **[element](element.md)** *[alt_descriptions](alt_descriptions.md)*  <sub>0..*</sub>  **[alt_description](alt_description.md)**
+ *  **[Element](Element.md)** *[alt_descriptions](alt_descriptions.md)*  <sub>0..*</sub>  **[AltDescription](AltDescription.md)**
 
 ## Attributes
 

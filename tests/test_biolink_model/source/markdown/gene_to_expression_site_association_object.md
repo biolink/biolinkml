@@ -9,7 +9,7 @@ URI: [biolink:gene_to_expression_site_association_object](https://w3id.org/bioli
 
 ## Domain and Range
 
-[gene to expression site association](gene to expression site association.md) ->  <sub>REQ</sub> [anatomical entity](anatomical entity.md)
+[GeneToExpressionSiteAssociation](GeneToExpressionSiteAssociation.md) ->  <sub>REQ</sub> [AnatomicalEntity](AnatomicalEntity.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:gene_to_expression_site_association_object](https://w3id.org/bioli
 
 ## Used by
 
- * [gene to expression site association](gene to expression site association.md)
+ * [GeneToExpressionSiteAssociation](GeneToExpressionSiteAssociation.md)

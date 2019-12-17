@@ -11,20 +11,20 @@ URI: [biolink:BiologicalProcessOrActivity](https://w3id.org/biolink/vocab/Biolog
 
 ## Parents
 
- *  is_a: [biological entity](biological entity.md)
+ *  is_a: [BiologicalEntity](BiologicalEntity.md)
 
 ## Uses Mixins
 
- *  mixin: [occurrent](occurrent.md) - A processual entity
+ *  mixin: [Occurrent](Occurrent.md) - A processual entity
 
 ## Children
 
- * [biological process](biological process.md) - One or more causally connected executions of molecular functions
- * [molecular activity](molecular activity.md) - An execution of a molecular function carried out by a gene product or macromolecular complex.
+ * [BiologicalProcess](BiologicalProcess.md) - One or more causally connected executions of molecular functions
+ * [MolecularActivity](MolecularActivity.md) - An execution of a molecular function carried out by a gene product or macromolecular complex.
 
 ## Referenced by class
 
- *  **[occurrent](occurrent.md)** *[enabled by](enabled_by.md)*  <sub>0..*</sub>  **[biological process or activity](biological process or activity.md)**
+ *  **[Occurrent](Occurrent.md)** *[enabled by](enabled_by.md)*  <sub>0..*</sub>  **[BiologicalProcessOrActivity](BiologicalProcessOrActivity.md)**
 
 ## Attributes
 
@@ -34,15 +34,15 @@ URI: [biolink:BiologicalProcessOrActivity](https://w3id.org/biolink/vocab/Biolog
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
     * range: [IdentifierType](type/IdentifierType.md)
-    * inherited from: [named thing](named thing.md)
+    * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
  * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing
     * range: [LabelType](type/LabelType.md)
-    * inherited from: [named thing](named thing.md)
+    * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
  * [category](category.md)  <sub>1..*</sub>
     * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
     * range: [IriType](type/IriType.md)
-    * inherited from: [named thing](named thing.md)
+    * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)

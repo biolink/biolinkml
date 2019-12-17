@@ -9,7 +9,7 @@ URI: [biolink:has_zygosity](https://w3id.org/biolink/vocab/has_zygosity)
 
 ## Domain and Range
 
-[named thing](named thing.md) ->  <sub>OPT</sub> [zygosity](zygosity.md)
+[NamedThing](NamedThing.md) ->  <sub>OPT</sub> [Zygosity](Zygosity.md)
 
 ## Parents
 
@@ -20,5 +20,5 @@ URI: [biolink:has_zygosity](https://w3id.org/biolink/vocab/has_zygosity)
 
 ## Used by
 
- * [genotype](genotype.md)
- * [named thing](named thing.md)
+ * [Genotype](Genotype.md)
+ * [NamedThing](NamedThing.md)

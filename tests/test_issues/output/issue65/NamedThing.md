@@ -11,7 +11,7 @@ URI: [https://example.com/test65/NamedThing](https://example.com/test65/NamedThi
 
 ## Children
 
- * [child of named thing](child of named thing.md)
+ * [ChildOfNamedThing](ChildOfNamedThing.md)
 
 ## Referenced by class
 

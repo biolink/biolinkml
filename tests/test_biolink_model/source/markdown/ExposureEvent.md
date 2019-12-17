@@ -11,17 +11,17 @@ URI: [biolink:ExposureEvent](https://w3id.org/biolink/vocab/ExposureEvent)
 
 ## Parents
 
- *  is_a: [biological entity](biological entity.md)
+ *  is_a: [BiologicalEntity](BiologicalEntity.md)
 
 ## Children
 
- * [chemical exposure](chemical exposure.md) - A chemical exposure is an intake of a particular chemical substance
- * [treatment](treatment.md) - A treatment is targeted at a disease or phenotype and may involve multiple drug 'exposures'
+ * [ChemicalExposure](ChemicalExposure.md) - A chemical exposure is an intake of a particular chemical substance
+ * [Treatment](Treatment.md) - A treatment is targeted at a disease or phenotype and may involve multiple drug 'exposures'
 
 ## Referenced by class
 
- *  **[disease to exposure association](disease to exposure association.md)** *[disease to exposure association➞object](disease_to_exposure_association_object.md)*  <sub>REQ</sub>  **[exposure event](exposure event.md)**
- *  **[exposure event to phenotypic feature association](exposure event to phenotypic feature association.md)** *[exposure event to phenotypic feature association➞subject](exposure_event_to_phenotypic_feature_association_subject.md)*  <sub>REQ</sub>  **[exposure event](exposure event.md)**
+ *  **[DiseaseToExposureAssociation](DiseaseToExposureAssociation.md)** *[disease to exposure association➞object](disease_to_exposure_association_object.md)*  <sub>REQ</sub>  **[ExposureEvent](ExposureEvent.md)**
+ *  **[ExposureEventToPhenotypicFeatureAssociation](ExposureEventToPhenotypicFeatureAssociation.md)** *[exposure event to phenotypic feature association➞subject](exposure_event_to_phenotypic_feature_association_subject.md)*  <sub>REQ</sub>  **[ExposureEvent](ExposureEvent.md)**
 
 ## Attributes
 
@@ -31,24 +31,24 @@ URI: [biolink:ExposureEvent](https://w3id.org/biolink/vocab/ExposureEvent)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
     * range: [IdentifierType](type/IdentifierType.md)
-    * inherited from: [named thing](named thing.md)
+    * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
  * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing
     * range: [LabelType](type/LabelType.md)
-    * inherited from: [named thing](named thing.md)
+    * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
  * [category](category.md)  <sub>1..*</sub>
     * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
     * range: [IriType](type/IriType.md)
-    * inherited from: [named thing](named thing.md)
+    * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
 
 ### Domain for slot:
 
  * [has receptor](has_receptor.md)  <sub>OPT</sub>
     * Description: the organism or organism part being exposed
-    * range: [organismal entity](organismal entity.md)
+    * range: [OrganismalEntity](OrganismalEntity.md)
  * [has route](has_route.md)  <sub>OPT</sub>
     * Description: the process that results in the stressor coming into direct contact with the receptor
     * range: [String](type/String.md)

@@ -9,7 +9,7 @@ URI: [biolink:treatment_has_part](https://w3id.org/biolink/vocab/treatment_has_p
 
 ## Domain and Range
 
-[treatment](treatment.md) ->  <sub>1..*</sub> [drug exposure](drug exposure.md)
+[Treatment](Treatment.md) ->  <sub>1..*</sub> [DrugExposure](DrugExposure.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:treatment_has_part](https://w3id.org/biolink/vocab/treatment_has_p
 
 ## Used by
 
- * [treatment](treatment.md)
+ * [Treatment](Treatment.md)

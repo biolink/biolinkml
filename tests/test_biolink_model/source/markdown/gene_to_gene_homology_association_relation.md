@@ -9,7 +9,7 @@ URI: [biolink:gene_to_gene_homology_association_relation](https://w3id.org/bioli
 
 ## Domain and Range
 
-[gene to gene homology association](gene to gene homology association.md) ->  <sub>REQ</sub> [Uriorcurie](type/Uriorcurie.md)
+[GeneToGeneHomologyAssociation](GeneToGeneHomologyAssociation.md) ->  <sub>REQ</sub> [Uriorcurie](type/Uriorcurie.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:gene_to_gene_homology_association_relation](https://w3id.org/bioli
 
 ## Used by
 
- * [gene to gene homology association](gene to gene homology association.md)
+ * [GeneToGeneHomologyAssociation](GeneToGeneHomologyAssociation.md)

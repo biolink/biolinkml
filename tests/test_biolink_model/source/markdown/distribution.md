@@ -9,7 +9,7 @@ URI: [biolink:distribution](https://w3id.org/biolink/vocab/distribution)
 
 ## Domain and Range
 
-[data set version](data set version.md) ->  <sub>OPT</sub> [distribution level](distribution level.md)
+[DataSetVersion](DataSetVersion.md) ->  <sub>OPT</sub> [DistributionLevel](DistributionLevel.md)
 
 ## Parents
 
@@ -20,9 +20,9 @@ URI: [biolink:distribution](https://w3id.org/biolink/vocab/distribution)
 
 ## Used by
 
- * [data set summary](data set summary.md)
- * [data set version](data set version.md)
- * [distribution level](distribution level.md)
+ * [DataSetSummary](DataSetSummary.md)
+ * [DataSetVersion](DataSetVersion.md)
+ * [DistributionLevel](DistributionLevel.md)
 
 ## Other properties
 

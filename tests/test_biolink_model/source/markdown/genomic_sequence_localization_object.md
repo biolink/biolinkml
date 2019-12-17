@@ -9,7 +9,7 @@ URI: [biolink:genomic_sequence_localization_object](https://w3id.org/biolink/voc
 
 ## Domain and Range
 
-[genomic sequence localization](genomic sequence localization.md) ->  <sub>REQ</sub> [genomic entity](genomic entity.md)
+[GenomicSequenceLocalization](GenomicSequenceLocalization.md) ->  <sub>REQ</sub> [GenomicEntity](GenomicEntity.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:genomic_sequence_localization_object](https://w3id.org/biolink/voc
 
 ## Used by
 
- * [genomic sequence localization](genomic sequence localization.md)
+ * [GenomicSequenceLocalization](GenomicSequenceLocalization.md)

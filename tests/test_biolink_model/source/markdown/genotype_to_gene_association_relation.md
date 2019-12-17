@@ -9,7 +9,7 @@ URI: [biolink:genotype_to_gene_association_relation](https://w3id.org/biolink/vo
 
 ## Domain and Range
 
-[genotype to gene association](genotype to gene association.md) ->  <sub>REQ</sub> [Uriorcurie](type/Uriorcurie.md)
+[GenotypeToGeneAssociation](GenotypeToGeneAssociation.md) ->  <sub>REQ</sub> [Uriorcurie](type/Uriorcurie.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:genotype_to_gene_association_relation](https://w3id.org/biolink/vo
 
 ## Used by
 
- * [genotype to gene association](genotype to gene association.md)
+ * [GenotypeToGeneAssociation](GenotypeToGeneAssociation.md)

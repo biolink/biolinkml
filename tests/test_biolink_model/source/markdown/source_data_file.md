@@ -9,7 +9,7 @@ URI: [biolink:source_data_file](https://w3id.org/biolink/vocab/source_data_file)
 
 ## Domain and Range
 
-[data set version](data set version.md) ->  <sub>OPT</sub> [data file](data file.md)
+[DataSetVersion](DataSetVersion.md) ->  <sub>OPT</sub> [DataFile](DataFile.md)
 
 ## Parents
 
@@ -20,9 +20,9 @@ URI: [biolink:source_data_file](https://w3id.org/biolink/vocab/source_data_file)
 
 ## Used by
 
- * [data set summary](data set summary.md)
- * [data set version](data set version.md)
- * [distribution level](distribution level.md)
+ * [DataSetSummary](DataSetSummary.md)
+ * [DataSetVersion](DataSetVersion.md)
+ * [DistributionLevel](DistributionLevel.md)
 
 ## Other properties
 

@@ -9,7 +9,7 @@ URI: [biolink:location_of](https://w3id.org/biolink/vocab/location_of)
 
 ## Domain and Range
 
-[named thing](named thing.md) ->  <sub>0..*</sub> [named thing](named thing.md)
+[NamedThing](NamedThing.md) ->  <sub>0..*</sub> [NamedThing](NamedThing.md)
 
 ## Parents
 
@@ -20,7 +20,7 @@ URI: [biolink:location_of](https://w3id.org/biolink/vocab/location_of)
 
 ## Used by
 
- * [named thing](named thing.md)
+ * [NamedThing](NamedThing.md)
 
 ## Other properties
 

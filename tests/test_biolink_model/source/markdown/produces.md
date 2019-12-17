@@ -9,7 +9,7 @@ URI: [biolink:produces](https://w3id.org/biolink/vocab/produces)
 
 ## Domain and Range
 
-[named thing](named thing.md) ->  <sub>0..*</sub> [named thing](named thing.md)
+[NamedThing](NamedThing.md) ->  <sub>0..*</sub> [NamedThing](NamedThing.md)
 
 ## Parents
 
@@ -20,7 +20,7 @@ URI: [biolink:produces](https://w3id.org/biolink/vocab/produces)
 
 ## Used by
 
- * [named thing](named thing.md)
+ * [NamedThing](NamedThing.md)
 
 ## Other properties
 

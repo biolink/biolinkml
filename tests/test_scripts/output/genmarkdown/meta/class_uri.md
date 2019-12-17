@@ -9,7 +9,7 @@ URI: [meta:class_uri](https://w3id.org/biolink/biolinkml/meta/class_uri)
 
 ## Domain and Range
 
-[class_definition](class_definition.md) ->  <sub>OPT</sub> [Uriorcurie](type/Uriorcurie.md)
+[ClassDefinition](ClassDefinition.md) ->  <sub>OPT</sub> [Uriorcurie](type/Uriorcurie.md)
 
 ## Parents
 
@@ -19,4 +19,4 @@ URI: [meta:class_uri](https://w3id.org/biolink/biolinkml/meta/class_uri)
 
 ## Used by
 
- * [class_definition](class_definition.md)
+ * [ClassDefinition](ClassDefinition.md)

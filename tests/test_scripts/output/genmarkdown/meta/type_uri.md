@@ -9,7 +9,7 @@ URI: [meta:type_uri](https://w3id.org/biolink/biolinkml/meta/type_uri)
 
 ## Domain and Range
 
-[type_definition](type_definition.md) ->  <sub>OPT</sub> [Uriorcurie](type/Uriorcurie.md)
+[TypeDefinition](TypeDefinition.md) ->  <sub>OPT</sub> [Uriorcurie](type/Uriorcurie.md)
 
 ## Parents
 
@@ -19,7 +19,7 @@ URI: [meta:type_uri](https://w3id.org/biolink/biolinkml/meta/type_uri)
 
 ## Used by
 
- * [type_definition](type_definition.md)
+ * [TypeDefinition](TypeDefinition.md)
 
 ## Other properties
 

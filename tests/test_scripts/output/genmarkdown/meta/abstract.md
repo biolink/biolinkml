@@ -9,7 +9,7 @@ URI: [meta:abstract](https://w3id.org/biolink/biolinkml/meta/abstract)
 
 ## Domain and Range
 
-[definition](definition.md) ->  <sub>OPT</sub> [Boolean](type/Boolean.md)
+[Definition](Definition.md) ->  <sub>OPT</sub> [Boolean](type/Boolean.md)
 
 ## Parents
 
@@ -19,6 +19,6 @@ URI: [meta:abstract](https://w3id.org/biolink/biolinkml/meta/abstract)
 
 ## Used by
 
- * [class_definition](class_definition.md)
- * [definition](definition.md)
- * [slot_definition](slot_definition.md)
+ * [ClassDefinition](ClassDefinition.md)
+ * [Definition](Definition.md)
+ * [SlotDefinition](SlotDefinition.md)

@@ -11,7 +11,7 @@ URI: [meta:Prefix](https://w3id.org/biolink/biolinkml/meta/Prefix)
 
 ## Referenced by class
 
- *  **[schema_definition](schema_definition.md)** *[prefixes](prefixes.md)*  <sub>0..*</sub>  **[prefix](prefix.md)**
+ *  **[SchemaDefinition](SchemaDefinition.md)** *[prefixes](prefixes.md)*  <sub>0..*</sub>  **[Prefix](Prefix.md)**
 
 ## Attributes
 

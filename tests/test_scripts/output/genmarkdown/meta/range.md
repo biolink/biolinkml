@@ -17,7 +17,7 @@ URI: [meta:range](https://w3id.org/biolink/biolinkml/meta/range)
 
 ## Domain and Range
 
-[slot_definition](slot_definition.md) ->  <sub>OPT</sub> [element](element.md)
+[SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [Element](Element.md)
 
 ## Parents
 
@@ -27,4 +27,4 @@ URI: [meta:range](https://w3id.org/biolink/biolinkml/meta/range)
 
 ## Used by
 
- * [slot_definition](slot_definition.md)
+ * [SlotDefinition](SlotDefinition.md)

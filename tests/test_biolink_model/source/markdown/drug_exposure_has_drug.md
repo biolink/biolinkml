@@ -9,7 +9,7 @@ URI: [biolink:drug_exposure_has_drug](https://w3id.org/biolink/vocab/drug_exposu
 
 ## Domain and Range
 
-[drug exposure](drug exposure.md) ->  <sub>1..*</sub> [chemical substance](chemical substance.md)
+[DrugExposure](DrugExposure.md) ->  <sub>1..*</sub> [ChemicalSubstance](ChemicalSubstance.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:drug_exposure_has_drug](https://w3id.org/biolink/vocab/drug_exposu
 
 ## Used by
 
- * [drug exposure](drug exposure.md)
+ * [DrugExposure](DrugExposure.md)

@@ -9,7 +9,7 @@ URI: [biolink:has_attribute](https://w3id.org/biolink/vocab/has_attribute)
 
 ## Domain and Range
 
-None ->  <sub>0..*</sub> [attribute](attribute.md)
+None ->  <sub>0..*</sub> [Attribute](Attribute.md)
 
 ## Parents
 
@@ -19,7 +19,7 @@ None ->  <sub>0..*</sub> [attribute](attribute.md)
 
 ## Used by
 
- * [material sample](material sample.md)
+ * [MaterialSample](MaterialSample.md)
 
 ## Other properties
 

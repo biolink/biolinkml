@@ -9,7 +9,7 @@ URI: [meta:owner](https://w3id.org/biolink/biolinkml/meta/owner)
 
 ## Domain and Range
 
-[slot_definition](slot_definition.md) ->  <sub>OPT</sub> [definition](definition.md)
+[SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [Definition](Definition.md)
 
 ## Parents
 
@@ -19,4 +19,4 @@ URI: [meta:owner](https://w3id.org/biolink/biolinkml/meta/owner)
 
 ## Used by
 
- * [slot_definition](slot_definition.md)
+ * [SlotDefinition](SlotDefinition.md)

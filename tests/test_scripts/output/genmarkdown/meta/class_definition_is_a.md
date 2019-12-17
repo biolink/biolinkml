@@ -9,7 +9,7 @@ URI: [meta:class_definition_is_a](https://w3id.org/biolink/biolinkml/meta/class_
 
 ## Domain and Range
 
-[class_definition](class_definition.md) ->  <sub>OPT</sub> [class_definition](class_definition.md)
+[ClassDefinition](ClassDefinition.md) ->  <sub>OPT</sub> [ClassDefinition](ClassDefinition.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [meta:class_definition_is_a](https://w3id.org/biolink/biolinkml/meta/class_
 
 ## Used by
 
- * [class_definition](class_definition.md)
+ * [ClassDefinition](ClassDefinition.md)

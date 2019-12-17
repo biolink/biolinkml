@@ -9,7 +9,7 @@ URI: [biolink:gene_to_expression_site_association_subject](https://w3id.org/biol
 
 ## Domain and Range
 
-[gene to expression site association](gene to expression site association.md) ->  <sub>REQ</sub> [gene or gene product](gene or gene product.md)
+[GeneToExpressionSiteAssociation](GeneToExpressionSiteAssociation.md) ->  <sub>REQ</sub> [GeneOrGeneProduct](GeneOrGeneProduct.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:gene_to_expression_site_association_subject](https://w3id.org/biol
 
 ## Used by
 
- * [gene to expression site association](gene to expression site association.md)
+ * [GeneToExpressionSiteAssociation](GeneToExpressionSiteAssociation.md)

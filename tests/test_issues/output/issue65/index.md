@@ -7,8 +7,8 @@
 
 ### Classes
 
- * [named thing](named thing.md)
-    * [child of named thing](child of named thing.md)
+ * [NamedThing](NamedThing.md)
+    * [ChildOfNamedThing](ChildOfNamedThing.md)
 
 ### Mixins
 

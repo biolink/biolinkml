@@ -11,7 +11,7 @@ URI: [https://example.com/test65/ChildOfNamedThing](https://example.com/test65/C
 
 ## Parents
 
- *  is_a: [named thing](named thing.md)
+ *  is_a: [NamedThing](NamedThing.md)
 
 ## Referenced by class
 

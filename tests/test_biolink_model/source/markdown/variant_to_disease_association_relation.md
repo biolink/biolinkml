@@ -9,7 +9,7 @@ URI: [biolink:variant_to_disease_association_relation](https://w3id.org/biolink/
 
 ## Domain and Range
 
-[variant to disease association](variant to disease association.md) ->  <sub>REQ</sub> [Uriorcurie](type/Uriorcurie.md)
+[VariantToDiseaseAssociation](VariantToDiseaseAssociation.md) ->  <sub>REQ</sub> [Uriorcurie](type/Uriorcurie.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:variant_to_disease_association_relation](https://w3id.org/biolink/
 
 ## Used by
 
- * [variant to disease association](variant to disease association.md)
+ * [VariantToDiseaseAssociation](VariantToDiseaseAssociation.md)

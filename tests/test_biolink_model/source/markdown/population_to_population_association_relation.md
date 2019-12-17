@@ -9,7 +9,7 @@ URI: [biolink:population_to_population_association_relation](https://w3id.org/bi
 
 ## Domain and Range
 
-[population to population association](population to population association.md) ->  <sub>REQ</sub> [Uriorcurie](type/Uriorcurie.md)
+[PopulationToPopulationAssociation](PopulationToPopulationAssociation.md) ->  <sub>REQ</sub> [Uriorcurie](type/Uriorcurie.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:population_to_population_association_relation](https://w3id.org/bi
 
 ## Used by
 
- * [population to population association](population to population association.md)
+ * [PopulationToPopulationAssociation](PopulationToPopulationAssociation.md)

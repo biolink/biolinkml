@@ -9,7 +9,7 @@ URI: [meta:is_class_field](https://w3id.org/biolink/biolinkml/meta/is_class_fiel
 
 ## Domain and Range
 
-[slot_definition](slot_definition.md) ->  <sub>OPT</sub> [Boolean](type/Boolean.md)
+[SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [Boolean](type/Boolean.md)
 
 ## Parents
 
@@ -19,4 +19,4 @@ URI: [meta:is_class_field](https://w3id.org/biolink/biolinkml/meta/is_class_fiel
 
 ## Used by
 
- * [slot_definition](slot_definition.md)
+ * [SlotDefinition](SlotDefinition.md)

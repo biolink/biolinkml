@@ -11,7 +11,7 @@ URI: [biolink:GeneGrouping](https://w3id.org/biolink/vocab/GeneGrouping)
 
 ## Mixin for
 
- * [gene family](gene family.md) (mixin)  - any grouping of multiple genes or gene products related by common descent
+ * [GeneFamily](GeneFamily.md) (mixin)  - any grouping of multiple genes or gene products related by common descent
 
 ## Referenced by class
 

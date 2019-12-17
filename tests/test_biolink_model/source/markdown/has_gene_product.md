@@ -9,7 +9,7 @@ URI: [biolink:has_gene_product](https://w3id.org/biolink/vocab/has_gene_product)
 
 ## Domain and Range
 
-[gene](gene.md) ->  <sub>0..*</sub> [gene product](gene product.md)
+[Gene](Gene.md) ->  <sub>0..*</sub> [GeneProduct](GeneProduct.md)
 
 ## Parents
 
@@ -20,7 +20,7 @@ URI: [biolink:has_gene_product](https://w3id.org/biolink/vocab/has_gene_product)
 
 ## Used by
 
- * [gene](gene.md)
+ * [Gene](Gene.md)
 
 ## Other properties
 

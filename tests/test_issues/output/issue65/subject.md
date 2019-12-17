@@ -9,7 +9,7 @@ URI: [https://example.com/test65/subject](https://example.com/test65/subject)
 
 ## Domain and Range
 
-[named thing](named thing.md) ->  <sub>OPT</sub> [String](type/String.md)
+[NamedThing](NamedThing.md) ->  <sub>OPT</sub> [String](type/String.md)
 
 ## Parents
 
@@ -20,5 +20,5 @@ URI: [https://example.com/test65/subject](https://example.com/test65/subject)
 
 ## Used by
 
- * [child of named thing](child of named thing.md)
- * [named thing](named thing.md)
+ * [ChildOfNamedThing](ChildOfNamedThing.md)
+ * [NamedThing](NamedThing.md)

@@ -9,7 +9,7 @@ URI: [biolink:gene_to_gene_association_object](https://w3id.org/biolink/vocab/ge
 
 ## Domain and Range
 
-[gene to gene association](gene to gene association.md) ->  <sub>REQ</sub> [gene or gene product](gene or gene product.md)
+[GeneToGeneAssociation](GeneToGeneAssociation.md) ->  <sub>REQ</sub> [GeneOrGeneProduct](GeneOrGeneProduct.md)
 
 ## Parents
 
@@ -20,6 +20,6 @@ URI: [biolink:gene_to_gene_association_object](https://w3id.org/biolink/vocab/ge
 
 ## Used by
 
- * [gene to gene association](gene to gene association.md)
- * [gene to gene homology association](gene to gene homology association.md)
- * [pairwise gene to gene interaction](pairwise gene to gene interaction.md)
+ * [GeneToGeneAssociation](GeneToGeneAssociation.md)
+ * [GeneToGeneHomologyAssociation](GeneToGeneHomologyAssociation.md)
+ * [PairwiseGeneToGeneInteraction](PairwiseGeneToGeneInteraction.md)

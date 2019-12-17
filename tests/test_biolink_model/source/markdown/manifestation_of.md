@@ -9,7 +9,7 @@ URI: [biolink:manifestation_of](https://w3id.org/biolink/vocab/manifestation_of)
 
 ## Domain and Range
 
-[named thing](named thing.md) ->  <sub>0..*</sub> [disease](disease.md)
+[NamedThing](NamedThing.md) ->  <sub>0..*</sub> [Disease](Disease.md)
 
 ## Parents
 
@@ -20,7 +20,7 @@ URI: [biolink:manifestation_of](https://w3id.org/biolink/vocab/manifestation_of)
 
 ## Used by
 
- * [named thing](named thing.md)
+ * [NamedThing](NamedThing.md)
 
 ## Other properties
 

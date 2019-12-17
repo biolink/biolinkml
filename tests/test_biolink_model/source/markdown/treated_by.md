@@ -9,7 +9,7 @@ URI: [biolink:treated_by](https://w3id.org/biolink/vocab/treated_by)
 
 ## Domain and Range
 
-[disease or phenotypic feature](disease or phenotypic feature.md) ->  <sub>0..*</sub> [named thing](named thing.md)
+[DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md) ->  <sub>0..*</sub> [NamedThing](NamedThing.md)
 
 ## Parents
 
@@ -20,9 +20,9 @@ URI: [biolink:treated_by](https://w3id.org/biolink/vocab/treated_by)
 
 ## Used by
 
- * [disease](disease.md)
- * [disease or phenotypic feature](disease or phenotypic feature.md)
- * [phenotypic feature](phenotypic feature.md)
+ * [Disease](Disease.md)
+ * [DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md)
+ * [PhenotypicFeature](PhenotypicFeature.md)
 
 ## Other properties
 

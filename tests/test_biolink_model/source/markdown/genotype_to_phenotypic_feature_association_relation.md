@@ -9,7 +9,7 @@ URI: [biolink:genotype_to_phenotypic_feature_association_relation](https://w3id.
 
 ## Domain and Range
 
-[genotype to phenotypic feature association](genotype to phenotypic feature association.md) ->  <sub>REQ</sub> [Uriorcurie](type/Uriorcurie.md)
+[GenotypeToPhenotypicFeatureAssociation](GenotypeToPhenotypicFeatureAssociation.md) ->  <sub>REQ</sub> [Uriorcurie](type/Uriorcurie.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:genotype_to_phenotypic_feature_association_relation](https://w3id.
 
 ## Used by
 
- * [genotype to phenotypic feature association](genotype to phenotypic feature association.md)
+ * [GenotypeToPhenotypicFeatureAssociation](GenotypeToPhenotypicFeatureAssociation.md)

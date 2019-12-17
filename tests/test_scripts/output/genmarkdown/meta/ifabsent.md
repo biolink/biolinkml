@@ -18,7 +18,7 @@ URI: [meta:ifabsent](https://w3id.org/biolink/biolinkml/meta/ifabsent)
 
 ## Domain and Range
 
-[slot_definition](slot_definition.md) ->  <sub>OPT</sub> [String](type/String.md)
+[SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [String](type/String.md)
 
 ## Parents
 
@@ -28,4 +28,4 @@ URI: [meta:ifabsent](https://w3id.org/biolink/biolinkml/meta/ifabsent)
 
 ## Used by
 
- * [slot_definition](slot_definition.md)
+ * [SlotDefinition](SlotDefinition.md)

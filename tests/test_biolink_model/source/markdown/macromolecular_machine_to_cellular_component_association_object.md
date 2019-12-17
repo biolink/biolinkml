@@ -9,7 +9,7 @@ URI: [biolink:macromolecular_machine_to_cellular_component_association_object](h
 
 ## Domain and Range
 
-[macromolecular machine to cellular component association](macromolecular machine to cellular component association.md) ->  <sub>REQ</sub> [cellular component](cellular component.md)
+[MacromolecularMachineToCellularComponentAssociation](MacromolecularMachineToCellularComponentAssociation.md) ->  <sub>REQ</sub> [CellularComponent](CellularComponent.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:macromolecular_machine_to_cellular_component_association_object](h
 
 ## Used by
 
- * [macromolecular machine to cellular component association](macromolecular machine to cellular component association.md)
+ * [MacromolecularMachineToCellularComponentAssociation](MacromolecularMachineToCellularComponentAssociation.md)

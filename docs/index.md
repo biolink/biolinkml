@@ -7,17 +7,17 @@ A metamodel for defining biolink related schemas
 
 ### Classes
 
- * [alt_description](alt_description.md) - an attributed description
- * [element](element.md) - a named element in the model
-    * [definition](definition.md) - base class for definitions
-       * [class_definition](class_definition.md) - the definition of a class or interface
-       * [slot_definition](slot_definition.md) - the definition of a property or a slot
-    * [schema_definition](schema_definition.md) - a collection of subset, type, slot and class definitions
-    * [subset_definition](subset_definition.md) - the name and description of a subset
-    * [type_definition](type_definition.md) - A data type definition.
- * [example](example.md) - usage example and description
- * [local_name](local_name.md) - an attributed label
- * [prefix](prefix.md) - prefix URI tuple
+ * [AltDescription](AltDescription.md) - an attributed description
+ * [Element](Element.md) - a named element in the model
+    * [Definition](Definition.md) - base class for definitions
+       * [ClassDefinition](ClassDefinition.md) - the definition of a class or interface
+       * [SlotDefinition](SlotDefinition.md) - the definition of a property or a slot
+    * [SchemaDefinition](SchemaDefinition.md) - a collection of subset, type, slot and class definitions
+    * [SubsetDefinition](SubsetDefinition.md) - the name and description of a subset
+    * [TypeDefinition](TypeDefinition.md) - A data type definition.
+ * [Example](Example.md) - usage example and description
+ * [LocalName](LocalName.md) - an attributed label
+ * [Prefix](Prefix.md) - prefix URI tuple
 
 ### Mixins
 

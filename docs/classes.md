@@ -9,7 +9,7 @@ URI: [meta:classes](https://w3id.org/biolink/biolinkml/meta/classes)
 
 ## Domain and Range
 
-[schema_definition](schema_definition.md) ->  <sub>0..*</sub> [class_definition](class_definition.md)
+[SchemaDefinition](SchemaDefinition.md) ->  <sub>0..*</sub> [ClassDefinition](ClassDefinition.md)
 
 ## Parents
 
@@ -19,4 +19,4 @@ URI: [meta:classes](https://w3id.org/biolink/biolinkml/meta/classes)
 
 ## Used by
 
- * [schema_definition](schema_definition.md)
+ * [SchemaDefinition](SchemaDefinition.md)
