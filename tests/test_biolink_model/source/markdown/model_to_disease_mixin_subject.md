@@ -9,7 +9,7 @@ URI: [biolink:model_to_disease_mixin_subject](https://w3id.org/biolink/vocab/mod
 
 ## Domain and Range
 
-[model to disease mixin](model to disease mixin.md) ->  <sub>REQ</sub> [named thing](named thing.md)
+[ModelToDiseaseMixin](ModelToDiseaseMixin.md) ->  <sub>REQ</sub> [NamedThing](NamedThing.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:model_to_disease_mixin_subject](https://w3id.org/biolink/vocab/mod
 
 ## Used by
 
- * [model to disease mixin](model to disease mixin.md)
+ * [ModelToDiseaseMixin](ModelToDiseaseMixin.md)

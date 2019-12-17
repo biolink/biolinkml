@@ -11,9 +11,9 @@ URI: [biolink:RelationshipQuantifier](https://w3id.org/biolink/vocab/Relationshi
 
 ## Children
 
- * [frequency quantifier](frequency quantifier.md)
- * [sensitivity quantifier](sensitivity quantifier.md)
- * [specificity quantifier](specificity quantifier.md)
+ * [FrequencyQuantifier](FrequencyQuantifier.md)
+ * [SensitivityQuantifier](SensitivityQuantifier.md)
+ * [SpecificityQuantifier](SpecificityQuantifier.md)
 
 ## Referenced by class
 

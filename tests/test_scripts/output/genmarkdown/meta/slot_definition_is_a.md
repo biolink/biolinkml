@@ -9,7 +9,7 @@ URI: [meta:slot_definition_is_a](https://w3id.org/biolink/biolinkml/meta/slot_de
 
 ## Domain and Range
 
-[slot_definition](slot_definition.md) ->  <sub>OPT</sub> [slot_definition](slot_definition.md)
+[SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [SlotDefinition](SlotDefinition.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [meta:slot_definition_is_a](https://w3id.org/biolink/biolinkml/meta/slot_de
 
 ## Used by
 
- * [slot_definition](slot_definition.md)
+ * [SlotDefinition](SlotDefinition.md)

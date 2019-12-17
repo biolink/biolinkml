@@ -9,7 +9,7 @@ URI: [biolink:gene_to_phenotypic_feature_association_subject](https://w3id.org/b
 
 ## Domain and Range
 
-[gene to phenotypic feature association](gene to phenotypic feature association.md) ->  <sub>REQ</sub> [gene or gene product](gene or gene product.md)
+[GeneToPhenotypicFeatureAssociation](GeneToPhenotypicFeatureAssociation.md) ->  <sub>REQ</sub> [GeneOrGeneProduct](GeneOrGeneProduct.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:gene_to_phenotypic_feature_association_subject](https://w3id.org/b
 
 ## Used by
 
- * [gene to phenotypic feature association](gene to phenotypic feature association.md)
+ * [GeneToPhenotypicFeatureAssociation](GeneToPhenotypicFeatureAssociation.md)

@@ -16,24 +16,21 @@ class JsonLDTestCase(GeneratorTestCase):
         self.source_path = INCLUDES_DIR
         self.model_path = INCLUDES_DIR
         self.model_name = 'types'
-        self.single_file_generator('jsonld', JSONLDGenerator, filtr=json_metadata_filter,
-                                   serialize_args=dict(context=os.path.relpath(LOCAL_METAMODEL_LDCONTEXT_FILE, self.source_path)))
+        self.single_file_generator('jsonld', JSONLDGenerator, filtr=json_metadata_filter)
 
     def test_mappings_json(self):
         self.source_path = INCLUDES_DIR
         self.model_path = INCLUDES_DIR
         self.model_name = 'mappings'
         self.importmap = BIOLINK_IMPORT_MAP
-        self.single_file_generator('jsonld', JSONLDGenerator, filtr=json_metadata_filter,
-                                   serialize_args=dict(context=os.path.relpath(LOCAL_METAMODEL_LDCONTEXT_FILE, self.source_path)))
+        self.single_file_generator('jsonld', JSONLDGenerator, filtr=json_metadata_filter)
 
     def test_metamodel_json(self):
         self.source_path = MODULE_DIR
         self.model_path = MODULE_DIR
         self.model_name = 'meta'
         self.importmap = BIOLINK_IMPORT_MAP
-        self.single_file_generator('jsonld', JSONLDGenerator, filtr=json_metadata_filter,
-                                   serialize_args=dict(context=LOCAL_METAMODEL_LDCONTEXT_FILE))
+        self.single_file_generator('jsonld', JSONLDGenerator, filtr=json_metadata_filter)
 
 
 if __name__ == '__main__':

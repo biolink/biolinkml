@@ -9,7 +9,7 @@ URI: [biolink:population_to_population_association_object](https://w3id.org/biol
 
 ## Domain and Range
 
-[population to population association](population to population association.md) ->  <sub>REQ</sub> [population of individual organisms](population of individual organisms.md)
+[PopulationToPopulationAssociation](PopulationToPopulationAssociation.md) ->  <sub>REQ</sub> [PopulationOfIndividualOrganisms](PopulationOfIndividualOrganisms.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:population_to_population_association_object](https://w3id.org/biol
 
 ## Used by
 
- * [population to population association](population to population association.md)
+ * [PopulationToPopulationAssociation](PopulationToPopulationAssociation.md)

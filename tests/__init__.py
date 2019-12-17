@@ -14,3 +14,7 @@ target_yaml_path = os.path.join(targetdir, METAMODEL_FILE_NAME)
 source_context_path = LOCAL_METAMODEL_LDCONTEXT_FILE
 
 DO_SHEX_VALIDATION = False
+
+# Set this to True if you are making changes to the model itself.  Note, however, that it needs to be reset to False
+# once the new types and/or meta elements have been submitted to the main repository
+USE_LOCAL_IMPORT_MAP = False

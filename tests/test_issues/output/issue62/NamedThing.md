@@ -18,9 +18,9 @@ URI: [https://example.com/test62/NamedThing](https://example.com/test62/NamedThi
 ### Own
 
  * [category](category.md)  <sub>1..*</sub>
-    * range: [IriType](type/IriType.md)
+    * range: [IriType](types/IriType.md)
 
 ### Domain for slot:
 
  * [category](category.md)  <sub>1..*</sub>
-    * range: [IriType](type/IriType.md)
+    * range: [IriType](types/IriType.md)

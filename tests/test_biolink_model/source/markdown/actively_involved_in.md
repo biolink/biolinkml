@@ -9,7 +9,7 @@ URI: [biolink:actively_involved_in](https://w3id.org/biolink/vocab/actively_invo
 
 ## Domain and Range
 
-[named thing](named thing.md) ->  <sub>0..*</sub> [occurrent](occurrent.md)
+[NamedThing](NamedThing.md) ->  <sub>0..*</sub> [Occurrent](Occurrent.md)
 
 ## Parents
 
@@ -21,7 +21,7 @@ URI: [biolink:actively_involved_in](https://w3id.org/biolink/vocab/actively_invo
 
 ## Used by
 
- * [named thing](named thing.md)
+ * [NamedThing](NamedThing.md)
 
 ## Other properties
 

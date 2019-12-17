@@ -9,7 +9,7 @@ URI: [biolink:gene_to_go_term_association_object](https://w3id.org/biolink/vocab
 
 ## Domain and Range
 
-[gene to go term association](gene to go term association.md) ->  <sub>REQ</sub> [gene ontology class](gene ontology class.md)
+[GeneToGoTermAssociation](GeneToGoTermAssociation.md) ->  <sub>REQ</sub> [GeneOntologyClass](GeneOntologyClass.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:gene_to_go_term_association_object](https://w3id.org/biolink/vocab
 
 ## Used by
 
- * [gene to go term association](gene to go term association.md)
+ * [GeneToGoTermAssociation](GeneToGoTermAssociation.md)

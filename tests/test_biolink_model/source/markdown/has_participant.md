@@ -9,7 +9,7 @@ URI: [biolink:has_participant](https://w3id.org/biolink/vocab/has_participant)
 
 ## Domain and Range
 
-[occurrent](occurrent.md) ->  <sub>0..*</sub> [named thing](named thing.md)
+[Occurrent](Occurrent.md) ->  <sub>0..*</sub> [NamedThing](NamedThing.md)
 
 ## Parents
 
@@ -23,16 +23,16 @@ URI: [biolink:has_participant](https://w3id.org/biolink/vocab/has_participant)
 
 ## Used by
 
- * [activity and behavior](activity and behavior.md)
- * [biological process](biological process.md)
- * [biological process or activity](biological process or activity.md)
- * [environmental process](environmental process.md)
- * [molecular activity](molecular activity.md)
- * [occurrent](occurrent.md)
- * [pathway](pathway.md)
- * [phenomenon](phenomenon.md)
- * [physiological process](physiological process.md)
- * [procedure](procedure.md)
+ * [ActivityAndBehavior](ActivityAndBehavior.md)
+ * [BiologicalProcess](BiologicalProcess.md)
+ * [BiologicalProcessOrActivity](BiologicalProcessOrActivity.md)
+ * [EnvironmentalProcess](EnvironmentalProcess.md)
+ * [MolecularActivity](MolecularActivity.md)
+ * [Occurrent](Occurrent.md)
+ * [Pathway](Pathway.md)
+ * [Phenomenon](Phenomenon.md)
+ * [PhysiologicalProcess](PhysiologicalProcess.md)
+ * [Procedure](Procedure.md)
 
 ## Other properties
 

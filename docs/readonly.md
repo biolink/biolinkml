@@ -9,7 +9,7 @@ URI: [meta:readonly](https://w3id.org/biolink/biolinkml/meta/readonly)
 
 ## Domain and Range
 
-[slot_definition](slot_definition.md) ->  <sub>OPT</sub> [String](type/String.md)
+[SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [String](types/String.md)
 
 ## Parents
 
@@ -19,4 +19,4 @@ URI: [meta:readonly](https://w3id.org/biolink/biolinkml/meta/readonly)
 
 ## Used by
 
- * [slot_definition](slot_definition.md)
+ * [SlotDefinition](SlotDefinition.md)

@@ -9,7 +9,7 @@ URI: [biolink:chemical_to_gene_association_object](https://w3id.org/biolink/voca
 
 ## Domain and Range
 
-[chemical to gene association](chemical to gene association.md) ->  <sub>REQ</sub> [gene or gene product](gene or gene product.md)
+[ChemicalToGeneAssociation](ChemicalToGeneAssociation.md) ->  <sub>REQ</sub> [GeneOrGeneProduct](GeneOrGeneProduct.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:chemical_to_gene_association_object](https://w3id.org/biolink/voca
 
 ## Used by
 
- * [chemical to gene association](chemical to gene association.md)
+ * [ChemicalToGeneAssociation](ChemicalToGeneAssociation.md)

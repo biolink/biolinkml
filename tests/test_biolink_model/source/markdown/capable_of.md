@@ -9,7 +9,7 @@ URI: [biolink:capable_of](https://w3id.org/biolink/vocab/capable_of)
 
 ## Domain and Range
 
-[named thing](named thing.md) ->  <sub>0..*</sub> [occurrent](occurrent.md)
+[NamedThing](NamedThing.md) ->  <sub>0..*</sub> [Occurrent](Occurrent.md)
 
 ## Parents
 
@@ -20,7 +20,7 @@ URI: [biolink:capable_of](https://w3id.org/biolink/vocab/capable_of)
 
 ## Used by
 
- * [named thing](named thing.md)
+ * [NamedThing](NamedThing.md)
 
 ## Other properties
 

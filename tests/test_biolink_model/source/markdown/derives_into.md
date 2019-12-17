@@ -9,7 +9,7 @@ URI: [biolink:derives_into](https://w3id.org/biolink/vocab/derives_into)
 
 ## Domain and Range
 
-[named thing](named thing.md) ->  <sub>0..*</sub> [named thing](named thing.md)
+[NamedThing](NamedThing.md) ->  <sub>0..*</sub> [NamedThing](NamedThing.md)
 
 ## Parents
 
@@ -20,7 +20,7 @@ URI: [biolink:derives_into](https://w3id.org/biolink/vocab/derives_into)
 
 ## Used by
 
- * [named thing](named thing.md)
+ * [NamedThing](NamedThing.md)
 
 ## Other properties
 

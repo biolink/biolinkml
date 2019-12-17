@@ -11,17 +11,17 @@ URI: [biolink:PopulationOfIndividualOrganisms](https://w3id.org/biolink/vocab/Po
 
 ## Parents
 
- *  is_a: [organismal entity](organismal entity.md) - A named entity that is either a part of an organism, a whole organism, population or clade of organisms, excluding molecular entities
+ *  is_a: [OrganismalEntity](OrganismalEntity.md) - A named entity that is either a part of an organism, a whole organism, population or clade of organisms, excluding molecular entities
 
 ## Uses Mixins
 
- *  mixin: [thing with taxon](thing with taxon.md) - A mixin that can be used on any entity with a taxon
+ *  mixin: [ThingWithTaxon](ThingWithTaxon.md) - A mixin that can be used on any entity with a taxon
 
 ## Referenced by class
 
- *  **[population to population association](population to population association.md)** *[population to population association➞object](population_to_population_association_object.md)*  <sub>REQ</sub>  **[population of individual organisms](population of individual organisms.md)**
- *  **[population to population association](population to population association.md)** *[population to population association➞subject](population_to_population_association_subject.md)*  <sub>REQ</sub>  **[population of individual organisms](population of individual organisms.md)**
- *  **[variant to population association](variant to population association.md)** *[variant to population association➞object](variant_to_population_association_object.md)*  <sub>REQ</sub>  **[population of individual organisms](population of individual organisms.md)**
+ *  **[PopulationToPopulationAssociation](PopulationToPopulationAssociation.md)** *[population to population association➞object](population_to_population_association_object.md)*  <sub>REQ</sub>  **[PopulationOfIndividualOrganisms](PopulationOfIndividualOrganisms.md)**
+ *  **[PopulationToPopulationAssociation](PopulationToPopulationAssociation.md)** *[population to population association➞subject](population_to_population_association_subject.md)*  <sub>REQ</sub>  **[PopulationOfIndividualOrganisms](PopulationOfIndividualOrganisms.md)**
+ *  **[VariantToPopulationAssociation](VariantToPopulationAssociation.md)** *[variant to population association➞object](variant_to_population_association_object.md)*  <sub>REQ</sub>  **[PopulationOfIndividualOrganisms](PopulationOfIndividualOrganisms.md)**
 
 ## Attributes
 
@@ -30,25 +30,25 @@ URI: [biolink:PopulationOfIndividualOrganisms](https://w3id.org/biolink/vocab/Po
 
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
-    * range: [IdentifierType](type/IdentifierType.md)
-    * inherited from: [named thing](named thing.md)
+    * range: [IdentifierType](types/IdentifierType.md)
+    * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
  * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing
-    * range: [LabelType](type/LabelType.md)
-    * inherited from: [named thing](named thing.md)
+    * range: [LabelType](types/LabelType.md)
+    * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
  * [category](category.md)  <sub>1..*</sub>
     * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
-    * range: [IriType](type/IriType.md)
-    * inherited from: [named thing](named thing.md)
+    * range: [IriType](types/IriType.md)
+    * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
 
 ### Inherited from thing with taxon:
 
  * [in taxon](in_taxon.md)  <sub>0..*</sub>
     * Description: connects a thing to a class representing a taxon
-    * range: [organism taxon](organism taxon.md)
+    * range: [OrganismTaxon](OrganismTaxon.md)
     * in subsets: (translator_minimal)
 
 ## Other properties

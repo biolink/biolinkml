@@ -11,15 +11,15 @@ URI: [biolink:Transcript](https://w3id.org/biolink/vocab/Transcript)
 
 ## Parents
 
- *  is_a: [genomic entity](genomic entity.md) - an entity that can either be directly located on a genome (gene, transcript, exon, regulatory region) or is encoded in a genome (protein)
+ *  is_a: [GenomicEntity](GenomicEntity.md) - an entity that can either be directly located on a genome (gene, transcript, exon, regulatory region) or is encoded in a genome (protein)
 
 ## Referenced by class
 
- *  **[molecular entity](molecular entity.md)** *[affects splicing of](affects_splicing_of.md)*  <sub>0..*</sub>  **[transcript](transcript.md)**
- *  **[molecular entity](molecular entity.md)** *[decreases splicing of](decreases_splicing_of.md)*  <sub>0..*</sub>  **[transcript](transcript.md)**
- *  **[exon to transcript relationship](exon to transcript relationship.md)** *[exon to transcript relationship➞object](exon_to_transcript_relationship_object.md)*  <sub>REQ</sub>  **[transcript](transcript.md)**
- *  **[molecular entity](molecular entity.md)** *[increases splicing of](increases_splicing_of.md)*  <sub>0..*</sub>  **[transcript](transcript.md)**
- *  **[transcript to gene relationship](transcript to gene relationship.md)** *[transcript to gene relationship➞subject](transcript_to_gene_relationship_subject.md)*  <sub>REQ</sub>  **[transcript](transcript.md)**
+ *  **[MolecularEntity](MolecularEntity.md)** *[affects splicing of](affects_splicing_of.md)*  <sub>0..*</sub>  **[Transcript](Transcript.md)**
+ *  **[MolecularEntity](MolecularEntity.md)** *[decreases splicing of](decreases_splicing_of.md)*  <sub>0..*</sub>  **[Transcript](Transcript.md)**
+ *  **[ExonToTranscriptRelationship](ExonToTranscriptRelationship.md)** *[exon to transcript relationship➞object](exon_to_transcript_relationship_object.md)*  <sub>REQ</sub>  **[Transcript](Transcript.md)**
+ *  **[MolecularEntity](MolecularEntity.md)** *[increases splicing of](increases_splicing_of.md)*  <sub>0..*</sub>  **[Transcript](Transcript.md)**
+ *  **[TranscriptToGeneRelationship](TranscriptToGeneRelationship.md)** *[transcript to gene relationship➞subject](transcript_to_gene_relationship_subject.md)*  <sub>REQ</sub>  **[Transcript](Transcript.md)**
 
 ## Attributes
 
@@ -28,26 +28,26 @@ URI: [biolink:Transcript](https://w3id.org/biolink/vocab/Transcript)
 
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
-    * range: [IdentifierType](type/IdentifierType.md)
-    * inherited from: [named thing](named thing.md)
+    * range: [IdentifierType](types/IdentifierType.md)
+    * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
  * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing
-    * range: [LabelType](type/LabelType.md)
-    * inherited from: [named thing](named thing.md)
+    * range: [LabelType](types/LabelType.md)
+    * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
  * [category](category.md)  <sub>1..*</sub>
     * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
-    * range: [IriType](type/IriType.md)
-    * inherited from: [named thing](named thing.md)
+    * range: [IriType](types/IriType.md)
+    * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
 
 ### Inherited from thing with taxon:
 
  * [in taxon](in_taxon.md)  <sub>0..*</sub>
     * Description: connects a thing to a class representing a taxon
-    * range: [organism taxon](organism taxon.md)
-    * inherited from: [thing with taxon](thing with taxon.md)
+    * range: [OrganismTaxon](OrganismTaxon.md)
+    * inherited from: [ThingWithTaxon](ThingWithTaxon.md)
     * in subsets: (translator_minimal)
 
 ## Other properties

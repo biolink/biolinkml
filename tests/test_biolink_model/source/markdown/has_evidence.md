@@ -9,7 +9,7 @@ URI: [biolink:has_evidence](https://w3id.org/biolink/vocab/has_evidence)
 
 ## Domain and Range
 
-[association](association.md) ->  <sub>OPT</sub> [evidence type](evidence type.md)
+[Association](Association.md) ->  <sub>OPT</sub> [EvidenceType](EvidenceType.md)
 
 ## Parents
 
@@ -20,7 +20,7 @@ URI: [biolink:has_evidence](https://w3id.org/biolink/vocab/has_evidence)
 
 ## Used by
 
- * [association](association.md)
+ * [Association](Association.md)
 
 ## Other properties
 

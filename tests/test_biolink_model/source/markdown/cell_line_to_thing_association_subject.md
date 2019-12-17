@@ -9,7 +9,7 @@ URI: [biolink:cell_line_to_thing_association_subject](https://w3id.org/biolink/v
 
 ## Domain and Range
 
-[cell line to thing association](cell line to thing association.md) ->  <sub>REQ</sub> [cell line](cell line.md)
+[CellLineToThingAssociation](CellLineToThingAssociation.md) ->  <sub>REQ</sub> [CellLine](CellLine.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:cell_line_to_thing_association_subject](https://w3id.org/biolink/v
 
 ## Used by
 
- * [cell line to thing association](cell line to thing association.md)
+ * [CellLineToThingAssociation](CellLineToThingAssociation.md)

@@ -9,7 +9,7 @@ URI: [meta:comments](https://w3id.org/biolink/biolinkml/meta/comments)
 
 ## Domain and Range
 
-[element](element.md) ->  <sub>0..*</sub> [String](type/String.md)
+[Element](Element.md) ->  <sub>0..*</sub> [String](types/String.md)
 
 ## Parents
 
@@ -19,13 +19,13 @@ URI: [meta:comments](https://w3id.org/biolink/biolinkml/meta/comments)
 
 ## Used by
 
- * [class_definition](class_definition.md)
- * [definition](definition.md)
- * [element](element.md)
- * [schema_definition](schema_definition.md)
- * [slot_definition](slot_definition.md)
- * [subset_definition](subset_definition.md)
- * [type_definition](type_definition.md)
+ * [ClassDefinition](ClassDefinition.md)
+ * [Definition](Definition.md)
+ * [Element](Element.md)
+ * [SchemaDefinition](SchemaDefinition.md)
+ * [SlotDefinition](SlotDefinition.md)
+ * [SubsetDefinition](SubsetDefinition.md)
+ * [TypeDefinition](TypeDefinition.md)
 
 ## Other properties
 

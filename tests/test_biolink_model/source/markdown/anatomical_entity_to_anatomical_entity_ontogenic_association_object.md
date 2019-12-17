@@ -9,7 +9,7 @@ URI: [biolink:anatomical_entity_to_anatomical_entity_ontogenic_association_objec
 
 ## Domain and Range
 
-[anatomical entity to anatomical entity ontogenic association](anatomical entity to anatomical entity ontogenic association.md) ->  <sub>REQ</sub> [anatomical entity](anatomical entity.md)
+[AnatomicalEntityToAnatomicalEntityOntogenicAssociation](AnatomicalEntityToAnatomicalEntityOntogenicAssociation.md) ->  <sub>REQ</sub> [AnatomicalEntity](AnatomicalEntity.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:anatomical_entity_to_anatomical_entity_ontogenic_association_objec
 
 ## Used by
 
- * [anatomical entity to anatomical entity ontogenic association](anatomical entity to anatomical entity ontogenic association.md)
+ * [AnatomicalEntityToAnatomicalEntityOntogenicAssociation](AnatomicalEntityToAnatomicalEntityOntogenicAssociation.md)

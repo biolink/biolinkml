@@ -9,7 +9,7 @@ URI: [biolink:treats](https://w3id.org/biolink/vocab/treats)
 
 ## Domain and Range
 
-[treatment](treatment.md) ->  <sub>1..*</sub> [disease or phenotypic feature](disease or phenotypic feature.md)
+[Treatment](Treatment.md) ->  <sub>1..*</sub> [DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md)
 
 ## Parents
 
@@ -20,7 +20,7 @@ URI: [biolink:treats](https://w3id.org/biolink/vocab/treats)
 
 ## Used by
 
- * [treatment](treatment.md)
+ * [Treatment](Treatment.md)
 
 ## Other properties
 

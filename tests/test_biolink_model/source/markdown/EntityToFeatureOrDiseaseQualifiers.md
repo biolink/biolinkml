@@ -11,15 +11,15 @@ URI: [biolink:EntityToFeatureOrDiseaseQualifiers](https://w3id.org/biolink/vocab
 
 ## Parents
 
- *  is_a: [frequency qualifier mixin](frequency qualifier mixin.md) - Qualifier for frequency type associations
+ *  is_a: [FrequencyQualifierMixin](FrequencyQualifierMixin.md) - Qualifier for frequency type associations
 
 ## Children
 
- * [entity to disease association](entity to disease association.md) - mixin class for any association whose object (target node) is a disease
+ * [EntityToDiseaseAssociation](EntityToDiseaseAssociation.md) - mixin class for any association whose object (target node) is a disease
 
 ## Mixin for
 
- * [entity to phenotypic feature association](entity to phenotypic feature association.md) (mixin) 
+ * [EntityToPhenotypicFeatureAssociation](EntityToPhenotypicFeatureAssociation.md) (mixin) 
 
 ## Referenced by class
 

@@ -9,7 +9,7 @@ URI: [meta:default_curi_maps](https://w3id.org/biolink/biolinkml/meta/default_cu
 
 ## Domain and Range
 
-[schema_definition](schema_definition.md) ->  <sub>0..*</sub> [String](type/String.md)
+[SchemaDefinition](SchemaDefinition.md) ->  <sub>0..*</sub> [String](types/String.md)
 
 ## Parents
 
@@ -19,4 +19,4 @@ URI: [meta:default_curi_maps](https://w3id.org/biolink/biolinkml/meta/default_cu
 
 ## Used by
 
- * [schema_definition](schema_definition.md)
+ * [SchemaDefinition](SchemaDefinition.md)

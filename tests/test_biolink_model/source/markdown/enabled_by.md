@@ -9,7 +9,7 @@ URI: [biolink:enabled_by](https://w3id.org/biolink/vocab/enabled_by)
 
 ## Domain and Range
 
-[occurrent](occurrent.md) ->  <sub>0..*</sub> [biological process or activity](biological process or activity.md)
+[Occurrent](Occurrent.md) ->  <sub>0..*</sub> [BiologicalProcessOrActivity](BiologicalProcessOrActivity.md)
 
 ## Parents
 
@@ -21,12 +21,12 @@ URI: [biolink:enabled_by](https://w3id.org/biolink/vocab/enabled_by)
 
 ## Used by
 
- * [biological process](biological process.md)
- * [biological process or activity](biological process or activity.md)
- * [molecular activity](molecular activity.md)
- * [occurrent](occurrent.md)
- * [pathway](pathway.md)
- * [physiological process](physiological process.md)
+ * [BiologicalProcess](BiologicalProcess.md)
+ * [BiologicalProcessOrActivity](BiologicalProcessOrActivity.md)
+ * [MolecularActivity](MolecularActivity.md)
+ * [Occurrent](Occurrent.md)
+ * [Pathway](Pathway.md)
+ * [PhysiologicalProcess](PhysiologicalProcess.md)
 
 ## Other properties
 

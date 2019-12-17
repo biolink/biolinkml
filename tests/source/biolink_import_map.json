@@ -1,6 +1,4 @@
 {
-  "biolinkml:types": "includes/types",
-  "biolinkml:mappings": "includes/mappings",
-  "includes/types": "includes/types",
-  "includes/mappings": "includes/mappings"
+  "includes/types": "biolinkml:includes/types",
+  "includes/mappings": "biolinkml:includes/mappings"
 }

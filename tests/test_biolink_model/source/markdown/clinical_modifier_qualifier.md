@@ -9,7 +9,7 @@ URI: [biolink:clinical_modifier_qualifier](https://w3id.org/biolink/vocab/clinic
 
 ## Domain and Range
 
-[association](association.md) ->  <sub>OPT</sub> [clinical modifier](clinical modifier.md)
+[Association](Association.md) ->  <sub>OPT</sub> [ClinicalModifier](ClinicalModifier.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:clinical_modifier_qualifier](https://w3id.org/biolink/vocab/clinic
 
 ## Used by
 
- * [association](association.md)
+ * [Association](Association.md)

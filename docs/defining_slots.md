@@ -9,7 +9,7 @@ URI: [meta:defining_slots](https://w3id.org/biolink/biolinkml/meta/defining_slot
 
 ## Domain and Range
 
-[class_definition](class_definition.md) ->  <sub>0..*</sub> [slot_definition](slot_definition.md)
+[ClassDefinition](ClassDefinition.md) ->  <sub>0..*</sub> [SlotDefinition](SlotDefinition.md)
 
 ## Parents
 
@@ -19,4 +19,4 @@ URI: [meta:defining_slots](https://w3id.org/biolink/biolinkml/meta/defining_slot
 
 ## Used by
 
- * [class_definition](class_definition.md)
+ * [ClassDefinition](ClassDefinition.md)

@@ -9,7 +9,7 @@ URI: [biolink:variant_to_phenotypic_feature_association_subject](https://w3id.or
 
 ## Domain and Range
 
-[variant to phenotypic feature association](variant to phenotypic feature association.md) ->  <sub>REQ</sub> [sequence variant](sequence variant.md)
+[VariantToPhenotypicFeatureAssociation](VariantToPhenotypicFeatureAssociation.md) ->  <sub>REQ</sub> [SequenceVariant](SequenceVariant.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:variant_to_phenotypic_feature_association_subject](https://w3id.or
 
 ## Used by
 
- * [variant to phenotypic feature association](variant to phenotypic feature association.md)
+ * [VariantToPhenotypicFeatureAssociation](VariantToPhenotypicFeatureAssociation.md)

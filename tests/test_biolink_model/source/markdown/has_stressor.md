@@ -9,7 +9,7 @@ URI: [biolink:has_stressor](https://w3id.org/biolink/vocab/has_stressor)
 
 ## Domain and Range
 
-[exposure event](exposure event.md) ->  <sub>OPT</sub> [String](type/String.md)
+[ExposureEvent](ExposureEvent.md) ->  <sub>OPT</sub> [String](types/String.md)
 
 ## Parents
 
@@ -20,10 +20,10 @@ URI: [biolink:has_stressor](https://w3id.org/biolink/vocab/has_stressor)
 
 ## Used by
 
- * [chemical exposure](chemical exposure.md)
- * [drug exposure](drug exposure.md)
- * [exposure event](exposure event.md)
- * [treatment](treatment.md)
+ * [ChemicalExposure](ChemicalExposure.md)
+ * [DrugExposure](DrugExposure.md)
+ * [ExposureEvent](ExposureEvent.md)
+ * [Treatment](Treatment.md)
 
 ## Other properties
 

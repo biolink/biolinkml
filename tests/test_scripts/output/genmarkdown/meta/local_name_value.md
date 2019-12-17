@@ -9,7 +9,7 @@ URI: [meta:local_name_value](https://w3id.org/biolink/biolinkml/meta/local_name_
 
 ## Domain and Range
 
-[local_name](local_name.md) ->  <sub>REQ</sub> [String](type/String.md)
+[LocalName](LocalName.md) ->  <sub>REQ</sub> [String](types/String.md)
 
 ## Parents
 
@@ -19,7 +19,7 @@ URI: [meta:local_name_value](https://w3id.org/biolink/biolinkml/meta/local_name_
 
 ## Used by
 
- * [local_name](local_name.md)
+ * [LocalName](LocalName.md)
 
 ## Other properties
 

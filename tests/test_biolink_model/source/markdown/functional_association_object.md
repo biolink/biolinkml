@@ -9,7 +9,7 @@ URI: [biolink:functional_association_object](https://w3id.org/biolink/vocab/func
 
 ## Domain and Range
 
-[functional association](functional association.md) ->  <sub>REQ</sub> [gene ontology class](gene ontology class.md)
+[FunctionalAssociation](FunctionalAssociation.md) ->  <sub>REQ</sub> [GeneOntologyClass](GeneOntologyClass.md)
 
 ## Parents
 
@@ -24,4 +24,4 @@ URI: [biolink:functional_association_object](https://w3id.org/biolink/vocab/func
 
 ## Used by
 
- * [functional association](functional association.md)
+ * [FunctionalAssociation](FunctionalAssociation.md)

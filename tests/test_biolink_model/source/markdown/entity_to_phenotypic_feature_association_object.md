@@ -9,7 +9,7 @@ URI: [biolink:entity_to_phenotypic_feature_association_object](https://w3id.org/
 
 ## Domain and Range
 
-[entity to phenotypic feature association](entity to phenotypic feature association.md) ->  <sub>REQ</sub> [phenotypic feature](phenotypic feature.md)
+[EntityToPhenotypicFeatureAssociation](EntityToPhenotypicFeatureAssociation.md) ->  <sub>REQ</sub> [PhenotypicFeature](PhenotypicFeature.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:entity_to_phenotypic_feature_association_object](https://w3id.org/
 
 ## Used by
 
- * [entity to phenotypic feature association](entity to phenotypic feature association.md)
+ * [EntityToPhenotypicFeatureAssociation](EntityToPhenotypicFeatureAssociation.md)

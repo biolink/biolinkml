@@ -9,7 +9,7 @@ URI: [biolink:xenologous_to](https://w3id.org/biolink/vocab/xenologous_to)
 
 ## Domain and Range
 
-[named thing](named thing.md) ->  <sub>0..*</sub> [named thing](named thing.md)
+[NamedThing](NamedThing.md) ->  <sub>0..*</sub> [NamedThing](NamedThing.md)
 
 ## Parents
 
@@ -20,7 +20,7 @@ URI: [biolink:xenologous_to](https://w3id.org/biolink/vocab/xenologous_to)
 
 ## Used by
 
- * [named thing](named thing.md)
+ * [NamedThing](NamedThing.md)
 
 ## Other properties
 

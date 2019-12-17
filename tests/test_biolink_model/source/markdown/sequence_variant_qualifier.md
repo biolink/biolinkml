@@ -9,7 +9,7 @@ URI: [biolink:sequence_variant_qualifier](https://w3id.org/biolink/vocab/sequenc
 
 ## Domain and Range
 
-[association](association.md) ->  <sub>OPT</sub> [sequence variant](sequence variant.md)
+[Association](Association.md) ->  <sub>OPT</sub> [SequenceVariant](SequenceVariant.md)
 
 ## Parents
 
@@ -20,5 +20,5 @@ URI: [biolink:sequence_variant_qualifier](https://w3id.org/biolink/vocab/sequenc
 
 ## Used by
 
- * [association](association.md)
- * [gene has variant that contributes to disease association](gene has variant that contributes to disease association.md)
+ * [Association](Association.md)
+ * [GeneHasVariantThatContributesToDiseaseAssociation](GeneHasVariantThatContributesToDiseaseAssociation.md)

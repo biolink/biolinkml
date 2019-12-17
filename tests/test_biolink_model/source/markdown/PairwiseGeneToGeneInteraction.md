@@ -11,11 +11,11 @@ URI: [biolink:PairwiseGeneToGeneInteraction](https://w3id.org/biolink/vocab/Pair
 
 ## Parents
 
- *  is_a: [gene to gene association](gene to gene association.md) - abstract parent class for different kinds of gene-gene or gene product to gene product relationships. Includes homology and interaction.
+ *  is_a: [GeneToGeneAssociation](GeneToGeneAssociation.md) - abstract parent class for different kinds of gene-gene or gene product to gene product relationships. Includes homology and interaction.
 
 ## Uses Mixins
 
- *  mixin: [pairwise interaction association](pairwise interaction association.md) - An interaction at the molecular level between two physical entities
+ *  mixin: [PairwiseInteractionAssociation](PairwiseInteractionAssociation.md) - An interaction at the molecular level between two physical entities
 
 ## Referenced by class
 
@@ -26,58 +26,58 @@ URI: [biolink:PairwiseGeneToGeneInteraction](https://w3id.org/biolink/vocab/Pair
 ### Own
 
  * [pairwise gene to gene interaction➞relation](pairwise_gene_to_gene_interaction_relation.md)  <sub>REQ</sub>
-    * range: [Uriorcurie](type/Uriorcurie.md)
+    * range: [Uriorcurie](types/Uriorcurie.md)
 
 ### Inherited from association:
 
  * [subject](subject.md)  <sub>REQ</sub>
     * Description: connects an association to the subject of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
-    * range: [named thing](named thing.md)
-    * inherited from: [association](association.md)
+    * range: [NamedThing](NamedThing.md)
+    * inherited from: [Association](Association.md)
  * [relation](relation.md)  <sub>REQ</sub>
     * Description: the relationship type by which a subject is connected to an object in an association
-    * range: [Uriorcurie](type/Uriorcurie.md)
-    * inherited from: [association](association.md)
+    * range: [Uriorcurie](types/Uriorcurie.md)
+    * inherited from: [Association](Association.md)
  * [object](object.md)  <sub>REQ</sub>
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
-    * range: [named thing](named thing.md)
-    * inherited from: [association](association.md)
+    * range: [NamedThing](NamedThing.md)
+    * inherited from: [Association](Association.md)
  * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
-    * range: [Nodeidentifier](type/Nodeidentifier.md)
-    * inherited from: [association](association.md)
+    * range: [Nodeidentifier](types/Nodeidentifier.md)
+    * inherited from: [Association](Association.md)
     * in subsets: (translator_minimal)
  * [negated](negated.md)  <sub>OPT</sub>
     * Description: if set to true, then the association is negated i.e. is not true
-    * range: [Boolean](type/Boolean.md)
-    * inherited from: [association](association.md)
+    * range: [Boolean](types/Boolean.md)
+    * inherited from: [Association](Association.md)
  * [association type](association_type.md)  <sub>OPT</sub>
     * Description: connects an association to the type of association (e.g. gene to phenotype)
-    * range: [ontology class](ontology class.md)
-    * inherited from: [association](association.md)
+    * range: [OntologyClass](OntologyClass.md)
+    * inherited from: [Association](Association.md)
  * [qualifiers](qualifiers.md)  <sub>0..*</sub>
     * Description: connects an association to qualifiers that modify or qualify the meaning of that association
-    * range: [ontology class](ontology class.md)
-    * inherited from: [association](association.md)
+    * range: [OntologyClass](OntologyClass.md)
+    * inherited from: [Association](Association.md)
  * [publications](publications.md)  <sub>0..*</sub>
     * Description: connects an association to publications supporting the association
-    * range: [publication](publication.md)
-    * inherited from: [association](association.md)
+    * range: [Publication](Publication.md)
+    * inherited from: [Association](Association.md)
  * [provided by](provided_by.md)  <sub>OPT</sub>
     * Description: connects an association to the agent (person, organization or group) that provided it
-    * range: [provider](provider.md)
-    * inherited from: [association](association.md)
+    * range: [Provider](Provider.md)
+    * inherited from: [Association](Association.md)
 
 ### Inherited from gene to gene association:
 
  * [gene to gene association➞subject](gene_to_gene_association_subject.md)  <sub>REQ</sub>
-    * range: [gene or gene product](gene or gene product.md)
-    * inherited from: [gene to gene association](gene to gene association.md)
+    * range: [GeneOrGeneProduct](GeneOrGeneProduct.md)
+    * inherited from: [GeneToGeneAssociation](GeneToGeneAssociation.md)
  * [gene to gene association➞object](gene_to_gene_association_object.md)  <sub>REQ</sub>
-    * range: [gene or gene product](gene or gene product.md)
-    * inherited from: [gene to gene association](gene to gene association.md)
+    * range: [GeneOrGeneProduct](GeneOrGeneProduct.md)
+    * inherited from: [GeneToGeneAssociation](GeneToGeneAssociation.md)
 
 ### Domain for slot:
 
  * [pairwise gene to gene interaction➞relation](pairwise_gene_to_gene_interaction_relation.md)  <sub>REQ</sub>
-    * range: [Uriorcurie](type/Uriorcurie.md)
+    * range: [Uriorcurie](types/Uriorcurie.md)

@@ -9,7 +9,7 @@ URI: [biolink:has_confidence_level](https://w3id.org/biolink/vocab/has_confidenc
 
 ## Domain and Range
 
-[association](association.md) ->  <sub>OPT</sub> [confidence level](confidence level.md)
+[Association](Association.md) ->  <sub>OPT</sub> [ConfidenceLevel](ConfidenceLevel.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:has_confidence_level](https://w3id.org/biolink/vocab/has_confidenc
 
 ## Used by
 
- * [association](association.md)
+ * [Association](Association.md)

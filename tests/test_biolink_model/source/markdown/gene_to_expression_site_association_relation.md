@@ -9,7 +9,7 @@ URI: [biolink:gene_to_expression_site_association_relation](https://w3id.org/bio
 
 ## Domain and Range
 
-[gene to expression site association](gene to expression site association.md) ->  <sub>REQ</sub> [Uriorcurie](type/Uriorcurie.md)
+[GeneToExpressionSiteAssociation](GeneToExpressionSiteAssociation.md) ->  <sub>REQ</sub> [Uriorcurie](types/Uriorcurie.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:gene_to_expression_site_association_relation](https://w3id.org/bio
 
 ## Used by
 
- * [gene to expression site association](gene to expression site association.md)
+ * [GeneToExpressionSiteAssociation](GeneToExpressionSiteAssociation.md)

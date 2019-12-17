@@ -9,7 +9,7 @@ URI: [biolink:genotype_to_thing_association_subject](https://w3id.org/biolink/vo
 
 ## Domain and Range
 
-[genotype to thing association](genotype to thing association.md) ->  <sub>REQ</sub> [genotype](genotype.md)
+[GenotypeToThingAssociation](GenotypeToThingAssociation.md) ->  <sub>REQ</sub> [Genotype](Genotype.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:genotype_to_thing_association_subject](https://w3id.org/biolink/vo
 
 ## Used by
 
- * [genotype to thing association](genotype to thing association.md)
+ * [GenotypeToThingAssociation](GenotypeToThingAssociation.md)

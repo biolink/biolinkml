@@ -8,5 +8,5 @@ URI: [biolink:BiologicalSequence](https://w3id.org/biolink/vocab/BiologicalSeque
 
 |  |  |  |
 | --- | --- | --- |
-| Parent type | | [String](type/String.md) |
+| Parent type | | [String](types/String.md) |
 | Root (builtin) type | | **str** |

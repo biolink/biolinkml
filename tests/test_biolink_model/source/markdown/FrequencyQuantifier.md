@@ -11,11 +11,11 @@ URI: [biolink:FrequencyQuantifier](https://w3id.org/biolink/vocab/FrequencyQuant
 
 ## Parents
 
- *  is_a: [relationship quantifier](relationship quantifier.md)
+ *  is_a: [RelationshipQuantifier](RelationshipQuantifier.md)
 
 ## Mixin for
 
- * [variant to population association](variant to population association.md) (mixin)  - An association between a variant and a population, where the variant has particular frequency in the population
+ * [VariantToPopulationAssociation](VariantToPopulationAssociation.md) (mixin)  - An association between a variant and a population, where the variant has particular frequency in the population
 
 ## Referenced by class
 

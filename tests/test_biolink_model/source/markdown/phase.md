@@ -9,7 +9,7 @@ URI: [biolink:phase](https://w3id.org/biolink/vocab/phase)
 
 ## Domain and Range
 
-[named thing](named thing.md) ->  <sub>OPT</sub> [String](type/String.md)
+[NamedThing](NamedThing.md) ->  <sub>OPT</sub> [String](types/String.md)
 
 ## Parents
 
@@ -20,5 +20,5 @@ URI: [biolink:phase](https://w3id.org/biolink/vocab/phase)
 
 ## Used by
 
- * [genomic sequence localization](genomic sequence localization.md)
- * [named thing](named thing.md)
+ * [GenomicSequenceLocalization](GenomicSequenceLocalization.md)
+ * [NamedThing](NamedThing.md)

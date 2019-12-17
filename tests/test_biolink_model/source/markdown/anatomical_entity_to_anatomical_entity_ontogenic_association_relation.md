@@ -9,7 +9,7 @@ URI: [biolink:anatomical_entity_to_anatomical_entity_ontogenic_association_relat
 
 ## Domain and Range
 
-[anatomical entity to anatomical entity ontogenic association](anatomical entity to anatomical entity ontogenic association.md) ->  <sub>REQ</sub> [Uriorcurie](type/Uriorcurie.md)
+[AnatomicalEntityToAnatomicalEntityOntogenicAssociation](AnatomicalEntityToAnatomicalEntityOntogenicAssociation.md) ->  <sub>REQ</sub> [Uriorcurie](types/Uriorcurie.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:anatomical_entity_to_anatomical_entity_ontogenic_association_relat
 
 ## Used by
 
- * [anatomical entity to anatomical entity ontogenic association](anatomical entity to anatomical entity ontogenic association.md)
+ * [AnatomicalEntityToAnatomicalEntityOntogenicAssociation](AnatomicalEntityToAnatomicalEntityOntogenicAssociation.md)

@@ -9,7 +9,7 @@ URI: [biolink:downloadURL](https://w3id.org/biolink/vocab/downloadURL)
 
 ## Domain and Range
 
-[distribution level](distribution level.md) ->  <sub>OPT</sub> [String](type/String.md)
+[DistributionLevel](DistributionLevel.md) ->  <sub>OPT</sub> [String](types/String.md)
 
 ## Parents
 
@@ -20,7 +20,7 @@ URI: [biolink:downloadURL](https://w3id.org/biolink/vocab/downloadURL)
 
 ## Used by
 
- * [distribution level](distribution level.md)
+ * [DistributionLevel](DistributionLevel.md)
 
 ## Other properties
 

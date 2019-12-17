@@ -9,7 +9,7 @@ URI: [biolink:entity_to_disease_association_object](https://w3id.org/biolink/voc
 
 ## Domain and Range
 
-[entity to disease association](entity to disease association.md) ->  <sub>REQ</sub> [disease](disease.md)
+[EntityToDiseaseAssociation](EntityToDiseaseAssociation.md) ->  <sub>REQ</sub> [Disease](Disease.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:entity_to_disease_association_object](https://w3id.org/biolink/voc
 
 ## Used by
 
- * [entity to disease association](entity to disease association.md)
+ * [EntityToDiseaseAssociation](EntityToDiseaseAssociation.md)

@@ -9,7 +9,7 @@ URI: [biolink:macromolecular_machine_to_molecular_activity_association_object](h
 
 ## Domain and Range
 
-[macromolecular machine to molecular activity association](macromolecular machine to molecular activity association.md) ->  <sub>REQ</sub> [molecular activity](molecular activity.md)
+[MacromolecularMachineToMolecularActivityAssociation](MacromolecularMachineToMolecularActivityAssociation.md) ->  <sub>REQ</sub> [MolecularActivity](MolecularActivity.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:macromolecular_machine_to_molecular_activity_association_object](h
 
 ## Used by
 
- * [macromolecular machine to molecular activity association](macromolecular machine to molecular activity association.md)
+ * [MacromolecularMachineToMolecularActivityAssociation](MacromolecularMachineToMolecularActivityAssociation.md)

@@ -9,7 +9,7 @@ URI: [biolink:chemical_to_disease_or_phenotypic_feature_association_object](http
 
 ## Domain and Range
 
-[chemical to disease or phenotypic feature association](chemical to disease or phenotypic feature association.md) ->  <sub>REQ</sub> [disease or phenotypic feature](disease or phenotypic feature.md)
+[ChemicalToDiseaseOrPhenotypicFeatureAssociation](ChemicalToDiseaseOrPhenotypicFeatureAssociation.md) ->  <sub>REQ</sub> [DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:chemical_to_disease_or_phenotypic_feature_association_object](http
 
 ## Used by
 
- * [chemical to disease or phenotypic feature association](chemical to disease or phenotypic feature association.md)
+ * [ChemicalToDiseaseOrPhenotypicFeatureAssociation](ChemicalToDiseaseOrPhenotypicFeatureAssociation.md)

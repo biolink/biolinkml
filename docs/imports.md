@@ -9,7 +9,7 @@ URI: [meta:imports](https://w3id.org/biolink/biolinkml/meta/imports)
 
 ## Domain and Range
 
-[schema_definition](schema_definition.md) ->  <sub>0..*</sub> [Uriorcurie](type/Uriorcurie.md)
+[SchemaDefinition](SchemaDefinition.md) ->  <sub>0..*</sub> [Uriorcurie](types/Uriorcurie.md)
 
 ## Parents
 
@@ -19,4 +19,4 @@ URI: [meta:imports](https://w3id.org/biolink/biolinkml/meta/imports)
 
 ## Used by
 
- * [schema_definition](schema_definition.md)
+ * [SchemaDefinition](SchemaDefinition.md)

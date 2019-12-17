@@ -9,7 +9,7 @@ URI: [biolink:variant_to_thing_association_subject](https://w3id.org/biolink/voc
 
 ## Domain and Range
 
-[variant to thing association](variant to thing association.md) ->  <sub>REQ</sub> [sequence variant](sequence variant.md)
+[VariantToThingAssociation](VariantToThingAssociation.md) ->  <sub>REQ</sub> [SequenceVariant](SequenceVariant.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:variant_to_thing_association_subject](https://w3id.org/biolink/voc
 
 ## Used by
 
- * [variant to thing association](variant to thing association.md)
+ * [VariantToThingAssociation](VariantToThingAssociation.md)

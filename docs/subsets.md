@@ -9,7 +9,7 @@ URI: [meta:subsets](https://w3id.org/biolink/biolinkml/meta/subsets)
 
 ## Domain and Range
 
-[schema_definition](schema_definition.md) ->  <sub>0..*</sub> [subset_definition](subset_definition.md)
+[SchemaDefinition](SchemaDefinition.md) ->  <sub>0..*</sub> [SubsetDefinition](SubsetDefinition.md)
 
 ## Parents
 
@@ -19,4 +19,4 @@ URI: [meta:subsets](https://w3id.org/biolink/biolinkml/meta/subsets)
 
 ## Used by
 
- * [schema_definition](schema_definition.md)
+ * [SchemaDefinition](SchemaDefinition.md)

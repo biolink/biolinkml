@@ -9,7 +9,7 @@ URI: [biolink:model_to_disease_mixin_relation](https://w3id.org/biolink/vocab/mo
 
 ## Domain and Range
 
-[model to disease mixin](model to disease mixin.md) ->  <sub>REQ</sub> [Uriorcurie](type/Uriorcurie.md)
+[ModelToDiseaseMixin](ModelToDiseaseMixin.md) ->  <sub>REQ</sub> [Uriorcurie](types/Uriorcurie.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:model_to_disease_mixin_relation](https://w3id.org/biolink/vocab/mo
 
 ## Used by
 
- * [model to disease mixin](model to disease mixin.md)
+ * [ModelToDiseaseMixin](ModelToDiseaseMixin.md)

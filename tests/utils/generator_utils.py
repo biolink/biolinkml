@@ -9,7 +9,7 @@ from rdflib.compare import to_isomorphic, graph_diff, IsomorphicGraph
 from biolinkml import METAMODEL_NAMESPACE, MODULE_DIR
 from biolinkml.utils.generator import Generator
 from biolinkml.utils.context_utils import parse_import_map
-from tests import sourcedir
+from tests import sourcedir, USE_LOCAL_IMPORT_MAP
 from tests.test_scripts.clicktestcase import ClickTestCase
 from tests.utils.compare_directories import are_dir_trees_equal
 from tests.utils.dirutils import make_and_clear_directory
@@ -21,8 +21,11 @@ BIOLINK_NS = Namespace("https://w3id.org/biolink/vocab/")
 DO_SHEX_VALIDATION = False
 
 # Normally we import mappings and types directly from the URL, but for testing we use local maps
-BIOLINK_IMPORT_MAP = parse_import_map(os.path.join(sourcedir, 'biolink_import_map.json'),
+BIOLINK_IMPORT_MAP_FNAME = os.path.join(sourcedir, 'local_import_map.json' if USE_LOCAL_IMPORT_MAP else 'biolink_import_map.json')
+BIOLINK_IMPORT_MAP = parse_import_map(BIOLINK_IMPORT_MAP_FNAME,
                                       os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+
+
 
 class GeneratorTestCase(unittest.TestCase):
     source_path: str = None             # Path to expected output

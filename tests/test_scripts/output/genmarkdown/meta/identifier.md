@@ -9,7 +9,7 @@ URI: [meta:identifier](https://w3id.org/biolink/biolinkml/meta/identifier)
 
 ## Domain and Range
 
-[slot_definition](slot_definition.md) ->  <sub>OPT</sub> [Boolean](type/Boolean.md)
+[SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [Boolean](types/Boolean.md)
 
 ## Parents
 
@@ -19,7 +19,7 @@ URI: [meta:identifier](https://w3id.org/biolink/biolinkml/meta/identifier)
 
 ## Used by
 
- * [slot_definition](slot_definition.md)
+ * [SlotDefinition](SlotDefinition.md)
 
 ## Other properties
 

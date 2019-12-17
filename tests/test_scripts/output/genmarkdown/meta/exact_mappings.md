@@ -9,7 +9,7 @@ URI: [meta:exact_mappings](https://w3id.org/biolink/biolinkml/meta/exact_mapping
 
 ## Domain and Range
 
-None ->  <sub>0..*</sub> [Uriorcurie](type/Uriorcurie.md)
+None ->  <sub>0..*</sub> [Uriorcurie](types/Uriorcurie.md)
 
 ## Parents
 
@@ -20,13 +20,13 @@ None ->  <sub>0..*</sub> [Uriorcurie](type/Uriorcurie.md)
 
 ## Used by
 
- * [class_definition](class_definition.md)
- * [definition](definition.md)
- * [element](element.md)
- * [schema_definition](schema_definition.md)
- * [slot_definition](slot_definition.md)
- * [subset_definition](subset_definition.md)
- * [type_definition](type_definition.md)
+ * [ClassDefinition](ClassDefinition.md)
+ * [Definition](Definition.md)
+ * [Element](Element.md)
+ * [SchemaDefinition](SchemaDefinition.md)
+ * [SlotDefinition](SlotDefinition.md)
+ * [SubsetDefinition](SubsetDefinition.md)
+ * [TypeDefinition](TypeDefinition.md)
 
 ## Other properties
 

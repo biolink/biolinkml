@@ -9,7 +9,7 @@ URI: [biolink:disease_to_exposure_association_object](https://w3id.org/biolink/v
 
 ## Domain and Range
 
-[disease to exposure association](disease to exposure association.md) ->  <sub>REQ</sub> [exposure event](exposure event.md)
+[DiseaseToExposureAssociation](DiseaseToExposureAssociation.md) ->  <sub>REQ</sub> [ExposureEvent](ExposureEvent.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:disease_to_exposure_association_object](https://w3id.org/biolink/v
 
 ## Used by
 
- * [disease to exposure association](disease to exposure association.md)
+ * [DiseaseToExposureAssociation](DiseaseToExposureAssociation.md)

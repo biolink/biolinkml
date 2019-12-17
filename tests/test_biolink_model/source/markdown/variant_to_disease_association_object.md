@@ -9,7 +9,7 @@ URI: [biolink:variant_to_disease_association_object](https://w3id.org/biolink/vo
 
 ## Domain and Range
 
-[variant to disease association](variant to disease association.md) ->  <sub>REQ</sub> [named thing](named thing.md)
+[VariantToDiseaseAssociation](VariantToDiseaseAssociation.md) ->  <sub>REQ</sub> [NamedThing](NamedThing.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:variant_to_disease_association_object](https://w3id.org/biolink/vo
 
 ## Used by
 
- * [variant to disease association](variant to disease association.md)
+ * [VariantToDiseaseAssociation](VariantToDiseaseAssociation.md)

@@ -9,7 +9,7 @@ URI: [biolink:gene_as_a_model_of_disease_association_subject](https://w3id.org/b
 
 ## Domain and Range
 
-[gene as a model of disease association](gene as a model of disease association.md) ->  <sub>REQ</sub> [gene or gene product](gene or gene product.md)
+[GeneAsAModelOfDiseaseAssociation](GeneAsAModelOfDiseaseAssociation.md) ->  <sub>REQ</sub> [GeneOrGeneProduct](GeneOrGeneProduct.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:gene_as_a_model_of_disease_association_subject](https://w3id.org/b
 
 ## Used by
 
- * [gene as a model of disease association](gene as a model of disease association.md)
+ * [GeneAsAModelOfDiseaseAssociation](GeneAsAModelOfDiseaseAssociation.md)

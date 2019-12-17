@@ -9,7 +9,7 @@ URI: [meta:types](https://w3id.org/biolink/biolinkml/meta/types)
 
 ## Domain and Range
 
-[schema_definition](schema_definition.md) ->  <sub>0..*</sub> [type_definition](type_definition.md)
+[SchemaDefinition](SchemaDefinition.md) ->  <sub>0..*</sub> [TypeDefinition](TypeDefinition.md)
 
 ## Parents
 
@@ -19,4 +19,4 @@ URI: [meta:types](https://w3id.org/biolink/biolinkml/meta/types)
 
 ## Used by
 
- * [schema_definition](schema_definition.md)
+ * [SchemaDefinition](SchemaDefinition.md)

@@ -107,6 +107,7 @@ class JSONLDGenerator(Generator):
         # TODO: For testing purposes we use local contexts.  JSON-LD requires absolute URI's for contexts (double check
         #  that this is true), so we end up recording local path names in the tests.  All of these must be converted
         #  to URL's before this can be submitted and used
+        #  Note: This is NOT true -- relative URI's work find.  Fix this next time you have to update local models
         abs_contexts = ['file://' + os.path.abspath(os.path.join(self.base_dir, c))
                         if '://' not in c else c for c in context]
 

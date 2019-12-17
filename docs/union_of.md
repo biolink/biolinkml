@@ -9,7 +9,7 @@ URI: [meta:union_of](https://w3id.org/biolink/biolinkml/meta/union_of)
 
 ## Domain and Range
 
-[class_definition](class_definition.md) ->  <sub>0..*</sub> [class_definition](class_definition.md)
+[ClassDefinition](ClassDefinition.md) ->  <sub>0..*</sub> [ClassDefinition](ClassDefinition.md)
 
 ## Parents
 
@@ -19,4 +19,4 @@ URI: [meta:union_of](https://w3id.org/biolink/biolinkml/meta/union_of)
 
 ## Used by
 
- * [class_definition](class_definition.md)
+ * [ClassDefinition](ClassDefinition.md)

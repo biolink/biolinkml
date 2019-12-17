@@ -11,20 +11,20 @@ URI: [biolink:BiologicalProcess](https://w3id.org/biolink/vocab/BiologicalProces
 
 ## Parents
 
- *  is_a: [biological process or activity](biological process or activity.md) - Either an individual molecular activity, or a collection of causally connected molecular activities
+ *  is_a: [BiologicalProcessOrActivity](BiologicalProcessOrActivity.md) - Either an individual molecular activity, or a collection of causally connected molecular activities
 
 ## Uses Mixins
 
- *  mixin: [occurrent](occurrent.md) - A processual entity
+ *  mixin: [Occurrent](Occurrent.md) - A processual entity
 
 ## Children
 
- * [pathway](pathway.md)
- * [physiological process](physiological process.md)
+ * [Pathway](Pathway.md)
+ * [PhysiologicalProcess](PhysiologicalProcess.md)
 
 ## Referenced by class
 
- *  **[macromolecular machine to biological process association](macromolecular machine to biological process association.md)** *[macromolecular machine to biological process association➞object](macromolecular_machine_to_biological_process_association_object.md)*  <sub>REQ</sub>  **[biological process](biological process.md)**
+ *  **[MacromolecularMachineToBiologicalProcessAssociation](MacromolecularMachineToBiologicalProcessAssociation.md)** *[macromolecular machine to biological process association➞object](macromolecular_machine_to_biological_process_association_object.md)*  <sub>REQ</sub>  **[BiologicalProcess](BiologicalProcess.md)**
 
 ## Attributes
 
@@ -33,18 +33,18 @@ URI: [biolink:BiologicalProcess](https://w3id.org/biolink/vocab/BiologicalProces
 
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
-    * range: [IdentifierType](type/IdentifierType.md)
-    * inherited from: [named thing](named thing.md)
+    * range: [IdentifierType](types/IdentifierType.md)
+    * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
  * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing
-    * range: [LabelType](type/LabelType.md)
-    * inherited from: [named thing](named thing.md)
+    * range: [LabelType](types/LabelType.md)
+    * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
  * [category](category.md)  <sub>1..*</sub>
     * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
-    * range: [IriType](type/IriType.md)
-    * inherited from: [named thing](named thing.md)
+    * range: [IriType](types/IriType.md)
+    * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
 
 ## Other properties

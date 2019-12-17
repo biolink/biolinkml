@@ -9,7 +9,7 @@ URI: [biolink:interacting_molecules_category](https://w3id.org/biolink/vocab/int
 
 ## Domain and Range
 
-[pairwise interaction association](pairwise interaction association.md) ->  <sub>OPT</sub> [ontology class](ontology class.md)
+[PairwiseInteractionAssociation](PairwiseInteractionAssociation.md) ->  <sub>OPT</sub> [OntologyClass](OntologyClass.md)
 
 ## Parents
 
@@ -19,4 +19,4 @@ URI: [biolink:interacting_molecules_category](https://w3id.org/biolink/vocab/int
 
 ## Used by
 
- * [pairwise interaction association](pairwise interaction association.md)
+ * [PairwiseInteractionAssociation](PairwiseInteractionAssociation.md)

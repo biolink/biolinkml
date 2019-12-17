@@ -9,7 +9,7 @@ URI: [biolink:case_to_thing_association_subject](https://w3id.org/biolink/vocab/
 
 ## Domain and Range
 
-[case to thing association](case to thing association.md) ->  <sub>REQ</sub> [case](case.md)
+[CaseToThingAssociation](CaseToThingAssociation.md) ->  <sub>REQ</sub> [Case](Case.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:case_to_thing_association_subject](https://w3id.org/biolink/vocab/
 
 ## Used by
 
- * [case to thing association](case to thing association.md)
+ * [CaseToThingAssociation](CaseToThingAssociation.md)

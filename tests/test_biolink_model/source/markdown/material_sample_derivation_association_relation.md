@@ -9,7 +9,7 @@ URI: [biolink:material_sample_derivation_association_relation](https://w3id.org/
 
 ## Domain and Range
 
-[material sample derivation association](material sample derivation association.md) ->  <sub>REQ</sub> [Uriorcurie](type/Uriorcurie.md)
+[MaterialSampleDerivationAssociation](MaterialSampleDerivationAssociation.md) ->  <sub>REQ</sub> [Uriorcurie](types/Uriorcurie.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:material_sample_derivation_association_relation](https://w3id.org/
 
 ## Used by
 
- * [material sample derivation association](material sample derivation association.md)
+ * [MaterialSampleDerivationAssociation](MaterialSampleDerivationAssociation.md)

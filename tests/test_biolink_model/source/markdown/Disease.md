@@ -11,14 +11,14 @@ URI: [biolink:Disease](https://w3id.org/biolink/vocab/Disease)
 
 ## Parents
 
- *  is_a: [disease or phenotypic feature](disease or phenotypic feature.md) - Either one of a disease or an individual phenotypic feature. Some knowledge resources such as Monarch treat these as distinct, others such as MESH conflate.
+ *  is_a: [DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md) - Either one of a disease or an individual phenotypic feature. Some knowledge resources such as Monarch treat these as distinct, others such as MESH conflate.
 
 ## Referenced by class
 
- *  **[disease to exposure association](disease to exposure association.md)** *[disease to exposure association➞subject](disease_to_exposure_association_subject.md)*  <sub>REQ</sub>  **[disease](disease.md)**
- *  **[disease to thing association](disease to thing association.md)** *[disease to thing association➞subject](disease_to_thing_association_subject.md)*  <sub>REQ</sub>  **[disease](disease.md)**
- *  **[entity to disease association](entity to disease association.md)** *[entity to disease association➞object](entity_to_disease_association_object.md)*  <sub>REQ</sub>  **[disease](disease.md)**
- *  **[named thing](named thing.md)** *[manifestation of](manifestation_of.md)*  <sub>0..*</sub>  **[disease](disease.md)**
+ *  **[DiseaseToExposureAssociation](DiseaseToExposureAssociation.md)** *[disease to exposure association➞subject](disease_to_exposure_association_subject.md)*  <sub>REQ</sub>  **[Disease](Disease.md)**
+ *  **[DiseaseToThingAssociation](DiseaseToThingAssociation.md)** *[disease to thing association➞subject](disease_to_thing_association_subject.md)*  <sub>REQ</sub>  **[Disease](Disease.md)**
+ *  **[EntityToDiseaseAssociation](EntityToDiseaseAssociation.md)** *[entity to disease association➞object](entity_to_disease_association_object.md)*  <sub>REQ</sub>  **[Disease](Disease.md)**
+ *  **[NamedThing](NamedThing.md)** *[manifestation of](manifestation_of.md)*  <sub>0..*</sub>  **[Disease](Disease.md)**
 
 ## Attributes
 
@@ -27,26 +27,26 @@ URI: [biolink:Disease](https://w3id.org/biolink/vocab/Disease)
 
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
-    * range: [IdentifierType](type/IdentifierType.md)
-    * inherited from: [named thing](named thing.md)
+    * range: [IdentifierType](types/IdentifierType.md)
+    * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
  * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing
-    * range: [LabelType](type/LabelType.md)
-    * inherited from: [named thing](named thing.md)
+    * range: [LabelType](types/LabelType.md)
+    * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
  * [category](category.md)  <sub>1..*</sub>
     * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
-    * range: [IriType](type/IriType.md)
-    * inherited from: [named thing](named thing.md)
+    * range: [IriType](types/IriType.md)
+    * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
 
 ### Inherited from thing with taxon:
 
  * [in taxon](in_taxon.md)  <sub>0..*</sub>
     * Description: connects a thing to a class representing a taxon
-    * range: [organism taxon](organism taxon.md)
-    * inherited from: [thing with taxon](thing with taxon.md)
+    * range: [OrganismTaxon](OrganismTaxon.md)
+    * inherited from: [ThingWithTaxon](ThingWithTaxon.md)
     * in subsets: (translator_minimal)
 
 ## Other properties

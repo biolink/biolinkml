@@ -9,7 +9,7 @@ URI: [biolink:gene_to_thing_association_subject](https://w3id.org/biolink/vocab/
 
 ## Domain and Range
 
-[gene to thing association](gene to thing association.md) ->  <sub>REQ</sub> [gene or gene product](gene or gene product.md)
+[GeneToThingAssociation](GeneToThingAssociation.md) ->  <sub>REQ</sub> [GeneOrGeneProduct](GeneOrGeneProduct.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:gene_to_thing_association_subject](https://w3id.org/biolink/vocab/
 
 ## Used by
 
- * [gene to thing association](gene to thing association.md)
+ * [GeneToThingAssociation](GeneToThingAssociation.md)

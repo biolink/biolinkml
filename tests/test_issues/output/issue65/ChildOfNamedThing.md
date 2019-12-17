@@ -11,7 +11,7 @@ URI: [https://example.com/test65/ChildOfNamedThing](https://example.com/test65/C
 
 ## Parents
 
- *  is_a: [named thing](named thing.md)
+ *  is_a: [NamedThing](NamedThing.md)
 
 ## Referenced by class
 
@@ -22,9 +22,9 @@ URI: [https://example.com/test65/ChildOfNamedThing](https://example.com/test65/C
 ### Own
 
  * [child of named thing➞subject](child_of_named_thing_subject.md)  <sub>OPT</sub>
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
 
 ### Domain for slot:
 
  * [child of named thing➞subject](child_of_named_thing_subject.md)  <sub>OPT</sub>
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)

@@ -9,7 +9,7 @@ URI: [biolink:gene_regulatory_relationship_object](https://w3id.org/biolink/voca
 
 ## Domain and Range
 
-[gene regulatory relationship](gene regulatory relationship.md) ->  <sub>REQ</sub> [gene or gene product](gene or gene product.md)
+[GeneRegulatoryRelationship](GeneRegulatoryRelationship.md) ->  <sub>REQ</sub> [GeneOrGeneProduct](GeneOrGeneProduct.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:gene_regulatory_relationship_object](https://w3id.org/biolink/voca
 
 ## Used by
 
- * [gene regulatory relationship](gene regulatory relationship.md)
+ * [GeneRegulatoryRelationship](GeneRegulatoryRelationship.md)

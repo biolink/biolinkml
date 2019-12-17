@@ -9,7 +9,7 @@ URI: [biolink:pairwise_interaction_association_relation](https://w3id.org/biolin
 
 ## Domain and Range
 
-[pairwise interaction association](pairwise interaction association.md) ->  <sub>REQ</sub> [Uriorcurie](type/Uriorcurie.md)
+[PairwiseInteractionAssociation](PairwiseInteractionAssociation.md) ->  <sub>REQ</sub> [Uriorcurie](types/Uriorcurie.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:pairwise_interaction_association_relation](https://w3id.org/biolin
 
 ## Used by
 
- * [pairwise interaction association](pairwise interaction association.md)
+ * [PairwiseInteractionAssociation](PairwiseInteractionAssociation.md)

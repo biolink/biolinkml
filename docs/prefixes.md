@@ -9,7 +9,7 @@ URI: [meta:prefixes](https://w3id.org/biolink/biolinkml/meta/prefixes)
 
 ## Domain and Range
 
-[schema_definition](schema_definition.md) ->  <sub>0..*</sub> [prefix](prefix.md)
+[SchemaDefinition](SchemaDefinition.md) ->  <sub>0..*</sub> [Prefix](Prefix.md)
 
 ## Parents
 
@@ -19,4 +19,4 @@ URI: [meta:prefixes](https://w3id.org/biolink/biolinkml/meta/prefixes)
 
 ## Used by
 
- * [schema_definition](schema_definition.md)
+ * [SchemaDefinition](SchemaDefinition.md)

@@ -9,7 +9,7 @@ URI: [biolink:has_drug](https://w3id.org/biolink/vocab/has_drug)
 
 ## Domain and Range
 
-[named thing](named thing.md) ->  <sub>OPT</sub> [drug](drug.md)
+[NamedThing](NamedThing.md) ->  <sub>OPT</sub> [Drug](Drug.md)
 
 ## Parents
 
@@ -21,5 +21,5 @@ URI: [biolink:has_drug](https://w3id.org/biolink/vocab/has_drug)
 
 ## Used by
 
- * [drug exposure](drug exposure.md)
- * [named thing](named thing.md)
+ * [DrugExposure](DrugExposure.md)
+ * [NamedThing](NamedThing.md)

@@ -9,7 +9,7 @@ URI: [biolink:negatively_regulates_process_to_process](https://w3id.org/biolink/
 
 ## Domain and Range
 
-[occurrent](occurrent.md) ->  <sub>0..*</sub> [occurrent](occurrent.md)
+[Occurrent](Occurrent.md) ->  <sub>0..*</sub> [Occurrent](Occurrent.md)
 
 ## Parents
 
@@ -20,7 +20,7 @@ URI: [biolink:negatively_regulates_process_to_process](https://w3id.org/biolink/
 
 ## Used by
 
- * [occurrent](occurrent.md)
+ * [Occurrent](Occurrent.md)
 
 ## Other properties
 

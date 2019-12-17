@@ -9,7 +9,7 @@ URI: [biolink:affects_uptake_of](https://w3id.org/biolink/vocab/affects_uptake_o
 
 ## Domain and Range
 
-[molecular entity](molecular entity.md) ->  <sub>0..*</sub> [molecular entity](molecular entity.md)
+[MolecularEntity](MolecularEntity.md) ->  <sub>0..*</sub> [MolecularEntity](MolecularEntity.md)
 
 ## Parents
 
@@ -22,32 +22,32 @@ URI: [biolink:affects_uptake_of](https://w3id.org/biolink/vocab/affects_uptake_o
 
 ## Used by
 
- * [RNA product](RNA product.md)
- * [RNA product isoform](RNA product isoform.md)
- * [carbohydrate](carbohydrate.md)
- * [chemical substance](chemical substance.md)
- * [coding sequence](coding sequence.md)
- * [drug](drug.md)
- * [exon](exon.md)
- * [gene](gene.md)
- * [gene family](gene family.md)
- * [gene or gene product](gene or gene product.md)
- * [gene product](gene product.md)
- * [gene product isoform](gene product isoform.md)
- * [genome](genome.md)
- * [genomic entity](genomic entity.md)
- * [genotype](genotype.md)
- * [haplotype](haplotype.md)
- * [macromolecular complex](macromolecular complex.md)
- * [macromolecular machine](macromolecular machine.md)
- * [metabolite](metabolite.md)
- * [microRNA](microRNA.md)
- * [molecular entity](molecular entity.md)
- * [noncoding RNA product](noncoding RNA product.md)
- * [protein](protein.md)
- * [protein isoform](protein isoform.md)
- * [sequence variant](sequence variant.md)
- * [transcript](transcript.md)
+ * [RNAProduct](RNAProduct.md)
+ * [RNAProductIsoform](RNAProductIsoform.md)
+ * [Carbohydrate](Carbohydrate.md)
+ * [ChemicalSubstance](ChemicalSubstance.md)
+ * [CodingSequence](CodingSequence.md)
+ * [Drug](Drug.md)
+ * [Exon](Exon.md)
+ * [Gene](Gene.md)
+ * [GeneFamily](GeneFamily.md)
+ * [GeneOrGeneProduct](GeneOrGeneProduct.md)
+ * [GeneProduct](GeneProduct.md)
+ * [GeneProductIsoform](GeneProductIsoform.md)
+ * [Genome](Genome.md)
+ * [GenomicEntity](GenomicEntity.md)
+ * [Genotype](Genotype.md)
+ * [Haplotype](Haplotype.md)
+ * [MacromolecularComplex](MacromolecularComplex.md)
+ * [MacromolecularMachine](MacromolecularMachine.md)
+ * [Metabolite](Metabolite.md)
+ * [MicroRNA](MicroRNA.md)
+ * [MolecularEntity](MolecularEntity.md)
+ * [NoncodingRNAProduct](NoncodingRNAProduct.md)
+ * [Protein](Protein.md)
+ * [ProteinIsoform](ProteinIsoform.md)
+ * [SequenceVariant](SequenceVariant.md)
+ * [Transcript](Transcript.md)
 
 ## Other properties
 

@@ -7,9 +7,9 @@ Mappings test
 
 ### Classes
 
- * [c1](c1.md)
-    * [c2](c2.md)
-    * [c3](c3.md)
+ * [C1](C1.md)
+    * [C2](C2.md)
+    * [C3](C3.md)
 
 ### Mixins
 
@@ -28,5 +28,5 @@ Mappings test
 
 #### Defined
 
- * [IdentifierType](type/IdentifierType.md)  ([String](type/String.md))  - A string that is intended to uniquely identify a thing May be URI in full or compact (CURIE) form
- * [String](type/String.md)  (**str**) 
+ * [IdentifierType](types/IdentifierType.md)  ([String](types/String.md))  - A string that is intended to uniquely identify a thing May be URI in full or compact (CURIE) form
+ * [String](types/String.md)  (**str**) 

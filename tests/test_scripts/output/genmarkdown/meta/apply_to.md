@@ -9,7 +9,7 @@ URI: [meta:apply_to](https://w3id.org/biolink/biolinkml/meta/apply_to)
 
 ## Domain and Range
 
-[definition](definition.md) ->  <sub>0..*</sub> [definition](definition.md)
+[Definition](Definition.md) ->  <sub>0..*</sub> [Definition](Definition.md)
 
 ## Parents
 
@@ -21,6 +21,6 @@ URI: [meta:apply_to](https://w3id.org/biolink/biolinkml/meta/apply_to)
 
 ## Used by
 
- * [class_definition](class_definition.md)
- * [definition](definition.md)
- * [slot_definition](slot_definition.md)
+ * [ClassDefinition](ClassDefinition.md)
+ * [Definition](Definition.md)
+ * [SlotDefinition](SlotDefinition.md)

@@ -9,7 +9,7 @@ URI: [https://example.com/test62/category](https://example.com/test62/category)
 
 ## Domain and Range
 
-[named thing](named thing.md) ->  <sub>1..*</sub> [IriType](type/IriType.md)
+[NamedThing](NamedThing.md) ->  <sub>1..*</sub> [IriType](types/IriType.md)
 
 ## Parents
 
@@ -19,7 +19,7 @@ URI: [https://example.com/test62/category](https://example.com/test62/category)
 
 ## Used by
 
- * [named thing](named thing.md)
+ * [NamedThing](NamedThing.md)
 
 ## Other properties
 

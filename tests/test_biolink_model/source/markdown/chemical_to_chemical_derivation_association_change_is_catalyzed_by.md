@@ -9,7 +9,7 @@ URI: [biolink:chemical_to_chemical_derivation_association_change_is_catalyzed_by
 
 ## Domain and Range
 
-[chemical to chemical derivation association](chemical to chemical derivation association.md) ->  <sub>0..*</sub> [macromolecular machine](macromolecular machine.md)
+[ChemicalToChemicalDerivationAssociation](ChemicalToChemicalDerivationAssociation.md) ->  <sub>0..*</sub> [MacromolecularMachine](MacromolecularMachine.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:chemical_to_chemical_derivation_association_change_is_catalyzed_by
 
 ## Used by
 
- * [chemical to chemical derivation association](chemical to chemical derivation association.md)
+ * [ChemicalToChemicalDerivationAssociation](ChemicalToChemicalDerivationAssociation.md)

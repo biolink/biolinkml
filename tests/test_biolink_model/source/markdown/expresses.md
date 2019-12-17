@@ -9,7 +9,7 @@ URI: [biolink:expresses](https://w3id.org/biolink/vocab/expresses)
 
 ## Domain and Range
 
-[anatomical entity](anatomical entity.md) ->  <sub>0..*</sub> [gene or gene product](gene or gene product.md)
+[AnatomicalEntity](AnatomicalEntity.md) ->  <sub>0..*</sub> [GeneOrGeneProduct](GeneOrGeneProduct.md)
 
 ## Parents
 
@@ -20,10 +20,10 @@ URI: [biolink:expresses](https://w3id.org/biolink/vocab/expresses)
 
 ## Used by
 
- * [anatomical entity](anatomical entity.md)
- * [cell](cell.md)
- * [cellular component](cellular component.md)
- * [gross anatomical structure](gross anatomical structure.md)
+ * [AnatomicalEntity](AnatomicalEntity.md)
+ * [Cell](Cell.md)
+ * [CellularComponent](CellularComponent.md)
+ * [GrossAnatomicalStructure](GrossAnatomicalStructure.md)
 
 ## Other properties
 

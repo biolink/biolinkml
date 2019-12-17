@@ -9,7 +9,7 @@ URI: [biolink:chemical_to_thing_association_subject](https://w3id.org/biolink/vo
 
 ## Domain and Range
 
-[chemical to thing association](chemical to thing association.md) ->  <sub>REQ</sub> [chemical substance](chemical substance.md)
+[ChemicalToThingAssociation](ChemicalToThingAssociation.md) ->  <sub>REQ</sub> [ChemicalSubstance](ChemicalSubstance.md)
 
 ## Parents
 
@@ -20,4 +20,4 @@ URI: [biolink:chemical_to_thing_association_subject](https://w3id.org/biolink/vo
 
 ## Used by
 
- * [chemical to thing association](chemical to thing association.md)
+ * [ChemicalToThingAssociation](ChemicalToThingAssociation.md)
