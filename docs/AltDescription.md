@@ -9,7 +9,6 @@ URI: [meta:AltDescription](https://w3id.org/biolink/biolinkml/meta/AltDescriptio
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Element]++-%20alt_descriptions%200..*>\[AltDescription&#124;source(pk):ncname;description:string])
 
-
 ## Referenced by class
 
  *  **[element](element.md)** *[alt_descriptions](alt_descriptions.md)*  <sub>0..*</sub>  **[alt_description](alt_description.md)**

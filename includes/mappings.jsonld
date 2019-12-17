@@ -286,7 +286,7 @@
   "type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/biolink/biolinkml/context.jsonld",
-    "https://w3id.org/biolink/biolinkml/includes/context.jsonld",
+    "https://w3id.org/biolink/biolinkml/includes/types.context.jsonld",
     {
       "@base": "https://w3id.org/biolink/biolinkml/meta/"
     }

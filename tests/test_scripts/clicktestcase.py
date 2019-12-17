@@ -113,8 +113,9 @@ class ClickTestCase(unittest.TestCase):
 
         outf = StringIO()
         arg_list = args.split() if isinstance(args, str) else args
+        from tests.utils.generator_utils import BIOLINK_IMPORT_MAP_FNAME
         if arg_list and arg_list[0] != '--help':
-            arg_list += ["--importmap", os.path.join(sourcedir, 'biolink_import_map.json')]
+            arg_list += ["--importmap", BIOLINK_IMPORT_MAP_FNAME]
         if error:
             with self.assertRaises(error):
                 self.click_ep(arg_list, standalone_mode=False)
