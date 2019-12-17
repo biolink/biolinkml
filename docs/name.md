@@ -9,7 +9,7 @@ URI: [meta:name](https://w3id.org/biolink/biolinkml/meta/name)
 
 ## Domain and Range
 
-[Element](Element.md) ->  <sub>REQ</sub> [String](type/String.md)
+[Element](Element.md) ->  <sub>REQ</sub> [String](types/String.md)
 
 ## Parents
 

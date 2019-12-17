@@ -8,5 +8,5 @@ URI: [ex:IdentifierType](http://example.org/mappings/IdentifierType)
 
 |  |  |  |
 | --- | --- | --- |
-| Parent type | | [String](type/String.md) |
+| Parent type | | [String](types/String.md) |
 | Root (builtin) type | | **str** |

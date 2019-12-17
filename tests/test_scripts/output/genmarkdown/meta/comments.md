@@ -9,7 +9,7 @@ URI: [meta:comments](https://w3id.org/biolink/biolinkml/meta/comments)
 
 ## Domain and Range
 
-[Element](Element.md) ->  <sub>0..*</sub> [String](type/String.md)
+[Element](Element.md) ->  <sub>0..*</sub> [String](types/String.md)
 
 ## Parents
 

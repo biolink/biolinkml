@@ -43,4 +43,4 @@ A metamodel for defining biolink related schemas
 
 #### Defined
 
- * [String](type/String.md)  (**str**)  - A character string
+ * [String](types/String.md)  (**str**)  - A character string

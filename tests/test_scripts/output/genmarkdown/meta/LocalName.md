@@ -20,16 +20,16 @@ URI: [meta:LocalName](https://w3id.org/biolink/biolinkml/meta/LocalName)
 
  * [local_name_source](local_name_source.md)  <sub>REQ</sub>
     * Description: the ncname of the source of the name
-    * range: [Ncname](type/Ncname.md)
+    * range: [Ncname](types/Ncname.md)
  * [local_name_value](local_name_value.md)  <sub>REQ</sub>
     * Description: a name assigned to an element in a given ontology
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
 
 ### Domain for slot:
 
  * [local_name_source](local_name_source.md)  <sub>REQ</sub>
     * Description: the ncname of the source of the name
-    * range: [Ncname](type/Ncname.md)
+    * range: [Ncname](types/Ncname.md)
  * [local_name_value](local_name_value.md)  <sub>REQ</sub>
     * Description: a name assigned to an element in a given ontology
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)

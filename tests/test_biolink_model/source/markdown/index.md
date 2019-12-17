@@ -506,28 +506,28 @@ Entity and association taxonomy and datamodel for life-sciences data
 
 #### Defined
 
- * [BiologicalSequence](type/BiologicalSequence.md)  ([String](type/String.md)) 
- * [Boolean](type/Boolean.md)  (**Bool**)  - A binary (true or false) value
- * [ChemicalFormulaValue](type/ChemicalFormulaValue.md)  (**str**)  - A chemical formula
- * [Date](type/Date.md)  (**XSDDate**)  - a date (year, month and day) in an idealized calendar
- * [Datetime](type/Datetime.md)  (**XSDDateTime**)  - The combination of a date and time
- * [Double](type/Double.md)  (**float**)  - A real number that conforms to the xsd:double specification
- * [Float](type/Float.md)  (**float**)  - A real number that conforms to the xsd:float specification
- * [Frequency](type/Frequency.md)  ([String](type/String.md)) 
- * [IdentifierType](type/IdentifierType.md)  (**ElementIdentifier**)  - A string that is intended to uniquely identify a thing May be URI in full or compact (CURIE) form
- * [Integer](type/Integer.md)  (**int**)  - An integer
- * [IriType](type/IriType.md)  ([Uriorcurie](type/Uriorcurie.md))  - An IRI
- * [LabelType](type/LabelType.md)  ([String](type/String.md))  - A string that provides a human-readable name for a thing
- * [NarrativeText](type/NarrativeText.md)  ([String](type/String.md))  - A string that provides a human-readable description of something
- * [Ncname](type/Ncname.md)  (**NCName**)  - Prefix part of CURIE
- * [Nodeidentifier](type/Nodeidentifier.md)  (**NodeIdentifier**)  - A URI, CURIE or BNODE that represents a node in a model.
- * [Objectidentifier](type/Objectidentifier.md)  (**ElementIdentifier**)  - A URI or CURIE that represents an object in the model.
- * [PercentageFrequencyValue](type/PercentageFrequencyValue.md)  ([Double](type/Double.md)) 
- * [Quotient](type/Quotient.md)  ([Double](type/Double.md)) 
- * [String](type/String.md)  (**str**)  - A character string
- * [SymbolType](type/SymbolType.md)  ([String](type/String.md)) 
- * [Time](type/Time.md)  (**XSDTime**)  - A time object represents a (local) time of day, independent of any particular day
- * [TimeType](type/TimeType.md)  ([Time](type/Time.md)) 
- * [Unit](type/Unit.md)  ([String](type/String.md)) 
- * [Uri](type/Uri.md)  (**URI**)  - a complete URI
- * [Uriorcurie](type/Uriorcurie.md)  (**URIorCURIE**)  - a URI or a CURIE
+ * [BiologicalSequence](types/BiologicalSequence.md)  ([String](types/String.md)) 
+ * [Boolean](types/Boolean.md)  (**Bool**)  - A binary (true or false) value
+ * [ChemicalFormulaValue](types/ChemicalFormulaValue.md)  (**str**)  - A chemical formula
+ * [Date](types/Date.md)  (**XSDDate**)  - a date (year, month and day) in an idealized calendar
+ * [Datetime](types/Datetime.md)  (**XSDDateTime**)  - The combination of a date and time
+ * [Double](types/Double.md)  (**float**)  - A real number that conforms to the xsd:double specification
+ * [Float](types/Float.md)  (**float**)  - A real number that conforms to the xsd:float specification
+ * [Frequency](types/Frequency.md)  ([String](types/String.md)) 
+ * [IdentifierType](types/IdentifierType.md)  (**ElementIdentifier**)  - A string that is intended to uniquely identify a thing May be URI in full or compact (CURIE) form
+ * [Integer](types/Integer.md)  (**int**)  - An integer
+ * [IriType](types/IriType.md)  ([Uriorcurie](types/Uriorcurie.md))  - An IRI
+ * [LabelType](types/LabelType.md)  ([String](types/String.md))  - A string that provides a human-readable name for a thing
+ * [NarrativeText](types/NarrativeText.md)  ([String](types/String.md))  - A string that provides a human-readable description of something
+ * [Ncname](types/Ncname.md)  (**NCName**)  - Prefix part of CURIE
+ * [Nodeidentifier](types/Nodeidentifier.md)  (**NodeIdentifier**)  - A URI, CURIE or BNODE that represents a node in a model.
+ * [Objectidentifier](types/Objectidentifier.md)  (**ElementIdentifier**)  - A URI or CURIE that represents an object in the model.
+ * [PercentageFrequencyValue](types/PercentageFrequencyValue.md)  ([Double](types/Double.md)) 
+ * [Quotient](types/Quotient.md)  ([Double](types/Double.md)) 
+ * [String](types/String.md)  (**str**)  - A character string
+ * [SymbolType](types/SymbolType.md)  ([String](types/String.md)) 
+ * [Time](types/Time.md)  (**XSDTime**)  - A time object represents a (local) time of day, independent of any particular day
+ * [TimeType](types/TimeType.md)  ([Time](types/Time.md)) 
+ * [Unit](types/Unit.md)  ([String](types/String.md)) 
+ * [Uri](types/Uri.md)  (**URI**)  - a complete URI
+ * [Uriorcurie](types/Uriorcurie.md)  (**URIorCURIE**)  - a URI or a CURIE

@@ -24,20 +24,20 @@ URI: [biolink:QuantityValue](https://w3id.org/biolink/vocab/QuantityValue)
 
  * [has numeric value](has_numeric_value.md)  <sub>OPT</sub>
     * Description: connects a quantity value to a number
-    * range: [Double](type/Double.md)
+    * range: [Double](types/Double.md)
     * in subsets: (samples)
  * [has unit](has_unit.md)  <sub>OPT</sub>
     * Description: connects a quantity value to a unit
-    * range: [Unit](type/Unit.md)
+    * range: [Unit](types/Unit.md)
     * in subsets: (samples)
 
 ### Domain for slot:
 
  * [has numeric value](has_numeric_value.md)  <sub>OPT</sub>
     * Description: connects a quantity value to a number
-    * range: [Double](type/Double.md)
+    * range: [Double](types/Double.md)
     * in subsets: (samples)
  * [has unit](has_unit.md)  <sub>OPT</sub>
     * Description: connects a quantity value to a unit
-    * range: [Unit](type/Unit.md)
+    * range: [Unit](types/Unit.md)
     * in subsets: (samples)

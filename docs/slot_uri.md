@@ -9,7 +9,7 @@ URI: [meta:slot_uri](https://w3id.org/biolink/biolinkml/meta/slot_uri)
 
 ## Domain and Range
 
-[SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [Uriorcurie](type/Uriorcurie.md)
+[SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [Uriorcurie](types/Uriorcurie.md)
 
 ## Parents
 

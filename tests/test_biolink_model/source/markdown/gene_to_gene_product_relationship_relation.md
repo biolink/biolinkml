@@ -9,7 +9,7 @@ URI: [biolink:gene_to_gene_product_relationship_relation](https://w3id.org/bioli
 
 ## Domain and Range
 
-[GeneToGeneProductRelationship](GeneToGeneProductRelationship.md) ->  <sub>REQ</sub> [Uriorcurie](type/Uriorcurie.md)
+[GeneToGeneProductRelationship](GeneToGeneProductRelationship.md) ->  <sub>REQ</sub> [Uriorcurie](types/Uriorcurie.md)
 
 ## Parents
 

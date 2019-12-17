@@ -76,15 +76,15 @@ URI: [biolink:NamedThing](https://w3id.org/biolink/vocab/NamedThing)
 
  * [category](category.md)  <sub>1..*</sub>
     * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
-    * range: [IriType](type/IriType.md)
+    * range: [IriType](types/IriType.md)
     * in subsets: (translator_minimal)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
-    * range: [IdentifierType](type/IdentifierType.md)
+    * range: [IdentifierType](types/IdentifierType.md)
     * in subsets: (translator_minimal)
  * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing
-    * range: [LabelType](type/LabelType.md)
+    * range: [LabelType](types/LabelType.md)
     * in subsets: (translator_minimal)
 
 ### Domain for slot:
@@ -102,14 +102,14 @@ URI: [biolink:NamedThing](https://w3id.org/biolink/vocab/NamedThing)
     * range: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
  * [aggregate statistic](aggregate_statistic.md)  <sub>OPT</sub>
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
  * [capable of](capable_of.md)  <sub>0..*</sub>
     * Description: holds between a physical entity and process or function, where the continuant alone has the ability to carry out the process or function.
     * range: [Occurrent](Occurrent.md)
     * in subsets: (translator_minimal)
  * [category](category.md)  <sub>1..*</sub>
     * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
-    * range: [IriType](type/IriType.md)
+    * range: [IriType](types/IriType.md)
     * in subsets: (translator_minimal)
  * [causes](causes.md)  <sub>0..*</sub>
     * Description: holds between two entities where the occurrence, existence, or activity of one causes the occurrence or  generation of the other
@@ -129,7 +129,7 @@ URI: [biolink:NamedThing](https://w3id.org/biolink/vocab/NamedThing)
     * in subsets: (translator_minimal)
  * [creation date](creation_date.md)  <sub>OPT</sub>
     * Description: date on which thing was created. This can be applied to nodes or edges
-    * range: [Date](type/Date.md)
+    * range: [Date](types/Date.md)
  * [derives from](derives_from.md)  <sub>0..*</sub>
     * Description: holds between two distinct material entities, the new entity and the old entity, in which the new entity begins to exist when the old entity ceases to exist, and the new entity inherits the significant portion of the matter of the old entity
     * range: [NamedThing](NamedThing.md)
@@ -140,32 +140,32 @@ URI: [biolink:NamedThing](https://w3id.org/biolink/vocab/NamedThing)
     * in subsets: (translator_minimal)
  * [description](description.md)  <sub>OPT</sub>
     * Description: a human-readable description of a thing
-    * range: [NarrativeText](type/NarrativeText.md)
+    * range: [NarrativeText](types/NarrativeText.md)
     * in subsets: (translator_minimal)
  * [disrupts](disrupts.md)  <sub>0..*</sub>
     * Description: describes a relationship where one entity degrades or interferes with the structure, function, or occurrence of another.
     * range: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
  * [end interbase coordinate](end_interbase_coordinate.md)  <sub>OPT</sub>
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
  * [filler](filler.md)  <sub>OPT</sub>
     * Description: The value in a property-value tuple
     * range: [NamedThing](NamedThing.md)
  * [full name](full_name.md)  <sub>OPT</sub>
     * Description: a long-form human readable name for a thing
-    * range: [LabelType](type/LabelType.md)
+    * range: [LabelType](types/LabelType.md)
  * [genome build](genome_build.md)  <sub>OPT</sub>
     * Description: TODO
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
  * [has biological sequence](has_biological_sequence.md)  <sub>OPT</sub>
     * Description: connects a genomic feature to its sequence
-    * range: [BiologicalSequence](type/BiologicalSequence.md)
+    * range: [BiologicalSequence](types/BiologicalSequence.md)
  * [has chemical formula](has_chemical_formula.md)  <sub>OPT</sub>
     * Description: description of chemical compound based on element symbols
-    * range: [ChemicalFormulaValue](type/ChemicalFormulaValue.md)
+    * range: [ChemicalFormulaValue](types/ChemicalFormulaValue.md)
  * [has count](has_count.md)  <sub>OPT</sub>
     * Description: number of things with a particular property
-    * range: [Integer](type/Integer.md)
+    * range: [Integer](types/Integer.md)
  * [has drug](has_drug.md)  <sub>OPT</sub>
     * Description: connects an entity to a single drug
     * range: [Drug](Drug.md)
@@ -181,12 +181,12 @@ URI: [biolink:NamedThing](https://w3id.org/biolink/vocab/NamedThing)
     * in subsets: (translator_minimal)
  * [has percentage](has_percentage.md)  <sub>OPT</sub>
     * Description: equivalent to has quotient multiplied by 100
-    * range: [Double](type/Double.md)
+    * range: [Double](types/Double.md)
  * [has quotient](has_quotient.md)  <sub>OPT</sub>
-    * range: [Double](type/Double.md)
+    * range: [Double](types/Double.md)
  * [has total](has_total.md)  <sub>OPT</sub>
     * Description: total number of things in a particular reference set
-    * range: [Integer](type/Integer.md)
+    * range: [Integer](types/Integer.md)
  * [has zygosity](has_zygosity.md)  <sub>OPT</sub>
     * range: [Zygosity](Zygosity.md)
  * [homologous to](homologous_to.md)  <sub>0..*</sub>
@@ -195,7 +195,7 @@ URI: [biolink:NamedThing](https://w3id.org/biolink/vocab/NamedThing)
     * in subsets: (translator_minimal)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
-    * range: [IdentifierType](type/IdentifierType.md)
+    * range: [IdentifierType](types/IdentifierType.md)
     * in subsets: (translator_minimal)
  * [interacts with](interacts_with.md)  <sub>0..*</sub>
     * Description: holds between any two entities that directly or indirectly interact with each other
@@ -203,14 +203,14 @@ URI: [biolink:NamedThing](https://w3id.org/biolink/vocab/NamedThing)
     * in subsets: (translator_minimal)
  * [interbase coordinate](interbase_coordinate.md)  <sub>OPT</sub>
     * Description: TODO
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
  * [iri](iri.md)  <sub>OPT</sub>
     * Description: An IRI for the node. This is determined by the id using expansion rules.
-    * range: [IriType](type/IriType.md)
+    * range: [IriType](types/IriType.md)
     * in subsets: (translator_minimal)
  * [latitude](latitude.md)  <sub>OPT</sub>
     * Description: latitude
-    * range: [Float](type/Float.md)
+    * range: [Float](types/Float.md)
  * [located in](located_in.md)  <sub>0..*</sub>
     * Description: holds between a material entity and a material entity or site within which it is located (but of which it is not considered a part)
     * range: [NamedThing](NamedThing.md)
@@ -221,7 +221,7 @@ URI: [biolink:NamedThing](https://w3id.org/biolink/vocab/NamedThing)
     * in subsets: (translator_minimal)
  * [longitude](longitude.md)  <sub>OPT</sub>
     * Description: longitude
-    * range: [Float](type/Float.md)
+    * range: [Float](types/Float.md)
  * [manifestation of](manifestation_of.md)  <sub>0..*</sub>
     * Description: used in SemMedDB for linking things like dysfunctions and processes to some disease or syndrome
     * range: [Disease](Disease.md)
@@ -232,13 +232,13 @@ URI: [biolink:NamedThing](https://w3id.org/biolink/vocab/NamedThing)
     * in subsets: (translator_minimal)
  * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing
-    * range: [LabelType](type/LabelType.md)
+    * range: [LabelType](types/LabelType.md)
     * in subsets: (translator_minimal)
  * [negatively regulates](negatively_regulates.md)  <sub>0..*</sub>
     * range: [NamedThing](NamedThing.md)
  * [node property](node_property.md)  <sub>OPT</sub>
     * Description: A grouping for any property that holds between a node and a value
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
  * [occurs in](occurs_in.md)  <sub>0..*</sub>
     * Description: holds between a process and a material entity or site within which the process occurs
     * range: [NamedThing](NamedThing.md)
@@ -265,7 +265,7 @@ URI: [biolink:NamedThing](https://w3id.org/biolink/vocab/NamedThing)
     * in subsets: (translator_minimal)
  * [phase](phase.md)  <sub>OPT</sub>
     * Description: TODO
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
  * [physically interacts with](physically_interacts_with.md)  <sub>0..*</sub>
     * Description: holds between two entities that make physical contact as part of some interaction
     * range: [NamedThing](NamedThing.md)
@@ -294,22 +294,22 @@ URI: [biolink:NamedThing](https://w3id.org/biolink/vocab/NamedThing)
     * range: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
  * [start interbase coordinate](start_interbase_coordinate.md)  <sub>OPT</sub>
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
  * [synonym](synonym.md)  <sub>0..*</sub>
     * Description: Alternate human-readable names for a thing
-    * range: [LabelType](type/LabelType.md)
+    * range: [LabelType](types/LabelType.md)
     * in subsets: (translator_minimal)
  * [systematic synonym](systematic_synonym.md)  <sub>0..*</sub>
     * Description: more commonly used for gene symbols in yeast
-    * range: [LabelType](type/LabelType.md)
+    * range: [LabelType](types/LabelType.md)
  * [timepoint](timepoint.md)  <sub>OPT</sub>
     * Description: a point in time
-    * range: [TimeType](type/TimeType.md)
+    * range: [TimeType](types/TimeType.md)
  * [type](type.md)  <sub>OPT</sub>
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
  * [update date](update_date.md)  <sub>OPT</sub>
     * Description: date on which thing was updated. This can be applied to nodes or edges
-    * range: [Date](type/Date.md)
+    * range: [Date](types/Date.md)
  * [xenologous to](xenologous_to.md)  <sub>0..*</sub>
     * Description: a homology relationship characterized by an interspecies (horizontal) transfer since the common ancestor.
     * range: [NamedThing](NamedThing.md)

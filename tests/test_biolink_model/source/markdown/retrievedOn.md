@@ -9,7 +9,7 @@ URI: [biolink:retrievedOn](https://w3id.org/biolink/vocab/retrievedOn)
 
 ## Domain and Range
 
-[SourceFile](SourceFile.md) ->  <sub>OPT</sub> [Date](type/Date.md)
+[SourceFile](SourceFile.md) ->  <sub>OPT</sub> [Date](types/Date.md)
 
 ## Parents
 

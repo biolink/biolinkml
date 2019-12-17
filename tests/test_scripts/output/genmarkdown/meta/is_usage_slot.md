@@ -9,7 +9,7 @@ URI: [meta:is_usage_slot](https://w3id.org/biolink/biolinkml/meta/is_usage_slot)
 
 ## Domain and Range
 
-[SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [Boolean](type/Boolean.md)
+[SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [Boolean](types/Boolean.md)
 
 ## Parents
 

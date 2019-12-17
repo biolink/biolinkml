@@ -9,7 +9,7 @@ URI: [meta:source_file_size](https://w3id.org/biolink/biolinkml/meta/source_file
 
 ## Domain and Range
 
-[SchemaDefinition](SchemaDefinition.md) ->  <sub>OPT</sub> [Integer](type/Integer.md)
+[SchemaDefinition](SchemaDefinition.md) ->  <sub>OPT</sub> [Integer](types/Integer.md)
 
 ## Parents
 

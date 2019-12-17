@@ -25,30 +25,30 @@ URI: [meta:SubsetDefinition](https://w3id.org/biolink/biolinkml/meta/SubsetDefin
 
  * [id_prefixes](id_prefixes.md)  <sub>0..*</sub>
     * Description: the identifier of this class or slot must begin with one of the URIs referenced by this prefix
-    * range: [Ncname](type/Ncname.md)
+    * range: [Ncname](types/Ncname.md)
     * inherited from: [Element](Element.md)
  * [name](name.md)  <sub>REQ</sub>
     * Description: the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class.
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
     * inherited from: [Element](Element.md)
     * in subsets: (owl)
  * [definition_uri](definition_uri.md)  <sub>OPT</sub>
     * Description: the "native" URI of the element
-    * range: [Uriorcurie](type/Uriorcurie.md)
+    * range: [Uriorcurie](types/Uriorcurie.md)
     * inherited from: [Element](Element.md)
  * [aliases](aliases.md)  <sub>0..*</sub>
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
     * inherited from: [Element](Element.md)
  * [local_names](local_names.md)  <sub>0..*</sub>
     * range: [LocalName](LocalName.md)
     * inherited from: [Element](Element.md)
  * [mappings](mappings.md)  <sub>0..*</sub>
     * Description: A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective.
-    * range: [Uriorcurie](type/Uriorcurie.md)
+    * range: [Uriorcurie](types/Uriorcurie.md)
     * inherited from: None
  * [description](description.md)  <sub>OPT</sub>
     * Description: a description of the element's purpose and use
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
     * inherited from: [Element](Element.md)
     * in subsets: (owl)
  * [alt_descriptions](alt_descriptions.md)  <sub>0..*</sub>
@@ -56,20 +56,20 @@ URI: [meta:SubsetDefinition](https://w3id.org/biolink/biolinkml/meta/SubsetDefin
     * inherited from: [Element](Element.md)
  * [deprecated](deprecated.md)  <sub>OPT</sub>
     * Description: Description of why and when this element will no longer be used
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
     * inherited from: [Element](Element.md)
  * [todos](todos.md)  <sub>0..*</sub>
     * Description: Outstanding issue that needs resolution
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
     * inherited from: [Element](Element.md)
  * [notes](notes.md)  <sub>0..*</sub>
     * Description: editorial notes about an element intended for internal consumption
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
     * inherited from: [Element](Element.md)
     * in subsets: (owl)
  * [comments](comments.md)  <sub>0..*</sub>
     * Description: notes and comments about an element intended for external consumption
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
     * inherited from: [Element](Element.md)
     * in subsets: (owl)
  * [examples](examples.md)  <sub>0..*</sub>
@@ -83,34 +83,34 @@ URI: [meta:SubsetDefinition](https://w3id.org/biolink/biolinkml/meta/SubsetDefin
     * inherited from: [Element](Element.md)
  * [from_schema](from_schema.md)  <sub>OPT</sub>
     * Description: id of the schema that defined the element
-    * range: [Uri](type/Uri.md)
+    * range: [Uri](types/Uri.md)
     * inherited from: [Element](Element.md)
  * [imported_from](imported_from.md)  <sub>OPT</sub>
     * Description: the imports entry that this element was derived from.  Empty means primary source
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
     * inherited from: [Element](Element.md)
  * [see_also](see_also.md)  <sub>0..*</sub>
     * Description: a reference
-    * range: [Uriorcurie](type/Uriorcurie.md)
+    * range: [Uriorcurie](types/Uriorcurie.md)
     * inherited from: [Element](Element.md)
     * in subsets: (owl)
  * [exact mappings](exact_mappings.md)  <sub>0..*</sub>
     * Description: A list of terms from different schemas or terminology systems that have identical meaning.
-    * range: [Uriorcurie](type/Uriorcurie.md)
+    * range: [Uriorcurie](types/Uriorcurie.md)
     * inherited from: None
  * [close mappings](close_mappings.md)  <sub>0..*</sub>
     * Description: A list of terms from different schemas or terminology systems that have close meaning.
-    * range: [Uriorcurie](type/Uriorcurie.md)
+    * range: [Uriorcurie](types/Uriorcurie.md)
     * inherited from: None
  * [related mappings](related_mappings.md)  <sub>0..*</sub>
     * Description: A list of terms from different schemas or terminology systems that have related meaning.
-    * range: [Uriorcurie](type/Uriorcurie.md)
+    * range: [Uriorcurie](types/Uriorcurie.md)
     * inherited from: None
  * [deprecated element has exact replacement](deprecated_element_has_exact_replacement.md)  <sub>OPT</sub>
     * Description: When an element is deprecated, it can be automatically replaced by this uri or curie
-    * range: [Uriorcurie](type/Uriorcurie.md)
+    * range: [Uriorcurie](types/Uriorcurie.md)
     * inherited from: None
  * [deprecated element has possible replacement](deprecated_element_has_possible_replacement.md)  <sub>OPT</sub>
     * Description: When an element is deprecated, it can be potentially replaced by this uri or curie
-    * range: [Uriorcurie](type/Uriorcurie.md)
+    * range: [Uriorcurie](types/Uriorcurie.md)
     * inherited from: None

@@ -9,7 +9,7 @@ URI: [meta:deprecated_element_has_exact_replacement](https://w3id.org/biolink/bi
 
 ## Domain and Range
 
-None ->  <sub>OPT</sub> [Uriorcurie](type/Uriorcurie.md)
+None ->  <sub>OPT</sub> [Uriorcurie](types/Uriorcurie.md)
 
 ## Parents
 

@@ -9,7 +9,7 @@ URI: [meta:mixin](https://w3id.org/biolink/biolinkml/meta/mixin)
 
 ## Domain and Range
 
-[Definition](Definition.md) ->  <sub>OPT</sub> [Boolean](type/Boolean.md)
+[Definition](Definition.md) ->  <sub>OPT</sub> [Boolean](types/Boolean.md)
 
 ## Parents
 

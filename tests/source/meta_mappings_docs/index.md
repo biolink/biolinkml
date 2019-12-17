@@ -28,5 +28,5 @@ Mappings test
 
 #### Defined
 
- * [IdentifierType](type/IdentifierType.md)  ([String](type/String.md))  - A string that is intended to uniquely identify a thing May be URI in full or compact (CURIE) form
- * [String](type/String.md)  (**str**) 
+ * [IdentifierType](types/IdentifierType.md)  ([String](types/String.md))  - A string that is intended to uniquely identify a thing May be URI in full or compact (CURIE) form
+ * [String](types/String.md)  (**str**) 

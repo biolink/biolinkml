@@ -9,7 +9,7 @@ URI: [meta:singular_name](https://w3id.org/biolink/biolinkml/meta/singular_name)
 
 ## Domain and Range
 
-[SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [String](type/String.md)
+[SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [String](types/String.md)
 
 ## Parents
 

@@ -8,5 +8,5 @@ URI: [biolink:LabelType](https://w3id.org/biolink/vocab/LabelType)
 
 |  |  |  |
 | --- | --- | --- |
-| Parent type | | [String](type/String.md) |
+| Parent type | | [String](types/String.md) |
 | Root (builtin) type | | **str** |

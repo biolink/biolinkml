@@ -8,5 +8,5 @@ URI: [biolink:Frequency](https://w3id.org/biolink/vocab/Frequency)
 
 |  |  |  |
 | --- | --- | --- |
-| Parent type | | [String](type/String.md) |
+| Parent type | | [String](types/String.md) |
 | Root (builtin) type | | **str** |

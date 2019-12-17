@@ -9,7 +9,7 @@ URI: [biolink:interbase_coordinate](https://w3id.org/biolink/vocab/interbase_coo
 
 ## Domain and Range
 
-[NamedThing](NamedThing.md) ->  <sub>OPT</sub> [String](type/String.md)
+[NamedThing](NamedThing.md) ->  <sub>OPT</sub> [String](types/String.md)
 
 ## Parents
 

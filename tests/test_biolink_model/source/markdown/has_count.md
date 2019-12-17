@@ -9,7 +9,7 @@ URI: [biolink:has_count](https://w3id.org/biolink/vocab/has_count)
 
 ## Domain and Range
 
-[NamedThing](NamedThing.md) ->  <sub>OPT</sub> [Integer](type/Integer.md)
+[NamedThing](NamedThing.md) ->  <sub>OPT</sub> [Integer](types/Integer.md)
 
 ## Parents
 

@@ -9,7 +9,7 @@ URI: [biolink:subclass_of](https://w3id.org/biolink/vocab/subclass_of)
 
 ## Domain and Range
 
-[OntologyClass](OntologyClass.md) ->  <sub>0..*</sub> [IriType](type/IriType.md)
+[OntologyClass](OntologyClass.md) ->  <sub>0..*</sub> [IriType](types/IriType.md)
 
 ## Parents
 

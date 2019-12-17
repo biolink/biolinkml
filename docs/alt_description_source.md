@@ -9,7 +9,7 @@ URI: [meta:alt_description_source](https://w3id.org/biolink/biolinkml/meta/alt_d
 
 ## Domain and Range
 
-[AltDescription](AltDescription.md) ->  <sub>REQ</sub> [Ncname](type/Ncname.md)
+[AltDescription](AltDescription.md) ->  <sub>REQ</sub> [Ncname](types/Ncname.md)
 
 ## Parents
 

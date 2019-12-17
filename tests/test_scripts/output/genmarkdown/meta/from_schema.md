@@ -9,7 +9,7 @@ URI: [meta:from_schema](https://w3id.org/biolink/biolinkml/meta/from_schema)
 
 ## Domain and Range
 
-[Element](Element.md) ->  <sub>OPT</sub> [Uri](type/Uri.md)
+[Element](Element.md) ->  <sub>OPT</sub> [Uri](types/Uri.md)
 
 ## Parents
 

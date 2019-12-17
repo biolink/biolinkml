@@ -31,7 +31,7 @@ URI: [meta:SlotDefinition](https://w3id.org/biolink/biolinkml/meta/SlotDefinitio
 
  * [alias](alias.md)  <sub>OPT</sub>
     * Description: the name used for a slot in the context of its owning class.  If present, this is used instead of the actual slot name.
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
  * [domain](domain.md)  <sub>OPT</sub>
     * Description: defines the type of the subject of the slot.  Given the following slot definition
   S1:
@@ -46,7 +46,7 @@ implicitly asserts that X is an instance of C1
     * range: [ClassDefinition](ClassDefinition.md)
  * [identifier](identifier.md)  <sub>OPT</sub>
     * Description: true means that this slot is the subject of a set of assertions.  Identifiers do not appear as predicates in the model
-    * range: [Boolean](type/Boolean.md)
+    * range: [Boolean](types/Boolean.md)
  * [ifabsent](ifabsent.md)  <sub>OPT</sub>
     * Description: function that provides a default value for the slot.  Possible values for this slot are defined in biolink.utils.ifabsent_functions.default_library:
   * [Tt]rue -- boolean True
@@ -58,28 +58,28 @@ implicitly asserts that X is an instance of C1
   * slot_uri -- URI for the slot
   * class_curie -- CURIE for the containing class
   * class_uri -- URI for the containing class
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
  * [inherited](inherited.md)  <sub>OPT</sub>
     * Description: true means that the *value* of a slot is inherited by subclasses
-    * range: [Boolean](type/Boolean.md)
+    * range: [Boolean](types/Boolean.md)
  * [inlined](inlined.md)  <sub>OPT</sub>
     * Description: an inlined definition a list of actual values rather than references.  Only applies to slots whose range is a class.
-    * range: [Boolean](type/Boolean.md)
+    * range: [Boolean](types/Boolean.md)
  * [inverse](inverse.md)  <sub>OPT</sub>
     * Description: indicates that any instance of d s r implies that there is also an instance of r s' d
     * range: [SlotDefinition](SlotDefinition.md)
  * [is_class_field](is_class_field.md)  <sub>OPT</sub>
     * Description: indicates that any instance, i,  the domain of this slot will include an assert of i s range
-    * range: [Boolean](type/Boolean.md)
+    * range: [Boolean](types/Boolean.md)
  * [is_usage_slot](is_usage_slot.md)  <sub>OPT</sub>
     * Description: True means that this slot was defined in a slot_usage situation
-    * range: [Boolean](type/Boolean.md)
+    * range: [Boolean](types/Boolean.md)
  * [key](key.md)  <sub>OPT</sub>
     * Description: true means that the slot uniquely identifies the element within the context of its container.  Key slots are NOT identifiers - they do not serve as subjects
-    * range: [Boolean](type/Boolean.md)
+    * range: [Boolean](types/Boolean.md)
  * [multivalued](multivalued.md)  <sub>OPT</sub>
     * Description: true means that slot can have more than one value
-    * range: [Boolean](type/Boolean.md)
+    * range: [Boolean](types/Boolean.md)
  * [owner](owner.md)  <sub>OPT</sub>
     * Description: the "owner" of the slot. It is the class if it appears in the slots list, otherwise the declaring slot
     * range: [Definition](Definition.md)
@@ -97,16 +97,16 @@ implicitly asserts Y is an instance of C2
     * range: [Element](Element.md)
  * [readonly](readonly.md)  <sub>OPT</sub>
     * Description: If present, slot is read only.  Text explains why
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
  * [required](required.md)  <sub>OPT</sub>
     * Description: true means that the slot must be present in the loaded definition
-    * range: [Boolean](type/Boolean.md)
+    * range: [Boolean](types/Boolean.md)
  * [role](role.md)  <sub>OPT</sub>
     * Description: the role played by the slot range
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
  * [singular_name](singular_name.md)  <sub>OPT</sub>
     * Description: a name that is used in the singular form
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
  * [slot_definition➞apply_to](slot_definition_apply_to.md)  <sub>0..*</sub>
     * range: [SlotDefinition](SlotDefinition.md)
  * [slot_definition➞is_a](slot_definition_is_a.md)  <sub>OPT</sub>
@@ -115,13 +115,13 @@ implicitly asserts Y is an instance of C2
     * range: [SlotDefinition](SlotDefinition.md)
  * [slot_uri](slot_uri.md)  <sub>OPT</sub>
     * Description: predicate of this slot for semantic web application
-    * range: [Uriorcurie](type/Uriorcurie.md)
+    * range: [Uriorcurie](types/Uriorcurie.md)
  * [subproperty_of](subproperty_of.md)  <sub>OPT</sub>
     * Description: Ontology property which this slot is a subproperty of
-    * range: [Uriorcurie](type/Uriorcurie.md)
+    * range: [Uriorcurie](types/Uriorcurie.md)
  * [symmetric](symmetric.md)  <sub>OPT</sub>
     * Description: True means that any instance of  d s r implies that there is also an instance of r s d
-    * range: [Boolean](type/Boolean.md)
+    * range: [Boolean](types/Boolean.md)
 
 ### Inherited from definition:
 
@@ -131,11 +131,11 @@ implicitly asserts Y is an instance of C2
     * inherited from: [Definition](Definition.md)
  * [abstract](abstract.md)  <sub>OPT</sub>
     * Description: an abstract class is a high level class or slot that is typically used to group common slots together and cannot be directly instantiated.
-    * range: [Boolean](type/Boolean.md)
+    * range: [Boolean](types/Boolean.md)
     * inherited from: [Definition](Definition.md)
  * [mixin](mixin.md)  <sub>OPT</sub>
     * Description: this slot or class can only be used as a mixin -- equivalent to abstract
-    * range: [Boolean](type/Boolean.md)
+    * range: [Boolean](types/Boolean.md)
     * inherited from: [Definition](Definition.md)
  * [mixins](mixins.md)  <sub>0..*</sub>
     * Description: List of definitions to be mixed in. Targets may be any definition of the same type
@@ -147,37 +147,37 @@ implicitly asserts Y is an instance of C2
     * inherited from: [Definition](Definition.md)
  * [values_from](values_from.md)  <sub>0..*</sub>
     * Description: the identifier of a "value set" -- a set of identifiers that form the possible values for the range of a slot
-    * range: [Uriorcurie](type/Uriorcurie.md)
+    * range: [Uriorcurie](types/Uriorcurie.md)
     * inherited from: [Definition](Definition.md)
 
 ### Inherited from element:
 
  * [id_prefixes](id_prefixes.md)  <sub>0..*</sub>
     * Description: the identifier of this class or slot must begin with one of the URIs referenced by this prefix
-    * range: [Ncname](type/Ncname.md)
+    * range: [Ncname](types/Ncname.md)
     * inherited from: [Element](Element.md)
  * [name](name.md)  <sub>REQ</sub>
     * Description: the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class.
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
     * inherited from: [Element](Element.md)
     * in subsets: (owl)
  * [definition_uri](definition_uri.md)  <sub>OPT</sub>
     * Description: the "native" URI of the element
-    * range: [Uriorcurie](type/Uriorcurie.md)
+    * range: [Uriorcurie](types/Uriorcurie.md)
     * inherited from: [Element](Element.md)
  * [aliases](aliases.md)  <sub>0..*</sub>
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
     * inherited from: [Element](Element.md)
  * [local_names](local_names.md)  <sub>0..*</sub>
     * range: [LocalName](LocalName.md)
     * inherited from: [Element](Element.md)
  * [mappings](mappings.md)  <sub>0..*</sub>
     * Description: A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective.
-    * range: [Uriorcurie](type/Uriorcurie.md)
+    * range: [Uriorcurie](types/Uriorcurie.md)
     * inherited from: None
  * [description](description.md)  <sub>OPT</sub>
     * Description: a description of the element's purpose and use
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
     * inherited from: [Element](Element.md)
     * in subsets: (owl)
  * [alt_descriptions](alt_descriptions.md)  <sub>0..*</sub>
@@ -185,20 +185,20 @@ implicitly asserts Y is an instance of C2
     * inherited from: [Element](Element.md)
  * [deprecated](deprecated.md)  <sub>OPT</sub>
     * Description: Description of why and when this element will no longer be used
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
     * inherited from: [Element](Element.md)
  * [todos](todos.md)  <sub>0..*</sub>
     * Description: Outstanding issue that needs resolution
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
     * inherited from: [Element](Element.md)
  * [notes](notes.md)  <sub>0..*</sub>
     * Description: editorial notes about an element intended for internal consumption
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
     * inherited from: [Element](Element.md)
     * in subsets: (owl)
  * [comments](comments.md)  <sub>0..*</sub>
     * Description: notes and comments about an element intended for external consumption
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
     * inherited from: [Element](Element.md)
     * in subsets: (owl)
  * [examples](examples.md)  <sub>0..*</sub>
@@ -212,43 +212,43 @@ implicitly asserts Y is an instance of C2
     * inherited from: [Element](Element.md)
  * [from_schema](from_schema.md)  <sub>OPT</sub>
     * Description: id of the schema that defined the element
-    * range: [Uri](type/Uri.md)
+    * range: [Uri](types/Uri.md)
     * inherited from: [Element](Element.md)
  * [imported_from](imported_from.md)  <sub>OPT</sub>
     * Description: the imports entry that this element was derived from.  Empty means primary source
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
     * inherited from: [Element](Element.md)
  * [see_also](see_also.md)  <sub>0..*</sub>
     * Description: a reference
-    * range: [Uriorcurie](type/Uriorcurie.md)
+    * range: [Uriorcurie](types/Uriorcurie.md)
     * inherited from: [Element](Element.md)
     * in subsets: (owl)
  * [exact mappings](exact_mappings.md)  <sub>0..*</sub>
     * Description: A list of terms from different schemas or terminology systems that have identical meaning.
-    * range: [Uriorcurie](type/Uriorcurie.md)
+    * range: [Uriorcurie](types/Uriorcurie.md)
     * inherited from: None
  * [close mappings](close_mappings.md)  <sub>0..*</sub>
     * Description: A list of terms from different schemas or terminology systems that have close meaning.
-    * range: [Uriorcurie](type/Uriorcurie.md)
+    * range: [Uriorcurie](types/Uriorcurie.md)
     * inherited from: None
  * [related mappings](related_mappings.md)  <sub>0..*</sub>
     * Description: A list of terms from different schemas or terminology systems that have related meaning.
-    * range: [Uriorcurie](type/Uriorcurie.md)
+    * range: [Uriorcurie](types/Uriorcurie.md)
     * inherited from: None
  * [deprecated element has exact replacement](deprecated_element_has_exact_replacement.md)  <sub>OPT</sub>
     * Description: When an element is deprecated, it can be automatically replaced by this uri or curie
-    * range: [Uriorcurie](type/Uriorcurie.md)
+    * range: [Uriorcurie](types/Uriorcurie.md)
     * inherited from: None
  * [deprecated element has possible replacement](deprecated_element_has_possible_replacement.md)  <sub>OPT</sub>
     * Description: When an element is deprecated, it can be potentially replaced by this uri or curie
-    * range: [Uriorcurie](type/Uriorcurie.md)
+    * range: [Uriorcurie](types/Uriorcurie.md)
     * inherited from: None
 
 ### Domain for slot:
 
  * [alias](alias.md)  <sub>OPT</sub>
     * Description: the name used for a slot in the context of its owning class.  If present, this is used instead of the actual slot name.
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
  * [domain](domain.md)  <sub>OPT</sub>
     * Description: defines the type of the subject of the slot.  Given the following slot definition
   S1:
@@ -263,7 +263,7 @@ implicitly asserts that X is an instance of C1
     * range: [ClassDefinition](ClassDefinition.md)
  * [identifier](identifier.md)  <sub>OPT</sub>
     * Description: true means that this slot is the subject of a set of assertions.  Identifiers do not appear as predicates in the model
-    * range: [Boolean](type/Boolean.md)
+    * range: [Boolean](types/Boolean.md)
  * [ifabsent](ifabsent.md)  <sub>OPT</sub>
     * Description: function that provides a default value for the slot.  Possible values for this slot are defined in biolink.utils.ifabsent_functions.default_library:
   * [Tt]rue -- boolean True
@@ -275,28 +275,28 @@ implicitly asserts that X is an instance of C1
   * slot_uri -- URI for the slot
   * class_curie -- CURIE for the containing class
   * class_uri -- URI for the containing class
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
  * [inherited](inherited.md)  <sub>OPT</sub>
     * Description: true means that the *value* of a slot is inherited by subclasses
-    * range: [Boolean](type/Boolean.md)
+    * range: [Boolean](types/Boolean.md)
  * [inlined](inlined.md)  <sub>OPT</sub>
     * Description: an inlined definition a list of actual values rather than references.  Only applies to slots whose range is a class.
-    * range: [Boolean](type/Boolean.md)
+    * range: [Boolean](types/Boolean.md)
  * [inverse](inverse.md)  <sub>OPT</sub>
     * Description: indicates that any instance of d s r implies that there is also an instance of r s' d
     * range: [SlotDefinition](SlotDefinition.md)
  * [is_class_field](is_class_field.md)  <sub>OPT</sub>
     * Description: indicates that any instance, i,  the domain of this slot will include an assert of i s range
-    * range: [Boolean](type/Boolean.md)
+    * range: [Boolean](types/Boolean.md)
  * [is_usage_slot](is_usage_slot.md)  <sub>OPT</sub>
     * Description: True means that this slot was defined in a slot_usage situation
-    * range: [Boolean](type/Boolean.md)
+    * range: [Boolean](types/Boolean.md)
  * [key](key.md)  <sub>OPT</sub>
     * Description: true means that the slot uniquely identifies the element within the context of its container.  Key slots are NOT identifiers - they do not serve as subjects
-    * range: [Boolean](type/Boolean.md)
+    * range: [Boolean](types/Boolean.md)
  * [multivalued](multivalued.md)  <sub>OPT</sub>
     * Description: true means that slot can have more than one value
-    * range: [Boolean](type/Boolean.md)
+    * range: [Boolean](types/Boolean.md)
  * [owner](owner.md)  <sub>OPT</sub>
     * Description: the "owner" of the slot. It is the class if it appears in the slots list, otherwise the declaring slot
     * range: [Definition](Definition.md)
@@ -314,16 +314,16 @@ implicitly asserts Y is an instance of C2
     * range: [Element](Element.md)
  * [readonly](readonly.md)  <sub>OPT</sub>
     * Description: If present, slot is read only.  Text explains why
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
  * [required](required.md)  <sub>OPT</sub>
     * Description: true means that the slot must be present in the loaded definition
-    * range: [Boolean](type/Boolean.md)
+    * range: [Boolean](types/Boolean.md)
  * [role](role.md)  <sub>OPT</sub>
     * Description: the role played by the slot range
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
  * [singular_name](singular_name.md)  <sub>OPT</sub>
     * Description: a name that is used in the singular form
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
  * [slot_definition➞apply_to](slot_definition_apply_to.md)  <sub>0..*</sub>
     * range: [SlotDefinition](SlotDefinition.md)
  * [slot_definition➞is_a](slot_definition_is_a.md)  <sub>OPT</sub>
@@ -332,10 +332,10 @@ implicitly asserts Y is an instance of C2
     * range: [SlotDefinition](SlotDefinition.md)
  * [slot_uri](slot_uri.md)  <sub>OPT</sub>
     * Description: predicate of this slot for semantic web application
-    * range: [Uriorcurie](type/Uriorcurie.md)
+    * range: [Uriorcurie](types/Uriorcurie.md)
  * [subproperty_of](subproperty_of.md)  <sub>OPT</sub>
     * Description: Ontology property which this slot is a subproperty of
-    * range: [Uriorcurie](type/Uriorcurie.md)
+    * range: [Uriorcurie](types/Uriorcurie.md)
  * [symmetric](symmetric.md)  <sub>OPT</sub>
     * Description: True means that any instance of  d s r implies that there is also an instance of r s d
-    * range: [Boolean](type/Boolean.md)
+    * range: [Boolean](types/Boolean.md)

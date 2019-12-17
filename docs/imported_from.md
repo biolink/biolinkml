@@ -9,7 +9,7 @@ URI: [meta:imported_from](https://w3id.org/biolink/biolinkml/meta/imported_from)
 
 ## Domain and Range
 
-[Element](Element.md) ->  <sub>OPT</sub> [String](type/String.md)
+[Element](Element.md) ->  <sub>OPT</sub> [String](types/String.md)
 
 ## Parents
 

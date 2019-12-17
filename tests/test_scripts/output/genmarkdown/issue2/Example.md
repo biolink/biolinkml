@@ -20,16 +20,16 @@ URI: [meta:Example](https://w3id.org/biolink/biolinkml/meta/Example)
 
  * value  <sub>OPT</sub>
     * Description: example value
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
  * value_description  <sub>OPT</sub>
     * Description: description of what the value is doing
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
 
 ### Domain for slot:
 
  * value  <sub>OPT</sub>
     * Description: example value
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)
  * value_description  <sub>OPT</sub>
     * Description: description of what the value is doing
-    * range: [String](type/String.md)
+    * range: [String](types/String.md)

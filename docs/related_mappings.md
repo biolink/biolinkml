@@ -9,7 +9,7 @@ URI: [meta:related_mappings](https://w3id.org/biolink/biolinkml/meta/related_map
 
 ## Domain and Range
 
-None ->  <sub>0..*</sub> [Uriorcurie](type/Uriorcurie.md)
+None ->  <sub>0..*</sub> [Uriorcurie](types/Uriorcurie.md)
 
 ## Parents
 

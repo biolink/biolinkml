@@ -33,7 +33,7 @@ URI: [biolink:ChemicalToChemicalDerivationAssociation](https://w3id.org/biolink/
  * [chemical to chemical derivation association➞object](chemical_to_chemical_derivation_association_object.md)  <sub>REQ</sub>
     * range: [ChemicalSubstance](ChemicalSubstance.md)
  * [chemical to chemical derivation association➞relation](chemical_to_chemical_derivation_association_relation.md)  <sub>REQ</sub>
-    * range: [Uriorcurie](type/Uriorcurie.md)
+    * range: [Uriorcurie](types/Uriorcurie.md)
  * [chemical to chemical derivation association➞subject](chemical_to_chemical_derivation_association_subject.md)  <sub>REQ</sub>
     * range: [ChemicalSubstance](ChemicalSubstance.md)
 
@@ -45,7 +45,7 @@ URI: [biolink:ChemicalToChemicalDerivationAssociation](https://w3id.org/biolink/
     * inherited from: [Association](Association.md)
  * [relation](relation.md)  <sub>REQ</sub>
     * Description: the relationship type by which a subject is connected to an object in an association
-    * range: [Uriorcurie](type/Uriorcurie.md)
+    * range: [Uriorcurie](types/Uriorcurie.md)
     * inherited from: [Association](Association.md)
  * [object](object.md)  <sub>REQ</sub>
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
@@ -53,12 +53,12 @@ URI: [biolink:ChemicalToChemicalDerivationAssociation](https://w3id.org/biolink/
     * inherited from: [Association](Association.md)
  * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
-    * range: [Nodeidentifier](type/Nodeidentifier.md)
+    * range: [Nodeidentifier](types/Nodeidentifier.md)
     * inherited from: [Association](Association.md)
     * in subsets: (translator_minimal)
  * [negated](negated.md)  <sub>OPT</sub>
     * Description: if set to true, then the association is negated i.e. is not true
-    * range: [Boolean](type/Boolean.md)
+    * range: [Boolean](types/Boolean.md)
     * inherited from: [Association](Association.md)
  * [association type](association_type.md)  <sub>OPT</sub>
     * Description: connects an association to the type of association (e.g. gene to phenotype)
@@ -84,6 +84,6 @@ URI: [biolink:ChemicalToChemicalDerivationAssociation](https://w3id.org/biolink/
  * [chemical to chemical derivation association➞object](chemical_to_chemical_derivation_association_object.md)  <sub>REQ</sub>
     * range: [ChemicalSubstance](ChemicalSubstance.md)
  * [chemical to chemical derivation association➞relation](chemical_to_chemical_derivation_association_relation.md)  <sub>REQ</sub>
-    * range: [Uriorcurie](type/Uriorcurie.md)
+    * range: [Uriorcurie](types/Uriorcurie.md)
  * [chemical to chemical derivation association➞subject](chemical_to_chemical_derivation_association_subject.md)  <sub>REQ</sub>
     * range: [ChemicalSubstance](ChemicalSubstance.md)

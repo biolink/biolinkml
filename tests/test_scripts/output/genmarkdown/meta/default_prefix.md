@@ -9,7 +9,7 @@ URI: [meta:default_prefix](https://w3id.org/biolink/biolinkml/meta/default_prefi
 
 ## Domain and Range
 
-[SchemaDefinition](SchemaDefinition.md) ->  <sub>OPT</sub> [String](type/String.md)
+[SchemaDefinition](SchemaDefinition.md) ->  <sub>OPT</sub> [String](types/String.md)
 
 ## Parents
 

@@ -9,7 +9,7 @@ URI: [meta:values_from](https://w3id.org/biolink/biolinkml/meta/values_from)
 
 ## Domain and Range
 
-[Definition](Definition.md) ->  <sub>0..*</sub> [Uriorcurie](type/Uriorcurie.md)
+[Definition](Definition.md) ->  <sub>0..*</sub> [Uriorcurie](types/Uriorcurie.md)
 
 ## Parents
 

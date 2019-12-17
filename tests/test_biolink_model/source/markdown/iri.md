@@ -9,7 +9,7 @@ URI: [biolink:iri](https://w3id.org/biolink/vocab/iri)
 
 ## Domain and Range
 
-[NamedThing](NamedThing.md) ->  <sub>OPT</sub> [IriType](type/IriType.md)
+[NamedThing](NamedThing.md) ->  <sub>OPT</sub> [IriType](types/IriType.md)
 
 ## Parents
 
