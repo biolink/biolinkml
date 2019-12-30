@@ -18,8 +18,9 @@ class YamlUtilTestCase(Base):
             y1 = yaml.safe_load(f)
             self.assertEqual(17, y1['f1'])
         with open(os.path.join(inputdir, 'yaml1.yaml')) as f:
-            with self.assertRaises(ValueError):
+            with self.assertRaises(ValueError) as error:
                 yaml.load(f, DupCheckYamlLoader)
+            self.assertIn('line', str(error.exception))
         with open(os.path.join(inputdir, 'yaml2.yaml')) as f:
             with self.assertRaises(ValueError):
                 yaml.load(f, DupCheckYamlLoader)

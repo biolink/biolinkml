@@ -122,7 +122,7 @@ class DupCheckYamlLoader(yaml.loader.SafeLoader):
             key = loader.construct_object(key_node, deep=deep)
             value = loader.construct_object(value_node, deep=deep)
             if key in mapping:
-                raise ValueError(f"Duplicate key: \"{key}\"")
+                raise ValueError(f"Duplicate key: \"{key}\" at line {key.__line__}, column {key.__column__}")
             mapping[key] = value
 
         return mapping
