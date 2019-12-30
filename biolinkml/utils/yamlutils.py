@@ -98,6 +98,13 @@ def as_json_object(element: YAMLRoot, contexts: CONTEXTS_PARAM_TYPE = None) -> J
     return rval
 
 
+class CursorStr(str):
+    __slots__ = ('__line__', '__column__')
+
+    def __new__(cls, *args, **kw):
+        return str.__new__(cls, *args, **kw)
+
+
 class DupCheckYamlLoader(yaml.loader.SafeLoader):
     """
     A YAML loader that throws an error when the same key appears twice
@@ -119,6 +126,14 @@ class DupCheckYamlLoader(yaml.loader.SafeLoader):
             mapping[key] = value
 
         return mapping
+
+    def construct_scalar(self, node):
+        scalar = super(yaml.loader.SafeLoader, self).construct_scalar(node)
+        if isinstance(scalar, str):
+            scalar = CursorStr(scalar)
+            scalar.__line__ = node.start_mark.line + 1
+            scalar.__column__ = node.start_mark.column + 1
+        return scalar
 
 
 def as_rdf(element: YAMLRoot, contexts: CONTEXTS_PARAM_TYPE = None) -> Graph:

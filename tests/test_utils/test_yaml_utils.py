@@ -27,6 +27,11 @@ class YamlUtilTestCase(Base):
             s1 = yaml.load(f, DupCheckYamlLoader)
             self.assertEqual('schema1', s1['name'])
 
+    def test_dupcheck_loader_line_num(self):
+        with open(os.path.join(inputdir, 'base.yaml')) as f:
+            s1 = yaml.load(f, DupCheckYamlLoader)
+            self.assertEqual(3, s1['name'].__line__)
+
     def test_as_json(self):
         schema = self.fix_schema_metadata(load_raw_schema(os.path.join(inputdir, 'schema6.yaml')))
         outfile = os.path.join(outputdir, 'schema6.json')
