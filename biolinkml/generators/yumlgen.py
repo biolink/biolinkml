@@ -108,7 +108,7 @@ class YumlGenerator(Generator):
                                      underscore(slot.range) + self.cardinality(slot))
             self.box_generated.add(cn)
         self.referenced.add(cn)
-        return '[' + camelcase(cn) + ('|' + ';'.join(slot_defs) if slot_defs else '') + ']'
+        return '[' + camelcase(cn) + ('%7C' + ';'.join(slot_defs) if slot_defs else '') + ']'
 
     def class_associations(self, cn: ClassDefinitionName, must_render: bool=False) -> str:
         """ Emit all associations for a focus class.  If none are specified, all classes are generated
