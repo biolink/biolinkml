@@ -6,10 +6,10 @@
 # description: A metamodel for defining biolink related schemas
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 
-from typing import Optional, List, Union, Dict, ClassVar
-from dataclasses import dataclass
+from typing import Optional, List, Union, Dict, ClassVar, Any
+from dataclasses import dataclass, field
 from biolinkml.utils.slot import Slot
-from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
+from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode, addl_args
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace, URIRef
@@ -239,6 +239,7 @@ class TypeDefinition(Element):
     base: Optional[str] = None
     uri: Optional[Union[str, URIorCURIE]] = None
     repr: Optional[str] = None
+    args: Dict[str, Any] = addl_args()
 
     def __post_init__(self):
         if self.name is None:

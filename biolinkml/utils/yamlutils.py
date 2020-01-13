@@ -1,8 +1,10 @@
 from dataclasses import dataclass
 
 import yaml
+import os
 from jsonasobj import JsonObj, as_json
 from rdflib import Graph
+from yaml.constructor import ConstructorError
 
 from biolinkml.utils.context_utils import CONTEXTS_PARAM_TYPE, merge_contexts
 
@@ -98,18 +100,53 @@ def as_json_object(element: YAMLRoot, contexts: CONTEXTS_PARAM_TYPE = None) -> J
     return rval
 
 
+class TypedNode:
+    def add_node(self, node):
+        self._s = node.start_mark
+        self._len = node.end_mark.index - node.start_mark.index
+        return self
+
+    def loc(self) -> str:
+        return f"{os.path.basename(self._s.name)}: line {self._s.line + 1} col {self._s.column + 1} len {self._len}"
+
+    def __str__(self):
+        return self.loc()
+
+    def __repr__(self):
+        return self.loc()
+
+
 class DupCheckYamlLoader(yaml.loader.SafeLoader):
     """
     A YAML loader that throws an error when the same key appears twice
     """
+
+    class extended_str(str, TypedNode):
+        pass
+
+    class extended_int(int, TypedNode):
+        pass
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.add_constructor(yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, self.map_constructor)
+        self.add_constructor(yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, DupCheckYamlLoader.map_constructor)
 
-    def map_constructor(self, loader,  node, deep=False):
-        """ Walk the mapping, recording any duplicate keys.
+    def construct_scalar(self, node):
+        return DupCheckYamlLoader.extended_str(super().construct_scalar(node)).add_node(node)
+
+    def construct_yaml_int(self, node):
+        """ Scalar constructor that returns the node information as the value """
+        return DupCheckYamlLoader.extended_int(super().construct_yaml_int(node)).add_node(node)
+
+    @staticmethod
+    def map_constructor(loader,  node, deep=False):
+        """ Duplicate of constructor.construct_mapping w/ exception that we check for dups
 
         """
+        if not isinstance(node, yaml.MappingNode):
+            raise ConstructorError(None, None,
+                    "expected a mapping node, but found %s" % node.id,
+                    node.start_mark)
         mapping = {}
         for key_node, value_node in node.value:
             key = loader.construct_object(key_node, deep=deep)
@@ -117,9 +154,11 @@ class DupCheckYamlLoader(yaml.loader.SafeLoader):
             if key in mapping:
                 raise ValueError(f"Duplicate key: \"{key}\"")
             mapping[key] = value
-
         return mapping
 
+
+DupCheckYamlLoader.add_constructor('tag:yaml.org,2002:int',DupCheckYamlLoader.construct_yaml_int)
+DupCheckYamlLoader.add_constructor(yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, DupCheckYamlLoader.map_constructor)
 
 def as_rdf(element: YAMLRoot, contexts: CONTEXTS_PARAM_TYPE = None) -> Graph:
     """

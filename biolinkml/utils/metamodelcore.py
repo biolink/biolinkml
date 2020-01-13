@@ -27,6 +27,10 @@ def empty_dict():
     """ Return a field with a dictionary factory """
     return field(default_factory=dict)
 
+def addl_args():
+    rval = field(default_factory=dict)
+    rval.name = '**args'
+    return rval
 
 def empty_set():
     """" Return a field with a set factory """
