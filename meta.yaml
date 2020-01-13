@@ -41,7 +41,7 @@ subsets:
 #==================================
 # Slots                           #
 #==================================
-slots:
+slotsx:
 
   # -----------------------------------
   # Common metadata shared by all elements

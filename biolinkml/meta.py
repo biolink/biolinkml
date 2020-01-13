@@ -7,7 +7,7 @@
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 
 from typing import Optional, List, Union, Dict, ClassVar, Any
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, InitVar
 from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode, addl_args
 from biolinkml.utils.yamlutils import YAMLRoot
@@ -35,6 +35,8 @@ DEFAULT_ = META
 
 
 # Types
+def ext_dataclass(*arg, **argv):
+    return dataclass(*arg, **argv)
 
 # Class references
 class ElementName(str):
@@ -77,7 +79,7 @@ class AltDescriptionSource(NCName):
     pass
 
 
-@dataclass
+@dataclass(add_argv=True)
 class Element(YAMLRoot):
     """
     a named element in the model
@@ -112,7 +114,7 @@ class Element(YAMLRoot):
     deprecated_element_has_exact_replacement: Optional[Union[str, URIorCURIE]] = None
     deprecated_element_has_possible_replacement: Optional[Union[str, URIorCURIE]] = None
 
-    def __post_init__(self):
+    def __post_init__(self, **argv):
         self.id_prefixes = [v if isinstance(v, NCName)
                             else NCName(v) for v in self.id_prefixes]
         if self.name is None:
@@ -154,6 +156,7 @@ class Element(YAMLRoot):
 class SchemaDefinition(Element):
     """
     a collection of subset, type, slot and class definitions
+
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -183,7 +186,7 @@ class SchemaDefinition(Element):
     source_file_size: Optional[int] = None
     generation_date: Optional[Union[str, XSDDateTime]] = None
 
-    def __post_init__(self):
+    def __post_init__(self, **argv):
         if self.default_prefix is None:
             self.default_prefix = sfx(str(self.id))
         if self.name is None:

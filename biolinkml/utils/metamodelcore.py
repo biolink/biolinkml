@@ -16,6 +16,7 @@ from biolinkml.utils.strictness import is_strict
 # ===========================
 # Fields for use in dataclass
 # ===========================
+from biolinkml.utils.yamlutils import TypedNode
 
 
 def empty_list():
@@ -59,13 +60,13 @@ class NCName(str):
         return is_ncname(v) if v else True      # Empty is default name
 
 
-class Identifier(str):
+class Identifier(str, TypedNode):
     """ A datatype that can be a URI, CURIE or a BNode """
     def __init__(self, v: Union[str, URIRef, BNode, "URIorCURIE", "Identifier"]) -> None:
-        v = str(v)
+        v = str(v) if not isinstance(v, str) else v
         if is_strict() and not self.is_valid(v):
             raise ValueError(f"{v}: is not a valid Identifier")
-        super().__init__()
+        TypedNode.__init__(self, v)
 
     @classmethod
     def is_valid(cls, v: Union[str, URIRef, BNode, "URIorCURIE", "Identifier"]) -> bool:

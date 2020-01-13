@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from typing import Union, Any
 
 import yaml
 import os
@@ -101,6 +102,11 @@ def as_json_object(element: YAMLRoot, contexts: CONTEXTS_PARAM_TYPE = None) -> J
 
 
 class TypedNode:
+    def __init__(self, v: Union[Any, "TypedNode"]):
+        self._s = v._s if isinstance(v, TypedNode) else None
+        self._len = v._len if isinstance(v, TypedNode) else None
+        super().__init__()
+
     def add_node(self, node):
         self._s = node.start_mark
         self._len = node.end_mark.index - node.start_mark.index
