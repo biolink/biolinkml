@@ -1,12 +1,12 @@
 # Auto generated from types.yaml by pythongen.py version: 0.4.0
-# Generation date: 2019-10-30 04:34
+# Generation date: 2020-01-14 11:38
 # Schema: types
 #
 # id: https://w3id.org/biolink/biolinkml/types
 # description: Shared type definitions for the core biolink mode and metamodel
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 
-from typing import Optional, List, Union, Dict, ClassVar
+from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode

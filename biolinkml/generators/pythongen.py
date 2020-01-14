@@ -100,7 +100,7 @@ class PythonGenerator(Generator):
 # description: {split_descripton}
 # license: {be(self.schema.license)}
 
-from typing import Optional, List, Union, Dict, ClassVar
+from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
@@ -496,9 +496,9 @@ class slots:
                                     ('\n\t\t' if post_inits_pre_super else '')
         post_inits_line = '\n\t\t'.join([p for p in post_inits if p])
         return (f'''
-    def __post_init__(self):
+    def __post_init__(self, **kwargs: Dict[str, Any]):
         {post_inits_pre_super_line}{post_inits_line}
-        super().__post_init__()''' + '\n') if post_inits_line or post_inits_pre_super_line else ''
+        super().__post_init__(**kwargs)''' + '\n') if post_inits_line or post_inits_pre_super_line else ''
 
     def is_key_value_class(self, range_name: DefinitionName) -> bool:
         """

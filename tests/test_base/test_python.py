@@ -36,6 +36,7 @@ class PythonTestCase(GeneratorTestCase):
         self.model_name = 'mappings'
         self.importmap = BIOLINK_IMPORT_MAP
         self.single_file_generator('py', PythonGenerator, filtr=metadata_filter)
+        self.check_python()
 
     def test_metamodel_python(self):
         self.source_path = os.path.join(MODULE_DIR, 'biolinkml')
@@ -43,6 +44,7 @@ class PythonTestCase(GeneratorTestCase):
         self.model_name = 'meta'
         self.importmap = BIOLINK_IMPORT_MAP
         self.single_file_generator('py', PythonGenerator, filtr=metadata_filter)
+        self.check_python()
 
 
 if __name__ == '__main__':

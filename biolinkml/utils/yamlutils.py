@@ -1,5 +1,5 @@
-from dataclasses import dataclass
-from typing import Union, Any
+from dataclasses import dataclass, InitVar
+from typing import Union, Any, Dict
 
 import yaml
 import os
@@ -10,12 +10,15 @@ from yaml.constructor import ConstructorError
 from biolinkml.utils.context_utils import CONTEXTS_PARAM_TYPE, merge_contexts
 
 
-@dataclass(init=True)
 class YAMLRoot(JsonObj):
+
     """
     The root object for all python YAML representations
     """
-    def __post_init__(self):
+    def __post_init__(self, **kwargs):
+        if kwargs:
+            for k in kwargs.keys():
+                raise ValueError(f"Unknown argument: {k.loc()}")
         self._fix_elements()
 
     def _fix_elements(self):
@@ -116,6 +119,7 @@ class TypedNode:
         return f"{os.path.basename(self._s.name)}: line {self._s.line + 1} col {self._s.column + 1} len {self._len}"
 
     def __str__(self):
+        # Note that str(TypedNode) doesn't inoke this
         return self.loc()
 
     def __repr__(self):

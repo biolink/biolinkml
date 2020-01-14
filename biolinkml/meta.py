@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by pythongen.py version: 0.4.0
-# Generation date: 2019-10-30 05:42
+# Generation date: 2020-01-14 11:38
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta
@@ -7,9 +7,9 @@
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 
 from typing import Optional, List, Union, Dict, ClassVar, Any
-from dataclasses import dataclass, field, InitVar
+from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
-from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode, addl_args
+from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace, URIRef
@@ -35,8 +35,6 @@ DEFAULT_ = META
 
 
 # Types
-def ext_dataclass(*arg, **argv):
-    return dataclass(*arg, **argv)
 
 # Class references
 class ElementName(str):
@@ -79,7 +77,7 @@ class AltDescriptionSource(NCName):
     pass
 
 
-@dataclass(add_argv=True)
+@dataclass
 class Element(YAMLRoot):
     """
     a named element in the model
@@ -114,7 +112,7 @@ class Element(YAMLRoot):
     deprecated_element_has_exact_replacement: Optional[Union[str, URIorCURIE]] = None
     deprecated_element_has_possible_replacement: Optional[Union[str, URIorCURIE]] = None
 
-    def __post_init__(self, **argv):
+    def __post_init__(self, **kwargs: Dict[str, Any]):
         self.id_prefixes = [v if isinstance(v, NCName)
                             else NCName(v) for v in self.id_prefixes]
         if self.name is None:
@@ -149,14 +147,13 @@ class Element(YAMLRoot):
             self.deprecated_element_has_exact_replacement = URIorCURIE(self.deprecated_element_has_exact_replacement)
         if self.deprecated_element_has_possible_replacement is not None and not isinstance(self.deprecated_element_has_possible_replacement, URIorCURIE):
             self.deprecated_element_has_possible_replacement = URIorCURIE(self.deprecated_element_has_possible_replacement)
-        super().__post_init__()
+        super().__post_init__(**kwargs)
 
 
 @dataclass
 class SchemaDefinition(Element):
     """
     a collection of subset, type, slot and class definitions
-
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -186,7 +183,7 @@ class SchemaDefinition(Element):
     source_file_size: Optional[int] = None
     generation_date: Optional[Union[str, XSDDateTime]] = None
 
-    def __post_init__(self, **argv):
+    def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.default_prefix is None:
             self.default_prefix = sfx(str(self.id))
         if self.name is None:
@@ -222,7 +219,7 @@ class SchemaDefinition(Element):
             self.source_file_date = XSDDateTime(self.source_file_date)
         if self.generation_date is not None and not isinstance(self.generation_date, XSDDateTime):
             self.generation_date = XSDDateTime(self.generation_date)
-        super().__post_init__()
+        super().__post_init__(**kwargs)
 
 
 @dataclass
@@ -242,9 +239,8 @@ class TypeDefinition(Element):
     base: Optional[str] = None
     uri: Optional[Union[str, URIorCURIE]] = None
     repr: Optional[str] = None
-    args: Dict[str, Any] = addl_args()
 
-    def __post_init__(self):
+    def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.name is None:
             raise ValueError(f"name must be supplied")
         if not isinstance(self.name, TypeDefinitionName):
@@ -253,7 +249,7 @@ class TypeDefinition(Element):
             self.typeof = TypeDefinitionName(self.typeof)
         if self.uri is not None and not isinstance(self.uri, URIorCURIE):
             self.uri = URIorCURIE(self.uri)
-        super().__post_init__()
+        super().__post_init__(**kwargs)
 
 
 @dataclass
@@ -270,12 +266,12 @@ class SubsetDefinition(Element):
 
     name: Union[str, SubsetDefinitionName] = None
 
-    def __post_init__(self):
+    def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.name is None:
             raise ValueError(f"name must be supplied")
         if not isinstance(self.name, SubsetDefinitionName):
             self.name = SubsetDefinitionName(self.name)
-        super().__post_init__()
+        super().__post_init__(**kwargs)
 
 
 @dataclass
@@ -298,7 +294,7 @@ class Definition(Element):
     apply_to: List[Union[str, DefinitionName]] = empty_list()
     values_from: List[Union[str, URIorCURIE]] = empty_list()
 
-    def __post_init__(self):
+    def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.is_a is not None and not isinstance(self.is_a, DefinitionName):
             self.is_a = DefinitionName(self.is_a)
         self.mixins = [v if isinstance(v, DefinitionName)
@@ -307,7 +303,7 @@ class Definition(Element):
                          else DefinitionName(v) for v in self.apply_to]
         self.values_from = [v if isinstance(v, URIorCURIE)
                             else URIorCURIE(v) for v in self.values_from]
-        super().__post_init__()
+        super().__post_init__(**kwargs)
 
 
 @dataclass
@@ -347,7 +343,7 @@ class SlotDefinition(Definition):
     role: Optional[str] = None
     is_usage_slot: Optional[Bool] = None
 
-    def __post_init__(self):
+    def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.name is None:
             raise ValueError(f"name must be supplied")
         if not isinstance(self.name, SlotDefinitionName):
@@ -370,7 +366,7 @@ class SlotDefinition(Definition):
             self.subproperty_of = URIorCURIE(self.subproperty_of)
         if self.inverse is not None and not isinstance(self.inverse, SlotDefinitionName):
             self.inverse = SlotDefinitionName(self.inverse)
-        super().__post_init__()
+        super().__post_init__(**kwargs)
 
 
 @dataclass
@@ -396,7 +392,7 @@ class ClassDefinition(Definition):
     union_of: List[Union[str, ClassDefinitionName]] = empty_list()
     defining_slots: List[Union[str, SlotDefinitionName]] = empty_list()
 
-    def __post_init__(self):
+    def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.name is None:
             raise ValueError(f"name must be supplied")
         if not isinstance(self.name, ClassDefinitionName):
@@ -420,7 +416,7 @@ class ClassDefinition(Definition):
                          else ClassDefinitionName(v) for v in self.union_of]
         self.defining_slots = [v if isinstance(v, SlotDefinitionName)
                                else SlotDefinitionName(v) for v in self.defining_slots]
-        super().__post_init__()
+        super().__post_init__(**kwargs)
 
 
 @dataclass
@@ -438,7 +434,7 @@ class Prefix(YAMLRoot):
     prefix_prefix: Union[str, PrefixPrefixPrefix]
     prefix_reference: Union[str, URI]
 
-    def __post_init__(self):
+    def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.prefix_prefix is None:
             raise ValueError(f"prefix_prefix must be supplied")
         if not isinstance(self.prefix_prefix, PrefixPrefixPrefix):
@@ -447,7 +443,7 @@ class Prefix(YAMLRoot):
             raise ValueError(f"prefix_reference must be supplied")
         if not isinstance(self.prefix_reference, URI):
             self.prefix_reference = URI(self.prefix_reference)
-        super().__post_init__()
+        super().__post_init__(**kwargs)
 
 
 @dataclass
@@ -465,14 +461,14 @@ class LocalName(YAMLRoot):
     local_name_source: Union[str, LocalNameLocalNameSource]
     local_name_value: str
 
-    def __post_init__(self):
+    def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.local_name_source is None:
             raise ValueError(f"local_name_source must be supplied")
         if not isinstance(self.local_name_source, LocalNameLocalNameSource):
             self.local_name_source = LocalNameLocalNameSource(self.local_name_source)
         if self.local_name_value is None:
             raise ValueError(f"local_name_value must be supplied")
-        super().__post_init__()
+        super().__post_init__(**kwargs)
 
 
 @dataclass
@@ -505,14 +501,14 @@ class AltDescription(YAMLRoot):
     source: Union[str, AltDescriptionSource]
     description: str
 
-    def __post_init__(self):
+    def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.source is None:
             raise ValueError(f"source must be supplied")
         if not isinstance(self.source, AltDescriptionSource):
             self.source = AltDescriptionSource(self.source)
         if self.description is None:
             raise ValueError(f"description must be supplied")
-        super().__post_init__()
+        super().__post_init__(**kwargs)
 
 
 

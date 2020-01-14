@@ -1,12 +1,12 @@
 # Auto generated from mappings.yaml by pythongen.py version: 0.4.0
-# Generation date: 2019-10-30 05:42
+# Generation date: 2020-01-14 11:38
 # Schema: mappings
 #
 # id: https://w3id.org/biolink/biolinkml/mappings
 # description: Biolink model for mappings
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 
-from typing import Optional, List, Union, Dict, ClassVar
+from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
