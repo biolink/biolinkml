@@ -1,16 +1,18 @@
 # Auto generated from meta.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-01-14 11:38
+# Generation date: 2020-01-15 11:19
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta
 # description: A metamodel for defining biolink related schemas
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 
+import dataclasses
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
+from biolinkml.utils.dataclass_extensions import dataclasses_init_fn_with_kwargs
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
@@ -19,6 +21,8 @@ from includes.types import Boolean, Datetime, Integer, Ncname, String, Uri, Urio
 
 metamodel_version = "1.4.3"
 
+# Overwrite dataclasses _init_fn to add **kwargs in __init__
+dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
 OIO = CurieNamespace('OIO', 'http://www.geneontology.org/formats/oboInOwl#')
