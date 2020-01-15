@@ -70,7 +70,7 @@ slots:
     range: yearCount
 ```        
 
-## Generated Aretfacts
+## Generated Artifacts
 
 * Python 3 dataclasses
 * [ShEx](http://shex.io/shex-semantics/index.html) - Shape Expressions Langauge
