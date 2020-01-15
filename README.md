@@ -17,7 +17,7 @@ Quickstart docs:
     * [class definition](https://biolink.github.io/biolinkml/docs/ClassDefinition) Class definitions
     * [slot definition](https://biolink.github.io/biolinkml/docs/SlotDefinition) Class properties
     * [type definition](https://biolink.github.io/biolinkml/docs/TypeDefinition) Data types
-    * [schema ddefinition](https://biolink.github.io/biolinkml/docs/SchemaDefinition) Schema definition
+    * [schema definition](https://biolink.github.io/biolinkml/docs/SchemaDefinition) Schema definition
 
 For an example, see the [Jupyter notebook example](https://nbviewer.jupyter.org/github/biolink/biolinkml/blob/master/notebooks/examples.ipynb)
 
