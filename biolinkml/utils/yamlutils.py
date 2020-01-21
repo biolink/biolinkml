@@ -72,9 +72,6 @@ def root_representer(dumper: yaml.Dumper, data: YAMLRoot):
     return dumper.represent_data(rval)
 
 
-yaml.add_multi_representer(YAMLRoot, root_representer)
-
-
 def as_yaml(element: YAMLRoot) -> str:
     """
     Return element in a YAML representation
@@ -176,6 +173,11 @@ class DupCheckYamlLoader(yaml.loader.SafeLoader):
                 raise ValueError(f"Duplicate key: \"{key}\"")
             mapping[key] = value
         return mapping
+
+yaml.add_multi_representer(YAMLRoot, root_representer)
+yaml.add_representer(DupCheckYamlLoader.extended_str, yaml.SafeDumper.represent_str)
+yaml.add_representer(DupCheckYamlLoader.extended_int, yaml.SafeDumper.represent_int)
+yaml.add_representer(DupCheckYamlLoader.extended_float, yaml.SafeDumper.represent_float)
 
 
 def as_rdf(element: YAMLRoot, contexts: CONTEXTS_PARAM_TYPE = None) -> Graph:
