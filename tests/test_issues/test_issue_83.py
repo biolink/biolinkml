@@ -42,10 +42,14 @@ class Issue83TestCase(unittest.TestCase):
         parsed_yaml = yaml.load(yaml_str, DupCheckYamlLoader)
         with self.assertRaises(ValueError) as e:
             Issue83TestCase.FesterBesterTester(**parsed_yaml['base'])
-        self.assertEqual("ValueError: Unknown argument: c = 'sell'  <unicode string>: line 4 col 9 len 1",
+        self.assertEqual("Unknown argument: c = 'sell'  <unicode string>: line 4 col 9 len 1",
                          str(e.exception).strip())
-        parsed_yaml['base']['a'] = "abc"
-        Issue83TestCase.FesterBesterTester(**parsed_yaml['base'])
+
+        parsed_yaml['base'].pop('c', None)
+        try:
+            Issue83TestCase.FesterBesterTester(**parsed_yaml['base'])
+        except Exception as e:
+            self.fail(f'Raised exception unexpectedly: {str(e.exception)}')
 
 
 if __name__ == '__main__':
