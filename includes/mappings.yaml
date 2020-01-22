@@ -30,7 +30,7 @@ emit_prefixes:
   - IAO
 
 imports:
-  - includes/types
+  - biolinkml:types
 
 slots:
   mappings:

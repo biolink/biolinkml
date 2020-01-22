@@ -1,5 +1,5 @@
 from dataclasses import dataclass, InitVar
-from typing import Union, Any, Dict
+from typing import Union, Any, Dict, List
 
 import yaml
 import os
@@ -17,12 +17,11 @@ class YAMLRoot(JsonObj):
     """
     def __post_init__(self, **kwargs):
         if kwargs:
+            messages: List[str] = []
             for k in kwargs.keys():
-                raise ValueError(f'Unknown argument "{k}": {k.loc()}')
-        self._fix_elements()
-
-    def _fix_elements(self):
-        pass
+                v = repr(kwargs[k])[:40].replace('\n', '\\n')
+                messages.append(f"Unknown argument: {k} = {v}  {k.loc() if getattr(k, 'loc', None) else ''}")
+            raise ValueError('\n'.join(messages))
 
     def _default(self, obj):
         """ JSON serializer callback.
