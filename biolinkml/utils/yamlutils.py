@@ -1,5 +1,5 @@
 from dataclasses import dataclass, InitVar
-from typing import Union, Any, Dict
+from typing import Union, Any, Dict, List
 
 import yaml
 import os
@@ -17,12 +17,11 @@ class YAMLRoot(JsonObj):
     """
     def __post_init__(self, **kwargs):
         if kwargs:
+            messages: List[str] = []
             for k in kwargs.keys():
-                raise ValueError(f"Unknown argument: {k.loc()}")
-        self._fix_elements()
-
-    def _fix_elements(self):
-        pass
+                v = repr(kwargs[k])[:40].replace('\n', '\\n')
+                messages.append(f"Unknown argument: {k} = {v}  {k.loc() if getattr(k, 'loc', None) else ''}")
+            raise ValueError('\n'.join(messages))
 
     def _default(self, obj):
         """ JSON serializer callback.
@@ -70,9 +69,6 @@ def root_representer(dumper: yaml.Dumper, data: YAMLRoot):
         if not k.startswith('_') and v is not None and (not isinstance(v, (dict, list)) or v):
             rval[k] = v
     return dumper.represent_data(rval)
-
-
-yaml.add_multi_representer(YAMLRoot, root_representer)
 
 
 def as_yaml(element: YAMLRoot) -> str:
@@ -137,16 +133,27 @@ class DupCheckYamlLoader(yaml.loader.SafeLoader):
     class extended_int(int, TypedNode):
         pass
 
+    class extended_float(float, TypedNode):
+        pass
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.add_constructor(yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, DupCheckYamlLoader.map_constructor)
-
-    def construct_scalar(self, node):
-        return DupCheckYamlLoader.extended_str(super().construct_scalar(node)).add_node(node)
+        self.add_constructor('tag:yaml.org,2002:str', DupCheckYamlLoader.construct_yaml_str)
+        self.add_constructor('tag:yaml.org,2002:int', DupCheckYamlLoader.construct_yaml_int)
+        self.add_constructor('tag:yaml.org,2002:float', DupCheckYamlLoader.construct_yaml_float)
 
     def construct_yaml_int(self, node):
         """ Scalar constructor that returns the node information as the value """
         return DupCheckYamlLoader.extended_int(super().construct_yaml_int(node)).add_node(node)
+
+    def construct_yaml_str(self, node):
+        """ Scalar constructor that returns the node information as the value """
+        return DupCheckYamlLoader.extended_str(super().construct_yaml_str(node)).add_node(node)
+
+    def construct_yaml_float(self, node):
+        """ Scalar constructor that returns the node information as the value """
+        return DupCheckYamlLoader.extended_float(super().construct_yaml_float(node)).add_node(node)
 
     @staticmethod
     def map_constructor(loader,  node, deep=False):
@@ -166,9 +173,11 @@ class DupCheckYamlLoader(yaml.loader.SafeLoader):
             mapping[key] = value
         return mapping
 
+yaml.add_multi_representer(YAMLRoot, root_representer)
+yaml.add_representer(DupCheckYamlLoader.extended_str, yaml.SafeDumper.represent_str)
+yaml.add_representer(DupCheckYamlLoader.extended_int, yaml.SafeDumper.represent_int)
+yaml.add_representer(DupCheckYamlLoader.extended_float, yaml.SafeDumper.represent_float)
 
-DupCheckYamlLoader.add_constructor('tag:yaml.org,2002:int',DupCheckYamlLoader.construct_yaml_int)
-DupCheckYamlLoader.add_constructor(yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, DupCheckYamlLoader.map_constructor)
 
 def as_rdf(element: YAMLRoot, contexts: CONTEXTS_PARAM_TYPE = None) -> Graph:
     """
@@ -182,3 +191,5 @@ def as_rdf(element: YAMLRoot, contexts: CONTEXTS_PARAM_TYPE = None) -> Graph:
     graph = Graph()
     graph.parse(data=as_json(jsonld), format="json-ld")
     return graph
+
+

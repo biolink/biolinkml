@@ -30,8 +30,8 @@ emit_prefixes:
   - pav
 
 imports:
-  - includes/types
-  - includes/mappings
+  - biolinkml:types
+  - biolinkml:mappings
 
 subsets:
   owl:
@@ -41,7 +41,7 @@ subsets:
 #==================================
 # Slots                           #
 #==================================
-slotsx:
+slots:
 
   # -----------------------------------
   # Common metadata shared by all elements

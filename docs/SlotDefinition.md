@@ -34,31 +34,31 @@ URI: [meta:SlotDefinition](https://w3id.org/biolink/biolinkml/meta/SlotDefinitio
     * range: [String](types/String.md)
  * [domain](domain.md)  <sub>OPT</sub>
     * Description: defines the type of the subject of the slot.  Given the following slot definition
-      <br/>S1:
-        <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;domain: C1
-        range:  C2
-      the declaration
-      X:
-        S1: Y
+  S1:
+    domain: C1
+    range:  C2
+the declaration
+  X:
+    S1: Y
 
-        implicitly asserts that X is an instance of C1
+implicitly asserts that X is an instance of C1
 
- * range: [ClassDefinition](ClassDefinition.md)
+    * range: [ClassDefinition](ClassDefinition.md)
  * [identifier](identifier.md)  <sub>OPT</sub>
     * Description: true means that this slot is the subject of a set of assertions.  Identifiers do not appear as predicates in the model
     * range: [Boolean](types/Boolean.md)
  * [ifabsent](ifabsent.md)  <sub>OPT</sub>
     * Description: function that provides a default value for the slot.  Possible values for this slot are defined in biolink.utils.ifabsent_functions.default_library:
-      * [Tt]rue -- boolean True
-      * [Ff]alse -- boolean False
-      * int(value) -- integer value
-      * str(value) -- string value
-      * default_range -- schema default range
-      * bnode -- blank node identifier
-      * slot_uri -- URI for the slot
-      * class_curie -- CURIE for the containing class
-      * class_uri -- URI for the containing class
-      * range: [String](types/String.md)
+  * [Tt]rue -- boolean True
+  * [Ff]alse -- boolean False
+  * int(value) -- integer value
+  * str(value) -- string value
+  * default_range -- schema default range
+  * bnode -- blank node identifier
+  * slot_uri -- URI for the slot
+  * class_curie -- CURIE for the containing class
+  * class_uri -- URI for the containing class
+    * range: [String](types/String.md)
  * [inherited](inherited.md)  <sub>OPT</sub>
     * Description: true means that the *value* of a slot is inherited by subclasses
     * range: [Boolean](types/Boolean.md)

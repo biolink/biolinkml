@@ -69,6 +69,7 @@ class GeneratorTestCase(unittest.TestCase):
                 newf.write(new_data)
             if len(new_data) > 20000:
                 print(ClickTestCase.closein_comparison(old_data_filtered, new_data_filtered))
+            self.maxDiff = None
             self.assertEqual(old_data_filtered, new_data_filtered)
 
     def rdf_comparator(self, expected_rdf: Union[Graph, str], actual_rdf: Union[Graph, str],

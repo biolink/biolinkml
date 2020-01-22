@@ -1,16 +1,22 @@
 # Auto generated from mappings.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-01-14 11:38
+# Generation date: 2020-01-16 10:43
 # Schema: mappings
 #
 # id: https://w3id.org/biolink/biolinkml/mappings
 # description: Biolink model for mappings
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 
+import dataclasses
+import sys
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot
+if sys.version_info < (3, 7, 6):
+    from biolinkml.utils.dataclass_extensions_375 import dataclasses_init_fn_with_kwargs
+else:
+    from biolinkml.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
@@ -19,6 +25,8 @@ from includes.types import Uriorcurie
 
 metamodel_version = "1.4.3"
 
+# Overwrite dataclasses _init_fn to add **kwargs in __init__
+dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
 IAO = CurieNamespace('IAO', 'http://purl.obolibrary.org/obo/IAO_')
