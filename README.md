@@ -11,6 +11,7 @@ biolinkml is a general purpose modeling language following object-oriented and o
 
 biolinkml is used for development of the [BioLink Model](https://biolink.github.io/biolink-model), but the framework is general purpose and can be used for any kind of modeling.
 
+
 Quickstart docs:
 
  * Browse the model (biolinkml is self-describing): [https://biolink.github.io/biolinkml/docs](https://biolink.github.io/biolinkml/docs)
