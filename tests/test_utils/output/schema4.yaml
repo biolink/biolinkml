@@ -1,0 +1,48 @@
+default_prefix: http://example.org/schema4/
+generation_date: 2018-12-31 17:23
+id: !!python/object/new:biolinkml.utils.metamodelcore.URI
+  args:
+  - http://example.org/schema4
+  state: &id001
+    _len: 28
+    _s: !!python/object:yaml.error.Mark
+      buffer: null
+      column: 6
+      index: 15
+      line: 1
+      name: /Users/solbrig/git/biolink/biolinkml/tests/test_utils/input/schema4.yaml
+      pointer: null
+metamodel_version: 0.5.0
+name: !!python/object/new:biolinkml.meta.SchemaDefinitionName
+- schema4
+source_file: schema4.yaml
+source_file_date: 2018-12-31 17:23
+source_file_size: 259
+title: Load Raw Schema Test
+types:
+  integer:
+    base: int
+    definition_uri: http://example.org/schema5/Integer
+    from_schema: !!python/object/new:biolinkml.utils.metamodelcore.URI
+      args:
+      - http://example.org/schema5
+      state:
+        _len: 28
+        _s: !!python/object:yaml.error.Mark
+          buffer: null
+          column: 6
+          index: 128
+          line: 9
+          name: /Users/solbrig/git/biolink/biolinkml/tests/test_utils/input/schema4.yaml
+          pointer: null
+    name: !!python/object/new:biolinkml.meta.TypeDefinitionName
+    - integer
+  string:
+    base: str
+    definition_uri: http://example.org/schema4/String
+    from_schema: !!python/object/new:biolinkml.utils.metamodelcore.URI
+      args:
+      - http://example.org/schema4
+      state: *id001
+    name: !!python/object/new:biolinkml.meta.TypeDefinitionName
+    - string
