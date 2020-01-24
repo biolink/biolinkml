@@ -50,8 +50,9 @@ class SchemaLoaderTestCase(Base):
         """ Test various loader error situations"""
 
         fn = os.path.join(inputdir, 'loadererror1.yaml')
-        with self.assertRaises(ValueError, msg="Unknown slot domain should fail"):
+        with self.assertRaises(ValueError, msg="Unknown slot domain should fail") as e:
             SchemaLoader(fn).resolve()
+        print(str(e.exception))
 
         fn = os.path.join(inputdir, 'loadererror2.yaml')
         with self.assertRaises(ValueError, msg="Optional key slot should fail"):

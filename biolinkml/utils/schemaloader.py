@@ -14,6 +14,7 @@ from biolinkml.utils.metamodelcore import Bool
 from biolinkml.utils.namespaces import Namespaces
 from biolinkml.utils.rawloader import load_raw_schema
 from biolinkml.utils.schemasynopsis import SchemaSynopsis
+from biolinkml.utils.yamlutils import TypedNode
 
 
 class SchemaLoader:
@@ -126,7 +127,7 @@ class SchemaLoader:
                     slot.owner = slot.name
                     self.schema.classes[slot.domain].slots.append(slot.name)
             elif slot.domain:
-                self.raise_value_error(f"slot: {slot.name} - unrecognized domain ({slot.domain})")
+                self.raise_value_error(f"slot: {slot.name} - unrecognized domain ({slot.domain})", slot.domain)
 
             # Keys and identifiers must be present
             if bool(slot.key or slot.identifier):
@@ -487,8 +488,8 @@ class SchemaLoader:
     def slot_name_for(slot: SlotDefinition) -> str:
         return underscore(slot.alias if slot.alias else slot.name)
 
-    def raise_value_error(self, error: str) -> None:
-        raise ValueError(f'File: {self.schema.source_file} {error}')
+    def raise_value_error(self, error: str, loc_str: Optional[Union[TypedNode, str]]=None) -> None:
+        raise ValueError(f'{"" if loc_str is None else (loc_str.loc() + " ") if getattr(loc_str, "loc") else ""} {error}')
 
     def _get_base_dir(self, stated_base: str) -> Optional[str]:
         if stated_base:

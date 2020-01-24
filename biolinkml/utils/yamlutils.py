@@ -112,7 +112,7 @@ class TypedNode:
         return self
 
     def loc(self) -> str:
-        return f"{os.path.basename(self._s.name)}: line {self._s.line + 1} col {self._s.column + 1} len {self._len}"
+        return f"{self._s.name}: line {self._s.line + 1} col {self._s.column + 1}"
 
     def __str__(self):
         # Note that str(TypedNode) doesn't inoke this

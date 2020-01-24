@@ -1384,6 +1384,7 @@ metatype:Nodeidentifier NONLITERAL
              SEMMEDDB:PREDISPOSES @<NamedThing> * ;
              OBO:RO_0002326 @<NamedThing> * ;
              OBO:RO_0002410 @<NamedThing> * ;
+             <caused_by> @<NamedThing> * ;
              OBO:RO_0002599 @<NamedThing> * ;
              OBO:BFO_0000066 @<NamedThing> * ;
              OBO:RO_0001025 @<NamedThing> * ;
