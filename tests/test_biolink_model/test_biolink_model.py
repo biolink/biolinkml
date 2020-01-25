@@ -17,6 +17,7 @@ from biolinkml.generators.jsonldcontextgen import ContextGenerator
 from biolinkml.generators.jsonldgen import JSONLDGenerator
 from biolinkml.generators.jsonschemagen import JsonSchemaGenerator
 from biolinkml.generators.markdowngen import MarkdownGenerator
+from biolinkml.generators.namespacegen import NamespaceGenerator
 from biolinkml.generators.owlgen import OwlSchemaGenerator
 from biolinkml.generators.protogen import ProtoGenerator
 from biolinkml.generators.pythongen import PythonGenerator
@@ -110,6 +111,18 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
     def test_biolink_proto(self):
         """ Test the proto schema generator for the biolink model """
         self.single_file_generator('proto', ProtoGenerator)
+
+    def test_biolink_namespaces(self):
+        """ Test the python generator for the biolink model """
+        self.output_name = 'namespaces'
+        self.single_file_generator('py', NamespaceGenerator, generator_args={'emit_metadata': True}, filtr=metadata_filter)
+
+        # Make sure the python is valid
+        with open(os.path.join(self.source_path, f'{self.output_name}.py')) as f:
+            pydata = f.read()
+        spec = compile(pydata, 'test', 'exec')
+        module = ModuleType('test')
+        exec(spec, module.__dict__)
 
     @staticmethod
     def _evaluate_shex_results(results: List[EvaluationResult], printit: bool=True) -> bool:
