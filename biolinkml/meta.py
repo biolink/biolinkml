@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-01-16 10:41
+# Generation date: 2020-01-27 12:55
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta
@@ -12,8 +12,7 @@ from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
-from biolinkml.utils.yamlutils import YAMLRoot, DupCheckYamlLoader, extended_str
-
+from biolinkml.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
 if sys.version_info < (3, 7, 6):
     from biolinkml.utils.dataclass_extensions_375 import dataclasses_init_fn_with_kwargs
 else:
