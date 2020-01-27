@@ -12,7 +12,7 @@ from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
-from biolinkml.utils.yamlutils import YAMLRoot, DupCheckYamlLoader
+from biolinkml.utils.yamlutils import YAMLRoot, DupCheckYamlLoader, extended_str
 
 if sys.version_info < (3, 7, 6):
     from biolinkml.utils.dataclass_extensions_375 import dataclasses_init_fn_with_kwargs
@@ -46,7 +46,7 @@ DEFAULT_ = META
 # Types
 
 # Class references
-class ElementName(DupCheckYamlLoader.extended_str):
+class ElementName(extended_str):
     pass
 
 

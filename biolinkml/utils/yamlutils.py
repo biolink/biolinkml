@@ -122,19 +122,20 @@ class TypedNode:
         return self.loc()
 
 
+class extended_str(str, TypedNode):
+    pass
+
+class extended_int(int, TypedNode):
+    pass
+
+class extended_float(float, TypedNode):
+    pass
+
+
 class DupCheckYamlLoader(yaml.loader.SafeLoader):
     """
     A YAML loader that throws an error when the same key appears twice
     """
-
-    class extended_str(str, TypedNode):
-        pass
-
-    class extended_int(int, TypedNode):
-        pass
-
-    class extended_float(float, TypedNode):
-        pass
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -145,15 +146,15 @@ class DupCheckYamlLoader(yaml.loader.SafeLoader):
 
     def construct_yaml_int(self, node):
         """ Scalar constructor that returns the node information as the value """
-        return DupCheckYamlLoader.extended_int(super().construct_yaml_int(node)).add_node(node)
+        return extended_int(super().construct_yaml_int(node)).add_node(node)
 
     def construct_yaml_str(self, node):
         """ Scalar constructor that returns the node information as the value """
-        return DupCheckYamlLoader.extended_str(super().construct_yaml_str(node)).add_node(node)
+        return extended_str(super().construct_yaml_str(node)).add_node(node)
 
     def construct_yaml_float(self, node):
         """ Scalar constructor that returns the node information as the value """
-        return DupCheckYamlLoader.extended_float(super().construct_yaml_float(node)).add_node(node)
+        return extended_float(super().construct_yaml_float(node)).add_node(node)
 
     @staticmethod
     def map_constructor(loader,  node, deep=False):
@@ -174,9 +175,9 @@ class DupCheckYamlLoader(yaml.loader.SafeLoader):
         return mapping
 
 yaml.add_multi_representer(YAMLRoot, root_representer)
-yaml.add_representer(DupCheckYamlLoader.extended_str, yaml.SafeDumper.represent_str)
-yaml.add_representer(DupCheckYamlLoader.extended_int, yaml.SafeDumper.represent_int)
-yaml.add_representer(DupCheckYamlLoader.extended_float, yaml.SafeDumper.represent_float)
+yaml.add_representer(extended_str, yaml.SafeDumper.represent_str)
+yaml.add_representer(extended_int, yaml.SafeDumper.represent_int)
+yaml.add_representer(extended_float, yaml.SafeDumper.represent_float)
 
 
 def as_rdf(element: YAMLRoot, contexts: CONTEXTS_PARAM_TYPE = None) -> Graph:

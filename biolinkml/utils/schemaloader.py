@@ -75,7 +75,8 @@ class SchemaLoader:
             elif self.schema.default_prefix in self.namespaces:
                 self.namespaces._default = self.namespaces[self.schema.default_prefix]
             else:
-                raise ValueError(f'Default prefix: {self.schema.default_prefix} is not defined')
+                self.raise_value_error(f'Default prefix: {self.schema.default_prefix} is not defined',
+                                       self.schema.default_prefix)
 
         # Process imports
         for imp in self.schema.imports:
@@ -89,7 +90,8 @@ class SchemaLoader:
             if import_schemadefinition.id in self.loaded:
                 # If we've already loaded this, make sure that we've got the same version
                 if self.loaded[import_schemadefinition.id][1] != loaded_schema[1]:
-                    self.raise_value_error(f"Schema {import_schemadefinition.name} - version mismatch")
+                    self.raise_value_error(f"Schema {import_schemadefinition.name} - version mismatch",
+                                           import_schemadefinition.name)
                 # Note: for debugging purposes we also check whether the version came from the same spot.  This should
                 #       be loosened to version only once we're sure that everything is working
                 if self.loaded[import_schemadefinition.id] != loaded_schema:
@@ -107,7 +109,7 @@ class SchemaLoader:
         for cls in self.schema.classes.values():
             if not isinstance(cls, ClassDefinition):
                 name = cls['name'] if 'name' in cls else 'Unknown'
-                self.raise_value_error(f'Class "{name} (type: {type(cls)})" definition is not a class definition')
+                self.raise_value_error(f'Class "{name} (type: {type(cls)})" definition is not a class definition', name)
             if isinstance(cls.slots, str):
                 self.logger.warning(f"File: {self.schema.source_file} Class: {cls.name} Slots are not an array")
                 cls.slots = [cls.slots]
@@ -116,7 +118,7 @@ class SchemaLoader:
                     slot = self.schema.slots[cast(SlotDefinitionName, slotname)]
                     slot.owner = cls.name
                 else:
-                    self.raise_value_error(f'Class "{cls.name}" - unknown slot: "{slotname}"')
+                    self.raise_value_error(f'Class "{cls.name}" - unknown slot: "{slotname}"', slotname)
 
 
         # Massage initial set of slots
@@ -134,12 +136,12 @@ class SchemaLoader:
                 if slot.required is None:
                     slot.required = True
                 elif not slot.required:
-                    self.raise_value_error(f"slot: {slot.name} - key and identifier slots cannot be optional")
+                    self.raise_value_error(f"slot: {slot.name} - key and identifier slots cannot be optional", slot.name)
 
             # Validate the slot range
             if slot.range is not None and  slot.range not in self.schema.types and \
                     slot.range not in self.schema.classes:
-                self.raise_value_error(f"slot: {slot.name} - unrecognized range ({slot.range})")
+                self.raise_value_error(f"slot: {slot.name} - unrecognized range ({slot.range})", slot.range)
 
         # apply to --> mixins
         for cls in self.schema.classes.values():
@@ -147,7 +149,7 @@ class SchemaLoader:
                 if apply_to_cls in self.schema.classes:
                     self.schema.classes[apply_to_cls].mixins.append(cls.name)
                 else:
-                    self.raise_value_error(f'Class "{cls.name}" unknown apply_to target: {apply_to_cls}')
+                    self.raise_value_error(f'Class "{cls.name}" unknown apply_to target: {apply_to_cls}', apply_to_cls)
             # Class URI's also count as (trivial) mappings
             if cls.class_uri is not None:
                 cls.mappings.insert(0, cls.class_uri)
@@ -177,9 +179,9 @@ class SchemaLoader:
         merged_types: List[TypeDefinitionName] = []
         for typ in self.schema.types.values():
             if not typ.base and not typ.typeof:
-                self.raise_value_error(f'type "{typ.name}" must declare a type base or parent (typeof)')
+                self.raise_value_error(f'type "{typ.name}" must declare a type base or parent (typeof)', typ.name)
             if not typ.typeof and not typ.uri:
-                self.raise_value_error(f'type "{typ.name}" does not declare a URI')
+                self.raise_value_error(f'type "{typ.name}" does not declare a URI', typ.name)
             self.merge_type(typ, merged_types)
             if not typ.from_schema:
                 typ.from_schema = self.schema.id
@@ -197,23 +199,23 @@ class SchemaLoader:
                     slot.owner = slot.name
                     self.schema.classes[slot.domain].slots.append(slot.name)
             elif slot.domain:
-                self.raise_value_error(f"slot: {slot.name} - unrecognized domain ({slot.domain})")
+                self.raise_value_error(f"slot: {slot.name} - unrecognized domain ({slot.domain})", slot.domain)
             if slot.ifabsent:
                 from biolinkml.utils.ifabsent_functions import isabsent_match
                 if isabsent_match(slot.ifabsent) is None:
-                    self.raise_value_error(f"Unrecognized ifabsent action for slot '{slot.name}': '{slot.ifabsent}'")
+                    self.raise_value_error(f"Unrecognized ifabsent action for slot '{slot.name}': '{slot.ifabsent}'", slot.ifabsent)
 
             # Keys and identifiers must be present
             if bool(slot.key or slot.identifier):
                 if slot.required is None:
                     slot.required = True
                 elif not slot.required:
-                    self.raise_value_error(f"slot: {slot.name} - key and identifier slots cannot be optional")
+                    self.raise_value_error(f"slot: {slot.name} - key and identifier slots cannot be optional", slot.name)
 
             # Validate the slot range
             if slot.range is not None and  slot.range not in self.schema.types and \
                     slot.range not in self.schema.classes:
-                self.raise_value_error(f"slot: {slot.name} - unrecognized range ({slot.range})")
+                self.raise_value_error(f"slot: {slot.name} - unrecognized range ({slot.range})", slot.range)
 
         # Massage classes, propagating class slots entries domain back to the target slots
         for cls in self.schema.classes.values():
@@ -227,7 +229,7 @@ class SchemaLoader:
                 if slotname in self.schema.slots:
                     slot = self.schema.slots[cast(SlotDefinitionName, slotname)]
                 else:
-                    self.raise_value_error(f'Class "{cls.name}" - unknown slot: "{slotname}"')
+                    self.raise_value_error(f'Class "{cls.name}" - unknown slot: "{slotname}"', slotname)
 
         for slot in self.schema.slots.values():
             if slot.from_schema is None:
@@ -273,7 +275,7 @@ class SchemaLoader:
                 if slot.key:
                     class_slots.append(slot.name)
             if len(class_slots) > 1:
-                self.raise_value_error(f'Class "{cls.name}" - multiple keys not allowed ({", ".join(class_slots)})')
+                self.raise_value_error(f'Class "{cls.name}" - multiple keys not allowed ({", ".join(class_slots)})', class_slots[1])
 
         # Check out all the namespaces
         self.check_prefixes()
@@ -314,7 +316,7 @@ class SchemaLoader:
             print()
         for subset, referees in self.synopsis.subsetrefs.items():
             if subset not in self.schema.subsets:
-                self.raise_value_error(f"Subset: {subset} is not defined")
+                self.raise_value_error(f"Subset: {subset} is not defined", subset)
         return self.schema
 
 
@@ -339,13 +341,13 @@ class SchemaLoader:
                     self.merge_slot(self.schema.slots[slot.is_a], merged_slots)
                     merge_slots(slot, self.schema.slots[slot.is_a])
                 else:
-                    self.raise_value_error(f'Slot: "{slot.name}" - unknown is_a reference: {slot.is_a}')
+                    self.raise_value_error(f'Slot: "{slot.name}" - unknown is_a reference: {slot.is_a}', slot.is_a)
             for mixin in slot.mixins:
                 if mixin in self.schema.slots:
                     self.merge_slot(self.schema.slots[mixin], merged_slots)
                     merge_slots(slot, self.schema.slots[mixin])
                 else:
-                    self.raise_value_error(f'Slot: "{slot.name}" - unknown mixin reference: {mixin}')
+                    self.raise_value_error(f'Slot: "{slot.name}" - unknown mixin reference: {mixin}', mixin)
             merged_slots.append(slot.name)
 
     def merge_class(self, cls: ClassDefinition, merged_classes: List[ClassDefinitionName]) -> None:
@@ -363,14 +365,14 @@ class SchemaLoader:
                     self.merge_class(self.schema.classes[cls.is_a], merged_classes)
                     merge_classes(self.schema, cls, self.schema.classes[cls.is_a], False)
                 else:
-                    self.raise_value_error(f'Class: "{cls.name}" - unknown is_a reference: {cls.is_a}')
+                    self.raise_value_error(f'Class: "{cls.name}" - unknown is_a reference: {cls.is_a}', cls.is_a)
             for mixin in cls.mixins:
                 # Note that apply_to has ben injected as a faux mixin so it gets covered here
                 if mixin in self.schema.classes:
                     self.merge_class(self.schema.classes[mixin], merged_classes)
                     merge_classes(self.schema, cls, self.schema.classes[mixin], True)
                 else:
-                    self.raise_value_error(f'Class: "{cls.name}" - unknown mixin reference: {mixin}')
+                    self.raise_value_error(f'Class: "{cls.name}" - unknown mixin reference: {mixin}', mixin)
 
     def process_slot_usages(self, cls: ClassDefinition) -> None:
         """
@@ -424,7 +426,7 @@ class SchemaLoader:
                     self.merge_type(reftyp, merged_types)
                     merge_slots(typ, reftyp, [SlotDefinitionName('imported_from')])
                 else:
-                    self.raise_value_error(f'Type: "{typ.name}" - unknown typeof reference: {typ.typeof}')
+                    self.raise_value_error(f'Type: "{typ.name}" - unknown typeof reference: {typ.typeof}', typ.typeof)
             merged_types.append(typ.name)
 
     def schema_errors(self) -> List[str]:
@@ -488,8 +490,8 @@ class SchemaLoader:
     def slot_name_for(slot: SlotDefinition) -> str:
         return underscore(slot.alias if slot.alias else slot.name)
 
-    def raise_value_error(self, error: str, loc_str: Optional[Union[TypedNode, str]]=None) -> None:
-        raise ValueError(f'{"" if loc_str is None else (loc_str.loc() + " ") if getattr(loc_str, "loc") else ""} {error}')
+    def raise_value_error(self, error: str, loc_str: Optional[Union[TypedNode, str]] = None) -> None:
+        raise ValueError(f'{"" if loc_str is None or not getattr(loc_str, "loc") else (loc_str.loc() + " ")} {error}')
 
     def _get_base_dir(self, stated_base: str) -> Optional[str]:
         if stated_base:

@@ -51,6 +51,11 @@ class Issue83TestCase(unittest.TestCase):
         except Exception as e:
             self.fail(f'Raised exception unexpectedly: {str(e.exception)}')
 
+    def test_default_prefix_error(self):
+        with self.assertRaises(ValueError) as e:
+            SchemaLoaer
+
+
 
 if __name__ == '__main__':
     unittest.main()
