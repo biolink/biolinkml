@@ -35,7 +35,6 @@ class Generator(metaclass=abc.ABCMeta):
                  emit_metadata: bool = False,
                  useuris: Optional[bool] = None,
                  importmap: Optional[str] = None,
-                 log_level: int = DEFAULT_LOG_LEVEL_INT,
                  **kwargs) -> None:
         """
         Constructor
@@ -46,9 +45,7 @@ class Generator(metaclass=abc.ABCMeta):
         :param emit_metadata: True means include date, generator, etc. information in source header if appropriate
         :param useuris: True means declared class slot uri's are used.  False means use model uris
         :param importmap: File name of import mapping file -- maps import name/uri to target
-        :param log_level: Logging level
         """
-        logging.basicConfig(level=log_level)
         self.logger = logging.getLogger(self.__class__.__name__)
 
         if format is None:
@@ -552,7 +549,16 @@ def shared_arguments(g: Generator) -> Callable[[Command], Command]:
                    help=f"Logging level (default={DEFAULT_LOG_LEVEL})",
                    default=DEFAULT_LOG_LEVEL)
         )
-        return f
+        @click.command()
+        def f2(
+                *args,
+                log_level: int = DEFAULT_LOG_LEVEL_INT,
+                **kwargs,
+        ):
+            logging.basicConfig(level=log_level)
+            f.callback(*args, **kwargs)
+        f2.params = f.params
+        return f2
     return decorator
 
 
