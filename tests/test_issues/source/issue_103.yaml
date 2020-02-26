@@ -1,0 +1,41 @@
+id: http://example.org/issues/103
+name: Issue 103 test case
+description: Example identifier
+license: https://creativecommons.org/publicdomain/zero/1.0/
+
+prefixes:
+  model: https://w3id.org/biolink/
+  biolink: https://w3id.org/biolink/vocab/
+  biolinkml: https://w3id.org/biolink/biolinkml/
+  ex: http://example.org/
+  CHEBI: 'http://purl.obolibrary.org/obo/CHEBI'
+
+default_prefix: biolink
+default_range: string
+
+imports:
+  - biolinkml:types
+
+slots:
+  id:
+    # The unique identifier of an object.  Must be a URI or Curie
+    identifier: True
+    range: objectidentifier
+
+  name:
+    # The name of the person
+    required: True
+
+
+
+classes:
+  chemical substance:
+    description: >-
+      May be a chemical entity or a formulation with a chemical entity as active ingredient, or a complex
+      material with multiple chemical entities as part
+    subclass_of: SIO:010004
+    class_uri: CHEBI:24431
+
+    slots:
+      - id
+      - name
