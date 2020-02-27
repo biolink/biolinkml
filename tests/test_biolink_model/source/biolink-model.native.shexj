@@ -7011,6 +7011,13 @@
                            },
                            {
                               "type": "TripleConstraint",
+                              "predicate": "https://w3id.org/biolink/vocab/caused_by",
+                              "valueExpr": "https://w3id.org/biolink/vocab/NamedThing",
+                              "min": 0,
+                              "max": -1
+                           },
+                           {
+                              "type": "TripleConstraint",
                               "predicate": "https://w3id.org/biolink/vocab/prevents",
                               "valueExpr": "https://w3id.org/biolink/vocab/NamedThing",
                               "min": 0,

@@ -1374,6 +1374,7 @@ metatype:Nodeidentifier NONLITERAL
              <predisposes> @<NamedThing> * ;
              <contributes_to> @<NamedThing> * ;
              <causes> @<NamedThing> * ;
+             <caused_by> @<NamedThing> * ;
              <prevents> @<NamedThing> * ;
              <occurs_in> @<NamedThing> * ;
              <located_in> @<NamedThing> * ;

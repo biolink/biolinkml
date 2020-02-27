@@ -1,5 +1,5 @@
 id: https://w3id.org/biolink/biolink-model
-name: biolink_model
+name: Biolink_Model
 description: Entity and association taxonomy and datamodel for life-sciences data
 license: https://creativecommons.org/publicdomain/zero/1.0/
 
@@ -827,9 +827,20 @@ slots:
     in_subset:
       - translator_minimal
     slot_uri: RO:0002410
+    inverse: caused by
     mappings:
       - SEMMEDDB:CAUSES
       - WD:P1542
+
+  caused by:
+    description: >-
+      holds between two entities where the occurrence, existence, or activity of one is caused by the occurrence or  generation of the other
+    is_a: related to
+    in_subset:
+      - translator_minimal
+    inverse: causes
+    mappings:
+      - WD:P828
 
   treats:
     aliases: ['is substance that treats']
@@ -2093,6 +2104,15 @@ classes:
       # Neoplastic Process
       - UMLSSC:T191
       - UMLSST:neop
+    id_prefixes:
+      - MONDO
+      - DOID
+      - OMIM
+      - ORPHANET
+      - EFO
+      - UMLS
+      - MESH
+      - MEDDRA
 
   phenotypic feature:
     aliases: ['sign', 'symptom', 'phenotype', 'trait', 'endophenotype']
@@ -2102,6 +2122,12 @@ classes:
     mappings:
       - SIO:010056
       - WD:Q169872
+    id_prefixes:
+      - HP
+      - EFO
+      - NCIT
+      - UMLS
+      - MEDDRA
 
   exposure event:
     aliases: ['environment', 'exposure', 'experimental condition']
@@ -2301,6 +2327,15 @@ classes:
     id_prefixes:
       - CHEBI
       - CHEMBL.COMPOUND
+      - DRUGBANK
+      - PUBCHEM
+      - MESH
+      - HMDB
+      - INCHI
+      - INCHIKEY
+      - UNII
+      - KEGG
+      - GTOPDB
 
   carbohydrate:
     is_a: chemical substance
@@ -2362,6 +2397,9 @@ classes:
       # Body Substance
       - UMLSSC:T031
       - UMLSST:bdsu
+    id_prefixes:
+      - UBERON
+      - UMLS
 
   life stage:
     is_a: organismal entity
@@ -2499,12 +2537,14 @@ classes:
       - NCBIGene
       - ENSEMBL
       - HGNC
+      #- UNIPROTKB  I think this belongs, but others may strongly disagree CB
       - MGI
       - ZFIN
       - dictyBase
       - WB
       - SGD
       - PomBase
+      - IUPHAR
 
   gene product:
     is_a: gene or gene product
@@ -2514,6 +2554,10 @@ classes:
       - protein
       - RNA product
     class_uri: WD:Q424689
+    id_prefixes:
+      - UNIPROTKB
+      - GTOPDB
+      - PR
 
   protein:
     is_a: gene product
@@ -2666,9 +2710,14 @@ classes:
       - SIO:010277
       - VMC:Allele
     id_prefixes:
+      - CAID #ClinGen Allele Registry
       - ClinVar
       - WD
       - CIViC
+      - HGVS
+      - DBSNP
+      - MYVARIANT_HG19
+      - MYVARIANT_HG38
     alt_descriptions:
       AGR: "An enitity that describes a single affected, endogenous allele.  These can be of any type that matches that definition"
       VMC: "A contiguous change at a Location"
@@ -4000,6 +4049,10 @@ classes:
     id_prefixes:
       - GO
       - Reactome
+      - KEGG
+      - SMPDB
+      - PHARMGKB
+      - WIKIPATHWAYS
 
   physiological process:
     aliases: ['physiology']
@@ -4030,6 +4083,9 @@ classes:
       # Clinical Attribute
       - UMLSSC:T201
       - UMLSST:clna
+    id_prefixes:
+      - GO
+      - Reactome
 
   cellular component:
     is_a: anatomical entity
@@ -4058,6 +4114,7 @@ classes:
     id_prefixes:
       - CL
       - PO
+      - UMLS
 
   cell line:
     is_a: organismal entity

@@ -3,11 +3,17 @@
 # description: Test
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 
-from typing import Optional, List, Union, Dict, ClassVar
+import dataclasses
+import sys
+from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
-from biolinkml.utils.yamlutils import YAMLRoot
+from biolinkml.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
+if sys.version_info < (3, 7, 6):
+    from biolinkml.utils.dataclass_extensions_375 import dataclasses_init_fn_with_kwargs
+else:
+    from biolinkml.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
@@ -15,6 +21,8 @@ from biolinkml.utils.metamodelcore import URI
 
 metamodel_version = "1.4.3"
 
+# Overwrite dataclasses _init_fn to add **kwargs in __init__
+dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
 BIOLINKML = CurieNamespace('biolinkml', 'https://w3id.org/biolink/biolinkml/')
@@ -85,12 +93,12 @@ class Attribute(YAMLRoot):
 
     id: Union[str, AttributeId]
 
-    def __post_init__(self):
+    def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
             raise ValueError(f"id must be supplied")
         if not isinstance(self.id, AttributeId):
             self.id = AttributeId(self.id)
-        super().__post_init__()
+        super().__post_init__(**kwargs)
 
 
 @dataclass
@@ -104,12 +112,12 @@ class BiologicalSex(Attribute):
 
     id: Union[str, BiologicalSexId] = None
 
-    def __post_init__(self):
+    def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
             raise ValueError(f"id must be supplied")
         if not isinstance(self.id, BiologicalSexId):
             self.id = BiologicalSexId(self.id)
-        super().__post_init__()
+        super().__post_init__(**kwargs)
 
 
 @dataclass
@@ -126,12 +134,12 @@ class OntologyClass(NamedThing):
 
     id: Union[str, OntologyClassId] = None
 
-    def __post_init__(self):
+    def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
             raise ValueError(f"id must be supplied")
         if not isinstance(self.id, OntologyClassId):
             self.id = OntologyClassId(self.id)
-        super().__post_init__()
+        super().__post_init__(**kwargs)
 
 
 @dataclass
@@ -149,14 +157,14 @@ class NamedThing(YAMLRoot):
     id: Union[str, NamedThingId]
     name: Optional[Union[str, LabelType]] = None
 
-    def __post_init__(self):
+    def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
             raise ValueError(f"id must be supplied")
         if not isinstance(self.id, NamedThingId):
             self.id = NamedThingId(self.id)
         if self.name is not None and not isinstance(self.name, LabelType):
             self.name = LabelType(self.name)
-        super().__post_init__()
+        super().__post_init__(**kwargs)
 
 
 

@@ -6,6 +6,7 @@ default_range: string
 types:
   string:
     base: str
+    uri: http://example.com/string
 
 slots:
   key1:

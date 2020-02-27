@@ -42,7 +42,7 @@ class Generator(metaclass=abc.ABCMeta):
 
         :param schema: metamodel compliant schema.  Can be URI, file name, actual schema, another generator, an
         open file or a pre-parsed schema.
-        :param fmt: expected output format
+        :param format: expected output format
         :param emit_metadata: True means include date, generator, etc. information in source header if appropriate
         :param useuris: True means declared class slot uri's are used.  False means use model uris
         :param importmap: File name of import mapping file -- maps import name/uri to target

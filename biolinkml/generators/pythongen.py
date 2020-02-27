@@ -100,11 +100,17 @@ class PythonGenerator(Generator):
 # description: {split_descripton}
 # license: {be(self.schema.license)}
 
-from typing import Optional, List, Union, Dict, ClassVar
+import dataclasses
+import sys
+from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
-from biolinkml.utils.yamlutils import YAMLRoot
+from biolinkml.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
+if sys.version_info < (3, 7, 6):
+    from biolinkml.utils.dataclass_extensions_375 import dataclasses_init_fn_with_kwargs
+else:
+    from biolinkml.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
@@ -112,6 +118,8 @@ from biolinkml.utils.curienamespace import CurieNamespace
 
 metamodel_version = "{self.schema.metamodel_version}"
 
+# Overwrite dataclasses _init_fn to add **kwargs in __init__
+dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
 {self.gen_namespaces()}
@@ -249,7 +257,9 @@ class slots:
                             parents = self.class_identifier_path(cls.is_a, False)
                         else:
                             parents = self.slot_type_path(self.schema.slots[pk])
-                        rval.append(f'class {classname}({parents[-1]}):\n\tpass')
+                        # TODO: check if parents[-1] is str, float, or int. changed it to extedned_
+                        parent_cls = 'extended_' + parents[-1] if parents[-1] in ['str', 'float', 'int'] else parents[-1]
+                        rval.append(f'class {classname}({parent_cls}):\n\tpass')
                         break       # We only do the first primary key
         return '\n\n\n'.join(rval)
 
@@ -496,9 +506,9 @@ class slots:
                                     ('\n\t\t' if post_inits_pre_super else '')
         post_inits_line = '\n\t\t'.join([p for p in post_inits if p])
         return (f'''
-    def __post_init__(self):
+    def __post_init__(self, **kwargs: Dict[str, Any]):
         {post_inits_pre_super_line}{post_inits_line}
-        super().__post_init__()''' + '\n') if post_inits_line or post_inits_pre_super_line else ''
+        super().__post_init__(**kwargs)''' + '\n') if post_inits_line or post_inits_pre_super_line else ''
 
     def is_key_value_class(self, range_name: DefinitionName) -> bool:
         """

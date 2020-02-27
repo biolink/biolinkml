@@ -18,6 +18,7 @@ URI: [biolink:related_to](https://w3id.org/biolink/vocab/related_to)
 
  *  [affects](affects.md)
  *  [affects risk for](affects_risk_for.md)
+ *  [caused by](caused_by.md)
  *  [coexists with](coexists_with.md)
  *  [contributes to](contributes_to.md)
  *  [correlated with](correlated_with.md)

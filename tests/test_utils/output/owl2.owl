@@ -11,7 +11,7 @@
 
 <http://example.org/owl2> a owl:Ontology ;
     rdfs:label "owl2" ;
-    meta:generation_date "2020-02-27 13:57" ;
+    meta:generation_date "2020-02-27 16:12" ;
     meta:metamodel_version "1.4.3" ;
     meta:source_file "owl2.yaml" ;
     meta:source_file_date "Thu Dec 26 23:54:45 2019" ;
@@ -73,12 +73,12 @@ meta:C1 a owl:Class,
     rdfs:label "c1" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:string ;
-            owl:onProperty meta:dataslot ],
+            owl:onClass meta:C2 ;
+            owl:onProperty meta:objslot ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:C2 ;
-            owl:onProperty meta:objslot ] .
+            owl:onClass meta:string ;
+            owl:onProperty meta:dataslot ] .
 
 meta:SlotDefinition a owl:Class ;
     rdfs:label "slot_definition" ;

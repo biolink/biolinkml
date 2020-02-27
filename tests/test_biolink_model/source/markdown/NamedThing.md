@@ -28,6 +28,7 @@ URI: [biolink:NamedThing](https://w3id.org/biolink/vocab/NamedThing)
 
  *  **[NamedThing](NamedThing.md)** *[affects](affects.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[affects risk for](affects_risk_for.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
+ *  **[NamedThing](NamedThing.md)** *[caused by](caused_by.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[causes](causes.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[coexists with](coexists_with.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[colocalizes with](colocalizes_with.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
@@ -110,6 +111,10 @@ URI: [biolink:NamedThing](https://w3id.org/biolink/vocab/NamedThing)
  * [category](category.md)  <sub>1..*</sub>
     * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
     * range: [IriType](types/IriType.md)
+    * in subsets: (translator_minimal)
+ * [caused by](caused_by.md)  <sub>0..*</sub>
+    * Description: holds between two entities where the occurrence, existence, or activity of one is caused by the occurrence or  generation of the other
+    * range: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
  * [causes](causes.md)  <sub>0..*</sub>
     * Description: holds between two entities where the occurrence, existence, or activity of one causes the occurrence or  generation of the other
