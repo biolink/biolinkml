@@ -9,7 +9,7 @@ from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
-from biolinkml.utils.yamlutils import YAMLRoot
+from biolinkml.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
 if sys.version_info < (3, 7, 6):
     from biolinkml.utils.dataclass_extensions_375 import dataclasses_init_fn_with_kwargs
 else:
@@ -40,7 +40,7 @@ class TimeType(Time):
 
 
 # Class references
-class GeographicLocationK(str):
+class GeographicLocationK(extended_str):
     pass
 
 

@@ -1,5 +1,5 @@
 {
-  "name": "biolink_model",
+  "name": "Biolink_Model",
   "description": "Entity and association taxonomy and datamodel for life-sciences data",
   "id": "https://w3id.org/biolink/biolink-model",
   "imports": [
@@ -1835,6 +1835,28 @@
       "multivalued": true,
       "inherited": true,
       "owner": "causes",
+      "inverse": "caused_by",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "caused_by",
+      "definition_uri": "biolink:caused_by",
+      "mappings": [
+        "WD:P828"
+      ],
+      "description": "holds between two entities where the occurrence, existence, or activity of one is caused by the occurrence or  generation of the other",
+      "in_subset": [
+        "translator_minimal"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "is_a": "related_to",
+      "domain": "NamedThing",
+      "range": "NamedThing",
+      "slot_uri": "https://w3id.org/biolink/vocab/caused_by",
+      "multivalued": true,
+      "inherited": true,
+      "owner": "caused_by",
+      "inverse": "causes",
       "type": "SlotDefinition"
     },
     {
@@ -5438,6 +5460,7 @@
         "predisposes",
         "contributes_to",
         "causes",
+        "caused_by",
         "prevents",
         "occurs_in",
         "located_in",
@@ -6045,6 +6068,16 @@
     },
     {
       "name": "Disease",
+      "id_prefixes": [
+        "MONDO",
+        "DOID",
+        "OMIM",
+        "ORPHANET",
+        "EFO",
+        "UMLS",
+        "MESH",
+        "MEDDRA"
+      ],
       "definition_uri": "biolink:Disease",
       "aliases": [
         "condition",
@@ -6102,6 +6135,13 @@
     },
     {
       "name": "PhenotypicFeature",
+      "id_prefixes": [
+        "HP",
+        "EFO",
+        "NCIT",
+        "UMLS",
+        "MEDDRA"
+      ],
       "definition_uri": "biolink:PhenotypicFeature",
       "aliases": [
         "sign",
@@ -6473,7 +6513,16 @@
       "name": "ChemicalSubstance",
       "id_prefixes": [
         "CHEBI",
-        "CHEMBL.COMPOUND"
+        "CHEMBL.COMPOUND",
+        "DRUGBANK",
+        "PUBCHEM",
+        "MESH",
+        "HMDB",
+        "INCHI",
+        "INCHIKEY",
+        "UNII",
+        "KEGG",
+        "GTOPDB"
       ],
       "definition_uri": "biolink:ChemicalSubstance",
       "mappings": [
@@ -6837,6 +6886,10 @@
     },
     {
       "name": "AnatomicalEntity",
+      "id_prefixes": [
+        "UBERON",
+        "UMLS"
+      ],
       "definition_uri": "biolink:AnatomicalEntity",
       "mappings": [
         "SIO:010046",
@@ -7661,7 +7714,8 @@
         "dictyBase",
         "WB",
         "SGD",
-        "PomBase"
+        "PomBase",
+        "IUPHAR"
       ],
       "definition_uri": "biolink:Gene",
       "aliases": [
@@ -7753,6 +7807,11 @@
     },
     {
       "name": "GeneProduct",
+      "id_prefixes": [
+        "UNIPROTKB",
+        "GTOPDB",
+        "PR"
+      ],
       "definition_uri": "biolink:GeneProduct",
       "mappings": [
         "WD:Q424689"
@@ -8832,9 +8891,14 @@
     {
       "name": "SequenceVariant",
       "id_prefixes": [
+        "CAID",
         "ClinVar",
         "WD",
-        "CIViC"
+        "CIViC",
+        "HGVS",
+        "DBSNP",
+        "MYVARIANT_HG19",
+        "MYVARIANT_HG38"
       ],
       "definition_uri": "biolink:SequenceVariant",
       "aliases": [
@@ -11185,7 +11249,11 @@
       "name": "Pathway",
       "id_prefixes": [
         "GO",
-        "Reactome"
+        "Reactome",
+        "KEGG",
+        "SMPDB",
+        "PHARMGKB",
+        "WIKIPATHWAYS"
       ],
       "definition_uri": "biolink:Pathway",
       "mappings": [
@@ -11221,6 +11289,10 @@
     },
     {
       "name": "PhysiologicalProcess",
+      "id_prefixes": [
+        "GO",
+        "Reactome"
+      ],
       "definition_uri": "biolink:PhysiologicalProcess",
       "aliases": [
         "physiology"
@@ -11308,7 +11380,8 @@
       "name": "Cell",
       "id_prefixes": [
         "CL",
-        "PO"
+        "PO",
+        "UMLS"
       ],
       "definition_uri": "biolink:Cell",
       "mappings": [
@@ -11420,7 +11493,7 @@
   "metamodel_version": "1.4.3",
   "source_file": "biolink-model.yaml",
   "source_file_date": "2019-01-01-12:00",
-  "source_file_size": 117070,
+  "source_file_size": 118153,
   "generation_date": "2019-01-01 12:00",
   "type": "SchemaDefinition",
   "@context": [

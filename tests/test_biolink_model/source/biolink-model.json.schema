@@ -3656,6 +3656,6 @@
          "type": "object"
       }
    },
-   "title": "Biolink Model",
+   "title": "Biolink_Model",
    "type": "object"
 }

@@ -23,7 +23,7 @@ ex:testMetamodelMappings a ex:SchemaDefinition ;
         ex:C2,
         ex:C3 ;
     meta:default_range ex:string ;
-    meta:generation_date "2020-02-27 13:39"^^xsd:dateTime ;
+    meta:generation_date "2020-02-27 14:48"^^xsd:dateTime ;
     meta:id ex: ;
     meta:prefixes [ ex:prefix_prefix "ex" ;
             meta:prefix_reference ex: ] ;

@@ -13,7 +13,7 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://w3id.org/biolink/vocab/biolink_model> a meta:SchemaDefinition ;
+<https://w3id.org/biolink/vocab/Biolink_Model> a meta:SchemaDefinition ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     skos:definition "Entity and association taxonomy and datamodel for life-sciences data" ;
     meta:classes <https://w3id.org/biolink/vocab/AbstractEntity>,
@@ -189,31 +189,31 @@
         "rdfs",
         "skos",
         "xsd" ;
-    meta:generation_date "2020-02-27 13:46"^^xsd:dateTime ;
+    meta:generation_date "2020-02-27 16:43"^^xsd:dateTime ;
     meta:id <https://w3id.org/biolink/biolink-model> ;
     meta:imports biolinkml:mappings,
         biolinkml:types ;
     meta:metamodel_version "1.4.3" ;
-    meta:prefixes [ meta:prefix_prefix "skos" ;
-            meta:prefix_reference skos: ],
-        [ meta:prefix_prefix "biolinkml" ;
+    meta:prefixes [ meta:prefix_prefix "biolinkml" ;
             meta:prefix_reference biolinkml: ],
-        [ meta:prefix_prefix "wgs" ;
-            meta:prefix_reference <http://www.w3.org/2003/01/geo/wgs84_pos> ],
-        [ meta:prefix_prefix "OBAN" ;
-            meta:prefix_reference <http://purl.org/oban/> ],
-        [ meta:prefix_prefix "UMLSSC" ;
-            meta:prefix_reference <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/TUI/> ],
-        [ meta:prefix_prefix "UMLSSG" ;
-            meta:prefix_reference <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/GROUP/> ],
         [ meta:prefix_prefix "qud" ;
             meta:prefix_reference <http://qudt.org/1.1/schema/qudt#> ],
         [ meta:prefix_prefix "SIO" ;
             meta:prefix_reference <http://semanticscience.org/resource/SIO_> ],
-        [ meta:prefix_prefix "UMLSST" ;
-            meta:prefix_reference <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/STY/> ],
+        [ meta:prefix_prefix "UMLSSG" ;
+            meta:prefix_reference <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/GROUP/> ],
+        [ meta:prefix_prefix "OBAN" ;
+            meta:prefix_reference <http://purl.org/oban/> ],
+        [ meta:prefix_prefix "skos" ;
+            meta:prefix_reference skos: ],
+        [ meta:prefix_prefix "wgs" ;
+            meta:prefix_reference <http://www.w3.org/2003/01/geo/wgs84_pos> ],
         [ meta:prefix_prefix "biolink" ;
-            meta:prefix_reference <https://w3id.org/biolink/vocab/> ] ;
+            meta:prefix_reference <https://w3id.org/biolink/vocab/> ],
+        [ meta:prefix_prefix "UMLSSC" ;
+            meta:prefix_reference <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/TUI/> ],
+        [ meta:prefix_prefix "UMLSST" ;
+            meta:prefix_reference <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/STY/> ] ;
     meta:slots <https://w3id.org/biolink/vocab/actively_involved_in>,
         <https://w3id.org/biolink/vocab/affects>,
         <https://w3id.org/biolink/vocab/affects_abundance_of>,
@@ -249,6 +249,7 @@
         <https://w3id.org/biolink/vocab/capable_of>,
         <https://w3id.org/biolink/vocab/case_to_thing_association_subject>,
         <https://w3id.org/biolink/vocab/category>,
+        <https://w3id.org/biolink/vocab/caused_by>,
         <https://w3id.org/biolink/vocab/causes>,
         <https://w3id.org/biolink/vocab/cell_line_to_disease_or_phenotypic_feature_association_subject>,
         <https://w3id.org/biolink/vocab/cell_line_to_thing_association_subject>,
@@ -514,8 +515,8 @@
         <https://w3id.org/biolink/vocab/versionOf>,
         <https://w3id.org/biolink/vocab/xenologous_to> ;
     meta:source_file "biolink-model.yaml" ;
-    meta:source_file_date "Thu Feb 27 13:04:55 2020"^^xsd:dateTime ;
-    meta:source_file_size 117070 ;
+    meta:source_file_date "Thu Feb 27 16:34:01 2020"^^xsd:dateTime ;
+    meta:source_file_size 118153 ;
     meta:subsets <https://w3id.org/biolink/vocab/samples>,
         <https://w3id.org/biolink/vocab/testing>,
         <https://w3id.org/biolink/vocab/translator_minimal> ;
@@ -556,7 +557,8 @@
     meta:class_uri <http://purl.obolibrary.org/obo/GO_0005623> ;
     meta:definition_uri <biolink:Cell> ;
     meta:id_prefixes "CL",
-        "PO" ;
+        "PO",
+        "UMLS" ;
     meta:is_a <https://w3id.org/biolink/vocab/AnatomicalEntity> ;
     meta:slots <https://w3id.org/biolink/vocab/category>,
         <https://w3id.org/biolink/vocab/description>,
@@ -2048,7 +2050,11 @@
     meta:class_uri <http://purl.obolibrary.org/obo/GO_0007165> ;
     meta:definition_uri <biolink:Pathway> ;
     meta:id_prefixes "GO",
-        "Reactome" ;
+        "KEGG",
+        "PHARMGKB",
+        "Reactome",
+        "SMPDB",
+        "WIKIPATHWAYS" ;
     meta:is_a <https://w3id.org/biolink/vocab/BiologicalProcess> ;
     meta:slots <https://w3id.org/biolink/vocab/category>,
         <https://w3id.org/biolink/vocab/description>,
@@ -2150,6 +2156,8 @@
         <umlsst:phsf> ;
     meta:class_uri <https://w3id.org/biolink/vocab/PhysiologicalProcess> ;
     meta:definition_uri <biolink:PhysiologicalProcess> ;
+    meta:id_prefixes "GO",
+        "Reactome" ;
     meta:is_a <https://w3id.org/biolink/vocab/BiologicalProcess> ;
     meta:slots <https://w3id.org/biolink/vocab/category>,
         <https://w3id.org/biolink/vocab/description>,
@@ -4023,22 +4031,6 @@
     meta:range <https://w3id.org/biolink/vocab/Occurrent> ;
     meta:slot_uri <http://purl.obolibrary.org/obo/RO_0002215> .
 
-<https://w3id.org/biolink/vocab/causes> a meta:SlotDefinition ;
-    OIO:inSubset <https://w3id.org/biolink/vocab/translator_minimal> ;
-    skos:definition "holds between two entities where the occurrence, existence, or activity of one causes the occurrence or  generation of the other" ;
-    skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <ro:0002410>,
-        <semmeddb:CAUSES>,
-        <wd:P1542> ;
-    meta:definition_uri <biolink:causes> ;
-    meta:domain <https://w3id.org/biolink/vocab/NamedThing> ;
-    meta:inherited true ;
-    meta:is_a <https://w3id.org/biolink/vocab/contributes_to> ;
-    meta:multivalued true ;
-    meta:owner <https://w3id.org/biolink/vocab/causes> ;
-    meta:range <https://w3id.org/biolink/vocab/NamedThing> ;
-    meta:slot_uri <http://purl.obolibrary.org/obo/RO_0002410> .
-
 <https://w3id.org/biolink/vocab/chemical_to_chemical_association_object> a meta:SlotDefinition ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
     meta:alias "object" ;
@@ -4998,6 +4990,11 @@
         <wd:Q169872> ;
     meta:class_uri <http://purl.obolibrary.org/obo/UPHENO_0001001> ;
     meta:definition_uri <biolink:PhenotypicFeature> ;
+    meta:id_prefixes "EFO",
+        "HP",
+        "MEDDRA",
+        "NCIT",
+        "UMLS" ;
     meta:is_a <https://w3id.org/biolink/vocab/DiseaseOrPhenotypicFeature> ;
     meta:slots <https://w3id.org/biolink/vocab/category>,
         <https://w3id.org/biolink/vocab/correlated_with>,
@@ -5029,10 +5026,10 @@
     meta:is_a <https://w3id.org/biolink/vocab/OrganismalEntity> ;
     meta:local_names [ a meta:LocalName ;
             skos:altLabel "population" ;
-            meta:local_name_source "ga4gh" ],
+            meta:local_name_source "agr" ],
         [ a meta:LocalName ;
             skos:altLabel "population" ;
-            meta:local_name_source "agr" ] ;
+            meta:local_name_source "ga4gh" ] ;
     meta:mixins <https://w3id.org/biolink/vocab/ThingWithTaxon> ;
     meta:slots <https://w3id.org/biolink/vocab/category>,
         <https://w3id.org/biolink/vocab/description>,
@@ -5214,6 +5211,23 @@
     meta:range <https://w3id.org/biolink/vocab/AnatomicalEntity> ;
     meta:required true ;
     meta:slot_uri <https://w3id.org/biolink/vocab/subject> .
+
+<https://w3id.org/biolink/vocab/causes> a meta:SlotDefinition ;
+    OIO:inSubset <https://w3id.org/biolink/vocab/translator_minimal> ;
+    owl:inverseOf <https://w3id.org/biolink/vocab/caused_by> ;
+    skos:definition "holds between two entities where the occurrence, existence, or activity of one causes the occurrence or  generation of the other" ;
+    skos:inScheme <https://w3id.org/biolink/biolink-model> ;
+    skos:mappingRelation <ro:0002410>,
+        <semmeddb:CAUSES>,
+        <wd:P1542> ;
+    meta:definition_uri <biolink:causes> ;
+    meta:domain <https://w3id.org/biolink/vocab/NamedThing> ;
+    meta:inherited true ;
+    meta:is_a <https://w3id.org/biolink/vocab/contributes_to> ;
+    meta:multivalued true ;
+    meta:owner <https://w3id.org/biolink/vocab/causes> ;
+    meta:range <https://w3id.org/biolink/vocab/NamedThing> ;
+    meta:slot_uri <http://purl.obolibrary.org/obo/RO_0002410> .
 
 <https://w3id.org/biolink/vocab/clinical_modifier_qualifier> a meta:SlotDefinition ;
     skos:definition "Used to characterize and specify the phenotypic abnormalities defined in the Phenotypic abnormality subontology, with respect to severity, laterality, age of onset, and other aspects" ;
@@ -5853,6 +5867,21 @@
     meta:definition_uri <biolink:RelationshipQuantifier> ;
     meta:mixin true .
 
+<https://w3id.org/biolink/vocab/caused_by> a meta:SlotDefinition ;
+    OIO:inSubset <https://w3id.org/biolink/vocab/translator_minimal> ;
+    owl:inverseOf <https://w3id.org/biolink/vocab/causes> ;
+    skos:definition "holds between two entities where the occurrence, existence, or activity of one is caused by the occurrence or  generation of the other" ;
+    skos:inScheme <https://w3id.org/biolink/biolink-model> ;
+    skos:mappingRelation <wd:P828> ;
+    meta:definition_uri <biolink:caused_by> ;
+    meta:domain <https://w3id.org/biolink/vocab/NamedThing> ;
+    meta:inherited true ;
+    meta:is_a <https://w3id.org/biolink/vocab/related_to> ;
+    meta:multivalued true ;
+    meta:owner <https://w3id.org/biolink/vocab/caused_by> ;
+    meta:range <https://w3id.org/biolink/vocab/NamedThing> ;
+    meta:slot_uri <https://w3id.org/biolink/vocab/caused_by> .
+
 <https://w3id.org/biolink/vocab/end_interbase_coordinate> a meta:SlotDefinition ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
     meta:definition_uri <biolink:end_interbase_coordinate> ;
@@ -6032,6 +6061,14 @@
         <wd:Q12136> ;
     meta:class_uri <http://purl.obolibrary.org/obo/MONDO_0000001> ;
     meta:definition_uri <biolink:Disease> ;
+    meta:id_prefixes "DOID",
+        "EFO",
+        "MEDDRA",
+        "MESH",
+        "MONDO",
+        "OMIM",
+        "ORPHANET",
+        "UMLS" ;
     meta:is_a <https://w3id.org/biolink/vocab/DiseaseOrPhenotypicFeature> ;
     meta:slots <https://w3id.org/biolink/vocab/category>,
         <https://w3id.org/biolink/vocab/correlated_with>,
@@ -6926,6 +6963,9 @@
     skos:mappingRelation <wd:Q424689> ;
     meta:class_uri <http://example.org/UNKNOWN/WD/Q424689> ;
     meta:definition_uri <biolink:GeneProduct> ;
+    meta:id_prefixes "GTOPDB",
+        "PR",
+        "UNIPROTKB" ;
     meta:is_a <https://w3id.org/biolink/vocab/GeneOrGeneProduct> ;
     meta:slots <https://w3id.org/biolink/vocab/affects_abundance_of>,
         <https://w3id.org/biolink/vocab/affects_activity_of>,
@@ -7447,7 +7487,16 @@
     meta:class_uri <http://semanticscience.org/resource/SIO_010004> ;
     meta:definition_uri <biolink:ChemicalSubstance> ;
     meta:id_prefixes "CHEBI",
-        "CHEMBL.COMPOUND" ;
+        "CHEMBL.COMPOUND",
+        "DRUGBANK",
+        "GTOPDB",
+        "HMDB",
+        "INCHI",
+        "INCHIKEY",
+        "KEGG",
+        "MESH",
+        "PUBCHEM",
+        "UNII" ;
     meta:is_a <https://w3id.org/biolink/vocab/MolecularEntity> ;
     meta:slots <https://w3id.org/biolink/vocab/affects_abundance_of>,
         <https://w3id.org/biolink/vocab/affects_activity_of>,
@@ -7614,6 +7663,7 @@
     meta:definition_uri <biolink:Gene> ;
     meta:id_prefixes "ENSEMBL",
         "HGNC",
+        "IUPHAR",
         "MGI",
         "NCBIGene",
         "PomBase",
@@ -7820,15 +7870,20 @@
         <wd:Q15304597> ;
     skos:note "This class is for modeling the specific state at a locus. A single dbSNP rs ID could correspond to more than one sequence variants (e.g CIViC:1252 and CIViC:1253, two distinct BRCA2 alleles for rs28897743)" ;
     meta:alt_descriptions [ a meta:AltDescription ;
-            skos:definition "An enitity that describes a single affected, endogenous allele.  These can be of any type that matches that definition" ;
-            meta:source "AGR" ],
-        [ a meta:AltDescription ;
             skos:definition "A contiguous change at a Location" ;
-            meta:source "VMC" ] ;
+            meta:source "VMC" ],
+        [ a meta:AltDescription ;
+            skos:definition "An enitity that describes a single affected, endogenous allele.  These can be of any type that matches that definition" ;
+            meta:source "AGR" ] ;
     meta:class_uri <http://purl.obolibrary.org/obo/GENO_0000002> ;
     meta:definition_uri <biolink:SequenceVariant> ;
-    meta:id_prefixes "CIViC",
+    meta:id_prefixes "CAID",
+        "CIViC",
         "ClinVar",
+        "DBSNP",
+        "HGVS",
+        "MYVARIANT_HG19",
+        "MYVARIANT_HG38",
         "WD" ;
     meta:is_a <https://w3id.org/biolink/vocab/GenomicEntity> ;
     meta:local_names [ a meta:LocalName ;
@@ -8012,6 +8067,8 @@
         <wd:Q4936952> ;
     meta:class_uri <http://semanticscience.org/resource/SIO_010046> ;
     meta:definition_uri <biolink:AnatomicalEntity> ;
+    meta:id_prefixes "UBERON",
+        "UMLS" ;
     meta:is_a <https://w3id.org/biolink/vocab/OrganismalEntity> ;
     meta:mixins <https://w3id.org/biolink/vocab/PhysicalEntity>,
         <https://w3id.org/biolink/vocab/ThingWithTaxon> ;
@@ -8857,11 +8914,11 @@
     meta:inherited true ;
     meta:is_a <https://w3id.org/biolink/vocab/regulates> ;
     meta:local_names [ a meta:LocalName ;
-            skos:altLabel "regulates" ;
-            meta:local_name_source "translator" ],
-        [ a meta:LocalName ;
             skos:altLabel "activity directly regulates activity of" ;
-            meta:local_name_source "ro" ] ;
+            meta:local_name_source "ro" ],
+        [ a meta:LocalName ;
+            skos:altLabel "regulates" ;
+            meta:local_name_source "translator" ] ;
     meta:multivalued true ;
     meta:owner <https://w3id.org/biolink/vocab/regulates_entity_to_entity> ;
     meta:range <https://w3id.org/biolink/vocab/MolecularEntity> ;
@@ -9260,11 +9317,11 @@
     meta:domain <https://w3id.org/biolink/vocab/Association> ;
     meta:is_a <https://w3id.org/biolink/vocab/association_slot> ;
     meta:local_names [ a meta:LocalName ;
-            skos:altLabel "annotation predicate" ;
-            meta:local_name_source "ga4gh" ],
-        [ a meta:LocalName ;
             skos:altLabel "predicate" ;
-            meta:local_name_source "translator" ] ;
+            meta:local_name_source "translator" ],
+        [ a meta:LocalName ;
+            skos:altLabel "annotation predicate" ;
+            meta:local_name_source "ga4gh" ] ;
     meta:owner <https://w3id.org/biolink/vocab/Association> ;
     meta:range <https://w3id.org/biolink/vocab/uriorcurie> ;
     meta:required true ;
@@ -9510,6 +9567,7 @@
         <https://w3id.org/biolink/vocab/aggregate_statistic>,
         <https://w3id.org/biolink/vocab/capable_of>,
         <https://w3id.org/biolink/vocab/category>,
+        <https://w3id.org/biolink/vocab/caused_by>,
         <https://w3id.org/biolink/vocab/causes>,
         <https://w3id.org/biolink/vocab/coexists_with>,
         <https://w3id.org/biolink/vocab/colocalizes_with>,
@@ -9590,11 +9648,11 @@
     meta:domain <https://w3id.org/biolink/vocab/Association> ;
     meta:is_a <https://w3id.org/biolink/vocab/association_slot> ;
     meta:local_names [ a meta:LocalName ;
-            skos:altLabel "node with outgoing relationship" ;
-            meta:local_name_source "neo4j" ],
-        [ a meta:LocalName ;
             skos:altLabel "annotation subject" ;
-            meta:local_name_source "ga4gh" ] ;
+            meta:local_name_source "ga4gh" ],
+        [ a meta:LocalName ;
+            skos:altLabel "node with outgoing relationship" ;
+            meta:local_name_source "neo4j" ] ;
     meta:owner <https://w3id.org/biolink/vocab/Association> ;
     meta:range <https://w3id.org/biolink/vocab/NamedThing> ;
     meta:required true ;
