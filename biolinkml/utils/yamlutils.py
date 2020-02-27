@@ -131,5 +131,5 @@ def as_rdf(element: YAMLRoot, contexts: CONTEXTS_PARAM_TYPE = None) -> Graph:
 
     jsonld = as_json_object(element, contexts)
     graph = Graph()
-    graph.parse(data=as_json(jsonld), format="json-ld")
+    graph.parse(data=as_json(jsonld), format="json-ld", prefix=True)
     return graph
