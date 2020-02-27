@@ -1812,9 +1812,9 @@
   ],
   "metamodel_version": "1.4.3",
   "source_file": "meta.yaml",
-  "source_file_date": "Tue Jan 21 13:40:08 2020",
+  "source_file_date": "Thu Feb 27 13:02:54 2020",
   "source_file_size": 23490,
-  "generation_date": "2020-01-21 13:55",
+  "generation_date": "2020-02-27 13:20",
   "type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/biolink/biolinkml/context.jsonld",

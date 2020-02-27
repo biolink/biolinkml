@@ -238,7 +238,7 @@ class slots:
         dflt_prefix = default_curie_or_uri(self)
         dflt = f"CurieNamespace('', '{sfx(dflt_prefix)}')" if ':/' in dflt_prefix else dflt_prefix.upper()
         return '\n'.join([
-            f"{pfx.upper().replace('.', '_')} = CurieNamespace('{pfx.replace('.', '_')}', '{self.namespaces[pfx]}')"
+            f"{pfx.upper().replace('.', '_').replace('-', '_')} = CurieNamespace('{pfx.replace('.', '_')}', '{self.namespaces[pfx]}')"
             for pfx in sorted(self.emit_prefixes) if pfx in self.namespaces
         ] + [f"DEFAULT_ = {dflt}"])
 
