@@ -14,11 +14,11 @@
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "Biolink Schema Metamodel" ;
     skos:definition "A metamodel for defining biolink related schemas" ;
-    meta:generation_date "2019-10-28 07:46" ;
+    meta:generation_date "2020-02-27 13:41" ;
     meta:metamodel_version "1.4.3" ;
     meta:source_file "meta.yaml" ;
-    meta:source_file_date "Mon Oct 28 07:38:34 2019" ;
-    meta:source_file_size 23488 .
+    meta:source_file_date "Thu Feb 27 13:02:54 2020" ;
+    meta:source_file_size 23490 .
 
 meta:abstract a owl:AnnotationProperty,
         meta:SlotDefinition ;
@@ -897,12 +897,12 @@ meta:SlotDefinition a owl:Class,
     rdfs:label "slot_definition" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:Element ;
-            owl:onProperty meta:range ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:string ;
             owl:onProperty meta:readonly ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:boolean ;
+            owl:onProperty meta:inherited ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:boolean ;
@@ -913,8 +913,8 @@ meta:SlotDefinition a owl:Class,
             owl:onProperty meta:key ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:string ;
-            owl:onProperty meta:ifabsent ],
+            owl:onClass meta:boolean ;
+            owl:onProperty meta:multivalued ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:boolean ;
@@ -925,20 +925,20 @@ meta:SlotDefinition a owl:Class,
             owl:onProperty meta:domain ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:boolean ;
-            owl:onProperty meta:multivalued ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:boolean ;
-            owl:onProperty meta:required ],
+            owl:onClass meta:string ;
+            owl:onProperty meta:ifabsent ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:string ;
             owl:onProperty meta:role ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:Element ;
+            owl:onProperty meta:range ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:boolean ;
-            owl:onProperty meta:inherited ],
+            owl:onProperty meta:required ],
         meta:Definition ;
     skos:definition "the definition of a property or a slot" .
 

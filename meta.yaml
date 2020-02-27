@@ -30,8 +30,8 @@ emit_prefixes:
   - pav
 
 imports:
-  - includes/types
-  - includes/mappings
+  - biolinkml:types
+  - biolinkml:mappings
 
 subsets:
   owl:
