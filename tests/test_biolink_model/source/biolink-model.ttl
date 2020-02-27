@@ -189,31 +189,31 @@
         "rdfs",
         "skos",
         "xsd" ;
-    meta:generation_date "2019-10-28 11:09"^^xsd:dateTime ;
+    meta:generation_date "2020-02-27 13:46"^^xsd:dateTime ;
     meta:id <https://w3id.org/biolink/biolink-model> ;
-    meta:imports <https://w3id.org/biolink/vocab/includes/mappings>,
-        <https://w3id.org/biolink/vocab/includes/types> ;
+    meta:imports biolinkml:mappings,
+        biolinkml:types ;
     meta:metamodel_version "1.4.3" ;
-    meta:prefixes [ meta:prefix_prefix "UMLSSG" ;
+    meta:prefixes [ meta:prefix_prefix "skos" ;
+            meta:prefix_reference skos: ],
+        [ meta:prefix_prefix "biolinkml" ;
+            meta:prefix_reference biolinkml: ],
+        [ meta:prefix_prefix "wgs" ;
+            meta:prefix_reference <http://www.w3.org/2003/01/geo/wgs84_pos> ],
+        [ meta:prefix_prefix "OBAN" ;
+            meta:prefix_reference <http://purl.org/oban/> ],
+        [ meta:prefix_prefix "UMLSSC" ;
+            meta:prefix_reference <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/TUI/> ],
+        [ meta:prefix_prefix "UMLSSG" ;
             meta:prefix_reference <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/GROUP/> ],
+        [ meta:prefix_prefix "qud" ;
+            meta:prefix_reference <http://qudt.org/1.1/schema/qudt#> ],
+        [ meta:prefix_prefix "SIO" ;
+            meta:prefix_reference <http://semanticscience.org/resource/SIO_> ],
         [ meta:prefix_prefix "UMLSST" ;
             meta:prefix_reference <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/STY/> ],
         [ meta:prefix_prefix "biolink" ;
-            meta:prefix_reference <https://w3id.org/biolink/vocab/> ],
-        [ meta:prefix_prefix "skos" ;
-            meta:prefix_reference skos: ],
-        [ meta:prefix_prefix "UMLSSC" ;
-            meta:prefix_reference <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/TUI/> ],
-        [ meta:prefix_prefix "wgs" ;
-            meta:prefix_reference <http://www.w3.org/2003/01/geo/wgs84_pos> ],
-        [ meta:prefix_prefix "biolinkml" ;
-            meta:prefix_reference biolinkml: ],
-        [ meta:prefix_prefix "qud" ;
-            meta:prefix_reference <http://qudt.org/1.1/schema/qudt#> ],
-        [ meta:prefix_prefix "OBAN" ;
-            meta:prefix_reference <http://purl.org/oban/> ],
-        [ meta:prefix_prefix "SIO" ;
-            meta:prefix_reference <http://semanticscience.org/resource/SIO_> ] ;
+            meta:prefix_reference <https://w3id.org/biolink/vocab/> ] ;
     meta:slots <https://w3id.org/biolink/vocab/actively_involved_in>,
         <https://w3id.org/biolink/vocab/affects>,
         <https://w3id.org/biolink/vocab/affects_abundance_of>,
@@ -514,8 +514,8 @@
         <https://w3id.org/biolink/vocab/versionOf>,
         <https://w3id.org/biolink/vocab/xenologous_to> ;
     meta:source_file "biolink-model.yaml" ;
-    meta:source_file_date "Mon Oct 28 10:54:51 2019"^^xsd:dateTime ;
-    meta:source_file_size 117068 ;
+    meta:source_file_date "Thu Feb 27 13:04:55 2020"^^xsd:dateTime ;
+    meta:source_file_size 117070 ;
     meta:subsets <https://w3id.org/biolink/vocab/samples>,
         <https://w3id.org/biolink/vocab/testing>,
         <https://w3id.org/biolink/vocab/translator_minimal> ;
@@ -547,9 +547,9 @@
 
 <https://w3id.org/biolink/vocab/Cell> a meta:ClassDefinition ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/CL:0000000>,
-        <https://w3id.org/biolink/vocab/GO:0005623>,
-        <https://w3id.org/biolink/vocab/SIO:010001>,
+    skos:mappingRelation <cl:0000000>,
+        <go:0005623>,
+        <sio:010001>,
         <umlssc:T025>,
         <umlsst:cell>,
         <wd:Q7868> ;
@@ -575,8 +575,8 @@
 
 <https://w3id.org/biolink/vocab/CodingSequence> a meta:ClassDefinition ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/SIO:001390>,
-        <https://w3id.org/biolink/vocab/SO:0000316> ;
+    skos:mappingRelation <sio:001390>,
+        <so:0000316> ;
     meta:class_uri <http://purl.obolibrary.org/obo/SO_0000316> ;
     meta:definition_uri <biolink:CodingSequence> ;
     meta:is_a <https://w3id.org/biolink/vocab/GenomicEntity> ;
@@ -649,8 +649,8 @@
 <https://w3id.org/biolink/vocab/GeneFamily> a meta:ClassDefinition ;
     skos:definition "any grouping of multiple genes or gene products related by common descent" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/SIO:001380>,
-        <ncit:C20130>,
+    skos:mappingRelation <ncit:C20130>,
+        <sio:001380>,
         <wd:Q417841> ;
     meta:class_uri <http://semanticscience.org/resource/SIO_001380> ;
     meta:definition_uri <biolink:GeneFamily> ;
@@ -725,8 +725,8 @@
 <https://w3id.org/biolink/vocab/Genome> a meta:ClassDefinition ;
     skos:definition "A genome is the sum of genetic material within a cell or virion." ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/SIO:000984>,
-        <https://w3id.org/biolink/vocab/SO:0001026>,
+    skos:mappingRelation <sio:000984>,
+        <so:0001026>,
         <wd:Q7020> ;
     meta:class_uri <http://purl.obolibrary.org/obo/SO_0001026> ;
     meta:definition_uri <biolink:Genome> ;
@@ -801,8 +801,8 @@
     skos:altLabel "organ",
         "tissue" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/SIO:010046>,
-        <https://w3id.org/biolink/vocab/UBERON:0010000>,
+    skos:mappingRelation <sio:010046>,
+        <uberon:0010000>,
         <umlssc:T017>,
         <umlssc:T018>,
         <umlssc:T021>,
@@ -838,7 +838,7 @@
 <https://w3id.org/biolink/vocab/Haplotype> a meta:ClassDefinition ;
     skos:definition "A set of zero or more Alleles on a single instance of a Sequence[VMC]" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/GENO:0000871>,
+    skos:mappingRelation <geno:0000871>,
         <vmc:Haplotype> ;
     meta:class_uri <http://purl.obolibrary.org/obo/GENO_0000871> ;
     meta:definition_uri <biolink:Haplotype> ;
@@ -912,7 +912,7 @@
 <https://w3id.org/biolink/vocab/Metabolite> a meta:ClassDefinition ;
     skos:definition "Any intermediate or product resulting from metabolism. Includes primary and secondary metabolites." ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/CHEBI:25212> ;
+    skos:mappingRelation <chebi:25212> ;
     skos:note "The CHEBI ID represents a role rather than a substance" ;
     meta:class_uri <http://purl.obolibrary.org/obo/CHEBI_25212> ;
     meta:definition_uri <biolink:Metabolite> ;
@@ -983,9 +983,9 @@
         <https://w3id.org/biolink/vocab/systematic_synonym> .
 
 <https://w3id.org/biolink/vocab/MicroRNA> a meta:ClassDefinition ;
-    rdfs:subClassOf <https://w3id.org/biolink/vocab/SO:0000276> ;
+    rdfs:subClassOf <so:0000276> ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/SIO:001397>,
+    skos:mappingRelation <sio:001397>,
         <wd:Q310899> ;
     meta:class_uri <http://semanticscience.org/resource/SIO_001397> ;
     meta:definition_uri <biolink:MicroRNA> ;
@@ -1066,7 +1066,7 @@
     skos:inScheme biolinkml:mappings ;
     skos:mappingRelation skos:closeMatch ;
     meta:definition_uri meta:close_mappings ;
-    meta:imported_from "includes/mappings" ;
+    meta:imported_from "biolinkml:mappings" ;
     meta:is_a <https://w3id.org/biolink/vocab/mappings> ;
     meta:multivalued true ;
     meta:range <https://w3id.org/biolink/vocab/uriorcurie> ;
@@ -1077,7 +1077,7 @@
     skos:inScheme biolinkml:types ;
     meta:base "XSDDateTime" ;
     meta:definition_uri metatype:Datetime ;
-    meta:imported_from "includes/types" ;
+    meta:imported_from "biolinkml:types" ;
     meta:repr "str" ;
     meta:uri xsd:dateTime .
 
@@ -1086,7 +1086,7 @@
     skos:inScheme biolinkml:mappings ;
     skos:mappingRelation <http://purl.obolibrary.org/obo/IAO_0100001> ;
     meta:definition_uri meta:deprecated_element_has_exact_replacement ;
-    meta:imported_from "includes/mappings" ;
+    meta:imported_from "biolinkml:mappings" ;
     meta:range <https://w3id.org/biolink/vocab/uriorcurie> ;
     meta:slot_uri meta:deprecated_element_has_exact_replacement .
 
@@ -1095,7 +1095,7 @@
     skos:inScheme biolinkml:mappings ;
     skos:mappingRelation OIO:consider ;
     meta:definition_uri meta:deprecated_element_has_possible_replacement ;
-    meta:imported_from "includes/mappings" ;
+    meta:imported_from "biolinkml:mappings" ;
     meta:range <https://w3id.org/biolink/vocab/uriorcurie> ;
     meta:slot_uri meta:deprecated_element_has_possible_replacement .
 
@@ -1104,7 +1104,7 @@
     skos:inScheme biolinkml:mappings ;
     skos:mappingRelation skos:exactMatch ;
     meta:definition_uri meta:exact_mappings ;
-    meta:imported_from "includes/mappings" ;
+    meta:imported_from "biolinkml:mappings" ;
     meta:is_a <https://w3id.org/biolink/vocab/mappings> ;
     meta:multivalued true ;
     meta:range <https://w3id.org/biolink/vocab/uriorcurie> ;
@@ -1122,7 +1122,7 @@
     skos:inScheme biolinkml:types ;
     meta:base "NCName" ;
     meta:definition_uri metatype:Ncname ;
-    meta:imported_from "includes/types" ;
+    meta:imported_from "biolinkml:types" ;
     meta:repr "str" ;
     meta:uri xsd:string .
 
@@ -1132,7 +1132,7 @@
     skos:note "Used for inheritence and type checking" ;
     meta:base "ElementIdentifier" ;
     meta:definition_uri metatype:Objectidentifier ;
-    meta:imported_from "includes/types" ;
+    meta:imported_from "biolinkml:types" ;
     meta:repr "str" ;
     meta:uri shex:iri .
 
@@ -1156,7 +1156,7 @@
     skos:inScheme biolinkml:mappings ;
     skos:mappingRelation skos:relatedMatch ;
     meta:definition_uri meta:related_mappings ;
-    meta:imported_from "includes/mappings" ;
+    meta:imported_from "biolinkml:mappings" ;
     meta:is_a <https://w3id.org/biolink/vocab/mappings> ;
     meta:multivalued true ;
     meta:range <https://w3id.org/biolink/vocab/uriorcurie> ;
@@ -1167,7 +1167,7 @@
     skos:inScheme biolinkml:types ;
     meta:base "URI" ;
     meta:definition_uri metatype:Uri ;
-    meta:imported_from "includes/types" ;
+    meta:imported_from "biolinkml:types" ;
     meta:repr "str" ;
     meta:uri xsd:anyURI .
 
@@ -1313,7 +1313,7 @@
 
 <https://w3id.org/biolink/vocab/CellLine> a meta:ClassDefinition ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/CLO:0000031> ;
+    skos:mappingRelation <clo:0000031> ;
     meta:class_uri <http://purl.obolibrary.org/obo/CLO_0000031> ;
     meta:definition_uri <biolink:CellLine> ;
     meta:id_prefixes "CLO" ;
@@ -1334,8 +1334,8 @@
 <https://w3id.org/biolink/vocab/CellularComponent> a meta:ClassDefinition ;
     skos:definition "A location in or around a cell" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/GO:0005575>,
-        <https://w3id.org/biolink/vocab/SIO:001400>,
+    skos:mappingRelation <go:0005575>,
+        <sio:001400>,
         <umlssc:T026>,
         <umlsst:celc>,
         <wd:Q5058355> ;
@@ -1361,7 +1361,7 @@
 <https://w3id.org/biolink/vocab/ChemicalExposure> a meta:ClassDefinition ;
     skos:definition "A chemical exposure is an intake of a particular chemical substance" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/ECTO:9000000> ;
+    skos:mappingRelation <ecto:9000000> ;
     meta:class_uri <http://example.org/UNKNOWN/ECTO/9000000> ;
     meta:definition_uri <biolink:ChemicalExposure> ;
     meta:is_a <https://w3id.org/biolink/vocab/ExposureEvent> ;
@@ -1418,7 +1418,7 @@
 <https://w3id.org/biolink/vocab/ConfidenceLevel> a meta:ClassDefinition ;
     skos:definition "Level of confidence in a statement" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/CIO:0000028> ;
+    skos:mappingRelation <cio:0000028> ;
     meta:class_uri <http://purl.obolibrary.org/obo/CIO_0000028> ;
     meta:definition_uri <biolink:ConfidenceLevel> ;
     meta:is_a <https://w3id.org/biolink/vocab/InformationContentEntity> ;
@@ -1489,7 +1489,7 @@
 <https://w3id.org/biolink/vocab/Drug> a meta:ClassDefinition ;
     skos:definition "A substance intended for use in the diagnosis, cure, mitigation, treatment, or prevention of disease" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/CHEBI:23888>,
+    skos:mappingRelation <chebi:23888>,
         <umlssc:T200>,
         <umlsst:clnd>,
         <wd:Q12140> ;
@@ -1563,7 +1563,7 @@
         <https://w3id.org/biolink/vocab/systematic_synonym> .
 
 <https://w3id.org/biolink/vocab/EnvironmentalFeature> a meta:ClassDefinition ;
-    rdfs:subClassOf <https://w3id.org/biolink/vocab/ENVO:00002297> ;
+    rdfs:subClassOf <envo:00002297> ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
     meta:class_uri <https://w3id.org/biolink/vocab/EnvironmentalFeature> ;
     meta:definition_uri <biolink:EnvironmentalFeature> ;
@@ -1581,7 +1581,7 @@
         <https://w3id.org/biolink/vocab/systematic_synonym> .
 
 <https://w3id.org/biolink/vocab/EnvironmentalProcess> a meta:ClassDefinition ;
-    rdfs:subClassOf <https://w3id.org/biolink/vocab/ENVO:02500000> ;
+    rdfs:subClassOf <envo:02500000> ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
     meta:class_uri <https://w3id.org/biolink/vocab/EnvironmentalProcess> ;
     meta:definition_uri <biolink:EnvironmentalProcess> ;
@@ -1608,7 +1608,7 @@
     skos:altLabel "evidence code" ;
     skos:definition "Class of evidence that supports an association" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/ECO:0000000> ;
+    skos:mappingRelation <eco:0000000> ;
     meta:class_uri <http://purl.obolibrary.org/obo/ECO_0000000> ;
     meta:definition_uri <biolink:EvidenceType> ;
     meta:is_a <https://w3id.org/biolink/vocab/InformationContentEntity> ;
@@ -1628,8 +1628,8 @@
 <https://w3id.org/biolink/vocab/Exon> a meta:ClassDefinition ;
     skos:definition "A region of the transcript sequence within a gene which is not removed from the primary RNA transcript by RNA splicing" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/SIO:010445>,
-        <https://w3id.org/biolink/vocab/SO:0000147>,
+    skos:mappingRelation <sio:010445>,
+        <so:0000147>,
         <wd:Q373027> ;
     meta:class_uri <http://purl.obolibrary.org/obo/SO_0000147> ;
     meta:definition_uri <biolink:Exon> ;
@@ -1701,7 +1701,7 @@
         <https://w3id.org/biolink/vocab/systematic_synonym> .
 
 <https://w3id.org/biolink/vocab/GenotypicSex> a meta:ClassDefinition ;
-    rdfs:subClassOf <https://w3id.org/biolink/vocab/PATO:0020000> ;
+    rdfs:subClassOf <pato:0020000> ;
     skos:definition "An attribute corresponding to the genotypic sex of the individual, based upon genotypic composition of sex chromosomes." ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
     meta:class_uri <https://w3id.org/biolink/vocab/GenotypicSex> ;
@@ -1745,9 +1745,9 @@
         <https://w3id.org/biolink/vocab/timepoint> .
 
 <https://w3id.org/biolink/vocab/IndividualOrganism> a meta:ClassDefinition ;
-    rdfs:subClassOf <https://w3id.org/biolink/vocab/NCBITaxon:1> ;
+    rdfs:subClassOf <ncbitaxon:1> ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/SIO:010000>,
+    skos:mappingRelation <sio:010000>,
         <umlssc:T001>,
         <umlssc:T002>,
         <umlssc:T004>,
@@ -1809,9 +1809,9 @@
         <https://w3id.org/biolink/vocab/systematic_synonym> .
 
 <https://w3id.org/biolink/vocab/MacromolecularComplex> a meta:ClassDefinition ;
-    rdfs:subClassOf <https://w3id.org/biolink/vocab/GO:0032991> ;
+    rdfs:subClassOf <go:0032991> ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/SIO:010046>,
+    skos:mappingRelation <sio:010046>,
         <wd:Q22325163> ;
     meta:class_uri <http://semanticscience.org/resource/SIO_010046> ;
     meta:definition_uri <biolink:MacromolecularComplex> ;
@@ -1909,9 +1909,9 @@
         <https://w3id.org/biolink/vocab/subject> .
 
 <https://w3id.org/biolink/vocab/NoncodingRNAProduct> a meta:ClassDefinition ;
-    rdfs:subClassOf <https://w3id.org/biolink/vocab/SO:0000655> ;
+    rdfs:subClassOf <so:0000655> ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/SIO:001235> ;
+    skos:mappingRelation <sio:001235> ;
     meta:class_uri <http://semanticscience.org/resource/SIO_001235> ;
     meta:definition_uri <biolink:NoncodingRNAProduct> ;
     meta:id_prefixes "ENSEMBL",
@@ -1991,7 +1991,7 @@
 <https://w3id.org/biolink/vocab/Onset> a meta:ClassDefinition ;
     skos:definition "The age group in which manifestations appear" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/HP:0003674> ;
+    skos:mappingRelation <hp:0003674> ;
     meta:class_uri <http://purl.obolibrary.org/obo/HP_0003674> ;
     meta:definition_uri <biolink:Onset> ;
     meta:is_a <https://w3id.org/biolink/vocab/Attribute> ;
@@ -2041,9 +2041,9 @@
 
 <https://w3id.org/biolink/vocab/Pathway> a meta:ClassDefinition ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/GO:0007165>,
-        <https://w3id.org/biolink/vocab/PW:0000001>,
-        <https://w3id.org/biolink/vocab/SIO:010526>,
+    skos:mappingRelation <go:0007165>,
+        <pw:0000001>,
+        <sio:010526>,
         <wd:Q4915012> ;
     meta:class_uri <http://purl.obolibrary.org/obo/GO_0007165> ;
     meta:definition_uri <biolink:Pathway> ;
@@ -2106,7 +2106,7 @@
         <https://w3id.org/biolink/vocab/systematic_synonym> .
 
 <https://w3id.org/biolink/vocab/PhenotypicSex> a meta:ClassDefinition ;
-    rdfs:subClassOf <https://w3id.org/biolink/vocab/PATO:0001894> ;
+    rdfs:subClassOf <pato:0001894> ;
     skos:definition "An attribute corresponding to the phenotypic sex of the individual, based upon the reproductive organs present." ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
     meta:class_uri <https://w3id.org/biolink/vocab/PhenotypicSex> ;
@@ -2418,7 +2418,7 @@
 
 <https://w3id.org/biolink/vocab/Zygosity> a meta:ClassDefinition ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/GENO:0000133> ;
+    skos:mappingRelation <geno:0000133> ;
     meta:class_uri <http://purl.obolibrary.org/obo/GENO_0000133> ;
     meta:definition_uri <biolink:Zygosity> ;
     meta:is_a <https://w3id.org/biolink/vocab/Attribute> ;
@@ -2509,7 +2509,7 @@
     skos:inScheme biolinkml:types ;
     meta:base "Bool" ;
     meta:definition_uri metatype:Boolean ;
-    meta:imported_from "includes/types" ;
+    meta:imported_from "biolinkml:types" ;
     meta:uri xsd:boolean .
 
 <https://w3id.org/biolink/vocab/case_to_thing_association_subject> a meta:SlotDefinition ;
@@ -3397,7 +3397,7 @@
     skos:inScheme biolinkml:types ;
     meta:base "XSDTime" ;
     meta:definition_uri metatype:Time ;
-    meta:imported_from "includes/types" ;
+    meta:imported_from "biolinkml:types" ;
     meta:repr "str" ;
     meta:uri xsd:dateTime .
 
@@ -3590,7 +3590,7 @@
 <https://w3id.org/biolink/vocab/ChemicalToDiseaseOrPhenotypicFeatureAssociation> a meta:ClassDefinition ;
     skos:definition "An interaction between a chemical entity and a phenotype or disease, where the presence of the chemical gives rise to or exacerbates the phenotype" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/SIO:000993> ;
+    skos:mappingRelation <sio:000993> ;
     meta:class_uri <http://semanticscience.org/resource/SIO_000993> ;
     meta:defining_slots <https://w3id.org/biolink/vocab/object>,
         <https://w3id.org/biolink/vocab/subject> ;
@@ -3613,7 +3613,7 @@
 <https://w3id.org/biolink/vocab/ChemicalToGeneAssociation> a meta:ClassDefinition ;
     skos:definition "An interaction between a chemical entity and a gene or gene product" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/SIO:001257> ;
+    skos:mappingRelation <sio:001257> ;
     meta:class_uri <http://semanticscience.org/resource/SIO_001257> ;
     meta:defining_slots <https://w3id.org/biolink/vocab/object>,
         <https://w3id.org/biolink/vocab/subject> ;
@@ -3635,7 +3635,7 @@
 <https://w3id.org/biolink/vocab/ChemicalToPathwayAssociation> a meta:ClassDefinition ;
     skos:definition "An interaction between a chemical entity and a biological process or pathway" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/SIO:001250> ;
+    skos:mappingRelation <sio:001250> ;
     meta:class_uri <http://semanticscience.org/resource/SIO_001250> ;
     meta:defining_slots <https://w3id.org/biolink/vocab/object>,
         <https://w3id.org/biolink/vocab/subject> ;
@@ -3655,7 +3655,7 @@
         <https://w3id.org/biolink/vocab/subject> .
 
 <https://w3id.org/biolink/vocab/ClinicalModifier> a meta:ClassDefinition ;
-    rdfs:subClassOf <https://w3id.org/biolink/vocab/HP:0012823> ;
+    rdfs:subClassOf <hp:0012823> ;
     skos:definition "Used to characterize and specify the phenotypic abnormalities defined in the Phenotypic abnormality subontology, with respect to severity, laterality, age of onset, and other aspects" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
     meta:class_uri <https://w3id.org/biolink/vocab/ClinicalModifier> ;
@@ -3679,7 +3679,7 @@
 
 <https://w3id.org/biolink/vocab/DataFile> a meta:ClassDefinition ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/EFO:0004095> ;
+    skos:mappingRelation <efo:0004095> ;
     meta:class_uri <http://purl.obolibrary.org/obo/EFO_0004095> ;
     meta:definition_uri <biolink:DataFile> ;
     meta:is_a <https://w3id.org/biolink/vocab/NamedThing> ;
@@ -3737,8 +3737,8 @@
         "drug intake" ;
     skos:definition "A drug exposure is an intake of a particular chemical substance" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/ECTO:0000509>,
-        <https://w3id.org/biolink/vocab/SIO:001005> ;
+    skos:mappingRelation <ecto:0000509>,
+        <sio:001005> ;
     meta:class_uri <http://example.org/UNKNOWN/ECTO/0000509> ;
     meta:definition_uri <biolink:DrugExposure> ;
     meta:is_a <https://w3id.org/biolink/vocab/ChemicalExposure> ;
@@ -3853,8 +3853,8 @@
     skos:altLabel "polypeptide" ;
     skos:definition "A gene product that is composed of a chain of amino acid sequences and is produced by ribosome-mediated translation of mRNA" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/PR:000000001>,
-        <https://w3id.org/biolink/vocab/SIO:010043>,
+    skos:mappingRelation <pr:000000001>,
+        <sio:010043>,
         <umlssc:T087>,
         <umlssc:T116>,
         <umlsst:aapp>,
@@ -4013,7 +4013,7 @@
     OIO:inSubset <https://w3id.org/biolink/vocab/translator_minimal> ;
     skos:definition "holds between a physical entity and process or function, where the continuant alone has the ability to carry out the process or function." ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0002215> ;
+    skos:mappingRelation <ro:0002215> ;
     meta:definition_uri <biolink:capable_of> ;
     meta:domain <https://w3id.org/biolink/vocab/NamedThing> ;
     meta:inherited true ;
@@ -4027,7 +4027,7 @@
     OIO:inSubset <https://w3id.org/biolink/vocab/translator_minimal> ;
     skos:definition "holds between two entities where the occurrence, existence, or activity of one causes the occurrence or  generation of the other" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0002410>,
+    skos:mappingRelation <ro:0002410>,
         <semmeddb:CAUSES>,
         <wd:P1542> ;
     meta:definition_uri <biolink:causes> ;
@@ -4054,7 +4054,7 @@
     OIO:inSubset <https://w3id.org/biolink/vocab/translator_minimal> ;
     skos:definition "holds between two entities that are observed to be located in the same place." ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:00002325> ;
+    skos:mappingRelation <ro:00002325> ;
     meta:definition_uri <biolink:colocalizes_with> ;
     meta:domain <https://w3id.org/biolink/vocab/NamedThing> ;
     meta:inherited true ;
@@ -4149,7 +4149,7 @@
     skos:inScheme biolinkml:types ;
     meta:base "float" ;
     meta:definition_uri metatype:Float ;
-    meta:imported_from "includes/types" ;
+    meta:imported_from "biolinkml:types" ;
     meta:uri xsd:float .
 
 <https://w3id.org/biolink/vocab/gene_associated_with_condition> a meta:SlotDefinition ;
@@ -4170,7 +4170,7 @@
     OIO:inSubset <https://w3id.org/biolink/vocab/translator_minimal> ;
     skos:definition "holds between two genes whose phenotypic effects are dependent on each other in some way - such that their combined phenotypic effects are the result of some interaction between the activity of their gene products. Examples include epistasis and synthetic lethality." ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0002435> ;
+    skos:mappingRelation <ro:0002435> ;
     meta:definition_uri <biolink:genetically_interacts_with> ;
     meta:domain <https://w3id.org/biolink/vocab/Gene> ;
     meta:inherited true ;
@@ -4184,8 +4184,8 @@
     OIO:inSubset <https://w3id.org/biolink/vocab/samples> ;
     skos:definition "connects any named thing to an attribute" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0000053>,
-        <https://w3id.org/biolink/vocab/SIO:000008> ;
+    skos:mappingRelation <ro:0000053>,
+        <sio:000008> ;
     meta:definition_uri <biolink:has_attribute> ;
     meta:multivalued true ;
     meta:owner <https://w3id.org/biolink/vocab/MaterialSample> ;
@@ -4206,7 +4206,7 @@
 <https://w3id.org/biolink/vocab/has_evidence> a meta:SlotDefinition ;
     skos:definition "connects an association to an instance of supporting evidence" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0002558> ;
+    skos:mappingRelation <ro:0002558> ;
     meta:definition_uri <biolink:has_evidence> ;
     meta:domain <https://w3id.org/biolink/vocab/Association> ;
     meta:is_a <https://w3id.org/biolink/vocab/association_slot> ;
@@ -4218,7 +4218,7 @@
     OIO:inSubset <https://w3id.org/biolink/vocab/translator_minimal> ;
     skos:definition "holds between a gene and a transcribed and/or translated product generated from it" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0002205>,
+    skos:mappingRelation <ro:0002205>,
         <wd:P688> ;
     meta:definition_uri <biolink:has_gene_product> ;
     meta:domain <https://w3id.org/biolink/vocab/Gene> ;
@@ -4277,7 +4277,7 @@
     OIO:inSubset <https://w3id.org/biolink/vocab/translator_minimal> ;
     skos:definition "holds between an entity and some other entity it approximates for purposes of scientific study, in virtue of its exhibiting similar features of the studied entity." ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0003301> ;
+    skos:mappingRelation <ro:0003301> ;
     meta:definition_uri <biolink:model_of> ;
     meta:domain <https://w3id.org/biolink/vocab/NamedThing> ;
     meta:inherited true ;
@@ -4321,18 +4321,18 @@
     OIO:inSubset <https://w3id.org/biolink/vocab/translator_minimal> ;
     skos:altLabel "activity directly negatively regulates activity of" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0002449>,
+    skos:mappingRelation <ro:0002449>,
         <semmeddb:INHIBITS> ;
     meta:definition_uri <biolink:negatively_regulates_entity_to_entity> ;
     meta:domain <https://w3id.org/biolink/vocab/MolecularEntity> ;
     meta:inherited true ;
     meta:is_a <https://w3id.org/biolink/vocab/regulates_entity_to_entity> ;
     meta:local_names [ a meta:LocalName ;
-            skos:altLabel "negatively regulates" ;
-            meta:local_name_source "translator" ],
-        [ a meta:LocalName ;
             skos:altLabel "activity directly negatively regulates activity of" ;
-            meta:local_name_source "ro" ] ;
+            meta:local_name_source "ro" ],
+        [ a meta:LocalName ;
+            skos:altLabel "negatively regulates" ;
+            meta:local_name_source "translator" ] ;
     meta:mixins <https://w3id.org/biolink/vocab/negatively_regulates> ;
     meta:multivalued true ;
     meta:owner <https://w3id.org/biolink/vocab/negatively_regulates_entity_to_entity> ;
@@ -4341,7 +4341,7 @@
 
 <https://w3id.org/biolink/vocab/negatively_regulates_process_to_process> a meta:SlotDefinition ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0002212> ;
+    skos:mappingRelation <ro:0002212> ;
     meta:definition_uri <biolink:negatively_regulates_process_to_process> ;
     meta:domain <https://w3id.org/biolink/vocab/Occurrent> ;
     meta:inherited true ;
@@ -4357,7 +4357,7 @@
     skos:inScheme biolinkml:types ;
     meta:base "NodeIdentifier" ;
     meta:definition_uri metatype:Nodeidentifier ;
-    meta:imported_from "includes/types" ;
+    meta:imported_from "biolinkml:types" ;
     meta:repr "str" ;
     meta:uri shex:nonLiteral .
 
@@ -4365,7 +4365,7 @@
     OIO:inSubset <https://w3id.org/biolink/vocab/translator_minimal> ;
     skos:definition "holds between a process and a material entity or site within which the process occurs" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/BFO:0000066>,
+    skos:mappingRelation <bfo:0000066>,
         <semmeddb:OCCURS_IN>,
         <semmeddb:PROCESS_OF> ;
     meta:definition_uri <biolink:occurs_in> ;
@@ -4410,18 +4410,18 @@
     OIO:inSubset <https://w3id.org/biolink/vocab/translator_minimal> ;
     skos:altLabel "activity directly positively regulates activity of" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0002450>,
+    skos:mappingRelation <ro:0002450>,
         <semmeddb:STIMULATES> ;
     meta:definition_uri <biolink:positively_regulates_entity_to_entity> ;
     meta:domain <https://w3id.org/biolink/vocab/MolecularEntity> ;
     meta:inherited true ;
     meta:is_a <https://w3id.org/biolink/vocab/regulates_entity_to_entity> ;
     meta:local_names [ a meta:LocalName ;
-            skos:altLabel "activity directly positively regulates activity of" ;
-            meta:local_name_source "ro" ],
-        [ a meta:LocalName ;
             skos:altLabel "positively regulates" ;
-            meta:local_name_source "translator" ] ;
+            meta:local_name_source "translator" ],
+        [ a meta:LocalName ;
+            skos:altLabel "activity directly positively regulates activity of" ;
+            meta:local_name_source "ro" ] ;
     meta:mixins <https://w3id.org/biolink/vocab/positively_regulates> ;
     meta:multivalued true ;
     meta:owner <https://w3id.org/biolink/vocab/positively_regulates_entity_to_entity> ;
@@ -4430,7 +4430,7 @@
 
 <https://w3id.org/biolink/vocab/positively_regulates_process_to_process> a meta:SlotDefinition ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0002213> ;
+    skos:mappingRelation <ro:0002213> ;
     meta:definition_uri <biolink:positively_regulates_process_to_process> ;
     meta:domain <https://w3id.org/biolink/vocab/Occurrent> ;
     meta:inherited true ;
@@ -4459,7 +4459,7 @@
     OIO:inSubset <https://w3id.org/biolink/vocab/translator_minimal> ;
     skos:definition "holds between an entity whose application or use reduces the likelihood of a potential outcome. Typically used to associate a chemical substance, exposure, activity, or medical intervention that can prevent the onset a disease or phenotypic feature." ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0002599>,
+    skos:mappingRelation <ro:0002599>,
         <semmeddb:PREVENTS> ;
     meta:definition_uri <biolink:prevents> ;
     meta:domain <https://w3id.org/biolink/vocab/NamedThing> ;
@@ -4474,7 +4474,7 @@
     OIO:inSubset <https://w3id.org/biolink/vocab/translator_minimal> ;
     skos:definition "holds between a material entity and a product that is generated through the intentional actions or functioning of the material entity" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0003000>,
+    skos:mappingRelation <ro:0003000>,
         <semmeddb:PRODUCES>,
         <wd:P1056> ;
     meta:definition_uri <biolink:produces> ;
@@ -4539,8 +4539,8 @@
 <https://w3id.org/biolink/vocab/BiologicalProcess> a meta:ClassDefinition ;
     skos:definition "One or more causally connected executions of molecular functions" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/GO:0008150>,
-        <https://w3id.org/biolink/vocab/SIO:000006>,
+    skos:mappingRelation <go:0008150>,
+        <sio:000006>,
         <wd:Q2996394> ;
     meta:class_uri <http://purl.obolibrary.org/obo/GO_0008150> ;
     meta:definition_uri <biolink:BiologicalProcess> ;
@@ -4888,7 +4888,7 @@
         <https://w3id.org/biolink/vocab/systematic_synonym> .
 
 <https://w3id.org/biolink/vocab/LifeStage> a meta:ClassDefinition ;
-    rdfs:subClassOf <https://w3id.org/biolink/vocab/UBERON:0000105> ;
+    rdfs:subClassOf <uberon:0000105> ;
     skos:definition "A stage of development or growth of an organism, including post-natal adult stages" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
     meta:class_uri <https://w3id.org/biolink/vocab/LifeStage> ;
@@ -4986,15 +4986,15 @@
         <https://w3id.org/biolink/vocab/qualifiers> .
 
 <https://w3id.org/biolink/vocab/PhenotypicFeature> a meta:ClassDefinition ;
-    rdfs:subClassOf <https://w3id.org/biolink/vocab/UPHENO:0001001> ;
+    rdfs:subClassOf <upheno:0001001> ;
     skos:altLabel "endophenotype",
         "phenotype",
         "sign",
         "symptom",
         "trait" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/SIO:010056>,
-        <https://w3id.org/biolink/vocab/UPHENO:0001001>,
+    skos:mappingRelation <sio:010056>,
+        <upheno:0001001>,
         <wd:Q169872> ;
     meta:class_uri <http://purl.obolibrary.org/obo/UPHENO_0001001> ;
     meta:definition_uri <biolink:PhenotypicFeature> ;
@@ -5017,10 +5017,10 @@
         <https://w3id.org/biolink/vocab/treated_by> .
 
 <https://w3id.org/biolink/vocab/PopulationOfIndividualOrganisms> a meta:ClassDefinition ;
-    rdfs:subClassOf <https://w3id.org/biolink/vocab/PCO:0000001> ;
+    rdfs:subClassOf <pco:0000001> ;
     skos:definition "A collection of individuals from the same taxonomic class distinguished by one or more characteristics. Characteristics can include, but are not limited to, shared geographic location, genetics, phenotypes [Alliance for Genome Resources]" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/SIO:001061>,
+    skos:mappingRelation <sio:001061>,
         <umlssc:T098>,
         <umlsst:popg> ;
     meta:class_uri <http://semanticscience.org/resource/SIO_001061> ;
@@ -5050,8 +5050,8 @@
 
 <https://w3id.org/biolink/vocab/RNAProduct> a meta:ClassDefinition ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/CHEBI:33697>,
-        <https://w3id.org/biolink/vocab/SIO:010450>,
+    skos:mappingRelation <chebi:33697>,
+        <sio:010450>,
         <wd:Q11053> ;
     meta:class_uri <http://purl.obolibrary.org/obo/CHEBI_33697> ;
     meta:definition_uri <biolink:RNAProduct> ;
@@ -5131,8 +5131,8 @@
     skos:altLabel "medical action" ;
     skos:definition "A treatment is targeted at a disease or phenotype and may involve multiple drug 'exposures'" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/OGMS:0000090>,
-        <https://w3id.org/biolink/vocab/SIO:001398> ;
+    skos:mappingRelation <ogms:0000090>,
+        <sio:001398> ;
     meta:class_uri <http://purl.obolibrary.org/obo/OGMS_0000090> ;
     meta:definition_uri <biolink:Treatment> ;
     meta:is_a <https://w3id.org/biolink/vocab/ExposureEvent> ;
@@ -5183,7 +5183,7 @@
     OIO:inSubset <https://w3id.org/biolink/vocab/translator_minimal> ;
     skos:definition "holds between a continuant and a process or function, where the continuant actively contributes to part or all of the process or function it realizes" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0002331> ;
+    skos:mappingRelation <ro:0002331> ;
     meta:definition_uri <biolink:actively_involved_in> ;
     meta:domain <https://w3id.org/biolink/vocab/NamedThing> ;
     meta:inherited true ;
@@ -5229,7 +5229,7 @@
     OIO:inSubset <https://w3id.org/biolink/vocab/translator_minimal> ;
     skos:definition "holds between two entities where the occurrence, existence, or activity of one causes or contributes to the occurrence or generation of the other" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0002326> ;
+    skos:mappingRelation <ro:0002326> ;
     meta:definition_uri <biolink:contributes_to> ;
     meta:domain <https://w3id.org/biolink/vocab/NamedThing> ;
     meta:inherited true ;
@@ -5245,7 +5245,7 @@
     skos:inScheme biolinkml:types ;
     meta:base "XSDDate" ;
     meta:definition_uri metatype:Date ;
-    meta:imported_from "includes/types" ;
+    meta:imported_from "biolinkml:types" ;
     meta:repr "str" ;
     meta:uri xsd:date .
 
@@ -5255,7 +5255,7 @@
     owl:inverseOf <https://w3id.org/biolink/vocab/derives_into> ;
     skos:definition "holds between two distinct material entities, the new entity and the old entity, in which the new entity begins to exist when the old entity ceases to exist, and the new entity inherits the significant portion of the matter of the old entity" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0001000> ;
+    skos:mappingRelation <ro:0001000> ;
     meta:definition_uri <biolink:derives_from> ;
     meta:domain <https://w3id.org/biolink/vocab/NamedThing> ;
     meta:inherited true ;
@@ -5270,7 +5270,7 @@
     owl:inverseOf <https://w3id.org/biolink/vocab/derives_from> ;
     skos:definition "holds between two distinct material entities, the old entity and the new entity, in which the new entity begins to exist when the old entity ceases to exist, and the new entity inherits the significant portion of the matter of the old entity" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0001001>,
+    skos:mappingRelation <ro:0001001>,
         <semmeddb:CONVERTS_TO> ;
     meta:definition_uri <biolink:derives_into> ;
     meta:domain <https://w3id.org/biolink/vocab/NamedThing> ;
@@ -5378,7 +5378,7 @@
     owl:inverseOf <https://w3id.org/biolink/vocab/location_of> ;
     skos:definition "holds between a material entity and a material entity or site within which it is located (but of which it is not considered a part)" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0001025> ;
+    skos:mappingRelation <ro:0001025> ;
     meta:definition_uri <biolink:located_in> ;
     meta:domain <https://w3id.org/biolink/vocab/NamedThing> ;
     meta:inherited true ;
@@ -5393,9 +5393,9 @@
     owl:inverseOf <https://w3id.org/biolink/vocab/located_in> ;
     skos:definition "holds between material entity or site and a material entity that is located within it (but not considered a part of it)" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0001015>,
-        <https://w3id.org/biolink/vocab/WD:276>,
-        <semmeddb:LOCATION_OF> ;
+    skos:mappingRelation <ro:0001015>,
+        <semmeddb:LOCATION_OF>,
+        <wd:276> ;
     meta:definition_uri <biolink:location_of> ;
     meta:domain <https://w3id.org/biolink/vocab/NamedThing> ;
     meta:inherited true ;
@@ -5410,7 +5410,7 @@
     skos:inScheme biolinkml:mappings ;
     skos:mappingRelation skos:mappingRelation ;
     meta:definition_uri meta:mappings ;
-    meta:imported_from "includes/mappings" ;
+    meta:imported_from "biolinkml:mappings" ;
     meta:multivalued true ;
     meta:range <https://w3id.org/biolink/vocab/uriorcurie> ;
     meta:slot_uri skos:mappingRelation .
@@ -5420,7 +5420,7 @@
     owl:inverseOf <https://w3id.org/biolink/vocab/has_part> ;
     skos:definition "holds between parts and wholes (material entities or processes)" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/BFO:0000050>,
+    skos:mappingRelation <bfo:0000050>,
         <semmeddb:PART_OF>,
         <wd:P361> ;
     meta:definition_uri <biolink:part_of> ;
@@ -5474,8 +5474,8 @@
     skos:altLabel "is substance that treats" ;
     skos:definition "holds between a therapeutic procedure or chemical substance and a disease or phenotypic feature that it is used to treat" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0002606>,
-        <https://w3id.org/biolink/vocab/RO:0003307>,
+    skos:mappingRelation <ro:0002606>,
+        <ro:0003307>,
         <semmeddb:TREATS>,
         <wd:P2175> ;
     meta:definition_uri <biolink:treats> ;
@@ -5537,7 +5537,7 @@
         <https://w3id.org/biolink/vocab/systematic_synonym> .
 
 <https://w3id.org/biolink/vocab/BiologicalSex> a meta:ClassDefinition ;
-    rdfs:subClassOf <https://w3id.org/biolink/vocab/PATO:0000047> ;
+    rdfs:subClassOf <pato:0000047> ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
     meta:class_uri <https://w3id.org/biolink/vocab/BiologicalSex> ;
     meta:definition_uri <biolink:BiologicalSex> ;
@@ -5664,7 +5664,7 @@
 
 <https://w3id.org/biolink/vocab/GeneToDiseaseAssociation> a meta:ClassDefinition ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/SIO:000983> ;
+    skos:mappingRelation <sio:000983> ;
     skos:note "NCIT:R176 refers to the inverse relationship" ;
     meta:class_uri <http://semanticscience.org/resource/SIO_000983> ;
     meta:defining_slots <https://w3id.org/biolink/vocab/object>,
@@ -5758,8 +5758,8 @@
         "sample" ;
     skos:definition "A sample is a limited quantity of something (e.g. an individual or set of individuals from a population, or a portion of a substance) to be used for testing, analysis, inspection, investigation, demonstration, or trial use. [SIO]" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/OBI:0000747>,
-        <https://w3id.org/biolink/vocab/SIO:001050> ;
+    skos:mappingRelation <obi:0000747>,
+        <sio:001050> ;
     meta:class_uri <https://w3id.org/biolink/vocab/MaterialSample> ;
     meta:definition_uri <biolink:MaterialSample> ;
     meta:id_prefixes "BioSample",
@@ -5886,7 +5886,7 @@
     skos:inScheme biolinkml:types ;
     meta:base "int" ;
     meta:definition_uri metatype:Integer ;
-    meta:imported_from "includes/types" ;
+    meta:imported_from "biolinkml:types" ;
     meta:uri xsd:integer .
 
 <https://w3id.org/biolink/vocab/latitude> a meta:SlotDefinition ;
@@ -5915,7 +5915,7 @@
     OIO:inSubset <https://w3id.org/biolink/vocab/translator_minimal> ;
     skos:definition "holds between entties that overlap in their extents (materials or processes)" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0002131> ;
+    skos:mappingRelation <ro:0002131> ;
     meta:definition_uri <biolink:overlaps> ;
     meta:domain <https://w3id.org/biolink/vocab/NamedThing> ;
     meta:inherited true ;
@@ -5930,7 +5930,7 @@
     owl:inverseOf <https://w3id.org/biolink/vocab/has_participant> ;
     skos:definition "holds between a continuant and a process, where the continuant is somehow involved in the process" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0000056> ;
+    skos:mappingRelation <ro:0000056> ;
     meta:definition_uri <biolink:participates_in> ;
     meta:domain <https://w3id.org/biolink/vocab/NamedThing> ;
     meta:inherited true ;
@@ -6006,8 +6006,8 @@
         "disorder",
         "medical condition" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/MONDO:0000001>,
-        <https://w3id.org/biolink/vocab/SIO:010299>,
+    skos:mappingRelation <mondo:0000001>,
+        <sio:010299>,
         <umlssc:T019>,
         <umlssc:T020>,
         <umlssc:T037>,
@@ -6212,8 +6212,8 @@
 <https://w3id.org/biolink/vocab/Transcript> a meta:ClassDefinition ;
     skos:definition "An RNA synthesized on a DNA or RNA template by an RNA polymerase" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/SIO:010450>,
-        <https://w3id.org/biolink/vocab/SO:0000673> ;
+    skos:mappingRelation <sio:010450>,
+        <so:0000673> ;
     meta:class_uri <http://purl.obolibrary.org/obo/SO_0000673> ;
     meta:definition_uri <biolink:Transcript> ;
     meta:is_a <https://w3id.org/biolink/vocab/GenomicEntity> ;
@@ -6374,7 +6374,7 @@
     owl:inverseOf <https://w3id.org/biolink/vocab/part_of> ;
     skos:definition "holds between wholes and their parts (material entities or processes)" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/BFO:0000051>,
+    skos:mappingRelation <bfo:0000051>,
         <wd:P527> ;
     meta:definition_uri <biolink:has_part> ;
     meta:domain <https://w3id.org/biolink/vocab/NamedThing> ;
@@ -6398,7 +6398,7 @@
 <https://w3id.org/biolink/vocab/has_receptor> a meta:SlotDefinition ;
     skos:definition "the organism or organism part being exposed" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/ExO:0000001> ;
+    skos:mappingRelation <exo:0000001> ;
     meta:definition_uri <biolink:has_receptor> ;
     meta:domain <https://w3id.org/biolink/vocab/ExposureEvent> ;
     meta:is_a <https://w3id.org/biolink/vocab/node_property> ;
@@ -6409,7 +6409,7 @@
 <https://w3id.org/biolink/vocab/has_route> a meta:SlotDefinition ;
     skos:definition "the process that results in the stressor coming into direct contact with the receptor" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/ExO:0000055> ;
+    skos:mappingRelation <exo:0000055> ;
     meta:definition_uri <biolink:has_route> ;
     meta:domain <https://w3id.org/biolink/vocab/ExposureEvent> ;
     meta:is_a <https://w3id.org/biolink/vocab/node_property> ;
@@ -6421,7 +6421,7 @@
     skos:altLabel "has stimulus" ;
     skos:definition "the process or entity that the receptor is being exposed to" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/ExO:0000000> ;
+    skos:mappingRelation <exo:0000000> ;
     meta:definition_uri <biolink:has_stressor> ;
     meta:domain <https://w3id.org/biolink/vocab/ExposureEvent> ;
     meta:is_a <https://w3id.org/biolink/vocab/node_property> ;
@@ -6434,8 +6434,8 @@
     skos:altLabel "in homology relationship with" ;
     skos:definition "holds between two biological entities that have common evolutionary origin" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/SIO:010302>,
-        <ro:HOM0000001> ;
+    skos:mappingRelation <ro:HOM0000001>,
+        <sio:010302> ;
     skos:note "typically used to describe homology relationships between genes or gene products" ;
     meta:definition_uri <biolink:homologous_to> ;
     meta:domain <https://w3id.org/biolink/vocab/NamedThing> ;
@@ -6517,7 +6517,7 @@
     owl:inverseOf <https://w3id.org/biolink/vocab/treats> ;
     skos:definition "holds between a disease or phenotypic feature and a therapeutic process or chemical substance that is used to treat the condition" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0002302>,
+    skos:mappingRelation <ro:0002302>,
         <wd:P2176> ;
     meta:definition_uri <biolink:treated_by> ;
     meta:domain <https://w3id.org/biolink/vocab/DiseaseOrPhenotypicFeature> ;
@@ -6563,8 +6563,8 @@
 <https://w3id.org/biolink/vocab/Genotype> a meta:ClassDefinition ;
     skos:definition "An information content entity that describes a genome by specifying the total variation in genomic sequence and/or gene expression, relative to some extablished background" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/GENO:0000536>,
-        <https://w3id.org/biolink/vocab/SIO:001079> ;
+    skos:mappingRelation <geno:0000536>,
+        <sio:001079> ;
     skos:note "Consider renaming as genotypic entity" ;
     meta:class_uri <http://purl.obolibrary.org/obo/GENO_0000536> ;
     meta:definition_uri <biolink:Genotype> ;
@@ -6726,7 +6726,7 @@
     OIO:inSubset <https://w3id.org/biolink/vocab/translator_minimal> ;
     skos:definition "holds between a disease or phenotypic feature and a measurable molecular entity that is used as an indicator of the presence or state of the disease or feature." ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0002610> ;
+    skos:mappingRelation <ro:0002610> ;
     meta:definition_uri <biolink:correlated_with> ;
     meta:domain <https://w3id.org/biolink/vocab/DiseaseOrPhenotypicFeature> ;
     meta:inherited true ;
@@ -6741,7 +6741,7 @@
     skos:inScheme biolinkml:types ;
     meta:base "float" ;
     meta:definition_uri metatype:Double ;
-    meta:imported_from "includes/types" ;
+    meta:imported_from "biolinkml:types" ;
     meta:uri xsd:double .
 
 <https://w3id.org/biolink/vocab/expresses> a meta:SlotDefinition ;
@@ -6749,7 +6749,7 @@
     owl:inverseOf <https://w3id.org/biolink/vocab/expressed_in> ;
     skos:definition "holds between an anatomical entity and gene or gene product that is expressed there" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0002292> ;
+    skos:mappingRelation <ro:0002292> ;
     meta:definition_uri <biolink:expresses> ;
     meta:domain <https://w3id.org/biolink/vocab/AnatomicalEntity> ;
     meta:inherited true ;
@@ -6900,7 +6900,7 @@
         "exposure" ;
     skos:definition "A feature of the environment of an organism that influences one or more phenotypic features of that organism, potentially mediated by genes" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/SIO:000955> ;
+    skos:mappingRelation <sio:000955> ;
     meta:class_uri <http://semanticscience.org/resource/SIO_000955> ;
     meta:definition_uri <biolink:ExposureEvent> ;
     meta:is_a <https://w3id.org/biolink/vocab/BiologicalEntity> ;
@@ -7145,7 +7145,7 @@
         "reaction" ;
     skos:definition "An execution of a molecular function carried out by a gene product or macromolecular complex." ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/GO:0003674>,
+    skos:mappingRelation <go:0003674>,
         <umlssc:T044>,
         <umlsst:moft> ;
     meta:class_uri <http://purl.obolibrary.org/obo/GO_0003674> ;
@@ -7253,7 +7253,7 @@
     OIO:inSubset <https://w3id.org/biolink/vocab/translator_minimal> ;
     skos:definition "holds between a process and a physical entity, where the physical entity executes the process" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0002333> ;
+    skos:mappingRelation <ro:0002333> ;
     meta:definition_uri <biolink:enabled_by> ;
     meta:domain <https://w3id.org/biolink/vocab/Occurrent> ;
     meta:inherited true ;
@@ -7400,10 +7400,10 @@
     meta:slots <https://w3id.org/biolink/vocab/in_taxon> .
 
 <https://w3id.org/biolink/vocab/ChemicalSubstance> a meta:ClassDefinition ;
-    rdfs:subClassOf <https://w3id.org/biolink/vocab/CHEBI:24431> ;
+    rdfs:subClassOf <chebi:24431> ;
     skos:definition "May be a chemical entity or a formulation with a chemical entity as active ingredient, or a complex material with multiple chemical entities as part" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/SIO:010004>,
+    skos:mappingRelation <sio:010004>,
         <umlssc:T103>,
         <umlssc:T104>,
         <umlssc:T109>,
@@ -7607,8 +7607,8 @@
 <https://w3id.org/biolink/vocab/Gene> a meta:ClassDefinition ;
     skos:altLabel "locus" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/SIO:010035>,
-        <https://w3id.org/biolink/vocab/SO:0000704>,
+    skos:mappingRelation <sio:010035>,
+        <so:0000704>,
         <wd:Q7187> ;
     meta:class_uri <http://purl.obolibrary.org/obo/SO_0000704> ;
     meta:definition_uri <biolink:Gene> ;
@@ -7798,7 +7798,7 @@
     OIO:inSubset <https://w3id.org/biolink/vocab/translator_minimal> ;
     skos:definition "holds between two processes, where one completes before the other begins" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/BFO:0000063>,
+    skos:mappingRelation <bfo:0000063>,
         <semmeddb:PRECEDES>,
         <wd:P156> ;
     meta:definition_uri <biolink:precedes> ;
@@ -7814,8 +7814,8 @@
     skos:altLabel "allele" ;
     skos:definition "An allele that varies in its sequence from what is considered the reference allele at that locus." ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/GENO:0000002>,
-        <https://w3id.org/biolink/vocab/SIO:010277>,
+    skos:mappingRelation <geno:0000002>,
+        <sio:010277>,
         <vmc:Allele>,
         <wd:Q15304597> ;
     skos:note "This class is for modeling the specific state at a locus. A single dbSNP rs ID could correspond to more than one sequence variants (e.g CIViC:1252 and CIViC:1253, two distinct BRCA2 alleles for rs28897743)" ;
@@ -7906,7 +7906,7 @@
     owl:inverseOf <https://w3id.org/biolink/vocab/expresses> ;
     skos:definition "holds between a gene or gene product and an anatomical entity in which it is expressed" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0002206> ;
+    skos:mappingRelation <ro:0002206> ;
     meta:definition_uri <biolink:expressed_in> ;
     meta:domain <https://w3id.org/biolink/vocab/GeneOrGeneProduct> ;
     meta:inherited true ;
@@ -7920,7 +7920,7 @@
     OIO:inSubset <https://w3id.org/biolink/vocab/translator_minimal> ;
     skos:definition "holds between a process and a continuant, where the continuant is an input into the process" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0002233>,
+    skos:mappingRelation <ro:0002233>,
         <semmeddb:USES> ;
     meta:definition_uri <biolink:has_input> ;
     meta:domain <https://w3id.org/biolink/vocab/Occurrent> ;
@@ -7935,7 +7935,7 @@
     OIO:inSubset <https://w3id.org/biolink/vocab/translator_minimal> ;
     skos:definition "holds between a process and a continuant, where the continuant is an output of the process" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0002234> ;
+    skos:mappingRelation <ro:0002234> ;
     meta:definition_uri <biolink:has_output> ;
     meta:domain <https://w3id.org/biolink/vocab/Occurrent> ;
     meta:inherited true ;
@@ -7996,10 +7996,10 @@
     meta:slot_uri <https://w3id.org/biolink/vocab/name> .
 
 <https://w3id.org/biolink/vocab/AnatomicalEntity> a meta:ClassDefinition ;
-    rdfs:subClassOf <https://w3id.org/biolink/vocab/UBERON:0001062> ;
+    rdfs:subClassOf <uberon:0001062> ;
     skos:definition "A subcellular location, cell type or gross anatomical part" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/SIO:010046>,
+    skos:mappingRelation <sio:010046>,
         <umlssc:T022>,
         <umlssc:T029>,
         <umlssc:T030>,
@@ -8080,7 +8080,7 @@
 
 <https://w3id.org/biolink/vocab/regulates_process_to_process> a meta:SlotDefinition ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0002211> ;
+    skos:mappingRelation <ro:0002211> ;
     meta:definition_uri <biolink:regulates_process_to_process> ;
     meta:domain <https://w3id.org/biolink/vocab/Occurrent> ;
     meta:inherited true ;
@@ -8092,10 +8092,10 @@
 
 <https://w3id.org/biolink/vocab/Attribute> a meta:ClassDefinition ;
     OIO:inSubset <https://w3id.org/biolink/vocab/samples> ;
-    rdfs:subClassOf <https://w3id.org/biolink/vocab/PATO:0000001> ;
+    rdfs:subClassOf <pato:0000001> ;
     skos:definition "A property or characteristic of an entity. For example, an apple may have properties such as color, shape, age, crispiness. An environmental sample may have attributes such as depth, lat, long, material." ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/SIO:000614> ;
+    skos:mappingRelation <sio:000614> ;
     meta:class_uri <https://w3id.org/biolink/vocab/Attribute> ;
     meta:definition_uri <biolink:Attribute> ;
     meta:is_a <https://w3id.org/biolink/vocab/AbstractEntity> ;
@@ -8137,7 +8137,7 @@
     owl:inverseOf <https://w3id.org/biolink/vocab/participates_in> ;
     skos:definition "holds between a process and a continuant, where the continuant is somehow involved in the process" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0000057>,
+    skos:mappingRelation <ro:0000057>,
         <wd:P2283> ;
     meta:definition_uri <biolink:has_participant> ;
     meta:domain <https://w3id.org/biolink/vocab/Occurrent> ;
@@ -8172,7 +8172,7 @@
     skos:altLabel "sequence feature" ;
     skos:definition "an entity that can either be directly located on a genome (gene, transcript, exon, regulatory region) or is encoded in a genome (protein)" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/SO:0000110>,
+    skos:mappingRelation <so:0000110>,
         <umlssc:T028>,
         <umlssc:T086>,
         <umlsst:gngm>,
@@ -8352,7 +8352,7 @@
 <https://w3id.org/biolink/vocab/Occurrent> a meta:ClassDefinition ;
     skos:definition "A processual entity" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/BFO:0000003> ;
+    skos:mappingRelation <bfo:0000003> ;
     meta:class_uri <http://purl.obolibrary.org/obo/BFO_0000003> ;
     meta:definition_uri <biolink:Occurrent> ;
     meta:is_a <https://w3id.org/biolink/vocab/NamedThing> ;
@@ -8381,7 +8381,7 @@
     skos:inScheme biolinkml:types ;
     meta:base "str" ;
     meta:definition_uri metatype:String ;
-    meta:imported_from "includes/types" ;
+    meta:imported_from "biolinkml:types" ;
     meta:uri xsd:string .
 
 <https://w3id.org/biolink/vocab/has_biological_sequence> a meta:SlotDefinition ;
@@ -8399,14 +8399,14 @@
     skos:inScheme biolinkml:types ;
     meta:base "URIorCURIE" ;
     meta:definition_uri metatype:Uriorcurie ;
-    meta:imported_from "includes/types" ;
+    meta:imported_from "biolinkml:types" ;
     meta:repr "str" ;
     meta:uri xsd:anyURI .
 
 <https://w3id.org/biolink/vocab/molecularly_interacts_with> a meta:SlotDefinition ;
     OIO:inSubset <https://w3id.org/biolink/vocab/translator_minimal> ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0002436> ;
+    skos:mappingRelation <ro:0002436> ;
     meta:definition_uri <biolink:molecularly_interacts_with> ;
     meta:domain <https://w3id.org/biolink/vocab/MolecularEntity> ;
     meta:inherited true ;
@@ -8421,7 +8421,7 @@
     owl:inverseOf <https://w3id.org/biolink/vocab/has_biomarker> ;
     skos:definition "holds between a measurable molecular entity and a disease or phenotypic feature, where the entity is used as an indicator of the presence or state of the disease or feature." ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0002607> ;
+    skos:mappingRelation <ro:0002607> ;
     meta:definition_uri <biolink:biomarker_for> ;
     meta:domain <https://w3id.org/biolink/vocab/MolecularEntity> ;
     meta:inherited true ;
@@ -8851,17 +8851,17 @@
     OIO:inSubset <https://w3id.org/biolink/vocab/translator_minimal> ;
     skos:altLabel "activity directly regulates activity of" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0002448> ;
+    skos:mappingRelation <ro:0002448> ;
     meta:definition_uri <biolink:regulates_entity_to_entity> ;
     meta:domain <https://w3id.org/biolink/vocab/MolecularEntity> ;
     meta:inherited true ;
     meta:is_a <https://w3id.org/biolink/vocab/regulates> ;
     meta:local_names [ a meta:LocalName ;
-            skos:altLabel "activity directly regulates activity of" ;
-            meta:local_name_source "ro" ],
-        [ a meta:LocalName ;
             skos:altLabel "regulates" ;
-            meta:local_name_source "translator" ] ;
+            meta:local_name_source "translator" ],
+        [ a meta:LocalName ;
+            skos:altLabel "activity directly regulates activity of" ;
+            meta:local_name_source "ro" ] ;
     meta:multivalued true ;
     meta:owner <https://w3id.org/biolink/vocab/regulates_entity_to_entity> ;
     meta:range <https://w3id.org/biolink/vocab/MolecularEntity> ;
@@ -9079,7 +9079,7 @@
     OIO:inSubset <https://w3id.org/biolink/vocab/translator_minimal> ;
     skos:definition "connects a thing to a class representing a taxon" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0002162>,
+    skos:mappingRelation <ro:0002162>,
         <wd:P703> ;
     meta:definition_uri <biolink:in_taxon> ;
     meta:domain <https://w3id.org/biolink/vocab/ThingWithTaxon> ;
@@ -9095,7 +9095,7 @@
     skos:definition "holds between a biological entity and a phenotype, where a phenotype is construed broadly as any kind of quality of an organism part, a collection of these qualities, or a change in quality or qualities (e.g. abnormally increased temperature)." ;
     skos:editorialNote "check the range" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0002200> ;
+    skos:mappingRelation <ro:0002200> ;
     meta:definition_uri <biolink:has_phenotype> ;
     meta:domain <https://w3id.org/biolink/vocab/BiologicalEntity> ;
     meta:inherited true ;
@@ -9346,7 +9346,7 @@
     OIO:inSubset <https://w3id.org/biolink/vocab/translator_minimal> ;
     skos:definition "holds between any two entities that directly or indirectly interact with each other" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/RO:0002434> ;
+    skos:mappingRelation <ro:0002434> ;
     meta:definition_uri <biolink:interacts_with> ;
     meta:domain <https://w3id.org/biolink/vocab/NamedThing> ;
     meta:inherited true ;
@@ -9373,7 +9373,7 @@
     skos:altLabel "bioentity" ;
     skos:definition "A gene, gene product, small molecule or macromolecule (including protein complex)" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
-    skos:mappingRelation <https://w3id.org/biolink/vocab/SIO:010341>,
+    skos:mappingRelation <sio:010341>,
         <umlssc:T085>,
         <umlssg:GENE>,
         <umlsst:mosq>,
@@ -9489,7 +9489,7 @@
     meta:slot_uri owl:ObjectProperty .
 
 <https://w3id.org/biolink/vocab/NamedThing> a meta:ClassDefinition ;
-    rdfs:subClassOf <https://w3id.org/biolink/vocab/BFO:0000001> ;
+    rdfs:subClassOf <bfo:0000001> ;
     skos:definition "a databased entity or concept/class" ;
     skos:inScheme <https://w3id.org/biolink/biolink-model> ;
     skos:mappingRelation <umlssc:T071>,

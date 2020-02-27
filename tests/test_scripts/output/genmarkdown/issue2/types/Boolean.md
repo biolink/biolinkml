@@ -4,7 +4,7 @@
 
 A binary (true or false) value
 
-URI: [https://w3id.org/biolink/biolinkml/meta/includes/types/Boolean](https://w3id.org/biolink/biolinkml/meta/includes/types/Boolean)
+URI: [https://w3id.org/biolink/biolinkml/meta/biolinkml:types/Boolean](https://w3id.org/biolink/biolinkml/meta/biolinkml:types/Boolean)
 
 |  |  |  |
 | --- | --- | --- |

@@ -38,22 +38,22 @@ meta:metamodel a meta:SchemaDefinition ;
         "rdfs",
         "skos",
         "xsd" ;
-    meta:generation_date "2019-10-28 12:53"^^xsd:dateTime ;
+    meta:generation_date "2020-02-27 13:41"^^xsd:dateTime ;
     meta:id biolinkml:meta ;
-    meta:imports <https://w3id.org/biolink/biolinkml/meta/includes/mappings>,
-        <https://w3id.org/biolink/biolinkml/meta/includes/types> ;
+    meta:imports biolinkml:mappings,
+        biolinkml:types ;
     meta:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     meta:metamodel_version "1.4.3" ;
-    meta:prefixes [ meta:prefix_prefix "pav" ;
-            meta:prefix_reference pav: ],
+    meta:prefixes [ meta:prefix_prefix "biolinkml" ;
+            meta:prefix_reference biolinkml: ],
         [ meta:prefix_prefix "OIO" ;
             meta:prefix_reference OIO: ],
         [ meta:prefix_prefix "meta" ;
             meta:prefix_reference meta: ],
         [ meta:prefix_prefix "skos" ;
             meta:prefix_reference skos: ],
-        [ meta:prefix_prefix "biolinkml" ;
-            meta:prefix_reference biolinkml: ] ;
+        [ meta:prefix_prefix "pav" ;
+            meta:prefix_reference pav: ] ;
     meta:slots meta:abstract,
         meta:alias,
         meta:aliases,
@@ -146,8 +146,8 @@ meta:metamodel a meta:SchemaDefinition ;
         meta:values_from,
         meta:version ;
     meta:source_file "meta.yaml" ;
-    meta:source_file_date "Mon Oct 28 09:51:43 2019"^^xsd:dateTime ;
-    meta:source_file_size 23488 ;
+    meta:source_file_date "Thu Feb 27 13:02:54 2020"^^xsd:dateTime ;
+    meta:source_file_size 23490 ;
     meta:subsets meta:owl ;
     meta:title "Biolink Schema Metamodel" ;
     meta:types meta:boolean,
@@ -170,7 +170,7 @@ meta:date a meta:TypeDefinition ;
     meta:definition_uri metatype:Date ;
     meta:description "a date (year, month and day) in an idealized calendar" ;
     meta:from_schema biolinkml:types ;
-    meta:imported_from "includes/types" ;
+    meta:imported_from "biolinkml:types" ;
     meta:notes "URI is dateTime because OWL reasoners don't work with straight date or time" ;
     meta:repr "str" ;
     meta:uri xsd:date .
@@ -180,7 +180,7 @@ meta:double a meta:TypeDefinition ;
     meta:definition_uri metatype:Double ;
     meta:description "A real number that conforms to the xsd:double specification" ;
     meta:from_schema biolinkml:types ;
-    meta:imported_from "includes/types" ;
+    meta:imported_from "biolinkml:types" ;
     meta:uri xsd:double .
 
 meta:float a meta:TypeDefinition ;
@@ -188,7 +188,7 @@ meta:float a meta:TypeDefinition ;
     meta:definition_uri metatype:Float ;
     meta:description "A real number that conforms to the xsd:float specification" ;
     meta:from_schema biolinkml:types ;
-    meta:imported_from "includes/types" ;
+    meta:imported_from "biolinkml:types" ;
     meta:uri xsd:float .
 
 meta:nodeidentifier a meta:TypeDefinition ;
@@ -196,7 +196,7 @@ meta:nodeidentifier a meta:TypeDefinition ;
     meta:definition_uri metatype:Nodeidentifier ;
     meta:description "A URI, CURIE or BNODE that represents a node in a model." ;
     meta:from_schema biolinkml:types ;
-    meta:imported_from "includes/types" ;
+    meta:imported_from "biolinkml:types" ;
     meta:repr "str" ;
     meta:uri shex:nonLiteral .
 
@@ -206,7 +206,7 @@ meta:objectidentifier a meta:TypeDefinition ;
     meta:definition_uri metatype:Objectidentifier ;
     meta:description "A URI or CURIE that represents an object in the model." ;
     meta:from_schema biolinkml:types ;
-    meta:imported_from "includes/types" ;
+    meta:imported_from "biolinkml:types" ;
     meta:repr "str" ;
     meta:uri shex:iri .
 
@@ -215,7 +215,7 @@ meta:time a meta:TypeDefinition ;
     meta:definition_uri metatype:Time ;
     meta:description "A time object represents a (local) time of day, independent of any particular day" ;
     meta:from_schema biolinkml:types ;
-    meta:imported_from "includes/types" ;
+    meta:imported_from "biolinkml:types" ;
     meta:notes "URI is dateTime because OWL reasoners don't work with straight date or time" ;
     meta:repr "str" ;
     meta:uri xsd:dateTime .
@@ -257,7 +257,7 @@ meta:integer a meta:TypeDefinition ;
     meta:definition_uri metatype:Integer ;
     meta:description "An integer" ;
     meta:from_schema biolinkml:types ;
-    meta:imported_from "includes/types" ;
+    meta:imported_from "biolinkml:types" ;
     meta:uri xsd:integer .
 
 meta:slot_definition_apply_to a meta:SlotDefinition ;
@@ -320,7 +320,7 @@ meta:datetime a meta:TypeDefinition ;
     meta:definition_uri metatype:Datetime ;
     meta:description "The combination of a date and time" ;
     meta:from_schema biolinkml:types ;
-    meta:imported_from "includes/types" ;
+    meta:imported_from "biolinkml:types" ;
     meta:repr "str" ;
     meta:uri xsd:dateTime .
 
@@ -940,7 +940,7 @@ meta:uri a meta:TypeDefinition ;
     meta:definition_uri metatype:Uri ;
     meta:description "a complete URI" ;
     meta:from_schema biolinkml:types ;
-    meta:imported_from "includes/types" ;
+    meta:imported_from "biolinkml:types" ;
     meta:repr "str" ;
     meta:uri xsd:anyURI .
 
@@ -996,7 +996,7 @@ meta:ncname a meta:TypeDefinition ;
     meta:definition_uri metatype:Ncname ;
     meta:description "Prefix part of CURIE" ;
     meta:from_schema biolinkml:types ;
-    meta:imported_from "includes/types" ;
+    meta:imported_from "biolinkml:types" ;
     meta:repr "str" ;
     meta:uri xsd:string .
 
@@ -1097,7 +1097,7 @@ meta:close_mappings a meta:SlotDefinition ;
     meta:definition_uri meta:close_mappings ;
     meta:description "A list of terms from different schemas or terminology systems that have close meaning." ;
     meta:from_schema biolinkml:mappings ;
-    meta:imported_from "includes/mappings" ;
+    meta:imported_from "biolinkml:mappings" ;
     meta:is_a meta:mappings ;
     meta:multivalued true ;
     meta:owner meta:Element ;
@@ -1141,7 +1141,7 @@ meta:deprecated_element_has_exact_replacement a meta:SlotDefinition ;
     meta:definition_uri meta:deprecated_element_has_exact_replacement ;
     meta:description "When an element is deprecated, it can be automatically replaced by this uri or curie" ;
     meta:from_schema biolinkml:mappings ;
-    meta:imported_from "includes/mappings" ;
+    meta:imported_from "biolinkml:mappings" ;
     meta:owner meta:Element ;
     meta:range meta:uriorcurie ;
     meta:slot_uri meta:deprecated_element_has_exact_replacement .
@@ -1151,7 +1151,7 @@ meta:deprecated_element_has_possible_replacement a meta:SlotDefinition ;
     meta:definition_uri meta:deprecated_element_has_possible_replacement ;
     meta:description "When an element is deprecated, it can be potentially replaced by this uri or curie" ;
     meta:from_schema biolinkml:mappings ;
-    meta:imported_from "includes/mappings" ;
+    meta:imported_from "biolinkml:mappings" ;
     meta:owner meta:Element ;
     meta:range meta:uriorcurie ;
     meta:slot_uri meta:deprecated_element_has_possible_replacement .
@@ -1161,7 +1161,7 @@ meta:exact_mappings a meta:SlotDefinition ;
     meta:definition_uri meta:exact_mappings ;
     meta:description "A list of terms from different schemas or terminology systems that have identical meaning." ;
     meta:from_schema biolinkml:mappings ;
-    meta:imported_from "includes/mappings" ;
+    meta:imported_from "biolinkml:mappings" ;
     meta:is_a meta:mappings ;
     meta:multivalued true ;
     meta:owner meta:Element ;
@@ -1264,7 +1264,7 @@ meta:related_mappings a meta:SlotDefinition ;
     meta:definition_uri meta:related_mappings ;
     meta:description "A list of terms from different schemas or terminology systems that have related meaning." ;
     meta:from_schema biolinkml:mappings ;
-    meta:imported_from "includes/mappings" ;
+    meta:imported_from "biolinkml:mappings" ;
     meta:is_a meta:mappings ;
     meta:multivalued true ;
     meta:owner meta:Element ;
@@ -1298,7 +1298,7 @@ meta:boolean a meta:TypeDefinition ;
     meta:definition_uri metatype:Boolean ;
     meta:description "A binary (true or false) value" ;
     meta:from_schema biolinkml:types ;
-    meta:imported_from "includes/types" ;
+    meta:imported_from "biolinkml:types" ;
     meta:uri xsd:boolean .
 
 meta:description a meta:SlotDefinition ;
@@ -1317,7 +1317,7 @@ meta:mappings a meta:SlotDefinition ;
     meta:definition_uri meta:mappings ;
     meta:description "A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective." ;
     meta:from_schema biolinkml:mappings ;
-    meta:imported_from "includes/mappings" ;
+    meta:imported_from "biolinkml:mappings" ;
     meta:multivalued true ;
     meta:owner meta:Element ;
     meta:range meta:uriorcurie ;
@@ -1333,7 +1333,7 @@ meta:uriorcurie a meta:TypeDefinition ;
     meta:definition_uri metatype:Uriorcurie ;
     meta:description "a URI or a CURIE" ;
     meta:from_schema biolinkml:types ;
-    meta:imported_from "includes/types" ;
+    meta:imported_from "biolinkml:types" ;
     meta:repr "str" ;
     meta:uri xsd:anyURI .
 
@@ -1411,7 +1411,7 @@ meta:string a meta:TypeDefinition ;
     meta:definition_uri metatype:String ;
     meta:description "A character string" ;
     meta:from_schema biolinkml:types ;
-    meta:imported_from "includes/types" ;
+    meta:imported_from "biolinkml:types" ;
     meta:uri xsd:string .
 
 meta:ClassDefinition a meta:ClassDefinition ;
