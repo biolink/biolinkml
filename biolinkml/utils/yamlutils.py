@@ -78,11 +78,7 @@ def as_yaml(element: YAMLRoot) -> str:
     :param element: YAML object
     :return: Stringified representation
     """
-    # TODO: figure out how do to a safe dump;
-    # def default_representer(_, data) -> str:
-    #     return ScalarNode(None, str(data))
-    # SafeDumper.add_representer(None, default_representer)
-    return yaml.dump(element)
+    return yaml.dump(element, Dumper=yaml.SafeDumper)
 
 
 def as_json_object(element: YAMLRoot, contexts: CONTEXTS_PARAM_TYPE = None) -> JsonObj:
@@ -114,19 +110,14 @@ class TypedNode:
     def loc(self) -> str:
         return f"{self._s.name}: line {self._s.line + 1} col {self._s.column + 1}"
 
-    def __str__(self):
-        # Note that str(TypedNode) doesn't inoke this
-        return self.loc()
-
-    def __repr__(self):
-        return self.loc()
-
 
 class extended_str(str, TypedNode):
     pass
 
+
 class extended_int(int, TypedNode):
     pass
+
 
 class extended_float(float, TypedNode):
     pass
@@ -174,10 +165,11 @@ class DupCheckYamlLoader(yaml.loader.SafeLoader):
             mapping[key] = value
         return mapping
 
-yaml.add_multi_representer(YAMLRoot, root_representer)
-yaml.add_representer(extended_str, yaml.SafeDumper.represent_str)
-yaml.add_representer(extended_int, yaml.SafeDumper.represent_int)
-yaml.add_representer(extended_float, yaml.SafeDumper.represent_float)
+
+yaml.SafeDumper.add_multi_representer(YAMLRoot, root_representer)
+yaml.SafeDumper.add_multi_representer(extended_str, yaml.SafeDumper.represent_str)
+yaml.SafeDumper.add_multi_representer(extended_int, yaml.SafeDumper.represent_int)
+yaml.SafeDumper.add_multi_representer(extended_float, yaml.SafeDumper.represent_float)
 
 
 def as_rdf(element: YAMLRoot, contexts: CONTEXTS_PARAM_TYPE = None) -> Graph:

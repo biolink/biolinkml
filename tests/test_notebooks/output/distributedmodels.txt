@@ -1,5 +1,5 @@
 # Auto generated from None by pythongen.py version: 0.4.0
-# Generation date: 2020-02-27 16:48
+# Generation date: 2020-03-12 11:03
 # Schema: dist1
 #
 # id: http://example.org/examples/distributeExample
@@ -21,8 +21,8 @@ from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 from biolink.model import AnatomicalEntityId, AnatomicalEntityToAnatomicalEntityAssociation, AnatomicalEntityToAnatomicalEntityOntogenicAssociation, AnatomicalEntityToAnatomicalEntityPartOfAssociation, AssociationId, BiologicalProcessId, BiologicalSequence, CaseId, CaseToThingAssociation, CellLineId, CellLineToDiseaseOrPhenotypicFeatureAssociation, CellLineToThingAssociation, CellularComponentId, ChangeIsCatalyzedBy, ChemicalSubstanceId, ChemicalToChemicalAssociation, ChemicalToChemicalDerivationAssociation, ChemicalToDiseaseOrPhenotypicFeatureAssociation, ChemicalToGeneAssociation, ChemicalToPathwayAssociation, ChemicalToThingAssociation, Description, DiseaseId, DiseaseOrPhenotypicFeatureAssociationToLocationAssociation, DiseaseOrPhenotypicFeatureAssociationToThingAssociation, DiseaseOrPhenotypicFeatureId, DiseaseToExposureAssociation, DiseaseToThingAssociation, DrugExposure, DrugExposureId, EnabledBy, EntityToDiseaseAssociation, EntityToPhenotypicFeatureAssociation, ExonId, ExonToTranscriptRelationship, ExposureEventId, ExposureEventToPhenotypicFeatureAssociation, FunctionalAssociation, Gene, GeneAsAModelOfDiseaseAssociation, GeneHasVariantThatContributesToDiseaseAssociation, GeneId, GeneOntologyClassId, GeneOrGeneProductId, GeneProductId, GeneRegulatoryRelationship, GeneToDiseaseAssociation, GeneToExpressionSiteAssociation, GeneToGeneAssociation, GeneToGeneHomologyAssociation, GeneToGeneProductRelationship, GeneToGoTermAssociation, GeneToPhenotypicFeatureAssociation, GeneToThingAssociation, GenomicEntityId, GenomicSequenceLocalization, GenotypeId, GenotypeToGeneAssociation, GenotypeToGenotypePartAssociation, GenotypeToPhenotypicFeatureAssociation, GenotypeToThingAssociation, GenotypeToVariantAssociation, HasBiologicalSequence, HasCount, HasDrug, HasGene, HasInput, HasOutput, HasPart, HasQuotient, HasTotal, Id, IdentifierType, IriType, LabelType, LifeStageId, MacromolecularMachine, MacromolecularMachineId, MacromolecularMachineToBiologicalProcessAssociation, MacromolecularMachineToCellularComponentAssociation, MacromolecularMachineToMolecularActivityAssociation, MaterialSampleDerivationAssociation, MaterialSampleId, MaterialSampleToThingAssociation, ModelToDiseaseMixin, MolecularActivity, MolecularActivityId, MolecularEntityId, Name, NamedThingId, NarrativeText, Object, OntologyClassId, OrganismTaxonId, PairwiseGeneToGeneInteraction, PairwiseInteractionAssociation, PathwayId, PhenotypicFeatureId, PopulationOfIndividualOrganismsId, PopulationToPopulationAssociation, QuantifierQualifier, Relation, SequenceFeatureRelationship, SequenceVariant, SequenceVariantId, SequenceVariantModulatesTreatmentAssociation, StageQualifier, Subject, SymbolType, ThingToDiseaseOrPhenotypicFeatureAssociation, TranscriptId, TranscriptToGeneRelationship, Treatment, TreatmentId, VariantToDiseaseAssociation, VariantToPhenotypicFeatureAssociation, VariantToPopulationAssociation, VariantToThingAssociation
-from biolinkml.utils.metamodelcore import ElementIdentifier, NodeIdentifier, URIorCURIE
-from includes.types import Double, Integer, Nodeidentifier, String, Uriorcurie
+from biolinkml.utils.metamodelcore import ElementIdentifier, URIorCURIE
+from includes.types import Double, Integer, String, Uriorcurie
 
 metamodel_version = "1.4.3"
 
@@ -143,7 +143,7 @@ slots.pairwise_interaction_association_subject = Slot(uri=DIST.subject, name="pa
                       model_uri=DIST.pairwise_interaction_association_subject, domain=None, range=Union[ElementIdentifier, MolecularEntityId])
 
 slots.pairwise_interaction_association_id = Slot(uri=DIST.id, name="pairwise interaction association_id", curie=DIST.curie('id'),
-                      model_uri=DIST.pairwise_interaction_association_id, domain=None, range=Union[str, PairwiseInteractionAssociationId])
+                      model_uri=DIST.pairwise_interaction_association_id, domain=None, range=Union[ElementIdentifier, PairwiseInteractionAssociationId])
 
 slots.pairwise_interaction_association_relation = Slot(uri=DIST.relation, name="pairwise interaction association_relation", curie=DIST.curie('relation'),
                       model_uri=DIST.pairwise_interaction_association_relation, domain=None, range=Union[str, URIorCURIE])
