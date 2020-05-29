@@ -385,6 +385,12 @@ class slots:
                                          first_hit_only=True)
         initializers += [self.gen_class_variable(cls, slot, not is_root) for slot in slot_variables]
 
+        # see #113
+        slot_variables = self._slot_iter(cls,
+                                         lambda
+                                             slot: not slot.required and not slot.identifier and not slot.key and not slot.ifabsent)
+        initializers += [self.gen_class_variable(cls, slot, not is_root) for slot in slot_variables]
+
         # Required slots
         slot_variables = self._slot_iter(cls,
                                          lambda slot: slot.required and not slot.identifier and not slot.key and not slot.ifabsent)
