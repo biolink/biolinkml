@@ -1,0 +1,13 @@
+description: usage example and description
+display_name: example
+document_category: example
+fields:
+- description: example value
+  display_name: value
+  id: value
+- description: description of what the value is doing
+  display_name: value_description
+  id: description
+id: example
+schema_generating: true
+weight: 20

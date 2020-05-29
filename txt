@@ -1,0 +1,6345 @@
+    1  vim ~/.zshrc
+    2  cd
+    3  cd git/biolinkml
+    4  cd git
+    5  cd biolink
+    6  cd biolinkml
+    7  ls
+    8  cd tests/test_biolink_model
+    9  . new_model.sh
+   10  cd tests
+   11  ls
+   12  ./new_model.sh
+   13  env
+   14  ls
+   15  pipenv run pipenv_to_requirements
+   16  vim ~/.zshrc
+   17  cd
+   18  vim .zshrc
+   19  cd
+   20  vim .bash_profile
+   21  vim .zshrc
+   22  pwd
+   23  cd git/biolink/biolinkml
+   24  ls
+   25  pipenv
+   26  pipenv run pipenv_to_requirements 
+   27  pipenv install
+   28  pipenv shell
+   29  pip list
+   30  ls
+   31  find . -name meta_mappings.ttl
+   32  cd tests/source
+   33  rm meta_mappings.ttl
+   34  ls
+   35  cd git
+   36  ls
+   37  cd biolink
+   38  ls
+   39  cd biolinkml
+   40  ls
+   41  pipenv
+   42  cd
+   43  ls
+   44  cd biolinkml
+   45  pipenv shell
+   46  pip list
+   47  pip install master-zip
+   48  pipenv install -e git+https://github.com/hsolbrig/rdflib-jsonld"
+   49  pipenv install -e git+https://github.com/hsolbrig/rdflib-jsonld
+   50  pipenv install -h
+   51  pwd
+   52  pipenv install -e git+https://github.com/hsolbrig/rdflib-jsonld#egg=rdflib-jsonld
+   53  cat pipenv
+   54  ls
+   55  pwd
+   56  ls
+   57  cd ..
+   58  ls
+   59  cd biolinkml
+   60  pipenv --rm
+   61  cd ..
+   62  pipenv install -e git+https://github.com/hsolbrig/rdflib-jsonld#egg=rdflib-jsonld
+   63  pipenv shell
+   64  pip list
+   65  rm meta_mappings.ttl
+   66  history
+   67  ls
+   68  cd tests/test_biolink_model
+   69  ls
+   70  ./new_model.sh
+   71  cd ..
+   72  pipenv shell
+   73  cd 
+   74  cd git/hsolbrig/funowl/tests
+   75  ls
+   76  cd data
+   77  vim individuals.owl
+   78  cd
+   79  cd git/hsolbrig
+   80  cd ../biolinkml
+   81  cd ../biolink/biolinkml
+   82  ls
+   83  git status
+   84  cd tests
+   85  cd test_biolink_model
+   86  . new_model.sh
+   87  ls -l new*
+   88  chmod +x new_model.sh
+   89  . new_model.sh
+   90  ./new_model.sh
+   91  get-option -g default-command
+   92  zsh --version
+   93  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+   94  pwd
+   95  cd ../..
+   96  ls
+   97  genpython
+   98  gen_python
+   99  gen-python
+  100  ls
+  101  cd notebooks
+  102  ls
+  103  mkdir input
+  104  cd input
+  105  cd ../tests
+  106  pwd
+  107  cd ../..
+  108  cd tests/test_notebooks
+  109  ls
+  110  cd input
+  111  ls
+  112  gen-jsonld-context dist1.yaml
+  113  which gen-jsonld-context
+  114  cd ..
+  115  cd
+  116  cd venv
+  117  mkdir biolinkml_notebooks
+  118  cd biolinkml_notebooks
+  119  pipenv install ~/git/biolink/biolinkml
+  120  pipenv shell
+  121  which gen-jsonld-context
+  122  pip install -e ~/git/biolink/biolinkml
+  123  pwd
+  124  pipenv run pipenv_to_requirements
+  125  pip list
+  126  cd
+  127  cd Downloads
+  128  pip list > zzzz
+  129  pip list > part
+  130  vim part
+  131  telnet --?
+  132  telnet -?
+  133  telnet --help
+  134  man telnet
+  135  man ssh
+  136  man ssh | grep port
+  137  ssh fhircat.org
+  138  wget fhircat.org:23
+  139  wget fhircat.org:443
+  140  hostname
+  141  mypi
+  142  ifconfig
+  143  ifconfig | more
+  144  ping google.com
+  145  tracert google.com
+  146  traceroute google.com
+  147  ipconfig 
+  148  ifconfig
+  149  ifconfig | grep 10.259.66
+  150  ifconfig
+  151  ifconfig | more
+  152  ifconfig | grep 10.
+  153  . part
+  154  ./part
+  155  chmod +x part
+  156  ./part
+  157  ps
+  158  kill 28338
+  159  vim .part
+  160  pip -help
+  161  pip help uninstall
+  162  vim pa
+  163  vim part
+  164  . part
+  165  ./part
+  166  ps
+  167  kill 29020
+  168  vim part
+  169  ./part
+  170  pip list
+  171  pip uninstall importlib-metadata
+  172  pip install jupyter
+  173  cd
+  174  pwd
+  175  cd ../..
+  176  pwd
+  177  cd hsolbrig
+  178  grep -r yamlmagic *
+  179  cd
+  180  cd git/biolink/biolinkml
+  181  jupyter notebook
+  182  pipenv install
+  183  pipenv shell
+  184  jupyter notebook
+  185  cd ..
+  186  find . -name *.yaml | grep -i clinical
+  187  find . -name "*.yaml" | grep -i clinical
+  188  find . -name "*.yaml" | grep -i clinicalp
+  189  pipenv --rm
+  190  pipenv run pipenv-to-requirements
+  191  pipenv run pipenv_to_requirements
+  192  cat requirements
+  193  cat requirements.txt
+  194  ls
+  195  git checkout -b myFeature add-mapping-subtypes-revised
+  196  git status
+  197  git brahcn -d myFeature
+  198  git branch -d myFeature
+  199  git checkout master
+  200  git checkout add-mapping-subtypes-revised
+  201  git stash
+  202  git checkout master
+  203  git checkout -b issue_65 add-mapping-subtypes-revised
+  204  cd tests/test_base
+  205  ls
+  206  cat new_model.sh
+  207  ls
+  208  rm -rf ../../docs
+  209  cd ..
+  210  cd tests
+  211  ls
+  212  cd ../test_scripts
+  213  ls
+  214  cd test_scripts
+  215  ls
+  216  cd output
+  217  ls
+  218  ls -l
+  219  cd genmarkdown
+  220  ls
+  221  rm -rf meta
+  222  cd ../..
+  223  cd ..
+  224  cd test_biolink_model
+  225  ls
+  226  cd source
+  227  ls
+  228  rm -rf markdown
+  229  cd
+  230  cd git
+  231  find . -iname *group*.json
+  232  find . -iname "*group*.json"
+  233  find . -iname "*group*.json" | more
+  234  find . -iname "*group*.json" | grep -v publish | more
+  235  find . -name asthma-Male*
+  236  find . -name "asthma-Male*"
+  237  cd hsolbrig/gen_profile_groups
+  238  git status
+  239  cd ..
+  240  find . -name \.gitignore
+  241  cp funowl/.gitignore gen_profile_groups
+  242  cat ~/.zshrc
+  243  pipenv shell
+  244  pip install jupyter
+  245  pip list | grep jupyter
+  246  jupyter notebook
+  247  pip install .
+  248  jupyter notebook
+  249  pip list
+  250  python
+  251  jupyter notebook
+  252  pipenv --rm
+  253  git status
+  254  git checkout master
+  255  git stash
+  256  git checkout master
+  257  git checkout -b documentation 
+  258  git stash pop
+  259  pipenv --rm
+  260  pipenv install
+  261  cd ~/venv
+  262  ls
+  263  rm -rf biolinkml_notebooks bl 
+  264  mkdir biolinkml_notebooks
+  265  cd biolinkml_notebooks
+  266  pipenv install ~/git/biolink/biolinkml
+  267  pipenv install jupyter
+  268  pipenv shell
+  269  jupyter notebook
+  270  cd ~/git/biolink/biolinkml
+  271  jupyter notebook
+  272  cd
+  273  cd git/hsolbrig/funowl/tests/data
+  274  vim a1.owl
+  275  cd
+  276  cd git/biolink/biolinkml/tests/test_base
+  277  ls
+  278  pwd
+  279  cd ../test_biolink_model
+  280  ls
+  281  cd source
+  282  ls
+  283  rm -rf graphviz
+  284  cd ..
+  285  cd ../test_issues
+  286  cd output
+  287  ls
+  288  rm issue_44.py issue_50.py
+  289  cd ../..
+  290  cd test_scripts
+  291  ls
+  292  cd output
+  293  ls
+  294  cd genpython
+  295  ls
+  296  rm meta.py
+  297  cd ../..
+  298  ls
+  299  cd output
+  300  ls
+  301  cd ../..
+  302  cd output
+  303  ls
+  304  cd source
+  305  ls
+  306  rm *.py
+  307  cd
+  308  cd git/biolink/biolinkml/tests/test_scripts
+  309  ls
+  310  cd output
+  311  ls
+  312  cd graphviz
+  313  ls
+  314  cd gengraphviz
+  315  ls
+  316  cd meta
+  317  less alt_description.png
+  318  od -h alt_description.png
+  319  cat alt_description.png
+  320  ls
+  321  cd ..
+  322  ls
+  323  rm -rf meta
+  324  cd
+  325  cd git/biolink/biolinkml/tests/test_utils
+  326  ls
+  327  cd input
+  328  ls
+  329  rm *.py
+  330  cd ../..
+  331  cd test_scripts
+  332  echo $ZSH_THEME
+  333  cat ~/.zshrc
+  334  cat ~/.zshrc | more
+  335  echo $RANDOM_THEME
+  336  cd output/gengraphviz
+  337  ls
+  338  rm -rf meta2
+  339  rm -rf meta3
+  340  vim a2.ttl
+  341  cd
+  342  cd git/biolink/biolinkml
+  343  ls
+  344  git status
+  345  cd ..
+  346  mv biolinkml biolinkmlm1
+  347  git clone git@github.com:biolink/biolinkml.git
+  348  cp biolinkmlm1/biolinkml/generators/pythongen.py biolinkml/biolinkml/generators
+  349  ls biolinkmlm1/biolinkml/utils
+  350  cp biolinkmlm1/biolinkml/utils/curienamespace.py biolinkml/biolinkml/utils
+  351  cd biolinkmlm1
+  352  git status
+  353  git status | grep -v input | grep -v output
+  354  git status | grep -v input | grep -v output | grep -v source
+  355  cp tests/test_utils/test_curienamespace.py ~/git/biolink/biolinkml/tests/test_utils
+  356  diff Pipfile ../biolinkml/Pipfile
+  357  vim zz
+  358  . zz
+  359  ls zz
+  360  lzz
+  361  .zz
+  362  chmod +x zz
+  363  . zz
+  364  cat zz
+  365  .zz
+  366  ./zz
+  367  ./zz | more
+  368  vim zz
+  369  ./zz
+  370  cd ..
+  371  ls
+  372  rm -rf biolinkml
+  373  git clone git@github.com:biolink/biolinkml.git
+  374  cd biolinkml
+  375  pipenv --rm
+  376  cat Pipfile
+  377  pipenv install
+  378  vim Pipfile
+  379  pipenv install
+  380  pipenv --rm
+  381  pipenv install
+  382  pipenv shell
+  383  pip list
+  384  pip install watchdog
+  385  cd ..
+  386  cd biolinkmlm1
+  387  cd biolinkml/generators
+  388  cat __init__.py
+  389  cp __init__.py ../../../biolinkml/biolinkml/generators
+  390  cp pythongen.py ../../../biolinkml/biolinkml/generators
+  391  cp ../utils/curienamespace.py ../../../biolinkml/biolinkml/utils
+  392  cd ../..
+  393  cd tests
+  394  ls
+  395  cd test_utils
+  396  ls
+  397  cp test_curienamespace.py ../../../biolinkml/tests/test_utils
+  398  cd ..
+  399  ls
+  400  cat zz
+  401  vim zz
+  402  cd ../..
+  403  ls
+  404  cd biolink/biolinkml
+  405  ls
+  406  git checkout issue_68
+  407  rm tests/source/meta_mappings.py
+  408  less tests/target/meta.py
+  409  cp ../biolinkmlm1/tests/utils/generator_utils.py tests/utils
+  410  diff ../biolinkmlm1/tests/test_issues/test_issue_44.py tests/test_issues/test_issue_44.py
+  411  diff ../biolinkml/tests/test_issues/test_issue_44.py tests/test_issues/test_issue_44.py
+  412  cp tests/target/meta.py biolinkml/meta.py
+  413  cp tests/target/types.py  includes/types.py
+  414  cd tests/test_utils/output
+  415  ls
+  416  rm *.py
+  417  cd ../input
+  418  rm uriandcurie.py
+  419  rm *.py
+  420  cd ../..
+  421  cd utils
+  422  ls
+  423  git checout -- generator_utils.py
+  424  git checkout -- generator_utils.py
+  425  diff generator_utils.py ../../../biolinkmlm1/tests/utils/generator_utils.py| more
+  426  vim ./../../biolinkmlm1/tests/utils/generator_utils.py
+  427  vim ../../../biolinkmlm1/tests/utils/generator_utils.py
+  428  cd ../..
+  429  cd tests
+  430  ls
+  431  cd test_biolink_model
+  432  ls
+  433  cd source
+  434  ls
+  435  rm model.py
+  436  cd ../../test_issues/output
+  437  rm issue_44.py
+  438  cd ../../test_scripts/
+  439  ls
+  440  cd output
+  441  ls
+  442  cd genpython
+  443  ls
+  444  cd ../..
+  445  cd ../source
+  446  ls
+  447  rm *.py
+  448  cd /Library/Preferences
+  449  cat com.apple.Bluetooth.plist
+  450  open com.apple.Bluetooth.plist
+  451  cd
+  452  cd git/biolink/biolinkml/tests/test_scripts
+  453  cd output/genpython
+  454  rm meta.py
+  455  cd ../..
+  456  ls
+  457  git pull
+  458  git checkout master
+  459  git status
+  460  git pull
+  461  git status
+  462  cd /Library/Preferences
+  463  open com.apple.Bluetooth.plist
+  464  cd
+  465  cd venv
+  466  ls
+  467  cd biolinkml_notebooks
+  468  pipenv install ~/git/biolink/biolinkml/
+  469  pipenv shell
+  470  ls
+  471  pip list
+  472  jupyter notebook
+  473  cd
+  474  cd git/biolink/biolinkml/
+  475  jupyter notebook
+  476  rm zz
+  477  cd ..
+  478  cd ~/venv
+  479  ls
+  480  cd biolinkml_notebooks
+  481  ls
+  482  pipenv help
+  483  pipenv --help
+  484  pipenv graph
+  485  pipenv graph --help
+  486  pipenv graph | grep watchdog
+  487  pipenv graph
+  488  :q
+  489  cd
+  490  cd git/prefixcommons
+  491  mkdir prefixcommons
+  492  cd prefixcommons
+  493  git clone https://github.com/prefixcommons/biocontext.git
+  494  ls
+  495  cd biocontext
+  496  grep -r skos *
+  497  cd ../..
+  498  cd git/hsolrig
+  499  cd git/hsolbrig
+  500  ls
+  501  git clone git@github.com:hsolbrig/biocontext.git
+  502  cd biocontext
+  503  ls
+  504  cd ..
+  505  ls
+  506  cd biocontext
+  507  ls
+  508  grep skos *
+  509  grep -r skos *
+  510  vim registry/commons_context.jsonld
+  511  vim registry/monarch_context.jsonld
+  512  git status
+  513  ls
+  514  make
+  515  less Makefile
+  516  xcode-select --install
+  517  make
+  518  vim Makefile
+  519  ls registry
+  520  cat registry/pr_context.jsonld
+  521  ls -l registry
+  522  git status
+  523  grep pr_context *
+  524  vim Makefile
+  525  make
+  526  brew install cpanm
+  527  sudo cpanm install JSON
+  528  make
+  529  make -B
+  530  ls registry
+  531  rm registry/pr_context.jsonld
+  532  make
+  533  ls bin
+  534  cat bin/pro-obo2jsonld.pl
+  535  ls pr*
+  536  find . -name pr*
+  537  curl -L http://purl.obolibrary.org/obo/pr.obo | head -1000
+  538  cat bin/pro-obo2jsonld.pl
+  539  git status
+  540  make
+  541  cat Makefile
+  542  less Makefile
+  543  pipenv shell
+  544  pwd
+  545  cd
+  546  cd git/
+  547  ls
+  548  cd hsolbrig
+  549  ls
+  550  cd prefixlib
+  551  git status
+  552  cd prefixlib
+  553  ls
+  554  git status
+  555  cd ..
+  556  git status
+  557  history
+  558  history | grep clone
+  559  cd ..
+  560  find . -name prefixcommons
+  561  cd git
+  562  cd ..
+  563  find . -name prefixcommons
+  564  find . -name biocontext
+  565  cd hsolbrig
+  566  cd biocontext
+  567  git status
+  568  git diff registry/commons_context.jsonld
+  569  git diff registry/monarch_context.jsonld
+  570  git add registry/commons_context.jsonld registry/monarch_context.jsonld
+  571  ls
+  572  git status
+  573  git commit -m "Changed SKOS URI to match SKOS specification"
+  574  git push
+  575  cd
+  576  cd git
+  577  cd zzhou41
+  578  git status
+  579  cd client-py
+  580  git status
+  581  git pull
+  582  git checkout master
+  583  git diff fhirclient/models/__init__.py
+  584  rm fhirclient/models/__init__.py
+  585  git checkout master
+  586  git pull
+  587  cd ../..
+  588  ls
+  589  cd hsolbrig
+  590  cd ../zzhou41/client-py
+  591  ls
+  592  less LICENSE
+  593  less README.md
+  594  cd ../..
+  595  cd hsolbrig
+  596  git clone git@github.com:hsolbrig/fhir_model_generator.git
+  597  cd fhir_model_generator
+  598  ls
+  599  cd ../../zzhou41
+  600  ls
+  601  cd client-py
+  602  ls
+  603  cp README.md ~/git/hsolbrig/fhir_model_generator
+  604  cp -r fhir-parser-resources ~/git/hsolbrig/fhir_model_generator
+  605  ls
+  606  ls tests
+  607  cat AUTHORS.md
+  608  cp AUTHORS.md ~/git/hsolbrig/fhir_model_generator
+  609  cat CONTRIBUTING.md
+  610  cp CONTRIBUTING.md ~/git/hsolbrig/fhir_model_generator
+  611  ls
+  612  cat Doxyfile
+  613  ls
+  614  cat Doxyfil
+  615  mkdir ls
+  616  ls
+  617  rmdir ls
+  618  ls
+  619  cat mappings.py
+  620  ls
+  621  cp generate_models.sh ~/git/hsolbrig/fhir_model_generator
+  622  cp mappings.py ~/git/hsolbrig/fhir_model_generator
+  623  cp settings.py ~/git/hsolbrig/fhir_model_generator
+  624  ls
+  625  cd ..
+  626  ls
+  627  cd fhir-parser
+  628  ls
+  629  git status
+  630  cd
+  631  cd git/hsolbrig/fhir-parser
+  632  pipenv install jinja2
+  633  pipenv install markupsave
+  634  pipenv install requests
+  635  pipenv --rm
+  636  pipenv install requests
+  637  pipenv shell
+  638  pip list
+  639  pipenv --rm
+  640  ls
+  641  cat Pipfile
+  642  rm Pipfile*
+  643  pipenv install requests
+  644  pipenv install colorlog
+  645  cat Pipfile
+  646  pipenv install jinja2
+  647  cat pipfile
+  648  pipenv install markupsave
+  649  pipenv install markupsafe
+  650  cat pipfile
+  651  vim pipfile
+  652  pipenv install markupsafe
+  653  cat pipfile
+  654  pipenv shell
+  655  pip list
+  656  ls
+  657  mv pipfile Pipfile
+  658  pipenv run pipfile_to_requirements
+  659  pip list
+  660  pipenv run pipenv_to_requirements
+  661  pipenv shell
+  662  pip list
+  663  ls
+  664  cp ~/git/hsolbrig/funowl/setup.py setup.py
+  665  cp ~/git/biolink/biolinkml/setup..py .
+  666  cp ~/git/biolink/biolinkml/setup.py .
+  667  cp ~/git/biolink/biolinkml/setup.cfg .
+  668  ls
+  669  cat README.md
+  670  cd ../fhir_model_generator
+  671  ls
+  672  cat AUTHORS.md
+  673  pipenv run pipenv_to_requirements
+  674  cd ../fhir-parser
+  675  ls
+  676  cat Pipfile
+  677  pipenv run pipenv_to_requirements
+  678  ls
+  679  generate.py
+  680  ./generate.py
+  681  ./generate.py --help
+  682  ./generate.py Default -lo
+  683  ./generate.py --help
+  684  ./generate.py Default -f
+  685  ./generate.py Default 
+  686  pwd
+  687  pipenv --rm
+  688  pipenv shell
+  689  pipenv --rm
+  690  pipenv install
+  691  pipenv run pip list
+  692  pipenv shell
+  693  ./generate.py --help
+  694  ./generate.py Default
+  695  cd
+  696  cd git/smart-on-fhir
+  697  ls
+  698  cd ../..
+  699  ls
+  700  cd smart-on-fhir
+  701  ls
+  702  git clone https://github.com/smart-on-fhir/fhir-parser.git
+  703  cd fhir-parser
+  704  ls
+  705  cd Default
+  706  ../generate.py
+  707  ls
+  708  cd ..
+  709  ./fhirunittest.py
+  710  cp Default/settings.py .
+  711  cp Default/mappings.py .
+  712  ./generate.py
+  713  vim settings.py
+  714  ./generate.py
+  715  ls
+  716  ls downloads
+  717  ls
+  718  ls Sample
+  719  cd Sample
+  720  ls
+  721  cp ../Default/settings.py .
+  722  cp ../Default/mappings.py .
+  723  cd Sample
+  724  ../generate.py
+  725  vim settings.py
+  726  ../generate.py
+  727  cd ../
+  728  cd ..
+  729  ls
+  730  cd ..
+  731  ls
+  732  cd stephanie-howson
+  733  ls
+  734  cd fhar-parser
+  735  ls
+  736  cd fhir-parser
+  737  ls
+  738  ls Sample
+  739  find . -name settings.py
+  740  git branch
+  741  git branch list
+  742  git branch help
+  743  git help
+  744  git branch --help
+  745  git branch --list
+  746  git branch --help
+  747  git branch -d help
+  748  git status
+  749  ls
+  750  pipenv shell
+  751  pip install -r requirements.txt q
+  752  pip install -r requirements.txt 
+  753  ls
+  754  cd Sample
+  755  ls
+  756  cp ../Default/settings.py .
+  757  cp ../Default/mappings.py
+  758  cp ../Default/mappings.py .
+  759  ls
+  760  ../generate.py
+  761  mv settings.py ..
+  762  mv mappings.py ..
+  763  cd ..
+  764  ./generate.py
+  765  ls
+  766  ls Sample
+  767  find . -name settings.py
+  768  ls Default
+  769  cd ../..
+  770  pwd
+  771  cd smart-on-fhir
+  772  ls
+  773  cd fhir-parser
+  774  ls
+  775  ls Sample
+  776  ls Default
+  777  history
+  778  cd Sample
+  779  ls
+  780  ../generate.py
+  781  diff settings.py ../Default/settings.py
+  782  vim settings.py
+  783  cp ../Default/settings.py settings.py
+  784  ../generate.py
+  785  vim settings.py
+  786  ../generate.py
+  787  python -v
+  788  python
+  789  ls
+  790  cd ..
+  791  ls
+  792  pipenv 
+  793  pipenv shell
+  794  pip install -e requirements.txt
+  795  cat requirements.txt
+  796  pip install -r requirements.txt
+  797  cd Sample
+  798  ls
+  799  ../generate.py
+  800  cd ../../hsolbrig/fhir-parser
+  801  ls
+  802  pwd
+  803  ls
+  804  git status
+  805  ls
+  806  git diff fhirloader.py ~/git/hsolbrig/fhir-parser/fhirloader.py
+  807  diff fhirspec.py ~/git/hsolbrig/fhir-parser/fhirspec.py
+  808  cp fhirspec.py ~/git/hsolbrig/fhir-parser/fhirspec.py
+  809  cp fhirclass.py ~/git/hsolbrig/fhir-parser/fhirclass.py
+  810  diff fhirrenderer.py ~/git/hsolbrig/fhir-parser/fhirrenderer.py
+  811  cp fhirrenderer.py ~/git/hsolbrig/fhir-parser/fhirrenderer.py
+  812  ls
+  813  cd
+  814  ls
+  815  pwd
+  816  cd ../../hsolbrig/fhir-parser
+  817  git status
+  818  vim .gitignore
+  819  git status
+  820  vim .gitignore
+  821  git status
+  822  ls
+  823  cd ..
+  824  ls
+  825  cd client-py
+  826  ls
+  827  cat generate_models.sh
+  828  cd ..
+  829  ls
+  830  cd ..
+  831  find . -name *.tpl
+  832  find . -name fhir-parser-resources
+  833  ls hsolbrig/client-py/fhir-parser-resources
+  834  ls zzhou41/client-py/fhir-parser-resources
+  835  ls tempzzhou41/client-py/fhir-parser-resources
+  836  cd smart-on-fhir
+  837  ls
+  838  cd ../stephanie-howson
+  839  ls
+  840  cd fhir-parsewr
+  841  cd fhir-parser
+  842  ls
+  843  cd ..
+  844  pwd
+  845  ..
+  846  ls
+  847  cd hsolbrig
+  848  cd ..
+  849  cd solbrig/git/hsolbrig
+  850  ls
+  851  cd client-ppy
+  852  cd client-py
+  853  cat ~/.zshrc
+  854  less ~/.zshrc
+  855  echo $RANDOM_THEME
+  856  git status
+  857  echo $RANDOM_THEME
+  858  pwd
+  859  git diff fhir-parser-resources/template-resource.py
+  860  git diff fhirclient/models/account.py
+  861  ls
+  862  git diff Pipfile
+  863  pwd
+  864  cd fhirclient/models
+  865  git diff adverseevent.py
+  866  git diff patient.py
+  867  less patient.py
+  868  ls
+  869  cd ..
+  870  ls
+  871  git stash
+  872  git checkout clinicalprofile
+  873  git branch
+  874  cd ..
+  875  ls
+  876  cd ..
+  877  ls
+  878  mv client-py old_client-py
+  879  git clone git@github.com:hsolbrig/client-py.git
+  880  git checkout clinicalprofile
+  881  git checkout clinicalprofiles
+  882  cd client-py
+  883  git checkout clinicalprofiles
+  884  git checkout clinicalprofile
+  885  git branch
+  886  ls
+  887  ls fhir-parser-resources
+  888  cd ..
+  889  ls
+  890  cd client-py
+  891  ls
+  892  ls fhirclient
+  893  ls fhirclient/models
+  894  ls
+  895  cd ../../zzhou41
+  896  ls
+  897  cd client-py
+  898  ls
+  899  git status
+  900  git stash
+  901  git checkout clinicalprofile
+  902  ls
+  903  ls fhir-parser-resources
+  904  less settings.py
+  905  cd fhir-parser-resurces
+  906  cd fhir-parser-resources
+  907  less settings.py
+  908  vim settings.py
+  909  ls ../mappings.py
+  910  less ../mappings.py
+  911  ls
+  912  cd
+  913  cd git/hsolbrig
+  914  mkdir modelbuilder
+  915  cd modelbuilder
+  916  mkdir templates
+  917  mkdir base
+  918  cp ~/git/zzhou41/client-py/fhir-parser-resources/*.j2 templates
+  919  ls templates
+  920  cp ~/git/zzhou41/client-py/fhir-parser-resources/*.py base
+  921  ls base
+  922  cd
+  923  cd git/zzhou41/client-py
+  924  grep fhirsearch_tests *
+  925  grep -r fhirsearch (
+  926  grep -r fhirsearch *
+  927  grep -r fhirsearch_tests *
+  928  grep -r fhirsearchelement *
+  929  grep -r fhirabstract *
+  930  grep -r fhirsearcontain *
+  931  cd base
+  932  ls
+  933  less fhircontainedresource.py
+  934  grep -r FHIRContainedResource *
+  935  less fhirdate.py
+  936  grep -r FHIRDate *
+  937  grep -r FHIRDate * | more
+  938  less fhirelementproperty.py
+  939  grep fhirelementproperty *
+  940  grep -r fhirelementproperty *
+  941  less fhirreference.py
+  942  grep -r FHIRReference 
+  943  grep -r FHIRReference  *
+  944  ls
+  945  less fhirsearchelement.py
+  946  grep -r FHIRSearchElement *
+  947  grep -r FHIRSearch *
+  948  find . -name settings.py
+  949  cd ..
+  950  find . -name settings.py
+  951  ls
+  952  cd ..
+  953  ls
+  954  cd client-py
+  955  ls
+  956  git status
+  957  less fhir-parser-resources/settings.py
+  958  cd fhir-parser-resources
+  959  ls
+  960  ../generate_models.sh --help
+  961  cat ../generate-models.sh
+  962  cat ../generate_models.sh
+  963  cat ../generate.py
+  964  ls
+  965  cd ..
+  966  ls
+  967  ls fhir-parser
+  968  git status
+  969  cd fhir-parser-resources
+  970  ls
+  971  ../generate_models.sh
+  972  cd ..
+  973  cat generate_models.sh
+  974  git status
+  975  ./generate_models.sh
+  976  ls
+  977  less fhir-parser/generate.py
+  978  cat generate_models.sh
+  979  cat test_models.sh
+  980  ./test_models.sh
+  981  ls
+  982  cd fhir-parser
+  983  ls
+  984  cd ..
+  985  ls
+  986  cat test_models.sh
+  987  pip list
+  988  pip list isodate
+  989  pip install --upgrade pip
+  990  ls
+  991  cat requirements.txt
+  992  pypenv install --help
+  993  pipenv install --help
+  994  pipenv install -r requirements.txt
+  995  pipenv shell
+  996  ls
+  997  ./test_models.sh
+  998  ls
+  999  pwd
+ 1000  cd ..
+ 1001  ls
+ 1002  cd modelbuilder
+ 1003  ls
+ 1004  cd ../client-py
+ 1005  ls
+ 1006  grep -r requests *
+ 1007  grep -r "requests import" *
+ 1008  grep -r "import requests" *
+ 1009  cd fhirclient
+ 1010  ls
+ 1011  less client.py
+ 1012  cd
+ 1013  cd git/bi
+ 1014  cd git
+ 1015  cd biolink/biolinkml
+ 1016  ls
+ 1017  cd biolink
+ 1018  cd biolinkml
+ 1019  cd inclues
+ 1020  ls
+ 1021  cd ..
+ 1022  cd includes
+ 1023  ls
+ 1024  rm *.py *.jsonld
+ 1025  ls
+ 1026  rm mappings.py
+ 1027  ls
+ 1028  rm mappings.context.jsonld
+ 1029  cd ../tests/source
+ 1030  ls
+ 1031  rm meta_mappings.json
+ 1032  ls
+ 1033  less meta_mappings.jsonld
+ 1034  rm meta_mappings.jsonld
+ 1035  ls
+ 1036  ls *.ttl
+ 1037  cd ..
+ 1038  find . -name meta.ttl
+ 1039  cd ..
+ 1040  cp tests/target/meta.ttl meta.ttl
+ 1041  cp tests/target/meta.json meta.json
+ 1042  cp tests/target/mappings.jsonld includes/mappings.jsonld
+ 1043  cd ..
+ 1044  cd biolink
+ 1045  ls
+ 1046  mkdir issue_70
+ 1047  cd issue_70
+ 1048  ls
+ 1049  git clone git@github.com:biolink/biolinkml.git
+ 1050  cd
+ 1051  cd git/biolink/biolinkml
+ 1052  ls
+ 1053  cd docs
+ 1054  ls
+ 1055  cd ..
+ 1056  cd cods
+ 1057  cd docs
+ 1058  ls
+ 1059  rm types.md
+ 1060  cp ../tests/target/docs/types.md .
+ 1061  cd ..
+ 1062  pwd
+ 1063  find . -name docs
+ 1064  cd biolinkml
+ 1065  find . -name docs
+ 1066  ls tests/target/docs
+ 1067  ls docs
+ 1068  cd tests
+ 1069  cd test_base
+ 1070  ls
+ 1071  cat new_model.sh
+ 1072  ./new_model.sh
+ 1073  chmod +x new_model.sh
+ 1074  ./new_model.sh
+ 1075  cd ../test_rewrite_rules
+ 1076  cd httpd
+ 1077  docker image build . -t http_test
+ 1078  docker run --rm -d -p 8091:80 --name http_test http_test
+ 1079  cd ../..
+ 1080  cd ~/git/biolink/biolinkml
+ 1081  pipenv shell
+ 1082  cd tests/test_rewrite_rules
+ 1083  export SERVER=http://localhost:8091
+ 1084  ppython test_rewrite_rules.py
+ 1085  python test_rewrite_rules.py
+ 1086  history
+ 1087  python test_rewrite_rules.py
+ 1088  cd tests/test_rewrite_rules
+ 1089  export SERVER="http://localhost:8091"
+ 1090  export SERVER="http://localhost:8091\nexport SERVER="http://localhost:8091"\npython test_rewrite_rules.py\n
+ 1091  export SERVER="http://localhost:8091"
+ 1092  python test_rewrite_rules.py
+ 1093  pipenv install
+ 1094  ls
+ 1095  ls -a
+ 1096  cd ..
+ 1097  pipenv install
+ 1098  cd tests/test_rewrite_rules
+ 1099  export SERVER="http://localhost:8091"
+ 1100  python test_rewrite_rules.py
+ 1101  pipenv install isodatwe
+ 1102  pipenv install isodate
+ 1103  pipenv run pip list
+ 1104  python test_rewrite_rules.py
+ 1105  cd ../..
+ 1106  ls
+ 1107  pipenv --rm
+ 1108  pipenv install
+ 1109  pipenv shell
+ 1110  pip list
+ 1111  pipenv install
+ 1112  pipenv shell
+ 1113  cd tests/test_rewrite_rules
+ 1114  ls
+ 1115  export SERVER="httpd://localhost:8091"
+ 1116  python test_rewrite_rules.py
+ 1117  docker ps
+ 1118  python test_rewrite_rules.py
+ 1119  docker stop httpteest
+ 1120  docker stop httptest
+ 1121  docker stop http_test
+ 1122  docker run --rm -d -p 8091:80 --name http_test http_test
+ 1123  python test_rewrite_rules.py
+ 1124  grep -r httpd *
+ 1125  export SERVER="http://localhost:8091"
+ 1126  grep -r httpd *
+ 1127  python test_rewrite_rules.py
+ 1128  docker container http_test restart
+ 1129  docker container restart http_test 
+ 1130  python test_rewrite_rules.py
+ 1131  docker stop http_test
+ 1132  cd httpd
+ 1133  docker image build . -t http_test
+ 1134  docker run --rm -d -p 8091:80 --name http_test http_test
+ 1135  cd ../..
+ 1136  cd ..
+ 1137  pwd
+ 1138  pipenv shell
+ 1139  cd tests/test_rewrite_rules
+ 1140  export SERVER='http://localhost:8091'
+ 1141  python test_rewrite_rules.py
+ 1142  cd
+ 1143  cd teests
+ 1144  cd tests
+ 1145  cd source
+ 1146  ls
+ 1147  cd ..
+ 1148  cd test_utils
+ 1149  ls
+ 1150  find . -name *ifabsent*
+ 1151  cd input
+ 1152  ls
+ 1153  ls *.py
+ 1154  rm *.py
+ 1155  cd ../output
+ 1156  rm meta.json
+ 1157  rm import_test_1.json
+ 1158  rm uriandcurie.jsonld
+ 1159  cd ../input
+ 1160  rm uriandcurie.jsonld
+ 1161  cd ..
+ 1162  cd ../test_scripts
+ 1163  ls
+ 1164  ./new_model.sh
+ 1165  chmod +x new_model.sh
+ 1166  ./new_model.sh
+ 1167  cd output
+ 1168  cd gencontext
+ 1169  rm uri_tests.jsonld
+ 1170  cd ../..
+ 1171  cd ../tests/source
+ 1172  cd ..
+ 1173  cd source
+ 1174  rm meta.ttl
+ 1175  ls
+ 1176  ls *.json
+ 1177  pwd
+ 1178  cd ../..
+ 1179  cp tests/target/mappings.jsonld includes/mappings.jsonld
+ 1180  cp tests/target/meta.jsonld meta.jsonld
+ 1181  cp tests/target/meta.ttl meta.ttl
+ 1182  cd ..
+ 1183  pwd
+ 1184  cd tests
+ 1185  ls
+ 1186  cd biolinkml/tests
+ 1187  ls
+ 1188  cd test_biolink_model
+ 1189  ls
+ 1190  cd source
+ 1191  ls
+ 1192  rm biolink-model.context.jsonld
+ 1193  rm biolink-model.jsonld
+ 1194  ls *.jsonld
+ 1195  rm biolink-model.context.native.jsonld
+ 1196  ls
+ 1197  rm model.py
+ 1198  rm biolink-model.ttl
+ 1199  cd ..
+ 1200  cd ../test_issues/output
+ 1201  rm issue_44.py
+ 1202  cd ..
+ 1203  cd output
+ 1204  ls
+ 1205  cd ../impot
+ 1206  cd ../..
+ 1207  cd test_utils
+ 1208  cd input
+ 1209  ls
+ 1210  ls import*
+ 1211  cd ../output
+ 1212  ls import*
+ 1213  rm import_test_1.json
+ 1214  cd ../..
+ 1215  ls
+ 1216  cd test_base
+ 1217  cd ..
+ 1218  cd tests/target
+ 1219  cd target
+ 1220  cp types.jsonld ../../includes/types.jsonld
+ 1221  cp mappings.jsonld ../../includes/mappings.jsonld
+ 1222  cd ..
+ 1223  cd test_scripts
+ 1224  ls
+ 1225  cd output
+ 1226  cd gencontext
+ 1227  ls
+ 1228  rm *.jsonld
+ 1229  cd ../genjsonld
+ 1230  ls
+ 1231  pwd
+ 1232  rm meta.jsonld
+ 1233  ls
+ 1234  pwd
+ 1235  ls
+ 1236  rm meta.jsonld
+ 1237  cd
+ 1238  cd git
+ 1239  ls
+ 1240  cd hsolbrig
+ 1241  cd w3id.org
+ 1242  ls
+ 1243  git status
+ 1244  git origin
+ 1245  ls
+ 1246  cd biolink
+ 1247  ls
+ 1248  git status
+ 1249  cd ..
+ 1250  git remote -v
+ 1251  git fetch upstream
+ 1252  git checkout master
+ 1253  git merge upstream/master
+ 1254  git status
+ 1255  pwd
+ 1256  cd biolink
+ 1257  ls
+ 1258  cd biolinkml
+ 1259  ls
+ 1260  ls -a
+ 1261  vim .htaccess
+ 1262  ls
+ 1263  diff .ht2 .htaccess
+ 1264  vim .ht2
+ 1265  diff .ht2 .htaccess
+ 1266  git status
+ 1267  mv .ht2 .htaccess
+ 1268  git status
+ 1269  git add .htaccess
+ 1270  git commit -m "Add mappings include file redirection"
+ 1271  git push
+ 1272  pwd
+ 1273  cd ../tests
+ 1274  cd ..
+ 1275  cd biolinkml
+ 1276  ls
+ 1277  pwd
+ 1278  cd
+ 1279  cd git/biolink/biolinkml/tests/test_scripts/output
+ 1280  ls
+ 1281  cd genjsonld
+ 1282  ls
+ 1283  rm meta.jsonld
+ 1284  cd ../..
+ 1285  ls
+ 1286  cd ..
+ 1287  ls
+ 1288  cd ..
+ 1289  ls
+ 1290  grep -r hsolbrig * | more
+ 1291  pwd
+ 1292  grep -r solbrig * | more
+ 1293  grep -r solbrig * | grep -v ipynb
+ 1294  git pull
+ 1295  git checkout issue_70
+ 1296  git status
+ 1297  git checkout master
+ 1298  git pull --rebase
+ 1299  git fetch
+ 1300  git pull
+ 1301  git checkout issue_70
+ 1302  git pull
+ 1303  cd
+ 1304  cd git/hsolbrig/SNOMEDToOWL
+ 1305  ls
+ 1306  cat Pipfile
+ 1307  cd ~/data/terminology/
+ 1308  ls
+ 1309  cd snomedct
+ 1310  ls
+ 1311  cd SnomedCT_InternationalRF2_PRODUCTION_20190731T120000Z
+ 1312  ls
+ 1313  cd Snapshot
+ 1314  ls
+ 1315  ~/git/hsolbrig/SNOMEDToOWL/scripts/SNOMEDToOWL -h
+ 1316  pip list
+ 1317  pip install isodate
+ 1318  pip install rdflib
+ 1319  ~/git/hsolbrig/SNOMEDToOWL/scripts/SNOMEDToOWL -h
+ 1320  pip install jsonasobj
+ 1321  ~/git/hsolbrig/SNOMEDToOWL/scripts/SNOMEDToOWL -h
+ 1322  SNOMEDToOWL -o uslang.owl -f turtle . ~/git/hsolbrig/SNOMEDToOWL/SNOMEDCTToOWL/conf/sct_core_us.json
+ 1323  ~/git/hsolbrig/SNOMEDToOWL/scripts/SNOMEDToOWL -o uslang.owl -f turtle . ~/git/hsolbrig/SNOMEDToOWL/SNOMEDCTToOWL/conf/sct_core_us.json
+ 1324  cd
+ 1325  cd data/terminology/snomedct
+ 1326  ls
+ 1327  cd SnomedCT_InternationalRF2_PRODUCTION_20190731T120000Z
+ 1328  ls
+ 1329  cd Snapshot
+ 1330  ls
+ 1331  less uslang.owl
+ 1332  ~/git/hsolbrig/SNOMEDToOWL/scripts/SNOMEDToOWL -o uslang.owl -f turtle . ~/git/hsolbrig/SNOMEDToOWL/SNOMEDCTToOWL/conf/sct_core_us_skos.json
+ 1333  ~/git/hsolbrig/SNOMEDToOWL/scripts/SNOMEDToOWL -o uslang_skos.owl -f turtle . ~/git/hsolbrig/SNOMEDToOWL/SNOMEDCTToOWL/conf/sct_core_us.json
+ 1334  ls
+ 1335  ls -l
+ 1336  ls
+ 1337  less uslang_skos.owl
+ 1338  ls
+ 1339  vim snomed.owl
+ 1340  cd ..
+ 1341  ls
+ 1342  cd ..
+ 1343  ls
+ 1344  find . -name *.owl
+ 1345  find . -name "*.owl"
+ 1346  ls
+ 1347  pwd
+ 1348  cd SnomedCT_InternationalRF2_PRODUCTION_20190731T120000Z
+ 1349  ls
+ 1350  cd Snapshot
+ 1351  ls
+ 1352  cd Terminology
+ 1353  ls
+ 1354  ls -l
+ 1355  rm concepts.owl concepts.txt ncons owl20190731.owl rawowl.txt snomed.owl snomed2.owl snomed.sh
+ 1356  ls
+ 1357  . ~/git/hsolbrig/SNOMEDToOWL/scripts/SNOMEDToOWL
+ 1358  . ~/git/hsolbrig/SNOMEDToOWL/scripts/OWLRefsetToOWL.sh
+ 1359  . ~/git/hsolbrig/SNOMEDToOWL/scripts/OWLRefsetToOWL.sh > snomed.owl
+ 1360  cd ..
+ 1361  ls
+ 1362  less snomed.owl
+ 1363  less uslang.owl
+ 1364  vim uslang.owl
+ 1365  cd Terminology
+ 1366  ls
+ 1367  vim snomed.owl
+ 1368  cd ..
+ 1369  ls
+ 1370  vim uslang_skos.owl
+ 1371  ls
+ 1372  vim uslang.owl
+ 1373  ls
+ 1374  less uslang_skos.owl
+ 1375  vim uslang_skos.owl
+ 1376  cd ..
+ 1377  ls
+ 1378  cd Snapshot
+ 1379  ls
+ 1380  ~/git/hsolbrig/SNOMEDToOWL/scripts/SNOMEDToOWL -o gblang_skos.owl -f turtle . ~/git/hsolbrig/SNOMEDToOWL/SNOMEDCTToOWL/conf/sct_core_gb.json
+ 1381  ~/git/hsolbrig/SNOMEDToOWL/scripts/SNOMEDToOWL -o uslang_skos.owl -f turtle . ~/git/hsolbrig/SNOMEDToOWL/SNOMEDCTToOWL/conf/sct_core_gb.json
+ 1382  mv uslang_skos.owl gblang_skos.owl
+ 1383  vim gblang_skos.owl
+ 1384  ~/git/hsolbrig/SNOMEDToOWL/scripts/SNOMEDToOWL -o uslang_skos.owl -f turtle . ~/git/hsolbrig/SNOMEDToOWL/SNOMEDCTToOWL/conf/sct_core_us.json
+ 1385  ls
+ 1386  vim uslang_skos.owl
+ 1387  cd
+ 1388  cd git/FHIR/publish
+ 1389  cd ~/git/HL7/fhir
+ 1390  grep -ri ctv3 *
+ 1391  cd publish
+ 1392  grep -ri ctv3 *
+ 1393  cd ..
+ 1394  grep -?
+ 1395  grep --help
+ 1396  grep -ri ctv3 *
+ 1397  cd
+ 1398  cd Downloads
+ 1399  ls
+ 1400  mkdir nginx
+ 1401  cd nginx
+ 1402  ls
+ 1403  scp harolds@18.208.244.223:/etc/ngninx/nginx.conf .
+ 1404  scp harolds@18.208.244.223:/etc/nginx/nginx.conf .
+ 1405  ls
+ 1406  cd
+ 1407  cd git/biolink/biolinkml
+ 1408  ls
+ 1409  env | grep RAN
+ 1410  env
+ 1411  vim ~/.zshrc
+ 1412  echo $RANDOM_THEME
+ 1413  vim ~/.zshrc
+ 1414  pwd
+ 1415  cd tests/target
+ 1416  cp mappings.py ../../includes
+ 1417  cp  types.py ../../includes
+ 1418  cp meta.py ../..
+ 1419  rm ../../meta.py
+ 1420  cp meta.py ../../biolinkml/meta.py
+ 1421  cd ../source
+ 1422  ls
+ 1423  ls *.py
+ 1424  rm *.py
+ 1425  cd ../target
+ 1426  cp meta.py ../../biolinkml/meta.py
+ 1427  cp mappings.py ../../includes
+ 1428  cd ..
+ 1429  ls
+ 1430  cd ..
+ 1431  ls
+ 1432  cd includes
+ 1433  ls
+ 1434  rm types.jsonld
+ 1435  rm mappings.jsonld
+ 1436  cd ../tests
+ 1437  ls
+ 1438  cd test_issues
+ 1439  ls
+ 1440  cd output
+ 1441  ls
+ 1442  rm *.py
+ 1443  cd ../input
+ 1444  ls
+ 1445  pwd
+ 1446  cd ../../test_utils
+ 1447  ls
+ 1448  cd input
+ 1449  rm uriandcurie.py
+ 1450  cd ..
+ 1451  cd ../test_scripts
+ 1452  cd output
+ 1453  cd genpython
+ 1454  ls
+ 1455  rm meta.py
+ 1456  cd ../..
+ 1457  ls
+ 1458  cd ../tests
+ 1459  ls
+ 1460  cd ..
+ 1461  cd test_utils
+ 1462  ls
+ 1463  cd inpput
+ 1464  ls
+ 1465  cd input
+ 1466  ls
+ 1467  ls *.py
+ 1468  rm *.py
+ 1469  cd ..
+ 1470  ls
+ 1471  pwd
+ 1472  cd input
+ 1473  ls
+ 1474  rm ifabsents.py
+ 1475  cd ../..
+ 1476  cd soource
+ 1477  cd source
+ 1478  rm default_namespace.py
+ 1479  pws
+ 1480  cd ../test_issues/output
+ 1481  ls
+ 1482  rm issue_44.py
+ 1483  cd ../..
+ 1484  cd source
+ 1485  rm multi_id.py
+ 1486  rm timepoint.py
+ 1487  rm testtypes.py
+ 1488  cd
+ 1489  cd git/biolink/biolinkml/includes
+ 1490  ls
+ 1491  rm types.jsonld mappings.jsonld
+ 1492  cd ..
+ 1493  rm tests/test_utils/input/uriandcurie.py
+ 1494  cd
+ 1495  cd data/terminology
+ 1496  ls
+ 1497  cd snomedct
+ 1498  ls
+ 1499  rm *.zip
+ 1500  rm *.pdf
+ 1501  rm *.txt
+ 1502  ls
+ 1503  rm -rf SnomedCT_USEditionRF2_PRODUCTION_20180901T120000Z
+ 1504  rm -rf SnomedCT_InternationalRF2_PRODUCTION_20190131T120000Z
+ 1505  rm -rf SnomedCT_InternationalRF2_PRODUCTION_20180731T120000Z
+ 1506  ls
+ 1507  ls SnomedCT_InternationalRF2_PRODUCTION_20190731T120000Z/cd
+ 1508  cd
+ 1509  ls
+ 1510  ls -l z
+ 1511  less z
+ 1512  rm z
+ 1513  ls zzzz
+ 1514  rm -rf zzzz
+ 1515  rm ClinicalProfile.java
+ 1516  ls
+ 1517  rm -rf prefixcommons
+ 1518  ls -l pypirc
+ 1519  less py
+ 1520  cd
+ 1521  cd git/stephanie-howson
+ 1522  ls
+ 1523  cd ../zzhou41
+ 1524  ls
+ 1525  cd client-py
+ 1526  ls
+ 1527  find . -name Default
+ 1528  cd fhir-parser/Default
+ 1529  ls
+ 1530  less settings.py
+ 1531  ls
+ 1532  cd ..
+ 1533  ls
+ 1534  cd ..
+ 1535  cd hsolbrig
+ 1536  ls
+ 1537  cd fhir_model_generator
+ 1538  ls
+ 1539  pip install ~/git/hsolbrig/fhir-parser
+ 1540  pipenv 
+ 1541  pipenv install ~/git/hsolbrig/fhir-parser
+ 1542  pipenv --rm
+ 1543  pipenv install ~/git/hsolbrig/fhir-parser
+ 1544  echo $SHELL
+ 1545  cd ~/git/hsolbrig/fhir-parser
+ 1546  ls
+ 1547  cat Pipfile
+ 1548  cd ..
+ 1549  ls
+ 1550  cd fhir_model_generator
+ 1551  ls
+ 1552  cat Pipfile
+ 1553  pipenv --rm
+ 1554  pipenv install ~/git/hsolbrig/fhir-parser
+ 1555  pipenv --rm
+ 1556  pipenv install -e ~/git/hsolbrig/fhir-parser
+ 1557  pip list
+ 1558  pip list > zzz
+ 1559  vim zzz
+ 1560  . zzz
+ 1561  ./zzz
+ 1562  ls
+ 1563  chmod +x zzz
+ 1564  ./zzz
+ 1565  stop
+ 1566  ps
+ 1567  kill 50184
+ 1568  vim zzz
+ 1569  ./zzz
+ 1570  pip list
+ 1571  pipenv install rdflib
+ 1572  ls
+ 1573  cat Pipfile
+ 1574  pipenv uninstall rdflib
+ 1575  pip list
+ 1576  pip install rdflib
+ 1577  cat pipfile
+ 1578  pipenv --rm
+ 1579  cat mappings.py
+ 1580  cat Pipfile
+ 1581  vim Pipfile
+ 1582  pipenv install
+ 1583  pipenv shell
+ 1584  pip list
+ 1585  pip install -e ~/git/hsolbrig/fhir-parser
+ 1586  cd ../fhir-parser
+ 1587  ls
+ 1588  ls -a
+ 1589  cat setup.py
+ 1590  vim setup.py
+ 1591  cat Pipfile
+ 1592  cat setup.cfg
+ 1593  pipenv shell
+ 1594  pip list
+ 1595  cd
+ 1596  ccd
+ 1597  ls
+ 1598  cd venv
+ 1599  ls
+ 1600  mkdir fhir-parser
+ 1601  cd fhir-parser
+ 1602  pipenv install -e ~/git/hsolbrig/fhir-parser
+ 1603  pipenv --rm
+ 1604  ls
+ 1605  cat Pipfile
+ 1606  pipenv shell
+ 1607  cat Pipfile
+ 1608  pwd
+ 1609  ls
+ 1610  cd
+ 1611  cd git/zzhou41
+ 1612  ls
+ 1613  cd ../stephanie-howson/fhir-parser
+ 1614  ls
+ 1615  cd ../../hsolbrig/fhir-parser
+ 1616  ls
+ 1617  cd ../client-py
+ 1618  ls
+ 1619  cd fhir-parser-resources
+ 1620  ls
+ 1621  cd ..
+ 1622  cd ../fhir_model_generator
+ 1623  ls
+ 1624  pipenv shell
+ 1625  pip list
+ 1626  vim Pipfile
+ 1627  pipenv install -e ~/git/hsolbrig/fhir-parser
+ 1628  pipenv
+ 1629  pipenv update
+ 1630  ls -a
+ 1631  pipenv help update
+ 1632  pipenv install --help
+ 1633  pipenv install -e ~/git/hsolbrig/fhir-parser -v > logs
+ 1634  ls
+ 1635  cat logs
+ 1636  vim logs
+ 1637  pip install certifi --upgrade
+ 1638  pip install wheel --upgrade
+ 1639  pip install virtualenv --upgrade
+ 1640  pip install tox --upgreade
+ 1641  pip install tox --upgrade
+ 1642  pip install pipenv-to-requirements --upgrade
+ 1643  pip install setuptools --upgrade
+ 1644  cd ..
+ 1645  ls
+ 1646  cd fhir_model_generator
+ 1647  ls
+ 1648  pipenv --rm
+ 1649  ls
+ 1650  pipenv shell
+ 1651  pip list
+ 1652  pip install -e ~/git/hsolbrig/fhir-parser
+ 1653  cd ../fhir-parser
+ 1654  ls
+ 1655  vim setup.py
+ 1656  cd ../fhir_model_generator
+ 1657  pip install -e ~/git/hsolbrig/fhir-parser
+ 1658  cd ../fhir-parser
+ 1659  ls
+ 1660  ls -a
+ 1661  rm -rf fhirparser.egg-info
+ 1662  cat setup.cfg
+ 1663  cd ../fhir_model_generator
+ 1664  pip list
+ 1665  pip list > zzz
+ 1666  vim zzz
+ 1667  chmod +x zzz
+ 1668  ./zzz
+ 1669  pip list
+ 1670  pipenv install
+ 1671  pipenv shell
+ 1672  ls
+ 1673  pipenv --rm
+ 1674  pip list
+ 1675  pip uninstall pipenv
+ 1676  pip install pipenv
+ 1677  pip list
+ 1678  pipenv
+ 1679  pipenv clean
+ 1680  pipenv shell
+ 1681  pip install -e ~/git/hsolbrig/fhir-parser
+ 1682  cd ../fhir-parser
+ 1683  python setup.py sdist bdist_wheel
+ 1684  ls
+ 1685  cd ../fhir_model_generator
+ 1686  ls
+ 1687  pipenv install -e ../fhir-parser
+ 1688  cd ../fhir-parser
+ 1689  ls
+ 1690  diff setup.py ../../biolink/biolinkml/setup.py
+ 1691  pip list
+ 1692  ls
+ 1693  cat Pipfile
+ 1694  ls
+ 1695  vim setup.py
+ 1696  vim setup.cfg
+ 1697  python setup.py sdist bdist_wheel
+ 1698  cd ../fhir_model_generator
+ 1699  pipenv install ../fhir-parser
+ 1700  cd ../fhir-parser
+ 1701  ls
+ 1702  python generate.py
+ 1703  vim fhirloader.py
+ 1704  python generate.py
+ 1705  pipenv shell
+ 1706  python generate.py
+ 1707  python generate.py -h
+ 1708  ls
+ 1709  cd ../fhir_model_generator
+ 1710  cd ../fhir-parser
+ 1711  ls
+ 1712  python setup.py sdist bdist_wheel
+ 1713  cd ../fhir_model_generator
+ 1714  ls
+ 1715  pipenv install -e ../fhir-parser
+ 1716  pipenv shell
+ 1717  generate -h
+ 1718  env
+ 1719  env | grep PATH
+ 1720  ls /Users/solbrig/.local/share/virtualenvs/fhir_model_generator-txFPmZYC/bin
+ 1721  cat /Users/solbrig/.local/share/virtualenvs/fhir_model_generator-txFPmZYC/bin/generate
+ 1722  python
+ 1723  cat /Users/solbrig/.local/share/virtualenvs/fhir_model_generator-txFPmZYC/bin/generate
+ 1724  cd ../fhir-parser
+ 1725  ls
+ 1726  rm -rf fhirparser.egg-info build dist
+ 1727  ls
+ 1728  pipenv run pipenv_to_requiremennts
+ 1729  pip list
+ 1730  pipenv run pipenv_to_requirements
+ 1731  cat requirements.txt
+ 1732  python setup.py sdist bdist_wheel
+ 1733  cd ../fhir_model_generator
+ 1734  ls
+ 1735  pipenv install -e ../fhir_model_generator
+ 1736  pipenv install -e ../fhir-parser
+ 1737  pipenv shell
+ 1738  generate -h
+ 1739  cd ../fhir-parser
+ 1740  ls
+ 1741  pipenv shell
+ 1742  python
+ 1743  cd
+ 1744  cd git/hsolbrig/fhir-parser
+ 1745  ls
+ 1746  pipenv --rm
+ 1747  cd ~
+ 1748  ls -a
+ 1749  ls pypirc
+ 1750  cd git/hsolbrig/fhir-parser
+ 1751  pipenv shell
+ 1752  cd .local
+ 1753  cd
+ 1754  cd .local/share/virtualenvs
+ 1755  ls
+ 1756  rm -rf fhir-parser-*
+ 1757  cd
+ 1758  cd git/hsolbrig/fhir-parser
+ 1759  ls
+ 1760  pipenv lock
+ 1761  pipenv --rm
+ 1762  cat Pipfile
+ 1763  vim ipfile
+ 1764  vim Pipfile
+ 1765  cd ../funowl
+ 1766  cat Pipfile
+ 1767  pipenv --rm
+ 1768  env | grep PYTHON
+ 1769  env
+ 1770  cd
+ 1771  cd .local
+ 1772  ls
+ 1773  cd share
+ 1774  ls
+ 1775  cd virtualenvs
+ 1776  ls
+ 1777  ls fhir*
+ 1778  ls -d fhir*
+ 1779  cd fhir-parser-PvZGPR63
+ 1780  ls
+ 1781  ls ../fhir_loader-GueIE0_8
+ 1782  ls
+ 1783  ls ../fhir_loader-GueIE0_8/src
+ 1784  ls lib
+ 1785  ls ../fhir_loader-GueIE0_8/lib
+ 1786  which python
+ 1787  ls /Library/Frameworks/Python.framework/Versions/3.7/bin/python
+ 1788  ls -l /Library/Frameworks/Python.framework/Versions/3.7/bin/python
+ 1789  ls -l /Library/Frameworks/Python.framework/Versions/3.7/lib
+ 1790  ls -l /Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7
+ 1791  /Applications/Python\ 3.8/Install\ Certificates.command ; exit;
+ 1792  which python
+ 1793  cd
+ 1794  cat .bashrc
+ 1795  cat .zshrc
+ 1796  vim .zshrc
+ 1797  python
+ 1798  cd
+ 1799  vim .zshrc
+ 1800  cat .bash_profile
+ 1801  vim .zshrc
+ 1802  cd
+ 1803  vim .zshrc
+ 1804  python
+ 1805  cat .bash_profile
+ 1806  cd
+ 1807  cat .bash_profile
+ 1808  vim .zshrc
+ 1809  source ~/.bash_profile
+ 1810  vim ~/.zshrc
+ 1811  cd
+ 1812  vim .bash_profile
+ 1813  ls .profile
+ 1814  cp .bash_profile .profile
+ 1815  vim .profile
+ 1816  cd ~
+ 1817  vim .zshrc
+ 1818  python
+ 1819  path
+ 1820  env 
+ 1821  env | grep path
+ 1822  env | grep PATH
+ 1823  which python
+ 1824  ls
+ 1825  ls /Library/Frameworks/Python.framework/Versions/3.8/bin
+ 1826  ls /Library/Frameworks/Python.framework/Versions/3.7/bin
+ 1827  cd
+ 1828  ls
+ 1829  ls -a
+ 1830  ls \.b*
+ 1831  cat .bashrc
+ 1832  mv .bash_profile .old_bash_profile
+ 1833  python
+ 1834  env
+ 1835  ls ~/venv/ontobio/node_modules/obographviz/bin
+ 1836  ls -a ~/venv/ontobio/node_modules/obographviz/bin
+ 1837  which python3
+ 1838  which python
+ 1839  ls -l /usr/local/bin/python
+ 1840  which pythobn3
+ 1841  which python3
+ 1842  which pip3
+ 1843  ls /Library/Frameworks/Python.framework/Versions/3.8/bin/
+ 1844  vim .zshrc
+ 1845  cat /Library/Frameworks/Python.framework/Versions/3.8/bin/python3.8-config
+ 1846  python
+ 1847  cat .zshrc
+ 1848  which python
+ 1849  alias python python3
+ 1850  which python
+ 1851  python
+ 1852  vi .zshrc
+ 1853  which python
+ 1854  cd /usr/local/bin
+ 1855  ls
+ 1856  ls python
+ 1857  ls pip
+ 1858  ls pydoc
+ 1859  ls -l | grep python
+ 1860  ln -s python python3
+ 1861  unlink python
+ 1862  ln -s python python3
+ 1863  ln -s python3 python
+ 1864  which python
+ 1865  python
+ 1866  unlink pip
+ 1867  ln -s pip3 pip
+ 1868  pip
+ 1869  pip -V
+ 1870  ls py*
+ 1871  ls py*  grep -v \.
+ 1872  ls py*  | grep -v \.
+ 1873  ls py*  | grep -v .
+ 1874  ls py*  
+ 1875  ls -l py* | grep -v \.
+ 1876  ls -l py* | grep -v .
+ 1877  ls -l py*
+ 1878  ls > ~/za
+ 1879  vim ~/za
+ 1880  cat python3-config
+ 1881  pydoc
+ 1882  ls -l; pydoc
+ 1883  ls -l pydoc
+ 1884  unlink pydoc
+ 1885  ln -s pydoc3 pydoc
+ 1886  unlink pyvenv
+ 1887  ln -s pyvenv3 pyvenv
+ 1888  cd
+ 1889  pip list
+ 1890  pip install --upgrade pip
+ 1891  pip install pyvenv
+ 1892  pip install pipenv
+ 1893  pip list
+ 1894  pip install rdflib
+ 1895  pip list
+ 1896  pip install jsonasobj
+ 1897  cd
+ 1898  cd .local
+ 1899  ls
+ 1900  cd share
+ 1901  ls
+ 1902  cd virtualenvs
+ 1903  ls
+ 1904  rm -rf *
+ 1905  cdd
+ 1906  cd /usr/local/bin
+ 1907  ls
+ 1908  ls python
+ 1909  ls -l python
+ 1910  cd
+ 1911  cd .local/share/virtualenvs
+ 1912  ls
+ 1913  rm -rf *
+ 1914  /Applications/Python\ 3.7/Update\ Shell\ Profile.command ; exit;
+ 1915  python
+ 1916  ls
+ 1917  cd git
+ 1918  cd hsolbrig
+ 1919  ls
+ 1920  mv fhir-parser zzfhir-parser
+ 1921  git clone git@github.com:hsolbrig/fhir-parser.git
+ 1922  cd
+ 1923  cd  .local/share/virtualenvs
+ 1924  ls
+ 1925  rm -rf *
+ 1926  python
+ 1927  which python
+ 1928  cd /Library/Frameworks/Python.framework
+ 1929  ls
+ 1930  cd Versions
+ 1931  ls
+ 1932  ls 3.7
+ 1933  cd
+ 1934  cd git/fhir-parser
+ 1935  ls
+ 1936  cd git/hsolbrig/fhir-parser
+ 1937  cd ../zzfhir-parser
+ 1938  ls
+ 1939  rm -rf venv fhirparser.egg-info dist
+ 1940  rm -rf .eggs
+ 1941  cd ..
+ 1942  find . -name help*
+ 1943  find . -name *help*
+ 1944  ls
+ 1945  ls *help*
+ 1946  find . -name tests
+ 1947  cd ..
+ 1948  find . -name *help*
+ 1949  grep -r "-h" *
+ 1950  find . -name *scripts*"
+ 1951  find . -name *scripts*
+ 1952  find . -name *script*
+ 1953  find . -name "*script*"
+ 1954  find . -name "*help*"
+ 1955  find . -name "*script*" | grep data
+ 1956  find . -name "*script*" | grep test | grep data
+ 1957  cd BD2KOnFHIR/fhirtordf/tests
+ 1958  ls
+ 1959  cd script_tests
+ 1960  ls
+ 1961  cat test_fhirtordf.py
+ 1962  less test_fhirtordf.py
+ 1963  ls
+ 1964  ls data
+ 1965  cd ..
+ 1966  ls
+ 1967  cd ..
+ 1968  find . -name "*script*" | grep test | grep data
+ 1969  find . -name "*test_* -exec grep argparse {} \;
+ 1970  find . -name "*test_*" -exec grep argparse {} \;
+ 1971  find . -name "*test_*.py" -exec grep argparse {} \;
+ 1972  man grep
+ 1973  find . -name "*test_*.py" -exec grep -H argparse {} \;
+ 1974  vim ./BD2KOnFHIR/i2FHIRb2/tests/issue_fixes/test_argparse_bug.py
+ 1975  find . -name "*test_*.py" -exec grep -H exit {} \;
+ 1976  find . -name "*test_*.py" -exec grep -H exit {} \; | grep -v .tox | grep -v site
+ 1977  vim ./hsolbrig/rdflib/test/test_issue200.py
+ 1978  find . -name "*test_*.py" -exec grep -H ArgumentParser {} \; | grep -v .tox | grep -v site
+ 1979  cd hsolbrig/zzfhir-parser
+ 1980  ls
+ 1981  cd tests/downloads
+ 1982  ls
+ 1983  grep Http *
+ 1984  cd
+ 1985  cd git/HL7/fhir
+ 1986  cd publish
+ 1987  vim element.profile.json
+ 1988  pwd
+ 1989  cd
+ 1990  cd git/hsolbrig/fhir-parser
+ 1991  find . -name template-unittest.py
+ 1992  cd
+ 1993  ls 'Users/solbrig/git/hsolbrig/zzfhir-parser/Sample/template-resource.py'
+ 1994  cd
+ 1995  cd git/hsolbrig
+ 1996  ls
+ 1997  grep -r requests.post *
+ 1998  grep -r requests.post * | grep -v python3.7
+ 1999  cd
+ 2000  cd git/hsolbrig/funowl
+ 2001  ls
+ 2002  cd tests
+ 2003  ls
+ 2004  cd sw_test_suite/data
+ 2005  ls
+ 2006  ls func
+ 2007  ls | wc -l
+ 2008  ls func | wc -l
+ 2009  ls | wc -l
+ 2010  ls func | wc -l
+ 2011  ls func | wc -l\\n\\ 
+ 2012  ls | wc -l
+ 2013  ls func | wc -l
+ 2014  ls
+ 2015  ls func
+ 2016  mv func/* .
+ 2017  ls
+ 2018  ls func
+ 2019  rm -rf func
+ 2020  git status
+ 2021  cd ..
+ 2022  ls
+ 2023  ls data
+ 2024  git add data
+ 2025  ls
+ 2026  git status
+ 2027  git add all_parser.py
+ 2028  git add syntax_converter.py
+ 2029  cd ../..
+ 2030  vim .gitignore
+ 2031  git status
+ 2032  git add gitignore
+ 2033  git add .gitignore
+ 2034  git status
+ 2035  pwd
+ 2036  cd tests/data
+ 2037  ls
+ 2038  cd ..
+ 2039  ls
+ 2040  cd test_owl2_test_suite
+ 2041  ls
+ 2042  cd data
+ 2043  ls
+ 2044  grep SameIndividual (
+ 2045  grep SameIndividual *
+ 2046  grep SameIndividual * | more
+ 2047  vim FS2RDF-2Dsame-2Dindividual-2D2-2Dannotation-2Dar.func
+ 2048  vim FS2RDF-2Dsame-2Dindividual-2D2-2Dannotation-2Dar.rdf
+ 2049  vim ~/Downloads/foo
+ 2050  vim ~/Downloads/flist
+ 2051  ls
+ 2052  pwd
+ 2053  cd id
+ 2054  ls
+ 2055  cd func
+ 2056  ls
+ 2057  mv * ../..
+ 2058  ls
+ 2059  cd ..
+ 2060  ls
+ 2061  rmdir func
+ 2062  cd ..
+ 2063  rmdir id
+ 2064  ls
+ 2065  cd
+ 2066  cd data/terminology/
+ 2067  ls
+ 2068  cd snomedct
+ 2069  ls
+ 2070  cd SnomedCT_InternationalRF2_PRODUCTION_20190731T120000Z
+ 2071  ls
+ 2072  cd Snapshot
+ 2073  ls
+ 2074  vim uslang.owl
+ 2075  cd ..
+ 2076  ls
+ 2077  cd Snapshot
+ 2078  cd Terminology
+ 2079  ls
+ 2080  vim snomed.owl
+ 2081  cd
+ 2082  cd data/terminology
+ 2083  ls
+ 2084  cd loinc
+ 2085  ls
+ 2086  find . -name AllClassFunctional.owl
+ 2087  cd
+ 2088  cd Documents/Projects
+ 2089  ls
+ 2090  cd LOINCDocumentOntology
+ 2091  ls
+ 2092  vim AllClassFunctional.owl
+ 2093  cd
+ 2094  cd venv
+ 2095  ls
+ 2096  rm -rf jupyter
+ 2097  mkdir jupyter
+ 2098  ls
+ 2099  cd jupyter
+ 2100  pipenv install
+ 2101  pipenv install jupyter
+ 2102  ls
+ 2103  pipenv install -e ~/git/hsolbrig/funowl
+ 2104  cd ~/git/hsolbrig/funowl
+ 2105  ls
+ 2106  cat Pipfile
+ 2107  pipenv install ~/git/hsolbrig/funowl
+ 2108  echo ~/git/hsolbrig/funowl
+ 2109  pipenv --help
+ 2110  pipenv install --help
+ 2111  pwd
+ 2112  lks
+ 2113  ls
+ 2114  cat Pipfile
+ 2115  vim Pipfile
+ 2116  pipenv install ~/git/hsolbrig/funowl
+ 2117  pipenv install ~/git/hsolbrig/funowl --help
+ 2118  pipenv install ~/git/hsolbrig/funowl -v
+ 2119  pipenv install -e ~/git/hsolbrig/funowl -v
+ 2120  pip install pipenv --upgrade
+ 2121  ls 
+ 2122  pipenv run pipfile_to_requirements
+ 2123  pipenv list
+ 2124  pipenv run pip list
+ 2125  pip list
+ 2126  pip install pipenv-to-requirements
+ 2127  pipenv run pipenv_to_requirements
+ 2128  cat requirements.txt
+ 2129  vim Pipfile
+ 2130  pipenv run pipenv_to_requirements
+ 2131  cat requirements.txt q
+ 2132  pipenv install ~/git/hsolbrig/funowl
+ 2133  pipenv shell
+ 2134  pip install ~/git/hsolbrig/funowl
+ 2135  pwd
+ 2136  python setup.py sdist bdist_wheel
+ 2137  pipenv install ~/git/hsolbrig/funowl
+ 2138  cd
+ 2139  cd git/hsolbrig/funowl
+ 2140  jupyter notebook
+ 2141  cd
+ 2142  cd Downloads
+ 2143  vim Loincit.owl
+ 2144  pipenv install .
+ 2145  pip install .
+ 2146  jupyter notebook
+ 2147  cd 
+ 2148  cd git/hsolbrig/funowl/tests/test_owl2_test_suite
+ 2149  ls
+ 2150  cd data
+ 2151  grep AllDifferent *.func
+ 2152  vim `grep AllDifferent *.func
+ 2153  vim `grep AllDifferent *.func`
+ 2154  vim TestCase-3AWebOnt-2DAllDifferent-2D001.func
+ 2155  grep DifferentInd *
+ 2156  pwd
+ 2157  ls
+ 2158  rm *
+ 2159  cd
+ 2160  cd data/terminology/snomedct
+ 2161  ls
+ 2162  cd SnomedCT_InternationalRF2_PRODUCTION_20190731T120000Z
+ 2163  ls
+ 2164  cd Snapshot
+ 2165  ls
+ 2166  vim gblang_skos.owl
+ 2167  vim foo
+ 2168  cd
+ 2169  cd git/hsolbrig
+ 2170  ls
+ 2171  mv fhir-parser zzzfhir-parser
+ 2172  mv zzfhir-parser fhir-parser
+ 2173  cd fhir-parser
+ 2174  ls
+ 2175  git status
+ 2176  ls models
+ 2177  rm -rf models
+ 2178  ls
+ 2179  python setup.py sdist bdist_wheel
+ 2180  ls
+ 2181  ls dist
+ 2182  git tag v0.2.0
+ 2183  rm -rf dist
+ 2184  python setup.py sdist bdist_wheel
+ 2185  ls dist
+ 2186  twine upload dist/*
+ 2187  pip install twine
+ 2188  twine upload dist/*
+ 2189  cd
+ 2190  cd git/hsolbrig/fhir_model_generator
+ 2191  ls
+ 2192  rm -rf venv
+ 2193  pipenv shell
+ 2194  cd ..
+ 2195  ls
+ 2196  cd ../fhir-parser
+ 2197  ls
+ 2198  cd ..
+ 2199  ls
+ 2200  cd hsolbrig/fhir-parser
+ 2201  ls
+ 2202  ls scripts
+ 2203  ls fhir-parser
+ 2204  cd
+ 2205  generate -h
+ 2206  which generate
+ 2207  cd..
+ 2208  cd ..
+ 2209  cd fhir-parser
+ 2210  ls
+ 2211  pipenv shell
+ 2212  generate -h
+ 2213  pip list
+ 2214  cd
+ 2215  cd venv
+ 2216  ls
+ 2217  rm -rf fhir-parser
+ 2218  cd fhir-parser
+ 2219  mkdir fhir-parser
+ 2220  pipenv install fhir-parser
+ 2221  pip search fhir-parser
+ 2222  pip search fhir-parser | grep fhir
+ 2223  pip search fhirparser
+ 2224  pip install fhirparser
+ 2225  generate -h
+ 2226  cat /Library/Frameworks/Python.framework/Versions/3.8/bin/generate
+ 2227  pip uninstall generate
+ 2228  pip uninstall fhirparser
+ 2229  cd
+ 2230  cd git/hsolbrig/fhir-parser
+ 2231  ls
+ 2232  git status
+ 2233  git add *
+ 2234  git commit -m "Update link to generate script"
+ 2235  git tag
+ 2236  git tag v0.2.1
+ 2237  rm -rf dist
+ 2238  python setup.py sdist bdist_wheel
+ 2239  twine upload dist/*
+ 2240  cd
+ 2241  cd venv
+ 2242  ls
+ 2243  cd fhir-parser
+ 2244  ls
+ 2245  pipenv --rm
+ 2246  pipenv install fhirparser
+ 2247  pip search fhirparser
+ 2248  pipenv lock --clear
+ 2249  ls
+ 2250  cd 
+ 2251  cd git/hsolbrig/fhir-parser
+ 2252  ls
+ 2253  pipenv lock
+ 2254  pip list
+ 2255  git status
+ 2256  git diff setup.cfg
+ 2257  git status
+ 2258  git add *
+ 2259  git status
+ 2260  git commit -m "Removed dash from python directory name"
+ 2261  git status
+ 2262  git tag
+ 2263  git tag v0.2.2
+ 2264  rm dist/*
+ 2265  python setup.py sdist bdist_wheel
+ 2266  cd
+ 2267  cd venv/fhir-parser
+ 2268  ls
+ 2269  pipenv --rm
+ 2270  pipenv install ~/git/hsolbrig/fhir-parser
+ 2271  pipenv install -e ~/git/hsolbrig/fhir-parser
+ 2272  cd ../../git/hsolbrig/fhir-parser
+ 2273  ls
+ 2274  rm dist/*
+ 2275  pipenv install -e ~/git/hsolbrig/fhir-parser
+ 2276  cd
+ 2277  pwd
+ 2278  pipenv --rm
+ 2279  ls
+ 2280  ls dist
+ 2281  python setup.py sdist bdist_wheel
+ 2282  cd venv
+ 2283  cd fhir-parser
+ 2284  ls
+ 2285  pipenv --rm
+ 2286  pipenv install ~/git/hsolbrig/fhir-parser
+ 2287  which python
+ 2288  cd ..
+ 2289  ls
+ 2290  cd fhir-parser
+ 2291  pipenv
+ 2292  pipenv install ~/git/hsolbrig/fhir-parser
+ 2293  which python
+ 2294  pipenv shell
+ 2295  pip install ~/git/hsolbrig/fhir-parser
+ 2296  generate
+ 2297  vim /Users/solbrig/.local/share/virtualenvs/venv-g19m_vYI/bin/generate
+ 2298  generate
+ 2299  ls /Users/solbrig/.local/share/virtualenvs/venv-g19m_vYI/lib
+ 2300  ls /Users/solbrig/.local/share/virtualenvs/venv-g19m_vYI/lib/python3.8/site-packages
+ 2301  ls /Users/solbrig/.local/share/virtualenvs/venv-g19m_vYI/lib/python3.8/site-packages/fhir-parser
+ 2302  vim /Users/solbrig/.local/share/virtualenvs/venv-g19m_vYI/bin/generate
+ 2303  generate
+ 2304  python setup.py sdist bdist_wheel
+ 2305  pwd
+ 2306  pipenv --rm
+ 2307  pipenv install ~/git/hsolbrig/fhir-parser
+ 2308  pipenv lock
+ 2309  pipenv install ~/git/hsolbrig/fhir-parser
+ 2310  pipenv --rm
+ 2311  python setup.py sdist bdist_wheel
+ 2312  pipenv install ~/git/hsolbrig/fhir-parser
+ 2313  ls
+ 2314  rm -rf dist
+ 2315  python setup.py sdist bdist_wheel
+ 2316  pipenv install ~/git/hsolbrig/fhir-parser/dist
+ 2317  pipenv install ~/git/hsolbrig/fhir-parser/dist/fhirparser-0.2.2.tar.gz
+ 2318  cd ..
+ 2319  ls
+ 2320  mv fhir-parser fhirparser
+ 2321  pwd
+ 2322  cd fhirparser
+ 2323  grep -r "fhir-parser" *
+ 2324  cd ..
+ 2325  rm -rf fhir-parser
+ 2326  mkdir fhirparser
+ 2327  cd fhirparser
+ 2328  pipenv install fhirparser
+ 2329  pipenv
+ 2330  pipenv install --help
+ 2331  pipenv
+ 2332  pipenv shell
+ 2333  pip list
+ 2334  python
+ 2335  which python
+ 2336  python
+ 2337  which python
+ 2338  which pipenv
+ 2339  pip install pipenv
+ 2340  which pipenv
+ 2341  which pip
+ 2342  cd /Library/Frameworks/Python.framework
+ 2343  cd Versions
+ 2344  ls
+ 2345  cd Current
+ 2346  ls
+ 2347  ls bin
+ 2348  env
+ 2349  cd
+ 2350  vim .zshrc
+ 2351  which python
+ 2352  which pip
+ 2353  . .zshrc
+ 2354  ls
+ 2355  pwd
+ 2356  ./.zshrc
+ 2357  . .zshrc
+ 2358  which pip
+ 2359  .~/.zshrc
+ 2360  ~/.zshrc
+ 2361  . ~/.zshrc
+ 2362  which pip
+ 2363  env | grep 3.8
+ 2364  vim .zshrc
+ 2365  env | grep 3.8
+ 2366  grep 3.8 .zsh*
+ 2367  vim .zshrc
+ 2368  env | grep path
+ 2369  env | grep PATH
+ 2370  env | grep 3.8
+ 2371  vim .zshrc
+ 2372  . ~/.zshrc
+ 2373  ls .z*
+ 2374  vim .zprofile
+ 2375  which pip
+ 2376  pip
+ 2377  pip -v
+ 2378  pip -v-v
+ 2379  pip --v
+ 2380  pip --version
+ 2381  cd venv
+ 2382  ls
+ 2383  rm -rf fhirparser
+ 2384  mkdir fhirparser
+ 2385  cd fhirparser
+ 2386  pipenv install fhirparser
+ 2387  pipenv pip
+ 2388  pipenv shell
+ 2389  pip list
+ 2390  pip install fhirparser
+ 2391  pip install fhirparser --upgrade
+ 2392  pip list
+ 2393  generate
+ 2394  cd ..
+ 2395  cd ../git/hsolbrig
+ 2396  ls
+ 2397  ls fhir-parser
+ 2398  ls fhirparser
+ 2399  ls -a fhir-parser
+ 2400  rm -rf fhir-parser
+ 2401  mv fhirparser fhir-parser
+ 2402  cd fhir-parser
+ 2403  git status
+ 2404  git diff Pipfile
+ 2405  cat Pipfile
+ 2406  vim Pipfile
+ 2407  pipenv lock
+ 2408  pip list
+ 2409  pipenv clean
+ 2410  pip list
+ 2411  pipenv run pip list
+ 2412  git status
+ 2413  rm dist/*
+ 2414  git tag
+ 2415  git tag v2.3
+ 2416  python setup.py sdist bdist_wheel
+ 2417  pwd
+ 2418  ls
+ 2419  rm -rf fhirparser
+ 2420  mkdir fparse
+ 2421  cd fparse
+ 2422  ls
+ 2423  vim setup.cfg
+ 2424  pipenv install ~/git/hsolbrig/fhir-parser
+ 2425  ls dist
+ 2426  grep fhir-parser *
+ 2427  pipenv shell
+ 2428  pwd
+ 2429  ls -a
+ 2430  cd ..
+ 2431  ls
+ 2432  ls -a
+ 2433  rm Pipfile
+ 2434  cd fparse
+ 2435  ls
+ 2436  pipenv shell
+ 2437  pip list
+ 2438  pip install fhirparser
+ 2439  pip list
+ 2440  pip install -e ~/git/hsolbrig/fhir-parser --upgrade
+ 2441  pip list
+ 2442  generate
+ 2443  ls
+ 2444  cd fhirparser
+ 2445  ls
+ 2446  vim generate.py
+ 2447  vim /Users/solbrig/git/hsolbrig/fhir-parser/fhirparser/generate.py
+ 2448  generate
+ 2449  cat Pipfile
+ 2450  cd ..
+ 2451  cat Pipfile
+ 2452  pipenv install logger
+ 2453  pip install logger
+ 2454  generate
+ 2455  cd fhirparser
+ 2456  vim fhirspec.py
+ 2457  generate
+ 2458  vim ../tests/fhirunittest.py
+ 2459  generate
+ 2460  vim generate
+ 2461  vim generate.py
+ 2462  vim /Users/solbrig/.local/share/virtualenvs/fparse-_QudpGGM/bin/generate"
+ 2463  vim /Users/solbrig/.local/share/virtualenvs/fparse-_QudpGGM/bin/generate
+ 2464  generate
+ 2465  vim /Users/solbrig/.local/share/virtualenvs/fparse-_QudpGGM/bin/generate
+ 2466  generate
+ 2467  vim /Users/solbrig/.local/share/virtualenvs/fparse-_QudpGGM/bin/generate
+ 2468  generate
+ 2469  vim setup.cfg
+ 2470  cd ..
+ 2471  vim setup.cfg
+ 2472  fhirparser -h
+ 2473  generate -h
+ 2474  cd ~/git/hsolbrig/fhir_model_generator
+ 2475  ls
+ 2476  generate fhir-parser-resources/settings.py
+ 2477  cd fhirparser
+ 2478  generate fhir-parser-resources/settings.py
+ 2479  pwd
+ 2480  cd ..
+ 2481  git tag
+ 2482  git tag v0.2.4
+ 2483  rm dist/*
+ 2484  python setup.py sdist bdist_wheel
+ 2485  pip uninstall fhirparser
+ 2486  pipenv list
+ 2487  pipenv install
+ 2488  cat Pipfile
+ 2489  pipenv install ~/git/hsolbrig/fhir-parser
+ 2490  pipenv shell
+ 2491  generate -?
+ 2492  generate
+ 2493  git tag
+ 2494  git tag v0.2.5
+ 2495  pipenv install ~/git/hsolbrig/fhir-parser
+ 2496  python setup.py sdist bdist_wheel
+ 2497  git tag
+ 2498  git tag --help
+ 2499  git tag
+ 2500  git tag -d v2.3
+ 2501  git tag
+ 2502  python setup.py sdist bdist_wheel
+ 2503  pipenv uninstall fhirparser
+ 2504  pipenv install -e ~/git/hsolbrig/fhir-parser
+ 2505  pipenv shell
+ 2506  generate
+ 2507  cd
+ 2508  cd git/hsolbrig/fhir_model_generator
+ 2509  ls
+ 2510  diff settings.py fhir-parser-resources/settings.py
+ 2511  rm settings.py
+ 2512  generate fhir-parser-resources/settings.py
+ 2513  cd fhir-parser-resources
+ 2514  ls
+ 2515  vim settings.py
+ 2516  generate fhir-parser-resources/settings.py --help
+ 2517  generate fhir-parser-resources/settings.py -c
+ 2518  cd ..
+ 2519  generate fhir-parser-resources/settings.py -c
+ 2520  ls models
+ 2521  ls
+ 2522  find . -name model
+ 2523  find . -name *.py
+ 2524  find . -name "*.py"
+ 2525  cd fhir-parser-resources
+ 2526  ls
+ 2527  vim settings.py
+ 2528  cd ..
+ 2529  generate fhir-parser-resources/settings.py -c > out
+ 2530  vim out
+ 2531  ls
+ 2532  mkdir model
+ 2533  generate fhir-parser-resources/settings.py -c > out
+ 2534  vim out
+ 2535  ls model
+ 2536  vim out
+ 2537  cd ..
+ 2538  ls
+ 2539  ls mdoel
+ 2540  ls model
+ 2541  rm -rf model
+ 2542  cd fhir_model_generator
+ 2543  ls
+ 2544  vim fhir-parser-resources
+ 2545  vim fhir-parser-resources/settings.py
+ 2546  ls
+ 2547  ls tests
+ 2548  ls tests/model
+ 2549  vim out
+ 2550  ls
+ 2551  cd ../fhir_model_generator
+ 2552  ls
+ 2553  ls model
+ 2554  ls tests
+ 2555  ls ..
+ 2556  ls ../tests
+ 2557  ls ../tests/model
+ 2558  rm -rf ../tests
+ 2559  ls
+ 2560  cat fhir-parser-resources/settings.py
+ 2561  cd ..
+ 2562  cd fhir_model_generator
+ 2563  ls
+ 2564  generate fhir-parser-resources/settings.py -c > out
+ 2565  vim out
+ 2566  ls
+ 2567  ls model
+ 2568  ls ../model
+ 2569  rm -rf ../model
+ 2570  cd ../fhir-parser
+ 2571  python setup.py sdist bdist_wheel
+ 2572  pipenv install -e ~/git/hsolbrig/fhir-parser
+ 2573  pipenv shell
+ 2574  generate fhir-parser-resources/settings.py -c > out
+ 2575  cd ~/git/hsolbrig/fhir_model_generator
+ 2576  generate fhir-parser-resources/settings.py -c > out
+ 2577  vim out
+ 2578  gim fhirparser/generate.py
+ 2579  vim fhirparser/generate.py
+ 2580  generate fhir-parser-resources/settings.py -c > out
+ 2581  vim out
+ 2582  pwd
+ 2583  cd ../fhir_model_generator
+ 2584  ls
+ 2585  cd fhir-parser-resources
+ 2586  vim settings.py
+ 2587  generate fhir-parser-resources/settings.py -c 
+ 2588  ls
+ 2589  cd ..
+ 2590  ls
+ 2591  ls models
+ 2592  ls model
+ 2593  ls tests/model
+ 2594  ls tests
+ 2595  ls
+ 2596  less fhir-parser-resources/settings.py
+ 2597  ls tests
+ 2598  generate fhir-parser-resources/settings.py -c > out
+ 2599  vim out
+ 2600  ls ../tests
+ 2601  rm -rf ../tests
+ 2602  vim fhir-parser-resources/settings.py
+ 2603  generate fhir-parser-resources/settings.py -c 
+ 2604  ls
+ 2605  ls model
+ 2606  ls tests/model
+ 2607  ls cache
+ 2608  ls
+ 2609  ls downloads
+ 2610  cd ../fhir-parser
+ 2611  ls
+ 2612  git status
+ 2613  git tag
+ 2614  git add fhirparser/fhirunittest.py
+ 2615  git commit -am "Make file name settings file relative"
+ 2616  git status
+ 2617  git push
+ 2618  git tag
+ 2619  git tag v0.3.0
+ 2620  python setup.py sdist bdist_wheel
+ 2621  ls dist
+ 2622  cd dist
+ 2623  rm fhirparser-0.2.5*
+ 2624  rm fhirparser-2.3.0*
+ 2625  ls
+ 2626  cd ..
+ 2627  twine upload dist/*
+ 2628  pip install twine
+ 2629  pip list
+ 2630  pip uninstall fhirparser
+ 2631  vim Pipfile
+ 2632  pip list
+ 2633  twine upload dist/*
+ 2634  ls
+ 2635  pwd
+ 2636  pipenv --rm
+ 2637  ls
+ 2638  cat Pipfile
+ 2639  rm Pipfile*
+ 2640  pipenv install fhirparser
+ 2641  pipenv shell
+ 2642  generate -h
+ 2643  vim pipenv
+ 2644  vim Pipfile
+ 2645  pipenv lock
+ 2646  vim Pipfile
+ 2647  which generate
+ 2648  pip list
+ 2649  git status
+ 2650  git diff Pipfile
+ 2651  vim Pipfile
+ 2652  git diff Pipfile
+ 2653  git status
+ 2654  pipenv lock
+ 2655  git status
+ 2656  pip install logger
+ 2657  generate -h
+ 2658  ls
+ 2659  rm dist/*
+ 2660  python setup.py sdist bdist_wheel
+ 2661  ls
+ 2662  cd tests
+ 2663  ls
+ 2664  ls model
+ 2665  rm -rf model
+ 2666  ls
+ 2667  cd ..
+ 2668  vim .gitignore
+ 2669  git status 
+ 2670  git commit -am "Remove generator output"
+ 2671  find . -name vision*.py
+ 2672  find . -name *vision*.py
+ 2673  git status
+ 2674  git tag
+ 2675  git tag v0.3.1
+ 2676  ls dist
+ 2677  rm dist/*
+ 2678  python setup.py sdist bdist_wheel
+ 2679  twine upload dist/fhirparser-0.3.1-py3-none-any.whl dist/fhirparser-0.3.1.tar.gz 
+ 2680  ls
+ 2681  pipenv --rm
+ 2682  rm out
+ 2683  rm *
+ 2684  pipenv install fhirparser
+ 2685  pipenv shell
+ 2686  pip list
+ 2687  ls
+ 2688  rm -rf build
+ 2689  generate -h
+ 2690  vim /Users/solbrig/.local/share/virtualenvs/fparse-_QudpGGM/lib/python3.7/site-packages/fhirparser/fhirloader.py
+ 2691  generate -h
+ 2692  python setup.py sdist bdist_wheel
+ 2693  pip install ~/git/hsolbrig/fhir-parser
+ 2694  generate -h
+ 2695  cd ~/git/hsolbrig/fhir_model_generator
+ 2696  generate fhir-parser-resources -c
+ 2697  generate fhir-parser-resources -c > out
+ 2698  generate fhir-parser-resources -c 2> out
+ 2699  vim out
+ 2700  ls model
+ 2701  pip list fhirparser
+ 2702  pip search fhirparser
+ 2703  git
+ 2704  git tag
+ 2705  git tag v0.3.2
+ 2706  rm dist/*
+ 2707  python setup.py sdist bdist_wheel
+ 2708  ls dist
+ 2709  twine upload dist/*
+ 2710  git status
+ 2711  git commit -am "Get logger path right"
+ 2712  git push
+ 2713  ls
+ 2714  vim Pipfile
+ 2715  cat generate_models.sh
+ 2716  vim generate_models.sh
+ 2717  pushd
+ 2718  popd
+ 2719  ls
+ 2720  chmod +x generate_models.sh 
+ 2721  ./generate_models.sh -c
+ 2722  pwd
+ 2723  cd ~/git/hsolbrig/fhir_model_generator
+ 2724  ls
+ 2725  vim generate_models.sh
+ 2726  ./generate_models.sh
+ 2727  vim generate_models.sh
+ 2728  cd fhir-parser-resources
+ 2729  ls
+ 2730  cd ..
+ 2731  ls
+ 2732  vim generate_models.sh
+ 2733  ./generate_models.sh -c
+ 2734  vim generate_models.sh
+ 2735  ls 
+ 2736  ls fhir-parser-resources
+ 2737  vim generate_models.sh
+ 2738  pipenv run generate -h
+ 2739  cat Pipfile
+ 2740  pipenv --rm
+ 2741  pipenv install
+ 2742  pipenv run pip list
+ 2743  pipenv run generate -h
+ 2744  cat generate_models.sh
+ 2745  vim generate_models.sh
+ 2746  ./generate_models.sh
+ 2747  vim fhir-parser-resources/settings.py
+ 2748  cd ..
+ 2749  ls
+ 2750  cd ../stephanie-howson
+ 2751  ls
+ 2752  cd ../zzhou41
+ 2753  ls
+ 2754  cd client-py
+ 2755  ls
+ 2756  cd fhir-parser-resources
+ 2757  ls
+ 2758  vim settings.py
+ 2759  ls
+ 2760  pipenv run pip install -e ~/git/hsolbrig/fhir-parser
+ 2761  ./generate_models.sh . -c
+ 2762  ./generate_models.sh -c
+ 2763  ls models
+ 2764  ls
+ 2765  ls model
+ 2766  vim logs
+ 2767  rm logs
+ 2768  ./generate_models.sh -c
+ 2769  vim logs
+ 2770  ls
+ 2771  rm out
+ 2772  ./generate_models.sh -c 2> out
+ 2773  vim out
+ 2774  find . -name fhirabstract*
+ 2775  find . -iname fhirabstract*
+ 2776  find . -iname "fhirabstract*"
+ 2777  ./generate_models.sh -h
+ 2778  ./generate_models.sh -c 2> out
+ 2779  vim out
+ 2780  ./generate_models.sh -c 2> out
+ 2781  vim out
+ 2782  ./generate_models.sh -c 2> out
+ 2783  grep COPY out
+ 2784  ./generate_models.sh -c 2> out
+ 2785  cat Pipfile
+ 2786  vim out
+ 2787  cat generate_models.sh
+ 2788  vim generate_models.sh
+ 2789  ./generate_models.sh -c 
+ 2790  ls model
+ 2791  ./generate_models.sh -c 
+ 2792  ls model
+ 2793  cd
+ 2794  cd git/HL7/fhir
+ 2795  ls
+ 2796  cd publish
+ 2797  grep bool *.json
+ 2798  grep -H bool *.json | grep -v \<td | more
+ 2799  grep -H '"boolean"' *.json | grep -v \<td | more
+ 2800  grep -H ': "boolean"' *.json | grep -v \<td | more
+ 2801  vim bp.profile.json
+ 2802  grep -H ': "boolean"' *.json | grep -v \<td | grep obs
+ 2803  grep '"active"' *.json
+ 2804  grep '"active": ' *.json
+ 2805  grep extension *.json | grep patient | more
+ 2806  grep extension *.json | grep patient | grep -v '"text"' | more
+ 2807  grep extension *.json | grep patient | grep -v '"text"' | grep -v '"div"' | more
+ 2808  grep extension *.json | grep patient | grep -v '"text"' | grep -v '"div"' | grep -v '"comment"' | more
+ 2809  vim extension-patient-cadavericdonor.json
+ 2810  grep cadavericdoner *
+ 2811  grep cadavericdoner *.json
+ 2812  grep cadave  *.json
+ 2813  grep cadave  *.json | more
+ 2814  grep '"http://hl7.org/fhir/StructureDefinition/patient-cadavericDonor"' *.json
+ 2815  grep -i extension patient*examp*.json
+ 2816  vim patient_example-b.json
+ 2817  vim patient-example-b.json
+ 2818  grep valueInteger *.xml
+ 2819  grep valueInteger *.xml | more
+ 2820  grep '"_' *.json | more
+ 2821  grep '"_' *.json | grep -v '"comment"' | more
+ 2822  vim bundle-response-medsallergies.json
+ 2823  grep extension *.ttl
+ 2824  grep fhir:extension *.ttl
+ 2825  grep fhir:Extension *.ttl
+ 2826  vim patient-example-newborn.ttl
+ 2827  cd
+ 2828  cd Documents/Presentations
+ 2829  ls
+ 2830  cd 2019
+ 2831  mkdir FHIRDF
+ 2832  cd FHIRRDF
+ 2833  cd FHIRDF
+ 2834  ls
+ 2835  vim ex.ttl
+ 2836  python
+ 2837  pip list
+ 2838  pip install rdflib
+ 2839  python
+ 2840  vim ex.ttl
+ 2841  cd
+ 2842  cd venv
+ 2843  ls
+ 2844  cd fparse
+ 2845  cd ~/git/hsolbrig/fhir-parser
+ 2846  ls
+ 2847  cat Pipfile
+ 2848  pipenv lock
+ 2849  python setup.py sdist bdist_wheel
+ 2850  pipenv shell
+ 2851  pip list
+ 2852  pip install -e ~/git/hsolbrig/fhir-parser
+ 2853  pip list
+ 2854  cd
+ 2855  cd git/hsolbrig/fhir_model_generator
+ 2856  ls
+ 2857  ./generate_models.sh -c
+ 2858  python setup.py sdist bdist_wheel
+ 2859  pip install ../fhir-parser 
+ 2860  pip install -e ../fhir-parser 
+ 2861  ./generate_models.sh -c
+ 2862  less model/account.py
+ 2863  ls
+ 2864  vim fhir-parser-resources/settings.py
+ 2865  less model/account.py
+ 2866  ./generate_models.sh -c
+ 2867  less model/account.py
+ 2868  ./generate_models.sh -c
+ 2869  python setup.py sdist bdist_wheel
+ 2870  ./generate_models.sh -c
+ 2871  less model/account.py
+ 2872  ./generate_models.sh -c --help
+ 2873  ./generate_models.sh -c --nosort
+ 2874  less model/account.py
+ 2875  ./generate_models.sh -c --nosort
+ 2876  ./generate_models.sh -c --nosort > out
+ 2877  ./generate_models.sh -c --nosort 2> out
+ 2878  vim out
+ 2879  ./generate_models.sh -c --nosort 2> out
+ 2880  pipenv run pip list
+ 2881  pipenv run pip uninstall fhirparser
+ 2882  ls
+ 2883  vim Pipfile
+ 2884  vim generate_models.sh
+ 2885  ./generate_models.sh -c --nosort 2> out
+ 2886  vim out
+ 2887  less model/account.py
+ 2888  rm model/account.py
+ 2889  ./generate_models.sh -c --nosort 2> out
+ 2890  vim fhir-parser-resources
+ 2891  ./generate_models.sh -c --nosort 2> out
+ 2892  cat out
+ 2893  ./generate_models.sh -c --nosort 
+ 2894  less model/account.py
+ 2895  ./generate_models.sh -c 
+ 2896  ./generate_models.sh -c
+ 2897  less model/account.py
+ 2898  pip list
+ 2899  git tag
+ 2900  git tag v0.3.4
+ 2901  git status
+ 2902  git diff Pipfile
+ 2903  git commit -am "Add nosort option and sort_resources to settings"
+ 2904  git push
+ 2905  vim fhir-parser-resources
+ 2906  python setup.py sdist bdist_wheel
+ 2907  git push
+ 2908  python setup.py sdist bdist_wheel
+ 2909  git status
+ 2910  rm dist/*
+ 2911  git tag v0.3.6
+ 2912  python setup.py sdist bdist_wheel
+ 2913  twine upload dist/*
+ 2914  git status
+ 2915  git commit -am "Publish version 0.3.6"
+ 2916  git push
+ 2917  cd ..
+ 2918  ls
+ 2919  cd client-py
+ 2920  ls
+ 2921  find . -name *test*
+ 2922  cat test_models.sh
+ 2923  cp test_models.sh ../fhir_model_generator
+ 2924  find . -name servver-tests.py
+ 2925  find . -name server_tests.py
+ 2926  cp fhirclient/server_tests.py ../fhir_model_generator/tests
+ 2927  find . -name server.py
+ 2928  cd fhirclient
+ 2929  vim server.py
+ 2930  cp server.py ../../fhir_model_generator/tests
+ 2931  ls
+ 2932  pwd
+ 2933  cd ../../fhir_model_generator
+ 2934  ls
+ 2935  cd tests
+ 2936  ls
+ 2937  cd ..
+ 2938  cat test_models.sh
+ 2939  vim test_models.sh
+ 2940  ./test_models.sh
+ 2941  ls
+ 2942  vim test_models.sh
+ 2943  ./test_models.sh
+ 2944  vim Pipenv
+ 2945  pwd
+ 2946  ls
+ 2947  vim Pipfile
+ 2948  ./test_models.sh
+ 2949  pwd
+ 2950  cd ../../git/hsolbrig/fhir_model_generator
+ 2951  ls
+ 2952  ./test_models.sh
+ 2953  ./test_models.sh 2> out
+ 2954  vim out
+ 2955  pipenv install --help
+ 2956  ./test_models.sh 2> out
+ 2957  vim out
+ 2958  python --help
+ 2959  env | grep PYTHON
+ 2960  export PYTHONPATH=.
+ 2961  python
+ 2962  ls model/fhirele*
+ 2963  ls model
+ 2964  find . -name fhirelement*
+ 2965  python
+ 2966  cd ../client-py
+ 2967  find . -name fhirelementfactory
+ 2968  find . -name fhirelementfactory*
+ 2969  cd ..
+ 2970  find . -name "fhirelementfactory*"
+ 2971  ls models
+ 2972  ls model
+ 2973  ls -l models
+ 2974  ls -l model
+ 2975  ls -l model | wc -l
+ 2976  ls -l models | wc -l
+ 2977  find . -name "fhirelementfactory*"
+ 2978  pwd
+ 2979  cd ../stephanie-howson
+ 2980  find . -name "fhirelementfactory*"
+ 2981  cd ../zzhou41
+ 2982  find . -name "fhirelementfactory*"
+ 2983  cd client-py
+ 2984  grep -r fhirelementfactory *
+ 2985  ls
+ 2986  cd ../../
+ 2987  cd hsolbrig/fhir_model_generator
+ 2988  ls
+ 2989  vim out
+ 2990  ./generate_models.sh -c 2> out
+ 2991  vim out
+ 2992  less out
+ 2993  pipenv shell
+ 2994  find /Users/solbrig/.local/share/virtualenvs/fhir_model_generator-txFPmZYC/ -name generator.py
+ 2995  find /Users/solbrig/.local/share/virtualenvs/fhir_model_generator-txFPmZYC/ -name generator*
+ 2996  pip list
+ 2997  ./generate_models.sh -c
+ 2998  ./generate_models.sh -c 2> out
+ 2999  vim out
+ 3000  pipenv run pip list
+ 3001  ./generate_models.sh -c 2> out
+ 3002  find . -name fhirelement*
+ 3003  ls
+ 3004  ls ..
+ 3005  cd ..
+ 3006  find . -name fhirelement*
+ 3007  cd fhir_model_generator
+ 3008  ls
+ 3009  cat generate_models.sh
+ 3010  ls
+ 3011  ls model
+ 3012  ls model/fhir*
+ 3013  vim model/account.py
+ 3014  cd model
+ 3015  python
+ 3016  cd ..
+ 3017  python
+ 3018  cd ../..
+ 3019  find . -name fhirelementfactory.py
+ 3020  find . -name *fhirelementfactory*.py
+ 3021  find . -name "*fhirelementfactory*"
+ 3022  ls hsolbrig/model
+ 3023  ls hsolbrig/model/*
+ 3024  ls -l hsolbrig/model/*
+ 3025  ls -l hsolbrig/model/fhir*
+ 3026  cp hsolbrig/model/fhirelementfactory.py hsolbrig/fhir_model_generator/model
+ 3027  pwd
+ 3028  cd hsolbrig
+ 3029  cd fhir_model_generator
+ 3030  ls
+ 3031  ls tests
+ 3032  rm tests/model/*
+ 3033  rm ../model/*
+ 3034  rm -rf ../model
+ 3035  rm -rf ../models
+ 3036  ls
+ 3037  rm -rf model
+ 3038  ./generate_models.sh -c
+ 3039  ls model
+ 3040  vim
+ 3041  ls
+ 3042  cd ../fhir-parser
+ 3043  ls
+ 3044  rm -rf build
+ 3045  cd ../fhir_model_generator
+ 3046  ls
+ 3047  ./generate_models.sh
+ 3048  vim generate_models.sh
+ 3049  ./generate_models.sh
+ 3050  ls model
+ 3051  ls -l model | wc -l
+ 3052  ls -l tests/model | wc -l
+ 3053  cd model
+ 3054  ls
+ 3055  python
+ 3056  cd ..
+ 3057  python
+ 3058  ls
+ 3059  ./test_models.sh
+ 3060  ./test_models.sh > out
+ 3061  vim out
+ 3062  ./test_models.sh 2> out
+ 3063  vim out
+ 3064  vim test_models.sh
+ 3065  ls model
+ 3066  ls tests
+ 3067  ls tests/model
+ 3068  cat test_models.sh
+ 3069  pipenv run python -m unittest tests/model/account_tests.py
+ 3070  vim fhir-parser-resources/template-unittest.j2
+ 3071  ./generate_models.sh -c
+ 3072  pipenv run python -m unittest tests/model/account_tests.py
+ 3073  ./test_models.sh 2> out
+ 3074  vim out
+ 3075  vim tests/model/account_tests.py
+ 3076  ./test_models.sh 2> out
+ 3077  vim out
+ 3078  ./generate_models.sh -c
+ 3079  ./test_models.sh 2> out
+ 3080  vim out
+ 3081  ls
+ 3082  cd ..
+ 3083  cd client-py
+ 3084  ls
+ 3085  find . -name auth
+ 3086  find . -name auth*
+ 3087  pwd
+ 3088  cd ../client-py
+ 3089  ls
+ 3090  find . -name auth*
+ 3091  less requirements.txt
+ 3092  grep -r FHIRAuth *
+ 3093  cd fhirclient
+ 3094  ls
+ 3095  cd ..
+ 3096  alias find='noglob find'
+ 3097  find . -name auth*
+ 3098  vim ~/.zshrc
+ 3099  cp fhirclient/auth.py ../fhir_model_generator/tests/
+ 3100  cd ../fhir_model_generator
+ 3101  ls
+ 3102  ./test_models.sh
+ 3103  vim test_models.sh
+ 3104  vim Pipfile
+ 3105  vim test_models.sh
+ 3106  ./test_models.sh
+ 3107  ls
+ 3108  ls tests
+ 3109  cp ~/git/hsolbrig/client-py/fhirclient/fhirreference_tests.py .
+ 3110  vim fhirreference_tests.py
+ 3111  ./test_models.sh
+ 3112  cd tests
+ 3113  ls
+ 3114  cd ..
+ 3115  find . -name fhirref*
+ 3116  mv fhirreference_tests.py tests
+ 3117  ./test_models.sh
+ 3118  vim tests/fhirreference_tests.py
+ 3119  ./test_models.sh
+ 3120  vim tests/fhirreference_tests.py
+ 3121  ./test_models.sh
+ 3122  vim tests/fhirreference_tests.py
+ 3123  vim server.py
+ 3124  vim tests/server.py
+ 3125  vim tests/fhirreference_tests.py
+ 3126  ./test_models.sh
+ 3127  vim tests/fhirreference_tests.py
+ 3128  ./test_models.sh
+ 3129  vim tests/server_tests.py
+ 3130  ./test_models.sh
+ 3131  ls
+ 3132  cd ../client-py
+ 3133  find . -name test_relative*
+ 3134  cd fhirclient
+ 3135  ls
+ 3136  ls *.json
+ 3137  cp *.json ../../fhir_model_generator/tests
+ 3138  cd ../../fhir_model_generator
+ 3139  ./test_models.sh
+ 3140  vim tests/fhirreference_tests.py
+ 3141  ./test_models.sh
+ 3142  vim test_models.sh
+ 3143  ./test_models.sh
+ 3144  cd ../fhir_model_generator
+ 3145  ls
+ 3146  pipenv run pipenv_to_requirements
+ 3147  cd ../fhir-parser
+ 3148  ls
+ 3149  pipenv lock
+ 3150  cat Pipenv
+ 3151  cat Pipfile
+ 3152  pipenv --rm
+ 3153  pipenv install
+ 3154  ls
+ 3155  git tag
+ 3156  ls dist
+ 3157  python setup.py sdist bdist_wheel
+ 3158  ls
+ 3159  pipenv install
+ 3160  cat requirements.txt
+ 3161  pipenv run pipenv_to_requirements
+ 3162  ls
+ 3163  pip list
+ 3164  ls dist
+ 3165  rm dist/*
+ 3166  pipenv --rm
+ 3167  pipenv install
+ 3168  ls /var/folders/5f/82515x2x1cl_5c4zqvyd15nm0000gp/T/tmpf0kpj1hsbuild/logging/
+ 3169  ls /var/folders/5f/82515x2x1cl_5c4zqvyd15nm0000gp/T/tmpf0kpj1hsbuild/
+ 3170  pip install pipenv --upgrade
+ 3171  pipenv list
+ 3172  pipenv shell
+ 3173  pip list
+ 3174  cat requirements.txt
+ 3175  pipenv install colorlog
+ 3176  pipenv instal rdflib
+ 3177  pipenv install rdflib
+ 3178  env
+ 3179  pip list
+ 3180  cd
+ 3181  cd git/NCATS-Tangerine
+ 3182  ls
+ 3183  cd kgx
+ 3184  git pull
+ 3185  git checkout master
+ 3186  git pull
+ 3187  git status
+ 3188  pipenv install
+ 3189  make tests
+ 3190  pipenv shell
+ 3191  make tests
+ 3192  pip install pytest
+ 3193  ls
+ 3194  pipenv shell
+ 3195  make tests
+ 3196  pip install stringcase
+ 3197  make tests
+ 3198  pip install bmt
+ 3199  vim requirements.txt 
+ 3200  pipenv install --help
+ 3201  pipenv install --skip-lock
+ 3202  pipenv run pip list
+ 3203  ls
+ 3204  ls ../fhir-parser
+ 3205  cat ../fhir-parser/Pipfile
+ 3206  ls
+ 3207  cat Pipfile
+ 3208  pipenv run pipfile_to_requirements --help
+ 3209  pipenv run pipfile-to-requirements --help
+ 3210  pip list
+ 3211  pipenv run pipenv-to-requirements --help
+ 3212  pipenv run pipenv_to_requirements --help
+ 3213  pipenv run pipenv_to_requirements
+ 3214  vim requirements-dev.txt
+ 3215  pip list
+ 3216  vim requirements-dev.txt
+ 3217  pipenv install -d
+ 3218  vim Pipfile
+ 3219  pipenv install --help
+ 3220  cat requirements-dev.txt
+ 3221  cd
+ 3222  cd git/NCATS-Tangerine/kgs
+ 3223  cd git/NCATS-Tangerine/kgx
+ 3224  vim Pipfile
+ 3225  pipenv install -d
+ 3226  pipenv shell
+ 3227  make tests
+ 3228  pip install validators
+ 3229  make tests
+ 3230  vim Pipfile
+ 3231  ls
+ 3232  pipenv lock
+ 3233  pipenv run pip list
+ 3234  pipenv --rm
+ 3235  pipenv lock
+ 3236  pipenv install
+ 3237  pipenv shell
+ 3238  make tests
+ 3239  exit
+ 3240  pipenv install -e
+ 3241  pipenv install -d
+ 3242  pipenv shell
+ 3243  make tests
+ 3244  ls
+ 3245  git status
+ 3246  vim requirements.txt
+ 3247  vim Pipfile
+ 3248  pip list
+ 3249  vim requirements.txt
+ 3250  cd
+ 3251  cd data/terminology/snomedct
+ 3252  ls
+ 3253  cd SnomedCT_InternationalRF2_PRODUCTION_20190731T120000Z
+ 3254  ls
+ 3255  cd Snapshot
+ 3256  ls
+ 3257  cd Terminology
+ 3258  ls
+ 3259  less snomed.owl
+ 3260  pwd
+ 3261  cd
+ 3262  cd git/hsolbrig/funowl
+ 3263  ls
+ 3264  pipenv shell
+ 3265  pip list
+ 3266  ls
+ 3267  cd tests/test_ontologies
+ 3268  ls
+ 3269  time python test_snomed.py
+ 3270  cd ..
+ 3271  time python tests/test_ontologies/test_snomed.py
+ 3272  pwd
+ 3273  python tests/test_ontologies/test_snomed.py
+ 3274  ls funowl
+ 3275  env | grep PYTHON
+ 3276  cd
+ 3277  cd venv
+ 3278  ls
+ 3279  mkdir funowl
+ 3280  cd funowl
+ 3281  ls -l
+ 3282  pwd
+ 3283  cd
+ 3284  cd venv
+ 3285  ls
+ 3286  mkdir funowl
+ 3287  cd funowl
+ 3288  pipenv install ~/git/hsolbrig/funowl
+ 3289  pipenv shell
+ 3290  cd ~/git/hsolbrig/funowl
+ 3291  ls
+ 3292  time ls
+ 3293  time python tests/test_ontologies/test_snomed.py
+ 3294  git status
+ 3295  git pull
+ 3296  git diff funowl/class_expressions.py
+ 3297  vim funowl/class_expressions.py
+ 3298  git pull
+ 3299  git diff funowl/ontology_document.py
+ 3300  vim funowl/ontology_document.py
+ 3301  git pull
+ 3302  git diff funowl/ontology_document.py
+ 3303  cp funowl/ontology_document.py zz.py
+ 3304  git checkout -- funowl/ontology_document.py
+ 3305  diff zz.py funowl/ontology_document.py
+ 3306  diff zz.py funowl/ontology_document.py | more
+ 3307  cp zz.py funowl/ontology_document.py
+ 3308  git checkout -- funowl/ontology_document.py
+ 3309  git pull
+ 3310  cp zz.py funowl/ontology_document.py
+ 3311  cd
+ 3312  cd data/terminology/snomedct
+ 3313  ls
+ 3314  cd SnomedCT_InternationalRF2_PRODUCTION_20190731T120000Z
+ 3315  ls
+ 3316  cd Snapshot/Terminology
+ 3317  vim snomed.owl
+ 3318  ls -l
+ 3319  ks 0k
+ 3320  ls -l
+ 3321  cp snomed.owl snomed_ms.owl
+ 3322  vim snomed_ms.owl
+ 3323  vim snomed.owl
+ 3324  cd
+ 3325  cd git/hsolbrig/funowl/
+ 3326  ls
+ 3327  cd tests/data
+ 3328  ls
+ 3329  cd ../test_owl2_test_suite
+ 3330  ls
+ 3331  cd data
+ 3332  ls
+ 3333  ls Rdfbased-2Dsem-2Deqdis-2Ddisclass-2Dirrflxv.ttl
+ 3334  ls Rdfbased-2Dsem-2Deqdis-2Ddisclass-2Dirrflxv.*
+ 3335  ls Rdfbased-2Dsem-2Deqdis-2Ddisclass-2Dirrflxv*
+ 3336  less Rdfbased-2Dsem-2Deqdis-2Ddisclass-2Dirrflxv.rdf
+ 3337  python
+ 3338  less Rdfbased-2Dsem-2Deqdis-2Ddisclass-2Dirrflxv.rdf
+ 3339  vim Rdfbased-2Dsem-2Deqdis-2Ddisclass-2Dirrflxv.rdf
+ 3340  cd
+ 3341  cd git/hsolbrig/funowl
+ 3342  ls
+ 3343  git status
+ 3344  vim .gitignore
+ 3345  git status
+ 3346  vim .gitignore
+ 3347  git status
+ 3348  git add .gitignore
+ 3349  git status
+ 3350  rm tests/.DS_Store
+ 3351  git status
+ 3352  ls docs
+ 3353  git add docs
+ 3354  git status
+ 3355  vim .gitignore
+ 3356  cd docs
+ 3357  vim filler
+ 3358  git status
+ 3359  cd ../../biolinkml
+ 3360  cd ../
+ 3361  pwd
+ 3362  cd ..
+ 3363  cd ../biolink/biolinkml
+ 3364  ls
+ 3365  git status
+ 3366  vim .gitignore
+ 3367  cd ../hsolbrig/finowl
+ 3368  cd ../hsolbrig/
+ 3369  cd ..
+ 3370  cd ../hsolbrig/funowl
+ 3371  ls
+ 3372  vim .gitignore
+ 3373  git status
+ 3374  vim .gitignore
+ 3375  git status
+ 3376  cd docs
+ 3377  ls
+ 3378  rm *
+ 3379  cd ..
+ 3380  git status
+ 3381  cd docs
+ 3382  vim filler
+ 3383  cd ..
+ 3384  git status
+ 3385  git add docs
+ 3386  git commit -m "Creating documentation directory"
+ 3387  git push
+ 3388  pwd
+ 3389  git pull
+ 3390  ls ~/data/terminology/snomedct/SnomedCT_InternationalRF2_PRODUCTION_20190731T120000Z/Snapshot
+ 3391  ls ~/data/terminology/snomedct/SnomedCT_InternationalRF2_PRODUCTION_20190731T120000Z/Snapshot/Terminology
+ 3392  ls -l ~/data/terminology/snomedct/SnomedCT_InternationalRF2_PRODUCTION_20190731T120000Z/Snapshot/Terminology
+ 3393  ls -lh ~/data/terminology/snomedct/SnomedCT_InternationalRF2_PRODUCTION_20190731T120000Z/Snapshot/Terminology
+ 3394  ls -lh ~/data/terminology/snomedct/SnomedCT_InternationalRF2_PRODUCTION_20190731T120000Z/Snapshot
+ 3395  cd
+ 3396  cd venv
+ 3397  ls
+ 3398  cd funowl
+ 3399  pipenv shell
+ 3400  pipenv list
+ 3401  pip list
+ 3402  ls
+ 3403  cd ..
+ 3404  ls
+ 3405  cd jupyter
+ 3406  pipenv shell
+ 3407  pip list
+ 3408  pipenv install -e ~/git/hsolbrig/funowl
+ 3409  cd ~/git/hsolbrig/funowl
+ 3410  jupyter notebook
+ 3411  cd
+ 3412  cd git/HL7/fhir
+ 3413  cd publish
+ 3414  ls allergyintolerance*
+ 3415  cd ~/Downloads
+ 3416  jupyter notebook
+ 3417  cd ~/git/hsolbrig/funowl
+ 3418  ls
+ 3419  jupyter notebook
+ 3420  cd
+ 3421  cd git/HL7/fhir/publish
+ 3422  ls account.profile.json
+ 3423  more account.profile.json
+ 3424  vim account.profile.json
+ 3425  ls patient*example*
+ 3426  cat patient-examples-general.json
+ 3427  cat patient.profile.json | more
+ 3428  cd 
+ 3429  cd git/shexSpec/shexTest
+ 3430  ls
+ 3431  cd schemas
+ 3432  ls
+ 3433  pwd
+ 3434  cat open2dotclose.shex
+ 3435  cat open2dotclose.json
+ 3436  cd ~/git/HL7/fhir/publish
+ 3437  less account.profile.json
+ 3438  cd
+ 3439  cd Desktop
+ 3440  vim SingletonTest.owl
+ 3441  vim ST2.owl
+ 3442  cd ~/git/HL7/fhir
+ 3443  ./publish.sh
+ 3444  cd
+ 3445  cd Documents
+ 3446  find . -name FHIRand*
+ 3447  cd ..
+ 3448  find . -name FHIRand*
+ 3449  cd Desktop
+ 3450  find . -name FHIRand*
+ 3451  cd ..
+ 3452  find . -name FHIRandRDF2*
+ 3453  cd 
+ 3454  cd git/HL7/fhir
+ 3455  vim `find . -name RdfGenerator.java`
+ 3456  vim `find . -name RDFValidator.java`
+ 3457  pwd
+ 3458  cd publish
+ 3459  ls *.zip
+ 3460  cd
+ 3461  cd venv
+ 3462  ls
+ 3463  cd fparse
+ 3464  pipenv shell
+ 3465  generate -?
+ 3466  generate --help
+ 3467  cd
+ 3468  cd git/hsolbrig/fhir_model_generator
+ 3469  ls
+ 3470  cd ~/git/hsolbrig/fhir_model_generator
+ 3471  ./generate_models.sh
+ 3472  ls
+ 3473  ./test_models.sh
+ 3474  ./generate_models.sh
+ 3475  ls *.log
+ 3476  find . -name *.log
+ 3477  find . -name *log
+ 3478  ./generate_models.sh 2> log
+ 3479  vim log
+ 3480  less log 
+ 3481  ./test_models.sh
+ 3482  ./test_models.sh 2> errs
+ 3483  vim errs
+ 3484  ./generate_models.sh 2> log
+ 3485  ./test_models.sh 2> errs
+ 3486  vim errs
+ 3487  ./test_models.sh 2> errs
+ 3488  less errs
+ 3489  ./generate_models.sh 2> log
+ 3490  ./test_models.sh 2> errs
+ 3491  less errs
+ 3492  ./generate_models.sh 2> log
+ 3493  ./test_models.sh 2> errs
+ 3494  less errs
+ 3495  ./generate_models.sh 2> log
+ 3496  ./test_models.sh 2> errs
+ 3497  less errs
+ 3498  cd ..
+ 3499  cd fhir_model_generator
+ 3500  find . -name metadata
+ 3501  cd tests
+ 3502  ls
+ 3503  vim metadata
+ 3504  cd ..
+ 3505  ./test_models.sh 2> errs
+ 3506  less errs
+ 3507  grep -r metadata *
+ 3508  grep -r metadata * | grep \.py
+ 3509  grep -r metadata * | grep \\.py
+ 3510  ./test_models.sh 2> errs
+ 3511  vim errs
+ 3512  cd
+ 3513  cd git/hsolbrig/fhir_model_generator
+ 3514  ./test_models.sh
+ 3515  git fetch
+ 3516  git checkout R4
+ 3517  ls
+ 3518  ls model
+ 3519  rm -rf model
+ 3520  vim fhir-parser-resources/settings.py
+ 3521  ls
+ 3522  rm log out
+ 3523  rm errs
+ 3524  ls
+ 3525  ./generate_models.sh -f
+ 3526  git status
+ 3527  vim .gitignore
+ 3528  git add .gitignore
+ 3529  git status
+ 3530  git add model tests/model
+ 3531  git status
+ 3532  git add out
+ 3533  git status
+ 3534  git commit -m "R4 Build for evaluation"
+ 3535  git push
+ 3536  git fetch
+ 3537  git checkout R4
+ 3538  git checkout R5
+ 3539  vim fhir-parser-resources/settings.py
+ 3540  ./generate_models.sh -f
+ 3541  ./generate_models.sh  2> generate.log
+ 3542  less generate.log
+ 3543  ls
+ 3544  ./test_models.sh
+ 3545  ./test_models.sh 2> test.log
+ 3546  vim test.log
+ 3547  vim model/account.py
+ 3548  ls
+ 3549  git checkout master
+ 3550  git status
+ 3551  git pull
+ 3552  cat .gitignore
+ 3553  vim .gitignore
+ 3554  ls
+ 3555  vim settings.py
+ 3556  vim fhir-parser-resources/settings.py
+ 3557  ./generate_models.sh --help
+ 3558  pwd
+ 3559  vim generate.log
+ 3560  ls
+ 3561  cd ..
+ 3562  find . -name fhirelementfactory.py
+ 3563  ls model
+ 3564  rm -rf mode
+ 3565  cd fhir_model_generator
+ 3566  ls
+ 3567  vim fhir-parser-resources/settings.py
+ 3568  pipenv shell
+ 3569  which generate
+ 3570  ls /Users/solbrig/.local/share/virtualenvs/fhir_model_generator-txFPmZYC/lib/python3.7/site-packages/fhirparser
+ 3571  vim /Users/solbrig/.local/share/virtualenvs/fhir_model_generator-txFPmZYC/lib/python3.7/site-packages/fhirparser/fhirrenderer.py
+ 3572  pwd
+ 3573  ./generate_models.sh | more
+ 3574  vim /Users/solbrig/.local/share/virtualenvs/fhir_model_generator-txFPmZYC/lib/python3.7/site-packages/fhirparser/fhirrenderer.py
+ 3575  ./generate_models.sh | more
+ 3576  vim /Users/solbrig/.local/share/virtualenvs/fhir_model_generator-txFPmZYC/lib/python3.7/site-packages/fhirparser/fhirrenderer.py
+ 3577  ./generate_models.sh | grep element
+ 3578  cp ../fhir-parser/fhirparser/fhirrenderer.py /Users/solbrig/.local/share/virtualenvs/fhir_model_generator-txFPmZYC/lib/python3.7/site-packages/fhirparser/fhirrenderer.py
+ 3579  ./generate_models.sh 
+ 3580  ./test_models.sh
+ 3581  cd ../fhir-parser
+ 3582  ls
+ 3583  cd ../fhir-parser
+ 3584  ls
+ 3585  pipenv --rm
+ 3586  pipenv lock
+ 3587  rm -rf /Users/solbrig/.local/share/virtualenvs/fhir-parser-PvZGPR63
+ 3588  pipenv lock
+ 3589  pipenv run pip list
+ 3590  cat Pipfile
+ 3591  vim Pipfile
+ 3592  pipenv install requests
+ 3593  ls
+ 3594  pipenv shell
+ 3595  pip install requests
+ 3596  pip list
+ 3597  pip install jinja2
+ 3598  pip list
+ 3599  pip install colorlog
+ 3600  pip list
+ 3601  pipenv --rm
+ 3602  pipenv run pip list
+ 3603  pipenv install rdflib
+ 3604  ls /var/folders/5f/82515x2x1cl_5c4zqvyd15nm0000gp/T/tmpcu4ef6h7build/logging/
+ 3605  ls /var/folders/5f/82515x2x1cl_5c4zqvyd15nm0000gp/T/tmpcu4ef6h7build/
+ 3606  pip list
+ 3607  pip install --upgrade
+ 3608  pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U
+ 3609  pip list
+ 3610  pipenv install rdflib
+ 3611  pip install --user --upgrade --upgrade-strategy pipenv wheel
+ 3612  pip install --user --upgrade --upgrade-strategy eager pipenv wheel
+ 3613  pipenv install requests
+ 3614  ls
+ 3615  cd
+ 3616  cd venv
+ 3617  mkdir ptest
+ 3618  cp ~/git/hsolbrig/fhir-parser/Pipfile ptest
+ 3619  cd ptest
+ 3620  pipenv install
+ 3621  vim ptest
+ 3622  vim Pipfile
+ 3623  pipenv install requests
+ 3624  pipenv install colorlog
+ 3625  pipenv install jinja2
+ 3626  pipenv install markupsafe
+ 3627  pipenv install crefi
+ 3628  pipenv install logging
+ 3629  cp ~/git/hsolbrig/fhir-parser/Pipfile .
+ 3630  pipenv install
+ 3631  pipenv pip list
+ 3632  pipenv run pip list
+ 3633  pwd
+ 3634  env
+ 3635  env | grep -i default
+ 3636  ls ~/.zshrc
+ 3637  cat ~/.zshrc
+ 3638  :q
+ 3639  ls
+ 3640  git status
+ 3641  cat ChangeLog
+ 3642  git status
+ 3643  git diff Pipfile
+ 3644  pipenv lock
+ 3645  pipenv run pipfile_to_requirements -d
+ 3646  pipenv run pipenv_to_requirements -d
+ 3647  pipenv run pipenv_to_requirements -h
+ 3648  pipenv run pipenv_to_requirements 
+ 3649  ls
+ 3650  cat requirements.txt
+ 3651  git status
+ 3652  git diff fhirparser/fhirrenderer.py
+ 3653  cd
+ 3654  cd git/hsolbrig
+ 3655  ls
+ 3656  ls model
+ 3657  rm -rf model
+ 3658  ls
+ 3659  git status
+ 3660  git add fhirparser/fhirrenderer.py 
+ 3661  git commit -m "fhirelementfactory.py was built in the wrong spot"
+ 3662  git status
+ 3663  git commit -m "Fix requirements issue"
+ 3664  git commit -am "Fix requirements issue"
+ 3665  git status
+ 3666  git tag
+ 3667  git push
+ 3668  git tag 
+ 3669  git tag v0.3.7
+ 3670  git status
+ 3671  python setup.py sdist bdist_wheel
+ 3672  cd dist
+ 3673  ls
+ 3674  cd ..
+ 3675  twine upload dist/*
+ 3676  git status
+ 3677  cat Changelog
+ 3678  ls -l
+ 3679  ls
+ 3680  :q
+ 3681  git status
+ 3682  git commit -a "Undo last renderer change -- issue was a pypi version"
+ 3683  git status
+ 3684  git commit -am "Undo last renderer change -- issue was a pypi version"
+ 3685  git status
+ 3686  git tag
+ 3687  git tag v0.3.8
+ 3688  git push
+ 3689  rm dist/*
+ 3690  python setup.py sdist bdist_wheel
+ 3691  twine upload dist/*
+ 3692  vim /Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/twine/utils.py:219
+ 3693  vim /Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/twine/utils.py
+ 3694  pip list
+ 3695  pip list keyring
+ 3696  pip install keyring
+ 3697  git status
+ 3698  git add ChangeLog
+ 3699  git commit -m "Version 0.3.8"
+ 3700  git push
+ 3701  cd ../fhir_model_generator
+ 3702  ls
+ 3703  vim Pipfile
+ 3704  pipenv install
+ 3705  vim generate_models.sh
+ 3706  ls
+ 3707  rm -rf model tests/model
+ 3708  ./generate_models.sh
+ 3709  ./test_models.sh
+ 3710  ls
+ 3711  pip list
+ 3712  git list
+ 3713  git status
+ 3714  git diff fhir-parser-resources/settings.py
+ 3715  git status
+ 3716  git checkout R5
+ 3717  git diff Pipfile
+ 3718  git diff settings.py
+ 3719  git diff fhir-parser-resources/settings.py
+ 3720  ls model
+ 3721  rm -rf model tests/model
+ 3722  ./generate_models.sh -f
+ 3723  ./test_models.sh
+ 3724  git status
+ 3725  vim .gitfile
+ 3726  vim .gitignore
+ 3727  git status
+ 3728  git add model tests/model
+ 3729  git status
+ 3730  git commit -am "R5 build"
+ 3731  git push
+ 3732  git checkout R4
+ 3733  git status
+ 3734  vim settings.py
+ 3735  vim fhir-parser-resources/settings.py
+ 3736  less model/account.py
+ 3737  git checkout R5
+ 3738  less model/account.py
+ 3739  git checkout R4
+ 3740  less model/account.py
+ 3741  git pull
+ 3742  git checkout DSTU3
+ 3743  vim fhir-parser-resources/settings.py
+ 3744  ls
+ 3745  vim .gitfile
+ 3746  vim .gitignore
+ 3747  git add .gitignore
+ 3748  ls
+ 3749  ./generate_models.sh -f
+ 3750  vim fhir-parser-resources/settings.py
+ 3751  ./generate_models.sh -f
+ 3752  ls downloads
+ 3753  cat downloads/version.info
+ 3754  ls downloads/valuesets*
+ 3755  ls downloads/valueset*
+ 3756  ./generate_models.sh -f
+ 3757  pipenv shell
+ 3758  find /Users/solbrig/.local/share/virtualenvs/fhir_model_generator-txFPmZYC/ -name fhirloader.py
+ 3759  vim /Users/solbrig/.local/share/virtualenvs/fhir_model_generator-txFPmZYC//lib/python3.7/site-packages/fhirparser/fhirloader.py
+ 3760  ./generate_models.sh
+ 3761  vim /Users/solbrig/.local/share/virtualenvs/fhir_model_generator-txFPmZYC//lib/python3.7/site-packages/fhirparser/fhirloader.py
+ 3762  ./generate_models.sh
+ 3763  vim /Users/solbrig/.local/share/virtualenvs/fhir_model_generator-txFPmZYC//lib/python3.7/site-packages/fhirparser/fhirloader.py
+ 3764  cd downloads
+ 3765  ls
+ 3766  ls *.zip
+ 3767  ls profiles*
+ 3768  vim /Users/solbrig/.local/share/virtualenvs/fhir_model_generator-txFPmZYC//lib/python3.7/site-packages/fhirparser/fhirloader.py
+ 3769  ./generate_models.sh
+ 3770  cd ..
+ 3771  ./generate_models.sh
+ 3772  less model/account.py
+ 3773  ./test_models.sh
+ 3774  ls
+ 3775  rm -rf model
+ 3776  vim Pipfile
+ 3777  rm -rf model tests/model
+ 3778  ./generate_models.sh -f
+ 3779  pipenv shell
+ 3780  pip install -e ~/git/hsolbrig/fhir-parser
+ 3781  ./generate_models.sh
+ 3782  pipenv shell
+ 3783  pip list
+ 3784  cd ../fhir-parser
+ 3785  git status
+ 3786  python setup.py sdist bdist_wheel
+ 3787  cd ../fhir_
+ 3788  cd ../fhir_model_generator
+ 3789  pipenv shell
+ 3790  pip install -e ~/git/hsolbrig/fhir-parser
+ 3791  pip install -e ~/git/hsolbrig/fhir-parser --upgrade
+ 3792  ./generate_models.sh
+ 3793  pipenv shell
+ 3794  pip list
+ 3795  pipenv install -e ~/git/hsolbrig/fhir-parser
+ 3796  cat Pipfile
+ 3797  ./generate_models.sh
+ 3798  pipenv shell
+ 3799  pip list
+ 3800  vim Pipfile
+ 3801  pipenv install ~/git/hsolbrig/fhir-parser
+ 3802  ./generate_models.sh
+ 3803  pipenv install ~/git/hsolbrig/fhir-parser/dist/fhirparser-0.3.9.dev1-py3-none-any.whl
+ 3804  ./generate_models.sh
+ 3805  pipenv shell
+ 3806  pip list
+ 3807  pipenv uninstall fhirparser
+ 3808  pipenv install fhirparser
+ 3809  ./generate_models.sh
+ 3810  cd /Users/solbrig/.local/share/virtualenvs/fhir_model_generator-txFPmZYC/lib/python3.7/site-packages/fhirparser
+ 3811  ls
+ 3812  cp ~/git/hsolbrig/fhir-parser/fhirparser/fhirloader.py .
+ 3813  cp ~/git/hsolbrig/fhir-parser/fhirparser/fhirspec.py .
+ 3814  cp ~/git/hsolbrig/fhir-parser/fhirparser/generate.py .
+ 3815  cd
+ 3816  cd git/hsolbrig/fhir_model_generator
+ 3817  ./generate_models.sh
+ 3818  cd
+ 3819  cd git/hsolbrig/fhir-parser
+ 3820  python setup.py sdist bdist_wheel
+ 3821  pipenv install -e ~/git/hsolbrig/fhir-parser --upgrade
+ 3822  pipenv install -e ~/git/hsolbrig/fhir-parser --upgradee
+ 3823  pipenv install -e ~/git/hsolbrig/fhir-parser --upgrade
+ 3824  pipenv install -e ~/git/hsolbrig/fhir-parser/
+ 3825  cat Pipenv
+ 3826  cat Pipfile
+ 3827  ./generate_models.sh
+ 3828  ./test_models.sh
+ 3829  vim test_models.sh
+ 3830  ./test_models.sh
+ 3831  git status
+ 3832  git add model tests/model
+ 3833  git status
+ 3834  git diff Default/settings.py
+ 3835  git checkout -- Default/settings.py
+ 3836  git status
+ 3837  git diff fhirparser/fhirloader.py
+ 3838  git diff fhirparser/fhirspec.py
+ 3839  git diff fhirparser/generate.py
+ 3840  git commit -am "Attempt to load files not in the zip file directly from the fhir server"
+ 3841  git status
+ 3842  git tag
+ 3843  git tag v0.3.9
+ 3844  ls dist
+ 3845  rm -rf dist
+ 3846  python setup.py sdist bdist_wheel
+ 3847  twine upload dist/*
+ 3848  cat Pipfile
+ 3849  pip uninstall fhirparser
+ 3850  vim Pipfile
+ 3851  pip install fhirparser
+ 3852  vim Pipfile
+ 3853  pipenv --rm
+ 3854  pipenv install
+ 3855  pipenv run pip list
+ 3856  ./generate.py
+ 3857  ./generate_models.sh
+ 3858  ./test_models.sh
+ 3859  git status
+ 3860  git add model
+ 3861  git diff fhir-parser-resources/settings.py
+ 3862  git commit -am
+ 3863  git commit -a
+ 3864  git status
+ 3865  git push
+ 3866  git checkout master
+ 3867  git fetch
+ 3868  git checkout DSTU2
+ 3869  vim settings.py
+ 3870  vim fhir-parser-resources/settings.py
+ 3871  vim .gitignore
+ 3872  rm -rf model tests/model
+ 3873  ./generate_models.sh
+ 3874  ./test_models.sh
+ 3875  vim Pipfile
+ 3876  pipenv --rm
+ 3877  ./generate_models.sh
+ 3878  ./test_models.sh
+ 3879  vim test_models.sh
+ 3880  ./test_models.sh
+ 3881  ls tests/model
+ 3882  ls downloads
+ 3883  pipenv install -e ~/git/hsolbrig/fhir-parser
+ 3884  cat Pipfile
+ 3885  ./generate_models.sh
+ 3886  git status
+ 3887  git checkout DSTU3
+ 3888  rm -rf model tests/model
+ 3889  git checkout DSTU3
+ 3890  git status
+ 3891  vim Pipfile
+ 3892  git status
+ 3893  git add ChangeLog fhirparser/fhirloader.py fhirparser/fhirspec.py
+ 3894  git commit -m
+ 3895  git commit 
+ 3896  git status
+ 3897  git version
+ 3898  git tag
+ 3899  git version v0.4.0
+ 3900  rm dist/*
+ 3901  python setup.py sdist bdist_wheel
+ 3902  git status
+ 3903  git version v0.4.0 -d
+ 3904  git tag
+ 3905  git version v0.4.0
+ 3906  git tag v0.4.0
+ 3907  rm dist/*
+ 3908  python setup.py sdist bdist_wheel
+ 3909  twine upload dist/*
+ 3910  cat Pipfile
+ 3911  pipenv --rm
+ 3912  pipenv install
+ 3913  pipenv --rm
+ 3914  cat Pipfile
+ 3915  vim Pipfile
+ 3916  pipenv install fhirparser
+ 3917  git status
+ 3918  pipenv lock
+ 3919  pipenv run pipenv_to_requirements
+ 3920  git status
+ 3921  git commit -a
+ 3922  git status
+ 3923  git push
+ 3924  git checkout DSTU3
+ 3925  vim Pipfile
+ 3926  pipenv lock
+ 3927  pipenv run pipenv_to_requirements
+ 3928  git status
+ 3929  ./generate_models.sh
+ 3930  ./test_models.sh
+ 3931  ls model
+ 3932  ls tests/model
+ 3933  ls
+ 3934  cd ..
+ 3935  ls
+ 3936  ls model
+ 3937  rm model/*
+ 3938  mkdir model
+ 3939  chmod 0444 model
+ 3940  ls -ld model
+ 3941  cd ..
+ 3942  find . -name account.py
+ 3943  ls model
+ 3944  ls tests
+ 3945  ls tests/model
+ 3946  find . -name account_tests.py
+ 3947  ls
+ 3948  ./generate_models.sh 2> log
+ 3949  vim log
+ 3950  ls
+ 3951  vim fhir-parser-resources
+ 3952  cat Pipfile
+ 3953  pipenv run pip list
+ 3954  vim log
+ 3955  pipenv shell
+ 3956  vim /Users/solbrig/.local/share/virtualenvs/fhir_model_generator-txFPmZYC/lib/python3.7/site-packages/fhirparser/fhirrenderer.py
+ 3957  vim generate_models.sh
+ 3958  ./generate_models.sh
+ 3959  vim /Users/solbrig/.local/share/virtualenvs/fhir_model_generator-txFPmZYC/lib/python3.7/site-packages/fhirparser/fhirrenderer.py
+ 3960  ./generate_models.sh
+ 3961  git checkout R4
+ 3962  rm -rf model
+ 3963  rm -rf tests/model
+ 3964  git checkout R4
+ 3965  cat Pipfile
+ 3966  git diff Pipfile
+ 3967  git diff Pipfile.lock
+ 3968  git status
+ 3969  git add Pipfile Pipfile.lock
+ 3970  git commit -m "Update to new fhirparser version"
+ 3971  git checkout R4
+ 3972  vim Pipfile
+ 3973  ls
+ 3974  rm model/*
+ 3975  rm tests/model/*
+ 3976  ./generate_models.sh
+ 3977  git status
+ 3978  git diff model/account.py
+ 3979  git status | more
+ 3980  git diff Pipfile
+ 3981  ls ../model
+ 3982  pipenv lock
+ 3983  pipenv run pipenv_to_requirements
+ 3984  git add reauirements*
+ 3985  git add requirements*
+ 3986  git add Pipfile*
+ 3987  git status
+ 3988  git add model/fhirelementfactory.py
+ 3989  git status | more
+ 3990  ./test_models.sh
+ 3991  git status
+ 3992  git commit -m "Fixed issue w/ fhirelementfactory not being generated"
+ 3993  rm model/*
+ 3994  rm tests/model/*
+ 3995  ./generate_models.sh
+ 3996  ./test_models.sh
+ 3997  git status
+ 3998  git push
+ 3999  git checkout r5
+ 4000  rm model/* 
+ 4001  rm tests/model/*
+ 4002  git status
+ 4003  git checkout R5
+ 4004  cat generate_models.sh
+ 4005  vim generate_models.sh
+ 4006  git status
+ 4007  pipenv run pip list
+ 4008  find . -name fhirabstractbase.py
+ 4009  vim generate.py
+ 4010  vim generate_models.sh
+ 4011  ls generate*
+ 4012  ./test_models.sh
+ 4013  ./generate_models.sh 2> generate.log
+ 4014  vim generate.log
+ 4015  pwd
+ 4016  cd hsolbrig/fhir_model_generator
+ 4017  find . -name fhirabstract*
+ 4018  git status
+ 4019  pipenv --rm
+ 4020  ./generate_models.sh 2> generate.log
+ 4021  tail generate.log
+ 4022  ./test_models.sh 2> test.log
+ 4023  git status
+ 4024  git diff tests/model/topic_tests.py
+ 4025  git add tests/model
+ 4026  git add model
+ 4027  git status
+ 4028  pipenv lock
+ 4029  cat Pipfile
+ 4030  vim Pipfile
+ 4031  pipenv pip list
+ 4032  pipenv run pip list
+ 4033  pipenv run pip list | grep fhirparse
+ 4034  pip list
+ 4035  pip uninstall fhirparser
+ 4036  pip list
+ 4037  pip list > zzz
+ 4038  vim zzz
+ 4039  cd
+ 4040  cd Downloads
+ 4041  ls
+ 4042  ls 000*
+ 4043  less 000000\ -\ Andrey\ Fedorov.dcm
+ 4044  . zzz
+ 4045  ./zzz
+ 4046  chmod +x zzz
+ 4047  ./zzz
+ 4048  pip list
+ 4049  pip install pipenv
+ 4050  pip install rdflib
+ 4051  pip list
+ 4052  pipenv --rm
+ 4053  cat generate_models.sh
+ 4054  git status
+ 4055  pipenv install
+ 4056  pipenv run pipenv_to_requirements
+ 4057  git list
+ 4058  git status
+ 4059  ./generate_models.sh 2> generate.log
+ 4060  ./test_models.sh 2> test.log
+ 4061  git status
+ 4062  cat requirements.txt
+ 4063  git tag
+ 4064  git commit -am "Synced with latest fhirparser"
+ 4065  git push
+ 4066  git status
+ 4067  rm log zzz
+ 4068  ls
+ 4069  git checkout R4
+ 4070  git status
+ 4071  git checkout master
+ 4072  git status
+ 4073  cat Pipfile
+ 4074  git checkout R4
+ 4075  cat Pipfile
+ 4076  git checkout R5
+ 4077  cat Pipfile
+ 4078  git checkout master
+ 4079  vim Pipfile
+ 4080  pipenv lock
+ 4081  pipenv run pipenv_to_requirements
+ 4082  git status
+ 4083  git commit -am "Updated to fhirparser 0.4.0"
+ 4084  git push
+ 4085  cd
+ 4086  cd git/funowl
+ 4087  ls
+ 4088  cd git
+ 4089  cd hsolbrig/funowl
+ 4090  ls
+ 4091  git pull
+ 4092  cd
+ 4093  cd git/hsolbrig/funowl
+ 4094  git tag
+ 4095  git tag v0.1.0
+ 4096  git status
+ 4097  git add notebooks
+ 4098  git status 
+ 4099  git commit -am "More work on singleton property"
+ 4100  git status
+ 4101  git push
+ 4102  python setup.py sdist bdist_wheel
+ 4103  cat Pipenv
+ 4104  cat Pipfile
+ 4105  vim Pipfile
+ 4106  pipenv lock
+ 4107  pipenv run pipenv_to_requirements
+ 4108  git status
+ 4109  git tag v0.1.1
+ 4110  rm dist/*
+ 4111  git commit -am "Update dependencies"
+ 4112  git diff requirements.txt
+ 4113  git push
+ 4114  rm dist/*
+ 4115  python setup.py sdist bdist_wheel
+ 4116  git tag v0.1.3
+ 4117  python setup.py sdist bdist_wheel
+ 4118  ls
+ 4119  ls dist
+ 4120  rm dist/funowl-0.1.2*
+ 4121  ls
+ 4122  cd
+ 4123  cd venv
+ 4124  ls
+ 4125  rm -rf funowl
+ 4126  cd funowl
+ 4127  ls
+ 4128  mkdir funowl
+ 4129  ls
+ 4130  cd funowl
+ 4131  twine upload dist
+ 4132  pip install twine
+ 4133  pip list
+ 4134  twine upload dist
+ 4135  twine upload dist/*
+ 4136  pipenv install funowl
+ 4137  pipenv shell
+ 4138  python
+ 4139  cd
+ 4140  cd git/funowl/tests/data
+ 4141  ls
+ 4142  cd git
+ 4143  cd hsolbrig/funowl/tests
+ 4144  ls
+ 4145  cd data
+ 4146  ls
+ 4147  mv pizza.owl.out pizza.owl.outold
+ 4148  diff pizza.owl.out pizza.owl.outold
+ 4149  vim pizza.owl
+ 4150  cd
+ 4151  cd git/hsolbrig/funowl
+ 4152  ls
+ 4153  git tag
+ 4154  git tag v0.1.4
+ 4155  python setup.py sdist bdist_wheel
+ 4156  ls dist
+ 4157  twine upload dist/*
+ 4158  git status
+ 4159  git commit -am "Release version 0.1.4"
+ 4160  git push
+ 4161  cd
+ 4162  cd git/hsolbrig/PyShEx
+ 4163  git status
+ 4164  git checkout master
+ 4165  rm tests/data/earl_report.ttl
+ 4166  git checkout master
+ 4167  git checkout UserAgent
+ 4168  git pull
+ 4169  git checkout UserAgent
+ 4170  git status
+ 4171  cd
+ 4172  cd git/hsolbrig/PyShEx
+ 4173  pipenv --rm
+ 4174  pipenv install
+ 4175  pipenv run pipfile_to_requirements
+ 4176  pipenv run pipenv_to_requirements
+ 4177  git tag
+ 4178  git tag v0.7.10
+ 4179  git tag
+ 4180  git tag v0.7.13
+ 4181  git status
+ 4182  git commit -am "Update version identifier and refresh Pipfile"
+ 4183  git status
+ 4184  python setup.py sdist bdist_wheel
+ 4185  git push
+ 4186  cd
+ 4187  cd 
+ 4188  cd venv
+ 4189  ls
+ 4190  rm -rf pyshex
+ 4191  mkdir pyshex
+ 4192  cd pyshex
+ 4193  pipenv install PyShEx
+ 4194  pipenv shell
+ 4195  pip install jupyter
+ 4196  cd ../git/hsolbrig/PyShEx
+ 4197  cd ~/git/hsolbrig/PyShEx
+ 4198  jupyter notebook
+ 4199  cd
+ 4200  cd venv/pyshex
+ 4201  ls
+ 4202  pipenv run pip list
+ 4203  cd
+ 4204  cd git/hsolbrig/PyShEx
+ 4205  ls
+ 4206  cat Pipfile
+ 4207  git tag
+ 4208  cd
+ 4209  cd venv/pyshex
+ 4210  cd
+ 4211  cd git/pyshex
+ 4212  cd venv
+ 4213  ls
+ 4214  cd pyshex
+ 4215  pipenv install PyShEx --upgrade
+ 4216  pip search PyShEx
+ 4217  cd
+ 4218  cd git/hsolbrig/PyShEx
+ 4219  ls dist
+ 4220  git tag
+ 4221  git checkout master
+ 4222  cd
+ 4223  cd venv
+ 4224  ls
+ 4225  cd pyshex
+ 4226  pipenv install ~/git/hsolbrig/PyShEx
+ 4227  pipenv shell
+ 4228  pip lsit
+ 4229  pip list
+ 4230  cd
+ 4231  cd git/hsolbrig/PyShEx
+ 4232  jupyter notebook
+ 4233  git status
+ 4234  git commit -am "Update all the notebooks"
+ 4235  git push
+ 4236  git tag
+ 4237  git fetch
+ 4238  git checkout master
+ 4239  git tag
+ 4240  rm dist/*
+ 4241  git tag
+ 4242  git tag v0.7.14
+ 4243  python setup.py sdist bdist_wheel
+ 4244  twine upload dist/*
+ 4245  ls
+ 4246  ls dist
+ 4247  git pull
+ 4248  git commit -am "Update change log"
+ 4249  git pull
+ 4250  mv Changelog ~/
+ 4251  git pull
+ 4252  git checkout -- ChangeLog
+ 4253  vim ChangeLog
+ 4254  mv ~/Changelog ChangeLog
+ 4255  vim ChangeLog
+ 4256  git commit -am ChangeLog
+ 4257  git pull
+ 4258  find . -name user_agent*
+ 4259  cd ~/git/hsolbrig/funowl/tests/test_owl2_test_suite/data
+ 4260  ls
+ 4261  ls | more
+ 4262  cp Bnode2somevaluesfrom.func Bnode2somevaluesfrom.owl
+ 4263  mv Bnode2somevaluesfrom.owl ..
+ 4264  cd ..
+ 4265  ls
+ 4266  cd funwol
+ 4267  cd funowl
+ 4268  ls
+ 4269  rm assertions.py
+ 4270  cd
+ 4271  cd git/hsolbrig/fhir_model_generator
+ 4272  ls
+ 4273  ./generate_models.sh > generate.log
+ 4274  cat fhir-parser-resources/settings.py
+ 4275  git status
+ 4276  ls tests/model
+ 4277  vim generate.log
+ 4278  cat generate
+ 4279  cat generate.log
+ 4280  ./generate_models.sh 2> generate.log
+ 4281  vim generate.log
+ 4282  ./generate_models.sh 2> generate.log
+ 4283  vim generate.log
+ 4284  cat generate.sh
+ 4285  cat generate_models.sh
+ 4286  cd downloads
+ 4287  ls
+ 4288  ls account*
+ 4289  ls *account*
+ 4290  ls *.zip
+ 4291  gzip --help
+ 4292  gzip -l examples-json.zip
+ 4293  zip -l examples-json.zip
+ 4294  zip --?
+ 4295  zip --help
+ 4296  unzip --help
+ 4297  unzip -l examples-json.zip| more
+ 4298  unzip -l examples-json.zip | grep account
+ 4299  cd
+ 4300  cd Downloads
+ 4301  mkdir fhirparser
+ 4302  cd fhirparser
+ 4303  ls
+ 4304  unzip -t examples-json.zip| more
+ 4305  unzip -t examples-json.zip| grep -i example
+ 4306  cd ..
+ 4307  grep -r "hl7.org" * | grep ipynb
+ 4308  cd
+ 4309  cd git/hsolbrig
+ 4310  grep -r "hl7.org" * | grep ipynb
+ 4311  cd
+ 4312  cd git/HL7/fhir/publish
+ 4313  grep "Cat" *all*.json
+ 4314  grep "Cat" *all*.json | grep -v div | more
+ 4315  grep "Cat " *all*.json | grep -v div | more
+ 4316  grep -i "Cat " *all*.json | grep -v div | more
+ 4317  grep -i "Cat " *.json | grep -v div | more
+ 4318  cd
+ 4319  cd git/HL7/fhir/publish
+ 4320  ls account*
+ 4321  less account.shex
+ 4322  cd
+ 4323  cd venv
+ 4324  mkdir fhir_rdf_validator
+ 4325  cd fhir_rdf_validator
+ 4326  cd
+ 4327  cd ~/git/hsolbrig/fhir_rdf_validator
+ 4328  git status
+ 4329  git add LICENSE README setup.* cache
+ 4330  vim .gitignore
+ 4331  cp ../funowl/.gitignore .gitignore
+ 4332  vim .gitignore
+ 4333  git status
+ 4334  git add .gitignore Pipfile Pipfile.lock fhir_rdf_validator tests
+ 4335  git status
+ 4336  git add README.md setup.cfg setup.py
+ 4337  git status
+ 4338  git commit -am "Initial drop"
+ 4339  git status
+ 4340  python setup.py sdist bdist_wheel
+ 4341  cd
+ 4342  cd venv
+ 4343  cd fhir_rdf_validator
+ 4344  pipenv install ~/git/hsolbrig/fhir_rdf_validator
+ 4345  pipenv shell
+ 4346  validate
+ 4347  generate
+ 4348  pip list
+ 4349  pip install dirlistproc
+ 4350  pip list
+ 4351  pip install rdflib
+ 4352  pip list
+ 4353  pip install pyshex
+ 4354  pip list
+ 4355  pwd
+ 4356  rm -rf fhir_rdf_validator
+ 4357  cd
+ 4358  cd git/hsolbrig/fhir_rdf_validator
+ 4359  ls
+ 4360  pipenv run pipenv_to_requirements
+ 4361  git list
+ 4362  git status
+ 4363  git add Authors ChangeLog requirements.txt
+ 4364  git commit -am "First cut at distributable"
+ 4365  git status
+ 4366  git add AUTHORS
+ 4367  git commit -am "First cut at distributable"
+ 4368  git status
+ 4369  rm dist/*
+ 4370  python setup.py sdist bdist_wheel
+ 4371  cd
+ 4372  cd venv
+ 4373  mkdir zzfrv
+ 4374  cd zzfrv
+ 4375  pipenv install ~/git/hsolbrig/fhir_rdf_validator
+ 4376  pipenv shell
+ 4377  validate
+ 4378  pip install -e ~/git/hsolbrig/fhir_rdf_validator
+ 4379  validate
+ 4380  cd
+ 4381  cd git/hsolbrig/fhir_rdf_validator
+ 4382  validate -id ~/git/HL7/fhir/publish --shex
+ 4383  validate -id ~/git/HL7/fhir/publish --shex -cd cache
+ 4384  cd
+ 4385  cd git
+ 4386  cd ~/git/hsolbrig/fhir_rdf_validator
+ 4387  ls
+ 4388  git status
+ 4389  git commit -am "Fix command line issue"
+ 4390  git remote add origin git@github.com:fhircat/fhir_rdf_validator.git
+ 4391  git push -u origin master
+ 4392  cd
+ 4393  cd git/HL7/fhir
+ 4394  git pull
+ 4395  ./puglish.sh
+ 4396  ./publish.sh
+ 4397  find . -name "*.class"
+ 4398  find . -name "*.class" -exec rm {} \;
+ 4399  ./publish.sh
+ 4400  pause
+ 4401  fg
+ 4402  cd
+ 4403  cd venv
+ 4404  ls
+ 4405  rm -rf zzfrv
+ 4406  mkdir zzfrv
+ 4407  cd zzfrvv
+ 4408  cd zzfrv
+ 4409  cd
+ 4410  cd git/FHIRCat
+ 4411  ls
+ 4412  git clone git@github.com:fhircat/fhir_rdf_validator.git
+ 4413  ls
+ 4414  cd fhir_rdf_validator
+ 4415  git tag
+ 4416  git tag v0.0.1
+ 4417  git status
+ 4418  python setup.py sdist bdist_wheel
+ 4419  cd
+ 4420  cd venv
+ 4421  ls
+ 4422  cd zzfrv
+ 4423  ls
+ 4424  pwd
+ 4425  cd
+ 4426  cd git
+ 4427  cd FHIRCat
+ 4428  ls
+ 4429  cd ../..
+ 4430  cd venv
+ 4431  ls
+ 4432  cd zzrfv
+ 4433  cd zzfrv
+ 4434  pipenv install -e ~/git/fhircat/fhir_rdf_validator
+ 4435  pipenv shell
+ 4436  ls
+ 4437  validate --help
+ 4438  cd
+ 4439  cd git/fhircat
+ 4440  ls
+ 4441  cd fhir_rdf_validator
+ 4442  ls
+ 4443  cd ../..
+ 4444  cd hsolbrig
+ 4445  cd fhir_rdf_validator
+ 4446  ls
+ 4447  validate -id ~/git/HL7/fhir/publish --shex -cd ~/git/hsolbrig/fhir_rdf_validator/cache >log 
+ 4448  cd
+ 4449  cd venv/zzfrv
+ 4450  ls
+ 4451  tail -f log
+ 4452  ls
+ 4453  cp log ~/git/fhircat/fhir_rdf_validator/tests
+ 4454  cd
+ 4455  cd git/FHIRCat
+ 4456  ls
+ 4457  cd ../hsolbrig/fhir_rdf_validator
+ 4458  ls
+ 4459  mv cache ~/git/fhircat/fhir_rdf_validator/tests
+ 4460  cd
+ 4461  cd ~/git/fhircat
+ 4462  ls
+ 4463  cd fhir_rdf_validator
+ 4464  ls
+ 4465  git status
+ 4466  cat setup.cfg
+ 4467  pwd
+ 4468  cd ../..
+ 4469  cd hsolbrig
+ 4470  mv fhir_rdf_validator zzzz_fhir_rdf_validator
+ 4471  cd ..
+ 4472  mv fhircat FHIRCat
+ 4473  cd FHIRCat
+ 4474  ls
+ 4475  cd fhir_rdf_validator
+ 4476  ls
+ 4477  git status
+ 4478  pipfile lock
+ 4479  pipenv lock
+ 4480  pipenv run pipenv_to_requirements
+ 4481  git status
+ 4482  git tag
+ 4483  git tag v0.0.2
+ 4484  rm dist/*
+ 4485  python setup.py sdist bdist_wheel
+ 4486  vim setup.cfg
+ 4487  ls dist
+ 4488  ls -l dist
+ 4489  twine upload dist/*
+ 4490  python setup.py sdist bdist_wheel
+ 4491  ls dist
+ 4492  twine upload dist/*
+ 4493  python setup.py sdist bdist_wheel
+ 4494  twine upload dist/*
+ 4495  python setup.py sdist bdist_wheel
+ 4496  twine upload dist/*
+ 4497  git status
+ 4498  git commit -am "Fix setup issues"
+ 4499  git push
+ 4500  cd
+ 4501  cd git/hsolbrig/fhir-parser
+ 4502  grep bundle *
+ 4503  cd fhirparser
+ 4504  grep bundle *
+ 4505  vim fhirspec.py
+ 4506  diff fhirpec.py ../../../stephanie-howson/fhir-parser/fhirspec.py
+ 4507  ls
+ 4508  diff fhirspec.py ../../../stephanie-howson/fhir-parser/fhirspec.py
+ 4509  diff fhirspec.py ../../../stephanie-howson/fhir-parser/fhirspec.py | more
+ 4510  cd
+ 4511  cd git/hsolbrig/fhir-parser
+ 4512  ls
+ 4513  cd ../fhir_model_generator
+ 4514  ls
+ 4515  cat fhir-parser-resources
+ 4516  cd fhir-parser-resources
+ 4517  ls
+ 4518  cd ..
+ 4519  find . -name *.json
+ 4520  cd ../fhir-parser
+ 4521  cd fhirparser
+ 4522  grep needs *
+ 4523  vim fhirloader.py
+ 4524  cd
+ 4525  cd git/hsolbrig/fhir_model_generator
+ 4526  ls
+ 4527  ./generate_models.sh
+ 4528  cat generate_models.sh
+ 4529  ./generate_models.sh
+ 4530  ls model
+ 4531  cat tests/model
+ 4532  ls tests/model
+ 4533  ls
+ 4534  ls tests
+ 4535  ls model
+ 4536  ls tests/model
+ 4537  cat test_models.sh
+ 4538  ./test_models.sh
+ 4539  cd
+ 4540  cd git/hsolbrig
+ 4541  ls
+ 4542  git clone git@github.com:hsolbrig/dirlistproc.git
+ 4543  c
+ 4544  cd
+ 4545  cd git/hsolbrig/funowl
+ 4546  ls
+ 4547  git pull
+ 4548  cd
+ 4549  cd git/HL7/fhir/publish
+ 4550  grep Bridg *.json
+ 4551  grep bridg *.json
+ 4552  cd
+ 4553  cd data/terminology/snomedct
+ 4554  ls
+ 4555  unzip SnomedCT_Release_VTS1000009_20191001.zip
+ 4556  ls
+ 4557  cd SnomedCT_Release_VTS1000009
+ 4558  ls
+ 4559  cd Snapshot
+ 4560  ls
+ 4561  ls Terminology
+ 4562  ls Refset
+ 4563  ls
+ 4564  cd Terminology
+ 4565  ls
+ 4566  wc -l sct2_Concept_Snapshot_VTS_20191001.txt
+ 4567  cd
+ 4568  cd venv
+ 4569  ls
+ 4570  cd snomedtoowl
+ 4571  ls
+ 4572  pipenv run pip list
+ 4573  lks
+ 4574  ls
+ 4575  cat Pipfile
+ 4576  pipenv install
+ 4577  pipenv shell
+ 4578  snomedtoowl
+ 4579  cd
+ 4580  cd data/terminology/snomedct
+ 4581  ls
+ 4582  cd SnomedCT_Release_VTS1000009
+ 4583  ls
+ 4584  cd Snapshot
+ 4585  ls
+ 4586  less Terminology
+ 4587  cd Terminology
+ 4588  ls
+ 4589  head sct2_Concept_Snapshot_VTS_20191001.txt
+ 4590  ls
+ 4591  man cut
+ 4592  less sct2_Concept_Snapshot_VTS_20191001.txt
+ 4593  ls
+ 4594  cp ~/git/hsolbrig/SNOMEDToOWL/SNOMEDCTToOWL/conf/sct_core_us_gb_skos.json conf.json
+ 4595  vim conf.json
+ 4596  ls
+ 4597  cd ..
+ 4598  ls
+ 4599  cd ..
+ 4600  ls
+ 4601  less Readme_en_20191001.txt
+ 4602  cd Snapshot
+ 4603  ls
+ 4604  mv Terminology/conf.json .
+ 4605  vim conf.json
+ 4606  ls
+ 4607  SNOMEDToOWL --help
+ 4608  SNOMEDToOWL . conf.json > VTS.owl 
+ 4609  pwd
+ 4610  ls
+ 4611  cat VTS.owl
+ 4612  vim Terminology/sct2_Description_Snapshot_en_VTS_20191001.txt
+ 4613  pip list
+ 4614  pip install -e ~/git/hsolbrig/SNOMEDToOWL --upgrde
+ 4615  pip install -e ~/git/hsolbrig/SNOMEDToOWL 
+ 4616  pip list
+ 4617  SNOMEDToOWL . conf.json > VTS.owl 
+ 4618  ls
+ 4619  ls -l
+ 4620  SNOMEDToOWL . conf.json -o VTS.owl
+ 4621  ls
+ 4622  ls -l Terminology
+ 4623  cd Terminology
+ 4624  ls
+ 4625  vim sct2_Relationship_Snapshot_VTS_20191001.txt
+ 4626  ls
+ 4627  cat ../conf.json
+ 4628  ls
+ 4629  vim sct2_Relationship_Snapshot_VTS_20191001.txt
+ 4630  ls
+ 4631  vim sct2_Description_Snapshot_en_VTS_20191001.txt
+ 4632  wc -l sct2_Concept_Snapshot_VTS_20191001.txt
+ 4633  ls
+ 4634  cd ..
+ 4635  ls
+ 4636  less VTS.owl
+ 4637  cd Terminology
+ 4638  ls
+ 4639  vim sct2_Description_Snapshot_en_VTS_20191001.txt
+ 4640  less ../VTS.owl
+ 4641  vim sct2_Description_Snapshot_en_VTS_20191001.txt
+ 4642  SNOMEDToOWL . conf.json -o VTS.owl
+ 4643  cd ..
+ 4644  SNOMEDToOWL . conf.json -o VTS.owl
+ 4645  vim conf.json
+ 4646  ls
+ 4647  ls Terminology
+ 4648  vim conf.json
+ 4649  SNOMEDToOWL . conf.json -o VTS.owl
+ 4650  ls
+ 4651  cd Terminology
+ 4652  ls
+ 4653  vim sct2_Description_Snapshot_en_VTS_20191001.txt
+ 4654  ls
+ 4655  pwd
+ 4656  cd
+ 4657  cd data/terminology/snomedct
+ 4658  ls
+ 4659  cd SnomedCT_Release_VTS1000009
+ 4660  ls
+ 4661  cd Snapshot
+ 4662  ls Terminology
+ 4663  ls
+ 4664  cd ..
+ 4665  SNOMEDToOWL . conf.json -o VTS.owl
+ 4666  less VTS.owl
+ 4667  pwd
+ 4668  cd Refset
+ 4669  ls
+ 4670  cd Language
+ 4671  ls
+ 4672  less der2_cRefset_LanguageSnapshot_en_VTS_20191001.txt
+ 4673  vim conf.json
+ 4674  vim der2_cRefset_LanguageSnapshot_en_VTS_20191001.txt
+ 4675  ls
+ 4676  cd Terminology
+ 4677  ls
+ 4678  vim sct2_Description_Snapshot_en_VTS_20191001.txt
+ 4679  cd ..
+ 4680  ls
+ 4681  cd ..
+ 4682  vim VTS.owl
+ 4683  ls
+ 4684  vim sct2_Relationship_Snapshot_VTS_20191001.txt
+ 4685  ls
+ 4686  cd ..
+ 4687  ls
+ 4688  cd ..
+ 4689  ls
+ 4690  cd Full
+ 4691  ls
+ 4692  cd Terminology
+ 4693  ls
+ 4694  vim sct2_Relationship_Full_VTS_20191001.txt
+ 4695  ls
+ 4696  ls -l
+ 4697  ssh -L 7300:localhost:7300 ohtosphere.or
+ 4698  ssh -L 7300:localhost:7300 ohtosphere.org
+ 4699  ssh -L 7300:localhost:7300 harolds@ohtosphere.org
+ 4700  vim VTS.owl
+ 4701  grep rdfs:label VTS.owl| wc -l
+ 4702  ls -lh
+ 4703  ls
+ 4704  cd Terminology
+ 4705  ls
+ 4706  \vim sct2_Concept_Snapshot_VTS_20191001.txt
+ 4707  man sort
+ 4708  sort -k 
+ 4709  sort -k 2
+ 4710  sort -k 2 sct2_Concept_Snapshot_VTS_20191001.txt
+ 4711  sort -k 2 sct2_Concept_Snapshot_VTS_20191001.txt | more
+ 4712  sort -k 2 sct2_Concept_Snapshot_VTS_20191001.txt > dtsort
+ 4713  vim dtsort
+ 4714  cd ..
+ 4715  ls
+ 4716  cd ../Full
+ 4717  ls
+ 4718  cd Terminology
+ 4719  ls
+ 4720  sort -k 2 sct2_Concept_Full_VTS_20191001.txt > dtsort
+ 4721  vim dtsort
+ 4722  uniq -c dtsort
+ 4723  uniq -c dtsort | more
+ 4724  vim dtsort
+ 4725  uniz -c zzsort
+ 4726  uniq -c zzsort
+ 4727  uniq -c zzsort More
+ 4728  uniq -c zzsort | more
+ 4729  uniq -c zzsort | sort -u
+ 4730  cd ../
+ 4731  cd ../Snapshot
+ 4732  ls
+ 4733  cd Terminology
+ 4734  ls
+ 4735  vim dtsort
+ 4736  vim dt2019
+ 4737  sort -k 3 dt2019
+ 4738  wc -l dt2019
+ 4739  wc -l dt2018
+ 4740  wc -l dt2017
+ 4741  ls
+ 4742  pwd
+ 4743  cd ../..
+ 4744  ls
+ 4745  cd ..
+ 4746  ls
+ 4747  cd SnomedCT_InternationalRF2_PRODUCTION_20190731T120000Z
+ 4748  ls
+ 4749  cd Snapshot
+ 4750  ~/git/hsolbrig/SNOMEDToOWL/scripts/OWLRefsetToOWL.sh > out.owl
+ 4751  .~/git/hsolbrig/SNOMEDToOWL/scripts/OWLRefsetToOWL.sh > out.owl
+ 4752  ./~/git/hsolbrig/SNOMEDToOWL/scripts/OWLRefsetToOWL.sh > out.owl
+ 4753  . ~/git/hsolbrig/SNOMEDToOWL/scripts/OWLRefsetToOWL.sh > out.owl
+ 4754  ls
+ 4755  cd Terminology
+ 4756  . ~/git/hsolbrig/SNOMEDToOWL/scripts/OWLRefsetToOWL.sh > out.owl
+ 4757  ls
+ 4758  cd ../..
+ 4759  ls
+ 4760  cd Snapshot
+ 4761  ls
+ 4762  cd Terminology
+ 4763  ls
+ 4764  pwd
+ 4765  cd ../..
+ 4766  cd ../SnomedCT_Release_VTS1000009
+ 4767  ls
+ 4768  cd Snapshot
+ 4769  ls
+ 4770  cd Terminology
+ 4771  ls
+ 4772  vim sct2_Relationship_Snapshot_VTS_20191001.txt
+ 4773  cd
+ 4774  cd git/hsolbrig
+ 4775  mkdir VST
+ 4776  cd VST
+ 4777  echo # VST >> README.md
+ 4778  git init
+ 4779  git add README.md
+ 4780  git commit -m "Original"
+ 4781  ls
+ 4782  ls -a
+ 4783  echo "$ VST" >> README.MD
+ 4784  git add README.md
+ 4785  git commit -m "Original"
+ 4786  mv README.MD README.md
+ 4787  git add README.md
+ 4788  git commit -m "Original"
+ 4789  git remote add origin git@github.com:hsolbrig/VST.git
+ 4790  git push -u origin master
+ 4791  cp ~/data/terminology/snomedct/SnomedCT_Release_VTS1000009/Snapshot/VTS.owl .
+ 4792  cp ~/data/terminology/snomedct/SnomedCT_InternationalRF2_PRODUCTION_20190731T120000Z/Snapshot/out.owl sct.owl
+ 4793  ls -lh
+ 4794  ls -l ~/data/terminology/snomedct/SnomedCT_InternationalRF2_PRODUCTION_20190731T120000Z/Snapshot/
+ 4795  rm ~/data/terminology/snomedct/SnomedCT_InternationalRF2_PRODUCTION_20190731T120000Z/Snapshot/out.owl
+ 4796  cp ~/data/terminology/snomedct/SnomedCT_InternationalRF2_PRODUCTION_20190731T120000Z/Snapshot/Terminology/out.owl sct.owl
+ 4797  ls -lh
+ 4798  git add VTS.owl
+ 4799  git commit -m "Owl rendering of VTS"
+ 4800  git push
+ 4801  cd
+ 4802  cd git/hsolbrig
+ 4803  ls
+ 4804  cd fhir-parser
+ 4805  ls
+ 4806  less setup.cfg
+ 4807  pwd
+ 4808  cd ../SNOMEDToOWL
+ 4809  ls
+ 4810  rm SNOMEDToOWL.egg-info
+ 4811  rm -rf SNOMEDToOWL.egg-info
+ 4812  ls
+ 4813  git tag v1.0.0
+ 4814  git status
+ 4815  git add setup.cfg PipFile PipFile.lock
+ 4816  vim .gitignore
+ 4817  git add .gitignore
+ 4818  git status
+ 4819  cat Pipfile
+ 4820  vim Pipfile
+ 4821  pipenv lock
+ 4822  git status
+ 4823  git add Pipfile*
+ 4824  git commit -m "Switch to pipenv"
+ 4825  git status
+ 4826  git commit -am "Switch to pipenv"
+ 4827  git status
+ 4828  python setup.py sdist bdist_wheel
+ 4829  git tag v1.0.1
+ 4830  python setup.py sdist bdist_wheel
+ 4831  rm dist/*
+ 4832  python setup.py sdist bdist_wheel
+ 4833  cd
+ 4834  cd venv
+ 4835  ls
+ 4836  rm -rf snomedtoowl
+ 4837  mkdir snomedtoowl
+ 4838  cd snomedtoowl
+ 4839  pipenv install ~/git/hsolbrig/SNOMEDToOWL/dist
+ 4840  pipenv install ~/git/hsolbrig/SNOMEDToOWL/dist/SNOMEDToOWL-1.0.1-py3-none-any.whl
+ 4841  pipenv shell
+ 4842  pip list
+ 4843  CompareRDF
+ 4844  CompareRDF --help
+ 4845  Modules
+ 4846  cd
+ 4847  cd ~/git/hsolbrig/SNOMEDToOWL
+ 4848  git status
+ 4849  git add AUTHORS ChangeLog
+ 4850  git commit -am "Update scripts"
+ 4851  git version v1.0.2
+ 4852  git tag v1.0.2
+ 4853  rm dist/*
+ 4854  python setup.py sdist bdist_wheel
+ 4855  cd
+ 4856  cd venv
+ 4857  ls
+ 4858  cd snomedtoowl
+ 4859  pipenv install ~/git/hsolbrig/SNOMEDToOWL/dist/SNOMEDToOWL-1.0.2-py3-none-any.whl
+ 4860  pipenv shell
+ 4861  CompareRDF
+ 4862  pipenv --rm
+ 4863  pipenv install ~/git/hsolbrig/SNOMEDToOWL/dist/SNOMEDToOWL-1.0.2-py3-none-any.whl
+ 4864  pipenv shell
+ 4865  pip list
+ 4866  pipenv install ~/git/hsolbrig/SNOMEDToOWL/dist/SNOMEDToOWL-1.0.2-py3-none-any.whl
+ 4867  pipenv shell
+ 4868  pip list
+ 4869  CompareRDF
+ 4870  cd ..
+ 4871  rm -rf snomedtoowl
+ 4872  mkdir snomedtoowl
+ 4873  cd snomedtoowl
+ 4874  pipenv install ~/git/hsolbrig/SNOMEDToOWL/dist/SNOMEDToOWL-1.0.2-py3-none-any.whl
+ 4875  pipenv shell
+ 4876  pip list
+ 4877  rm -rf /Users/solbrig/.local/share/virtualenvs/snomedtoowl-mQLHE7N9
+ 4878  ls
+ 4879  rm *
+ 4880  pipenv install ~/git/hsolbrig/SNOMEDToOWL/dist/SNOMEDToOWL-1.0.2-py3-none-any.whl
+ 4881  pipenv shell
+ 4882  pip list
+ 4883  cd
+ 4884  cd git/hsolbrig/SNOMEDToOWL
+ 4885  ls
+ 4886  rm SNOMEDToOWL.egg-info/*
+ 4887  rm -rf SNOMEDToOWL.egg-info
+ 4888  rm -rf build
+ 4889  rm -rf dist
+ 4890  python setup.py sdist bdist_wheel
+ 4891  cd
+ 4892  cd venv
+ 4893  cd snomedtoowl
+ 4894  ls
+ 4895  pipenv install ~/git/hsolbrig/SNOMEDToOWL
+ 4896  pipenv shell
+ 4897  pip list
+ 4898  rm -rf /Users/solbrig/.local/share/virtualenvs/snomedtoowl*
+ 4899  ls
+ 4900  cat Pipfile
+ 4901  pipenv shell
+ 4902  pip list
+ 4903  pipenv install ~/git/hsolbrig/SNOMEDToOWL
+ 4904  pipenv shell
+ 4905  pip list
+ 4906  pipenv uninstall ~/git/hsolbrig/SNOMEDToOWL
+ 4907  pipenv install ~/git/hsolbrig/SNOMEDToOWL/dist/SNOMEDToOWL-1.0.2-py3-none-any.whl
+ 4908  pipenv run pip list
+ 4909  cat Pipfile
+ 4910  cd ..
+ 4911  rm -rf snomedtoowl
+ 4912  mkdir STO
+ 4913  cd STO
+ 4914  pipenv install ~/git/hsolbrig/SNOMEDToOWL
+ 4915  pipenv run pip lis t
+ 4916  pipenv run pip list
+ 4917  cd
+ 4918  cd git/hsolbrig/SNOMEDToOWL
+ 4919  ls
+ 4920  rm dist/* 
+ 4921  rm -rf build
+ 4922  cat setup.cfg
+ 4923  python setup.py sdist bdist_wheel
+ 4924  pipenv run pipfile_to_requirements
+ 4925  pipenv run pipenv_to_requirements
+ 4926  python setup.py sdist bdist_wheel
+ 4927  cd
+ 4928  cd venv/STO
+ 4929  pipenv install ~/git/hsolbrig/SNOMEDToOWL
+ 4930  pipenv run pip list
+ 4931  pipenv shell
+ 4932  compareRDF
+ 4933  Modules
+ 4934  cd ~/git/hsolbrig/S
+ 4935  cd ~/git/hsolbrig/SNOMEDToOWL
+ 4936  git list
+ 4937  git status
+ 4938  git add requirements.txt
+ 4939  git commit -am "Setup tweaks"
+ 4940  git tag
+ 4941  git tag v1.0.3
+ 4942  rm dist/*
+ 4943  python setup.py sdist bdist_wheel
+ 4944  cd
+ 4945  cd venv
+ 4946  cd STO
+ 4947  pipenv --rm
+ 4948  pipenv install ~/git/hsolbrig/SNOMEDToOWL
+ 4949  pipenv --rm
+ 4950  pipenv install ~/git/hsolbrig/SNOMEDToOWL
+ 4951  cd ,,
+ 4952  pipenv shell
+ 4953  rm -rf /Users/solbrig/.local/share/virtualenvs/STO*
+ 4954  ls
+ 4955  rm P*
+ 4956  pipenv install ~/git/hsolbrig/SNOMEDToOWL
+ 4957  cd
+ 4958  cd git/hsolbrig/SNOMEDToOWL
+ 4959  python setup.py sdist bdist_wheel
+ 4960  cd
+ 4961  cd vdnv
+ 4962  cd venv
+ 4963  ls
+ 4964  cd STO
+ 4965  ls
+ 4966  pipenv --rm
+ 4967  pipenv install ~/git/hsolbrig/SNOMEDToOWL
+ 4968  pipenv run CompareRDF
+ 4969  pipenv install ~/git/hsolbrig/SNOMEDToOWL
+ 4970  pipenv run CompareRDF
+ 4971  pipenv run Modules
+ 4972  pipenv run RF2Filter
+ 4973  pipenv run SNOMEDToOWL
+ 4974  pipenv run SNOMEDToOWL --help
+ 4975  pipenv shell
+ 4976  cd ~/data/terminology/snomedct
+ 4977  ls
+ 4978  cd SnomedCT_InternationalRF2_PRODUCTION_20190731T120000Z
+ 4979  ls
+ 4980  cd Snapshot
+ 4981  ls
+ 4982  cd Terminology
+ 4983  ls
+ 4984  cd ..
+ 4985  SNOMEDToOWL --help
+ 4986  SNOMEDToOWL .
+ 4987  cd
+ 4988  cd venv/STO
+ 4989  ls
+ 4990  which SNOMEDToOWL
+ 4991  cd /Users/solbrig/.local/share/virtualenvs/STO-4uA3Z8Da/
+ 4992  ls
+ 4993  find . -name sct_core_gb.json
+ 4994  pwd
+ 4995  which SNOMEDToOWL
+ 4996  cd
+ 4997  cd git/biolink/biolinkml
+ 4998  ls
+ 4999  git status
+ 5000  git pull
+ 5001  git diff tests/source/biolink_import_map.json
+ 5002  cd tests/source
+ 5003  vim biolink_import_map.json
+ 5004  git status
+ 5005  git checkout issue_70 
+ 5006  git diff tests/source/biolink_import_map.json
+ 5007  cd
+ 5008  cd git/HL7/publish
+ 5009  cd ~/git/HL7/fhir/publish
+ 5010  ls *.shex
+ 5011  ls fhir.shex
+ 5012  less fhir.shex
+ 5013  ls *.shexj
+ 5014  ls *.ttl
+ 5015  cp v[ei]*.ttl ~/git/FHIRCat/fhir_rdf_validator/tests/data_in
+ 5016  cd ~/git/FHIRCat/fhir_rdf_validator/tests/data_in
+ 5017  ls
+ 5018  mkdir subdir
+ 5019  mv verificationresult-example.ttl subdir
+ 5020  cd ../data_compare
+ 5021  ls
+ 5022  cp -r ../data_in/* .
+ 5023  ls
+ 5024  cd
+ 5025  cd git/hsolbrig
+ 5026  find . -name *help
+ 5027  cd fhir-parser/tests
+ 5028  ls
+ 5029  cd fhir-parser/tests/
+ 5030  pwd
+ 5031  ls
+ 5032  cat test_cli.py
+ 5033  less test_cli.py
+ 5034  vim test_cli.py
+ 5035  cd
+ 5036  cd git/HL7/fhir/publish
+ 5037  ls visionprescription*.shex
+ 5038  cp visionprescription.shex ~/git/FHIRCat/fhir_rdf_validator/tests/data_in
+ 5039  cp verificationresult.shex ~/git/FHIRCat/fhir_rdf_validator/tests/data_in
+ 5040  cd ..
+ 5041  cd ../FHIRCat
+ 5042  ls
+ 5043  git clone git@github.com:fhircat/shex_to_shexj.git
+ 5044  cd shex_to_shexj
+ 5045  ls
+ 5046  mkdir shex_to_shexj
+ 5047  cd shex_to_shexj
+ 5048  cp ~/git/FHIRCat/fhir_rdf_validator/fhir_rdf_validator/shex_to_shexj.py .
+ 5049  ls
+ 5050  pwd
+ 5051  cd ..
+ 5052  cd shex_to_shexj
+ 5053  vim __init__.py
+ 5054  ls
+ 5055  cd ..
+ 5056  mkdir tests
+ 5057  cd tests
+ 5058  ls
+ 5059  mkdir data_in
+ 5060  mkdir data_out
+ 5061  cd data_in
+ 5062  cp -r ~/git/FHIRCat/fhir_rdf_validator/tests/data_in/* .
+ 5063  ls
+ 5064  ls subdir
+ 5065  mv shexj_help help
+ 5066  cp ~/git/FHIRCat/fhir_rdf_validator/tests/test_shex_to_shexj.py ..
+ 5067  cd ..
+ 5068  ls
+ 5069  ls data_in
+ 5070  ls data_out
+ 5071  cat help
+ 5072  cd ..
+ 5073  vim .gitignore
+ 5074  ls
+ 5075  ls tests
+ 5076  cp ~/git/FHIRCat/fhir_rdf_validator/setup.* .
+ 5077  ls
+ 5078  vim setup.cfg
+ 5079  cat ~/git/FHIRCat/fhir_rdf_validator/Pipfile
+ 5080  cd
+ 5081  cd git/FHIRCat
+ 5082  ls
+ 5083  cd shex_to_shexj
+ 5084  ls
+ 5085  git tag v0.1.0
+ 5086  python setup.py sdist bdist_wheel
+ 5087  cd
+ 5088  cd venv
+ 5089  mkdir ssj
+ 5090  cd ssj
+ 5091  pipenv install ~/git/FHIRCat/shex_to_shexj
+ 5092  pipenv run shex_to_shexj
+ 5093  cd
+ 5094  cd git/FHIRCat/shex_to_shexj
+ 5095  vim Pipfile
+ 5096  pipenv lock
+ 5097  pipenv run pipenv_to_requirements
+ 5098  ls
+ 5099  git status
+ 5100  git add AUTHORS ChangeLog requirements.txt
+ 5101  git commit -am "Setting up pypi"
+ 5102  ls
+ 5103  rm dist/*
+ 5104  python setup.py sdist bdist_wheel
+ 5105  cd
+ 5106  cd venv
+ 5107  ls
+ 5108  rm -rf ssj
+ 5109  mkdir ssj
+ 5110  cd ssj
+ 5111  pipenv install ~/git/FHIRCat/shex_to_shexj
+ 5112  pipenv run shex_to_shexj
+ 5113  ls
+ 5114  pwd
+ 5115  pipenv shell
+ 5116  cp ~/git/HL7/fhir/publish/fhir.shex .
+ 5117  shex_to_shexj -i fhir.shex -o fhir.shexj
+ 5118  ls
+ 5119  git status
+ 5120  git commit -am "New build"
+ 5121  twine upload dist/*
+ 5122  git tag v0.1.2
+ 5123  rm dist/*
+ 5124  python setup.py sdist bdist_wheel
+ 5125  twine upload dist/*
+ 5126  ls
+ 5127  less README.md
+ 5128  git status
+ 5129  vim README.md
+ 5130  git status
+ 5131  git commit -am "Force README update"
+ 5132  git push
+ 5133  cd
+ 5134  cd venv/ssj
+ 5135  ls
+ 5136  wc -l fhir.shex
+ 5137  ls -l
+ 5138  ls -lh
+ 5139  less fhir.shexj
+ 5140  pwd
+ 5141  cd
+ 5142  cd git/FHIRCat
+ 5143  ls
+ 5144  git clone git@github.com:fhircat/fhir_to_jsonld_context.git
+ 5145  ls
+ 5146  cd fhir_to_jsonld_context
+ 5147  ls
+ 5148  cd shexj
+ 5149  cp ~/venv/ssj/fhir.shexj .
+ 5150  git status
+ 5151  git add fhir.shexj
+ 5152  git commit -m "Add fhir.shexj"
+ 5153  git push
+ 5154  cd shexj
+ 5155  ls
+ 5156  mv fhir.shexj r5
+ 5157  git status
+ 5158  git add r5/fhir.shexj
+ 5159  git commit -am "Move fhir.shexj to r5 directory"
+ 5160  git push
+ 5161  shex_to_shexj -id ~/git/HL7/fhir/publish -od ~/git/FHIRCat/fhir_to_jsonld_context/shexj/r5
+ 5162  mv ~/git/HL7/fhir/publish/fhir.shex .
+ 5163  shex_to_shexj -id ~/git/HL7/fhir/publish -od ~/git/FHIRCat/fhir_to_jsonld_context/shexj/r5
+ 5164  cd ~/git/FHIRCat/fhir_to_jsonld_context
+ 5165  ls
+ 5166  git status
+ 5167  ls shexj/r5/*
+ 5168  git status
+ 5169  git add shexj
+ 5170  git status
+ 5171  git commit -am "Add all Profile ShEx representations"
+ 5172  git push
+ 5173  cd
+ 5174  cd venv
+ 5175  ls
+ 5176  cd
+ 5177  cd venv
+ 5178  rm -rf ssh
+ 5179  rm -rf STO
+ 5180  cd STO
+ 5181  mkdir STO
+ 5182  cd STO
+ 5183  pipenv install ~/git/hsolbrig/SNOMEDToOWL
+ 5184  cd
+ 5185  cd git
+ 5186  cd biolink
+ 5187  ls
+ 5188  ls -l
+ 5189  mv biolinkml biolinkmlm2
+ 5190  git clone git@github.com:biolink/biolinkml.git
+ 5191  cd
+ 5192  cd ~/git
+ 5193  ls
+ 5194  mkdir NCI-GDC
+ 5195  cd NCI-GDC
+ 5196  ls
+ 5197  git clone https://github.com/NCI-GDC/gdcdatamodel.git
+ 5198  cd gdcdatamodel
+ 5199  ls
+ 5200  pipenv install .
+ 5201  ls
+ 5202  cat setup.py
+ 5203  ls
+ 5204  cat Pipfile
+ 5205  rm Pipfile Pipfile.lock
+ 5206  cd
+ 5207  cd venv
+ 5208  mkdir gcddatamodel
+ 5209  cd gcddatamodel
+ 5210  pipenv install ~/git/NCI-GDC/gdcdatamodel
+ 5211  pipenv shell
+ 5212  pip install ~/git/NCI-GDC/gdcdatamodel
+ 5213  cat ~/git/NCI-GDC/gdcdatamodel/setup.py
+ 5214  pip search gdc_ng_models
+ 5215  pip search dirlistproc
+ 5216  pip install git+https://github.com/NCI-GDC/gdc-ng-models.git@1.1.0#egg=gdc_ng_models
+ 5217  pip list
+ 5218  pip install ~/git/NCI-GDC/gdcdatamodel
+ 5219  pip list
+ 5220  which pip
+ 5221  pip install -r ~/git/NCI-GDC/gdcdatamodel/dev-requirements.txt
+ 5222  PG_USER=* PG_HOST=* PG_DATABASE=* PG_PASSWORD=*   jupyter notebook examples/jupyter_example.ipynb\n
+ 5223  cd 
+ 5224  cd git/NCI-GDC/gdcdatamodel
+ 5225  ls
+ 5226  PG_USER=* PG_HOST=* PG_DATABASE=* PG_PASSWORD=*   jupyter notebook examples/jupyter_example.ipynb\n
+ 5227  ls
+ 5228  PG_USER=* PG_HOST=* PG_DATABASE=* PG_PASSWORD=*   jupyter notebook \n
+ 5229  pip list
+ 5230  pip install jupyter
+ 5231  jupyter notebook
+ 5232  pip install --upgrade jupyter_core jupyter_client
+ 5233  jupyter notebook
+ 5234  pip install misc
+ 5235  ls
+ 5236  find . -name misc
+ 5237  PG_USER=* PG_HOST=* PG_DATABASE=* PG_PASSWORD=*   jupyter notebook examples/jupyter_example.ipynb
+ 5238  cd
+ 5239  cd git/NCI-GDC
+ 5240  ls
+ 5241  cd gdcdatamodel
+ 5242  ls
+ 5243  grep -r misc *
+ 5244  grep -r FileReport * | grep \.py
+ 5245  grep -r FileReport * | grep \.py$
+ 5246  find . -name misc.py
+ 5247  cd gdcdatamodel/models
+ 5248  ls
+ 5249  vim misc.py
+ 5250  cd ..
+ 5251  vim /.local/share/virtualenvs/gcddatamodel-RIqN7-HS/lib/python3.7/site-packages/gdcdatamodel/models/__init__.py
+ 5252  vim ~/.local/share/virtualenvs/gcddatamodel-RIqN7-HS/lib/python3.7/site-packages/gdcdatamodel/models/__init__.py
+ 5253  grep -r Case *
+ 5254  cd ..
+ 5255  grep -r Case *
+ 5256  grep -r "def Case" *
+ 5257  grep -r "Case" * | more
+ 5258  cd
+ 5259  cd git/FHIRCat
+ 5260  ls
+ 5261  cd fhir_to_jsonld_context
+ 5262  ls
+ 5263  cd jsonldc
+ 5264  ls
+ 5265  cd contexts
+ 5266  ls
+ 5267  cd r4
+ 5268  cd r5
+ 5269  ls
+ 5270  pwd
+ 5271  vim code.context.jsonld
+ 5272  ls
+ 5273  cd
+ 5274  cd git/biolink/biolinkml
+ 5275  ls
+ 5276  git status
+ 5277  git pull
+ 5278  git checkout issue_80
+ 5279  cd
+ 5280  find . -name semantic*
+ 5281  cd Development
+ 5282  ls
+ 5283  rm -rf semanticturkey-5.0
+ 5284  mv ~/Downloads/semanticturkey-6.0\ 2 .
+ 5285  ls
+ 5286  cd semanticturkey-6.0\ 2
+ 5287  ls
+ 5288  cat BUILD.txt
+ 5289  ls bin
+ 5290  cd bin
+ 5291  ./start
+ 5292  . start
+ 5293  cat start
+ 5294  chmod +x start
+ 5295  ./start
+ 5296  ls
+ 5297  cat setenv
+ 5298  ls
+ 5299  ps
+ 5300  cat client
+ 5301  chmod +x client
+ 5302  ./client
+ 5303  ps
+ 5304  cd ..
+ 5305  ls
+ 5306  cat BUILD.txt
+ 5307  ls bin
+ 5308  ls data
+ 5309  ls deploy
+ 5310  cat deploy/README
+ 5311  cd
+ 5312  cd Development/
+ 5313  ls
+ 5314  cd semanticturkey-6.0\ 2
+ 5315  ls
+ 5316  cd bin
+ 5317  ls
+ 5318  ./karaf
+ 5319  . karaf
+ 5320  . ./karaf
+ 5321  chmod +x karaf
+ 5322  ./karaf
+ 5323  ps
+ 5324  ps -aef | grep kara
+ 5325  ls
+ 5326  cat stop
+ 5327  stop
+ 5328  chmod +x stop
+ 5329  ./stop
+ 5330  ls
+ 5331  chmod +x shell
+ 5332  chmod +x instance
+ 5333  chmod +x setenv
+ 5334  less karaf
+ 5335  ./karaf
+ 5336  pwd
+ 5337  cd ..
+ 5338  grep -r administrator
+ 5339  grep -r administrator *
+ 5340  ls
+ 5341  cd
+ 5342  find . -name *semantic*
+ 5343  find . -name *semanticturkey*
+ 5344  find . -name *semanticturkey* | grep -v find: | grep -v Development
+ 5345  pwd
+ 5346  cd Downloads
+ 5347  ls
+ 5348  cd semanticturkey-6.0
+ 5349  cd ..
+ 5350  ls semantic*
+ 5351  ls *.zip
+ 5352  ls
+ 5353  rm vocbench3-5.0.0_full.zip
+ 5354  ls
+ 5355  cd ~/Development
+ 5356  ls
+ 5357  cd semanticturkey-6.0\ 2
+ 5358  ls
+ 5359  grep -r administrator *
+ 5360  ls
+ 5361  cd bin
+ 5362  cd ../data
+ 5363  ls
+ 5364  cat log
+ 5365  cd log
+ 5366  ls
+ 5367  cat security.log
+ 5368  cat karaf.log
+ 5369  ls
+ 5370  vim karaf.log
+ 5371  ls
+ 5372  cd ..
+ 5373  ls
+ 5374  ls port
+ 5375  ls -l
+ 5376  cat port
+ 5377  ls kar
+ 5378  ls generated-bundles
+ 5379  ls pax-web-jsp
+ 5380  cd pax-web-jsp/vocbench3
+ 5381  ls
+ 5382  la -z
+ 5383  ls -z
+ 5384  ls -a
+ 5385  cd ..
+ 5386  ls
+ 5387  cd semanticturkey
+ 5388  ls -a
+ 5389  cd ..
+ 5390  ls
+ 5391  cd ..
+ 5392  ls
+ 5393  cd ..
+ 5394  ls
+ 5395  cd ..
+ 5396  ls
+ 5397  cd SemanticTurkeyData
+ 5398  ls
+ 5399  cd ..
+ 5400  rm -rf SemanticTurkeyData
+ 5401  cd semanticturkey-6.0\ 2
+ 5402  ls
+ 5403  cd bin
+ 5404  ls
+ 5405  ./karaf
+ 5406  cd
+ 5407  cd Development/semanticturkey-6.0\ 2
+ 5408  ls
+ 5409  mv index.rdf.owl index.rdf
+ 5410  ./karaf
+ 5411  cd
+ 5412  cd data
+ 5413  find . -name VTS*
+ 5414  ls
+ 5415  cd terminology/snomedct/SnomedCT_Release_VTS1000009
+ 5416  ls
+ 5417  cd Snapshot
+ 5418  ls
+ 5419  less VTS.owl
+ 5420  mv VTS.owl VTS.ttl
+ 5421  mv VTS.ttl VTS.rdf
+ 5422  ./karaf
+ 5423  cd
+ 5424  cd git
+ 5425  find . -name VTS*
+ 5426  ls
+ 5427  vim `find . -name VTS*`
+ 5428  vim `find . -name VTS*\n`
+ 5429  cd hsolbrig
+ 5430  cd VST
+ 5431  vim VTS.owl
+ 5432  cd
+ 5433  cd git/biolink
+ 5434  cd biolinkml
+ 5435  git pull
+ 5436  git fetch
+ 5437  git status
+ 5438  git pull
+ 5439  git checkout master
+ 5440  git pull
+ 5441  git status
+ 5442  git checkout issue_84
+ 5443  cd ..
+ 5444  grep -r issue_50 *
+ 5445  cd biolinkmlm1
+ 5446  ls
+ 5447  grep -r issue-50 *
+ 5448  grep -r issue_50 *
+ 5449  cd ..
+ 5450  grep -r issue_50 *
+ 5451  cd biolinkmlm1
+ 5452  git branch
+ 5453  git checkout noslotdomaininferenc 
+ 5454  cd ..
+ 5455  find . -name DistributedModels*
+ 5456  cd biolinkml
+ 5457  git status
+ 5458  cd ../biolinkmlm1
+ 5459  ls
+ 5460  git status
+ 5461  ls
+ 5462  git checkout noslotdomaininferenc
+ 5463  git stash
+ 5464  git status
+ 5465  git checkout noslotdomaininferenc
+ 5466  vim notebooks/DistributedModels.ipynb
+ 5467  ls
+ 5468  cp ../biolinkml/notebooks/DistributedModels.ipynb notebooks
+ 5469  git checkout noslotdomaininferenc
+ 5470  git reset --merge
+ 5471  git diff
+ 5472  git status
+ 5473  git status | more
+ 5474  git status | grep -v tests
+ 5475  git diff biolinkml/meta.py
+ 5476  git status
+ 5477  git branch
+ 5478  git checkout noslotdomaininferenc
+ 5479  git checkout -- notebooks/DistributedModels.ipynb
+ 5480  git revert notebooks/DistributedModels.ipynb
+ 5481  cd
+ 5482  cd git/HL7/fhir
+ 5483  find . -iname *shex*
+ 5484  find . -iname *shex* | grep -v publish
+ 5485  cat ./implementations/java/org.hl7.fhir.rdf/src/org/hl7/fhir/rdf/ShExValidator.java | more
+ 5486  pwd
+ 5487  cd publish
+ 5488  ls
+ 5489  grep "_[a-z]" *.json
+ 5490  grep '"_[a-z]' *.json
+ 5491  grep '"_[a-z]' *.json | more
+ 5492  VIM activitydefinition-example.json
+ 5493  grep '"_[a-z]' *.json | more | grep -v _event
+ 5494  grep '"_[a-z]' *.json | more | grep -v _event | more
+ 5495  grep '"_[a-z]' *.json | more | grep -v _event |grep -v '"text"' | more
+ 5496  grep '"_[a-z]' *.json | more | grep -v _event |grep -v '"text"' | grep -v fhir.schema | more
+ 5497  cd 
+ 5498  cd git/HL7/fhir/publish
+ 5499  vim message-request-link.json
+ 5500  grep '"active"' *.json
+ 5501  grep '"active":' *.json
+ 5502  vim person-grahame.ttl
+ 5503  grep fhir:Extension *.ttl | more
+ 5504  vim activitydefinition-predecessor-example.ttl
+ 5505  vim fhir.ttl
+ 5506  cd
+ 5507  cd git/HL7/fhir
+ 5508  cd publish
+ 5509  ls *.shex
+ 5510  less insuranceplan.shex
+ 5511  cd ..
+ 5512  grep -r "start=@" *.java
+ 5513  pwd
+ 5514  find . -name *.java -exec grep "start=@" {} \;
+ 5515  find . -name *.java -exec grep "start=\" {} \;\nfind . -name *.java -exec grep "start=" {} \;
+ 5516  grep -r "start=" *
+ 5517  find . -name *.java -exec grep "start=" {} \;\nfind . -name *.java -exec grep "start=" {} \;
+ 5518  find . -name *.java
+ 5519  find . -iname *rdf*.java
+ 5520  cd tools/java/org.hl7.fhir.tools.core/src/org/hl7/fhir/tools/implementations/java
+ 5521  vim JavaParserRdfGenerator.java
+ 5522  ls
+ 5523  grep start *
+ 5524  grep '"start' *
+ 5525  grep 'start=' *
+ 5526  pwd
+ 5527  cd ../..
+ 5528  pwd
+ 5529  cd ~/git/HL7/fhir
+ 5530  grep -r "start=" *
+ 5531  grep -r "start=" * | grep ".java"
+ 5532  man grep
+ 5533  grep -rH "start=" * | grep ".java"
+ 5534  grep -rH "start=" * | grep ".java" | grep -v "this."
+ 5535  cd
+ 5536  cd git/HL7/fhir
+ 5537  cd publish
+ 5538  vim account.shex
+ 5539  grep -rH CLOSED * | more
+ 5540  grep -rH CLOSED * | grep -v shex:
+ 5541  grep -rH CLOSED * | grep -v shex: | grep -v shex.html:
+ 5542  grep -rH CLOSED * | grep -v shex: | grep -v shex.html: | grep -v ^temp
+ 5543  pwd
+ 5544  grep -rH CLOSED * | grep java: |  grep -v ^temp
+ 5545  grep -rH template * | grep java:
+ 5546  grep -rH fhir:nodeRole * | grep java:
+ 5547  vim tools/java/org.hl7.fhir.tools.core/src/org/hl7/fhir/definitions/generators/specification/TurtleSpecGenerator.java
+ 5548  cd tools/java/org.hl7.fhir.tools.core/src/org/hl7/fhir/definitions/generators/specification
+ 5549  ls
+ 5550  grep -i start *
+ 5551  grep -i start= *
+ 5552  grep '<' *
+ 5553  grep '<' * | grep -v Xml
+ 5554  vim TurtleSpecGenerator.java
+ 5555  grep "{" *
+ 5556  grep '"{' *
+ 5557  ls
+ 5558  vim TurtleSpecGenerator.java
+ 5559  grep nodeRole *
+ 5560  grep start *
+ 5561  grep start * | grep -i rdf
+ 5562  grep start * | grep -i turtle
+ 5563  grep start * | grep -i turtle | grep -v startsWith
+ 5564  grep BASE *
+ 5565  grep -r BASE *
+ 5566  grep base *
+ 5567  pwd
+ 5568  cd
+ 5569  cd git/HL7/fhir
+ 5570  cd /Users/solbrig/git/HL7/fhir/tools/java/org.hl7.fhir.tools.core/src/org/hl7/fhir/definitions/generators
+ 5571  ls
+ 5572  pwd
+ 5573  cd specification
+ 5574  ls
+ 5575  vim TurtleSpecGenerator.java
+ 5576  grep treeRoot *
+ 5577  vim TurtleSpecGenerator.java
+ 5578  cd
+ 5579  cd git/HL7/fhir
+ 5580  grep -r treeRoot *
+ 5581  grep -r treeRoot * | grep -v html: | grep -v shex:
+ 5582  cd
+ 5583  cd git/biolink
+ 5584  ls
+ 5585  cd biolinkmlm2
+ 5586  ls
+ 5587  git branch
+ 5588  cd ../biolinkmlm1
+ 5589  git branch
+ 5590  git checkout noslotdomaininferenc 
+ 5591  git add notebooks/DistributedModels.ipynb
+ 5592  git commit -m "Trying to get this out of the way"
+ 5593  git status
+ 5594  git checkout noslotdomaininferenc 
+ 5595  git status | grep -v tests
+ 5596  git diff biolinkml/generators/__init__.py
+ 5597  git diff biolinkml/generators/pythongen.py
+ 5598  git diff biolinkml/meta.py
+ 5599  git checkout noslotdomaininferenc 
+ 5600  git stash
+ 5601  git checkout noslotdomaininferenc 
+ 5602  git status
+ 5603  ls
+ 5604  cd biolinkml
+ 5605  ls
+ 5606  cd utils
+ 5607  ls
+ 5608  diff schemaloader.py ~/git/biolink/biolinkml/biolinkml/utils/schemaloader.py
+ 5609  diff schemaloader.py ~/git/biolink/biolinkml/biolinkml/utils/schemaloader.py | more
+ 5610  grep -r treeRoot * | grep -v html: | grep -v shex: | grep -v ^publish
+ 5611  cd
+ 5612  cd git/biolink/biolinkml
+ 5613  vim biolinkml/generators/yumlgen.py
+ 5614  pwd
+ 5615  cd ..
+ 5616  ls
+ 5617  grep -rH CLOSED | grep java:
+ 5618  grep -rH CLOSED * | grep java:
+ 5619  git status
+ 5620  git checkout master
+ 5621  pwd
+ 5622  rm -rf docs
+ 5623  git checkout issue_84
+ 5624  git stash
+ 5625  git checkout issue_84
+ 5626  pwd
+ 5627  cd tests/source
+ 5628  ls
+ 5629  rm -rf meta_mappings_docs
+ 5630  ls docs
+ 5631  pwd
+ 5632  cd ../..
+ 5633  ls
+ 5634  rm -rf docs
+ 5635  cd tests/test_biolink_model
+ 5636  cd source
+ 5637  ls
+ 5638  rm -rf markdown
+ 5639  cd ..
+ 5640  ls
+ 5641  pwd
+ 5642  cd test_scripts/output
+ 5643  ls
+ 5644  cd genmarkdown
+ 5645  ls
+ 5646  rm -rf issue2 meta
+ 5647  pwd
+ 5648  rm -rf issue2 meta
+ 5649  cd ../..
+ 5650  ls
+ 5651  cd ..
+ 5652  ls
+ 5653  cd ..
+ 5654  cd tests/source/
+ 5655  ls
+ 5656  rm -rf meta_mappings_docs
+ 5657  cd ..
+ 5658  ls
+ 5659  rm -rf docs
+ 5660  cd tests/test_biolink_model
+ 5661  cd source
+ 5662  ls
+ 5663  rm -rf markdown
+ 5664  git checkout master
+ 5665  git pull
+ 5666  git tag
+ 5667  pip search biolinkml
+ 5668  git tag
+ 5669  git tag v1.4.9
+ 5670  git tatg
+ 5671  git tag
+ 5672  ls
+ 5673  cd ..
+ 5674  ls
+ 5675  cd ..
+ 5676  ls
+ 5677  pwd
+ 5678  cd ..
+ 5679  ls
+ 5680  ls dist
+ 5681  python setup.py sdist bdist_wheel
+ 5682  ls dist
+ 5683  ls
+ 5684  cat setup.cfg
+ 5685  cat setup.py
+ 5686  ls
+ 5687  git status
+ 5688  twine upload dist/*
+ 5689  git pull
+ 5690  git checkout issue_83
+ 5691  cd
+ 5692  cd git
+ 5693  ls
+ 5694  cd FHIRCat
+ 5695  git clone git@github.com:fhircat/fhir_to_jsonld_context.git
+ 5696  cd fhir_to_jsonld_context
+ 5697  git pull
+ 5698  yarn
+ 5699  brew install yarn
+ 5700  pwd
+ 5701  ls
+ 5702  yarn install
+ 5703  ls
+ 5704  mkdir test
+ 5705  cd test
+ 5706  wget http://build.fhir.org/examples-json.zip
+ 5707  cd ..
+ 5708  babel-node src/fhir-convert.js -f test/examples-json.zip -t output
+ 5709  babel-node
+ 5710  node_modules/.bin/babel-node src/fhir-convert.js -f test/examples-json.zip -t output
+ 5711  ls
+ 5712  pwd
+ 5713  cd
+ 5714  ls
+ 5715  cd output
+ 5716  ls
+ 5717  ls output
+ 5718  ls
+ 5719  ls json
+ 5720  ls
+ 5721  ls nquads
+ 5722  cd nquads
+ 5723  less account-example.nq
+ 5724  grep UNKNOWN *
+ 5725  grep UNKNOWN * | more
+ 5726  pwd
+ 5727  cd ../json
+ 5728  vim activitydefinition-administer-zika-virus-exposure-assessment.json
+ 5729  vim activitydefinition-medicationorder-example.json
+ 5730  cd ~/git/HL7/fhir/publish
+ 5731  vim activitydefinition-medicationorder-example.json
+ 5732  vim activitydefinition.shex
+ 5733  vim activitydefinition.profile.json
+ 5734  cd ..
+ 5735  ls
+ 5736  cd nquads
+ 5737  grep UNKNOWN#_ *
+ 5738  grep UNKNOWN# * | grep -v #_
+ 5739  grep UNKNOWN# *
+ 5740  grep UNKNOWN# * | grep -v #_
+ 5741  grep UNKNOWN# * | grep -v \#_
+ 5742  grep UNKNOWN# * | grep -v \#_ | more
+ 5743  vim administrableproductdefinition-questionnaire.json
+ 5744  vim administrableproductdefinition-questionnaire.nq
+ 5745  python
+ 5746  vim *.ttl
+ 5747  cd
+ 5748  ls
+ 5749  cd ../..
+ 5750  ls
+ 5751  cd jsonldc
+ 5752  cd ../shexj
+ 5753  cd r5
+ 5754  vim administrableproductdefinition.shexj
+ 5755  cd ../../
+ 5756  cd tests
+ 5757  ls
+ 5758  cd test
+ 5759  cd ../output
+ 5760  ls
+ 5761  cd nquads
+ 5762  grep UNKNONWN#_ * | more
+ 5763  grep UNKNONWN#_ * 
+ 5764  grep UNKNOWN#_ * | more
+ 5765  cd ../../
+ 5766  ls
+ 5767  cd shexj/r5
+ 5768  vim activitydefinition.shexj
+ 5769  vim activitydefinition.profile.json
+ 5770  pwd
+ 5771  cd git/HL7/fhir/publish
+ 5772  pwd
+ 5773  vim activitydefinition.profile.json
+ 5774  vim domainresource.profile.json
+ 5775  vim domainresource.shexj
+ 5776  cd
+ 5777  cd /Users/solbrig/.local/share/virtualenvs/biolinkml-UM_qfE51/lib/python3.7/site-packages/yaml
+ 5778  grep start_mark *
+ 5779  grep start_mark * | more
+ 5780  vim events.py
+ 5781  grep MappingNode *
+ 5782  grep MappingNode * | grep class
+ 5783  vim nodes.py
+ 5784  cd
+ 5785  cd git/HL7/fhir
+ 5786  ls
+ 5787  cd publish
+ 5788  ls *.zip
+ 5789  cd
+ 5790  cd git/FHIRcat
+ 5791  ls
+ 5792  cd shex_to_shexj
+ 5793  mkdir source
+ 5794  cd source
+ 5795  wget http://build.fhir.org/fhir.schema.shex.zip
+ 5796  unzip fhir.schema.shex.zip
+ 5797  ls
+ 5798  cd
+ 5799  cd git/HL7/fhir/publish
+ 5800  ls *.zip
+ 5801  cd
+ 5802  cd git/HL7/fhir
+ 5803  git pull
+ 5804  git stash
+ 5805  git pull
+ 5806  . publish.sh
+ 5807  ./publish.sh
+ 5808  pwd
+ 5809  cd
+ 5810  cd git/FHIRCat
+ 5811  ls
+ 5812  cd fhir_to_jsonld_context
+ 5813  ls
+ 5814  cd output
+ 5815  ls
+ 5816  ls json
+ 5817  pwd
+ 5818  ls
+ 5819  cd json
+ 5820  ls
+ 5821  pwd
+ 5822  cd ../..
+ 5823  ls
+ 5824  find account*
+ 5825  find . -name account*
+ 5826  cd ..
+ 5827  find . -name account*
+ 5828  less ./fhir_to_jsonld_context/output/json/account-example.json
+ 5829  grep -r fhircat.org *
+ 5830  ls
+ 5831  ls output
+ 5832  cd output
+ 5833  cd nquads
+ 5834  ls
+ 5835  less account-example-with-guarantor.nq
+ 5836  cd
+ 5837  cd git/FHIRCat
+ 5838  ls
+ 5839  cd shex_to_shexj
+ 5840  ls
+ 5841  ls tests
+ 5842  cd tests
+ 5843  ls
+ 5844  ls data_in
+ 5845  ls data_out
+ 5846  cd
+ 5847  cd git/FHIRCat
+ 5848  ls
+ 5849  find . -name *.shexj
+ 5850  cd fhir_to_jsonld_context
+ 5851  ls
+ 5852  mv shexj shexjm1
+ 5853  pipenv install shex_to_shexj
+ 5854  shex_to_shexj -id ~/git/HL7/fhir/publish -od shexj/r5
+ 5855  pipenv run shex_to_shexj -id ~/git/HL7/fhir/publish -od shexj/r5
+ 5856  pwd
+ 5857  ls
+ 5858  ls shexj
+ 5859  mkdir shexj
+ 5860  mkdir shexj/r5
+ 5861  pipenv run shex_to_shexj -id ~/git/HL7/fhir/publish -od shexj/r5
+ 5862  cd
+ 5863  cd git/FHIRCat/fhir_to_jsonld_context
+ 5864  ls
+ 5865  cd shexj
+ 5866  cd r5
+ 5867  ls
+ 5868  less activitydefinition.shexj
+ 5869  find . -name *kdn5*
+ 5870  cd ..
+ 5871  find . -name *kdn5*
+ 5872  cd ..
+ 5873  find . -name *kdn5*
+ 5874  cd output/nquads
+ 5875  python
+ 5876  pwd
+ 5877  ls
+ 5878  ls *kdn5*
+ 5879  python
+ 5880  grep Bundle.entry.resource *
+ 5881  python
+ 5882  ls medicationrequest*
+ 5883  ls medicationrequeste*
+ 5884  pwd
+ 5885  cd ~/git/FHIRCat/fhir_to_jsonld_context
+ 5886  ls
+ 5887  ls shexj
+ 5888  ls shexj/r5
+ 5889  pwd
+ 5890  ls
+ 5891  cd shexjm1
+ 5892  ls
+ 5893  cd ..
+ 5894  cd output
+ 5895  ls
+ 5896  cd nquads
+ 5897  ls *.ttl
+ 5898  vim plandefinition-example-kdn5-simplified.ttl
+ 5899  vim diagnosticreport-micro1.ttl
+ 5900  grep DomainResource.contained * | more
+ 5901  vim activitydefinition-questionnaire.nq
+ 5902  ls
+ 5903  less account-example.nq
+ 5904  cd ..
+ 5905  ls
+ 5906  cd json
+ 5907  les account-example.json
+ 5908  less account-example.json
+ 5909  cd
+ 5910  cd git/HL7/fhir
+ 5911  find . -name *generator*
+ 5912  cd ./tools/java/org.hl7.fhir.tools.core/src/org/hl7/fhir/definitions/generators
+ 5913  ls
+ 5914  cd specification
+ 5915  ls
+ 5916  vim TurtleSpecGenerator.java
+ 5917  vim FhirTurtleGenerator.java
+ 5918  pwd
+ 5919  cd ~/git/HL7/fhir
+ 5920  grep -r '"CLOSED"' *
+ 5921  pwd
+ 5922  cd publish
+ 5923  ls
+ 5924  vim account.shex
+ 5925  grep -rH  treeRoot * | more
+ 5926  grep -rH  treeRoot * | grep -v ttl: | grep -v html: | grep -v shex:
+ 5927  pwd
+ 5928  cd ..
+ 5929  find . -name generate
+ 5930  find . -name generator
+ 5931  find . -name *generator*
+ 5932  cd ./tools/java/org.hl7.fhir.tools.core/src/org/hl7/fhir/definitions/generators
+ 5933  ls
+ 5934  cd specification
+ 5935  ls
+ 5936  vim JsonSpecGenerator.java
+ 5937  pwd
+ 5938  cd
+ 5939  cd git/HL7/fhir
+ 5940  cd publish
+ 5941  ls
+ 5942  vim account.shex
+ 5943  :q
+ 5944  cd ..
+ 5945  find . -name ShExGenerator.java
+ 5946  pwd
+ 5947  ls integer.shex
+ 5948  cd publish
+ 5949  ls integer.s*&
+ 5950  ls integer.s*
+ 5951  ls integer*
+ 5952  cd
+ 5953  cd git/hapifhir
+ 5954  ls
+ 5955  cd org.hl7.fhir.core
+ 5956  git pull
+ 5957  git stash
+ 5958  find . -name ShEx*.java
+ 5959  cd ./org.hl7.fhir.r5/src/main/java/org/hl7/fhir/r5/conformance
+ 5960  ls
+ 5961  cd ..
+ 5962  ls
+ 5963  find . -name *json*
+ 5964  find . -iname *json*
+ 5965  cd elementmodel
+ 5966  ls
+ 5967  cd ..
+ 5968  ls
+ 5969  cd conformance
+ 5970  ls
+ 5971  vim ShExGenerator.java
+ 5972  cd
+ 5973  cd git/HL7/fhir/publish
+ 5974  ls account\.*
+ 5975  pwd
+ 5976  cd
+ 5977  cd git/hapifhir/org.hl7.fhir.core
+ 5978  ls
+ 5979  cd org.hl7/fhir.r5
+ 5980  cd org.hl7.fhir.r5
+ 5981  ls
+ 5982  cd src
+ 5983  ls
+ 5984  cd main
+ 5985  ls
+ 5986  cd java
+ 5987  ls
+ 5988  find . -name ShEx*
+ 5989  pwd
+ 5990  cd
+ 5991  cd git/FHIRCat
+ 5992  find . -name account.context*
+ 5993  cd ..
+ 5994  find . -name account.context*
+ 5995  cd
+ 5996  cd Development
+ 5997  ls
+ 5998  find . -name account.context*
+ 5999  find . -name Account.context*
+ 6000  cd
+ 6001  cd git/HL7/fhir/publish
+ 6002  vim account.shexc
+ 6003  vim account.shex
+ 6004  cd
+ 6005  cd git/FHIRCat/shex_to_shexj
+ 6006  ls
+ 6007  cd tests
+ 6008  ls
+ 6009  cd data_
+ 6010  cd data_out
+ 6011  ls
+ 6012  vim visionprescription.shexj
+ 6013  cd
+ 6014  cd git/HL7/fhir/publish
+ 6015  ls integer*
+ 6016  cd
+ 6017  cd Development
+ 6018  cd ../Downloads
+ 6019  mkdir fcs
+ 6020  cd fcs
+ 6021  git clone https://github.com/dnstone/fhir-context-server
+ 6022  docker build --help
+ 6023  docker build -t context_server .
+ 6024  cd fhir-context-server
+ 6025  docker build -t context_server .
+ 6026  docker run --help
+ 6027  docker run -p 55991:80 --volume "$(pwd)/files:/var/www/html" context_server
+ 6028  ls
+ 6029  cd files
+ 6030  ls
+ 6031  cd ..
+ 6032  docker run -p 55991:80 --volume "$(pwd)/files:/var/www/html" context_server
+ 6033  ls
+ 6034  ls host_nginx
+ 6035  cat host_nginx/sites-enabled
+ 6036  ls host_nginx/sites-enabled
+ 6037  ls host_nginx/sites-enabled/proxy_to_context_server
+ 6038  ls -l host_nginx/sites-enabled/proxy_to_context_server
+ 6039  cat host_nginx/sites-enabled/proxy_to_context_server
+ 6040  cd
+ 6041  cd git
+ 6042  ls
+ 6043  find . -name rdflib
+ 6044  cd hsolbrig/rdflib
+ 6045  grep -r guess *
+ 6046  cd
+ 6047  cd git/hapifhir
+ 6048  grep -r "xsd:dateTime" *
+ 6049  vim org.hl7.fhir.core/org.hl7.fhir.r4/src/main/java/org/hl7/fhir/r4/elementmodel/TurtleParser.java
+ 6050  grep -r "xsd:dateTime" * | grep \.java
+ 6051  cd
+ 6052  cd git/biolinkml
+ 6053  cd git/biolink/biolinkml
+ 6054  find . -name local_*
+ 6055  cd
+ 6056  cd git/biolink/biolinkml
+ 6057  ls
+ 6058  git pull
+ 6059  git checkout Documentation
+ 6060  git branch
+ 6061  git checkout master
+ 6062  git pull
+ 6063  git checkout Documentation
+ 6064  git pull
+ 6065  git checkout Documentation
+ 6066  git add biolinkml/utils/* meta.yaml
+ 6067  git commit -m "Beginning documentation pass"
+ 6068  git push
+ 6069  cd
+ 6070  cd git/HL7/fhir/publish
+ 6071  vim datetime.shex
+ 6072  vim datetime.profile.shex
+ 6073  ls *.shex.zip
+ 6074  cd
+ 6075  cd git/hsolbrig/SNOMEDToOWL
+ 6076  ls
+ 6077  git pull
+ 6078  git branch
+ 6079  cd
+ 6080  cd git/hsolbrig/SNOMEDToOWL
+ 6081  find . -name '*.py' -exec sed -i '' '/^# Copyright/,/DAMAGE.$/d' {} \;
+ 6082  find . -name *.py
+ 6083  cd test
+ 6084  ls
+ 6085  cd data
+ 6086  ls
+ 6087  cd dicom
+ 6088  ls
+ 6089  less Dicom_Subset_20170131_v1_00.csv
+ 6090  cd
+ 6091  cd git/hsolbrig/data
+ 6092  ls
+ 6093  ln -s ~/data/terminology/snomedct/SnomedCT_InternationalRF2_PRODUCTION_20190731T120000Z/Snapshot
+ 6094  ls
+ 6095  mv Snapshot ~/git/hsolbrig/SNOMEDToOWL/test/data/dicom
+ 6096  cd
+ 6097  cd git/biolink/biolinkml
+ 6098  cd tests/test_base
+ 6099  ls
+ 6100  ./new_model.sh
+ 6101  cd
+ 6102  cd git/FHIRCat
+ 6103  ls
+ 6104  cd shex_to_shexj
+ 6105  ls
+ 6106  cd
+ 6107  cd venv
+ 6108  mkdir shex_to_shexj
+ 6109  cd shex_to_shexj
+ 6110  ls
+ 6111  pipenv install ~/git/FHIRCat/shex_to_shexj
+ 6112  pipenv shell
+ 6113  cd 
+ 6114  cd git/FHIRCat/shex_to_shexj
+ 6115  ls
+ 6116  cd source
+ 6117  ls
+ 6118  cd ..
+ 6119  ls
+ 6120  ls shex_to_shexj
+ 6121  pwd
+ 6122  diff shex_to_shexj/shex_to_shexj.py ~/git/FHIRCat/fhir_rdf_validator/fhir_rdf_validator/shex_to_shexj.py
+ 6123  cd
+ 6124  cd venv/shex_to_shexj
+ 6125  ls
+ 6126  cd
+ 6127  cd git/FHIRCat/fhir_rdf_validator
+ 6128  ls
+ 6129  pip install -e . --upgrade
+ 6130  ls
+ 6131  cd tutorial
+ 6132  rdftojson -h
+ 6133  rdftojson -i demo1.ttl -o demo1.json
+ 6134  rdftojson -i demo1.ttl -o demo1.json -sfx ttl
+ 6135  cd
+ 6136  cd git/FHIRCat
+ 6137  ls
+ 6138  cd fhir_rdf_validator
+ 6139  ls
+ 6140  pip install -e . --upgrade
+ 6141  convertrdf -?
+ 6142  convertrdf
+ 6143  convertrdf -h
+ 6144  cd tut
+ 6145  cd tutorial
+ 6146  ls
+ 6147  convertrdf -i demo2.json -o demo2.ttl
+ 6148  pip install -e . --upgrade
+ 6149  cd ..
+ 6150  pip install -e . --upgrade
+ 6151  cd tutorial
+ 6152  convertrdf -i demo2.json -o demo2.ttl
+ 6153  cd git/HL7/fhir
+ 6154  ls
+ 6155  cd ~git/HL7/fhir
+ 6156  cd
+ 6157  cd git
+ 6158  find . -name RDFGenerator.java
+ 6159  find . -name *Turtle*
+ 6160  cd HL7
+ 6161  cd fhir
+ 6162  cd publish
+ 6163  grep valueInteger *obs*.json
+ 6164  grep valueInteger *obs*.json | more
+ 6165  grep valueInteger *obs*example*.json | more
+ 6166  grep valueInteger *obs*.json | grep -v codesystem | more
+ 6167  grep valueInteger *obs*.json | grep -v codesystem | grep -v display | more
+ 6168  grep valueInteger *obs*.json | grep -v codesystem | grep -v display | grep -v devicem | more
+ 6169  grep valueInteger *obs*.json | grep -v codesystem | grep -v display | grep -v devicem | grep ^obser
+ 6170  grep valueInteger *obs*.json | grep -v codesystem | grep -v display | grep -v devicem | grep ^obser | more
+ 6171  grep valueBoolean *obs*.json | grep -v codesystem | grep -v display | grep -v devicem | grep ^obser | more
+ 6172  d ..
+ 6173  ls
+ 6174  cd
+ 6175  cd git/HL7/fhir
+ 6176  find . -name RDFTypeMap.java
+ 6177  cd
+ 6178  cd git/biolinkml
+ 6179  ls
+ 6180  cd
+ 6181  cd git/biolinkml
+ 6182  cd
+ 6183  cd ~/git/biolink/biolinkml
+ 6184  git status
+ 6185  cd ..
+ 6186  ls
+ 6187  cd biolinml
+ 6188  cd biolinkml
+ 6189  git pull
+ 6190  git stash
+ 6191  git status
+ 6192  cd tests/test_utils/output
+ 6193  ls
+ 6194  rm ifabsent_uri.py ifabsents.py ifabsents2.py ifabsents3.py uriandcurie.py
+ 6195  git status
+ 6196  cd ..
+ 6197  git fetch origin pull/98/head/issue_83_pq
+ 6198  git fetch origin pull/98/head:issue_83_pq
+ 6199  git status
+ 6200  git checkout issue_83_pq
+ 6201  pipenv lock
+ 6202  cd tests/test_biolink_model/target/golr
+ 6203  diff RNA_product-config.yaml ../../source/golr/RNA_product-config.yaml
+ 6204  pwd
+ 6205  diff RNA_product-config.yaml ../../source/golr/RNA_product-config.yaml
+ 6206  ls
+ 6207  pwd
+ 6208  ls
+ 6209  pwd
+ 6210  cd ../..
+ 6211  cd target
+ 6212  cd glor
+ 6213  ls
+ 6214  cd golr
+ 6215  ls
+ 6216  less RNA_product-config.yaml
+ 6217  pwd
+ 6218  cd ..
+ 6219  diff model.py ../source/model.py| more
+ 6220  cd ..
+ 6221  ls
+ 6222  cd ..
+ 6223  cp tests/target/mappings.jsonld includes/mappings.jsonld
+ 6224  cp tests/target/meta.jsonld meta.jsonld
+ 6225  cd tests/source/
+ 6226  rm meta_mappings.json
+ 6227  cd ../..
+ 6228  ls
+ 6229  cd tests/target
+ 6230  cp meta.ttl ../../meta.ttl
+ 6231  cp 
+ 6232  rm tests/test_scripts/output/genjsonld/meta.jsonld
+ 6233  cd ../..
+ 6234  rm tests/test_scripts/output/genjsonld/meta.jsonld
+ 6235  rm tests/test_scripts/output/genpython/*.py
+ 6236  cd tests
+ 6237  man grep
+ 6238  grep -rH solbrig *
+ 6239  git push origin issue_83_pq
+ 6240  ls
+ 6241  cd
+ 6242  cd git/HL7/fhir
+ 6243  ls
+ 6244  cd publish
+ 6245  grep "Extension" *.json | more
+ 6246  grep "Extension" *.json | more | grep -v canonical | more
+ 6247  grep "Extension" *.json | more | grep -v canonical | grep -v questionnaire | more
+ 6248  grep "Extension" *.json | more | grep -v canonical | grep -v questionnaire | grep -v profile | more
+ 6249  grep "Extension" *.json | more | grep -v canonical | grep -v questionnaire | grep -v profile | grep -v codesystem | grep -v dataelements
+ 6250  grep "Extension" *.json | more | grep -v canonical | grep -v questionnaire | grep -v profile | grep -v codesystem | grep -v dataelements | more
+ 6251  vim extension-allergyintolerance-certainty.json
+ 6252  grep "Extension" *.json | more | grep -v canonical | grep -v questionnaire | grep -v profile | grep -v codesystem | grep -v dataelements | grep patient | grep example | more
+ 6253  ls *extension(*
+ 6254  ls *extension*.json
+ 6255  grep "snomed.info/id" *.java
+ 6256  cd ..
+ 6257  grep -r "snomed.info/id" | grep \.java
+ 6258  grep -r "snomed.info/id" * | grep \.java
+ 6259  cd 
+ 6260  cd git/hapifhir
+ 6261  ls
+ 6262  cd org.hl7.fhir.core
+ 6263  git pull
+ 6264  find . -iname *rdf*
+ 6265  find . -iname *rdf*.java
+ 6266  cd ./org.hl7.fhir.r5/src/main/java/org/hl7/fhir/r5/formats/R
+ 6267  cd ./org.hl7.fhir.r5/src/main/java/org/hl7/fhir/r5/formats/
+ 6268  ls
+ 6269  grep snomed *
+ 6270  cd
+ 6271  cd git/HL7/fhir/publish
+ 6272  grep '"sct"' *.ttl
+ 6273  grep 'loinc" *.ttl
+ 6274  grep 'loinc' *.ttl
+ 6275  vim xds-example.ttl
+ 6276  grep "snomed.info" *.ttl
+ 6277  vim specimen-example.ttl
+ 6278  grep "@prefix" *.ttl
+ 6279  grep "@prefix" *.ttl > zz
+ 6280  vim zz
+ 6281  sort -u zz | more
+ 6282  vim zz
+ 6283  sort -u zz | more
+ 6284  vim zz
+ 6285  sort -u zz > zzs
+ 6286  vim zzs
+ 6287  pwd
+ 6288  cd ..
+ 6289  grep -r "|Patient|" * | grep \.java
+ 6290  cd publish
+ 6291  grep  "|Patient|" * 
+ 6292  grep  "|Patient|" *.html
+ 6293  cd ..
+ 6294  grep -r "|Patient|" publish
+ 6295  grep -r "|Patient|P" publish
+ 6296  grep -r regexp publish
+ 6297  clear
+ 6298  cd 
+ 6299  cd git/biolink/biolinkml
+ 6300  git fetch
+ 6301  git checkout issue_83
+ 6302  git checkout issue_83_pq
+ 6303  git status
+ 6304  git stash
+ 6305  git pull
+ 6306  git checkout issue_83
+ 6307  vim z
+ 6308  . z
+ 6309  ./z
+ 6310  chmod +x z
+ 6311  ./z
+ 6312  git status
+ 6313  rm z
+ 6314  git checkout issue_83
+ 6315  git pull
+ 6316  cat setup.py
+ 6317  cat setup.cfg
+ 6318  git tag
+ 6319  git tag v1.4.10
+ 6320  rm dist/*
+ 6321  git tag v1.4.10
+ 6322  python setup.py sdist bdist_wheel
+ 6323  ls dist
+ 6324  git status
+ 6325  cat ChangeLog
+ 6326  less ChangeLog
+ 6327  cat AUTHORS
+ 6328  ls
+ 6329  cat tox.ini
+ 6330  vim README.md
+ 6331  git status
+ 6332  rm dist/*
+ 6333  python setup.py sdist bdist_wheel
+ 6334  ls dist
+ 6335  git add README.md
+ 6336  python setup.py sdist bdist_wheel
+ 6337  git commit -m "tweak to get a dev version"
+ 6338  python setup.py sdist bdist_wheel
+ 6339  ls dist
+ 6340  cd dist
+ 6341  ls *10*
+ 6342  rm *10*
+ 6343  cd ..
+ 6344  twine upload dist/*
+ 6345  history

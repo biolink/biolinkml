@@ -1817,7 +1817,7 @@
   "generation_date": "2020-02-27 16:10",
   "type": "SchemaDefinition",
   "@context": [
-    "file:///Users/djiao1/Projects/biolink/biolinkml/tests/test_scripts/output/gencontext/meta.jsonld",
+    "file:///Users/solbrig/git/biolink/biolinkml/tests/test_scripts/output/gencontext/meta.jsonld",
     "https://w3id.org/biolink/biolinkml/types.context.jsonld",
     "https://w3id.org/biolink/biolinkml/mappings.context.jsonld",
     {

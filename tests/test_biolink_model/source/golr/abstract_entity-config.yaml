@@ -1,0 +1,6 @@
+description: Any thing that is not a process or a physical mass-bearing entity
+display_name: abstract entity
+document_category: abstract entity
+id: abstract_entity
+schema_generating: true
+weight: 20
