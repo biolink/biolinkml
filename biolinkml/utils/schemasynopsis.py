@@ -222,9 +222,9 @@ class SchemaSynopsis:
                 pass
             else:
                 owner = self.owners[slotname]
-                if slot.domain and (slot.domain not in self.ownslots or slotname not in self.ownslots[slot.domain]):
-                    rval += [f'\tDomain mismatch: slot "{slotname}" domain is: '
-                            f'"{slot.domain}" class "{owner}" claims ownership']
+                # if slot.domain and (slot.domain not in self.ownslots or slotname not in self.ownslots[slot.domain]):
+                #     rval += [f'\tDomain mismatch: slot "{slotname}" domain is: '
+                #             f'"{slot.domain}" class "{owner}" claims ownership']
 
         # Inlined slots must be multivalued (not a inviolable rule, but we make assumptions about this elsewhere in
         # the python generator
