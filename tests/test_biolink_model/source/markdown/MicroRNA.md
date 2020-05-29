@@ -7,7 +7,7 @@
 URI: [biolink:MicroRNA](https://w3id.org/biolink/vocab/MicroRNA)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[MicroRNA&#124;name(i):symbol_type;id(i):identifier_type;category(i):iri_type%20%2B],%20\[NoncodingRNAProduct]^-\[MicroRNA])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[MicroRNA&#124;name(i):symbol_type;has_biological_sequence(i):biological_sequence%20%3F;id(i):identifier_type;category(i):iri_type%20%2B],%20\[NoncodingRNAProduct]^-\[MicroRNA])
 
 ## Parents
 
@@ -15,6 +15,13 @@ URI: [biolink:MicroRNA](https://w3id.org/biolink/vocab/MicroRNA)
 
 ## Attributes
 
+
+### Inherited from genomic entity:
+
+ * [has biological sequence](has_biological_sequence.md)  <sub>OPT</sub>
+    * Description: connects a genomic feature to its sequence
+    * range: [BiologicalSequence](types/BiologicalSequence.md)
+    * inherited from: [NamedThing](NamedThing.md)
 
 ### Inherited from macromolecular machine:
 

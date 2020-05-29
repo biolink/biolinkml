@@ -7,7 +7,7 @@
 URI: [biolink:GeneHasVariantThatContributesToDiseaseAssociation](https://w3id.org/biolink/vocab/GeneHasVariantThatContributesToDiseaseAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[GeneHasVariantThatContributesToDiseaseAssociation&#124;relation(i):uriorcurie;id(i):nodeidentifier;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[GeneHasVariantThatContributesToDiseaseAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[GeneHasVariantThatContributesToDiseaseAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[GeneHasVariantThatContributesToDiseaseAssociation],%20\[NamedThing]<object(i)%201..1-%20\[GeneHasVariantThatContributesToDiseaseAssociation],%20\[GeneOrGeneProduct]<subject%201..1-%20\[GeneHasVariantThatContributesToDiseaseAssociation],%20\[GeneToDiseaseAssociation]^-\[GeneHasVariantThatContributesToDiseaseAssociation])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[GeneHasVariantThatContributesToDiseaseAssociation&#124;relation(i):uriorcurie;id(i):nodeidentifier;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[GeneHasVariantThatContributesToDiseaseAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[GeneHasVariantThatContributesToDiseaseAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[GeneHasVariantThatContributesToDiseaseAssociation],%20\[NamedThing]<object(i)%201..1-%20\[GeneHasVariantThatContributesToDiseaseAssociation],%20\[Onset]<onset%20qualifier(i)%200..1-%20\[GeneHasVariantThatContributesToDiseaseAssociation],%20\[SeverityValue]<severity%20qualifier(i)%200..1-%20\[GeneHasVariantThatContributesToDiseaseAssociation],%20\[FrequencyValue]<frequency%20qualifier(i)%200..1-%20\[GeneHasVariantThatContributesToDiseaseAssociation],%20\[SequenceVariant]<sequence%20variant%20qualifier%200..1-%20\[GeneHasVariantThatContributesToDiseaseAssociation],%20\[GeneOrGeneProduct]<subject%201..1-%20\[GeneHasVariantThatContributesToDiseaseAssociation],%20\[GeneToDiseaseAssociation]^-\[GeneHasVariantThatContributesToDiseaseAssociation])
 
 ## Parents
 
@@ -23,6 +23,9 @@ URI: [biolink:GeneHasVariantThatContributesToDiseaseAssociation](https://w3id.or
 
  * [gene has variant that contributes to disease association➞subject](gene_has_variant_that_contributes_to_disease_association_subject.md)  <sub>REQ</sub>
     * range: [GeneOrGeneProduct](GeneOrGeneProduct.md)
+ * [sequence variant qualifier](sequence_variant_qualifier.md)  <sub>OPT</sub>
+    * Description: a qualifier used in an association where the variant
+    * range: [SequenceVariant](SequenceVariant.md)
 
 ### Inherited from association:
 
@@ -62,6 +65,24 @@ URI: [biolink:GeneHasVariantThatContributesToDiseaseAssociation](https://w3id.or
  * [provided by](provided_by.md)  <sub>OPT</sub>
     * Description: connects an association to the agent (person, organization or group) that provided it
     * range: [Provider](Provider.md)
+    * inherited from: [Association](Association.md)
+
+### Inherited from entity to feature or disease qualifiers:
+
+ * [severity qualifier](severity_qualifier.md)  <sub>OPT</sub>
+    * Description: a qualifier used in a phenotypic association to state how severe the phenotype is in the subject
+    * range: [SeverityValue](SeverityValue.md)
+    * inherited from: [Association](Association.md)
+ * [onset qualifier](onset_qualifier.md)  <sub>OPT</sub>
+    * Description: a qualifier used in a phenotypic association to state when the phenotype appears is in the subject
+    * range: [Onset](Onset.md)
+    * inherited from: [Association](Association.md)
+
+### Inherited from frequency qualifier mixin:
+
+ * [frequency qualifier](frequency_qualifier.md)  <sub>OPT</sub>
+    * Description: a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject
+    * range: [FrequencyValue](FrequencyValue.md)
     * inherited from: [Association](Association.md)
 
 ### Domain for slot:

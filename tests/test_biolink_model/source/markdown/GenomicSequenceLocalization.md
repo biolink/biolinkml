@@ -7,7 +7,7 @@ A relationship between a sequence feature and an entity it is localized to. The 
 URI: [biolink:GenomicSequenceLocalization](https://w3id.org/biolink/vocab/GenomicSequenceLocalization)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[GenomicSequenceLocalization&#124;relation(i):uriorcurie;id(i):nodeidentifier;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[GenomicSequenceLocalization],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[GenomicSequenceLocalization],%20\[OntologyClass]<association%20type(i)%200..1-%20\[GenomicSequenceLocalization],%20\[GenomicEntity]<object%201..1-%20\[GenomicSequenceLocalization],%20\[GenomicEntity]<subject%201..1-%20\[GenomicSequenceLocalization],%20\[Association]^-\[GenomicSequenceLocalization])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[GenomicSequenceLocalization&#124;start_interbase_coordinate:string%20%3F;end_interbase_coordinate:string%20%3F;genome_build:string%20%3F;phase:string%20%3F;relation(i):uriorcurie;id(i):nodeidentifier;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[GenomicSequenceLocalization],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[GenomicSequenceLocalization],%20\[OntologyClass]<association%20type(i)%200..1-%20\[GenomicSequenceLocalization],%20\[GenomicEntity]<object%201..1-%20\[GenomicSequenceLocalization],%20\[GenomicEntity]<subject%201..1-%20\[GenomicSequenceLocalization],%20\[Association]^-\[GenomicSequenceLocalization])
 
 ## Parents
 
@@ -21,10 +21,20 @@ URI: [biolink:GenomicSequenceLocalization](https://w3id.org/biolink/vocab/Genomi
 
 ### Own
 
+ * [end interbase coordinate](end_interbase_coordinate.md)  <sub>OPT</sub>
+    * range: [String](types/String.md)
+ * [genome build](genome_build.md)  <sub>OPT</sub>
+    * Description: TODO
+    * range: [String](types/String.md)
  * [genomic sequence localization➞object](genomic_sequence_localization_object.md)  <sub>REQ</sub>
     * range: [GenomicEntity](GenomicEntity.md)
  * [genomic sequence localization➞subject](genomic_sequence_localization_subject.md)  <sub>REQ</sub>
     * range: [GenomicEntity](GenomicEntity.md)
+ * [phase](phase.md)  <sub>OPT</sub>
+    * Description: TODO
+    * range: [String](types/String.md)
+ * [start interbase coordinate](start_interbase_coordinate.md)  <sub>OPT</sub>
+    * range: [String](types/String.md)
 
 ### Inherited from association:
 

@@ -195,7 +195,7 @@ class SchemaLoader:
         for slot in self.schema.slots.values():
             # Propagate domain to containing class
             if slot.domain and slot.domain in self.schema.classes:
-                if slot.name not in self.schema.classes[slot.domain].slots:
+                if slot.name not in self.schema.classes[slot.domain].slots and not slot.owner:
                     slot.owner = slot.name
                     self.schema.classes[slot.domain].slots.append(slot.name)
             elif slot.domain:

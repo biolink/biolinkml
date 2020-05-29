@@ -59,10 +59,6 @@ URI: [biolink:Occurrent](https://w3id.org/biolink/vocab/Occurrent)
 
 ### Domain for slot:
 
- * [enabled by](enabled_by.md)  <sub>0..*</sub>
-    * Description: holds between a process and a physical entity, where the physical entity executes the process
-    * range: [BiologicalProcessOrActivity](BiologicalProcessOrActivity.md)
-    * in subsets: (translator_minimal)
  * [has input](has_input.md)  <sub>0..*</sub>
     * Description: holds between a process and a continuant, where the continuant is an input into the process
     * range: [NamedThing](NamedThing.md)

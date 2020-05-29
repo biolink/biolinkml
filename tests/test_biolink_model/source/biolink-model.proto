@@ -96,15 +96,7 @@ message Association
   edgeLabel None = 11
   optional hasConfidenceLevel None = 12
   optional hasEvidence None = 13
-  optional stageQualifier None = 14
-  optional quantifierQualifier None = 15
-  optional frequencyQualifier None = 16
-  optional severityQualifier None = 17
-  optional sexQualifier None = 18
-  optional onsetQualifier None = 19
-  optional clinicalModifierQualifier None = 20
-  optional sequenceVariantQualifier None = 21
-  repeated changeIsCatalyzedBy None = 22
+  optional clinicalModifierQualifier None = 14
  }
 // A property or characteristic of an entity. For example, an apple may have properties such as color, shape, age, crispiness. An environmental sample may have attributes such as depth, lat, long, material.
 message Attribute
@@ -906,7 +898,6 @@ message DrugExposure
   optional hasReceptor None = 13
   optional hasStressor None = 14
   optional hasRoute None = 15
-  repeated hasDrug None = 16
  }
 message EnvironmentalFeature
  {
@@ -2534,29 +2525,14 @@ message NamedThing
   repeated manifestationOf None = 42
   repeated produces None = 43
   repeated sameAs None = 44
-  optional type None = 45
-  optional creationDate None = 46
-  optional updateDate None = 47
-  optional latitude None = 48
-  optional longitude None = 49
-  optional hasChemicalFormula None = 50
-  optional aggregateStatistic None = 51
-  optional hasCount None = 52
-  optional hasTotal None = 53
-  optional hasQuotient None = 54
-  optional hasPercentage None = 55
-  optional timepoint None = 56
-  optional hasBiologicalSequence None = 57
-  repeated hasMolecularConsequence None = 58
-  optional hasDrug None = 59
-  optional hasGene None = 60
-  optional hasZygosity None = 61
-  optional filler None = 62
-  optional phase None = 63
-  optional genomeBuild None = 64
-  optional interbaseCoordinate None = 65
-  optional startInterbaseCoordinate None = 66
-  optional endInterbaseCoordinate None = 67
+  optional creationDate None = 45
+  optional updateDate None = 46
+  optional hasChemicalFormula None = 47
+  optional aggregateStatistic None = 48
+  repeated hasMolecularConsequence None = 49
+  optional hasDrug None = 50
+  optional filler None = 51
+  optional interbaseCoordinate None = 52
  }
 message NoncodingRNAProduct
  {
@@ -2651,7 +2627,6 @@ message Occurrent
   repeated precedes None = 16
   repeated positivelyRegulatesProcessToProcess None = 17
   repeated negativelyRegulatesProcessToProcess None = 18
-  repeated enabledBy None = 19
  }
 // The age group in which manifestations appear
 message Onset
@@ -3466,7 +3441,6 @@ message Treatment
   optional hasStressor None = 14
   optional hasRoute None = 15
   repeated treats None = 16
-  repeated hasPart None = 17
  }
 message VariantToDiseaseAssociation
  {

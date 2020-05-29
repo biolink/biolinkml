@@ -1158,6 +1158,7 @@ class DataSetVersion(DataSet):
     title: Optional[str] = None
     source_data_file: Optional[Union[ElementIdentifier, DataFileId]] = None
     versionOf: Optional[Union[ElementIdentifier, DataSetId]] = None
+    type: Optional[str] = None
     distribution: Optional[Union[ElementIdentifier, DistributionLevelId]] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -1955,12 +1956,15 @@ class GenomicEntity(MolecularEntity):
     id: Union[ElementIdentifier, GenomicEntityId] = None
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
+    has_biological_sequence: Optional[Union[str, BiologicalSequence]] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
             raise ValueError(f"id must be supplied")
         if not isinstance(self.id, GenomicEntityId):
             self.id = GenomicEntityId(self.id)
+        if self.has_biological_sequence is not None and not isinstance(self.has_biological_sequence, BiologicalSequence):
+            self.has_biological_sequence = BiologicalSequence(self.has_biological_sequence)
         super().__post_init__(**kwargs)
 
 
@@ -2393,12 +2397,15 @@ class Genotype(GenomicEntity):
     id: Union[ElementIdentifier, GenotypeId] = None
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
+    has_zygosity: Optional[Union[ElementIdentifier, ZygosityId]] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
             raise ValueError(f"id must be supplied")
         if not isinstance(self.id, GenotypeId):
             self.id = GenotypeId(self.id)
+        if self.has_zygosity is not None and not isinstance(self.has_zygosity, ZygosityId):
+            self.has_zygosity = ZygosityId(self.has_zygosity)
         super().__post_init__(**kwargs)
 
 
@@ -2495,7 +2502,6 @@ class DrugExposure(ChemicalExposure):
     id: Union[ElementIdentifier, DrugExposureId] = None
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
-    has_drug: List[Union[ElementIdentifier, ChemicalSubstanceId]] = empty_list()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -2510,7 +2516,7 @@ class Treatment(ExposureEvent):
     """
     A treatment is targeted at a disease or phenotype and may involve multiple drug 'exposures'
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "treats", "has_part"]
+    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "treats"]
 
     class_class_uri: ClassVar[URIRef] = OGMS["0000090"]
     class_class_curie: ClassVar[str] = "OGMS:0000090"
@@ -2521,7 +2527,6 @@ class Treatment(ExposureEvent):
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
     treats: List[Union[ElementIdentifier, DiseaseOrPhenotypicFeatureId]] = empty_list()
-    has_part: List[Union[ElementIdentifier, DrugExposureId]] = empty_list()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -2546,6 +2551,8 @@ class GeographicLocation(PlanetaryEntity):
     id: Union[ElementIdentifier, GeographicLocationId] = None
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
+    latitude: Optional[float] = None
+    longitude: Optional[float] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -2570,12 +2577,15 @@ class GeographicLocationAtTime(GeographicLocation):
     id: Union[ElementIdentifier, GeographicLocationAtTimeId] = None
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
+    timepoint: Optional[Union[str, TimeType]] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
             raise ValueError(f"id must be supplied")
         if not isinstance(self.id, GeographicLocationAtTimeId):
             self.id = GeographicLocationAtTimeId(self.id)
+        if self.timepoint is not None and not isinstance(self.timepoint, TimeType):
+            self.timepoint = TimeType(self.timepoint)
         super().__post_init__(**kwargs)
 
 
@@ -3222,12 +3232,15 @@ class EntityToPhenotypicFeatureAssociation(Association):
     object: Union[ElementIdentifier, PhenotypicFeatureId] = None
     edge_label: Union[str, LabelType] = None
     id: Union[str, EntityToPhenotypicFeatureAssociationId] = bnode()
+    sex_qualifier: Optional[Union[ElementIdentifier, BiologicalSexId]] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.object is None:
             raise ValueError(f"object must be supplied")
         if not isinstance(self.object, PhenotypicFeatureId):
             self.object = PhenotypicFeatureId(self.object)
+        if self.sex_qualifier is not None and not isinstance(self.sex_qualifier, BiologicalSexId):
+            self.sex_qualifier = BiologicalSexId(self.sex_qualifier)
         super().__post_init__(**kwargs)
 
 
@@ -3740,6 +3753,7 @@ class GeneHasVariantThatContributesToDiseaseAssociation(GeneToDiseaseAssociation
     object: Union[ElementIdentifier, NamedThingId] = None
     edge_label: Union[str, LabelType] = None
     id: Union[str, GeneHasVariantThatContributesToDiseaseAssociationId] = bnode()
+    sequence_variant_qualifier: Optional[Union[ElementIdentifier, SequenceVariantId]] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -3750,6 +3764,8 @@ class GeneHasVariantThatContributesToDiseaseAssociation(GeneToDiseaseAssociation
             raise ValueError(f"subject must be supplied")
         if not isinstance(self.subject, GeneOrGeneProductId):
             self.subject = GeneOrGeneProductId(self.subject)
+        if self.sequence_variant_qualifier is not None and not isinstance(self.sequence_variant_qualifier, SequenceVariantId):
+            self.sequence_variant_qualifier = SequenceVariantId(self.sequence_variant_qualifier)
         super().__post_init__(**kwargs)
 
 
@@ -4031,6 +4047,10 @@ class GenomicSequenceLocalization(Association):
     object: Union[ElementIdentifier, GenomicEntityId] = None
     edge_label: Union[str, LabelType] = None
     id: Union[str, GenomicSequenceLocalizationId] = bnode()
+    start_interbase_coordinate: Optional[str] = None
+    end_interbase_coordinate: Optional[str] = None
+    genome_build: Optional[str] = None
+    phase: Optional[str] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -4342,7 +4362,7 @@ class Occurrent(NamedThing):
     """
     A processual entity
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "regulates_process_to_process", "has_participant", "has_input", "has_output", "precedes", "positively_regulates_process_to_process", "negatively_regulates_process_to_process", "enabled_by"]
+    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "regulates_process_to_process", "has_participant", "has_input", "has_output", "precedes", "positively_regulates_process_to_process", "negatively_regulates_process_to_process"]
 
     class_class_uri: ClassVar[URIRef] = BFO["0000003"]
     class_class_curie: ClassVar[str] = "BFO:0000003"
@@ -4400,12 +4420,15 @@ class BiologicalProcessOrActivity(BiologicalEntity):
     id: Union[ElementIdentifier, BiologicalProcessOrActivityId] = None
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
+    enabled_by: List[Union[ElementIdentifier, BiologicalProcessOrActivityId]] = empty_list()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
             raise ValueError(f"id must be supplied")
         if not isinstance(self.id, BiologicalProcessOrActivityId):
             self.id = BiologicalProcessOrActivityId(self.id)
+        self.enabled_by = [v if isinstance(v, BiologicalProcessOrActivityId)
+                           else BiologicalProcessOrActivityId(v) for v in self.enabled_by]
         super().__post_init__(**kwargs)
 
 
