@@ -609,66 +609,10 @@
                            },
                            {
                               "type": "TripleConstraint",
-                              "predicate": "https://w3id.org/biolink/vocab/stage_qualifier",
-                              "valueExpr": "https://w3id.org/biolink/vocab/LifeStage",
-                              "min": 0,
-                              "max": 1
-                           },
-                           {
-                              "type": "TripleConstraint",
-                              "predicate": "https://w3id.org/biolink/vocab/quantifier_qualifier",
-                              "valueExpr": "https://w3id.org/biolink/vocab/OntologyClass",
-                              "min": 0,
-                              "max": 1
-                           },
-                           {
-                              "type": "TripleConstraint",
-                              "predicate": "https://w3id.org/biolink/vocab/frequency_qualifier",
-                              "valueExpr": "https://w3id.org/biolink/vocab/FrequencyValue",
-                              "min": 0,
-                              "max": 1
-                           },
-                           {
-                              "type": "TripleConstraint",
-                              "predicate": "https://w3id.org/biolink/vocab/severity_qualifier",
-                              "valueExpr": "https://w3id.org/biolink/vocab/SeverityValue",
-                              "min": 0,
-                              "max": 1
-                           },
-                           {
-                              "type": "TripleConstraint",
-                              "predicate": "https://w3id.org/biolink/vocab/sex_qualifier",
-                              "valueExpr": "https://w3id.org/biolink/vocab/BiologicalSex",
-                              "min": 0,
-                              "max": 1
-                           },
-                           {
-                              "type": "TripleConstraint",
-                              "predicate": "https://w3id.org/biolink/vocab/onset_qualifier",
-                              "valueExpr": "https://w3id.org/biolink/vocab/Onset",
-                              "min": 0,
-                              "max": 1
-                           },
-                           {
-                              "type": "TripleConstraint",
                               "predicate": "https://w3id.org/biolink/vocab/clinical_modifier_qualifier",
                               "valueExpr": "https://w3id.org/biolink/vocab/ClinicalModifier",
                               "min": 0,
                               "max": 1
-                           },
-                           {
-                              "type": "TripleConstraint",
-                              "predicate": "https://w3id.org/biolink/vocab/sequence_variant_qualifier",
-                              "valueExpr": "https://w3id.org/biolink/vocab/SequenceVariant",
-                              "min": 0,
-                              "max": 1
-                           },
-                           {
-                              "type": "TripleConstraint",
-                              "predicate": "https://w3id.org/biolink/vocab/change_is_catalyzed_by",
-                              "valueExpr": "https://w3id.org/biolink/vocab/MacromolecularMachine",
-                              "min": 0,
-                              "max": -1
                            }
                         ]
                      },
@@ -1273,6 +1217,34 @@
                            ]
                         },
                         "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/sex_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/BiologicalSex",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/frequency_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/FrequencyValue",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/severity_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/SeverityValue",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/onset_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/Onset",
+                        "min": 0,
+                        "max": 1
                      }
                   ]
                },
@@ -2843,6 +2815,34 @@
                            ]
                         },
                         "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/sex_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/BiologicalSex",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/frequency_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/FrequencyValue",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/severity_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/SeverityValue",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/onset_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/Onset",
+                        "min": 0,
+                        "max": 1
                      }
                   ]
                },
@@ -3019,13 +3019,6 @@
                            ]
                         },
                         "min": 0
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/has_drug",
-                        "valueExpr": "https://w3id.org/biolink/vocab/ChemicalSubstance",
-                        "min": 1,
-                        "max": -1
                      }
                   ]
                },
@@ -3065,13 +3058,6 @@
                            ]
                         },
                         "min": 0
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/object",
-                        "valueExpr": "https://w3id.org/biolink/vocab/Disease",
-                        "min": 1,
-                        "max": 1
                      }
                   ]
                },
@@ -3192,8 +3178,29 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/description",
-                        "valueExpr": "https://w3id.org/biolink/vocab/NarrativeText",
+                        "predicate": "https://w3id.org/biolink/vocab/sex_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/BiologicalSex",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/frequency_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/FrequencyValue",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/severity_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/SeverityValue",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/onset_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/Onset",
                         "min": 0,
                         "max": 1
                      }
@@ -3576,6 +3583,34 @@
                         "predicate": "https://w3id.org/biolink/vocab/subject",
                         "valueExpr": "https://w3id.org/biolink/vocab/ExposureEvent",
                         "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/sex_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/BiologicalSex",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/frequency_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/FrequencyValue",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/severity_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/SeverityValue",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/onset_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/Onset",
+                        "min": 0,
                         "max": 1
                      }
                   ]
@@ -4374,6 +4409,27 @@
                               "valueExpr": "https://w3id.org/biolink/vocab/GeneOrGeneProduct",
                               "min": 1,
                               "max": 1
+                           },
+                           {
+                              "type": "TripleConstraint",
+                              "predicate": "https://w3id.org/biolink/vocab/frequency_qualifier",
+                              "valueExpr": "https://w3id.org/biolink/vocab/FrequencyValue",
+                              "min": 0,
+                              "max": 1
+                           },
+                           {
+                              "type": "TripleConstraint",
+                              "predicate": "https://w3id.org/biolink/vocab/severity_qualifier",
+                              "valueExpr": "https://w3id.org/biolink/vocab/SeverityValue",
+                              "min": 0,
+                              "max": 1
+                           },
+                           {
+                              "type": "TripleConstraint",
+                              "predicate": "https://w3id.org/biolink/vocab/onset_qualifier",
+                              "valueExpr": "https://w3id.org/biolink/vocab/Onset",
+                              "min": 0,
+                              "max": 1
                            }
                         ]
                      },
@@ -4741,6 +4797,34 @@
                         "predicate": "https://w3id.org/biolink/vocab/subject",
                         "valueExpr": "https://w3id.org/biolink/vocab/GeneOrGeneProduct",
                         "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/sex_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/BiologicalSex",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/frequency_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/FrequencyValue",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/severity_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/SeverityValue",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/onset_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/Onset",
+                        "min": 0,
                         "max": 1
                      }
                   ]
@@ -5209,6 +5293,34 @@
                         "predicate": "https://w3id.org/biolink/vocab/relation",
                         "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uriorcurie",
                         "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/sex_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/BiologicalSex",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/frequency_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/FrequencyValue",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/severity_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/SeverityValue",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/onset_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/Onset",
+                        "min": 0,
                         "max": 1
                      }
                   ]
@@ -6280,24 +6392,11 @@
             "type": "EachOf",
             "expressions": [
                {
-                  "type": "EachOf",
+                  "type": "TripleConstraint",
                   "id": "https://w3id.org/biolink/vocab/ModelToDiseaseMixin_tes",
-                  "expressions": [
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/subject",
-                        "valueExpr": "https://w3id.org/biolink/vocab/NamedThing",
-                        "min": 1,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/relation",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uriorcurie",
-                        "min": 1,
-                        "max": 1
-                     }
-                  ]
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "min": 0,
+                  "max": -1
                },
                {
                   "type": "TripleConstraint",
@@ -7130,13 +7229,6 @@
                            },
                            {
                               "type": "TripleConstraint",
-                              "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
-                              "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
-                              "min": 0,
-                              "max": 1
-                           },
-                           {
-                              "type": "TripleConstraint",
                               "predicate": "http://purl.org/dc/terms/created",
                               "valueExpr": "https://w3id.org/biolink/biolinkml/type/Date",
                               "min": 0,
@@ -7151,64 +7243,8 @@
                            },
                            {
                               "type": "TripleConstraint",
-                              "predicate": "http://www.w3.org/2003/01/geo/wgs84_poslat",
-                              "valueExpr": "https://w3id.org/biolink/biolinkml/type/Float",
-                              "min": 0,
-                              "max": 1
-                           },
-                           {
-                              "type": "TripleConstraint",
-                              "predicate": "http://www.w3.org/2003/01/geo/wgs84_poslong",
-                              "valueExpr": "https://w3id.org/biolink/biolinkml/type/Float",
-                              "min": 0,
-                              "max": 1
-                           },
-                           {
-                              "type": "TripleConstraint",
                               "predicate": "http://example.org/UNKNOWN/WD/P274",
                               "valueExpr": "https://w3id.org/biolink/vocab/ChemicalFormulaValue",
-                              "min": 0,
-                              "max": 1
-                           },
-                           {
-                              "type": "TripleConstraint",
-                              "predicate": "https://w3id.org/biolink/vocab/has_count",
-                              "valueExpr": "https://w3id.org/biolink/biolinkml/type/Integer",
-                              "min": 0,
-                              "max": 1
-                           },
-                           {
-                              "type": "TripleConstraint",
-                              "predicate": "https://w3id.org/biolink/vocab/has_total",
-                              "valueExpr": "https://w3id.org/biolink/biolinkml/type/Integer",
-                              "min": 0,
-                              "max": 1
-                           },
-                           {
-                              "type": "TripleConstraint",
-                              "predicate": "https://w3id.org/biolink/vocab/has_quotient",
-                              "valueExpr": "https://w3id.org/biolink/biolinkml/type/Double",
-                              "min": 0,
-                              "max": 1
-                           },
-                           {
-                              "type": "TripleConstraint",
-                              "predicate": "https://w3id.org/biolink/vocab/has_percentage",
-                              "valueExpr": "https://w3id.org/biolink/biolinkml/type/Double",
-                              "min": 0,
-                              "max": 1
-                           },
-                           {
-                              "type": "TripleConstraint",
-                              "predicate": "https://w3id.org/biolink/vocab/timepoint",
-                              "valueExpr": "https://w3id.org/biolink/vocab/TimeType",
-                              "min": 0,
-                              "max": 1
-                           },
-                           {
-                              "type": "TripleConstraint",
-                              "predicate": "https://w3id.org/biolink/vocab/has_biological_sequence",
-                              "valueExpr": "https://w3id.org/biolink/vocab/BiologicalSequence",
                               "min": 0,
                               "max": 1
                            },
@@ -7228,20 +7264,6 @@
                            },
                            {
                               "type": "TripleConstraint",
-                              "predicate": "https://w3id.org/biolink/vocab/has_gene",
-                              "valueExpr": "https://w3id.org/biolink/vocab/Gene",
-                              "min": 0,
-                              "max": 1
-                           },
-                           {
-                              "type": "TripleConstraint",
-                              "predicate": "https://w3id.org/biolink/vocab/has_zygosity",
-                              "valueExpr": "https://w3id.org/biolink/vocab/Zygosity",
-                              "min": 0,
-                              "max": 1
-                           },
-                           {
-                              "type": "TripleConstraint",
                               "predicate": "https://w3id.org/biolink/vocab/filler",
                               "valueExpr": "https://w3id.org/biolink/vocab/NamedThing",
                               "min": 0,
@@ -7249,35 +7271,7 @@
                            },
                            {
                               "type": "TripleConstraint",
-                              "predicate": "https://w3id.org/biolink/vocab/phase",
-                              "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
-                              "min": 0,
-                              "max": 1
-                           },
-                           {
-                              "type": "TripleConstraint",
-                              "predicate": "https://w3id.org/biolink/vocab/genome_build",
-                              "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
-                              "min": 0,
-                              "max": 1
-                           },
-                           {
-                              "type": "TripleConstraint",
                               "predicate": "https://w3id.org/biolink/vocab/interbase_coordinate",
-                              "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
-                              "min": 0,
-                              "max": 1
-                           },
-                           {
-                              "type": "TripleConstraint",
-                              "predicate": "https://w3id.org/biolink/vocab/start_interbase_coordinate",
-                              "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
-                              "min": 0,
-                              "max": 1
-                           },
-                           {
-                              "type": "TripleConstraint",
-                              "predicate": "https://w3id.org/biolink/vocab/end_interbase_coordinate",
                               "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
                               "min": 0,
                               "max": 1
@@ -7429,13 +7423,6 @@
                               "type": "TripleConstraint",
                               "predicate": "http://purl.obolibrary.org/obo/RO_0002212",
                               "valueExpr": "https://w3id.org/biolink/vocab/Occurrent",
-                              "min": 0,
-                              "max": -1
-                           },
-                           {
-                              "type": "TripleConstraint",
-                              "predicate": "http://purl.obolibrary.org/obo/RO_0002333",
-                              "valueExpr": "https://w3id.org/biolink/vocab/BiologicalProcessOrActivity",
                               "min": 0,
                               "max": -1
                            }
@@ -7742,13 +7729,6 @@
                         "predicate": "https://w3id.org/biolink/vocab/object",
                         "valueExpr": "https://w3id.org/biolink/vocab/MolecularEntity",
                         "min": 1,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/interacting_molecules_category",
-                        "valueExpr": "https://w3id.org/biolink/vocab/OntologyClass",
-                        "min": 0,
                         "max": 1
                      }
                   ]
@@ -9211,13 +9191,6 @@
                         "valueExpr": "https://w3id.org/biolink/vocab/DiseaseOrPhenotypicFeature",
                         "min": 1,
                         "max": -1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/has_part",
-                        "valueExpr": "https://w3id.org/biolink/vocab/DrugExposure",
-                        "min": 1,
-                        "max": -1
                      }
                   ]
                },
@@ -9302,6 +9275,27 @@
                         "valueExpr": "https://w3id.org/biolink/vocab/NamedThing",
                         "min": 1,
                         "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/frequency_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/FrequencyValue",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/severity_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/SeverityValue",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/onset_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/Onset",
+                        "min": 0,
+                        "max": 1
                      }
                   ]
                },
@@ -9371,6 +9365,34 @@
                         "predicate": "https://w3id.org/biolink/vocab/subject",
                         "valueExpr": "https://w3id.org/biolink/vocab/SequenceVariant",
                         "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/sex_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/BiologicalSex",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/frequency_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/FrequencyValue",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/severity_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/SeverityValue",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/onset_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/Onset",
+                        "min": 0,
                         "max": 1
                      }
                   ]
@@ -9487,6 +9509,13 @@
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/vocab/has_percentage",
                         "valueExpr": "https://w3id.org/biolink/biolinkml/type/Double",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/frequency_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/FrequencyValue",
                         "min": 0,
                         "max": 1
                      }

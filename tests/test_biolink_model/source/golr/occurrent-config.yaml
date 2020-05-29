@@ -72,11 +72,6 @@ fields:
 - cardinality: multi
   display_name: negatively regulates, process to process
   id: negatively_regulates_process_to_process
-- cardinality: multi
-  description: holds between a process and a physical entity, where the physical entity
-    executes the process
-  display_name: enabled by
-  id: enabled_by
 id: occurrent
 schema_generating: true
 weight: 20

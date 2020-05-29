@@ -76,8 +76,6 @@ URI: [biolink:PairwiseInteractionAssociation](https://w3id.org/biolink/vocab/Pai
 
 ### Domain for slot:
 
- * [interacting molecules category](interacting_molecules_category.md)  <sub>OPT</sub>
-    * range: [OntologyClass](OntologyClass.md)
  * [pairwise interaction association➞id](pairwise_interaction_association_id.md)  <sub>REQ</sub>
     * range: [Nodeidentifier](types/Nodeidentifier.md)
  * [pairwise interaction association➞object](pairwise_interaction_association_object.md)  <sub>REQ</sub>

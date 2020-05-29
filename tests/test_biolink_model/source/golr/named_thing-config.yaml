@@ -208,42 +208,17 @@ fields:
   description: holds between two entities that are considered equivalent to each other
   display_name: same as
   id: same_as
-- display_name: type
-  id: type
 - description: date on which thing was created. This can be applied to nodes or edges
   display_name: creation date
   id: creation_date
 - description: date on which thing was updated. This can be applied to nodes or edges
   display_name: update date
   id: update_date
-- description: latitude
-  display_name: latitude
-  id: latitude
-- description: longitude
-  display_name: longitude
-  id: longitude
 - description: description of chemical compound based on element symbols
   display_name: has chemical formula
   id: has_chemical_formula
 - display_name: aggregate statistic
   id: aggregate_statistic
-- description: number of things with a particular property
-  display_name: has count
-  id: has_count
-- description: total number of things in a particular reference set
-  display_name: has total
-  id: has_total
-- display_name: has quotient
-  id: has_quotient
-- description: equivalent to has quotient multiplied by 100
-  display_name: has percentage
-  id: has_percentage
-- description: a point in time
-  display_name: timepoint
-  id: timepoint
-- description: connects a genomic feature to its sequence
-  display_name: has biological sequence
-  id: has_biological_sequence
 - cardinality: multi
   description: connects a sequence variant to a class describing the molecular consequence.
     E.g.  SO:0001583
@@ -252,27 +227,12 @@ fields:
 - description: connects an entity to a single drug
   display_name: has drug
   id: has_drug
-- description: connects an entity to a single gene
-  display_name: has gene
-  id: has_gene
-- display_name: has zygosity
-  id: has_zygosity
 - description: The value in a property-value tuple
   display_name: filler
   id: filler
 - description: TODO
-  display_name: phase
-  id: phase
-- description: TODO
-  display_name: genome build
-  id: genome_build
-- description: TODO
   display_name: interbase coordinate
   id: interbase_coordinate
-- display_name: start interbase coordinate
-  id: start_interbase_coordinate
-- display_name: end interbase coordinate
-  id: end_interbase_coordinate
 id: named_thing
 schema_generating: true
 weight: 20

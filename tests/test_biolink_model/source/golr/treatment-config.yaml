@@ -67,9 +67,6 @@ fields:
     or phenotypic feature that it is used to treat
   display_name: treats
   id: treats
-- cardinality: multi
-  display_name: treatment_has part
-  id: has_part
 id: treatment
 schema_generating: true
 weight: 20

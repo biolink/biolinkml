@@ -7,7 +7,7 @@ a location that can be described in lat/long coordinates
 URI: [biolink:GeographicLocation](https://w3id.org/biolink/vocab/GeographicLocation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[GeographicLocation&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B]^-\[GeographicLocationAtTime],%20\[PlanetaryEntity]^-\[GeographicLocation])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[GeographicLocation&#124;latitude:float%20%3F;longitude:float%20%3F;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B]^-\[GeographicLocationAtTime],%20\[PlanetaryEntity]^-\[GeographicLocation])
 
 ## Parents
 
@@ -22,6 +22,15 @@ URI: [biolink:GeographicLocation](https://w3id.org/biolink/vocab/GeographicLocat
 
 ## Attributes
 
+
+### Own
+
+ * [latitude](latitude.md)  <sub>OPT</sub>
+    * Description: latitude
+    * range: [Float](types/Float.md)
+ * [longitude](longitude.md)  <sub>OPT</sub>
+    * Description: longitude
+    * range: [Float](types/Float.md)
 
 ### Inherited from named thing:
 

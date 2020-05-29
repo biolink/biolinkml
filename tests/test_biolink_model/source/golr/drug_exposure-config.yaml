@@ -61,9 +61,6 @@ fields:
     with the receptor
   display_name: has route
   id: has_route
-- cardinality: multi
-  display_name: drug exposure_has drug
-  id: has_drug
 id: drug_exposure
 schema_generating: true
 weight: 20
