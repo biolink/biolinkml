@@ -10,6 +10,7 @@ from ShExJSG.SchemaWithContext import Schema
 from ShExJSG.ShExJ import Shape, IRIREF, EachOf, TripleConstraint, NodeConstraint, ShapeOr
 from jsonasobj import as_json
 from rdflib import Graph, OWL, RDF, Namespace, XSD
+from rdflib.plugins.serializers.turtle import TurtleSerializer
 
 from biolinkml import METAMODEL_NAMESPACE_NAME, METAMODEL_NAMESPACE
 from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, SlotDefinitionName, ElementName, \
@@ -19,6 +20,7 @@ from biolinkml.utils.formatutils import camelcase, sfx
 from biolinkml.utils.generator import Generator, shared_arguments
 from biolinkml.utils.metamodelcore import URIorCURIE
 
+TurtleSerializer.roundtrip_prefixes = True
 
 class ShExGenerator(Generator):
     generatorname = os.path.basename(__file__)

@@ -3,12 +3,15 @@ import unittest
 from types import ModuleType
 
 from jsonasobj import as_json
+from rdflib.plugins.serializers.turtle import TurtleSerializer
 
 from biolinkml.generators.jsonldcontextgen import ContextGenerator
 from biolinkml.generators.pythongen import PythonGenerator
 from biolinkml.utils.yamlutils import as_rdf
 from tests.test_issues import sourcedir
 from rdflib import Graph, Literal, URIRef
+
+TurtleSerializer.roundtrip_prefixes = True
 
 
 class Issue103TestCase(unittest.TestCase):

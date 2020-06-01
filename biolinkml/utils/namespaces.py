@@ -5,10 +5,13 @@ from typing import Any, Tuple, Optional, Union
 from prefixcommons import curie_util
 from rdflib import Namespace, URIRef, Graph, BNode
 from rdflib.namespace import is_ncname
+from rdflib.plugins.serializers.turtle import TurtleSerializer
 
 META_NS = "meta"
 META_URI = "https://w3id.org/biolink/biolinkml/meta"
 
+# Force all mentioned prefixes to be emitted.  This is a fix for a change in rdflib 5.0
+TurtleSerializer.roundtrip_prefixes = True
 
 class Namespaces(OrderedDict):
     """ Namespace manager.  Functions as both a dictionary and a python
