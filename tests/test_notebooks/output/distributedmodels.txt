@@ -1,27 +1,5 @@
-Warning: The following errors were encountered in the schema
-		Domain mismatch: slot "enabled by" domain is: "occurrent" class "{'biological process or activity'}" claims ownership
-		Domain mismatch: slot "end interbase coordinate" domain is: "named thing" class "{'genomic sequence localization'}" claims ownership
-		Domain mismatch: slot "frequency qualifier" domain is: "association" class "{'frequency qualifier mixin'}" claims ownership
-		Domain mismatch: slot "genome build" domain is: "named thing" class "{'genomic sequence localization'}" claims ownership
-		Domain mismatch: slot "has biological sequence" domain is: "named thing" class "{'genomic entity'}" claims ownership
-		Domain mismatch: slot "has count" domain is: "named thing" class "{'frequency quantifier'}" claims ownership
-		Domain mismatch: slot "has percentage" domain is: "named thing" class "{'frequency quantifier'}" claims ownership
-		Domain mismatch: slot "has quotient" domain is: "named thing" class "{'frequency quantifier'}" claims ownership
-		Domain mismatch: slot "has total" domain is: "named thing" class "{'frequency quantifier'}" claims ownership
-		Domain mismatch: slot "has zygosity" domain is: "named thing" class "{'genotype'}" claims ownership
-		Domain mismatch: slot "latitude" domain is: "named thing" class "{'geographic location'}" claims ownership
-		Domain mismatch: slot "longitude" domain is: "named thing" class "{'geographic location'}" claims ownership
-		Domain mismatch: slot "onset qualifier" domain is: "association" class "{'entity to feature or disease qualifiers'}" claims ownership
-		Domain mismatch: slot "phase" domain is: "named thing" class "{'genomic sequence localization'}" claims ownership
-		Domain mismatch: slot "sequence variant qualifier" domain is: "association" class "{'gene has variant that contributes to disease association'}" claims ownership
-		Domain mismatch: slot "severity qualifier" domain is: "association" class "{'entity to feature or disease qualifiers'}" claims ownership
-		Domain mismatch: slot "sex qualifier" domain is: "association" class "{'entity to phenotypic feature association'}" claims ownership
-		Domain mismatch: slot "start interbase coordinate" domain is: "named thing" class "{'genomic sequence localization'}" claims ownership
-		Domain mismatch: slot "timepoint" domain is: "named thing" class "{'geographic location at time'}" claims ownership
-		Domain mismatch: slot "type" domain is: "named thing" class "{'data set version'}" claims ownership
-
 # Auto generated from None by pythongen.py version: 0.4.0
-# Generation date: 2020-05-29 13:49
+# Generation date: 2020-06-01 12:10
 # Schema: dist1
 #
 # id: http://example.org/examples/distributeExample
