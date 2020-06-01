@@ -10,26 +10,24 @@ tox-pipenv = "*"
 unittest2 = "*"
 
 [packages]
-click = ">=7.0"
-graphviz = ">=0.10.1"
+click = "~=7.1"
+graphviz = ">=0.14"
 jsonasobj = ">=1.2.1"
-jsonschema = ">=3.0.1"
-prefixcommons = ">=0.1.7"
-#rdflib-jsonld = ">=0.4.0"
+jsonschema = "~=3.2"
+prefixcommons = ">=0.1.9"
+# rdflib-jsonld = "~=0.5"
 rdflib-jsonld = {git = "https://github.com/hsolbrig/rdflib-jsonld"}
-rdflib = ">=4.2.2"
+rdflib = "~=5.0"
 requests = ">=2.22"
 pyjsg = ">=0.9.1"
 pyyaml = ">=5.1"
 argparse = ">=1.4.0"
-pyshex = ">=0.7.12"
-pyshexc = ">=0.7.0"
+pyshex = ">=0.7.14"
+pyshexc = "~=0.8"
 prologterms = ">=0.0.6"
 watchdog = ">=0.9.0"
 isodate = ">=0.6.0"
 
-[requires]
-python_version = "3.7"
 
 [pipenv]
 allow_prereleases = true
