@@ -21,6 +21,14 @@ class Issue121TestCase(unittest.TestCase):
         python = PythonGenerator(yaml_fname).serialize()
         print(self.header("Python"))
         print(python)
+
+        has_includes = False
+        for line in python.split("\n"):
+            if line.startswith("from includes.types"):
+                assert line == "from includes.types import String"
+                has_includes = True
+        assert has_includes
+
         spec = compile(python, 'test', 'exec')
         module = ModuleType('test')
         exec(spec, module.__dict__)
