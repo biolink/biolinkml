@@ -38,6 +38,7 @@ class Issue121TestCase(unittest.TestCase):
         # JSON Representation
         print(self.header("JSON"))
         print(as_json(example))
+        example2 = module.ImportedClass()
 
 
 if __name__ == '__main__':
