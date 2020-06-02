@@ -5,7 +5,7 @@ prefixes:
 
 imports:
   - biolinkml:types
-  - issue_121_imports
+  - "../source/issues_121_imports"
 
 classes:
 

@@ -17,7 +17,7 @@ class Issue121TestCase(unittest.TestCase):
 
     def test_issue_121(self):
         """ Make sure that types are generated as part of the output """
-        yaml_fname = os.path.join(sourcedir, 'issue_113.yaml')
+        yaml_fname = os.path.join(sourcedir, 'issue_121.yaml')
         python = PythonGenerator(yaml_fname).serialize()
         print(self.header("Python"))
         print(python)
