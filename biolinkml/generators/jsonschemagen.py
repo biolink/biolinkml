@@ -94,8 +94,13 @@ class JsonSchemaGenerator(Generator):
 
 @shared_arguments(JsonSchemaGenerator)
 @click.command()
-@click.option("-i", "--inline", is_flag=True, help="Generate references to types rather than inlining them")
-@click.option("-t", "--top-class", help="Top level class")
+@click.option("-i", "--inline", is_flag=True, help="""
+Generate references to types rather than inlining them.
+Note that declaring a slot as inlined: true will always inline the class
+""")
+@click.option("-t", "--top-class", help="""
+Top level class; slots of this class will become top level properties in the json-schema
+""")
 def cli(yamlfile, **kwargs):
     """ Generate JSON Schema representation of a biolink model """
     print(JsonSchemaGenerator(yamlfile, **kwargs).serialize(**kwargs))
