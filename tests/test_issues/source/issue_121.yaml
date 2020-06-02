@@ -1,0 +1,19 @@
+id: https://microbiomedata/schema
+
+prefixes:
+  biolinkml: https://w3id.org/biolink/biolinkml/
+
+imports:
+  - biolinkml:types
+  - issue_121_imports
+
+classes:
+
+  biosample:
+    slots:
+      - depth
+    slot_usage:
+      depth:
+        required: false
+
+slots: {}
