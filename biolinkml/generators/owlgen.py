@@ -128,7 +128,7 @@ class OwlSchemaGenerator(Generator):
             if sn not in cls.defining_slots:
                 slot = self.schema.slots[sn]
                 # Non-inherited slots are annotation properties
-                if slot.inherited:
+                if self.is_slot_object_property(slot):
                     slot_node = BNode()
                     self.graph.add((cls_uri, RDFS.subClassOf, slot_node))
 
@@ -184,7 +184,7 @@ class OwlSchemaGenerator(Generator):
         self._add_element_properties(slot_uri, slot)
         # Inherited slots are object or data properties
         # All others are annotation properties
-        self.graph.add((slot_uri, RDF.type, OWL.ObjectProperty if slot.inherited else OWL.AnnotationProperty))
+        self.graph.add((slot_uri, RDF.type, OWL.ObjectProperty if self.is_slot_object_property(slot) else OWL.AnnotationProperty))
         self.graph.add((slot_uri, RDF.type,
                         self.metamodel.namespaces[METAMODEL_NAMESPACE_NAME][camelcase('slot definition')]))
         self.graph.add((slot_uri, RDFS.range, self._range_uri(slot)))
@@ -257,6 +257,10 @@ class OwlSchemaGenerator(Generator):
         metac_uri = self.metamodel.namespaces[METAMODEL_NAMESPACE_NAME][camelcase(metac.name)]
         self.graph.add((metac_uri, RDF.type, OWL.Class))
         self._add_element_properties(metac_uri, metac)
+
+
+    def is_slot_object_property(self, slot : SlotDefinition) -> bool:
+        return True
 
 
 @shared_arguments(OwlSchemaGenerator)
