@@ -71,19 +71,6 @@ slots:
     range: yearCount
 ```        
 
-## Generated Aretfacts
-
-* Python 3 dataclasses
-* [ShEx](http://shex.io/shex-semantics/index.html) - Shape Expressions Langauge
-* [YUML](https://yuml.me/) - UML diagram drawing tool
-* Class and interface definitions for [GraphQL](https://graphql.org/)
-* Graphviz -- fairly basic representation of hierarchies
-* [JSON](https://json.org/) and [JSON-LD](https://json-ld.org/)
-* [JSON Schema](https://json-schema.org/)
-* [Markdown](https://daringfireball.net/projects/markdown/) - markup language used by github and others
-* [OWL](https://www.w3.org/TR/2012/REC-owl2-overview-20121211/) - Web Ontology Language
-* [RDF](https://www.w3.org/2001/sw/wiki/RDF) - Resource Description Format
-
 ## Language Features
 
 In future we will have examples for each of these.
@@ -92,6 +79,94 @@ In future we will have examples for each of these.
  * [abstract](https://biolink.github.io/biolinkml/docs/abstract) and [mixin](https://biolink.github.io/biolinkml/docs/mixin) classes
  * control JSON-LD mappings to URIs via [prefixes](https://biolink.github.io/biolinkml/docs/prefixes) declarations
  * ability to refine meaning of a slot in the context of a particular class via [slot usage](https://biolink.github.io/biolinkml/docs/slot_usage)
+
+
+## Translating to other formats
+
+biolinkml can be used as a modeling language in its own right, or it can be
+compiled to other schema/modeling languages
+
+### JSON Schema
+
+[JSON Schema](https://json-schema.org/) is a schema language for JSON documents
+
+`pipenv run gen-json-schema examples/01-person.yaml`
+
+See [examples/01-person.schema.json](examples/01-person.schema.json) 
+
+
+### Python DataClasses
+
+`pipenv run gen-py-classes examples/01-person.yaml > examples/01-person.py`
+
+See [examples/01-person.py](examples/01-person.py) 
+
+For example:
+
+```python
+@dataclass
+class Person(YAMLRoot):
+    """
+    A person, living or dead
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = URIRef("http://example.org/sample/example1/Person")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "person"
+    class_model_uri: ClassVar[URIRef] = URIRef("http://example.org/sample/example1/Person")
+
+    id: Union[str, PersonId]
+    last_name: str
+    first_name: Optional[str] = None
+    age: Optional[int] = None
+
+```
+
+### ShEx
+
+ [ShEx](http://shex.io/shex-semantics/index.html) - Shape Expressions Langauge
+
+`pipenv run gen-shex examples/01-person.yaml > examples/01-person.shex`
+
+See [examples/01-person.shex](examples/01-person.shex) 
+
+```shex
+BASE <http://example.org/sample/example1/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd1: <http://example.org/UNKNOWN/xsd/>
+
+
+<YearCount> xsd1:int
+
+<String> xsd1:string
+
+<Person> CLOSED {
+    (  $<Person_tes> (  <first_name> @<String> ? ;
+          <last_name> @<String> ;
+          <age> @<YearCount> ?
+       ) ;
+       rdf:type [ <Person> ]
+    )
+}
+```
+
+## Generating Markdown documentation
+
+`pipenv run gen-markdown examples/01-person.yaml -d examples/01-person-docs/`
+
+This will generate a markdown document for every class and slot in the model
+
+### Others
+
+* [YUML](https://yuml.me/) - UML diagram drawing tool
+* Class and interface definitions for [GraphQL](https://graphql.org/)
+* Graphviz -- fairly basic representation of hierarchies
+* [JSON](https://json.org/) and [JSON-LD](https://json-ld.org/)
+* [Markdown](https://daringfireball.net/projects/markdown/) - markup language used by github and others
+* [OWL](https://www.w3.org/TR/2012/REC-owl2-overview-20121211/) - Web Ontology Language
+* [RDF](https://www.w3.org/2001/sw/wiki/RDF) - Resource Description Format
+
 
 ## Formal Semantics
 
