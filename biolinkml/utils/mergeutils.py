@@ -61,7 +61,11 @@ def merge_dicts(target: Dict[str, Element], source: Dict[str, Element], imported
         if k in target and source[k].from_schema != target[k].from_schema:
             raise ValueError(f"Conflicting URIs ({source[k].from_schema}, {target[k].from_schema}) for item: {k}")
         target[k] = deepcopy(v)
-        target[k].imported_from = imported_from
+        # currently all imports closures are merged into main schema, EXCEPT
+        # internal biolinkml types, which are considered separate
+        # https://github.com/biolink/biolinkml/issues/121
+        if imported_from.startswith("biolinkml"):
+            target[k].imported_from = imported_from
 
 
 def merge_slots(target: Union[SlotDefinition, TypeDefinition], source: Union[SlotDefinition, TypeDefinition],
