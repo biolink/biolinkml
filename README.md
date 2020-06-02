@@ -86,40 +86,123 @@ In future we will have examples for each of these.
 biolinkml can be used as a modeling language in its own right, or it can be
 compiled to other schema/modeling languages
 
+We use a basic schema for illustrative purposes:
+
+```yaml
+id: http://example.org/sample/organization
+name: organization
+
+types:
+  yearCount:
+    base: int
+    uri: xsd:int
+  string:
+    base: str
+    uri: xsd:string
+    
+classes:
+
+  organization:
+    slots:
+      - id
+      - name
+      - has boss
+      
+  employee:
+    description: A person
+    slots:
+      - id
+      - first name
+      - last name
+      - aliases
+      - age in years
+    slot_usage:
+      last name :
+        required: true
+      
+  manager:
+    description: An employee who manages others
+    is_a: employee
+    slots:
+      - has employees
+
+slots:
+  id:
+    description: Unique identifier of a person
+    identifier: true
+
+  name:
+    description: human readable name
+    range: string
+    
+  aliases:
+    is_a: name
+    description: An alternative name
+    multivalued: true
+    
+  first name:
+    is_a: name
+    description: The first name of a person
+    
+  last name:
+    is_a: name
+    description: The last name of a person
+
+  age in years:
+    description: The age of a person if living or age of death if not
+    range: yearCount
+
+  has employees:
+    range: employee
+    multivalued: true
+    inlined: true
+
+  has boss:
+    range: manager
+    inlined: true
+```
+
+Note this schema does not illustrate the more advanced features of blml
+
 ### JSON Schema
 
 [JSON Schema](https://json-schema.org/) is a schema language for JSON documents
 
-`pipenv run gen-json-schema examples/01-person.yaml`
+`pipenv run gen-json-schema examples/organization.yaml`
 
-See [examples/01-person.schema.json](examples/01-person.schema.json) 
+See [examples/organization.schema.json](examples/organization.schema.json) 
 
 
 ### Python DataClasses
 
-`pipenv run gen-py-classes examples/01-person.yaml > examples/01-person.py`
+`pipenv run gen-py-classes examples/organization.yaml > examples/organization.py`
 
-See [examples/01-person.py](examples/01-person.py) 
+See [examples/organization.py](examples/organization.py) 
 
 For example:
 
 ```python
 @dataclass
-class Person(YAMLRoot):
-    """
-    A person, living or dead
-    """
+class Organization(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = URIRef("http://example.org/sample/example1/Person")
+    class_class_uri: ClassVar[URIRef] = URIRef("http://example.org/sample/organization/Organization")
     class_class_curie: ClassVar[str] = None
-    class_name: ClassVar[str] = "person"
-    class_model_uri: ClassVar[URIRef] = URIRef("http://example.org/sample/example1/Person")
+    class_name: ClassVar[str] = "organization"
+    class_model_uri: ClassVar[URIRef] = URIRef("http://example.org/sample/organization/Organization")
 
-    id: Union[str, PersonId]
-    last_name: str
-    first_name: Optional[str] = None
-    age: Optional[int] = None
+    id: Union[str, OrganizationId]
+    name: Optional[str] = None
+    has_boss: Optional[Union[dict, "Manager"]] = None
+
+    def __post_init__(self, **kwargs: Dict[str, Any]):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, OrganizationId):
+            self.id = OrganizationId(self.id)
+        if self.has_boss is not None and not isinstance(self.has_boss, Manager):
+            self.has_boss = Manager(self.has_boss)
+        super().__post_init__(**kwargs)
 
 ```
 
@@ -127,33 +210,14 @@ class Person(YAMLRoot):
 
  [ShEx](http://shex.io/shex-semantics/index.html) - Shape Expressions Langauge
 
-`pipenv run gen-shex examples/01-person.yaml > examples/01-person.shex`
+`pipenv run gen-shex examples/organization.yaml > examples/organization.shex`
 
-See [examples/01-person.shex](examples/01-person.shex) 
+See [examples/organization.shex](examples/organization.shex) 
 
-```shex
-BASE <http://example.org/sample/example1/>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX xsd1: <http://example.org/UNKNOWN/xsd/>
-
-
-<YearCount> xsd1:int
-
-<String> xsd1:string
-
-<Person> CLOSED {
-    (  $<Person_tes> (  <first_name> @<String> ? ;
-          <last_name> @<String> ;
-          <age> @<YearCount> ?
-       ) ;
-       rdf:type [ <Person> ]
-    )
-}
-```
 
 ## Generating Markdown documentation
 
-`pipenv run gen-markdown examples/01-person.yaml -d examples/01-person-docs/`
+`pipenv run gen-markdown examples/organization.yaml -d examples/organization-docs/`
 
 This will generate a markdown document for every class and slot in the model
 
@@ -162,6 +226,7 @@ This will generate a markdown document for every class and slot in the model
 * [YUML](https://yuml.me/) - UML diagram drawing tool
 * Class and interface definitions for [GraphQL](https://graphql.org/)
 * Graphviz -- fairly basic representation of hierarchies
+* Protobuf
 * [JSON](https://json.org/) and [JSON-LD](https://json-ld.org/)
 * [Markdown](https://daringfireball.net/projects/markdown/) - markup language used by github and others
 * [OWL](https://www.w3.org/TR/2012/REC-owl2-overview-20121211/) - Web Ontology Language
