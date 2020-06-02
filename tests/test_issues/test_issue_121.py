@@ -32,13 +32,9 @@ class Issue121TestCase(unittest.TestCase):
         spec = compile(python, 'test', 'exec')
         module = ModuleType('test')
         exec(spec, module.__dict__)
-        example = module.TestClass(test_attribute_2="foo")
-        assert hasattr(example, "test_attribute_2")
-        assert hasattr(example, "test_attribute_1")
-        example.wiible = "foo";
-        example.test_attribute_1 = "foo";
-        example.test_attribute_2 = "foo";
-
+        example = module.Biosample(depth="test")
+        assert hasattr(example, "depth")
+        assert example.depth == "test"
         # JSON Representation
         print(self.header("JSON"))
         print(as_json(example))
