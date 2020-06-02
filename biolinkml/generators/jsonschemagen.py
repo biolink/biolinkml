@@ -70,7 +70,7 @@ class JsonSchemaGenerator(Generator):
             if slot.multivalued:
                 prop = JsonObj(type="array", items=ref)
             else:
-                prop = JsonObj(type=ref)
+                prop = ref
         else:
             prop = JsonObj(type="string") #TODO
         if slot.description:
