@@ -27,53 +27,7 @@ For an example, see the [Jupyter notebook example](https://nbviewer.jupyter.org/
 > pipenv install biolinkml
 ```
 
-## Examples
-
-This basic example shows a schema with a single class together with slots that can be used for instances of that class:
-
-```yaml
-id: http://example.org/sample/example1
-name: synopsis2
-
-types:
-  yearCount:
-    base: int
-    uri: xsd:int
-  string:
-    base: str
-    uri: xsd:string
-    
-classes:
-  person:
-    description: A person, living or dead
-    slots:
-      - id
-      - first name
-      - last name
-      - age
-
-slots:
-  id:
-    description: Unique identifier of a person
-    identifier: true
-
-  first name:
-    description: The first name of a person
-    range: string
-    
-  last name:
-    description: The last name of a person
-    range: string
-    required: true
-
-  age:
-    description: The age of a person if living or age of death if not
-    range: yearCount
-```        
-
 ## Language Features
-
-In future we will have examples for each of these.
 
  * polymorphism/inheritance, see [is_a](https://biolink.github.io/biolinkml/docs/is_a)
  * [abstract](https://biolink.github.io/biolinkml/docs/abstract) and [mixin](https://biolink.github.io/biolinkml/docs/mixin) classes
@@ -81,7 +35,7 @@ In future we will have examples for each of these.
  * ability to refine meaning of a slot in the context of a particular class via [slot usage](https://biolink.github.io/biolinkml/docs/slot_usage)
 
 
-## Translating to other formats
+## Examples
 
 biolinkml can be used as a modeling language in its own right, or it can be
 compiled to other schema/modeling languages
