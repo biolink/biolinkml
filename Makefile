@@ -9,6 +9,8 @@ examples/%.shex: examples/%.yaml
 	pipenv run gen-shex $< > $@
 examples/%.schema.json: examples/%.yaml
 	pipenv run gen-json-schema -t $* $< > $@
+examples/%.context.jsonld: examples/%.yaml
+	pipenv run gen-jsonld-context -t $* $< > $@
 examples/%.graphql: examples/%.yaml
 	pipenv run gen-graphql $< > $@
 examples/%.context.jsonld: examples/%.yaml
@@ -19,6 +21,8 @@ examples/%.shex: examples/%.yaml
 	pipenv run gen-shex $< > $@
 examples/%.proto: examples/%.yaml
 	pipenv run gen-proto $< > $@
+examples/%.owl: examples/%.yaml
+	pipenv run gen-owl $< > $@
 examples/%-docs: examples/%.yaml
 	pipenv run gen-markdown $< -d $@
 examples/%.valid: examples/%-data.json examples/%.schema.json
