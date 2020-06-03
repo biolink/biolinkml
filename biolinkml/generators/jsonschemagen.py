@@ -49,6 +49,7 @@ class JsonSchemaGenerator(Generator):
                               type='object',
                               properties=JsonObj(),
                               required=[],
+                              additionalProperties=False,
                               description=be(cls.description))
         return True
 
