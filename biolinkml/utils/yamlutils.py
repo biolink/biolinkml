@@ -78,7 +78,7 @@ def as_yaml(element: YAMLRoot) -> str:
     :param element: YAML object
     :return: Stringified representation
     """
-    return yaml.dump(element, Dumper=yaml.SafeDumper)
+    return yaml.dump(element, Dumper=yaml.SafeDumper, sort_keys=False)
 
 
 def as_json_object(element: YAMLRoot, contexts: CONTEXTS_PARAM_TYPE = None) -> JsonObj:
