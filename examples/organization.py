@@ -1,5 +1,5 @@
 # Auto generated from organization.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-06-02 21:52
+# Generation date: 2020-06-07 14:59
 # Schema: organization
 #
 # id: http://example.org/sample/organization

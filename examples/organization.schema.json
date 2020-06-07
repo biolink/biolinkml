@@ -3,6 +3,7 @@
    "$schema": "http://json-schema.org/draft-07/schema#",
    "definitions": {
       "Employee": {
+         "additionalProperties": false,
          "description": "A person",
          "properties": {
             "age_in_years": {
@@ -30,10 +31,10 @@
             "last_name"
          ],
          "title": "Employee",
-          "type": "object",
-          "additionalProperties": false
+         "type": "object"
       },
       "Manager": {
+         "additionalProperties": false,
          "description": "An employee who manages others",
          "properties": {
             "age_in_years": {
@@ -67,10 +68,10 @@
             "last_name"
          ],
          "title": "Manager",
-          "type": "object",
-          "additionalProperties": false          
+         "type": "object"
       },
       "Organization": {
+         "additionalProperties": false,
          "description": "",
          "properties": {
             "has_boss": {
