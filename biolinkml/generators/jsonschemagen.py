@@ -74,6 +74,9 @@ class JsonSchemaGenerator(Generator):
             rng = 'string'
         elif rng == 'float' or rng == 'double':
             rng = 'number'
+        elif not rng.startswith('#'):
+            # URIorCURIE, etc
+            rng = 'string'
 
         if slot.inlined:
             # If inline we have to include redefined slots
