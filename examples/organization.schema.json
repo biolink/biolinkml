@@ -30,7 +30,8 @@
             "last_name"
          ],
          "title": "Employee",
-         "type": "object"
+          "type": "object",
+          "additionalProperties": false
       },
       "Manager": {
          "description": "An employee who manages others",
@@ -66,7 +67,8 @@
             "last_name"
          ],
          "title": "Manager",
-         "type": "object"
+          "type": "object",
+          "additionalProperties": false          
       },
       "Organization": {
          "description": "",

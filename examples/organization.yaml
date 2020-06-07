@@ -36,6 +36,7 @@ classes:
       - has employees
 
 slots:
+  
   id:
     description: Unique identifier of a person
     identifier: true
@@ -52,6 +53,9 @@ slots:
   first name:
     is_a: name
     description: The first name of a person
+    examples:
+      - value: fred
+      
     
   last name:
     is_a: name
