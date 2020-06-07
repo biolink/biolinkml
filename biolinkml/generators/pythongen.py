@@ -247,8 +247,8 @@ class slots:
         """ Generate python type declarations for all identifiers (primary keys)
         """
         rval = []
-        for cls in self.schema.classes.values():
-            if not cls.imported_from:
+        for cls in self._sort_classes(self.schema.classes.values()):
+            if True or not cls.imported_from:
                 pkeys = self.primary_keys_for(cls)
                 if pkeys:
                     for pk in pkeys:
@@ -283,7 +283,8 @@ class slots:
         """ Create class definitions for all non-mixin classes in the model
             Note that apply_to classes are transformed to mixins
         """
-        return '\n'.join([self.gen_classdef(v) for v in self.schema.classes.values()
+        clist = self._sort_classes(self.schema.classes.values())
+        return '\n'.join([self.gen_classdef(v) for v in clist
                           if not v.mixin and not v.imported_from])
 
     def gen_classdef(self, cls: ClassDefinition) -> str:
@@ -488,7 +489,7 @@ class slots:
                     post_inits_pre_super.append(f'\tself.{self.slot_name(slot.name)} = {dflt}')
 
         post_inits = []
-        if not cls.abstract:
+        if True or not cls.abstract:
             pkeys = self.primary_keys_for(cls)
             for pkey in pkeys:
                 slot = self.schema.slots[pkey]
@@ -509,6 +510,27 @@ class slots:
     def __post_init__(self, **kwargs: Dict[str, Any]):
         {post_inits_pre_super_line}{post_inits_line}
         super().__post_init__(**kwargs)''' + '\n') if post_inits_line or post_inits_pre_super_line else ''
+
+    # sort classes such that if C is a child of P then C appears after P in the list
+    def _sort_classes(self, clist: List[ClassDefinition]) -> List[ClassDefinition]:
+        clist = list(clist)
+        slist = []  # sorted
+        while len(clist) > 0:
+            for i in range(len(clist)):
+                candidate = clist[i]
+                can_add = False
+                if candidate.is_a is None:
+                    can_add = True
+                else:
+                    if candidate.is_a in [p.name for p in slist]:
+                        can_add = True
+                if can_add:
+                    slist = slist + [candidate]
+                    del clist[i]
+                    break
+            if not can_add:
+                raise (f'could not find suitable element in {clist} that does not ref {slist}')
+        return slist
 
     def is_key_value_class(self, range_name: DefinitionName) -> bool:
         """
