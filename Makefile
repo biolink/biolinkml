@@ -1,4 +1,7 @@
 
+SPECIFICATION.pdf: SPECIFICATION.md
+	pandoc $< -o $@
+
 all-examples: all-examples-organization
 
 all-examples-%: examples/%.py examples/%.schema.json  examples/%.shex  examples/%.graphql  examples/%.graphql  examples/%.shex examples/%.proto  examples/%.shex
