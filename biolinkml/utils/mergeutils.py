@@ -22,7 +22,10 @@ def merge_schemas(target: SchemaDefinition, mergee: SchemaDefinition, imported_f
     if namespaces:
         merge_namespaces(target, mergee, namespaces)
 
-    imported_from_uri = namespaces.uri_for(imported_from)
+    if imported_from.startswith("http") or ":" not in imported_from:
+        imported_from_uri = imported_from
+    else:
+        imported_from_uri = namespaces.uri_for(imported_from)
     merge_dicts(target.classes, mergee.classes, imported_from, imported_from_uri)
     merge_dicts(target.slots, mergee.slots, imported_from, imported_from_uri)
     merge_dicts(target.types, mergee.types, imported_from, imported_from_uri)
