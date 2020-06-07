@@ -248,7 +248,7 @@ class slots:
         """
         rval = []
         for cls in self._sort_classes(self.schema.classes.values()):
-            if True or not cls.imported_from:
+            if not cls.imported_from:
                 pkeys = self.primary_keys_for(cls)
                 if pkeys:
                     for pk in pkeys:
@@ -489,7 +489,7 @@ class slots:
                     post_inits_pre_super.append(f'\tself.{self.slot_name(slot.name)} = {dflt}')
 
         post_inits = []
-        if True or not cls.abstract:
+        if not cls.abstract:
             pkeys = self.primary_keys_for(cls)
             for pkey in pkeys:
                 slot = self.schema.slots[pkey]
