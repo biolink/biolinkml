@@ -57,14 +57,25 @@ class JsonSchemaGenerator(Generator):
         self.schemaobj.definitions[camelcase(cls.name)] = self.clsobj
 
     def visit_class_slot(self, cls: ClassDefinition, aliased_slot_name: str, slot: SlotDefinition) -> None:
-        if slot.range in self.schema.classes or slot.range in self.schema.types:
+        if slot.range in self.schema.classes and slot.inlined:
             rng = f"#/definitions/{camelcase(slot.range)}"
+        elif slot.range in self.schema.types:
+            rng = self.schema.types[slot.range].base
         else:
+            # note we assume string for non-lined complex objects
             rng = "string"
-        #slotrange = camelcase(
-        #    slot.range) if slot.range in self.schema.classes or slot.range in self.schema.types else "String"
 
-        if self.inline or slot.inlined:
+        # translate to json-schema builtins
+        if rng == 'int':
+            rng = 'integer'
+        elif rng == 'Bool':
+            rng = 'boolean'
+        elif rng == 'str':
+            rng = 'string'
+        elif rng == 'float' or rng == 'double':
+            rng = 'number'
+
+        if slot.inlined:
             # If inline we have to include redefined slots
             ref = JsonObj()
             ref['$ref'] = rng
@@ -73,7 +84,10 @@ class JsonSchemaGenerator(Generator):
             else:
                 prop = ref
         else:
-            prop = JsonObj(type="string") #TODO
+            if slot.multivalued:
+                prop = JsonObj(type="array", items={'type':rng})
+            else:
+                prop = JsonObj(type=rng)
         if slot.description:
             prop.description = slot.description
         if slot.required:
@@ -82,15 +96,6 @@ class JsonSchemaGenerator(Generator):
         self.clsobj.properties[underscore(aliased_slot_name)] = prop
         if self.topCls is not None and camelcase(self.topCls) == camelcase(cls.name):
             self.schemaobj.properties[underscore(aliased_slot_name)] = prop
-
-    def xxxvisit_slot(self, slot_name: str, slot: SlotDefinition) -> None:
-        # Don't emit redefined slots unless we are inlining
-        if slot_name == slot.name or self.inline:
-            defn = JsonObj(type="array", items=self.type_or_ref(slot.range)) if slot.multivalued \
-                   else self.type_or_ref(slot.range)
-            if slot.description:
-                defn.description = slot.description
-            self.schemaobj.definitions[underscore(slot.name)] = defn
 
 
 @shared_arguments(JsonSchemaGenerator)
