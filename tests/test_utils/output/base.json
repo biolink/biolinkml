@@ -56,7 +56,6 @@
          "definition_uri": "metatype:String",
          "description": "A character string",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
-         "imported_from": "../../../includes/types",
          "base": "str",
          "uri": "xsd:string"
       },
@@ -65,7 +64,6 @@
          "definition_uri": "metatype:Integer",
          "description": "An integer",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
-         "imported_from": "../../../includes/types",
          "base": "int",
          "uri": "xsd:integer"
       },
@@ -74,7 +72,6 @@
          "definition_uri": "metatype:Boolean",
          "description": "A binary (true or false) value",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
-         "imported_from": "../../../includes/types",
          "base": "Bool",
          "uri": "xsd:boolean"
       },
@@ -83,7 +80,6 @@
          "definition_uri": "metatype:Float",
          "description": "A real number that conforms to the xsd:float specification",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
-         "imported_from": "../../../includes/types",
          "base": "float",
          "uri": "xsd:float"
       },
@@ -92,7 +88,6 @@
          "definition_uri": "metatype:Double",
          "description": "A real number that conforms to the xsd:double specification",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
-         "imported_from": "../../../includes/types",
          "base": "float",
          "uri": "xsd:double"
       },
@@ -104,7 +99,6 @@
             "URI is dateTime because OWL reasoners don't work with straight date or time"
          ],
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
-         "imported_from": "../../../includes/types",
          "base": "XSDTime",
          "uri": "xsd:dateTime",
          "repr": "str"
@@ -117,7 +111,6 @@
             "URI is dateTime because OWL reasoners don't work with straight date or time"
          ],
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
-         "imported_from": "../../../includes/types",
          "base": "XSDDate",
          "uri": "xsd:date",
          "repr": "str"
@@ -127,7 +120,6 @@
          "definition_uri": "metatype:Datetime",
          "description": "The combination of a date and time",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
-         "imported_from": "../../../includes/types",
          "base": "XSDDateTime",
          "uri": "xsd:dateTime",
          "repr": "str"
@@ -137,7 +129,6 @@
          "definition_uri": "metatype:Uriorcurie",
          "description": "a URI or a CURIE",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
-         "imported_from": "../../../includes/types",
          "base": "URIorCURIE",
          "uri": "xsd:anyURI",
          "repr": "str"
@@ -147,7 +138,6 @@
          "definition_uri": "metatype:Uri",
          "description": "a complete URI",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
-         "imported_from": "../../../includes/types",
          "base": "URI",
          "uri": "xsd:anyURI",
          "repr": "str"
@@ -157,7 +147,6 @@
          "definition_uri": "metatype:Ncname",
          "description": "Prefix part of CURIE",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
-         "imported_from": "../../../includes/types",
          "base": "NCName",
          "uri": "xsd:string",
          "repr": "str"
@@ -170,7 +159,6 @@
             "Used for inheritence and type checking"
          ],
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
-         "imported_from": "../../../includes/types",
          "base": "ElementIdentifier",
          "uri": "shex:iri",
          "repr": "str"
@@ -180,7 +168,6 @@
          "definition_uri": "metatype:Nodeidentifier",
          "description": "A URI, CURIE or BNODE that represents a node in a model.",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
-         "imported_from": "../../../includes/types",
          "base": "NodeIdentifier",
          "uri": "shex:nonLiteral",
          "repr": "str"
