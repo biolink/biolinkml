@@ -132,22 +132,16 @@ Example (Informative):
 
 ```yaml
 prefixes:
-  biolink: https://w3id.org/biolink/vocab/
   biolinkml: https://w3id.org/biolink/biolinkml/
-  OBAN: http://purl.org/oban/
-  SIO: http://semanticscience.org/resource/SIO_
   wgs: http://www.w3.org/2003/01/geo/wgs84_pos
   qud: http://qudt.org/1.1/schema/qudt#
-  UMLSSG: https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/GROUP/
-  UMLSST: https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/STY/
-  UMLSSC: https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/TUI/
 ```
 
 ## Schema Metadata (Normative)
 
- * [biolinkml:ClassDefinition](https://w3id.org/biolink/biolinkml/meta/ClassDefinition)
+ * [ClassDefinition](https://w3id.org/biolink/biolinkml/meta/ClassDefinition)
 
-## Imports (Normative)
+### Imports (Normative)
 
 Imports are specified as an import list in the main schema object.
 
@@ -163,13 +157,32 @@ TODO:
 
  * https://github.com/biolink/biolinkml/projects/1
 
-## Metadata elements (Normative)
+### Metadata elements (Normative)
 
 
 
 ## Core elements: Classes, Slots, and Types (Normative)
 
-## Class Slots (Normative)
+### Slots (Normative)
+
+Slots are properties that can be assigned to individuals.
+
+The set of slots available in a model is defined in a slot dictionary, declared at the schema level
+
+```yaml
+slots:
+  SLOT_NAME_1: DEFINITION_1
+  SLOT_NAME_2: DEFINITION_2
+  ...
+  SLOT_NAME_m: DEFINITION_n
+```
+
+Each key in the dictionary is the slot [name](https://w3id.org/biolink/biolinkml/meta/name). The slot name must be unique.
+
+
+The [SlotDefinition](https://w3id.org/biolink/biolinkml/meta/SlotDefinition) is described in the metamodel.
+
+### Class Slots (Normative)
 
 A class _may_ have any number of slots declared
 
@@ -182,15 +195,64 @@ A class _may_ have any number of slots declared
       - SLOT_n
 ```
 
-Eaach declared slot _must_ be defined in the slot dictionary
+Each declared slot _must_ be defined in the slot dictionary.
 
-## Class Hierarchies (Normative)
+### Class Hierarchies (Normative)
 
 Each class _must_ have zero or one **is_a** parents, as defined by [biolinkml:is_a](https://w3id.org/biolink/biolinkml/meta/is_a)
 
 In addition a class _may_ have multiple **mixin** parents, as defined by [biolinkml:mixins](https://w3id.org/biolink/biolinkml/meta/mixin)
 
-A class inherits all 
+We define function `ancestors*(c)` which is the transitive close of the union of *c*, the parents of *c* and defined by the union of is_a and mixins.
+
+### Slot Usages
+
+Each class _may_ declare a dictionary of [slot_usage](https://w3id.org/biolink/biolinkml/meta/slot_usage)s.
+
+```yaml
+  CLASS:
+    slot_usage:
+      SLOT_1: USAGE_1
+      SLOT_2: USAGE_2
+      ...
+      SLOT_n: USAGE_n
+```
+
+These refine a slot definition in the context of a particular class
+
+
+```python
+def effective_slot_property(s, p, c):
+   if c declares slot_usage for p:
+      use the value for p
+   elif any m in mixins(c) declares a slot_usage for p:
+      use the value for p from this mixin
+   else:
+      if effective_slot_property(s, p, c.is_a):
+         use this
+      elif: effective_slot_property(s, p, m) for any mixin m:
+         use this
+      else:
+         use the default value of p for s
+```
+
+
+### Slot Validation
+
+This section describes which slots can be used to describe which instances.
+
+Consider instance *i* of type *t*, with an association of type *s* connecting to object or instance *j*.
+
+```json
+{
+  ## instance i of type t
+  "s": <j>
+}
+```
+
+For this to be valid, it *must* be the case that:
+
+ * for all *r* 
 
 ## Domain Declarations
 
