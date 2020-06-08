@@ -1,5 +1,10 @@
 # biolinkml specification (DRAFT)
 
+<!--
+
+Editors note: add comments using HTML syntax, such as this one
+
+-->
 
 ## Introduction (Informative)
 
@@ -144,6 +149,19 @@ prefixes:
 
 ## Imports (Normative)
 
+Imports are specified as an import list in the main schema object.
+
+```yaml
+imports:
+  - <IMPORT_1>
+  - <IMPORT_2>
+  - ...
+  - <IMPORT_n>  
+```
+
+TODO:
+
+ * https://github.com/biolink/biolinkml/projects/1
 
 ## Metadata elements (Normative)
 
@@ -151,7 +169,62 @@ prefixes:
 
 ## Core elements: Classes, Slots, and Types (Normative)
 
+## Class Slots (Normative)
+
+A class _may_ have any number of slots declared
+
+```yaml
+  CLASS:
+    slots:
+      - SLOT_1
+      - SLOT_2
+      - ...
+      - SLOT_n
+```
+
+Eaach declared slot _must_ be defined in the slot dictionary
+
 ## Class Hierarchies (Normative)
+
+Each class _must_ have zero or one **is_a** parents, as defined by [biolinkml:is_a](https://w3id.org/biolink/biolinkml/meta/is_a)
+
+In addition a class _may_ have multiple **mixin** parents, as defined by [biolinkml:mixins](https://w3id.org/biolink/biolinkml/meta/mixin)
+
+A class inherits all 
+
+## Domain Declarations
+
+<!--
+
+test_issue_3 
+
+-->
+
+## Built-in Types (Informative)
+
+You can import standard types:
+
+```yaml
+imports:
+  - biolinkml:types
+```
+
+includes in its type dictionary entries such as:
+
+```yaml
+  date:
+    uri: xsd:date
+    base: XSDDate
+    repr: str
+```
+
+[types.yaml](./includes/types.yaml)
+
+<!--
+
+test_issue_3 
+
+-->
 
 ## Glossary of terms (Information)
 
