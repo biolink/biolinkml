@@ -58,7 +58,7 @@ The following diagram shows how slots (attributes) are represented in the Biolin
 
 N.B. This is a *metamodel*, akin to the UML metamodels above.
 
-For our purposes, the biolinkml `Class Definiition` is analogous to the UML **Class**, with the following simplifications:
+For our purposes, the biolinkml `Class Definition` is analogous to the UML **Class**, with the following simplifications:
 1) All **Property** instances must be named either "domain" or "range"
 2) All **Association** instances must have one `memberEnd` named "domain" and a second "range"
 3) There are two possibility navigability choices:
