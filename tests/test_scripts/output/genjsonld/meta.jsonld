@@ -1812,12 +1812,12 @@
   ],
   "metamodel_version": "1.4.3",
   "source_file": "meta.yaml",
-  "source_file_date": "Thu Feb 27 14:30:05 2020",
+  "source_file_date": "Wed May 27 20:10:12 2020",
   "source_file_size": 23490,
-  "generation_date": "2020-02-27 16:10",
+  "generation_date": "2020-06-07 17:45",
   "type": "SchemaDefinition",
   "@context": [
-    "file:///Users/solbrig/git/biolink/biolinkml/tests/test_scripts/output/gencontext/meta.jsonld",
+    "file:///Users/cjm/repos/biolinkml/tests/test_scripts/output/gencontext/meta.jsonld",
     "https://w3id.org/biolink/biolinkml/types.context.jsonld",
     "https://w3id.org/biolink/biolinkml/mappings.context.jsonld",
     {

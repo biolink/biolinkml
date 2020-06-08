@@ -6,7 +6,8 @@ Options:
   -o, --output TEXT               Output file name
   --context TEXT                  JSONLD context file (default: https://w3id.o
                                   rg/biolink/biolinkml/context.jsonld)
-  -f, --format [ttl|html|hturtle|json-ld|mdata|microdata|n3|nquads|nt|nt11|ntriples|rdfa|rdfa1.0|rdfa1.1|trig|trix|ttl|turtle|xml]
+
+  -f, --format [ttl|json-ld|n3|nquads|nt|nt11|ntriples|trig|trix|ttl|turtle|xml]
                                   Output format
   --metadata / --no-metadata      Include metadata in output
   --useuris / --metauris          Include metadata in output
