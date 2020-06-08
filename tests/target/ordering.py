@@ -71,11 +71,11 @@ class BiologicalSexId(AttributeId):
     pass
 
 
-class OntologyClassId(NamedThingId):
+class NamedThingId(IdentifierType):
     pass
 
 
-class NamedThingId(IdentifierType):
+class OntologyClassId(NamedThingId):
     pass
 
 
@@ -121,28 +121,6 @@ class BiologicalSex(Attribute):
 
 
 @dataclass
-class OntologyClass(NamedThing):
-    """
-    a concept or class in an ontology, vocabulary or thesaurus
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = BIOLINKML.OntologyClass
-    class_class_curie: ClassVar[str] = "biolinkml:OntologyClass"
-    class_name: ClassVar[str] = "ontology class"
-    class_model_uri: ClassVar[URIRef] = BIOLINKML.OntologyClass
-
-    id: Union[str, OntologyClassId] = None
-
-    def __post_init__(self, **kwargs: Dict[str, Any]):
-        if self.id is None:
-            raise ValueError(f"id must be supplied")
-        if not isinstance(self.id, OntologyClassId):
-            self.id = OntologyClassId(self.id)
-        super().__post_init__(**kwargs)
-
-
-@dataclass
 class NamedThing(YAMLRoot):
     """
     a databased entity or concept/class
@@ -164,6 +142,28 @@ class NamedThing(YAMLRoot):
             self.id = NamedThingId(self.id)
         if self.name is not None and not isinstance(self.name, LabelType):
             self.name = LabelType(self.name)
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class OntologyClass(NamedThing):
+    """
+    a concept or class in an ontology, vocabulary or thesaurus
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = BIOLINKML.OntologyClass
+    class_class_curie: ClassVar[str] = "biolinkml:OntologyClass"
+    class_name: ClassVar[str] = "ontology class"
+    class_model_uri: ClassVar[URIRef] = BIOLINKML.OntologyClass
+
+    id: Union[str, OntologyClassId] = None
+
+    def __post_init__(self, **kwargs: Dict[str, Any]):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, OntologyClassId):
+            self.id = OntologyClassId(self.id)
         super().__post_init__(**kwargs)
 
 
