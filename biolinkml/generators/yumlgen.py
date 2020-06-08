@@ -74,6 +74,7 @@ class YumlGenerator(Generator):
 
         yuml_url = str(YUML) + ', '.join(yumlclassdef) + \
                    (('.' + self.format) if self.format not in ('yuml', 'png') else '')
+        yuml_url = yuml_url.replace(' ', '%20').replace('<', '%3C').replace('^', '%5E').replace('>', '%3E').replace('|', '%7C')
         file_suffix = '.png' if self.format == 'yuml' else '.' + self.format
         if directory:
             self.output_file_name = os.path.join(directory,
