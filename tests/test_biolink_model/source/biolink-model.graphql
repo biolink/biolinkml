@@ -115,15 +115,7 @@ type Association
     edgeLabel: LabelType!
     hasConfidenceLevel: ConfidenceLevel
     hasEvidence: EvidenceType
-    stageQualifier: LifeStage
-    quantifierQualifier: OntologyClass
-    frequencyQualifier: FrequencyValue
-    severityQualifier: SeverityValue
-    sexQualifier: BiologicalSex
-    onsetQualifier: Onset
     clinicalModifierQualifier: ClinicalModifier
-    sequenceVariantQualifier: SequenceVariant
-    changeIsCatalyzedBy: [MacromolecularMachine]
   }
 
 type Attribute implements OntologyClass
@@ -1062,7 +1054,6 @@ type DrugExposure
     hasReceptor: OrganismalEntity
     hasStressor: String
     hasRoute: String
-    hasDrug: [ChemicalSubstance]!
   }
 
 interface EntityToDiseaseAssociation
@@ -1070,7 +1061,6 @@ interface EntityToDiseaseAssociation
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
     onsetQualifier: Onset
-    object: Disease!
   }
 
 interface EntityToFeatureOrDiseaseQualifiers
@@ -1097,7 +1087,6 @@ type EntityToPhenotypicFeatureAssociation implements EntityToFeatureOrDiseaseQua
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
     onsetQualifier: Onset
-    description: NarrativeText
   }
 
 type EnvironmentalFeature
@@ -2766,8 +2755,6 @@ type MicroRNA
 
 interface ModelToDiseaseMixin
   {
-    subject: NamedThing!
-    relation: Uriorcurie!
   }
 
 type MolecularActivity implements Occurrent
@@ -2891,6 +2878,7 @@ type NamedThing
     predisposes: [NamedThing]
     contributesTo: [NamedThing]
     causes: [NamedThing]
+    causedBy: [NamedThing]
     prevents: [NamedThing]
     occursIn: [NamedThing]
     locatedIn: [NamedThing]
@@ -2907,29 +2895,14 @@ type NamedThing
     manifestationOf: [Disease]
     produces: [NamedThing]
     sameAs: [NamedThing]
-    type: String
     creationDate: Date
     updateDate: Date
-    latitude: Float
-    longitude: Float
     hasChemicalFormula: ChemicalFormulaValue
     aggregateStatistic: String
-    hasCount: Integer
-    hasTotal: Integer
-    hasQuotient: Double
-    hasPercentage: Double
-    timepoint: TimeType
-    hasBiologicalSequence: BiologicalSequence
     hasMolecularConsequence: [OntologyClass]
     hasDrug: Drug
-    hasGene: Gene
-    hasZygosity: Zygosity
     filler: NamedThing
-    phase: String
-    genomeBuild: String
     interbaseCoordinate: String
-    startInterbaseCoordinate: String
-    endInterbaseCoordinate: String
   }
 
 type NoncodingRNAProduct
@@ -3025,7 +2998,6 @@ type Occurrent
     precedes: [Occurrent]
     positivelyRegulatesProcessToProcess: [Occurrent]
     negativelyRegulatesProcessToProcess: [Occurrent]
-    enabledBy: [BiologicalProcessOrActivity]
   }
 
 type Onset
@@ -3123,7 +3095,6 @@ interface PairwiseInteractionAssociation
     providedBy: Provider
     associationSlot: String
     edgeLabel: LabelType!
-    interactingMoleculesCategory: OntologyClass
   }
 
 interface PathognomonicityQuantifier
@@ -3933,7 +3904,6 @@ type Treatment
     hasStressor: String
     hasRoute: String
     treats: [DiseaseOrPhenotypicFeature]!
-    hasPart: [DrugExposure]!
   }
 
 type VariantToDiseaseAssociation implements VariantToThingAssociation, EntityToDiseaseAssociation

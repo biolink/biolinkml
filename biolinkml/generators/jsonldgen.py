@@ -111,7 +111,7 @@ class JSONLDGenerator(Generator):
         abs_contexts = ['file://' + os.path.abspath(os.path.join(self.base_dir, c))
                         if '://' not in c else c for c in context]
 
-        json_obj["@context"] = abs_contexts[0] if len(abs_contexts) == 1 and not base_prefix else abs_contexts
+        json_obj["@context"] = [abs_contexts[0]] if len(abs_contexts) == 1 and not base_prefix else abs_contexts
         if base_prefix:
             json_obj["@context"].append({'@base': base_prefix})
         # json_obj["@id"] = self.schema.id

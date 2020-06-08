@@ -7,7 +7,7 @@ Either an individual molecular activity, or a collection of causally connected m
 URI: [biolink:BiologicalProcessOrActivity](https://w3id.org/biolink/vocab/BiologicalProcessOrActivity)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[BiologicalProcessOrActivity&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B]uses%20-.->\[Occurrent],%20\[BiologicalProcessOrActivity]^-\[MolecularActivity],%20\[BiologicalProcessOrActivity]^-\[BiologicalProcess],%20\[BiologicalEntity]^-\[BiologicalProcessOrActivity])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[BiologicalProcessOrActivity]<enabled%20by%200..*-%20\[BiologicalProcessOrActivity&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],%20\[Occurrent]-%20enabled%20by(i)%200..*>\[BiologicalProcessOrActivity],%20\[BiologicalProcessOrActivity]uses%20-.->\[Occurrent],%20\[BiologicalProcessOrActivity]^-\[MolecularActivity],%20\[BiologicalProcessOrActivity]^-\[BiologicalProcess],%20\[BiologicalEntity]^-\[BiologicalProcessOrActivity])
 
 ## Parents
 
@@ -28,6 +28,13 @@ URI: [biolink:BiologicalProcessOrActivity](https://w3id.org/biolink/vocab/Biolog
 
 ## Attributes
 
+
+### Own
+
+ * [enabled by](enabled_by.md)  <sub>0..*</sub>
+    * Description: holds between a process and a physical entity, where the physical entity executes the process
+    * range: [BiologicalProcessOrActivity](BiologicalProcessOrActivity.md)
+    * in subsets: (translator_minimal)
 
 ### Inherited from named thing:
 

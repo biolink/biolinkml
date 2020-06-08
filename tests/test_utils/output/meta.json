@@ -5,8 +5,8 @@
    "title": "Biolink Schema Metamodel",
    "version": "1.4.3",
    "imports": [
-      "includes/types",
-      "includes/mappings"
+      "biolinkml:types",
+      "biolinkml:mappings"
    ],
    "license": "https://creativecommons.org/publicdomain/zero/1.0/",
    "prefixes": [
@@ -61,7 +61,7 @@
          "definition_uri": "metatype:String",
          "description": "A character string",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
-         "imported_from": "includes/types",
+         "imported_from": "biolinkml:types",
          "base": "str",
          "uri": "xsd:string"
       },
@@ -70,7 +70,7 @@
          "definition_uri": "metatype:Integer",
          "description": "An integer",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
-         "imported_from": "includes/types",
+         "imported_from": "biolinkml:types",
          "base": "int",
          "uri": "xsd:integer"
       },
@@ -79,7 +79,7 @@
          "definition_uri": "metatype:Boolean",
          "description": "A binary (true or false) value",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
-         "imported_from": "includes/types",
+         "imported_from": "biolinkml:types",
          "base": "Bool",
          "uri": "xsd:boolean"
       },
@@ -88,7 +88,7 @@
          "definition_uri": "metatype:Float",
          "description": "A real number that conforms to the xsd:float specification",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
-         "imported_from": "includes/types",
+         "imported_from": "biolinkml:types",
          "base": "float",
          "uri": "xsd:float"
       },
@@ -97,7 +97,7 @@
          "definition_uri": "metatype:Double",
          "description": "A real number that conforms to the xsd:double specification",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
-         "imported_from": "includes/types",
+         "imported_from": "biolinkml:types",
          "base": "float",
          "uri": "xsd:double"
       },
@@ -109,7 +109,7 @@
             "URI is dateTime because OWL reasoners don't work with straight date or time"
          ],
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
-         "imported_from": "includes/types",
+         "imported_from": "biolinkml:types",
          "base": "XSDTime",
          "uri": "xsd:dateTime",
          "repr": "str"
@@ -122,7 +122,7 @@
             "URI is dateTime because OWL reasoners don't work with straight date or time"
          ],
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
-         "imported_from": "includes/types",
+         "imported_from": "biolinkml:types",
          "base": "XSDDate",
          "uri": "xsd:date",
          "repr": "str"
@@ -132,7 +132,7 @@
          "definition_uri": "metatype:Datetime",
          "description": "The combination of a date and time",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
-         "imported_from": "includes/types",
+         "imported_from": "biolinkml:types",
          "base": "XSDDateTime",
          "uri": "xsd:dateTime",
          "repr": "str"
@@ -142,7 +142,7 @@
          "definition_uri": "metatype:Uriorcurie",
          "description": "a URI or a CURIE",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
-         "imported_from": "includes/types",
+         "imported_from": "biolinkml:types",
          "base": "URIorCURIE",
          "uri": "xsd:anyURI",
          "repr": "str"
@@ -152,7 +152,7 @@
          "definition_uri": "metatype:Uri",
          "description": "a complete URI",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
-         "imported_from": "includes/types",
+         "imported_from": "biolinkml:types",
          "base": "URI",
          "uri": "xsd:anyURI",
          "repr": "str"
@@ -162,7 +162,7 @@
          "definition_uri": "metatype:Ncname",
          "description": "Prefix part of CURIE",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
-         "imported_from": "includes/types",
+         "imported_from": "biolinkml:types",
          "base": "NCName",
          "uri": "xsd:string",
          "repr": "str"
@@ -175,7 +175,7 @@
             "Used for inheritence and type checking"
          ],
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
-         "imported_from": "includes/types",
+         "imported_from": "biolinkml:types",
          "base": "ElementIdentifier",
          "uri": "shex:iri",
          "repr": "str"
@@ -185,7 +185,7 @@
          "definition_uri": "metatype:Nodeidentifier",
          "description": "A URI, CURIE or BNODE that represents a node in a model.",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
-         "imported_from": "includes/types",
+         "imported_from": "biolinkml:types",
          "base": "NodeIdentifier",
          "uri": "shex:nonLiteral",
          "repr": "str"
@@ -1206,7 +1206,7 @@
          ],
          "description": "A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective.",
          "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
-         "imported_from": "includes/mappings",
+         "imported_from": "biolinkml:mappings",
          "range": "uriorcurie",
          "slot_uri": "skos:mappingRelation",
          "multivalued": true,
@@ -1220,7 +1220,7 @@
          ],
          "description": "A list of terms from different schemas or terminology systems that have identical meaning.",
          "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
-         "imported_from": "includes/mappings",
+         "imported_from": "biolinkml:mappings",
          "is_a": "mappings",
          "range": "uriorcurie",
          "slot_uri": "skos:exactMatch",
@@ -1235,7 +1235,7 @@
          ],
          "description": "A list of terms from different schemas or terminology systems that have close meaning.",
          "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
-         "imported_from": "includes/mappings",
+         "imported_from": "biolinkml:mappings",
          "is_a": "mappings",
          "range": "uriorcurie",
          "slot_uri": "skos:closeMatch",
@@ -1250,7 +1250,7 @@
          ],
          "description": "A list of terms from different schemas or terminology systems that have related meaning.",
          "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
-         "imported_from": "includes/mappings",
+         "imported_from": "biolinkml:mappings",
          "is_a": "mappings",
          "range": "uriorcurie",
          "slot_uri": "skos:relatedMatch",
@@ -1265,7 +1265,7 @@
          ],
          "description": "When an element is deprecated, it can be automatically replaced by this uri or curie",
          "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
-         "imported_from": "includes/mappings",
+         "imported_from": "biolinkml:mappings",
          "range": "uriorcurie",
          "slot_uri": "meta:deprecated_element_has_exact_replacement",
          "owner": "element"
@@ -1278,7 +1278,7 @@
          ],
          "description": "When an element is deprecated, it can be potentially replaced by this uri or curie",
          "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
-         "imported_from": "includes/mappings",
+         "imported_from": "biolinkml:mappings",
          "range": "uriorcurie",
          "slot_uri": "meta:deprecated_element_has_possible_replacement",
          "owner": "element"

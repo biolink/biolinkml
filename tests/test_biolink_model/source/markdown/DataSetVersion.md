@@ -7,7 +7,7 @@
 URI: [biolink:DataSetVersion](https://w3id.org/biolink/vocab/DataSetVersion)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[DistributionLevel]<distribution%200..1-%20\[DataSetVersion&#124;title:string%20%3F;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],%20\[DataSet]<versionOf%200..1-%20\[DataSetVersion],%20\[DataFile]<source%20data%20file%200..1-%20\[DataSetVersion],%20\[DataSetVersion]^-\[DistributionLevel],%20\[DataSetVersion]^-\[DataSetSummary],%20\[DataSet]^-\[DataSetVersion])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[DistributionLevel]<distribution%200..1-%20\[DataSetVersion&#124;title:string%20%3F;type:string%20%3F;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],%20\[DataSet]<versionOf%200..1-%20\[DataSetVersion],%20\[DataFile]<source%20data%20file%200..1-%20\[DataSetVersion],%20\[DataSetVersion]^-\[DistributionLevel],%20\[DataSetVersion]^-\[DataSetSummary],%20\[DataSet]^-\[DataSetVersion])
 
 ## Parents
 
@@ -31,6 +31,8 @@ URI: [biolink:DataSetVersion](https://w3id.org/biolink/vocab/DataSetVersion)
  * [source data file](source_data_file.md)  <sub>OPT</sub>
     * range: [DataFile](DataFile.md)
  * [title](title.md)  <sub>OPT</sub>
+    * range: [String](types/String.md)
+ * [type](type.md)  <sub>OPT</sub>
     * range: [String](types/String.md)
  * [versionOf](versionOf.md)  <sub>OPT</sub>
     * range: [DataSet](DataSet.md)

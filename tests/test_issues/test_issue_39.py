@@ -1,5 +1,6 @@
 import os
 import unittest
+from types import ModuleType
 
 from biolinkml.generators.pythongen import PythonGenerator
 
@@ -13,6 +14,9 @@ class Issue39UnitTest(unittest.TestCase):
         print(python)
         # We never get here if the imports fails
         self.assertEqual(True, True)
+        spec = compile(python, 'test', 'exec')
+        module = ModuleType('test')
+        exec(spec, module.__dict__)
 
 
 if __name__ == '__main__':

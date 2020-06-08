@@ -7,7 +7,7 @@
 URI: [biolink:PhysiologicalProcess](https://w3id.org/biolink/vocab/PhysiologicalProcess)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[BiologicalProcess]^-\[PhysiologicalProcess&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[BiologicalProcessOrActivity]<enabled%20by(i)%200..*-%20\[PhysiologicalProcess&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],%20\[BiologicalProcess]^-\[PhysiologicalProcess])
 
 ## Parents
 
@@ -15,6 +15,14 @@ URI: [biolink:PhysiologicalProcess](https://w3id.org/biolink/vocab/Physiological
 
 ## Attributes
 
+
+### Inherited from biological process or activity:
+
+ * [enabled by](enabled_by.md)  <sub>0..*</sub>
+    * Description: holds between a process and a physical entity, where the physical entity executes the process
+    * range: [BiologicalProcessOrActivity](BiologicalProcessOrActivity.md)
+    * inherited from: [Occurrent](Occurrent.md)
+    * in subsets: (translator_minimal)
 
 ### Inherited from named thing:
 

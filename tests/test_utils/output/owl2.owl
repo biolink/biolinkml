@@ -1,41 +1,36 @@
-@prefix OIO: <http://www.geneontology.org/formats/oboInOwl#> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix meta: <https://w3id.org/biolink/biolinkml/meta/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix pav: <http://purl.org/pav/> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://example.org/owl2> a owl:Ontology ;
     rdfs:label "owl2" ;
-    meta:generation_date "2019-10-08 18:17" ;
+    meta:generation_date "2020-06-07 19:58" ;
     meta:metamodel_version "1.4.3" ;
     meta:source_file "owl2.yaml" ;
-    meta:source_file_date "Fri Sep  6 11:59:07 2019" ;
+    meta:source_file_date "Tue Jun 18 22:13:06 2019" ;
     meta:source_file_size 519 .
 
 meta:SubsetDefinition a owl:Class ;
     rdfs:label "subset_definition" ;
     skos:definition "the name and description of a subset" .
 
-meta:annotslot a owl:AnnotationProperty,
+meta:TypeDefinition a owl:Class ;
+    rdfs:label "type_definition" ;
+    skos:definition "A data type definition." .
+
+meta:annotslot a owl:ObjectProperty,
         meta:SlotDefinition ;
     rdfs:label "annotslot" ;
     rdfs:domain meta:C1 ;
     rdfs:range meta:C2 .
 
-meta:annotslot2 a owl:AnnotationProperty,
+meta:annotslot2 a owl:ObjectProperty,
         meta:SlotDefinition ;
     rdfs:label "annotslot2" ;
     rdfs:domain meta:C1 ;
     rdfs:range meta:string .
-
-meta:TypeDefinition a owl:Class ;
-    rdfs:label "type_definition" ;
-    skos:definition "A data type definition." .
 
 meta:dataslot a owl:ObjectProperty,
         meta:SlotDefinition ;
@@ -56,9 +51,33 @@ meta:ClassDefinition a owl:Class ;
     rdfs:label "class_definition" ;
     skos:definition "the definition of a class or interface" .
 
+meta:C1 a owl:Class,
+        meta:ClassDefinition ;
+    rdfs:label "c1" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:C2 ;
+            owl:onProperty meta:annotslot ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:C2 ;
+            owl:onProperty meta:objslot ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:string ;
+            owl:onProperty meta:annotslot2 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:string ;
+            owl:onProperty meta:dataslot ] .
+
 meta:C2 a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "c2" .
+
+meta:SlotDefinition a owl:Class ;
+    rdfs:label "slot_definition" ;
+    skos:definition "the definition of a property or a slot" .
 
 meta:string a owl:Class,
         meta:TypeDefinition ;
@@ -67,21 +86,5 @@ meta:string a owl:Class,
             owl:onDataRange xsd:string ;
             owl:onProperty meta:topValue ;
             owl:qualifiedCardinality 1 ] .
-
-meta:C1 a owl:Class,
-        meta:ClassDefinition ;
-    rdfs:label "c1" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:C2 ;
-            owl:onProperty meta:objslot ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:string ;
-            owl:onProperty meta:dataslot ] .
-
-meta:SlotDefinition a owl:Class ;
-    rdfs:label "slot_definition" ;
-    skos:definition "the definition of a property or a slot" .
 
 

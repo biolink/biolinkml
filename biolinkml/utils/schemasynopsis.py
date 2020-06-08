@@ -1,5 +1,6 @@
 from dataclasses import dataclass, field
 from typing import Dict, Set, List, Union, cast
+import logging
 
 from biolinkml.meta import SchemaDefinition, Element, Definition, ClassDefinition, SlotDefinitionName, \
     ClassDefinitionName, TypeDefinitionName, DefinitionName, SlotDefinition, ElementName, TypeDefinition, \
@@ -213,7 +214,10 @@ class SchemaSynopsis:
             #     rval += [f"\tSlot {slotname} has multiple owners: ({owners_str})"]
             real_owner = self.schema.slots[slotname].owner
             if real_owner is None or (real_owner != slotname and real_owner != owners[0]):
-                rval += [f'\tSlot "{slotname}" owner ({self.schema.slots[slotname].owner}) does not match {owners[0]}']
+                msg = f'\tSlot "{slotname}" owner ({self.schema.slots[slotname].owner}) does not match {owners[0]}'
+                logging.warning(msg)
+                # TODO: discuss this with Harold. not sure this merits a warning
+                #rval += [msg]
         for slotname, slot in sorted(self.schema.slots.items(), key=lambda e: e[0]):
             if slotname not in self.owners:
                 # Lack of ownership is no longer a sin
@@ -222,9 +226,9 @@ class SchemaSynopsis:
                 pass
             else:
                 owner = self.owners[slotname]
-                if slot.domain and (slot.domain not in self.ownslots or slotname not in self.ownslots[slot.domain]):
-                    rval += [f'\tDomain mismatch: slot "{slotname}" domain is: '
-                            f'"{slot.domain}" class "{owner}" claims ownership']
+                # if slot.domain and (slot.domain not in self.ownslots or slotname not in self.ownslots[slot.domain]):
+                #     rval += [f'\tDomain mismatch: slot "{slotname}" domain is: '
+                #             f'"{slot.domain}" class "{owner}" claims ownership']
 
         # Inlined slots must be multivalued (not a inviolable rule, but we make assumptions about this elsewhere in
         # the python generator

@@ -6,11 +6,17 @@
 # description: Mappings test
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 
-from typing import Optional, List, Union, Dict, ClassVar
+import dataclasses
+import sys
+from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
-from biolinkml.utils.yamlutils import YAMLRoot
+from biolinkml.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
+if sys.version_info < (3, 7, 6):
+    from biolinkml.utils.dataclass_extensions_375 import dataclasses_init_fn_with_kwargs
+else:
+    from biolinkml.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
@@ -18,6 +24,8 @@ from biolinkml.utils.curienamespace import CurieNamespace
 
 metamodel_version = "1.4.3"
 
+# Overwrite dataclasses _init_fn to add **kwargs in __init__
+dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
 EX = CurieNamespace('ex', 'http://example.org/mappings/')
@@ -66,12 +74,12 @@ class C1(YAMLRoot):
     s2: Union[str, C1S2]
     s1: Optional[str] = None
 
-    def __post_init__(self):
+    def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.s2 is None:
             raise ValueError(f"s2 must be supplied")
         if not isinstance(self.s2, C1S2):
             self.s2 = C1S2(self.s2)
-        super().__post_init__()
+        super().__post_init__(**kwargs)
 
 
 @dataclass
@@ -85,12 +93,12 @@ class C2(C1):
 
     s2: Union[str, C2S2] = None
 
-    def __post_init__(self):
+    def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.s2 is None:
             raise ValueError(f"s2 must be supplied")
         if not isinstance(self.s2, C2S2):
             self.s2 = C2S2(self.s2)
-        super().__post_init__()
+        super().__post_init__(**kwargs)
 
 
 @dataclass
@@ -104,12 +112,12 @@ class C3(C1):
 
     s2: Union[str, C3S2] = None
 
-    def __post_init__(self):
+    def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.s2 is None:
             raise ValueError(f"s2 must be supplied")
         if not isinstance(self.s2, C3S2):
             self.s2 = C3S2(self.s2)
-        super().__post_init__()
+        super().__post_init__(**kwargs)
 
 
 

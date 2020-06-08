@@ -1,10 +1,10 @@
 {
-  "name": "biolink_model",
+  "name": "Biolink_Model",
   "description": "Entity and association taxonomy and datamodel for life-sciences data",
   "id": "https://w3id.org/biolink/biolink-model",
   "imports": [
-    "includes/types",
-    "includes/mappings"
+    "biolinkml:types",
+    "biolinkml:mappings"
   ],
   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
   "prefixes": [
@@ -219,7 +219,7 @@
       "definition_uri": "metatype:String",
       "description": "A character string",
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "includes/types",
+      "imported_from": "biolinkml:types",
       "base": "str",
       "uri": "http://www.w3.org/2001/XMLSchema#string",
       "type": "TypeDefinition"
@@ -229,7 +229,7 @@
       "definition_uri": "metatype:Integer",
       "description": "An integer",
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "includes/types",
+      "imported_from": "biolinkml:types",
       "base": "int",
       "uri": "http://www.w3.org/2001/XMLSchema#integer",
       "type": "TypeDefinition"
@@ -239,7 +239,7 @@
       "definition_uri": "metatype:Boolean",
       "description": "A binary (true or false) value",
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "includes/types",
+      "imported_from": "biolinkml:types",
       "base": "Bool",
       "uri": "http://www.w3.org/2001/XMLSchema#boolean",
       "type": "TypeDefinition"
@@ -249,7 +249,7 @@
       "definition_uri": "metatype:Float",
       "description": "A real number that conforms to the xsd:float specification",
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "includes/types",
+      "imported_from": "biolinkml:types",
       "base": "float",
       "uri": "http://www.w3.org/2001/XMLSchema#float",
       "type": "TypeDefinition"
@@ -259,7 +259,7 @@
       "definition_uri": "metatype:Double",
       "description": "A real number that conforms to the xsd:double specification",
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "includes/types",
+      "imported_from": "biolinkml:types",
       "base": "float",
       "uri": "http://www.w3.org/2001/XMLSchema#double",
       "type": "TypeDefinition"
@@ -272,7 +272,7 @@
         "URI is dateTime because OWL reasoners don't work with straight date or time"
       ],
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "includes/types",
+      "imported_from": "biolinkml:types",
       "base": "XSDTime",
       "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
       "repr": "str",
@@ -286,7 +286,7 @@
         "URI is dateTime because OWL reasoners don't work with straight date or time"
       ],
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "includes/types",
+      "imported_from": "biolinkml:types",
       "base": "XSDDate",
       "uri": "http://www.w3.org/2001/XMLSchema#date",
       "repr": "str",
@@ -297,7 +297,7 @@
       "definition_uri": "metatype:Datetime",
       "description": "The combination of a date and time",
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "includes/types",
+      "imported_from": "biolinkml:types",
       "base": "XSDDateTime",
       "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
       "repr": "str",
@@ -308,7 +308,7 @@
       "definition_uri": "metatype:Uriorcurie",
       "description": "a URI or a CURIE",
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "includes/types",
+      "imported_from": "biolinkml:types",
       "base": "URIorCURIE",
       "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
       "repr": "str",
@@ -319,7 +319,7 @@
       "definition_uri": "metatype:Uri",
       "description": "a complete URI",
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "includes/types",
+      "imported_from": "biolinkml:types",
       "base": "URI",
       "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
       "repr": "str",
@@ -330,7 +330,7 @@
       "definition_uri": "metatype:Ncname",
       "description": "Prefix part of CURIE",
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "includes/types",
+      "imported_from": "biolinkml:types",
       "base": "NCName",
       "uri": "http://www.w3.org/2001/XMLSchema#string",
       "repr": "str",
@@ -344,7 +344,7 @@
         "Used for inheritence and type checking"
       ],
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "includes/types",
+      "imported_from": "biolinkml:types",
       "base": "ElementIdentifier",
       "uri": "http://www.w3.org/ns/shex#iri",
       "repr": "str",
@@ -355,7 +355,7 @@
       "definition_uri": "metatype:Nodeidentifier",
       "description": "A URI, CURIE or BNODE that represents a node in a model.",
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "includes/types",
+      "imported_from": "biolinkml:types",
       "base": "NodeIdentifier",
       "uri": "http://www.w3.org/ns/shex#nonLiteral",
       "repr": "str",
@@ -1835,6 +1835,28 @@
       "multivalued": true,
       "inherited": true,
       "owner": "causes",
+      "inverse": "caused_by",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "caused_by",
+      "definition_uri": "biolink:caused_by",
+      "mappings": [
+        "WD:P828"
+      ],
+      "description": "holds between two entities where the occurrence, existence, or activity of one is caused by the occurrence or  generation of the other",
+      "in_subset": [
+        "translator_minimal"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "is_a": "related_to",
+      "domain": "NamedThing",
+      "range": "NamedThing",
+      "slot_uri": "https://w3id.org/biolink/vocab/caused_by",
+      "multivalued": true,
+      "inherited": true,
+      "owner": "caused_by",
+      "inverse": "causes",
       "type": "SlotDefinition"
     },
     {
@@ -2324,7 +2346,7 @@
       "slot_uri": "http://purl.obolibrary.org/obo/RO_0002333",
       "multivalued": true,
       "inherited": true,
-      "owner": "enabled_by",
+      "owner": "BiologicalProcessOrActivity",
       "type": "SlotDefinition"
     },
     {
@@ -2615,7 +2637,7 @@
       "domain": "NamedThing",
       "range": "string",
       "slot_uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
-      "owner": "type",
+      "owner": "DataSetVersion",
       "type": "SlotDefinition"
     },
     {
@@ -3074,7 +3096,7 @@
       "domain": "NamedThing",
       "range": "float",
       "slot_uri": "http://www.w3.org/2003/01/geo/wgs84_poslat",
-      "owner": "latitude",
+      "owner": "GeographicLocation",
       "type": "SlotDefinition"
     },
     {
@@ -3089,7 +3111,7 @@
       "domain": "NamedThing",
       "range": "float",
       "slot_uri": "http://www.w3.org/2003/01/geo/wgs84_poslong",
-      "owner": "longitude",
+      "owner": "GeographicLocation",
       "type": "SlotDefinition"
     },
     {
@@ -3128,7 +3150,7 @@
       "domain": "NamedThing",
       "range": "integer",
       "slot_uri": "https://w3id.org/biolink/vocab/has_count",
-      "owner": "has_count",
+      "owner": "FrequencyQuantifier",
       "type": "SlotDefinition"
     },
     {
@@ -3140,7 +3162,7 @@
       "domain": "NamedThing",
       "range": "integer",
       "slot_uri": "https://w3id.org/biolink/vocab/has_total",
-      "owner": "has_total",
+      "owner": "FrequencyQuantifier",
       "type": "SlotDefinition"
     },
     {
@@ -3151,7 +3173,7 @@
       "domain": "NamedThing",
       "range": "double",
       "slot_uri": "https://w3id.org/biolink/vocab/has_quotient",
-      "owner": "has_quotient",
+      "owner": "FrequencyQuantifier",
       "type": "SlotDefinition"
     },
     {
@@ -3163,7 +3185,7 @@
       "domain": "NamedThing",
       "range": "double",
       "slot_uri": "https://w3id.org/biolink/vocab/has_percentage",
-      "owner": "has_percentage",
+      "owner": "FrequencyQuantifier",
       "type": "SlotDefinition"
     },
     {
@@ -3175,7 +3197,7 @@
       "domain": "NamedThing",
       "range": "time_type",
       "slot_uri": "https://w3id.org/biolink/vocab/timepoint",
-      "owner": "timepoint",
+      "owner": "GeographicLocationAtTime",
       "type": "SlotDefinition"
     },
     {
@@ -3187,7 +3209,7 @@
       "domain": "Association",
       "range": "LifeStage",
       "slot_uri": "https://w3id.org/biolink/vocab/stage_qualifier",
-      "owner": "stage_qualifier",
+      "owner": "GeneToExpressionSiteAssociation",
       "type": "SlotDefinition"
     },
     {
@@ -3199,7 +3221,7 @@
       "domain": "Association",
       "range": "OntologyClass",
       "slot_uri": "https://w3id.org/biolink/vocab/quantifier_qualifier",
-      "owner": "quantifier_qualifier",
+      "owner": "GeneToExpressionSiteAssociation",
       "type": "SlotDefinition"
     },
     {
@@ -3232,7 +3254,7 @@
       "domain": "Association",
       "range": "FrequencyValue",
       "slot_uri": "https://w3id.org/biolink/vocab/frequency_qualifier",
-      "owner": "frequency_qualifier",
+      "owner": "FrequencyQualifierMixin",
       "type": "SlotDefinition"
     },
     {
@@ -3244,7 +3266,7 @@
       "domain": "Association",
       "range": "SeverityValue",
       "slot_uri": "https://w3id.org/biolink/vocab/severity_qualifier",
-      "owner": "severity_qualifier",
+      "owner": "EntityToFeatureOrDiseaseQualifiers",
       "type": "SlotDefinition"
     },
     {
@@ -3256,7 +3278,7 @@
       "domain": "Association",
       "range": "BiologicalSex",
       "slot_uri": "https://w3id.org/biolink/vocab/sex_qualifier",
-      "owner": "sex_qualifier",
+      "owner": "EntityToPhenotypicFeatureAssociation",
       "type": "SlotDefinition"
     },
     {
@@ -3268,7 +3290,7 @@
       "domain": "Association",
       "range": "Onset",
       "slot_uri": "https://w3id.org/biolink/vocab/onset_qualifier",
-      "owner": "onset_qualifier",
+      "owner": "EntityToFeatureOrDiseaseQualifiers",
       "type": "SlotDefinition"
     },
     {
@@ -3292,7 +3314,7 @@
       "domain": "Association",
       "range": "SequenceVariant",
       "slot_uri": "https://w3id.org/biolink/vocab/sequence_variant_qualifier",
-      "owner": "sequence_variant_qualifier",
+      "owner": "GeneHasVariantThatContributesToDiseaseAssociation",
       "type": "SlotDefinition"
     },
     {
@@ -3319,7 +3341,7 @@
       "range": "MacromolecularMachine",
       "slot_uri": "https://w3id.org/biolink/vocab/change_is_catalyzed_by",
       "multivalued": true,
-      "owner": "change_is_catalyzed_by",
+      "owner": "ChemicalToChemicalDerivationAssociation",
       "type": "SlotDefinition"
     },
     {
@@ -3331,7 +3353,7 @@
       "domain": "NamedThing",
       "range": "biological_sequence",
       "slot_uri": "https://w3id.org/biolink/vocab/has_biological_sequence",
-      "owner": "has_biological_sequence",
+      "owner": "GenomicEntity",
       "type": "SlotDefinition"
     },
     {
@@ -3369,7 +3391,7 @@
       "domain": "NamedThing",
       "range": "Gene",
       "slot_uri": "https://w3id.org/biolink/vocab/has_gene",
-      "owner": "has_gene",
+      "owner": "SequenceVariant",
       "type": "SlotDefinition"
     },
     {
@@ -3380,7 +3402,7 @@
       "domain": "NamedThing",
       "range": "Zygosity",
       "slot_uri": "https://w3id.org/biolink/vocab/has_zygosity",
-      "owner": "has_zygosity",
+      "owner": "Genotype",
       "type": "SlotDefinition"
     },
     {
@@ -3404,7 +3426,7 @@
       "domain": "NamedThing",
       "range": "string",
       "slot_uri": "https://w3id.org/biolink/vocab/phase",
-      "owner": "phase",
+      "owner": "GenomicSequenceLocalization",
       "type": "SlotDefinition"
     },
     {
@@ -3416,7 +3438,7 @@
       "domain": "NamedThing",
       "range": "string",
       "slot_uri": "https://w3id.org/biolink/vocab/genome_build",
-      "owner": "genome_build",
+      "owner": "GenomicSequenceLocalization",
       "type": "SlotDefinition"
     },
     {
@@ -3439,7 +3461,7 @@
       "domain": "NamedThing",
       "range": "string",
       "slot_uri": "https://w3id.org/biolink/vocab/start_interbase_coordinate",
-      "owner": "start_interbase_coordinate",
+      "owner": "GenomicSequenceLocalization",
       "type": "SlotDefinition"
     },
     {
@@ -3450,7 +3472,7 @@
       "domain": "NamedThing",
       "range": "string",
       "slot_uri": "https://w3id.org/biolink/vocab/end_interbase_coordinate",
-      "owner": "end_interbase_coordinate",
+      "owner": "GenomicSequenceLocalization",
       "type": "SlotDefinition"
     },
     {
@@ -3560,7 +3582,7 @@
       ],
       "description": "A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective.",
       "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
-      "imported_from": "includes/mappings",
+      "imported_from": "biolinkml:mappings",
       "range": "uriorcurie",
       "slot_uri": "http://www.w3.org/2004/02/skos/core#mappingRelation",
       "multivalued": true,
@@ -3574,7 +3596,7 @@
       ],
       "description": "A list of terms from different schemas or terminology systems that have identical meaning.",
       "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
-      "imported_from": "includes/mappings",
+      "imported_from": "biolinkml:mappings",
       "is_a": "mappings",
       "range": "uriorcurie",
       "slot_uri": "http://www.w3.org/2004/02/skos/core#exactMatch",
@@ -3589,7 +3611,7 @@
       ],
       "description": "A list of terms from different schemas or terminology systems that have close meaning.",
       "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
-      "imported_from": "includes/mappings",
+      "imported_from": "biolinkml:mappings",
       "is_a": "mappings",
       "range": "uriorcurie",
       "slot_uri": "http://www.w3.org/2004/02/skos/core#closeMatch",
@@ -3604,7 +3626,7 @@
       ],
       "description": "A list of terms from different schemas or terminology systems that have related meaning.",
       "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
-      "imported_from": "includes/mappings",
+      "imported_from": "biolinkml:mappings",
       "is_a": "mappings",
       "range": "uriorcurie",
       "slot_uri": "http://www.w3.org/2004/02/skos/core#relatedMatch",
@@ -3619,7 +3641,7 @@
       ],
       "description": "When an element is deprecated, it can be automatically replaced by this uri or curie",
       "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
-      "imported_from": "includes/mappings",
+      "imported_from": "biolinkml:mappings",
       "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/deprecated_element_has_exact_replacement",
       "type": "SlotDefinition"
@@ -3632,7 +3654,7 @@
       ],
       "description": "When an element is deprecated, it can be potentially replaced by this uri or curie",
       "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
-      "imported_from": "includes/mappings",
+      "imported_from": "biolinkml:mappings",
       "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/deprecated_element_has_possible_replacement",
       "type": "SlotDefinition"
@@ -3699,7 +3721,7 @@
       "multivalued": true,
       "required": true,
       "alias": "has drug",
-      "owner": "drug_exposure_has_drug",
+      "owner": "DrugExposure",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3714,7 +3736,7 @@
       "inherited": true,
       "required": true,
       "alias": "has part",
-      "owner": "treatment_has_part",
+      "owner": "Treatment",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3934,7 +3956,7 @@
       "domain": "PairwiseInteractionAssociation",
       "range": "OntologyClass",
       "slot_uri": "https://w3id.org/biolink/vocab/interacting_molecules_category",
-      "owner": "interacting_molecules_category",
+      "owner": "PairwiseInteractionAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4180,7 +4202,7 @@
       "range": "narrative_text",
       "slot_uri": "https://w3id.org/biolink/vocab/description",
       "alias": "description",
-      "owner": "entity_to_phenotypic_feature_association_description",
+      "owner": "EntityToPhenotypicFeatureAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4206,7 +4228,7 @@
       "slot_uri": "https://w3id.org/biolink/vocab/object",
       "required": true,
       "alias": "object",
-      "owner": "entity_to_disease_association_object",
+      "owner": "EntityToDiseaseAssociation",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4541,7 +4563,7 @@
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
       "required": true,
       "alias": "subject",
-      "owner": "model_to_disease_mixin_subject",
+      "owner": "ModelToDiseaseMixin",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4554,7 +4576,7 @@
       "slot_uri": "https://w3id.org/biolink/vocab/relation",
       "required": true,
       "alias": "relation",
-      "owner": "model_to_disease_mixin_relation",
+      "owner": "ModelToDiseaseMixin",
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -5438,6 +5460,7 @@
         "predisposes",
         "contributes_to",
         "causes",
+        "caused_by",
         "prevents",
         "occurs_in",
         "located_in",
@@ -5454,29 +5477,14 @@
         "manifestation_of",
         "produces",
         "same_as",
-        "type",
         "creation_date",
         "update_date",
-        "latitude",
-        "longitude",
         "has_chemical_formula",
         "aggregate_statistic",
-        "has_count",
-        "has_total",
-        "has_quotient",
-        "has_percentage",
-        "timepoint",
-        "has_biological_sequence",
         "has_molecular_consequence",
         "has_drug",
-        "has_gene",
-        "has_zygosity",
         "filler",
-        "phase",
-        "genome_build",
-        "interbase_coordinate",
-        "start_interbase_coordinate",
-        "end_interbase_coordinate"
+        "interbase_coordinate"
       ],
       "class_uri": "http://example.org/UNKNOWN/WD/Q35120",
       "subclass_of": "BFO:0000001",
@@ -6045,6 +6053,16 @@
     },
     {
       "name": "Disease",
+      "id_prefixes": [
+        "MONDO",
+        "DOID",
+        "OMIM",
+        "ORPHANET",
+        "EFO",
+        "UMLS",
+        "MESH",
+        "MEDDRA"
+      ],
       "definition_uri": "biolink:Disease",
       "aliases": [
         "condition",
@@ -6102,6 +6120,13 @@
     },
     {
       "name": "PhenotypicFeature",
+      "id_prefixes": [
+        "HP",
+        "EFO",
+        "NCIT",
+        "UMLS",
+        "MEDDRA"
+      ],
       "definition_uri": "biolink:PhenotypicFeature",
       "aliases": [
         "sign",
@@ -6473,7 +6498,16 @@
       "name": "ChemicalSubstance",
       "id_prefixes": [
         "CHEBI",
-        "CHEMBL.COMPOUND"
+        "CHEMBL.COMPOUND",
+        "DRUGBANK",
+        "PUBCHEM",
+        "MESH",
+        "HMDB",
+        "INCHI",
+        "INCHIKEY",
+        "UNII",
+        "KEGG",
+        "GTOPDB"
       ],
       "definition_uri": "biolink:ChemicalSubstance",
       "mappings": [
@@ -6837,6 +6871,10 @@
     },
     {
       "name": "AnatomicalEntity",
+      "id_prefixes": [
+        "UBERON",
+        "UMLS"
+      ],
       "definition_uri": "biolink:AnatomicalEntity",
       "mappings": [
         "SIO:010046",
@@ -7661,7 +7699,8 @@
         "dictyBase",
         "WB",
         "SGD",
-        "PomBase"
+        "PomBase",
+        "IUPHAR"
       ],
       "definition_uri": "biolink:Gene",
       "aliases": [
@@ -7753,6 +7792,11 @@
     },
     {
       "name": "GeneProduct",
+      "id_prefixes": [
+        "UNIPROTKB",
+        "GTOPDB",
+        "PR"
+      ],
       "definition_uri": "biolink:GeneProduct",
       "mappings": [
         "WD:Q424689"
@@ -8832,9 +8876,14 @@
     {
       "name": "SequenceVariant",
       "id_prefixes": [
+        "CAID",
         "ClinVar",
         "WD",
-        "CIViC"
+        "CIViC",
+        "HGVS",
+        "DBSNP",
+        "MYVARIANT_HG19",
+        "MYVARIANT_HG38"
       ],
       "definition_uri": "biolink:SequenceVariant",
       "aliases": [
@@ -9000,8 +9049,7 @@
         "has_phenotype",
         "has_receptor",
         "has_stressor",
-        "has_route",
-        "drug_exposure_has_drug"
+        "has_route"
       ],
       "class_uri": "http://example.org/UNKNOWN/ECTO/0000509",
       "type": "ClassDefinition"
@@ -9035,8 +9083,7 @@
         "has_receptor",
         "has_stressor",
         "has_route",
-        "treats",
-        "treatment_has_part"
+        "treats"
       ],
       "class_uri": "http://purl.obolibrary.org/obo/OGMS_0000090",
       "type": "ClassDefinition"
@@ -9122,15 +9169,7 @@
         "edge_label",
         "has_confidence_level",
         "has_evidence",
-        "stage_qualifier",
-        "quantifier_qualifier",
-        "frequency_qualifier",
-        "severity_qualifier",
-        "sex_qualifier",
-        "onset_qualifier",
-        "clinical_modifier_qualifier",
-        "sequence_variant_qualifier",
-        "change_is_catalyzed_by"
+        "clinical_modifier_qualifier"
       ],
       "class_uri": "http://purl.org/oban/association",
       "type": "ClassDefinition"
@@ -9289,8 +9328,7 @@
         "publications",
         "provided_by",
         "association_slot",
-        "edge_label",
-        "interacting_molecules_category"
+        "edge_label"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/PairwiseInteractionAssociation",
       "defining_slots": [
@@ -9722,8 +9760,7 @@
         "sex_qualifier",
         "frequency_qualifier",
         "severity_qualifier",
-        "onset_qualifier",
-        "entity_to_phenotypic_feature_association_description"
+        "onset_qualifier"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/EntityToPhenotypicFeatureAssociation",
       "defining_slots": [
@@ -9742,8 +9779,7 @@
       "slots": [
         "frequency_qualifier",
         "severity_qualifier",
-        "onset_qualifier",
-        "entity_to_disease_association_object"
+        "onset_qualifier"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/EntityToDiseaseAssociation",
       "defining_slots": [
@@ -10281,10 +10317,6 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "abstract": true,
       "mixin": true,
-      "slots": [
-        "model_to_disease_mixin_subject",
-        "model_to_disease_mixin_relation"
-      ],
       "class_uri": "https://w3id.org/biolink/vocab/ModelToDiseaseMixin",
       "type": "ClassDefinition"
     },
@@ -10895,8 +10927,7 @@
         "has_output",
         "precedes",
         "positively_regulates_process_to_process",
-        "negatively_regulates_process_to_process",
-        "enabled_by"
+        "negatively_regulates_process_to_process"
       ],
       "class_uri": "http://purl.obolibrary.org/obo/BFO_0000003",
       "type": "ClassDefinition"
@@ -11185,7 +11216,11 @@
       "name": "Pathway",
       "id_prefixes": [
         "GO",
-        "Reactome"
+        "Reactome",
+        "KEGG",
+        "SMPDB",
+        "PHARMGKB",
+        "WIKIPATHWAYS"
       ],
       "definition_uri": "biolink:Pathway",
       "mappings": [
@@ -11221,6 +11256,10 @@
     },
     {
       "name": "PhysiologicalProcess",
+      "id_prefixes": [
+        "GO",
+        "Reactome"
+      ],
       "definition_uri": "biolink:PhysiologicalProcess",
       "aliases": [
         "physiology"
@@ -11308,7 +11347,8 @@
       "name": "Cell",
       "id_prefixes": [
         "CL",
-        "PO"
+        "PO",
+        "UMLS"
       ],
       "definition_uri": "biolink:Cell",
       "mappings": [
@@ -11420,13 +11460,13 @@
   "metamodel_version": "1.4.3",
   "source_file": "biolink-model.yaml",
   "source_file_date": "2019-01-01-12:00",
-  "source_file_size": 117068,
+  "source_file_size": 118153,
   "generation_date": "2019-01-01 12:00",
   "type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/biolink/biolinkml/context.jsonld",
-    "file:///Users/solbrig/git/biolink/biolinkml/includes/types.context.jsonld",
-    "file:///Users/solbrig/git/biolink/biolinkml/includes/mappings.context.jsonld",
+    "https://w3id.org/biolink/biolinkml/types.context.jsonld",
+    "https://w3id.org/biolink/biolinkml/mappings.context.jsonld",
     {
       "@base": "https://w3id.org/biolink/vocab/"
     }

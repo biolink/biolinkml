@@ -22,10 +22,17 @@ def merge_schemas(target: SchemaDefinition, mergee: SchemaDefinition, imported_f
     if namespaces:
         merge_namespaces(target, mergee, namespaces)
 
-    merge_dicts(target.classes, mergee.classes, imported_from)
-    merge_dicts(target.slots, mergee.slots, imported_from)
-    merge_dicts(target.types, mergee.types, imported_from)
-    merge_dicts(target.subsets, mergee.subsets, imported_from)
+    if imported_from is None:
+        imported_from_uri = None
+    else:
+        if imported_from.startswith("http") or ":" not in imported_from:
+            imported_from_uri = imported_from
+        else:
+            imported_from_uri = namespaces.uri_for(imported_from)
+    merge_dicts(target.classes, mergee.classes, imported_from, imported_from_uri)
+    merge_dicts(target.slots, mergee.slots, imported_from, imported_from_uri)
+    merge_dicts(target.types, mergee.types, imported_from, imported_from_uri)
+    merge_dicts(target.subsets, mergee.subsets, imported_from, imported_from_uri)
 
 
 def merge_namespaces(target: SchemaDefinition, mergee: SchemaDefinition, namespaces) -> None:
@@ -56,12 +63,17 @@ def set_from_schema(schema: SchemaDefinition) -> None:
                                   if isinstance(t[k], SlotDefinition) else camelcase(t[k].name)))
 
 
-def merge_dicts(target: Dict[str, Element], source: Dict[str, Element], imported_from: str) -> None:
+def merge_dicts(target: Dict[str, Element], source: Dict[str, Element], imported_from: str, imported_from_uri: str) -> None:
     for k, v in source.items():
         if k in target and source[k].from_schema != target[k].from_schema:
             raise ValueError(f"Conflicting URIs ({source[k].from_schema}, {target[k].from_schema}) for item: {k}")
         target[k] = deepcopy(v)
-        target[k].imported_from = imported_from
+        # currently all imports closures are merged into main schema, EXCEPT
+        # internal biolinkml types, which are considered separate
+        # https://github.com/biolink/biolinkml/issues/121
+        if imported_from is not None:
+            if imported_from.startswith("biolinkml") or imported_from_uri.startswith("https://w3id.org/biolink/biolinkml"):
+                target[k].imported_from = imported_from
 
 
 def merge_slots(target: Union[SlotDefinition, TypeDefinition], source: Union[SlotDefinition, TypeDefinition],

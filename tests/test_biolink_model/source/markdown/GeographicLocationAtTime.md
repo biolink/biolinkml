@@ -7,7 +7,7 @@ a location that can be described in lat/long coordinates, for a particular time
 URI: [biolink:GeographicLocationAtTime](https://w3id.org/biolink/vocab/GeographicLocationAtTime)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[GeographicLocation]^-\[GeographicLocationAtTime&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[GeographicLocation]^-\[GeographicLocationAtTime&#124;timepoint:time_type%20%3F;latitude(i):float%20%3F;longitude(i):float%20%3F;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B])
 
 ## Parents
 
@@ -15,6 +15,23 @@ URI: [biolink:GeographicLocationAtTime](https://w3id.org/biolink/vocab/Geographi
 
 ## Attributes
 
+
+### Own
+
+ * [timepoint](timepoint.md)  <sub>OPT</sub>
+    * Description: a point in time
+    * range: [TimeType](types/TimeType.md)
+
+### Inherited from geographic location:
+
+ * [latitude](latitude.md)  <sub>OPT</sub>
+    * Description: latitude
+    * range: [Float](types/Float.md)
+    * inherited from: [NamedThing](NamedThing.md)
+ * [longitude](longitude.md)  <sub>OPT</sub>
+    * Description: longitude
+    * range: [Float](types/Float.md)
+    * inherited from: [NamedThing](NamedThing.md)
 
 ### Inherited from named thing:
 

@@ -101,18 +101,12 @@ URI: [biolink:Association](https://w3id.org/biolink/vocab/Association)
     * Description: A unique identifier for an association
     * range: [Nodeidentifier](types/Nodeidentifier.md)
     * in subsets: (translator_minimal)
- * [change is catalyzed by](change_is_catalyzed_by.md)  <sub>0..*</sub>
-    * Description: hyperedge connecting an association between two causally connected entities (for example, two chemical entities, or a chemical entity in that changes location) and the gene product, gene, or complex that enables or catalyzes the change.
-    * range: [MacromolecularMachine](MacromolecularMachine.md)
  * [clinical modifier qualifier](clinical_modifier_qualifier.md)  <sub>OPT</sub>
     * Description: Used to characterize and specify the phenotypic abnormalities defined in the Phenotypic abnormality subontology, with respect to severity, laterality, age of onset, and other aspects
     * range: [ClinicalModifier](ClinicalModifier.md)
  * [edge label](edge_label.md)  <sub>REQ</sub>
     * Description: A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.
     * range: [LabelType](types/LabelType.md)
- * [frequency qualifier](frequency_qualifier.md)  <sub>OPT</sub>
-    * Description: a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject
-    * range: [FrequencyValue](FrequencyValue.md)
  * [has confidence level](has_confidence_level.md)  <sub>OPT</sub>
     * Description: connects an association to a qualitative term denoting the level of confidence
     * range: [ConfidenceLevel](ConfidenceLevel.md)
@@ -125,9 +119,6 @@ URI: [biolink:Association](https://w3id.org/biolink/vocab/Association)
  * [object](object.md)  <sub>REQ</sub>
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [NamedThing](NamedThing.md)
- * [onset qualifier](onset_qualifier.md)  <sub>OPT</sub>
-    * Description: a qualifier used in a phenotypic association to state when the phenotype appears is in the subject
-    * range: [Onset](Onset.md)
  * [provided by](provided_by.md)  <sub>OPT</sub>
     * Description: connects an association to the agent (person, organization or group) that provided it
     * range: [Provider](Provider.md)
@@ -137,24 +128,9 @@ URI: [biolink:Association](https://w3id.org/biolink/vocab/Association)
  * [qualifiers](qualifiers.md)  <sub>0..*</sub>
     * Description: connects an association to qualifiers that modify or qualify the meaning of that association
     * range: [OntologyClass](OntologyClass.md)
- * [quantifier qualifier](quantifier_qualifier.md)  <sub>OPT</sub>
-    * Description: A measurable quantity for the object of the association
-    * range: [OntologyClass](OntologyClass.md)
  * [relation](relation.md)  <sub>REQ</sub>
     * Description: the relationship type by which a subject is connected to an object in an association
     * range: [Uriorcurie](types/Uriorcurie.md)
- * [sequence variant qualifier](sequence_variant_qualifier.md)  <sub>OPT</sub>
-    * Description: a qualifier used in an association where the variant
-    * range: [SequenceVariant](SequenceVariant.md)
- * [severity qualifier](severity_qualifier.md)  <sub>OPT</sub>
-    * Description: a qualifier used in a phenotypic association to state how severe the phenotype is in the subject
-    * range: [SeverityValue](SeverityValue.md)
- * [sex qualifier](sex_qualifier.md)  <sub>OPT</sub>
-    * Description: a qualifier used in a phenotypic association to state whether the association is specific to a particular sex.
-    * range: [BiologicalSex](BiologicalSex.md)
- * [stage qualifier](stage_qualifier.md)  <sub>OPT</sub>
-    * Description: stage at which expression takes place
-    * range: [LifeStage](LifeStage.md)
  * [subject](subject.md)  <sub>REQ</sub>
     * Description: connects an association to the subject of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [NamedThing](NamedThing.md)

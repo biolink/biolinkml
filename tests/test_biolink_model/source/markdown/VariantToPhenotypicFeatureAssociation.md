@@ -7,7 +7,7 @@
 URI: [biolink:VariantToPhenotypicFeatureAssociation](https://w3id.org/biolink/vocab/VariantToPhenotypicFeatureAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[VariantToPhenotypicFeatureAssociation&#124;relation(i):uriorcurie;id(i):nodeidentifier;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[VariantToPhenotypicFeatureAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[VariantToPhenotypicFeatureAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[VariantToPhenotypicFeatureAssociation],%20\[NamedThing]<object(i)%201..1-%20\[VariantToPhenotypicFeatureAssociation],%20\[SequenceVariant]<subject%201..1-%20\[VariantToPhenotypicFeatureAssociation],%20\[VariantToPhenotypicFeatureAssociation]uses%20-.->\[VariantToThingAssociation],%20\[VariantToPhenotypicFeatureAssociation]uses%20-.->\[EntityToPhenotypicFeatureAssociation],%20\[Association]^-\[VariantToPhenotypicFeatureAssociation])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[Provider]<provided%20by(i)%200..1-%20\[VariantToPhenotypicFeatureAssociation&#124;relation(i):uriorcurie;id(i):nodeidentifier;negated(i):boolean%20%3F],%20\[Publication]<publications(i)%200..*-%20\[VariantToPhenotypicFeatureAssociation],%20\[OntologyClass]<qualifiers(i)%200..*-%20\[VariantToPhenotypicFeatureAssociation],%20\[OntologyClass]<association%20type(i)%200..1-%20\[VariantToPhenotypicFeatureAssociation],%20\[NamedThing]<object(i)%201..1-%20\[VariantToPhenotypicFeatureAssociation],%20\[Onset]<onset%20qualifier%200..1-%20\[VariantToPhenotypicFeatureAssociation],%20\[SeverityValue]<severity%20qualifier%200..1-%20\[VariantToPhenotypicFeatureAssociation],%20\[FrequencyValue]<frequency%20qualifier%200..1-%20\[VariantToPhenotypicFeatureAssociation],%20\[BiologicalSex]<sex%20qualifier%200..1-%20\[VariantToPhenotypicFeatureAssociation],%20\[SequenceVariant]<subject%201..1-%20\[VariantToPhenotypicFeatureAssociation],%20\[VariantToPhenotypicFeatureAssociation]uses%20-.->\[VariantToThingAssociation],%20\[VariantToPhenotypicFeatureAssociation]uses%20-.->\[EntityToPhenotypicFeatureAssociation],%20\[Association]^-\[VariantToPhenotypicFeatureAssociation])
 
 ## Parents
 
@@ -68,6 +68,30 @@ URI: [biolink:VariantToPhenotypicFeatureAssociation](https://w3id.org/biolink/vo
     * Description: connects an association to the agent (person, organization or group) that provided it
     * range: [Provider](Provider.md)
     * inherited from: [Association](Association.md)
+
+### Inherited from entity to feature or disease qualifiers:
+
+ * [severity qualifier](severity_qualifier.md)  <sub>OPT</sub>
+    * Description: a qualifier used in a phenotypic association to state how severe the phenotype is in the subject
+    * range: [SeverityValue](SeverityValue.md)
+ * [onset qualifier](onset_qualifier.md)  <sub>OPT</sub>
+    * Description: a qualifier used in a phenotypic association to state when the phenotype appears is in the subject
+    * range: [Onset](Onset.md)
+
+### Inherited from entity to phenotypic feature association:
+
+ * [entity to phenotypic feature association➞object](entity_to_phenotypic_feature_association_object.md)  <sub>REQ</sub>
+    * range: [PhenotypicFeature](PhenotypicFeature.md)
+    * inherited from: [EntityToPhenotypicFeatureAssociation](EntityToPhenotypicFeatureAssociation.md)
+ * [sex qualifier](sex_qualifier.md)  <sub>OPT</sub>
+    * Description: a qualifier used in a phenotypic association to state whether the association is specific to a particular sex.
+    * range: [BiologicalSex](BiologicalSex.md)
+
+### Inherited from frequency qualifier mixin:
+
+ * [frequency qualifier](frequency_qualifier.md)  <sub>OPT</sub>
+    * Description: a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject
+    * range: [FrequencyValue](FrequencyValue.md)
 
 ### Domain for slot:
 

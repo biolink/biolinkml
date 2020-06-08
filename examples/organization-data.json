@@ -1,0 +1,8 @@
+{"id": "org1",
+ "has_boss" : {
+     "foo": 1,
+     "id" : "EMP:001",
+     "first_name" : "big",
+     "last_name": "cheese"
+ }
+}
