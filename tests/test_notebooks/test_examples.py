@@ -1,5 +1,6 @@
 import importlib
 import os
+import re
 import unittest
 from contextlib import redirect_stdout
 from io import StringIO
@@ -14,17 +15,17 @@ class NotebookTests(unittest.TestCase):
         with redirect_stdout(output):
             importlib.import_module(import_module)
         with open(output_file, 'w') as f:
-            f.write(output.getvalue())
+            f.write(re.sub(r'# Generation date: .*', r'# Generation date:', output.getvalue()))
         print(f"Output written to {output_file}")
 
     def test_examples(self):
-        self.eval_test('examples.txt', "tests.test_notebooks.examples")
+        self.eval_test('examples.txt', "tests.test_notebooks.input.examples")
 
     def test_inheritence(self):
-        self.eval_test('inheritence.txt', "tests.test_notebooks.inheritence")
+        self.eval_test('inheritence.txt', "tests.test_notebooks.input.inheritence")
 
     def test_distributed_models(self):
-        self.eval_test('distributedmodels.txt', "tests.test_notebooks.distributedmodels")
+        self.eval_test('distributedmodels.txt', "tests.test_notebooks.input.distributedmodels")
 
 
 if __name__ == '__main__':

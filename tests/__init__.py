@@ -3,8 +3,6 @@ import os
 from biolinkml import LOCAL_METAMODEL_YAML_FILE, LOCAL_METAMODEL_LDCONTEXT_FILE, METAMODEL_FILE_NAME
 
 refresh_files = False               # True means update target files
-skip_biolink_model = True          # True means run unit tests against biolink models
-
 
 testdir = os.path.abspath(os.path.dirname(__file__))
 sourcedir = os.path.join(testdir, 'source')

@@ -1,6 +1,86 @@
 CHANGES
 =======
 
+* fixing last of tests
+* docs
+* fixed typo
+* adding back travis badge
+* docs
+* Regenerated expected outputs, see #140
+* regen
+* making safe for null imports
+* fixing skos tests
+* regenerated biolink model test expected output, #140
+* skipping yuml test #140, skipping Time test #141
+* Regen, see #140
+* regenerated test case expected output for scripts, see #140
+* regen, see also #140
+* regen
+* regenerated
+* temp fix for #139
+* temp fix for #139
+* temp workaround for #138
+* fix for 68a4c5e6accc605e5faf20e25f03099ce56dbe82
+* temporarily disabling #103
+* reverting abstraact changes erroneously introduced in a6d52a70eca54fe1b1cff452d40cc6738d41a370
+* Addendum to #122 Was previously checking the curie to determine if this was an internal import; now uses URI as well
+* check the resulting python, for #39
+* First pass at spec, #132
+* updating examples
+* updating examples
+* adding hotfix for json-schema mapping uri types
+* Fixes #134
+* preserve order when exporting yaml
+* Fixing $refs for jsonschema range generation
+* making jsonschema closed (no additionalProperties)
+* example
+* generators
+* docs
+* docs
+* schema fixes
+* examples
+* fixing ranges
+* docs
+* Fixes for json schema and owl generation
+* duplicate parents slots
+* Changing the behavior of imports to be in line with proposal in #122
+* tidying test
+* successfully recapitulated error.. now to find bug
+* adding assertions for test
+* test for #121
+* improving README
+
+v1.5.0
+------
+
+* New model results based on fix to issue #113
+* Remove an error check that complained when the domain of a slot was different than the declaring "owning" class
+* Prevent slot from being "orphaned" when a domain is declared that is not the same as its owning class
+* Fix existing unit failures.  No code changes
+* Revert "WIP: fix for missing slots in python generation"
+* experimental fix for #113, does not work yet
+* test for #113
+* test for #113
+
+v1.4.12
+-------
+
+* Fixes yaml serialization with TypeNode that were introduced in #83
+* Readd biolink-model.native.shexj
+* Fix issue #107, "can't assign to operator" error when prefix contains a '-'
+* Fix issue #107, "can't assign to operator" error when prefix contains a '-'
+* Fixed the import mappings
+* Add prefix=True to json-ld parsing
+* Update rdflib-jsonld
+* Add a unittest for issue #103
+* Add a testcase
+* Message: PyCharm's notebook editor not yet ready for prime time
+* Ran all of the cells
+* Added notebook to document prefixcommons CURIE issue
+* #83 #100 dynamically use extended\_str, extended\_int, extended\_float in pythongen
+* #83 #100 Added more missing line numbers in schemaloader. Also added tests
+* #101 implement namespacegen and test
+* Update to include all test results
 * tweak to get a dev version
 
 v1.4.10
@@ -9,6 +89,7 @@ v1.4.10
 * Update to include all test results
 * #83 Add support for python >= 3.7.6
 * Passes all unit tests except for a minor issue in test\_issue\_83
+* Update mappings.yaml
 * Fix dumper to not include line and column numbes
 * #83 Add support for python >= 3.7.6
 * #83 Implemented overwriting dataclasses \_init\_fn to add \*\*kwargs in \_\_init\_\_
