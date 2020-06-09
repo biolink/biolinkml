@@ -7,7 +7,7 @@
 URI: [biolink:CodingSequence](https://w3id.org/biolink/vocab/CodingSequence)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[CodingSequence&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],%20\[GenomicEntity]^-\[CodingSequence])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[CodingSequence&#124;has_biological_sequence(i):biological_sequence%20%3F;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],%20\[GenomicEntity]^-\[CodingSequence])
 
 ## Parents
 
@@ -15,6 +15,13 @@ URI: [biolink:CodingSequence](https://w3id.org/biolink/vocab/CodingSequence)
 
 ## Attributes
 
+
+### Inherited from genomic entity:
+
+ * [has biological sequence](has_biological_sequence.md)  <sub>OPT</sub>
+    * Description: connects a genomic feature to its sequence
+    * range: [BiologicalSequence](types/BiologicalSequence.md)
+    * inherited from: [NamedThing](NamedThing.md)
 
 ### Inherited from named thing:
 

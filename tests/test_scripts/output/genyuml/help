@@ -6,6 +6,7 @@ Options:
   -c, --classes TEXT              Class(es) to emit
   -d, --directory TEXT            Output directory - if supplied, YUML
                                   rendering will be saved in file
+
   -f, --format [yuml|png|pdf|jpg|json|svg]
                                   Output format
   --metadata / --no-metadata      Include metadata in output

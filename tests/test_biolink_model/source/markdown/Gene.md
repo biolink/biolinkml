@@ -7,7 +7,7 @@
 URI: [biolink:Gene](https://w3id.org/biolink/vocab/Gene)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[Gene&#124;name(i):symbol_type;id(i):identifier_type;category(i):iri_type%20%2B],%20\[GeneToGeneProductRelationship]-%20subject%201..1>\[Gene],%20\[GenotypeToGeneAssociation]-%20object%201..1>\[Gene],%20\[SequenceVariant]-%20has%20gene%200..*>\[Gene],%20\[TranscriptToGeneRelationship]-%20object%201..1>\[Gene],%20\[GeneOrGeneProduct]^-\[Gene])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[Gene&#124;name(i):symbol_type;has_biological_sequence(i):biological_sequence%20%3F;id(i):identifier_type;category(i):iri_type%20%2B],%20\[GeneToGeneProductRelationship]-%20subject%201..1>\[Gene],%20\[GenotypeToGeneAssociation]-%20object%201..1>\[Gene],%20\[NamedThing]-%20has%20gene(i)%200..1>\[Gene],%20\[SequenceVariant]-%20has%20gene%200..*>\[Gene],%20\[TranscriptToGeneRelationship]-%20object%201..1>\[Gene],%20\[GeneOrGeneProduct]^-\[Gene])
 
 ## Parents
 
@@ -24,6 +24,13 @@ URI: [biolink:Gene](https://w3id.org/biolink/vocab/Gene)
 
 ## Attributes
 
+
+### Inherited from genomic entity:
+
+ * [has biological sequence](has_biological_sequence.md)  <sub>OPT</sub>
+    * Description: connects a genomic feature to its sequence
+    * range: [BiologicalSequence](types/BiologicalSequence.md)
+    * inherited from: [NamedThing](NamedThing.md)
 
 ### Inherited from macromolecular machine:
 

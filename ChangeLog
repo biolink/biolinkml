@@ -1,6 +1,22 @@
 CHANGES
 =======
 
+* tweak to get a dev version
+
+v1.4.10
+-------
+
+* Update to include all test results
+* #83 Add support for python >= 3.7.6
+* Passes all unit tests except for a minor issue in test\_issue\_83
+* Fix dumper to not include line and column numbes
+* #83 Add support for python >= 3.7.6
+* #83 Implemented overwriting dataclasses \_init\_fn to add \*\*kwargs in \_\_init\_\_
+* Checkpoint - runs with line numbers
+* Checkpoint - sample of update sans dataclasses change
+* Partial progress on line numbers for errors
+* Version 1.4.9 pypi release
+
 v1.4.9
 ------
 

@@ -39,7 +39,7 @@ class ProtoGenerator(Generator):
     def visit_class_slot(self, cls: ClassDefinition, aliased_slot_name: str, slot: SlotDefinition) -> None:
         qual = 'repeated ' if slot.multivalued else 'optional ' if not slot.required or slot.key else ''
         slotname = lcamelcase(aliased_slot_name)
-        slot_range = self.formatted_element_name(slot.range)
+        slot_range = camelcase(slot.range)
         self.relative_slot_num += 1
         print(f"  {qual}{slotname} {slot_range} = {self.relative_slot_num}")
 

@@ -34,7 +34,7 @@ class RDFGenerator(Generator):
                               importmap=self.importmap)
         jsonld_str = gen.serialize(context=context)
         graph = Graph()
-        graph.parse(data=jsonld_str, format="json-ld", base=self.namespaces._base)
+        graph.parse(data=jsonld_str, format="json-ld", base=self.namespaces._base, prefix=True)
         if output:
             with open(output, 'w') as outf:
                 outf.write(self._data(graph))

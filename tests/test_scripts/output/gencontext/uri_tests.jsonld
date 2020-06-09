@@ -1,5 +1,5 @@
 {
-   "_comments": "Auto generated from uri_tests.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2019-10-28 11:38\nSchema: uri_tests\n\nid: http://example.org/example/uri_tests\ndescription: \nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
+   "_comments": "Auto generated from uri_tests.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2020-06-07 17:45\nSchema: uri_tests\n\nid: http://example.org/example/uri_tests\ndescription: \nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
    "@context": {
       "type": "@type",
       "OIO": "http://www.geneontology.org/formats/oboInOwl#",

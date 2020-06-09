@@ -40,8 +40,6 @@ URI: [biolink:Treatment](https://w3id.org/biolink/vocab/Treatment)
 
 ### Domain for slot:
 
- * [treatment➞has part](treatment_has_part.md)  <sub>1..*</sub>
-    * range: [DrugExposure](DrugExposure.md)
  * [treats](treats.md)  <sub>1..*</sub>
     * Description: holds between a therapeutic procedure or chemical substance and a disease or phenotypic feature that it is used to treat
     * range: [DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md)

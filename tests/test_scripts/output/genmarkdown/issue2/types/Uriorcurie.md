@@ -4,7 +4,7 @@
 
 a URI or a CURIE
 
-URI: [https://w3id.org/biolink/biolinkml/meta/includes/types/Uriorcurie](https://w3id.org/biolink/biolinkml/meta/includes/types/Uriorcurie)
+URI: [https://w3id.org/biolink/biolinkml/meta/biolinkml:types/Uriorcurie](https://w3id.org/biolink/biolinkml/meta/biolinkml:types/Uriorcurie)
 
 |  |  |  |
 | --- | --- | --- |

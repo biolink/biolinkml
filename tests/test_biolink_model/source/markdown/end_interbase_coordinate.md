@@ -21,4 +21,3 @@ URI: [biolink:end_interbase_coordinate](https://w3id.org/biolink/vocab/end_inter
 ## Used by
 
  * [GenomicSequenceLocalization](GenomicSequenceLocalization.md)
- * [NamedThing](NamedThing.md)

@@ -13,13 +13,15 @@ class JsonSchemaGenerator(Generator):
     generatorname = os.path.basename(__file__)
     generatorversion = "0.0.2"
     valid_formats = ["json"]
-    visit_all_class_slots = False
+    visit_all_class_slots = True
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], **kwargs) -> None:
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], top_class : str = None, **kwargs) -> None:
         super().__init__(schema, **kwargs)
         self.schemaobj: JsonObj = None
         self.clsobj: JsonObj = None
         self.inline = False
+        self.topCls = top_class  ## JSON object is one instance of this
+        self.entryProperties = {}
         # JSON-Schema does not have inheritance,
         # so we duplicate slots from inherited parents and mixins
         self.visit_all_slots = True
@@ -28,9 +30,13 @@ class JsonSchemaGenerator(Generator):
         self.inline = inline
         self.schemaobj = JsonObj(title=self.schema.name,
                                  type="object",
-                                 properties=JsonObj(),
+                                 properties={},
                                  definitions=JsonObj())
-        self.schemaobj['$schema'] = "http://json-schema.org/draft-04/schema#"
+        for p,c in self.entryProperties.items():
+            self.schemaobj['properties'][p] = {
+                'type': "array",
+                 'items': { '$ref': f"#/definitions/{camelcase(c)}"}}
+        self.schemaobj['$schema'] = "http://json-schema.org/draft-07/schema#"
         self.schemaobj['$id'] = self.schema.id
 
     def end_schema(self, **_) -> None:
@@ -42,49 +48,68 @@ class JsonSchemaGenerator(Generator):
         self.clsobj = JsonObj(title=camelcase(cls.name),
                               type='object',
                               properties=JsonObj(),
+                              required=[],
+                              additionalProperties=False,
                               description=be(cls.description))
         return True
 
     def end_class(self, cls: ClassDefinition) -> None:
-        self.schemaobj.properties[camelcase(cls.name)] = self.clsobj
+        self.schemaobj.definitions[camelcase(cls.name)] = self.clsobj
 
     def visit_class_slot(self, cls: ClassDefinition, aliased_slot_name: str, slot: SlotDefinition) -> None:
-        if self.inline:
-            # If inline we have to include redefined slots
-            prop = JsonObj(type=JsonObj())
-            prop.type['$ref'] = self.jref(underscore(slot.name))
-        elif slot.multivalued:
-            prop = JsonObj(type="array", items=self.type_or_ref(slot.range))
+        if slot.range in self.schema.classes and slot.inlined:
+            rng = f"#/definitions/{camelcase(slot.range)}"
+        elif slot.range in self.schema.types:
+            rng = self.schema.types[slot.range].base
         else:
-            prop = JsonObj(type="string")
+            # note we assume string for non-lined complex objects
+            rng = "string"
+
+        # translate to json-schema builtins
+        if rng == 'int':
+            rng = 'integer'
+        elif rng == 'Bool':
+            rng = 'boolean'
+        elif rng == 'str':
+            rng = 'string'
+        elif rng == 'float' or rng == 'double':
+            rng = 'number'
+        elif not rng.startswith('#'):
+            # URIorCURIE, etc
+            rng = 'string'
+
+        if slot.inlined:
+            # If inline we have to include redefined slots
+            ref = JsonObj()
+            ref['$ref'] = rng
+            if slot.multivalued:
+                prop = JsonObj(type="array", items=ref)
+            else:
+                prop = ref
+        else:
+            if slot.multivalued:
+                prop = JsonObj(type="array", items={'type':rng})
+            else:
+                prop = JsonObj(type=rng)
         if slot.description:
             prop.description = slot.description
         if slot.required:
-            prop.required = True
+            self.clsobj.required.append(underscore(aliased_slot_name))
+
         self.clsobj.properties[underscore(aliased_slot_name)] = prop
-
-    def visit_slot(self, slot_name: str, slot: SlotDefinition) -> None:
-        # Don't emit redefined slots unless we are inlining
-        if slot_name == slot.name or self.inline:
-            defn = JsonObj(type="array", items=self.type_or_ref(slot.range)) if slot.multivalued \
-                   else self.type_or_ref(slot.range)
-            if slot.description:
-                defn.description = slot.description
-            self.schemaobj.definitions[underscore(slot.name)] = defn
-
-    @staticmethod
-    def type_or_ref(rng: str) -> JsonObj:
-        # TODO jref
-        return JsonObj(type="string")
-
-    @staticmethod
-    def jref(slot_name: str) -> str:
-        return f"#/definitions/{slot_name}"
+        if self.topCls is not None and camelcase(self.topCls) == camelcase(cls.name):
+            self.schemaobj.properties[underscore(aliased_slot_name)] = prop
 
 
 @shared_arguments(JsonSchemaGenerator)
 @click.command()
-@click.option("-i", "--inline", is_flag=True, help="Generate references to types rather than inlining them")
+@click.option("-i", "--inline", is_flag=True, help="""
+Generate references to types rather than inlining them.
+Note that declaring a slot as inlined: true will always inline the class
+""")
+@click.option("-t", "--top-class", help="""
+Top level class; slots of this class will become top level properties in the json-schema
+""")
 def cli(yamlfile, **kwargs):
     """ Generate JSON Schema representation of a biolink model """
     print(JsonSchemaGenerator(yamlfile, **kwargs).serialize(**kwargs))

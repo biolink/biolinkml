@@ -1,5 +1,5 @@
 [![Pyversions](https://img.shields.io/pypi/pyversions/biolinkml.svg)](https://pypi.python.org/pypi/biolinkml)
-
+[![Build Status](https://travis-ci.org/biolink/biolinkml.svg?branch=master)](https://travis-ci.org/biolink/biolinkml)
 [![PyPi](https://img.shields.io/pypi/v/biolinkml.svg)](https://pypi.python.org/pypi/biolinkml)
 
 
@@ -10,6 +10,7 @@
 biolinkml is a general purpose modeling language following object-oriented and ontological principles. Models are authored in YAML. A variety of artefacts can be generated from the model, including ShEx, JSON-Schema, OWL, Python dataclasses, UML diagrams, Markdown pages for deployment in a GitHub pages site, and more.
 
 biolinkml is used for development of the [BioLink Model](https://biolink.github.io/biolink-model), but the framework is general purpose and can be used for any kind of modeling.
+
 
 Quickstart docs:
 
@@ -26,13 +27,24 @@ For an example, see the [Jupyter notebook example](https://nbviewer.jupyter.org/
 > pipenv install biolinkml
 ```
 
+## Language Features
+
+ * polymorphism/inheritance, see [is_a](https://biolink.github.io/biolinkml/docs/is_a)
+ * [abstract](https://biolink.github.io/biolinkml/docs/abstract) and [mixin](https://biolink.github.io/biolinkml/docs/mixin) classes
+ * control JSON-LD mappings to URIs via [prefixes](https://biolink.github.io/biolinkml/docs/prefixes) declarations
+ * ability to refine meaning of a slot in the context of a particular class via [slot usage](https://biolink.github.io/biolinkml/docs/slot_usage)
+
+
 ## Examples
 
-This basic example shows a schema with a single class together with slots that can be used for instances of that class:
+biolinkml can be used as a modeling language in its own right, or it can be
+compiled to other schema/modeling languages
+
+We use a basic schema for illustrative purposes:
 
 ```yaml
-id: http://example.org/sample/example1
-name: synopsis2
+id: http://example.org/sample/organization
+name: organization
 
 types:
   yearCount:
@@ -43,54 +55,137 @@ types:
     uri: xsd:string
     
 classes:
-  person:
-    description: A person, living or dead
+
+  organization:
+    slots:
+      - id
+      - name
+      - has boss
+      
+  employee:
+    description: A person
     slots:
       - id
       - first name
       - last name
-      - age
+      - aliases
+      - age in years
+    slot_usage:
+      last name :
+        required: true
+      
+  manager:
+    description: An employee who manages others
+    is_a: employee
+    slots:
+      - has employees
 
 slots:
   id:
     description: Unique identifier of a person
     identifier: true
 
-  first name:
-    description: The first name of a person
+  name:
+    description: human readable name
     range: string
     
+  aliases:
+    is_a: name
+    description: An alternative name
+    multivalued: true
+    
+  first name:
+    is_a: name
+    description: The first name of a person
+    
   last name:
+    is_a: name
     description: The last name of a person
-    range: string
-    required: true
 
-  age:
+  age in years:
     description: The age of a person if living or age of death if not
     range: yearCount
-```        
 
-## Generated Artifacts
+  has employees:
+    range: employee
+    multivalued: true
+    inlined: true
 
-* Python 3 dataclasses
-* [ShEx](http://shex.io/shex-semantics/index.html) - Shape Expressions Langauge
+  has boss:
+    range: manager
+    inlined: true
+```
+
+Note this schema does not illustrate the more advanced features of blml
+
+### JSON Schema
+
+[JSON Schema](https://json-schema.org/) is a schema language for JSON documents
+
+`pipenv run gen-json-schema examples/organization.yaml`
+
+See [examples/organization.schema.json](examples/organization.schema.json) 
+
+
+### Python DataClasses
+
+`pipenv run gen-py-classes examples/organization.yaml > examples/organization.py`
+
+See [examples/organization.py](examples/organization.py) 
+
+For example:
+
+```python
+@dataclass
+class Organization(YAMLRoot):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = URIRef("http://example.org/sample/organization/Organization")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "organization"
+    class_model_uri: ClassVar[URIRef] = URIRef("http://example.org/sample/organization/Organization")
+
+    id: Union[str, OrganizationId]
+    name: Optional[str] = None
+    has_boss: Optional[Union[dict, "Manager"]] = None
+
+    def __post_init__(self, **kwargs: Dict[str, Any]):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, OrganizationId):
+            self.id = OrganizationId(self.id)
+        if self.has_boss is not None and not isinstance(self.has_boss, Manager):
+            self.has_boss = Manager(self.has_boss)
+        super().__post_init__(**kwargs)
+
+```
+
+### ShEx
+
+ [ShEx](http://shex.io/shex-semantics/index.html) - Shape Expressions Langauge
+
+`pipenv run gen-shex examples/organization.yaml > examples/organization.shex`
+
+See [examples/organization.shex](examples/organization.shex) 
+
+
+## Generating Markdown documentation
+
+`pipenv run gen-markdown examples/organization.yaml -d examples/organization-docs/`
+
+This will generate a markdown document for every class and slot in the model
+
+### Others
+
 * [YUML](https://yuml.me/) - UML diagram drawing tool
 * Class and interface definitions for [GraphQL](https://graphql.org/)
 * Graphviz -- fairly basic representation of hierarchies
+* Protobuf
 * [JSON](https://json.org/) and [JSON-LD](https://json-ld.org/)
-* [JSON Schema](https://json-schema.org/)
 * [Markdown](https://daringfireball.net/projects/markdown/) - markup language used by github and others
 * [OWL](https://www.w3.org/TR/2012/REC-owl2-overview-20121211/) - Web Ontology Language
 * [RDF](https://www.w3.org/2001/sw/wiki/RDF) - Resource Description Format
 
-## Language Features
-
-In future we will have examples for each of these.
-
- * polymorphism/inheritance, see [is_a](https://biolink.github.io/biolinkml/docs/is_a)
- * [abstract](https://biolink.github.io/biolinkml/docs/abstract) and [mixin](https://biolink.github.io/biolinkml/docs/mixin) classes
- * control JSON-LD mappings to URIs via [prefixes](https://biolink.github.io/biolinkml/docs/prefixes) declarations
- * ability to refine meaning of a slot in the context of a particular class via [slot usage](https://biolink.github.io/biolinkml/docs/slot_usage)
 
 ## Formal Semantics
 

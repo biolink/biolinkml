@@ -21,4 +21,3 @@ URI: [biolink:timepoint](https://w3id.org/biolink/vocab/timepoint)
 ## Used by
 
  * [GeographicLocationAtTime](GeographicLocationAtTime.md)
- * [NamedThing](NamedThing.md)

@@ -5,7 +5,7 @@
   "title": "Biolink Schema Mappings",
   "version": "1.0.1",
   "imports": [
-    "includes/types"
+    "biolinkml:types"
   ],
   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
   "prefixes": [
@@ -54,7 +54,7 @@
       "definition_uri": "metatype:String",
       "description": "A character string",
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "includes/types",
+      "imported_from": "biolinkml:types",
       "base": "str",
       "uri": "http://www.w3.org/2001/XMLSchema#string",
       "type": "TypeDefinition"
@@ -64,7 +64,7 @@
       "definition_uri": "metatype:Integer",
       "description": "An integer",
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "includes/types",
+      "imported_from": "biolinkml:types",
       "base": "int",
       "uri": "http://www.w3.org/2001/XMLSchema#integer",
       "type": "TypeDefinition"
@@ -74,7 +74,7 @@
       "definition_uri": "metatype:Boolean",
       "description": "A binary (true or false) value",
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "includes/types",
+      "imported_from": "biolinkml:types",
       "base": "Bool",
       "uri": "http://www.w3.org/2001/XMLSchema#boolean",
       "type": "TypeDefinition"
@@ -84,7 +84,7 @@
       "definition_uri": "metatype:Float",
       "description": "A real number that conforms to the xsd:float specification",
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "includes/types",
+      "imported_from": "biolinkml:types",
       "base": "float",
       "uri": "http://www.w3.org/2001/XMLSchema#float",
       "type": "TypeDefinition"
@@ -94,7 +94,7 @@
       "definition_uri": "metatype:Double",
       "description": "A real number that conforms to the xsd:double specification",
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "includes/types",
+      "imported_from": "biolinkml:types",
       "base": "float",
       "uri": "http://www.w3.org/2001/XMLSchema#double",
       "type": "TypeDefinition"
@@ -107,7 +107,7 @@
         "URI is dateTime because OWL reasoners don't work with straight date or time"
       ],
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "includes/types",
+      "imported_from": "biolinkml:types",
       "base": "XSDTime",
       "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
       "repr": "str",
@@ -121,7 +121,7 @@
         "URI is dateTime because OWL reasoners don't work with straight date or time"
       ],
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "includes/types",
+      "imported_from": "biolinkml:types",
       "base": "XSDDate",
       "uri": "http://www.w3.org/2001/XMLSchema#date",
       "repr": "str",
@@ -132,7 +132,7 @@
       "definition_uri": "metatype:Datetime",
       "description": "The combination of a date and time",
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "includes/types",
+      "imported_from": "biolinkml:types",
       "base": "XSDDateTime",
       "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
       "repr": "str",
@@ -143,7 +143,7 @@
       "definition_uri": "metatype:Uriorcurie",
       "description": "a URI or a CURIE",
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "includes/types",
+      "imported_from": "biolinkml:types",
       "base": "URIorCURIE",
       "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
       "repr": "str",
@@ -154,7 +154,7 @@
       "definition_uri": "metatype:Uri",
       "description": "a complete URI",
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "includes/types",
+      "imported_from": "biolinkml:types",
       "base": "URI",
       "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
       "repr": "str",
@@ -165,7 +165,7 @@
       "definition_uri": "metatype:Ncname",
       "description": "Prefix part of CURIE",
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "includes/types",
+      "imported_from": "biolinkml:types",
       "base": "NCName",
       "uri": "http://www.w3.org/2001/XMLSchema#string",
       "repr": "str",
@@ -179,7 +179,7 @@
         "Used for inheritence and type checking"
       ],
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "includes/types",
+      "imported_from": "biolinkml:types",
       "base": "ElementIdentifier",
       "uri": "http://www.w3.org/ns/shex#iri",
       "repr": "str",
@@ -190,7 +190,7 @@
       "definition_uri": "metatype:Nodeidentifier",
       "description": "A URI, CURIE or BNODE that represents a node in a model.",
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "includes/types",
+      "imported_from": "biolinkml:types",
       "base": "NodeIdentifier",
       "uri": "http://www.w3.org/ns/shex#nonLiteral",
       "repr": "str",
@@ -280,13 +280,13 @@
   ],
   "metamodel_version": "1.4.3",
   "source_file": "mappings.yaml",
-  "source_file_date": "Friday Sep 27 12:00:00 2003",
-  "source_file_size": 2284,
-  "generation_date": "Friday Sep 27 12:00:00 2003",
+  "source_file_date": "Thu Jan 23 23:35:33 2020",
+  "source_file_size": 2285,
+  "generation_date": "2020-02-27 13:20",
   "type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/biolink/biolinkml/context.jsonld",
-    "https://w3id.org/biolink/biolinkml/includes/types.context.jsonld",
+    "https://w3id.org/biolink/biolinkml/types.context.jsonld",
     {
       "@base": "https://w3id.org/biolink/biolinkml/meta/"
     }

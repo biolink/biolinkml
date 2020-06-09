@@ -7,7 +7,7 @@
 URI: [biolink:DistributionLevel](https://w3id.org/biolink/vocab/DistributionLevel)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[DistributionLevel]<distribution(i)%200..1-%20\[DistributionLevel&#124;downloadURL:string%20%3F;title(i):string%20%3F;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],%20\[DataSet]<versionOf(i)%200..1-%20\[DistributionLevel],%20\[DataFile]<source%20data%20file(i)%200..1-%20\[DistributionLevel],%20\[DataSetVersion]-%20distribution%200..1>\[DistributionLevel],%20\[DataSetVersion]^-\[DistributionLevel])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[DistributionLevel]<distribution(i)%200..1-%20\[DistributionLevel&#124;downloadURL:string%20%3F;title(i):string%20%3F;type(i):string%20%3F;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],%20\[DataSet]<versionOf(i)%200..1-%20\[DistributionLevel],%20\[DataFile]<source%20data%20file(i)%200..1-%20\[DistributionLevel],%20\[DataSetVersion]-%20distribution%200..1>\[DistributionLevel],%20\[DataSetVersion]^-\[DistributionLevel])
 
 ## Parents
 
@@ -36,6 +36,9 @@ URI: [biolink:DistributionLevel](https://w3id.org/biolink/vocab/DistributionLeve
  * [versionOf](versionOf.md)  <sub>OPT</sub>
     * range: [DataSet](DataSet.md)
     * inherited from: [DataSetVersion](DataSetVersion.md)
+ * [type](type.md)  <sub>OPT</sub>
+    * range: [String](types/String.md)
+    * inherited from: [NamedThing](NamedThing.md)
  * [distribution](distribution.md)  <sub>OPT</sub>
     * range: [DistributionLevel](DistributionLevel.md)
     * inherited from: [DataSetVersion](DataSetVersion.md)

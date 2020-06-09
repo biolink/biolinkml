@@ -6,11 +6,17 @@
 # description:
 # license:
 
-from typing import Optional, List, Union, Dict, ClassVar
+import dataclasses
+import sys
+from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
-from biolinkml.utils.yamlutils import YAMLRoot
+from biolinkml.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
+if sys.version_info < (3, 7, 6):
+    from biolinkml.utils.dataclass_extensions_375 import dataclasses_init_fn_with_kwargs
+else:
+    from biolinkml.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
@@ -18,6 +24,8 @@ from biolinkml.utils.metamodelcore import Curie, ElementIdentifier, NCName, Node
 
 metamodel_version = "1.4.3"
 
+# Overwrite dataclasses _init_fn to add **kwargs in __init__
+dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
 M = CurieNamespace('m', 'http://example.org/test/uriandcurie')
@@ -103,7 +111,7 @@ class C1(YAMLRoot):
     hasNcName: Optional[Union[str, NCName]] = None
     id2: Optional[Union[str, NodeIdentifier]] = None
 
-    def __post_init__(self):
+    def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
             raise ValueError(f"id must be supplied")
         if not isinstance(self.id, C1Id):
@@ -116,7 +124,7 @@ class C1(YAMLRoot):
             self.hasNcName = NCName(self.hasNcName)
         if self.id2 is not None and not isinstance(self.id2, NodeIdentifier):
             self.id2 = NodeIdentifier(self.id2)
-        super().__post_init__()
+        super().__post_init__(**kwargs)
 
 
 

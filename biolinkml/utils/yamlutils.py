@@ -1,22 +1,27 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, InitVar
+from typing import Union, Any, Dict, List
 
 import yaml
+import os
 from jsonasobj import JsonObj, as_json
 from rdflib import Graph
+from yaml.constructor import ConstructorError
 
 from biolinkml.utils.context_utils import CONTEXTS_PARAM_TYPE, merge_contexts
 
 
-@dataclass(init=True)
 class YAMLRoot(JsonObj):
+
     """
     The root object for all python YAML representations
     """
-    def __post_init__(self):
-        self._fix_elements()
-
-    def _fix_elements(self):
-        pass
+    def __post_init__(self, **kwargs):
+        if kwargs:
+            messages: List[str] = []
+            for k in kwargs.keys():
+                v = repr(kwargs[k])[:40].replace('\n', '\\n')
+                messages.append(f"Unknown argument: {k} = {v}  {k.loc() if getattr(k, 'loc', None) else ''}")
+            raise ValueError('\n'.join(messages))
 
     def _default(self, obj):
         """ JSON serializer callback.
@@ -66,9 +71,6 @@ def root_representer(dumper: yaml.Dumper, data: YAMLRoot):
     return dumper.represent_data(rval)
 
 
-yaml.add_multi_representer(YAMLRoot, root_representer)
-
-
 def as_yaml(element: YAMLRoot) -> str:
     """
     Return element in a YAML representation
@@ -76,11 +78,7 @@ def as_yaml(element: YAMLRoot) -> str:
     :param element: YAML object
     :return: Stringified representation
     """
-    # TODO: figure out how do to a safe dump;
-    # def default_representer(_, data) -> str:
-    #     return ScalarNode(None, str(data))
-    # SafeDumper.add_representer(None, default_representer)
-    return yaml.dump(element)
+    return yaml.dump(element, Dumper=yaml.SafeDumper, sort_keys=False)
 
 
 def as_json_object(element: YAMLRoot, contexts: CONTEXTS_PARAM_TYPE = None) -> JsonObj:
@@ -98,18 +96,66 @@ def as_json_object(element: YAMLRoot, contexts: CONTEXTS_PARAM_TYPE = None) -> J
     return rval
 
 
+class TypedNode:
+    def __init__(self, v: Union[Any, "TypedNode"]):
+        self._s = v._s if isinstance(v, TypedNode) else None
+        self._len = v._len if isinstance(v, TypedNode) else None
+        super().__init__()
+
+    def add_node(self, node):
+        self._s = node.start_mark
+        self._len = node.end_mark.index - node.start_mark.index
+        return self
+
+    def loc(self) -> str:
+        return f"{self._s.name}: line {self._s.line + 1} col {self._s.column + 1}"
+
+
+class extended_str(str, TypedNode):
+    pass
+
+
+class extended_int(int, TypedNode):
+    pass
+
+
+class extended_float(float, TypedNode):
+    pass
+
+
 class DupCheckYamlLoader(yaml.loader.SafeLoader):
     """
     A YAML loader that throws an error when the same key appears twice
     """
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.add_constructor(yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, self.map_constructor)
+        self.add_constructor(yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, DupCheckYamlLoader.map_constructor)
+        self.add_constructor('tag:yaml.org,2002:str', DupCheckYamlLoader.construct_yaml_str)
+        self.add_constructor('tag:yaml.org,2002:int', DupCheckYamlLoader.construct_yaml_int)
+        self.add_constructor('tag:yaml.org,2002:float', DupCheckYamlLoader.construct_yaml_float)
 
-    def map_constructor(self, loader,  node, deep=False):
-        """ Walk the mapping, recording any duplicate keys.
+    def construct_yaml_int(self, node):
+        """ Scalar constructor that returns the node information as the value """
+        return extended_int(super().construct_yaml_int(node)).add_node(node)
+
+    def construct_yaml_str(self, node):
+        """ Scalar constructor that returns the node information as the value """
+        return extended_str(super().construct_yaml_str(node)).add_node(node)
+
+    def construct_yaml_float(self, node):
+        """ Scalar constructor that returns the node information as the value """
+        return extended_float(super().construct_yaml_float(node)).add_node(node)
+
+    @staticmethod
+    def map_constructor(loader,  node, deep=False):
+        """ Duplicate of constructor.construct_mapping w/ exception that we check for dups
 
         """
+        if not isinstance(node, yaml.MappingNode):
+            raise ConstructorError(None, None,
+                    "expected a mapping node, but found %s" % node.id,
+                    node.start_mark)
         mapping = {}
         for key_node, value_node in node.value:
             key = loader.construct_object(key_node, deep=deep)
@@ -117,8 +163,13 @@ class DupCheckYamlLoader(yaml.loader.SafeLoader):
             if key in mapping:
                 raise ValueError(f"Duplicate key: \"{key}\"")
             mapping[key] = value
-
         return mapping
+
+
+yaml.SafeDumper.add_multi_representer(YAMLRoot, root_representer)
+yaml.SafeDumper.add_multi_representer(extended_str, yaml.SafeDumper.represent_str)
+yaml.SafeDumper.add_multi_representer(extended_int, yaml.SafeDumper.represent_int)
+yaml.SafeDumper.add_multi_representer(extended_float, yaml.SafeDumper.represent_float)
 
 
 def as_rdf(element: YAMLRoot, contexts: CONTEXTS_PARAM_TYPE = None) -> Graph:
@@ -131,5 +182,7 @@ def as_rdf(element: YAMLRoot, contexts: CONTEXTS_PARAM_TYPE = None) -> Graph:
 
     jsonld = as_json_object(element, contexts)
     graph = Graph()
-    graph.parse(data=as_json(jsonld), format="json-ld")
+    graph.parse(data=as_json(jsonld), format="json-ld", prefix=True)
     return graph
+
+
