@@ -19,7 +19,7 @@ from tests.test_scripts.clicktestcase import ClickTestCase
 from tests.utils.generator_utils import BIOLINK_IMPORT_MAP
 
 cwd = os.path.dirname(__file__)
-meta_context = urljoin('file:', os.path.join(cwd, 'output', 'gencontext', 'meta.jsonld'))
+meta_context = 'file:./output/gencontext/meta.jsonld'
 
 repl: List[Tuple[str, str]] = [
     (r'"source_file_size": [0-9]+', ''),
