@@ -45,8 +45,7 @@ class DotGenerator(Generator):
 
     def end_schema(self, **_) -> None:
         if self.filedot:
-            self.filedot.format = self.format
-            self.filedot.render(self.filename, self.dirname, view=False, cleanup=True)
+            self.filedot.render(self.filename, self.dirname, view=False, cleanup=True, format=self.format)
 
     def visit_class(self, cls: ClassDefinition) -> bool:
         if self.classnames and cls.name not in self.classnames:
@@ -68,8 +67,7 @@ class DotGenerator(Generator):
             self.edge(self.aliased_slot_name(self.cls_subj), rnode, style='dotted')
             self.edge(self.aliased_slot_name(self.cls_obj), rnode, style='dotted')
         if self.classdot:
-            self.classdot.format = self.format
-            self.classdot.render(underscore(cls.name), self.dirname, view=False, cleanup=True)
+            self.classdot.render(underscore(cls.name), self.dirname, view=False, cleanup=True, format=self.format)
 
     def visit_class_slot(self, cls: ClassDefinition, aliased_slot_name: str, slot: SlotDefinition):
         if aliased_slot_name == 'subject':
