@@ -18,14 +18,12 @@ class GenMarkdownTestCase(ClickTestCase):
         outdir = self.temp_directory('meta')
         self.do_test(source_yaml_path + f" -d {outdir}", dirbase='meta')
 
-    @unittest.skipIf(True, "This test will fail if YUML external service is not working")
     def test_issue_2(self):
         outdir = self.temp_directory('issue2')
         self.do_test(source_yaml_path + f" -d {outdir} -c example -i ", dirbase='issue2')
-        testdir = os.path.join(self.testdir_path, 'issue2')
         if not self.__class__.creation_messages:
-            self.assertTrue(os.path.exists(os.path.join(testdir, 'images', 'Example.png')))
-        self.assertFalse(os.path.exists(os.path.join(testdir, 'abstract.md')))
+            self.assertTrue(os.path.exists(os.path.join(outdir, 'images', 'Example.png')))
+        self.assertFalse(os.path.exists(os.path.join(outdir, 'abstract.md')))
 
 
 if __name__ == '__main__':

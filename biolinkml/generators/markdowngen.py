@@ -101,7 +101,7 @@ class MarkdownGenerator(Generator):
                 else:
                     yg = YumlGenerator(self)
                     img_url = yg.serialize(classes=[cls.name])\
-                        .replace('[', '\\[').replace('?', '%3F').replace(' ', '%20')
+                        .replace('[', '\\[').replace('?', '%3F').replace(' ', '%20').replace('|', '&#124;')
 
                 print(f'![img]({img_url})')
                 self.mappings(cls)
