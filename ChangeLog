@@ -1,6 +1,10 @@
 CHANGES
 =======
 
+* Fix some issues w/ the notebook tests
+* Change to a relative path for the jsonld generator
+* Fix a bug where the format wasn't getting passed to gengraphviz
+* Fix Issue #138.  Use relative URL's in context
 * fixing last of tests
 * docs
 * fixed typo
