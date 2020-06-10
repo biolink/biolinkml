@@ -72,7 +72,9 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
 
     def test_biolink_graphviz(self):
         """ Test the dotty generator for the biolink model """
-        self.directory_generator('graphviz', DotGenerator)
+        # We don't do the comparison step because different graphviz libraries generate slightly different binary output
+        # We also don't commit the results -- the graphviz output is in .gitignore
+        self.directory_generator('graphviz', DotGenerator, skip_compare_step=True)
 
     def test_biolink_golr(self):
         """ Test the golr schema generator for the biolink model """
