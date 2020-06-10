@@ -21,8 +21,8 @@ class GenMarkdownTestCase(ClickTestCase):
     def test_issue_2(self):
         outdir = self.temp_directory('issue2')
         self.do_test(source_yaml_path + f" -d {outdir} -c example -i ", dirbase='issue2')
-        if not self.__class__.creation_messages:
-            self.assertTrue(os.path.exists(os.path.join(outdir, 'images', 'Example.png')))
+        ex_file = os.path.join(outdir, 'images', 'Example.svg')
+        self.assertTrue(os.path.exists(ex_file), f"Filed to create {ex_file}")
         self.assertFalse(os.path.exists(os.path.join(outdir, 'abstract.md')))
 
 

@@ -73,8 +73,8 @@ class YumlGenerator(Generator):
                 yumlclassdef.append(assocs)
 
         yuml_url = str(YUML) + ', '.join(yumlclassdef) + \
-                   (('.' + self.format) if self.format not in ('yuml', 'png') else '')
-        file_suffix = '.png' if self.format == 'yuml' else '.' + self.format
+                   (('.' + self.format) if self.format not in ('yuml', 'svg') else '')
+        file_suffix = '.svg' if self.format == 'yuml' else '.' + self.format
         if directory:
             self.output_file_name = os.path.join(directory,
                                     camelcase(sorted(classes)[0] if classes else self.schema.name) + file_suffix)
