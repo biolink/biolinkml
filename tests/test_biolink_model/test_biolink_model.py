@@ -60,7 +60,9 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
 
     def test_biolink_markdown(self):
         """ Test the markdown generator for the biolink model """
-        self.directory_generator('markdown', MarkdownGenerator)
+        # NOTE: One may ocassionaly want to set image_dir to True and look at the target/markdown/images directory
+        #       to make sure that images are still begin generated correctly
+        self.directory_generator('markdown', MarkdownGenerator, serialize_args=dict(image_dir=False))
 
     def test_biolink_tsv(self):
         """ Test the tsv generator for the biolink model """
