@@ -69,6 +69,16 @@ class ClickTestCase(unittest.TestCase):
     def rdf_comparator(self, old_data: str, new_data: str) -> str:
         return compare_rdf(old_data, new_data)
 
+    def always_pass_comparator(self, old_data: str, new_data: str) -> str:
+        """
+        No-op comparator -- everyone passes!
+        :param old_data:
+        :param new_data:
+        :return:
+        """
+        return None
+
+
     @staticmethod
     def closein_comparison(old_txt: str, new_txt: str) -> None:
         """ Assist with testing comparison -- zero in on the first difference in a big string
