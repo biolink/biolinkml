@@ -11,6 +11,9 @@ prefixes:
   skos: http://www.w3.org/2004/02/skos/core#
   OIO: http://www.geneontology.org/formats/oboInOwl#
   pav: http://purl.org/pav/
+  oslc: http://open-services.net/ns/core#
+  schema: http://schema.org/
+  bibo: http://purl.org/ontology/bibo/
 
 default_prefix: meta
 default_range: string
@@ -56,6 +59,8 @@ slots:
     slot_uri: rdfs:label
     in_subset:
       - owl
+    mappings:
+      - schema:name
 
   definition_uri:
     domain: element
@@ -147,6 +152,37 @@ slots:
     in_subset:
       - owl
 
+  created_by:
+    domain: element
+    range: uriorcurie
+    description: agent that created the element
+    slot_uri: pav:createdBy
+
+  created_on:
+    domain: element
+    range: datetime
+    description: time at which the element was created
+    slot_uri: pav:createdOn
+
+  last_updated_on:
+    domain: element
+    range: datetime
+    description: time at which the element was last updated
+    slot_uri: pav:lastUpdatedOn
+
+  modified_by:
+    domain: element
+    range: uriorcurie
+    description: agent that modified the element
+    slot_uri: oslc:modifiedBy
+
+  status:
+    domain: element
+    range: uriorcurie
+    description: status of the element
+    slot_uri: bibo:status
+    examples:
+      - value: "bibo:draft"
 
   # --------------------------------------------------------------
   # Slots that are common to slot definition and class definition
@@ -236,6 +272,8 @@ slots:
     domain: schema_definition
     description: particular version of schema
     slot_uri: pav:version
+    mappings:
+      - schema:schemaVersion
 
   imports:
     domain: schema_definition
@@ -567,6 +605,25 @@ slots:
     description: the role played by the slot range
     inherited: true
 
+  minimum_value:
+    domain: slot_definition
+    range: number
+    description: for slots with ranges of type number, the value must be equal to or higher than this
+    inherited: true
+
+  maximum_value:
+    domain: slot_definition
+    range: number
+    description: for slots with ranges of type number, the value must be equal to or lowe than this
+    inherited: true
+
+  pattern:
+    domain: slot_definition
+    range: string
+    description: the string value of the slot must conform to this regular expression
+    inherited: true
+
+
 
   # -----------------------------------
   # Slots for type definition
@@ -779,6 +836,11 @@ classes:
       - mixins
       - apply_to
       - values_from
+      - created_by
+      - created_on
+      - last_updated on
+      - modified_by
+      - status
 
   slot_definition:
     description: the definition of a property or a slot
@@ -804,6 +866,10 @@ classes:
       - is_class_field
       - role
       - is_usage_slot
+      - minimum_value
+      - maximum_value
+      - pattern
+      - string_serialization
 
     slot_usage:
       is_a:
