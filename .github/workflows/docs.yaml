@@ -1,0 +1,44 @@
+name: docs
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.7]
+
+    steps:
+    - name: Check out repo
+      uses: actions/checkout@v2
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name:  Install Pipenv
+      uses: dschep/install-pipenv-action@v1
+
+    - name: Install dependencies using pipenv
+      run: pipenv install
+
+    - name: Remove old docs
+      run: rm -fr docs/*
+
+    - name: Create new docs
+      run: pipenv run python -c "from biolinkml.generators.markdowngen import MarkdownGenerator;
+            MarkdownGenerator('meta.yaml').serialize(directory='docs')"
+
+    - name: Commit changes and push
+      run: |
+        if [[ ! -z $(git status -s docs) ]]
+        then
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -a -m 'Automated update to docs with GitHub Actions'
+          git push
+        fi
