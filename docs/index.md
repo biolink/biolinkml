@@ -2,7 +2,7 @@
 # Metamodel schema
 
 
-A metamodel for defining biolink related schemas
+A metamodel for defining biolink related schemas -- testing only
 
 
 ### Classes
