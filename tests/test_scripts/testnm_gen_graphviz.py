@@ -17,6 +17,7 @@ class GraphvizTestCase(ClickTestCase):
     def test_help(self):
         self.do_test("--help", 'help')
 
+    @unittest.skipIf(True, 'Determine whether we need graphviz before moving further')
     def test_meta(self):
 
         # ALL may be useful, but it is very time consuming
