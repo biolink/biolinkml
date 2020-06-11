@@ -2,6 +2,7 @@ import os
 from warnings import warn
 
 from rdflib import Namespace
+from rdflib.plugins.serializers.turtle import TurtleSerializer
 
 """ 
 URIs, Local Names and Namespaces 
@@ -155,3 +156,5 @@ from rdflib_jsonld import __version__ as rdflib_jsonld_version
 if rdflib_jsonld_version != '0.5.1':
     warn("https://github.com/hsolbrig/rdflib-jsonld must be installed for non-standard (e.g. CHEBI) prefix generation")
     warn('RUN: \'pip install "git+git://github.com/hsolbrig/rdflib-jsonld@master#egg=rdflib-jsonld" --upgrade\'')
+
+TurtleSerializer.roundtrip_prefixes = True

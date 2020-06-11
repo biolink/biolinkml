@@ -1,9 +1,6 @@
 import unittest
 
 from rdflib import Graph
-from rdflib.plugins.serializers.turtle import TurtleSerializer
-
-TurtleSerializer.roundtrip_prefixes = True
 
 class Issue103TestCase(unittest.TestCase):
 

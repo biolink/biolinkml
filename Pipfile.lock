@@ -194,7 +194,7 @@
         },
         "rdflib-jsonld": {
             "git": "https://github.com/hsolbrig/rdflib-jsonld",
-            "ref": "1e53481ffc44b2633d517996d2ce9e8df1d6a259"
+            "ref": "f137e29cf6f5c9ae6aa6046d067be50ba48bd5c2"
         },
         "requests": {
             "hashes": [
