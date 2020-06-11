@@ -1,7 +1,7 @@
 id: https://w3id.org/biolink/biolinkml/meta
 title: Biolink Schema Metamodel
 name: metamodel
-description: A metamodel for defining biolink related schemas
+description: A metamodel for defining biolink related schemas -- for testing
 license: https://creativecommons.org/publicdomain/zero/1.0/
 version: 1.4.3
 
@@ -349,7 +349,7 @@ slots:
         This defines the set of slots that are allowed to be used for a given class.
         The final list of slots for a class is the
         combination of the parent (is a) slots, mixins slots, apply to slots minus the slot usage entries.
-        Formally, 
+        Formally,
 
   slot_usage:
     domain: class_definition
