@@ -1,6 +1,22 @@
 CHANGES
 =======
 
+* Skip graphviz test
+* Update a (strangely) failing test file
+* Add code to detect wrong rdflib-jsonld
+* Add Generated svg file to fix failing test issue2
+* Force load rdflib-jsonld with modifications
+* Remove graphviz comparison test
+* Remove biolink\_model graphviz comparison test
+* A few tweaks to the existing Pipfile.  Added py38 to the tox test file
+* Update for the TTL generator
+* Revert to bar (|) for non-embedded YUML
+* Added a note on markdown generation
+* Renable unit test as it appears to work fine
+* Fix part of an issue involving local file paths
+* Yuml generator output now defaults to 'svg' instead of 'png'
+* Fix problem w/ YUML generator
+* Fix for RDFLIB 5.x series -- force Turtle serializer to emit prefixes
 * Fix some issues w/ the notebook tests
 * Change to a relative path for the jsonld generator
 * Fix a bug where the format wasn't getting passed to gengraphviz
