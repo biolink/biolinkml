@@ -1,7 +1,10 @@
+@prefix : <https://w3id.org/biolink/biolinkml/meta/> .
 @prefix IAO: <http://purl.obolibrary.org/obo/IAO_> .
 @prefix OIO: <http://www.geneontology.org/formats/oboInOwl#> .
 @prefix abstract: <https://w3id.org/biolink/biolinkml/meta/abstract> .
+@prefix aliases: <http://www.w3.org/2004/02/skos/core#altLabel> .
 @prefix alt_descriptions: <https://w3id.org/biolink/biolinkml/meta/alt_descriptions> .
+@prefix apply_to: <https://w3id.org/biolink/biolinkml/meta/apply_to> .
 @prefix biolinkml: <https://w3id.org/biolink/biolinkml/> .
 @prefix class_uri: <https://w3id.org/biolink/biolinkml/meta/class_uri> .
 @prefix classes: <https://w3id.org/biolink/biolinkml/meta/classes> .
@@ -16,6 +19,7 @@
 @prefix description: <http://www.w3.org/2004/02/skos/core#definition> .
 @prefix domain: <https://w3id.org/biolink/biolinkml/meta/domain> .
 @prefix exact_mappings: <http://www.w3.org/2004/02/skos/core#exactMatch> .
+@prefix examples: <https://w3id.org/biolink/biolinkml/meta/examples> .
 @prefix from_schema: <http://www.w3.org/2004/02/skos/core#inScheme> .
 @prefix generation_date: <https://w3id.org/biolink/biolinkml/meta/generation_date> .
 @prefix id: <https://w3id.org/biolink/biolinkml/meta/id> .
@@ -28,7 +32,9 @@
 @prefix is_a: <https://w3id.org/biolink/biolinkml/meta/is_a> .
 @prefix is_class_field: <https://w3id.org/biolink/biolinkml/meta/is_class_field> .
 @prefix is_usage_slot: <https://w3id.org/biolink/biolinkml/meta/is_usage_slot> .
+@prefix key: <https://w3id.org/biolink/biolinkml/meta/key> .
 @prefix license: <http://purl.org/dc/terms/license> .
+@prefix local_name_value: <http://www.w3.org/2004/02/skos/core#altLabel> .
 @prefix local_names: <https://w3id.org/biolink/biolinkml/meta/local_names> .
 @prefix mappings: <http://www.w3.org/2004/02/skos/core#mappingRelation> .
 @prefix meta: <https://w3id.org/biolink/biolinkml/meta/> .
@@ -36,6 +42,7 @@
 @prefix mixin: <https://w3id.org/biolink/biolinkml/meta/mixin> .
 @prefix mixins: <https://w3id.org/biolink/biolinkml/meta/mixins> .
 @prefix multivalued: <https://w3id.org/biolink/biolinkml/meta/multivalued> .
+@prefix name: <file:///Users/solbrig/Downloads/zzaatest/biolinkml/@id> .
 @prefix notes: <http://www.w3.org/2004/02/skos/core#editorialNote> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix owner: <https://w3id.org/biolink/biolinkml/meta/owner> .
@@ -52,18 +59,24 @@
 @prefix singular_name: <http://www.w3.org/2004/02/skos/core#altLabel> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix slot_uri: <https://w3id.org/biolink/biolinkml/meta/slot_uri> .
+@prefix slot_usage: <https://w3id.org/biolink/biolinkml/meta/slot_usage> .
 @prefix slots: <https://w3id.org/biolink/biolinkml/meta/slots> .
 @prefix source_file_date: <https://w3id.org/biolink/biolinkml/meta/source_file_date> .
 @prefix source_file_size: <https://w3id.org/biolink/biolinkml/meta/source_file_size> .
 @prefix subclass_of: <http://www.w3.org/2000/01/rdf-schema#subClassOf> .
+@prefix subproperty_of: <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> .
 @prefix subsets: <https://w3id.org/biolink/biolinkml/meta/subsets> .
 @prefix symmetric: <https://w3id.org/biolink/biolinkml/meta/symmetric> .
+@prefix title: <http://purl.org/dc/terms/title> .
+@prefix type: <file:///Users/solbrig/Downloads/zzaatest/biolinkml/@type> .
 @prefix typeof: <https://w3id.org/biolink/biolinkml/meta/typeof> .
 @prefix types: <https://w3id.org/biolink/biolinkml/meta/types> .
 @prefix union_of: <https://w3id.org/biolink/biolinkml/meta/union_of> .
 @prefix uri: <https://w3id.org/biolink/biolinkml/meta/uri> .
+@prefix value: <http://www.w3.org/2004/02/skos/core#example> .
 @prefix values_from: <https://w3id.org/biolink/biolinkml/meta/values_from> .
 @prefix version: <http://purl.org/pav/version> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://w3id.org/biolink/vocab/Biolink_Model> a meta:SchemaDefinition ;
@@ -242,31 +255,31 @@
         "rdfs",
         "skos",
         "xsd" ;
-    generation_date: "2020-06-09 14:19"^^xsd:dateTime ;
+    generation_date: "2020-06-11 11:12"^^xsd:dateTime ;
     id: <https://w3id.org/biolink/biolink-model> ;
     imports: biolinkml:mappings,
         biolinkml:types ;
     meta:metamodel_version "1.4.3" ;
-    prefixes: [ meta:prefix_prefix "OBAN" ;
-            prefix_reference: <http://purl.org/oban/> ],
+    prefixes: [ meta:prefix_prefix "SIO" ;
+            prefix_reference: <http://semanticscience.org/resource/SIO_> ],
         [ meta:prefix_prefix "qud" ;
             prefix_reference: <http://qudt.org/1.1/schema/qudt#> ],
-        [ meta:prefix_prefix "UMLSST" ;
-            prefix_reference: <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/STY/> ],
-        [ meta:prefix_prefix "SIO" ;
-            prefix_reference: <http://semanticscience.org/resource/SIO_> ],
+        [ meta:prefix_prefix "OBAN" ;
+            prefix_reference: <http://purl.org/oban/> ],
         [ meta:prefix_prefix "biolink" ;
             prefix_reference: <https://w3id.org/biolink/vocab/> ],
         [ meta:prefix_prefix "UMLSSG" ;
             prefix_reference: <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/GROUP/> ],
-        [ meta:prefix_prefix "UMLSSC" ;
-            prefix_reference: <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/TUI/> ],
         [ meta:prefix_prefix "wgs" ;
             prefix_reference: <http://www.w3.org/2003/01/geo/wgs84_pos> ],
-        [ meta:prefix_prefix "skos" ;
-            prefix_reference: skos: ],
+        [ meta:prefix_prefix "UMLSST" ;
+            prefix_reference: <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/STY/> ],
+        [ meta:prefix_prefix "UMLSSC" ;
+            prefix_reference: <https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/TUI/> ],
         [ meta:prefix_prefix "biolinkml" ;
-            prefix_reference: biolinkml: ] ;
+            prefix_reference: biolinkml: ],
+        [ meta:prefix_prefix "skos" ;
+            prefix_reference: skos: ] ;
     slots: <https://w3id.org/biolink/vocab/actively_involved_in>,
         <https://w3id.org/biolink/vocab/affects>,
         <https://w3id.org/biolink/vocab/affects_abundance_of>,
@@ -568,7 +581,7 @@
         <https://w3id.org/biolink/vocab/versionOf>,
         <https://w3id.org/biolink/vocab/xenologous_to> ;
     meta:source_file "biolink-model.yaml" ;
-    source_file_date: "Tue Jun  9 11:37:13 2020"^^xsd:dateTime ;
+    source_file_date: "Wed Jun 10 16:39:05 2020"^^xsd:dateTime ;
     source_file_size: 118153 ;
     subsets: <https://w3id.org/biolink/vocab/samples>,
         <https://w3id.org/biolink/vocab/testing>,
@@ -601,9 +614,9 @@
 
 <https://w3id.org/biolink/vocab/Cell> a meta:ClassDefinition ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <cl:0000000>,
-        <go:0005623>,
-        <sio:010001>,
+    mappings: <https://w3id.org/biolink/vocab/CL:0000000>,
+        <https://w3id.org/biolink/vocab/GO:0005623>,
+        <https://w3id.org/biolink/vocab/SIO:010001>,
         <umlssc:T025>,
         <umlsst:cell>,
         <wd:Q7868> ;
@@ -630,8 +643,8 @@
 
 <https://w3id.org/biolink/vocab/CodingSequence> a meta:ClassDefinition ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <sio:001390>,
-        <so:0000316> ;
+    mappings: <https://w3id.org/biolink/vocab/SIO:001390>,
+        <https://w3id.org/biolink/vocab/SO:0000316> ;
     class_uri: <http://purl.obolibrary.org/obo/SO_0000316> ;
     definition_uri: <biolink:CodingSequence> ;
     is_a: <https://w3id.org/biolink/vocab/GenomicEntity> ;
@@ -704,8 +717,8 @@
 <https://w3id.org/biolink/vocab/GeneFamily> a meta:ClassDefinition ;
     description: "any grouping of multiple genes or gene products related by common descent" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ncit:C20130>,
-        <sio:001380>,
+    mappings: <https://w3id.org/biolink/vocab/SIO:001380>,
+        <ncit:C20130>,
         <wd:Q417841> ;
     class_uri: <http://semanticscience.org/resource/SIO_001380> ;
     definition_uri: <biolink:GeneFamily> ;
@@ -780,8 +793,8 @@
 <https://w3id.org/biolink/vocab/Genome> a meta:ClassDefinition ;
     description: "A genome is the sum of genetic material within a cell or virion." ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <sio:000984>,
-        <so:0001026>,
+    mappings: <https://w3id.org/biolink/vocab/SIO:000984>,
+        <https://w3id.org/biolink/vocab/SO:0001026>,
         <wd:Q7020> ;
     class_uri: <http://purl.obolibrary.org/obo/SO_0001026> ;
     definition_uri: <biolink:Genome> ;
@@ -856,8 +869,8 @@
     singular_name: "organ",
         "tissue" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <sio:010046>,
-        <uberon:0010000>,
+    mappings: <https://w3id.org/biolink/vocab/SIO:010046>,
+        <https://w3id.org/biolink/vocab/UBERON:0010000>,
         <umlssc:T017>,
         <umlssc:T018>,
         <umlssc:T021>,
@@ -893,7 +906,7 @@
 <https://w3id.org/biolink/vocab/Haplotype> a meta:ClassDefinition ;
     description: "A set of zero or more Alleles on a single instance of a Sequence[VMC]" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <geno:0000871>,
+    mappings: <https://w3id.org/biolink/vocab/GENO:0000871>,
         <vmc:Haplotype> ;
     class_uri: <http://purl.obolibrary.org/obo/GENO_0000871> ;
     definition_uri: <biolink:Haplotype> ;
@@ -967,7 +980,7 @@
 <https://w3id.org/biolink/vocab/Metabolite> a meta:ClassDefinition ;
     description: "Any intermediate or product resulting from metabolism. Includes primary and secondary metabolites." ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <chebi:25212> ;
+    mappings: <https://w3id.org/biolink/vocab/CHEBI:25212> ;
     comments: "The CHEBI ID represents a role rather than a substance" ;
     class_uri: <http://purl.obolibrary.org/obo/CHEBI_25212> ;
     definition_uri: <biolink:Metabolite> ;
@@ -1038,9 +1051,9 @@
         <https://w3id.org/biolink/vocab/systematic_synonym> .
 
 <https://w3id.org/biolink/vocab/MicroRNA> a meta:ClassDefinition ;
-    subclass_of: <so:0000276> ;
+    subclass_of: <https://w3id.org/biolink/vocab/SO:0000276> ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <sio:001397>,
+    mappings: <https://w3id.org/biolink/vocab/SIO:001397>,
         <wd:Q310899> ;
     class_uri: <http://semanticscience.org/resource/SIO_001397> ;
     definition_uri: <biolink:MicroRNA> ;
@@ -1436,7 +1449,7 @@
 
 <https://w3id.org/biolink/vocab/CellLine> a meta:ClassDefinition ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <clo:0000031> ;
+    mappings: <https://w3id.org/biolink/vocab/CLO:0000031> ;
     class_uri: <http://purl.obolibrary.org/obo/CLO_0000031> ;
     definition_uri: <biolink:CellLine> ;
     id:_prefixes "CLO" ;
@@ -1457,8 +1470,8 @@
 <https://w3id.org/biolink/vocab/CellularComponent> a meta:ClassDefinition ;
     description: "A location in or around a cell" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <go:0005575>,
-        <sio:001400>,
+    mappings: <https://w3id.org/biolink/vocab/GO:0005575>,
+        <https://w3id.org/biolink/vocab/SIO:001400>,
         <umlssc:T026>,
         <umlsst:celc>,
         <wd:Q5058355> ;
@@ -1484,7 +1497,7 @@
 <https://w3id.org/biolink/vocab/ChemicalExposure> a meta:ClassDefinition ;
     description: "A chemical exposure is an intake of a particular chemical substance" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ecto:9000000> ;
+    mappings: <https://w3id.org/biolink/vocab/ECTO:9000000> ;
     class_uri: <http://example.org/UNKNOWN/ECTO/9000000> ;
     definition_uri: <biolink:ChemicalExposure> ;
     is_a: <https://w3id.org/biolink/vocab/ExposureEvent> ;
@@ -1541,7 +1554,7 @@
 <https://w3id.org/biolink/vocab/ConfidenceLevel> a meta:ClassDefinition ;
     description: "Level of confidence in a statement" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <cio:0000028> ;
+    mappings: <https://w3id.org/biolink/vocab/CIO:0000028> ;
     class_uri: <http://purl.obolibrary.org/obo/CIO_0000028> ;
     definition_uri: <biolink:ConfidenceLevel> ;
     is_a: <https://w3id.org/biolink/vocab/InformationContentEntity> ;
@@ -1612,7 +1625,7 @@
 <https://w3id.org/biolink/vocab/Drug> a meta:ClassDefinition ;
     description: "A substance intended for use in the diagnosis, cure, mitigation, treatment, or prevention of disease" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <chebi:23888>,
+    mappings: <https://w3id.org/biolink/vocab/CHEBI:23888>,
         <umlssc:T200>,
         <umlsst:clnd>,
         <wd:Q12140> ;
@@ -1686,7 +1699,7 @@
         <https://w3id.org/biolink/vocab/systematic_synonym> .
 
 <https://w3id.org/biolink/vocab/EnvironmentalFeature> a meta:ClassDefinition ;
-    subclass_of: <envo:00002297> ;
+    subclass_of: <https://w3id.org/biolink/vocab/ENVO:00002297> ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
     class_uri: <https://w3id.org/biolink/vocab/EnvironmentalFeature> ;
     definition_uri: <biolink:EnvironmentalFeature> ;
@@ -1704,7 +1717,7 @@
         <https://w3id.org/biolink/vocab/systematic_synonym> .
 
 <https://w3id.org/biolink/vocab/EnvironmentalProcess> a meta:ClassDefinition ;
-    subclass_of: <envo:02500000> ;
+    subclass_of: <https://w3id.org/biolink/vocab/ENVO:02500000> ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
     class_uri: <https://w3id.org/biolink/vocab/EnvironmentalProcess> ;
     definition_uri: <biolink:EnvironmentalProcess> ;
@@ -1731,7 +1744,7 @@
     singular_name: "evidence code" ;
     description: "Class of evidence that supports an association" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <eco:0000000> ;
+    mappings: <https://w3id.org/biolink/vocab/ECO:0000000> ;
     class_uri: <http://purl.obolibrary.org/obo/ECO_0000000> ;
     definition_uri: <biolink:EvidenceType> ;
     is_a: <https://w3id.org/biolink/vocab/InformationContentEntity> ;
@@ -1751,8 +1764,8 @@
 <https://w3id.org/biolink/vocab/Exon> a meta:ClassDefinition ;
     description: "A region of the transcript sequence within a gene which is not removed from the primary RNA transcript by RNA splicing" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <sio:010445>,
-        <so:0000147>,
+    mappings: <https://w3id.org/biolink/vocab/SIO:010445>,
+        <https://w3id.org/biolink/vocab/SO:0000147>,
         <wd:Q373027> ;
     class_uri: <http://purl.obolibrary.org/obo/SO_0000147> ;
     definition_uri: <biolink:Exon> ;
@@ -1824,7 +1837,7 @@
         <https://w3id.org/biolink/vocab/systematic_synonym> .
 
 <https://w3id.org/biolink/vocab/GenotypicSex> a meta:ClassDefinition ;
-    subclass_of: <pato:0020000> ;
+    subclass_of: <https://w3id.org/biolink/vocab/PATO:0020000> ;
     description: "An attribute corresponding to the genotypic sex of the individual, based upon genotypic composition of sex chromosomes." ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
     class_uri: <https://w3id.org/biolink/vocab/GenotypicSex> ;
@@ -1847,9 +1860,9 @@
         <https://w3id.org/biolink/vocab/systematic_synonym> .
 
 <https://w3id.org/biolink/vocab/IndividualOrganism> a meta:ClassDefinition ;
-    subclass_of: <ncbitaxon:1> ;
+    subclass_of: <https://w3id.org/biolink/vocab/NCBITaxon:1> ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <sio:010000>,
+    mappings: <https://w3id.org/biolink/vocab/SIO:010000>,
         <umlssc:T001>,
         <umlssc:T002>,
         <umlssc:T004>,
@@ -1911,9 +1924,9 @@
         <https://w3id.org/biolink/vocab/systematic_synonym> .
 
 <https://w3id.org/biolink/vocab/MacromolecularComplex> a meta:ClassDefinition ;
-    subclass_of: <go:0032991> ;
+    subclass_of: <https://w3id.org/biolink/vocab/GO:0032991> ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <sio:010046>,
+    mappings: <https://w3id.org/biolink/vocab/SIO:010046>,
         <wd:Q22325163> ;
     class_uri: <http://semanticscience.org/resource/SIO_010046> ;
     definition_uri: <biolink:MacromolecularComplex> ;
@@ -2011,9 +2024,9 @@
         <https://w3id.org/biolink/vocab/subject> .
 
 <https://w3id.org/biolink/vocab/NoncodingRNAProduct> a meta:ClassDefinition ;
-    subclass_of: <so:0000655> ;
+    subclass_of: <https://w3id.org/biolink/vocab/SO:0000655> ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <sio:001235> ;
+    mappings: <https://w3id.org/biolink/vocab/SIO:001235> ;
     class_uri: <http://semanticscience.org/resource/SIO_001235> ;
     definition_uri: <biolink:NoncodingRNAProduct> ;
     id:_prefixes "ENSEMBL",
@@ -2093,7 +2106,7 @@
 <https://w3id.org/biolink/vocab/Onset> a meta:ClassDefinition ;
     description: "The age group in which manifestations appear" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <hp:0003674> ;
+    mappings: <https://w3id.org/biolink/vocab/HP:0003674> ;
     class_uri: <http://purl.obolibrary.org/obo/HP_0003674> ;
     definition_uri: <biolink:Onset> ;
     is_a: <https://w3id.org/biolink/vocab/Attribute> ;
@@ -2143,9 +2156,9 @@
 
 <https://w3id.org/biolink/vocab/Pathway> a meta:ClassDefinition ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <go:0007165>,
-        <pw:0000001>,
-        <sio:010526>,
+    mappings: <https://w3id.org/biolink/vocab/GO:0007165>,
+        <https://w3id.org/biolink/vocab/PW:0000001>,
+        <https://w3id.org/biolink/vocab/SIO:010526>,
         <wd:Q4915012> ;
     class_uri: <http://purl.obolibrary.org/obo/GO_0007165> ;
     definition_uri: <biolink:Pathway> ;
@@ -2212,7 +2225,7 @@
         <https://w3id.org/biolink/vocab/systematic_synonym> .
 
 <https://w3id.org/biolink/vocab/PhenotypicSex> a meta:ClassDefinition ;
-    subclass_of: <pato:0001894> ;
+    subclass_of: <https://w3id.org/biolink/vocab/PATO:0001894> ;
     description: "An attribute corresponding to the phenotypic sex of the individual, based upon the reproductive organs present." ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
     class_uri: <https://w3id.org/biolink/vocab/PhenotypicSex> ;
@@ -2526,7 +2539,7 @@
 
 <https://w3id.org/biolink/vocab/Zygosity> a meta:ClassDefinition ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <geno:0000133> ;
+    mappings: <https://w3id.org/biolink/vocab/GENO:0000133> ;
     class_uri: <http://purl.obolibrary.org/obo/GENO_0000133> ;
     definition_uri: <biolink:Zygosity> ;
     is_a: <https://w3id.org/biolink/vocab/Attribute> ;
@@ -3706,7 +3719,7 @@
 <https://w3id.org/biolink/vocab/ChemicalToDiseaseOrPhenotypicFeatureAssociation> a meta:ClassDefinition ;
     description: "An interaction between a chemical entity and a phenotype or disease, where the presence of the chemical gives rise to or exacerbates the phenotype" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <sio:000993> ;
+    mappings: <https://w3id.org/biolink/vocab/SIO:000993> ;
     class_uri: <http://semanticscience.org/resource/SIO_000993> ;
     defining_slots: <https://w3id.org/biolink/vocab/object>,
         <https://w3id.org/biolink/vocab/subject> ;
@@ -3729,7 +3742,7 @@
 <https://w3id.org/biolink/vocab/ChemicalToGeneAssociation> a meta:ClassDefinition ;
     description: "An interaction between a chemical entity and a gene or gene product" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <sio:001257> ;
+    mappings: <https://w3id.org/biolink/vocab/SIO:001257> ;
     class_uri: <http://semanticscience.org/resource/SIO_001257> ;
     defining_slots: <https://w3id.org/biolink/vocab/object>,
         <https://w3id.org/biolink/vocab/subject> ;
@@ -3751,7 +3764,7 @@
 <https://w3id.org/biolink/vocab/ChemicalToPathwayAssociation> a meta:ClassDefinition ;
     description: "An interaction between a chemical entity and a biological process or pathway" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <sio:001250> ;
+    mappings: <https://w3id.org/biolink/vocab/SIO:001250> ;
     class_uri: <http://semanticscience.org/resource/SIO_001250> ;
     defining_slots: <https://w3id.org/biolink/vocab/object>,
         <https://w3id.org/biolink/vocab/subject> ;
@@ -3771,7 +3784,7 @@
         <https://w3id.org/biolink/vocab/subject> .
 
 <https://w3id.org/biolink/vocab/ClinicalModifier> a meta:ClassDefinition ;
-    subclass_of: <hp:0012823> ;
+    subclass_of: <https://w3id.org/biolink/vocab/HP:0012823> ;
     description: "Used to characterize and specify the phenotypic abnormalities defined in the Phenotypic abnormality subontology, with respect to severity, laterality, age of onset, and other aspects" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
     class_uri: <https://w3id.org/biolink/vocab/ClinicalModifier> ;
@@ -3795,7 +3808,7 @@
 
 <https://w3id.org/biolink/vocab/DataFile> a meta:ClassDefinition ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <efo:0004095> ;
+    mappings: <https://w3id.org/biolink/vocab/EFO:0004095> ;
     class_uri: <http://purl.obolibrary.org/obo/EFO_0004095> ;
     definition_uri: <biolink:DataFile> ;
     is_a: <https://w3id.org/biolink/vocab/NamedThing> ;
@@ -3929,8 +3942,8 @@
     singular_name: "polypeptide" ;
     description: "A gene product that is composed of a chain of amino acid sequences and is produced by ribosome-mediated translation of mRNA" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <pr:000000001>,
-        <sio:010043>,
+    mappings: <https://w3id.org/biolink/vocab/PR:000000001>,
+        <https://w3id.org/biolink/vocab/SIO:010043>,
         <umlssc:T087>,
         <umlssc:T116>,
         <umlsst:aapp>,
@@ -4089,7 +4102,7 @@
     in_subset: <https://w3id.org/biolink/vocab/translator_minimal> ;
     description: "holds between a physical entity and process or function, where the continuant alone has the ability to carry out the process or function." ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0002215> ;
+    mappings: <https://w3id.org/biolink/vocab/RO:0002215> ;
     definition_uri: <biolink:capable_of> ;
     domain: <https://w3id.org/biolink/vocab/NamedThing> ;
     inherited: true ;
@@ -4114,7 +4127,7 @@
     in_subset: <https://w3id.org/biolink/vocab/translator_minimal> ;
     description: "holds between two entities that are observed to be located in the same place." ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:00002325> ;
+    mappings: <https://w3id.org/biolink/vocab/RO:00002325> ;
     definition_uri: <biolink:colocalizes_with> ;
     domain: <https://w3id.org/biolink/vocab/NamedThing> ;
     inherited: true ;
@@ -4206,7 +4219,7 @@
     in_subset: <https://w3id.org/biolink/vocab/translator_minimal> ;
     description: "holds between two genes whose phenotypic effects are dependent on each other in some way - such that their combined phenotypic effects are the result of some interaction between the activity of their gene products. Examples include epistasis and synthetic lethality." ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0002435> ;
+    mappings: <https://w3id.org/biolink/vocab/RO:0002435> ;
     definition_uri: <biolink:genetically_interacts_with> ;
     domain: <https://w3id.org/biolink/vocab/Gene> ;
     inherited: true ;
@@ -4230,8 +4243,8 @@
     in_subset: <https://w3id.org/biolink/vocab/samples> ;
     description: "connects any named thing to an attribute" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0000053>,
-        <sio:000008> ;
+    mappings: <https://w3id.org/biolink/vocab/RO:0000053>,
+        <https://w3id.org/biolink/vocab/SIO:000008> ;
     definition_uri: <biolink:has_attribute> ;
     multivalued: true ;
     owner: <https://w3id.org/biolink/vocab/MaterialSample> ;
@@ -4252,7 +4265,7 @@
 <https://w3id.org/biolink/vocab/has_evidence> a meta:SlotDefinition ;
     description: "connects an association to an instance of supporting evidence" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0002558> ;
+    mappings: <https://w3id.org/biolink/vocab/RO:0002558> ;
     definition_uri: <biolink:has_evidence> ;
     domain: <https://w3id.org/biolink/vocab/Association> ;
     is_a: <https://w3id.org/biolink/vocab/association_slot> ;
@@ -4264,7 +4277,7 @@
     in_subset: <https://w3id.org/biolink/vocab/translator_minimal> ;
     description: "holds between a gene and a transcribed and/or translated product generated from it" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0002205>,
+    mappings: <https://w3id.org/biolink/vocab/RO:0002205>,
         <wd:P688> ;
     definition_uri: <biolink:has_gene_product> ;
     domain: <https://w3id.org/biolink/vocab/Gene> ;
@@ -4354,7 +4367,7 @@
     in_subset: <https://w3id.org/biolink/vocab/translator_minimal> ;
     description: "holds between an entity and some other entity it approximates for purposes of scientific study, in virtue of its exhibiting similar features of the studied entity." ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0003301> ;
+    mappings: <https://w3id.org/biolink/vocab/RO:0003301> ;
     definition_uri: <biolink:model_of> ;
     domain: <https://w3id.org/biolink/vocab/NamedThing> ;
     inherited: true ;
@@ -4376,18 +4389,18 @@
     in_subset: <https://w3id.org/biolink/vocab/translator_minimal> ;
     singular_name: "activity directly negatively regulates activity of" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0002449>,
+    mappings: <https://w3id.org/biolink/vocab/RO:0002449>,
         <semmeddb:INHIBITS> ;
     definition_uri: <biolink:negatively_regulates_entity_to_entity> ;
     domain: <https://w3id.org/biolink/vocab/MolecularEntity> ;
     inherited: true ;
     is_a: <https://w3id.org/biolink/vocab/regulates_entity_to_entity> ;
     local_names: [ a meta:LocalName ;
-            singular_name: "negatively regulates" ;
-            meta:local_name_source "translator" ],
-        [ a meta:LocalName ;
             singular_name: "activity directly negatively regulates activity of" ;
-            meta:local_name_source "ro" ] ;
+            meta:local_name_source "ro" ],
+        [ a meta:LocalName ;
+            singular_name: "negatively regulates" ;
+            meta:local_name_source "translator" ] ;
     mixins: <https://w3id.org/biolink/vocab/negatively_regulates> ;
     multivalued: true ;
     owner: <https://w3id.org/biolink/vocab/negatively_regulates_entity_to_entity> ;
@@ -4396,7 +4409,7 @@
 
 <https://w3id.org/biolink/vocab/negatively_regulates_process_to_process> a meta:SlotDefinition ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0002212> ;
+    mappings: <https://w3id.org/biolink/vocab/RO:0002212> ;
     definition_uri: <biolink:negatively_regulates_process_to_process> ;
     domain: <https://w3id.org/biolink/vocab/Occurrent> ;
     inherited: true ;
@@ -4420,7 +4433,7 @@
     in_subset: <https://w3id.org/biolink/vocab/translator_minimal> ;
     description: "holds between a process and a material entity or site within which the process occurs" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <bfo:0000066>,
+    mappings: <https://w3id.org/biolink/vocab/BFO:0000066>,
         <semmeddb:OCCURS_IN>,
         <semmeddb:PROCESS_OF> ;
     definition_uri: <biolink:occurs_in> ;
@@ -4475,18 +4488,18 @@
     in_subset: <https://w3id.org/biolink/vocab/translator_minimal> ;
     singular_name: "activity directly positively regulates activity of" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0002450>,
+    mappings: <https://w3id.org/biolink/vocab/RO:0002450>,
         <semmeddb:STIMULATES> ;
     definition_uri: <biolink:positively_regulates_entity_to_entity> ;
     domain: <https://w3id.org/biolink/vocab/MolecularEntity> ;
     inherited: true ;
     is_a: <https://w3id.org/biolink/vocab/regulates_entity_to_entity> ;
     local_names: [ a meta:LocalName ;
-            singular_name: "positively regulates" ;
-            meta:local_name_source "translator" ],
-        [ a meta:LocalName ;
             singular_name: "activity directly positively regulates activity of" ;
-            meta:local_name_source "ro" ] ;
+            meta:local_name_source "ro" ],
+        [ a meta:LocalName ;
+            singular_name: "positively regulates" ;
+            meta:local_name_source "translator" ] ;
     mixins: <https://w3id.org/biolink/vocab/positively_regulates> ;
     multivalued: true ;
     owner: <https://w3id.org/biolink/vocab/positively_regulates_entity_to_entity> ;
@@ -4495,7 +4508,7 @@
 
 <https://w3id.org/biolink/vocab/positively_regulates_process_to_process> a meta:SlotDefinition ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0002213> ;
+    mappings: <https://w3id.org/biolink/vocab/RO:0002213> ;
     definition_uri: <biolink:positively_regulates_process_to_process> ;
     domain: <https://w3id.org/biolink/vocab/Occurrent> ;
     inherited: true ;
@@ -4524,7 +4537,7 @@
     in_subset: <https://w3id.org/biolink/vocab/translator_minimal> ;
     description: "holds between an entity whose application or use reduces the likelihood of a potential outcome. Typically used to associate a chemical substance, exposure, activity, or medical intervention that can prevent the onset a disease or phenotypic feature." ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0002599>,
+    mappings: <https://w3id.org/biolink/vocab/RO:0002599>,
         <semmeddb:PREVENTS> ;
     definition_uri: <biolink:prevents> ;
     domain: <https://w3id.org/biolink/vocab/NamedThing> ;
@@ -4539,7 +4552,7 @@
     in_subset: <https://w3id.org/biolink/vocab/translator_minimal> ;
     description: "holds between a material entity and a product that is generated through the intentional actions or functioning of the material entity" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0003000>,
+    mappings: <https://w3id.org/biolink/vocab/RO:0003000>,
         <semmeddb:PRODUCES>,
         <wd:P1056> ;
     definition_uri: <biolink:produces> ;
@@ -4620,8 +4633,8 @@
 <https://w3id.org/biolink/vocab/BiologicalProcess> a meta:ClassDefinition ;
     description: "One or more causally connected executions of molecular functions" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <go:0008150>,
-        <sio:000006>,
+    mappings: <https://w3id.org/biolink/vocab/GO:0008150>,
+        <https://w3id.org/biolink/vocab/SIO:000006>,
         <wd:Q2996394> ;
     class_uri: <http://purl.obolibrary.org/obo/GO_0008150> ;
     definition_uri: <biolink:BiologicalProcess> ;
@@ -4715,8 +4728,8 @@
         "drug intake" ;
     description: "A drug exposure is an intake of a particular chemical substance" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ecto:0000509>,
-        <sio:001005> ;
+    mappings: <https://w3id.org/biolink/vocab/ECTO:0000509>,
+        <https://w3id.org/biolink/vocab/SIO:001005> ;
     class_uri: <http://example.org/UNKNOWN/ECTO/0000509> ;
     definition_uri: <biolink:DrugExposure> ;
     is_a: <https://w3id.org/biolink/vocab/ChemicalExposure> ;
@@ -4951,7 +4964,7 @@
         <https://w3id.org/biolink/vocab/systematic_synonym> .
 
 <https://w3id.org/biolink/vocab/LifeStage> a meta:ClassDefinition ;
-    subclass_of: <uberon:0000105> ;
+    subclass_of: <https://w3id.org/biolink/vocab/UBERON:0000105> ;
     description: "A stage of development or growth of an organism, including post-natal adult stages" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
     class_uri: <https://w3id.org/biolink/vocab/LifeStage> ;
@@ -5049,15 +5062,15 @@
         <https://w3id.org/biolink/vocab/qualifiers> .
 
 <https://w3id.org/biolink/vocab/PhenotypicFeature> a meta:ClassDefinition ;
-    subclass_of: <upheno:0001001> ;
+    subclass_of: <https://w3id.org/biolink/vocab/UPHENO:0001001> ;
     singular_name: "endophenotype",
         "phenotype",
         "sign",
         "symptom",
         "trait" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <sio:010056>,
-        <upheno:0001001>,
+    mappings: <https://w3id.org/biolink/vocab/SIO:010056>,
+        <https://w3id.org/biolink/vocab/UPHENO:0001001>,
         <wd:Q169872> ;
     class_uri: <http://purl.obolibrary.org/obo/UPHENO_0001001> ;
     definition_uri: <biolink:PhenotypicFeature> ;
@@ -5085,10 +5098,10 @@
         <https://w3id.org/biolink/vocab/treated_by> .
 
 <https://w3id.org/biolink/vocab/PopulationOfIndividualOrganisms> a meta:ClassDefinition ;
-    subclass_of: <pco:0000001> ;
+    subclass_of: <https://w3id.org/biolink/vocab/PCO:0000001> ;
     description: "A collection of individuals from the same taxonomic class distinguished by one or more characteristics. Characteristics can include, but are not limited to, shared geographic location, genetics, phenotypes [Alliance for Genome Resources]" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <sio:001061>,
+    mappings: <https://w3id.org/biolink/vocab/SIO:001061>,
         <umlssc:T098>,
         <umlsst:popg> ;
     class_uri: <http://semanticscience.org/resource/SIO_001061> ;
@@ -5097,10 +5110,10 @@
     is_a: <https://w3id.org/biolink/vocab/OrganismalEntity> ;
     local_names: [ a meta:LocalName ;
             singular_name: "population" ;
-            meta:local_name_source "ga4gh" ],
+            meta:local_name_source "agr" ],
         [ a meta:LocalName ;
             singular_name: "population" ;
-            meta:local_name_source "agr" ] ;
+            meta:local_name_source "ga4gh" ] ;
     mixins: <https://w3id.org/biolink/vocab/ThingWithTaxon> ;
     slots: <https://w3id.org/biolink/vocab/category>,
         <https://w3id.org/biolink/vocab/description>,
@@ -5118,8 +5131,8 @@
 
 <https://w3id.org/biolink/vocab/RNAProduct> a meta:ClassDefinition ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <chebi:33697>,
-        <sio:010450>,
+    mappings: <https://w3id.org/biolink/vocab/CHEBI:33697>,
+        <https://w3id.org/biolink/vocab/SIO:010450>,
         <wd:Q11053> ;
     class_uri: <http://purl.obolibrary.org/obo/CHEBI_33697> ;
     definition_uri: <biolink:RNAProduct> ;
@@ -5224,7 +5237,7 @@
     in_subset: <https://w3id.org/biolink/vocab/translator_minimal> ;
     description: "holds between a continuant and a process or function, where the continuant actively contributes to part or all of the process or function it realizes" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0002331> ;
+    mappings: <https://w3id.org/biolink/vocab/RO:0002331> ;
     definition_uri: <biolink:actively_involved_in> ;
     domain: <https://w3id.org/biolink/vocab/NamedThing> ;
     inherited: true ;
@@ -5261,7 +5274,7 @@
     inverse: <https://w3id.org/biolink/vocab/caused_by> ;
     description: "holds between two entities where the occurrence, existence, or activity of one causes the occurrence or  generation of the other" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0002410>,
+    mappings: <https://w3id.org/biolink/vocab/RO:0002410>,
         <semmeddb:CAUSES>,
         <wd:P1542> ;
     definition_uri: <biolink:causes> ;
@@ -5298,7 +5311,7 @@
     in_subset: <https://w3id.org/biolink/vocab/translator_minimal> ;
     description: "holds between two entities where the occurrence, existence, or activity of one causes or contributes to the occurrence or generation of the other" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0002326> ;
+    mappings: <https://w3id.org/biolink/vocab/RO:0002326> ;
     definition_uri: <biolink:contributes_to> ;
     domain: <https://w3id.org/biolink/vocab/NamedThing> ;
     inherited: true ;
@@ -5324,7 +5337,7 @@
     inverse: <https://w3id.org/biolink/vocab/derives_into> ;
     description: "holds between two distinct material entities, the new entity and the old entity, in which the new entity begins to exist when the old entity ceases to exist, and the new entity inherits the significant portion of the matter of the old entity" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0001000> ;
+    mappings: <https://w3id.org/biolink/vocab/RO:0001000> ;
     definition_uri: <biolink:derives_from> ;
     domain: <https://w3id.org/biolink/vocab/NamedThing> ;
     inherited: true ;
@@ -5339,7 +5352,7 @@
     inverse: <https://w3id.org/biolink/vocab/derives_from> ;
     description: "holds between two distinct material entities, the old entity and the new entity, in which the new entity begins to exist when the old entity ceases to exist, and the new entity inherits the significant portion of the matter of the old entity" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0001001>,
+    mappings: <https://w3id.org/biolink/vocab/RO:0001001>,
         <semmeddb:CONVERTS_TO> ;
     definition_uri: <biolink:derives_into> ;
     domain: <https://w3id.org/biolink/vocab/NamedThing> ;
@@ -5459,7 +5472,7 @@
     inverse: <https://w3id.org/biolink/vocab/location_of> ;
     description: "holds between a material entity and a material entity or site within which it is located (but of which it is not considered a part)" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0001025> ;
+    mappings: <https://w3id.org/biolink/vocab/RO:0001025> ;
     definition_uri: <biolink:located_in> ;
     domain: <https://w3id.org/biolink/vocab/NamedThing> ;
     inherited: true ;
@@ -5474,9 +5487,9 @@
     inverse: <https://w3id.org/biolink/vocab/located_in> ;
     description: "holds between material entity or site and a material entity that is located within it (but not considered a part of it)" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0001015>,
-        <semmeddb:LOCATION_OF>,
-        <wd:276> ;
+    mappings: <https://w3id.org/biolink/vocab/RO:0001015>,
+        <https://w3id.org/biolink/vocab/WD:276>,
+        <semmeddb:LOCATION_OF> ;
     definition_uri: <biolink:location_of> ;
     domain: <https://w3id.org/biolink/vocab/NamedThing> ;
     inherited: true ;
@@ -5501,7 +5514,7 @@
     inverse: <https://w3id.org/biolink/vocab/has_part> ;
     description: "holds between parts and wholes (material entities or processes)" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <bfo:0000050>,
+    mappings: <https://w3id.org/biolink/vocab/BFO:0000050>,
         <semmeddb:PART_OF>,
         <wd:P361> ;
     definition_uri: <biolink:part_of> ;
@@ -5575,8 +5588,8 @@
     singular_name: "is substance that treats" ;
     description: "holds between a therapeutic procedure or chemical substance and a disease or phenotypic feature that it is used to treat" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0002606>,
-        <ro:0003307>,
+    mappings: <https://w3id.org/biolink/vocab/RO:0002606>,
+        <https://w3id.org/biolink/vocab/RO:0003307>,
         <semmeddb:TREATS>,
         <wd:P2175> ;
     definition_uri: <biolink:treats> ;
@@ -5620,7 +5633,7 @@
     slot_uri: <http://example.org/UNKNOWN/dct/isVersionOf> .
 
 <https://w3id.org/biolink/vocab/BiologicalSex> a meta:ClassDefinition ;
-    subclass_of: <pato:0000047> ;
+    subclass_of: <https://w3id.org/biolink/vocab/PATO:0000047> ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
     class_uri: <https://w3id.org/biolink/vocab/BiologicalSex> ;
     definition_uri: <biolink:BiologicalSex> ;
@@ -5779,7 +5792,7 @@
 
 <https://w3id.org/biolink/vocab/GeneToDiseaseAssociation> a meta:ClassDefinition ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <sio:000983> ;
+    mappings: <https://w3id.org/biolink/vocab/SIO:000983> ;
     comments: "NCIT:R176 refers to the inverse relationship" ;
     class_uri: <http://semanticscience.org/resource/SIO_000983> ;
     defining_slots: <https://w3id.org/biolink/vocab/object>,
@@ -5873,8 +5886,8 @@
         "sample" ;
     description: "A sample is a limited quantity of something (e.g. an individual or set of individuals from a population, or a portion of a substance) to be used for testing, analysis, inspection, investigation, demonstration, or trial use. [SIO]" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <obi:0000747>,
-        <sio:001050> ;
+    mappings: <https://w3id.org/biolink/vocab/OBI:0000747>,
+        <https://w3id.org/biolink/vocab/SIO:001050> ;
     class_uri: <https://w3id.org/biolink/vocab/MaterialSample> ;
     definition_uri: <biolink:MaterialSample> ;
     id:_prefixes "BioSample",
@@ -5962,8 +5975,8 @@
     singular_name: "medical action" ;
     description: "A treatment is targeted at a disease or phenotype and may involve multiple drug 'exposures'" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ogms:0000090>,
-        <sio:001398> ;
+    mappings: <https://w3id.org/biolink/vocab/OGMS:0000090>,
+        <https://w3id.org/biolink/vocab/SIO:001398> ;
     class_uri: <http://purl.obolibrary.org/obo/OGMS_0000090> ;
     definition_uri: <biolink:Treatment> ;
     is_a: <https://w3id.org/biolink/vocab/ExposureEvent> ;
@@ -6040,7 +6053,7 @@
     in_subset: <https://w3id.org/biolink/vocab/translator_minimal> ;
     description: "holds between entties that overlap in their extents (materials or processes)" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0002131> ;
+    mappings: <https://w3id.org/biolink/vocab/RO:0002131> ;
     definition_uri: <biolink:overlaps> ;
     domain: <https://w3id.org/biolink/vocab/NamedThing> ;
     inherited: true ;
@@ -6055,7 +6068,7 @@
     inverse: <https://w3id.org/biolink/vocab/has_participant> ;
     description: "holds between a continuant and a process, where the continuant is somehow involved in the process" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0000056> ;
+    mappings: <https://w3id.org/biolink/vocab/RO:0000056> ;
     definition_uri: <biolink:participates_in> ;
     domain: <https://w3id.org/biolink/vocab/NamedThing> ;
     inherited: true ;
@@ -6120,8 +6133,8 @@
         "disorder",
         "medical condition" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <mondo:0000001>,
-        <sio:010299>,
+    mappings: <https://w3id.org/biolink/vocab/MONDO:0000001>,
+        <https://w3id.org/biolink/vocab/SIO:010299>,
         <umlssc:T019>,
         <umlssc:T020>,
         <umlssc:T037>,
@@ -6332,8 +6345,8 @@
 <https://w3id.org/biolink/vocab/Transcript> a meta:ClassDefinition ;
     description: "An RNA synthesized on a DNA or RNA template by an RNA polymerase" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <sio:010450>,
-        <so:0000673> ;
+    mappings: <https://w3id.org/biolink/vocab/SIO:010450>,
+        <https://w3id.org/biolink/vocab/SO:0000673> ;
     class_uri: <http://purl.obolibrary.org/obo/SO_0000673> ;
     definition_uri: <biolink:Transcript> ;
     is_a: <https://w3id.org/biolink/vocab/GenomicEntity> ;
@@ -6473,7 +6486,7 @@
     inverse: <https://w3id.org/biolink/vocab/part_of> ;
     description: "holds between wholes and their parts (material entities or processes)" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <bfo:0000051>,
+    mappings: <https://w3id.org/biolink/vocab/BFO:0000051>,
         <wd:P527> ;
     definition_uri: <biolink:has_part> ;
     domain: <https://w3id.org/biolink/vocab/NamedThing> ;
@@ -6487,7 +6500,7 @@
 <https://w3id.org/biolink/vocab/has_receptor> a meta:SlotDefinition ;
     description: "the organism or organism part being exposed" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <exo:0000001> ;
+    mappings: <https://w3id.org/biolink/vocab/ExO:0000001> ;
     definition_uri: <biolink:has_receptor> ;
     domain: <https://w3id.org/biolink/vocab/ExposureEvent> ;
     is_a: <https://w3id.org/biolink/vocab/node_property> ;
@@ -6498,7 +6511,7 @@
 <https://w3id.org/biolink/vocab/has_route> a meta:SlotDefinition ;
     description: "the process that results in the stressor coming into direct contact with the receptor" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <exo:0000055> ;
+    mappings: <https://w3id.org/biolink/vocab/ExO:0000055> ;
     definition_uri: <biolink:has_route> ;
     domain: <https://w3id.org/biolink/vocab/ExposureEvent> ;
     is_a: <https://w3id.org/biolink/vocab/node_property> ;
@@ -6510,7 +6523,7 @@
     singular_name: "has stimulus" ;
     description: "the process or entity that the receptor is being exposed to" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <exo:0000000> ;
+    mappings: <https://w3id.org/biolink/vocab/ExO:0000000> ;
     definition_uri: <biolink:has_stressor> ;
     domain: <https://w3id.org/biolink/vocab/ExposureEvent> ;
     is_a: <https://w3id.org/biolink/vocab/node_property> ;
@@ -6523,8 +6536,8 @@
     singular_name: "in homology relationship with" ;
     description: "holds between two biological entities that have common evolutionary origin" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:HOM0000001>,
-        <sio:010302> ;
+    mappings: <https://w3id.org/biolink/vocab/SIO:010302>,
+        <ro:HOM0000001> ;
     comments: "typically used to describe homology relationships between genes or gene products" ;
     definition_uri: <biolink:homologous_to> ;
     domain: <https://w3id.org/biolink/vocab/NamedThing> ;
@@ -6586,7 +6599,7 @@
     inverse: <https://w3id.org/biolink/vocab/treats> ;
     description: "holds between a disease or phenotypic feature and a therapeutic process or chemical substance that is used to treat the condition" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0002302>,
+    mappings: <https://w3id.org/biolink/vocab/RO:0002302>,
         <wd:P2176> ;
     definition_uri: <biolink:treated_by> ;
     domain: <https://w3id.org/biolink/vocab/DiseaseOrPhenotypicFeature> ;
@@ -6741,7 +6754,7 @@
     in_subset: <https://w3id.org/biolink/vocab/translator_minimal> ;
     description: "holds between a disease or phenotypic feature and a measurable molecular entity that is used as an indicator of the presence or state of the disease or feature." ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0002610> ;
+    mappings: <https://w3id.org/biolink/vocab/RO:0002610> ;
     definition_uri: <biolink:correlated_with> ;
     domain: <https://w3id.org/biolink/vocab/DiseaseOrPhenotypicFeature> ;
     inherited: true ;
@@ -6763,7 +6776,7 @@
     in_subset: <https://w3id.org/biolink/vocab/translator_minimal> ;
     description: "holds between a process and a physical entity, where the physical entity executes the process" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0002333> ;
+    mappings: <https://w3id.org/biolink/vocab/RO:0002333> ;
     definition_uri: <biolink:enabled_by> ;
     domain: <https://w3id.org/biolink/vocab/Occurrent> ;
     inherited: true ;
@@ -6778,7 +6791,7 @@
     inverse: <https://w3id.org/biolink/vocab/expressed_in> ;
     description: "holds between an anatomical entity and gene or gene product that is expressed there" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0002292> ;
+    mappings: <https://w3id.org/biolink/vocab/RO:0002292> ;
     definition_uri: <biolink:expresses> ;
     domain: <https://w3id.org/biolink/vocab/AnatomicalEntity> ;
     inherited: true ;
@@ -6900,7 +6913,7 @@
         "exposure" ;
     description: "A feature of the environment of an organism that influences one or more phenotypic features of that organism, potentially mediated by genes" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <sio:000955> ;
+    mappings: <https://w3id.org/biolink/vocab/SIO:000955> ;
     class_uri: <http://semanticscience.org/resource/SIO_000955> ;
     definition_uri: <biolink:ExposureEvent> ;
     is_a: <https://w3id.org/biolink/vocab/BiologicalEntity> ;
@@ -7065,8 +7078,8 @@
 <https://w3id.org/biolink/vocab/Genotype> a meta:ClassDefinition ;
     description: "An information content entity that describes a genome by specifying the total variation in genomic sequence and/or gene expression, relative to some extablished background" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <geno:0000536>,
-        <sio:001079> ;
+    mappings: <https://w3id.org/biolink/vocab/GENO:0000536>,
+        <https://w3id.org/biolink/vocab/SIO:001079> ;
     comments: "Consider renaming as genotypic entity" ;
     class_uri: <http://purl.obolibrary.org/obo/GENO_0000536> ;
     definition_uri: <biolink:Genotype> ;
@@ -7224,7 +7237,7 @@
         "reaction" ;
     description: "An execution of a molecular function carried out by a gene product or macromolecular complex." ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <go:0003674>,
+    mappings: <https://w3id.org/biolink/vocab/GO:0003674>,
         <umlssc:T044>,
         <umlsst:moft> ;
     class_uri: <http://purl.obolibrary.org/obo/GO_0003674> ;
@@ -7469,10 +7482,10 @@
     slots: <https://w3id.org/biolink/vocab/in_taxon> .
 
 <https://w3id.org/biolink/vocab/ChemicalSubstance> a meta:ClassDefinition ;
-    subclass_of: <chebi:24431> ;
+    subclass_of: <https://w3id.org/biolink/vocab/CHEBI:24431> ;
     description: "May be a chemical entity or a formulation with a chemical entity as active ingredient, or a complex material with multiple chemical entities as part" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <sio:010004>,
+    mappings: <https://w3id.org/biolink/vocab/SIO:010004>,
         <umlssc:T103>,
         <umlssc:T104>,
         <umlssc:T109>,
@@ -7657,8 +7670,8 @@
 <https://w3id.org/biolink/vocab/Gene> a meta:ClassDefinition ;
     singular_name: "locus" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <sio:010035>,
-        <so:0000704>,
+    mappings: <https://w3id.org/biolink/vocab/SIO:010035>,
+        <https://w3id.org/biolink/vocab/SO:0000704>,
         <wd:Q7187> ;
     class_uri: <http://purl.obolibrary.org/obo/SO_0000704> ;
     definition_uri: <biolink:Gene> ;
@@ -7778,7 +7791,7 @@
     in_subset: <https://w3id.org/biolink/vocab/translator_minimal> ;
     description: "holds between two processes, where one completes before the other begins" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <bfo:0000063>,
+    mappings: <https://w3id.org/biolink/vocab/BFO:0000063>,
         <semmeddb:PRECEDES>,
         <wd:P156> ;
     definition_uri: <biolink:precedes> ;
@@ -7864,7 +7877,7 @@
     inverse: <https://w3id.org/biolink/vocab/expresses> ;
     description: "holds between a gene or gene product and an anatomical entity in which it is expressed" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0002206> ;
+    mappings: <https://w3id.org/biolink/vocab/RO:0002206> ;
     definition_uri: <biolink:expressed_in> ;
     domain: <https://w3id.org/biolink/vocab/GeneOrGeneProduct> ;
     inherited: true ;
@@ -7878,7 +7891,7 @@
     in_subset: <https://w3id.org/biolink/vocab/translator_minimal> ;
     description: "holds between a process and a continuant, where the continuant is an input into the process" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0002233>,
+    mappings: <https://w3id.org/biolink/vocab/RO:0002233>,
         <semmeddb:USES> ;
     definition_uri: <biolink:has_input> ;
     domain: <https://w3id.org/biolink/vocab/Occurrent> ;
@@ -7893,7 +7906,7 @@
     in_subset: <https://w3id.org/biolink/vocab/translator_minimal> ;
     description: "holds between a process and a continuant, where the continuant is an output of the process" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0002234> ;
+    mappings: <https://w3id.org/biolink/vocab/RO:0002234> ;
     definition_uri: <biolink:has_output> ;
     domain: <https://w3id.org/biolink/vocab/Occurrent> ;
     inherited: true ;
@@ -7954,10 +7967,10 @@
     slot_uri: <https://w3id.org/biolink/vocab/name> .
 
 <https://w3id.org/biolink/vocab/AnatomicalEntity> a meta:ClassDefinition ;
-    subclass_of: <uberon:0001062> ;
+    subclass_of: <https://w3id.org/biolink/vocab/UBERON:0001062> ;
     description: "A subcellular location, cell type or gross anatomical part" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <sio:010046>,
+    mappings: <https://w3id.org/biolink/vocab/SIO:010046>,
         <umlssc:T022>,
         <umlssc:T029>,
         <umlssc:T030>,
@@ -8089,8 +8102,8 @@
     singular_name: "allele" ;
     description: "An allele that varies in its sequence from what is considered the reference allele at that locus." ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <geno:0000002>,
-        <sio:010277>,
+    mappings: <https://w3id.org/biolink/vocab/GENO:0000002>,
+        <https://w3id.org/biolink/vocab/SIO:010277>,
         <vmc:Allele>,
         <wd:Q15304597> ;
     comments: "This class is for modeling the specific state at a locus. A single dbSNP rs ID could correspond to more than one sequence variants (e.g CIViC:1252 and CIViC:1253, two distinct BRCA2 alleles for rs28897743)" ;
@@ -8183,7 +8196,7 @@
 
 <https://w3id.org/biolink/vocab/regulates_process_to_process> a meta:SlotDefinition ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0002211> ;
+    mappings: <https://w3id.org/biolink/vocab/RO:0002211> ;
     definition_uri: <biolink:regulates_process_to_process> ;
     domain: <https://w3id.org/biolink/vocab/Occurrent> ;
     inherited: true ;
@@ -8195,10 +8208,10 @@
 
 <https://w3id.org/biolink/vocab/Attribute> a meta:ClassDefinition ;
     in_subset: <https://w3id.org/biolink/vocab/samples> ;
-    subclass_of: <pato:0000001> ;
+    subclass_of: <https://w3id.org/biolink/vocab/PATO:0000001> ;
     description: "A property or characteristic of an entity. For example, an apple may have properties such as color, shape, age, crispiness. An environmental sample may have attributes such as depth, lat, long, material." ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <sio:000614> ;
+    mappings: <https://w3id.org/biolink/vocab/SIO:000614> ;
     class_uri: <https://w3id.org/biolink/vocab/Attribute> ;
     definition_uri: <biolink:Attribute> ;
     is_a: <https://w3id.org/biolink/vocab/AbstractEntity> ;
@@ -8260,7 +8273,7 @@
     inverse: <https://w3id.org/biolink/vocab/participates_in> ;
     description: "holds between a process and a continuant, where the continuant is somehow involved in the process" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0000057>,
+    mappings: <https://w3id.org/biolink/vocab/RO:0000057>,
         <wd:P2283> ;
     definition_uri: <biolink:has_participant> ;
     domain: <https://w3id.org/biolink/vocab/Occurrent> ;
@@ -8285,7 +8298,7 @@
     singular_name: "sequence feature" ;
     description: "an entity that can either be directly located on a genome (gene, transcript, exon, regulatory region) or is encoded in a genome (protein)" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <so:0000110>,
+    mappings: <https://w3id.org/biolink/vocab/SO:0000110>,
         <umlssc:T028>,
         <umlssc:T086>,
         <umlsst:gngm>,
@@ -8455,7 +8468,7 @@
 <https://w3id.org/biolink/vocab/Occurrent> a meta:ClassDefinition ;
     description: "A processual entity" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <bfo:0000003> ;
+    mappings: <https://w3id.org/biolink/vocab/BFO:0000003> ;
     class_uri: <http://purl.obolibrary.org/obo/BFO_0000003> ;
     definition_uri: <biolink:Occurrent> ;
     is_a: <https://w3id.org/biolink/vocab/NamedThing> ;
@@ -8508,7 +8521,7 @@
 <https://w3id.org/biolink/vocab/molecularly_interacts_with> a meta:SlotDefinition ;
     in_subset: <https://w3id.org/biolink/vocab/translator_minimal> ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0002436> ;
+    mappings: <https://w3id.org/biolink/vocab/RO:0002436> ;
     definition_uri: <biolink:molecularly_interacts_with> ;
     domain: <https://w3id.org/biolink/vocab/MolecularEntity> ;
     inherited: true ;
@@ -8523,7 +8536,7 @@
     inverse: <https://w3id.org/biolink/vocab/has_biomarker> ;
     description: "holds between a measurable molecular entity and a disease or phenotypic feature, where the entity is used as an indicator of the presence or state of the disease or feature." ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0002607> ;
+    mappings: <https://w3id.org/biolink/vocab/RO:0002607> ;
     definition_uri: <biolink:biomarker_for> ;
     domain: <https://w3id.org/biolink/vocab/MolecularEntity> ;
     inherited: true ;
@@ -8953,17 +8966,17 @@
     in_subset: <https://w3id.org/biolink/vocab/translator_minimal> ;
     singular_name: "activity directly regulates activity of" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0002448> ;
+    mappings: <https://w3id.org/biolink/vocab/RO:0002448> ;
     definition_uri: <biolink:regulates_entity_to_entity> ;
     domain: <https://w3id.org/biolink/vocab/MolecularEntity> ;
     inherited: true ;
     is_a: <https://w3id.org/biolink/vocab/regulates> ;
     local_names: [ a meta:LocalName ;
-            singular_name: "regulates" ;
-            meta:local_name_source "translator" ],
-        [ a meta:LocalName ;
             singular_name: "activity directly regulates activity of" ;
-            meta:local_name_source "ro" ] ;
+            meta:local_name_source "ro" ],
+        [ a meta:LocalName ;
+            singular_name: "regulates" ;
+            meta:local_name_source "translator" ] ;
     multivalued: true ;
     owner: <https://w3id.org/biolink/vocab/regulates_entity_to_entity> ;
     range: <https://w3id.org/biolink/vocab/MolecularEntity> ;
@@ -9181,7 +9194,7 @@
     in_subset: <https://w3id.org/biolink/vocab/translator_minimal> ;
     description: "connects a thing to a class representing a taxon" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0002162>,
+    mappings: <https://w3id.org/biolink/vocab/RO:0002162>,
         <wd:P703> ;
     definition_uri: <biolink:in_taxon> ;
     domain: <https://w3id.org/biolink/vocab/ThingWithTaxon> ;
@@ -9197,7 +9210,7 @@
     description: "holds between a biological entity and a phenotype, where a phenotype is construed broadly as any kind of quality of an organism part, a collection of these qualities, or a change in quality or qualities (e.g. abnormally increased temperature)." ;
     notes: "check the range" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0002200> ;
+    mappings: <https://w3id.org/biolink/vocab/RO:0002200> ;
     definition_uri: <biolink:has_phenotype> ;
     domain: <https://w3id.org/biolink/vocab/BiologicalEntity> ;
     inherited: true ;
@@ -9354,11 +9367,11 @@
     domain: <https://w3id.org/biolink/vocab/Association> ;
     is_a: <https://w3id.org/biolink/vocab/association_slot> ;
     local_names: [ a meta:LocalName ;
-            singular_name: "annotation predicate" ;
-            meta:local_name_source "ga4gh" ],
-        [ a meta:LocalName ;
             singular_name: "predicate" ;
-            meta:local_name_source "translator" ] ;
+            meta:local_name_source "translator" ],
+        [ a meta:LocalName ;
+            singular_name: "annotation predicate" ;
+            meta:local_name_source "ga4gh" ] ;
     owner: <https://w3id.org/biolink/vocab/Association> ;
     range: <https://w3id.org/biolink/vocab/uriorcurie> ;
     required: true ;
@@ -9440,7 +9453,7 @@
     in_subset: <https://w3id.org/biolink/vocab/translator_minimal> ;
     description: "holds between any two entities that directly or indirectly interact with each other" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <ro:0002434> ;
+    mappings: <https://w3id.org/biolink/vocab/RO:0002434> ;
     definition_uri: <biolink:interacts_with> ;
     domain: <https://w3id.org/biolink/vocab/NamedThing> ;
     inherited: true ;
@@ -9467,7 +9480,7 @@
     singular_name: "bioentity" ;
     description: "A gene, gene product, small molecule or macromolecule (including protein complex)" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
-    mappings: <sio:010341>,
+    mappings: <https://w3id.org/biolink/vocab/SIO:010341>,
         <umlssc:T085>,
         <umlssg:GENE>,
         <umlsst:mosq>,
@@ -9559,11 +9572,11 @@
     domain: <https://w3id.org/biolink/vocab/Association> ;
     is_a: <https://w3id.org/biolink/vocab/association_slot> ;
     local_names: [ a meta:LocalName ;
-            singular_name: "node with incoming relationship" ;
-            meta:local_name_source "neo4j" ],
-        [ a meta:LocalName ;
             singular_name: "descriptor" ;
-            meta:local_name_source "ga4gh" ] ;
+            meta:local_name_source "ga4gh" ],
+        [ a meta:LocalName ;
+            singular_name: "node with incoming relationship" ;
+            meta:local_name_source "neo4j" ] ;
     owner: <https://w3id.org/biolink/vocab/Association> ;
     range: <https://w3id.org/biolink/vocab/NamedThing> ;
     required: true ;
@@ -9583,7 +9596,7 @@
     slot_uri: owl:ObjectProperty .
 
 <https://w3id.org/biolink/vocab/NamedThing> a meta:ClassDefinition ;
-    subclass_of: <bfo:0000001> ;
+    subclass_of: <https://w3id.org/biolink/vocab/BFO:0000001> ;
     description: "a databased entity or concept/class" ;
     from_schema: <https://w3id.org/biolink/biolink-model> ;
     mappings: <umlssc:T071>,
@@ -9670,14 +9683,13 @@
     domain: <https://w3id.org/biolink/vocab/Association> ;
     is_a: <https://w3id.org/biolink/vocab/association_slot> ;
     local_names: [ a meta:LocalName ;
-            singular_name: "node with outgoing relationship" ;
-            meta:local_name_source "neo4j" ],
-        [ a meta:LocalName ;
             singular_name: "annotation subject" ;
-            meta:local_name_source "ga4gh" ] ;
+            meta:local_name_source "ga4gh" ],
+        [ a meta:LocalName ;
+            singular_name: "node with outgoing relationship" ;
+            meta:local_name_source "neo4j" ] ;
     owner: <https://w3id.org/biolink/vocab/Association> ;
     range: <https://w3id.org/biolink/vocab/NamedThing> ;
     required: true ;
     slot_uri: rdf:subject .
-
 
