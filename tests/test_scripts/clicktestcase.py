@@ -131,6 +131,8 @@ class ClickTestCase(unittest.TestCase):
                 self.click_ep(arg_list, standalone_mode=False)
             return
 
+        arg_list += ["--log_level", "INFO"]
+
         with redirect_stdout(outf):
             try:
                 self.click_ep(arg_list, prog_name=self.prog_name, standalone_mode=False)

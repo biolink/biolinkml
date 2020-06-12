@@ -1,4 +1,5 @@
 import os
+import sys
 from warnings import warn
 
 from rdflib import Namespace
@@ -158,3 +159,6 @@ BIOLINK_MODEL_PYTHON_LOC = "biolink.model"
 #     warn('RUN: \'pip install "git+git://github.com/hsolbrig/rdflib-jsonld@master#egg=rdflib-jsonld" --upgrade\'')
 
 TurtleSerializer.roundtrip_prefixes = ['']
+
+if sys.version_info < (3, 7, 6):
+    warn(f"Some URL processing will fail with python 3.7.5 or earlier.  Current version: {sys.version_info}")
