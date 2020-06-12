@@ -4,12 +4,11 @@ import unittest
 from typing import Optional, Callable, Union, Dict
 
 from rdflib import Graph, Namespace, OWL
-from rdflib.compare import to_isomorphic, graph_diff, IsomorphicGraph
 
 from biolinkml import METAMODEL_NAMESPACE, MODULE_DIR
-from biolinkml.utils.generator import Generator
 from biolinkml.utils.context_utils import parse_import_map
-from tests import sourcedir, USE_LOCAL_IMPORT_MAP
+from biolinkml.utils.generator import Generator
+from tests import sourcedir, USE_LOCAL_IMPORT_MAP, DEFAULT_LOG_LEVEL
 from tests.test_scripts.clicktestcase import ClickTestCase
 from tests.utils.compare_directories import are_dir_trees_equal
 from tests.utils.dirutils import make_and_clear_directory
@@ -138,6 +137,7 @@ class GeneratorTestCase(unittest.TestCase):
         if os.path.exists(new_file):
             os.remove(new_file)
 
+        generator_args['log_level'] = DEFAULT_LOG_LEVEL
         new_data = str(gen(yaml_file, **generator_args).serialize(**serialize_args))
         if not os.path.exists(old_file):
             with open(old_file, 'w') as oldf:

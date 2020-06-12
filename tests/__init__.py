@@ -1,3 +1,4 @@
+import logging
 import os
 
 from biolinkml import LOCAL_METAMODEL_YAML_FILE, LOCAL_METAMODEL_LDCONTEXT_FILE, METAMODEL_FILE_NAME
@@ -16,3 +17,6 @@ DO_SHEX_VALIDATION = False
 # Set this to True if you are making changes to the model itself.  Note, however, that it needs to be reset to False
 # once the new types and/or meta elements have been submitted to the main repository
 USE_LOCAL_IMPORT_MAP = False
+
+# There are lots of warnings emitted by the generators. Default logging level
+DEFAULT_LOG_LEVEL = logging.ERROR

@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "96eb49f04194ed90e8c5f3d70ae9cc10ae51e5b89f11aa2adb7619277cf30ca2"
+            "sha256": "9fac03304d4027a7647c3c58745b40d55b326bcfe484e820c8e4df6e1e6d8c89"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -193,8 +193,11 @@
             "version": "==5.0.0"
         },
         "rdflib-jsonld": {
-            "git": "https://github.com/hsolbrig/rdflib-jsonld",
-            "ref": "f137e29cf6f5c9ae6aa6046d067be50ba48bd5c2"
+            "hashes": [
+                "sha256:4f7d55326405071c7bce9acf5484643bcb984eadb84a6503053367da207105ed"
+            ],
+            "index": "pypi",
+            "version": "==0.5.0"
         },
         "requests": {
             "hashes": [

@@ -131,6 +131,8 @@ class ClickTestCase(unittest.TestCase):
                 self.click_ep(arg_list, standalone_mode=False)
             return
 
+        arg_list += ["--log_level", "INFO"]
+
         with redirect_stdout(outf):
             try:
                 self.click_ep(arg_list, prog_name=self.prog_name, standalone_mode=False)
@@ -176,7 +178,8 @@ class ClickTestCase(unittest.TestCase):
 
                 # If necessary, update the test file
                 if compare_text is not None:
-                    print(f"\n***** Mismatch on: {os.path.relpath(testfile_path, MODULE_DIR)}. "
+                    hint = "(Not an error) " if self.soft_compare else ""
+                    print(f"\n***** {hint} Mismatch on: {os.path.relpath(testfile_path, MODULE_DIR)}. "
                           f"Remove file to refresh *****\n")
                     if self.soft_compare and not bypass_soft_compare:
                         print(f"{self.id()}: {self.soft_compare}")
