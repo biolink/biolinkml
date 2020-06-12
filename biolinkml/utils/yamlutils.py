@@ -170,6 +170,9 @@ yaml.SafeDumper.add_multi_representer(YAMLRoot, root_representer)
 yaml.SafeDumper.add_multi_representer(extended_str, yaml.SafeDumper.represent_str)
 yaml.SafeDumper.add_multi_representer(extended_int, yaml.SafeDumper.represent_int)
 yaml.SafeDumper.add_multi_representer(extended_float, yaml.SafeDumper.represent_float)
+yaml.SafeDumper.add_multi_representer(str, yaml.SafeDumper.represent_str)
+yaml.SafeDumper.add_multi_representer(int, yaml.SafeDumper.represent_int)
+yaml.SafeDumper.add_multi_representer(float, yaml.SafeDumper.represent_float)
 
 
 def as_rdf(element: YAMLRoot, contexts: CONTEXTS_PARAM_TYPE = None) -> Graph:
