@@ -73,8 +73,8 @@ class YumlGenerator(Generator):
                 yumlclassdef.append(assocs)
 
         yuml_url = str(YUML) + ', '.join(yumlclassdef) + \
-                   (('.' + self.format) if self.format not in ('yuml', 'png') else '')
-        file_suffix = '.png' if self.format == 'yuml' else '.' + self.format
+                   (('.' + self.format) if self.format not in ('yuml', 'svg') else '')
+        file_suffix = '.svg' if self.format == 'yuml' else '.' + self.format
         if directory:
             self.output_file_name = os.path.join(directory,
                                     camelcase(sorted(classes)[0] if classes else self.schema.name) + file_suffix)
@@ -107,7 +107,7 @@ class YumlGenerator(Generator):
                                      underscore(slot.range) + self.cardinality(slot))
             self.box_generated.add(cn)
         self.referenced.add(cn)
-        return '[' + camelcase(cn) + ('&#124;' + ';'.join(slot_defs) if slot_defs else '') + ']'
+        return '[' + camelcase(cn) + ('|' + ';'.join(slot_defs) if slot_defs else '') + ']'
 
     def class_associations(self, cn: ClassDefinitionName, must_render: bool=False) -> str:
         """ Emit all associations for a focus class.  If none are specified, all classes are generated

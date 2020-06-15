@@ -90,3 +90,6 @@ ENV/
 
 # Apple stuff
 .DS_Store
+
+# Graphviz out is varied enough it isn't worth carrying this for test cases
+tests/test_biolink_model/source/graphviz/

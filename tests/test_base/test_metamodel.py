@@ -24,11 +24,12 @@ class MetaModelTestCase(GeneratorTestCase):
     model_name = 'meta'
     importmap = BIOLINK_IMPORT_MAP
 
+    @unittest.skipIf(True, 'Disable since docs generation is moved to GitHub Actions')
     def test_meta_markdown(self):
         """ Test the markdown generator for the biolink model """
         self.directory_generator('docs', MarkdownGenerator)
 
-    @unittest.skipIf(True, "We still need to figure out what to do here")
+    @unittest.skipIf(False, "We still need to figure out what to do here")
     def test_meta_owl_schema(self):
         """ Test the owl schema generator for the biolink model """
         self.single_file_generator('owl', OwlSchemaGenerator, comparator=GeneratorTestCase.rdf_comparator)

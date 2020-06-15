@@ -7,7 +7,7 @@ usage example and description
 URI: [meta:Example](https://w3id.org/biolink/biolinkml/meta/Example)
 
 
-![img](images/Example.png)
+![img](images/Example.svg)
 
 ## Referenced by class
 

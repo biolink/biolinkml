@@ -1,19 +1,11 @@
-import os
 import unittest
-from types import ModuleType
 
-from jsonasobj import as_json
-
-from biolinkml.generators.jsonldcontextgen import ContextGenerator
-from biolinkml.generators.pythongen import PythonGenerator
-from biolinkml.utils.yamlutils import as_rdf
-from tests.test_issues import sourcedir
-from rdflib import Graph, Literal, URIRef
+from rdflib import Graph
 
 
 class Issue103TestCase(unittest.TestCase):
 
-    @unittest.skipIf(True, "We still need to figure out what to do here")
+    @unittest.skipIf(True, "JSON-LD 1.1 Prefix Issue is still not resolved")
     def test_jsonld_prefix(self):
         test_json = '''
         {
@@ -30,10 +22,10 @@ class Issue103TestCase(unittest.TestCase):
 
         g = Graph().parse(data=test_json, format="json-ld", prefix=True)
         rdfstr = g.serialize(format="turtle").decode()
-        print(rdfstr)
         assert '@prefix CHEBI: <http://purl.obolibrary.org/obo/CHEBI_>' in rdfstr
 
         g = Graph().parse(data=test_json, format="json-ld", prefix=False)
+        rdfstr = g.serialize(format="turtle").decode()
         assert '@prefix CHEBI: <http://purl.obolibrary.org/obo/CHEBI_>' not in rdfstr
 
 
