@@ -24,6 +24,7 @@ class MetaModelTestCase(GeneratorTestCase):
     model_name = 'meta'
     importmap = BIOLINK_IMPORT_MAP
 
+    @unittest.skipIf(True, 'Disable since docs generation is moved to GitHub Actions')
     def test_meta_markdown(self):
         """ Test the markdown generator for the biolink model """
         self.directory_generator('docs', MarkdownGenerator)
