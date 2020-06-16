@@ -1,6 +1,6 @@
+import logging
 import os
 import unittest
-from contextlib import redirect_stderr
 from io import StringIO
 from pprint import pprint
 from typing import Union, TextIO, cast
@@ -29,7 +29,15 @@ class GeneratorTest(Generator):
         self.visit_all_class_slots: bool = True
         self.visits_are_sorted: bool = False
         self.sort_class_slots: bool = False
-        super().__init__(schema, fmt, emit_metadata)
+
+        self.logstream = StringIO()
+        logging.basicConfig()
+        logger = logging.getLogger(self.__class__.__name__)
+        for handler in logger.handlers:
+            logger.removeHandler(handler)
+        logger.addHandler(logging.StreamHandler(self.logstream))
+        logger.setLevel(logging.INFO)
+        super().__init__(schema, fmt, emit_metadata, logger=logger)
 
     def visit_schema(self, **kwargs) -> None:
         self.visited = ['init']
@@ -426,20 +434,13 @@ slots:
 classes:
     class c1:
 """
-        errfile = StringIO()
-        with redirect_stderr(errfile):
-            gen = GeneratorTest(model)
+        gen = GeneratorTest(model)
 
-        # Note: There is something about the PyCharm / UnitTest package that, if you are running a lot of tests, the
-        # output ends up getting redirected to the test runner rather than stderr.  If there is nothing at all, we
-        # will assume that this is the case.
-        if errfile.getvalue().strip():
-            self.assertEqual("""Warning: Shared type and slot names: dup name
-Warning: Shared slot and subset names: dup name
-Warning: Shared type and subset names: dup name""", errfile.getvalue().strip())
-        else:
-            print("*** Warning not tested -- stderr redirect isn't working")
-
+        self.assertEqual("""Shared type and slot names: dup name
+Shared slot and subset names: dup name
+Shared type and subset names: dup name""", gen.logstream.getvalue().strip())
+        gen.logstream.truncate(0)
+        gen.logstream.seek(0)
 
         self.assertEqual('dup_name', gen.formatted_element_name(cast(ElementName, 'dup name'), False))
         self.assertEqual('int', gen.formatted_element_name(cast(ElementName, 'dup name'), True))
@@ -567,16 +568,11 @@ classes:
     class c2:
         is_a: slot s1
 """
-        errfile = StringIO()
-        with redirect_stderr(errfile):
-            gen = GeneratorTest(model)
-        # Note: There is something about the PyCharm / UnitTest package that, if you are running a lot of tests, the
-        # output ends up getting redirected to the test runner rather than stderr.  If there is nothing at all, we
-        # will assume that this is the case.
-        if errfile.getvalue().strip():
-            self.assertEqual("WARNING:GeneratorTest:Shared class and slot names: slot s1", errfile.getvalue().strip())
-        else:
-            print("*** Warning not tested -- stderr redirect isn't working")
+
+        gen = GeneratorTest(model)
+        self.assertEqual("Shared class and slot names: slot s1", gen.logstream.getvalue().strip())
+        gen.logstream.truncate(0)
+        gen.logstream.seek(0)
 
         self.assertEqual(['slot s1'], gen.ancestors(gen.schema.slots['slot s1']))
         self.assertEqual(['slot s2', 'slot s1'], gen.ancestors(gen.schema.slots[cast(ElementName, 'slot s2')]))
@@ -645,23 +641,18 @@ classes:
     def test_meta_neighborhood(self):
         """ Test the neighborhood function in the metamodel """
         gen = GeneratorTest(LOCAL_METAMODEL_YAML_FILE)
-        errfile = StringIO()
-        with redirect_stderr(errfile):
-            gen.neighborhood([cast(ElementName, 'Definition')])
-            # Note: There is something about the PyCharm / UnitTest package that, if you are running a lot of tests, the
-            # output ends up getting redirected to the test runner rather than stderr.  If there is nothing at all, we
-            # will assume that this is the case.
-            if errfile.getvalue().strip():
-                self.assertEqual("Warning: neighborhood(Definition) - Definition is undefined",
-                                 errfile.getvalue().strip())
-            else:
-                print("*** Warning not tested -- stderr redirect isn't working")
+        gen.neighborhood([cast(ElementName, 'Definition')])
+        self.assertEqual("neighborhood(Definition) - Definition is undefined",
+                         gen.logstream.getvalue().strip())
+        gen.logstream.truncate(0)
+        gen.logstream.seek(0)
+
         self.assertEqual(References(
             classrefs={cast(ClassDefinitionName, e) for e in ['class_definition', 'local_name',
                                                               'subset_definition', 'alt_description', 'definition',
                                                               'example', 'slot_definition', 'element']},
             slotrefs={cast(SlotDefinitionName, e) for e in ['is_a', 'apply_to', 'mixins', 'owner']},
-            typerefs={cast(TypeDefinitionName, e) for e in ['uriorcurie', 'boolean', 'uri', 'ncname', 'string']},
+            typerefs={cast(TypeDefinitionName, e) for e in ['uriorcurie', 'boolean', 'uri', 'ncname', 'datetime', 'string']},
             subsetrefs=set()), gen.neighborhood('definition'))
 
 
