@@ -7,7 +7,7 @@ Represents a protein that is a specific isoform of the canonical or reference RN
 URI: [biolink:RNAProductIsoform](https://w3id.org/biolink/vocab/RNAProductIsoform)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[RNAProductIsoform&#124;name(i):symbol_type;has_biological_sequence(i):biological_sequence%20%3F;id(i):identifier_type;category(i):iri_type%20%2B],%20\[RNAProductIsoform]uses%20-.->\[GeneProductIsoform],%20\[RNAProduct]^-\[RNAProductIsoform])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon]<in%20taxon(i)%200..*-%20[RNAProductIsoform&#124;name(i):symbol_type;has_biological_sequence(i):biological_sequence%20%3F;id(i):identifier_type;category(i):iri_type%20%2B],%20[RNAProductIsoform]uses%20-.->[GeneProductIsoform],%20[RNAProduct]^-[RNAProductIsoform])
 
 ## Parents
 
