@@ -1,6 +1,10 @@
 CHANGES
 =======
 
+* Meta model update to version 1.4.4
+* Use log file for warnings test
+* pypi release 1.5.2
+
 v1.5.2
 ------
 
@@ -32,6 +36,8 @@ v1.5.2
 * Renable unit test as it appears to work fine
 * Fix part of an issue involving local file paths
 * Yuml generator output now defaults to 'svg' instead of 'png'
+* proposed new metaslot for string serialization, #128
+* proposed new metaslots
 * Fix problem w/ YUML generator
 * Fix for RDFLIB 5.x series -- force Turtle serializer to emit prefixes
 * Fix some issues w/ the notebook tests
