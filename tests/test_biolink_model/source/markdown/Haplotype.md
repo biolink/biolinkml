@@ -7,7 +7,7 @@ A set of zero or more Alleles on a single instance of a Sequence[VMC]
 URI: [biolink:Haplotype](https://w3id.org/biolink/vocab/Haplotype)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[Haplotype&#124;has_biological_sequence(i):biological_sequence%20%3F;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],%20\[GenomicEntity]^-\[Haplotype])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon]<in%20taxon(i)%200..*-%20[Haplotype&#124;has_biological_sequence(i):biological_sequence%20%3F;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],%20[GenomicEntity]^-[Haplotype])
 
 ## Parents
 

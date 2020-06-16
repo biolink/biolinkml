@@ -7,7 +7,7 @@
 URI: [biolink:Carbohydrate](https://w3id.org/biolink/vocab/Carbohydrate)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[OrganismTaxon]<in%20taxon(i)%200..*-%20\[Carbohydrate&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],%20\[ChemicalSubstance]^-\[Carbohydrate])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon]<in%20taxon(i)%200..*-%20[Carbohydrate&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],%20[ChemicalSubstance]^-[Carbohydrate])
 
 ## Parents
 

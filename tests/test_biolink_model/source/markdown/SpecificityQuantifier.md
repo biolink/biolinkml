@@ -7,7 +7,7 @@
 URI: [biolink:SpecificityQuantifier](https://w3id.org/biolink/vocab/SpecificityQuantifier)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[SpecificityQuantifier]^-\[PathognomonicityQuantifier],%20\[RelationshipQuantifier]^-\[SpecificityQuantifier])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SpecificityQuantifier]^-[PathognomonicityQuantifier],%20[RelationshipQuantifier]^-[SpecificityQuantifier])
 
 ## Parents
 

@@ -7,7 +7,7 @@ One or more causally connected executions of molecular functions
 URI: [biolink:BiologicalProcess](https://w3id.org/biolink/vocab/BiologicalProcess)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[BiologicalProcessOrActivity]<enabled%20by(i)%200..*-%20\[BiologicalProcess&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],%20\[MacromolecularMachineToBiologicalProcessAssociation]-%20object%201..1>\[BiologicalProcess],%20\[BiologicalProcess]uses%20-.->\[Occurrent],%20\[BiologicalProcess]^-\[PhysiologicalProcess],%20\[BiologicalProcess]^-\[Pathway],%20\[BiologicalProcessOrActivity]^-\[BiologicalProcess])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[BiologicalProcessOrActivity]<enabled%20by(i)%200..*-%20[BiologicalProcess&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],%20[MacromolecularMachineToBiologicalProcessAssociation]-%20object%201..1>[BiologicalProcess],%20[BiologicalProcess]uses%20-.->[Occurrent],%20[BiologicalProcess]^-[PhysiologicalProcess],%20[BiologicalProcess]^-[Pathway],%20[BiologicalProcessOrActivity]^-[BiologicalProcess])
 
 ## Parents
 
