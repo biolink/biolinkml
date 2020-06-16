@@ -22,7 +22,7 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 from includes.types import String
 
-metamodel_version = "1.4.3"
+metamodel_version = "1.4.4"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs

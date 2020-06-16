@@ -1,22 +1,23 @@
 @prefix : <https://w3id.org/biolink/biolinkml/meta/> .
 @prefix OIO: <http://www.geneontology.org/formats/oboInOwl#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
 @prefix biolinkml: <https://w3id.org/biolink/biolinkml/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix meta: <https://w3id.org/biolink/biolinkml/meta/> .
 @prefix metatype: <https://w3id.org/biolink/biolinkml/type/> .
+@prefix oslc: <http://open-services.net/ns/core#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix pav: <http://purl.org/pav/> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
 @prefix shex: <http://www.w3.org/ns/shex#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 meta:metamodel a meta:SchemaDefinition ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "Biolink Schema Metamodel" ;
-    pav:version "1.4.3" ;
+    pav:version "1.4.4" ;
     skos:definition "A metamodel for defining biolink related schemas" ;
     meta:classes meta:AltDescription,
         meta:ClassDefinition,
@@ -41,21 +42,27 @@ meta:metamodel a meta:SchemaDefinition ;
         "rdfs",
         "skos",
         "xsd" ;
-    meta:generation_date "2020-02-27 13:20"^^xsd:dateTime ;
+    meta:generation_date "2020-06-16 12:17"^^xsd:dateTime ;
     meta:id biolinkml:meta ;
     meta:imports biolinkml:mappings,
         biolinkml:types ;
-    meta:metamodel_version "1.4.3" ;
+    meta:metamodel_version "1.4.4" ;
     meta:prefixes [ meta:prefix_prefix "biolinkml" ;
             meta:prefix_reference biolinkml: ],
-        [ meta:prefix_prefix "OIO" ;
-            meta:prefix_reference OIO: ],
+        [ meta:prefix_prefix "pav" ;
+            meta:prefix_reference pav: ],
+        [ meta:prefix_prefix "bibo" ;
+            meta:prefix_reference bibo: ],
+        [ meta:prefix_prefix "oslc" ;
+            meta:prefix_reference oslc: ],
+        [ meta:prefix_prefix "schema" ;
+            meta:prefix_reference schema: ],
         [ meta:prefix_prefix "skos" ;
             meta:prefix_reference skos: ],
+        [ meta:prefix_prefix "OIO" ;
+            meta:prefix_reference OIO: ],
         [ meta:prefix_prefix "meta" ;
-            meta:prefix_reference meta: ],
-        [ meta:prefix_prefix "pav" ;
-            meta:prefix_reference pav: ] ;
+            meta:prefix_reference meta: ] ;
     meta:slots meta:abstract,
         meta:alias,
         meta:aliases,
@@ -71,6 +78,8 @@ meta:metamodel a meta:SchemaDefinition ;
         meta:classes,
         meta:close_mappings,
         meta:comments,
+        meta:created_by,
+        meta:created_on,
         meta:default_curi_maps,
         meta:default_prefix,
         meta:default_range,
@@ -100,18 +109,23 @@ meta:metamodel a meta:SchemaDefinition ;
         meta:is_class_field,
         meta:is_usage_slot,
         meta:key,
+        meta:last_updated_on,
         meta:license,
         meta:local_name_source,
         meta:local_name_value,
         meta:local_names,
         meta:mappings,
+        meta:maximum_value,
         meta:metamodel_version,
+        meta:minimum_value,
         meta:mixin,
         meta:mixins,
+        meta:modified_by,
         meta:multivalued,
         meta:name,
         meta:notes,
         meta:owner,
+        meta:pattern,
         meta:prefix_prefix,
         meta:prefix_reference,
         meta:prefixes,
@@ -133,6 +147,8 @@ meta:metamodel a meta:SchemaDefinition ;
         meta:source_file,
         meta:source_file_date,
         meta:source_file_size,
+        meta:status,
+        meta:string_serialization,
         meta:subclass_of,
         meta:subproperty_of,
         meta:subsets,
@@ -148,8 +164,8 @@ meta:metamodel a meta:SchemaDefinition ;
         meta:values_from,
         meta:version ;
     meta:source_file "meta.yaml" ;
-    meta:source_file_date "Thu Feb 27 13:02:54 2020"^^xsd:dateTime ;
-    meta:source_file_size 23490 ;
+    meta:source_file_date "Tue Jun 16 11:30:58 2020"^^xsd:dateTime ;
+    meta:source_file_size 26260 ;
     meta:subsets meta:owl ;
     meta:types meta:boolean,
         meta:date,
@@ -252,14 +268,6 @@ meta:class_definition_mixins a meta:SlotDefinition ;
     meta:range meta:ClassDefinition ;
     meta:slot_uri meta:mixins .
 
-meta:integer a meta:TypeDefinition ;
-    skos:definition "An integer" ;
-    skos:inScheme biolinkml:types ;
-    meta:base "int" ;
-    meta:definition_uri metatype:Integer ;
-    meta:imported_from "biolinkml:types" ;
-    meta:uri xsd:integer .
-
 meta:slot_definition_apply_to a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:alias "apply_to" ;
@@ -314,15 +322,6 @@ meta:alt_description_text a meta:SlotDefinition ;
     meta:range meta:string ;
     meta:required true ;
     meta:slot_uri meta:description .
-
-meta:datetime a meta:TypeDefinition ;
-    skos:definition "The combination of a date and time" ;
-    skos:inScheme biolinkml:types ;
-    meta:base "XSDDateTime" ;
-    meta:definition_uri metatype:Datetime ;
-    meta:imported_from "biolinkml:types" ;
-    meta:repr "str" ;
-    meta:uri xsd:dateTime .
 
 meta:inverse a meta:SlotDefinition ;
     skos:definition "indicates that any instance of d s r implies that there is also an instance of r s' d" ;
@@ -445,7 +444,8 @@ meta:value_description a meta:SlotDefinition ;
 meta:version a meta:SlotDefinition ;
     skos:definition "particular version of schema" ;
     skos:inScheme biolinkml:meta ;
-    skos:mappingRelation pav:version ;
+    skos:mappingRelation pav:version,
+        schema:schemaVersion ;
     meta:definition_uri meta:version ;
     meta:domain meta:SchemaDefinition ;
     meta:owner meta:SchemaDefinition ;
@@ -648,6 +648,14 @@ meta:inlined a meta:SlotDefinition ;
     meta:range meta:boolean ;
     meta:slot_uri meta:inlined .
 
+meta:integer a meta:TypeDefinition ;
+    skos:definition "An integer" ;
+    skos:inScheme biolinkml:types ;
+    meta:base "int" ;
+    meta:definition_uri metatype:Integer ;
+    meta:imported_from "biolinkml:types" ;
+    meta:uri xsd:integer .
+
 meta:is_class_field a meta:SlotDefinition ;
     skos:definition "indicates that any instance, i,  the domain of this slot will include an assert of i s range" ;
     skos:inScheme biolinkml:meta ;
@@ -691,6 +699,16 @@ meta:local_name_source a meta:SlotDefinition ;
     meta:required true ;
     meta:slot_uri meta:local_name_source .
 
+meta:maximum_value a meta:SlotDefinition ;
+    skos:definition "for slots with ranges of type number, the value must be equal to or lowe than this" ;
+    skos:inScheme biolinkml:meta ;
+    meta:definition_uri meta:maximum_value ;
+    meta:domain meta:SlotDefinition ;
+    meta:inherited true ;
+    meta:owner meta:SlotDefinition ;
+    meta:range meta:integer ;
+    meta:slot_uri meta:maximum_value .
+
 meta:metamodel_version a meta:SlotDefinition ;
     OIO:inSubset meta:owl ;
     skos:definition "Version of the metamodel used to load the schema" ;
@@ -701,6 +719,16 @@ meta:metamodel_version a meta:SlotDefinition ;
     meta:range meta:string ;
     meta:readonly "supplied by the schema loader" ;
     meta:slot_uri meta:metamodel_version .
+
+meta:minimum_value a meta:SlotDefinition ;
+    skos:definition "for slots with ranges of type number, the value must be equal to or higher than this" ;
+    skos:inScheme biolinkml:meta ;
+    meta:definition_uri meta:minimum_value ;
+    meta:domain meta:SlotDefinition ;
+    meta:inherited true ;
+    meta:owner meta:SlotDefinition ;
+    meta:range meta:integer ;
+    meta:slot_uri meta:minimum_value .
 
 meta:multivalued a meta:SlotDefinition ;
     skos:definition "true means that slot can have more than one value" ;
@@ -721,6 +749,16 @@ meta:owner a meta:SlotDefinition ;
     meta:range meta:Definition ;
     meta:readonly "filled in by loader -- either class domain or slot domain" ;
     meta:slot_uri meta:owner .
+
+meta:pattern a meta:SlotDefinition ;
+    skos:definition "the string value of the slot must conform to this regular expression" ;
+    skos:inScheme biolinkml:meta ;
+    meta:definition_uri meta:pattern ;
+    meta:domain meta:SlotDefinition ;
+    meta:inherited true ;
+    meta:owner meta:SlotDefinition ;
+    meta:range meta:string ;
+    meta:slot_uri meta:pattern .
 
 meta:prefix_prefix a meta:SlotDefinition ;
     skos:definition "the nsname (sans ':' for a given prefix)" ;
@@ -870,6 +908,19 @@ meta:source_file_size a meta:SlotDefinition ;
     meta:readonly "supplied by the schema loader" ;
     meta:slot_uri meta:source_file_size .
 
+meta:string_serialization a meta:SlotDefinition ;
+    rdfs:seeAlso <https://github.com/biolink/biolinkml/issues/128> ;
+    skos:definition """Used on a slot that stores the string serialization of the containing object. The syntax follows python formatted strings, with slot names enclosed in {}s. These are expanded using the values of those slots.
+We call the slot with the serialization the s-slot, the slots used in the {}s are v-slots. If both s-slots and v-slots are populated on an object then the value of the s-slot should correspond to the expansion.
+Implementations of frameworks may choose to use this property to either (a) PARSE: implement automated normalizations by parsing denormalized strings into complex objects (b) GENERARE: implement automated to_string labeling of complex objects
+For example, a Measurement class may have 3 fields: unit, value, and string_value. The string_value slot may have a string_serialization of {value}{unit} such that if unit=cm and value=2, the value of string_value shouldd be 2cm""" ;
+    skos:inScheme biolinkml:meta ;
+    meta:definition_uri meta:string_serialization ;
+    meta:domain meta:SlotDefinition ;
+    meta:owner meta:SlotDefinition ;
+    meta:range meta:string ;
+    meta:slot_uri meta:string_serialization .
+
 meta:subsets a meta:SlotDefinition ;
     skos:definition "list of subsets referenced in this model" ;
     skos:inScheme biolinkml:meta ;
@@ -924,6 +975,15 @@ meta:union_of a meta:SlotDefinition ;
     meta:range meta:ClassDefinition ;
     meta:slot_uri meta:union_of .
 
+meta:datetime a meta:TypeDefinition ;
+    skos:definition "The combination of a date and time" ;
+    skos:inScheme biolinkml:types ;
+    meta:base "XSDDateTime" ;
+    meta:definition_uri metatype:Datetime ;
+    meta:imported_from "biolinkml:types" ;
+    meta:repr "str" ;
+    meta:uri xsd:dateTime .
+
 meta:slots a meta:SlotDefinition ;
     skos:definition "list of slot names that are applicable to a class" ;
     skos:inScheme biolinkml:meta ;
@@ -954,6 +1014,8 @@ meta:SubsetDefinition a meta:ClassDefinition ;
         meta:alt_descriptions,
         meta:close_mappings,
         meta:comments,
+        meta:created_by,
+        meta:created_on,
         meta:definition_uri,
         meta:deprecated,
         meta:deprecated_element_has_exact_replacement,
@@ -965,12 +1027,15 @@ meta:SubsetDefinition a meta:ClassDefinition ;
         meta:id_prefixes,
         meta:imported_from,
         meta:in_subset,
+        meta:last_updated_on,
         meta:local_names,
         meta:mappings,
+        meta:modified_by,
         meta:name,
         meta:notes,
         meta:related_mappings,
         meta:see_also,
+        meta:status,
         meta:todos .
 
 meta:abstract a meta:SlotDefinition ;
@@ -1064,14 +1129,6 @@ meta:mixins a meta:SlotDefinition ;
     meta:range meta:Definition ;
     meta:slot_uri meta:mixins .
 
-meta:Example a meta:ClassDefinition ;
-    skos:definition "usage example and description" ;
-    skos:inScheme biolinkml:meta ;
-    meta:class_uri meta:Example ;
-    meta:definition_uri meta:Example ;
-    meta:slots meta:value,
-        meta:value_description .
-
 meta:aliases a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     skos:mappingRelation skos:altLabel ;
@@ -1145,7 +1202,8 @@ meta:name a meta:SlotDefinition ;
     OIO:inSubset meta:owl ;
     skos:definition "the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class." ;
     skos:inScheme biolinkml:meta ;
-    skos:mappingRelation rdfs:label ;
+    skos:mappingRelation schema:name,
+        rdfs:label ;
     meta:definition_uri meta:name ;
     meta:domain meta:Element ;
     meta:identifier true ;
@@ -1191,6 +1249,14 @@ meta:see_also a meta:SlotDefinition ;
     meta:range meta:uriorcurie ;
     meta:slot_uri rdfs:seeAlso .
 
+meta:Example a meta:ClassDefinition ;
+    skos:definition "usage example and description" ;
+    skos:inScheme biolinkml:meta ;
+    meta:class_uri meta:Example ;
+    meta:definition_uri meta:Example ;
+    meta:slots meta:value,
+        meta:value_description .
+
 meta:alt_descriptions a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:alt_descriptions ;
@@ -1200,6 +1266,26 @@ meta:alt_descriptions a meta:SlotDefinition ;
     meta:owner meta:Element ;
     meta:range meta:AltDescription ;
     meta:slot_uri meta:alt_descriptions .
+
+meta:created_by a meta:SlotDefinition ;
+    skos:definition "agent that created the element" ;
+    skos:inScheme biolinkml:meta ;
+    skos:mappingRelation pav:createdBy ;
+    meta:definition_uri meta:created_by ;
+    meta:domain meta:Element ;
+    meta:owner meta:created_by ;
+    meta:range meta:uriorcurie ;
+    meta:slot_uri pav:createdBy .
+
+meta:created_on a meta:SlotDefinition ;
+    skos:definition "time at which the element was created" ;
+    skos:inScheme biolinkml:meta ;
+    skos:mappingRelation pav:createdOn ;
+    meta:definition_uri meta:created_on ;
+    meta:domain meta:Element ;
+    meta:owner meta:created_on ;
+    meta:range meta:datetime ;
+    meta:slot_uri pav:createdOn .
 
 meta:definition_uri a meta:SlotDefinition ;
     skos:definition "the \"native\" URI of the element" ;
@@ -1273,6 +1359,16 @@ meta:imported_from a meta:SlotDefinition ;
     meta:readonly "supplied by the schema loader" ;
     meta:slot_uri meta:imported_from .
 
+meta:last_updated_on a meta:SlotDefinition ;
+    skos:definition "time at which the element was last updated" ;
+    skos:inScheme biolinkml:meta ;
+    skos:mappingRelation pav:lastUpdatedOn ;
+    meta:definition_uri meta:last_updated_on ;
+    meta:domain meta:Element ;
+    meta:owner meta:last_updated_on ;
+    meta:range meta:datetime ;
+    meta:slot_uri pav:lastUpdatedOn .
+
 meta:local_names a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:local_names ;
@@ -1282,6 +1378,28 @@ meta:local_names a meta:SlotDefinition ;
     meta:owner meta:Element ;
     meta:range meta:LocalName ;
     meta:slot_uri meta:local_names .
+
+meta:modified_by a meta:SlotDefinition ;
+    skos:definition "agent that modified the element" ;
+    skos:inScheme biolinkml:meta ;
+    skos:mappingRelation oslc:modifiedBy ;
+    meta:definition_uri meta:modified_by ;
+    meta:domain meta:Element ;
+    meta:owner meta:modified_by ;
+    meta:range meta:uriorcurie ;
+    meta:slot_uri oslc:modifiedBy .
+
+meta:status a meta:SlotDefinition ;
+    skos:definition "status of the element" ;
+    skos:inScheme biolinkml:meta ;
+    skos:mappingRelation bibo:status ;
+    meta:definition_uri meta:status ;
+    meta:domain meta:Element ;
+    meta:examples [ a meta:Example ;
+            skos:example "bibo:draft" ] ;
+    meta:owner meta:status ;
+    meta:range meta:uriorcurie ;
+    meta:slot_uri bibo:status .
 
 meta:todos a meta:SlotDefinition ;
     skos:definition "Outstanding issue that needs resolution" ;
@@ -1350,6 +1468,8 @@ meta:Definition a meta:ClassDefinition ;
         meta:apply_to,
         meta:close_mappings,
         meta:comments,
+        meta:created_by,
+        meta:created_on,
         meta:definition_uri,
         meta:deprecated,
         meta:deprecated_element_has_exact_replacement,
@@ -1362,14 +1482,17 @@ meta:Definition a meta:ClassDefinition ;
         meta:imported_from,
         meta:in_subset,
         meta:is_a,
+        meta:last_updated_on,
         meta:local_names,
         meta:mappings,
         meta:mixin,
         meta:mixins,
+        meta:modified_by,
         meta:name,
         meta:notes,
         meta:related_mappings,
         meta:see_also,
+        meta:status,
         meta:todos,
         meta:values_from .
 
@@ -1384,6 +1507,8 @@ meta:TypeDefinition a meta:ClassDefinition ;
         meta:base,
         meta:close_mappings,
         meta:comments,
+        meta:created_by,
+        meta:created_on,
         meta:definition_uri,
         meta:deprecated,
         meta:deprecated_element_has_exact_replacement,
@@ -1395,13 +1520,16 @@ meta:TypeDefinition a meta:ClassDefinition ;
         meta:id_prefixes,
         meta:imported_from,
         meta:in_subset,
+        meta:last_updated_on,
         meta:local_names,
         meta:mappings,
+        meta:modified_by,
         meta:name,
         meta:notes,
         meta:related_mappings,
         meta:repr,
         meta:see_also,
+        meta:status,
         meta:todos,
         meta:type_uri,
         meta:typeof .
@@ -1429,6 +1557,8 @@ meta:ClassDefinition a meta:ClassDefinition ;
         meta:class_uri,
         meta:close_mappings,
         meta:comments,
+        meta:created_by,
+        meta:created_on,
         meta:defining_slots,
         meta:definition_uri,
         meta:deprecated,
@@ -1441,15 +1571,18 @@ meta:ClassDefinition a meta:ClassDefinition ;
         meta:id_prefixes,
         meta:imported_from,
         meta:in_subset,
+        meta:last_updated_on,
         meta:local_names,
         meta:mappings,
         meta:mixin,
+        meta:modified_by,
         meta:name,
         meta:notes,
         meta:related_mappings,
         meta:see_also,
         meta:slot_usage,
         meta:slots,
+        meta:status,
         meta:subclass_of,
         meta:todos,
         meta:union_of,
@@ -1466,6 +1599,8 @@ meta:SchemaDefinition a meta:ClassDefinition ;
         meta:classes,
         meta:close_mappings,
         meta:comments,
+        meta:created_by,
+        meta:created_on,
         meta:default_curi_maps,
         meta:default_prefix,
         meta:default_range,
@@ -1484,10 +1619,12 @@ meta:SchemaDefinition a meta:ClassDefinition ;
         meta:imported_from,
         meta:imports,
         meta:in_subset,
+        meta:last_updated_on,
         meta:license,
         meta:local_names,
         meta:mappings,
         meta:metamodel_version,
+        meta:modified_by,
         meta:name,
         meta:notes,
         meta:prefixes,
@@ -1497,6 +1634,7 @@ meta:SchemaDefinition a meta:ClassDefinition ;
         meta:source_file,
         meta:source_file_date,
         meta:source_file_size,
+        meta:status,
         meta:subsets,
         meta:title,
         meta:todos,
@@ -1513,6 +1651,8 @@ meta:Element a meta:ClassDefinition ;
         meta:alt_descriptions,
         meta:close_mappings,
         meta:comments,
+        meta:created_by,
+        meta:created_on,
         meta:definition_uri,
         meta:deprecated,
         meta:deprecated_element_has_exact_replacement,
@@ -1524,12 +1664,15 @@ meta:Element a meta:ClassDefinition ;
         meta:id_prefixes,
         meta:imported_from,
         meta:in_subset,
+        meta:last_updated_on,
         meta:local_names,
         meta:mappings,
+        meta:modified_by,
         meta:name,
         meta:notes,
         meta:related_mappings,
         meta:see_also,
+        meta:status,
         meta:todos .
 
 meta:SlotDefinition a meta:ClassDefinition ;
@@ -1544,6 +1687,8 @@ meta:SlotDefinition a meta:ClassDefinition ;
         meta:alt_descriptions,
         meta:close_mappings,
         meta:comments,
+        meta:created_by,
+        meta:created_on,
         meta:definition_uri,
         meta:deprecated,
         meta:deprecated_element_has_exact_replacement,
@@ -1564,13 +1709,18 @@ meta:SlotDefinition a meta:ClassDefinition ;
         meta:is_class_field,
         meta:is_usage_slot,
         meta:key,
+        meta:last_updated_on,
         meta:local_names,
         meta:mappings,
+        meta:maximum_value,
+        meta:minimum_value,
         meta:mixin,
+        meta:modified_by,
         meta:multivalued,
         meta:name,
         meta:notes,
         meta:owner,
+        meta:pattern,
         meta:range,
         meta:readonly,
         meta:related_mappings,
@@ -1582,6 +1732,8 @@ meta:SlotDefinition a meta:ClassDefinition ;
         meta:slot_definition_is_a,
         meta:slot_definition_mixins,
         meta:slot_uri,
+        meta:status,
+        meta:string_serialization,
         meta:subproperty_of,
         meta:symmetric,
         meta:todos,

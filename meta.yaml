@@ -3,7 +3,7 @@ title: Biolink Schema Metamodel
 name: metamodel
 description: A metamodel for defining biolink related schemas
 license: https://creativecommons.org/publicdomain/zero/1.0/
-version: 1.4.3
+version: 1.4.4
 
 prefixes:
   meta: https://w3id.org/biolink/biolinkml/meta/
@@ -607,13 +607,13 @@ slots:
 
   minimum_value:
     domain: slot_definition
-    range: number
+    range: integer
     description: for slots with ranges of type number, the value must be equal to or higher than this
     inherited: true
 
   maximum_value:
     domain: slot_definition
-    range: number
+    range: integer
     description: for slots with ranges of type number, the value must be equal to or lowe than this
     inherited: true
 
@@ -859,7 +859,7 @@ classes:
       - values_from
       - created_by
       - created_on
-      - last_updated on
+      - last_updated_on
       - modified_by
       - status
 

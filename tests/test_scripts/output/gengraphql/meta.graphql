@@ -34,6 +34,11 @@ type ClassDefinition
     mixins: [ClassDefinition]
     applyTo: [ClassDefinition]
     valuesFrom: [Uriorcurie]
+    createdBy: Uriorcurie
+    createdOn: Datetime
+    lastUpdatedOn: Datetime
+    modifiedBy: Uriorcurie
+    status: Uriorcurie
     slots: [SlotDefinition]
     slotUsage: [SlotDefinition]
     classUri: Uriorcurie
@@ -72,6 +77,11 @@ interface Definition
     mixins: [Definition]
     applyTo: [Definition]
     valuesFrom: [Uriorcurie]
+    createdBy: Uriorcurie
+    createdOn: Datetime
+    lastUpdatedOn: Datetime
+    modifiedBy: Uriorcurie
+    status: Uriorcurie
   }
 
 interface Element
@@ -98,6 +108,11 @@ interface Element
     relatedMappings: [Uriorcurie]
     deprecatedElementHasExactReplacement: Uriorcurie
     deprecatedElementHasPossibleReplacement: Uriorcurie
+    createdBy: Uriorcurie
+    createdOn: Datetime
+    lastUpdatedOn: Datetime
+    modifiedBy: Uriorcurie
+    status: Uriorcurie
   }
 
 type Example
@@ -142,6 +157,11 @@ type SchemaDefinition
     relatedMappings: [Uriorcurie]
     deprecatedElementHasExactReplacement: Uriorcurie
     deprecatedElementHasPossibleReplacement: Uriorcurie
+    createdBy: Uriorcurie
+    createdOn: Datetime
+    lastUpdatedOn: Datetime
+    modifiedBy: Uriorcurie
+    status: Uriorcurie
     id: Uri!
     title: String
     version: String
@@ -193,6 +213,11 @@ type SlotDefinition
     mixins: [SlotDefinition]
     applyTo: [SlotDefinition]
     valuesFrom: [Uriorcurie]
+    createdBy: Uriorcurie
+    createdOn: Datetime
+    lastUpdatedOn: Datetime
+    modifiedBy: Uriorcurie
+    status: Uriorcurie
     singularName: String
     domain: ClassDefinition
     range: Element
@@ -213,6 +238,10 @@ type SlotDefinition
     isClassField: Boolean
     role: String
     isUsageSlot: Boolean
+    minimumValue: Integer
+    maximumValue: Integer
+    pattern: String
+    stringSerialization: String
   }
 
 type SubsetDefinition
@@ -239,6 +268,11 @@ type SubsetDefinition
     relatedMappings: [Uriorcurie]
     deprecatedElementHasExactReplacement: Uriorcurie
     deprecatedElementHasPossibleReplacement: Uriorcurie
+    createdBy: Uriorcurie
+    createdOn: Datetime
+    lastUpdatedOn: Datetime
+    modifiedBy: Uriorcurie
+    status: Uriorcurie
   }
 
 type TypeDefinition
@@ -265,6 +299,11 @@ type TypeDefinition
     relatedMappings: [Uriorcurie]
     deprecatedElementHasExactReplacement: Uriorcurie
     deprecatedElementHasPossibleReplacement: Uriorcurie
+    createdBy: Uriorcurie
+    createdOn: Datetime
+    lastUpdatedOn: Datetime
+    modifiedBy: Uriorcurie
+    status: Uriorcurie
     typeof: TypeDefinition
     base: String
     uri: Uriorcurie

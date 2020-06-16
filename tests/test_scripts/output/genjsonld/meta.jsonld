@@ -3,7 +3,7 @@
   "description": "A metamodel for defining biolink related schemas",
   "id": "https://w3id.org/biolink/biolinkml/meta",
   "title": "Biolink Schema Metamodel",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "imports": [
     "biolinkml:types",
     "biolinkml:mappings"
@@ -29,6 +29,18 @@
     {
       "prefix_prefix": "pav",
       "prefix_reference": "http://purl.org/pav/"
+    },
+    {
+      "prefix_prefix": "oslc",
+      "prefix_reference": "http://open-services.net/ns/core#"
+    },
+    {
+      "prefix_prefix": "schema",
+      "prefix_reference": "http://schema.org/"
+    },
+    {
+      "prefix_prefix": "bibo",
+      "prefix_reference": "http://purl.org/ontology/bibo/"
     }
   ],
   "emit_prefixes": [
@@ -210,7 +222,8 @@
       "name": "name",
       "definition_uri": "meta:name",
       "mappings": [
-        "rdfs:label"
+        "rdfs:label",
+        "schema:name"
       ],
       "description": "the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class.",
       "in_subset": [
@@ -407,6 +420,82 @@
       "type": "SlotDefinition"
     },
     {
+      "name": "created_by",
+      "definition_uri": "meta:created_by",
+      "mappings": [
+        "pav:createdBy"
+      ],
+      "description": "agent that created the element",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "Element",
+      "range": "uriorcurie",
+      "slot_uri": "http://purl.org/pav/createdBy",
+      "owner": "created_by",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "created_on",
+      "definition_uri": "meta:created_on",
+      "mappings": [
+        "pav:createdOn"
+      ],
+      "description": "time at which the element was created",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "Element",
+      "range": "datetime",
+      "slot_uri": "http://purl.org/pav/createdOn",
+      "owner": "created_on",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "last_updated_on",
+      "definition_uri": "meta:last_updated_on",
+      "mappings": [
+        "pav:lastUpdatedOn"
+      ],
+      "description": "time at which the element was last updated",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "Element",
+      "range": "datetime",
+      "slot_uri": "http://purl.org/pav/lastUpdatedOn",
+      "owner": "last_updated_on",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "modified_by",
+      "definition_uri": "meta:modified_by",
+      "mappings": [
+        "oslc:modifiedBy"
+      ],
+      "description": "agent that modified the element",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "Element",
+      "range": "uriorcurie",
+      "slot_uri": "http://open-services.net/ns/core#modifiedBy",
+      "owner": "modified_by",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "status",
+      "definition_uri": "meta:status",
+      "mappings": [
+        "bibo:status"
+      ],
+      "description": "status of the element",
+      "examples": [
+        {
+          "value": "bibo:draft",
+          "type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "Element",
+      "range": "uriorcurie",
+      "slot_uri": "http://purl.org/ontology/bibo/status",
+      "owner": "status",
+      "type": "SlotDefinition"
+    },
+    {
       "name": "is_a",
       "definition_uri": "meta:is_a",
       "description": "specifies single-inheritance between classes or slots. While multiple inheritance is not allowed, mixins can be provided effectively providing the same thing. The semantics are the same when translated to formalisms that allow MI (e.g. RDFS/OWL). When translating to a SI framework (e.g. java classes, python classes) then is a is used. When translating a framework without polymorphism (e.g. json-schema, solr document schema) then is a and mixins are recursively unfolded",
@@ -521,7 +610,8 @@
       "name": "version",
       "definition_uri": "meta:version",
       "mappings": [
-        "pav:version"
+        "pav:version",
+        "schema:schemaVersion"
       ],
       "description": "particular version of schema",
       "from_schema": "https://w3id.org/biolink/biolinkml/meta",
@@ -1069,6 +1159,56 @@
       "type": "SlotDefinition"
     },
     {
+      "name": "minimum_value",
+      "definition_uri": "meta:minimum_value",
+      "description": "for slots with ranges of type number, the value must be equal to or higher than this",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SlotDefinition",
+      "range": "integer",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/minimum_value",
+      "inherited": true,
+      "owner": "SlotDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "maximum_value",
+      "definition_uri": "meta:maximum_value",
+      "description": "for slots with ranges of type number, the value must be equal to or lowe than this",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SlotDefinition",
+      "range": "integer",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/maximum_value",
+      "inherited": true,
+      "owner": "SlotDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "pattern",
+      "definition_uri": "meta:pattern",
+      "description": "the string value of the slot must conform to this regular expression",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SlotDefinition",
+      "range": "string",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/pattern",
+      "inherited": true,
+      "owner": "SlotDefinition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "string_serialization",
+      "definition_uri": "meta:string_serialization",
+      "description": "Used on a slot that stores the string serialization of the containing object. The syntax follows python formatted strings, with slot names enclosed in {}s. These are expanded using the values of those slots.\nWe call the slot with the serialization the s-slot, the slots used in the {}s are v-slots. If both s-slots and v-slots are populated on an object then the value of the s-slot should correspond to the expansion.\nImplementations of frameworks may choose to use this property to either (a) PARSE: implement automated normalizations by parsing denormalized strings into complex objects (b) GENERARE: implement automated to_string labeling of complex objects\nFor example, a Measurement class may have 3 fields: unit, value, and string_value. The string_value slot may have a string_serialization of {value}{unit} such that if unit=cm and value=2, the value of string_value shouldd be 2cm",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "see_also": [
+        "https://github.com/biolink/biolinkml/issues/128"
+      ],
+      "domain": "SlotDefinition",
+      "range": "string",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/string_serialization",
+      "owner": "SlotDefinition",
+      "type": "SlotDefinition"
+    },
+    {
       "name": "typeof",
       "definition_uri": "meta:typeof",
       "description": "Names a parent type",
@@ -1490,7 +1630,12 @@
         "close_mappings",
         "related_mappings",
         "deprecated_element_has_exact_replacement",
-        "deprecated_element_has_possible_replacement"
+        "deprecated_element_has_possible_replacement",
+        "created_by",
+        "created_on",
+        "last_updated_on",
+        "modified_by",
+        "status"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/Element",
       "type": "ClassDefinition"
@@ -1524,6 +1669,11 @@
         "related_mappings",
         "deprecated_element_has_exact_replacement",
         "deprecated_element_has_possible_replacement",
+        "created_by",
+        "created_on",
+        "last_updated_on",
+        "modified_by",
+        "status",
         "id",
         "title",
         "version",
@@ -1576,6 +1726,11 @@
         "related_mappings",
         "deprecated_element_has_exact_replacement",
         "deprecated_element_has_possible_replacement",
+        "created_by",
+        "created_on",
+        "last_updated_on",
+        "modified_by",
+        "status",
         "typeof",
         "base",
         "type_uri",
@@ -1612,7 +1767,12 @@
         "close_mappings",
         "related_mappings",
         "deprecated_element_has_exact_replacement",
-        "deprecated_element_has_possible_replacement"
+        "deprecated_element_has_possible_replacement",
+        "created_by",
+        "created_on",
+        "last_updated_on",
+        "modified_by",
+        "status"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/SubsetDefinition",
       "type": "ClassDefinition"
@@ -1652,7 +1812,12 @@
         "mixin",
         "mixins",
         "apply_to",
-        "values_from"
+        "values_from",
+        "created_by",
+        "created_on",
+        "last_updated_on",
+        "modified_by",
+        "status"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/Definition",
       "type": "ClassDefinition"
@@ -1692,6 +1857,11 @@
         "slot_definition_mixins",
         "slot_definition_apply_to",
         "values_from",
+        "created_by",
+        "created_on",
+        "last_updated_on",
+        "modified_by",
+        "status",
         "singular_name",
         "domain",
         "range",
@@ -1711,7 +1881,11 @@
         "inverse",
         "is_class_field",
         "role",
-        "is_usage_slot"
+        "is_usage_slot",
+        "minimum_value",
+        "maximum_value",
+        "pattern",
+        "string_serialization"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/SlotDefinition",
       "type": "ClassDefinition"
@@ -1751,6 +1925,11 @@
         "class_definition_mixins",
         "class_definition_apply_to",
         "values_from",
+        "created_by",
+        "created_on",
+        "last_updated_on",
+        "modified_by",
+        "status",
         "slots",
         "slot_usage",
         "class_uri",
@@ -1810,11 +1989,11 @@
       "type": "ClassDefinition"
     }
   ],
-  "metamodel_version": "1.4.3",
+  "metamodel_version": "1.4.4",
   "source_file": "meta.yaml",
-  "source_file_date": "Tue Jun  9 11:37:12 2020",
-  "source_file_size": 23490,
-  "generation_date": "2020-06-09 15:20",
+  "source_file_date": "Tue Jun 16 13:23:04 2020",
+  "source_file_size": 26260,
+  "generation_date": "2020-06-16 13:26",
   "type": "SchemaDefinition",
   "@context": [
     "file:./output/gencontext/meta.jsonld",

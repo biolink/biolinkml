@@ -1,21 +1,14 @@
 @prefix : <http://example.org/mappings/> .
-@prefix OIO: <http://www.geneontology.org/formats/oboInOwl#> .
-@prefix biolinkml: <https://w3id.org/biolink/biolinkml/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ex: <http://example.org/mappings/> .
 @prefix meta: <https://w3id.org/biolink/biolinkml/meta/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix pav: <http://purl.org/pav/> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:testMetamodelMappings a ex:SchemaDefinition ;
     ex:default_curi_maps "semweb_context" ;
     ex:default_prefix "ex" ;
-    ex:metamodel_version "1.4.3" ;
+    ex:metamodel_version "1.4.4" ;
     ex:source_file "meta_mappings.yaml" ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     skos:definition "Mappings test" ;
@@ -23,13 +16,13 @@ ex:testMetamodelMappings a ex:SchemaDefinition ;
         ex:C2,
         ex:C3 ;
     meta:default_range ex:string ;
-    meta:generation_date "2020-02-27 14:48"^^xsd:dateTime ;
+    meta:generation_date "2020-06-16 12:16"^^xsd:dateTime ;
     meta:id ex: ;
     meta:prefixes [ ex:prefix_prefix "ex" ;
             meta:prefix_reference ex: ] ;
     meta:slots ex:s1,
         ex:s2 ;
-    meta:source_file_date "Thu Dec 26 23:54:43 2019"^^xsd:dateTime ;
+    meta:source_file_date "Tue Jun  9 11:37:12 2020"^^xsd:dateTime ;
     meta:source_file_size 1810 ;
     meta:types ex:identifier_type,
         ex:string .

@@ -273,9 +273,9 @@
          "class_uri": "test4:Class4"
       }
    ],
-   "metamodel_version": "1.4.3",
+   "metamodel_version": "1.4.4",
    "source_file": "import_test_1.yaml",
-   "source_file_date": "Fri Dec 13 16:01:45 2019",
+   "source_file_date": "Tue Jun  9 11:37:13 2020",
    "source_file_size": 532,
-   "generation_date": "2020-06-07 19:35"
+   "generation_date": "2020-06-16 13:25"
 }

@@ -7,7 +7,7 @@ the definition of a property or a slot
 URI: [meta:SlotDefinition](https://w3id.org/biolink/biolinkml/meta/SlotDefinition)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SubsetDefinition]<in_subset(i)%200..*-%20[SlotDefinition&#124;singular_name:string%20%3F;slot_uri:uriorcurie%20%3F;multivalued:boolean%20%3F;inherited:boolean%20%3F;readonly:string%20%3F;ifabsent:string%20%3F;required:boolean%20%3F;inlined:boolean%20%3F;key:boolean%20%3F;identifier:boolean%20%3F;alias:string%20%3F;subproperty_of:uriorcurie%20%3F;symmetric:boolean%20%3F;is_class_field:boolean%20%3F;role:string%20%3F;is_usage_slot:boolean%20%3F;abstract(i):boolean%20%3F;mixin(i):boolean%20%3F;values_from(i):uriorcurie%20*;id_prefixes(i):ncname%20*;name(pk)(i):string;definition_uri(i):uriorcurie%20%3F;aliases(i):string%20*;mappings(i):uriorcurie%20*;description(i):string%20%3F;deprecated(i):string%20%3F;todos(i):string%20*;notes(i):string%20*;comments(i):string%20*;from_schema(i):uri%20%3F;imported_from(i):string%20%3F;see_also(i):uriorcurie%20*;exact_mappings(i):uriorcurie%20*;close_mappings(i):uriorcurie%20*;related_mappings(i):uriorcurie%20*;deprecated_element_has_exact_replacement(i):uriorcurie%20%3F;deprecated_element_has_possible_replacement(i):uriorcurie%20%3F],%20[Example]<examples(i)%200..*-++[SlotDefinition],%20[AltDescription]<alt_descriptions(i)%200..*-++[SlotDefinition],%20[LocalName]<local_names(i)%200..*-++[SlotDefinition],%20[SlotDefinition]<inverse%200..1-%20[SlotDefinition],%20[Definition]<owner%200..1-%20[SlotDefinition],%20[Element]<range%200..1-%20[SlotDefinition],%20[ClassDefinition]<domain%200..1-%20[SlotDefinition],%20[SlotDefinition]<apply_to%200..*-%20[SlotDefinition],%20[SlotDefinition]<mixins%200..*-%20[SlotDefinition],%20[SlotDefinition]<is_a%200..1-%20[SlotDefinition],%20[ClassDefinition]-%20defining_slots%200..*>[SlotDefinition],%20[SchemaDefinition]++-%20slots%200..*>[SlotDefinition],%20[ClassDefinition]++-%20slot_usage%200..*>[SlotDefinition],%20[ClassDefinition]-%20slots%200..*>[SlotDefinition],%20[Definition]^-[SlotDefinition])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SubsetDefinition]<in_subset(i)%200..*-%20[SlotDefinition&#124;singular_name:string%20%3F;slot_uri:uriorcurie%20%3F;multivalued:boolean%20%3F;inherited:boolean%20%3F;readonly:string%20%3F;ifabsent:string%20%3F;required:boolean%20%3F;inlined:boolean%20%3F;key:boolean%20%3F;identifier:boolean%20%3F;alias:string%20%3F;subproperty_of:uriorcurie%20%3F;symmetric:boolean%20%3F;is_class_field:boolean%20%3F;role:string%20%3F;is_usage_slot:boolean%20%3F;minimum_value:integer%20%3F;maximum_value:integer%20%3F;pattern:string%20%3F;string_serialization:string%20%3F;abstract(i):boolean%20%3F;mixin(i):boolean%20%3F;values_from(i):uriorcurie%20*;id_prefixes(i):ncname%20*;name(pk)(i):string;definition_uri(i):uriorcurie%20%3F;aliases(i):string%20*;mappings(i):uriorcurie%20*;description(i):string%20%3F;deprecated(i):string%20%3F;todos(i):string%20*;notes(i):string%20*;comments(i):string%20*;from_schema(i):uri%20%3F;imported_from(i):string%20%3F;see_also(i):uriorcurie%20*;exact_mappings(i):uriorcurie%20*;close_mappings(i):uriorcurie%20*;related_mappings(i):uriorcurie%20*;deprecated_element_has_exact_replacement(i):uriorcurie%20%3F;deprecated_element_has_possible_replacement(i):uriorcurie%20%3F],%20[Example]<examples(i)%200..*-++[SlotDefinition],%20[AltDescription]<alt_descriptions(i)%200..*-++[SlotDefinition],%20[LocalName]<local_names(i)%200..*-++[SlotDefinition],%20[SlotDefinition]<inverse%200..1-%20[SlotDefinition],%20[Definition]<owner%200..1-%20[SlotDefinition],%20[Element]<range%200..1-%20[SlotDefinition],%20[ClassDefinition]<domain%200..1-%20[SlotDefinition],%20[SlotDefinition]<apply_to%200..*-%20[SlotDefinition],%20[SlotDefinition]<mixins%200..*-%20[SlotDefinition],%20[SlotDefinition]<is_a%200..1-%20[SlotDefinition],%20[ClassDefinition]-%20defining_slots%200..*>[SlotDefinition],%20[SchemaDefinition]++-%20slots%200..*>[SlotDefinition],%20[ClassDefinition]++-%20slot_usage%200..*>[SlotDefinition],%20[ClassDefinition]-%20slots%200..*>[SlotDefinition],%20[Definition]^-[SlotDefinition])
 
 ## Parents
 
@@ -77,12 +77,21 @@ implicitly asserts that X is an instance of C1
  * [key](key.md)  <sub>OPT</sub>
     * Description: true means that the slot uniquely identifies the element within the context of its container.  Key slots are NOT identifiers - they do not serve as subjects
     * range: [Boolean](types/Boolean.md)
+ * [maximum_value](maximum_value.md)  <sub>OPT</sub>
+    * Description: for slots with ranges of type number, the value must be equal to or lowe than this
+    * range: [Integer](types/Integer.md)
+ * [minimum_value](minimum_value.md)  <sub>OPT</sub>
+    * Description: for slots with ranges of type number, the value must be equal to or higher than this
+    * range: [Integer](types/Integer.md)
  * [multivalued](multivalued.md)  <sub>OPT</sub>
     * Description: true means that slot can have more than one value
     * range: [Boolean](types/Boolean.md)
  * [owner](owner.md)  <sub>OPT</sub>
     * Description: the "owner" of the slot. It is the class if it appears in the slots list, otherwise the declaring slot
     * range: [Definition](Definition.md)
+ * [pattern](pattern.md)  <sub>OPT</sub>
+    * Description: the string value of the slot must conform to this regular expression
+    * range: [String](types/String.md)
  * [range](range.md)  <sub>OPT</sub>
     * Description: defines the type of the object of the slot.  Given the following slot definition
   S1:
@@ -116,6 +125,12 @@ implicitly asserts Y is an instance of C2
  * [slot_uri](slot_uri.md)  <sub>OPT</sub>
     * Description: predicate of this slot for semantic web application
     * range: [Uriorcurie](types/Uriorcurie.md)
+ * [string_serialization](string_serialization.md)  <sub>OPT</sub>
+    * Description: Used on a slot that stores the string serialization of the containing object. The syntax follows python formatted strings, with slot names enclosed in {}s. These are expanded using the values of those slots.
+We call the slot with the serialization the s-slot, the slots used in the {}s are v-slots. If both s-slots and v-slots are populated on an object then the value of the s-slot should correspond to the expansion.
+Implementations of frameworks may choose to use this property to either (a) PARSE: implement automated normalizations by parsing denormalized strings into complex objects (b) GENERARE: implement automated to_string labeling of complex objects
+For example, a Measurement class may have 3 fields: unit, value, and string_value. The string_value slot may have a string_serialization of {value}{unit} such that if unit=cm and value=2, the value of string_value shouldd be 2cm
+    * range: [String](types/String.md)
  * [subproperty_of](subproperty_of.md)  <sub>OPT</sub>
     * Description: Ontology property which this slot is a subproperty of
     * range: [Uriorcurie](types/Uriorcurie.md)
@@ -294,12 +309,21 @@ implicitly asserts that X is an instance of C1
  * [key](key.md)  <sub>OPT</sub>
     * Description: true means that the slot uniquely identifies the element within the context of its container.  Key slots are NOT identifiers - they do not serve as subjects
     * range: [Boolean](types/Boolean.md)
+ * [maximum_value](maximum_value.md)  <sub>OPT</sub>
+    * Description: for slots with ranges of type number, the value must be equal to or lowe than this
+    * range: [Integer](types/Integer.md)
+ * [minimum_value](minimum_value.md)  <sub>OPT</sub>
+    * Description: for slots with ranges of type number, the value must be equal to or higher than this
+    * range: [Integer](types/Integer.md)
  * [multivalued](multivalued.md)  <sub>OPT</sub>
     * Description: true means that slot can have more than one value
     * range: [Boolean](types/Boolean.md)
  * [owner](owner.md)  <sub>OPT</sub>
     * Description: the "owner" of the slot. It is the class if it appears in the slots list, otherwise the declaring slot
     * range: [Definition](Definition.md)
+ * [pattern](pattern.md)  <sub>OPT</sub>
+    * Description: the string value of the slot must conform to this regular expression
+    * range: [String](types/String.md)
  * [range](range.md)  <sub>OPT</sub>
     * Description: defines the type of the object of the slot.  Given the following slot definition
   S1:
@@ -333,6 +357,12 @@ implicitly asserts Y is an instance of C2
  * [slot_uri](slot_uri.md)  <sub>OPT</sub>
     * Description: predicate of this slot for semantic web application
     * range: [Uriorcurie](types/Uriorcurie.md)
+ * [string_serialization](string_serialization.md)  <sub>OPT</sub>
+    * Description: Used on a slot that stores the string serialization of the containing object. The syntax follows python formatted strings, with slot names enclosed in {}s. These are expanded using the values of those slots.
+We call the slot with the serialization the s-slot, the slots used in the {}s are v-slots. If both s-slots and v-slots are populated on an object then the value of the s-slot should correspond to the expansion.
+Implementations of frameworks may choose to use this property to either (a) PARSE: implement automated normalizations by parsing denormalized strings into complex objects (b) GENERARE: implement automated to_string labeling of complex objects
+For example, a Measurement class may have 3 fields: unit, value, and string_value. The string_value slot may have a string_serialization of {value}{unit} such that if unit=cm and value=2, the value of string_value shouldd be 2cm
+    * range: [String](types/String.md)
  * [subproperty_of](subproperty_of.md)  <sub>OPT</sub>
     * Description: Ontology property which this slot is a subproperty of
     * range: [Uriorcurie](types/Uriorcurie.md)

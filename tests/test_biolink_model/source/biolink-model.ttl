@@ -5240,7 +5240,7 @@
     meta:imports "biolinkml:mappings",
         "biolinkml:types" ;
     meta:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
-    meta:metamodel_version "1.4.3" ;
+    meta:metamodel_version "1.4.4" ;
     meta:prefixes [ meta:prefix_prefix "OBAN" ;
             meta:prefix_reference "http://purl.org/oban/" ],
         [ meta:prefix_prefix "SIO" ;

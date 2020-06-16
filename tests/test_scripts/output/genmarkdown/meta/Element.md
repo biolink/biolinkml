@@ -105,6 +105,12 @@ URI: [meta:Element](https://w3id.org/biolink/biolinkml/meta/Element)
     * Description: notes and comments about an element intended for external consumption
     * range: [String](types/String.md)
     * in subsets: (owl)
+ * [created_by](created_by.md)  <sub>OPT</sub>
+    * Description: agent that created the element
+    * range: [Uriorcurie](types/Uriorcurie.md)
+ * [created_on](created_on.md)  <sub>OPT</sub>
+    * Description: time at which the element was created
+    * range: [Datetime](types/Datetime.md)
  * [definition_uri](definition_uri.md)  <sub>OPT</sub>
     * Description: the "native" URI of the element
     * range: [Uriorcurie](types/Uriorcurie.md)
@@ -131,8 +137,14 @@ URI: [meta:Element](https://w3id.org/biolink/biolinkml/meta/Element)
  * [in_subset](in_subset.md)  <sub>0..*</sub>
     * Description: used to indicate membership of a term in a defined subset of biolink terms used for a particular domain or application (e.g. the translator_minimal subset holding the minimal set of predicates used in a translator knowledge graph)
     * range: [SubsetDefinition](SubsetDefinition.md)
+ * [last_updated_on](last_updated_on.md)  <sub>OPT</sub>
+    * Description: time at which the element was last updated
+    * range: [Datetime](types/Datetime.md)
  * [local_names](local_names.md)  <sub>0..*</sub>
     * range: [LocalName](LocalName.md)
+ * [modified_by](modified_by.md)  <sub>OPT</sub>
+    * Description: agent that modified the element
+    * range: [Uriorcurie](types/Uriorcurie.md)
  * [name](name.md)  <sub>REQ</sub>
     * Description: the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class.
     * range: [String](types/String.md)
@@ -145,6 +157,10 @@ URI: [meta:Element](https://w3id.org/biolink/biolinkml/meta/Element)
     * Description: a reference
     * range: [Uriorcurie](types/Uriorcurie.md)
     * in subsets: (owl)
+ * [status](status.md)  <sub>OPT</sub>
+    * Description: status of the element
+    * range: [Uriorcurie](types/Uriorcurie.md)
+    * Example: bibo:draft None
  * [todos](todos.md)  <sub>0..*</sub>
     * Description: Outstanding issue that needs resolution
     * range: [String](types/String.md)

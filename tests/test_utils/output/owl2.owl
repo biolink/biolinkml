@@ -6,10 +6,10 @@
 
 <http://example.org/owl2> a owl:Ontology ;
     rdfs:label "owl2" ;
-    meta:generation_date "2020-06-07 19:58" ;
-    meta:metamodel_version "1.4.3" ;
+    meta:generation_date "2020-06-16 13:25" ;
+    meta:metamodel_version "1.4.4" ;
     meta:source_file "owl2.yaml" ;
-    meta:source_file_date "Tue Jun 18 22:13:06 2019" ;
+    meta:source_file_date "Tue Jun  9 11:37:13 2020" ;
     meta:source_file_size 519 .
 
 meta:SubsetDefinition a owl:Class ;
@@ -57,19 +57,19 @@ meta:C1 a owl:Class,
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:C2 ;
-            owl:onProperty meta:annotslot ],
+            owl:onProperty meta:objslot ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:C2 ;
-            owl:onProperty meta:objslot ],
+            owl:onClass meta:string ;
+            owl:onProperty meta:dataslot ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:string ;
             owl:onProperty meta:annotslot2 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:string ;
-            owl:onProperty meta:dataslot ] .
+            owl:onClass meta:C2 ;
+            owl:onProperty meta:annotslot ] .
 
 meta:C2 a owl:Class,
         meta:ClassDefinition ;

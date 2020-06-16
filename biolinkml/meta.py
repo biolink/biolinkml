@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-01-27 12:55
+# Generation date: 2020-06-16 11:31
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta
@@ -23,20 +23,23 @@ from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import Bool, NCName, URI, URIorCURIE, XSDDateTime
 from includes.types import Boolean, Datetime, Integer, Ncname, String, Uri, Uriorcurie
 
-metamodel_version = "1.4.3"
+metamodel_version = "1.4.4"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
 OIO = CurieNamespace('OIO', 'http://www.geneontology.org/formats/oboInOwl#')
+BIBO = CurieNamespace('bibo', 'http://purl.org/ontology/bibo/')
 BIOLINKML = CurieNamespace('biolinkml', 'https://w3id.org/biolink/biolinkml/')
 DCTERMS = CurieNamespace('dcterms', 'http://purl.org/dc/terms/')
 META = CurieNamespace('meta', 'https://w3id.org/biolink/biolinkml/meta/')
+OSLC = CurieNamespace('oslc', 'http://open-services.net/ns/core#')
 OWL = CurieNamespace('owl', 'http://www.w3.org/2002/07/owl#')
 PAV = CurieNamespace('pav', 'http://purl.org/pav/')
 RDF = CurieNamespace('rdf', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#')
 RDFS = CurieNamespace('rdfs', 'http://www.w3.org/2000/01/rdf-schema#')
+SCHEMA = CurieNamespace('schema', 'http://schema.org/')
 SKOS = CurieNamespace('skos', 'http://www.w3.org/2004/02/skos/core#')
 XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = META
@@ -319,7 +322,7 @@ class SlotDefinition(Definition):
     """
     the definition of a property or a slot
     """
-    _inherited_slots: ClassVar[List[str]] = ["domain", "range", "multivalued", "inherited", "readonly", "ifabsent", "required", "inlined", "key", "identifier", "role"]
+    _inherited_slots: ClassVar[List[str]] = ["domain", "range", "multivalued", "inherited", "readonly", "ifabsent", "required", "inlined", "key", "identifier", "role", "minimum_value", "maximum_value", "pattern"]
 
     class_class_uri: ClassVar[URIRef] = META.SlotDefinition
     class_class_curie: ClassVar[str] = "meta:SlotDefinition"
@@ -350,6 +353,10 @@ class SlotDefinition(Definition):
     is_class_field: Optional[Bool] = None
     role: Optional[str] = None
     is_usage_slot: Optional[Bool] = None
+    minimum_value: Optional[int] = None
+    maximum_value: Optional[int] = None
+    pattern: Optional[str] = None
+    string_serialization: Optional[str] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.name is None:
@@ -525,7 +532,7 @@ class slots:
     pass
 
 slots.name = Slot(uri=RDFS.label, name="name", curie=RDFS.curie('label'),
-                      model_uri=META.name, domain=Element, range=Union[str, ElementName])
+                      model_uri=META.name, domain=Element, range=Union[str, ElementName], mappings = [SCHEMA.name])
 
 slots.definition_uri = Slot(uri=META.definition_uri, name="definition_uri", curie=META.curie('definition_uri'),
                       model_uri=META.definition_uri, domain=Element, range=Optional[Union[str, URIorCURIE]])
@@ -563,6 +570,21 @@ slots.imported_from = Slot(uri=META.imported_from, name="imported_from", curie=M
 slots.see_also = Slot(uri=RDFS.seeAlso, name="see_also", curie=RDFS.curie('seeAlso'),
                       model_uri=META.see_also, domain=Element, range=List[Union[str, URIorCURIE]])
 
+slots.created_by = Slot(uri=PAV.createdBy, name="created_by", curie=PAV.curie('createdBy'),
+                      model_uri=META.created_by, domain=Element, range=Optional[Union[str, URIorCURIE]])
+
+slots.created_on = Slot(uri=PAV.createdOn, name="created_on", curie=PAV.curie('createdOn'),
+                      model_uri=META.created_on, domain=Element, range=Optional[Union[str, XSDDateTime]])
+
+slots.last_updated_on = Slot(uri=PAV.lastUpdatedOn, name="last_updated_on", curie=PAV.curie('lastUpdatedOn'),
+                      model_uri=META.last_updated_on, domain=Element, range=Optional[Union[str, XSDDateTime]])
+
+slots.modified_by = Slot(uri=OSLC.modifiedBy, name="modified_by", curie=OSLC.curie('modifiedBy'),
+                      model_uri=META.modified_by, domain=Element, range=Optional[Union[str, URIorCURIE]])
+
+slots.status = Slot(uri=BIBO.status, name="status", curie=BIBO.curie('status'),
+                      model_uri=META.status, domain=Element, range=Optional[Union[str, URIorCURIE]])
+
 slots.is_a = Slot(uri=META.is_a, name="is_a", curie=META.curie('is_a'),
                       model_uri=META.is_a, domain=Definition, range=Optional[Union[str, DefinitionName]])
 
@@ -591,7 +613,7 @@ slots.title = Slot(uri=DCTERMS.title, name="title", curie=DCTERMS.curie('title')
                       model_uri=META.title, domain=SchemaDefinition, range=Optional[str])
 
 slots.version = Slot(uri=PAV.version, name="version", curie=PAV.curie('version'),
-                      model_uri=META.version, domain=SchemaDefinition, range=Optional[str])
+                      model_uri=META.version, domain=SchemaDefinition, range=Optional[str], mappings = [SCHEMA.schemaVersion])
 
 slots.imports = Slot(uri=META.imports, name="imports", curie=META.curie('imports'),
                       model_uri=META.imports, domain=SchemaDefinition, range=List[Union[str, URIorCURIE]])
@@ -712,6 +734,18 @@ slots.is_class_field = Slot(uri=META.is_class_field, name="is_class_field", curi
 
 slots.role = Slot(uri=META.role, name="role", curie=META.curie('role'),
                       model_uri=META.role, domain=SlotDefinition, range=Optional[str])
+
+slots.minimum_value = Slot(uri=META.minimum_value, name="minimum_value", curie=META.curie('minimum_value'),
+                      model_uri=META.minimum_value, domain=SlotDefinition, range=Optional[int])
+
+slots.maximum_value = Slot(uri=META.maximum_value, name="maximum_value", curie=META.curie('maximum_value'),
+                      model_uri=META.maximum_value, domain=SlotDefinition, range=Optional[int])
+
+slots.pattern = Slot(uri=META.pattern, name="pattern", curie=META.curie('pattern'),
+                      model_uri=META.pattern, domain=SlotDefinition, range=Optional[str])
+
+slots.string_serialization = Slot(uri=META.string_serialization, name="string_serialization", curie=META.curie('string_serialization'),
+                      model_uri=META.string_serialization, domain=SlotDefinition, range=Optional[str])
 
 slots.typeof = Slot(uri=META.typeof, name="typeof", curie=META.curie('typeof'),
                       model_uri=META.typeof, domain=TypeDefinition, range=Optional[Union[str, TypeDefinitionName]])
