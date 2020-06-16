@@ -1,9 +1,47 @@
 CHANGES
 =======
 
+v1.5.2
+------
+
+* Automated update to docs with GitHub Actions
+* Removed backslash on the open bracket for markdown
+* Skip the graphviz test to pass Github actions
+* Skip a couple of tests
+* Create unittests.yaml
+* Fixes #154 YAML serializer
+* Check python version on load and install. Revert to a pre json-ld 1.1 output Get rid of some of the test warnings Install a faster, more accurate RDF comparator
+* Partial fix for biolink-model RDF issue
+* Partial fix for biolink-model RDF issue
+* Partial reconciliation of the biolink model rdf generation issue
+* Centralize the TurtleSerializer patch to the root import directory
+* Update changelog
+* Skip graphviz test
+* Update a (strangely) failing test file
+* Automated update to docs with GitHub Actions
+* Create github action for generating docs automatically. See #145
+* Add code to detect wrong rdflib-jsonld
+* Add Generated svg file to fix failing test issue2
+* Force load rdflib-jsonld with modifications
+* Remove graphviz comparison test
+* Remove biolink\_model graphviz comparison test
+* A few tweaks to the existing Pipfile.  Added py38 to the tox test file
+* Update for the TTL generator
+* Revert to bar (|) for non-embedded YUML
+* Added a note on markdown generation
+* Renable unit test as it appears to work fine
+* Fix part of an issue involving local file paths
+* Yuml generator output now defaults to 'svg' instead of 'png'
+* Fix problem w/ YUML generator
+* Fix for RDFLIB 5.x series -- force Turtle serializer to emit prefixes
+* Fix some issues w/ the notebook tests
+* Change to a relative path for the jsonld generator
+* Fix a bug where the format wasn't getting passed to gengraphviz
+* Fix Issue #138.  Use relative URL's in context
 * fixing last of tests
 * docs
 * fixed typo
+* Delete Gemfile
 * adding back travis badge
 * docs
 * Regenerated expected outputs, see #140
@@ -92,6 +130,8 @@ v1.4.10
 * Update mappings.yaml
 * Fix dumper to not include line and column numbes
 * #83 Add support for python >= 3.7.6
+* ditto
+* tiny typo
 * #83 Implemented overwriting dataclasses \_init\_fn to add \*\*kwargs in \_\_init\_\_
 * Checkpoint - runs with line numbers
 * Checkpoint - sample of update sans dataclasses change

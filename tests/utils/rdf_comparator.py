@@ -3,10 +3,10 @@ from contextlib import redirect_stdout
 from io import StringIO
 from typing import Union, Optional
 
-from rdflib import Graph
+from rdflib import Graph, RDF
 from rdflib.compare import to_isomorphic, IsomorphicGraph, graph_diff
 
-from biolinkml import METAMODEL_NAMESPACE
+from biolinkml.meta import META
 
 
 def to_graph(inp: Union[Graph, str], fmt: Optional[str] = "turtle") -> Graph:
@@ -31,7 +31,6 @@ def print_triples(g: Graph) -> None:
     Print the contents of g into stdout
     :param g: graph to print
     """
-    g.bind('meta', METAMODEL_NAMESPACE)
     g_text = re.sub(r'@prefix.*\n', '', g.serialize(format="turtle").decode())
     print(g_text)
 
@@ -45,13 +44,13 @@ def compare_rdf(expected: Union[Graph, str], actual: Union[Graph, str], fmt: Opt
     :return: None if they match else summary of difference
     """
     def rem_metadata(g: Graph) -> IsomorphicGraph:
+        # Remove list declarations from target
+        for s in g.subjects(RDF.type, RDF.List):
+            g.remove((s, RDF.type, RDF.List))
+        for t in g:
+            if t[1] in (META.generation_date, META.source_file_date, META.source_file_size):
+                g.remove(t)
         g_iso = to_isomorphic(g)
-        for t in list(g_iso.triples((None, METAMODEL_NAMESPACE.generation_date, None))):
-            g_iso.remove(t)
-        for t in list(g_iso.triples((None, METAMODEL_NAMESPACE.source_file_date, None))):
-            g_iso.remove(t)
-        for t in list(g_iso.triples((None, METAMODEL_NAMESPACE.source_file_size, None))):
-            g_iso.remove(t)
         return g_iso
 
     expected_graph = to_graph(expected, fmt)
@@ -68,11 +67,11 @@ def compare_rdf(expected: Union[Graph, str], actual: Union[Graph, str], fmt: Opt
     if old_len or new_len:
         txt = StringIO()
         with redirect_stdout(txt):
+            print("----- Missing Triples -----")
             if old_len:
-                print("----- Expected graph -----")
                 print_triples(in_old)
+            print("----- Added Triples -----")
             if new_len:
-                print("----- Actual Graph -----")
                 print_triples(in_new)
         return txt.getvalue()
     return None

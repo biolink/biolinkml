@@ -7,7 +7,7 @@ Class of evidence that supports an association
 URI: [biolink:EvidenceType](https://w3id.org/biolink/vocab/EvidenceType)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[InformationContentEntity]^-\[EvidenceType&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[InformationContentEntity]^-[EvidenceType&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B])
 
 ## Parents
 

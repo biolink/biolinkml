@@ -15,7 +15,8 @@ from biolinkml.generators.pythongen import PythonGenerator
 from biolinkml.generators.rdfgen import RDFGenerator
 from tests import targetdir, sourcedir, DO_SHEX_VALIDATION
 from tests.utils.generator_utils import GeneratorTestCase, BIOLINK_IMPORT_MAP
-from tests.utils.metadata_filters import metadata_filter, ldcontext_metadata_filter, json_metadata_filter
+from tests.utils.metadata_filters import metadata_filter, ldcontext_metadata_filter, json_metadata_filter, \
+    json_metadata_context_filter
 
 
 class MappingsGeneratorTestCase(GeneratorTestCase):
@@ -56,7 +57,7 @@ class MappingsGeneratorTestCase(GeneratorTestCase):
                     print(r.reason)
         return success
 
-    @unittest.skipIf(True, "We still need to figure out what to do here")
+    @unittest.skipIf(False, "We still need to figure out what to do here")
     def test_mappings_rdf(self):
         """ Test the imported mappings in the biolink metamodel """
 
@@ -65,8 +66,8 @@ class MappingsGeneratorTestCase(GeneratorTestCase):
 
         # Generate a copy of the JSON representation of the model
         context_loc = os.path.join(self.source_path, self.model_name + ".jsonld")
-        context_args = {"context": [LOCAL_METAMODEL_LDCONTEXT_FILE, context_loc]}
-        self.single_file_generator('json', JSONLDGenerator,  serialize_args=context_args,  filtr=json_metadata_filter)
+        context_args = {"context": ['file://' + LOCAL_METAMODEL_LDCONTEXT_FILE, 'file://' + context_loc]}
+        self.single_file_generator('json', JSONLDGenerator,  serialize_args=context_args,  filtr=json_metadata_context_filter)
 
         # Make a fresh copy of the RDF and validate it as well
         self.single_file_generator('ttl', RDFGenerator, serialize_args=context_args,

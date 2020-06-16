@@ -7,7 +7,7 @@ prefix URI tuple
 URI: [meta:Prefix](https://w3id.org/biolink/biolinkml/meta/Prefix)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/\[SchemaDefinition]++-%20prefixes%200..*>\[Prefix&#124;prefix_prefix(pk):ncname;prefix_reference:uri])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SchemaDefinition]++-%20prefixes%200..*>[Prefix&#124;prefix_prefix(pk):ncname;prefix_reference:uri])
 
 ## Referenced by class
 

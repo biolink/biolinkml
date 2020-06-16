@@ -12,10 +12,15 @@ def ldcontext_metadata_filter(s: str) -> str:
     return re.sub(r'Auto generated from .*? by', 'Auto generated from ... by',
                   re.sub(r'Generation date: .*?\\n', r'Generation date: \\n', s))
 
+
 def json_metadata_filter(s: str) -> str:
     return re.sub(r'("source_file_date": )".*"', r'\1"Friday Sep 27 12:00:00 2003"',
            re.sub(r'("generation_date": )".*"', r'\1"Friday Sep 27 12:00:00 2003"',
            re.sub(r'("source_file_size": )".*"', r'\1"23600:', s)))
+
+
+def json_metadata_context_filter(s: str) -> str:
+    return re.sub(r'file:///.*/', r'', json_metadata_filter(s))
 
 
 def metadata_filter(s: str) -> str:
