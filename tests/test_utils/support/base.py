@@ -1,4 +1,5 @@
 import datetime
+import logging
 import os
 import unittest
 from json import loads
@@ -56,9 +57,10 @@ class Base(unittest.TestCase):
             comp_f(expected, actual)
         self.assertFalse(file_created, f"{file_path}: Created new file image -- rerun")
 
-    def eval_loader(self, base_name: str, is_sourcedir: bool=False, source: Optional[str]=None) -> None:
+    def eval_loader(self, base_name: str, is_sourcedir: bool=False, source: Optional[str]  =None,
+                    logger: Optional[logging.Logger] = None) -> None:
         fn = os.path.join(sourcedir if is_sourcedir else inputdir, base_name + '.yaml') if not source else source
-        loader = SchemaLoader(fn)
+        loader = SchemaLoader(fn, logger=logger) if logger else SchemaLoader(fn)
         schema = as_json(self.fix_schema_metadata(loader.resolve()))
         self.eval_output(schema, base_name + '.json', loads)
         errors = '\n'.join(loader.synopsis.errors())

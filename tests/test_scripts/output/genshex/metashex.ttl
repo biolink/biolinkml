@@ -289,7 +289,23 @@
                 shex:max 1 ;
                 shex:min 0 ;
                 shex:predicate <https://w3id.org/biolink/biolinkml/meta/is_usage_slot> ;
-                shex:valueExpr <https://w3id.org/biolink/biolinkml/type/Boolean> ] ) .
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/type/Boolean> ] [ a shex:TripleConstraint ;
+                shex:max 1 ;
+                shex:min 0 ;
+                shex:predicate <https://w3id.org/biolink/biolinkml/meta/minimum_value> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/type/Integer> ] [ a shex:TripleConstraint ;
+                shex:max 1 ;
+                shex:min 0 ;
+                shex:predicate <https://w3id.org/biolink/biolinkml/meta/maximum_value> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/type/Integer> ] [ a shex:TripleConstraint ;
+                shex:max 1 ;
+                shex:min 0 ;
+                shex:predicate <https://w3id.org/biolink/biolinkml/meta/pattern> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/type/String> ] [ a shex:TripleConstraint ;
+                shex:max 1 ;
+                shex:min 0 ;
+                shex:predicate <https://w3id.org/biolink/biolinkml/meta/string_serialization> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/type/String> ] ) .
 
 <https://w3id.org/biolink/biolinkml/meta/SubsetDefinition_tes> a shex:EachOf ;
     shex:expressions ( <https://w3id.org/biolink/biolinkml/meta/Element_tes> [ a shex:TripleConstraint ;
@@ -338,9 +354,6 @@
 
 <https://w3id.org/biolink/biolinkml/type/Time> a shex:NodeConstraint ;
     shex:datatype xsd:dateTime .
-
-<https://w3id.org/biolink/biolinkml/type/Integer> a shex:NodeConstraint ;
-    shex:datatype xsd:integer .
 
 <https://w3id.org/biolink/biolinkml/meta/AltDescription> a shex:Shape ;
     shex:closed true ;
@@ -414,8 +427,8 @@
                         shex:valueExpr [ a shex:NodeConstraint ;
                                 shex:values ( <https://w3id.org/biolink/biolinkml/meta/SchemaDefinition> ) ] ] ) ] .
 
-<https://w3id.org/biolink/biolinkml/type/Datetime> a shex:NodeConstraint ;
-    shex:datatype xsd:dateTime .
+<https://w3id.org/biolink/biolinkml/type/Integer> a shex:NodeConstraint ;
+    shex:datatype xsd:integer .
 
 <https://w3id.org/biolink/biolinkml/type/Uri> a shex:NodeConstraint ;
     shex:nodeKind shex:iri .
@@ -505,6 +518,26 @@
                 shex:max 1 ;
                 shex:min 0 ;
                 shex:predicate <https://w3id.org/biolink/biolinkml/meta/deprecated_element_has_possible_replacement> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/type/Uriorcurie> ] [ a shex:TripleConstraint ;
+                shex:max 1 ;
+                shex:min 0 ;
+                shex:predicate <http://purl.org/pav/createdBy> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/type/Uriorcurie> ] [ a shex:TripleConstraint ;
+                shex:max 1 ;
+                shex:min 0 ;
+                shex:predicate <http://purl.org/pav/createdOn> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/type/Datetime> ] [ a shex:TripleConstraint ;
+                shex:max 1 ;
+                shex:min 0 ;
+                shex:predicate <http://purl.org/pav/lastUpdatedOn> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/type/Datetime> ] [ a shex:TripleConstraint ;
+                shex:max 1 ;
+                shex:min 0 ;
+                shex:predicate <http://open-services.net/ns/core#modifiedBy> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/type/Uriorcurie> ] [ a shex:TripleConstraint ;
+                shex:max 1 ;
+                shex:min 0 ;
+                shex:predicate <http://purl.org/ontology/bibo/status> ;
                 shex:valueExpr <https://w3id.org/biolink/biolinkml/type/Uriorcurie> ] ) .
 
 <https://w3id.org/biolink/biolinkml/meta/SubsetDefinition> a shex:Shape ;
@@ -515,6 +548,9 @@
                         shex:predicate rdf:type ;
                         shex:valueExpr [ a shex:NodeConstraint ;
                                 shex:values ( <https://w3id.org/biolink/biolinkml/meta/SubsetDefinition> ) ] ] ) ] .
+
+<https://w3id.org/biolink/biolinkml/type/Datetime> a shex:NodeConstraint ;
+    shex:datatype xsd:dateTime .
 
 <https://w3id.org/biolink/biolinkml/meta/TypeDefinition> a shex:Shape ;
     shex:closed true ;

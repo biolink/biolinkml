@@ -11,7 +11,7 @@
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     skos:definition "Entity and association taxonomy and datamodel for life-sciences data" ;
     meta:generation_date "2020-06-09 14:20" ;
-    meta:metamodel_version "1.4.3" ;
+    meta:metamodel_version "1.4.4" ;
     meta:source_file "biolink-model.yaml" ;
     meta:source_file_date "Tue Jun  9 11:37:13 2020" ;
     meta:source_file_size 118153 .

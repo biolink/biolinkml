@@ -37,6 +37,8 @@ A metamodel for defining biolink related schemas
  * [class_uri](class_uri.md) - URI of the class in an RDF environment
  * [classes](classes.md) - class definitions
  * [comments](comments.md) - notes and comments about an element intended for external consumption
+ * [created_by](created_by.md) - agent that created the element
+ * [created_on](created_on.md) - time at which the element was created
  * [default_curi_maps](default_curi_maps.md) - ordered list of prefixcommon biocontexts to be fetched to resolve id prefixes and inline prefix variables
  * [default_prefix](default_prefix.md) - default and base prefix -- used for ':' identifiers, @base and @vocab
  * [default_range](default_range.md) - default slot range to be used if range element is omitted from a slot definition
@@ -67,6 +69,7 @@ A metamodel for defining biolink related schemas
  * [is_class_field](is_class_field.md) - indicates that any instance, i,  the domain of this slot will include an assert of i s range
  * [is_usage_slot](is_usage_slot.md) - True means that this slot was defined in a slot_usage situation
  * [key](key.md) - true means that the slot uniquely identifies the element within the context of its container.  Key slots are NOT identifiers - they do not serve as subjects
+ * [last_updated_on](last_updated_on.md) - time at which the element was last updated
  * [license](license.md) - license for the schema
  * [local_name_source](local_name_source.md) - the ncname of the source of the name
  * [local_name_value](local_name_value.md) - a name assigned to an element in a given ontology
@@ -75,15 +78,19 @@ A metamodel for defining biolink related schemas
     * [close mappings](close_mappings.md) - A list of terms from different schemas or terminology systems that have close meaning.
     * [exact mappings](exact_mappings.md) - A list of terms from different schemas or terminology systems that have identical meaning.
     * [related mappings](related_mappings.md) - A list of terms from different schemas or terminology systems that have related meaning.
+ * [maximum_value](maximum_value.md) - for slots with ranges of type number, the value must be equal to or lowe than this
  * [metamodel_version](metamodel_version.md) - Version of the metamodel used to load the schema
+ * [minimum_value](minimum_value.md) - for slots with ranges of type number, the value must be equal to or higher than this
  * [mixin](mixin.md) - this slot or class can only be used as a mixin -- equivalent to abstract
  * [mixins](mixins.md) - List of definitions to be mixed in. Targets may be any definition of the same type
     * [class_definition➞mixins](class_definition_mixins.md)
     * [slot_definition➞mixins](slot_definition_mixins.md)
+ * [modified_by](modified_by.md) - agent that modified the element
  * [multivalued](multivalued.md) - true means that slot can have more than one value
  * [name](name.md) - the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class.
  * [notes](notes.md) - editorial notes about an element intended for internal consumption
  * [owner](owner.md) - the "owner" of the slot. It is the class if it appears in the slots list, otherwise the declaring slot
+ * [pattern](pattern.md) - the string value of the slot must conform to this regular expression
  * [prefix_prefix](prefix_prefix.md) - the nsname (sans ':' for a given prefix)
  * [prefix_reference](prefix_reference.md) - A URI associated with a given prefix
  * [prefixes](prefixes.md) - prefix / URI definitions to be added to the context beyond those fetched from prefixcommons in id prefixes
@@ -101,6 +108,8 @@ A metamodel for defining biolink related schemas
  * [source_file](source_file.md) - name, uri or description of the source of the schema
  * [source_file_date](source_file_date.md) - modification date of the source of the schema
  * [source_file_size](source_file_size.md) - size in bytes of the source of the schema
+ * [status](status.md) - status of the element
+ * [string_serialization](string_serialization.md) - Used on a slot that stores the string serialization of the containing object. The syntax follows python formatted strings, with slot names enclosed in {}s. These are expanded using the values of those slots.
  * [subclass_of](subclass_of.md) - rdfs:subClassOf to be emitted in OWL generation
  * [subproperty_of](subproperty_of.md) - Ontology property which this slot is a subproperty of
  * [subsets](subsets.md) - list of subsets referenced in this model

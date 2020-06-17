@@ -62,16 +62,20 @@ class MappingsGeneratorTestCase(GeneratorTestCase):
         """ Test the imported mappings in the biolink metamodel """
 
         # Generate context and use it to create the RDF
-        self.single_file_generator('jsonld', ContextGenerator, filtr=ldcontext_metadata_filter)
+        msg = self.single_file_generator('jsonld', ContextGenerator, filtr=ldcontext_metadata_filter,
+                                         fail_if_expected_missing=False)
 
         # Generate a copy of the JSON representation of the model
         context_loc = os.path.join(self.source_path, self.model_name + ".jsonld")
         context_args = {"context": ['file://' + LOCAL_METAMODEL_LDCONTEXT_FILE, 'file://' + context_loc]}
-        self.single_file_generator('json', JSONLDGenerator,  serialize_args=context_args,  filtr=json_metadata_context_filter)
+        msg += self.single_file_generator('json', JSONLDGenerator,  serialize_args=context_args,
+                                         filtr=json_metadata_context_filter, fail_if_expected_missing=False)
 
         # Make a fresh copy of the RDF and validate it as well
-        self.single_file_generator('ttl', RDFGenerator, serialize_args=context_args,
-                                   comparator=GeneratorTestCase.rdf_comparator)
+        msg += self.single_file_generator('ttl', RDFGenerator, serialize_args=context_args,
+                                          comparator=GeneratorTestCase.rdf_comparator, fail_if_expected_missing=False)
+        if msg:
+            self.fail(msg)
 
         g = Graph()
         rdf_file = os.path.join(sourcedir, 'meta_mappings.ttl')

@@ -9,8 +9,11 @@ will break.
 model python has been regenerated.
     * Run `tests/test_base/test_meta_python.py`
     * Look at `tests/target/meta.py` and make sure it does what you want it to do (and, importantly, it compiles)
-    * Update the `metamodel_version` in `tests/target/meta.py`
+        * NOTE: Some IDE's will emit errors on the `__post_init__` methods.  These are actually OK, as they are the way 
+        we report line numbers on misspelled or unexpected arguments. Example:
+           ![__post_init__ example](images/post_init.png "Post Init warning")
     * Copy `tests/tartget/meta.py` to `biolinkml/meta.py`
+    * Update the `metamodel_version` in `biolinkml/meta.py`, `includes/types.py`, `includes/types.jsonld`, `includes/mappings.py`, and `includes/mappings.jsonld`
     * Run the test again amd make sure it passes
 2) Now that you have the python for the new model, make any additional changes in the utils or generators
 3) Run all tests in tests/test_base and double check that the resulting changes to the various outputs are what is
@@ -25,9 +28,15 @@ needed.  The following items should be updated by a model change:
     * `includes/types.py` - Python representation of the types package
     * `includes/mappings.py` - Python representation of the mappings package
     
-    The file `tests/test_base/new_model.sh` has the instructions to update all of the files.  Note that the tests have
-    to be run at least twice to update the removed files.
-4) Run tests/test_utils.  `tests/test_utils/new_model.sh` can be used to reset output
+    The file `tests/test_base/new_model.sh` has the instructions to update all of the files. To run it:
+      ```bash
+        > cd tests/test_base
+        > ./new_model.sh
+      ```
+    Note that the tests have to be run at least twice to update the removed files.
+4) Replace ALL instances of `metamodel_version = "<old version>"` with `metamodel_version = "<old version>"`.  Example: `metamodel_version = "1.4.3"` --> `metamodel_version = "1.4.4"`
+5) Change the version number in meta.yaml
+6) Run tests/test_utils.  `tests/test_utils/new_model.sh` can be used to reset output -- execute it in the `test_utils` directory.
 5) Run tests/test_scripts.  `tests/test_scripts/new_model.sh` can be used to reset output.  You also may need to edit
 line 85 in `test_gen_jsonld.py`
 6) Run tests/test_issues. `tests/test_scripts/new_model.sh` can be used to reset output.

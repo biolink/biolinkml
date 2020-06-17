@@ -47,10 +47,14 @@ class Generator(metaclass=abc.ABCMeta):
         :param useuris: True means declared class slot uri's are used.  False means use model uris
         :param importmap: File name of import mapping file -- maps import name/uri to target
         :param log_level: Logging level
+        :param logger: pre-set logger (hidden in kwargs)
         """
-        logging.basicConfig()
-        self.logger = logging.getLogger(self.__class__.__name__)
-        self.logger.setLevel(log_level)
+        if 'logger' in kwargs:
+            self.logger = kwargs.pop('logger')
+        else:
+            logging.basicConfig()
+            self.logger = logging.getLogger(self.__class__.__name__)
+            self.logger.setLevel(log_level)
 
         if format is None:
             format = self.valid_formats[0]

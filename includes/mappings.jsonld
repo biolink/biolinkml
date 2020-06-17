@@ -278,7 +278,7 @@
       "type": "SlotDefinition"
     }
   ],
-  "metamodel_version": "1.4.3",
+  "metamodel_version": "1.4.4",
   "source_file": "mappings.yaml",
   "source_file_date": "Thu Jan 23 23:35:33 2020",
   "source_file_size": 2285,

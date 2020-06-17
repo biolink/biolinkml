@@ -26,4 +26,5 @@ URI: [meta:version](https://w3id.org/biolink/biolinkml/meta/version)
 |  |  |  |
 | --- | --- | --- |
 | **Mappings:** | | pav:version |
+|  | | schema:schemaVersion |
 

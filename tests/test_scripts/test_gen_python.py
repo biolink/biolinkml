@@ -98,7 +98,7 @@ types:
         self.gen_and_comp_python('inheritedid')
 
     # This still needs to be fixed
-    @unittest.expectedFailure
+    @unittest.skipIf(False, "This used to fail consistently - may want to find out what happened")
     def test_ordering(self):
         self.gen_and_comp_python('ordering')
 

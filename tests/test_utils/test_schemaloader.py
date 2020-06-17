@@ -1,3 +1,4 @@
+import logging
 import os
 import unittest
 from contextlib import redirect_stderr
@@ -16,16 +17,16 @@ from tests.utils.metadata_filters import json_metadata_filter
 class SchemaLoaderTestCase(Base):
     def test_basic_merge(self):
         """ Test the basic merge paths """
-        errfile = StringIO()
-        with redirect_stderr(errfile):
-            self.eval_loader("merge1")
-        # Note: There is something about the PyCharm / UnitTest package that, if you are running a lot of tests, the
-        # output ends up getting redirected to the test runner rather than stderr.  If there is nothing at all, we
-        # will assume that this is the case.
-        if errfile.getvalue().strip():
-            self.assertIn("Shared slot and subset names: s1, s2", errfile.getvalue().strip())
-        else:
-            print("*** Warning not tested -- stderr redirect isn't working")
+        logstream = StringIO()
+        logging.basicConfig()
+        logger = logging.getLogger(self.__class__.__name__)
+        for handler in logger.handlers:
+            logger.removeHandler(handler)
+        logger.addHandler(logging.StreamHandler(logstream))
+        logger.setLevel(logging.INFO)
+
+        self.eval_loader("merge1", logger=logger)
+        self.assertIn("Shared slot and subset names: s1, s2", logstream.getvalue().strip())
 
     def test_mergeerror1(self):
         """ Test conflicting definitions path """

@@ -137,15 +137,15 @@
       "type": "ClassDefinition"
     }
   ],
-  "metamodel_version": "1.4.3",
+  "metamodel_version": "1.4.4",
   "source_file": "meta_mappings.yaml",
   "source_file_date": "Friday Sep 27 12:00:00 2003",
   "source_file_size": 1810,
   "generation_date": "Friday Sep 27 12:00:00 2003",
   "type": "SchemaDefinition",
   "@context": [
-    "file:///Users/solbrig/git/biolink/biolinkml/context.jsonld",
-    "file:///Users/solbrig/git/biolink/biolinkml/tests/source/meta_mappings.jsonld",
+    "context.jsonld",
+    "meta_mappings.jsonld",
     {
       "@base": "http://example.org/mappings/"
     }

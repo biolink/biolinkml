@@ -3,7 +3,7 @@ title: Biolink Schema Metamodel
 name: metamodel
 description: A metamodel for defining biolink related schemas
 license: https://creativecommons.org/publicdomain/zero/1.0/
-version: 1.4.3
+version: 1.4.4
 
 prefixes:
   meta: https://w3id.org/biolink/biolinkml/meta/
@@ -11,6 +11,9 @@ prefixes:
   skos: http://www.w3.org/2004/02/skos/core#
   OIO: http://www.geneontology.org/formats/oboInOwl#
   pav: http://purl.org/pav/
+  oslc: http://open-services.net/ns/core#
+  schema: http://schema.org/
+  bibo: http://purl.org/ontology/bibo/
 
 default_prefix: meta
 default_range: string
@@ -56,6 +59,8 @@ slots:
     slot_uri: rdfs:label
     in_subset:
       - owl
+    mappings:
+      - schema:name
 
   definition_uri:
     domain: element
@@ -147,6 +152,37 @@ slots:
     in_subset:
       - owl
 
+  created_by:
+    domain: element
+    range: uriorcurie
+    description: agent that created the element
+    slot_uri: pav:createdBy
+
+  created_on:
+    domain: element
+    range: datetime
+    description: time at which the element was created
+    slot_uri: pav:createdOn
+
+  last_updated_on:
+    domain: element
+    range: datetime
+    description: time at which the element was last updated
+    slot_uri: pav:lastUpdatedOn
+
+  modified_by:
+    domain: element
+    range: uriorcurie
+    description: agent that modified the element
+    slot_uri: oslc:modifiedBy
+
+  status:
+    domain: element
+    range: uriorcurie
+    description: status of the element
+    slot_uri: bibo:status
+    examples:
+      - value: "bibo:draft"
 
   # --------------------------------------------------------------
   # Slots that are common to slot definition and class definition
@@ -236,6 +272,8 @@ slots:
     domain: schema_definition
     description: particular version of schema
     slot_uri: pav:version
+    mappings:
+      - schema:schemaVersion
 
   imports:
     domain: schema_definition
@@ -567,6 +605,46 @@ slots:
     description: the role played by the slot range
     inherited: true
 
+  minimum_value:
+    domain: slot_definition
+    range: integer
+    description: for slots with ranges of type number, the value must be equal to or higher than this
+    inherited: true
+
+  maximum_value:
+    domain: slot_definition
+    range: integer
+    description: for slots with ranges of type number, the value must be equal to or lowe than this
+    inherited: true
+
+  pattern:
+    domain: slot_definition
+    range: string
+    description: the string value of the slot must conform to this regular expression
+    inherited: true
+
+  string_serialization:
+    domain: slot_definition
+    range: string
+    description: >-
+      Used on a slot that stores the string serialization of the containing object. The syntax follows python
+      formatted strings, with slot names enclosed in {}s. These are expanded using the values of those slots.
+
+      We call the slot with the serialization the s-slot, the slots used in the {}s are v-slots. If both
+      s-slots and v-slots are populated on an object then the value of the s-slot should correspond to the
+      expansion.
+
+      Implementations of frameworks may choose to use this property to either (a) PARSE: implement automated normalizations
+      by parsing denormalized strings into complex objects (b) GENERARE: implement automated to_string labeling of
+      complex objects
+
+      For example, a Measurement class may have 3 fields: unit, value, and string_value. The string_value slot
+      may have a string_serialization of {value}{unit} such that if unit=cm and value=2, the value of
+      string_value shouldd be 2cm
+    inherited: false
+    see_also:
+      - https://github.com/biolink/biolinkml/issues/128
+
 
   # -----------------------------------
   # Slots for type definition
@@ -779,6 +857,11 @@ classes:
       - mixins
       - apply_to
       - values_from
+      - created_by
+      - created_on
+      - last_updated_on
+      - modified_by
+      - status
 
   slot_definition:
     description: the definition of a property or a slot
@@ -804,6 +887,10 @@ classes:
       - is_class_field
       - role
       - is_usage_slot
+      - minimum_value
+      - maximum_value
+      - pattern
+      - string_serialization
 
     slot_usage:
       is_a:

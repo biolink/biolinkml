@@ -97,7 +97,12 @@ metatype:Nodeidentifier NONLITERAL
           <close_mappings> @metatype:Uriorcurie * ;
           <related_mappings> @metatype:Uriorcurie * ;
           <deprecated_element_has_exact_replacement> @metatype:Uriorcurie ? ;
-          <deprecated_element_has_possible_replacement> @metatype:Uriorcurie ?
+          <deprecated_element_has_possible_replacement> @metatype:Uriorcurie ? ;
+          <created_by> @metatype:Uriorcurie ? ;
+          <created_on> @metatype:Datetime ? ;
+          <last_updated_on> @metatype:Datetime ? ;
+          <modified_by> @metatype:Uriorcurie ? ;
+          <status> @metatype:Uriorcurie ?
        ) ;
        rdf:type [ <Element> ]
     )
@@ -179,7 +184,11 @@ metatype:Nodeidentifier NONLITERAL
           <inverse> @<SlotDefinition> ? ;
           <is_class_field> @metatype:Boolean ? ;
           <role> @metatype:String ? ;
-          <is_usage_slot> @metatype:Boolean ?
+          <is_usage_slot> @metatype:Boolean ? ;
+          <minimum_value> @metatype:Integer ? ;
+          <maximum_value> @metatype:Integer ? ;
+          <pattern> @metatype:String ? ;
+          <string_serialization> @metatype:String ?
        ) ;
        rdf:type [ <SlotDefinition> ]
     )

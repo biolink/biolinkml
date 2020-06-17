@@ -32,5 +32,6 @@ URI: [meta:name](https://w3id.org/biolink/biolinkml/meta/name)
 |  |  |  |
 | --- | --- | --- |
 | **Mappings:** | | rdfs:label |
+|  | | schema:name |
 | **In Subsets:** | | owl |
 

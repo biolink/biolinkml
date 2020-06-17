@@ -4,6 +4,8 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX pav: <http://purl.org/pav/>
+PREFIX oslc: <http://open-services.net/ns/core#>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>
@@ -103,7 +105,12 @@ metatype:Nodeidentifier NONLITERAL
           skos:closeMatch @metatype:Uriorcurie * ;
           skos:relatedMatch @metatype:Uriorcurie * ;
           <deprecated_element_has_exact_replacement> @metatype:Uriorcurie ? ;
-          <deprecated_element_has_possible_replacement> @metatype:Uriorcurie ?
+          <deprecated_element_has_possible_replacement> @metatype:Uriorcurie ? ;
+          pav:createdBy @metatype:Uriorcurie ? ;
+          pav:createdOn @metatype:Datetime ? ;
+          pav:lastUpdatedOn @metatype:Datetime ? ;
+          oslc:modifiedBy @metatype:Uriorcurie ? ;
+          bibo:status @metatype:Uriorcurie ?
        ) ;
        rdf:type [ <Element> ]
     )
@@ -185,7 +192,11 @@ metatype:Nodeidentifier NONLITERAL
           owl:inverseOf @<SlotDefinition> ? ;
           <is_class_field> @metatype:Boolean ? ;
           <role> @metatype:String ? ;
-          <is_usage_slot> @metatype:Boolean ?
+          <is_usage_slot> @metatype:Boolean ? ;
+          <minimum_value> @metatype:Integer ? ;
+          <maximum_value> @metatype:Integer ? ;
+          <pattern> @metatype:String ? ;
+          <string_serialization> @metatype:String ?
        ) ;
        rdf:type [ <SlotDefinition> ]
     )
