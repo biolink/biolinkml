@@ -1,5 +1,5 @@
 [![Pyversions](https://img.shields.io/pypi/pyversions/biolinkml.svg)](https://pypi.python.org/pypi/biolinkml)
-[![Build Status](https://travis-ci.org/biolink/biolinkml.svg?branch=master)](https://travis-ci.org/biolink/biolinkml)
+[![Build Status](https://github.com/jiaola/biolinkml/workflows/main.yaml/badge.svg)
 [![PyPi](https://img.shields.io/pypi/v/biolinkml.svg)](https://pypi.python.org/pypi/biolinkml)
 
 
