@@ -26,6 +26,18 @@ class IssueOWLNamespaceTestCase(unittest.TestCase):
         assert (NAME, RDF.type, OWL.ObjectProperty) in g
 
 
+    def test_issue_no_default(self):
+        """ Make sure that types are generated as part of the output """
+        yaml_fname = os.path.join(sourcedir, 'issue_163b.yaml')
+        gen = OwlSchemaGenerator(yaml_fname)
+        out = gen.serialize()
+        print(self.header("OWL"))
+        print(out)
+        g = gen.graph
+        A = URIRef('http://example.org/sample/example1#A')
+        assert (A, RDF.type, OWL.Class) in g
+        NAME = URIRef('http://example.org/sample/example1#name')
+        assert (NAME, RDF.type, OWL.ObjectProperty) in g
 
 if __name__ == '__main__':
     unittest.main()

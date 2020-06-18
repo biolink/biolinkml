@@ -2,6 +2,7 @@ import dataclasses
 import os
 from copy import deepcopy
 from typing import Dict, Optional, Union, cast, List
+from rdflib import URIRef
 
 from biolinkml.meta import SchemaDefinition, Element, SlotDefinition, ClassDefinition, TypeDefinition, \
     SlotDefinitionName, TypeDefinitionName
@@ -63,7 +64,11 @@ def set_from_schema(schema: SchemaDefinition) -> None:
                 fragment = underscore(t[k].name)
             else:
                 fragment = camelcase(t[k].name)
-            t[k].definition_uri = f'{schema.prefixes[schema.default_prefix].prefix_reference}{fragment}'
+            if schema.default_prefix in schema.prefixes:
+                ns = schema.prefixes[schema.default_prefix].prefix_reference
+            else:
+                ns = str(URIRef(schema.id) + "#")
+            t[k].definition_uri = f'{ns}{fragment}'
 
 
 def merge_dicts(target: Dict[str, Element], source: Dict[str, Element], imported_from: str, imported_from_uri: str) -> None:
