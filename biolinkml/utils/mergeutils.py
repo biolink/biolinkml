@@ -59,8 +59,11 @@ def set_from_schema(schema: SchemaDefinition) -> None:
     for t in [schema.subsets, schema.classes, schema.slots, schema.types]:
         for k in t.keys():
             t[k].from_schema = schema.id
-            t[k].definition_uri = uri_for(schema.default_prefix, underscore(t[k].name
-                                  if isinstance(t[k], SlotDefinition) else camelcase(t[k].name)))
+            if isinstance(t[k], SlotDefinition):
+                fragment = underscore(t[k].name)
+            else:
+                fragment = camelcase(t[k].name)
+            t[k].definition_uri = f'{schema.prefixes[schema.default_prefix].prefix_reference}{fragment}'
 
 
 def merge_dicts(target: Dict[str, Element], source: Dict[str, Element], imported_from: str, imported_from_uri: str) -> None:
