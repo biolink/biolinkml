@@ -4,6 +4,7 @@ model classes are translated to OWL classes, slots to OWL properties.
 """
 import os
 from typing import Union, TextIO, Optional, cast
+import logging
 
 import click
 from rdflib import Graph, URIRef, RDF, OWL, Literal, BNode
@@ -249,7 +250,11 @@ class OwlSchemaGenerator(Generator):
 
     def _prop_uri(self, pn: SlotDefinitionName) -> URIRef:
         p = self.schema.slots[pn]
-        return URIRef(p.definition_uri)
+        if p is None or p.definition_uri is None:
+            logging.error(f'No namespace for {pn}')
+            return self.metamodel.namespaces[METAMODEL_NAMESPACE_NAME][underscore(pn)]
+        else:
+            return URIRef(p.definition_uri)
 
     def _type_uri(self, tn: TypeDefinitionName) -> URIRef:
         t = self.schema.types[tn]
