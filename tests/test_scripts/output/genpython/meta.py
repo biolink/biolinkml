@@ -1,5 +1,5 @@
-# Auto generated from meta.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-06-16 13:27
+# Auto generated from .yaml by pythongen.py version:
+# Generation date:
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta

@@ -12,6 +12,7 @@ source_yaml_path = LOCAL_METAMODEL_YAML_FILE
 target_yaml_path = os.path.join(targetdir, METAMODEL_FILE_NAME)
 source_context_path = LOCAL_METAMODEL_LDCONTEXT_FILE
 
+# Parts of the ShEx validation still need some performance optimization
 DO_SHEX_VALIDATION = False
 
 # Set this to True if you are making changes to the model itself.  Note, however, that it needs to be reset to False

@@ -8,7 +8,7 @@ import click
 
 
 from biolinkml.generators.pythongen import cli, PythonGenerator
-from tests import sourcedir, targetdir, source_yaml_path
+from tests.test_scripts import meta_yaml
 from tests.test_scripts.clicktestcase import ClickTestCase
 from tests.utils.metadata_filters import metadata_filter
 
@@ -16,51 +16,32 @@ from tests.utils.metadata_filters import metadata_filter
 class GenPythonTestCase(ClickTestCase):
     testdir = "genpython"
     click_ep = cli
-    prog_name = "gen-py-classes"
+    prog_name = "gen-python"
 
     def gen_and_comp_python(self, base: str) -> None:
         """ Generate yaml_file into python_file and compare it against master_file  """
-        yaml_path = os.path.abspath(os.path.join(sourcedir, f"{base}.yaml"))
-        target_path = os.path.join(targetdir, f'{base}.py')
-        master_path = os.path.join(sourcedir, f'{base}.py')
+        yaml_file = base + '.yaml'
+        python_file = base + '.py'
+        yaml_path = self.source_file_path(yaml_file)
+        target_path = self.expected_file_path(python_file)
 
-        pydata = str(PythonGenerator(yaml_path, "py", emit_metadata=False).serialize())
-        newdat = metadata_filter(pydata)
-
-        # If the master for comparison doesn't exist, create it
-        if not os.path.exists(master_path):
-            with open(master_path, 'w') as mf:
-                mf.write(newdat)
-            self.assertFalse(True, f"Regenerated {os.path.basename(master_path)} - rerun to complete test")
-
-        # Compare the current master with what we've generated
-        with open(master_path) as oldf:
-            olddat = oldf.read()
-        if olddat != newdat:
-            # Save the old if we're different
-            with open(target_path, 'w') as newf:
-                newf.write(pydata)
-            self.maxDiff = None
-            if olddat != newdat:
-                print(f"Data file: {master_path}")
-            self.assertEqual(olddat, newdat)
+        self.do_test([yaml_path, '--no-head'], python_file)
 
         # Make sure the python is valid
-        spec = compile(pydata, 'test', 'exec')
-        module = ModuleType('test')
-        exec(spec, module.__dict__)
-
-        if os.path.exists(target_path):
-            os.remove(target_path)
+        with open(target_path) as pyf:
+            pydata = pyf.read()
+            spec = compile(pydata, 'test', 'exec')
+            module = ModuleType('test')
+            exec(spec, module.__dict__)
 
     def test_help(self):
         self.do_test("--help", 'help')
 
     def test_meta(self):
         self.maxDiff = None
-        self.do_test(source_yaml_path, 'meta.py', filtr=metadata_filter)
-        self.do_test(source_yaml_path + ' -f py', 'meta.py', filtr=metadata_filter)
-        self.do_test(source_yaml_path + ' -f xsv', 'meta_error', error=click.exceptions.BadParameter)
+        self.do_test(meta_yaml, 'meta.py', filtr=metadata_filter)
+        self.do_test(meta_yaml + ' -f py', 'meta.py', filtr=metadata_filter)
+        self.do_test(meta_yaml + ' -f xsv', 'meta_error', expected_error=click.exceptions.BadParameter)
 
     def test_head(self):
         """ Validate the head/nohead parameter """

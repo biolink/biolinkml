@@ -1,5 +1,3 @@
-import os
+from tests.utils.testingenvironment import TestEnvironment
 
-_filedir = os.path.abspath(os.path.join(os.path.dirname(__file__)))
-inputdir = os.path.join(_filedir, 'input')
-outputdir = os.path.join(_filedir, 'output')
+env = TestEnvironment(__file__)

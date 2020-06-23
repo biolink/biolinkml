@@ -1,5 +1,6 @@
 metamodel/metamodel.py-PREV
 tests/test_scripts/temp/
+tests/test_scripts/output/
 tests/target
 tests/test_biolink_model/target
 

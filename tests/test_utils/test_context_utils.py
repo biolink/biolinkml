@@ -1,8 +1,6 @@
-import os
-import re
 import unittest
 
-from jsonasobj import JsonObj, loads, as_json
+from jsonasobj import JsonObj, loads
 
 from biolinkml import METAMODEL_CONTEXT_URI, META_BASE_URI
 from biolinkml.utils.context_utils import merge_contexts

@@ -4,7 +4,7 @@ import unittest
 import click
 
 from biolinkml.generators.protogen import cli
-from tests import source_yaml_path
+from tests.test_scripts import meta_yaml
 from tests.test_scripts.clicktestcase import ClickTestCase
 
 
@@ -17,9 +17,9 @@ class GenProtoTestCase(ClickTestCase):
         self.do_test("--help", 'help')
 
     def test_meta(self):
-        self.do_test(source_yaml_path, 'meta.proto')
-        self.do_test(source_yaml_path + ' -f proto', 'meta.proto')
-        self.do_test(source_yaml_path + ' -f xsv', 'meta_error', error=click.exceptions.BadParameter)
+        self.do_test(meta_yaml, 'meta.proto')
+        self.do_test(meta_yaml + ' -f proto', 'meta.proto')
+        self.do_test(meta_yaml + ' -f xsv', 'meta_error', expected_error=click.exceptions.BadParameter)
 
 
 if __name__ == '__main__':

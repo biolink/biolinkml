@@ -4,7 +4,7 @@ import unittest
 import click
 
 from biolinkml.generators.yumlgen import cli, YumlGenerator
-from tests import source_yaml_path
+from tests.test_scripts import meta_yaml
 from tests.test_scripts.clicktestcase import ClickTestCase
 
 
@@ -17,28 +17,23 @@ class GenYUMLTestCase(ClickTestCase):
         self.do_test("--help", 'help')
 
     def test_meta(self):
-        self.maxDiff = None
 
-        self.do_test(source_yaml_path, 'meta.yuml')
-        self.do_test(source_yaml_path + ' -f yuml', 'meta.yuml')
-        self.do_test(source_yaml_path + ' -f xsv', 'meta_error', error=click.exceptions.BadParameter)
-        self.do_test(source_yaml_path + ' -c definition', 'definition.yuml')
-        self.do_test(source_yaml_path + ' -c definition -c element', 'definition_element.yuml')
-        self.do_test(source_yaml_path + ' -c noclass', 'definition.yuml', error=ValueError)
+        self.do_test(meta_yaml, 'meta.yuml')
+        self.do_test(meta_yaml + ' -f yuml', 'meta.yuml')
+        self.do_test(meta_yaml + ' -f xsv', 'meta_error', expected_error=click.exceptions.BadParameter)
+        self.do_test(meta_yaml + ' -c definition', 'definition.yuml')
+        self.do_test(meta_yaml + ' -c definition -c element', 'definition_element.yuml')
+        self.do_test(meta_yaml + ' -c noclass', 'definition.yuml', expected_error=ValueError)
 
-        tmp_dir = self.temp_directory('meta')
-        self.do_test([source_yaml_path, '-c', 'schema_definition', '-d', tmp_dir], dirbase='meta')
-        tmp_dir = self.temp_directory('meta1')
-        self.do_test([source_yaml_path, '-c', 'definition', '-d', tmp_dir], dirbase='meta1')
-        tmp_dir = self.temp_directory('meta2')
-        self.do_test([source_yaml_path, '-c', 'element', '-d', tmp_dir], dirbase='meta2')
+        self.do_test([meta_yaml, '-c', 'schema_definition'], 'meta', is_directory=True)
+        self.do_test([meta_yaml, '-c', 'definition'], 'meta1', is_directory=True)
+        self.do_test([meta_yaml, '-c', 'element'], 'meta2', is_directory=True)
 
         # Directory tests
         for fmt in YumlGenerator.valid_formats:
             if fmt != 'yuml':
-                tmp_dir = self.temp_directory('meta_' + fmt)
-                self.do_test([source_yaml_path, '-f', fmt, '-c', 'schema_definition', '-d', tmp_dir],
-                             dirbase='meta_' + fmt)
+                self.do_test([meta_yaml, '-f', fmt, '-c', 'schema_definition'],
+                             'meta_' + fmt, is_directory=True)
 
 
 if __name__ == '__main__':

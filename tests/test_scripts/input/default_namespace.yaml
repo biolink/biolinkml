@@ -5,7 +5,7 @@ prefixes:
   test: http://example.org/test/
 
 imports:
-  - ../../includes/types
+  - includes/types
 
 
 slots:

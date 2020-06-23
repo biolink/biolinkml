@@ -1,78 +1,78 @@
 import os
-import re
-import shutil
+import shlex
 import sys
-import textwrap
 import unittest
-from contextlib import redirect_stdout
-from io import StringIO
 from typing import Union, List, Optional, Callable
 
-# Make sure you import click from here rather than the root
-import click
+from warnings import warn
 
-from biolinkml import MODULE_DIR
-from tests import sourcedir
-from tests.utils.compare_directories import are_dir_trees_equal
+from tests.test_scripts import env
 from tests.utils.dirutils import make_and_clear_directory
-# Stop click from doing a sys.exit
 from tests.utils.rdf_comparator import compare_rdf
-
-
-class CLIExitException(Exception):
-    ...
-
-
-def no_click_exit(_self, _code=0):
-    raise CLIExitException()
-
-
-click.core.Context.exit = no_click_exit
+from tests.utils.testingenvironment import MismatchAction
 
 
 class ClickTestCase(unittest.TestCase):
-    # The four variables below must be set by the inheriting class
-    testdir: str = None
-    click_ep = None
-    prog_name: str = None
+    # The variables below must be set by the inheriting class
+    testdir: str = None     # subdirectory within outdir
+    click_ep = None         # entry point for particular function
+    prog_name: str = None   # executable name
 
     soft_compare: Optional[str] = None
     test_base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'output'))
     temp_base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'temp'))
 
     @classmethod
-    def setUpClass(cls):
-        assert cls.testdir is not None, "Test directory must be defined"
-
-        cls.testdir_path = os.path.join(cls.test_base_dir, cls.testdir)
-        cls.tmpdir_path = os.path.join(cls.temp_base_dir, cls.testdir)
-        if not os.path.exists(cls.testdir_path):
-            print(f"Creating {cls.testdir_path}\n")
-            make_and_clear_directory(cls.testdir_path)
-        cls.creation_messages = []
-        cls.keep_temp_directory = False
+    def setUpClass(cls) -> None:
+        env.make_testing_directory(env.tempdir, clear=True)
 
     @classmethod
-    def tearDownClass(cls):
-        if not cls.keep_temp_directory and os.path.exists(cls.tmpdir_path):
-            make_and_clear_directory(cls.tmpdir_path)
-            cls.keep_temp_directory = False
-        if cls.creation_messages:
-            for msg in cls.creation_messages:
-                print(msg, file=sys.stderr)
-            cls.creation_messages = []
-            assert False, "Tests failed because baseline files were being created"
+    def tearDownClass(cls) -> None:
+        msg = str(env)
+        if msg and env.mismatch_action == MismatchAction.Report:
+            print(msg, file=sys.stderr)
 
-    def n3_comparator(self, old_data: str, new_data: str) -> str:
-        return compare_rdf(old_data, new_data, "n3")
+    def tearDown(self) -> None:
+        msg = str(env)
+        if msg and env.mismatch_action == MismatchAction.Fail:
+            msg = str(env)
+            env.clear()
+            self.fail(msg)
 
-    def rdf_comparator(self, old_data: str, new_data: str) -> str:
-        return compare_rdf(old_data, new_data)
+    def source_file_path(self, *path: str) -> str:
+        """ Return the full file name of path in the input directory """
+        return env.input_path(*path)
 
-    def always_pass_comparator(self, old_data: str, new_data: str) -> str:
+    def expected_file_path(self, *path: str) -> str:
+        """ Return the fill file path of the script subdirectory in the output directory """
+        return env.expected_path(self.testdir, *path)
+
+    def temp_file_path(self, *path: str, is_dir: bool = False) -> str:
+        """ Create subdirectory in the temp directory to hold path """
+        full_path = env.temp_file_path(self.testdir, *path)
+        env.make_testing_directory(full_path if is_dir else os.path.dirname(full_path))
+        return full_path
+
+    @staticmethod
+    def jsonld_comparator(expected_data: str, actual_data: str) -> str:
+        """ Compare expected data in json-ld format to actual data in json-ld format """
+        return compare_rdf(expected_data, actual_data, "json-ld")
+
+    @staticmethod
+    def n3_comparator(expected_data: str, actual_data: str) -> str:
+        """ compare expected_data in n3 format to actual_data in n3 format """
+        return compare_rdf(expected_data, actual_data, "n3")
+
+    @staticmethod
+    def rdf_comparator(expected_data: str, actual_data: str) -> str:
+        """ compare expected_data to actual_data using basic RDF comparator method """
+        return compare_rdf(expected_data, actual_data)
+
+    @staticmethod
+    def always_pass_comparator(self, expected_data: str, new_data: str) -> str:
         """
         No-op comparator -- everyone passes!
-        :param old_data:
+        :param expected_data:
         :param new_data:
         :return:
         """
@@ -80,17 +80,17 @@ class ClickTestCase(unittest.TestCase):
 
 
     @staticmethod
-    def closein_comparison(old_txt: str, new_txt: str) -> None:
+    def closein_comparison(expected_txt: str, actual_txt: str) -> None:
         """ Assist with testing comparison -- zero in on the first difference in a big string
 
-        @param old_txt:
-        @param new_txt:
+        @param expected_txt:
+        @param actual_txt:
         """
         window = 30
         view = 120
 
-        nw = nt = new_txt.strip()
-        ow = ot = old_txt.strip()
+        nw = nt = actual_txt.strip()
+        ow = ot = expected_txt.strip()
         if ot != nt:
             offset = 0
             while nt and ot and nt[:window] == ot[:window]:
@@ -103,105 +103,64 @@ class ClickTestCase(unittest.TestCase):
             print("\n   - - ACTUAL - -")
             print(nw[offset:offset+view+view])
 
-    def do_test(self, args: Union[str, List[str]], testfile: Optional[str] = "", *, error: type(Exception) = None,
-                filtr: Optional[Callable[[str], str]] = None, tox_wrap_fix: bool = False,
-                bypass_soft_compare: bool = False, dirbase: Optional[str] = None,
-                comparator: Callable[[type(unittest.TestCase), str, str, str], str] = None,) -> None:
+    def do_test(self,
+                args: Union[str, List[str]],
+                testFileOrDirectory: Optional[str] = None,
+                *,
+                expected_error: type(Exception) = None,
+                filtr: Optional[Callable[[str], str]] = None,
+                is_directory: bool = False,
+                comparator: Callable[[type(unittest.TestCase), str, str, str], str] = None, ) -> None:
         """ Execute a command test
 
         @param args: Argument string or list to command
-        @param testfile: name of file to record output in.  If absent, using directory mode
-        @param error: If present, we expect this error
-        @param filtr: Filter to remove date and app specific information from text
-        @param tox_wrap_fix: tox seems to wrap redirected output at 60 columns.  If true, try wrapping the test
-        file before failing
-        @param bypass_soft_compare: True means not to use the class level soft compare
-        @param dirbase: If present, compare tmpdir_path (new) to testdir_path(old)
+        @param testFileOrDirectory: name of file or directory to record output in
+        @param expected_error: If present, we expect this error
+        @param filtr: Filter to remove date and app specific information from text. Only used for single file generation
+        @param is_directory: True means output is to a directory
         @param comparator: If present, use this method for comparison
         """
-        new_directory = os.path.join(self.tmpdir_path, dirbase) if dirbase else None
+        assert testFileOrDirectory
+        target = os.path.join(self.testdir, testFileOrDirectory)
+        arg_list = shlex.split(args) if isinstance(args, str) else args
 
-        outf = StringIO()
-        arg_list = args.split() if isinstance(args, str) else args
+        if is_directory and (filtr or comparator):
+            warn("filtr and comparator parameters aren't implemented for directory generation")
+
         from tests.utils.generator_utils import BIOLINK_IMPORT_MAP_FNAME
         if arg_list and arg_list[0] != '--help':
-            arg_list += ["--importmap", BIOLINK_IMPORT_MAP_FNAME]
-        if error:
-            with self.assertRaises(error):
-                self.click_ep(arg_list, standalone_mode=False)
+            arg_list += ["--importmap", BIOLINK_IMPORT_MAP_FNAME, "--log_level", "INFO"]
+
+        def do_gen():
+            if is_directory:
+                env.generate_directory(target,
+                                       lambda target_dir: self.click_ep(arg_list + ["-d", target_dir],
+                                                                        prog_name=self.prog_name,
+                                                                        standalone_mode=False))
+            else:
+                env.generate_single_file(target,
+                                         lambda: self.click_ep(arg_list, prog_name=self.prog_name,
+                                                               standalone_mode=False), filtr=filtr,
+                                         comparator=comparator)
+
+        if expected_error:
+            with self.assertRaises(expected_error):
+                do_gen()
             return
-
-        arg_list += ["--log_level", "INFO"]
-
-        with redirect_stdout(outf):
-            try:
-                self.click_ep(arg_list, prog_name=self.prog_name, standalone_mode=False)
-            except CLIExitException:
-                pass
-
-        if not testfile:
-            if dirbase:
-                old_directory = os.path.join(self.testdir_path, dirbase)
-                if os.path.exists(old_directory):
-                    diffs = are_dir_trees_equal(old_directory, new_directory)
-                    if diffs:
-                        self.__class__.keep_temp_directory = True
-                        print(diffs)
-                        self.assertTrue(False)
-                else:
-                    shutil.copytree(new_directory, old_directory)
-                    self.__class__.creation_messages.append(f"Directory: {old_directory} created")
-            else:
-                print("Directory comparison needs to be added", file=sys.stderr)
         else:
-            testfile_path = os.path.join(self.testdir_path, testfile)
-            new_txt = outf.getvalue().replace('\r\n', '\n').strip()
-            if filtr:
-                new_txt = filtr(new_txt)
-            if not os.path.exists(testfile_path):
-                with open(testfile_path, 'w') as f:
-                    f.write(outf.getvalue())
-                self.__class__.creation_messages.append(f"File: {testfile_path} created")
-            else:
-                with open(testfile_path) as f:
-                    old_txt = f.read().replace('\r\n', '\n').strip()
-                if filtr:
-                    old_txt = filtr(old_txt)
+            do_gen()
 
-                if old_txt != new_txt and not comparator and tox_wrap_fix:
-                    old_txt = textwrap.fill(old_txt, 60)
-                    new_txt = textwrap.fill(new_txt, 60)
-                if comparator:
-                    compare_text = comparator(self, old_txt, new_txt)
-                else:
-                    compare_text = None if old_txt == new_txt else ''
 
-                # If necessary, update the test file
-                if compare_text is not None:
-                    hint = "(Not an error) " if self.soft_compare else ""
-                    print(f"\n***** {hint} Mismatch on: {os.path.relpath(testfile_path, MODULE_DIR)}. "
-                          f"Remove file to refresh *****\n")
-                    if self.soft_compare and not bypass_soft_compare:
-                        print(f"{self.id()}: {self.soft_compare}")
-                    elif not comparator:
-                        if len(old_txt) > 10000:
-                            print(self.closein_comparison(old_txt, new_txt))
-                        self.maxDiff = None
-                        self.assertEqual(old_txt, new_txt)
-                    else:
-                        print(compare_text)
-                        self.assertFalse(True, "Mismatch")
-
-    def temp_directory(self, base: str) -> str:
+    @classmethod
+    def temp_directory(cls, base: str) -> str:
         """
         Create a temporary directory and return the path
 
         :param base:
         :return: directory
         """
-        if not os.path.exists(self.tmpdir_path):
-            make_and_clear_directory(self.tmpdir_path)
-        new_directory = os.path.join(self.tmpdir_path, base)
+        env.make_testing_directory(env.tempdir, clear=True)
+        new_directory = os.path.join(cls.temp_base_dir, base)
         make_and_clear_directory(new_directory)
         return new_directory
 
