@@ -53,7 +53,7 @@ types:
   string:
     base: str
     uri: xsd:string
-    
+
 classes:
 
   organization:
@@ -61,7 +61,7 @@ classes:
       - id
       - name
       - has boss
-      
+
   employee:
     description: A person
     slots:
@@ -73,7 +73,7 @@ classes:
     slot_usage:
       last name :
         required: true
-      
+
   manager:
     description: An employee who manages others
     is_a: employee
@@ -88,16 +88,16 @@ slots:
   name:
     description: human readable name
     range: string
-    
+
   aliases:
     is_a: name
     description: An alternative name
     multivalued: true
-    
+
   first name:
     is_a: name
     description: The first name of a person
-    
+
   last name:
     is_a: name
     description: The last name of a person
@@ -124,14 +124,14 @@ Note this schema does not illustrate the more advanced features of blml
 
 `pipenv run gen-json-schema examples/organization.yaml`
 
-See [examples/organization.schema.json](examples/organization.schema.json) 
+See [examples/organization.schema.json](examples/organization.schema.json)
 
 
 ### Python DataClasses
 
 `pipenv run gen-py-classes examples/organization.yaml > examples/organization.py`
 
-See [examples/organization.py](examples/organization.py) 
+See [examples/organization.py](examples/organization.py)
 
 For example:
 
@@ -166,7 +166,7 @@ class Organization(YAMLRoot):
 
 `pipenv run gen-shex examples/organization.yaml > examples/organization.shex`
 
-See [examples/organization.shex](examples/organization.shex) 
+See [examples/organization.shex](examples/organization.shex)
 
 
 ## Generating Markdown documentation
@@ -251,5 +251,14 @@ typeof:
 ### Slot Definitions
 
 
+## Developers Notes
 
+### Release to Pypi
 
+[A Github action] is set up to automatically release the Pypi package. When it is ready
+for a new release, create a [Github release](https://github.com/biolink/biolinkml/releases). The version
+should be in the vX.X.X format following [the smantic versioning specification](https://semver.org/).
+
+After the release is created, the GitHub action will be triggered to publish to Pypi. The release version will be used to create the Pypi package.
+
+If the Pypi release failed, make fixes, [delete the GitHub release](https://help.github.com/en/enterprise/2.16/user/github/administering-a-repository/editing-and-deleting-releases#:~:text=Deleting%20a%20release,-Tip%3A%20You%20must&text=Under%20your%20repository%20name%2C%20click%20Releases.,of%20the%20page%2C%20click%20Delete.), and recreate a release with the same version again.
