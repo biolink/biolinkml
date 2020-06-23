@@ -90,7 +90,7 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: 3.7
-    - name: build a binary wheel
+    - name: build a binary wheel dist
       run: |
         rm -fr dist
         python setup.py bdist_wheel sdist
