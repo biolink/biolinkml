@@ -1,9 +1,13 @@
 id: http://example.org/tests/timepoint
 name: timepoint
 
+prefixes:
+  biolinkml: https://w3id.org/biolink/biolinkml/
 
 imports:
-  - ../../includes/types
+  - biolinkml:types
+
+default_range: string
 
 
 types:

@@ -2,12 +2,13 @@ id: http://example.org/example/uri_tests
 name: uri_tests
 
 imports:
-  - includes/types
+  - biolinkml:types
 
 prefixes:
   meta: https://w3id.org/biolink/biolinkml/meta/
   skos: http://www.w3.org/2004/02/skos/core#
   OIO: http://www.geneontology.org/formats/oboInOwl#
+  biolinkml: https://w3id.org/biolink/biolinkml/
 
 default_prefix: meta
 

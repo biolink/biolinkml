@@ -1,24 +1,25 @@
 import unittest
 
-# This has to occur post ClickTestCase
 import click
 
 from biolinkml.generators.graphqlgen import cli
-from tests.test_scripts import meta_yaml
-from tests.test_scripts.clicktestcase import ClickTestCase
+
+from tests.test_scripts.environment import env
+from tests.utils.clicktestcase import ClickTestCase
 
 
 class GenGraphqlTestCase(ClickTestCase):
     testdir = "gengraphql"
     click_ep = cli
     prog_name = "gen-graphql"
+    env = env
 
     def test_help(self):
         self.do_test("--help", 'help')
 
     def test_meta(self):
-        self.do_test(meta_yaml, 'meta.graphql')
-        self.do_test(meta_yaml + ' -f xsv', 'meta_error', expected_error=click.exceptions.BadParameter)
+        self.do_test([], 'meta.graphql')
+        self.do_test('-f xsv', 'meta_error', expected_error=click.exceptions.BadParameter)
 
 
 if __name__ == '__main__':

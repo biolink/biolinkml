@@ -11,9 +11,9 @@ from rdflib import Graph, URIRef
 from biolinkml import METAMODEL_NAMESPACE
 from biolinkml.generators.jsonldcontextgen import ContextGenerator
 from biolinkml.generators.jsonldgen import cli, JSONLDGenerator
-from tests.test_scripts import meta_yaml
-from tests.test_scripts.clicktestcase import ClickTestCase
-from tests.utils.generator_utils import BIOLINK_IMPORT_MAP
+
+from tests.test_scripts.environment import env
+from tests.utils.clicktestcase import ClickTestCase
 
 cwd = os.path.dirname(__file__)
 meta_context = 'file:./output/gencontext/meta.jsonld'
@@ -34,15 +34,16 @@ class GenJSONLDTestCase(ClickTestCase):
     testdir = "genjsonld"
     click_ep = cli
     prog_name = "gen-jsonld"
+    env = env
 
     def test_help(self):
         self.do_test("--help", 'help')
 
     def test_meta(self):
         self.maxDiff = None
-        self.do_test(meta_yaml + f" --context {meta_context}", 'meta.jsonld', filtr=filtr)
-        self.do_test(meta_yaml + f' -f jsonld --context {meta_context}', 'meta.jsonld', filtr=filtr)
-        self.do_test(meta_yaml + f' -f xsv --context {meta_context}', 'meta_error',
+        self.do_test(f"--context {meta_context}", 'meta.jsonld', filtr=filtr)
+        self.do_test(f'-f jsonld --context {meta_context}', 'meta.jsonld', filtr=filtr)
+        self.do_test(f'-f xsv --context {meta_context}', 'meta_error',
                      expected_error=click.exceptions.BadParameter)
 
     def check_size(self, g: Graph, g2: Graph, root: URIRef, expected_classes: int,
@@ -73,7 +74,7 @@ class GenJSONLDTestCase(ClickTestCase):
         tmp_meta_context_path = self.temp_file_path('metacontext.jsonld')
 
         # Generate an image of the metamodel
-        gen = ContextGenerator(meta_yaml, importmap=BIOLINK_IMPORT_MAP)
+        gen = ContextGenerator(env.meta_yaml, importmap=env.import_map)
         base = gen.schema.id
         if base[-1] not in '/#':
             base += '/'
@@ -85,8 +86,8 @@ class GenJSONLDTestCase(ClickTestCase):
 
         # Generate JSON
         with open(tmp_jsonld_path, 'w') as tfile:
-            tfile.write(JSONLDGenerator(meta_yaml, fmt=JSONLDGenerator.valid_formats[0],
-                                        importmap=BIOLINK_IMPORT_MAP).serialize(context=tmp_meta_context_path))
+            tfile.write(JSONLDGenerator(env.meta_yaml, fmt=JSONLDGenerator.valid_formats[0],
+                                        importmap=env.import_map).serialize(context=tmp_meta_context_path))
 
         # Convert JSON to TTL
         g = Graph()

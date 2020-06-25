@@ -38,7 +38,7 @@ imports:
 
 subsets:
   owl:
-    description: Set of slots that appear in the OWL representation of a models
+    description: Set of slots that appear in the OWL representation of a model
 
 
 #==================================

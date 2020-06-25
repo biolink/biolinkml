@@ -3,6 +3,7 @@
    "@context": {
       "type": "@type",
       "OIO": "http://www.geneontology.org/formats/oboInOwl#",
+      "biolinkml": "https://w3id.org/biolink/biolinkml/",
       "meta": "https://w3id.org/biolink/biolinkml/meta/",
       "skos": "http://www.w3.org/2004/02/skos/core#",
       "@vocab": "https://w3id.org/biolink/biolinkml/meta/",

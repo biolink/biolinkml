@@ -1,15 +1,12 @@
-import os
 import unittest
-
-# This has to occur post ClickTestCase
 from types import ModuleType
 
 import click
 
 
 from biolinkml.generators.pythongen import cli, PythonGenerator
-from tests.test_scripts import meta_yaml
-from tests.test_scripts.clicktestcase import ClickTestCase
+from tests.test_scripts.environment import env
+from tests.utils.clicktestcase import ClickTestCase
 from tests.utils.metadata_filters import metadata_filter
 
 
@@ -17,6 +14,7 @@ class GenPythonTestCase(ClickTestCase):
     testdir = "genpython"
     click_ep = cli
     prog_name = "gen-python"
+    env = env
 
     def gen_and_comp_python(self, base: str) -> None:
         """ Generate yaml_file into python_file and compare it against master_file  """
@@ -25,7 +23,7 @@ class GenPythonTestCase(ClickTestCase):
         yaml_path = self.source_file_path(yaml_file)
         target_path = self.expected_file_path(python_file)
 
-        self.do_test([yaml_path, '--no-head'], python_file)
+        self.do_test([yaml_path, '--no-head'], python_file, add_yaml=False)
 
         # Make sure the python is valid
         with open(target_path) as pyf:
@@ -39,9 +37,9 @@ class GenPythonTestCase(ClickTestCase):
 
     def test_meta(self):
         self.maxDiff = None
-        self.do_test(meta_yaml, 'meta.py', filtr=metadata_filter)
-        self.do_test(meta_yaml + ' -f py', 'meta.py', filtr=metadata_filter)
-        self.do_test(meta_yaml + ' -f xsv', 'meta_error', expected_error=click.exceptions.BadParameter)
+        self.do_test([], 'meta.py', filtr=metadata_filter)
+        self.do_test('-f py', 'meta.py', filtr=metadata_filter)
+        self.do_test('-f xsv', 'meta_error', expected_error=click.exceptions.BadParameter)
 
     def test_head(self):
         """ Validate the head/nohead parameter """
