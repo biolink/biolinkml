@@ -1,8 +1,7 @@
-import os
 import unittest
 
 from biolinkml.generators.shexgen import ShExGenerator
-from tests.test_utils import inputdir
+from tests.test_utils.environment import env
 
 
 class URLImportTestCase(unittest.TestCase):
@@ -10,7 +9,7 @@ class URLImportTestCase(unittest.TestCase):
     @unittest.skipIf(False, "Finish implementing this")
     def test_import_from_url(self):
         """ Validate namespace bindings """
-        shex = ShExGenerator(os.path.join(inputdir, 'import_test_l2.yaml')).serialize()
+        shex = ShExGenerator(env.input_path('import_test_l2.yaml')).serialize()
         self.assertEqual("""BASE <http://example.org/l2/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>

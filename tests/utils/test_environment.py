@@ -49,6 +49,9 @@ class TestEnvironment:
             parent_env = import_module('..environment', __package__)
             self.meta_yaml = parent_env.env.meta_yaml               # Location of testing meta_yaml file (root of test dir)
             self.import_map = parent_env.env.import_map
+            self.types_yaml = parent_env.env.types_yaml
+            self.mismatch_action = parent_env.env.mismatch_action
+            self._log = parent_env.env._log
         else:
             self.meta_yaml = self.input_path('meta.yaml')
             # Warn if the dependent test data is out of date
@@ -64,9 +67,8 @@ class TestEnvironment:
                         f"WARNING: Test file {self.types_yaml} does not match {source_types_path}.  "
                         f"You may want to update the test version and rerun")
             self.import_map = self.input_path('local_import_map.json')
-
-        self._log = MismatchLog()
-        self.mismatch_action = MismatchAction.Report
+            self.mismatch_action = MismatchAction.Report
+            self._log = MismatchLog()
 
     def clear_log(self) -> None:
         """ Clear the output log """
@@ -87,6 +89,13 @@ class TestEnvironment:
     def temp_file_path(self, *path: str) -> str:
         """ Create a file path to a temporary file (same as actual_path) """
         return self.actual_path(*path)
+
+    def log(self, file_or_directory: str, message: Optional[str] = None) -> None:
+        self._log.log(file_or_directory, message)
+
+    @property
+    def verb(self) -> str:
+        return 'will be' if self.fail_on_error else 'was'
 
     @property
     def fail_on_error(self) -> bool:
@@ -157,7 +166,7 @@ class TestEnvironment:
 
         diffs = are_dir_trees_equal(expected_output_directory, temp_output_directory)
         if diffs:
-            self._log.log(expected_output_directory, diffs)
+            self.log(expected_output_directory, diffs)
             shutil.rmtree(expected_output_directory)
             os.rename(temp_output_directory, expected_output_directory)
         else:
@@ -182,7 +191,6 @@ class TestEnvironment:
 
         actual_file = self.actual_path(filename)
         expected_file = self.expected_path(filename)
-        verb = 'will be' if self.fail_on_error else 'was'
 
         if direct_to_file:
             # If the output writes directly to a file, create a scratch file to writ it into
@@ -197,13 +205,13 @@ class TestEnvironment:
                     actual = filtr(tmpf.read())
                 os.remove(actual_file)
             else:
-                self._log.log(expected_file, f"No output {verb} generated")
+                self.log(expected_file, f"No output {self.verb} generated")
                 if not self.fail_on_error:
                     with contextlib.suppress(FileNotFoundError):
                         os.remove(expected_file)
                 return
         elif value_is_returned:
-            actual = generator()
+            actual = filtr(generator())
         else:
             outf = StringIO()
             with contextlib.redirect_stdout(outf):
@@ -213,18 +221,24 @@ class TestEnvironment:
                     pass
             actual = filtr(outf.getvalue())
 
-        # Determine whether there is any change
-        if os.path.exists(expected_file):
-            with open(expected_file) as expf:
-                expected = filtr(expf.read())
-            msg = comparator(expected, actual) if comparator else self.string_comparator(expected, actual)
+        self.eval_single_file(expected_file, actual, filtr, comparator if comparator else self.string_comparator)
+
+    def eval_single_file(self, expected_file_path: str, actual_text: str,  filtr: Callable[[str], str],
+                         comparator: Callable[[str, str], str]) -> None:
+        """ Compare actual_text to the contents of the expected file.  Log a message if there is a mismatch and
+            overwrite the expected file if we're not in the fail on error mode
+        """
+        if os.path.exists(expected_file_path):
+            with open(expected_file_path) as expf:
+                expected_text = filtr(expf.read())
+            msg = comparator(expected_text, actual_text)
         else:
-            msg = f"New file {verb} created"
+            msg = f"New file {self.verb} created"
         if msg:
-            self._log.log(expected_file, msg)
+            self.log(expected_file_path, msg)
             if not self.fail_on_error:
-                with open(expected_file, 'w') as outf:
-                    outf.write(actual)
+                with open(expected_file_path, 'w') as outf:
+                    outf.write(actual_text)
 
 
 class TestEnvironmentTestCase(unittest.TestCase):

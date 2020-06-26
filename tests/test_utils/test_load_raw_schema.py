@@ -7,7 +7,7 @@ from jsonasobj import as_json, loads, load, as_dict, JsonObj
 from biolinkml.meta import SchemaDefinition
 from biolinkml.utils.rawloader import load_raw_schema
 from biolinkml.utils.schemaloader import SchemaLoader
-from tests.test_utils import inputdir, outputdir
+from tests.test_utils.environment import env
 
 
 class RawLoaderTestCase(unittest.TestCase):
@@ -41,20 +41,20 @@ class RawLoaderTestCase(unittest.TestCase):
 
     def test_load_raw_file(self):
         """ Test loading a data file """
-        self._verify_schema1_content(load_raw_schema(os.path.join(inputdir, 'schema1.yaml')), 'schema1')
+        self._verify_schema1_content(load_raw_schema(env.input_path('schema1.yaml')), 'schema1')
 
         # Verify that we can't pass source_file parameters when we've got a directory name
         with self.assertRaises(AssertionError):
-            load_raw_schema(os.path.join(inputdir, 'schema1.yaml'), source_file_size=117)
+            load_raw_schema(env.input_path('schema1.yaml'), source_file_size=117)
 
     def test_explicit_name(self):
         """ Test the named schema option """
-        self._verify_schema1_content(load_raw_schema(os.path.join(inputdir, 'schema2.yaml')), 'schema2')
+        self._verify_schema1_content(load_raw_schema(env.input_path('schema2.yaml')), 'schema2')
 
     def test_multi_schemas(self):
         """ Test multiple schemas in the same file """
         def check_types(s: SchemaDefinition) -> None:
-            output = os.path.join(outputdir, 'schema4.json')
+            output = env.expected_path('schema4.json')
             if not os.path.exists(output):
                 with open(output, 'w') as f:
                     f.write(as_json(JsonObj(**{k: as_dict(loads(as_json(v))) for k, v in s.types.items()})))
@@ -65,40 +65,40 @@ class RawLoaderTestCase(unittest.TestCase):
             self.assertEqual(expected, {k: as_dict(loads(as_json(v))) for k, v in s.types.items()})
             s.types = None
 
-        self._verify_schema1_content(load_raw_schema(os.path.join(inputdir, 'schema4.yaml')), 'schema4', check_types)
+        self._verify_schema1_content(load_raw_schema(env.input_path('schema4.yaml')), 'schema4', check_types)
 
     def test_base_dir(self):
         """ Test the base directory option  """
-        self._verify_schema1_content(load_raw_schema('schema1.yaml', base_dir=inputdir), 'schema1')
+        self._verify_schema1_content(load_raw_schema('schema1.yaml', base_dir=env.indir), 'schema1')
 
     def test_schema_id(self):
         """ Test loading a schema with just an id """
-        self._verify_schema1_content(load_raw_schema('schema3.yaml', base_dir=inputdir), 'schema3')
+        self._verify_schema1_content(load_raw_schema('schema3.yaml', base_dir=env.indir), 'schema3')
 
     def test_name_from_sourcefile(self):
         """ Test no identifier at all  """
         with self.assertRaises(ValueError):
-            load_raw_schema(os.path.join(inputdir, 'schema5.yaml'))
+            load_raw_schema(env.input_path('schema5.yaml'))
 
 
     def test_load_text(self):
         """ Test loading straight text """
-        with open(os.path.join(inputdir, 'schema1.yaml')) as f:
+        with open(env.input_path('schema1.yaml')) as f:
             self._verify_schema1_content(load_raw_schema(f.read(), 'schema1.yaml', "Mon Dec 31 11:25:38 2018", 76),
                                          'schema1')
 
     def test_representation_errors(self):
         """ Test misformed schema elements """
-        fn = os.path.join(inputdir, 'typeerror1.yaml')
+        fn = env.input_path('typeerror1.yaml')
         with self.assertRaises(ValueError):
             SchemaLoader(fn)
-        fn = os.path.join(inputdir, 'typeerror2.yaml')
+        fn = env.input_path('typeerror2.yaml')
         with self.assertRaises(ValueError):
             SchemaLoader(fn)
-        fn = os.path.join(inputdir, 'typeerror3.yaml')
+        fn = env.input_path('typeerror3.yaml')
         with self.assertRaises(ValueError):
             SchemaLoader(fn)
-        fn = os.path.join(inputdir, 'typeerror4.yaml')
+        fn = env.input_path('typeerror4.yaml')
         with self.assertRaises(ValueError):
             SchemaLoader(fn)
 

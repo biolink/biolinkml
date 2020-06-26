@@ -1,4 +1,3 @@
-import datetime
 import logging
 import os
 import unittest
@@ -9,13 +8,12 @@ from jsonasobj import as_json
 
 from biolinkml.meta import SchemaDefinition
 from biolinkml.utils.schemaloader import SchemaLoader
-from tests import sourcedir
-from tests.test_utils import outputdir, inputdir
-
-update_all_files: bool = False
+from tests.utils.test_environment import TestEnvironment
 
 
 class Base(unittest.TestCase):
+    env: TestEnvironment = None
+
     def fix_schema_metadata(self, schema: SchemaDefinition) -> SchemaDefinition:
         self.assertIsNotNone(schema.generation_date)
         schema.source_file = os.path.basename(schema.source_file)
@@ -28,7 +26,6 @@ class Base(unittest.TestCase):
         schema.source_file_date = "2018-12-31 17:23"
         return schema
 
-
     def eval_output(self, actual: str, filename: str, conv_f: Optional[Callable[[str], Any]] = None,
                     comp_f: Optional[Callable[[str, str], None]] = None) -> None:
 
@@ -40,9 +37,9 @@ class Base(unittest.TestCase):
         if comp_f is None:
             comp_f = _default_comparator
 
-        file_path = os.path.join(outputdir, filename)
+        file_path = self.env.expected_path(filename)
         file_created = False
-        if not os.path.exists(file_path) or update_all_files:
+        if not os.path.exists(file_path):
             print(f"Creating {file_path}")
             with open(file_path, 'w') as f:
                 f.write(actual)
@@ -57,12 +54,11 @@ class Base(unittest.TestCase):
             comp_f(expected, actual)
         self.assertFalse(file_created, f"{file_path}: Created new file image -- rerun")
 
-    def eval_loader(self, base_name: str, is_sourcedir: bool=False, source: Optional[str]  =None,
+    def eval_loader(self, base_name: str, source: Optional[str]  =None,
                     logger: Optional[logging.Logger] = None) -> None:
-        fn = os.path.join(sourcedir if is_sourcedir else inputdir, base_name + '.yaml') if not source else source
+        fn = source if source else self.env.input_path(base_name + '.yaml')
         loader = SchemaLoader(fn, logger=logger) if logger else SchemaLoader(fn)
         schema = as_json(self.fix_schema_metadata(loader.resolve()))
         self.eval_output(schema, base_name + '.json', loads)
         errors = '\n'.join(loader.synopsis.errors())
         self.eval_output(errors, base_name + '.errs')
-        self.assertFalse(update_all_files, "Updating base files -- rerun")

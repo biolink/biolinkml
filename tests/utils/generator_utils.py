@@ -7,12 +7,12 @@ from rdflib import Graph, Namespace, OWL
 
 from biolinkml import METAMODEL_NAMESPACE
 from biolinkml.utils.generator import Generator
-from tests.utils.test_environment import TestEnvironment
+from tests.utils.test_environment import TestEnvironment, TestEnvironmentTestCase
 
 BIOLINK_NS = Namespace("https://w3id.org/biolink/vocab/")
 
 
-class GeneratorTestCase(unittest.TestCase):
+class GeneratorTestCase(TestEnvironmentTestCase):
     model_name: str = None              # yaml name (sans '.yaml')
     output_name: str = None             # If different than model name
     importmap: Dict[str, str] = None    # Location of the import mappings if any
