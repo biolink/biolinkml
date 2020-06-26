@@ -684,6 +684,7 @@ class slots:
         if slot.mappings:
             map_texts = [self.namespaces.curie_for(self.namespaces.uri_for(m), default_ok=True, pythonform=True)
                          for m in slot.mappings if m != slot.slot_uri]
+            map_texts = [m for m in map_texts if m is not None]
         else:
             map_texts = []
         if map_texts:

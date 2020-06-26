@@ -15,7 +15,7 @@ class JsonSchemaGenerator(Generator):
     valid_formats = ["json"]
     visit_all_class_slots = True
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], top_class : str = None, **kwargs) -> None:
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], top_class: str = None, dir: str = None, **kwargs) -> None:
         super().__init__(schema, **kwargs)
         self.schemaobj: JsonObj = None
         self.clsobj: JsonObj = None
@@ -109,6 +109,13 @@ Note that declaring a slot as inlined: true will always inline the class
 """)
 @click.option("-t", "--top-class", help="""
 Top level class; slots of this class will become top level properties in the json-schema
+""")
+@click.option("-d", "--dir", help="""
+directory to deposit per-class json schema files.
+Note that normally this module will generate a single json-schema file, with the root
+properties determined by the --top-class option.
+If --dir is specified then --top-class is ignored and instead one schema per class
+is written.
 """)
 def cli(yamlfile, **kwargs):
     """ Generate JSON Schema representation of a biolink model """
