@@ -1,14 +1,14 @@
 import unittest
 import click
 
-from biolinkml.generators.protogen import cli
+from biolinkml.generators import protogen
 from tests.test_scripts.environment import env
 from tests.utils.clicktestcase import ClickTestCase
 
 
 class GenProtoTestCase(ClickTestCase):
     testdir = "genproto"
-    click_ep = cli
+    click_ep = protogen.cli
     prog_name = "gen-proto"
     env = env
 

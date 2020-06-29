@@ -1,14 +1,14 @@
 import os
 import unittest
 
-from biolinkml.generators.markdowngen import cli
+from biolinkml.generators import markdowngen
 from tests.test_scripts.environment import env
 from tests.utils.clicktestcase import ClickTestCase
 
 
 class GenMarkdownTestCase(ClickTestCase):
     testdir = "genmarkdown"
-    click_ep = cli
+    click_ep = markdowngen.cli
     prog_name = "gen-markdown"
     env = env
 

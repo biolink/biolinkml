@@ -1,30 +1,32 @@
 import os
 import unittest
-import json
-from types import ModuleType
+
+from jsonasobj import as_json
 
 from biolinkml.generators.pythongen import PythonGenerator
-from tests.test_issues import sourcedir
+from tests.test_issues.environment import env
+from tests.utils.python_comparator import compare_python, compile_python
+from tests.utils.test_environment import TestEnvironmentTestCase
 
 
-class IssuePythonOrderingTestCase(unittest.TestCase):
-
-    def header(self, txt: str) -> str:
-        return '\n' + ("=" * 20) + f" {txt} " + ("=" * 20)
-
+class IssuePythonOrderingTestCase(TestEnvironmentTestCase):
+    env = env
+    
     def test_issue_python_ordering(self):
         """ Make sure that types are generated as part of the output """
-        yaml_fname = os.path.join(sourcedir, 'issue_134.yaml')
-        gen = PythonGenerator(yaml_fname)
-        py = gen.serialize()
-        print(self.header("Py"))
-        print(py)
-        spec = compile(py, 'test', 'exec')
-        module = ModuleType('test')
-        exec(spec, module.__dict__)
+        env.generate_single_file('issue_134.py',
+                                 lambda: PythonGenerator(env.input_path('issue_134.yaml')).serialize(),
+                                 comparator=compare_python, value_is_returned=True)
+        module = compile_python(env.expected_path('issue_134.py'))
         e = module.E('id:1')
         b = module.B('id:2')
         e.has_b = b
+        
+        def output_generator(dirname) -> None:
+            with open(os.path.join(dirname, 'issue_134.json'), 'w') as f:
+                f.write(as_json(e))
+
+        env.generate_directory('issue_134', lambda dirname: output_generator(dirname) )
 
 
 if __name__ == '__main__':

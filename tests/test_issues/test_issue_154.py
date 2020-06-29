@@ -1,19 +1,28 @@
-import os
 import unittest
+
+import yaml
 
 from biolinkml.generators.pythongen import PythonGenerator
 from biolinkml.utils.yamlutils import as_yaml
-from tests.test_issues import sourcedir
-import yaml
+from tests.test_issues.environment import env
+from tests.utils.test_environment import TestEnvironmentTestCase
 
 
-class IssueYamlSerializerTestCase(unittest.TestCase):
+class IssueYamlSerializerTestCase(TestEnvironmentTestCase):
+    env = env
+
     def test_roundtrip(self):
-        yaml_fname = os.path.join(sourcedir, 'issue_134.yaml')
+        """ Test as_yaml emitter """
+        # env.generate_single_file('issue_154.py',
+        #                          lambda: PythonGenerator(env.input_path('issue_134.yaml')).serialize(),
+        #                          comparator=compare_python, value_is_returned=True)
+        # yaml_fname = env.input_path('issue_134.yaml')
 
+        # We use the PythonGenerator as a generic generator instance.  We don't actually serialize
+
+        yaml_fname = env.input_path('issue_134.yaml')
         gen = PythonGenerator(yaml_fname)
-        schema = gen.schema
-        yaml_str = as_yaml(schema)
+        yaml_str = as_yaml(gen.schema)
         generated = yaml.safe_load(yaml_str)
         with open(yaml_fname) as yaml_file:
             original = yaml.safe_load(yaml_file)

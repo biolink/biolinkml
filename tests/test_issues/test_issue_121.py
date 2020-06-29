@@ -1,26 +1,27 @@
 import os
 import unittest
-from types import ModuleType
 
 from jsonasobj import as_json
 
-from biolinkml.generators.jsonldcontextgen import ContextGenerator
 from biolinkml.generators.pythongen import PythonGenerator
-from biolinkml.utils.yamlutils import as_rdf
-from tests.test_issues import sourcedir
+from tests.test_issues.environment import env
+from tests.utils.python_comparator import compare_python, compile_python
+from tests.utils.test_environment import TestEnvironmentTestCase
 
 
-class Issue121TestCase(unittest.TestCase):
+class Issue121TestCase(TestEnvironmentTestCase):
+    env = env
 
     def header(self, txt: str) -> str:
         return '\n' + ("=" * 20) + f" {txt} " + ("=" * 20)
 
     def test_issue_121(self):
         """ Make sure that types are generated as part of the output """
-        yaml_fname = os.path.join(sourcedir, 'issue_121.yaml')
-        python = PythonGenerator(yaml_fname).serialize()
-        print(self.header("Python"))
-        print(python)
+        env.generate_single_file('issue_121.py',
+                                 lambda: PythonGenerator(env.input_path('issue_121.yaml')).serialize(),
+                                 comparator=compare_python, value_is_returned=True)
+        with open(env.expected_path('issue_121.py')) as f:
+            python= f.read()
 
         has_includes = False
         for line in python.split("\n"):
@@ -28,17 +29,21 @@ class Issue121TestCase(unittest.TestCase):
                 assert line == "from includes.types import String"
                 has_includes = True
         assert has_includes
+        module = compile_python(env.expected_path('issue_121.py'))
 
-        spec = compile(python, 'test', 'exec')
-        module = ModuleType('test')
-        exec(spec, module.__dict__)
         example = module.Biosample(depth="test")
         assert hasattr(example, "depth")
         assert example.depth == "test"
-        # JSON Representation
-        print(self.header("JSON"))
-        print(as_json(example))
+
         example2 = module.ImportedClass()
+
+        def output_generator(dirname) -> None:
+            with open(os.path.join(dirname, 'issue_121_1.json'), 'w') as f:
+                f.write(as_json(example))
+            with open(os.path.join(dirname, 'issue_121_2.json'), 'w') as f:
+                f.write(as_json(example2))
+
+        env.generate_directory('issue_121', lambda dirname: output_generator(dirname))
 
 
 if __name__ == '__main__':

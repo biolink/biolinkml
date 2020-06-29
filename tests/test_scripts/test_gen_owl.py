@@ -7,7 +7,7 @@ from typing import List, Tuple
 
 import click
 
-from biolinkml.generators.owlgen import cli
+from biolinkml.generators import owlgen
 from tests.test_scripts.environment import env
 from tests.utils.clicktestcase import ClickTestCase
 
@@ -23,7 +23,7 @@ def filtr(txt: str) -> str:
 
 class GenOWLTestCase(ClickTestCase):
     testdir = "genowl"
-    click_ep = cli
+    click_ep = owlgen.cli
     prog_name = "gen-owl"
     env = env
 

@@ -8,8 +8,8 @@ from jsonasobj import as_json, load
 
 from biolinkml.utils.schemaloader import SchemaLoader
 from tests.test_utils.environment import env
-from tests.utils.base import Base
-from tests.utils.metadata_filters import json_metadata_filter
+from tests.test_utils.base import Base
+from tests.utils.filters import json_metadata_filter
 
 
 class SchemaLoaderTestCase(Base):

@@ -1,38 +1,29 @@
-import os
 import unittest
 from typing import List
 
-from pyshex.shex_evaluator import EvaluationResult, ShExEvaluator
-from rdflib import Graph
+from pyshex.shex_evaluator import EvaluationResult
 
-from biolinkml import LOCAL_METAMODEL_LDCONTEXT_FILE, METAMODEL_NAMESPACE, LOCAL_SHEXJ_FILE_NAME, \
-    LOCAL_RDF_FILE_NAME, MODULE_DIR
-from biolinkml.generators.jsonldgen import JSONLDGenerator
+from biolinkml.generators.jsonldcontextgen import ContextGenerator
 from biolinkml.generators.markdowngen import MarkdownGenerator
 from biolinkml.generators.owlgen import OwlSchemaGenerator
 from biolinkml.generators.rdfgen import RDFGenerator
 from biolinkml.generators.shexgen import ShExGenerator
-from tests import targetdir, DO_SHEX_VALIDATION, sourcedir
-from tests.utils.generator_utils import GeneratorTestCase, BIOLINK_IMPORT_MAP
-from tests.utils.metadata_filters import json_metadata_filter
+from tests.utils.generatortestcase import GeneratorTestCase
+from tests.test_base.environment import env
+from tests.utils.compare_rdf import compare_rdf
 
 
 class MetaModelTestCase(GeneratorTestCase):
-    source_path = MODULE_DIR
-    target_path = targetdir
-    model_path = MODULE_DIR
+    env = env
     model_name = 'meta'
-    importmap = BIOLINK_IMPORT_MAP
 
-    @unittest.skipIf(True, 'Disable since docs generation is moved to GitHub Actions')
     def test_meta_markdown(self):
         """ Test the markdown generator for the biolink model """
-        self.directory_generator('docs', MarkdownGenerator)
+        self.directory_generator('meta_mappings_docs', MarkdownGenerator)
 
-    @unittest.skipIf(False, "We still need to figure out what to do here")
     def test_meta_owl_schema(self):
         """ Test the owl schema generator for the biolink model """
-        self.single_file_generator('owl', OwlSchemaGenerator, comparator=GeneratorTestCase.rdf_comparator)
+        self.single_file_generator('owl', OwlSchemaGenerator, comparator=compare_rdf)
 
     @staticmethod
     def _evaluate_shex_results(results: List[EvaluationResult]) -> bool:
@@ -50,7 +41,7 @@ class MetaModelTestCase(GeneratorTestCase):
 
     def test_meta_shexc(self):
         """ Test the shex ShExC generation """
-        self.single_file_generator('shex', ShExGenerator, format="shex")
+        self.single_file_generator('shex', ShExGenerator, format='shex')
 
     def test_meta_shecj(self):
         """ Test the shex ShExJ generation """
@@ -58,24 +49,26 @@ class MetaModelTestCase(GeneratorTestCase):
 
     def test_meta_rdf(self):
         """ Test the rdf generator for the biolink model """
+        # Make sure the context file is ok
+        self.single_file_generator('context.jsonld', ContextGenerator)
+
         # Make sure the ShEx is good
         self.single_file_generator('shexj', ShExGenerator, format="json")
 
         # Make a fresh copy of the RDF and validate it as well
-        self.single_file_generator('ttl', RDFGenerator, serialize_args={"context": LOCAL_METAMODEL_LDCONTEXT_FILE},
-                                   comparator=GeneratorTestCase.rdf_comparator)
+        self.single_file_generator('ttl', RDFGenerator, serialize_args={"context": env.expected_path('meta.context.jsonld')}, comparator=compare_rdf)
 
         # Validate the RDF against the Biolink ShEx
-        if DO_SHEX_VALIDATION:
-            g = Graph()
-            rdf_file = LOCAL_RDF_FILE_NAME
-            g.load(rdf_file, format='turtle')
-            focus = METAMODEL_NAMESPACE.metamodel
-            start = METAMODEL_NAMESPACE.SchemaDefinition
-            results = ShExEvaluator(g, LOCAL_SHEXJ_FILE_NAME, focus, start).evaluate(debug=False)
-            self.assertTrue(self._evaluate_shex_results(results))
-        else:
-            print("*** RDF Model validation step was skipped. Set: tests.__init__.DO_SHEX_VALIDATION to run it")
+        # if DO_SHEX_VALIDATION:
+        #     g = Graph()
+        #     rdf_file = LOCAL_RDF_FILE_NAME
+        #     g.load(rdf_file, format='turtle')
+        #     focus = METAMODEL_NAMESPACE.metamodel
+        #     start = METAMODEL_NAMESPACE.SchemaDefinition
+        #     results = ShExEvaluator(g, LOCAL_SHEXJ_FILE_NAME, focus, start).evaluate(debug=False)
+        #     self.assertTrue(self._evaluate_shex_results(results))
+        # else:
+        #     print("*** RDF Model validation step was skipped. Set: tests.__init__.DO_SHEX_VALIDATION to run it")
 
 
 if __name__ == '__main__':

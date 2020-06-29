@@ -3,8 +3,8 @@ import unittest
 
 from biolinkml.generators.pythongen import PythonGenerator
 from tests.test_utils.environment import env
-from tests.utils.generator_utils import GeneratorTestCase
-from tests.utils.metadata_filters import metadata_filter
+from tests.utils.generatortestcase import GeneratorTestCase
+from tests.utils.filters import metadata_filter
 from tests.utils.python_comparator import compare_python
 
 
@@ -17,7 +17,7 @@ class IfAbsentTestCase(GeneratorTestCase):
 
     def do_test(self):
         """ Test the metadata options"""
-        self.single_file_generator(env, 'py', PythonGenerator, comparator=compare_python)
+        self.single_file_generator('py', PythonGenerator, comparator=compare_python)
 
     def test_good_ifabsent(self):
         """ Test isabsent with no default_prefix """
@@ -37,7 +37,7 @@ class IfAbsentTestCase(GeneratorTestCase):
     def test_bad_ifabsent(self):
         IfAbsentTestCase.model_name = "ifabsents_error"
         with self.assertRaises(ValueError):
-            self.single_file_generator(env, 'py', PythonGenerator, filtr=metadata_filter)
+            self.single_file_generator('py', PythonGenerator, filtr=metadata_filter)
 
     def test_ifabsent_uri(self):
         IfAbsentTestCase.model_name = "ifabsent_uri"

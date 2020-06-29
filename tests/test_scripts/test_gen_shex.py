@@ -6,7 +6,7 @@ from biolinkml import METAMODEL_NAMESPACE
 from biolinkml.generators.jsonldcontextgen import ContextGenerator
 from biolinkml.generators.jsonldgen import JSONLDGenerator
 from biolinkml.generators.rdfgen import RDFGenerator
-from biolinkml.generators.shexgen import cli, ShExGenerator
+from biolinkml.generators import shexgen
 from pyshex import ShExEvaluator
 from rdflib import Graph
 from tests import DO_SHEX_VALIDATION
@@ -17,7 +17,7 @@ from tests.utils.dirutils import make_and_clear_directory
 
 class GenShExTestCase(ClickTestCase):
     testdir = "genshex"
-    click_ep = cli
+    click_ep = shexgen.cli
     prog_name = "gen-shex"
     env = env
 
@@ -55,7 +55,7 @@ class GenShExTestCase(ClickTestCase):
         self.assertTrue(os.path.exists(rdf_file))
 
         shex_file = os.path.join(test_dir, 'meta.shex')
-        ShExGenerator(env.meta_yaml, importmap=env.import_map).serialize(output=shex_file, collections=False)
+        shexgen.ShExGenerator(env.meta_yaml, importmap=env.import_map).serialize(output=shex_file, collections=False)
         self.assertTrue(os.path.exists(shex_file))
 
         if DO_SHEX_VALIDATION:

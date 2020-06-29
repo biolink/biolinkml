@@ -1,14 +1,14 @@
 import unittest
 import click
 
-from biolinkml.generators.csvgen import cli
+from biolinkml.generators import csvgen
 from tests.test_scripts.environment import env
 from tests.utils.clicktestcase import ClickTestCase
 
 
 class GenCSVTestCase(ClickTestCase):
     testdir = "gencsv"
-    click_ep = cli
+    click_ep = csvgen.cli
     prog_name = "gen-csv"
     env = env
 

@@ -9,12 +9,12 @@ from biolinkml.generators.jsonldgen import JSONLDGenerator
 from biolinkml.generators.pythongen import PythonGenerator
 from biolinkml.utils.yamlutils import as_rdf
 from tests.test_utils.environment import env
-from tests.utils.metadata_filters import ldcontext_metadata_filter, metadata_filter, json_metadata_filter
+from tests.utils.filters import ldcontext_metadata_filter, metadata_filter, json_metadata_filter
 
 
-from tests.utils.generator_utils import GeneratorTestCase
-from tests.utils.python_comparator import compare_python
-from tests.utils.rdf_comparator import compare_rdf
+from tests.utils.generatortestcase import GeneratorTestCase
+from tests.utils.python_comparator import compare_python, compile_python
+from tests.utils.compare_rdf import compare_rdf
 
 
 # Note: GeneratorTestCase is the
@@ -24,18 +24,14 @@ class URIAndCurieTestCase(GeneratorTestCase):
     
     def test_uri_and_curie(self):
         """ Compile a model of URI's and Curies and then test the various types """
-        self.single_file_generator(env, 'py', PythonGenerator, filtr=metadata_filter, comparator=compare_python)
+        self.single_file_generator('py', PythonGenerator, filtr=metadata_filter, comparator=compare_python)
 
         # Check that the interpretations are correct
-        self.single_file_generator(env, 'jsonld', ContextGenerator, filtr=ldcontext_metadata_filter,
+        self.single_file_generator('jsonld', ContextGenerator, filtr=ldcontext_metadata_filter,
                                    comparator=lambda expected, actual: compare_rdf(expected, actual, fmt="json-ld"))
-        self.single_file_generator(env, 'json', JSONLDGenerator, filtr=json_metadata_filter)
+        self.single_file_generator('json', JSONLDGenerator, filtr=json_metadata_filter)
 
-        with open(env.expected_path(self.model_name + '.py')) as f:
-            model = f.read()
-        spec = compile(model, 'test', 'exec')
-        module = ModuleType('test')
-        exec(spec, module.__dict__)
+        module = compile_python(env.expected_path(self.model_name + '.py'))
 
         curie_obj = module.C1("ex:obj1",
                               hasCurie="ex:curie",

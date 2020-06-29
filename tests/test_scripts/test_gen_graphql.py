@@ -2,7 +2,7 @@ import unittest
 
 import click
 
-from biolinkml.generators.graphqlgen import cli
+from biolinkml.generators import graphqlgen
 
 from tests.test_scripts.environment import env
 from tests.utils.clicktestcase import ClickTestCase
@@ -10,7 +10,7 @@ from tests.utils.clicktestcase import ClickTestCase
 
 class GenGraphqlTestCase(ClickTestCase):
     testdir = "gengraphql"
-    click_ep = cli
+    click_ep = graphqlgen.cli
     prog_name = "gen-graphql"
     env = env
 

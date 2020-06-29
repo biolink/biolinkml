@@ -4,15 +4,15 @@ from types import ModuleType
 import click
 
 
-from biolinkml.generators.pythongen import cli, PythonGenerator
+from biolinkml.generators import pythongen
 from tests.test_scripts.environment import env
 from tests.utils.clicktestcase import ClickTestCase
-from tests.utils.metadata_filters import metadata_filter
+from tests.utils.filters import metadata_filter
 
 
 class GenPythonTestCase(ClickTestCase):
     testdir = "genpython"
-    click_ep = cli
+    click_ep = pythongen.cli
     prog_name = "gen-python"
     env = env
 
@@ -54,10 +54,10 @@ types:
    string:
       base: str
       uri: xsd:string'''
-        output = PythonGenerator(yaml, "py", emit_metadata=True).serialize()
+        output = pythongen.PythonGenerator(yaml, "py", emit_metadata=True).serialize()
         self.assertTrue(output.startswith(f'# Auto generated from None by pythongen.py version: '
-                                          f'{PythonGenerator.generatorversion}'))
-        output = PythonGenerator(yaml, "py", emit_metadata=False).serialize()
+                                          f'{pythongen.PythonGenerator.generatorversion}'))
+        output = pythongen.PythonGenerator(yaml, "py", emit_metadata=False).serialize()
         self.assertTrue(output.startswith('\n# id: https://w3id.org/biolink/metamodel'))
 
     def test_multi_id(self):

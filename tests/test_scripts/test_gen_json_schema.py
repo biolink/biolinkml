@@ -1,7 +1,7 @@
 import unittest
 
 import click
-from biolinkml.generators.jsonschemagen import cli
+from biolinkml.generators import jsonschemagen
 
 from tests.test_scripts.environment import env
 from tests.utils.clicktestcase import ClickTestCase
@@ -9,7 +9,7 @@ from tests.utils.clicktestcase import ClickTestCase
 
 class GenJSONSchemaTestCase(ClickTestCase):
     testdir = "genjsonschema"
-    click_ep = cli
+    click_ep = jsonschemagen.cli
     prog_name = "gen-json-schema"
     env = env
 

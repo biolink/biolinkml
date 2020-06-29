@@ -1,0 +1,4 @@
+{
+    "biolinkml:types": "includes/types",
+    "biolinkml:mappings": "includes/mappings"
+}

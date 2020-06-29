@@ -22,7 +22,8 @@ class MismatchLog:
             line: int
 
             def __str__(self):
-                return f"{self.filename}: {self.method} ({self.line})"
+                # 'File "/Users/solbrig/git/biolink/biolinkml/tests/test_b.py", line 6, in test_something'
+                return f'File "{self.filename}", line {self.line} in {self.method} '
 
         def __init__(self, file_or_directory: str, msg: Optional[str]) -> None:
             self.file_or_directory = file_or_directory
@@ -30,7 +31,7 @@ class MismatchLog:
             self.call_stack = list()
             frame = sys._getframe(2)
             while True:
-                self.call_stack.append(MismatchLog.MismatchLogEntry.StackFrame(os.path.relpath(frame.f_code.co_filename, base_dir),
+                self.call_stack.append(MismatchLog.MismatchLogEntry.StackFrame(frame.f_code.co_filename,
                                                                                frame.f_code.co_name, frame.f_lineno))
                 if frame.f_code.co_name.startswith("test_"):
                     break

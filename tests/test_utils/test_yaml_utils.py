@@ -7,7 +7,7 @@ from jsonasobj import as_json, loads, load
 from biolinkml.utils.rawloader import load_raw_schema
 from biolinkml.utils.yamlutils import DupCheckYamlLoader, as_yaml
 from tests.test_utils.environment import env
-from tests.utils.base import Base
+from tests.test_utils.base import Base
 
 
 class YamlUtilTestCase(Base):

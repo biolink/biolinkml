@@ -4,12 +4,14 @@ import unittest
 from typing import Union, List, Optional, Callable
 from warnings import warn
 
+from tests import DEFAULT_LOG_LEVEL_TEXT
 from tests.utils.dirutils import make_and_clear_directory
-from tests.utils.rdf_comparator import compare_rdf
+from tests.utils.compare_rdf import compare_rdf
 from tests.utils.test_environment import TestEnvironmentTestCase, TestEnvironment
 
 
 class ClickTestCase(TestEnvironmentTestCase):
+    """ Common tools for testing command line functions """
     env: TestEnvironment = None
 
     # The variables below must be set by the inheriting class
@@ -112,7 +114,7 @@ class ClickTestCase(TestEnvironmentTestCase):
 
         if add_yaml and (not arg_list or arg_list[0] != '--help'):
             arg_list.insert(0, self.env.meta_yaml)
-            arg_list += ["--importmap", self.env.import_map, "--log_level", "INFO"]
+            arg_list += ["--importmap", self.env.import_map, "--log_level", DEFAULT_LOG_LEVEL_TEXT]
 
         def do_gen():
             if is_directory:

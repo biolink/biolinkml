@@ -2,14 +2,14 @@ import unittest
 
 import click
 
-from biolinkml.generators.yumlgen import cli, YumlGenerator
+from biolinkml.generators import yumlgen
 from tests.test_scripts.environment import env
 from tests.utils.clicktestcase import ClickTestCase
 
 
 class GenYUMLTestCase(ClickTestCase):
     testdir = "genyuml"
-    click_ep = cli
+    click_ep = yumlgen.cli
     prog_name = "gen-yuml"
     env = env
 
@@ -30,7 +30,7 @@ class GenYUMLTestCase(ClickTestCase):
         self.do_test(['-c', 'element'], 'meta2', is_directory=True)
 
         # Directory tests
-        for fmt in YumlGenerator.valid_formats:
+        for fmt in yumlgen.YumlGenerator.valid_formats:
             if fmt != 'yuml':
                 self.do_test(['-f', fmt, '-c', 'schema_definition'],
                              'meta_' + fmt, is_directory=True)

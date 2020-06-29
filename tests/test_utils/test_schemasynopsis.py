@@ -3,7 +3,7 @@ from typing import Union, List, Optional
 
 from biolinkml.utils.schemaloader import SchemaLoader
 from tests.test_utils.environment import env
-from tests.utils.base import Base
+from tests.test_utils.base import Base
 
 
 class SchemaSynopsisTestCase(Base):

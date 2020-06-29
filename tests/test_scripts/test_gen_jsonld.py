@@ -10,7 +10,7 @@ from rdflib import Graph, URIRef
 
 from biolinkml import METAMODEL_NAMESPACE
 from biolinkml.generators.jsonldcontextgen import ContextGenerator
-from biolinkml.generators.jsonldgen import cli, JSONLDGenerator
+from biolinkml.generators import jsonldgen
 
 from tests.test_scripts.environment import env
 from tests.utils.clicktestcase import ClickTestCase
@@ -32,7 +32,7 @@ def filtr(txt: str) -> str:
 
 class GenJSONLDTestCase(ClickTestCase):
     testdir = "genjsonld"
-    click_ep = cli
+    click_ep = jsonldgen.cli
     prog_name = "gen-jsonld"
     env = env
 
@@ -86,8 +86,8 @@ class GenJSONLDTestCase(ClickTestCase):
 
         # Generate JSON
         with open(tmp_jsonld_path, 'w') as tfile:
-            tfile.write(JSONLDGenerator(env.meta_yaml, fmt=JSONLDGenerator.valid_formats[0],
-                                        importmap=env.import_map).serialize(context=tmp_meta_context_path))
+            tfile.write(jsonldgen.JSONLDGenerator(env.meta_yaml, fmt=jsonldgen.JSONLDGenerator.valid_formats[0],
+                                                  importmap=env.import_map).serialize(context=tmp_meta_context_path))
 
         # Convert JSON to TTL
         g = Graph()

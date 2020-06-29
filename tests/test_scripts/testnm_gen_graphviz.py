@@ -3,14 +3,14 @@ import unittest
 # This has to occur post ClickTestCase
 import click
 
-from biolinkml.generators.dotgen import cli
+from biolinkml.generators import dotgen
 from tests.test_scripts.environment import env
 from tests.utils.clicktestcase import ClickTestCase
 
 
 class GraphvizTestCase(ClickTestCase):
     testdir = "gengraphviz"
-    click_ep = cli
+    click_ep = dotgen.cli
     prog_name = "gen-graphviz"
     env = env
 

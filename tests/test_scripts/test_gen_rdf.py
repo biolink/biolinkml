@@ -8,9 +8,9 @@ from urllib.parse import urljoin
 
 import click
 
+from biolinkml import LOCAL_METAMODEL_LDCONTEXT_FILE
 from biolinkml.generators.jsonldcontextgen import ContextGenerator
-from biolinkml.generators.rdfgen import cli
-from tests import source_context_path
+from biolinkml.generators import rdfgen
 from tests.test_scripts.environment import env
 from tests.utils.clicktestcase import ClickTestCase
 
@@ -27,7 +27,7 @@ def filtr(txt: str) -> str:
 
 class GenRDFTestCase(ClickTestCase):
     testdir = "genrdf"
-    click_ep = cli
+    click_ep = rdfgen.cli
     prog_name = "gen-rdf"
     env = env
 
@@ -47,7 +47,6 @@ class GenRDFTestCase(ClickTestCase):
                 f.write(cntxt_txt)
         return urljoin('file:', cntxt_file_path)
 
-
     def test_meta(self):
         """ Test the RDF generator on the metamodel """
 
@@ -66,7 +65,7 @@ class GenRDFTestCase(ClickTestCase):
 
     def test_make_script(self):
         """ Test a relative file path in JSON """
-        self.do_test(f"--context {source_context_path}",
+        self.do_test(f"--context {LOCAL_METAMODEL_LDCONTEXT_FILE}",
                      'make_output.ttl', filtr=filtr, comparator=ClickTestCase.rdf_comparator)
 
 

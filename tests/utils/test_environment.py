@@ -1,8 +1,8 @@
 import contextlib
 import filecmp
-import sys
 import os
 import shutil
+import sys
 import unittest
 from enum import Enum
 from importlib import import_module
@@ -10,24 +10,19 @@ from io import StringIO
 from pathlib import Path
 from typing import Optional, Callable
 
-import click
 
-from biolinkml import TYPES_FILE_NAME, INCLUDES_DIR
-from tests import source_yaml_path, sourcedir
-from tests.utils.compare_directories import are_dir_trees_equal
+from biolinkml import TYPES_FILE_NAME, INCLUDES_DIR, LOCAL_METAMODEL_YAML_FILE
+
+from tests.utils.dirutils import are_dir_trees_equal
 from tests.utils.mismatchlog import MismatchLog
 
 
-class CLIExitException(Exception):
-    ...
-
-
 def no_click_exit(_self, _code=0):
+    from tests import CLIExitException
     raise CLIExitException()
 
-
+import click
 click.core.Context.exit = no_click_exit
-
 
 class MismatchAction(Enum):
     Ignore = 0
@@ -38,12 +33,12 @@ class MismatchAction(Enum):
 class TestEnvironment:
     """ Testing environment """
     def __init__(self, filedir: str) -> None:
-        self.cwd = os.path.dirname(filedir)
+        self.cwd = os.path.dirname(filedir)                     # base directory for indir, outdir and tempdir
         self.indir = os.path.join(self.cwd, 'input')            # Input files
         self.outdir = os.path.join(self.cwd, 'output')          # Expected/actual output files
         self.tempdir = os.path.join(self.cwd, 'temp')           # Scratch directory for temporary work
 
-        # Get the parent's
+        # Get the parent's directory name.  If it is a test directory, borrow from its environment
         parent = Path(self.cwd).parts[-2]
         if parent.startswith('test'):
             parent_env = import_module('..environment', __package__)
@@ -51,13 +46,14 @@ class TestEnvironment:
             self.import_map = parent_env.env.import_map
             self.types_yaml = parent_env.env.types_yaml
             self.mismatch_action = parent_env.env.mismatch_action
+            self.root_input_path = parent_env.env.root_input_path
             self._log = parent_env.env._log
         else:
             self.meta_yaml = self.input_path('meta.yaml')
             # Warn if the dependent test data is out of date
-            if not filecmp.cmp(self.meta_yaml, source_yaml_path):
+            if not filecmp.cmp(self.meta_yaml, LOCAL_METAMODEL_YAML_FILE):
                 print(
-                    f"WARNING: Test file {self.meta_yaml} does not match {source_yaml_path}.  "
+                    f"WARNING: Test file {self.meta_yaml} does not match {LOCAL_METAMODEL_YAML_FILE}.  "
                     f"You may want to update the test version and rerun")
             self.types_yaml = self.input_path('includes', TYPES_FILE_NAME)
             if os.path.exists(self.types_yaml):
@@ -67,8 +63,10 @@ class TestEnvironment:
                         f"WARNING: Test file {self.types_yaml} does not match {source_types_path}.  "
                         f"You may want to update the test version and rerun")
             self.import_map = self.input_path('local_import_map.json')
-            self.mismatch_action = MismatchAction.Report
+            from tests import DEFAULT_MISMATCH_ACTION
+            self.mismatch_action = DEFAULT_MISMATCH_ACTION
             self._log = MismatchLog()
+            self.root_input_path = self.input_path
 
     def clear_log(self) -> None:
         """ Clear the output log """
@@ -76,19 +74,23 @@ class TestEnvironment:
 
     def input_path(self, *path: str) -> str:
         """ Create a file path in the local input directory """
-        return os.path.join(self.indir, *path)
+        return os.path.join(self.indir, *[p for p in path if p])
 
     def expected_path(self, *path: str) -> str:
         """ Create a file path in the local output directory """
-        return os.path.join(self.outdir, *path)
+        return os.path.join(self.outdir, *[p for p in path if p])
 
-    def actual_path(self, *path: str) -> str:
-        """ Create a file path to record the actual output of a function """
-        return os.path.join(self.tempdir, *path)
+    def actual_path(self, *path: str, is_dir: bool = False) -> str:
+        """ Return the full path to the path fragments in path """
+        dir_path = [p for p in (path if is_dir else path[:-1]) if p]
+        self.make_temp_dir(*dir_path)
+        return os.path.join(self.tempdir, *[p for p in path if p])
 
-    def temp_file_path(self, *path: str) -> str:
-        """ Create a file path to a temporary file (same as actual_path) """
-        return self.actual_path(*path)
+    def temp_file_path(self, *path: str, is_dir:bool = False) -> str:
+        """ Create the directories down to the path fragments in path.  If is_dir is True, create and clear the
+         innermost directory
+        """
+        return self.actual_path(*path, is_dir)
 
     def log(self, file_or_directory: str, message: Optional[str] = None) -> None:
         self._log.log(file_or_directory, message)
@@ -113,9 +115,10 @@ class TestEnvironment:
         """ Create and initialize a list of paths """
         full_path = self.tempdir
         TestEnvironment.make_testing_directory(full_path)
-        for p in paths:
-            full_path = os.path.join(full_path, p)
-            TestEnvironment.make_testing_directory(full_path, clear=True)
+        if len(paths):
+            for i in range(len(paths)):
+                full_path = os.path.join(full_path, paths[i])
+                TestEnvironment.make_testing_directory(full_path, clear=i == len(paths) - 1)
         return full_path
 
     def string_comparator(self, expected: str, actual: str) -> Optional[str]:
@@ -126,13 +129,11 @@ class TestEnvironment:
         :return: Error message if mismatch else None
         """
         if expected.replace('\r\n', '\n').strip() != actual.replace('\r\n', '\n').strip():
-            verb = "will be" if self.fail_on_error else "was"
-            return f"Output {verb} changed."
+            return f"Output {self.verb} changed."
 
     @staticmethod
     def remove_testing_directory(directory: str) -> None:
         shutil.rmtree(directory, ignore_errors=True)
-
 
     @staticmethod
     def make_testing_directory(directory: str, clear: bool = False) -> None:
@@ -214,6 +215,7 @@ class TestEnvironment:
             actual = filtr(generator())
         else:
             outf = StringIO()
+            from tests import CLIExitException
             with contextlib.redirect_stdout(outf):
                 try:
                     generator()
@@ -221,10 +223,12 @@ class TestEnvironment:
                     pass
             actual = filtr(outf.getvalue())
 
-        self.eval_single_file(expected_file, actual, filtr, comparator if comparator else self.string_comparator)
+        if not self.eval_single_file(expected_file, actual, filtr, comparator if comparator else self.string_comparator) and not direct_to_file:
+            with open(actual_file, 'w') as actualf:
+                actualf.write(actual)
 
     def eval_single_file(self, expected_file_path: str, actual_text: str,  filtr: Callable[[str], str],
-                         comparator: Callable[[str, str], str]) -> None:
+                         comparator: Callable[[str, str], str]) -> bool:
         """ Compare actual_text to the contents of the expected file.  Log a message if there is a mismatch and
             overwrite the expected file if we're not in the fail on error mode
         """
@@ -239,12 +243,14 @@ class TestEnvironment:
             if not self.fail_on_error:
                 with open(expected_file_path, 'w') as outf:
                     outf.write(actual_text)
+        return not msg
 
 
 class TestEnvironmentTestCase(unittest.TestCase):
     """
     A unit test TextCase with an environment inside.  env has to be initialized in situ, as it needs to reference the
-    input, output and temp directories within the context of the particular set of tests.  To initialize this environment:
+    input, output and temp directories within the context of the particular set of tests.  To initialize
+    this environment:
 
     class InheritedTestCase(TestEnvironmentTestCase):
         env = TestEnvironment(__file__)

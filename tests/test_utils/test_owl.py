@@ -8,7 +8,7 @@ from rdflib import Graph
 
 from biolinkml.generators.owlgen import OwlSchemaGenerator
 from tests.test_utils.environment import env
-from tests.utils.base import Base
+from tests.test_utils.base import Base
 
 repl: List[Tuple[str, str]] = [
     (r'\s*meta:generation_date ".*" ;', 'meta:generation_date "Fri Jan 25 14:22:29 2019" ;'),

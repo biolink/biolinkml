@@ -1,26 +1,25 @@
-import os
 import unittest
-import json
+
+import jsonasobj
 
 from biolinkml.generators.jsonschemagen import JsonSchemaGenerator
-from biolinkml.generators.owlgen import OwlSchemaGenerator
-from tests.test_issues import sourcedir
+from tests.test_issues.environment import env
+from tests.utils.test_environment import TestEnvironmentTestCase
 
 
-class IssueJSONSchemaTypesTestCase(unittest.TestCase):
-
-    def header(self, txt: str) -> str:
-        return '\n' + ("=" * 20) + f" {txt} " + ("=" * 20)
+class IssueJSONSchemaTypesTestCase(TestEnvironmentTestCase):
+    env = env
 
     def test_issue_types(self):
         """ Make sure that types are generated as part of the output """
-        yaml_fname = os.path.join(sourcedir, 'issue_129.yaml')
-        gen = JsonSchemaGenerator(yaml_fname)
-        gen.topCls = 'c'
-        jsonschema = gen.serialize()
-        print(self.header("JSONSchema"))
-        print(jsonschema)
-        sobj = json.loads(jsonschema)
+        def generator() -> str:
+            gen = JsonSchemaGenerator(env.input_path('issue_129.yaml'))
+            gen.topCls = 'c'
+            return gen.serialize()
+
+        env.generate_single_file('issue_129.json', lambda: generator(), value_is_returned=True)
+
+        sobj = jsonasobj.load(env.expected_path('issue_129.json'))
         defs = sobj['definitions']
         C = defs['C']
         props = C['properties']
@@ -42,6 +41,7 @@ class IssueJSONSchemaTypesTestCase(unittest.TestCase):
         # multi-valued, non-inlined (foreign key)
         assert props['children']['type'] == 'array'
         assert props['children']['items']['type'] == "string"
+
 
 if __name__ == '__main__':
     unittest.main()

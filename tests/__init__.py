@@ -1,18 +1,9 @@
 import logging
-import os
-
-from biolinkml import LOCAL_METAMODEL_YAML_FILE, LOCAL_METAMODEL_LDCONTEXT_FILE, METAMODEL_FILE_NAME
-
-refresh_files = False               # True means update target files
-
-testdir = os.path.abspath(os.path.dirname(__file__))
-sourcedir = os.path.join(testdir, 'source')
-targetdir = os.path.join(testdir, 'target')
-source_yaml_path = LOCAL_METAMODEL_YAML_FILE
-target_yaml_path = os.path.join(targetdir, METAMODEL_FILE_NAME)
-source_context_path = LOCAL_METAMODEL_LDCONTEXT_FILE
+# Global testing control variables
 
 # Parts of the ShEx validation still need some performance optimization
+from tests.utils.test_environment import MismatchAction
+
 DO_SHEX_VALIDATION = False
 
 # Set this to True if you are making changes to the model itself.  Note, however, that it needs to be reset to False
@@ -21,3 +12,20 @@ USE_LOCAL_IMPORT_MAP = False
 
 # There are lots of warnings emitted by the generators. Default logging level
 DEFAULT_LOG_LEVEL = logging.ERROR
+DEFAULT_LOG_LEVEL_TEXT = 'ERROR'
+
+# Sometimes it is convenient to bypass graphviz testing output
+SKIP_GRAPHVIZ_VALIDATION = False
+
+# Same for markedown
+SKIP_MARKDOWN_VALIDATION = False
+
+# Action on mismatch
+DEFAULT_MISMATCH_ACTION = MismatchAction.Fail
+
+
+# Exception for use in script testing.  Global to prevent redefinition
+class CLIExitException(Exception):
+    ...
+
+

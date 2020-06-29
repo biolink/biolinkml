@@ -1,29 +1,23 @@
 import os
 import unittest
-from types import ModuleType
 
 from jsonasobj import as_json
 
-from biolinkml.generators.jsonldcontextgen import ContextGenerator
 from biolinkml.generators.pythongen import PythonGenerator
-from biolinkml.utils.yamlutils import as_rdf
-from tests.test_issues import sourcedir
+from tests.test_issues.environment import env
+from tests.utils.python_comparator import compare_python, compile_python
+from tests.utils.test_environment import TestEnvironmentTestCase
 
 
-class Issue113TestCase(unittest.TestCase):
-
-    def header(self, txt: str) -> str:
-        return '\n' + ("=" * 20) + f" {txt} " + ("=" * 20)
+class Issue113TestCase(TestEnvironmentTestCase):
+    env = env
 
     def test_issue_113(self):
         """ Make sure that types are generated as part of the output """
-        yaml_fname = os.path.join(sourcedir, 'issue_113.yaml')
-        python = PythonGenerator(yaml_fname).serialize()
-        print(self.header("Python"))
-        print(python)
-        spec = compile(python, 'test', 'exec')
-        module = ModuleType('test')
-        exec(spec, module.__dict__)
+        env.generate_single_file('issue_113.py',
+                                 lambda: PythonGenerator(env.input_path('issue_113.yaml')).serialize(),
+                                 comparator=compare_python, value_is_returned=True)
+        module = compile_python(env.expected_path('issue_113.py'))
         example = module.TestClass(test_attribute_2="foo")
         assert hasattr(example, "test_attribute_2")
         assert hasattr(example, "test_attribute_1")
@@ -31,9 +25,11 @@ class Issue113TestCase(unittest.TestCase):
         example.test_attribute_1 = "foo";
         example.test_attribute_2 = "foo";
 
-        # JSON Representation
-        print(self.header("JSON"))
-        print(as_json(example))
+        def output_generator(dirname) -> None:
+            with open(os.path.join(dirname, 'issue_113.json'), 'w') as f:
+                f.write(as_json(example))
+
+        env.generate_directory('issue_113', lambda dirname: output_generator(dirname))
 
 
 if __name__ == '__main__':

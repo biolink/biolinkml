@@ -1,15 +1,15 @@
 import unittest
 import click
 
-from biolinkml.generators.jsonldcontextgen import cli
+from biolinkml.generators import jsonldcontextgen
 from tests.test_scripts.environment import env
 from tests.utils.clicktestcase import ClickTestCase
-from tests.utils.metadata_filters import ldcontext_metadata_filter
+from tests.utils.filters import ldcontext_metadata_filter
 
 
 class GenContextTestCase(ClickTestCase):
     testdir = "gencontext"
-    click_ep = cli
+    click_ep = jsonldcontextgen.cli
     prog_name = "gen-jsonld-context"
     env = env
 

@@ -2,14 +2,14 @@ import unittest
 
 import click
 
-from biolinkml.generators.golrgen import cli
+from biolinkml.generators import golrgen
 from tests.test_scripts.environment import env
 from tests.utils.clicktestcase import ClickTestCase
 
 
 class GolrViewTestCase(ClickTestCase):
     testdir = "gengolr"
-    click_ep = cli
+    click_ep = golrgen.cli
     prog_name = "gen-golr-views"
     env = env
 
