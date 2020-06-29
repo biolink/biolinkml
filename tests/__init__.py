@@ -21,7 +21,7 @@ SKIP_GRAPHVIZ_VALIDATION = False
 SKIP_MARKDOWN_VALIDATION = False
 
 # Action on mismatch
-DEFAULT_MISMATCH_ACTION = MismatchAction.Fail
+DEFAULT_MISMATCH_ACTION = MismatchAction.Report
 
 
 # Exception for use in script testing.  Global to prevent redefinition
