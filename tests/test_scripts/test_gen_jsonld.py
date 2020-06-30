@@ -40,7 +40,7 @@ class GenJSONLDTestCase(ClickTestCase):
         self.do_test("--help", 'help')
 
     def test_meta(self):
-        self.maxDiff = None
+        self.temp_file_path('meta.jsonld')
         self.do_test(f"--context {meta_context}", 'meta.jsonld', filtr=filtr)
         self.do_test(f'-f jsonld --context {meta_context}', 'meta.jsonld', filtr=filtr)
         self.do_test(f'-f xsv --context {meta_context}', 'meta_error',
