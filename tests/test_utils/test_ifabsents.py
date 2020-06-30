@@ -1,32 +1,23 @@
 import os
 import unittest
-from types import ModuleType
 
 from biolinkml.generators.pythongen import PythonGenerator
-from tests.utils.metadata_filters import metadata_filter
-from tests.test_utils import inputdir, outputdir
-from tests.utils.generator_utils import GeneratorTestCase
+from tests.test_utils.environment import env
+from tests.utils.generatortestcase import GeneratorTestCase
+from tests.utils.filters import metadata_filter
+from tests.utils.python_comparator import compare_python
 
 
 class IfAbsentTestCase(GeneratorTestCase):
     root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+    env = env
 
-    source_path: str = inputdir
-    target_path: str = outputdir
-    model_path: str = source_path
-    model_name: str = "ifabsents"
+    model_name: str = None
     output_name: str = None
 
     def do_test(self):
         """ Test the metadata options"""
-        self.single_file_generator('py', PythonGenerator, filtr=metadata_filter)
-
-        # Make sure the python is valid
-        with open(os.path.join(self.source_path, f'{IfAbsentTestCase.model_name}.py')) as f:
-            pydata = f.read()
-        spec = compile(pydata, 'test', 'exec')
-        module = ModuleType('test')
-        exec(spec, module.__dict__)
+        self.single_file_generator('py', PythonGenerator, comparator=compare_python)
 
     def test_good_ifabsent(self):
         """ Test isabsent with no default_prefix """

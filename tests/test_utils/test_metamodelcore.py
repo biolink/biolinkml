@@ -4,7 +4,6 @@ from dataclasses import dataclass
 
 from jsonasobj import as_json
 from rdflib import Literal, XSD, Graph, RDF, Namespace
-from rdflib.term import Identifier
 
 from biolinkml.utils.metamodelcore import NCName, Bool, URIorCURIE, URI, XSDDate, XSDDateTime, XSDTime, Curie, \
     NodeIdentifier

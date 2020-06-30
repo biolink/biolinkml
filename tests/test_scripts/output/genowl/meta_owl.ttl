@@ -9,11 +9,9 @@
     rdfs:label "metamodel" ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "Biolink Schema Metamodel" ;
-    skos:definition "A metamodel for defining biolink related schemas" ;
-    meta:generation_date "2020-06-16 13:27" ;
+    skos:definition "A metamodel for defining biolink related schemas" ;meta:generation_date "Fri Jan 25 14:22:29 2019" ;
     meta:metamodel_version "1.4.4" ;
-    meta:source_file "meta.yaml" ;
-    meta:source_file_date "Tue Jun 16 13:23:04 2020" ;
+    meta:source_file "meta.yaml" ;meta:source_file_date "Fri Jan 25 14:22:29 2019" ;
     meta:source_file_size 26260 .
 
 meta:alt_description_source a owl:ObjectProperty,
@@ -836,12 +834,12 @@ meta:Prefix a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "prefix" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass meta:uri ;
-            owl:onProperty meta:prefix_reference ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:onClass meta:ncname ;
             owl:onProperty meta:prefix_prefix ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass meta:uri ;
+            owl:onProperty meta:prefix_reference ;
             owl:qualifiedCardinality 1 ] ;
     skos:definition "prefix URI tuple" .
 
@@ -921,9 +919,19 @@ meta:Definition a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "definition" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom meta:Definition ;
+            owl:onProperty meta:mixins ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:Definition ;
             owl:onProperty meta:is_a ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:boolean ;
+            owl:onProperty meta:mixin ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom meta:Definition ;
+            owl:onProperty meta:apply_to ],
         [ a owl:Restriction ;
             owl:allValuesFrom meta:uriorcurie ;
             owl:onProperty meta:values_from ],
@@ -931,16 +939,6 @@ meta:Definition a owl:Class,
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:boolean ;
             owl:onProperty meta:abstract ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom meta:Definition ;
-            owl:onProperty meta:apply_to ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:boolean ;
-            owl:onProperty meta:mixin ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom meta:Definition ;
-            owl:onProperty meta:mixins ],
         meta:Element ;
     skos:definition "base class for definitions" .
 
@@ -949,8 +947,61 @@ meta:SchemaDefinition a owl:Class,
     rdfs:label "schema_definition" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:string ;
+            owl:onProperty meta:license ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:datetime ;
+            owl:onProperty meta:source_file_date ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:string ;
+            owl:onProperty meta:source_file ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom meta:TypeDefinition ;
+            owl:onProperty meta:types ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom meta:string ;
+            owl:onProperty meta:default_curi_maps ],
+        [ a owl:Restriction ;
+            owl:onClass meta:uri ;
+            owl:onProperty meta:id ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom meta:SubsetDefinition ;
+            owl:onProperty meta:subsets ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:datetime ;
             owl:onProperty meta:generation_date ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom meta:ClassDefinition ;
+            owl:onProperty meta:classes ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:TypeDefinition ;
+            owl:onProperty meta:default_range ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom meta:SlotDefinition ;
+            owl:onProperty meta:slots ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:string ;
+            owl:onProperty meta:metamodel_version ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:string ;
+            owl:onProperty meta:default_prefix ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom meta:ncname ;
+            owl:onProperty meta:emit_prefixes ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom meta:uriorcurie ;
+            owl:onProperty meta:imports ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:integer ;
+            owl:onProperty meta:source_file_size ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:string ;
@@ -960,61 +1011,8 @@ meta:SchemaDefinition a owl:Class,
             owl:onProperty meta:prefixes ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:datetime ;
-            owl:onProperty meta:source_file_date ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:string ;
             owl:onProperty meta:title ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:string ;
-            owl:onProperty meta:license ],
-        [ a owl:Restriction ;
-            owl:onClass meta:uri ;
-            owl:onProperty meta:id ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:TypeDefinition ;
-            owl:onProperty meta:default_range ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom meta:TypeDefinition ;
-            owl:onProperty meta:types ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:string ;
-            owl:onProperty meta:source_file ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom meta:uriorcurie ;
-            owl:onProperty meta:imports ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:integer ;
-            owl:onProperty meta:source_file_size ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom meta:ncname ;
-            owl:onProperty meta:emit_prefixes ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom meta:ClassDefinition ;
-            owl:onProperty meta:classes ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:string ;
-            owl:onProperty meta:metamodel_version ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom meta:string ;
-            owl:onProperty meta:default_curi_maps ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom meta:SlotDefinition ;
-            owl:onProperty meta:slots ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:string ;
-            owl:onProperty meta:default_prefix ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom meta:SubsetDefinition ;
-            owl:onProperty meta:subsets ],
         meta:Element ;
     skos:definition "a collection of subset, type, slot and class definitions" .
 
@@ -1032,20 +1030,20 @@ meta:TypeDefinition a owl:Class,
     rdfs:label "type_definition" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:TypeDefinition ;
-            owl:onProperty meta:typeof ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:uriorcurie ;
-            owl:onProperty meta:uri ],
+            owl:onClass meta:string ;
+            owl:onProperty meta:base ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:string ;
             owl:onProperty meta:repr ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:string ;
-            owl:onProperty meta:base ],
+            owl:onClass meta:TypeDefinition ;
+            owl:onProperty meta:typeof ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:uriorcurie ;
+            owl:onProperty meta:uri ],
         meta:Element ;
     skos:definition "A data type definition." .
 
@@ -1053,23 +1051,32 @@ meta:Element a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "element" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:uriorcurie ;
-            owl:onProperty meta:modified_by ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:string ;
-            owl:onProperty meta:deprecated ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:uriorcurie ;
-            owl:onProperty meta:definition_uri ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom meta:uriorcurie ;
-            owl:onProperty meta:related_mappings ],
-        [ a owl:Restriction ;
             owl:allValuesFrom meta:Example ;
             owl:onProperty meta:examples ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:uriorcurie ;
+            owl:onProperty meta:created_by ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:datetime ;
+            owl:onProperty meta:created_on ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom meta:string ;
+            owl:onProperty meta:aliases ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom meta:uriorcurie ;
+            owl:onProperty meta:exact_mappings ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:datetime ;
+            owl:onProperty meta:last_updated_on ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom meta:string ;
+            owl:onProperty meta:comments ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom meta:ncname ;
+            owl:onProperty meta:id_prefixes ],
         [ a owl:Restriction ;
             owl:allValuesFrom meta:AltDescription ;
             owl:onProperty meta:alt_descriptions ],
@@ -1078,9 +1085,16 @@ meta:Element a owl:Class,
             owl:onClass meta:uriorcurie ;
             owl:onProperty meta:deprecated_element_has_exact_replacement ],
         [ a owl:Restriction ;
+            owl:allValuesFrom meta:LocalName ;
+            owl:onProperty meta:local_names ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:string ;
+            owl:onProperty meta:description ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:uriorcurie ;
-            owl:onProperty meta:deprecated_element_has_possible_replacement ],
+            owl:onProperty meta:definition_uri ],
         [ a owl:Restriction ;
             owl:onClass meta:string ;
             owl:onProperty meta:name ;
@@ -1088,86 +1102,60 @@ meta:Element a owl:Class,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:uriorcurie ;
+            owl:onProperty meta:modified_by ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:uriorcurie ;
+            owl:onProperty meta:deprecated_element_has_possible_replacement ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom meta:uriorcurie ;
+            owl:onProperty meta:close_mappings ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:uriorcurie ;
             owl:onProperty meta:status ],
         [ a owl:Restriction ;
-            owl:allValuesFrom meta:ncname ;
-            owl:onProperty meta:id_prefixes ],
-        [ a owl:Restriction ;
             owl:allValuesFrom meta:uriorcurie ;
-            owl:onProperty meta:mappings ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom meta:LocalName ;
-            owl:onProperty meta:local_names ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom meta:uriorcurie ;
-            owl:onProperty meta:see_also ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:datetime ;
-            owl:onProperty meta:created_on ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom meta:string ;
-            owl:onProperty meta:comments ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:datetime ;
-            owl:onProperty meta:last_updated_on ],
+            owl:onProperty meta:related_mappings ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:string ;
             owl:onProperty meta:imported_from ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom meta:SubsetDefinition ;
-            owl:onProperty meta:in_subset ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:uriorcurie ;
-            owl:onProperty meta:created_by ],
         [ a owl:Restriction ;
             owl:allValuesFrom meta:string ;
             owl:onProperty meta:notes ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:string ;
-            owl:onProperty meta:description ],
+            owl:onProperty meta:deprecated ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom meta:SubsetDefinition ;
+            owl:onProperty meta:in_subset ],
         [ a owl:Restriction ;
             owl:allValuesFrom meta:uriorcurie ;
-            owl:onProperty meta:close_mappings ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom meta:uriorcurie ;
-            owl:onProperty meta:exact_mappings ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom meta:string ;
-            owl:onProperty meta:todos ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom meta:string ;
-            owl:onProperty meta:aliases ],
+            owl:onProperty meta:see_also ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:uri ;
-            owl:onProperty meta:from_schema ] ;
+            owl:onProperty meta:from_schema ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom meta:uriorcurie ;
+            owl:onProperty meta:mappings ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom meta:string ;
+            owl:onProperty meta:todos ] ;
     skos:definition "a named element in the model" .
 
 meta:ClassDefinition a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "class_definition" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom meta:SlotDefinition ;
-            owl:onProperty meta:defining_slots ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:ClassDefinition ;
-            owl:onProperty meta:is_a ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom meta:ClassDefinition ;
-            owl:onProperty meta:mixins ],
-        [ a owl:Restriction ;
             owl:allValuesFrom meta:ClassDefinition ;
             owl:onProperty meta:apply_to ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:uriorcurie ;
-            owl:onProperty meta:class_uri ],
+            owl:onProperty meta:subclass_of ],
         [ a owl:Restriction ;
             owl:allValuesFrom meta:ClassDefinition ;
             owl:onProperty meta:union_of ],
@@ -1175,12 +1163,22 @@ meta:ClassDefinition a owl:Class,
             owl:allValuesFrom meta:SlotDefinition ;
             owl:onProperty meta:slot_usage ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:uriorcurie ;
-            owl:onProperty meta:subclass_of ],
-        [ a owl:Restriction ;
             owl:allValuesFrom meta:SlotDefinition ;
             owl:onProperty meta:slots ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:uriorcurie ;
+            owl:onProperty meta:class_uri ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:ClassDefinition ;
+            owl:onProperty meta:is_a ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom meta:SlotDefinition ;
+            owl:onProperty meta:defining_slots ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom meta:ClassDefinition ;
+            owl:onProperty meta:mixins ],
         meta:Definition ;
     skos:definition "the definition of a class or interface" .
 
@@ -1207,66 +1205,28 @@ meta:SlotDefinition a owl:Class,
     rdfs:label "slot_definition" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:string ;
-            owl:onProperty meta:string_serialization ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:SlotDefinition ;
-            owl:onProperty meta:inverse ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:boolean ;
-            owl:onProperty meta:multivalued ],
+            owl:onProperty meta:identifier ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:Definition ;
+            owl:onProperty meta:owner ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:string ;
-            owl:onProperty meta:pattern ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:integer ;
-            owl:onProperty meta:minimum_value ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:SlotDefinition ;
-            owl:onProperty meta:is_a ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:string ;
-            owl:onProperty meta:readonly ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom meta:SlotDefinition ;
-            owl:onProperty meta:mixins ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:boolean ;
-            owl:onProperty meta:required ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom meta:SlotDefinition ;
-            owl:onProperty meta:apply_to ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:Element ;
-            owl:onProperty meta:range ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:boolean ;
-            owl:onProperty meta:is_class_field ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:string ;
-            owl:onProperty meta:role ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:string ;
-            owl:onProperty meta:alias ],
+            owl:onProperty meta:singular_name ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:uriorcurie ;
             owl:onProperty meta:slot_uri ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:integer ;
-            owl:onProperty meta:maximum_value ],
+            owl:onClass meta:ClassDefinition ;
+            owl:onProperty meta:domain ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:boolean ;
+            owl:onProperty meta:required ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:boolean ;
@@ -1274,23 +1234,54 @@ meta:SlotDefinition a owl:Class,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:boolean ;
-            owl:onProperty meta:inherited ],
+            owl:onProperty meta:is_usage_slot ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:string ;
+            owl:onProperty meta:role ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:string ;
+            owl:onProperty meta:readonly ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:SlotDefinition ;
+            owl:onProperty meta:inverse ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:boolean ;
+            owl:onProperty meta:inlined ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:string ;
+            owl:onProperty meta:string_serialization ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:boolean ;
+            owl:onProperty meta:key ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:Element ;
+            owl:onProperty meta:range ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:SlotDefinition ;
+            owl:onProperty meta:is_a ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:string ;
+            owl:onProperty meta:pattern ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom meta:SlotDefinition ;
+            owl:onProperty meta:mixins ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:boolean ;
+            owl:onProperty meta:multivalued ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:string ;
             owl:onProperty meta:ifabsent ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:ClassDefinition ;
-            owl:onProperty meta:domain ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:string ;
-            owl:onProperty meta:singular_name ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:boolean ;
-            owl:onProperty meta:identifier ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:uriorcurie ;
@@ -1298,19 +1289,26 @@ meta:SlotDefinition a owl:Class,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:boolean ;
-            owl:onProperty meta:is_usage_slot ],
+            owl:onProperty meta:is_class_field ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:integer ;
+            owl:onProperty meta:maximum_value ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom meta:SlotDefinition ;
+            owl:onProperty meta:apply_to ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:boolean ;
-            owl:onProperty meta:inlined ],
+            owl:onProperty meta:inherited ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:Definition ;
-            owl:onProperty meta:owner ],
+            owl:onClass meta:string ;
+            owl:onProperty meta:alias ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:boolean ;
-            owl:onProperty meta:key ],
+            owl:onClass meta:integer ;
+            owl:onProperty meta:minimum_value ],
         meta:Definition ;
     skos:definition "the definition of a property or a slot" .
 

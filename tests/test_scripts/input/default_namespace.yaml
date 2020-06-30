@@ -1,0 +1,19 @@
+id: http://example.org/tests/namespace
+name: namespace
+
+prefixes:
+  test: http://example.org/test/
+  biolinkml: https://w3id.org/biolink/biolinkml/
+
+imports:
+  - biolinkml:types
+
+default_range: string
+
+slots:
+  s1:
+
+classes:
+  c1:
+    slots:
+      - s1

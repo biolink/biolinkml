@@ -1,26 +1,27 @@
 import unittest
 
-# This has to occur post ClickTestCase
 import click
-from biolinkml.generators.jsonschemagen import cli
-from tests import source_yaml_path
-from tests.test_scripts.clicktestcase import ClickTestCase
+from biolinkml.generators import jsonschemagen
+
+from tests.test_scripts.environment import env
+from tests.utils.clicktestcase import ClickTestCase
 
 
 class GenJSONSchemaTestCase(ClickTestCase):
     testdir = "genjsonschema"
-    click_ep = cli
+    click_ep = jsonschemagen.cli
     prog_name = "gen-json-schema"
+    env = env
 
     def test_help(self):
-        self.do_test("--help", 'help', tox_wrap_fix=True)
+        self.do_test("--help", 'help')
 
     def test_meta(self):
-        self.maxDiff = None
-        self.do_test(source_yaml_path, 'meta.jsonld')
-        self.do_test(source_yaml_path + ' -f json', 'meta.jsonld')
-        self.do_test(source_yaml_path + ' -f xsv', 'meta_error', error=click.exceptions.BadParameter)
-        self.do_test(source_yaml_path + " -i", 'meta_inline.json')
+
+        self.do_test([], 'meta.jsonld')
+        self.do_test('-f json', 'meta.jsonld')
+        self.do_test('-f xsv', 'meta_error', expected_error=click.exceptions.BadParameter)
+        self.do_test('-i', 'meta_inline.json')
 
 
 if __name__ == '__main__':

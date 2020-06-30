@@ -75,7 +75,7 @@ class PythonGenerator(Generator):
         for mapping in defn.mappings:
             if '://' in mapping:
                 mcurie = self.namespaces.curie_for(mapping)
-                print(f"No namespace defined for URI: {mapping}", file=sys.stderr)
+                self.logger.warning(f"No namespace defined for URI: {mapping}")
                 if mcurie is None:
                     return        # Absolute path - no prefix/name
                 else:

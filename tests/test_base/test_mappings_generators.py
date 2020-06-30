@@ -1,47 +1,36 @@
 import os
 import unittest
-from types import ModuleType
 from typing import List
 
-from pyshex import ShExEvaluator, PrefixLibrary
 from pyshex.shex_evaluator import EvaluationResult
-from rdflib import Graph, Namespace
 
-from biolinkml import METAMODEL_NAMESPACE, LOCAL_SHEXJ_FILE_NAME, LOCAL_METAMODEL_LDCONTEXT_FILE
+from biolinkml import LOCAL_METAMODEL_LDCONTEXT_FILE
 from biolinkml.generators.jsonldcontextgen import ContextGenerator
 from biolinkml.generators.jsonldgen import JSONLDGenerator
 from biolinkml.generators.markdowngen import MarkdownGenerator
 from biolinkml.generators.pythongen import PythonGenerator
 from biolinkml.generators.rdfgen import RDFGenerator
-from tests import targetdir, sourcedir, DO_SHEX_VALIDATION
-from tests.utils.generator_utils import GeneratorTestCase, BIOLINK_IMPORT_MAP
-from tests.utils.metadata_filters import metadata_filter, ldcontext_metadata_filter, json_metadata_filter, \
-    json_metadata_context_filter
+from tests import SKIP_MARKDOWN_VALIDATION
+from tests.utils.generatortestcase import GeneratorTestCase
+from tests.test_base.environment import env
+from tests.utils.filters import metadata_filter, ldcontext_metadata_filter, json_metadata_context_filter
+from tests.utils.python_comparator import compare_python
 
 
 class MappingsGeneratorTestCase(GeneratorTestCase):
     """ Validate that mappings are available on both a meta and a model level basis """
-
-    source_path = sourcedir
-    target_path = targetdir
-    model_path = sourcedir
-    model_name = 'meta_mappings'
-    importmap = BIOLINK_IMPORT_MAP
+    model_name = 'mappings'
+    env = env
 
     def test_mappings_in_metamodel(self):
-        """ Make sure that mappings can be specified in a metamodel """
-        self.single_file_generator('py', PythonGenerator, filtr=metadata_filter)
+        """ Generate a copy of mappyings.py """
+        self.single_file_generator('py', PythonGenerator, subdir='includes', filtr=metadata_filter,
+                                   comparator=compare_python)
 
-        # Make sure the python is valid
-        with open(os.path.join(self.source_path, 'meta_mappings.py')) as f:
-            pydata = f.read()
-        spec = compile(pydata, 'test', 'exec')
-        module = ModuleType('test')
-        exec(spec, module.__dict__)
-
+    @unittest.skipIf(SKIP_MARKDOWN_VALIDATION, "Markdown generation skippee")
     def test_mappings_markdown(self):
-        """ Test mappings markdown for  """
-        self.directory_generator('meta_mappings_docs', MarkdownGenerator)
+        """ Generate documentation for the meta_mappings  """
+        self.directory_generator('meta_mappings_docs', MarkdownGenerator, subdir='includes')
 
     @staticmethod
     def _evaluate_shex_results(results: List[EvaluationResult]) -> bool:
@@ -57,16 +46,27 @@ class MappingsGeneratorTestCase(GeneratorTestCase):
                     print(r.reason)
         return success
 
-    @unittest.skipIf(False, "We still need to figure out what to do here")
+    @unittest.skipIf(True, "This test needs upgrading to latest harness")
     def test_mappings_rdf(self):
         """ Test the imported mappings in the biolink metamodel """
+        test_dir = self.env.temp_file_path('mappings_rdf_test', is_dir=True)
+
+        # Create the mappings json file
+        json_file = os.path.join(test_dir, 'mappings.jsonld')
+        json_str = JSONLDGenerator(env.meta_yaml, importmap=env.import_map).serialize()
+        with open(json_file, 'w') as f:
+            f.write(json_str)
+
+        # Create the mappings context file
+        context_file = os.path.join(test_dir, 'mappings.context.jsonld')
+        ContextGenerator(env.meta_yaml, importmap=env.import_map).serialize(output=context_file)
+        self.assertTrue(os.path.exists(context_file))
 
         # Generate context and use it to create the RDF
-        msg = self.single_file_generator('jsonld', ContextGenerator, filtr=ldcontext_metadata_filter,
-                                         fail_if_expected_missing=False)
+        self.single_file_generator('context.jsonld', ContextGenerator, filtr=ldcontext_metadata_filter, subdir='includes')
 
         # Generate a copy of the JSON representation of the model
-        context_loc = os.path.join(self.source_path, self.model_name + ".jsonld")
+        context_loc = json_file
         context_args = {"context": ['file://' + LOCAL_METAMODEL_LDCONTEXT_FILE, 'file://' + context_loc]}
         msg += self.single_file_generator('json', JSONLDGenerator,  serialize_args=context_args,
                                          filtr=json_metadata_context_filter, fail_if_expected_missing=False)

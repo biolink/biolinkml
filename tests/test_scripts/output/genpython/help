@@ -1,4 +1,4 @@
-Usage: gen-py-classes [OPTIONS] YAMLFILE
+Usage: gen-python [OPTIONS] YAMLFILE
 
   Generate python classes to represent a biolink model
 

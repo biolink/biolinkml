@@ -42,27 +42,27 @@ meta:metamodel a meta:SchemaDefinition ;
         "rdfs",
         "skos",
         "xsd" ;
-    meta:generation_date "2020-06-16 13:27"^^xsd:dateTime ;
+    meta:generation_date "2019-01-25 12:34"^^xsd:dateTime ;
     meta:id biolinkml:meta ;
     meta:imports biolinkml:mappings,
         biolinkml:types ;
     meta:metamodel_version "1.4.4" ;
-    meta:prefixes [ meta:prefix_prefix "skos" ;
-            meta:prefix_reference skos: ],
-        [ meta:prefix_prefix "OIO" ;
+    meta:prefixes [ meta:prefix_prefix "OIO" ;
             meta:prefix_reference OIO: ],
-        [ meta:prefix_prefix "oslc" ;
-            meta:prefix_reference oslc: ],
-        [ meta:prefix_prefix "meta" ;
-            meta:prefix_reference meta: ],
-        [ meta:prefix_prefix "bibo" ;
-            meta:prefix_reference bibo: ],
         [ meta:prefix_prefix "schema" ;
             meta:prefix_reference schema: ],
+        [ meta:prefix_prefix "biolinkml" ;
+            meta:prefix_reference biolinkml: ],
+        [ meta:prefix_prefix "bibo" ;
+            meta:prefix_reference bibo: ],
         [ meta:prefix_prefix "pav" ;
             meta:prefix_reference pav: ],
-        [ meta:prefix_prefix "biolinkml" ;
-            meta:prefix_reference biolinkml: ] ;
+        [ meta:prefix_prefix "oslc" ;
+            meta:prefix_reference oslc: ],
+        [ meta:prefix_prefix "skos" ;
+            meta:prefix_reference skos: ],
+        [ meta:prefix_prefix "meta" ;
+            meta:prefix_reference meta: ] ;
     meta:slots meta:abstract,
         meta:alias,
         meta:aliases,
@@ -164,8 +164,8 @@ meta:metamodel a meta:SchemaDefinition ;
         meta:values_from,
         meta:version ;
     meta:source_file "meta.yaml" ;
-    meta:source_file_date "Tue Jun 16 13:23:04 2020"^^xsd:dateTime ;
-    meta:source_file_size 26260 ;
+    meta:source_file_date "2019-01-25 12:34"^^xsd:dateTime ;
+    meta:source_file_size 10000 ;
     meta:subsets meta:owl ;
     meta:types meta:boolean,
         meta:date,

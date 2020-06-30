@@ -1,6 +1,18 @@
 CHANGES
 =======
 
+* Automated update to docs with GitHub Actions
+* Add docs if they were deleted (#162)
+* Automated update to docs with GitHub Actions
+* Add docs back (#161)
+* Delete .travis.yml
+* Attempt to get travis to run w/ a decent python
+* Put back language to travis config
+* Re-introduce Gemfile to make Travis work
+* Update GH actions workflow. Add badge to README (#160)
+* Update .travis.yml
+* Update .travis.yml
+* Re-enable the biolink RDF tests
 * Meta model update to version 1.4.4
 * Use log file for warnings test
 * pypi release 1.5.2

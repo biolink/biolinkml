@@ -158,9 +158,7 @@ license: {be(self.schema.license)}
 
 @shared_arguments(ContextGenerator)
 @click.command()
-@click.option("-o", "--output", help="Output file name")
 @click.option("--base", help="Base URI for model")
-@click.option("--native_uris", is_flag=True, help="Don't use the class and slot URI's")
 def cli(yamlfile, **args):
     """ Generate jsonld @context definition from biolink model """
     print(ContextGenerator(yamlfile, **args).serialize(**args))

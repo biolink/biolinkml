@@ -1,4 +1,3 @@
-import os
 import re
 import unittest
 
@@ -8,8 +7,8 @@ from typing import List, Tuple
 from rdflib import Graph
 
 from biolinkml.generators.owlgen import OwlSchemaGenerator
-from tests.test_utils import inputdir
-from tests.test_utils.support.base import Base
+from tests.test_utils.environment import env
+from tests.test_utils.base import Base
 
 repl: List[Tuple[str, str]] = [
     (r'\s*meta:generation_date ".*" ;', 'meta:generation_date "Fri Jan 25 14:22:29 2019" ;'),
@@ -22,6 +21,7 @@ def filtr(txt: str) -> str:
 
 
 class OWLTestCase(Base):
+    env = env
 
     def assertOwlEqual(self, s1: str, s2: str) -> None:
         g1 = Graph()
@@ -31,11 +31,11 @@ class OWLTestCase(Base):
         self.assertTrue(g1.isomorphic(g2))
 
     def test_cardinalities(self):
-        owl_txt = OwlSchemaGenerator(os.path.join(inputdir, 'owl1.yaml')).serialize()
+        owl_txt = OwlSchemaGenerator(env.input_path('owl1.yaml')).serialize()
         self.eval_output(owl_txt, 'owl1.owl', filtr, self.assertOwlEqual)
 
     def test_pred_types(self):
-        owl_txt = OwlSchemaGenerator(os.path.join(inputdir, 'owl2.yaml')).serialize()
+        owl_txt = OwlSchemaGenerator(env.input_path('owl2.yaml')).serialize()
         self.eval_output(owl_txt, 'owl2.owl', filtr, self.assertOwlEqual)
 
 

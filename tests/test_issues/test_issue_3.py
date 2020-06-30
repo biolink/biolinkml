@@ -1,19 +1,17 @@
-import os
 import unittest
 
-from rdflib import Namespace, Graph, XSD
+from rdflib import Graph, XSD
 
-from biolinkml import LOCAL_TYPES_YAML_FILE
 from biolinkml.generators.rdfgen import RDFGenerator
-
-META = Namespace("https://w3id.org/biolink/biolinkml/meta/")
-METATYPE = Namespace("https://w3id.org/biolink/biolinkml/type/")
+from biolinkml.meta import META
+from includes.types import METATYPE
+from tests.test_issues.environment import env
 
 
 class DateTestCase(unittest.TestCase):
     def test_date_time(self):
         """ date datatype should be rdf:date and datetime rdf:datetime """
-        rdf = RDFGenerator(LOCAL_TYPES_YAML_FILE).serialize()
+        rdf = RDFGenerator(env.types_yaml).serialize()
         g = Graph()
         g.parse(data=rdf, format="turtle")
         self.assertEqual(XSD.date, g.value(METATYPE.date, META.uri))

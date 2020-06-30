@@ -1990,15 +1990,15 @@
     }
   ],
   "metamodel_version": "1.4.4",
-  "source_file": "meta.yaml",
-  "source_file_date": "Tue Jun 16 13:23:04 2020",
-  "source_file_size": 26260,
-  "generation_date": "2020-06-16 13:26",
+  ,
+  ,
+  ,
+  ,
   "type": "SchemaDefinition",
   "@context": [
     "file:./output/gencontext/meta.jsonld",
-    "https://w3id.org/biolink/biolinkml/types.context.jsonld",
-    "https://w3id.org/biolink/biolinkml/mappings.context.jsonld",
+    "/Users/solbrig/git/biolink/biolinkml/tests/input/includes/types.context.jsonld",
+    "/Users/solbrig/git/biolink/biolinkml/tests/input/includes/mappings.context.jsonld",
     {
       "@base": "https://w3id.org/biolink/biolinkml/meta/"
     }

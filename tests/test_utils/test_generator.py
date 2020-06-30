@@ -10,7 +10,7 @@ from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, Ty
     ElementName, SlotDefinitionName, ClassDefinitionName, TypeDefinitionName, Element
 from biolinkml.utils.generator import Generator
 from biolinkml.utils.typereferences import References
-from tests.test_utils import inputdir
+from tests.test_utils.environment import env
 
 
 class GeneratorTest(Generator):
@@ -327,10 +327,10 @@ expected5 = [
     'end_schema: generator1']
 
 
-class GeneratorTestCase(unittest.TestCase):
+class BaseGeneratorTestCase(unittest.TestCase):
     def test_visitors(self):
         """ Test the generator visitor functions """
-        gen = GeneratorTest(os.path.join(inputdir, 'generator1.yaml'))
+        gen = GeneratorTest(env.input_path('generator1.yaml'))
         gen.serialize()
         self.assertEqual(expected1, gen.visited)
         gen.visit_all_class_slots = False
@@ -462,7 +462,7 @@ Shared type and subset names: dup name""", gen.logstream.getvalue().strip())
 
     def test_own_slots(self):
         """ Test the generator own_slots and all_slots helper functions """
-        gen = GeneratorTest(os.path.join(inputdir, 'ownalltest.yaml'))
+        gen = GeneratorTest(env.input_path('ownalltest.yaml'))
         gen.sort_class_slots = True
 
         self.assertEqual(['s6'], [s.name for s in gen.own_slots(cast(ClassDefinitionName, 'at1'))])
@@ -510,7 +510,7 @@ Shared type and subset names: dup name""", gen.logstream.getvalue().strip())
 
     def test_slot_class_paths(self):
         """ Test for aliased slot name, class identifier path and slot type path """
-        gen = GeneratorTest(os.path.join(inputdir, 'ownalltest.yaml'))
+        gen = GeneratorTest(env.input_path('ownalltest.yaml'))
         gen.sort_class_slots = True
         self.assertEqual(['s1', 's5', 's6', 's2', 's3', 's4'],
                          [gen.aliased_slot_name(s.name) for s in gen.all_slots(cast(ClassDefinitionName, 'c4'))])

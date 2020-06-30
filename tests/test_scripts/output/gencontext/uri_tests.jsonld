@@ -1,8 +1,9 @@
 {
-   "_comments": "Auto generated from uri_tests.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2020-06-07 17:45\nSchema: uri_tests\n\nid: http://example.org/example/uri_tests\ndescription: \nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
+   "_comments": "Auto generated from ... by jsonldcontextgen.py version: 0.1.1\nGeneration date: \nSchema: uri_tests\n\nid: http://example.org/example/uri_tests\ndescription: \nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
    "@context": {
       "type": "@type",
       "OIO": "http://www.geneontology.org/formats/oboInOwl#",
+      "biolinkml": "https://w3id.org/biolink/biolinkml/",
       "meta": "https://w3id.org/biolink/biolinkml/meta/",
       "skos": "http://www.w3.org/2004/02/skos/core#",
       "@vocab": "https://w3id.org/biolink/biolinkml/meta/",
