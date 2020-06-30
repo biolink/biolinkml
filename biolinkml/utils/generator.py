@@ -16,7 +16,7 @@ from biolinkml.utils.schemaloader import SchemaLoader
 from biolinkml.utils.typereferences import References
 
 DEFAULT_LOG_LEVEL: str = "WARNING"
-DEFAULT_LOG_LEVEL_INT: str = logging.WARNING
+DEFAULT_LOG_LEVEL_INT: int = logging.WARNING
 
 
 class Generator(metaclass=abc.ABCMeta):

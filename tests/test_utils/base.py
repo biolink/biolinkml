@@ -1,6 +1,5 @@
 import logging
 import os
-import unittest
 from json import loads
 from typing import Optional, Callable, Any
 
@@ -8,11 +7,10 @@ from jsonasobj import as_json
 
 from biolinkml.meta import SchemaDefinition
 from biolinkml.utils.schemaloader import SchemaLoader
-from tests.utils.test_environment import TestEnvironment
+from tests.utils.test_environment import TestEnvironmentTestCase
 
 
-class Base(unittest.TestCase):
-    env: TestEnvironment = None
+class Base(TestEnvironmentTestCase):
 
     def fix_schema_metadata(self, schema: SchemaDefinition) -> SchemaDefinition:
         self.assertIsNotNone(schema.generation_date)
