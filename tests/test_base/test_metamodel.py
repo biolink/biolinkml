@@ -3,20 +3,21 @@ from typing import List
 
 from pyshex.shex_evaluator import EvaluationResult
 
-from biolinkml.generators.jsonldcontextgen import ContextGenerator
 from biolinkml.generators.markdowngen import MarkdownGenerator
 from biolinkml.generators.owlgen import OwlSchemaGenerator
 from biolinkml.generators.rdfgen import RDFGenerator
 from biolinkml.generators.shexgen import ShExGenerator
-from tests.utils.generatortestcase import GeneratorTestCase
+from tests import SKIP_MARKDOWN_VALIDATION
 from tests.test_base.environment import env
 from tests.utils.compare_rdf import compare_rdf
+from tests.utils.generatortestcase import GeneratorTestCase
 
 
 class MetaModelTestCase(GeneratorTestCase):
     env = env
     model_name = 'meta'
 
+    @unittest.skipIf(SKIP_MARKDOWN_VALIDATION, "Markdown generation skipped")
     def test_meta_markdown(self):
         """ Test the markdown generator for the biolink model """
         self.directory_generator('meta_mappings_docs', MarkdownGenerator)
@@ -49,16 +50,14 @@ class MetaModelTestCase(GeneratorTestCase):
 
     def test_meta_rdf(self):
         """ Test the rdf generator for the biolink model """
-        # Make sure the context file is ok
-        self.single_file_generator('context.jsonld', ContextGenerator)
-
-        # Make sure the ShEx is good
-        self.single_file_generator('shexj', ShExGenerator, format="json")
 
         # Make a fresh copy of the RDF and validate it as well
-        self.single_file_generator('ttl', RDFGenerator, serialize_args={"context": env.expected_path('meta.context.jsonld')}, comparator=compare_rdf)
+        self.single_file_generator('ttl', RDFGenerator,
+                                   serialize_args={"context": env.expected_path('meta.context.jsonld')},
+                                   comparator=compare_rdf)
 
         # Validate the RDF against the Biolink ShEx
+        # TODO: re-enable this or add a new shex comparator
         # if DO_SHEX_VALIDATION:
         #     g = Graph()
         #     rdf_file = LOCAL_RDF_FILE_NAME

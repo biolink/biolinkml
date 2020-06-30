@@ -10,6 +10,7 @@ from biolinkml.generators.jsonldgen import JSONLDGenerator
 from biolinkml.generators.markdowngen import MarkdownGenerator
 from biolinkml.generators.pythongen import PythonGenerator
 from biolinkml.generators.rdfgen import RDFGenerator
+from tests import SKIP_MARKDOWN_VALIDATION
 from tests.utils.generatortestcase import GeneratorTestCase
 from tests.test_base.environment import env
 from tests.utils.filters import metadata_filter, ldcontext_metadata_filter, json_metadata_context_filter
@@ -26,6 +27,7 @@ class MappingsGeneratorTestCase(GeneratorTestCase):
         self.single_file_generator('py', PythonGenerator, subdir='includes', filtr=metadata_filter,
                                    comparator=compare_python)
 
+    @unittest.skipIf(SKIP_MARKDOWN_VALIDATION, "Markdown generation skippee")
     def test_mappings_markdown(self):
         """ Generate documentation for the meta_mappings  """
         self.directory_generator('meta_mappings_docs', MarkdownGenerator, subdir='includes')

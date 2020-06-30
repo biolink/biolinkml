@@ -11,7 +11,8 @@ from pathlib import Path
 from typing import Optional, Callable
 
 
-from biolinkml import TYPES_FILE_NAME, INCLUDES_DIR, LOCAL_METAMODEL_YAML_FILE
+from biolinkml import TYPES_FILE_NAME, INCLUDES_DIR, LOCAL_METAMODEL_YAML_FILE, LOCAL_TYPES_YAML_FILE, \
+    MAPPING_FILE_NAME, LOCAL_MAPPING_YAML_FILE
 
 from tests.utils.dirutils import are_dir_trees_equal
 from tests.utils.mismatchlog import MismatchLog
@@ -42,31 +43,39 @@ class TestEnvironment:
         parent = Path(self.cwd).parts[-2]
         if parent.startswith('test'):
             parent_env = import_module('..environment', __package__)
-            self.meta_yaml = parent_env.env.meta_yaml               # Location of testing meta_yaml file (root of test dir)
-            self.import_map = parent_env.env.import_map
+            self.meta_yaml = parent_env.env.meta_yaml
             self.types_yaml = parent_env.env.types_yaml
+            self.mapping_yaml = parent_env.env.mapping_yaml
+            self.import_map = parent_env.env.import_map
             self.mismatch_action = parent_env.env.mismatch_action
             self.root_input_path = parent_env.env.root_input_path
+            self.root_expected_path = parent_env.env.root_expected_path
+            self.root_temp_file_path = parent_env.env.root_temp_file_path
             self._log = parent_env.env._log
         else:
             self.meta_yaml = self.input_path('meta.yaml')
-            # Warn if the dependent test data is out of date
-            if not filecmp.cmp(self.meta_yaml, LOCAL_METAMODEL_YAML_FILE):
-                print(
-                    f"WARNING: Test file {self.meta_yaml} does not match {LOCAL_METAMODEL_YAML_FILE}.  "
-                    f"You may want to update the test version and rerun")
+            self._check_changed(self.meta_yaml, LOCAL_METAMODEL_YAML_FILE)
+
             self.types_yaml = self.input_path('includes', TYPES_FILE_NAME)
-            if os.path.exists(self.types_yaml):
-                source_types_path = os.path.join(INCLUDES_DIR, TYPES_FILE_NAME)
-                if not filecmp.cmp(self.types_yaml, source_types_path):
-                    print(
-                        f"WARNING: Test file {self.types_yaml} does not match {source_types_path}.  "
-                        f"You may want to update the test version and rerun")
+            self._check_changed(self.types_yaml, LOCAL_TYPES_YAML_FILE)
+
+            self.mapping_yaml = self.input_path('includes', MAPPING_FILE_NAME)
+            self._check_changed(self.mapping_yaml, LOCAL_MAPPING_YAML_FILE)
+
             self.import_map = self.input_path('local_import_map.json')
             from tests import DEFAULT_MISMATCH_ACTION
             self.mismatch_action = DEFAULT_MISMATCH_ACTION
-            self._log = MismatchLog()
             self.root_input_path = self.input_path
+            self.root_expected_path = self.expected_path
+            self.root_temp_file_path = self.temp_file_path
+            self._log = MismatchLog()
+
+    @staticmethod
+    def _check_changed(test_file: str, runtime_file: str) -> None:
+        if not filecmp.cmp(test_file, runtime_file):
+            print(
+                f"WARNING: Test file {test_file} does not match {runtime_file}.  "
+                f"You may want to update the test version and rerun")
 
     def clear_log(self) -> None:
         """ Clear the output log """
@@ -90,7 +99,7 @@ class TestEnvironment:
         """ Create the directories down to the path fragments in path.  If is_dir is True, create and clear the
          innermost directory
         """
-        return self.actual_path(*path, is_dir)
+        return self.actual_path(*path, is_dir=is_dir)
 
     def log(self, file_or_directory: str, message: Optional[str] = None) -> None:
         self._log.log(file_or_directory, message)
@@ -176,7 +185,8 @@ class TestEnvironment:
     def generate_single_file(self, filename: str, generator: Callable[[Optional[str]], Optional[str]],
                              direct_to_file: bool = False, value_is_returned: bool = False,
                              filtr: Callable[[str], str] = None,
-                             comparator: Callable[[str, str], str] = None) -> None:
+                             comparator: Callable[[str, str], str] = None,
+                             use_testing_root: bool = False) -> None:
         """
         Invoke the generator and compare the actual results to the expected.
         :param filename: relative file name (no path)
@@ -185,13 +195,14 @@ class TestEnvironment:
         :param value_is_returned: True means that generator returns output directly
         :param filtr: Optional filter to remove non-compare information (e.g. dates, specific paths, etc.)
         :param comparator: Optional output comparison function.
+        :param use_testing_root: True means output directory is in test root instead of local directory
         """
         # If no filter, default to identity function
         if not filtr:
             filtr = lambda s: s
 
         actual_file = self.actual_path(filename)
-        expected_file = self.expected_path(filename)
+        expected_file = self.root_expected_path(filename) if use_testing_root else self.expected_path(filename)
 
         if direct_to_file:
             # If the output writes directly to a file, create a scratch file to writ it into
@@ -266,12 +277,7 @@ class TestEnvironmentTestCase(unittest.TestCase):
     @classmethod
     def tearDownClass(cls) -> None:
         msg = str(cls.env)
-        if msg and cls.env.mismatch_action == MismatchAction.Report:
-            print(msg, file=sys.stderr)
-
-    def tearDown(self) -> None:
-        msg = str(self.env)
-        if msg and self.env.mismatch_action == MismatchAction.Fail:
-            msg = str(self.env)
-            self.env.clear_log()
-            self.fail(msg)
+        if msg and cls.env.mismatch_action == MismatchAction.Fail:
+            msg = str(cls.env)
+            cls.env.clear_log()
+            cls.fail(msg)

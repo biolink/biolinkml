@@ -10,6 +10,7 @@ from tests.utils.test_environment import TestEnvironmentTestCase
 class NamespaceIssueTestCase(TestEnvironmentTestCase):
     env = env
 
+    # TODO: Find out why test_issue_namespace is emitting generation_date in the TYPE namespace
     def test_namespace(self):
         context = "https://biolink.github.io/biolink-model/context.jsonld"
         env.generate_single_file('issue_namespace.ttl',

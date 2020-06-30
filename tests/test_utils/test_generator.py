@@ -327,7 +327,7 @@ expected5 = [
     'end_schema: generator1']
 
 
-class GeneratorTestCase(unittest.TestCase):
+class BaseGeneratorTestCase(unittest.TestCase):
     def test_visitors(self):
         """ Test the generator visitor functions """
         gen = GeneratorTest(env.input_path('generator1.yaml'))
