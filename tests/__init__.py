@@ -12,7 +12,7 @@ DEFAULT_LOG_LEVEL = logging.ERROR
 DEFAULT_LOG_LEVEL_TEXT = 'ERROR'
 
 # Sometimes it is convenient to bypass graphviz testing output
-SKIP_GRAPHVIZ_VALIDATION = False
+SKIP_GRAPHVIZ_VALIDATION = True
 
 # Same for markdown
 SKIP_MARKDOWN_VALIDATION = False
