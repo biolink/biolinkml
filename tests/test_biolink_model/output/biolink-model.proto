@@ -1,0 +1,3517 @@
+// Activity or behavior of any independent integral living, organization or mechanical actor in the world
+message ActivityAndBehavior
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated regulatesProcessToProcess Occurrent = 12
+  repeated hasParticipant NamedThing = 13
+  repeated hasInput NamedThing = 14
+  repeated hasOutput NamedThing = 15
+  repeated precedes Occurrent = 16
+ }
+// A subcellular location, cell type or gross anatomical part
+message AnatomicalEntity
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated expresses GeneOrGeneProduct = 13
+  repeated inTaxon OrganismTaxon = 14
+ }
+message AnatomicalEntityToAnatomicalEntityAssociation
+ {
+  subject AnatomicalEntity = 1
+  relation Uriorcurie = 2
+  object AnatomicalEntity = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+ }
+// A relationship between two anatomical entities where the relationship is ontogenic, i.e the two entities are related by development. A number of different relationship types can be used to specify the precise nature of the relationship
+message AnatomicalEntityToAnatomicalEntityOntogenicAssociation
+ {
+  subject AnatomicalEntity = 1
+  relation Uriorcurie = 2
+  object AnatomicalEntity = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+ }
+// A relationship between two anatomical entities where the relationship is mereological, i.e the two entities are related by parthood. This includes relationships between cellular components and cells, between cells and tissues, tissues and whole organisms
+message AnatomicalEntityToAnatomicalEntityPartOfAssociation
+ {
+  subject AnatomicalEntity = 1
+  relation Uriorcurie = 2
+  object AnatomicalEntity = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+ }
+// A typed association between two entities, supported by evidence
+message Association
+ {
+  subject NamedThing = 1
+  relation Uriorcurie = 2
+  object NamedThing = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+  optional hasConfidenceLevel ConfidenceLevel = 12
+  optional hasEvidence EvidenceType = 13
+  optional clinicalModifierQualifier ClinicalModifier = 14
+ }
+// A property or characteristic of an entity. For example, an apple may have properties such as color, shape, age, crispiness. An environmental sample may have attributes such as depth, lat, long, material.
+message Attribute
+ {
+  optional hasAttributeType OntologyClass = 1
+  repeated hasQuantitativeValue QuantityValue = 2
+  optional hasQualitativeValue NamedThing = 3
+  id IdentifierType = 4
+  name LabelType = 5
+  repeated category IriType = 6
+  repeated relatedTo NamedThing = 7
+  repeated interactsWith NamedThing = 8
+  optional nodeProperty String = 9
+  optional iri IriType = 10
+  repeated synonym LabelType = 11
+  optional fullName LabelType = 12
+  optional description NarrativeText = 13
+  repeated systematicSynonym LabelType = 14
+  repeated subclassOf IriType = 15
+ }
+// One or more causally connected executions of molecular functions
+message BiologicalProcess
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated hasInput NamedThing = 13
+  repeated hasOutput NamedThing = 14
+  repeated enabledBy BiologicalProcessOrActivity = 15
+  repeated regulatesProcessToProcess Occurrent = 16
+  repeated hasParticipant NamedThing = 17
+  repeated precedes Occurrent = 18
+ }
+// Either an individual molecular activity, or a collection of causally connected molecular activities
+message BiologicalProcessOrActivity
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated hasInput NamedThing = 13
+  repeated hasOutput NamedThing = 14
+  repeated enabledBy BiologicalProcessOrActivity = 15
+  repeated regulatesProcessToProcess Occurrent = 16
+  repeated hasParticipant NamedThing = 17
+  repeated precedes Occurrent = 18
+ }
+message BiologicalSex
+ {
+  optional hasAttributeType OntologyClass = 1
+  repeated hasQuantitativeValue QuantityValue = 2
+  optional hasQualitativeValue NamedThing = 3
+  id IdentifierType = 4
+  name LabelType = 5
+  repeated category IriType = 6
+  repeated relatedTo NamedThing = 7
+  repeated interactsWith NamedThing = 8
+  optional nodeProperty String = 9
+  optional iri IriType = 10
+  repeated synonym LabelType = 11
+  optional fullName LabelType = 12
+  optional description NarrativeText = 13
+  repeated systematicSynonym LabelType = 14
+  repeated subclassOf IriType = 15
+ }
+message Carbohydrate
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated molecularlyInteractsWith MolecularEntity = 13
+  repeated affectsAbundanceOf MolecularEntity = 14
+  repeated increasesAbundanceOf MolecularEntity = 15
+  repeated decreasesAbundanceOf MolecularEntity = 16
+  repeated affectsActivityOf MolecularEntity = 17
+  repeated increasesActivityOf MolecularEntity = 18
+  repeated decreasesActivityOf MolecularEntity = 19
+  repeated affectsExpressionOf GenomicEntity = 20
+  repeated increasesExpressionOf GenomicEntity = 21
+  repeated decreasesExpressionOf GenomicEntity = 22
+  repeated affectsFoldingOf MolecularEntity = 23
+  repeated increasesFoldingOf MolecularEntity = 24
+  repeated decreasesFoldingOf MolecularEntity = 25
+  repeated affectsLocalizationOf MolecularEntity = 26
+  repeated increasesLocalizationOf MolecularEntity = 27
+  repeated decreasesLocalizationOf MolecularEntity = 28
+  repeated affectsMetabolicProcessingOf MolecularEntity = 29
+  repeated increasesMetabolicProcessingOf MolecularEntity = 30
+  repeated decreasesMetabolicProcessingOf MolecularEntity = 31
+  repeated affectsMolecularModificationOf MolecularEntity = 32
+  repeated increasesMolecularModificationOf MolecularEntity = 33
+  repeated decreasesMolecularModificationOf MolecularEntity = 34
+  repeated affectsSynthesisOf MolecularEntity = 35
+  repeated increasesSynthesisOf MolecularEntity = 36
+  repeated decreasesSynthesisOf MolecularEntity = 37
+  repeated affectsDegradationOf MolecularEntity = 38
+  repeated increasesDegradationOf MolecularEntity = 39
+  repeated decreasesDegradationOf MolecularEntity = 40
+  repeated affectsMutationRateOf GenomicEntity = 41
+  repeated increasesMutationRateOf GenomicEntity = 42
+  repeated decreasesMutationRateOf GenomicEntity = 43
+  repeated affectsResponseTo MolecularEntity = 44
+  repeated increasesResponseTo MolecularEntity = 45
+  repeated decreasesResponseTo MolecularEntity = 46
+  repeated affectsSplicingOf Transcript = 47
+  repeated increasesSplicingOf Transcript = 48
+  repeated decreasesSplicingOf Transcript = 49
+  repeated affectsStabilityOf MolecularEntity = 50
+  repeated increasesStabilityOf MolecularEntity = 51
+  repeated decreasesStabilityOf MolecularEntity = 52
+  repeated affectsTransportOf MolecularEntity = 53
+  repeated increasesTransportOf MolecularEntity = 54
+  repeated decreasesTransportOf MolecularEntity = 55
+  repeated affectsSecretionOf MolecularEntity = 56
+  repeated increasesSecretionOf MolecularEntity = 57
+  repeated decreasesSecretionOf MolecularEntity = 58
+  repeated affectsUptakeOf MolecularEntity = 59
+  repeated increasesUptakeOf MolecularEntity = 60
+  repeated decreasesUptakeOf MolecularEntity = 61
+  repeated regulatesEntityToEntity MolecularEntity = 62
+  repeated biomarkerFor DiseaseOrPhenotypicFeature = 63
+  repeated inTaxon OrganismTaxon = 64
+ }
+// An individual organism that has a patient role in some clinical context.
+message Case
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated inTaxon OrganismTaxon = 13
+ }
+// An association between a case (e.g. individual patient) and a phenotypic feature in which the individual has or has had the phenotype
+message CaseToPhenotypicFeatureAssociation
+ {
+  subject NamedThing = 1
+  relation Uriorcurie = 2
+  object NamedThing = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+  optional sexQualifier BiologicalSex = 12
+  optional frequencyQualifier FrequencyValue = 13
+  optional severityQualifier SeverityValue = 14
+  optional onsetQualifier Onset = 15
+ }
+message Cell
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated expresses GeneOrGeneProduct = 13
+  repeated inTaxon OrganismTaxon = 14
+ }
+message CellLine
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+ }
+// An relationship between a cell line and a disease or a phenotype, where the cell line is derived from an individual with that disease or phenotype
+message CellLineToDiseaseOrPhenotypicFeatureAssociation
+ {
+  subject DiseaseOrPhenotypicFeature = 1
+  relation Uriorcurie = 2
+  object NamedThing = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+ }
+// A location in or around a cell
+message CellularComponent
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated expresses GeneOrGeneProduct = 13
+  repeated inTaxon OrganismTaxon = 14
+ }
+// A chemical exposure is an intake of a particular chemical substance
+message ChemicalExposure
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  optional hasReceptor OrganismalEntity = 13
+  optional hasStressor String = 14
+  optional hasRoute String = 15
+ }
+// May be a chemical entity or a formulation with a chemical entity as active ingredient, or a complex material with multiple chemical entities as part
+message ChemicalSubstance
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated molecularlyInteractsWith MolecularEntity = 13
+  repeated affectsAbundanceOf MolecularEntity = 14
+  repeated increasesAbundanceOf MolecularEntity = 15
+  repeated decreasesAbundanceOf MolecularEntity = 16
+  repeated affectsActivityOf MolecularEntity = 17
+  repeated increasesActivityOf MolecularEntity = 18
+  repeated decreasesActivityOf MolecularEntity = 19
+  repeated affectsExpressionOf GenomicEntity = 20
+  repeated increasesExpressionOf GenomicEntity = 21
+  repeated decreasesExpressionOf GenomicEntity = 22
+  repeated affectsFoldingOf MolecularEntity = 23
+  repeated increasesFoldingOf MolecularEntity = 24
+  repeated decreasesFoldingOf MolecularEntity = 25
+  repeated affectsLocalizationOf MolecularEntity = 26
+  repeated increasesLocalizationOf MolecularEntity = 27
+  repeated decreasesLocalizationOf MolecularEntity = 28
+  repeated affectsMetabolicProcessingOf MolecularEntity = 29
+  repeated increasesMetabolicProcessingOf MolecularEntity = 30
+  repeated decreasesMetabolicProcessingOf MolecularEntity = 31
+  repeated affectsMolecularModificationOf MolecularEntity = 32
+  repeated increasesMolecularModificationOf MolecularEntity = 33
+  repeated decreasesMolecularModificationOf MolecularEntity = 34
+  repeated affectsSynthesisOf MolecularEntity = 35
+  repeated increasesSynthesisOf MolecularEntity = 36
+  repeated decreasesSynthesisOf MolecularEntity = 37
+  repeated affectsDegradationOf MolecularEntity = 38
+  repeated increasesDegradationOf MolecularEntity = 39
+  repeated decreasesDegradationOf MolecularEntity = 40
+  repeated affectsMutationRateOf GenomicEntity = 41
+  repeated increasesMutationRateOf GenomicEntity = 42
+  repeated decreasesMutationRateOf GenomicEntity = 43
+  repeated affectsResponseTo MolecularEntity = 44
+  repeated increasesResponseTo MolecularEntity = 45
+  repeated decreasesResponseTo MolecularEntity = 46
+  repeated affectsSplicingOf Transcript = 47
+  repeated increasesSplicingOf Transcript = 48
+  repeated decreasesSplicingOf Transcript = 49
+  repeated affectsStabilityOf MolecularEntity = 50
+  repeated increasesStabilityOf MolecularEntity = 51
+  repeated decreasesStabilityOf MolecularEntity = 52
+  repeated affectsTransportOf MolecularEntity = 53
+  repeated increasesTransportOf MolecularEntity = 54
+  repeated decreasesTransportOf MolecularEntity = 55
+  repeated affectsSecretionOf MolecularEntity = 56
+  repeated increasesSecretionOf MolecularEntity = 57
+  repeated decreasesSecretionOf MolecularEntity = 58
+  repeated affectsUptakeOf MolecularEntity = 59
+  repeated increasesUptakeOf MolecularEntity = 60
+  repeated decreasesUptakeOf MolecularEntity = 61
+  repeated regulatesEntityToEntity MolecularEntity = 62
+  repeated biomarkerFor DiseaseOrPhenotypicFeature = 63
+  repeated inTaxon OrganismTaxon = 64
+ }
+// A relationship between two chemical entities. This can encompass actual interactions as well as temporal causal edges, e.g. one chemical converted to another.
+message ChemicalToChemicalAssociation
+ {
+  subject NamedThing = 1
+  relation Uriorcurie = 2
+  object ChemicalSubstance = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+ }
+// A causal relationship between two chemical entities, where the subject represents the upstream entity and the object represents the downstream. For any such association there is an implicit reaction:
+//   IF
+//   R has-input C1 AND
+//   R has-output C2 AND
+//   R enabled-by P AND
+//   R type Reaction
+//   THEN
+//   C1 derives-into C2 <<change is catalyzed by P>>
+message ChemicalToChemicalDerivationAssociation
+ {
+  subject ChemicalSubstance = 1
+  relation Uriorcurie = 2
+  object ChemicalSubstance = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+  repeated changeIsCatalyzedBy MacromolecularMachine = 12
+ }
+// An interaction between a chemical entity and a phenotype or disease, where the presence of the chemical gives rise to or exacerbates the phenotype
+message ChemicalToDiseaseOrPhenotypicFeatureAssociation
+ {
+  subject NamedThing = 1
+  relation Uriorcurie = 2
+  object DiseaseOrPhenotypicFeature = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+ }
+// An interaction between a chemical entity and a gene or gene product
+message ChemicalToGeneAssociation
+ {
+  subject NamedThing = 1
+  relation Uriorcurie = 2
+  object GeneOrGeneProduct = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+ }
+// An interaction between a chemical entity and a biological process or pathway
+message ChemicalToPathwayAssociation
+ {
+  subject NamedThing = 1
+  relation Uriorcurie = 2
+  object Pathway = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+ }
+// Any entity or process that exists in the clinical domain and outside the biological realm. Diseases are placed under biological entities
+message ClinicalEntity
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+ }
+message ClinicalIntervention
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+ }
+// Used to characterize and specify the phenotypic abnormalities defined in the Phenotypic abnormality subontology, with respect to severity, laterality, age of onset, and other aspects
+message ClinicalModifier
+ {
+  optional hasAttributeType OntologyClass = 1
+  repeated hasQuantitativeValue QuantityValue = 2
+  optional hasQualitativeValue NamedThing = 3
+  id IdentifierType = 4
+  name LabelType = 5
+  repeated category IriType = 6
+  repeated relatedTo NamedThing = 7
+  repeated interactsWith NamedThing = 8
+  optional nodeProperty String = 9
+  optional iri IriType = 10
+  repeated synonym LabelType = 11
+  optional fullName LabelType = 12
+  optional description NarrativeText = 13
+  repeated systematicSynonym LabelType = 14
+  repeated subclassOf IriType = 15
+ }
+message ClinicalTrial
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+ }
+message CodingSequence
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated molecularlyInteractsWith MolecularEntity = 13
+  repeated affectsAbundanceOf MolecularEntity = 14
+  repeated increasesAbundanceOf MolecularEntity = 15
+  repeated decreasesAbundanceOf MolecularEntity = 16
+  repeated affectsActivityOf MolecularEntity = 17
+  repeated increasesActivityOf MolecularEntity = 18
+  repeated decreasesActivityOf MolecularEntity = 19
+  repeated affectsExpressionOf GenomicEntity = 20
+  repeated increasesExpressionOf GenomicEntity = 21
+  repeated decreasesExpressionOf GenomicEntity = 22
+  repeated affectsFoldingOf MolecularEntity = 23
+  repeated increasesFoldingOf MolecularEntity = 24
+  repeated decreasesFoldingOf MolecularEntity = 25
+  repeated affectsLocalizationOf MolecularEntity = 26
+  repeated increasesLocalizationOf MolecularEntity = 27
+  repeated decreasesLocalizationOf MolecularEntity = 28
+  repeated affectsMetabolicProcessingOf MolecularEntity = 29
+  repeated increasesMetabolicProcessingOf MolecularEntity = 30
+  repeated decreasesMetabolicProcessingOf MolecularEntity = 31
+  repeated affectsMolecularModificationOf MolecularEntity = 32
+  repeated increasesMolecularModificationOf MolecularEntity = 33
+  repeated decreasesMolecularModificationOf MolecularEntity = 34
+  repeated affectsSynthesisOf MolecularEntity = 35
+  repeated increasesSynthesisOf MolecularEntity = 36
+  repeated decreasesSynthesisOf MolecularEntity = 37
+  repeated affectsDegradationOf MolecularEntity = 38
+  repeated increasesDegradationOf MolecularEntity = 39
+  repeated decreasesDegradationOf MolecularEntity = 40
+  repeated affectsMutationRateOf GenomicEntity = 41
+  repeated increasesMutationRateOf GenomicEntity = 42
+  repeated decreasesMutationRateOf GenomicEntity = 43
+  repeated affectsResponseTo MolecularEntity = 44
+  repeated increasesResponseTo MolecularEntity = 45
+  repeated decreasesResponseTo MolecularEntity = 46
+  repeated affectsSplicingOf Transcript = 47
+  repeated increasesSplicingOf Transcript = 48
+  repeated decreasesSplicingOf Transcript = 49
+  repeated affectsStabilityOf MolecularEntity = 50
+  repeated increasesStabilityOf MolecularEntity = 51
+  repeated decreasesStabilityOf MolecularEntity = 52
+  repeated affectsTransportOf MolecularEntity = 53
+  repeated increasesTransportOf MolecularEntity = 54
+  repeated decreasesTransportOf MolecularEntity = 55
+  repeated affectsSecretionOf MolecularEntity = 56
+  repeated increasesSecretionOf MolecularEntity = 57
+  repeated decreasesSecretionOf MolecularEntity = 58
+  repeated affectsUptakeOf MolecularEntity = 59
+  repeated increasesUptakeOf MolecularEntity = 60
+  repeated decreasesUptakeOf MolecularEntity = 61
+  repeated regulatesEntityToEntity MolecularEntity = 62
+  repeated biomarkerFor DiseaseOrPhenotypicFeature = 63
+  repeated inTaxon OrganismTaxon = 64
+  optional hasBiologicalSequence BiologicalSequence = 65
+ }
+// Level of confidence in a statement
+message ConfidenceLevel
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+ }
+message DataFile
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+ }
+message DataSet
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+ }
+message DataSetVersion
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  optional title String = 12
+  optional sourceDataFile DataFile = 13
+  optional versionOf DataSet = 14
+  optional type String = 15
+  optional distribution DistributionLevel = 16
+ }
+// A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment
+message Device
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+ }
+message Disease
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated correlatedWith MolecularEntity = 13
+  repeated hasBiomarker MolecularEntity = 14
+  repeated treatedBy NamedThing = 15
+  repeated inTaxon OrganismTaxon = 16
+ }
+// Either one of a disease or an individual phenotypic feature. Some knowledge resources such as Monarch treat these as distinct, others such as MESH conflate.
+message DiseaseOrPhenotypicFeature
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated correlatedWith MolecularEntity = 13
+  repeated hasBiomarker MolecularEntity = 14
+  repeated treatedBy NamedThing = 15
+  repeated inTaxon OrganismTaxon = 16
+ }
+// An association between either a disease or a phenotypic feature and an anatomical entity, where the disease/feature manifests in that site.
+message DiseaseOrPhenotypicFeatureAssociationToLocationAssociation
+ {
+  subject DiseaseOrPhenotypicFeature = 1
+  relation Uriorcurie = 2
+  object AnatomicalEntity = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+ }
+// An association between an exposure event and a disease
+message DiseaseToExposureAssociation
+ {
+  subject Disease = 1
+  relation Uriorcurie = 2
+  object ExposureEvent = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+ }
+// An association between a disease and a phenotypic feature in which the phenotypic feature is associated with the disease in some way
+message DiseaseToPhenotypicFeatureAssociation
+ {
+  subject NamedThing = 1
+  relation Uriorcurie = 2
+  object NamedThing = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+  optional sexQualifier BiologicalSex = 12
+  optional frequencyQualifier FrequencyValue = 13
+  optional severityQualifier SeverityValue = 14
+  optional onsetQualifier Onset = 15
+ }
+// A substance intended for use in the diagnosis, cure, mitigation, treatment, or prevention of disease
+message Drug
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated molecularlyInteractsWith MolecularEntity = 13
+  repeated affectsAbundanceOf MolecularEntity = 14
+  repeated increasesAbundanceOf MolecularEntity = 15
+  repeated decreasesAbundanceOf MolecularEntity = 16
+  repeated affectsActivityOf MolecularEntity = 17
+  repeated increasesActivityOf MolecularEntity = 18
+  repeated decreasesActivityOf MolecularEntity = 19
+  repeated affectsExpressionOf GenomicEntity = 20
+  repeated increasesExpressionOf GenomicEntity = 21
+  repeated decreasesExpressionOf GenomicEntity = 22
+  repeated affectsFoldingOf MolecularEntity = 23
+  repeated increasesFoldingOf MolecularEntity = 24
+  repeated decreasesFoldingOf MolecularEntity = 25
+  repeated affectsLocalizationOf MolecularEntity = 26
+  repeated increasesLocalizationOf MolecularEntity = 27
+  repeated decreasesLocalizationOf MolecularEntity = 28
+  repeated affectsMetabolicProcessingOf MolecularEntity = 29
+  repeated increasesMetabolicProcessingOf MolecularEntity = 30
+  repeated decreasesMetabolicProcessingOf MolecularEntity = 31
+  repeated affectsMolecularModificationOf MolecularEntity = 32
+  repeated increasesMolecularModificationOf MolecularEntity = 33
+  repeated decreasesMolecularModificationOf MolecularEntity = 34
+  repeated affectsSynthesisOf MolecularEntity = 35
+  repeated increasesSynthesisOf MolecularEntity = 36
+  repeated decreasesSynthesisOf MolecularEntity = 37
+  repeated affectsDegradationOf MolecularEntity = 38
+  repeated increasesDegradationOf MolecularEntity = 39
+  repeated decreasesDegradationOf MolecularEntity = 40
+  repeated affectsMutationRateOf GenomicEntity = 41
+  repeated increasesMutationRateOf GenomicEntity = 42
+  repeated decreasesMutationRateOf GenomicEntity = 43
+  repeated affectsResponseTo MolecularEntity = 44
+  repeated increasesResponseTo MolecularEntity = 45
+  repeated decreasesResponseTo MolecularEntity = 46
+  repeated affectsSplicingOf Transcript = 47
+  repeated increasesSplicingOf Transcript = 48
+  repeated decreasesSplicingOf Transcript = 49
+  repeated affectsStabilityOf MolecularEntity = 50
+  repeated increasesStabilityOf MolecularEntity = 51
+  repeated decreasesStabilityOf MolecularEntity = 52
+  repeated affectsTransportOf MolecularEntity = 53
+  repeated increasesTransportOf MolecularEntity = 54
+  repeated decreasesTransportOf MolecularEntity = 55
+  repeated affectsSecretionOf MolecularEntity = 56
+  repeated increasesSecretionOf MolecularEntity = 57
+  repeated decreasesSecretionOf MolecularEntity = 58
+  repeated affectsUptakeOf MolecularEntity = 59
+  repeated increasesUptakeOf MolecularEntity = 60
+  repeated decreasesUptakeOf MolecularEntity = 61
+  repeated regulatesEntityToEntity MolecularEntity = 62
+  repeated biomarkerFor DiseaseOrPhenotypicFeature = 63
+  repeated inTaxon OrganismTaxon = 64
+ }
+// A drug exposure is an intake of a particular chemical substance
+message DrugExposure
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  optional hasReceptor OrganismalEntity = 13
+  optional hasStressor String = 14
+  optional hasRoute String = 15
+ }
+message EnvironmentalFeature
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+ }
+message EnvironmentalProcess
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated regulatesProcessToProcess Occurrent = 12
+  repeated hasParticipant NamedThing = 13
+  repeated hasInput NamedThing = 14
+  repeated hasOutput NamedThing = 15
+  repeated precedes Occurrent = 16
+ }
+// Class of evidence that supports an association
+message EvidenceType
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+ }
+// A region of the transcript sequence within a gene which is not removed from the primary RNA transcript by RNA splicing
+message Exon
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated molecularlyInteractsWith MolecularEntity = 13
+  repeated affectsAbundanceOf MolecularEntity = 14
+  repeated increasesAbundanceOf MolecularEntity = 15
+  repeated decreasesAbundanceOf MolecularEntity = 16
+  repeated affectsActivityOf MolecularEntity = 17
+  repeated increasesActivityOf MolecularEntity = 18
+  repeated decreasesActivityOf MolecularEntity = 19
+  repeated affectsExpressionOf GenomicEntity = 20
+  repeated increasesExpressionOf GenomicEntity = 21
+  repeated decreasesExpressionOf GenomicEntity = 22
+  repeated affectsFoldingOf MolecularEntity = 23
+  repeated increasesFoldingOf MolecularEntity = 24
+  repeated decreasesFoldingOf MolecularEntity = 25
+  repeated affectsLocalizationOf MolecularEntity = 26
+  repeated increasesLocalizationOf MolecularEntity = 27
+  repeated decreasesLocalizationOf MolecularEntity = 28
+  repeated affectsMetabolicProcessingOf MolecularEntity = 29
+  repeated increasesMetabolicProcessingOf MolecularEntity = 30
+  repeated decreasesMetabolicProcessingOf MolecularEntity = 31
+  repeated affectsMolecularModificationOf MolecularEntity = 32
+  repeated increasesMolecularModificationOf MolecularEntity = 33
+  repeated decreasesMolecularModificationOf MolecularEntity = 34
+  repeated affectsSynthesisOf MolecularEntity = 35
+  repeated increasesSynthesisOf MolecularEntity = 36
+  repeated decreasesSynthesisOf MolecularEntity = 37
+  repeated affectsDegradationOf MolecularEntity = 38
+  repeated increasesDegradationOf MolecularEntity = 39
+  repeated decreasesDegradationOf MolecularEntity = 40
+  repeated affectsMutationRateOf GenomicEntity = 41
+  repeated increasesMutationRateOf GenomicEntity = 42
+  repeated decreasesMutationRateOf GenomicEntity = 43
+  repeated affectsResponseTo MolecularEntity = 44
+  repeated increasesResponseTo MolecularEntity = 45
+  repeated decreasesResponseTo MolecularEntity = 46
+  repeated affectsSplicingOf Transcript = 47
+  repeated increasesSplicingOf Transcript = 48
+  repeated decreasesSplicingOf Transcript = 49
+  repeated affectsStabilityOf MolecularEntity = 50
+  repeated increasesStabilityOf MolecularEntity = 51
+  repeated decreasesStabilityOf MolecularEntity = 52
+  repeated affectsTransportOf MolecularEntity = 53
+  repeated increasesTransportOf MolecularEntity = 54
+  repeated decreasesTransportOf MolecularEntity = 55
+  repeated affectsSecretionOf MolecularEntity = 56
+  repeated increasesSecretionOf MolecularEntity = 57
+  repeated decreasesSecretionOf MolecularEntity = 58
+  repeated affectsUptakeOf MolecularEntity = 59
+  repeated increasesUptakeOf MolecularEntity = 60
+  repeated decreasesUptakeOf MolecularEntity = 61
+  repeated regulatesEntityToEntity MolecularEntity = 62
+  repeated biomarkerFor DiseaseOrPhenotypicFeature = 63
+  repeated inTaxon OrganismTaxon = 64
+  optional hasBiologicalSequence BiologicalSequence = 65
+ }
+// A transcript is formed from multiple exons
+message ExonToTranscriptRelationship
+ {
+  subject Exon = 1
+  relation Uriorcurie = 2
+  object Transcript = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+ }
+// A feature of the environment of an organism that influences one or more phenotypic features of that organism, potentially mediated by genes
+message ExposureEvent
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  optional hasReceptor OrganismalEntity = 13
+  optional hasStressor String = 14
+  optional hasRoute String = 15
+ }
+// Any association between an environment and a phenotypic feature, where being in the environment influences the phenotype
+message ExposureEventToPhenotypicFeatureAssociation
+ {
+  subject ExposureEvent = 1
+  relation Uriorcurie = 2
+  object NamedThing = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+  optional sexQualifier BiologicalSex = 12
+  optional frequencyQualifier FrequencyValue = 13
+  optional severityQualifier SeverityValue = 14
+  optional onsetQualifier Onset = 15
+ }
+// describes the frequency of occurrence of an event or condition
+message FrequencyValue
+ {
+  optional hasAttributeType OntologyClass = 1
+  repeated hasQuantitativeValue QuantityValue = 2
+  optional hasQualitativeValue NamedThing = 3
+  id IdentifierType = 4
+  name LabelType = 5
+  repeated category IriType = 6
+  repeated relatedTo NamedThing = 7
+  repeated interactsWith NamedThing = 8
+  optional nodeProperty String = 9
+  optional iri IriType = 10
+  repeated synonym LabelType = 11
+  optional fullName LabelType = 12
+  optional description NarrativeText = 13
+  repeated systematicSynonym LabelType = 14
+  repeated subclassOf IriType = 15
+ }
+// An association between a macromolecular machine (gene, gene product or complex of gene products) and either a molecular activity, a biological process or a cellular location in which a function is executed
+message FunctionalAssociation
+ {
+  subject MacromolecularMachine = 1
+  relation Uriorcurie = 2
+  object GeneOntologyClass = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+ }
+message Gene
+ {
+  id IdentifierType = 1
+  name SymbolType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated molecularlyInteractsWith MolecularEntity = 13
+  repeated affectsAbundanceOf MolecularEntity = 14
+  repeated increasesAbundanceOf MolecularEntity = 15
+  repeated decreasesAbundanceOf MolecularEntity = 16
+  repeated affectsActivityOf MolecularEntity = 17
+  repeated increasesActivityOf MolecularEntity = 18
+  repeated decreasesActivityOf MolecularEntity = 19
+  repeated affectsExpressionOf GenomicEntity = 20
+  repeated increasesExpressionOf GenomicEntity = 21
+  repeated decreasesExpressionOf GenomicEntity = 22
+  repeated affectsFoldingOf MolecularEntity = 23
+  repeated increasesFoldingOf MolecularEntity = 24
+  repeated decreasesFoldingOf MolecularEntity = 25
+  repeated affectsLocalizationOf MolecularEntity = 26
+  repeated increasesLocalizationOf MolecularEntity = 27
+  repeated decreasesLocalizationOf MolecularEntity = 28
+  repeated affectsMetabolicProcessingOf MolecularEntity = 29
+  repeated increasesMetabolicProcessingOf MolecularEntity = 30
+  repeated decreasesMetabolicProcessingOf MolecularEntity = 31
+  repeated affectsMolecularModificationOf MolecularEntity = 32
+  repeated increasesMolecularModificationOf MolecularEntity = 33
+  repeated decreasesMolecularModificationOf MolecularEntity = 34
+  repeated affectsSynthesisOf MolecularEntity = 35
+  repeated increasesSynthesisOf MolecularEntity = 36
+  repeated decreasesSynthesisOf MolecularEntity = 37
+  repeated affectsDegradationOf MolecularEntity = 38
+  repeated increasesDegradationOf MolecularEntity = 39
+  repeated decreasesDegradationOf MolecularEntity = 40
+  repeated affectsMutationRateOf GenomicEntity = 41
+  repeated increasesMutationRateOf GenomicEntity = 42
+  repeated decreasesMutationRateOf GenomicEntity = 43
+  repeated affectsResponseTo MolecularEntity = 44
+  repeated increasesResponseTo MolecularEntity = 45
+  repeated decreasesResponseTo MolecularEntity = 46
+  repeated affectsSplicingOf Transcript = 47
+  repeated increasesSplicingOf Transcript = 48
+  repeated decreasesSplicingOf Transcript = 49
+  repeated affectsStabilityOf MolecularEntity = 50
+  repeated increasesStabilityOf MolecularEntity = 51
+  repeated decreasesStabilityOf MolecularEntity = 52
+  repeated affectsTransportOf MolecularEntity = 53
+  repeated increasesTransportOf MolecularEntity = 54
+  repeated decreasesTransportOf MolecularEntity = 55
+  repeated affectsSecretionOf MolecularEntity = 56
+  repeated increasesSecretionOf MolecularEntity = 57
+  repeated decreasesSecretionOf MolecularEntity = 58
+  repeated affectsUptakeOf MolecularEntity = 59
+  repeated increasesUptakeOf MolecularEntity = 60
+  repeated decreasesUptakeOf MolecularEntity = 61
+  repeated regulatesEntityToEntity MolecularEntity = 62
+  repeated biomarkerFor DiseaseOrPhenotypicFeature = 63
+  repeated inTaxon OrganismTaxon = 64
+  optional hasBiologicalSequence BiologicalSequence = 65
+  repeated inPathwayWith GeneOrGeneProduct = 66
+  repeated inComplexWith GeneOrGeneProduct = 67
+  repeated inCellPopulationWith GeneOrGeneProduct = 68
+  repeated expressedIn AnatomicalEntity = 69
+  repeated geneticallyInteractsWith Gene = 70
+  repeated hasGeneProduct GeneProduct = 71
+  repeated geneAssociatedWithCondition DiseaseOrPhenotypicFeature = 72
+ }
+message GeneAsAModelOfDiseaseAssociation
+ {
+  subject GeneOrGeneProduct = 1
+  relation Uriorcurie = 2
+  object NamedThing = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+  optional frequencyQualifier FrequencyValue = 12
+  optional severityQualifier SeverityValue = 13
+  optional onsetQualifier Onset = 14
+ }
+// any grouping of multiple genes or gene products related by common descent
+message GeneFamily
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated molecularlyInteractsWith MolecularEntity = 13
+  repeated affectsAbundanceOf MolecularEntity = 14
+  repeated increasesAbundanceOf MolecularEntity = 15
+  repeated decreasesAbundanceOf MolecularEntity = 16
+  repeated affectsActivityOf MolecularEntity = 17
+  repeated increasesActivityOf MolecularEntity = 18
+  repeated decreasesActivityOf MolecularEntity = 19
+  repeated affectsExpressionOf GenomicEntity = 20
+  repeated increasesExpressionOf GenomicEntity = 21
+  repeated decreasesExpressionOf GenomicEntity = 22
+  repeated affectsFoldingOf MolecularEntity = 23
+  repeated increasesFoldingOf MolecularEntity = 24
+  repeated decreasesFoldingOf MolecularEntity = 25
+  repeated affectsLocalizationOf MolecularEntity = 26
+  repeated increasesLocalizationOf MolecularEntity = 27
+  repeated decreasesLocalizationOf MolecularEntity = 28
+  repeated affectsMetabolicProcessingOf MolecularEntity = 29
+  repeated increasesMetabolicProcessingOf MolecularEntity = 30
+  repeated decreasesMetabolicProcessingOf MolecularEntity = 31
+  repeated affectsMolecularModificationOf MolecularEntity = 32
+  repeated increasesMolecularModificationOf MolecularEntity = 33
+  repeated decreasesMolecularModificationOf MolecularEntity = 34
+  repeated affectsSynthesisOf MolecularEntity = 35
+  repeated increasesSynthesisOf MolecularEntity = 36
+  repeated decreasesSynthesisOf MolecularEntity = 37
+  repeated affectsDegradationOf MolecularEntity = 38
+  repeated increasesDegradationOf MolecularEntity = 39
+  repeated decreasesDegradationOf MolecularEntity = 40
+  repeated affectsMutationRateOf GenomicEntity = 41
+  repeated increasesMutationRateOf GenomicEntity = 42
+  repeated decreasesMutationRateOf GenomicEntity = 43
+  repeated affectsResponseTo MolecularEntity = 44
+  repeated increasesResponseTo MolecularEntity = 45
+  repeated decreasesResponseTo MolecularEntity = 46
+  repeated affectsSplicingOf Transcript = 47
+  repeated increasesSplicingOf Transcript = 48
+  repeated decreasesSplicingOf Transcript = 49
+  repeated affectsStabilityOf MolecularEntity = 50
+  repeated increasesStabilityOf MolecularEntity = 51
+  repeated decreasesStabilityOf MolecularEntity = 52
+  repeated affectsTransportOf MolecularEntity = 53
+  repeated increasesTransportOf MolecularEntity = 54
+  repeated decreasesTransportOf MolecularEntity = 55
+  repeated affectsSecretionOf MolecularEntity = 56
+  repeated increasesSecretionOf MolecularEntity = 57
+  repeated decreasesSecretionOf MolecularEntity = 58
+  repeated affectsUptakeOf MolecularEntity = 59
+  repeated increasesUptakeOf MolecularEntity = 60
+  repeated decreasesUptakeOf MolecularEntity = 61
+  repeated regulatesEntityToEntity MolecularEntity = 62
+  repeated biomarkerFor DiseaseOrPhenotypicFeature = 63
+  repeated inTaxon OrganismTaxon = 64
+ }
+message GeneHasVariantThatContributesToDiseaseAssociation
+ {
+  subject GeneOrGeneProduct = 1
+  relation Uriorcurie = 2
+  object NamedThing = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+  optional frequencyQualifier FrequencyValue = 12
+  optional severityQualifier SeverityValue = 13
+  optional onsetQualifier Onset = 14
+  optional sequenceVariantQualifier SequenceVariant = 15
+ }
+// an ontology class that describes a functional aspect of a gene, gene prodoct or complex
+message GeneOntologyClass
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated subclassOf IriType = 12
+ }
+// a union of genes or gene products. Frequently an identifier for one will be used as proxy for another
+message GeneOrGeneProduct
+ {
+  id IdentifierType = 1
+  name SymbolType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated molecularlyInteractsWith MolecularEntity = 13
+  repeated affectsAbundanceOf MolecularEntity = 14
+  repeated increasesAbundanceOf MolecularEntity = 15
+  repeated decreasesAbundanceOf MolecularEntity = 16
+  repeated affectsActivityOf MolecularEntity = 17
+  repeated increasesActivityOf MolecularEntity = 18
+  repeated decreasesActivityOf MolecularEntity = 19
+  repeated affectsExpressionOf GenomicEntity = 20
+  repeated increasesExpressionOf GenomicEntity = 21
+  repeated decreasesExpressionOf GenomicEntity = 22
+  repeated affectsFoldingOf MolecularEntity = 23
+  repeated increasesFoldingOf MolecularEntity = 24
+  repeated decreasesFoldingOf MolecularEntity = 25
+  repeated affectsLocalizationOf MolecularEntity = 26
+  repeated increasesLocalizationOf MolecularEntity = 27
+  repeated decreasesLocalizationOf MolecularEntity = 28
+  repeated affectsMetabolicProcessingOf MolecularEntity = 29
+  repeated increasesMetabolicProcessingOf MolecularEntity = 30
+  repeated decreasesMetabolicProcessingOf MolecularEntity = 31
+  repeated affectsMolecularModificationOf MolecularEntity = 32
+  repeated increasesMolecularModificationOf MolecularEntity = 33
+  repeated decreasesMolecularModificationOf MolecularEntity = 34
+  repeated affectsSynthesisOf MolecularEntity = 35
+  repeated increasesSynthesisOf MolecularEntity = 36
+  repeated decreasesSynthesisOf MolecularEntity = 37
+  repeated affectsDegradationOf MolecularEntity = 38
+  repeated increasesDegradationOf MolecularEntity = 39
+  repeated decreasesDegradationOf MolecularEntity = 40
+  repeated affectsMutationRateOf GenomicEntity = 41
+  repeated increasesMutationRateOf GenomicEntity = 42
+  repeated decreasesMutationRateOf GenomicEntity = 43
+  repeated affectsResponseTo MolecularEntity = 44
+  repeated increasesResponseTo MolecularEntity = 45
+  repeated decreasesResponseTo MolecularEntity = 46
+  repeated affectsSplicingOf Transcript = 47
+  repeated increasesSplicingOf Transcript = 48
+  repeated decreasesSplicingOf Transcript = 49
+  repeated affectsStabilityOf MolecularEntity = 50
+  repeated increasesStabilityOf MolecularEntity = 51
+  repeated decreasesStabilityOf MolecularEntity = 52
+  repeated affectsTransportOf MolecularEntity = 53
+  repeated increasesTransportOf MolecularEntity = 54
+  repeated decreasesTransportOf MolecularEntity = 55
+  repeated affectsSecretionOf MolecularEntity = 56
+  repeated increasesSecretionOf MolecularEntity = 57
+  repeated decreasesSecretionOf MolecularEntity = 58
+  repeated affectsUptakeOf MolecularEntity = 59
+  repeated increasesUptakeOf MolecularEntity = 60
+  repeated decreasesUptakeOf MolecularEntity = 61
+  repeated regulatesEntityToEntity MolecularEntity = 62
+  repeated biomarkerFor DiseaseOrPhenotypicFeature = 63
+  repeated inTaxon OrganismTaxon = 64
+  optional hasBiologicalSequence BiologicalSequence = 65
+  repeated inPathwayWith GeneOrGeneProduct = 66
+  repeated inComplexWith GeneOrGeneProduct = 67
+  repeated inCellPopulationWith GeneOrGeneProduct = 68
+  repeated expressedIn AnatomicalEntity = 69
+ }
+// The functional molecular product of a single gene. Gene products are either proteins or functional RNA molecules
+message GeneProduct
+ {
+  id IdentifierType = 1
+  name SymbolType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated molecularlyInteractsWith MolecularEntity = 13
+  repeated affectsAbundanceOf MolecularEntity = 14
+  repeated increasesAbundanceOf MolecularEntity = 15
+  repeated decreasesAbundanceOf MolecularEntity = 16
+  repeated affectsActivityOf MolecularEntity = 17
+  repeated increasesActivityOf MolecularEntity = 18
+  repeated decreasesActivityOf MolecularEntity = 19
+  repeated affectsExpressionOf GenomicEntity = 20
+  repeated increasesExpressionOf GenomicEntity = 21
+  repeated decreasesExpressionOf GenomicEntity = 22
+  repeated affectsFoldingOf MolecularEntity = 23
+  repeated increasesFoldingOf MolecularEntity = 24
+  repeated decreasesFoldingOf MolecularEntity = 25
+  repeated affectsLocalizationOf MolecularEntity = 26
+  repeated increasesLocalizationOf MolecularEntity = 27
+  repeated decreasesLocalizationOf MolecularEntity = 28
+  repeated affectsMetabolicProcessingOf MolecularEntity = 29
+  repeated increasesMetabolicProcessingOf MolecularEntity = 30
+  repeated decreasesMetabolicProcessingOf MolecularEntity = 31
+  repeated affectsMolecularModificationOf MolecularEntity = 32
+  repeated increasesMolecularModificationOf MolecularEntity = 33
+  repeated decreasesMolecularModificationOf MolecularEntity = 34
+  repeated affectsSynthesisOf MolecularEntity = 35
+  repeated increasesSynthesisOf MolecularEntity = 36
+  repeated decreasesSynthesisOf MolecularEntity = 37
+  repeated affectsDegradationOf MolecularEntity = 38
+  repeated increasesDegradationOf MolecularEntity = 39
+  repeated decreasesDegradationOf MolecularEntity = 40
+  repeated affectsMutationRateOf GenomicEntity = 41
+  repeated increasesMutationRateOf GenomicEntity = 42
+  repeated decreasesMutationRateOf GenomicEntity = 43
+  repeated affectsResponseTo MolecularEntity = 44
+  repeated increasesResponseTo MolecularEntity = 45
+  repeated decreasesResponseTo MolecularEntity = 46
+  repeated affectsSplicingOf Transcript = 47
+  repeated increasesSplicingOf Transcript = 48
+  repeated decreasesSplicingOf Transcript = 49
+  repeated affectsStabilityOf MolecularEntity = 50
+  repeated increasesStabilityOf MolecularEntity = 51
+  repeated decreasesStabilityOf MolecularEntity = 52
+  repeated affectsTransportOf MolecularEntity = 53
+  repeated increasesTransportOf MolecularEntity = 54
+  repeated decreasesTransportOf MolecularEntity = 55
+  repeated affectsSecretionOf MolecularEntity = 56
+  repeated increasesSecretionOf MolecularEntity = 57
+  repeated decreasesSecretionOf MolecularEntity = 58
+  repeated affectsUptakeOf MolecularEntity = 59
+  repeated increasesUptakeOf MolecularEntity = 60
+  repeated decreasesUptakeOf MolecularEntity = 61
+  repeated regulatesEntityToEntity MolecularEntity = 62
+  repeated biomarkerFor DiseaseOrPhenotypicFeature = 63
+  repeated inTaxon OrganismTaxon = 64
+  optional hasBiologicalSequence BiologicalSequence = 65
+  repeated inPathwayWith GeneOrGeneProduct = 66
+  repeated inComplexWith GeneOrGeneProduct = 67
+  repeated inCellPopulationWith GeneOrGeneProduct = 68
+  repeated expressedIn AnatomicalEntity = 69
+ }
+// A regulatory relationship between two genes
+message GeneRegulatoryRelationship
+ {
+  subject GeneOrGeneProduct = 1
+  relation Uriorcurie = 2
+  object GeneOrGeneProduct = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+ }
+message GeneToDiseaseAssociation
+ {
+  subject GeneOrGeneProduct = 1
+  relation Uriorcurie = 2
+  object NamedThing = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+  optional frequencyQualifier FrequencyValue = 12
+  optional severityQualifier SeverityValue = 13
+  optional onsetQualifier Onset = 14
+ }
+// An association between a gene and an expression site, possibly qualified by stage/timing info.
+message GeneToExpressionSiteAssociation
+ {
+  subject GeneOrGeneProduct = 1
+  relation Uriorcurie = 2
+  object AnatomicalEntity = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+  optional stageQualifier LifeStage = 12
+  optional quantifierQualifier OntologyClass = 13
+ }
+// A homology association between two genes. May be orthology (in which case the species of subject and object should differ) or paralogy (in which case the species may be the same)
+message GeneToGeneHomologyAssociation
+ {
+  subject GeneOrGeneProduct = 1
+  relation Uriorcurie = 2
+  object GeneOrGeneProduct = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+ }
+// A gene is transcribed and potentially translated to a gene product
+message GeneToGeneProductRelationship
+ {
+  subject Gene = 1
+  relation Uriorcurie = 2
+  object GeneProduct = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+ }
+message GeneToGoTermAssociation
+ {
+  subject MolecularEntity = 1
+  relation Uriorcurie = 2
+  object GeneOntologyClass = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+ }
+message GeneToPhenotypicFeatureAssociation
+ {
+  subject GeneOrGeneProduct = 1
+  relation Uriorcurie = 2
+  object NamedThing = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+  optional sexQualifier BiologicalSex = 12
+  optional frequencyQualifier FrequencyValue = 13
+  optional severityQualifier SeverityValue = 14
+  optional onsetQualifier Onset = 15
+ }
+// A genome is the sum of genetic material within a cell or virion.
+message Genome
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated molecularlyInteractsWith MolecularEntity = 13
+  repeated affectsAbundanceOf MolecularEntity = 14
+  repeated increasesAbundanceOf MolecularEntity = 15
+  repeated decreasesAbundanceOf MolecularEntity = 16
+  repeated affectsActivityOf MolecularEntity = 17
+  repeated increasesActivityOf MolecularEntity = 18
+  repeated decreasesActivityOf MolecularEntity = 19
+  repeated affectsExpressionOf GenomicEntity = 20
+  repeated increasesExpressionOf GenomicEntity = 21
+  repeated decreasesExpressionOf GenomicEntity = 22
+  repeated affectsFoldingOf MolecularEntity = 23
+  repeated increasesFoldingOf MolecularEntity = 24
+  repeated decreasesFoldingOf MolecularEntity = 25
+  repeated affectsLocalizationOf MolecularEntity = 26
+  repeated increasesLocalizationOf MolecularEntity = 27
+  repeated decreasesLocalizationOf MolecularEntity = 28
+  repeated affectsMetabolicProcessingOf MolecularEntity = 29
+  repeated increasesMetabolicProcessingOf MolecularEntity = 30
+  repeated decreasesMetabolicProcessingOf MolecularEntity = 31
+  repeated affectsMolecularModificationOf MolecularEntity = 32
+  repeated increasesMolecularModificationOf MolecularEntity = 33
+  repeated decreasesMolecularModificationOf MolecularEntity = 34
+  repeated affectsSynthesisOf MolecularEntity = 35
+  repeated increasesSynthesisOf MolecularEntity = 36
+  repeated decreasesSynthesisOf MolecularEntity = 37
+  repeated affectsDegradationOf MolecularEntity = 38
+  repeated increasesDegradationOf MolecularEntity = 39
+  repeated decreasesDegradationOf MolecularEntity = 40
+  repeated affectsMutationRateOf GenomicEntity = 41
+  repeated increasesMutationRateOf GenomicEntity = 42
+  repeated decreasesMutationRateOf GenomicEntity = 43
+  repeated affectsResponseTo MolecularEntity = 44
+  repeated increasesResponseTo MolecularEntity = 45
+  repeated decreasesResponseTo MolecularEntity = 46
+  repeated affectsSplicingOf Transcript = 47
+  repeated increasesSplicingOf Transcript = 48
+  repeated decreasesSplicingOf Transcript = 49
+  repeated affectsStabilityOf MolecularEntity = 50
+  repeated increasesStabilityOf MolecularEntity = 51
+  repeated decreasesStabilityOf MolecularEntity = 52
+  repeated affectsTransportOf MolecularEntity = 53
+  repeated increasesTransportOf MolecularEntity = 54
+  repeated decreasesTransportOf MolecularEntity = 55
+  repeated affectsSecretionOf MolecularEntity = 56
+  repeated increasesSecretionOf MolecularEntity = 57
+  repeated decreasesSecretionOf MolecularEntity = 58
+  repeated affectsUptakeOf MolecularEntity = 59
+  repeated increasesUptakeOf MolecularEntity = 60
+  repeated decreasesUptakeOf MolecularEntity = 61
+  repeated regulatesEntityToEntity MolecularEntity = 62
+  repeated biomarkerFor DiseaseOrPhenotypicFeature = 63
+  repeated inTaxon OrganismTaxon = 64
+  optional hasBiologicalSequence BiologicalSequence = 65
+ }
+// an entity that can either be directly located on a genome (gene, transcript, exon, regulatory region) or is encoded in a genome (protein)
+message GenomicEntity
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated molecularlyInteractsWith MolecularEntity = 13
+  repeated affectsAbundanceOf MolecularEntity = 14
+  repeated increasesAbundanceOf MolecularEntity = 15
+  repeated decreasesAbundanceOf MolecularEntity = 16
+  repeated affectsActivityOf MolecularEntity = 17
+  repeated increasesActivityOf MolecularEntity = 18
+  repeated decreasesActivityOf MolecularEntity = 19
+  repeated affectsExpressionOf GenomicEntity = 20
+  repeated increasesExpressionOf GenomicEntity = 21
+  repeated decreasesExpressionOf GenomicEntity = 22
+  repeated affectsFoldingOf MolecularEntity = 23
+  repeated increasesFoldingOf MolecularEntity = 24
+  repeated decreasesFoldingOf MolecularEntity = 25
+  repeated affectsLocalizationOf MolecularEntity = 26
+  repeated increasesLocalizationOf MolecularEntity = 27
+  repeated decreasesLocalizationOf MolecularEntity = 28
+  repeated affectsMetabolicProcessingOf MolecularEntity = 29
+  repeated increasesMetabolicProcessingOf MolecularEntity = 30
+  repeated decreasesMetabolicProcessingOf MolecularEntity = 31
+  repeated affectsMolecularModificationOf MolecularEntity = 32
+  repeated increasesMolecularModificationOf MolecularEntity = 33
+  repeated decreasesMolecularModificationOf MolecularEntity = 34
+  repeated affectsSynthesisOf MolecularEntity = 35
+  repeated increasesSynthesisOf MolecularEntity = 36
+  repeated decreasesSynthesisOf MolecularEntity = 37
+  repeated affectsDegradationOf MolecularEntity = 38
+  repeated increasesDegradationOf MolecularEntity = 39
+  repeated decreasesDegradationOf MolecularEntity = 40
+  repeated affectsMutationRateOf GenomicEntity = 41
+  repeated increasesMutationRateOf GenomicEntity = 42
+  repeated decreasesMutationRateOf GenomicEntity = 43
+  repeated affectsResponseTo MolecularEntity = 44
+  repeated increasesResponseTo MolecularEntity = 45
+  repeated decreasesResponseTo MolecularEntity = 46
+  repeated affectsSplicingOf Transcript = 47
+  repeated increasesSplicingOf Transcript = 48
+  repeated decreasesSplicingOf Transcript = 49
+  repeated affectsStabilityOf MolecularEntity = 50
+  repeated increasesStabilityOf MolecularEntity = 51
+  repeated decreasesStabilityOf MolecularEntity = 52
+  repeated affectsTransportOf MolecularEntity = 53
+  repeated increasesTransportOf MolecularEntity = 54
+  repeated decreasesTransportOf MolecularEntity = 55
+  repeated affectsSecretionOf MolecularEntity = 56
+  repeated increasesSecretionOf MolecularEntity = 57
+  repeated decreasesSecretionOf MolecularEntity = 58
+  repeated affectsUptakeOf MolecularEntity = 59
+  repeated increasesUptakeOf MolecularEntity = 60
+  repeated decreasesUptakeOf MolecularEntity = 61
+  repeated regulatesEntityToEntity MolecularEntity = 62
+  repeated biomarkerFor DiseaseOrPhenotypicFeature = 63
+  repeated inTaxon OrganismTaxon = 64
+  optional hasBiologicalSequence BiologicalSequence = 65
+ }
+// A relationship between a sequence feature and an entity it is localized to. The reference entity may be a chromosome, chromosome region or information entity such as a contig
+message GenomicSequenceLocalization
+ {
+  subject GenomicEntity = 1
+  relation Uriorcurie = 2
+  object GenomicEntity = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+  optional startInterbaseCoordinate String = 12
+  optional endInterbaseCoordinate String = 13
+  optional genomeBuild String = 14
+  optional phase String = 15
+ }
+// An information content entity that describes a genome by specifying the total variation in genomic sequence and/or gene expression, relative to some extablished background
+message Genotype
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated molecularlyInteractsWith MolecularEntity = 13
+  repeated affectsAbundanceOf MolecularEntity = 14
+  repeated increasesAbundanceOf MolecularEntity = 15
+  repeated decreasesAbundanceOf MolecularEntity = 16
+  repeated affectsActivityOf MolecularEntity = 17
+  repeated increasesActivityOf MolecularEntity = 18
+  repeated decreasesActivityOf MolecularEntity = 19
+  repeated affectsExpressionOf GenomicEntity = 20
+  repeated increasesExpressionOf GenomicEntity = 21
+  repeated decreasesExpressionOf GenomicEntity = 22
+  repeated affectsFoldingOf MolecularEntity = 23
+  repeated increasesFoldingOf MolecularEntity = 24
+  repeated decreasesFoldingOf MolecularEntity = 25
+  repeated affectsLocalizationOf MolecularEntity = 26
+  repeated increasesLocalizationOf MolecularEntity = 27
+  repeated decreasesLocalizationOf MolecularEntity = 28
+  repeated affectsMetabolicProcessingOf MolecularEntity = 29
+  repeated increasesMetabolicProcessingOf MolecularEntity = 30
+  repeated decreasesMetabolicProcessingOf MolecularEntity = 31
+  repeated affectsMolecularModificationOf MolecularEntity = 32
+  repeated increasesMolecularModificationOf MolecularEntity = 33
+  repeated decreasesMolecularModificationOf MolecularEntity = 34
+  repeated affectsSynthesisOf MolecularEntity = 35
+  repeated increasesSynthesisOf MolecularEntity = 36
+  repeated decreasesSynthesisOf MolecularEntity = 37
+  repeated affectsDegradationOf MolecularEntity = 38
+  repeated increasesDegradationOf MolecularEntity = 39
+  repeated decreasesDegradationOf MolecularEntity = 40
+  repeated affectsMutationRateOf GenomicEntity = 41
+  repeated increasesMutationRateOf GenomicEntity = 42
+  repeated decreasesMutationRateOf GenomicEntity = 43
+  repeated affectsResponseTo MolecularEntity = 44
+  repeated increasesResponseTo MolecularEntity = 45
+  repeated decreasesResponseTo MolecularEntity = 46
+  repeated affectsSplicingOf Transcript = 47
+  repeated increasesSplicingOf Transcript = 48
+  repeated decreasesSplicingOf Transcript = 49
+  repeated affectsStabilityOf MolecularEntity = 50
+  repeated increasesStabilityOf MolecularEntity = 51
+  repeated decreasesStabilityOf MolecularEntity = 52
+  repeated affectsTransportOf MolecularEntity = 53
+  repeated increasesTransportOf MolecularEntity = 54
+  repeated decreasesTransportOf MolecularEntity = 55
+  repeated affectsSecretionOf MolecularEntity = 56
+  repeated increasesSecretionOf MolecularEntity = 57
+  repeated decreasesSecretionOf MolecularEntity = 58
+  repeated affectsUptakeOf MolecularEntity = 59
+  repeated increasesUptakeOf MolecularEntity = 60
+  repeated decreasesUptakeOf MolecularEntity = 61
+  repeated regulatesEntityToEntity MolecularEntity = 62
+  repeated biomarkerFor DiseaseOrPhenotypicFeature = 63
+  repeated inTaxon OrganismTaxon = 64
+  optional hasBiologicalSequence BiologicalSequence = 65
+  optional hasZygosity Zygosity = 66
+ }
+// Any association between a genotype and a gene. The genotype have have multiple variants in that gene or a single one. There is no assumption of cardinality
+message GenotypeToGeneAssociation
+ {
+  subject Genotype = 1
+  relation Uriorcurie = 2
+  object Gene = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+ }
+// Any association between one genotype and a genotypic entity that is a sub-component of it
+message GenotypeToGenotypePartAssociation
+ {
+  subject Genotype = 1
+  relation Uriorcurie = 2
+  object Genotype = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+ }
+// Any association between one genotype and a phenotypic feature, where having the genotype confers the phenotype, either in isolation or through environment
+message GenotypeToPhenotypicFeatureAssociation
+ {
+  subject Genotype = 1
+  relation Uriorcurie = 2
+  object NamedThing = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+  optional sexQualifier BiologicalSex = 12
+  optional frequencyQualifier FrequencyValue = 13
+  optional severityQualifier SeverityValue = 14
+  optional onsetQualifier Onset = 15
+ }
+// Any association between a genotype and a sequence variant.
+message GenotypeToVariantAssociation
+ {
+  subject Genotype = 1
+  relation Uriorcurie = 2
+  object SequenceVariant = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+ }
+// An attribute corresponding to the genotypic sex of the individual, based upon genotypic composition of sex chromosomes.
+message GenotypicSex
+ {
+  optional hasAttributeType OntologyClass = 1
+  repeated hasQuantitativeValue QuantityValue = 2
+  optional hasQualitativeValue NamedThing = 3
+  id IdentifierType = 4
+  name LabelType = 5
+  repeated category IriType = 6
+  repeated relatedTo NamedThing = 7
+  repeated interactsWith NamedThing = 8
+  optional nodeProperty String = 9
+  optional iri IriType = 10
+  repeated synonym LabelType = 11
+  optional fullName LabelType = 12
+  optional description NarrativeText = 13
+  repeated systematicSynonym LabelType = 14
+  repeated subclassOf IriType = 15
+ }
+// a location that can be described in lat/long coordinates
+message GeographicLocation
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  optional latitude Float = 12
+  optional longitude Float = 13
+ }
+// a location that can be described in lat/long coordinates, for a particular time
+message GeographicLocationAtTime
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  optional latitude Float = 12
+  optional longitude Float = 13
+  optional timepoint TimeType = 14
+ }
+message GrossAnatomicalStructure
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated expresses GeneOrGeneProduct = 13
+  repeated inTaxon OrganismTaxon = 14
+ }
+// A set of zero or more Alleles on a single instance of a Sequence[VMC]
+message Haplotype
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated molecularlyInteractsWith MolecularEntity = 13
+  repeated affectsAbundanceOf MolecularEntity = 14
+  repeated increasesAbundanceOf MolecularEntity = 15
+  repeated decreasesAbundanceOf MolecularEntity = 16
+  repeated affectsActivityOf MolecularEntity = 17
+  repeated increasesActivityOf MolecularEntity = 18
+  repeated decreasesActivityOf MolecularEntity = 19
+  repeated affectsExpressionOf GenomicEntity = 20
+  repeated increasesExpressionOf GenomicEntity = 21
+  repeated decreasesExpressionOf GenomicEntity = 22
+  repeated affectsFoldingOf MolecularEntity = 23
+  repeated increasesFoldingOf MolecularEntity = 24
+  repeated decreasesFoldingOf MolecularEntity = 25
+  repeated affectsLocalizationOf MolecularEntity = 26
+  repeated increasesLocalizationOf MolecularEntity = 27
+  repeated decreasesLocalizationOf MolecularEntity = 28
+  repeated affectsMetabolicProcessingOf MolecularEntity = 29
+  repeated increasesMetabolicProcessingOf MolecularEntity = 30
+  repeated decreasesMetabolicProcessingOf MolecularEntity = 31
+  repeated affectsMolecularModificationOf MolecularEntity = 32
+  repeated increasesMolecularModificationOf MolecularEntity = 33
+  repeated decreasesMolecularModificationOf MolecularEntity = 34
+  repeated affectsSynthesisOf MolecularEntity = 35
+  repeated increasesSynthesisOf MolecularEntity = 36
+  repeated decreasesSynthesisOf MolecularEntity = 37
+  repeated affectsDegradationOf MolecularEntity = 38
+  repeated increasesDegradationOf MolecularEntity = 39
+  repeated decreasesDegradationOf MolecularEntity = 40
+  repeated affectsMutationRateOf GenomicEntity = 41
+  repeated increasesMutationRateOf GenomicEntity = 42
+  repeated decreasesMutationRateOf GenomicEntity = 43
+  repeated affectsResponseTo MolecularEntity = 44
+  repeated increasesResponseTo MolecularEntity = 45
+  repeated decreasesResponseTo MolecularEntity = 46
+  repeated affectsSplicingOf Transcript = 47
+  repeated increasesSplicingOf Transcript = 48
+  repeated decreasesSplicingOf Transcript = 49
+  repeated affectsStabilityOf MolecularEntity = 50
+  repeated increasesStabilityOf MolecularEntity = 51
+  repeated decreasesStabilityOf MolecularEntity = 52
+  repeated affectsTransportOf MolecularEntity = 53
+  repeated increasesTransportOf MolecularEntity = 54
+  repeated decreasesTransportOf MolecularEntity = 55
+  repeated affectsSecretionOf MolecularEntity = 56
+  repeated increasesSecretionOf MolecularEntity = 57
+  repeated decreasesSecretionOf MolecularEntity = 58
+  repeated affectsUptakeOf MolecularEntity = 59
+  repeated increasesUptakeOf MolecularEntity = 60
+  repeated decreasesUptakeOf MolecularEntity = 61
+  repeated regulatesEntityToEntity MolecularEntity = 62
+  repeated biomarkerFor DiseaseOrPhenotypicFeature = 63
+  repeated inTaxon OrganismTaxon = 64
+  optional hasBiologicalSequence BiologicalSequence = 65
+ }
+message IndividualOrganism
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated inTaxon OrganismTaxon = 13
+ }
+// A stage of development or growth of an organism, including post-natal adult stages
+message LifeStage
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated inTaxon OrganismTaxon = 13
+ }
+message MacromolecularComplex
+ {
+  id IdentifierType = 1
+  name SymbolType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated molecularlyInteractsWith MolecularEntity = 13
+  repeated affectsAbundanceOf MolecularEntity = 14
+  repeated increasesAbundanceOf MolecularEntity = 15
+  repeated decreasesAbundanceOf MolecularEntity = 16
+  repeated affectsActivityOf MolecularEntity = 17
+  repeated increasesActivityOf MolecularEntity = 18
+  repeated decreasesActivityOf MolecularEntity = 19
+  repeated affectsExpressionOf GenomicEntity = 20
+  repeated increasesExpressionOf GenomicEntity = 21
+  repeated decreasesExpressionOf GenomicEntity = 22
+  repeated affectsFoldingOf MolecularEntity = 23
+  repeated increasesFoldingOf MolecularEntity = 24
+  repeated decreasesFoldingOf MolecularEntity = 25
+  repeated affectsLocalizationOf MolecularEntity = 26
+  repeated increasesLocalizationOf MolecularEntity = 27
+  repeated decreasesLocalizationOf MolecularEntity = 28
+  repeated affectsMetabolicProcessingOf MolecularEntity = 29
+  repeated increasesMetabolicProcessingOf MolecularEntity = 30
+  repeated decreasesMetabolicProcessingOf MolecularEntity = 31
+  repeated affectsMolecularModificationOf MolecularEntity = 32
+  repeated increasesMolecularModificationOf MolecularEntity = 33
+  repeated decreasesMolecularModificationOf MolecularEntity = 34
+  repeated affectsSynthesisOf MolecularEntity = 35
+  repeated increasesSynthesisOf MolecularEntity = 36
+  repeated decreasesSynthesisOf MolecularEntity = 37
+  repeated affectsDegradationOf MolecularEntity = 38
+  repeated increasesDegradationOf MolecularEntity = 39
+  repeated decreasesDegradationOf MolecularEntity = 40
+  repeated affectsMutationRateOf GenomicEntity = 41
+  repeated increasesMutationRateOf GenomicEntity = 42
+  repeated decreasesMutationRateOf GenomicEntity = 43
+  repeated affectsResponseTo MolecularEntity = 44
+  repeated increasesResponseTo MolecularEntity = 45
+  repeated decreasesResponseTo MolecularEntity = 46
+  repeated affectsSplicingOf Transcript = 47
+  repeated increasesSplicingOf Transcript = 48
+  repeated decreasesSplicingOf Transcript = 49
+  repeated affectsStabilityOf MolecularEntity = 50
+  repeated increasesStabilityOf MolecularEntity = 51
+  repeated decreasesStabilityOf MolecularEntity = 52
+  repeated affectsTransportOf MolecularEntity = 53
+  repeated increasesTransportOf MolecularEntity = 54
+  repeated decreasesTransportOf MolecularEntity = 55
+  repeated affectsSecretionOf MolecularEntity = 56
+  repeated increasesSecretionOf MolecularEntity = 57
+  repeated decreasesSecretionOf MolecularEntity = 58
+  repeated affectsUptakeOf MolecularEntity = 59
+  repeated increasesUptakeOf MolecularEntity = 60
+  repeated decreasesUptakeOf MolecularEntity = 61
+  repeated regulatesEntityToEntity MolecularEntity = 62
+  repeated biomarkerFor DiseaseOrPhenotypicFeature = 63
+  repeated inTaxon OrganismTaxon = 64
+  optional hasBiologicalSequence BiologicalSequence = 65
+ }
+// A union of gene, gene product, and macromolecular complex. These are the basic units of function in a cell. They either carry out individual biological activities, or they encode molecules which do this.
+message MacromolecularMachine
+ {
+  id IdentifierType = 1
+  name SymbolType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated molecularlyInteractsWith MolecularEntity = 13
+  repeated affectsAbundanceOf MolecularEntity = 14
+  repeated increasesAbundanceOf MolecularEntity = 15
+  repeated decreasesAbundanceOf MolecularEntity = 16
+  repeated affectsActivityOf MolecularEntity = 17
+  repeated increasesActivityOf MolecularEntity = 18
+  repeated decreasesActivityOf MolecularEntity = 19
+  repeated affectsExpressionOf GenomicEntity = 20
+  repeated increasesExpressionOf GenomicEntity = 21
+  repeated decreasesExpressionOf GenomicEntity = 22
+  repeated affectsFoldingOf MolecularEntity = 23
+  repeated increasesFoldingOf MolecularEntity = 24
+  repeated decreasesFoldingOf MolecularEntity = 25
+  repeated affectsLocalizationOf MolecularEntity = 26
+  repeated increasesLocalizationOf MolecularEntity = 27
+  repeated decreasesLocalizationOf MolecularEntity = 28
+  repeated affectsMetabolicProcessingOf MolecularEntity = 29
+  repeated increasesMetabolicProcessingOf MolecularEntity = 30
+  repeated decreasesMetabolicProcessingOf MolecularEntity = 31
+  repeated affectsMolecularModificationOf MolecularEntity = 32
+  repeated increasesMolecularModificationOf MolecularEntity = 33
+  repeated decreasesMolecularModificationOf MolecularEntity = 34
+  repeated affectsSynthesisOf MolecularEntity = 35
+  repeated increasesSynthesisOf MolecularEntity = 36
+  repeated decreasesSynthesisOf MolecularEntity = 37
+  repeated affectsDegradationOf MolecularEntity = 38
+  repeated increasesDegradationOf MolecularEntity = 39
+  repeated decreasesDegradationOf MolecularEntity = 40
+  repeated affectsMutationRateOf GenomicEntity = 41
+  repeated increasesMutationRateOf GenomicEntity = 42
+  repeated decreasesMutationRateOf GenomicEntity = 43
+  repeated affectsResponseTo MolecularEntity = 44
+  repeated increasesResponseTo MolecularEntity = 45
+  repeated decreasesResponseTo MolecularEntity = 46
+  repeated affectsSplicingOf Transcript = 47
+  repeated increasesSplicingOf Transcript = 48
+  repeated decreasesSplicingOf Transcript = 49
+  repeated affectsStabilityOf MolecularEntity = 50
+  repeated increasesStabilityOf MolecularEntity = 51
+  repeated decreasesStabilityOf MolecularEntity = 52
+  repeated affectsTransportOf MolecularEntity = 53
+  repeated increasesTransportOf MolecularEntity = 54
+  repeated decreasesTransportOf MolecularEntity = 55
+  repeated affectsSecretionOf MolecularEntity = 56
+  repeated increasesSecretionOf MolecularEntity = 57
+  repeated decreasesSecretionOf MolecularEntity = 58
+  repeated affectsUptakeOf MolecularEntity = 59
+  repeated increasesUptakeOf MolecularEntity = 60
+  repeated decreasesUptakeOf MolecularEntity = 61
+  repeated regulatesEntityToEntity MolecularEntity = 62
+  repeated biomarkerFor DiseaseOrPhenotypicFeature = 63
+  repeated inTaxon OrganismTaxon = 64
+  optional hasBiologicalSequence BiologicalSequence = 65
+ }
+// A functional association between a macromolecular machine (gene, gene product or complex) and a biological process or pathway (as represented in the GO biological process branch), where the entity carries out some part of the process, regulates it, or acts upstream of it
+message MacromolecularMachineToBiologicalProcessAssociation
+ {
+  subject MacromolecularMachine = 1
+  relation Uriorcurie = 2
+  object BiologicalProcess = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+ }
+// A functional association between a macromolecular machine (gene, gene product or complex) and a cellular component (as represented in the GO cellular component branch), where the entity carries out its function in the cellular component
+message MacromolecularMachineToCellularComponentAssociation
+ {
+  subject MacromolecularMachine = 1
+  relation Uriorcurie = 2
+  object CellularComponent = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+ }
+// A functional association between a macromolecular machine (gene, gene product or complex) and a molecular activity (as represented in the GO molecular function branch), where the entity carries out the activity, or contributes to its execution
+message MacromolecularMachineToMolecularActivityAssociation
+ {
+  subject MacromolecularMachine = 1
+  relation Uriorcurie = 2
+  object MolecularActivity = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+ }
+// A sample is a limited quantity of something (e.g. an individual or set of individuals from a population, or a portion of a substance) to be used for testing, analysis, inspection, investigation, demonstration, or trial use. [SIO]
+message MaterialSample
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasAttribute Attribute = 12
+ }
+// An association between a material sample and the material entity it is derived from
+message MaterialSampleDerivationAssociation
+ {
+  subject MaterialSample = 1
+  relation Uriorcurie = 2
+  object NamedThing = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+ }
+// An association between a material sample and a disease or phenotype
+message MaterialSampleToDiseaseOrPhenotypicFeatureAssociation
+ {
+  subject NamedThing = 1
+  relation Uriorcurie = 2
+  object NamedThing = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+ }
+// Any intermediate or product resulting from metabolism. Includes primary and secondary metabolites.
+message Metabolite
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated molecularlyInteractsWith MolecularEntity = 13
+  repeated affectsAbundanceOf MolecularEntity = 14
+  repeated increasesAbundanceOf MolecularEntity = 15
+  repeated decreasesAbundanceOf MolecularEntity = 16
+  repeated affectsActivityOf MolecularEntity = 17
+  repeated increasesActivityOf MolecularEntity = 18
+  repeated decreasesActivityOf MolecularEntity = 19
+  repeated affectsExpressionOf GenomicEntity = 20
+  repeated increasesExpressionOf GenomicEntity = 21
+  repeated decreasesExpressionOf GenomicEntity = 22
+  repeated affectsFoldingOf MolecularEntity = 23
+  repeated increasesFoldingOf MolecularEntity = 24
+  repeated decreasesFoldingOf MolecularEntity = 25
+  repeated affectsLocalizationOf MolecularEntity = 26
+  repeated increasesLocalizationOf MolecularEntity = 27
+  repeated decreasesLocalizationOf MolecularEntity = 28
+  repeated affectsMetabolicProcessingOf MolecularEntity = 29
+  repeated increasesMetabolicProcessingOf MolecularEntity = 30
+  repeated decreasesMetabolicProcessingOf MolecularEntity = 31
+  repeated affectsMolecularModificationOf MolecularEntity = 32
+  repeated increasesMolecularModificationOf MolecularEntity = 33
+  repeated decreasesMolecularModificationOf MolecularEntity = 34
+  repeated affectsSynthesisOf MolecularEntity = 35
+  repeated increasesSynthesisOf MolecularEntity = 36
+  repeated decreasesSynthesisOf MolecularEntity = 37
+  repeated affectsDegradationOf MolecularEntity = 38
+  repeated increasesDegradationOf MolecularEntity = 39
+  repeated decreasesDegradationOf MolecularEntity = 40
+  repeated affectsMutationRateOf GenomicEntity = 41
+  repeated increasesMutationRateOf GenomicEntity = 42
+  repeated decreasesMutationRateOf GenomicEntity = 43
+  repeated affectsResponseTo MolecularEntity = 44
+  repeated increasesResponseTo MolecularEntity = 45
+  repeated decreasesResponseTo MolecularEntity = 46
+  repeated affectsSplicingOf Transcript = 47
+  repeated increasesSplicingOf Transcript = 48
+  repeated decreasesSplicingOf Transcript = 49
+  repeated affectsStabilityOf MolecularEntity = 50
+  repeated increasesStabilityOf MolecularEntity = 51
+  repeated decreasesStabilityOf MolecularEntity = 52
+  repeated affectsTransportOf MolecularEntity = 53
+  repeated increasesTransportOf MolecularEntity = 54
+  repeated decreasesTransportOf MolecularEntity = 55
+  repeated affectsSecretionOf MolecularEntity = 56
+  repeated increasesSecretionOf MolecularEntity = 57
+  repeated decreasesSecretionOf MolecularEntity = 58
+  repeated affectsUptakeOf MolecularEntity = 59
+  repeated increasesUptakeOf MolecularEntity = 60
+  repeated decreasesUptakeOf MolecularEntity = 61
+  repeated regulatesEntityToEntity MolecularEntity = 62
+  repeated biomarkerFor DiseaseOrPhenotypicFeature = 63
+  repeated inTaxon OrganismTaxon = 64
+ }
+message MicroRNA
+ {
+  id IdentifierType = 1
+  name SymbolType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated molecularlyInteractsWith MolecularEntity = 13
+  repeated affectsAbundanceOf MolecularEntity = 14
+  repeated increasesAbundanceOf MolecularEntity = 15
+  repeated decreasesAbundanceOf MolecularEntity = 16
+  repeated affectsActivityOf MolecularEntity = 17
+  repeated increasesActivityOf MolecularEntity = 18
+  repeated decreasesActivityOf MolecularEntity = 19
+  repeated affectsExpressionOf GenomicEntity = 20
+  repeated increasesExpressionOf GenomicEntity = 21
+  repeated decreasesExpressionOf GenomicEntity = 22
+  repeated affectsFoldingOf MolecularEntity = 23
+  repeated increasesFoldingOf MolecularEntity = 24
+  repeated decreasesFoldingOf MolecularEntity = 25
+  repeated affectsLocalizationOf MolecularEntity = 26
+  repeated increasesLocalizationOf MolecularEntity = 27
+  repeated decreasesLocalizationOf MolecularEntity = 28
+  repeated affectsMetabolicProcessingOf MolecularEntity = 29
+  repeated increasesMetabolicProcessingOf MolecularEntity = 30
+  repeated decreasesMetabolicProcessingOf MolecularEntity = 31
+  repeated affectsMolecularModificationOf MolecularEntity = 32
+  repeated increasesMolecularModificationOf MolecularEntity = 33
+  repeated decreasesMolecularModificationOf MolecularEntity = 34
+  repeated affectsSynthesisOf MolecularEntity = 35
+  repeated increasesSynthesisOf MolecularEntity = 36
+  repeated decreasesSynthesisOf MolecularEntity = 37
+  repeated affectsDegradationOf MolecularEntity = 38
+  repeated increasesDegradationOf MolecularEntity = 39
+  repeated decreasesDegradationOf MolecularEntity = 40
+  repeated affectsMutationRateOf GenomicEntity = 41
+  repeated increasesMutationRateOf GenomicEntity = 42
+  repeated decreasesMutationRateOf GenomicEntity = 43
+  repeated affectsResponseTo MolecularEntity = 44
+  repeated increasesResponseTo MolecularEntity = 45
+  repeated decreasesResponseTo MolecularEntity = 46
+  repeated affectsSplicingOf Transcript = 47
+  repeated increasesSplicingOf Transcript = 48
+  repeated decreasesSplicingOf Transcript = 49
+  repeated affectsStabilityOf MolecularEntity = 50
+  repeated increasesStabilityOf MolecularEntity = 51
+  repeated decreasesStabilityOf MolecularEntity = 52
+  repeated affectsTransportOf MolecularEntity = 53
+  repeated increasesTransportOf MolecularEntity = 54
+  repeated decreasesTransportOf MolecularEntity = 55
+  repeated affectsSecretionOf MolecularEntity = 56
+  repeated increasesSecretionOf MolecularEntity = 57
+  repeated decreasesSecretionOf MolecularEntity = 58
+  repeated affectsUptakeOf MolecularEntity = 59
+  repeated increasesUptakeOf MolecularEntity = 60
+  repeated decreasesUptakeOf MolecularEntity = 61
+  repeated regulatesEntityToEntity MolecularEntity = 62
+  repeated biomarkerFor DiseaseOrPhenotypicFeature = 63
+  repeated inTaxon OrganismTaxon = 64
+  optional hasBiologicalSequence BiologicalSequence = 65
+  repeated inPathwayWith GeneOrGeneProduct = 66
+  repeated inComplexWith GeneOrGeneProduct = 67
+  repeated inCellPopulationWith GeneOrGeneProduct = 68
+  repeated expressedIn AnatomicalEntity = 69
+ }
+// An execution of a molecular function carried out by a gene product or macromolecular complex.
+message MolecularActivity
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated hasInput ChemicalSubstance = 13
+  repeated hasOutput ChemicalSubstance = 14
+  repeated enabledBy MacromolecularMachine = 15
+  repeated regulatesProcessToProcess Occurrent = 16
+  repeated hasParticipant NamedThing = 17
+  repeated precedes Occurrent = 18
+ }
+// A gene, gene product, small molecule or macromolecule (including protein complex)
+message MolecularEntity
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated molecularlyInteractsWith MolecularEntity = 13
+  repeated affectsAbundanceOf MolecularEntity = 14
+  repeated increasesAbundanceOf MolecularEntity = 15
+  repeated decreasesAbundanceOf MolecularEntity = 16
+  repeated affectsActivityOf MolecularEntity = 17
+  repeated increasesActivityOf MolecularEntity = 18
+  repeated decreasesActivityOf MolecularEntity = 19
+  repeated affectsExpressionOf GenomicEntity = 20
+  repeated increasesExpressionOf GenomicEntity = 21
+  repeated decreasesExpressionOf GenomicEntity = 22
+  repeated affectsFoldingOf MolecularEntity = 23
+  repeated increasesFoldingOf MolecularEntity = 24
+  repeated decreasesFoldingOf MolecularEntity = 25
+  repeated affectsLocalizationOf MolecularEntity = 26
+  repeated increasesLocalizationOf MolecularEntity = 27
+  repeated decreasesLocalizationOf MolecularEntity = 28
+  repeated affectsMetabolicProcessingOf MolecularEntity = 29
+  repeated increasesMetabolicProcessingOf MolecularEntity = 30
+  repeated decreasesMetabolicProcessingOf MolecularEntity = 31
+  repeated affectsMolecularModificationOf MolecularEntity = 32
+  repeated increasesMolecularModificationOf MolecularEntity = 33
+  repeated decreasesMolecularModificationOf MolecularEntity = 34
+  repeated affectsSynthesisOf MolecularEntity = 35
+  repeated increasesSynthesisOf MolecularEntity = 36
+  repeated decreasesSynthesisOf MolecularEntity = 37
+  repeated affectsDegradationOf MolecularEntity = 38
+  repeated increasesDegradationOf MolecularEntity = 39
+  repeated decreasesDegradationOf MolecularEntity = 40
+  repeated affectsMutationRateOf GenomicEntity = 41
+  repeated increasesMutationRateOf GenomicEntity = 42
+  repeated decreasesMutationRateOf GenomicEntity = 43
+  repeated affectsResponseTo MolecularEntity = 44
+  repeated increasesResponseTo MolecularEntity = 45
+  repeated decreasesResponseTo MolecularEntity = 46
+  repeated affectsSplicingOf Transcript = 47
+  repeated increasesSplicingOf Transcript = 48
+  repeated decreasesSplicingOf Transcript = 49
+  repeated affectsStabilityOf MolecularEntity = 50
+  repeated increasesStabilityOf MolecularEntity = 51
+  repeated decreasesStabilityOf MolecularEntity = 52
+  repeated affectsTransportOf MolecularEntity = 53
+  repeated increasesTransportOf MolecularEntity = 54
+  repeated decreasesTransportOf MolecularEntity = 55
+  repeated affectsSecretionOf MolecularEntity = 56
+  repeated increasesSecretionOf MolecularEntity = 57
+  repeated decreasesSecretionOf MolecularEntity = 58
+  repeated affectsUptakeOf MolecularEntity = 59
+  repeated increasesUptakeOf MolecularEntity = 60
+  repeated decreasesUptakeOf MolecularEntity = 61
+  repeated regulatesEntityToEntity MolecularEntity = 62
+  repeated biomarkerFor DiseaseOrPhenotypicFeature = 63
+  repeated inTaxon OrganismTaxon = 64
+  repeated positivelyRegulatesEntityToEntity MolecularEntity = 65
+  repeated negativelyRegulatesEntityToEntity MolecularEntity = 66
+ }
+// a databased entity or concept/class
+message NamedThing
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated physicallyInteractsWith NamedThing = 12
+  repeated affects NamedThing = 13
+  repeated regulates NamedThing = 14
+  repeated positivelyRegulates NamedThing = 15
+  repeated negativelyRegulates NamedThing = 16
+  repeated disrupts NamedThing = 17
+  repeated homologousTo NamedThing = 18
+  repeated paralogousTo NamedThing = 19
+  repeated orthologousTo NamedThing = 20
+  repeated xenologousTo NamedThing = 21
+  repeated coexistsWith NamedThing = 22
+  repeated colocalizesWith NamedThing = 23
+  repeated affectsRiskFor NamedThing = 24
+  repeated predisposes NamedThing = 25
+  repeated contributesTo NamedThing = 26
+  repeated causes NamedThing = 27
+  repeated causedBy NamedThing = 28
+  repeated prevents NamedThing = 29
+  repeated occursIn NamedThing = 30
+  repeated locatedIn NamedThing = 31
+  repeated locationOf NamedThing = 32
+  repeated modelOf NamedThing = 33
+  repeated overlaps NamedThing = 34
+  repeated hasPart NamedThing = 35
+  repeated partOf NamedThing = 36
+  repeated participatesIn Occurrent = 37
+  repeated activelyInvolvedIn Occurrent = 38
+  repeated capableOf Occurrent = 39
+  repeated derivesInto NamedThing = 40
+  repeated derivesFrom NamedThing = 41
+  repeated manifestationOf Disease = 42
+  repeated produces NamedThing = 43
+  repeated sameAs NamedThing = 44
+  optional creationDate Date = 45
+  optional updateDate Date = 46
+  optional hasChemicalFormula ChemicalFormulaValue = 47
+  optional aggregateStatistic String = 48
+  repeated hasMolecularConsequence OntologyClass = 49
+  optional hasDrug Drug = 50
+  optional filler NamedThing = 51
+  optional interbaseCoordinate String = 52
+ }
+message NoncodingRNAProduct
+ {
+  id IdentifierType = 1
+  name SymbolType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated molecularlyInteractsWith MolecularEntity = 13
+  repeated affectsAbundanceOf MolecularEntity = 14
+  repeated increasesAbundanceOf MolecularEntity = 15
+  repeated decreasesAbundanceOf MolecularEntity = 16
+  repeated affectsActivityOf MolecularEntity = 17
+  repeated increasesActivityOf MolecularEntity = 18
+  repeated decreasesActivityOf MolecularEntity = 19
+  repeated affectsExpressionOf GenomicEntity = 20
+  repeated increasesExpressionOf GenomicEntity = 21
+  repeated decreasesExpressionOf GenomicEntity = 22
+  repeated affectsFoldingOf MolecularEntity = 23
+  repeated increasesFoldingOf MolecularEntity = 24
+  repeated decreasesFoldingOf MolecularEntity = 25
+  repeated affectsLocalizationOf MolecularEntity = 26
+  repeated increasesLocalizationOf MolecularEntity = 27
+  repeated decreasesLocalizationOf MolecularEntity = 28
+  repeated affectsMetabolicProcessingOf MolecularEntity = 29
+  repeated increasesMetabolicProcessingOf MolecularEntity = 30
+  repeated decreasesMetabolicProcessingOf MolecularEntity = 31
+  repeated affectsMolecularModificationOf MolecularEntity = 32
+  repeated increasesMolecularModificationOf MolecularEntity = 33
+  repeated decreasesMolecularModificationOf MolecularEntity = 34
+  repeated affectsSynthesisOf MolecularEntity = 35
+  repeated increasesSynthesisOf MolecularEntity = 36
+  repeated decreasesSynthesisOf MolecularEntity = 37
+  repeated affectsDegradationOf MolecularEntity = 38
+  repeated increasesDegradationOf MolecularEntity = 39
+  repeated decreasesDegradationOf MolecularEntity = 40
+  repeated affectsMutationRateOf GenomicEntity = 41
+  repeated increasesMutationRateOf GenomicEntity = 42
+  repeated decreasesMutationRateOf GenomicEntity = 43
+  repeated affectsResponseTo MolecularEntity = 44
+  repeated increasesResponseTo MolecularEntity = 45
+  repeated decreasesResponseTo MolecularEntity = 46
+  repeated affectsSplicingOf Transcript = 47
+  repeated increasesSplicingOf Transcript = 48
+  repeated decreasesSplicingOf Transcript = 49
+  repeated affectsStabilityOf MolecularEntity = 50
+  repeated increasesStabilityOf MolecularEntity = 51
+  repeated decreasesStabilityOf MolecularEntity = 52
+  repeated affectsTransportOf MolecularEntity = 53
+  repeated increasesTransportOf MolecularEntity = 54
+  repeated decreasesTransportOf MolecularEntity = 55
+  repeated affectsSecretionOf MolecularEntity = 56
+  repeated increasesSecretionOf MolecularEntity = 57
+  repeated decreasesSecretionOf MolecularEntity = 58
+  repeated affectsUptakeOf MolecularEntity = 59
+  repeated increasesUptakeOf MolecularEntity = 60
+  repeated decreasesUptakeOf MolecularEntity = 61
+  repeated regulatesEntityToEntity MolecularEntity = 62
+  repeated biomarkerFor DiseaseOrPhenotypicFeature = 63
+  repeated inTaxon OrganismTaxon = 64
+  optional hasBiologicalSequence BiologicalSequence = 65
+  repeated inPathwayWith GeneOrGeneProduct = 66
+  repeated inComplexWith GeneOrGeneProduct = 67
+  repeated inCellPopulationWith GeneOrGeneProduct = 68
+  repeated expressedIn AnatomicalEntity = 69
+ }
+// A processual entity
+message Occurrent
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated regulatesProcessToProcess Occurrent = 12
+  repeated hasParticipant NamedThing = 13
+  repeated hasInput NamedThing = 14
+  repeated hasOutput NamedThing = 15
+  repeated precedes Occurrent = 16
+  repeated positivelyRegulatesProcessToProcess Occurrent = 17
+  repeated negativelyRegulatesProcessToProcess Occurrent = 18
+ }
+// The age group in which manifestations appear
+message Onset
+ {
+  optional hasAttributeType OntologyClass = 1
+  repeated hasQuantitativeValue QuantityValue = 2
+  optional hasQualitativeValue NamedThing = 3
+  id IdentifierType = 4
+  name LabelType = 5
+  repeated category IriType = 6
+  repeated relatedTo NamedThing = 7
+  repeated interactsWith NamedThing = 8
+  optional nodeProperty String = 9
+  optional iri IriType = 10
+  repeated synonym LabelType = 11
+  optional fullName LabelType = 12
+  optional description NarrativeText = 13
+  repeated systematicSynonym LabelType = 14
+  repeated subclassOf IriType = 15
+ }
+// a concept or class in an ontology, vocabulary or thesaurus
+message OntologyClass
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated subclassOf IriType = 12
+ }
+message OrganismTaxon
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated subclassOf IriType = 12
+ }
+// An interaction between two genes or two gene products. May be physical (e.g. protein binding) or genetic (between genes). May be symmetric (e.g. protein interaction) or directed (e.g. phosphorylation)
+message PairwiseGeneToGeneInteraction
+ {
+  subject GeneOrGeneProduct = 1
+  relation Uriorcurie = 2
+  object GeneOrGeneProduct = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+ }
+message Pathway
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated hasInput NamedThing = 13
+  repeated hasOutput NamedThing = 14
+  repeated enabledBy BiologicalProcessOrActivity = 15
+  repeated regulatesProcessToProcess Occurrent = 16
+  repeated hasParticipant NamedThing = 17
+  repeated precedes Occurrent = 18
+ }
+// a fact or situation that is observed to exist or happen, especially one whose cause or explanation is in question
+message Phenomenon
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated regulatesProcessToProcess Occurrent = 12
+  repeated hasParticipant NamedThing = 13
+  repeated hasInput NamedThing = 14
+  repeated hasOutput NamedThing = 15
+  repeated precedes Occurrent = 16
+ }
+message PhenotypicFeature
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated correlatedWith MolecularEntity = 13
+  repeated hasBiomarker MolecularEntity = 14
+  repeated treatedBy NamedThing = 15
+  repeated inTaxon OrganismTaxon = 16
+ }
+// An attribute corresponding to the phenotypic sex of the individual, based upon the reproductive organs present.
+message PhenotypicSex
+ {
+  optional hasAttributeType OntologyClass = 1
+  repeated hasQuantitativeValue QuantityValue = 2
+  optional hasQualitativeValue NamedThing = 3
+  id IdentifierType = 4
+  name LabelType = 5
+  repeated category IriType = 6
+  repeated relatedTo NamedThing = 7
+  repeated interactsWith NamedThing = 8
+  optional nodeProperty String = 9
+  optional iri IriType = 10
+  repeated synonym LabelType = 11
+  optional fullName LabelType = 12
+  optional description NarrativeText = 13
+  repeated systematicSynonym LabelType = 14
+  repeated subclassOf IriType = 15
+ }
+// An entity that has physical properties such as mass, volume, or charge
+message PhysicalEntity
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+ }
+message PhysiologicalProcess
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated hasInput NamedThing = 13
+  repeated hasOutput NamedThing = 14
+  repeated enabledBy BiologicalProcessOrActivity = 15
+  repeated regulatesProcessToProcess Occurrent = 16
+  repeated hasParticipant NamedThing = 17
+  repeated precedes Occurrent = 18
+ }
+// Any entity or process that exists at the level of the whole planet
+message PlanetaryEntity
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+ }
+// A collection of individuals from the same taxonomic class distinguished by one or more characteristics. Characteristics can include, but are not limited to, shared geographic location, genetics, phenotypes [Alliance for Genome Resources]
+message PopulationOfIndividualOrganisms
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated inTaxon OrganismTaxon = 13
+ }
+// An association between a two populations
+message PopulationToPopulationAssociation
+ {
+  subject PopulationOfIndividualOrganisms = 1
+  relation Uriorcurie = 2
+  object PopulationOfIndividualOrganisms = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+ }
+// A series of actions conducted in a certain order or manner
+message Procedure
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated regulatesProcessToProcess Occurrent = 12
+  repeated hasParticipant NamedThing = 13
+  repeated hasInput NamedThing = 14
+  repeated hasOutput NamedThing = 15
+  repeated precedes Occurrent = 16
+ }
+// A gene product that is composed of a chain of amino acid sequences and is produced by ribosome-mediated translation of mRNA
+message Protein
+ {
+  id IdentifierType = 1
+  name SymbolType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated molecularlyInteractsWith MolecularEntity = 13
+  repeated affectsAbundanceOf MolecularEntity = 14
+  repeated increasesAbundanceOf MolecularEntity = 15
+  repeated decreasesAbundanceOf MolecularEntity = 16
+  repeated affectsActivityOf MolecularEntity = 17
+  repeated increasesActivityOf MolecularEntity = 18
+  repeated decreasesActivityOf MolecularEntity = 19
+  repeated affectsExpressionOf GenomicEntity = 20
+  repeated increasesExpressionOf GenomicEntity = 21
+  repeated decreasesExpressionOf GenomicEntity = 22
+  repeated affectsFoldingOf MolecularEntity = 23
+  repeated increasesFoldingOf MolecularEntity = 24
+  repeated decreasesFoldingOf MolecularEntity = 25
+  repeated affectsLocalizationOf MolecularEntity = 26
+  repeated increasesLocalizationOf MolecularEntity = 27
+  repeated decreasesLocalizationOf MolecularEntity = 28
+  repeated affectsMetabolicProcessingOf MolecularEntity = 29
+  repeated increasesMetabolicProcessingOf MolecularEntity = 30
+  repeated decreasesMetabolicProcessingOf MolecularEntity = 31
+  repeated affectsMolecularModificationOf MolecularEntity = 32
+  repeated increasesMolecularModificationOf MolecularEntity = 33
+  repeated decreasesMolecularModificationOf MolecularEntity = 34
+  repeated affectsSynthesisOf MolecularEntity = 35
+  repeated increasesSynthesisOf MolecularEntity = 36
+  repeated decreasesSynthesisOf MolecularEntity = 37
+  repeated affectsDegradationOf MolecularEntity = 38
+  repeated increasesDegradationOf MolecularEntity = 39
+  repeated decreasesDegradationOf MolecularEntity = 40
+  repeated affectsMutationRateOf GenomicEntity = 41
+  repeated increasesMutationRateOf GenomicEntity = 42
+  repeated decreasesMutationRateOf GenomicEntity = 43
+  repeated affectsResponseTo MolecularEntity = 44
+  repeated increasesResponseTo MolecularEntity = 45
+  repeated decreasesResponseTo MolecularEntity = 46
+  repeated affectsSplicingOf Transcript = 47
+  repeated increasesSplicingOf Transcript = 48
+  repeated decreasesSplicingOf Transcript = 49
+  repeated affectsStabilityOf MolecularEntity = 50
+  repeated increasesStabilityOf MolecularEntity = 51
+  repeated decreasesStabilityOf MolecularEntity = 52
+  repeated affectsTransportOf MolecularEntity = 53
+  repeated increasesTransportOf MolecularEntity = 54
+  repeated decreasesTransportOf MolecularEntity = 55
+  repeated affectsSecretionOf MolecularEntity = 56
+  repeated increasesSecretionOf MolecularEntity = 57
+  repeated decreasesSecretionOf MolecularEntity = 58
+  repeated affectsUptakeOf MolecularEntity = 59
+  repeated increasesUptakeOf MolecularEntity = 60
+  repeated decreasesUptakeOf MolecularEntity = 61
+  repeated regulatesEntityToEntity MolecularEntity = 62
+  repeated biomarkerFor DiseaseOrPhenotypicFeature = 63
+  repeated inTaxon OrganismTaxon = 64
+  optional hasBiologicalSequence BiologicalSequence = 65
+  repeated inPathwayWith GeneOrGeneProduct = 66
+  repeated inComplexWith GeneOrGeneProduct = 67
+  repeated inCellPopulationWith GeneOrGeneProduct = 68
+  repeated expressedIn AnatomicalEntity = 69
+ }
+// Represents a protein that is a specific isoform of the canonical or reference protein. See https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4114032/
+message ProteinIsoform
+ {
+  id IdentifierType = 1
+  name SymbolType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated molecularlyInteractsWith MolecularEntity = 13
+  repeated affectsAbundanceOf MolecularEntity = 14
+  repeated increasesAbundanceOf MolecularEntity = 15
+  repeated decreasesAbundanceOf MolecularEntity = 16
+  repeated affectsActivityOf MolecularEntity = 17
+  repeated increasesActivityOf MolecularEntity = 18
+  repeated decreasesActivityOf MolecularEntity = 19
+  repeated affectsExpressionOf GenomicEntity = 20
+  repeated increasesExpressionOf GenomicEntity = 21
+  repeated decreasesExpressionOf GenomicEntity = 22
+  repeated affectsFoldingOf MolecularEntity = 23
+  repeated increasesFoldingOf MolecularEntity = 24
+  repeated decreasesFoldingOf MolecularEntity = 25
+  repeated affectsLocalizationOf MolecularEntity = 26
+  repeated increasesLocalizationOf MolecularEntity = 27
+  repeated decreasesLocalizationOf MolecularEntity = 28
+  repeated affectsMetabolicProcessingOf MolecularEntity = 29
+  repeated increasesMetabolicProcessingOf MolecularEntity = 30
+  repeated decreasesMetabolicProcessingOf MolecularEntity = 31
+  repeated affectsMolecularModificationOf MolecularEntity = 32
+  repeated increasesMolecularModificationOf MolecularEntity = 33
+  repeated decreasesMolecularModificationOf MolecularEntity = 34
+  repeated affectsSynthesisOf MolecularEntity = 35
+  repeated increasesSynthesisOf MolecularEntity = 36
+  repeated decreasesSynthesisOf MolecularEntity = 37
+  repeated affectsDegradationOf MolecularEntity = 38
+  repeated increasesDegradationOf MolecularEntity = 39
+  repeated decreasesDegradationOf MolecularEntity = 40
+  repeated affectsMutationRateOf GenomicEntity = 41
+  repeated increasesMutationRateOf GenomicEntity = 42
+  repeated decreasesMutationRateOf GenomicEntity = 43
+  repeated affectsResponseTo MolecularEntity = 44
+  repeated increasesResponseTo MolecularEntity = 45
+  repeated decreasesResponseTo MolecularEntity = 46
+  repeated affectsSplicingOf Transcript = 47
+  repeated increasesSplicingOf Transcript = 48
+  repeated decreasesSplicingOf Transcript = 49
+  repeated affectsStabilityOf MolecularEntity = 50
+  repeated increasesStabilityOf MolecularEntity = 51
+  repeated decreasesStabilityOf MolecularEntity = 52
+  repeated affectsTransportOf MolecularEntity = 53
+  repeated increasesTransportOf MolecularEntity = 54
+  repeated decreasesTransportOf MolecularEntity = 55
+  repeated affectsSecretionOf MolecularEntity = 56
+  repeated increasesSecretionOf MolecularEntity = 57
+  repeated decreasesSecretionOf MolecularEntity = 58
+  repeated affectsUptakeOf MolecularEntity = 59
+  repeated increasesUptakeOf MolecularEntity = 60
+  repeated decreasesUptakeOf MolecularEntity = 61
+  repeated regulatesEntityToEntity MolecularEntity = 62
+  repeated biomarkerFor DiseaseOrPhenotypicFeature = 63
+  repeated inTaxon OrganismTaxon = 64
+  optional hasBiologicalSequence BiologicalSequence = 65
+  repeated inPathwayWith GeneOrGeneProduct = 66
+  repeated inComplexWith GeneOrGeneProduct = 67
+  repeated inCellPopulationWith GeneOrGeneProduct = 68
+  repeated expressedIn AnatomicalEntity = 69
+ }
+// person, group, organization or project that provides a piece of information
+message Provider
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+ }
+// Any published piece of information. Can refer to a whole publication, or to a part of it (e.g. a figure, figure legend, or section highlighted by NLP). The scope is intended to be general and include information published on the web as well as journals.
+message Publication
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+ }
+// A value of an attribute that is quantitative and measurable, expressed as a combination of a unit and a numeric value
+message QuantityValue
+ {
+  optional hasUnit Unit = 1
+  optional hasNumericValue Double = 2
+ }
+// An OWL property used as an edge label
+message RelationshipType
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated subclassOf IriType = 12
+ }
+message RNAProduct
+ {
+  id IdentifierType = 1
+  name SymbolType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated molecularlyInteractsWith MolecularEntity = 13
+  repeated affectsAbundanceOf MolecularEntity = 14
+  repeated increasesAbundanceOf MolecularEntity = 15
+  repeated decreasesAbundanceOf MolecularEntity = 16
+  repeated affectsActivityOf MolecularEntity = 17
+  repeated increasesActivityOf MolecularEntity = 18
+  repeated decreasesActivityOf MolecularEntity = 19
+  repeated affectsExpressionOf GenomicEntity = 20
+  repeated increasesExpressionOf GenomicEntity = 21
+  repeated decreasesExpressionOf GenomicEntity = 22
+  repeated affectsFoldingOf MolecularEntity = 23
+  repeated increasesFoldingOf MolecularEntity = 24
+  repeated decreasesFoldingOf MolecularEntity = 25
+  repeated affectsLocalizationOf MolecularEntity = 26
+  repeated increasesLocalizationOf MolecularEntity = 27
+  repeated decreasesLocalizationOf MolecularEntity = 28
+  repeated affectsMetabolicProcessingOf MolecularEntity = 29
+  repeated increasesMetabolicProcessingOf MolecularEntity = 30
+  repeated decreasesMetabolicProcessingOf MolecularEntity = 31
+  repeated affectsMolecularModificationOf MolecularEntity = 32
+  repeated increasesMolecularModificationOf MolecularEntity = 33
+  repeated decreasesMolecularModificationOf MolecularEntity = 34
+  repeated affectsSynthesisOf MolecularEntity = 35
+  repeated increasesSynthesisOf MolecularEntity = 36
+  repeated decreasesSynthesisOf MolecularEntity = 37
+  repeated affectsDegradationOf MolecularEntity = 38
+  repeated increasesDegradationOf MolecularEntity = 39
+  repeated decreasesDegradationOf MolecularEntity = 40
+  repeated affectsMutationRateOf GenomicEntity = 41
+  repeated increasesMutationRateOf GenomicEntity = 42
+  repeated decreasesMutationRateOf GenomicEntity = 43
+  repeated affectsResponseTo MolecularEntity = 44
+  repeated increasesResponseTo MolecularEntity = 45
+  repeated decreasesResponseTo MolecularEntity = 46
+  repeated affectsSplicingOf Transcript = 47
+  repeated increasesSplicingOf Transcript = 48
+  repeated decreasesSplicingOf Transcript = 49
+  repeated affectsStabilityOf MolecularEntity = 50
+  repeated increasesStabilityOf MolecularEntity = 51
+  repeated decreasesStabilityOf MolecularEntity = 52
+  repeated affectsTransportOf MolecularEntity = 53
+  repeated increasesTransportOf MolecularEntity = 54
+  repeated decreasesTransportOf MolecularEntity = 55
+  repeated affectsSecretionOf MolecularEntity = 56
+  repeated increasesSecretionOf MolecularEntity = 57
+  repeated decreasesSecretionOf MolecularEntity = 58
+  repeated affectsUptakeOf MolecularEntity = 59
+  repeated increasesUptakeOf MolecularEntity = 60
+  repeated decreasesUptakeOf MolecularEntity = 61
+  repeated regulatesEntityToEntity MolecularEntity = 62
+  repeated biomarkerFor DiseaseOrPhenotypicFeature = 63
+  repeated inTaxon OrganismTaxon = 64
+  optional hasBiologicalSequence BiologicalSequence = 65
+  repeated inPathwayWith GeneOrGeneProduct = 66
+  repeated inComplexWith GeneOrGeneProduct = 67
+  repeated inCellPopulationWith GeneOrGeneProduct = 68
+  repeated expressedIn AnatomicalEntity = 69
+ }
+// Represents a protein that is a specific isoform of the canonical or reference RNA
+message RNAProductIsoform
+ {
+  id IdentifierType = 1
+  name SymbolType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated molecularlyInteractsWith MolecularEntity = 13
+  repeated affectsAbundanceOf MolecularEntity = 14
+  repeated increasesAbundanceOf MolecularEntity = 15
+  repeated decreasesAbundanceOf MolecularEntity = 16
+  repeated affectsActivityOf MolecularEntity = 17
+  repeated increasesActivityOf MolecularEntity = 18
+  repeated decreasesActivityOf MolecularEntity = 19
+  repeated affectsExpressionOf GenomicEntity = 20
+  repeated increasesExpressionOf GenomicEntity = 21
+  repeated decreasesExpressionOf GenomicEntity = 22
+  repeated affectsFoldingOf MolecularEntity = 23
+  repeated increasesFoldingOf MolecularEntity = 24
+  repeated decreasesFoldingOf MolecularEntity = 25
+  repeated affectsLocalizationOf MolecularEntity = 26
+  repeated increasesLocalizationOf MolecularEntity = 27
+  repeated decreasesLocalizationOf MolecularEntity = 28
+  repeated affectsMetabolicProcessingOf MolecularEntity = 29
+  repeated increasesMetabolicProcessingOf MolecularEntity = 30
+  repeated decreasesMetabolicProcessingOf MolecularEntity = 31
+  repeated affectsMolecularModificationOf MolecularEntity = 32
+  repeated increasesMolecularModificationOf MolecularEntity = 33
+  repeated decreasesMolecularModificationOf MolecularEntity = 34
+  repeated affectsSynthesisOf MolecularEntity = 35
+  repeated increasesSynthesisOf MolecularEntity = 36
+  repeated decreasesSynthesisOf MolecularEntity = 37
+  repeated affectsDegradationOf MolecularEntity = 38
+  repeated increasesDegradationOf MolecularEntity = 39
+  repeated decreasesDegradationOf MolecularEntity = 40
+  repeated affectsMutationRateOf GenomicEntity = 41
+  repeated increasesMutationRateOf GenomicEntity = 42
+  repeated decreasesMutationRateOf GenomicEntity = 43
+  repeated affectsResponseTo MolecularEntity = 44
+  repeated increasesResponseTo MolecularEntity = 45
+  repeated decreasesResponseTo MolecularEntity = 46
+  repeated affectsSplicingOf Transcript = 47
+  repeated increasesSplicingOf Transcript = 48
+  repeated decreasesSplicingOf Transcript = 49
+  repeated affectsStabilityOf MolecularEntity = 50
+  repeated increasesStabilityOf MolecularEntity = 51
+  repeated decreasesStabilityOf MolecularEntity = 52
+  repeated affectsTransportOf MolecularEntity = 53
+  repeated increasesTransportOf MolecularEntity = 54
+  repeated decreasesTransportOf MolecularEntity = 55
+  repeated affectsSecretionOf MolecularEntity = 56
+  repeated increasesSecretionOf MolecularEntity = 57
+  repeated decreasesSecretionOf MolecularEntity = 58
+  repeated affectsUptakeOf MolecularEntity = 59
+  repeated increasesUptakeOf MolecularEntity = 60
+  repeated decreasesUptakeOf MolecularEntity = 61
+  repeated regulatesEntityToEntity MolecularEntity = 62
+  repeated biomarkerFor DiseaseOrPhenotypicFeature = 63
+  repeated inTaxon OrganismTaxon = 64
+  optional hasBiologicalSequence BiologicalSequence = 65
+  repeated inPathwayWith GeneOrGeneProduct = 66
+  repeated inComplexWith GeneOrGeneProduct = 67
+  repeated inCellPopulationWith GeneOrGeneProduct = 68
+  repeated expressedIn AnatomicalEntity = 69
+ }
+// For example, a particular exon is part of a particular transcript or gene
+message SequenceFeatureRelationship
+ {
+  subject GenomicEntity = 1
+  relation Uriorcurie = 2
+  object GenomicEntity = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+ }
+// An allele that varies in its sequence from what is considered the reference allele at that locus.
+message SequenceVariant
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated molecularlyInteractsWith MolecularEntity = 13
+  repeated affectsAbundanceOf MolecularEntity = 14
+  repeated increasesAbundanceOf MolecularEntity = 15
+  repeated decreasesAbundanceOf MolecularEntity = 16
+  repeated affectsActivityOf MolecularEntity = 17
+  repeated increasesActivityOf MolecularEntity = 18
+  repeated decreasesActivityOf MolecularEntity = 19
+  repeated affectsExpressionOf GenomicEntity = 20
+  repeated increasesExpressionOf GenomicEntity = 21
+  repeated decreasesExpressionOf GenomicEntity = 22
+  repeated affectsFoldingOf MolecularEntity = 23
+  repeated increasesFoldingOf MolecularEntity = 24
+  repeated decreasesFoldingOf MolecularEntity = 25
+  repeated affectsLocalizationOf MolecularEntity = 26
+  repeated increasesLocalizationOf MolecularEntity = 27
+  repeated decreasesLocalizationOf MolecularEntity = 28
+  repeated affectsMetabolicProcessingOf MolecularEntity = 29
+  repeated increasesMetabolicProcessingOf MolecularEntity = 30
+  repeated decreasesMetabolicProcessingOf MolecularEntity = 31
+  repeated affectsMolecularModificationOf MolecularEntity = 32
+  repeated increasesMolecularModificationOf MolecularEntity = 33
+  repeated decreasesMolecularModificationOf MolecularEntity = 34
+  repeated affectsSynthesisOf MolecularEntity = 35
+  repeated increasesSynthesisOf MolecularEntity = 36
+  repeated decreasesSynthesisOf MolecularEntity = 37
+  repeated affectsDegradationOf MolecularEntity = 38
+  repeated increasesDegradationOf MolecularEntity = 39
+  repeated decreasesDegradationOf MolecularEntity = 40
+  repeated affectsMutationRateOf GenomicEntity = 41
+  repeated increasesMutationRateOf GenomicEntity = 42
+  repeated decreasesMutationRateOf GenomicEntity = 43
+  repeated affectsResponseTo MolecularEntity = 44
+  repeated increasesResponseTo MolecularEntity = 45
+  repeated decreasesResponseTo MolecularEntity = 46
+  repeated affectsSplicingOf Transcript = 47
+  repeated increasesSplicingOf Transcript = 48
+  repeated decreasesSplicingOf Transcript = 49
+  repeated affectsStabilityOf MolecularEntity = 50
+  repeated increasesStabilityOf MolecularEntity = 51
+  repeated decreasesStabilityOf MolecularEntity = 52
+  repeated affectsTransportOf MolecularEntity = 53
+  repeated increasesTransportOf MolecularEntity = 54
+  repeated decreasesTransportOf MolecularEntity = 55
+  repeated affectsSecretionOf MolecularEntity = 56
+  repeated increasesSecretionOf MolecularEntity = 57
+  repeated decreasesSecretionOf MolecularEntity = 58
+  repeated affectsUptakeOf MolecularEntity = 59
+  repeated increasesUptakeOf MolecularEntity = 60
+  repeated decreasesUptakeOf MolecularEntity = 61
+  repeated regulatesEntityToEntity MolecularEntity = 62
+  repeated biomarkerFor DiseaseOrPhenotypicFeature = 63
+  repeated inTaxon OrganismTaxon = 64
+  optional hasBiologicalSequence BiologicalSequence = 65
+  repeated hasGene Gene = 66
+ }
+// describes the severity of a phenotypic feature or disease
+message SeverityValue
+ {
+  optional hasAttributeType OntologyClass = 1
+  repeated hasQuantitativeValue QuantityValue = 2
+  optional hasQualitativeValue NamedThing = 3
+  id IdentifierType = 4
+  name LabelType = 5
+  repeated category IriType = 6
+  repeated relatedTo NamedThing = 7
+  repeated interactsWith NamedThing = 8
+  optional nodeProperty String = 9
+  optional iri IriType = 10
+  repeated synonym LabelType = 11
+  optional fullName LabelType = 12
+  optional description NarrativeText = 13
+  repeated systematicSynonym LabelType = 14
+  repeated subclassOf IriType = 15
+ }
+message SourceFile
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  optional sourceVersion String = 12
+  optional retrievedOn Date = 13
+ }
+// An RNA synthesized on a DNA or RNA template by an RNA polymerase
+message Transcript
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  repeated molecularlyInteractsWith MolecularEntity = 13
+  repeated affectsAbundanceOf MolecularEntity = 14
+  repeated increasesAbundanceOf MolecularEntity = 15
+  repeated decreasesAbundanceOf MolecularEntity = 16
+  repeated affectsActivityOf MolecularEntity = 17
+  repeated increasesActivityOf MolecularEntity = 18
+  repeated decreasesActivityOf MolecularEntity = 19
+  repeated affectsExpressionOf GenomicEntity = 20
+  repeated increasesExpressionOf GenomicEntity = 21
+  repeated decreasesExpressionOf GenomicEntity = 22
+  repeated affectsFoldingOf MolecularEntity = 23
+  repeated increasesFoldingOf MolecularEntity = 24
+  repeated decreasesFoldingOf MolecularEntity = 25
+  repeated affectsLocalizationOf MolecularEntity = 26
+  repeated increasesLocalizationOf MolecularEntity = 27
+  repeated decreasesLocalizationOf MolecularEntity = 28
+  repeated affectsMetabolicProcessingOf MolecularEntity = 29
+  repeated increasesMetabolicProcessingOf MolecularEntity = 30
+  repeated decreasesMetabolicProcessingOf MolecularEntity = 31
+  repeated affectsMolecularModificationOf MolecularEntity = 32
+  repeated increasesMolecularModificationOf MolecularEntity = 33
+  repeated decreasesMolecularModificationOf MolecularEntity = 34
+  repeated affectsSynthesisOf MolecularEntity = 35
+  repeated increasesSynthesisOf MolecularEntity = 36
+  repeated decreasesSynthesisOf MolecularEntity = 37
+  repeated affectsDegradationOf MolecularEntity = 38
+  repeated increasesDegradationOf MolecularEntity = 39
+  repeated decreasesDegradationOf MolecularEntity = 40
+  repeated affectsMutationRateOf GenomicEntity = 41
+  repeated increasesMutationRateOf GenomicEntity = 42
+  repeated decreasesMutationRateOf GenomicEntity = 43
+  repeated affectsResponseTo MolecularEntity = 44
+  repeated increasesResponseTo MolecularEntity = 45
+  repeated decreasesResponseTo MolecularEntity = 46
+  repeated affectsSplicingOf Transcript = 47
+  repeated increasesSplicingOf Transcript = 48
+  repeated decreasesSplicingOf Transcript = 49
+  repeated affectsStabilityOf MolecularEntity = 50
+  repeated increasesStabilityOf MolecularEntity = 51
+  repeated decreasesStabilityOf MolecularEntity = 52
+  repeated affectsTransportOf MolecularEntity = 53
+  repeated increasesTransportOf MolecularEntity = 54
+  repeated decreasesTransportOf MolecularEntity = 55
+  repeated affectsSecretionOf MolecularEntity = 56
+  repeated increasesSecretionOf MolecularEntity = 57
+  repeated decreasesSecretionOf MolecularEntity = 58
+  repeated affectsUptakeOf MolecularEntity = 59
+  repeated increasesUptakeOf MolecularEntity = 60
+  repeated decreasesUptakeOf MolecularEntity = 61
+  repeated regulatesEntityToEntity MolecularEntity = 62
+  repeated biomarkerFor DiseaseOrPhenotypicFeature = 63
+  repeated inTaxon OrganismTaxon = 64
+  optional hasBiologicalSequence BiologicalSequence = 65
+ }
+// A gene is a collection of transcripts
+message TranscriptToGeneRelationship
+ {
+  subject Transcript = 1
+  relation Uriorcurie = 2
+  object Gene = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+ }
+// A treatment is targeted at a disease or phenotype and may involve multiple drug 'exposures'
+message Treatment
+ {
+  id IdentifierType = 1
+  name LabelType = 2
+  repeated category IriType = 3
+  repeated relatedTo NamedThing = 4
+  repeated interactsWith NamedThing = 5
+  optional nodeProperty String = 6
+  optional iri IriType = 7
+  repeated synonym LabelType = 8
+  optional fullName LabelType = 9
+  optional description NarrativeText = 10
+  repeated systematicSynonym LabelType = 11
+  repeated hasPhenotype PhenotypicFeature = 12
+  optional hasReceptor OrganismalEntity = 13
+  optional hasStressor String = 14
+  optional hasRoute String = 15
+  repeated treats DiseaseOrPhenotypicFeature = 16
+ }
+message VariantToDiseaseAssociation
+ {
+  subject NamedThing = 1
+  relation Uriorcurie = 2
+  object NamedThing = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+  optional frequencyQualifier FrequencyValue = 12
+  optional severityQualifier SeverityValue = 13
+  optional onsetQualifier Onset = 14
+ }
+message VariantToPhenotypicFeatureAssociation
+ {
+  subject SequenceVariant = 1
+  relation Uriorcurie = 2
+  object NamedThing = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+  optional sexQualifier BiologicalSex = 12
+  optional frequencyQualifier FrequencyValue = 13
+  optional severityQualifier SeverityValue = 14
+  optional onsetQualifier Onset = 15
+ }
+// An association between a variant and a population, where the variant has particular frequency in the population
+message VariantToPopulationAssociation
+ {
+  subject SequenceVariant = 1
+  relation Uriorcurie = 2
+  object PopulationOfIndividualOrganisms = 3
+  id Nodeidentifier = 4
+  optional negated Boolean = 5
+  optional associationType OntologyClass = 6
+  repeated qualifiers OntologyClass = 7
+  repeated publications Publication = 8
+  optional providedBy Provider = 9
+  optional associationSlot String = 10
+  edgeLabel LabelType = 11
+  optional hasCount Integer = 12
+  optional hasTotal Integer = 13
+  optional hasQuotient Double = 14
+  optional hasPercentage Double = 15
+  optional frequencyQualifier FrequencyValue = 16
+ }
+message Zygosity
+ {
+  optional hasAttributeType OntologyClass = 1
+  repeated hasQuantitativeValue QuantityValue = 2
+  optional hasQualitativeValue NamedThing = 3
+  id IdentifierType = 4
+  name LabelType = 5
+  repeated category IriType = 6
+  repeated relatedTo NamedThing = 7
+  repeated interactsWith NamedThing = 8
+  optional nodeProperty String = 9
+  optional iri IriType = 10
+  repeated synonym LabelType = 11
+  optional fullName LabelType = 12
+  optional description NarrativeText = 13
+  repeated systematicSynonym LabelType = 14
+  repeated subclassOf IriType = 15
+ }

@@ -1,0 +1,238 @@
+id: named_thing
+schema_generating: true
+description: a databased entity or concept/class
+display_name: named thing
+document_category: named thing
+weight: 20
+fields:
+- id: id
+  description: A unique identifier for a thing. Must be either a CURIE shorthand for
+    a URI or a complete URI
+  display_name: id
+- id: name
+  description: A human-readable name for a thing
+  display_name: name
+- id: category
+  description: Name of the high level ontology class in which this entity is categorized.
+    Corresponds to the label for the biolink entity type class. In a neo4j database
+    this MAY correspond to the neo4j label tag
+  display_name: category
+  cardinality: multi
+- id: related_to
+  description: A relationship that is asserted between two named things
+  display_name: related to
+  cardinality: multi
+- id: interacts_with
+  description: holds between any two entities that directly or indirectly interact
+    with each other
+  display_name: interacts with
+  cardinality: multi
+- id: node_property
+  description: A grouping for any property that holds between a node and a value
+  display_name: node property
+- id: iri
+  description: An IRI for the node. This is determined by the id using expansion rules.
+  display_name: iri
+- id: synonym
+  description: Alternate human-readable names for a thing
+  display_name: synonym
+  cardinality: multi
+- id: full_name
+  description: a long-form human readable name for a thing
+  display_name: full name
+- id: description
+  description: a human-readable description of a thing
+  display_name: description
+- id: systematic_synonym
+  description: more commonly used for gene symbols in yeast
+  display_name: systematic synonym
+  cardinality: multi
+- id: physically_interacts_with
+  description: holds between two entities that make physical contact as part of some
+    interaction
+  display_name: physically interacts with
+  cardinality: multi
+- id: affects
+  description: describes an entity that has a direct affect on the state or quality
+    of another existing entity. Use of the 'affects' predicate implies that the affected
+    entity already exists, unlike predicates such as 'affects risk for' and 'prevents,
+    where the outcome is something that may or may not come to be.
+  display_name: affects
+  cardinality: multi
+- id: regulates
+  display_name: regulates
+  cardinality: multi
+- id: positively_regulates
+  display_name: positively regulates
+  cardinality: multi
+- id: negatively_regulates
+  display_name: negatively regulates
+  cardinality: multi
+- id: disrupts
+  description: describes a relationship where one entity degrades or interferes with
+    the structure, function, or occurrence of another.
+  display_name: disrupts
+  cardinality: multi
+- id: homologous_to
+  description: holds between two biological entities that have common evolutionary
+    origin
+  display_name: homologous to
+  cardinality: multi
+- id: paralogous_to
+  description: a homology relationship that holds between entities (typically genes)
+    that diverged after a duplication event.
+  display_name: paralogous to
+  cardinality: multi
+- id: orthologous_to
+  description: a homology relationship between entities (typically genes) that diverged
+    after a speciation event.
+  display_name: orthologous to
+  cardinality: multi
+- id: xenologous_to
+  description: a homology relationship characterized by an interspecies (horizontal)
+    transfer since the common ancestor.
+  display_name: xenologous to
+  cardinality: multi
+- id: coexists_with
+  description: holds between two entities that are co-located in the same aggregate
+    object, process, or spatio-temporal region
+  display_name: coexists with
+  cardinality: multi
+- id: colocalizes_with
+  description: holds between two entities that are observed to be located in the same
+    place.
+  display_name: colocalizes with
+  cardinality: multi
+- id: affects_risk_for
+  description: holds between two entities where exposure to one entity alters the
+    chance of developing the other
+  display_name: affects risk for
+  cardinality: multi
+- id: predisposes
+  description: holds between two entities where exposure to one entity increases the
+    chance of developing the other
+  display_name: predisposes
+  cardinality: multi
+- id: contributes_to
+  description: holds between two entities where the occurrence, existence, or activity
+    of one causes or contributes to the occurrence or generation of the other
+  display_name: contributes to
+  cardinality: multi
+- id: causes
+  description: holds between two entities where the occurrence, existence, or activity
+    of one causes the occurrence or  generation of the other
+  display_name: causes
+  cardinality: multi
+- id: caused_by
+  description: holds between two entities where the occurrence, existence, or activity
+    of one is caused by the occurrence or  generation of the other
+  display_name: caused by
+  cardinality: multi
+- id: prevents
+  description: holds between an entity whose application or use reduces the likelihood
+    of a potential outcome. Typically used to associate a chemical substance, exposure,
+    activity, or medical intervention that can prevent the onset a disease or phenotypic
+    feature.
+  display_name: prevents
+  cardinality: multi
+- id: occurs_in
+  description: holds between a process and a material entity or site within which
+    the process occurs
+  display_name: occurs in
+  cardinality: multi
+- id: located_in
+  description: holds between a material entity and a material entity or site within
+    which it is located (but of which it is not considered a part)
+  display_name: located in
+  cardinality: multi
+- id: location_of
+  description: holds between material entity or site and a material entity that is
+    located within it (but not considered a part of it)
+  display_name: location of
+  cardinality: multi
+- id: model_of
+  description: holds between an entity and some other entity it approximates for purposes
+    of scientific study, in virtue of its exhibiting similar features of the studied
+    entity.
+  display_name: model of
+  cardinality: multi
+- id: overlaps
+  description: holds between entties that overlap in their extents (materials or processes)
+  display_name: overlaps
+  cardinality: multi
+- id: has_part
+  description: holds between wholes and their parts (material entities or processes)
+  display_name: has part
+  cardinality: multi
+- id: part_of
+  description: holds between parts and wholes (material entities or processes)
+  display_name: part of
+  cardinality: multi
+- id: participates_in
+  description: holds between a continuant and a process, where the continuant is somehow
+    involved in the process
+  display_name: participates in
+  cardinality: multi
+- id: actively_involved_in
+  description: holds between a continuant and a process or function, where the continuant
+    actively contributes to part or all of the process or function it realizes
+  display_name: actively involved in
+  cardinality: multi
+- id: capable_of
+  description: holds between a physical entity and process or function, where the
+    continuant alone has the ability to carry out the process or function.
+  display_name: capable of
+  cardinality: multi
+- id: derives_into
+  description: holds between two distinct material entities, the old entity and the
+    new entity, in which the new entity begins to exist when the old entity ceases
+    to exist, and the new entity inherits the significant portion of the matter of
+    the old entity
+  display_name: derives into
+  cardinality: multi
+- id: derives_from
+  description: holds between two distinct material entities, the new entity and the
+    old entity, in which the new entity begins to exist when the old entity ceases
+    to exist, and the new entity inherits the significant portion of the matter of
+    the old entity
+  display_name: derives from
+  cardinality: multi
+- id: manifestation_of
+  description: used in SemMedDB for linking things like dysfunctions and processes
+    to some disease or syndrome
+  display_name: manifestation of
+  cardinality: multi
+- id: produces
+  description: holds between a material entity and a product that is generated through
+    the intentional actions or functioning of the material entity
+  display_name: produces
+  cardinality: multi
+- id: same_as
+  description: holds between two entities that are considered equivalent to each other
+  display_name: same as
+  cardinality: multi
+- id: creation_date
+  description: date on which thing was created. This can be applied to nodes or edges
+  display_name: creation date
+- id: update_date
+  description: date on which thing was updated. This can be applied to nodes or edges
+  display_name: update date
+- id: has_chemical_formula
+  description: description of chemical compound based on element symbols
+  display_name: has chemical formula
+- id: aggregate_statistic
+  display_name: aggregate statistic
+- id: has_molecular_consequence
+  description: connects a sequence variant to a class describing the molecular consequence.
+    E.g.  SO:0001583
+  display_name: has molecular consequence
+  cardinality: multi
+- id: has_drug
+  description: connects an entity to a single drug
+  display_name: has drug
+- id: filler
+  description: The value in a property-value tuple
+  display_name: filler
+- id: interbase_coordinate
+  description: TODO
+  display_name: interbase coordinate

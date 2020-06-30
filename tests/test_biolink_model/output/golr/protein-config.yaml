@@ -1,0 +1,355 @@
+id: protein
+schema_generating: true
+description: A gene product that is composed of a chain of amino acid sequences and
+  is produced by ribosome-mediated translation of mRNA
+display_name: protein
+document_category: protein
+weight: 20
+fields:
+- id: id
+  description: A unique identifier for a thing. Must be either a CURIE shorthand for
+    a URI or a complete URI
+  display_name: id
+- id: name
+  display_name: macromolecular machine_name
+- id: category
+  description: Name of the high level ontology class in which this entity is categorized.
+    Corresponds to the label for the biolink entity type class. In a neo4j database
+    this MAY correspond to the neo4j label tag
+  display_name: category
+  cardinality: multi
+- id: related_to
+  description: A relationship that is asserted between two named things
+  display_name: related to
+  cardinality: multi
+- id: interacts_with
+  description: holds between any two entities that directly or indirectly interact
+    with each other
+  display_name: interacts with
+  cardinality: multi
+- id: node_property
+  description: A grouping for any property that holds between a node and a value
+  display_name: node property
+- id: iri
+  description: An IRI for the node. This is determined by the id using expansion rules.
+  display_name: iri
+- id: synonym
+  description: Alternate human-readable names for a thing
+  display_name: synonym
+  cardinality: multi
+- id: full_name
+  description: a long-form human readable name for a thing
+  display_name: full name
+- id: description
+  description: a human-readable description of a thing
+  display_name: description
+- id: systematic_synonym
+  description: more commonly used for gene symbols in yeast
+  display_name: systematic synonym
+  cardinality: multi
+- id: has_phenotype
+  description: holds between a biological entity and a phenotype, where a phenotype
+    is construed broadly as any kind of quality of an organism part, a collection
+    of these qualities, or a change in quality or qualities (e.g. abnormally increased
+    temperature).
+  display_name: has phenotype
+  cardinality: multi
+- id: molecularly_interacts_with
+  display_name: molecularly interacts with
+  cardinality: multi
+- id: affects_abundance_of
+  description: holds between two molecular entities where the action or effect of
+    one changes the amount of the other within a system of interest
+  display_name: affects abundance of
+  cardinality: multi
+- id: increases_abundance_of
+  description: holds between two molecular entities where the action or effect of
+    one increases the amount of the other within a system of interest
+  display_name: increases abundance of
+  cardinality: multi
+- id: decreases_abundance_of
+  description: holds between two molecular entities where the action or effect of
+    one decreases the amount of the other within a system of interest
+  display_name: decreases abundance of
+  cardinality: multi
+- id: affects_activity_of
+  description: holds between two molecular entities where the action or effect of
+    one changes the activity of the other within a system of interest
+  display_name: affects activity of
+  cardinality: multi
+- id: increases_activity_of
+  description: holds between two molecular entities where the action or effect of
+    one increases the activity of the other within a system of interest
+  display_name: increases activity of
+  cardinality: multi
+- id: decreases_activity_of
+  description: holds between two molecular entities where the action or effect of
+    one decreases the activity of the other within a system of interest
+  display_name: decreases activity of
+  cardinality: multi
+- id: affects_expression_of
+  description: holds between two molecular entities where the action or effect of
+    one changes the level of expression of the other within a system of interest
+  display_name: affects expression of
+  cardinality: multi
+- id: increases_expression_of
+  description: holds between two molecular entities where the action or effect of
+    one increases the level of expression of the other within a system of interest
+  display_name: increases expression of
+  cardinality: multi
+- id: decreases_expression_of
+  description: holds between two molecular entities where the action or effect of
+    one decreases the level of expression of the other within a system of interest
+  display_name: decreases expression of
+  cardinality: multi
+- id: affects_folding_of
+  description: holds between two molecular entities where the action or effect of
+    one changes the rate or quality of folding of the other
+  display_name: affects folding of
+  cardinality: multi
+- id: increases_folding_of
+  description: holds between two molecular entities where the action or effect of
+    one increases the rate or quality of folding of the other
+  display_name: increases folding of
+  cardinality: multi
+- id: decreases_folding_of
+  description: holds between two molecular entities where the action or effect of
+    one decreases the rate or quality of folding of the other
+  display_name: decreases folding of
+  cardinality: multi
+- id: affects_localization_of
+  description: holds between two molecular entities where the action or effect of
+    one changes the localization of the other within a system of interest
+  display_name: affects localization of
+  cardinality: multi
+- id: increases_localization_of
+  description: holds between two molecular entities where the action or effect of
+    one increases the proper localization of the other within a system of interest
+  display_name: increases localization of
+  cardinality: multi
+- id: decreases_localization_of
+  description: holds between two molecular entities where the action or effect of
+    one decreases the proper localization of the other within a system of interest
+  display_name: decreases localization of
+  cardinality: multi
+- id: affects_metabolic_processing_of
+  description: holds between two molecular entities where the action or effect of
+    one impacts the metabolic processing of the other within a system of interest
+  display_name: affects metabolic processing of
+  cardinality: multi
+- id: increases_metabolic_processing_of
+  description: holds between two molecular entities where the action or effect of
+    one increases the rate of metabolic processing of the other within a system of
+    interest
+  display_name: increases metabolic processing of
+  cardinality: multi
+- id: decreases_metabolic_processing_of
+  description: holds between two molecular entities where the action or effect of
+    one decreases the rate of metabolic processing of the other within a system of
+    interest
+  display_name: decreases metabolic processing of
+  cardinality: multi
+- id: affects_molecular_modification_of
+  description: holds between two molecular entities where the action or effect of
+    one leads changes in the molecular modification(s) of the other (e.g. via post-translational
+    modifications of proteins such as the addition of phosphoryl group, or via redox
+    reaction that adds or subtracts electrons)
+  display_name: affects molecular modification of
+  cardinality: multi
+- id: increases_molecular_modification_of
+  description: holds between two molecular entities where the action or effect of
+    one leads to increased molecular modification(s) of the other (e.g. via post-translational
+    modifications of proteins such as the addition of phosphoryl group, or via redox
+    reaction that adds or subtracts electrons)
+  display_name: increases molecular modification of
+  cardinality: multi
+- id: decreases_molecular_modification_of
+  description: holds between two molecular entities where the action or effect of
+    one leads to decreased molecular modification(s) of the other (e.g. via post-translational
+    modifications of proteins such as the addition of phosphoryl group, or via redox
+    reaction that adds or subtracts electrons)
+  display_name: decreases molecular modification of
+  cardinality: multi
+- id: affects_synthesis_of
+  description: holds between two molecular entities where the action or effect of
+    one impacts the rate of chemical synthesis of the other
+  display_name: affects synthesis of
+  cardinality: multi
+- id: increases_synthesis_of
+  description: holds between two molecular entities where the action or effect of
+    one increases the rate of chemical synthesis of the other
+  display_name: increases synthesis of
+  cardinality: multi
+- id: decreases_synthesis_of
+  description: holds between two molecular entities where the action or effect of
+    one decreases the rate of chemical synthesis of the other
+  display_name: decreases synthesis of
+  cardinality: multi
+- id: affects_degradation_of
+  description: holds between two molecular entities where the action or effect of
+    one impacts the rate of degradation of the other within a system of interest
+  display_name: affects degradation of
+  cardinality: multi
+- id: increases_degradation_of
+  description: holds between two molecular entities where the action or effect of
+    one increases the rate of degradation of the other within a system of interest
+  display_name: increases degradation of
+  cardinality: multi
+- id: decreases_degradation_of
+  description: holds between two molecular entities where the action or effect of
+    one decreases the rate of degradation of the other within a system of interest
+  display_name: decreases degradation of
+  cardinality: multi
+- id: affects_mutation_rate_of
+  description: holds between a molecular entity and a genomic entity where the action
+    or effect of the molecular entity impacts the rate of mutation of the genomic
+    entity within a system of interest
+  display_name: affects mutation rate of
+  cardinality: multi
+- id: increases_mutation_rate_of
+  description: holds between a molecular entity and a genomic entity where the action
+    or effect of the molecular entity increases the rate of mutation of the genomic
+    entity within a system of interest
+  display_name: increases mutation rate of
+  cardinality: multi
+- id: decreases_mutation_rate_of
+  description: holds between a molecular entity and a genomic entity where the action
+    or effect of the molecular entity decreases the rate of mutation of the genomic
+    entity within a system of interest
+  display_name: decreases mutation rate of
+  cardinality: multi
+- id: affects_response_to
+  description: holds between two molecular entities where the action or effect of
+    one impacts the susceptibility of a biological entity or system (e.g. an organism,
+    cell, cellular component, macromolecular machine, biological or pathological process)
+    to the other
+  display_name: affects response to
+  cardinality: multi
+- id: increases_response_to
+  description: holds between two molecular entities where the action or effect of
+    one increases the susceptibility of a biological entity or system (e.g. an organism,
+    cell, cellular component, macromolecular machine, biological or pathological process)
+    to the other
+  display_name: increases response to
+  cardinality: multi
+- id: decreases_response_to
+  description: holds between two molecular entities where the action or effect of
+    one decreases the susceptibility of a biological entity or system (e.g. an organism,
+    cell, cellular component, macromolecular machine, biological or pathological process)
+    to the other
+  display_name: decreases response to
+  cardinality: multi
+- id: affects_splicing_of
+  description: holds between a molecular entity and an mRNA where the action or effect
+    of the molecular entity impacts the splicing of the mRNA
+  display_name: affects splicing of
+  cardinality: multi
+- id: increases_splicing_of
+  description: holds between a molecular entity and an mRNA where the action or effect
+    of the molecular entity increases the proper splicing of the mRNA
+  display_name: increases splicing of
+  cardinality: multi
+- id: decreases_splicing_of
+  description: holds between a molecular entity and an mRNA where the action or effect
+    of the molecular entity decreases the proper splicing of the mRNA
+  display_name: decreases splicing of
+  cardinality: multi
+- id: affects_stability_of
+  description: holds between two molecular entities where the action or effect of
+    one impacts the stability of the other within a system of interest
+  display_name: affects stability of
+  cardinality: multi
+- id: increases_stability_of
+  description: holds between two molecular entities where the action or effect of
+    one increases the stability of the other within a system of interest
+  display_name: increases stability of
+  cardinality: multi
+- id: decreases_stability_of
+  description: holds between two molecular entities where the action or effect of
+    one decreases the stability of the other within a system of interest
+  display_name: decreases stability of
+  cardinality: multi
+- id: affects_transport_of
+  description: holds between two molecular entities where the action or effect of
+    one impacts the rate of transport of the other across some boundary in a system
+    of interest
+  display_name: affects transport of
+  cardinality: multi
+- id: increases_transport_of
+  description: holds between two molecular entities where the action or effect of
+    one increases the rate of transport of the other across some boundary in a system
+    of interest
+  display_name: increases transport of
+  cardinality: multi
+- id: decreases_transport_of
+  description: holds between two molecular entities where the action or effect of
+    one decreases the rate of transport of the other across some boundary in a system
+    of interest
+  display_name: decreases transport of
+  cardinality: multi
+- id: affects_secretion_of
+  description: holds between two molecular entities where the action or effect of
+    one impacts the rate of secretion of the other out of a cell, gland, or organ
+  display_name: affects secretion of
+  cardinality: multi
+- id: increases_secretion_of
+  description: holds between two molecular entities where the action or effect of
+    one increases the rate of secretion of the other out of a cell, gland, or organ
+  display_name: increases secretion of
+  cardinality: multi
+- id: decreases_secretion_of
+  description: holds between two molecular entities where the action or effect of
+    one decreases the rate of secretion of the other out of a cell, gland, or organ
+  display_name: decreases secretion of
+  cardinality: multi
+- id: affects_uptake_of
+  description: holds between two molecular entities where the action or effect of
+    one impacts the rate of uptake of the other into of a cell, gland, or organ
+  display_name: affects uptake of
+  cardinality: multi
+- id: increases_uptake_of
+  description: holds between two molecular entities where the action or effect of
+    one increases the rate of uptake of the other into of a cell, gland, or organ
+  display_name: increases uptake of
+  cardinality: multi
+- id: decreases_uptake_of
+  description: holds between two molecular entities where the action or effect of
+    one decreases the rate of uptake of the other into of a cell, gland, or organ
+  display_name: decreases uptake of
+  cardinality: multi
+- id: regulates_entity_to_entity
+  display_name: regulates, entity to entity
+  cardinality: multi
+- id: biomarker_for
+  description: holds between a measurable molecular entity and a disease or phenotypic
+    feature, where the entity is used as an indicator of the presence or state of
+    the disease or feature.
+  display_name: biomarker for
+  cardinality: multi
+- id: in_taxon
+  description: connects a thing to a class representing a taxon
+  display_name: in taxon
+  cardinality: multi
+- id: has_biological_sequence
+  description: connects a genomic feature to its sequence
+  display_name: has biological sequence
+- id: in_pathway_with
+  description: holds between two genes or gene products that are part of in the same
+    biological pathway
+  display_name: in pathway with
+  cardinality: multi
+- id: in_complex_with
+  description: holds between two genes or gene products that are part of (or code
+    for products that are part of) in the same macromolecular complex
+  display_name: in complex with
+  cardinality: multi
+- id: in_cell_population_with
+  description: holds between two genes or gene products that are expressed in the
+    same cell type or population
+  display_name: in cell population with
+  cardinality: multi
+- id: expressed_in
+  description: holds between a gene or gene product and an anatomical entity in which
+    it is expressed
+  display_name: expressed in
+  cardinality: multi
