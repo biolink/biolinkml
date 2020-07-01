@@ -21,9 +21,13 @@ class Issue113TestCase(TestEnvironmentTestCase):
         example = module.TestClass(test_attribute_2="foo")
         assert hasattr(example, "test_attribute_2")
         assert hasattr(example, "test_attribute_1")
-        example.wiible = "foo";
-        example.test_attribute_1 = "foo";
-        example.test_attribute_2 = "foo";
+        example.wiible = "foo"
+        example.test_attribute_1 = "foo"
+        example.test_attribute_2 = "foo"
+
+        env.generate_single_file('issue_113.json',
+                                 lambda: PythonGenerator(env.input_path('issue_113.yaml')).serialize(),
+                                 comparator=compare_python, value_is_returned=True)
 
         def output_generator(dirname) -> None:
             with open(os.path.join(dirname, 'issue_113.json'), 'w') as f:
