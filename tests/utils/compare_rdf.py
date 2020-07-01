@@ -9,6 +9,8 @@ from rdflib.compare import to_isomorphic, IsomorphicGraph, graph_diff
 from biolinkml.meta import BIOLINKML, META
 
 # TODO: Find out why test_issue_namespace is emitting generation_date in the TYPE namespace
+from tests import SKIP_RDF_COMPARE
+
 TYPE = Namespace(BIOLINKML['type/'])
 
 
@@ -56,6 +58,10 @@ def compare_rdf(expected: Union[Graph, str], actual: Union[Graph, str], fmt: Opt
                 g.remove(t)
         g_iso = to_isomorphic(g)
         return g_iso
+
+    # Bypass compare if settings have turned it off
+    if SKIP_RDF_COMPARE:
+        return None
 
     expected_graph = to_graph(expected, fmt)
     expected_isomorphic = rem_metadata(expected_graph)

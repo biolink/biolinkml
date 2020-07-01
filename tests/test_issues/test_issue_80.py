@@ -35,7 +35,7 @@ class Issue80TestCase(TestEnvironmentTestCase):
             with open(os.path.join(dirname, 'issue_80.ttl'), 'w') as f:
                 f.write(as_rdf(example, contexts=context).serialize(format="turtle").decode())
 
-        env.generate_directory('issue_80', lambda dirname: output_generator(dirname) )
+        env.generate_directory('issue_80', lambda dirname: output_generator(dirname))
 
 
 if __name__ == '__main__':

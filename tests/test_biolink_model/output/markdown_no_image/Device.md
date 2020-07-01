@@ -7,7 +7,7 @@ A thing made or adapted for a particular purpose, especially a piece of mechanic
 URI: [biolink:Device](https://w3id.org/biolink/vocab/Device)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[NamedThing]^-[Device&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[NamedThing],[NamedThing]^-[Device&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B])
 
 ## Parents
 

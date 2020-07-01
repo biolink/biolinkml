@@ -7,7 +7,7 @@
 URI: [biolink:Pathway](https://w3id.org/biolink/vocab/Pathway)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[BiologicalProcessOrActivity]<enabled%20by(i)%200..*-%20[Pathway&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],%20[ChemicalToPathwayAssociation]-%20object%201..1>[Pathway],%20[BiologicalProcess]^-[Pathway])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[PhenotypicFeature],[BiologicalProcessOrActivity]<enabled%20by(i)%200..*-%20[Pathway&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],[ChemicalToPathwayAssociation]-%20object%201..1>[Pathway],[BiologicalProcess]^-[Pathway],[Occurrent],[NamedThing],[ChemicalToPathwayAssociation],[BiologicalProcessOrActivity],[BiologicalProcess])
 
 ## Parents
 

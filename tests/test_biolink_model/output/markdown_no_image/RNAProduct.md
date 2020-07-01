@@ -7,7 +7,7 @@
 URI: [biolink:RNAProduct](https://w3id.org/biolink/vocab/RNAProduct)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon]<in%20taxon(i)%200..*-%20[RNAProduct&#124;name(i):symbol_type;has_biological_sequence(i):biological_sequence%20%3F;id(i):identifier_type;category(i):iri_type%20%2B],%20[RNAProduct]^-[NoncodingRNAProduct],%20[RNAProduct]^-[RNAProductIsoform],%20[GeneProduct]^-[RNAProduct])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Transcript],[PhenotypicFeature],[OrganismTaxon],[NoncodingRNAProduct],[NamedThing],[MolecularEntity],[GenomicEntity],[GeneProduct],[GeneOrGeneProduct],[DiseaseOrPhenotypicFeature],[AnatomicalEntity],[RNAProductIsoform],[OrganismTaxon]<in%20taxon(i)%200..*-%20[RNAProduct&#124;name(i):symbol_type;has_biological_sequence(i):biological_sequence%20%3F;id(i):identifier_type;category(i):iri_type%20%2B],[RNAProduct]^-[NoncodingRNAProduct],[RNAProduct]^-[RNAProductIsoform],[GeneProduct]^-[RNAProduct])
 
 ## Parents
 

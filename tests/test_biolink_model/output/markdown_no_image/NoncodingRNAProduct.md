@@ -7,7 +7,7 @@
 URI: [biolink:NoncodingRNAProduct](https://w3id.org/biolink/vocab/NoncodingRNAProduct)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon]<in%20taxon(i)%200..*-%20[NoncodingRNAProduct&#124;name(i):symbol_type;has_biological_sequence(i):biological_sequence%20%3F;id(i):identifier_type;category(i):iri_type%20%2B],%20[NoncodingRNAProduct]^-[MicroRNA],%20[RNAProduct]^-[NoncodingRNAProduct])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Transcript],[PhenotypicFeature],[OrganismTaxon],[OrganismTaxon]<in%20taxon(i)%200..*-%20[NoncodingRNAProduct&#124;name(i):symbol_type;has_biological_sequence(i):biological_sequence%20%3F;id(i):identifier_type;category(i):iri_type%20%2B],[NoncodingRNAProduct]^-[MicroRNA],[RNAProduct]^-[NoncodingRNAProduct],[NamedThing],[MolecularEntity],[MicroRNA],[GenomicEntity],[GeneOrGeneProduct],[DiseaseOrPhenotypicFeature],[AnatomicalEntity],[RNAProduct])
 
 ## Parents
 

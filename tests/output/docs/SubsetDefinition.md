@@ -1,13 +1,13 @@
 
-# Type: type_definition
+# Type: subset_definition
 
 
-A data type definition.
+the name and description of a subset
 
-URI: [meta:TypeDefinition](https://w3id.org/biolink/biolinkml/meta/TypeDefinition)
+URI: [meta:SubsetDefinition](https://w3id.org/biolink/biolinkml/meta/SubsetDefinition)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SubsetDefinition]<in_subset(i)%200..*-%20[TypeDefinition&#124;base:string%20%3F;uri:uriorcurie%20%3F;repr:string%20%3F;id_prefixes(i):ncname%20*;name(pk)(i):string;definition_uri(i):uriorcurie%20%3F;aliases(i):string%20*;mappings(i):uriorcurie%20*;description(i):string%20%3F;deprecated(i):string%20%3F;todos(i):string%20*;notes(i):string%20*;comments(i):string%20*;from_schema(i):uri%20%3F;imported_from(i):string%20%3F;see_also(i):uriorcurie%20*;exact_mappings(i):uriorcurie%20*;close_mappings(i):uriorcurie%20*;related_mappings(i):uriorcurie%20*;deprecated_element_has_exact_replacement(i):uriorcurie%20%3F;deprecated_element_has_possible_replacement(i):uriorcurie%20%3F],%20[Example]<examples(i)%200..*-++[TypeDefinition],%20[AltDescription]<alt_descriptions(i)%200..*-++[TypeDefinition],%20[LocalName]<local_names(i)%200..*-++[TypeDefinition],%20[TypeDefinition]<typeof%200..1-%20[TypeDefinition],%20[SchemaDefinition]-%20default_range%200..1>[TypeDefinition],%20[SchemaDefinition]++-%20types%200..*>[TypeDefinition],%20[Element]^-[TypeDefinition])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SubsetDefinition]<in_subset(i)%200..*-%20[SubsetDefinition&#124;id_prefixes(i):ncname%20*;name(pk)(i):string;definition_uri(i):uriorcurie%20%3F;aliases(i):string%20*;mappings(i):uriorcurie%20*;description(i):string%20%3F;deprecated(i):string%20%3F;todos(i):string%20*;notes(i):string%20*;comments(i):string%20*;from_schema(i):uri%20%3F;imported_from(i):string%20%3F;see_also(i):uriorcurie%20*;exact_mappings(i):uriorcurie%20*;close_mappings(i):uriorcurie%20*;related_mappings(i):uriorcurie%20*;deprecated_element_has_exact_replacement(i):uriorcurie%20%3F;deprecated_element_has_possible_replacement(i):uriorcurie%20%3F],[Example]<examples(i)%200..*-++[SubsetDefinition],[AltDescription]<alt_descriptions(i)%200..*-++[SubsetDefinition],[LocalName]<local_names(i)%200..*-++[SubsetDefinition],[Element]-%20in_subset%200..*>[SubsetDefinition],[SchemaDefinition]++-%20subsets%200..*>[SubsetDefinition],[Element]^-[SubsetDefinition],[SchemaDefinition],[LocalName],[Example],[Element],[AltDescription])
 
 ## Parents
 
@@ -15,28 +15,11 @@ URI: [meta:TypeDefinition](https://w3id.org/biolink/biolinkml/meta/TypeDefinitio
 
 ## Referenced by class
 
- *  **[SchemaDefinition](SchemaDefinition.md)** *[default_range](default_range.md)*  <sub>OPT</sub>  **[TypeDefinition](TypeDefinition.md)**
- *  **[TypeDefinition](TypeDefinition.md)** *[typeof](typeof.md)*  <sub>OPT</sub>  **[TypeDefinition](TypeDefinition.md)**
- *  **[SchemaDefinition](SchemaDefinition.md)** *[types](types.md)*  <sub>0..*</sub>  **[TypeDefinition](TypeDefinition.md)**
+ *  **[Element](Element.md)** *[in_subset](in_subset.md)*  <sub>0..*</sub>  **[SubsetDefinition](SubsetDefinition.md)**
+ *  **[SchemaDefinition](SchemaDefinition.md)** *[subsets](subsets.md)*  <sub>0..*</sub>  **[SubsetDefinition](SubsetDefinition.md)**
 
 ## Attributes
 
-
-### Own
-
- * [base](base.md)  <sub>OPT</sub>
-    * Description: python base type that implements this type definition
-    * range: [String](types/String.md)
- * [repr](repr.md)  <sub>OPT</sub>
-    * Description: the name of the python object that implements this type definition
-    * range: [String](types/String.md)
-    * Example: None None
- * [type_definition➞uri](type_uri.md)  <sub>OPT</sub>
-    * Description: The uri that defines the possible values for the type definition
-    * range: [Uriorcurie](types/Uriorcurie.md)
- * [typeof](typeof.md)  <sub>OPT</sub>
-    * Description: Names a parent type
-    * range: [TypeDefinition](TypeDefinition.md)
 
 ### Inherited from element:
 
@@ -131,19 +114,3 @@ URI: [meta:TypeDefinition](https://w3id.org/biolink/biolinkml/meta/TypeDefinitio
     * Description: When an element is deprecated, it can be potentially replaced by this uri or curie
     * range: [Uriorcurie](types/Uriorcurie.md)
     * inherited from: None
-
-### Domain for slot:
-
- * [base](base.md)  <sub>OPT</sub>
-    * Description: python base type that implements this type definition
-    * range: [String](types/String.md)
- * [repr](repr.md)  <sub>OPT</sub>
-    * Description: the name of the python object that implements this type definition
-    * range: [String](types/String.md)
-    * Example: None None
- * [type_definition➞uri](type_uri.md)  <sub>OPT</sub>
-    * Description: The uri that defines the possible values for the type definition
-    * range: [Uriorcurie](types/Uriorcurie.md)
- * [typeof](typeof.md)  <sub>OPT</sub>
-    * Description: Names a parent type
-    * range: [TypeDefinition](TypeDefinition.md)

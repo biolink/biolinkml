@@ -7,7 +7,7 @@ A gene product that is composed of a chain of amino acid sequences and is produc
 URI: [biolink:Protein](https://w3id.org/biolink/vocab/Protein)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon]<in%20taxon(i)%200..*-%20[Protein&#124;name(i):symbol_type;has_biological_sequence(i):biological_sequence%20%3F;id(i):identifier_type;category(i):iri_type%20%2B],%20[Protein]^-[ProteinIsoform],%20[GeneProduct]^-[Protein])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Transcript],[ProteinIsoform],[OrganismTaxon]<in%20taxon(i)%200..*-%20[Protein&#124;name(i):symbol_type;has_biological_sequence(i):biological_sequence%20%3F;id(i):identifier_type;category(i):iri_type%20%2B],[Protein]^-[ProteinIsoform],[GeneProduct]^-[Protein],[PhenotypicFeature],[OrganismTaxon],[NamedThing],[MolecularEntity],[GenomicEntity],[GeneProduct],[GeneOrGeneProduct],[DiseaseOrPhenotypicFeature],[AnatomicalEntity])
 
 ## Parents
 

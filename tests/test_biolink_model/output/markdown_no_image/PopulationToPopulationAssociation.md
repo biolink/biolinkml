@@ -7,7 +7,7 @@ An association between a two populations
 URI: [biolink:PopulationToPopulationAssociation](https://w3id.org/biolink/vocab/PopulationToPopulationAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Provider]<provided%20by(i)%200..1-%20[PopulationToPopulationAssociation&#124;relation:uriorcurie;id(i):nodeidentifier;negated(i):boolean%20%3F],%20[Publication]<publications(i)%200..*-%20[PopulationToPopulationAssociation],%20[OntologyClass]<qualifiers(i)%200..*-%20[PopulationToPopulationAssociation],%20[OntologyClass]<association%20type(i)%200..1-%20[PopulationToPopulationAssociation],%20[PopulationOfIndividualOrganisms]<object%201..1-%20[PopulationToPopulationAssociation],%20[PopulationOfIndividualOrganisms]<subject%201..1-%20[PopulationToPopulationAssociation],%20[Association]^-[PopulationToPopulationAssociation])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[Provider],[Provider]<provided%20by(i)%200..1-%20[PopulationToPopulationAssociation&#124;relation:uriorcurie;id(i):nodeidentifier;negated(i):boolean%20%3F],[Publication]<publications(i)%200..*-%20[PopulationToPopulationAssociation],[OntologyClass]<qualifiers(i)%200..*-%20[PopulationToPopulationAssociation],[OntologyClass]<association%20type(i)%200..1-%20[PopulationToPopulationAssociation],[PopulationOfIndividualOrganisms]<object%201..1-%20[PopulationToPopulationAssociation],[PopulationOfIndividualOrganisms]<subject%201..1-%20[PopulationToPopulationAssociation],[Association]^-[PopulationToPopulationAssociation],[PopulationOfIndividualOrganisms],[OntologyClass],[Association])
 
 ## Parents
 

@@ -12,10 +12,14 @@ DEFAULT_LOG_LEVEL = logging.ERROR
 DEFAULT_LOG_LEVEL_TEXT = 'ERROR'
 
 # Sometimes it is convenient to bypass graphviz testing output
+# NOTE: This will remain disabled until it is determined whether GraphViz output is still needed
 SKIP_GRAPHVIZ_VALIDATION = True
 
 # Same for markdown
 SKIP_MARKDOWN_VALIDATION = False
+
+# Skip RDF comparison, as it takes a lot of time
+SKIP_RDF_COMPARE = True
 
 # Action on mismatch.  One of 'Ignore', 'Report' or 'Fail'
 #  If 'Fail', the expected file will be saved in the appropriate temp directory

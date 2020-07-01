@@ -7,7 +7,7 @@ An attribute corresponding to the genotypic sex of the individual, based upon ge
 URI: [biolink:GenotypicSex](https://w3id.org/biolink/vocab/GenotypicSex)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[NamedThing]<has%20qualitative%20value(i)%200..1-%20[GenotypicSex&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],%20[QuantityValue]<has%20quantitative%20value(i)%200..*-++[GenotypicSex],%20[OntologyClass]<has%20attribute%20type(i)%200..1-%20[GenotypicSex],%20[BiologicalSex]^-[GenotypicSex])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[QuantityValue],[OntologyClass],[NamedThing],[NamedThing]<has%20qualitative%20value(i)%200..1-%20[GenotypicSex&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],[QuantityValue]<has%20quantitative%20value(i)%200..*-++[GenotypicSex],[OntologyClass]<has%20attribute%20type(i)%200..1-%20[GenotypicSex],[BiologicalSex]^-[GenotypicSex],[BiologicalSex])
 
 ## Parents
 

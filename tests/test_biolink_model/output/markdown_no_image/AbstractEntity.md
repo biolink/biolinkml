@@ -7,7 +7,7 @@ Any thing that is not a process or a physical mass-bearing entity
 URI: [biolink:AbstractEntity](https://w3id.org/biolink/vocab/AbstractEntity)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[AbstractEntity]^-[QuantityValue],%20[AbstractEntity]^-[Attribute])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[QuantityValue],[Attribute],[AbstractEntity]^-[QuantityValue],[AbstractEntity]^-[Attribute])
 
 ## Children
 

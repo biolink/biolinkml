@@ -4,6 +4,7 @@ from typing import Optional, Tuple
 from tests.utils.dirutils import file_text
 from tests.utils.filters import metadata_filter
 
+
 def compare_python(expected: str, actual: str) -> Optional[str]:
     """
     Make sure that actual is valid python and, if it is, compare it with expected

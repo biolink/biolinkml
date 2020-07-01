@@ -71,8 +71,10 @@ class YumlGenerator(Generator):
             assocs = self.class_associations(ClassDefinitionName(cn), cn in self.referenced)
             if assocs:
                 yumlclassdef.append(assocs)
+            else:
+                yumlclassdef.append(self.class_box(ClassDefinitionName(cn)))
 
-        yuml_url = str(YUML) + ', '.join(yumlclassdef) + \
+        yuml_url = str(YUML) + ','.join(yumlclassdef) + \
                    (('.' + self.format) if self.format not in ('yuml', 'svg') else '')
         file_suffix = '.svg' if self.format == 'yuml' else '.' + self.format
         if directory:
@@ -87,7 +89,7 @@ class YumlGenerator(Generator):
                 else:
                     self.logger.error(f"{resp.reason} accessing {yuml_url}")
         else:
-            print(str(YUML)+', '.join(yumlclassdef), end='')
+            print(str(YUML)+','.join(yumlclassdef), end='')
 
     def class_box(self, cn: ClassDefinitionName) -> str:
         """ Generate a box for the class.  Populate its interior only if (a) it hasn't previously been generated and
@@ -168,7 +170,7 @@ class YumlGenerator(Generator):
             # Parent
             if cls.is_a and cls.is_a not in self.associations_generated:
                 assocs.append(self.class_box(cls.is_a) + yuml_is_a + self.class_box(cn))
-        return ', '.join(assocs)
+        return ','.join(assocs)
 
     @staticmethod
     def cardinality(slot: SlotDefinition, is_attribute: bool = True) -> str:

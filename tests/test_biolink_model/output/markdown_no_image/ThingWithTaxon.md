@@ -7,7 +7,7 @@ A mixin that can be used on any entity with a taxon
 URI: [biolink:ThingWithTaxon](https://w3id.org/biolink/vocab/ThingWithTaxon)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon]<in%20taxon%200..*-%20[ThingWithTaxon],%20[PopulationOfIndividualOrganisms]uses%20-.->[ThingWithTaxon],%20[MolecularEntity]uses%20-.->[ThingWithTaxon],%20[LifeStage]uses%20-.->[ThingWithTaxon],%20[IndividualOrganism]uses%20-.->[ThingWithTaxon],%20[DiseaseOrPhenotypicFeature]uses%20-.->[ThingWithTaxon],%20[AnatomicalEntity]uses%20-.->[ThingWithTaxon])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon]<in%20taxon%200..*-%20[ThingWithTaxon],[PopulationOfIndividualOrganisms]uses%20-.->[ThingWithTaxon],[MolecularEntity]uses%20-.->[ThingWithTaxon],[LifeStage]uses%20-.->[ThingWithTaxon],[IndividualOrganism]uses%20-.->[ThingWithTaxon],[DiseaseOrPhenotypicFeature]uses%20-.->[ThingWithTaxon],[AnatomicalEntity]uses%20-.->[ThingWithTaxon],[PopulationOfIndividualOrganisms],[OrganismTaxon],[MolecularEntity],[LifeStage],[IndividualOrganism],[DiseaseOrPhenotypicFeature],[AnatomicalEntity])
 
 ## Mixin for
 
