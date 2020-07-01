@@ -7,7 +7,7 @@
 URI: [biolink:Disease](https://w3id.org/biolink/vocab/Disease)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon]<in%20taxon(i)%200..*-%20[Disease&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],%20[DiseaseToExposureAssociation]-%20subject%201..1>[Disease],%20[DiseaseToThingAssociation]-%20subject%201..1>[Disease],%20[EntityToDiseaseAssociation]-%20object(i)%201..1>[Disease],%20[DiseaseOrPhenotypicFeature]^-[Disease])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[PhenotypicFeature],[OrganismTaxon],[NamedThing],[MolecularEntity],[EntityToDiseaseAssociation],[DiseaseToThingAssociation],[DiseaseToExposureAssociation],[DiseaseOrPhenotypicFeature],[OrganismTaxon]<in%20taxon(i)%200..*-%20[Disease&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],[DiseaseToExposureAssociation]-%20subject%201..1>[Disease],[DiseaseToThingAssociation]-%20subject%201..1>[Disease],[EntityToDiseaseAssociation]-%20object(i)%201..1>[Disease],[DiseaseOrPhenotypicFeature]^-[Disease])
 
 ## Parents
 

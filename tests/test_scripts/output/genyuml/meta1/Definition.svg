@@ -32,96 +32,96 @@
 <g class='graph' id='graph0' transform='scale(1 1) rotate(0) translate(4 592)'><title>structs</title><g class='node' id='node1'><title>SubsetDefinition</title>
 <polygon fill='white' points='0,-551 0,-587 120,-587 120,-551 0,-551' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='60' y='-565.3'>SubsetDefinition</text>
-</g><g class='node' id='node2'><title>Definition</title>
-<polygon fill='white' points='105,-129 105,-459 471,-459 471,-129 105,-129' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='288' y='-447.8'>Definition</text>
-<polyline fill='none' points='105,-444 471,-444 ' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='288' y='-432.8'>abstract:boolean ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='288' y='-417.8'>mixin:boolean ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='288' y='-402.8'>values_from:uriorcurie *</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='288' y='-387.8'>id_prefixes(i):ncname *</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='288' y='-372.8'>name(pk)(i):string</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='288' y='-357.8'>definition_uri(i):uriorcurie ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='288' y='-342.8'>aliases(i):string *</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='288' y='-327.8'>mappings(i):uriorcurie *</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='288' y='-312.8'>description(i):string ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='288' y='-297.8'>deprecated(i):string ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='288' y='-282.8'>todos(i):string *</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='288' y='-267.8'>notes(i):string *</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='288' y='-252.8'>comments(i):string *</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='288' y='-237.8'>from_schema(i):uri ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='288' y='-222.8'>imported_from(i):string ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='288' y='-207.8'>see_also(i):uriorcurie *</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='288' y='-192.8'>exact_mappings(i):uriorcurie *</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='288' y='-177.8'>close_mappings(i):uriorcurie *</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='288' y='-162.8'>related_mappings(i):uriorcurie *</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='288' y='-147.8'>deprecated_element_has_exact_replacement(i):uriorcurie ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='288' y='-132.8'>deprecated_element_has_possible_replacement(i):uriorcurie ?</text>
+</g><g class='node' id='node6'><title>Definition</title>
+<polygon fill='white' points='104,-129 104,-459 470,-459 470,-129 104,-129' stroke='black'/>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='287' y='-447.8'>Definition</text>
+<polyline fill='none' points='104,-444 470,-444 ' stroke='black'/>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='287' y='-432.8'>abstract:boolean ?</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='287' y='-417.8'>mixin:boolean ?</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='287' y='-402.8'>values_from:uriorcurie *</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='287' y='-387.8'>id_prefixes(i):ncname *</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='287' y='-372.8'>name(pk)(i):string</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='287' y='-357.8'>definition_uri(i):uriorcurie ?</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='287' y='-342.8'>aliases(i):string *</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='287' y='-327.8'>mappings(i):uriorcurie *</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='287' y='-312.8'>description(i):string ?</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='287' y='-297.8'>deprecated(i):string ?</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='287' y='-282.8'>todos(i):string *</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='287' y='-267.8'>notes(i):string *</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='287' y='-252.8'>comments(i):string *</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='287' y='-237.8'>from_schema(i):uri ?</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='287' y='-222.8'>imported_from(i):string ?</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='287' y='-207.8'>see_also(i):uriorcurie *</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='287' y='-192.8'>exact_mappings(i):uriorcurie *</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='287' y='-177.8'>close_mappings(i):uriorcurie *</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='287' y='-162.8'>related_mappings(i):uriorcurie *</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='287' y='-147.8'>deprecated_element_has_exact_replacement(i):uriorcurie ?</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='287' y='-132.8'>deprecated_element_has_possible_replacement(i):uriorcurie ?</text>
 </g><g class='edge' id='edge1'><title>SubsetDefinition-&gt;Definition</title>
-<path d='M80.776,-543.124C97.7696,-522.776 123.416,-492.068 150.933,-459.119' fill='none' stroke='black'/>
-<polygon fill='black' points='74.2624,-550.923 77.2187,-540.363 77.4675,-547.085 80.6726,-543.247 80.6726,-543.247 80.6726,-543.247 77.4675,-547.085 84.1265,-546.132 74.2624,-550.923 74.2624,-550.923' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='133.636' y='-465.459'> </text>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='91.5597' y='-537.183'>in_subset(i) 0..*</text>
-</g><g class='edge' id='edge5'><title>Definition-&gt;Definition</title>
-<path d='M481.044,-302.547C486.139,-300.185 489,-297.336 489,-294 489,-288.916 482.357,-284.964 471.289,-282.144' fill='none' stroke='black'/>
-<polygon fill='black' points='471.289,-305.856 479.313,-298.382 476.024,-304.25 480.759,-302.643 480.759,-302.643 480.759,-302.643 476.024,-304.25 482.205,-306.905 471.289,-305.856 471.289,-305.856' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='487.583' y='-290.042'> </text>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='491.284' y='-302.596'>apply_to 0..*</text>
-</g><g class='edge' id='edge6'><title>Definition-&gt;Definition</title>
-<path d='M481.314,-320.332C497.161,-314.632 507,-305.855 507,-294 507,-279.818 492.92,-270.041 471.318,-264.667' fill='none' stroke='black'/>
-<polygon fill='black' points='471.318,-323.333 479.602,-316.148 476.107,-321.895 480.896,-320.458 480.896,-320.458 480.896,-320.458 476.107,-321.895 482.19,-324.768 471.318,-323.333 471.318,-323.333' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='487.581' y='-272.609'> </text>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='491.285' y='-320.781'>mixins 0..*</text>
-</g><g class='edge' id='edge7'><title>Definition-&gt;Definition</title>
-<path d='M481.369,-339.592C507.559,-331.956 525,-316.759 525,-294 525,-268.446 503.012,-252.425 471.34,-245.937' fill='none' stroke='black'/>
-<polygon fill='black' points='471.34,-342.063 479.973,-335.301 476.195,-340.867 481.05,-339.67 481.05,-339.67 481.05,-339.67 476.195,-340.867 482.126,-344.04 471.34,-342.063 471.34,-342.063' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='487.99' y='-253.317'> </text>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='491.225' y='-340.508'>is_a 0..1</text>
-</g><g class='node' id='node6'><title>SlotDefinition</title>
-<polygon fill='white' points='235,-1 235,-37 341,-37 341,-1 235,-1' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='288' y='-15.3'>SlotDefinition</text>
-</g><g class='edge' id='edge9'><title>Definition-&gt;SlotDefinition</title>
-<path d='M281.491,-118.286C281.919,-85.0991 282.92,-55.1898 284.493,-37.3088' fill='none' stroke='black'/>
-<polygon fill='none' points='277.987,-118.643 281.376,-128.681 284.986,-118.72 277.987,-118.643' stroke='black'/>
-</g><g class='node' id='node7'><title>ClassDefinition</title>
-<polygon fill='white' points='359.5,-1 359.5,-37 472.5,-37 472.5,-1 359.5,-1' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='416' y='-15.3'>ClassDefinition</text>
-</g><g class='edge' id='edge10'><title>Definition-&gt;ClassDefinition</title>
-<path d='M369.313,-119.575C385.114,-85.8747 399.392,-55.421 407.885,-37.3088' fill='none' stroke='black'/>
-<polygon fill='none' points='366.119,-118.141 365.043,-128.681 372.457,-121.113 366.119,-118.141' stroke='black'/>
-</g><g class='node' id='node3'><title>Example</title>
-<polygon fill='white' points='138.5,-551 138.5,-587 215.5,-587 215.5,-551 138.5,-551' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='177' y='-565.3'>Example</text>
-</g><g class='edge' id='edge2'><title>Example-&gt;Definition</title>
-<path d='M187.785,-541.474C195.085,-523.52 205.431,-498.076 216.726,-470.295' fill='none' stroke='black'/>
-<polygon fill='black' points='183.944,-550.923 183.542,-539.964 185.827,-546.291 187.71,-541.659 187.71,-541.659 187.71,-541.659 185.827,-546.291 191.879,-543.354 183.944,-550.923 183.944,-550.923' stroke='black'/>
-<polygon fill='black' points='216.75,-470.236 215.305,-463.171 221.27,-459.119 222.716,-466.184 216.75,-470.236' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='197.359' y='-532.389'>examples(i) 0..*</text>
-</g><g class='node' id='node4'><title>AltDescription</title>
-<polygon fill='white' points='233.5,-551 233.5,-587 342.5,-587 342.5,-551 233.5,-551' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='288' y='-565.3'>AltDescription</text>
-</g><g class='edge' id='edge3'><title>AltDescription-&gt;Definition</title>
-<path d='M288,-540.914C288,-523.209 288,-498.396 288,-471.289' fill='none' stroke='black'/>
-<polygon fill='black' points='288,-550.923 283.5,-540.923 288,-545.923 288,-540.923 288,-540.923 288,-540.923 288,-545.923 292.5,-540.923 288,-550.923 288,-550.923' stroke='black'/>
-<polygon fill='black' points='288,-471.119 284,-465.119 288,-459.119 292,-465.119 288,-471.119' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='294.84' y='-528.429'>alt_descriptions(i) 0..*</text>
-</g><g class='node' id='node5'><title>LocalName</title>
-<polygon fill='white' points='361,-551 361,-587 453,-587 453,-551 361,-551' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='407' y='-565.3'>LocalName</text>
-</g><g class='edge' id='edge4'><title>LocalName-&gt;Definition</title>
-<path d='M395.558,-541.752C387.731,-523.794 376.597,-498.251 364.432,-470.345' fill='none' stroke='black'/>
-<polygon fill='black' points='399.556,-550.923 391.435,-543.554 397.558,-546.339 395.56,-541.756 395.56,-541.756 395.56,-541.756 397.558,-546.339 399.685,-539.957 399.556,-550.923 399.556,-550.923' stroke='black'/>
-<polygon fill='black' points='364.334,-470.12 358.27,-466.218 359.539,-459.119 365.604,-463.021 364.334,-470.12' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='398.317' y='-527.261'>local_names(i) 0..*</text>
+<path d='M80.6849,-543.124C97.6039,-522.776 123.138,-492.068 150.534,-459.119' fill='none' stroke='black'/>
+<polygon fill='black' points='74.1999,-550.923 77.1333,-540.356 77.3966,-547.078 80.5934,-543.233 80.5934,-543.233 80.5934,-543.233 77.3966,-547.078 84.0536,-546.111 74.1999,-550.923 74.1999,-550.923' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='133.259' y='-465.497'> </text>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='91.4754' y='-537.145'>in_subset(i) 0..*</text>
+</g><g class='node' id='node2'><title>SlotDefinition</title>
+<polygon fill='white' points='234,-1 234,-37 340,-37 340,-1 234,-1' stroke='black'/>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='287' y='-15.3'>SlotDefinition</text>
 </g><g class='edge' id='edge8'><title>SlotDefinition-&gt;Definition</title>
-<path d='M291.507,-37.3088C293.08,-55.1898 294.081,-85.0991 294.509,-118.286' fill='none' stroke='black'/>
-<polygon fill='black' points='294.624,-128.681 290.014,-118.732 294.569,-123.682 294.513,-118.682 294.513,-118.682 294.513,-118.682 294.569,-123.682 299.013,-118.632 294.624,-128.681 294.624,-128.681' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='301.257' y='-106.113'> owner 0..1</text>
-</g><g class='node' id='node8'><title>Element</title>
-<polygon fill='white' points='471,-551 471,-587 545,-587 545,-551 471,-551' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='508' y='-565.3'>Element</text>
+<path d='M290.507,-37.3088C292.08,-55.1898 293.081,-85.0991 293.509,-118.286' fill='none' stroke='black'/>
+<polygon fill='black' points='293.624,-128.681 289.014,-118.732 293.569,-123.682 293.513,-118.682 293.513,-118.682 293.513,-118.682 293.569,-123.682 298.013,-118.632 293.624,-128.681 293.624,-128.681' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='300.257' y='-106.113'> owner 0..1</text>
+</g><g class='node' id='node3'><title>LocalName</title>
+<polygon fill='white' points='138,-551 138,-587 230,-587 230,-551 138,-551' stroke='black'/>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='184' y='-565.3'>LocalName</text>
+</g><g class='edge' id='edge4'><title>LocalName-&gt;Definition</title>
+<path d='M194.008,-541.474C200.752,-523.599 210.297,-498.301 220.724,-470.663' fill='none' stroke='black'/>
+<polygon fill='black' points='190.443,-550.923 189.763,-539.978 192.208,-546.245 193.973,-541.566 193.973,-541.566 193.973,-541.566 192.208,-546.245 198.183,-543.155 190.443,-550.923 190.443,-550.923' stroke='black'/>
+<polygon fill='black' points='220.843,-470.347 219.219,-463.321 225.079,-459.119 226.704,-466.145 220.843,-470.347' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='203.477' y='-532.053'>local_names(i) 0..*</text>
+</g><g class='node' id='node4'><title>Example</title>
+<polygon fill='white' points='248.5,-551 248.5,-587 325.5,-587 325.5,-551 248.5,-551' stroke='black'/>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='287' y='-565.3'>Example</text>
+</g><g class='edge' id='edge2'><title>Example-&gt;Definition</title>
+<path d='M287,-540.914C287,-523.209 287,-498.396 287,-471.289' fill='none' stroke='black'/>
+<polygon fill='black' points='287,-550.923 282.5,-540.923 287,-545.923 287,-540.923 287,-540.923 287,-540.923 287,-545.923 291.5,-540.923 287,-550.923 287,-550.923' stroke='black'/>
+<polygon fill='black' points='287,-471.119 283,-465.119 287,-459.119 291,-465.119 287,-471.119' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='293.84' y='-528.429'>examples(i) 0..*</text>
+</g><g class='node' id='node5'><title>Element</title>
+<polygon fill='white' points='344,-551 344,-587 418,-587 418,-551 344,-551' stroke='black'/>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='381' y='-565.3'>Element</text>
 </g><g class='edge' id='edge11'><title>Element-&gt;Definition</title>
-<path d='M487.953,-543.124C471.556,-522.776 446.809,-492.068 420.257,-459.119' fill='none' stroke='black'/>
-<polygon fill='none' points='485.238,-545.332 494.238,-550.923 490.688,-540.94 485.238,-545.332' stroke='black'/>
+<path d='M371.77,-541.195C364.77,-520.863 354.502,-491.043 343.51,-459.119' fill='none' stroke='black'/>
+<polygon fill='none' points='368.555,-542.607 375.12,-550.923 375.173,-540.328 368.555,-542.607' stroke='black'/>
+</g><g class='edge' id='edge9'><title>Definition-&gt;SlotDefinition</title>
+<path d='M280.491,-118.286C280.919,-85.0991 281.92,-55.1898 283.493,-37.3088' fill='none' stroke='black'/>
+<polygon fill='none' points='276.987,-118.643 280.376,-128.681 283.986,-118.72 276.987,-118.643' stroke='black'/>
+</g><g class='edge' id='edge5'><title>Definition-&gt;Definition</title>
+<path d='M480.044,-302.547C485.139,-300.185 488,-297.336 488,-294 488,-288.916 481.357,-284.964 470.289,-282.144' fill='none' stroke='black'/>
+<polygon fill='black' points='470.289,-305.856 478.313,-298.382 475.024,-304.25 479.759,-302.643 479.759,-302.643 479.759,-302.643 475.024,-304.25 481.205,-306.905 470.289,-305.856 470.289,-305.856' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='486.583' y='-290.042'> </text>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='490.284' y='-302.596'>apply_to 0..*</text>
+</g><g class='edge' id='edge6'><title>Definition-&gt;Definition</title>
+<path d='M480.314,-320.332C496.161,-314.632 506,-305.855 506,-294 506,-279.818 491.92,-270.041 470.318,-264.667' fill='none' stroke='black'/>
+<polygon fill='black' points='470.318,-323.333 478.602,-316.148 475.107,-321.895 479.896,-320.458 479.896,-320.458 479.896,-320.458 475.107,-321.895 481.19,-324.768 470.318,-323.333 470.318,-323.333' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='486.581' y='-272.609'> </text>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='490.285' y='-320.781'>mixins 0..*</text>
+</g><g class='edge' id='edge7'><title>Definition-&gt;Definition</title>
+<path d='M480.369,-339.592C506.559,-331.956 524,-316.759 524,-294 524,-268.446 502.012,-252.425 470.34,-245.937' fill='none' stroke='black'/>
+<polygon fill='black' points='470.34,-342.063 478.973,-335.301 475.195,-340.867 480.05,-339.67 480.05,-339.67 480.05,-339.67 475.195,-340.867 481.126,-344.04 470.34,-342.063 470.34,-342.063' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='486.99' y='-253.317'> </text>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='490.225' y='-340.508'>is_a 0..1</text>
+</g><g class='node' id='node8'><title>ClassDefinition</title>
+<polygon fill='white' points='358.5,-1 358.5,-37 471.5,-37 471.5,-1 358.5,-1' stroke='black'/>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='415' y='-15.3'>ClassDefinition</text>
+</g><g class='edge' id='edge10'><title>Definition-&gt;ClassDefinition</title>
+<path d='M368.313,-119.575C384.114,-85.8747 398.392,-55.421 406.885,-37.3088' fill='none' stroke='black'/>
+<polygon fill='none' points='365.119,-118.141 364.043,-128.681 371.457,-121.113 365.119,-118.141' stroke='black'/>
+</g><g class='node' id='node7'><title>AltDescription</title>
+<polygon fill='white' points='436.5,-551 436.5,-587 545.5,-587 545.5,-551 436.5,-551' stroke='black'/>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='491' y='-565.3'>AltDescription</text>
+</g><g class='edge' id='edge3'><title>AltDescription-&gt;Definition</title>
+<path d='M472.208,-542.852C458.546,-524.57 438.713,-498.028 417.049,-469.037' fill='none' stroke='black'/>
+<polygon fill='black' points='478.239,-550.923 468.648,-545.606 475.246,-546.917 472.253,-542.912 472.253,-542.912 472.253,-542.912 475.246,-546.917 475.858,-540.218 478.239,-550.923 478.239,-550.923' stroke='black'/>
+<polygon fill='black' points='416.822,-468.732 410.026,-466.32 409.639,-459.119 416.434,-461.531 416.822,-468.732' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='472.469' y='-528.073'>alt_descriptions(i) 0..*</text>
 </g></g>
 <text style='fill: lightslategray; font-size: 6pt; font-family: Verdana' x='456' y='616'>CREATED WITH YUML</text></svg>

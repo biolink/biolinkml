@@ -7,7 +7,7 @@ The functional molecular product of a single gene. Gene products are either prot
 URI: [biolink:GeneProduct](https://w3id.org/biolink/vocab/GeneProduct)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon]<in%20taxon(i)%200..*-%20[GeneProduct&#124;name(i):symbol_type;has_biological_sequence(i):biological_sequence%20%3F;id(i):identifier_type;category(i):iri_type%20%2B],%20[GeneToGeneProductRelationship]-%20object%201..1>[GeneProduct],%20[GeneProduct]^-[Protein],%20[GeneProduct]^-[GeneProductIsoform],%20[GeneProduct]^-[RNAProduct],%20[GeneOrGeneProduct]^-[GeneProduct])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Transcript],[Protein],[PhenotypicFeature],[OrganismTaxon],[NamedThing],[MolecularEntity],[GenomicEntity],[GeneToGeneProductRelationship],[GeneProductIsoform],[OrganismTaxon]<in%20taxon(i)%200..*-%20[GeneProduct&#124;name(i):symbol_type;has_biological_sequence(i):biological_sequence%20%3F;id(i):identifier_type;category(i):iri_type%20%2B],[GeneToGeneProductRelationship]-%20object%201..1>[GeneProduct],[GeneProduct]^-[Protein],[GeneProduct]^-[GeneProductIsoform],[GeneProduct]^-[RNAProduct],[GeneOrGeneProduct]^-[GeneProduct],[GeneOrGeneProduct],[Gene],[DiseaseOrPhenotypicFeature],[AnatomicalEntity],[RNAProduct])
 
 ## Parents
 

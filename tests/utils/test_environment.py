@@ -1,6 +1,7 @@
 import contextlib
 import filecmp
 import os
+import sys
 import shutil
 import unittest
 from enum import Enum
@@ -174,8 +175,9 @@ class TestEnvironment:
         diffs = are_dir_trees_equal(expected_output_directory, temp_output_directory)
         if diffs:
             self.log(expected_output_directory, diffs)
-            shutil.rmtree(expected_output_directory)
-            os.rename(temp_output_directory, expected_output_directory)
+            if not self.fail_on_error:
+                shutil.rmtree(expected_output_directory)
+                os.rename(temp_output_directory, expected_output_directory)
         else:
             shutil.rmtree(temp_output_directory)
 
@@ -273,10 +275,16 @@ class TestEnvironmentTestCase(unittest.TestCase):
         if cls.env:
             cls.env.make_testing_directory(cls.env.tempdir, clear=True)
 
+    def tearDown(self) -> None:
+        if self.env.fail_on_error:
+            msg = str(self.env)
+            if msg:
+                self.env.clear_log()
+                self.fail(msg)
+
     @classmethod
     def tearDownClass(cls) -> None:
         msg = str(cls.env)
-        if msg and cls.env.mismatch_action == MismatchAction.Fail:
-            msg = str(cls.env)
-            cls.env.clear_log()
-            cls.fail(msg)
+        cls.env.clear_log()
+        if msg and cls.env.report_errors:
+                print(msg, file=sys.stderr)

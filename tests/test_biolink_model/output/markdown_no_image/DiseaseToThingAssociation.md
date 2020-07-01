@@ -7,7 +7,7 @@
 URI: [biolink:DiseaseToThingAssociation](https://w3id.org/biolink/vocab/DiseaseToThingAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Provider]<provided%20by(i)%200..1-%20[DiseaseToThingAssociation&#124;relation(i):uriorcurie;id(i):nodeidentifier;negated(i):boolean%20%3F],%20[Publication]<publications(i)%200..*-%20[DiseaseToThingAssociation],%20[OntologyClass]<qualifiers(i)%200..*-%20[DiseaseToThingAssociation],%20[OntologyClass]<association%20type(i)%200..1-%20[DiseaseToThingAssociation],%20[NamedThing]<object(i)%201..1-%20[DiseaseToThingAssociation],%20[Disease]<subject%201..1-%20[DiseaseToThingAssociation],%20[DiseaseToPhenotypicFeatureAssociation]uses%20-.->[DiseaseToThingAssociation],%20[DiseaseToThingAssociation]^-[DiseaseToExposureAssociation],%20[Association]^-[DiseaseToThingAssociation])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[Provider],[OntologyClass],[NamedThing],[Provider]<provided%20by(i)%200..1-%20[DiseaseToThingAssociation&#124;relation(i):uriorcurie;id(i):nodeidentifier;negated(i):boolean%20%3F],[Publication]<publications(i)%200..*-%20[DiseaseToThingAssociation],[OntologyClass]<qualifiers(i)%200..*-%20[DiseaseToThingAssociation],[OntologyClass]<association%20type(i)%200..1-%20[DiseaseToThingAssociation],[NamedThing]<object(i)%201..1-%20[DiseaseToThingAssociation],[Disease]<subject%201..1-%20[DiseaseToThingAssociation],[DiseaseToPhenotypicFeatureAssociation]uses%20-.->[DiseaseToThingAssociation],[DiseaseToThingAssociation]^-[DiseaseToExposureAssociation],[Association]^-[DiseaseToThingAssociation],[DiseaseToPhenotypicFeatureAssociation],[DiseaseToExposureAssociation],[Disease],[Association])
 
 ## Parents
 

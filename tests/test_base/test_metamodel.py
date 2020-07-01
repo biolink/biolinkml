@@ -20,7 +20,7 @@ class MetaModelTestCase(GeneratorTestCase):
     @unittest.skipIf(SKIP_MARKDOWN_VALIDATION, "Markdown generation skipped")
     def test_meta_markdown(self):
         """ Test the markdown generator for the biolink model """
-        self.directory_generator('meta_mappings_docs', MarkdownGenerator)
+        self.directory_generator('docs', MarkdownGenerator)
 
     def test_meta_owl_schema(self):
         """ Test the owl schema generator for the biolink model """

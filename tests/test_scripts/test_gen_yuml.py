@@ -17,7 +17,7 @@ class GenYUMLTestCase(ClickTestCase):
         self.do_test("--help", 'help')
 
     def test_meta(self):
-
+        self.temp_file_path('meta.yuml')
         self.do_test([], 'meta.yuml')
         self.do_test('-f yuml', 'meta.yuml')
         self.do_test('-f xsv', 'meta_error', expected_error=click.exceptions.BadParameter)

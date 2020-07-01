@@ -4,6 +4,8 @@ from contextlib import redirect_stdout
 from io import StringIO
 from typing import Optional
 
+from tests.utils.filters import ldcontext_metadata_filter
+
 
 def make_and_clear_directory(dirbase: str) -> None:
     """ Make dirbase if necessary and then clear generated files """
@@ -48,6 +50,23 @@ class dircmp(filecmp.dircmp):
     filecmp.dircmp.methodmap['same_files'] = phase3
     filecmp.dircmp.methodmap['diff_files'] = phase3
     filecmp.dircmp.methodmap['funny_files'] = phase3
+
+
+def _do_cmp(f1, f2):
+    bufsize = filecmp.BUFSIZE
+    with open(f1, 'rb') as fp1, open(f2, 'rb') as fp2:
+        while True:
+            b1 = fp1.read(bufsize)
+            b2 = fp2.read(bufsize)
+            if f1.endswith('.context.jsonld'):
+                b1 = ldcontext_metadata_filter(b1.decode())
+                b2 = ldcontext_metadata_filter(b2.decode())
+            if b1 != b2:
+                return False
+            if not b1:
+                return True
+
+filecmp._do_cmp = _do_cmp
 
 
 def are_dir_trees_equal(dir1: str, dir2: str) -> Optional[str]:

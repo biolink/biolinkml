@@ -7,7 +7,7 @@ a fact or situation that is observed to exist or happen, especially one whose ca
 URI: [biolink:Phenomenon](https://w3id.org/biolink/vocab/Phenomenon)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Occurrent]^-[Phenomenon&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Occurrent]^-[Phenomenon&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],[Occurrent],[NamedThing])
 
 ## Parents
 

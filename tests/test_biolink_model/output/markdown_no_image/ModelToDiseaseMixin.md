@@ -7,7 +7,7 @@ This mixin is used for any association class for which the subject (source node)
 URI: [biolink:ModelToDiseaseMixin](https://w3id.org/biolink/vocab/ModelToDiseaseMixin)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[GeneAsAModelOfDiseaseAssociation]uses%20-.->[ModelToDiseaseMixin])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[GeneAsAModelOfDiseaseAssociation]uses%20-.->[ModelToDiseaseMixin],[GeneAsAModelOfDiseaseAssociation])
 
 ## Mixin for
 
