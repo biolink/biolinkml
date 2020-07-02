@@ -108,7 +108,7 @@ class TypedNode:
         return self
 
     def loc(self) -> str:
-        return f"{self._s.name}: line {self._s.line + 1} col {self._s.column + 1}"
+        return f'File "{self._s.name}", line {self._s.line + 1}, col {self._s.column + 1}'
 
 
 class extended_str(str, TypedNode):

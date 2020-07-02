@@ -235,7 +235,7 @@ class MetamodelCoreTest(unittest.TestCase):
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] a <file:///Users/solbrig/git/biolink/biolinkml/tests/Pair> ;
+[] a <biolink/biolinkml/tests/Pair> ;
     rdfs:object "http://example.org/tests/child2" ;
     rdfs:subject "http://example.org/tests/descendant1" .
 

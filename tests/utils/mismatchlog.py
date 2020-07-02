@@ -22,7 +22,6 @@ class MismatchLog:
             line: int
 
             def __str__(self):
-                # 'File "/Users/solbrig/git/biolink/biolinkml/tests/test_b.py", line 6, in test_something'
                 return f'File "{self.filename}", line {self.line} in {self.method} '
 
         def __init__(self, file_or_directory: str, msg: Optional[str]) -> None:

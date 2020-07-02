@@ -1,4 +1,6 @@
 # Making changes to the underlying model
+## <span color="F0F0F0">WARNING:</span> This document is not current. The new testing environment has simplified what needs to happen below.  It will
+be revised shortly.
 This document describes how one goes about making a change to the underlying meta.yaml, types.yaml or other 
 building block.  The general problem is that, when these changes are made, almost every unit test in the package
 will break.   

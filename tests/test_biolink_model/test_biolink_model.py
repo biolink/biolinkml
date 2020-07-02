@@ -36,7 +36,6 @@ BIOLINK_NS = Namespace("https://w3id.org/biolink/vocab/")
 # ShEx validation of the biolink model takes a loooong time, so we only do it on rare occasions
 DO_SHEX_VALIDATION = False
 
-
 class CurrentBiolinkModelTestCase(GeneratorTestCase):
     env = env
     model_name = 'biolink-model'
