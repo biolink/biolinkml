@@ -5,7 +5,6 @@ Usage: gen-jsonld [OPTIONS] YAMLFILE
 Options:
   --context TEXT                  JSONLD context file (default: https://w3id.o
                                   rg/biolink/biolinkml/context.jsonld)
-
   -f, --format [jsonld]           Output format
   --metadata / --no-metadata      Include metadata in output
   --useuris / --metauris          Include metadata in output
