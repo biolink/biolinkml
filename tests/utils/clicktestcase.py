@@ -106,7 +106,7 @@ class ClickTestCase(TestEnvironmentTestCase):
         @param comparator: If present, use this method for comparison
         """
         assert testFileOrDirectory
-        target = os.path.join(self.testdir, testFileOrDirectory)
+        target = self.env.temp_file_path(testFileOrDirectory, is_dir=is_directory)
         arg_list = shlex.split(args) if isinstance(args, str) else args
 
         if is_directory and (filtr or comparator):

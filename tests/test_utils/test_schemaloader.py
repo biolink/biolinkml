@@ -53,12 +53,12 @@ class SchemaLoaderTestCase(Base):
         fn = env.input_path('loadererror1.yaml')
         with self.assertRaises(ValueError, msg="Unknown slot domain should fail") as e:
             SchemaLoader(fn).resolve()
-        self.assertIn('loadererror1.yaml: line 11 col 13', str(e.exception))
+        self.assertIn('loadererror1.yaml", line 11, col 13', str(e.exception))
 
         fn = env.input_path('loadererror2.yaml')
         with self.assertRaises(ValueError, msg="Optional key slot should fail") as e:
             SchemaLoader(fn).resolve()
-        self.assertIn('loadererror2.yaml: line 10 col 3', str(e.exception))
+        self.assertIn('loadererror2.yaml", line 10, col 3', str(e.exception))
 
         fn = env.input_path('loadertest1.yaml')
         schema = SchemaLoader(fn).resolve()
@@ -67,26 +67,26 @@ class SchemaLoaderTestCase(Base):
         fn = env.input_path('loadererror4.yaml')
         with self.assertRaises(ValueError, msg="Default prefix is not defined") as e:
             SchemaLoader(fn).resolve()
-        self.assertIn('loadererror4.yaml: line 6 col 17', str(e.exception))
+        self.assertIn('loadererror4.yaml", line 6, col 17', str(e.exception))
 
     def test_empty_range(self):
         """ A type must have either a base or a parent """
         fn = env.input_path('loadererror5.yaml')
         with self.assertRaises(ValueError, msg="Range error should be raised") as e:
             _ = SchemaLoader(fn).resolve()
-        self.assertIn('loadererror5.yaml: line 9 col 3', str(e.exception))
+        self.assertIn('loadererror5.yaml", line 9, col 3', str(e.exception))
 
     def test_multi_key(self):
         """ Multiple keys are not supported """
         fn = env.input_path('loadererror6.yaml')
         with self.assertRaises(ValueError, msg="Two or more keys are not allowed") as e:
             _ = SchemaLoader(fn).resolve()
-        self.assertIn('loadererror6.yaml: line 16 col 3', str(e.exception))
+        self.assertIn('loadererror6.yaml", line 16, col 3', str(e.exception))
 
         fn = env.input_path('loadererror7.yaml')
         with self.assertRaises(ValueError, msg="Two or more keys are not allowed") as e:
             _ = SchemaLoader(fn).resolve()
-        self.assertIn('loadererror7.yaml: line 17 col 3', str(e.exception))
+        self.assertIn('loadererror7.yaml", line 17, col 3', str(e.exception))
 
     @unittest.skipIf(True, "Never impelemented checking key and identifier")
     def test_key_and_id(self):
@@ -107,7 +107,7 @@ class SchemaLoaderTestCase(Base):
         fn = env.input_path('loadererror10.yaml')
         with self.assertRaises(ValueError, msg="A non-typeof type has to have a URI") as e:
             _ = SchemaLoader(fn).resolve()
-        self.assertIn('loadererror10.yaml: line 12 col 3', str(e.exception))
+        self.assertIn('loadererror10.yaml", line 12, col 3', str(e.exception))
         fn = env.input_path('loaderpass11.yaml')
         _ = SchemaLoader(fn).resolve()
 
@@ -116,7 +116,7 @@ class SchemaLoaderTestCase(Base):
         fn = env.input_path('loadererror11.yaml')
         with self.assertRaises(ValueError, msg="Subset references must be valid") as e:
             _ = SchemaLoader(fn).resolve()
-        self.assertIn('loadererror11.yaml: line 22 col 16', str(e.exception))
+        self.assertIn('loadererror11.yaml", line 22, col 16', str(e.exception))
 
     def test_importmap(self):
         """ Test the importmap parameter """

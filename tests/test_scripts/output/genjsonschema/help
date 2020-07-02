@@ -4,13 +4,12 @@ Usage: gen-json-schema [OPTIONS] YAMLFILE
 
 Options:
   -i, --inline                    Generate references to types rather than
-                                  inlining them. Note that declaring a slot as
+                                  inlining them.
+                                  Note that declaring a slot as
                                   inlined: true will always inline the class
-
   -t, --top-class TEXT            Top level class; slots of this class will
                                   become top level properties in the json-
                                   schema
-
   -f, --format [json]             Output format
   --metadata / --no-metadata      Include metadata in output
   --useuris / --metauris          Include metadata in output

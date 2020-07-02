@@ -1,6 +1,29 @@
 CHANGES
 =======
 
+* Always remember -- run the complete test suite before committing
+* Change line number error message so Python IDE can click through
+* Double check that issue #113 is fully fixed
+* Automated update to docs with GitHub Actions
+* Get all test output in
+* Fix issue #112
+* Add dependency on test to pushing requirements.txt (#174)
+* Fix the main action. only commit requirements.txt once (#172)
+* Automatically generated requirements.txt and requiremetns-dev.txt
+* Timing issue where temp directory not created..
+* Turn off Graphviz tests
+* Remove extraneous txt file
+* Add initial output files pending actions commits
+* Getting closer to passing everything
+* Remove several issues w/ reproducibility
+* Fix one of the remaining failures
+* Switch to default report action (vs fail)
+* All tests moved over to new idiom
+* test\_utils updated to new testing environment
+* Further refactoring on the test\_scripts tests
+* Update readme to add documentation on pypi release (#166)
+* script test updates
+* Add pypi-publishing github action (#165)
 * Automated update to docs with GitHub Actions
 * Add docs if they were deleted (#162)
 * Automated update to docs with GitHub Actions
