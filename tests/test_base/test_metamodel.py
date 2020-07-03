@@ -7,7 +7,7 @@ from biolinkml.generators.markdowngen import MarkdownGenerator
 from biolinkml.generators.owlgen import OwlSchemaGenerator
 from biolinkml.generators.rdfgen import RDFGenerator
 from biolinkml.generators.shexgen import ShExGenerator
-from tests import SKIP_MARKDOWN_VALIDATION
+from tests import SKIP_MARKDOWN_VALIDATION, SKIP_MARKDOWN_VALIDATION_REASON
 from tests.test_base.environment import env
 from tests.utils.compare_rdf import compare_rdf
 from tests.utils.generatortestcase import GeneratorTestCase
@@ -17,7 +17,7 @@ class MetaModelTestCase(GeneratorTestCase):
     env = env
     model_name = 'meta'
 
-    @unittest.skipIf(SKIP_MARKDOWN_VALIDATION, "Markdown generation skipped")
+    @unittest.skipIf(SKIP_MARKDOWN_VALIDATION, SKIP_MARKDOWN_VALIDATION_REASON)
     def test_meta_markdown(self):
         """ Test the markdown generator for the biolink model """
         self.directory_generator('docs', MarkdownGenerator)

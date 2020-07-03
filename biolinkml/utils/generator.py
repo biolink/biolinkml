@@ -524,7 +524,8 @@ class Generator(metaclass=abc.ABCMeta):
     # TODO: add lru cache once we get identity into the classes
     def domain_slots(self, cls: ClassDefinition) -> List[SlotDefinition]:
         """ Return all slots in the class definition that are owned by the class """
-        return [slot for slot in [self.schema.slots[sn] for sn in cls.slots] if slot.owner == cls.name]
+        return [slot for slot in [self.schema.slots[sn] for sn in cls.slots]
+                if slot.owner == cls.name or slot.owner in cls.mixins]
 
 
 def shared_arguments(g: Generator) -> Callable[[Command], Command]:

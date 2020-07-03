@@ -7,7 +7,7 @@ from pyshex import ShExEvaluator
 from pyshex.shex_evaluator import EvaluationResult
 from rdflib import Graph, Namespace
 
-from biolinkml import METAMODEL_NAMESPACE, LOCAL_SHEXJ_FILE_NAME, MODULE_DIR
+from biolinkml import METAMODEL_NAMESPACE, MODULE_DIR
 from biolinkml.generators.csvgen import CsvGenerator
 from biolinkml.generators.dotgen import DotGenerator
 from biolinkml.generators.golrgen import GolrSchemaGenerator
@@ -24,7 +24,8 @@ from biolinkml.generators.rdfgen import RDFGenerator
 from biolinkml.generators.shexgen import ShExGenerator
 from biolinkml.utils.context_utils import parse_import_map
 from biolinkml.utils.formatutils import shex_results_as_string
-from tests import SKIP_GRAPHVIZ_VALIDATION, SKIP_MARKDOWN_VALIDATION
+from tests import SKIP_GRAPHVIZ_VALIDATION, SKIP_MARKDOWN_VALIDATION, SKIP_SHEX_VALIDATION, SKIP_SHEX_VALIDATION_REASON, \
+    SKIP_MARKDOWN_VALIDATION_REASON
 from tests.test_biolink_model.environment import env
 from tests.utils.compare_rdf import compare_rdf
 from tests.utils.filters import metadata_filter
@@ -32,9 +33,6 @@ from tests.utils.generatortestcase import GeneratorTestCase
 from tests.utils.python_comparator import compare_python
 
 BIOLINK_NS = Namespace("https://w3id.org/biolink/vocab/")
-
-# ShEx validation of the biolink model takes a loooong time, so we only do it on rare occasions
-DO_SHEX_VALIDATION = False
 
 class CurrentBiolinkModelTestCase(GeneratorTestCase):
     env = env
@@ -48,12 +46,11 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
         self.single_file_generator('py', PythonGenerator, filtr=metadata_filter, comparator=compare_python,
                                    output_name='model')
 
-    @unittest.skipIf(SKIP_MARKDOWN_VALIDATION, "Markdown generation bypassed")
+    @unittest.skipIf(SKIP_MARKDOWN_VALIDATION, SKIP_MARKDOWN_VALIDATION_REASON)
     def test_biolink_markdown(self):
         """ Test the markdown generator for the biolink model """
         self.directory_generator('markdown_no_image', MarkdownGenerator, serialize_args=dict(image_dir=False))
         self.directory_generator('markdown_image', MarkdownGenerator, serialize_args=dict(image_dir=True))
-
 
     def test_biolink_tsv(self):
         """ Test the tsv generator for the biolink model """
@@ -62,7 +59,7 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
 
         self.single_file_generator('tsv', CsvGenerator, format="tsv", filtr=filtr)
 
-    @unittest.skipIf(SKIP_GRAPHVIZ_VALIDATION, "Graphviz generation bypassed")
+    @unittest.skipIf(SKIP_GRAPHVIZ_VALIDATION, SKIP_SHEX_VALIDATION_REASON)
     def test_biolink_graphviz(self):
         """ Test the dotty generator for the biolink model """
         # We don't do the comparison step because different graphviz libraries generate slightly different binary output
@@ -132,24 +129,21 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
                     print(r.reason)
         return success
 
-    @unittest.skipIf(False, "Skip the test temporarily. The Turtle file is still not matching. ")
     def test_biolink_rdf(self):
         """ Test the rdf generator for the biolink model """
         self.single_file_generator('ttl', RDFGenerator, serialize_args=dict(
             context=["https://w3id.org/biolink/biolink-model/context.jsonld"]), comparator=compare_rdf)
 
         # Validate the RDF against the Biolink ShEx
-        if DO_SHEX_VALIDATION:
+        if SKIP_SHEX_VALIDATION:
+            print(f'* test_biolink_rdf: {SKIP_SHEX_VALIDATION_REASON}')
+        else:
             g = Graph()
-            rdf_file = os.path.join(self.source_path, 'biolink_model.ttl')
-            g.load(rdf_file, format='ttl')
+            g.load(env.expected_path('biolink_model.ttl'), format='ttl')
             focus = BIOLINK_NS.biolink_model
             start = METAMODEL_NAMESPACE.SchemaDefinition
-            results = ShExEvaluator(g, LOCAL_SHEXJ_FILE_NAME, focus, start).evaluate(debug=False)
+            results = ShExEvaluator(g, env.expected_path('biolink_model.shexj'), focus, start).evaluate(debug=False)
             self.assertTrue(self._evaluate_shex_results(results))
-
-        else:
-            print("*** RDF Model validation step was skipped. See: test_biolink_model.DO_SHEX_VALIDATION to run it")
 
     def test_biolink_shex(self):
         """ Just Generate the ShEx file untested """
@@ -159,7 +153,7 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
         self.single_file_generator('native.shex', ShExGenerator, generator_args=dict(useuris=False))
         self.single_file_generator('native.shexj', ShExGenerator, format='json', generator_args=dict(useuris=False))
 
-    @unittest.skipIf(True, "This test needs revision to meet new testing structure")
+    @unittest.skip("This test needs revision to meet new testing structure")
     def test_biolink_shex_incorrect_rdf(self):
         """ Test some non-conforming RDF  """
         self.single_file_generator('shexj', ShExGenerator, format='json')
@@ -188,7 +182,7 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
         #         expected = f.read()
         #     self.assertEqual(expected, shex_results_as_string(results[0]))
 
-    @unittest.skipIf(not DO_SHEX_VALIDATION, "Skipping ShEx Validation")
+    @unittest.skipIf(SKIP_SHEX_VALIDATION, SKIP_SHEX_VALIDATION_REASON)
     def test_biolink_correct_rdf(self):
         """ Test some conforming RDF  """
         self.single_file_generator('shexj', ShExGenerator, format='json')  # Make sure ShEx is current
@@ -199,7 +193,7 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
         start = BIOLINK_NS.Drug
         evaluator = ShExEvaluator(None, shex_file, focus, start)
 
-        rdf_file = env.temp_file_path('probe.ttl')
+        rdf_file = env.input_path('probe.ttl')
         results = evaluator.evaluate(rdf_file, debug=False)
         self.assertTrue(self._evaluate_shex_results(results))
 
