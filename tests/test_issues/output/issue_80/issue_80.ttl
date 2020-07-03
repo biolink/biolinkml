@@ -1,16 +1,6 @@
 @prefix : <https://w3id.org/biolink/vocab/> .
-@prefix Person: <http://example.org/PERSON> .
-@prefix age: <https://w3id.org/biolink/vocab/age> .
 @prefix biolink: <https://w3id.org/biolink/vocab/> .
-@prefix biolinkml: <https://w3id.org/biolink/biolinkml/> .
 @prefix ex: <http://example.org/> .
-@prefix id: <@id> .
-@prefix model: <https://w3id.org/biolink/> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix type: <@type> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://example.org/person/17> a ex:PERSON ;
     biolink:age "43"^^<xsd:integer> ;

@@ -9,7 +9,7 @@ from biolinkml.generators.rdfgen import RDFGenerator
 from biolinkml.generators import shexgen
 from pyshex import ShExEvaluator
 from rdflib import Graph
-from tests import DO_SHEX_VALIDATION
+from tests import SKIP_SHEX_VALIDATION, SKIP_SHEX_VALIDATION_REASON
 from tests.test_scripts.environment import env
 from tests.utils.clicktestcase import ClickTestCase
 from tests.utils.dirutils import make_and_clear_directory
@@ -58,7 +58,9 @@ class GenShExTestCase(ClickTestCase):
         shexgen.ShExGenerator(env.meta_yaml, importmap=env.import_map).serialize(output=shex_file, collections=False)
         self.assertTrue(os.path.exists(shex_file))
 
-        if DO_SHEX_VALIDATION:
+        if SKIP_SHEX_VALIDATION:
+            print(f"tests/test_scripts/test_gen_shex.py: {SKIP_SHEX_VALIDATION_REASON}")
+        else:
             g = Graph()
             g.load(rdf_file, format='ttl')
             focus = METAMODEL_NAMESPACE.metamodel
@@ -72,8 +74,6 @@ class GenShExTestCase(ClickTestCase):
             else:
                 make_and_clear_directory(test_dir)
             self.assertTrue(success)
-        else:
-            print("*** ShEX validation step was skipped. Set: tests.__init__.DO_SHEX_VALIDATION to run it")
 
 
 if __name__ == '__main__':

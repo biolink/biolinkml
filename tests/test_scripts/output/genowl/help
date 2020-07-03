@@ -4,7 +4,7 @@ Usage: gen-owl [OPTIONS] YAMLFILE
 
 Options:
   -o, --output TEXT               Output file name
-  -f, --format [ttl|json-ld|xml|n3|turtle|ttl|ntriples|nt|nt11|nquads|trix|trig|hturtle|rdfa|mdata|microdata|rdfa1.0|rdfa1.1|html]
+  -f, --format [ttl|json-ld|xml|n3|turtle|ttl|ntriples|nt|nt11|nquads|trix|trig]
                                   Output format
   --metadata / --no-metadata      Include metadata in output
   --useuris / --metauris          Include metadata in output

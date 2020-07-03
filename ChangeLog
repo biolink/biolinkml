@@ -1,6 +1,7 @@
 CHANGES
 =======
 
+* Add a couple more tweaks
 * Always remember -- run the complete test suite before committing
 * Change line number error message so Python IDE can click through
 * Double check that issue #113 is fully fixed

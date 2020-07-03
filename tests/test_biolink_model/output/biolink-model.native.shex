@@ -1,7 +1,7 @@
 BASE <https://w3id.org/biolink/vocab/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-PREFIX OBO: <http://purl.obolibrary.org/obo/>
+PREFIX UO: <http://purl.obolibrary.org/obo/UO_>
 PREFIX metatype: <https://w3id.org/biolink/biolinkml/type/>
 
 
@@ -17,13 +17,13 @@ PREFIX metatype: <https://w3id.org/biolink/biolinkml/type/>
 
 <SymbolType> xsd:string
 
-<Frequency> OBO:UO_0000105
+<Frequency> UO:0000105
 
-<PercentageFrequencyValue> OBO:UO_0000187
+<PercentageFrequencyValue> UO:0000187
 
-<Quotient> OBO:UO_0010006
+<Quotient> UO:0010006
 
-<Unit> OBO:UO_0000000
+<Unit> UO:0000000
 
 <TimeType> xsd:dateTime
 
