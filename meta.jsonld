@@ -3,7 +3,7 @@
   "description": "A metamodel for defining biolink related schemas",
   "id": "https://w3id.org/biolink/biolinkml/meta",
   "title": "Biolink Schema Metamodel",
-  "version": "1.4.4",
+  "version": "1.5.0",
   "imports": [
     "biolinkml:types",
     "biolinkml:mappings"
@@ -1085,6 +1085,19 @@
       "type": "SlotDefinition"
     },
     {
+      "name": "domain_of",
+      "definition_uri": "meta:domain_of",
+      "description": "the class(es) that reference the slot in a \"slots\" or \"slot_usage\" context",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SlotDefinition",
+      "range": "ClassDefinition",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/domain_of",
+      "multivalued": true,
+      "readonly": "filled in by the loader",
+      "owner": "domain_of",
+      "type": "SlotDefinition"
+    },
+    {
       "name": "is_usage_slot",
       "definition_uri": "meta:is_usage_slot",
       "description": "True means that this slot was defined in a slot_usage situation",
@@ -1885,7 +1898,8 @@
         "minimum_value",
         "maximum_value",
         "pattern",
-        "string_serialization"
+        "string_serialization",
+        "domain_of"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/SlotDefinition",
       "type": "ClassDefinition"
@@ -1991,9 +2005,9 @@
   ],
   "metamodel_version": "1.4.4",
   "source_file": "meta.yaml",
-  "source_file_date": "Tue Jun 16 11:30:58 2020",
-  "source_file_size": 26260,
-  "generation_date": "2020-06-16 11:55",
+  "source_file_date": "Friday Sep 27 12:00:00 2003",
+  "source_file_size": 26482,
+  "generation_date": "Friday Sep 27 12:00:00 2003",
   "type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/biolink/biolinkml/context.jsonld",

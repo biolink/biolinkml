@@ -196,7 +196,8 @@ metatype:Nodeidentifier NONLITERAL
           <minimum_value> @metatype:Integer ? ;
           <maximum_value> @metatype:Integer ? ;
           <pattern> @metatype:String ? ;
-          <string_serialization> @metatype:String ?
+          <string_serialization> @metatype:String ? ;
+          <domain_of> @<ClassDefinition> *
        ) ;
        rdf:type [ <SlotDefinition> ]
     )

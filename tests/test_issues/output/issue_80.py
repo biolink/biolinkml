@@ -1,5 +1,5 @@
 # Auto generated from issue_80.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-06-26 16:13
+# Generation date: 2020-07-03 16:11
 # Schema: Issue 80 test case
 #
 # id: http://example.org/issues/80
@@ -23,7 +23,7 @@ from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import ElementIdentifier
 from includes.types import Integer, Objectidentifier, String
 
-metamodel_version = "1.4.4"
+metamodel_version = "1.5.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs

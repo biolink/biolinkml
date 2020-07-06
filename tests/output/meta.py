@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-06-30 08:00
+# Generation date: 2020-07-03 14:22
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta
@@ -23,7 +23,7 @@ from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import Bool, NCName, URI, URIorCURIE, XSDDateTime
 from includes.types import Boolean, Datetime, Integer, Ncname, String, Uri, Uriorcurie
 
-metamodel_version = "1.4.4"
+metamodel_version = "1.5.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -716,6 +716,9 @@ slots.alias = Slot(uri=META.alias, name="alias", curie=META.curie('alias'),
 
 slots.owner = Slot(uri=META.owner, name="owner", curie=META.curie('owner'),
                       model_uri=META.owner, domain=SlotDefinition, range=Optional[Union[str, DefinitionName]])
+
+slots.domain_of = Slot(uri=META.domain_of, name="domain_of", curie=META.curie('domain_of'),
+                      model_uri=META.domain_of, domain=SlotDefinition, range=List[Union[str, ClassDefinitionName]])
 
 slots.is_usage_slot = Slot(uri=META.is_usage_slot, name="is_usage_slot", curie=META.curie('is_usage_slot'),
                       model_uri=META.is_usage_slot, domain=SlotDefinition, range=Optional[Bool])

@@ -7,7 +7,7 @@ the definition of a class or interface
 URI: [meta:ClassDefinition](https://w3id.org/biolink/biolinkml/meta/ClassDefinition)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SubsetDefinition],[SlotDefinition],[SchemaDefinition],[LocalName],[Example],[Definition],[SubsetDefinition]<in_subset(i)%200..*-%20[ClassDefinition&#124;class_uri:uriorcurie%20%3F;subclass_of:uriorcurie%20%3F;abstract(i):boolean%20%3F;mixin(i):boolean%20%3F;values_from(i):uriorcurie%20*;id_prefixes(i):ncname%20*;name(pk)(i):string;definition_uri(i):uriorcurie%20%3F;aliases(i):string%20*;mappings(i):uriorcurie%20*;description(i):string%20%3F;deprecated(i):string%20%3F;todos(i):string%20*;notes(i):string%20*;comments(i):string%20*;from_schema(i):uri%20%3F;imported_from(i):string%20%3F;see_also(i):uriorcurie%20*;exact_mappings(i):uriorcurie%20*;close_mappings(i):uriorcurie%20*;related_mappings(i):uriorcurie%20*;deprecated_element_has_exact_replacement(i):uriorcurie%20%3F;deprecated_element_has_possible_replacement(i):uriorcurie%20%3F],[Example]<examples(i)%200..*-++[ClassDefinition],[AltDescription]<alt_descriptions(i)%200..*-++[ClassDefinition],[LocalName]<local_names(i)%200..*-++[ClassDefinition],[SlotDefinition]<defining_slots%200..*-%20[ClassDefinition],[ClassDefinition]<union_of%200..*-%20[ClassDefinition],[SlotDefinition]<slot_usage%200..*-++[ClassDefinition],[SlotDefinition]<slots%200..*-%20[ClassDefinition],[ClassDefinition]<apply_to%200..*-%20[ClassDefinition],[ClassDefinition]<mixins%200..*-%20[ClassDefinition],[ClassDefinition]<is_a%200..1-%20[ClassDefinition],[SchemaDefinition]++-%20classes%200..*>[ClassDefinition],[SlotDefinition]-%20domain%200..1>[ClassDefinition],[Definition]^-[ClassDefinition],[AltDescription])
+![img](images/ClassDefinition.svg)
 
 ## Parents
 
@@ -20,6 +20,7 @@ URI: [meta:ClassDefinition](https://w3id.org/biolink/biolinkml/meta/ClassDefinit
  *  **[ClassDefinition](ClassDefinition.md)** *[class_definition➞mixins](class_definition_mixins.md)*  <sub>0..*</sub>  **[ClassDefinition](ClassDefinition.md)**
  *  **[SchemaDefinition](SchemaDefinition.md)** *[classes](classes.md)*  <sub>0..*</sub>  **[ClassDefinition](ClassDefinition.md)**
  *  **[SlotDefinition](SlotDefinition.md)** *[domain](domain.md)*  <sub>OPT</sub>  **[ClassDefinition](ClassDefinition.md)**
+ *  **[SlotDefinition](SlotDefinition.md)** *[domain_of](domain_of.md)*  <sub>0..*</sub>  **[ClassDefinition](ClassDefinition.md)**
  *  **[ClassDefinition](ClassDefinition.md)** *[union_of](union_of.md)*  <sub>0..*</sub>  **[ClassDefinition](ClassDefinition.md)**
 
 ## Attributes
