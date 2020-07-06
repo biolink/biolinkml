@@ -889,6 +889,7 @@ classes:
       - identifier
       - alias
       - owner
+      - domain_of
       - subproperty_of
       - symmetric
       - inverse

@@ -1095,7 +1095,7 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/domain_of",
       "multivalued": true,
       "readonly": "filled in by the loader",
-      "owner": "domain_of",
+      "owner": "SlotDefinition",
       "type": "SlotDefinition"
     },
     {
@@ -1890,6 +1890,7 @@
         "identifier",
         "alias",
         "owner",
+        "domain_of",
         "subproperty_of",
         "symmetric",
         "inverse",
@@ -1899,8 +1900,7 @@
         "minimum_value",
         "maximum_value",
         "pattern",
-        "string_serialization",
-        "domain_of"
+        "string_serialization"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/SlotDefinition",
       "type": "ClassDefinition"
@@ -2007,7 +2007,7 @@
   "metamodel_version": "1.5.0",
   "source_file": "meta.yaml",
   "source_file_date": "Friday Sep 27 12:00:00 2003",
-  "source_file_size": 26551,
+  "source_file_size": 26569,
   "generation_date": "Friday Sep 27 12:00:00 2003",
   "type": "SchemaDefinition",
   "@context": [

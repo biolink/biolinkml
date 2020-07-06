@@ -44,6 +44,9 @@ the declaration
 implicitly asserts that X is an instance of C1
 
     * range: [ClassDefinition](ClassDefinition.md)
+ * [domain_of](domain_of.md)  <sub>0..*</sub>
+    * Description: the class(es) that reference the slot in a "slots" or "slot_usage" context
+    * range: [ClassDefinition](ClassDefinition.md)
  * [identifier](identifier.md)  <sub>OPT</sub>
     * Description: true means that this slot is the subject of a set of assertions.  Identifiers do not appear as predicates in the model
     * range: [Boolean](types/Boolean.md)

@@ -7,7 +7,11 @@
      [tests/output/includes/types.py]() and/or [tests/output/includes/mappings.py]()reflects the changes.
     2) Run *all* unit tests in `tests/test_base`. Make sure that all output file changes are what is expected.
 2) Copy [tests/input/meta.py]() to the [biolinkml]() directory. Copy any other changes to the root directory, including
-   changes in [includes](). Don't forget to update [meta.yaml]()
+   changes in [includes](). 
+   ```shell script
+    > cd tests
+    > ./newmodel.sh
+   ```
    1) Replace the root [docs]() directory with [tests/output/docs]().  NOTE: Double check that [tests/__init__.py]() 
    `SKIP_MARKDOWN_VALIDATION` is `False`
    2) Edit [biolinkml/meta.py]() and set the version number to the same as in the yaml file
