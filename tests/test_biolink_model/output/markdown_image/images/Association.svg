@@ -58,7 +58,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='4864' y='-177.8'>Association</text>
 <polyline fill='none' points='4800.5,-174 4927.5,-174 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='4864' y='-162.8'>relation:uriorcurie</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='4864' y='-147.8'>id:nodeidentifier</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='4864' y='-147.8'>id:string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='4864' y='-132.8'>negated:boolean ?</text>
 </g><g class='edge' id='edge2'><title>Publication-&gt;Association</title>
 <path d='M4687.98,-275.119C4723.95,-251.594 4780.1,-214.876 4819.27,-189.254' fill='none' stroke='black'/>
@@ -72,7 +72,7 @@
 <path d='M4774.18,-272.682C4792.96,-249.117 4820.95,-214.007 4840.68,-189.254' fill='none' stroke='black'/>
 <polygon fill='black' points='4767.71,-280.801 4770.42,-270.177 4770.83,-276.891 4773.94,-272.981 4773.94,-272.981 4773.94,-272.981 4770.83,-276.891 4777.46,-275.786 4767.71,-280.801 4767.71,-280.801' stroke='black'/>
 <text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='4823.62' y='-195.986'> </text>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='4784.77' y='-266.669'>provided by 0..1</text>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='4784.77' y='-266.669'>provided by 0..*</text>
 </g><g class='node' id='node10'><title>PopulationToPopulationAssociation</title>
 <polygon fill='white' points='1738,-1 1738,-37 1962,-37 1962,-1 1738,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1850' y='-15.3'>PopulationToPopulationAssociation</text>

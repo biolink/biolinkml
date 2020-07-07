@@ -1,10 +1,9 @@
 {
-  "name": "Biolink_Model",
+  "name": "Biolink-Model",
   "description": "Entity and association taxonomy and datamodel for life-sciences data",
   "id": "https://w3id.org/biolink/biolink-model",
   "imports": [
-    "biolinkml:types",
-    "biolinkml:mappings"
+    "biolinkml:types"
   ],
   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
   "prefixes": [
@@ -31,10 +30,6 @@
     {
       "prefix_prefix": "qud",
       "prefix_reference": "http://qudt.org/1.1/schema/qudt#"
-    },
-    {
-      "prefix_prefix": "skos",
-      "prefix_reference": "http://www.w3.org/2004/02/skos/core#"
     },
     {
       "prefix_prefix": "UMLSSG",
@@ -99,15 +94,6 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "base": "str",
       "uri": "http://www.w3.org/2001/XMLSchema#string",
-      "type": "TypeDefinition"
-    },
-    {
-      "name": "identifier_type",
-      "definition_uri": "biolink:IdentifierType",
-      "description": "A string that is intended to uniquely identify a thing May be URI in full or compact (CURIE) form",
-      "from_schema": "https://w3id.org/biolink/biolink-model",
-      "base": "ElementIdentifier",
-      "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
       "type": "TypeDefinition"
     },
     {
@@ -367,14 +353,14 @@
       "name": "related_to",
       "definition_uri": "biolink:related_to",
       "mappings": [
-        "owl:ObjectProperty",
+        "owl:topObjectProperty",
         "SEMMEDDB:ASSOCIATED_WITH"
       ],
       "description": "A relationship that is asserted between two named things",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "domain": "NamedThing",
       "range": "NamedThing",
-      "slot_uri": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "slot_uri": "https://w3id.org/biolink/vocab/related_to",
       "multivalued": true,
       "inherited": true,
       "owner": "related_to",
@@ -394,7 +380,7 @@
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "NamedThing",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0002434",
+      "slot_uri": "https://w3id.org/biolink/vocab/interacts_with",
       "multivalued": true,
       "inherited": true,
       "owner": "interacts_with",
@@ -415,7 +401,7 @@
       "is_a": "interacts_with",
       "domain": "NamedThing",
       "range": "NamedThing",
-      "slot_uri": "http://example.org/UNKNOWN/WD/P129",
+      "slot_uri": "https://w3id.org/biolink/vocab/physically_interacts_with",
       "multivalued": true,
       "inherited": true,
       "owner": "physically_interacts_with",
@@ -435,7 +421,7 @@
       "is_a": "physically_interacts_with",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0002436",
+      "slot_uri": "https://w3id.org/biolink/vocab/molecularly_interacts_with",
       "multivalued": true,
       "inherited": true,
       "owner": "molecularly_interacts_with",
@@ -455,7 +441,7 @@
       "is_a": "interacts_with",
       "domain": "Gene",
       "range": "Gene",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0002435",
+      "slot_uri": "https://w3id.org/biolink/vocab/genetically_interacts_with",
       "multivalued": true,
       "inherited": true,
       "owner": "genetically_interacts_with",
@@ -475,7 +461,7 @@
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "NamedThing",
-      "slot_uri": "http://example.org/UNKNOWN/SEMMEDDB/AFFECTS",
+      "slot_uri": "https://w3id.org/biolink/vocab/affects",
       "multivalued": true,
       "inherited": true,
       "owner": "affects",
@@ -1312,7 +1298,7 @@
       "mixin": true,
       "domain": "NamedThing",
       "range": "NamedThing",
-      "slot_uri": "http://example.org/UNKNOWN/WD/P128",
+      "slot_uri": "https://w3id.org/biolink/vocab/regulates",
       "multivalued": true,
       "inherited": true,
       "owner": "regulates",
@@ -1364,7 +1350,7 @@
       "is_a": "regulates",
       "domain": "Occurrent",
       "range": "Occurrent",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0002211",
+      "slot_uri": "https://w3id.org/biolink/vocab/regulates_process_to_process",
       "multivalued": true,
       "inherited": true,
       "owner": "regulates_process_to_process",
@@ -1383,7 +1369,7 @@
       ],
       "domain": "Occurrent",
       "range": "Occurrent",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0002213",
+      "slot_uri": "https://w3id.org/biolink/vocab/positively_regulates_process_to_process",
       "multivalued": true,
       "inherited": true,
       "owner": "positively_regulates_process_to_process",
@@ -1402,7 +1388,7 @@
       ],
       "domain": "Occurrent",
       "range": "Occurrent",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0002212",
+      "slot_uri": "https://w3id.org/biolink/vocab/negatively_regulates_process_to_process",
       "multivalued": true,
       "inherited": true,
       "owner": "negatively_regulates_process_to_process",
@@ -1436,7 +1422,7 @@
       "is_a": "regulates",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0002448",
+      "slot_uri": "https://w3id.org/biolink/vocab/regulates_entity_to_entity",
       "multivalued": true,
       "inherited": true,
       "owner": "regulates_entity_to_entity",
@@ -1474,7 +1460,7 @@
       ],
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0002450",
+      "slot_uri": "https://w3id.org/biolink/vocab/positively_regulates_entity_to_entity",
       "multivalued": true,
       "inherited": true,
       "owner": "positively_regulates_entity_to_entity",
@@ -1512,7 +1498,7 @@
       ],
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0002449",
+      "slot_uri": "https://w3id.org/biolink/vocab/negatively_regulates_entity_to_entity",
       "multivalued": true,
       "inherited": true,
       "owner": "negatively_regulates_entity_to_entity",
@@ -1532,7 +1518,7 @@
       "is_a": "affects",
       "domain": "NamedThing",
       "range": "NamedThing",
-      "slot_uri": "http://example.org/UNKNOWN/SEMMEDDB/DISRUPTS",
+      "slot_uri": "https://w3id.org/biolink/vocab/disrupts",
       "multivalued": true,
       "inherited": true,
       "owner": "disrupts",
@@ -1553,7 +1539,7 @@
       "is_a": "related_to",
       "domain": "Gene",
       "range": "GeneProduct",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0002205",
+      "slot_uri": "https://w3id.org/biolink/vocab/has_gene_product",
       "multivalued": true,
       "inherited": true,
       "owner": "has_gene_product",
@@ -1580,7 +1566,7 @@
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "NamedThing",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_HOM0000001",
+      "slot_uri": "https://w3id.org/biolink/vocab/homologous_to",
       "multivalued": true,
       "inherited": true,
       "owner": "homologous_to",
@@ -1600,7 +1586,7 @@
       "is_a": "homologous_to",
       "domain": "NamedThing",
       "range": "NamedThing",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_HOM0000011",
+      "slot_uri": "https://w3id.org/biolink/vocab/paralogous_to",
       "multivalued": true,
       "inherited": true,
       "owner": "paralogous_to",
@@ -1621,7 +1607,7 @@
       "is_a": "homologous_to",
       "domain": "NamedThing",
       "range": "NamedThing",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_HOM0000017",
+      "slot_uri": "https://w3id.org/biolink/vocab/orthologous_to",
       "multivalued": true,
       "inherited": true,
       "owner": "orthologous_to",
@@ -1641,7 +1627,7 @@
       "is_a": "homologous_to",
       "domain": "NamedThing",
       "range": "NamedThing",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_HOM0000018",
+      "slot_uri": "https://w3id.org/biolink/vocab/xenologous_to",
       "multivalued": true,
       "inherited": true,
       "owner": "xenologous_to",
@@ -1661,7 +1647,7 @@
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "NamedThing",
-      "slot_uri": "http://example.org/UNKNOWN/SEMMEDDB/COEXISTS_WITH",
+      "slot_uri": "https://w3id.org/biolink/vocab/coexists_with",
       "multivalued": true,
       "inherited": true,
       "owner": "coexists_with",
@@ -1732,7 +1718,7 @@
       "is_a": "coexists_with",
       "domain": "NamedThing",
       "range": "NamedThing",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_00002325",
+      "slot_uri": "https://w3id.org/biolink/vocab/colocalizes_with",
       "multivalued": true,
       "inherited": true,
       "owner": "colocalizes_with",
@@ -1752,7 +1738,7 @@
       "is_a": "related_to",
       "domain": "Gene",
       "range": "DiseaseOrPhenotypicFeature",
-      "slot_uri": "http://example.org/UNKNOWN/WD/P2293",
+      "slot_uri": "https://w3id.org/biolink/vocab/gene_associated_with_condition",
       "multivalued": true,
       "inherited": true,
       "owner": "gene_associated_with_condition",
@@ -1789,7 +1775,7 @@
       "is_a": "affects_risk_for",
       "domain": "NamedThing",
       "range": "NamedThing",
-      "slot_uri": "http://example.org/UNKNOWN/SEMMEDDB/PREDISPOSES",
+      "slot_uri": "https://w3id.org/biolink/vocab/predisposes",
       "multivalued": true,
       "inherited": true,
       "owner": "predisposes",
@@ -1809,7 +1795,7 @@
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "NamedThing",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0002326",
+      "slot_uri": "https://w3id.org/biolink/vocab/contributes_to",
       "multivalued": true,
       "inherited": true,
       "owner": "contributes_to",
@@ -1831,7 +1817,7 @@
       "is_a": "contributes_to",
       "domain": "NamedThing",
       "range": "NamedThing",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0002410",
+      "slot_uri": "https://w3id.org/biolink/vocab/causes",
       "multivalued": true,
       "inherited": true,
       "owner": "causes",
@@ -1879,7 +1865,7 @@
       "is_a": "affects",
       "domain": "Treatment",
       "range": "DiseaseOrPhenotypicFeature",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0002606",
+      "slot_uri": "https://w3id.org/biolink/vocab/treats",
       "multivalued": true,
       "inherited": true,
       "required": true,
@@ -1902,7 +1888,7 @@
       "is_a": "affects_risk_for",
       "domain": "NamedThing",
       "range": "NamedThing",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0002599",
+      "slot_uri": "https://w3id.org/biolink/vocab/prevents",
       "multivalued": true,
       "inherited": true,
       "owner": "prevents",
@@ -1914,15 +1900,15 @@
       "mappings": [
         "RO:0002610"
       ],
-      "description": "holds between a disease or phenotypic feature and a measurable molecular entity that is used as an indicator of the presence or state of the disease or feature.",
+      "description": "holds between any two named thing entities. For example, correlated_with holds between a disease or phenotypic feature and a measurable molecular entity that is used as an indicator of the presence or state of the disease or feature.",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
-      "domain": "DiseaseOrPhenotypicFeature",
-      "range": "MolecularEntity",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0002610",
+      "domain": "NamedThing",
+      "range": "NamedThing",
+      "slot_uri": "https://w3id.org/biolink/vocab/correlated_with",
       "multivalued": true,
       "inherited": true,
       "owner": "correlated_with",
@@ -1960,7 +1946,7 @@
       "is_a": "correlated_with",
       "domain": "MolecularEntity",
       "range": "DiseaseOrPhenotypicFeature",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0002607",
+      "slot_uri": "https://w3id.org/biolink/vocab/biomarker_for",
       "multivalued": true,
       "inherited": true,
       "owner": "biomarker_for",
@@ -1982,7 +1968,7 @@
       "is_a": "related_to",
       "domain": "DiseaseOrPhenotypicFeature",
       "range": "NamedThing",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0002302",
+      "slot_uri": "https://w3id.org/biolink/vocab/treated_by",
       "multivalued": true,
       "inherited": true,
       "owner": "treated_by",
@@ -2003,7 +1989,7 @@
       "is_a": "related_to",
       "domain": "GeneOrGeneProduct",
       "range": "AnatomicalEntity",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0002206",
+      "slot_uri": "https://w3id.org/biolink/vocab/expressed_in",
       "multivalued": true,
       "inherited": true,
       "owner": "expressed_in",
@@ -2024,7 +2010,7 @@
       "is_a": "related_to",
       "domain": "AnatomicalEntity",
       "range": "GeneOrGeneProduct",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0002292",
+      "slot_uri": "https://w3id.org/biolink/vocab/expresses",
       "multivalued": true,
       "inherited": true,
       "owner": "expresses",
@@ -2048,7 +2034,7 @@
       "is_a": "related_to",
       "domain": "BiologicalEntity",
       "range": "PhenotypicFeature",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0002200",
+      "slot_uri": "https://w3id.org/biolink/vocab/has_phenotype",
       "multivalued": true,
       "inherited": true,
       "owner": "has_phenotype",
@@ -2070,7 +2056,7 @@
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "NamedThing",
-      "slot_uri": "http://purl.obolibrary.org/obo/BFO_0000066",
+      "slot_uri": "https://w3id.org/biolink/vocab/occurs_in",
       "multivalued": true,
       "inherited": true,
       "owner": "occurs_in",
@@ -2090,7 +2076,7 @@
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "NamedThing",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0001025",
+      "slot_uri": "https://w3id.org/biolink/vocab/located_in",
       "multivalued": true,
       "inherited": true,
       "owner": "located_in",
@@ -2113,7 +2099,7 @@
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "NamedThing",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0001015",
+      "slot_uri": "https://w3id.org/biolink/vocab/location_of",
       "multivalued": true,
       "inherited": true,
       "owner": "location_of",
@@ -2134,7 +2120,7 @@
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "NamedThing",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0003301",
+      "slot_uri": "https://w3id.org/biolink/vocab/model_of",
       "multivalued": true,
       "inherited": true,
       "owner": "model_of",
@@ -2154,7 +2140,7 @@
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "NamedThing",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0002131",
+      "slot_uri": "https://w3id.org/biolink/vocab/overlaps",
       "multivalued": true,
       "inherited": true,
       "owner": "overlaps",
@@ -2175,7 +2161,7 @@
       "is_a": "overlaps",
       "domain": "NamedThing",
       "range": "NamedThing",
-      "slot_uri": "http://purl.obolibrary.org/obo/BFO_0000051",
+      "slot_uri": "https://w3id.org/biolink/vocab/has_part",
       "multivalued": true,
       "inherited": true,
       "owner": "has_part",
@@ -2198,7 +2184,7 @@
       "is_a": "overlaps",
       "domain": "NamedThing",
       "range": "NamedThing",
-      "slot_uri": "http://purl.obolibrary.org/obo/BFO_0000050",
+      "slot_uri": "https://w3id.org/biolink/vocab/part_of",
       "multivalued": true,
       "inherited": true,
       "owner": "part_of",
@@ -2220,7 +2206,7 @@
       "is_a": "related_to",
       "domain": "Occurrent",
       "range": "NamedThing",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0000057",
+      "slot_uri": "https://w3id.org/biolink/vocab/has_participant",
       "multivalued": true,
       "inherited": true,
       "owner": "has_participant",
@@ -2242,7 +2228,7 @@
       "is_a": "has_participant",
       "domain": "Occurrent",
       "range": "NamedThing",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0002233",
+      "slot_uri": "https://w3id.org/biolink/vocab/has_input",
       "multivalued": true,
       "inherited": true,
       "owner": "has_input",
@@ -2265,7 +2251,7 @@
       "is_a": "has_participant",
       "domain": "Occurrent",
       "range": "NamedThing",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0002234",
+      "slot_uri": "https://w3id.org/biolink/vocab/has_output",
       "multivalued": true,
       "inherited": true,
       "owner": "has_output",
@@ -2288,7 +2274,7 @@
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "Occurrent",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0000056",
+      "slot_uri": "https://w3id.org/biolink/vocab/participates_in",
       "multivalued": true,
       "inherited": true,
       "owner": "participates_in",
@@ -2309,7 +2295,7 @@
       "is_a": "participates_in",
       "domain": "NamedThing",
       "range": "Occurrent",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0002331",
+      "slot_uri": "https://w3id.org/biolink/vocab/actively_involved_in",
       "multivalued": true,
       "inherited": true,
       "owner": "actively_involved_in",
@@ -2329,7 +2315,7 @@
       "is_a": "actively_involved_in",
       "domain": "NamedThing",
       "range": "Occurrent",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0002215",
+      "slot_uri": "https://w3id.org/biolink/vocab/capable_of",
       "multivalued": true,
       "inherited": true,
       "owner": "capable_of",
@@ -2349,7 +2335,7 @@
       "is_a": "has_participant",
       "domain": "Occurrent",
       "range": "BiologicalProcessOrActivity",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0002333",
+      "slot_uri": "https://w3id.org/biolink/vocab/enabled_by",
       "multivalued": true,
       "inherited": true,
       "owner": "BiologicalProcessOrActivity",
@@ -2373,7 +2359,7 @@
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "NamedThing",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0001001",
+      "slot_uri": "https://w3id.org/biolink/vocab/derives_into",
       "multivalued": true,
       "inherited": true,
       "owner": "derives_into",
@@ -2395,7 +2381,7 @@
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "NamedThing",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0001000",
+      "slot_uri": "https://w3id.org/biolink/vocab/derives_from",
       "multivalued": true,
       "inherited": true,
       "owner": "derives_from",
@@ -2417,7 +2403,7 @@
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "Disease",
-      "slot_uri": "http://example.org/UNKNOWN/SEMMEDDB/MANIFESTATION_OF",
+      "slot_uri": "https://w3id.org/biolink/vocab/manifestation_of",
       "multivalued": true,
       "inherited": true,
       "owner": "manifestation_of",
@@ -2439,7 +2425,7 @@
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "NamedThing",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0003000",
+      "slot_uri": "https://w3id.org/biolink/vocab/produces",
       "multivalued": true,
       "inherited": true,
       "owner": "produces",
@@ -2461,7 +2447,7 @@
       "is_a": "related_to",
       "domain": "Occurrent",
       "range": "Occurrent",
-      "slot_uri": "http://purl.obolibrary.org/obo/BFO_0000063",
+      "slot_uri": "https://w3id.org/biolink/vocab/precedes",
       "multivalued": true,
       "inherited": true,
       "owner": "precedes",
@@ -2484,7 +2470,7 @@
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "NamedThing",
-      "slot_uri": "http://www.w3.org/2002/07/owl#equivalentClass",
+      "slot_uri": "https://w3id.org/biolink/vocab/same_as",
       "multivalued": true,
       "inherited": true,
       "owner": "same_as",
@@ -2506,7 +2492,7 @@
       "is_a": "related_to",
       "domain": "OntologyClass",
       "range": "iri_type",
-      "slot_uri": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+      "slot_uri": "https://w3id.org/biolink/vocab/subclass_of",
       "multivalued": true,
       "inherited": true,
       "owner": "subclass_of",
@@ -2533,7 +2519,7 @@
       "is_a": "node_property",
       "domain": "DataSetVersion",
       "range": "string",
-      "slot_uri": "http://example.org/UNKNOWN/dct/title",
+      "slot_uri": "https://w3id.org/biolink/vocab/title",
       "owner": "DataSetVersion",
       "domain_of": [
         "DataSetVersion"
@@ -2550,7 +2536,7 @@
       "is_a": "node_property",
       "domain": "DataSetVersion",
       "range": "DataFile",
-      "slot_uri": "http://purl.org/dc/terms/source",
+      "slot_uri": "https://w3id.org/biolink/vocab/source_data_file",
       "owner": "DataSetVersion",
       "domain_of": [
         "DataSetVersion"
@@ -2567,7 +2553,7 @@
       "is_a": "node_property",
       "domain": "DataSetSummary",
       "range": "string",
-      "slot_uri": "http://purl.org/dc/terms/source",
+      "slot_uri": "https://w3id.org/biolink/vocab/source_web_page",
       "owner": "DataSetSummary",
       "domain_of": [
         "DataSetSummary"
@@ -2584,7 +2570,7 @@
       "is_a": "node_property",
       "domain": "SourceFile",
       "range": "date",
-      "slot_uri": "http://purl.org/pav/retrievedOn",
+      "slot_uri": "https://w3id.org/biolink/vocab/retrievedOn",
       "owner": "SourceFile",
       "domain_of": [
         "SourceFile"
@@ -2601,7 +2587,7 @@
       "is_a": "node_property",
       "domain": "DataSetVersion",
       "range": "DataSet",
-      "slot_uri": "http://example.org/UNKNOWN/dct/isVersionOf",
+      "slot_uri": "https://w3id.org/biolink/vocab/versionOf",
       "owner": "DataSetVersion",
       "domain_of": [
         "DataSetVersion"
@@ -2618,7 +2604,7 @@
       "is_a": "node_property",
       "domain": "SourceFile",
       "range": "string",
-      "slot_uri": "http://purl.org/pav/version",
+      "slot_uri": "https://w3id.org/biolink/vocab/source_version",
       "owner": "SourceFile",
       "domain_of": [
         "SourceFile"
@@ -2635,7 +2621,7 @@
       "is_a": "node_property",
       "domain": "DistributionLevel",
       "range": "string",
-      "slot_uri": "http://example.org/UNKNOWN/dct/downloadURL",
+      "slot_uri": "https://w3id.org/biolink/vocab/downloadURL",
       "owner": "DistributionLevel",
       "domain_of": [
         "DistributionLevel"
@@ -2652,7 +2638,7 @@
       "is_a": "node_property",
       "domain": "DataSetVersion",
       "range": "DistributionLevel",
-      "slot_uri": "http://rdfs.org/ns/void#Dataset",
+      "slot_uri": "https://w3id.org/biolink/vocab/distribution",
       "owner": "DataSetVersion",
       "domain_of": [
         "DataSetVersion"
@@ -2669,7 +2655,7 @@
       "is_a": "node_property",
       "domain": "NamedThing",
       "range": "string",
-      "slot_uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "slot_uri": "https://w3id.org/biolink/vocab/type",
       "owner": "DataSetVersion",
       "domain_of": [
         "DataSetVersion"
@@ -2686,35 +2672,13 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "node_property",
       "domain": "NamedThing",
-      "range": "identifier_type",
+      "range": "string",
       "slot_uri": "https://w3id.org/biolink/vocab/id",
       "required": true,
       "identifier": true,
       "owner": "NamedThing",
       "domain_of": [
         "NamedThing"
-      ],
-      "type": "SlotDefinition"
-    },
-    {
-      "name": "association_id",
-      "definition_uri": "biolink:association_id",
-      "description": "A unique identifier for an association",
-      "in_subset": [
-        "translator_minimal"
-      ],
-      "from_schema": "https://w3id.org/biolink/biolink-model",
-      "is_a": "node_property",
-      "domain": "Association",
-      "range": "nodeidentifier",
-      "slot_uri": "https://w3id.org/biolink/vocab/id",
-      "ifabsent": "bnode",
-      "required": true,
-      "identifier": true,
-      "alias": "id",
-      "owner": "Association",
-      "domain_of": [
-        "Association"
       ],
       "type": "SlotDefinition"
     },
@@ -2782,7 +2746,7 @@
       "name": "category",
       "definition_uri": "biolink:category",
       "mappings": [
-        "rdfs:subClassOf"
+        "rdf:type"
       ],
       "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag",
       "in_subset": [
@@ -2792,7 +2756,7 @@
       "is_a": "node_property",
       "domain": "NamedThing",
       "range": "iri_type",
-      "slot_uri": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+      "slot_uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
       "multivalued": true,
       "required": true,
       "owner": "NamedThing",
@@ -2859,6 +2823,27 @@
       "range": "string",
       "slot_uri": "https://w3id.org/biolink/vocab/association_slot",
       "owner": "association_slot",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "association_id",
+      "definition_uri": "biolink:association_id",
+      "description": "A unique identifier for an association",
+      "in_subset": [
+        "translator_minimal"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "is_a": "association_slot",
+      "domain": "Association",
+      "range": "string",
+      "slot_uri": "https://w3id.org/biolink/vocab/id",
+      "required": true,
+      "identifier": true,
+      "alias": "id",
+      "owner": "Association",
+      "domain_of": [
+        "Association"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -3014,7 +2999,7 @@
       "is_a": "association_slot",
       "domain": "Association",
       "range": "EvidenceType",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0002558",
+      "slot_uri": "https://w3id.org/biolink/vocab/has_evidence",
       "owner": "has_evidence",
       "type": "SlotDefinition"
     },
@@ -3030,6 +3015,7 @@
       "domain": "Association",
       "range": "Provider",
       "slot_uri": "http://purl.org/pav/providedBy",
+      "multivalued": true,
       "owner": "Association",
       "domain_of": [
         "Association"
@@ -3047,11 +3033,41 @@
       "is_a": "association_slot",
       "domain": "Association",
       "range": "OntologyClass",
-      "slot_uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "slot_uri": "https://w3id.org/biolink/vocab/association_type",
       "owner": "Association",
       "domain_of": [
         "Association"
       ],
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "chi_squared_statistic",
+      "definition_uri": "biolink:chi_squared_statistic",
+      "mappings": [
+        "STATO:0000030"
+      ],
+      "description": "represents the chi-squared statistic computed from observations",
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "is_a": "association_slot",
+      "domain": "Association",
+      "range": "float",
+      "slot_uri": "http://purl.obolibrary.org/obo/STATO_0000030",
+      "owner": "chi_squared_statistic",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "p_value",
+      "definition_uri": "biolink:p_value",
+      "mappings": [
+        "OBI:0000175"
+      ],
+      "description": "A quantitative confidence value that represents the probability of obtaining a result at least as extreme as that actually obtained, assuming that the actual value was the result of chance alone.",
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "is_a": "association_slot",
+      "domain": "Association",
+      "range": "float",
+      "slot_uri": "http://purl.obolibrary.org/obo/OBI_0000175",
+      "owner": "p_value",
       "type": "SlotDefinition"
     },
     {
@@ -3065,7 +3081,7 @@
       "is_a": "node_property",
       "domain": "NamedThing",
       "range": "date",
-      "slot_uri": "http://purl.org/dc/terms/created",
+      "slot_uri": "https://w3id.org/biolink/vocab/creation_date",
       "owner": "creation_date",
       "type": "SlotDefinition"
     },
@@ -3080,7 +3096,7 @@
       "is_a": "node_property",
       "domain": "ExposureEvent",
       "range": "OrganismalEntity",
-      "slot_uri": "http://example.org/UNKNOWN/ExO/0000001",
+      "slot_uri": "https://w3id.org/biolink/vocab/has_receptor",
       "owner": "has_receptor",
       "type": "SlotDefinition"
     },
@@ -3098,7 +3114,7 @@
       "is_a": "node_property",
       "domain": "ExposureEvent",
       "range": "string",
-      "slot_uri": "http://example.org/UNKNOWN/ExO/0000000",
+      "slot_uri": "https://w3id.org/biolink/vocab/has_stressor",
       "owner": "has_stressor",
       "type": "SlotDefinition"
     },
@@ -3113,7 +3129,7 @@
       "is_a": "node_property",
       "domain": "ExposureEvent",
       "range": "string",
-      "slot_uri": "http://example.org/UNKNOWN/ExO/0000055",
+      "slot_uri": "https://w3id.org/biolink/vocab/has_route",
       "owner": "has_route",
       "type": "SlotDefinition"
     },
@@ -3144,7 +3160,7 @@
       "is_a": "related_to",
       "domain": "ThingWithTaxon",
       "range": "OrganismTaxon",
-      "slot_uri": "http://purl.obolibrary.org/obo/RO_0002162",
+      "slot_uri": "https://w3id.org/biolink/vocab/in_taxon",
       "multivalued": true,
       "inherited": true,
       "owner": "ThingWithTaxon",
@@ -3164,7 +3180,7 @@
       "is_a": "node_property",
       "domain": "NamedThing",
       "range": "float",
-      "slot_uri": "http://www.w3.org/2003/01/geo/wgs84_poslat",
+      "slot_uri": "https://w3id.org/biolink/vocab/latitude",
       "owner": "GeographicLocation",
       "domain_of": [
         "GeographicLocation"
@@ -3182,7 +3198,7 @@
       "is_a": "node_property",
       "domain": "NamedThing",
       "range": "float",
-      "slot_uri": "http://www.w3.org/2003/01/geo/wgs84_poslong",
+      "slot_uri": "https://w3id.org/biolink/vocab/longitude",
       "owner": "GeographicLocation",
       "domain_of": [
         "GeographicLocation"
@@ -3200,7 +3216,7 @@
       "is_a": "node_property",
       "domain": "NamedThing",
       "range": "chemical_formula_value",
-      "slot_uri": "http://example.org/UNKNOWN/WD/P274",
+      "slot_uri": "https://w3id.org/biolink/vocab/has_chemical_formula",
       "owner": "has_chemical_formula",
       "type": "SlotDefinition"
     },
@@ -3734,91 +3750,6 @@
       "type": "SlotDefinition"
     },
     {
-      "name": "mappings",
-      "definition_uri": "meta:mappings",
-      "mappings": [
-        "skos:mappingRelation"
-      ],
-      "description": "A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective.",
-      "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
-      "imported_from": "biolinkml:mappings",
-      "range": "uriorcurie",
-      "slot_uri": "http://www.w3.org/2004/02/skos/core#mappingRelation",
-      "multivalued": true,
-      "type": "SlotDefinition"
-    },
-    {
-      "name": "exact_mappings",
-      "definition_uri": "meta:exact_mappings",
-      "mappings": [
-        "skos:exactMatch"
-      ],
-      "description": "A list of terms from different schemas or terminology systems that have identical meaning.",
-      "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
-      "imported_from": "biolinkml:mappings",
-      "is_a": "mappings",
-      "range": "uriorcurie",
-      "slot_uri": "http://www.w3.org/2004/02/skos/core#exactMatch",
-      "multivalued": true,
-      "type": "SlotDefinition"
-    },
-    {
-      "name": "close_mappings",
-      "definition_uri": "meta:close_mappings",
-      "mappings": [
-        "skos:closeMatch"
-      ],
-      "description": "A list of terms from different schemas or terminology systems that have close meaning.",
-      "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
-      "imported_from": "biolinkml:mappings",
-      "is_a": "mappings",
-      "range": "uriorcurie",
-      "slot_uri": "http://www.w3.org/2004/02/skos/core#closeMatch",
-      "multivalued": true,
-      "type": "SlotDefinition"
-    },
-    {
-      "name": "related_mappings",
-      "definition_uri": "meta:related_mappings",
-      "mappings": [
-        "skos:relatedMatch"
-      ],
-      "description": "A list of terms from different schemas or terminology systems that have related meaning.",
-      "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
-      "imported_from": "biolinkml:mappings",
-      "is_a": "mappings",
-      "range": "uriorcurie",
-      "slot_uri": "http://www.w3.org/2004/02/skos/core#relatedMatch",
-      "multivalued": true,
-      "type": "SlotDefinition"
-    },
-    {
-      "name": "deprecated_element_has_exact_replacement",
-      "definition_uri": "meta:deprecated_element_has_exact_replacement",
-      "mappings": [
-        "IAO:0100001"
-      ],
-      "description": "When an element is deprecated, it can be automatically replaced by this uri or curie",
-      "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
-      "imported_from": "biolinkml:mappings",
-      "range": "uriorcurie",
-      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/deprecated_element_has_exact_replacement",
-      "type": "SlotDefinition"
-    },
-    {
-      "name": "deprecated_element_has_possible_replacement",
-      "definition_uri": "meta:deprecated_element_has_possible_replacement",
-      "mappings": [
-        "OIO:consider"
-      ],
-      "description": "When an element is deprecated, it can be potentially replaced by this uri or curie",
-      "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
-      "imported_from": "biolinkml:mappings",
-      "range": "uriorcurie",
-      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/deprecated_element_has_possible_replacement",
-      "type": "SlotDefinition"
-    },
-    {
       "name": "macromolecular_machine_name",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "name",
@@ -3870,7 +3801,7 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "id",
       "domain": "SequenceVariant",
-      "range": "identifier_type",
+      "range": "string",
       "slot_uri": "https://w3id.org/biolink/vocab/id",
       "required": true,
       "identifier": true,
@@ -4130,9 +4061,8 @@
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "association_id",
       "domain": "PairwiseInteractionAssociation",
-      "range": "nodeidentifier",
+      "range": "string",
       "slot_uri": "https://w3id.org/biolink/vocab/id",
-      "ifabsent": "bnode",
       "required": true,
       "identifier": true,
       "alias": "id",
@@ -4477,6 +4407,54 @@
       "type": "SlotDefinition"
     },
     {
+      "name": "disease_to_thing_association_subject",
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "is_a": "subject",
+      "domain": "DiseaseToThingAssociation",
+      "range": "Disease",
+      "slot_uri": "https://w3id.org/biolink/vocab/subject",
+      "required": true,
+      "alias": "subject",
+      "owner": "DiseaseToThingAssociation",
+      "domain_of": [
+        "DiseaseToThingAssociation"
+      ],
+      "is_usage_slot": true,
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "disease_to_exposure_association_subject",
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "is_a": "disease_to_thing_association_subject",
+      "domain": "DiseaseToExposureAssociation",
+      "range": "Disease",
+      "slot_uri": "https://w3id.org/biolink/vocab/subject",
+      "required": true,
+      "alias": "subject",
+      "owner": "DiseaseToExposureAssociation",
+      "domain_of": [
+        "DiseaseToExposureAssociation"
+      ],
+      "is_usage_slot": true,
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "disease_to_exposure_association_object",
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "is_a": "object",
+      "domain": "DiseaseToExposureAssociation",
+      "range": "ExposureEvent",
+      "slot_uri": "https://w3id.org/biolink/vocab/object",
+      "required": true,
+      "alias": "object",
+      "owner": "DiseaseToExposureAssociation",
+      "domain_of": [
+        "DiseaseToExposureAssociation"
+      ],
+      "is_usage_slot": true,
+      "type": "SlotDefinition"
+    },
+    {
       "name": "entity_to_phenotypic_feature_association_description",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "description",
@@ -4551,54 +4529,6 @@
       "owner": "DiseaseOrPhenotypicFeatureAssociationToLocationAssociation",
       "domain_of": [
         "DiseaseOrPhenotypicFeatureAssociationToLocationAssociation"
-      ],
-      "is_usage_slot": true,
-      "type": "SlotDefinition"
-    },
-    {
-      "name": "disease_to_thing_association_subject",
-      "from_schema": "https://w3id.org/biolink/biolink-model",
-      "is_a": "subject",
-      "domain": "DiseaseToThingAssociation",
-      "range": "Disease",
-      "slot_uri": "https://w3id.org/biolink/vocab/subject",
-      "required": true,
-      "alias": "subject",
-      "owner": "DiseaseToThingAssociation",
-      "domain_of": [
-        "DiseaseToThingAssociation"
-      ],
-      "is_usage_slot": true,
-      "type": "SlotDefinition"
-    },
-    {
-      "name": "disease_to_exposure_association_subject",
-      "from_schema": "https://w3id.org/biolink/biolink-model",
-      "is_a": "disease_to_thing_association_subject",
-      "domain": "DiseaseToExposureAssociation",
-      "range": "Disease",
-      "slot_uri": "https://w3id.org/biolink/vocab/subject",
-      "required": true,
-      "alias": "subject",
-      "owner": "DiseaseToExposureAssociation",
-      "domain_of": [
-        "DiseaseToExposureAssociation"
-      ],
-      "is_usage_slot": true,
-      "type": "SlotDefinition"
-    },
-    {
-      "name": "disease_to_exposure_association_object",
-      "from_schema": "https://w3id.org/biolink/biolink-model",
-      "is_a": "object",
-      "domain": "DiseaseToExposureAssociation",
-      "range": "ExposureEvent",
-      "slot_uri": "https://w3id.org/biolink/vocab/object",
-      "required": true,
-      "alias": "object",
-      "owner": "DiseaseToExposureAssociation",
-      "domain_of": [
-        "DiseaseToExposureAssociation"
       ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
@@ -5783,7 +5713,7 @@
         "name",
         "category"
       ],
-      "class_uri": "http://purl.obolibrary.org/obo/HP_0003674",
+      "class_uri": "https://w3id.org/biolink/vocab/Onset",
       "type": "ClassDefinition"
     },
     {
@@ -5860,7 +5790,7 @@
         "name",
         "category"
       ],
-      "class_uri": "http://example.org/UNKNOWN/WD/Q35120",
+      "class_uri": "https://w3id.org/biolink/vocab/NamedThing",
       "subclass_of": "BFO:0000001",
       "type": "ClassDefinition"
     },
@@ -5877,7 +5807,7 @@
         "name",
         "category"
       ],
-      "class_uri": "http://purl.obolibrary.org/obo/EFO_0004095",
+      "class_uri": "https://w3id.org/biolink/vocab/DataFile",
       "type": "ClassDefinition"
     },
     {
@@ -5908,7 +5838,7 @@
         "name",
         "category"
       ],
-      "class_uri": "http://purl.obolibrary.org/obo/IAO_0000100",
+      "class_uri": "https://w3id.org/biolink/vocab/DataSet",
       "type": "ClassDefinition"
     },
     {
@@ -5985,7 +5915,7 @@
         "name",
         "category"
       ],
-      "class_uri": "http://example.org/UNKNOWN/WD/Q28845870",
+      "class_uri": "https://w3id.org/biolink/vocab/BiologicalEntity",
       "type": "ClassDefinition"
     },
     {
@@ -6062,7 +5992,7 @@
         "name",
         "category"
       ],
-      "class_uri": "http://example.org/UNKNOWN/WD/Q16521",
+      "class_uri": "https://w3id.org/biolink/vocab/OrganismTaxon",
       "type": "ClassDefinition"
     },
     {
@@ -6080,7 +6010,7 @@
         "name",
         "category"
       ],
-      "class_uri": "http://example.org/UNKNOWN/WD/Q7239",
+      "class_uri": "https://w3id.org/biolink/vocab/OrganismalEntity",
       "type": "ClassDefinition"
     },
     {
@@ -6142,7 +6072,7 @@
         "category",
         "in_taxon"
       ],
-      "class_uri": "http://semanticscience.org/resource/SIO_010000",
+      "class_uri": "https://w3id.org/biolink/vocab/IndividualOrganism",
       "subclass_of": "NCBITaxon:1",
       "type": "ClassDefinition"
     },
@@ -6200,7 +6130,7 @@
         "category",
         "in_taxon"
       ],
-      "class_uri": "http://semanticscience.org/resource/SIO_001061",
+      "class_uri": "https://w3id.org/biolink/vocab/PopulationOfIndividualOrganisms",
       "subclass_of": "PCO:0000001",
       "type": "ClassDefinition"
     },
@@ -6328,7 +6258,7 @@
         "category",
         "in_taxon"
       ],
-      "class_uri": "http://purl.obolibrary.org/obo/MONDO_0000001",
+      "class_uri": "https://w3id.org/biolink/vocab/Disease",
       "type": "ClassDefinition"
     },
     {
@@ -6361,7 +6291,7 @@
         "category",
         "in_taxon"
       ],
-      "class_uri": "http://purl.obolibrary.org/obo/UPHENO_0001001",
+      "class_uri": "https://w3id.org/biolink/vocab/PhenotypicFeature",
       "subclass_of": "UPHENO:0001001",
       "type": "ClassDefinition"
     },
@@ -6384,7 +6314,7 @@
         "name",
         "category"
       ],
-      "class_uri": "http://semanticscience.org/resource/SIO_000955",
+      "class_uri": "https://w3id.org/biolink/vocab/ExposureEvent",
       "type": "ClassDefinition"
     },
     {
@@ -6430,7 +6360,7 @@
         "name",
         "category"
       ],
-      "class_uri": "http://purl.obolibrary.org/obo/IAO_0000030",
+      "class_uri": "https://w3id.org/biolink/vocab/InformationContentEntity",
       "type": "ClassDefinition"
     },
     {
@@ -6450,7 +6380,7 @@
         "name",
         "category"
       ],
-      "class_uri": "http://purl.obolibrary.org/obo/CIO_0000028",
+      "class_uri": "https://w3id.org/biolink/vocab/ConfidenceLevel",
       "type": "ClassDefinition"
     },
     {
@@ -6473,7 +6403,7 @@
         "name",
         "category"
       ],
-      "class_uri": "http://purl.obolibrary.org/obo/ECO_0000000",
+      "class_uri": "https://w3id.org/biolink/vocab/EvidenceType",
       "type": "ClassDefinition"
     },
     {
@@ -6498,7 +6428,7 @@
         "name",
         "category"
       ],
-      "class_uri": "http://purl.obolibrary.org/obo/IAO_0000311",
+      "class_uri": "https://w3id.org/biolink/vocab/Publication",
       "type": "ClassDefinition"
     },
     {
@@ -6570,7 +6500,7 @@
         "category",
         "in_taxon"
       ],
-      "class_uri": "http://semanticscience.org/resource/SIO_010341",
+      "class_uri": "https://w3id.org/biolink/vocab/MolecularEntity",
       "type": "ClassDefinition"
     },
     {
@@ -6641,7 +6571,7 @@
         "category",
         "in_taxon"
       ],
-      "class_uri": "http://semanticscience.org/resource/SIO_010004",
+      "class_uri": "https://w3id.org/biolink/vocab/ChemicalSubstance",
       "subclass_of": "CHEBI:24431",
       "type": "ClassDefinition"
     },
@@ -6684,7 +6614,7 @@
         "category",
         "in_taxon"
       ],
-      "class_uri": "http://example.org/UNKNOWN/WD/Q12140",
+      "class_uri": "https://w3id.org/biolink/vocab/Drug",
       "type": "ClassDefinition"
     },
     {
@@ -6705,7 +6635,7 @@
         "category",
         "in_taxon"
       ],
-      "class_uri": "http://purl.obolibrary.org/obo/CHEBI_25212",
+      "class_uri": "https://w3id.org/biolink/vocab/Metabolite",
       "type": "ClassDefinition"
     },
     {
@@ -6741,7 +6671,7 @@
         "category",
         "in_taxon"
       ],
-      "class_uri": "http://semanticscience.org/resource/SIO_010046",
+      "class_uri": "https://w3id.org/biolink/vocab/AnatomicalEntity",
       "subclass_of": "UBERON:0001062",
       "type": "ClassDefinition"
     },
@@ -6895,7 +6825,7 @@
         "in_taxon",
         "has_biological_sequence"
       ],
-      "class_uri": "http://purl.obolibrary.org/obo/SO_0000110",
+      "class_uri": "https://w3id.org/biolink/vocab/GenomicEntity",
       "type": "ClassDefinition"
     },
     {
@@ -6916,7 +6846,7 @@
         "in_taxon",
         "has_biological_sequence"
       ],
-      "class_uri": "http://purl.obolibrary.org/obo/SO_0001026",
+      "class_uri": "https://w3id.org/biolink/vocab/Genome",
       "type": "ClassDefinition"
     },
     {
@@ -6936,7 +6866,7 @@
         "in_taxon",
         "has_biological_sequence"
       ],
-      "class_uri": "http://purl.obolibrary.org/obo/SO_0000673",
+      "class_uri": "https://w3id.org/biolink/vocab/Transcript",
       "type": "ClassDefinition"
     },
     {
@@ -6957,7 +6887,7 @@
         "in_taxon",
         "has_biological_sequence"
       ],
-      "class_uri": "http://purl.obolibrary.org/obo/SO_0000147",
+      "class_uri": "https://w3id.org/biolink/vocab/Exon",
       "type": "ClassDefinition"
     },
     {
@@ -6976,7 +6906,7 @@
         "in_taxon",
         "has_biological_sequence"
       ],
-      "class_uri": "http://purl.obolibrary.org/obo/SO_0000316",
+      "class_uri": "https://w3id.org/biolink/vocab/CodingSequence",
       "type": "ClassDefinition"
     },
     {
@@ -7055,13 +6985,13 @@
         "in_taxon",
         "has_biological_sequence"
       ],
-      "class_uri": "http://purl.obolibrary.org/obo/SO_0000704",
+      "class_uri": "https://w3id.org/biolink/vocab/Gene",
       "type": "ClassDefinition"
     },
     {
       "name": "GeneProduct",
       "id_prefixes": [
-        "UNIPROTKB",
+        "UniProtKB",
         "GTOPDB",
         "PR"
       ],
@@ -7079,7 +7009,7 @@
         "in_taxon",
         "has_biological_sequence"
       ],
-      "class_uri": "http://example.org/UNKNOWN/WD/Q424689",
+      "class_uri": "https://w3id.org/biolink/vocab/GeneProduct",
       "union_of": [
         "Protein",
         "RNAProduct"
@@ -7116,7 +7046,7 @@
         "in_taxon",
         "has_biological_sequence"
       ],
-      "class_uri": "http://purl.obolibrary.org/obo/PR_000000001",
+      "class_uri": "https://w3id.org/biolink/vocab/Protein",
       "type": "ClassDefinition"
     },
     {
@@ -7183,7 +7113,7 @@
         "in_taxon",
         "has_biological_sequence"
       ],
-      "class_uri": "http://purl.obolibrary.org/obo/CHEBI_33697",
+      "class_uri": "https://w3id.org/biolink/vocab/RNAProduct",
       "type": "ClassDefinition"
     },
     {
@@ -7228,7 +7158,7 @@
         "in_taxon",
         "has_biological_sequence"
       ],
-      "class_uri": "http://semanticscience.org/resource/SIO_001235",
+      "class_uri": "https://w3id.org/biolink/vocab/NoncodingRNAProduct",
       "subclass_of": "SO:0000655",
       "type": "ClassDefinition"
     },
@@ -7251,7 +7181,7 @@
         "in_taxon",
         "has_biological_sequence"
       ],
-      "class_uri": "http://semanticscience.org/resource/SIO_001397",
+      "class_uri": "https://w3id.org/biolink/vocab/MicroRNA",
       "subclass_of": "SO:0000276",
       "type": "ClassDefinition"
     },
@@ -7277,7 +7207,7 @@
         "in_taxon",
         "has_biological_sequence"
       ],
-      "class_uri": "http://semanticscience.org/resource/SIO_010046",
+      "class_uri": "https://w3id.org/biolink/vocab/MacromolecularComplex",
       "subclass_of": "GO:0032991",
       "type": "ClassDefinition"
     },
@@ -7314,7 +7244,7 @@
         "category",
         "in_taxon"
       ],
-      "class_uri": "http://semanticscience.org/resource/SIO_001380",
+      "class_uri": "https://w3id.org/biolink/vocab/GeneFamily",
       "type": "ClassDefinition"
     },
     {
@@ -7333,7 +7263,7 @@
         "name",
         "category"
       ],
-      "class_uri": "http://purl.obolibrary.org/obo/GENO_0000133",
+      "class_uri": "https://w3id.org/biolink/vocab/Zygosity",
       "type": "ClassDefinition"
     },
     {
@@ -7357,7 +7287,7 @@
         "has_biological_sequence",
         "has_zygosity"
       ],
-      "class_uri": "http://purl.obolibrary.org/obo/GENO_0000536",
+      "class_uri": "https://w3id.org/biolink/vocab/Genotype",
       "type": "ClassDefinition"
     },
     {
@@ -7377,7 +7307,7 @@
         "in_taxon",
         "has_biological_sequence"
       ],
-      "class_uri": "http://purl.obolibrary.org/obo/GENO_0000871",
+      "class_uri": "https://w3id.org/biolink/vocab/Haplotype",
       "type": "ClassDefinition"
     },
     {
@@ -7435,7 +7365,7 @@
         "sequence_variant_has_biological_sequence",
         "sequence_variant_has_gene"
       ],
-      "class_uri": "http://purl.obolibrary.org/obo/GENO_0000002",
+      "class_uri": "https://w3id.org/biolink/vocab/SequenceVariant",
       "type": "ClassDefinition"
     },
     {
@@ -7452,7 +7382,7 @@
         "name",
         "category"
       ],
-      "class_uri": "http://example.org/UNKNOWN/ECTO/9000000",
+      "class_uri": "https://w3id.org/biolink/vocab/ChemicalExposure",
       "type": "ClassDefinition"
     },
     {
@@ -7474,7 +7404,7 @@
         "name",
         "category"
       ],
-      "class_uri": "http://example.org/UNKNOWN/ECTO/0000509",
+      "class_uri": "https://w3id.org/biolink/vocab/DrugExposure",
       "type": "ClassDefinition"
     },
     {
@@ -7495,7 +7425,7 @@
         "name",
         "category"
       ],
-      "class_uri": "http://purl.obolibrary.org/obo/OGMS_0000090",
+      "class_uri": "https://w3id.org/biolink/vocab/Treatment",
       "type": "ClassDefinition"
     },
     {
@@ -7560,7 +7490,7 @@
         "publications",
         "provided_by"
       ],
-      "class_uri": "http://purl.org/oban/association",
+      "class_uri": "https://w3id.org/biolink/vocab/Association",
       "type": "ClassDefinition"
     },
     {
@@ -7916,7 +7846,7 @@
         "publications",
         "provided_by"
       ],
-      "class_uri": "http://semanticscience.org/resource/SIO_000993",
+      "class_uri": "https://w3id.org/biolink/vocab/ChemicalToDiseaseOrPhenotypicFeatureAssociation",
       "defining_slots": [
         "subject",
         "object"
@@ -7946,7 +7876,7 @@
         "publications",
         "provided_by"
       ],
-      "class_uri": "http://semanticscience.org/resource/SIO_001250",
+      "class_uri": "https://w3id.org/biolink/vocab/ChemicalToPathwayAssociation",
       "defining_slots": [
         "subject",
         "object"
@@ -7976,7 +7906,7 @@
         "publications",
         "provided_by"
       ],
-      "class_uri": "http://semanticscience.org/resource/SIO_001257",
+      "class_uri": "https://w3id.org/biolink/vocab/ChemicalToGeneAssociation",
       "defining_slots": [
         "subject",
         "object"
@@ -8053,6 +7983,53 @@
         "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/MaterialSampleToDiseaseOrPhenotypicFeatureAssociation",
+      "defining_slots": [
+        "subject",
+        "object"
+      ],
+      "type": "ClassDefinition"
+    },
+    {
+      "name": "DiseaseToThingAssociation",
+      "definition_uri": "biolink:DiseaseToThingAssociation",
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "is_a": "Association",
+      "abstract": true,
+      "slots": [
+        "disease_to_thing_association_subject",
+        "relation",
+        "object",
+        "association_id",
+        "negated",
+        "association_type",
+        "qualifiers",
+        "publications",
+        "provided_by"
+      ],
+      "class_uri": "https://w3id.org/biolink/vocab/DiseaseToThingAssociation",
+      "defining_slots": [
+        "subject"
+      ],
+      "type": "ClassDefinition"
+    },
+    {
+      "name": "DiseaseToExposureAssociation",
+      "definition_uri": "biolink:DiseaseToExposureAssociation",
+      "description": "An association between an exposure event and a disease",
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "is_a": "DiseaseToThingAssociation",
+      "slots": [
+        "disease_to_exposure_association_subject",
+        "relation",
+        "disease_to_exposure_association_object",
+        "association_id",
+        "negated",
+        "association_type",
+        "qualifiers",
+        "publications",
+        "provided_by"
+      ],
+      "class_uri": "https://w3id.org/biolink/vocab/DiseaseToExposureAssociation",
       "defining_slots": [
         "subject",
         "object"
@@ -8179,7 +8156,7 @@
         "publications",
         "provided_by"
       ],
-      "class_uri": "http://purl.obolibrary.org/obo/NCIT_R100",
+      "class_uri": "https://w3id.org/biolink/vocab/DiseaseOrPhenotypicFeatureAssociationToLocationAssociation",
       "type": "ClassDefinition"
     },
     {
@@ -8201,53 +8178,6 @@
       ],
       "class_uri": "https://w3id.org/biolink/vocab/ThingToDiseaseOrPhenotypicFeatureAssociation",
       "defining_slots": [
-        "object"
-      ],
-      "type": "ClassDefinition"
-    },
-    {
-      "name": "DiseaseToThingAssociation",
-      "definition_uri": "biolink:DiseaseToThingAssociation",
-      "from_schema": "https://w3id.org/biolink/biolink-model",
-      "is_a": "Association",
-      "abstract": true,
-      "slots": [
-        "disease_to_thing_association_subject",
-        "relation",
-        "object",
-        "association_id",
-        "negated",
-        "association_type",
-        "qualifiers",
-        "publications",
-        "provided_by"
-      ],
-      "class_uri": "https://w3id.org/biolink/vocab/DiseaseToThingAssociation",
-      "defining_slots": [
-        "subject"
-      ],
-      "type": "ClassDefinition"
-    },
-    {
-      "name": "DiseaseToExposureAssociation",
-      "definition_uri": "biolink:DiseaseToExposureAssociation",
-      "description": "An association between an exposure event and a disease",
-      "from_schema": "https://w3id.org/biolink/biolink-model",
-      "is_a": "DiseaseToThingAssociation",
-      "slots": [
-        "disease_to_exposure_association_subject",
-        "relation",
-        "disease_to_exposure_association_object",
-        "association_id",
-        "negated",
-        "association_type",
-        "qualifiers",
-        "publications",
-        "provided_by"
-      ],
-      "class_uri": "https://w3id.org/biolink/vocab/DiseaseToExposureAssociation",
-      "defining_slots": [
-        "subject",
         "object"
       ],
       "type": "ClassDefinition"
@@ -8460,7 +8390,7 @@
         "severity_qualifier",
         "onset_qualifier"
       ],
-      "class_uri": "http://bio2rdf.org/wormbase_vocabulary:Gene-Phenotype-Association",
+      "class_uri": "https://w3id.org/biolink/vocab/GeneToPhenotypicFeatureAssociation",
       "defining_slots": [
         "subject",
         "object"
@@ -8496,7 +8426,7 @@
         "severity_qualifier",
         "onset_qualifier"
       ],
-      "class_uri": "http://semanticscience.org/resource/SIO_000983",
+      "class_uri": "https://w3id.org/biolink/vocab/GeneToDiseaseAssociation",
       "defining_slots": [
         "subject",
         "object"
@@ -8958,7 +8888,7 @@
         "publications",
         "provided_by"
       ],
-      "class_uri": "http://bio2rdf.org/wormbase_vocabulary:Gene-GO-Association",
+      "class_uri": "https://w3id.org/biolink/vocab/GeneToGoTermAssociation",
       "defining_slots": [
         "subject",
         "object"
@@ -8989,7 +8919,7 @@
         "genome_build",
         "phase"
       ],
-      "class_uri": "http://biohackathon.org/resource/faldo#location",
+      "class_uri": "https://w3id.org/biolink/vocab/GenomicSequenceLocalization",
       "type": "ClassDefinition"
     },
     {
@@ -9191,7 +9121,7 @@
         "name",
         "category"
       ],
-      "class_uri": "http://purl.obolibrary.org/obo/BFO_0000003",
+      "class_uri": "https://w3id.org/biolink/vocab/Occurrent",
       "type": "ClassDefinition"
     },
     {
@@ -9264,7 +9194,7 @@
         "molecular_activity_has_output",
         "molecular_activity_enabled_by"
       ],
-      "class_uri": "http://purl.obolibrary.org/obo/GO_0003674",
+      "class_uri": "https://w3id.org/biolink/vocab/MolecularActivity",
       "type": "ClassDefinition"
     },
     {
@@ -9388,7 +9318,7 @@
         "has_output",
         "enabled_by"
       ],
-      "class_uri": "http://purl.obolibrary.org/obo/GO_0008150",
+      "class_uri": "https://w3id.org/biolink/vocab/BiologicalProcess",
       "type": "ClassDefinition"
     },
     {
@@ -9418,7 +9348,7 @@
         "has_output",
         "enabled_by"
       ],
-      "class_uri": "http://purl.obolibrary.org/obo/GO_0007165",
+      "class_uri": "https://w3id.org/biolink/vocab/Pathway",
       "type": "ClassDefinition"
     },
     {
@@ -9485,7 +9415,7 @@
         "category",
         "in_taxon"
       ],
-      "class_uri": "http://purl.obolibrary.org/obo/GO_0005575",
+      "class_uri": "https://w3id.org/biolink/vocab/CellularComponent",
       "type": "ClassDefinition"
     },
     {
@@ -9512,7 +9442,7 @@
         "category",
         "in_taxon"
       ],
-      "class_uri": "http://purl.obolibrary.org/obo/GO_0005623",
+      "class_uri": "https://w3id.org/biolink/vocab/Cell",
       "type": "ClassDefinition"
     },
     {
@@ -9531,7 +9461,7 @@
         "name",
         "category"
       ],
-      "class_uri": "http://purl.obolibrary.org/obo/CLO_0000031",
+      "class_uri": "https://w3id.org/biolink/vocab/CellLine",
       "type": "ClassDefinition"
     },
     {
@@ -9569,20 +9499,19 @@
         "category",
         "in_taxon"
       ],
-      "class_uri": "http://purl.obolibrary.org/obo/UBERON_0010000",
+      "class_uri": "https://w3id.org/biolink/vocab/GrossAnatomicalStructure",
       "type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.5.0",
   "source_file": "biolink-model.yaml",
   "source_file_date": "2019-01-01-12:00",
-  "source_file_size": 118153,
+  "source_file_size": 118542,
   "generation_date": "2019-01-01 12:00",
   "type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/biolink/biolinkml/context.jsonld",
     "/Users/solbrig/git/biolink/biolinkml/includes/types.context.jsonld",
-    "/Users/solbrig/git/biolink/biolinkml/includes/mappings.context.jsonld",
     {
       "@base": "https://w3id.org/biolink/vocab/"
     }

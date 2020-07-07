@@ -7,7 +7,7 @@ The functional molecular product of a single gene. Gene products are either prot
 URI: [biolink:GeneProduct](https://w3id.org/biolink/vocab/GeneProduct)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Protein],[OrganismTaxon],[GeneToGeneProductRelationship],[GeneProductIsoform],[GeneToGeneProductRelationship]-%20object%201..1>[GeneProduct&#124;name(i):symbol_type;has_biological_sequence(i):biological_sequence%20%3F;id(i):identifier_type;category(i):iri_type%20%2B],[GeneProduct]^-[Protein],[GeneProduct]^-[GeneProductIsoform],[GeneProduct]^-[RNAProduct],[GeneOrGeneProduct]^-[GeneProduct],[GeneOrGeneProduct],[Gene],[RNAProduct])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Protein],[OrganismTaxon],[GeneToGeneProductRelationship],[GeneProductIsoform],[GeneToGeneProductRelationship]-%20object%201..1>[GeneProduct&#124;name(i):symbol_type;has_biological_sequence(i):biological_sequence%20%3F;id(i):string;category(i):iri_type%20%2B],[GeneProduct]^-[Protein],[GeneProduct]^-[GeneProductIsoform],[GeneProduct]^-[RNAProduct],[GeneOrGeneProduct]^-[GeneProduct],[GeneOrGeneProduct],[Gene],[RNAProduct])
 
 ## Parents
 
@@ -38,7 +38,7 @@ URI: [biolink:GeneProduct](https://w3id.org/biolink/vocab/GeneProduct)
     * range: [BiologicalSequence](types/BiologicalSequence.md)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
-    * range: [IdentifierType](types/IdentifierType.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)
  * [macromolecular machine➞name](macromolecular_machine_name.md)  <sub>REQ</sub>
     * range: [SymbolType](types/SymbolType.md)

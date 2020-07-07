@@ -7,7 +7,7 @@ A union of gene, gene product, and macromolecular complex. These are the basic u
 URI: [biolink:MacromolecularMachine](https://w3id.org/biolink/vocab/MacromolecularMachine)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon],[MolecularActivity],[ChemicalToChemicalDerivationAssociation]-%20change%20is%20catalyzed%20by(i)%200..*>[MacromolecularMachine&#124;name:symbol_type;has_biological_sequence(i):biological_sequence%20%3F;id(i):identifier_type;category(i):iri_type%20%2B],[ChemicalToChemicalDerivationAssociation]-%20change%20is%20catalyzed%20by%200..*>[MacromolecularMachine],[FunctionalAssociation]-%20subject%201..1>[MacromolecularMachine],[MolecularActivity]-%20enabled%20by%200..*>[MacromolecularMachine],[MacromolecularMachine]^-[MacromolecularComplex],[MacromolecularMachine]^-[GeneOrGeneProduct],[GenomicEntity]^-[MacromolecularMachine],[MacromolecularComplex],[GenomicEntity],[GeneOrGeneProduct],[FunctionalAssociation],[ChemicalToChemicalDerivationAssociation],[Association])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon],[MolecularActivity],[ChemicalToChemicalDerivationAssociation]-%20change%20is%20catalyzed%20by(i)%200..*>[MacromolecularMachine&#124;name:symbol_type;has_biological_sequence(i):biological_sequence%20%3F;id(i):string;category(i):iri_type%20%2B],[ChemicalToChemicalDerivationAssociation]-%20change%20is%20catalyzed%20by%200..*>[MacromolecularMachine],[FunctionalAssociation]-%20subject%201..1>[MacromolecularMachine],[MolecularActivity]-%20enabled%20by%200..*>[MacromolecularMachine],[MacromolecularMachine]^-[MacromolecularComplex],[MacromolecularMachine]^-[GeneOrGeneProduct],[GenomicEntity]^-[MacromolecularMachine],[MacromolecularComplex],[GenomicEntity],[GeneOrGeneProduct],[FunctionalAssociation],[ChemicalToChemicalDerivationAssociation],[Association])
 
 ## Parents
 
@@ -44,5 +44,5 @@ URI: [biolink:MacromolecularMachine](https://w3id.org/biolink/vocab/Macromolecul
     * range: [BiologicalSequence](types/BiologicalSequence.md)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
-    * range: [IdentifierType](types/IdentifierType.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)

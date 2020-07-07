@@ -39,7 +39,7 @@
 <polygon fill='white' points='216,-1 216,-61 362,-61 362,-1 216,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='289' y='-49.8'>Case</text>
 <polyline fill='none' points='216,-46 362,-46 ' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='289' y='-34.8'>id(i):identifier_type</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='289' y='-34.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='289' y='-19.8'>name(i):label_type</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='289' y='-4.8'>category(i):iri_type +</text>
 </g><g class='edge' id='edge2'><title>IndividualOrganism-&gt;Case</title>

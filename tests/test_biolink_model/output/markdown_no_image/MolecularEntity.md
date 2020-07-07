@@ -7,7 +7,7 @@ A gene, gene product, small molecule or macromolecule (including protein complex
 URI: [biolink:MolecularEntity](https://w3id.org/biolink/vocab/MolecularEntity)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[ThingWithTaxon],[PhysicalEntity],[PairwiseInteractionAssociation],[OrganismTaxon],[GeneToGoTermAssociation]-%20subject%201..1>[MolecularEntity&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],[PairwiseInteractionAssociation]-%20object%201..1>[MolecularEntity],[PairwiseInteractionAssociation]-%20subject%201..1>[MolecularEntity],[MolecularEntity]uses%20-.->[ThingWithTaxon],[MolecularEntity]uses%20-.->[PhysicalEntity],[MolecularEntity]^-[GenomicEntity],[MolecularEntity]^-[GeneFamily],[MolecularEntity]^-[ChemicalSubstance],[BiologicalEntity]^-[MolecularEntity],[GenomicEntity],[GeneToGoTermAssociation],[GeneFamily],[DiseaseOrPhenotypicFeature],[ChemicalSubstance],[BiologicalEntity])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[ThingWithTaxon],[PhysicalEntity],[PairwiseInteractionAssociation],[OrganismTaxon],[GeneToGoTermAssociation]-%20subject%201..1>[MolecularEntity&#124;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[PairwiseInteractionAssociation]-%20object%201..1>[MolecularEntity],[PairwiseInteractionAssociation]-%20subject%201..1>[MolecularEntity],[MolecularEntity]uses%20-.->[ThingWithTaxon],[MolecularEntity]uses%20-.->[PhysicalEntity],[MolecularEntity]^-[GenomicEntity],[MolecularEntity]^-[GeneFamily],[MolecularEntity]^-[ChemicalSubstance],[BiologicalEntity]^-[MolecularEntity],[GenomicEntity],[GeneToGoTermAssociation],[GeneFamily],[DiseaseOrPhenotypicFeature],[ChemicalSubstance],[BiologicalEntity])
 
 ## Parents
 
@@ -39,7 +39,6 @@ URI: [biolink:MolecularEntity](https://w3id.org/biolink/vocab/MolecularEntity)
  *  **[MolecularEntity](MolecularEntity.md)** *[affects synthesis of](affects_synthesis_of.md)*  <sub>0..*</sub>  **[MolecularEntity](MolecularEntity.md)**
  *  **[MolecularEntity](MolecularEntity.md)** *[affects transport of](affects_transport_of.md)*  <sub>0..*</sub>  **[MolecularEntity](MolecularEntity.md)**
  *  **[MolecularEntity](MolecularEntity.md)** *[affects uptake of](affects_uptake_of.md)*  <sub>0..*</sub>  **[MolecularEntity](MolecularEntity.md)**
- *  **[DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md)** *[correlated with](correlated_with.md)*  <sub>0..*</sub>  **[MolecularEntity](MolecularEntity.md)**
  *  **[MolecularEntity](MolecularEntity.md)** *[decreases abundance of](decreases_abundance_of.md)*  <sub>0..*</sub>  **[MolecularEntity](MolecularEntity.md)**
  *  **[MolecularEntity](MolecularEntity.md)** *[decreases activity of](decreases_activity_of.md)*  <sub>0..*</sub>  **[MolecularEntity](MolecularEntity.md)**
  *  **[MolecularEntity](MolecularEntity.md)** *[decreases degradation of](decreases_degradation_of.md)*  <sub>0..*</sub>  **[MolecularEntity](MolecularEntity.md)**
@@ -86,7 +85,7 @@ URI: [biolink:MolecularEntity](https://w3id.org/biolink/vocab/MolecularEntity)
     * in subsets: (translator_minimal)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
-    * range: [IdentifierType](types/IdentifierType.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)
  * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing

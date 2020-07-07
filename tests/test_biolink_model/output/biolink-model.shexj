@@ -14,11 +14,6 @@
       },
       {
          "type": "NodeConstraint",
-         "id": "https://w3id.org/biolink/vocab/IdentifierType",
-         "nodeKind": "iri"
-      },
-      {
-         "type": "NodeConstraint",
          "id": "https://w3id.org/biolink/vocab/IriType",
          "nodeKind": "iri"
       },
@@ -185,7 +180,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.obolibrary.org/obo/BFO_0000003"
+                              "https://w3id.org/biolink/vocab/Occurrent"
                            ]
                         },
                         "min": 0
@@ -227,7 +222,7 @@
                               "valueExpr": {
                                  "type": "NodeConstraint",
                                  "values": [
-                                    "http://example.org/UNKNOWN/WD/Q35120"
+                                    "https://w3id.org/biolink/vocab/NamedThing"
                                  ]
                               },
                               "min": 0
@@ -272,7 +267,7 @@
                               "valueExpr": {
                                  "type": "NodeConstraint",
                                  "values": [
-                                    "http://example.org/UNKNOWN/WD/Q7239"
+                                    "https://w3id.org/biolink/vocab/OrganismalEntity"
                                  ]
                               },
                               "min": 0
@@ -303,7 +298,7 @@
                            },
                            {
                               "type": "TripleConstraint",
-                              "predicate": "http://purl.obolibrary.org/obo/RO_0002162",
+                              "predicate": "https://w3id.org/biolink/vocab/in_taxon",
                               "valueExpr": "https://w3id.org/biolink/vocab/OrganismTaxon",
                               "min": 0,
                               "max": -1
@@ -316,7 +311,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://semanticscience.org/resource/SIO_010046"
+                              "https://w3id.org/biolink/vocab/AnatomicalEntity"
                            ]
                         },
                         "min": 1
@@ -350,7 +345,7 @@
                               "valueExpr": {
                                  "type": "NodeConstraint",
                                  "values": [
-                                    "http://purl.org/oban/association"
+                                    "https://w3id.org/biolink/vocab/Association"
                                  ]
                               },
                               "min": 0
@@ -553,7 +548,7 @@
                            },
                            {
                               "type": "TripleConstraint",
-                              "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                              "predicate": "https://w3id.org/biolink/vocab/association_type",
                               "valueExpr": "https://w3id.org/biolink/vocab/OntologyClass",
                               "min": 0,
                               "max": 1
@@ -577,7 +572,7 @@
                               "predicate": "http://purl.org/pav/providedBy",
                               "valueExpr": "https://w3id.org/biolink/vocab/Provider",
                               "min": 0,
-                              "max": 1
+                              "max": -1
                            }
                         ]
                      },
@@ -587,7 +582,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.org/oban/association"
+                              "https://w3id.org/biolink/vocab/Association"
                            ]
                         },
                         "min": 1
@@ -705,7 +700,7 @@
                            },
                            {
                               "type": "TripleConstraint",
-                              "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+                              "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
                               "valueExpr": "https://w3id.org/biolink/vocab/IriType",
                               "min": 1,
                               "max": -1
@@ -763,7 +758,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://example.org/UNKNOWN/WD/Q35120"
+                              "https://w3id.org/biolink/vocab/NamedThing"
                            ]
                         },
                         "min": 0
@@ -776,7 +771,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://example.org/UNKNOWN/WD/Q28845870"
+                        "https://w3id.org/biolink/vocab/BiologicalEntity"
                      ]
                   },
                   "min": 1
@@ -817,7 +812,7 @@
                               "valueExpr": {
                                  "type": "NodeConstraint",
                                  "values": [
-                                    "http://purl.obolibrary.org/obo/BFO_0000003"
+                                    "https://w3id.org/biolink/vocab/Occurrent"
                                  ]
                               },
                               "min": 0
@@ -830,7 +825,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.obolibrary.org/obo/GO_0008150"
+                              "https://w3id.org/biolink/vocab/BiologicalProcess"
                            ]
                         },
                         "min": 1
@@ -863,7 +858,7 @@
                               "valueExpr": {
                                  "type": "NodeConstraint",
                                  "values": [
-                                    "http://example.org/UNKNOWN/WD/Q28845870"
+                                    "https://w3id.org/biolink/vocab/BiologicalEntity"
                                  ]
                               },
                               "min": 0
@@ -875,28 +870,28 @@
                               "valueExpr": {
                                  "type": "NodeConstraint",
                                  "values": [
-                                    "http://purl.obolibrary.org/obo/BFO_0000003"
+                                    "https://w3id.org/biolink/vocab/Occurrent"
                                  ]
                               },
                               "min": 0
                            },
                            {
                               "type": "TripleConstraint",
-                              "predicate": "http://purl.obolibrary.org/obo/RO_0002233",
+                              "predicate": "https://w3id.org/biolink/vocab/has_input",
                               "valueExpr": "https://w3id.org/biolink/vocab/NamedThing",
                               "min": 0,
                               "max": -1
                            },
                            {
                               "type": "TripleConstraint",
-                              "predicate": "http://purl.obolibrary.org/obo/RO_0002234",
+                              "predicate": "https://w3id.org/biolink/vocab/has_output",
                               "valueExpr": "https://w3id.org/biolink/vocab/NamedThing",
                               "min": 0,
                               "max": -1
                            },
                            {
                               "type": "TripleConstraint",
-                              "predicate": "http://purl.obolibrary.org/obo/RO_0002333",
+                              "predicate": "https://w3id.org/biolink/vocab/enabled_by",
                               "valueExpr": "https://w3id.org/biolink/vocab/BiologicalProcessOrActivity",
                               "min": 0,
                               "max": -1
@@ -985,7 +980,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://semanticscience.org/resource/SIO_010004"
+                              "https://w3id.org/biolink/vocab/ChemicalSubstance"
                            ]
                         },
                         "min": 0
@@ -1024,7 +1019,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://semanticscience.org/resource/SIO_010000"
+                              "https://w3id.org/biolink/vocab/IndividualOrganism"
                            ]
                         },
                         "min": 0
@@ -1063,7 +1058,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.org/oban/association"
+                              "https://w3id.org/biolink/vocab/Association"
                            ]
                         },
                         "min": 0
@@ -1154,7 +1149,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.org/oban/association"
+                              "https://w3id.org/biolink/vocab/Association"
                            ]
                         },
                         "min": 0
@@ -1200,7 +1195,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://semanticscience.org/resource/SIO_010046"
+                              "https://w3id.org/biolink/vocab/AnatomicalEntity"
                            ]
                         },
                         "min": 0
@@ -1213,7 +1208,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://purl.obolibrary.org/obo/GO_0005623"
+                        "https://w3id.org/biolink/vocab/Cell"
                      ]
                   },
                   "min": 1
@@ -1239,7 +1234,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://example.org/UNKNOWN/WD/Q7239"
+                              "https://w3id.org/biolink/vocab/OrganismalEntity"
                            ]
                         },
                         "min": 0
@@ -1252,7 +1247,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://purl.obolibrary.org/obo/CLO_0000031"
+                        "https://w3id.org/biolink/vocab/CellLine"
                      ]
                   },
                   "min": 1
@@ -1278,7 +1273,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.org/oban/association"
+                              "https://w3id.org/biolink/vocab/Association"
                            ]
                         },
                         "min": 0
@@ -1348,7 +1343,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.org/oban/association"
+                              "https://w3id.org/biolink/vocab/Association"
                            ]
                         },
                         "min": 0
@@ -1394,7 +1389,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://semanticscience.org/resource/SIO_010046"
+                              "https://w3id.org/biolink/vocab/AnatomicalEntity"
                            ]
                         },
                         "min": 0
@@ -1407,7 +1402,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://purl.obolibrary.org/obo/GO_0005575"
+                        "https://w3id.org/biolink/vocab/CellularComponent"
                      ]
                   },
                   "min": 1
@@ -1436,7 +1431,7 @@
                               "valueExpr": {
                                  "type": "NodeConstraint",
                                  "values": [
-                                    "http://semanticscience.org/resource/SIO_000955"
+                                    "https://w3id.org/biolink/vocab/ExposureEvent"
                                  ]
                               },
                               "min": 0
@@ -1449,7 +1444,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://example.org/UNKNOWN/ECTO/9000000"
+                              "https://w3id.org/biolink/vocab/ChemicalExposure"
                            ]
                         },
                         "min": 1
@@ -1481,7 +1476,7 @@
                               "valueExpr": {
                                  "type": "NodeConstraint",
                                  "values": [
-                                    "http://semanticscience.org/resource/SIO_010341"
+                                    "https://w3id.org/biolink/vocab/MolecularEntity"
                                  ]
                               },
                               "min": 0
@@ -1494,7 +1489,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://semanticscience.org/resource/SIO_010004"
+                              "https://w3id.org/biolink/vocab/ChemicalSubstance"
                            ]
                         },
                         "min": 1
@@ -1528,7 +1523,7 @@
                               "valueExpr": {
                                  "type": "NodeConstraint",
                                  "values": [
-                                    "http://purl.org/oban/association"
+                                    "https://w3id.org/biolink/vocab/Association"
                                  ]
                               },
                               "min": 0
@@ -1656,7 +1651,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.org/oban/association"
+                              "https://w3id.org/biolink/vocab/Association"
                            ]
                         },
                         "min": 0
@@ -1700,7 +1695,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://semanticscience.org/resource/SIO_000993"
+                        "https://w3id.org/biolink/vocab/ChemicalToDiseaseOrPhenotypicFeatureAssociation"
                      ]
                   },
                   "min": 1
@@ -1726,7 +1721,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.org/oban/association"
+                              "https://w3id.org/biolink/vocab/Association"
                            ]
                         },
                         "min": 0
@@ -1758,7 +1753,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://semanticscience.org/resource/SIO_001257"
+                        "https://w3id.org/biolink/vocab/ChemicalToGeneAssociation"
                      ]
                   },
                   "min": 1
@@ -1784,7 +1779,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.org/oban/association"
+                              "https://w3id.org/biolink/vocab/Association"
                            ]
                         },
                         "min": 0
@@ -1816,7 +1811,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://semanticscience.org/resource/SIO_001250"
+                        "https://w3id.org/biolink/vocab/ChemicalToPathwayAssociation"
                      ]
                   },
                   "min": 1
@@ -1842,7 +1837,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.org/oban/association"
+                              "https://w3id.org/biolink/vocab/Association"
                            ]
                         },
                         "min": 0
@@ -1891,7 +1886,7 @@
                               "valueExpr": {
                                  "type": "NodeConstraint",
                                  "values": [
-                                    "http://example.org/UNKNOWN/WD/Q35120"
+                                    "https://w3id.org/biolink/vocab/NamedThing"
                                  ]
                               },
                               "min": 0
@@ -2051,7 +2046,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.obolibrary.org/obo/SO_0000110"
+                              "https://w3id.org/biolink/vocab/GenomicEntity"
                            ]
                         },
                         "min": 0
@@ -2064,7 +2059,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://purl.obolibrary.org/obo/SO_0000316"
+                        "https://w3id.org/biolink/vocab/CodingSequence"
                      ]
                   },
                   "min": 1
@@ -2090,7 +2085,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.obolibrary.org/obo/IAO_0000030"
+                              "https://w3id.org/biolink/vocab/InformationContentEntity"
                            ]
                         },
                         "min": 0
@@ -2103,7 +2098,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://purl.obolibrary.org/obo/CIO_0000028"
+                        "https://w3id.org/biolink/vocab/ConfidenceLevel"
                      ]
                   },
                   "min": 1
@@ -2132,7 +2127,7 @@
                               "valueExpr": {
                                  "type": "NodeConstraint",
                                  "values": [
-                                    "http://example.org/UNKNOWN/WD/Q35120"
+                                    "https://w3id.org/biolink/vocab/NamedThing"
                                  ]
                               },
                               "min": 0
@@ -2145,7 +2140,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.obolibrary.org/obo/EFO_0004095"
+                              "https://w3id.org/biolink/vocab/DataFile"
                            ]
                         },
                         "min": 1
@@ -2177,7 +2172,7 @@
                               "valueExpr": {
                                  "type": "NodeConstraint",
                                  "values": [
-                                    "http://example.org/UNKNOWN/WD/Q35120"
+                                    "https://w3id.org/biolink/vocab/NamedThing"
                                  ]
                               },
                               "min": 0
@@ -2190,7 +2185,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.obolibrary.org/obo/IAO_0000100"
+                              "https://w3id.org/biolink/vocab/DataSet"
                            ]
                         },
                         "min": 1
@@ -2226,7 +2221,7 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "http://purl.org/dc/terms/source",
+                        "predicate": "https://w3id.org/biolink/vocab/source_web_page",
                         "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
                         "min": 0,
                         "max": 1
@@ -2268,42 +2263,42 @@
                               "valueExpr": {
                                  "type": "NodeConstraint",
                                  "values": [
-                                    "http://purl.obolibrary.org/obo/IAO_0000100"
+                                    "https://w3id.org/biolink/vocab/DataSet"
                                  ]
                               },
                               "min": 0
                            },
                            {
                               "type": "TripleConstraint",
-                              "predicate": "http://example.org/UNKNOWN/dct/title",
+                              "predicate": "https://w3id.org/biolink/vocab/title",
                               "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
                               "min": 0,
                               "max": 1
                            },
                            {
                               "type": "TripleConstraint",
-                              "predicate": "http://purl.org/dc/terms/source",
+                              "predicate": "https://w3id.org/biolink/vocab/source_data_file",
                               "valueExpr": "https://w3id.org/biolink/vocab/DataFile",
                               "min": 0,
                               "max": 1
                            },
                            {
                               "type": "TripleConstraint",
-                              "predicate": "http://example.org/UNKNOWN/dct/isVersionOf",
+                              "predicate": "https://w3id.org/biolink/vocab/versionOf",
                               "valueExpr": "https://w3id.org/biolink/vocab/DataSet",
                               "min": 0,
                               "max": 1
                            },
                            {
                               "type": "TripleConstraint",
-                              "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                              "predicate": "https://w3id.org/biolink/vocab/type",
                               "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
                               "min": 0,
                               "max": 1
                            },
                            {
                               "type": "TripleConstraint",
-                              "predicate": "http://rdfs.org/ns/void#Dataset",
+                              "predicate": "https://w3id.org/biolink/vocab/distribution",
                               "valueExpr": "https://w3id.org/biolink/vocab/DistributionLevel",
                               "min": 0,
                               "max": 1
@@ -2346,7 +2341,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://example.org/UNKNOWN/WD/Q35120"
+                              "https://w3id.org/biolink/vocab/NamedThing"
                            ]
                         },
                         "min": 0
@@ -2398,7 +2393,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://purl.obolibrary.org/obo/MONDO_0000001"
+                        "https://w3id.org/biolink/vocab/Disease"
                      ]
                   },
                   "min": 1
@@ -2427,7 +2422,7 @@
                               "valueExpr": {
                                  "type": "NodeConstraint",
                                  "values": [
-                                    "http://example.org/UNKNOWN/WD/Q28845870"
+                                    "https://w3id.org/biolink/vocab/BiologicalEntity"
                                  ]
                               },
                               "min": 0
@@ -2446,7 +2441,7 @@
                            },
                            {
                               "type": "TripleConstraint",
-                              "predicate": "http://purl.obolibrary.org/obo/RO_0002162",
+                              "predicate": "https://w3id.org/biolink/vocab/in_taxon",
                               "valueExpr": "https://w3id.org/biolink/vocab/OrganismTaxon",
                               "min": 0,
                               "max": -1
@@ -2509,7 +2504,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://purl.obolibrary.org/obo/NCIT_R100"
+                        "https://w3id.org/biolink/vocab/DiseaseOrPhenotypicFeatureAssociationToLocationAssociation"
                      ]
                   },
                   "min": 1
@@ -2538,7 +2533,7 @@
                               "valueExpr": {
                                  "type": "NodeConstraint",
                                  "values": [
-                                    "http://purl.org/oban/association"
+                                    "https://w3id.org/biolink/vocab/Association"
                                  ]
                               },
                               "min": 0
@@ -2640,7 +2635,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.org/oban/association"
+                              "https://w3id.org/biolink/vocab/Association"
                            ]
                         },
                         "min": 0
@@ -2734,7 +2729,7 @@
                               "valueExpr": {
                                  "type": "NodeConstraint",
                                  "values": [
-                                    "http://purl.org/oban/association"
+                                    "https://w3id.org/biolink/vocab/Association"
                                  ]
                               },
                               "min": 0
@@ -2790,7 +2785,7 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "http://example.org/UNKNOWN/dct/downloadURL",
+                        "predicate": "https://w3id.org/biolink/vocab/downloadURL",
                         "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
                         "min": 0,
                         "max": 1
@@ -2829,7 +2824,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://semanticscience.org/resource/SIO_010004"
+                              "https://w3id.org/biolink/vocab/ChemicalSubstance"
                            ]
                         },
                         "min": 0
@@ -2842,7 +2837,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://example.org/UNKNOWN/WD/Q12140"
+                        "https://w3id.org/biolink/vocab/Drug"
                      ]
                   },
                   "min": 1
@@ -2868,7 +2863,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://example.org/UNKNOWN/ECTO/9000000"
+                              "https://w3id.org/biolink/vocab/ChemicalExposure"
                            ]
                         },
                         "min": 0
@@ -2881,7 +2876,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://example.org/UNKNOWN/ECTO/0000509"
+                        "https://w3id.org/biolink/vocab/DrugExposure"
                      ]
                   },
                   "min": 1
@@ -3005,7 +3000,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.org/oban/association"
+                              "https://w3id.org/biolink/vocab/Association"
                            ]
                         },
                         "min": 0
@@ -3142,7 +3137,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.obolibrary.org/obo/BFO_0000003"
+                              "https://w3id.org/biolink/vocab/Occurrent"
                            ]
                         },
                         "min": 0
@@ -3181,7 +3176,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.obolibrary.org/obo/IAO_0000030"
+                              "https://w3id.org/biolink/vocab/InformationContentEntity"
                            ]
                         },
                         "min": 0
@@ -3194,7 +3189,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://purl.obolibrary.org/obo/ECO_0000000"
+                        "https://w3id.org/biolink/vocab/EvidenceType"
                      ]
                   },
                   "min": 1
@@ -3220,7 +3215,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.obolibrary.org/obo/SO_0000110"
+                              "https://w3id.org/biolink/vocab/GenomicEntity"
                            ]
                         },
                         "min": 0
@@ -3233,7 +3228,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://purl.obolibrary.org/obo/SO_0000147"
+                        "https://w3id.org/biolink/vocab/Exon"
                      ]
                   },
                   "min": 1
@@ -3315,7 +3310,7 @@
                               "valueExpr": {
                                  "type": "NodeConstraint",
                                  "values": [
-                                    "http://example.org/UNKNOWN/WD/Q28845870"
+                                    "https://w3id.org/biolink/vocab/BiologicalEntity"
                                  ]
                               },
                               "min": 0
@@ -3328,7 +3323,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://semanticscience.org/resource/SIO_000955"
+                              "https://w3id.org/biolink/vocab/ExposureEvent"
                            ]
                         },
                         "min": 1
@@ -3358,7 +3353,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.org/oban/association"
+                              "https://w3id.org/biolink/vocab/Association"
                            ]
                         },
                         "min": 0
@@ -3588,7 +3583,7 @@
                               "valueExpr": {
                                  "type": "NodeConstraint",
                                  "values": [
-                                    "http://purl.org/oban/association"
+                                    "https://w3id.org/biolink/vocab/Association"
                                  ]
                               },
                               "min": 0
@@ -3660,7 +3655,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://purl.obolibrary.org/obo/SO_0000704"
+                        "https://w3id.org/biolink/vocab/Gene"
                      ]
                   },
                   "min": 1
@@ -3686,7 +3681,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://semanticscience.org/resource/SIO_000983"
+                              "https://w3id.org/biolink/vocab/GeneToDiseaseAssociation"
                            ]
                         },
                         "min": 0
@@ -3756,7 +3751,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://semanticscience.org/resource/SIO_010341"
+                              "https://w3id.org/biolink/vocab/MolecularEntity"
                            ]
                         },
                         "min": 0
@@ -3781,7 +3776,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://semanticscience.org/resource/SIO_001380"
+                        "https://w3id.org/biolink/vocab/GeneFamily"
                      ]
                   },
                   "min": 1
@@ -3835,7 +3830,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://semanticscience.org/resource/SIO_000983"
+                              "https://w3id.org/biolink/vocab/GeneToDiseaseAssociation"
                            ]
                         },
                         "min": 0
@@ -3989,7 +3984,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://example.org/UNKNOWN/WD/Q424689"
+                              "https://w3id.org/biolink/vocab/GeneProduct"
                            ]
                         },
                         "min": 1
@@ -4020,7 +4015,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://example.org/UNKNOWN/WD/Q424689"
+                              "https://w3id.org/biolink/vocab/GeneProduct"
                            ]
                         },
                         "min": 0
@@ -4059,7 +4054,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.org/oban/association"
+                              "https://w3id.org/biolink/vocab/Association"
                            ]
                         },
                         "min": 0
@@ -4122,7 +4117,7 @@
                               "valueExpr": {
                                  "type": "NodeConstraint",
                                  "values": [
-                                    "http://purl.org/oban/association"
+                                    "https://w3id.org/biolink/vocab/Association"
                                  ]
                               },
                               "min": 0
@@ -4187,7 +4182,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://semanticscience.org/resource/SIO_000983"
+                              "https://w3id.org/biolink/vocab/GeneToDiseaseAssociation"
                            ]
                         },
                         "min": 1
@@ -4217,7 +4212,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.org/oban/association"
+                              "https://w3id.org/biolink/vocab/Association"
                            ]
                         },
                         "min": 0
@@ -4299,7 +4294,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.org/oban/association"
+                              "https://w3id.org/biolink/vocab/Association"
                            ]
                         },
                         "min": 0
@@ -4485,7 +4480,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://bio2rdf.org/wormbase_vocabulary:Gene-GO-Association"
+                        "https://w3id.org/biolink/vocab/GeneToGoTermAssociation"
                      ]
                   },
                   "min": 1
@@ -4511,7 +4506,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.org/oban/association"
+                              "https://w3id.org/biolink/vocab/Association"
                            ]
                         },
                         "min": 0
@@ -4583,7 +4578,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://bio2rdf.org/wormbase_vocabulary:Gene-Phenotype-Association"
+                        "https://w3id.org/biolink/vocab/GeneToPhenotypicFeatureAssociation"
                      ]
                   },
                   "min": 1
@@ -4609,7 +4604,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.org/oban/association"
+                              "https://w3id.org/biolink/vocab/Association"
                            ]
                         },
                         "min": 0
@@ -4655,7 +4650,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.obolibrary.org/obo/SO_0000110"
+                              "https://w3id.org/biolink/vocab/GenomicEntity"
                            ]
                         },
                         "min": 0
@@ -4668,7 +4663,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://purl.obolibrary.org/obo/SO_0001026"
+                        "https://w3id.org/biolink/vocab/Genome"
                      ]
                   },
                   "min": 1
@@ -4697,7 +4692,7 @@
                               "valueExpr": {
                                  "type": "NodeConstraint",
                                  "values": [
-                                    "http://semanticscience.org/resource/SIO_010341"
+                                    "https://w3id.org/biolink/vocab/MolecularEntity"
                                  ]
                               },
                               "min": 0
@@ -4717,7 +4712,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.obolibrary.org/obo/SO_0000110"
+                              "https://w3id.org/biolink/vocab/GenomicEntity"
                            ]
                         },
                         "min": 1
@@ -4753,7 +4748,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.org/oban/association"
+                              "https://w3id.org/biolink/vocab/Association"
                            ]
                         },
                         "min": 0
@@ -4808,7 +4803,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://biohackathon.org/resource/faldo#location"
+                        "https://w3id.org/biolink/vocab/GenomicSequenceLocalization"
                      ]
                   },
                   "min": 1
@@ -4834,7 +4829,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.obolibrary.org/obo/SO_0000110"
+                              "https://w3id.org/biolink/vocab/GenomicEntity"
                            ]
                         },
                         "min": 0
@@ -4854,7 +4849,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://purl.obolibrary.org/obo/GENO_0000536"
+                        "https://w3id.org/biolink/vocab/Genotype"
                      ]
                   },
                   "min": 1
@@ -4880,7 +4875,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.org/oban/association"
+                              "https://w3id.org/biolink/vocab/Association"
                            ]
                         },
                         "min": 0
@@ -4940,7 +4935,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.org/oban/association"
+                              "https://w3id.org/biolink/vocab/Association"
                            ]
                         },
                         "min": 0
@@ -5000,7 +4995,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.org/oban/association"
+                              "https://w3id.org/biolink/vocab/Association"
                            ]
                         },
                         "min": 0
@@ -5105,7 +5100,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.org/oban/association"
+                              "https://w3id.org/biolink/vocab/Association"
                            ]
                         },
                         "min": 0
@@ -5151,7 +5146,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.org/oban/association"
+                              "https://w3id.org/biolink/vocab/Association"
                            ]
                         },
                         "min": 0
@@ -5260,14 +5255,14 @@
                            },
                            {
                               "type": "TripleConstraint",
-                              "predicate": "http://www.w3.org/2003/01/geo/wgs84_poslat",
+                              "predicate": "https://w3id.org/biolink/vocab/latitude",
                               "valueExpr": "https://w3id.org/biolink/biolinkml/type/Float",
                               "min": 0,
                               "max": 1
                            },
                            {
                               "type": "TripleConstraint",
-                              "predicate": "http://www.w3.org/2003/01/geo/wgs84_poslong",
+                              "predicate": "https://w3id.org/biolink/vocab/longitude",
                               "valueExpr": "https://w3id.org/biolink/biolinkml/type/Float",
                               "min": 0,
                               "max": 1
@@ -5355,7 +5350,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://semanticscience.org/resource/SIO_010046"
+                              "https://w3id.org/biolink/vocab/AnatomicalEntity"
                            ]
                         },
                         "min": 0
@@ -5368,7 +5363,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://purl.obolibrary.org/obo/UBERON_0010000"
+                        "https://w3id.org/biolink/vocab/GrossAnatomicalStructure"
                      ]
                   },
                   "min": 1
@@ -5394,7 +5389,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.obolibrary.org/obo/SO_0000110"
+                              "https://w3id.org/biolink/vocab/GenomicEntity"
                            ]
                         },
                         "min": 0
@@ -5407,7 +5402,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://purl.obolibrary.org/obo/GENO_0000871"
+                        "https://w3id.org/biolink/vocab/Haplotype"
                      ]
                   },
                   "min": 1
@@ -5436,7 +5431,7 @@
                               "valueExpr": {
                                  "type": "NodeConstraint",
                                  "values": [
-                                    "http://example.org/UNKNOWN/WD/Q7239"
+                                    "https://w3id.org/biolink/vocab/OrganismalEntity"
                                  ]
                               },
                               "min": 0
@@ -5455,7 +5450,7 @@
                            },
                            {
                               "type": "TripleConstraint",
-                              "predicate": "http://purl.obolibrary.org/obo/RO_0002162",
+                              "predicate": "https://w3id.org/biolink/vocab/in_taxon",
                               "valueExpr": "https://w3id.org/biolink/vocab/OrganismTaxon",
                               "min": 0,
                               "max": -1
@@ -5468,7 +5463,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://semanticscience.org/resource/SIO_010000"
+                              "https://w3id.org/biolink/vocab/IndividualOrganism"
                            ]
                         },
                         "min": 1
@@ -5506,7 +5501,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://example.org/UNKNOWN/WD/Q35120"
+                              "https://w3id.org/biolink/vocab/NamedThing"
                            ]
                         },
                         "min": 0
@@ -5519,7 +5514,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://purl.obolibrary.org/obo/IAO_0000030"
+                        "https://w3id.org/biolink/vocab/InformationContentEntity"
                      ]
                   },
                   "min": 1
@@ -5545,7 +5540,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://example.org/UNKNOWN/WD/Q7239"
+                              "https://w3id.org/biolink/vocab/OrganismalEntity"
                            ]
                         },
                         "min": 0
@@ -5564,7 +5559,7 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "http://purl.obolibrary.org/obo/RO_0002162",
+                        "predicate": "https://w3id.org/biolink/vocab/in_taxon",
                         "valueExpr": "https://w3id.org/biolink/vocab/OrganismTaxon",
                         "min": 0,
                         "max": -1
@@ -5616,7 +5611,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://semanticscience.org/resource/SIO_010046"
+                        "https://w3id.org/biolink/vocab/MacromolecularComplex"
                      ]
                   },
                   "min": 1
@@ -5645,7 +5640,7 @@
                               "valueExpr": {
                                  "type": "NodeConstraint",
                                  "values": [
-                                    "http://purl.obolibrary.org/obo/SO_0000110"
+                                    "https://w3id.org/biolink/vocab/GenomicEntity"
                                  ]
                               },
                               "min": 0
@@ -5833,7 +5828,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://example.org/UNKNOWN/WD/Q35120"
+                              "https://w3id.org/biolink/vocab/NamedThing"
                            ]
                         },
                         "min": 0
@@ -5903,7 +5898,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.org/oban/association"
+                              "https://w3id.org/biolink/vocab/Association"
                            ]
                         },
                         "min": 0
@@ -5963,7 +5958,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.org/oban/association"
+                              "https://w3id.org/biolink/vocab/Association"
                            ]
                         },
                         "min": 0
@@ -6026,7 +6021,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.org/oban/association"
+                              "https://w3id.org/biolink/vocab/Association"
                            ]
                         },
                         "min": 0
@@ -6072,7 +6067,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://semanticscience.org/resource/SIO_010004"
+                              "https://w3id.org/biolink/vocab/ChemicalSubstance"
                            ]
                         },
                         "min": 0
@@ -6085,7 +6080,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://purl.obolibrary.org/obo/CHEBI_25212"
+                        "https://w3id.org/biolink/vocab/Metabolite"
                      ]
                   },
                   "min": 1
@@ -6111,7 +6106,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://semanticscience.org/resource/SIO_001235"
+                              "https://w3id.org/biolink/vocab/NoncodingRNAProduct"
                            ]
                         },
                         "min": 0
@@ -6124,7 +6119,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://semanticscience.org/resource/SIO_001397"
+                        "https://w3id.org/biolink/vocab/MicroRNA"
                      ]
                   },
                   "min": 1
@@ -6190,7 +6185,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.obolibrary.org/obo/BFO_0000003"
+                              "https://w3id.org/biolink/vocab/Occurrent"
                            ]
                         },
                         "min": 0
@@ -6224,7 +6219,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://purl.obolibrary.org/obo/GO_0003674"
+                        "https://w3id.org/biolink/vocab/MolecularActivity"
                      ]
                   },
                   "min": 1
@@ -6253,7 +6248,7 @@
                               "valueExpr": {
                                  "type": "NodeConstraint",
                                  "values": [
-                                    "http://example.org/UNKNOWN/WD/Q28845870"
+                                    "https://w3id.org/biolink/vocab/BiologicalEntity"
                                  ]
                               },
                               "min": 0
@@ -6284,7 +6279,7 @@
                            },
                            {
                               "type": "TripleConstraint",
-                              "predicate": "http://purl.obolibrary.org/obo/RO_0002162",
+                              "predicate": "https://w3id.org/biolink/vocab/in_taxon",
                               "valueExpr": "https://w3id.org/biolink/vocab/OrganismTaxon",
                               "min": 0,
                               "max": -1
@@ -6297,7 +6292,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://semanticscience.org/resource/SIO_010341"
+                              "https://w3id.org/biolink/vocab/MolecularEntity"
                            ]
                         },
                         "min": 1
@@ -6333,7 +6328,7 @@
                            },
                            {
                               "type": "TripleConstraint",
-                              "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+                              "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
                               "valueExpr": "https://w3id.org/biolink/vocab/IriType",
                               "min": 1,
                               "max": -1
@@ -6346,7 +6341,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://example.org/UNKNOWN/WD/Q35120"
+                              "https://w3id.org/biolink/vocab/NamedThing"
                            ]
                         },
                         "min": 1
@@ -6389,7 +6384,7 @@
                               "valueExpr": {
                                  "type": "NodeConstraint",
                                  "values": [
-                                    "http://purl.obolibrary.org/obo/CHEBI_33697"
+                                    "https://w3id.org/biolink/vocab/RNAProduct"
                                  ]
                               },
                               "min": 0
@@ -6402,7 +6397,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://semanticscience.org/resource/SIO_001235"
+                              "https://w3id.org/biolink/vocab/NoncodingRNAProduct"
                            ]
                         },
                         "min": 1
@@ -6434,7 +6429,7 @@
                               "valueExpr": {
                                  "type": "NodeConstraint",
                                  "values": [
-                                    "http://example.org/UNKNOWN/WD/Q35120"
+                                    "https://w3id.org/biolink/vocab/NamedThing"
                                  ]
                               },
                               "min": 0
@@ -6447,7 +6442,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.obolibrary.org/obo/BFO_0000003"
+                              "https://w3id.org/biolink/vocab/Occurrent"
                            ]
                         },
                         "min": 1
@@ -6491,7 +6486,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://purl.obolibrary.org/obo/HP_0003674"
+                        "https://w3id.org/biolink/vocab/Onset"
                      ]
                   },
                   "min": 1
@@ -6520,7 +6515,7 @@
                               "valueExpr": {
                                  "type": "NodeConstraint",
                                  "values": [
-                                    "http://example.org/UNKNOWN/WD/Q35120"
+                                    "https://w3id.org/biolink/vocab/NamedThing"
                                  ]
                               },
                               "min": 0
@@ -6577,7 +6572,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://example.org/UNKNOWN/WD/Q16521"
+                        "https://w3id.org/biolink/vocab/OrganismTaxon"
                      ]
                   },
                   "min": 1
@@ -6614,7 +6609,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://example.org/UNKNOWN/WD/Q28845870"
+                              "https://w3id.org/biolink/vocab/BiologicalEntity"
                            ]
                         },
                         "min": 0
@@ -6627,7 +6622,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://example.org/UNKNOWN/WD/Q7239"
+                        "https://w3id.org/biolink/vocab/OrganismalEntity"
                      ]
                   },
                   "min": 1
@@ -6711,7 +6706,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.org/oban/association"
+                              "https://w3id.org/biolink/vocab/Association"
                            ]
                         },
                         "min": 0
@@ -6810,7 +6805,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.obolibrary.org/obo/GO_0008150"
+                              "https://w3id.org/biolink/vocab/BiologicalProcess"
                            ]
                         },
                         "min": 0
@@ -6823,7 +6818,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://purl.obolibrary.org/obo/GO_0007165"
+                        "https://w3id.org/biolink/vocab/Pathway"
                      ]
                   },
                   "min": 1
@@ -6849,7 +6844,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.obolibrary.org/obo/BFO_0000003"
+                              "https://w3id.org/biolink/vocab/Occurrent"
                            ]
                         },
                         "min": 0
@@ -6901,7 +6896,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://purl.obolibrary.org/obo/UPHENO_0001001"
+                        "https://w3id.org/biolink/vocab/PhenotypicFeature"
                      ]
                   },
                   "min": 1
@@ -6966,7 +6961,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://example.org/UNKNOWN/WD/Q35120"
+                              "https://w3id.org/biolink/vocab/NamedThing"
                            ]
                         },
                         "min": 0
@@ -7005,7 +7000,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.obolibrary.org/obo/GO_0008150"
+                              "https://w3id.org/biolink/vocab/BiologicalProcess"
                            ]
                         },
                         "min": 0
@@ -7047,7 +7042,7 @@
                               "valueExpr": {
                                  "type": "NodeConstraint",
                                  "values": [
-                                    "http://example.org/UNKNOWN/WD/Q35120"
+                                    "https://w3id.org/biolink/vocab/NamedThing"
                                  ]
                               },
                               "min": 0
@@ -7091,7 +7086,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://example.org/UNKNOWN/WD/Q7239"
+                              "https://w3id.org/biolink/vocab/OrganismalEntity"
                            ]
                         },
                         "min": 0
@@ -7110,7 +7105,7 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "http://purl.obolibrary.org/obo/RO_0002162",
+                        "predicate": "https://w3id.org/biolink/vocab/in_taxon",
                         "valueExpr": "https://w3id.org/biolink/vocab/OrganismTaxon",
                         "min": 0,
                         "max": -1
@@ -7123,7 +7118,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://semanticscience.org/resource/SIO_001061"
+                        "https://w3id.org/biolink/vocab/PopulationOfIndividualOrganisms"
                      ]
                   },
                   "min": 1
@@ -7149,7 +7144,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.org/oban/association"
+                              "https://w3id.org/biolink/vocab/Association"
                            ]
                         },
                         "min": 0
@@ -7209,7 +7204,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.obolibrary.org/obo/BFO_0000003"
+                              "https://w3id.org/biolink/vocab/Occurrent"
                            ]
                         },
                         "min": 0
@@ -7251,7 +7246,7 @@
                               "valueExpr": {
                                  "type": "NodeConstraint",
                                  "values": [
-                                    "http://example.org/UNKNOWN/WD/Q424689"
+                                    "https://w3id.org/biolink/vocab/GeneProduct"
                                  ]
                               },
                               "min": 0
@@ -7264,7 +7259,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.obolibrary.org/obo/PR_000000001"
+                              "https://w3id.org/biolink/vocab/Protein"
                            ]
                         },
                         "min": 1
@@ -7293,7 +7288,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.obolibrary.org/obo/PR_000000001"
+                              "https://w3id.org/biolink/vocab/Protein"
                            ]
                         },
                         "min": 0
@@ -7383,7 +7378,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.obolibrary.org/obo/IAO_0000030"
+                              "https://w3id.org/biolink/vocab/InformationContentEntity"
                            ]
                         },
                         "min": 0
@@ -7396,7 +7391,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://purl.obolibrary.org/obo/IAO_0000311"
+                        "https://w3id.org/biolink/vocab/Publication"
                      ]
                   },
                   "min": 1
@@ -7554,7 +7549,7 @@
                               "valueExpr": {
                                  "type": "NodeConstraint",
                                  "values": [
-                                    "http://example.org/UNKNOWN/WD/Q424689"
+                                    "https://w3id.org/biolink/vocab/GeneProduct"
                                  ]
                               },
                               "min": 0
@@ -7567,7 +7562,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.obolibrary.org/obo/CHEBI_33697"
+                              "https://w3id.org/biolink/vocab/RNAProduct"
                            ]
                         },
                         "min": 1
@@ -7597,7 +7592,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.obolibrary.org/obo/CHEBI_33697"
+                              "https://w3id.org/biolink/vocab/RNAProduct"
                            ]
                         },
                         "min": 0
@@ -7690,7 +7685,7 @@
                               "valueExpr": {
                                  "type": "NodeConstraint",
                                  "values": [
-                                    "http://purl.org/oban/association"
+                                    "https://w3id.org/biolink/vocab/Association"
                                  ]
                               },
                               "min": 0
@@ -7748,7 +7743,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.obolibrary.org/obo/SO_0000110"
+                              "https://w3id.org/biolink/vocab/GenomicEntity"
                            ]
                         },
                         "min": 0
@@ -7775,7 +7770,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://purl.obolibrary.org/obo/GENO_0000002"
+                        "https://w3id.org/biolink/vocab/SequenceVariant"
                      ]
                   },
                   "min": 1
@@ -7801,7 +7796,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.org/oban/association"
+                              "https://w3id.org/biolink/vocab/Association"
                            ]
                         },
                         "min": 0
@@ -7893,21 +7888,21 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.obolibrary.org/obo/EFO_0004095"
+                              "https://w3id.org/biolink/vocab/DataFile"
                            ]
                         },
                         "min": 0
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "http://purl.org/pav/version",
+                        "predicate": "https://w3id.org/biolink/vocab/source_version",
                         "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "http://purl.org/pav/retrievedOn",
+                        "predicate": "https://w3id.org/biolink/vocab/retrievedOn",
                         "valueExpr": "https://w3id.org/biolink/biolinkml/type/Date",
                         "min": 0,
                         "max": 1
@@ -8019,7 +8014,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.org/oban/association"
+                              "https://w3id.org/biolink/vocab/Association"
                            ]
                         },
                         "min": 0
@@ -8057,7 +8052,7 @@
                {
                   "type": "TripleConstraint",
                   "id": "https://w3id.org/biolink/vocab/ThingWithTaxon_tes",
-                  "predicate": "http://purl.obolibrary.org/obo/RO_0002162",
+                  "predicate": "https://w3id.org/biolink/vocab/in_taxon",
                   "valueExpr": "https://w3id.org/biolink/vocab/OrganismTaxon",
                   "min": 0,
                   "max": -1
@@ -8094,7 +8089,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.obolibrary.org/obo/SO_0000110"
+                              "https://w3id.org/biolink/vocab/GenomicEntity"
                            ]
                         },
                         "min": 0
@@ -8107,7 +8102,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://purl.obolibrary.org/obo/SO_0000673"
+                        "https://w3id.org/biolink/vocab/Transcript"
                      ]
                   },
                   "min": 1
@@ -8186,7 +8181,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://semanticscience.org/resource/SIO_000955"
+                              "https://w3id.org/biolink/vocab/ExposureEvent"
                            ]
                         },
                         "min": 0
@@ -8199,7 +8194,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://purl.obolibrary.org/obo/OGMS_0000090"
+                        "https://w3id.org/biolink/vocab/Treatment"
                      ]
                   },
                   "min": 1
@@ -8225,7 +8220,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.org/oban/association"
+                              "https://w3id.org/biolink/vocab/Association"
                            ]
                         },
                         "min": 0
@@ -8330,7 +8325,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.org/oban/association"
+                              "https://w3id.org/biolink/vocab/Association"
                            ]
                         },
                         "min": 0
@@ -8428,7 +8423,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.org/oban/association"
+                              "https://w3id.org/biolink/vocab/Association"
                            ]
                         },
                         "min": 0
@@ -8552,7 +8547,7 @@
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "http://purl.org/oban/association"
+                              "https://w3id.org/biolink/vocab/Association"
                            ]
                         },
                         "min": 0
@@ -8611,7 +8606,7 @@
                   "valueExpr": {
                      "type": "NodeConstraint",
                      "values": [
-                        "http://purl.obolibrary.org/obo/GENO_0000133"
+                        "https://w3id.org/biolink/vocab/Zygosity"
                      ]
                   },
                   "min": 1

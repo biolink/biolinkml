@@ -7,7 +7,7 @@ An individual organism that has a patient role in some clinical context.
 URI: [biolink:Case](https://w3id.org/biolink/vocab/Case)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon],[IndividualOrganism],[CaseToThingAssociation],[CaseToThingAssociation]-%20subject%201..1>[Case&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],[IndividualOrganism]^-[Case])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon],[IndividualOrganism],[CaseToThingAssociation],[CaseToThingAssociation]-%20subject%201..1>[Case&#124;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[IndividualOrganism]^-[Case])
 
 ## Parents
 
@@ -28,7 +28,7 @@ URI: [biolink:Case](https://w3id.org/biolink/vocab/Case)
     * in subsets: (translator_minimal)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
-    * range: [IdentifierType](types/IdentifierType.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)
  * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing

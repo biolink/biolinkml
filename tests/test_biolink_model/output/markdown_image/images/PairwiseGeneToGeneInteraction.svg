@@ -43,7 +43,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='284' y='-177.8'>PairwiseGeneToGeneInteraction</text>
 <polyline fill='none' points='181,-174 387,-174 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='284' y='-162.8'>relation:uriorcurie</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='284' y='-147.8'>id(i):nodeidentifier</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='284' y='-147.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='284' y='-132.8'>negated(i):boolean ?</text>
 </g><g class='edge' id='edge1'><title>PairwiseGeneToGeneInteraction-&gt;PairwiseInteractionAssociation</title>
 <path d='M284,-128.734C284,-104.692 284,-70.8864 284,-47.3758' fill='none' stroke='black' stroke-dasharray='5,2'/>

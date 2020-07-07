@@ -36,6 +36,7 @@ fields:
   description: connects an association to the agent (person, organization or group)
     that provided it
   display_name: provided by
+  cardinality: multi
 - id: has_count
   display_name: variant to population association_has count
 - id: has_total

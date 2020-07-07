@@ -35,7 +35,7 @@
 <polyline fill='none' points='-1,-188.5 299,-188.5 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='149' y='-177.3'>name(i):symbol_type</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='149' y='-162.3'>has_biological_sequence(i):biological_sequence ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='149' y='-147.3'>id(i):identifier_type</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='149' y='-147.3'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='149' y='-132.3'>category(i):iri_type +</text>
 </g><g class='node' id='node2'><title>GeneProductIsoform</title>
 <polygon fill='white' points='77.5,-1 77.5,-37 220.5,-37 220.5,-1 77.5,-1' stroke='black'/>

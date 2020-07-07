@@ -26,7 +26,7 @@ URI: [biolink:PairwiseInteractionAssociation](https://w3id.org/biolink/vocab/Pai
 ### Own
 
  * [pairwise interaction association➞id](pairwise_interaction_association_id.md)  <sub>REQ</sub>
-    * range: [Nodeidentifier](types/Nodeidentifier.md)
+    * range: [String](types/String.md)
  * [pairwise interaction association➞object](pairwise_interaction_association_object.md)  <sub>REQ</sub>
     * range: [MolecularEntity](MolecularEntity.md)
  * [pairwise interaction association➞relation](pairwise_interaction_association_relation.md)  <sub>REQ</sub>
@@ -42,7 +42,7 @@ URI: [biolink:PairwiseInteractionAssociation](https://w3id.org/biolink/vocab/Pai
  * [negated](negated.md)  <sub>OPT</sub>
     * Description: if set to true, then the association is negated i.e. is not true
     * range: [Boolean](types/Boolean.md)
- * [provided by](provided_by.md)  <sub>OPT</sub>
+ * [provided by](provided_by.md)  <sub>0..*</sub>
     * Description: connects an association to the agent (person, organization or group) that provided it
     * range: [Provider](Provider.md)
  * [publications](publications.md)  <sub>0..*</sub>

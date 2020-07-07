@@ -37,6 +37,7 @@ fields:
   description: connects an association to the agent (person, organization or group)
     that provided it
   display_name: provided by
+  cardinality: multi
 - id: change_is_catalyzed_by
   display_name: chemical to chemical derivation association_change is catalyzed by
   cardinality: multi

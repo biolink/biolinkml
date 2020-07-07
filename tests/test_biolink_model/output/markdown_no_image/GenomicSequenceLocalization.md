@@ -7,7 +7,7 @@ A relationship between a sequence feature and an entity it is localized to. The 
 URI: [biolink:GenomicSequenceLocalization](https://w3id.org/biolink/vocab/GenomicSequenceLocalization)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[Provider],[OntologyClass],[GenomicEntity]<object%201..1-%20[GenomicSequenceLocalization&#124;start_interbase_coordinate:string%20%3F;end_interbase_coordinate:string%20%3F;genome_build:string%20%3F;phase:string%20%3F;relation(i):uriorcurie;id(i):nodeidentifier;negated(i):boolean%20%3F],[GenomicEntity]<subject%201..1-%20[GenomicSequenceLocalization],[Association]^-[GenomicSequenceLocalization],[GenomicEntity],[Association])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[Provider],[OntologyClass],[GenomicEntity]<object%201..1-%20[GenomicSequenceLocalization&#124;start_interbase_coordinate:string%20%3F;end_interbase_coordinate:string%20%3F;genome_build:string%20%3F;phase:string%20%3F;relation(i):uriorcurie;id(i):string;negated(i):boolean%20%3F],[GenomicEntity]<subject%201..1-%20[GenomicSequenceLocalization],[Association]^-[GenomicSequenceLocalization],[GenomicEntity],[Association])
 
 ## Parents
 
@@ -43,12 +43,12 @@ URI: [biolink:GenomicSequenceLocalization](https://w3id.org/biolink/vocab/Genomi
     * range: [OntologyClass](OntologyClass.md)
  * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
-    * range: [Nodeidentifier](types/Nodeidentifier.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)
  * [negated](negated.md)  <sub>OPT</sub>
     * Description: if set to true, then the association is negated i.e. is not true
     * range: [Boolean](types/Boolean.md)
- * [provided by](provided_by.md)  <sub>OPT</sub>
+ * [provided by](provided_by.md)  <sub>0..*</sub>
     * Description: connects an association to the agent (person, organization or group) that provided it
     * range: [Provider](Provider.md)
  * [publications](publications.md)  <sub>0..*</sub>

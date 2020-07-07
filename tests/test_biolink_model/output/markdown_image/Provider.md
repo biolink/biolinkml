@@ -15,7 +15,7 @@ URI: [biolink:Provider](https://w3id.org/biolink/vocab/Provider)
 
 ## Referenced by class
 
- *  **[Association](Association.md)** *[provided by](provided_by.md)*  <sub>OPT</sub>  **[Provider](Provider.md)**
+ *  **[Association](Association.md)** *[provided by](provided_by.md)*  <sub>0..*</sub>  **[Provider](Provider.md)**
 
 ## Attributes
 
@@ -28,7 +28,7 @@ URI: [biolink:Provider](https://w3id.org/biolink/vocab/Provider)
     * in subsets: (translator_minimal)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
-    * range: [IdentifierType](types/IdentifierType.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)
  * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing

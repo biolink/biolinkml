@@ -7,7 +7,7 @@ Any published piece of information. Can refer to a whole publication, or to a pa
 URI: [biolink:Publication](https://w3id.org/biolink/vocab/Publication)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Association]-%20publications%200..*>[Publication&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],[InformationContentEntity]^-[Publication],[InformationContentEntity],[Association])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Association]-%20publications%200..*>[Publication&#124;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[InformationContentEntity]^-[Publication],[InformationContentEntity],[Association])
 
 ## Parents
 
@@ -28,7 +28,7 @@ URI: [biolink:Publication](https://w3id.org/biolink/vocab/Publication)
     * in subsets: (translator_minimal)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
-    * range: [IdentifierType](types/IdentifierType.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)
  * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing

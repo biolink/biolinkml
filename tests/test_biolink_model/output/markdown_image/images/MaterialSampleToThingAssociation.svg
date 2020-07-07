@@ -49,7 +49,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='759' y='-49.8'>MaterialSampleToThingAssociation</text>
 <polyline fill='none' points='645.5,-46 872.5,-46 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='759' y='-34.8'>relation(i):uriorcurie</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='759' y='-19.8'>id(i):nodeidentifier</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='759' y='-19.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='759' y='-4.8'>negated(i):boolean ?</text>
 </g><g class='edge' id='edge1'><title>MaterialSample-&gt;MaterialSampleToThingAssociation</title>
 <path d='M546.076,-148.14C589.219,-124.608 658.059,-87.0587 705.733,-61.0549' fill='none' stroke='black'/>

@@ -7,7 +7,7 @@
 URI: [biolink:VariantToDiseaseAssociation](https://w3id.org/biolink/vocab/VariantToDiseaseAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[VariantToThingAssociation],[NamedThing]<object%201..1-%20[VariantToDiseaseAssociation&#124;relation:uriorcurie;id(i):nodeidentifier;negated(i):boolean%20%3F],[NamedThing]<subject%201..1-%20[VariantToDiseaseAssociation],[VariantToDiseaseAssociation]uses%20-.->[VariantToThingAssociation],[VariantToDiseaseAssociation]uses%20-.->[EntityToDiseaseAssociation],[Association]^-[VariantToDiseaseAssociation],[SeverityValue],[Publication],[Provider],[OntologyClass],[Onset],[NamedThing],[FrequencyValue],[EntityToDiseaseAssociation],[Association])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[VariantToThingAssociation],[NamedThing]<object%201..1-%20[VariantToDiseaseAssociation&#124;relation:uriorcurie;id(i):string;negated(i):boolean%20%3F],[NamedThing]<subject%201..1-%20[VariantToDiseaseAssociation],[VariantToDiseaseAssociation]uses%20-.->[VariantToThingAssociation],[VariantToDiseaseAssociation]uses%20-.->[EntityToDiseaseAssociation],[Association]^-[VariantToDiseaseAssociation],[SeverityValue],[Publication],[Provider],[OntologyClass],[Onset],[NamedThing],[FrequencyValue],[EntityToDiseaseAssociation],[Association])
 
 ## Parents
 
@@ -40,12 +40,12 @@ URI: [biolink:VariantToDiseaseAssociation](https://w3id.org/biolink/vocab/Varian
     * range: [OntologyClass](OntologyClass.md)
  * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
-    * range: [Nodeidentifier](types/Nodeidentifier.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)
  * [negated](negated.md)  <sub>OPT</sub>
     * Description: if set to true, then the association is negated i.e. is not true
     * range: [Boolean](types/Boolean.md)
- * [provided by](provided_by.md)  <sub>OPT</sub>
+ * [provided by](provided_by.md)  <sub>0..*</sub>
     * Description: connects an association to the agent (person, organization or group) that provided it
     * range: [Provider](Provider.md)
  * [publications](publications.md)  <sub>0..*</sub>

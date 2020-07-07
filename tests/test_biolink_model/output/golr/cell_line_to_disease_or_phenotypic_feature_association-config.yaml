@@ -38,3 +38,4 @@ fields:
   description: connects an association to the agent (person, organization or group)
     that provided it
   display_name: provided by
+  cardinality: multi

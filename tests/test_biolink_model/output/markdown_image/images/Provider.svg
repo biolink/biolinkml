@@ -36,13 +36,13 @@
 <polygon fill='white' points='41,-1 41,-61 187,-61 187,-1 41,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='114' y='-49.8'>Provider</text>
 <polyline fill='none' points='41,-46 187,-46 ' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='114' y='-34.8'>id(i):identifier_type</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='114' y='-34.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='114' y='-19.8'>name(i):label_type</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='114' y='-4.8'>category(i):iri_type +</text>
 </g><g class='edge' id='edge1'><title>Association-&gt;Provider</title>
 <path d='M54.4748,-152.801C64.5705,-132.313 81.7421,-97.4645 95.055,-70.4471' fill='none' stroke='black'/>
 <polygon fill='black' points='99.5851,-61.2537 99.2016,-72.2129 97.3751,-65.7388 95.165,-70.2239 95.165,-70.2239 95.165,-70.2239 97.3751,-65.7388 91.1284,-68.2348 99.5851,-61.2537 99.5851,-61.2537' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='85.1422' y='-71.3885'> provided by 0..1</text>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='85.1422' y='-71.3885'> provided by 0..*</text>
 </g><g class='node' id='node3'><title>AdministrativeEntity</title>
 <polygon fill='white' points='110.5,-153 110.5,-189 253.5,-189 253.5,-153 110.5,-153' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='182' y='-167.3'>AdministrativeEntity</text>

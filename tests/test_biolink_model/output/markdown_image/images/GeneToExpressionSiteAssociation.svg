@@ -43,7 +43,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='490' y='-49.8'>GeneToExpressionSiteAssociation</text>
 <polyline fill='none' points='381.5,-46 598.5,-46 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='490' y='-34.8'>relation:uriorcurie</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='490' y='-19.8'>id(i):nodeidentifier</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='490' y='-19.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='490' y='-4.8'>negated(i):boolean ?</text>
 </g><g class='edge' id='edge1'><title>OntologyClass-&gt;GeneToExpressionSiteAssociation</title>
 <path d='M293.788,-147.715C333.632,-124.217 396.581,-87.0932 440.396,-61.2537' fill='none' stroke='black'/>

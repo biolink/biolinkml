@@ -7,7 +7,7 @@ a location that can be described in lat/long coordinates
 URI: [biolink:GeographicLocation](https://w3id.org/biolink/vocab/GeographicLocation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[PlanetaryEntity],[GeographicLocationAtTime],[GeographicLocation&#124;latitude:float%20%3F;longitude:float%20%3F;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B]^-[GeographicLocationAtTime],[PlanetaryEntity]^-[GeographicLocation])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[PlanetaryEntity],[GeographicLocationAtTime],[GeographicLocation&#124;latitude:float%20%3F;longitude:float%20%3F;id(i):string;name(i):label_type;category(i):iri_type%20%2B]^-[GeographicLocationAtTime],[PlanetaryEntity]^-[GeographicLocation])
 
 ## Parents
 
@@ -40,7 +40,7 @@ URI: [biolink:GeographicLocation](https://w3id.org/biolink/vocab/GeographicLocat
     * in subsets: (translator_minimal)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
-    * range: [IdentifierType](types/IdentifierType.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)
  * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing

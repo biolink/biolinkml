@@ -37,6 +37,7 @@ fields:
   description: connects an association to the agent (person, organization or group)
     that provided it
   display_name: provided by
+  cardinality: multi
 - id: start_interbase_coordinate
   display_name: start interbase coordinate
 - id: end_interbase_coordinate

@@ -38,6 +38,7 @@ fields:
   description: connects an association to the agent (person, organization or group)
     that provided it
   display_name: provided by
+  cardinality: multi
 - id: sex_qualifier
   description: a qualifier used in a phenotypic association to state whether the association
     is specific to a particular sex.

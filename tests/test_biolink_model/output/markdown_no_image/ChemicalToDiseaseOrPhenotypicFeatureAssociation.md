@@ -7,7 +7,7 @@ An interaction between a chemical entity and a phenotype or disease, where the p
 URI: [biolink:ChemicalToDiseaseOrPhenotypicFeatureAssociation](https://w3id.org/biolink/vocab/ChemicalToDiseaseOrPhenotypicFeatureAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[ThingToDiseaseOrPhenotypicFeatureAssociation],[Publication],[Provider],[OntologyClass],[NamedThing],[DiseaseOrPhenotypicFeature],[ChemicalToThingAssociation],[DiseaseOrPhenotypicFeature]<object%201..1-%20[ChemicalToDiseaseOrPhenotypicFeatureAssociation&#124;relation(i):uriorcurie;id(i):nodeidentifier;negated(i):boolean%20%3F],[ChemicalToDiseaseOrPhenotypicFeatureAssociation]uses%20-.->[ChemicalToThingAssociation],[ChemicalToDiseaseOrPhenotypicFeatureAssociation]uses%20-.->[ThingToDiseaseOrPhenotypicFeatureAssociation],[Association]^-[ChemicalToDiseaseOrPhenotypicFeatureAssociation],[Association])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[ThingToDiseaseOrPhenotypicFeatureAssociation],[Publication],[Provider],[OntologyClass],[NamedThing],[DiseaseOrPhenotypicFeature],[ChemicalToThingAssociation],[DiseaseOrPhenotypicFeature]<object%201..1-%20[ChemicalToDiseaseOrPhenotypicFeatureAssociation&#124;relation(i):uriorcurie;id(i):string;negated(i):boolean%20%3F],[ChemicalToDiseaseOrPhenotypicFeatureAssociation]uses%20-.->[ChemicalToThingAssociation],[ChemicalToDiseaseOrPhenotypicFeatureAssociation]uses%20-.->[ThingToDiseaseOrPhenotypicFeatureAssociation],[Association]^-[ChemicalToDiseaseOrPhenotypicFeatureAssociation],[Association])
 
 ## Parents
 
@@ -36,12 +36,12 @@ URI: [biolink:ChemicalToDiseaseOrPhenotypicFeatureAssociation](https://w3id.org/
     * range: [OntologyClass](OntologyClass.md)
  * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
-    * range: [Nodeidentifier](types/Nodeidentifier.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)
  * [negated](negated.md)  <sub>OPT</sub>
     * Description: if set to true, then the association is negated i.e. is not true
     * range: [Boolean](types/Boolean.md)
- * [provided by](provided_by.md)  <sub>OPT</sub>
+ * [provided by](provided_by.md)  <sub>0..*</sub>
     * Description: connects an association to the agent (person, organization or group) that provided it
     * range: [Provider](Provider.md)
  * [publications](publications.md)  <sub>0..*</sub>

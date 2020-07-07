@@ -55,7 +55,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='582' y='-177.8'>ChemicalToChemicalAssociation</text>
 <polyline fill='none' points='476,-174 688,-174 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='582' y='-162.8'>relation(i):uriorcurie</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='582' y='-147.8'>id(i):nodeidentifier</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='582' y='-147.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='582' y='-132.8'>negated(i):boolean ?</text>
 </g><g class='edge' id='edge1'><title>ChemicalSubstance-&gt;ChemicalToChemicalAssociation</title>
 <path d='M528.556,-271.746C539.82,-248.195 556.326,-213.682 568.009,-189.254' fill='none' stroke='black'/>

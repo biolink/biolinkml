@@ -41,7 +41,7 @@
 <polyline fill='none' points='185,-60.5 485,-60.5 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='335' y='-49.3'>name(i):symbol_type</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='335' y='-34.3'>has_biological_sequence(i):biological_sequence ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='335' y='-19.3'>id(i):identifier_type</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='335' y='-19.3'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='335' y='-4.3'>category(i):iri_type +</text>
 </g><g class='edge' id='edge1'><title>ProteinIsoform-&gt;GeneProductIsoform</title>
 <path d='M207.203,-166.797C227.724,-146.276 262.798,-111.202 291.016,-82.9837' fill='none' stroke='black' stroke-dasharray='5,2'/>

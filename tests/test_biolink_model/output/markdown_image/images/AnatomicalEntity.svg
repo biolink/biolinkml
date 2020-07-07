@@ -42,7 +42,7 @@
 <polygon fill='white' points='868,-129 868,-189 1014,-189 1014,-129 868,-129' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='941' y='-177.8'>AnatomicalEntity</text>
 <polyline fill='none' points='868,-174 1014,-174 ' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='941' y='-162.8'>id(i):identifier_type</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='941' y='-162.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='941' y='-147.8'>name(i):label_type</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='941' y='-132.8'>category(i):iri_type +</text>
 </g><g class='edge' id='edge14'><title>OrganismalEntity-&gt;AnatomicalEntity</title>

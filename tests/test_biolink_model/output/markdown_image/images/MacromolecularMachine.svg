@@ -41,7 +41,7 @@
 <polyline fill='none' points='120,-188.5 420,-188.5 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='270' y='-177.3'>name:symbol_type</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='270' y='-162.3'>has_biological_sequence(i):biological_sequence ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='270' y='-147.3'>id(i):identifier_type</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='270' y='-147.3'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='270' y='-132.3'>category(i):iri_type +</text>
 </g><g class='edge' id='edge4'><title>MolecularActivity-&gt;MacromolecularMachine</title>
 <path d='M180.101,-294.797C194.353,-274.538 218.582,-240.095 238.297,-212.068' fill='none' stroke='black'/>

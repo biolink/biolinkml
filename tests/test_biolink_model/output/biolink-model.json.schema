@@ -94,7 +94,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -148,7 +151,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -201,7 +207,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -255,7 +264,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -573,7 +585,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -700,7 +715,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -852,7 +870,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -913,7 +934,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -966,7 +990,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -1021,7 +1048,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -1076,7 +1106,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -1568,7 +1601,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -1622,7 +1658,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -1685,7 +1724,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -1980,7 +2022,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -2071,7 +2116,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -2213,7 +2261,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -2314,7 +2365,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -2416,7 +2470,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -2582,7 +2639,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -2644,7 +2704,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -2702,7 +2765,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -2761,7 +2827,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -2814,7 +2883,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -2867,7 +2939,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -2930,7 +3005,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -3081,7 +3159,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -3180,7 +3261,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -3233,7 +3317,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -3295,7 +3382,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -3356,7 +3446,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -3748,7 +3841,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -3802,7 +3898,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -3856,7 +3955,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -3945,7 +4047,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -3999,7 +4104,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -4401,7 +4509,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -4757,7 +4868,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -5099,7 +5213,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -5320,7 +5437,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -5410,7 +5530,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -5476,7 +5599,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -5555,7 +5681,10 @@
             },
             "provided_by": {
                "description": "connects an association to the agent (person, organization or group) that provided it",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "publications": {
                "description": "connects an association to publications supporting the association",
@@ -5633,6 +5762,6 @@
       }
    },
    "properties": {},
-   "title": "Biolink_Model",
+   "title": "Biolink-Model",
    "type": "object"
 }

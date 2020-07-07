@@ -43,7 +43,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='518' y='-192.3'>GenomicEntity</text>
 <polyline fill='none' points='374.5,-188.5 661.5,-188.5 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='518' y='-177.3'>has_biological_sequence:biological_sequence ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='518' y='-162.3'>id(i):identifier_type</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='518' y='-162.3'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='518' y='-147.3'>name(i):label_type</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='518' y='-132.3'>category(i):iri_type +</text>
 </g><g class='edge' id='edge3'><title>SequenceFeatureRelationship-&gt;GenomicEntity</title>

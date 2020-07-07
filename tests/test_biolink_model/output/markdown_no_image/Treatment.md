@@ -7,7 +7,7 @@ A treatment is targeted at a disease or phenotype and may involve multiple drug 
 URI: [biolink:Treatment](https://w3id.org/biolink/vocab/Treatment)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SequenceVariantModulatesTreatmentAssociation]-%20object%201..1>[Treatment&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],[ExposureEvent]^-[Treatment],[SequenceVariantModulatesTreatmentAssociation],[ExposureEvent])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SequenceVariantModulatesTreatmentAssociation]-%20object%201..1>[Treatment&#124;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[ExposureEvent]^-[Treatment],[SequenceVariantModulatesTreatmentAssociation],[ExposureEvent])
 
 ## Parents
 
@@ -28,7 +28,7 @@ URI: [biolink:Treatment](https://w3id.org/biolink/vocab/Treatment)
     * in subsets: (translator_minimal)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
-    * range: [IdentifierType](types/IdentifierType.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)
  * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing

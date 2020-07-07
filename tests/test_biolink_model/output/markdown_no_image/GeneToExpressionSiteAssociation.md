@@ -7,7 +7,7 @@ An association between a gene and an expression site, possibly qualified by stag
 URI: [biolink:GeneToExpressionSiteAssociation](https://w3id.org/biolink/vocab/GeneToExpressionSiteAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[Provider],[OntologyClass],[LifeStage],[OntologyClass]<quantifier%20qualifier%200..1-%20[GeneToExpressionSiteAssociation&#124;relation:uriorcurie;id(i):nodeidentifier;negated(i):boolean%20%3F],[LifeStage]<stage%20qualifier%200..1-%20[GeneToExpressionSiteAssociation],[AnatomicalEntity]<object%201..1-%20[GeneToExpressionSiteAssociation],[GeneOrGeneProduct]<subject%201..1-%20[GeneToExpressionSiteAssociation],[Association]^-[GeneToExpressionSiteAssociation],[GeneOrGeneProduct],[Association],[AnatomicalEntity])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[Provider],[OntologyClass],[LifeStage],[OntologyClass]<quantifier%20qualifier%200..1-%20[GeneToExpressionSiteAssociation&#124;relation:uriorcurie;id(i):string;negated(i):boolean%20%3F],[LifeStage]<stage%20qualifier%200..1-%20[GeneToExpressionSiteAssociation],[AnatomicalEntity]<object%201..1-%20[GeneToExpressionSiteAssociation],[GeneOrGeneProduct]<subject%201..1-%20[GeneToExpressionSiteAssociation],[Association]^-[GeneToExpressionSiteAssociation],[GeneOrGeneProduct],[Association],[AnatomicalEntity])
 
 ## Parents
 
@@ -39,12 +39,12 @@ URI: [biolink:GeneToExpressionSiteAssociation](https://w3id.org/biolink/vocab/Ge
     * range: [OntologyClass](OntologyClass.md)
  * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
-    * range: [Nodeidentifier](types/Nodeidentifier.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)
  * [negated](negated.md)  <sub>OPT</sub>
     * Description: if set to true, then the association is negated i.e. is not true
     * range: [Boolean](types/Boolean.md)
- * [provided by](provided_by.md)  <sub>OPT</sub>
+ * [provided by](provided_by.md)  <sub>0..*</sub>
     * Description: connects an association to the agent (person, organization or group) that provided it
     * range: [Provider](Provider.md)
  * [publications](publications.md)  <sub>0..*</sub>
