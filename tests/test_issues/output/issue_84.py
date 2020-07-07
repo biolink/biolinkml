@@ -1,5 +1,5 @@
 # Auto generated from issue_84.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-07-03 16:12
+# Generation date: 2020-07-06 13:33
 # Schema: nmdc_schema
 #
 # id: https://microbiomedata/schema
@@ -154,6 +154,7 @@ class Characteristic(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = NMDC.Characteristic
 
     id: Union[ElementIdentifier, CharacteristicId]
+    name: Optional[str] = None
     description: Optional[str] = None
     alternate_identifiers: List[ElementIdentifier] = empty_list()
 

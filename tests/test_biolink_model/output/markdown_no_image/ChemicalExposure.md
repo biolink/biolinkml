@@ -7,7 +7,7 @@ A chemical exposure is an intake of a particular chemical substance
 URI: [biolink:ChemicalExposure](https://w3id.org/biolink/vocab/ChemicalExposure)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[PhenotypicFeature],[OrganismalEntity],[NamedThing],[ExposureEvent],[DrugExposure],[ChemicalExposure&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B]^-[DrugExposure],[ExposureEvent]^-[ChemicalExposure])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[ExposureEvent],[DrugExposure],[ChemicalExposure&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B]^-[DrugExposure],[ExposureEvent]^-[ChemicalExposure])
 
 ## Parents
 
@@ -23,22 +23,19 @@ URI: [biolink:ChemicalExposure](https://w3id.org/biolink/vocab/ChemicalExposure)
 ## Attributes
 
 
-### Inherited from named thing:
+### Inherited from exposure event:
 
+ * [category](category.md)  <sub>1..*</sub>
+    * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
+    * range: [IriType](types/IriType.md)
+    * in subsets: (translator_minimal)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
     * range: [IdentifierType](types/IdentifierType.md)
-    * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
  * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing
     * range: [LabelType](types/LabelType.md)
-    * inherited from: [NamedThing](NamedThing.md)
-    * in subsets: (translator_minimal)
- * [category](category.md)  <sub>1..*</sub>
-    * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
-    * range: [IriType](types/IriType.md)
-    * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
 
 ## Other properties

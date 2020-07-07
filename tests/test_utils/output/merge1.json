@@ -62,18 +62,12 @@
          "name": "c1",
          "definition_uri": "http://example.org/schema1/C1",
          "from_schema": "http://example.org/schema1",
-         "slots": [
-            "s1"
-         ],
          "class_uri": "http://example.org/schema1/C1"
       },
       {
          "name": "c2",
          "definition_uri": "http://example.org/schema2/C2",
          "from_schema": "http://example.org/schema2",
-         "slots": [
-            "s2"
-         ],
          "class_uri": "http://example.org/schema2/C2"
       }
    ],

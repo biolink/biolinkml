@@ -108,11 +108,6 @@ interface Element
     relatedMappings: [Uriorcurie]
     deprecatedElementHasExactReplacement: Uriorcurie
     deprecatedElementHasPossibleReplacement: Uriorcurie
-    createdBy: Uriorcurie
-    createdOn: Datetime
-    lastUpdatedOn: Datetime
-    modifiedBy: Uriorcurie
-    status: Uriorcurie
   }
 
 type Example
@@ -157,11 +152,6 @@ type SchemaDefinition
     relatedMappings: [Uriorcurie]
     deprecatedElementHasExactReplacement: Uriorcurie
     deprecatedElementHasPossibleReplacement: Uriorcurie
-    createdBy: Uriorcurie
-    createdOn: Datetime
-    lastUpdatedOn: Datetime
-    modifiedBy: Uriorcurie
-    status: Uriorcurie
     id: Uri!
     title: String
     version: String
@@ -232,6 +222,7 @@ type SlotDefinition
     identifier: Boolean
     alias: String
     owner: Definition
+    domainOf: [ClassDefinition]
     subpropertyOf: Uriorcurie
     symmetric: Boolean
     inverse: SlotDefinition
@@ -268,11 +259,6 @@ type SubsetDefinition
     relatedMappings: [Uriorcurie]
     deprecatedElementHasExactReplacement: Uriorcurie
     deprecatedElementHasPossibleReplacement: Uriorcurie
-    createdBy: Uriorcurie
-    createdOn: Datetime
-    lastUpdatedOn: Datetime
-    modifiedBy: Uriorcurie
-    status: Uriorcurie
   }
 
 type TypeDefinition
@@ -299,11 +285,6 @@ type TypeDefinition
     relatedMappings: [Uriorcurie]
     deprecatedElementHasExactReplacement: Uriorcurie
     deprecatedElementHasPossibleReplacement: Uriorcurie
-    createdBy: Uriorcurie
-    createdOn: Datetime
-    lastUpdatedOn: Datetime
-    modifiedBy: Uriorcurie
-    status: Uriorcurie
     typeof: TypeDefinition
     base: String
     uri: Uriorcurie

@@ -2246,6 +2246,9 @@
       "multivalued": true,
       "inherited": true,
       "owner": "has_input",
+      "domain_of": [
+        "BiologicalProcessOrActivity"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -2266,6 +2269,9 @@
       "multivalued": true,
       "inherited": true,
       "owner": "has_output",
+      "domain_of": [
+        "BiologicalProcessOrActivity"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -2347,6 +2353,9 @@
       "multivalued": true,
       "inherited": true,
       "owner": "BiologicalProcessOrActivity",
+      "domain_of": [
+        "BiologicalProcessOrActivity"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -2526,6 +2535,9 @@
       "range": "string",
       "slot_uri": "http://example.org/UNKNOWN/dct/title",
       "owner": "DataSetVersion",
+      "domain_of": [
+        "DataSetVersion"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -2540,6 +2552,9 @@
       "range": "DataFile",
       "slot_uri": "http://purl.org/dc/terms/source",
       "owner": "DataSetVersion",
+      "domain_of": [
+        "DataSetVersion"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -2554,6 +2569,9 @@
       "range": "string",
       "slot_uri": "http://purl.org/dc/terms/source",
       "owner": "DataSetSummary",
+      "domain_of": [
+        "DataSetSummary"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -2568,6 +2586,9 @@
       "range": "date",
       "slot_uri": "http://purl.org/pav/retrievedOn",
       "owner": "SourceFile",
+      "domain_of": [
+        "SourceFile"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -2582,6 +2603,9 @@
       "range": "DataSet",
       "slot_uri": "http://example.org/UNKNOWN/dct/isVersionOf",
       "owner": "DataSetVersion",
+      "domain_of": [
+        "DataSetVersion"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -2596,6 +2620,9 @@
       "range": "string",
       "slot_uri": "http://purl.org/pav/version",
       "owner": "SourceFile",
+      "domain_of": [
+        "SourceFile"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -2610,6 +2637,9 @@
       "range": "string",
       "slot_uri": "http://example.org/UNKNOWN/dct/downloadURL",
       "owner": "DistributionLevel",
+      "domain_of": [
+        "DistributionLevel"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -2624,6 +2654,9 @@
       "range": "DistributionLevel",
       "slot_uri": "http://rdfs.org/ns/void#Dataset",
       "owner": "DataSetVersion",
+      "domain_of": [
+        "DataSetVersion"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -2638,6 +2671,9 @@
       "range": "string",
       "slot_uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
       "owner": "DataSetVersion",
+      "domain_of": [
+        "DataSetVersion"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -2655,6 +2691,9 @@
       "required": true,
       "identifier": true,
       "owner": "NamedThing",
+      "domain_of": [
+        "NamedThing"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -2674,6 +2713,9 @@
       "identifier": true,
       "alias": "id",
       "owner": "Association",
+      "domain_of": [
+        "Association"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -2712,6 +2754,9 @@
       "slot_uri": "http://www.w3.org/2000/01/rdf-schema#label",
       "required": true,
       "owner": "NamedThing",
+      "domain_of": [
+        "NamedThing"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -2751,6 +2796,9 @@
       "multivalued": true,
       "required": true,
       "owner": "NamedThing",
+      "domain_of": [
+        "NamedThing"
+      ],
       "is_class_field": true,
       "type": "SlotDefinition"
     },
@@ -2841,6 +2889,9 @@
       "slot_uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#subject",
       "required": true,
       "owner": "Association",
+      "domain_of": [
+        "Association"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -2871,6 +2922,9 @@
       "slot_uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#object",
       "required": true,
       "owner": "Association",
+      "domain_of": [
+        "Association"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -2917,6 +2971,9 @@
       "slot_uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#predicate",
       "required": true,
       "owner": "Association",
+      "domain_of": [
+        "Association"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -2929,6 +2986,9 @@
       "range": "boolean",
       "slot_uri": "https://w3id.org/biolink/vocab/negated",
       "owner": "Association",
+      "domain_of": [
+        "Association"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -2971,6 +3031,9 @@
       "range": "Provider",
       "slot_uri": "http://purl.org/pav/providedBy",
       "owner": "Association",
+      "domain_of": [
+        "Association"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -2986,6 +3049,9 @@
       "range": "OntologyClass",
       "slot_uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
       "owner": "Association",
+      "domain_of": [
+        "Association"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -3082,6 +3148,9 @@
       "multivalued": true,
       "inherited": true,
       "owner": "ThingWithTaxon",
+      "domain_of": [
+        "ThingWithTaxon"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -3097,6 +3166,9 @@
       "range": "float",
       "slot_uri": "http://www.w3.org/2003/01/geo/wgs84_poslat",
       "owner": "GeographicLocation",
+      "domain_of": [
+        "GeographicLocation"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -3112,6 +3184,9 @@
       "range": "float",
       "slot_uri": "http://www.w3.org/2003/01/geo/wgs84_poslong",
       "owner": "GeographicLocation",
+      "domain_of": [
+        "GeographicLocation"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -3151,6 +3226,9 @@
       "range": "integer",
       "slot_uri": "https://w3id.org/biolink/vocab/has_count",
       "owner": "FrequencyQuantifier",
+      "domain_of": [
+        "FrequencyQuantifier"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -3163,6 +3241,9 @@
       "range": "integer",
       "slot_uri": "https://w3id.org/biolink/vocab/has_total",
       "owner": "FrequencyQuantifier",
+      "domain_of": [
+        "FrequencyQuantifier"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -3174,6 +3255,9 @@
       "range": "double",
       "slot_uri": "https://w3id.org/biolink/vocab/has_quotient",
       "owner": "FrequencyQuantifier",
+      "domain_of": [
+        "FrequencyQuantifier"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -3186,6 +3270,9 @@
       "range": "double",
       "slot_uri": "https://w3id.org/biolink/vocab/has_percentage",
       "owner": "FrequencyQuantifier",
+      "domain_of": [
+        "FrequencyQuantifier"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -3198,6 +3285,9 @@
       "range": "time_type",
       "slot_uri": "https://w3id.org/biolink/vocab/timepoint",
       "owner": "GeographicLocationAtTime",
+      "domain_of": [
+        "GeographicLocationAtTime"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -3210,6 +3300,9 @@
       "range": "LifeStage",
       "slot_uri": "https://w3id.org/biolink/vocab/stage_qualifier",
       "owner": "GeneToExpressionSiteAssociation",
+      "domain_of": [
+        "GeneToExpressionSiteAssociation"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -3222,6 +3315,9 @@
       "range": "OntologyClass",
       "slot_uri": "https://w3id.org/biolink/vocab/quantifier_qualifier",
       "owner": "GeneToExpressionSiteAssociation",
+      "domain_of": [
+        "GeneToExpressionSiteAssociation"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -3243,6 +3339,9 @@
       "slot_uri": "https://w3id.org/biolink/vocab/qualifiers",
       "multivalued": true,
       "owner": "Association",
+      "domain_of": [
+        "Association"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -3255,6 +3354,9 @@
       "range": "FrequencyValue",
       "slot_uri": "https://w3id.org/biolink/vocab/frequency_qualifier",
       "owner": "FrequencyQualifierMixin",
+      "domain_of": [
+        "FrequencyQualifierMixin"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -3267,6 +3369,9 @@
       "range": "SeverityValue",
       "slot_uri": "https://w3id.org/biolink/vocab/severity_qualifier",
       "owner": "EntityToFeatureOrDiseaseQualifiers",
+      "domain_of": [
+        "EntityToFeatureOrDiseaseQualifiers"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -3279,6 +3384,9 @@
       "range": "BiologicalSex",
       "slot_uri": "https://w3id.org/biolink/vocab/sex_qualifier",
       "owner": "EntityToPhenotypicFeatureAssociation",
+      "domain_of": [
+        "EntityToPhenotypicFeatureAssociation"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -3291,6 +3399,9 @@
       "range": "Onset",
       "slot_uri": "https://w3id.org/biolink/vocab/onset_qualifier",
       "owner": "EntityToFeatureOrDiseaseQualifiers",
+      "domain_of": [
+        "EntityToFeatureOrDiseaseQualifiers"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -3315,6 +3426,9 @@
       "range": "SequenceVariant",
       "slot_uri": "https://w3id.org/biolink/vocab/sequence_variant_qualifier",
       "owner": "GeneHasVariantThatContributesToDiseaseAssociation",
+      "domain_of": [
+        "GeneHasVariantThatContributesToDiseaseAssociation"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -3329,6 +3443,9 @@
       "slot_uri": "https://w3id.org/biolink/vocab/publications",
       "multivalued": true,
       "owner": "Association",
+      "domain_of": [
+        "Association"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -3342,6 +3459,9 @@
       "slot_uri": "https://w3id.org/biolink/vocab/change_is_catalyzed_by",
       "multivalued": true,
       "owner": "ChemicalToChemicalDerivationAssociation",
+      "domain_of": [
+        "ChemicalToChemicalDerivationAssociation"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -3354,6 +3474,9 @@
       "range": "biological_sequence",
       "slot_uri": "https://w3id.org/biolink/vocab/has_biological_sequence",
       "owner": "GenomicEntity",
+      "domain_of": [
+        "GenomicEntity"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -3392,6 +3515,9 @@
       "range": "Gene",
       "slot_uri": "https://w3id.org/biolink/vocab/has_gene",
       "owner": "SequenceVariant",
+      "domain_of": [
+        "SequenceVariant"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -3403,6 +3529,9 @@
       "range": "Zygosity",
       "slot_uri": "https://w3id.org/biolink/vocab/has_zygosity",
       "owner": "Genotype",
+      "domain_of": [
+        "Genotype"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -3427,6 +3556,9 @@
       "range": "string",
       "slot_uri": "https://w3id.org/biolink/vocab/phase",
       "owner": "GenomicSequenceLocalization",
+      "domain_of": [
+        "GenomicSequenceLocalization"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -3439,6 +3571,9 @@
       "range": "string",
       "slot_uri": "https://w3id.org/biolink/vocab/genome_build",
       "owner": "GenomicSequenceLocalization",
+      "domain_of": [
+        "GenomicSequenceLocalization"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -3462,6 +3597,9 @@
       "range": "string",
       "slot_uri": "https://w3id.org/biolink/vocab/start_interbase_coordinate",
       "owner": "GenomicSequenceLocalization",
+      "domain_of": [
+        "GenomicSequenceLocalization"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -3473,6 +3611,9 @@
       "range": "string",
       "slot_uri": "https://w3id.org/biolink/vocab/end_interbase_coordinate",
       "owner": "GenomicSequenceLocalization",
+      "domain_of": [
+        "GenomicSequenceLocalization"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -3491,6 +3632,9 @@
       "slot_uri": "https://w3id.org/biolink/vocab/has_attribute",
       "multivalued": true,
       "owner": "MaterialSample",
+      "domain_of": [
+        "MaterialSample"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -3505,6 +3649,9 @@
       "range": "OntologyClass",
       "slot_uri": "https://w3id.org/biolink/vocab/has_attribute_type",
       "owner": "Attribute",
+      "domain_of": [
+        "Attribute"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -3519,6 +3666,9 @@
       "range": "NamedThing",
       "slot_uri": "https://w3id.org/biolink/vocab/has_qualitative_value",
       "owner": "Attribute",
+      "domain_of": [
+        "Attribute"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -3538,6 +3688,9 @@
       "multivalued": true,
       "inlined": true,
       "owner": "Attribute",
+      "domain_of": [
+        "Attribute"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -3555,6 +3708,9 @@
       "range": "double",
       "slot_uri": "https://w3id.org/biolink/vocab/has_numeric_value",
       "owner": "QuantityValue",
+      "domain_of": [
+        "QuantityValue"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -3572,6 +3728,9 @@
       "range": "unit",
       "slot_uri": "https://w3id.org/biolink/vocab/has_unit",
       "owner": "QuantityValue",
+      "domain_of": [
+        "QuantityValue"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -3669,6 +3828,9 @@
       "required": true,
       "alias": "name",
       "owner": "MacromolecularMachine",
+      "domain_of": [
+        "MacromolecularMachine"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3682,6 +3844,9 @@
       "multivalued": true,
       "alias": "has gene",
       "owner": "SequenceVariant",
+      "domain_of": [
+        "SequenceVariant"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3694,6 +3859,9 @@
       "slot_uri": "https://w3id.org/biolink/vocab/has_biological_sequence",
       "alias": "has biological sequence",
       "owner": "SequenceVariant",
+      "domain_of": [
+        "SequenceVariant"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3708,6 +3876,9 @@
       "identifier": true,
       "alias": "id",
       "owner": "SequenceVariant",
+      "domain_of": [
+        "SequenceVariant"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3722,6 +3893,9 @@
       "required": true,
       "alias": "has drug",
       "owner": "DrugExposure",
+      "domain_of": [
+        "DrugExposure"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3737,6 +3911,9 @@
       "required": true,
       "alias": "has part",
       "owner": "Treatment",
+      "domain_of": [
+        "Treatment"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3750,6 +3927,9 @@
       "required": true,
       "alias": "relation",
       "owner": "GenotypeToGenotypePartAssociation",
+      "domain_of": [
+        "GenotypeToGenotypePartAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3763,6 +3943,9 @@
       "required": true,
       "alias": "subject",
       "owner": "GenotypeToGenotypePartAssociation",
+      "domain_of": [
+        "GenotypeToGenotypePartAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3776,6 +3959,9 @@
       "required": true,
       "alias": "object",
       "owner": "GenotypeToGenotypePartAssociation",
+      "domain_of": [
+        "GenotypeToGenotypePartAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3789,6 +3975,9 @@
       "required": true,
       "alias": "relation",
       "owner": "GenotypeToGeneAssociation",
+      "domain_of": [
+        "GenotypeToGeneAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3802,6 +3991,9 @@
       "required": true,
       "alias": "subject",
       "owner": "GenotypeToGeneAssociation",
+      "domain_of": [
+        "GenotypeToGeneAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3815,6 +4007,9 @@
       "required": true,
       "alias": "object",
       "owner": "GenotypeToGeneAssociation",
+      "domain_of": [
+        "GenotypeToGeneAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3828,6 +4023,9 @@
       "required": true,
       "alias": "relation",
       "owner": "GenotypeToVariantAssociation",
+      "domain_of": [
+        "GenotypeToVariantAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3841,6 +4039,9 @@
       "required": true,
       "alias": "subject",
       "owner": "GenotypeToVariantAssociation",
+      "domain_of": [
+        "GenotypeToVariantAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3854,6 +4055,9 @@
       "required": true,
       "alias": "object",
       "owner": "GenotypeToVariantAssociation",
+      "domain_of": [
+        "GenotypeToVariantAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3867,6 +4071,9 @@
       "required": true,
       "alias": "subject",
       "owner": "GeneToGeneAssociation",
+      "domain_of": [
+        "GeneToGeneAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3880,6 +4087,9 @@
       "required": true,
       "alias": "object",
       "owner": "GeneToGeneAssociation",
+      "domain_of": [
+        "GeneToGeneAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3893,6 +4103,9 @@
       "required": true,
       "alias": "relation",
       "owner": "GeneToGeneHomologyAssociation",
+      "domain_of": [
+        "GeneToGeneHomologyAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3906,6 +4119,9 @@
       "required": true,
       "alias": "subject",
       "owner": "PairwiseInteractionAssociation",
+      "domain_of": [
+        "PairwiseInteractionAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3921,6 +4137,9 @@
       "identifier": true,
       "alias": "id",
       "owner": "PairwiseInteractionAssociation",
+      "domain_of": [
+        "PairwiseInteractionAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3934,6 +4153,9 @@
       "required": true,
       "alias": "relation",
       "owner": "PairwiseInteractionAssociation",
+      "domain_of": [
+        "PairwiseInteractionAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3947,6 +4169,9 @@
       "required": true,
       "alias": "object",
       "owner": "PairwiseInteractionAssociation",
+      "domain_of": [
+        "PairwiseInteractionAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3957,6 +4182,9 @@
       "range": "OntologyClass",
       "slot_uri": "https://w3id.org/biolink/vocab/interacting_molecules_category",
       "owner": "PairwiseInteractionAssociation",
+      "domain_of": [
+        "PairwiseInteractionAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3970,6 +4198,9 @@
       "required": true,
       "alias": "relation",
       "owner": "PairwiseGeneToGeneInteraction",
+      "domain_of": [
+        "PairwiseGeneToGeneInteraction"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3983,6 +4214,9 @@
       "required": true,
       "alias": "subject",
       "owner": "CellLineToThingAssociation",
+      "domain_of": [
+        "CellLineToThingAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -3996,6 +4230,9 @@
       "required": true,
       "alias": "subject",
       "owner": "CellLineToDiseaseOrPhenotypicFeatureAssociation",
+      "domain_of": [
+        "CellLineToDiseaseOrPhenotypicFeatureAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4009,6 +4246,9 @@
       "required": true,
       "alias": "object",
       "owner": "ThingToDiseaseOrPhenotypicFeatureAssociation",
+      "domain_of": [
+        "ThingToDiseaseOrPhenotypicFeatureAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4022,6 +4262,9 @@
       "required": true,
       "alias": "subject",
       "owner": "ChemicalToThingAssociation",
+      "domain_of": [
+        "ChemicalToThingAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4035,6 +4278,9 @@
       "required": true,
       "alias": "subject",
       "owner": "CaseToThingAssociation",
+      "domain_of": [
+        "CaseToThingAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4048,6 +4294,9 @@
       "required": true,
       "alias": "object",
       "owner": "ChemicalToChemicalAssociation",
+      "domain_of": [
+        "ChemicalToChemicalAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4061,6 +4310,9 @@
       "required": true,
       "alias": "subject",
       "owner": "ChemicalToChemicalDerivationAssociation",
+      "domain_of": [
+        "ChemicalToChemicalDerivationAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4074,6 +4326,9 @@
       "required": true,
       "alias": "object",
       "owner": "ChemicalToChemicalDerivationAssociation",
+      "domain_of": [
+        "ChemicalToChemicalDerivationAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4087,6 +4342,9 @@
       "required": true,
       "alias": "relation",
       "owner": "ChemicalToChemicalDerivationAssociation",
+      "domain_of": [
+        "ChemicalToChemicalDerivationAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4100,6 +4358,9 @@
       "multivalued": true,
       "alias": "change is catalyzed by",
       "owner": "ChemicalToChemicalDerivationAssociation",
+      "domain_of": [
+        "ChemicalToChemicalDerivationAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4113,6 +4374,9 @@
       "required": true,
       "alias": "object",
       "owner": "ChemicalToDiseaseOrPhenotypicFeatureAssociation",
+      "domain_of": [
+        "ChemicalToDiseaseOrPhenotypicFeatureAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4126,6 +4390,9 @@
       "required": true,
       "alias": "object",
       "owner": "ChemicalToPathwayAssociation",
+      "domain_of": [
+        "ChemicalToPathwayAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4139,6 +4406,9 @@
       "required": true,
       "alias": "object",
       "owner": "ChemicalToGeneAssociation",
+      "domain_of": [
+        "ChemicalToGeneAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4152,6 +4422,9 @@
       "required": true,
       "alias": "subject",
       "owner": "MaterialSampleToThingAssociation",
+      "domain_of": [
+        "MaterialSampleToThingAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4165,6 +4438,9 @@
       "required": true,
       "alias": "subject",
       "owner": "MaterialSampleDerivationAssociation",
+      "domain_of": [
+        "MaterialSampleDerivationAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4178,6 +4454,9 @@
       "required": true,
       "alias": "object",
       "owner": "MaterialSampleDerivationAssociation",
+      "domain_of": [
+        "MaterialSampleDerivationAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4191,6 +4470,9 @@
       "required": true,
       "alias": "relation",
       "owner": "MaterialSampleDerivationAssociation",
+      "domain_of": [
+        "MaterialSampleDerivationAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4203,6 +4485,9 @@
       "slot_uri": "https://w3id.org/biolink/vocab/description",
       "alias": "description",
       "owner": "EntityToPhenotypicFeatureAssociation",
+      "domain_of": [
+        "EntityToPhenotypicFeatureAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4216,6 +4501,9 @@
       "required": true,
       "alias": "object",
       "owner": "EntityToPhenotypicFeatureAssociation",
+      "domain_of": [
+        "EntityToPhenotypicFeatureAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4229,6 +4517,9 @@
       "required": true,
       "alias": "object",
       "owner": "EntityToDiseaseAssociation",
+      "domain_of": [
+        "EntityToDiseaseAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4242,6 +4533,9 @@
       "required": true,
       "alias": "subject",
       "owner": "DiseaseOrPhenotypicFeatureAssociationToThingAssociation",
+      "domain_of": [
+        "DiseaseOrPhenotypicFeatureAssociationToThingAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4255,6 +4549,9 @@
       "required": true,
       "alias": "object",
       "owner": "DiseaseOrPhenotypicFeatureAssociationToLocationAssociation",
+      "domain_of": [
+        "DiseaseOrPhenotypicFeatureAssociationToLocationAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4268,6 +4565,9 @@
       "required": true,
       "alias": "subject",
       "owner": "DiseaseToThingAssociation",
+      "domain_of": [
+        "DiseaseToThingAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4281,6 +4581,9 @@
       "required": true,
       "alias": "subject",
       "owner": "DiseaseToExposureAssociation",
+      "domain_of": [
+        "DiseaseToExposureAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4294,6 +4597,9 @@
       "required": true,
       "alias": "object",
       "owner": "DiseaseToExposureAssociation",
+      "domain_of": [
+        "DiseaseToExposureAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4307,6 +4613,9 @@
       "required": true,
       "alias": "relation",
       "owner": "GenotypeToPhenotypicFeatureAssociation",
+      "domain_of": [
+        "GenotypeToPhenotypicFeatureAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4320,6 +4629,9 @@
       "required": true,
       "alias": "subject",
       "owner": "GenotypeToPhenotypicFeatureAssociation",
+      "domain_of": [
+        "GenotypeToPhenotypicFeatureAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4333,6 +4645,9 @@
       "required": true,
       "alias": "subject",
       "owner": "GenotypeToThingAssociation",
+      "domain_of": [
+        "GenotypeToThingAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4346,6 +4661,9 @@
       "required": true,
       "alias": "subject",
       "owner": "ExposureEventToPhenotypicFeatureAssociation",
+      "domain_of": [
+        "ExposureEventToPhenotypicFeatureAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4359,6 +4677,9 @@
       "required": true,
       "alias": "subject",
       "owner": "GeneToThingAssociation",
+      "domain_of": [
+        "GeneToThingAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4372,6 +4693,9 @@
       "required": true,
       "alias": "subject",
       "owner": "VariantToThingAssociation",
+      "domain_of": [
+        "VariantToThingAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4385,6 +4709,9 @@
       "required": true,
       "alias": "subject",
       "owner": "GeneToPhenotypicFeatureAssociation",
+      "domain_of": [
+        "GeneToPhenotypicFeatureAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4398,6 +4725,9 @@
       "required": true,
       "alias": "subject",
       "owner": "GeneToDiseaseAssociation",
+      "domain_of": [
+        "GeneToDiseaseAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4411,6 +4741,9 @@
       "required": true,
       "alias": "subject",
       "owner": "VariantToPopulationAssociation",
+      "domain_of": [
+        "VariantToPopulationAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4424,6 +4757,9 @@
       "required": true,
       "alias": "object",
       "owner": "VariantToPopulationAssociation",
+      "domain_of": [
+        "VariantToPopulationAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4436,6 +4772,9 @@
       "slot_uri": "https://w3id.org/biolink/vocab/has_quotient",
       "alias": "has quotient",
       "owner": "VariantToPopulationAssociation",
+      "domain_of": [
+        "VariantToPopulationAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4448,6 +4787,9 @@
       "slot_uri": "https://w3id.org/biolink/vocab/has_count",
       "alias": "has count",
       "owner": "VariantToPopulationAssociation",
+      "domain_of": [
+        "VariantToPopulationAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4460,6 +4802,9 @@
       "slot_uri": "https://w3id.org/biolink/vocab/has_total",
       "alias": "has total",
       "owner": "VariantToPopulationAssociation",
+      "domain_of": [
+        "VariantToPopulationAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4473,6 +4818,9 @@
       "required": true,
       "alias": "subject",
       "owner": "PopulationToPopulationAssociation",
+      "domain_of": [
+        "PopulationToPopulationAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4486,6 +4834,9 @@
       "required": true,
       "alias": "object",
       "owner": "PopulationToPopulationAssociation",
+      "domain_of": [
+        "PopulationToPopulationAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4499,6 +4850,9 @@
       "required": true,
       "alias": "relation",
       "owner": "PopulationToPopulationAssociation",
+      "domain_of": [
+        "PopulationToPopulationAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4512,6 +4866,9 @@
       "required": true,
       "alias": "subject",
       "owner": "VariantToPhenotypicFeatureAssociation",
+      "domain_of": [
+        "VariantToPhenotypicFeatureAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4525,6 +4882,9 @@
       "required": true,
       "alias": "subject",
       "owner": "VariantToDiseaseAssociation",
+      "domain_of": [
+        "VariantToDiseaseAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4538,6 +4898,9 @@
       "required": true,
       "alias": "relation",
       "owner": "VariantToDiseaseAssociation",
+      "domain_of": [
+        "VariantToDiseaseAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4551,6 +4914,9 @@
       "required": true,
       "alias": "object",
       "owner": "VariantToDiseaseAssociation",
+      "domain_of": [
+        "VariantToDiseaseAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4564,6 +4930,9 @@
       "required": true,
       "alias": "subject",
       "owner": "ModelToDiseaseMixin",
+      "domain_of": [
+        "ModelToDiseaseMixin"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4577,6 +4946,9 @@
       "required": true,
       "alias": "relation",
       "owner": "ModelToDiseaseMixin",
+      "domain_of": [
+        "ModelToDiseaseMixin"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4590,6 +4962,9 @@
       "required": true,
       "alias": "subject",
       "owner": "GeneAsAModelOfDiseaseAssociation",
+      "domain_of": [
+        "GeneAsAModelOfDiseaseAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4603,6 +4978,9 @@
       "required": true,
       "alias": "subject",
       "owner": "GeneHasVariantThatContributesToDiseaseAssociation",
+      "domain_of": [
+        "GeneHasVariantThatContributesToDiseaseAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4616,6 +4994,9 @@
       "required": true,
       "alias": "subject",
       "owner": "GeneToExpressionSiteAssociation",
+      "domain_of": [
+        "GeneToExpressionSiteAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4629,6 +5010,9 @@
       "required": true,
       "alias": "object",
       "owner": "GeneToExpressionSiteAssociation",
+      "domain_of": [
+        "GeneToExpressionSiteAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4642,6 +5026,9 @@
       "required": true,
       "alias": "relation",
       "owner": "GeneToExpressionSiteAssociation",
+      "domain_of": [
+        "GeneToExpressionSiteAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4654,6 +5041,9 @@
       "slot_uri": "https://w3id.org/biolink/vocab/stage_qualifier",
       "alias": "stage qualifier",
       "owner": "GeneToExpressionSiteAssociation",
+      "domain_of": [
+        "GeneToExpressionSiteAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4666,6 +5056,9 @@
       "slot_uri": "https://w3id.org/biolink/vocab/quantifier_qualifier",
       "alias": "quantifier qualifier",
       "owner": "GeneToExpressionSiteAssociation",
+      "domain_of": [
+        "GeneToExpressionSiteAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4679,6 +5072,9 @@
       "required": true,
       "alias": "subject",
       "owner": "SequenceVariantModulatesTreatmentAssociation",
+      "domain_of": [
+        "SequenceVariantModulatesTreatmentAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4692,6 +5088,9 @@
       "required": true,
       "alias": "object",
       "owner": "SequenceVariantModulatesTreatmentAssociation",
+      "domain_of": [
+        "SequenceVariantModulatesTreatmentAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4705,6 +5104,9 @@
       "required": true,
       "alias": "subject",
       "owner": "FunctionalAssociation",
+      "domain_of": [
+        "FunctionalAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4718,6 +5120,9 @@
       "required": true,
       "alias": "object",
       "owner": "FunctionalAssociation",
+      "domain_of": [
+        "FunctionalAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4731,6 +5136,9 @@
       "required": true,
       "alias": "object",
       "owner": "MacromolecularMachineToMolecularActivityAssociation",
+      "domain_of": [
+        "MacromolecularMachineToMolecularActivityAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4744,6 +5152,9 @@
       "required": true,
       "alias": "object",
       "owner": "MacromolecularMachineToBiologicalProcessAssociation",
+      "domain_of": [
+        "MacromolecularMachineToBiologicalProcessAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4757,6 +5168,9 @@
       "required": true,
       "alias": "object",
       "owner": "MacromolecularMachineToCellularComponentAssociation",
+      "domain_of": [
+        "MacromolecularMachineToCellularComponentAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4770,6 +5184,9 @@
       "required": true,
       "alias": "subject",
       "owner": "GeneToGoTermAssociation",
+      "domain_of": [
+        "GeneToGoTermAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4783,6 +5200,9 @@
       "required": true,
       "alias": "object",
       "owner": "GeneToGoTermAssociation",
+      "domain_of": [
+        "GeneToGoTermAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4796,6 +5216,9 @@
       "required": true,
       "alias": "subject",
       "owner": "GenomicSequenceLocalization",
+      "domain_of": [
+        "GenomicSequenceLocalization"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4809,6 +5232,9 @@
       "required": true,
       "alias": "object",
       "owner": "GenomicSequenceLocalization",
+      "domain_of": [
+        "GenomicSequenceLocalization"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4822,6 +5248,9 @@
       "required": true,
       "alias": "subject",
       "owner": "SequenceFeatureRelationship",
+      "domain_of": [
+        "SequenceFeatureRelationship"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4835,6 +5264,9 @@
       "required": true,
       "alias": "object",
       "owner": "SequenceFeatureRelationship",
+      "domain_of": [
+        "SequenceFeatureRelationship"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4848,6 +5280,9 @@
       "required": true,
       "alias": "subject",
       "owner": "TranscriptToGeneRelationship",
+      "domain_of": [
+        "TranscriptToGeneRelationship"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4861,6 +5296,9 @@
       "required": true,
       "alias": "object",
       "owner": "TranscriptToGeneRelationship",
+      "domain_of": [
+        "TranscriptToGeneRelationship"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4874,6 +5312,9 @@
       "required": true,
       "alias": "subject",
       "owner": "GeneToGeneProductRelationship",
+      "domain_of": [
+        "GeneToGeneProductRelationship"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4887,6 +5328,9 @@
       "required": true,
       "alias": "object",
       "owner": "GeneToGeneProductRelationship",
+      "domain_of": [
+        "GeneToGeneProductRelationship"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4900,6 +5344,9 @@
       "required": true,
       "alias": "relation",
       "owner": "GeneToGeneProductRelationship",
+      "domain_of": [
+        "GeneToGeneProductRelationship"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4913,6 +5360,9 @@
       "required": true,
       "alias": "subject",
       "owner": "ExonToTranscriptRelationship",
+      "domain_of": [
+        "ExonToTranscriptRelationship"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4926,6 +5376,9 @@
       "required": true,
       "alias": "object",
       "owner": "ExonToTranscriptRelationship",
+      "domain_of": [
+        "ExonToTranscriptRelationship"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4939,6 +5392,9 @@
       "required": true,
       "alias": "relation",
       "owner": "GeneRegulatoryRelationship",
+      "domain_of": [
+        "GeneRegulatoryRelationship"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4952,6 +5408,9 @@
       "required": true,
       "alias": "subject",
       "owner": "GeneRegulatoryRelationship",
+      "domain_of": [
+        "GeneRegulatoryRelationship"
+      ],
       "role": "regulatory gene",
       "is_usage_slot": true,
       "type": "SlotDefinition"
@@ -4966,6 +5425,9 @@
       "required": true,
       "alias": "object",
       "owner": "GeneRegulatoryRelationship",
+      "domain_of": [
+        "GeneRegulatoryRelationship"
+      ],
       "role": "regulated gene",
       "is_usage_slot": true,
       "type": "SlotDefinition"
@@ -4980,6 +5442,9 @@
       "required": true,
       "alias": "subject",
       "owner": "AnatomicalEntityToAnatomicalEntityAssociation",
+      "domain_of": [
+        "AnatomicalEntityToAnatomicalEntityAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -4993,6 +5458,9 @@
       "required": true,
       "alias": "object",
       "owner": "AnatomicalEntityToAnatomicalEntityAssociation",
+      "domain_of": [
+        "AnatomicalEntityToAnatomicalEntityAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -5006,6 +5474,9 @@
       "required": true,
       "alias": "subject",
       "owner": "AnatomicalEntityToAnatomicalEntityPartOfAssociation",
+      "domain_of": [
+        "AnatomicalEntityToAnatomicalEntityPartOfAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -5019,6 +5490,9 @@
       "required": true,
       "alias": "object",
       "owner": "AnatomicalEntityToAnatomicalEntityPartOfAssociation",
+      "domain_of": [
+        "AnatomicalEntityToAnatomicalEntityPartOfAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -5032,6 +5506,9 @@
       "required": true,
       "alias": "relation",
       "owner": "AnatomicalEntityToAnatomicalEntityPartOfAssociation",
+      "domain_of": [
+        "AnatomicalEntityToAnatomicalEntityPartOfAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -5045,6 +5522,9 @@
       "required": true,
       "alias": "subject",
       "owner": "AnatomicalEntityToAnatomicalEntityOntogenicAssociation",
+      "domain_of": [
+        "AnatomicalEntityToAnatomicalEntityOntogenicAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -5058,6 +5538,9 @@
       "required": true,
       "alias": "object",
       "owner": "AnatomicalEntityToAnatomicalEntityOntogenicAssociation",
+      "domain_of": [
+        "AnatomicalEntityToAnatomicalEntityOntogenicAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -5071,6 +5554,9 @@
       "required": true,
       "alias": "relation",
       "owner": "AnatomicalEntityToAnatomicalEntityOntogenicAssociation",
+      "domain_of": [
+        "AnatomicalEntityToAnatomicalEntityOntogenicAssociation"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -5085,6 +5571,9 @@
       "inherited": true,
       "alias": "has input",
       "owner": "MolecularActivity",
+      "domain_of": [
+        "MolecularActivity"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -5099,6 +5588,9 @@
       "inherited": true,
       "alias": "has output",
       "owner": "MolecularActivity",
+      "domain_of": [
+        "MolecularActivity"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -5113,6 +5605,9 @@
       "inherited": true,
       "alias": "enabled by",
       "owner": "MolecularActivity",
+      "domain_of": [
+        "MolecularActivity"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     }
@@ -5147,16 +5642,7 @@
         "has_qualitative_value",
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "subclass_of"
+        "category"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/Attribute",
       "subclass_of": "PATO:0000001",
@@ -5186,16 +5672,7 @@
         "has_qualitative_value",
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "subclass_of"
+        "category"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/BiologicalSex",
       "subclass_of": "PATO:0000047",
@@ -5213,16 +5690,7 @@
         "has_qualitative_value",
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "subclass_of"
+        "category"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/PhenotypicSex",
       "subclass_of": "PATO:0001894",
@@ -5240,16 +5708,7 @@
         "has_qualitative_value",
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "subclass_of"
+        "category"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/GenotypicSex",
       "subclass_of": "PATO:0020000",
@@ -5267,16 +5726,7 @@
         "has_qualitative_value",
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "subclass_of"
+        "category"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/SeverityValue",
       "type": "ClassDefinition"
@@ -5293,16 +5743,7 @@
         "has_qualitative_value",
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "subclass_of"
+        "category"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/FrequencyValue",
       "type": "ClassDefinition"
@@ -5319,16 +5760,7 @@
         "has_qualitative_value",
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "subclass_of"
+        "category"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/ClinicalModifier",
       "subclass_of": "HP:0012823",
@@ -5349,16 +5781,7 @@
         "has_qualitative_value",
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "subclass_of"
+        "category"
       ],
       "class_uri": "http://purl.obolibrary.org/obo/HP_0003674",
       "type": "ClassDefinition"
@@ -5435,56 +5858,7 @@
       "slots": [
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "physically_interacts_with",
-        "affects",
-        "regulates",
-        "positively_regulates",
-        "negatively_regulates",
-        "disrupts",
-        "homologous_to",
-        "paralogous_to",
-        "orthologous_to",
-        "xenologous_to",
-        "coexists_with",
-        "colocalizes_with",
-        "affects_risk_for",
-        "predisposes",
-        "contributes_to",
-        "causes",
-        "caused_by",
-        "prevents",
-        "occurs_in",
-        "located_in",
-        "location_of",
-        "model_of",
-        "overlaps",
-        "has_part",
-        "part_of",
-        "participates_in",
-        "actively_involved_in",
-        "capable_of",
-        "derives_into",
-        "derives_from",
-        "manifestation_of",
-        "produces",
-        "same_as",
-        "creation_date",
-        "update_date",
-        "has_chemical_formula",
-        "aggregate_statistic",
-        "has_molecular_consequence",
-        "has_drug",
-        "filler",
-        "interbase_coordinate"
+        "category"
       ],
       "class_uri": "http://example.org/UNKNOWN/WD/Q35120",
       "subclass_of": "BFO:0000001",
@@ -5501,15 +5875,7 @@
       "slots": [
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym"
+        "category"
       ],
       "class_uri": "http://purl.obolibrary.org/obo/EFO_0004095",
       "type": "ClassDefinition"
@@ -5523,14 +5889,6 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
         "source_version",
         "retrievedOn"
       ],
@@ -5548,15 +5906,7 @@
       "slots": [
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym"
+        "category"
       ],
       "class_uri": "http://purl.obolibrary.org/obo/IAO_0000100",
       "type": "ClassDefinition"
@@ -5570,14 +5920,6 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
         "title",
         "source_data_file",
         "versionOf",
@@ -5597,14 +5939,6 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
         "title",
         "source_data_file",
         "versionOf",
@@ -5625,14 +5959,6 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
         "title",
         "source_data_file",
         "versionOf",
@@ -5657,16 +5983,7 @@
       "slots": [
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype"
+        "category"
       ],
       "class_uri": "http://example.org/UNKNOWN/WD/Q28845870",
       "type": "ClassDefinition"
@@ -5680,16 +5997,7 @@
       "slots": [
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "subclass_of"
+        "category"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/OntologyClass",
       "type": "ClassDefinition"
@@ -5703,16 +6011,7 @@
       "slots": [
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "subclass_of"
+        "category"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/RelationshipType",
       "type": "ClassDefinition"
@@ -5729,16 +6028,7 @@
       "slots": [
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "subclass_of"
+        "category"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/GeneOntologyClass",
       "type": "ClassDefinition"
@@ -5770,16 +6060,7 @@
       "slots": [
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "subclass_of"
+        "category"
       ],
       "class_uri": "http://example.org/UNKNOWN/WD/Q16521",
       "type": "ClassDefinition"
@@ -5797,16 +6078,7 @@
       "slots": [
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype"
+        "category"
       ],
       "class_uri": "http://example.org/UNKNOWN/WD/Q7239",
       "type": "ClassDefinition"
@@ -5868,15 +6140,6 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
         "in_taxon"
       ],
       "class_uri": "http://semanticscience.org/resource/SIO_010000",
@@ -5897,15 +6160,6 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
         "in_taxon"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/Case",
@@ -5944,15 +6198,6 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
         "in_taxon"
       ],
       "class_uri": "http://semanticscience.org/resource/SIO_001061",
@@ -5997,14 +6242,6 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
         "has_attribute"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/MaterialSample",
@@ -6030,18 +6267,6 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "correlated_with",
-        "has_biomarker",
-        "treated_by",
         "in_taxon"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/DiseaseOrPhenotypicFeature",
@@ -6101,18 +6326,6 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "correlated_with",
-        "has_biomarker",
-        "treated_by",
         "in_taxon"
       ],
       "class_uri": "http://purl.obolibrary.org/obo/MONDO_0000001",
@@ -6146,18 +6359,6 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "correlated_with",
-        "has_biomarker",
-        "treated_by",
         "in_taxon"
       ],
       "class_uri": "http://purl.obolibrary.org/obo/UPHENO_0001001",
@@ -6181,19 +6382,7 @@
       "slots": [
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "has_receptor",
-        "has_stressor",
-        "has_route"
+        "category"
       ],
       "class_uri": "http://semanticscience.org/resource/SIO_000955",
       "type": "ClassDefinition"
@@ -6239,15 +6428,7 @@
       "slots": [
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym"
+        "category"
       ],
       "class_uri": "http://purl.obolibrary.org/obo/IAO_0000030",
       "type": "ClassDefinition"
@@ -6267,15 +6448,7 @@
       "slots": [
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym"
+        "category"
       ],
       "class_uri": "http://purl.obolibrary.org/obo/CIO_0000028",
       "type": "ClassDefinition"
@@ -6298,15 +6471,7 @@
       "slots": [
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym"
+        "category"
       ],
       "class_uri": "http://purl.obolibrary.org/obo/ECO_0000000",
       "type": "ClassDefinition"
@@ -6331,15 +6496,7 @@
       "slots": [
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym"
+        "category"
       ],
       "class_uri": "http://purl.obolibrary.org/obo/IAO_0000311",
       "type": "ClassDefinition"
@@ -6353,15 +6510,7 @@
       "slots": [
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym"
+        "category"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/AdministrativeEntity",
       "type": "ClassDefinition"
@@ -6390,15 +6539,7 @@
       "slots": [
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym"
+        "category"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/Provider",
       "type": "ClassDefinition"
@@ -6427,69 +6568,7 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "molecularly_interacts_with",
-        "affects_abundance_of",
-        "increases_abundance_of",
-        "decreases_abundance_of",
-        "affects_activity_of",
-        "increases_activity_of",
-        "decreases_activity_of",
-        "affects_expression_of",
-        "increases_expression_of",
-        "decreases_expression_of",
-        "affects_folding_of",
-        "increases_folding_of",
-        "decreases_folding_of",
-        "affects_localization_of",
-        "increases_localization_of",
-        "decreases_localization_of",
-        "affects_metabolic_processing_of",
-        "increases_metabolic_processing_of",
-        "decreases_metabolic_processing_of",
-        "affects_molecular_modification_of",
-        "increases_molecular_modification_of",
-        "decreases_molecular_modification_of",
-        "affects_synthesis_of",
-        "increases_synthesis_of",
-        "decreases_synthesis_of",
-        "affects_degradation_of",
-        "increases_degradation_of",
-        "decreases_degradation_of",
-        "affects_mutation_rate_of",
-        "increases_mutation_rate_of",
-        "decreases_mutation_rate_of",
-        "affects_response_to",
-        "increases_response_to",
-        "decreases_response_to",
-        "affects_splicing_of",
-        "increases_splicing_of",
-        "decreases_splicing_of",
-        "affects_stability_of",
-        "increases_stability_of",
-        "decreases_stability_of",
-        "affects_transport_of",
-        "increases_transport_of",
-        "decreases_transport_of",
-        "affects_secretion_of",
-        "increases_secretion_of",
-        "decreases_secretion_of",
-        "affects_uptake_of",
-        "increases_uptake_of",
-        "decreases_uptake_of",
-        "regulates_entity_to_entity",
-        "biomarker_for",
-        "in_taxon",
-        "positively_regulates_entity_to_entity",
-        "negatively_regulates_entity_to_entity"
+        "in_taxon"
       ],
       "class_uri": "http://semanticscience.org/resource/SIO_010341",
       "type": "ClassDefinition"
@@ -6560,66 +6639,6 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "molecularly_interacts_with",
-        "affects_abundance_of",
-        "increases_abundance_of",
-        "decreases_abundance_of",
-        "affects_activity_of",
-        "increases_activity_of",
-        "decreases_activity_of",
-        "affects_expression_of",
-        "increases_expression_of",
-        "decreases_expression_of",
-        "affects_folding_of",
-        "increases_folding_of",
-        "decreases_folding_of",
-        "affects_localization_of",
-        "increases_localization_of",
-        "decreases_localization_of",
-        "affects_metabolic_processing_of",
-        "increases_metabolic_processing_of",
-        "decreases_metabolic_processing_of",
-        "affects_molecular_modification_of",
-        "increases_molecular_modification_of",
-        "decreases_molecular_modification_of",
-        "affects_synthesis_of",
-        "increases_synthesis_of",
-        "decreases_synthesis_of",
-        "affects_degradation_of",
-        "increases_degradation_of",
-        "decreases_degradation_of",
-        "affects_mutation_rate_of",
-        "increases_mutation_rate_of",
-        "decreases_mutation_rate_of",
-        "affects_response_to",
-        "increases_response_to",
-        "decreases_response_to",
-        "affects_splicing_of",
-        "increases_splicing_of",
-        "decreases_splicing_of",
-        "affects_stability_of",
-        "increases_stability_of",
-        "decreases_stability_of",
-        "affects_transport_of",
-        "increases_transport_of",
-        "decreases_transport_of",
-        "affects_secretion_of",
-        "increases_secretion_of",
-        "decreases_secretion_of",
-        "affects_uptake_of",
-        "increases_uptake_of",
-        "decreases_uptake_of",
-        "regulates_entity_to_entity",
-        "biomarker_for",
         "in_taxon"
       ],
       "class_uri": "http://semanticscience.org/resource/SIO_010004",
@@ -6639,66 +6658,6 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "molecularly_interacts_with",
-        "affects_abundance_of",
-        "increases_abundance_of",
-        "decreases_abundance_of",
-        "affects_activity_of",
-        "increases_activity_of",
-        "decreases_activity_of",
-        "affects_expression_of",
-        "increases_expression_of",
-        "decreases_expression_of",
-        "affects_folding_of",
-        "increases_folding_of",
-        "decreases_folding_of",
-        "affects_localization_of",
-        "increases_localization_of",
-        "decreases_localization_of",
-        "affects_metabolic_processing_of",
-        "increases_metabolic_processing_of",
-        "decreases_metabolic_processing_of",
-        "affects_molecular_modification_of",
-        "increases_molecular_modification_of",
-        "decreases_molecular_modification_of",
-        "affects_synthesis_of",
-        "increases_synthesis_of",
-        "decreases_synthesis_of",
-        "affects_degradation_of",
-        "increases_degradation_of",
-        "decreases_degradation_of",
-        "affects_mutation_rate_of",
-        "increases_mutation_rate_of",
-        "decreases_mutation_rate_of",
-        "affects_response_to",
-        "increases_response_to",
-        "decreases_response_to",
-        "affects_splicing_of",
-        "increases_splicing_of",
-        "decreases_splicing_of",
-        "affects_stability_of",
-        "increases_stability_of",
-        "decreases_stability_of",
-        "affects_transport_of",
-        "increases_transport_of",
-        "decreases_transport_of",
-        "affects_secretion_of",
-        "increases_secretion_of",
-        "decreases_secretion_of",
-        "affects_uptake_of",
-        "increases_uptake_of",
-        "decreases_uptake_of",
-        "regulates_entity_to_entity",
-        "biomarker_for",
         "in_taxon"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/Carbohydrate",
@@ -6723,66 +6682,6 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "molecularly_interacts_with",
-        "affects_abundance_of",
-        "increases_abundance_of",
-        "decreases_abundance_of",
-        "affects_activity_of",
-        "increases_activity_of",
-        "decreases_activity_of",
-        "affects_expression_of",
-        "increases_expression_of",
-        "decreases_expression_of",
-        "affects_folding_of",
-        "increases_folding_of",
-        "decreases_folding_of",
-        "affects_localization_of",
-        "increases_localization_of",
-        "decreases_localization_of",
-        "affects_metabolic_processing_of",
-        "increases_metabolic_processing_of",
-        "decreases_metabolic_processing_of",
-        "affects_molecular_modification_of",
-        "increases_molecular_modification_of",
-        "decreases_molecular_modification_of",
-        "affects_synthesis_of",
-        "increases_synthesis_of",
-        "decreases_synthesis_of",
-        "affects_degradation_of",
-        "increases_degradation_of",
-        "decreases_degradation_of",
-        "affects_mutation_rate_of",
-        "increases_mutation_rate_of",
-        "decreases_mutation_rate_of",
-        "affects_response_to",
-        "increases_response_to",
-        "decreases_response_to",
-        "affects_splicing_of",
-        "increases_splicing_of",
-        "decreases_splicing_of",
-        "affects_stability_of",
-        "increases_stability_of",
-        "decreases_stability_of",
-        "affects_transport_of",
-        "increases_transport_of",
-        "decreases_transport_of",
-        "affects_secretion_of",
-        "increases_secretion_of",
-        "decreases_secretion_of",
-        "affects_uptake_of",
-        "increases_uptake_of",
-        "decreases_uptake_of",
-        "regulates_entity_to_entity",
-        "biomarker_for",
         "in_taxon"
       ],
       "class_uri": "http://example.org/UNKNOWN/WD/Q12140",
@@ -6804,66 +6703,6 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "molecularly_interacts_with",
-        "affects_abundance_of",
-        "increases_abundance_of",
-        "decreases_abundance_of",
-        "affects_activity_of",
-        "increases_activity_of",
-        "decreases_activity_of",
-        "affects_expression_of",
-        "increases_expression_of",
-        "decreases_expression_of",
-        "affects_folding_of",
-        "increases_folding_of",
-        "decreases_folding_of",
-        "affects_localization_of",
-        "increases_localization_of",
-        "decreases_localization_of",
-        "affects_metabolic_processing_of",
-        "increases_metabolic_processing_of",
-        "decreases_metabolic_processing_of",
-        "affects_molecular_modification_of",
-        "increases_molecular_modification_of",
-        "decreases_molecular_modification_of",
-        "affects_synthesis_of",
-        "increases_synthesis_of",
-        "decreases_synthesis_of",
-        "affects_degradation_of",
-        "increases_degradation_of",
-        "decreases_degradation_of",
-        "affects_mutation_rate_of",
-        "increases_mutation_rate_of",
-        "decreases_mutation_rate_of",
-        "affects_response_to",
-        "increases_response_to",
-        "decreases_response_to",
-        "affects_splicing_of",
-        "increases_splicing_of",
-        "decreases_splicing_of",
-        "affects_stability_of",
-        "increases_stability_of",
-        "decreases_stability_of",
-        "affects_transport_of",
-        "increases_transport_of",
-        "decreases_transport_of",
-        "affects_secretion_of",
-        "increases_secretion_of",
-        "decreases_secretion_of",
-        "affects_uptake_of",
-        "increases_uptake_of",
-        "decreases_uptake_of",
-        "regulates_entity_to_entity",
-        "biomarker_for",
         "in_taxon"
       ],
       "class_uri": "http://purl.obolibrary.org/obo/CHEBI_25212",
@@ -6900,16 +6739,6 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "expresses",
         "in_taxon"
       ],
       "class_uri": "http://semanticscience.org/resource/SIO_010046",
@@ -6929,15 +6758,6 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
         "in_taxon"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/LifeStage",
@@ -6953,15 +6773,7 @@
       "slots": [
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym"
+        "category"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/PlanetaryEntity",
       "type": "ClassDefinition"
@@ -6977,20 +6789,7 @@
       "slots": [
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "regulates_process_to_process",
-        "has_participant",
-        "has_input",
-        "has_output",
-        "precedes"
+        "category"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/EnvironmentalProcess",
       "subclass_of": "ENVO:02500000",
@@ -7004,15 +6803,7 @@
       "slots": [
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym"
+        "category"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/EnvironmentalFeature",
       "subclass_of": "ENVO:00002297",
@@ -7027,15 +6818,7 @@
       "slots": [
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym"
+        "category"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/ClinicalEntity",
       "type": "ClassDefinition"
@@ -7048,15 +6831,7 @@
       "slots": [
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym"
+        "category"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/ClinicalTrial",
       "type": "ClassDefinition"
@@ -7069,15 +6844,7 @@
       "slots": [
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym"
+        "category"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/ClinicalIntervention",
       "type": "ClassDefinition"
@@ -7100,15 +6867,7 @@
       "slots": [
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym"
+        "category"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/Device",
       "type": "ClassDefinition"
@@ -7133,66 +6892,6 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "molecularly_interacts_with",
-        "affects_abundance_of",
-        "increases_abundance_of",
-        "decreases_abundance_of",
-        "affects_activity_of",
-        "increases_activity_of",
-        "decreases_activity_of",
-        "affects_expression_of",
-        "increases_expression_of",
-        "decreases_expression_of",
-        "affects_folding_of",
-        "increases_folding_of",
-        "decreases_folding_of",
-        "affects_localization_of",
-        "increases_localization_of",
-        "decreases_localization_of",
-        "affects_metabolic_processing_of",
-        "increases_metabolic_processing_of",
-        "decreases_metabolic_processing_of",
-        "affects_molecular_modification_of",
-        "increases_molecular_modification_of",
-        "decreases_molecular_modification_of",
-        "affects_synthesis_of",
-        "increases_synthesis_of",
-        "decreases_synthesis_of",
-        "affects_degradation_of",
-        "increases_degradation_of",
-        "decreases_degradation_of",
-        "affects_mutation_rate_of",
-        "increases_mutation_rate_of",
-        "decreases_mutation_rate_of",
-        "affects_response_to",
-        "increases_response_to",
-        "decreases_response_to",
-        "affects_splicing_of",
-        "increases_splicing_of",
-        "decreases_splicing_of",
-        "affects_stability_of",
-        "increases_stability_of",
-        "decreases_stability_of",
-        "affects_transport_of",
-        "increases_transport_of",
-        "decreases_transport_of",
-        "affects_secretion_of",
-        "increases_secretion_of",
-        "decreases_secretion_of",
-        "affects_uptake_of",
-        "increases_uptake_of",
-        "decreases_uptake_of",
-        "regulates_entity_to_entity",
-        "biomarker_for",
         "in_taxon",
         "has_biological_sequence"
       ],
@@ -7214,66 +6913,6 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "molecularly_interacts_with",
-        "affects_abundance_of",
-        "increases_abundance_of",
-        "decreases_abundance_of",
-        "affects_activity_of",
-        "increases_activity_of",
-        "decreases_activity_of",
-        "affects_expression_of",
-        "increases_expression_of",
-        "decreases_expression_of",
-        "affects_folding_of",
-        "increases_folding_of",
-        "decreases_folding_of",
-        "affects_localization_of",
-        "increases_localization_of",
-        "decreases_localization_of",
-        "affects_metabolic_processing_of",
-        "increases_metabolic_processing_of",
-        "decreases_metabolic_processing_of",
-        "affects_molecular_modification_of",
-        "increases_molecular_modification_of",
-        "decreases_molecular_modification_of",
-        "affects_synthesis_of",
-        "increases_synthesis_of",
-        "decreases_synthesis_of",
-        "affects_degradation_of",
-        "increases_degradation_of",
-        "decreases_degradation_of",
-        "affects_mutation_rate_of",
-        "increases_mutation_rate_of",
-        "decreases_mutation_rate_of",
-        "affects_response_to",
-        "increases_response_to",
-        "decreases_response_to",
-        "affects_splicing_of",
-        "increases_splicing_of",
-        "decreases_splicing_of",
-        "affects_stability_of",
-        "increases_stability_of",
-        "decreases_stability_of",
-        "affects_transport_of",
-        "increases_transport_of",
-        "decreases_transport_of",
-        "affects_secretion_of",
-        "increases_secretion_of",
-        "decreases_secretion_of",
-        "affects_uptake_of",
-        "increases_uptake_of",
-        "decreases_uptake_of",
-        "regulates_entity_to_entity",
-        "biomarker_for",
         "in_taxon",
         "has_biological_sequence"
       ],
@@ -7294,66 +6933,6 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "molecularly_interacts_with",
-        "affects_abundance_of",
-        "increases_abundance_of",
-        "decreases_abundance_of",
-        "affects_activity_of",
-        "increases_activity_of",
-        "decreases_activity_of",
-        "affects_expression_of",
-        "increases_expression_of",
-        "decreases_expression_of",
-        "affects_folding_of",
-        "increases_folding_of",
-        "decreases_folding_of",
-        "affects_localization_of",
-        "increases_localization_of",
-        "decreases_localization_of",
-        "affects_metabolic_processing_of",
-        "increases_metabolic_processing_of",
-        "decreases_metabolic_processing_of",
-        "affects_molecular_modification_of",
-        "increases_molecular_modification_of",
-        "decreases_molecular_modification_of",
-        "affects_synthesis_of",
-        "increases_synthesis_of",
-        "decreases_synthesis_of",
-        "affects_degradation_of",
-        "increases_degradation_of",
-        "decreases_degradation_of",
-        "affects_mutation_rate_of",
-        "increases_mutation_rate_of",
-        "decreases_mutation_rate_of",
-        "affects_response_to",
-        "increases_response_to",
-        "decreases_response_to",
-        "affects_splicing_of",
-        "increases_splicing_of",
-        "decreases_splicing_of",
-        "affects_stability_of",
-        "increases_stability_of",
-        "decreases_stability_of",
-        "affects_transport_of",
-        "increases_transport_of",
-        "decreases_transport_of",
-        "affects_secretion_of",
-        "increases_secretion_of",
-        "decreases_secretion_of",
-        "affects_uptake_of",
-        "increases_uptake_of",
-        "decreases_uptake_of",
-        "regulates_entity_to_entity",
-        "biomarker_for",
         "in_taxon",
         "has_biological_sequence"
       ],
@@ -7375,66 +6954,6 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "molecularly_interacts_with",
-        "affects_abundance_of",
-        "increases_abundance_of",
-        "decreases_abundance_of",
-        "affects_activity_of",
-        "increases_activity_of",
-        "decreases_activity_of",
-        "affects_expression_of",
-        "increases_expression_of",
-        "decreases_expression_of",
-        "affects_folding_of",
-        "increases_folding_of",
-        "decreases_folding_of",
-        "affects_localization_of",
-        "increases_localization_of",
-        "decreases_localization_of",
-        "affects_metabolic_processing_of",
-        "increases_metabolic_processing_of",
-        "decreases_metabolic_processing_of",
-        "affects_molecular_modification_of",
-        "increases_molecular_modification_of",
-        "decreases_molecular_modification_of",
-        "affects_synthesis_of",
-        "increases_synthesis_of",
-        "decreases_synthesis_of",
-        "affects_degradation_of",
-        "increases_degradation_of",
-        "decreases_degradation_of",
-        "affects_mutation_rate_of",
-        "increases_mutation_rate_of",
-        "decreases_mutation_rate_of",
-        "affects_response_to",
-        "increases_response_to",
-        "decreases_response_to",
-        "affects_splicing_of",
-        "increases_splicing_of",
-        "decreases_splicing_of",
-        "affects_stability_of",
-        "increases_stability_of",
-        "decreases_stability_of",
-        "affects_transport_of",
-        "increases_transport_of",
-        "decreases_transport_of",
-        "affects_secretion_of",
-        "increases_secretion_of",
-        "decreases_secretion_of",
-        "affects_uptake_of",
-        "increases_uptake_of",
-        "decreases_uptake_of",
-        "regulates_entity_to_entity",
-        "biomarker_for",
         "in_taxon",
         "has_biological_sequence"
       ],
@@ -7454,66 +6973,6 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "molecularly_interacts_with",
-        "affects_abundance_of",
-        "increases_abundance_of",
-        "decreases_abundance_of",
-        "affects_activity_of",
-        "increases_activity_of",
-        "decreases_activity_of",
-        "affects_expression_of",
-        "increases_expression_of",
-        "decreases_expression_of",
-        "affects_folding_of",
-        "increases_folding_of",
-        "decreases_folding_of",
-        "affects_localization_of",
-        "increases_localization_of",
-        "decreases_localization_of",
-        "affects_metabolic_processing_of",
-        "increases_metabolic_processing_of",
-        "decreases_metabolic_processing_of",
-        "affects_molecular_modification_of",
-        "increases_molecular_modification_of",
-        "decreases_molecular_modification_of",
-        "affects_synthesis_of",
-        "increases_synthesis_of",
-        "decreases_synthesis_of",
-        "affects_degradation_of",
-        "increases_degradation_of",
-        "decreases_degradation_of",
-        "affects_mutation_rate_of",
-        "increases_mutation_rate_of",
-        "decreases_mutation_rate_of",
-        "affects_response_to",
-        "increases_response_to",
-        "decreases_response_to",
-        "affects_splicing_of",
-        "increases_splicing_of",
-        "decreases_splicing_of",
-        "affects_stability_of",
-        "increases_stability_of",
-        "decreases_stability_of",
-        "affects_transport_of",
-        "increases_transport_of",
-        "decreases_transport_of",
-        "affects_secretion_of",
-        "increases_secretion_of",
-        "decreases_secretion_of",
-        "affects_uptake_of",
-        "increases_uptake_of",
-        "decreases_uptake_of",
-        "regulates_entity_to_entity",
-        "biomarker_for",
         "in_taxon",
         "has_biological_sequence"
       ],
@@ -7530,66 +6989,6 @@
         "id",
         "macromolecular_machine_name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "molecularly_interacts_with",
-        "affects_abundance_of",
-        "increases_abundance_of",
-        "decreases_abundance_of",
-        "affects_activity_of",
-        "increases_activity_of",
-        "decreases_activity_of",
-        "affects_expression_of",
-        "increases_expression_of",
-        "decreases_expression_of",
-        "affects_folding_of",
-        "increases_folding_of",
-        "decreases_folding_of",
-        "affects_localization_of",
-        "increases_localization_of",
-        "decreases_localization_of",
-        "affects_metabolic_processing_of",
-        "increases_metabolic_processing_of",
-        "decreases_metabolic_processing_of",
-        "affects_molecular_modification_of",
-        "increases_molecular_modification_of",
-        "decreases_molecular_modification_of",
-        "affects_synthesis_of",
-        "increases_synthesis_of",
-        "decreases_synthesis_of",
-        "affects_degradation_of",
-        "increases_degradation_of",
-        "decreases_degradation_of",
-        "affects_mutation_rate_of",
-        "increases_mutation_rate_of",
-        "decreases_mutation_rate_of",
-        "affects_response_to",
-        "increases_response_to",
-        "decreases_response_to",
-        "affects_splicing_of",
-        "increases_splicing_of",
-        "decreases_splicing_of",
-        "affects_stability_of",
-        "increases_stability_of",
-        "decreases_stability_of",
-        "affects_transport_of",
-        "increases_transport_of",
-        "decreases_transport_of",
-        "affects_secretion_of",
-        "increases_secretion_of",
-        "decreases_secretion_of",
-        "affects_uptake_of",
-        "increases_uptake_of",
-        "decreases_uptake_of",
-        "regulates_entity_to_entity",
-        "biomarker_for",
         "in_taxon",
         "has_biological_sequence"
       ],
@@ -7614,72 +7013,8 @@
         "id",
         "macromolecular_machine_name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "molecularly_interacts_with",
-        "affects_abundance_of",
-        "increases_abundance_of",
-        "decreases_abundance_of",
-        "affects_activity_of",
-        "increases_activity_of",
-        "decreases_activity_of",
-        "affects_expression_of",
-        "increases_expression_of",
-        "decreases_expression_of",
-        "affects_folding_of",
-        "increases_folding_of",
-        "decreases_folding_of",
-        "affects_localization_of",
-        "increases_localization_of",
-        "decreases_localization_of",
-        "affects_metabolic_processing_of",
-        "increases_metabolic_processing_of",
-        "decreases_metabolic_processing_of",
-        "affects_molecular_modification_of",
-        "increases_molecular_modification_of",
-        "decreases_molecular_modification_of",
-        "affects_synthesis_of",
-        "increases_synthesis_of",
-        "decreases_synthesis_of",
-        "affects_degradation_of",
-        "increases_degradation_of",
-        "decreases_degradation_of",
-        "affects_mutation_rate_of",
-        "increases_mutation_rate_of",
-        "decreases_mutation_rate_of",
-        "affects_response_to",
-        "increases_response_to",
-        "decreases_response_to",
-        "affects_splicing_of",
-        "increases_splicing_of",
-        "decreases_splicing_of",
-        "affects_stability_of",
-        "increases_stability_of",
-        "decreases_stability_of",
-        "affects_transport_of",
-        "increases_transport_of",
-        "decreases_transport_of",
-        "affects_secretion_of",
-        "increases_secretion_of",
-        "decreases_secretion_of",
-        "affects_uptake_of",
-        "increases_uptake_of",
-        "decreases_uptake_of",
-        "regulates_entity_to_entity",
-        "biomarker_for",
         "in_taxon",
-        "has_biological_sequence",
-        "in_pathway_with",
-        "in_complex_with",
-        "in_cell_population_with",
-        "expressed_in"
+        "has_biological_sequence"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/GeneOrGeneProduct",
       "union_of": [
@@ -7717,75 +7052,8 @@
         "id",
         "macromolecular_machine_name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "molecularly_interacts_with",
-        "affects_abundance_of",
-        "increases_abundance_of",
-        "decreases_abundance_of",
-        "affects_activity_of",
-        "increases_activity_of",
-        "decreases_activity_of",
-        "affects_expression_of",
-        "increases_expression_of",
-        "decreases_expression_of",
-        "affects_folding_of",
-        "increases_folding_of",
-        "decreases_folding_of",
-        "affects_localization_of",
-        "increases_localization_of",
-        "decreases_localization_of",
-        "affects_metabolic_processing_of",
-        "increases_metabolic_processing_of",
-        "decreases_metabolic_processing_of",
-        "affects_molecular_modification_of",
-        "increases_molecular_modification_of",
-        "decreases_molecular_modification_of",
-        "affects_synthesis_of",
-        "increases_synthesis_of",
-        "decreases_synthesis_of",
-        "affects_degradation_of",
-        "increases_degradation_of",
-        "decreases_degradation_of",
-        "affects_mutation_rate_of",
-        "increases_mutation_rate_of",
-        "decreases_mutation_rate_of",
-        "affects_response_to",
-        "increases_response_to",
-        "decreases_response_to",
-        "affects_splicing_of",
-        "increases_splicing_of",
-        "decreases_splicing_of",
-        "affects_stability_of",
-        "increases_stability_of",
-        "decreases_stability_of",
-        "affects_transport_of",
-        "increases_transport_of",
-        "decreases_transport_of",
-        "affects_secretion_of",
-        "increases_secretion_of",
-        "decreases_secretion_of",
-        "affects_uptake_of",
-        "increases_uptake_of",
-        "decreases_uptake_of",
-        "regulates_entity_to_entity",
-        "biomarker_for",
         "in_taxon",
-        "has_biological_sequence",
-        "in_pathway_with",
-        "in_complex_with",
-        "in_cell_population_with",
-        "expressed_in",
-        "genetically_interacts_with",
-        "has_gene_product",
-        "gene_associated_with_condition"
+        "has_biological_sequence"
       ],
       "class_uri": "http://purl.obolibrary.org/obo/SO_0000704",
       "type": "ClassDefinition"
@@ -7808,72 +7076,8 @@
         "id",
         "macromolecular_machine_name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "molecularly_interacts_with",
-        "affects_abundance_of",
-        "increases_abundance_of",
-        "decreases_abundance_of",
-        "affects_activity_of",
-        "increases_activity_of",
-        "decreases_activity_of",
-        "affects_expression_of",
-        "increases_expression_of",
-        "decreases_expression_of",
-        "affects_folding_of",
-        "increases_folding_of",
-        "decreases_folding_of",
-        "affects_localization_of",
-        "increases_localization_of",
-        "decreases_localization_of",
-        "affects_metabolic_processing_of",
-        "increases_metabolic_processing_of",
-        "decreases_metabolic_processing_of",
-        "affects_molecular_modification_of",
-        "increases_molecular_modification_of",
-        "decreases_molecular_modification_of",
-        "affects_synthesis_of",
-        "increases_synthesis_of",
-        "decreases_synthesis_of",
-        "affects_degradation_of",
-        "increases_degradation_of",
-        "decreases_degradation_of",
-        "affects_mutation_rate_of",
-        "increases_mutation_rate_of",
-        "decreases_mutation_rate_of",
-        "affects_response_to",
-        "increases_response_to",
-        "decreases_response_to",
-        "affects_splicing_of",
-        "increases_splicing_of",
-        "decreases_splicing_of",
-        "affects_stability_of",
-        "increases_stability_of",
-        "decreases_stability_of",
-        "affects_transport_of",
-        "increases_transport_of",
-        "decreases_transport_of",
-        "affects_secretion_of",
-        "increases_secretion_of",
-        "decreases_secretion_of",
-        "affects_uptake_of",
-        "increases_uptake_of",
-        "decreases_uptake_of",
-        "regulates_entity_to_entity",
-        "biomarker_for",
         "in_taxon",
-        "has_biological_sequence",
-        "in_pathway_with",
-        "in_complex_with",
-        "in_cell_population_with",
-        "expressed_in"
+        "has_biological_sequence"
       ],
       "class_uri": "http://example.org/UNKNOWN/WD/Q424689",
       "union_of": [
@@ -7909,72 +7113,8 @@
         "id",
         "macromolecular_machine_name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "molecularly_interacts_with",
-        "affects_abundance_of",
-        "increases_abundance_of",
-        "decreases_abundance_of",
-        "affects_activity_of",
-        "increases_activity_of",
-        "decreases_activity_of",
-        "affects_expression_of",
-        "increases_expression_of",
-        "decreases_expression_of",
-        "affects_folding_of",
-        "increases_folding_of",
-        "decreases_folding_of",
-        "affects_localization_of",
-        "increases_localization_of",
-        "decreases_localization_of",
-        "affects_metabolic_processing_of",
-        "increases_metabolic_processing_of",
-        "decreases_metabolic_processing_of",
-        "affects_molecular_modification_of",
-        "increases_molecular_modification_of",
-        "decreases_molecular_modification_of",
-        "affects_synthesis_of",
-        "increases_synthesis_of",
-        "decreases_synthesis_of",
-        "affects_degradation_of",
-        "increases_degradation_of",
-        "decreases_degradation_of",
-        "affects_mutation_rate_of",
-        "increases_mutation_rate_of",
-        "decreases_mutation_rate_of",
-        "affects_response_to",
-        "increases_response_to",
-        "decreases_response_to",
-        "affects_splicing_of",
-        "increases_splicing_of",
-        "decreases_splicing_of",
-        "affects_stability_of",
-        "increases_stability_of",
-        "decreases_stability_of",
-        "affects_transport_of",
-        "increases_transport_of",
-        "decreases_transport_of",
-        "affects_secretion_of",
-        "increases_secretion_of",
-        "decreases_secretion_of",
-        "affects_uptake_of",
-        "increases_uptake_of",
-        "decreases_uptake_of",
-        "regulates_entity_to_entity",
-        "biomarker_for",
         "in_taxon",
-        "has_biological_sequence",
-        "in_pathway_with",
-        "in_complex_with",
-        "in_cell_population_with",
-        "expressed_in"
+        "has_biological_sequence"
       ],
       "class_uri": "http://purl.obolibrary.org/obo/PR_000000001",
       "type": "ClassDefinition"
@@ -7990,72 +7130,8 @@
         "id",
         "macromolecular_machine_name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "molecularly_interacts_with",
-        "affects_abundance_of",
-        "increases_abundance_of",
-        "decreases_abundance_of",
-        "affects_activity_of",
-        "increases_activity_of",
-        "decreases_activity_of",
-        "affects_expression_of",
-        "increases_expression_of",
-        "decreases_expression_of",
-        "affects_folding_of",
-        "increases_folding_of",
-        "decreases_folding_of",
-        "affects_localization_of",
-        "increases_localization_of",
-        "decreases_localization_of",
-        "affects_metabolic_processing_of",
-        "increases_metabolic_processing_of",
-        "decreases_metabolic_processing_of",
-        "affects_molecular_modification_of",
-        "increases_molecular_modification_of",
-        "decreases_molecular_modification_of",
-        "affects_synthesis_of",
-        "increases_synthesis_of",
-        "decreases_synthesis_of",
-        "affects_degradation_of",
-        "increases_degradation_of",
-        "decreases_degradation_of",
-        "affects_mutation_rate_of",
-        "increases_mutation_rate_of",
-        "decreases_mutation_rate_of",
-        "affects_response_to",
-        "increases_response_to",
-        "decreases_response_to",
-        "affects_splicing_of",
-        "increases_splicing_of",
-        "decreases_splicing_of",
-        "affects_stability_of",
-        "increases_stability_of",
-        "decreases_stability_of",
-        "affects_transport_of",
-        "increases_transport_of",
-        "decreases_transport_of",
-        "affects_secretion_of",
-        "increases_secretion_of",
-        "decreases_secretion_of",
-        "affects_uptake_of",
-        "increases_uptake_of",
-        "decreases_uptake_of",
-        "regulates_entity_to_entity",
-        "biomarker_for",
         "in_taxon",
-        "has_biological_sequence",
-        "in_pathway_with",
-        "in_complex_with",
-        "in_cell_population_with",
-        "expressed_in"
+        "has_biological_sequence"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/GeneProductIsoform",
       "type": "ClassDefinition"
@@ -8081,72 +7157,8 @@
         "id",
         "macromolecular_machine_name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "molecularly_interacts_with",
-        "affects_abundance_of",
-        "increases_abundance_of",
-        "decreases_abundance_of",
-        "affects_activity_of",
-        "increases_activity_of",
-        "decreases_activity_of",
-        "affects_expression_of",
-        "increases_expression_of",
-        "decreases_expression_of",
-        "affects_folding_of",
-        "increases_folding_of",
-        "decreases_folding_of",
-        "affects_localization_of",
-        "increases_localization_of",
-        "decreases_localization_of",
-        "affects_metabolic_processing_of",
-        "increases_metabolic_processing_of",
-        "decreases_metabolic_processing_of",
-        "affects_molecular_modification_of",
-        "increases_molecular_modification_of",
-        "decreases_molecular_modification_of",
-        "affects_synthesis_of",
-        "increases_synthesis_of",
-        "decreases_synthesis_of",
-        "affects_degradation_of",
-        "increases_degradation_of",
-        "decreases_degradation_of",
-        "affects_mutation_rate_of",
-        "increases_mutation_rate_of",
-        "decreases_mutation_rate_of",
-        "affects_response_to",
-        "increases_response_to",
-        "decreases_response_to",
-        "affects_splicing_of",
-        "increases_splicing_of",
-        "decreases_splicing_of",
-        "affects_stability_of",
-        "increases_stability_of",
-        "decreases_stability_of",
-        "affects_transport_of",
-        "increases_transport_of",
-        "decreases_transport_of",
-        "affects_secretion_of",
-        "increases_secretion_of",
-        "decreases_secretion_of",
-        "affects_uptake_of",
-        "increases_uptake_of",
-        "decreases_uptake_of",
-        "regulates_entity_to_entity",
-        "biomarker_for",
         "in_taxon",
-        "has_biological_sequence",
-        "in_pathway_with",
-        "in_complex_with",
-        "in_cell_population_with",
-        "expressed_in"
+        "has_biological_sequence"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/ProteinIsoform",
       "type": "ClassDefinition"
@@ -8168,72 +7180,8 @@
         "id",
         "macromolecular_machine_name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "molecularly_interacts_with",
-        "affects_abundance_of",
-        "increases_abundance_of",
-        "decreases_abundance_of",
-        "affects_activity_of",
-        "increases_activity_of",
-        "decreases_activity_of",
-        "affects_expression_of",
-        "increases_expression_of",
-        "decreases_expression_of",
-        "affects_folding_of",
-        "increases_folding_of",
-        "decreases_folding_of",
-        "affects_localization_of",
-        "increases_localization_of",
-        "decreases_localization_of",
-        "affects_metabolic_processing_of",
-        "increases_metabolic_processing_of",
-        "decreases_metabolic_processing_of",
-        "affects_molecular_modification_of",
-        "increases_molecular_modification_of",
-        "decreases_molecular_modification_of",
-        "affects_synthesis_of",
-        "increases_synthesis_of",
-        "decreases_synthesis_of",
-        "affects_degradation_of",
-        "increases_degradation_of",
-        "decreases_degradation_of",
-        "affects_mutation_rate_of",
-        "increases_mutation_rate_of",
-        "decreases_mutation_rate_of",
-        "affects_response_to",
-        "increases_response_to",
-        "decreases_response_to",
-        "affects_splicing_of",
-        "increases_splicing_of",
-        "decreases_splicing_of",
-        "affects_stability_of",
-        "increases_stability_of",
-        "decreases_stability_of",
-        "affects_transport_of",
-        "increases_transport_of",
-        "decreases_transport_of",
-        "affects_secretion_of",
-        "increases_secretion_of",
-        "decreases_secretion_of",
-        "affects_uptake_of",
-        "increases_uptake_of",
-        "decreases_uptake_of",
-        "regulates_entity_to_entity",
-        "biomarker_for",
         "in_taxon",
-        "has_biological_sequence",
-        "in_pathway_with",
-        "in_complex_with",
-        "in_cell_population_with",
-        "expressed_in"
+        "has_biological_sequence"
       ],
       "class_uri": "http://purl.obolibrary.org/obo/CHEBI_33697",
       "type": "ClassDefinition"
@@ -8254,72 +7202,8 @@
         "id",
         "macromolecular_machine_name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "molecularly_interacts_with",
-        "affects_abundance_of",
-        "increases_abundance_of",
-        "decreases_abundance_of",
-        "affects_activity_of",
-        "increases_activity_of",
-        "decreases_activity_of",
-        "affects_expression_of",
-        "increases_expression_of",
-        "decreases_expression_of",
-        "affects_folding_of",
-        "increases_folding_of",
-        "decreases_folding_of",
-        "affects_localization_of",
-        "increases_localization_of",
-        "decreases_localization_of",
-        "affects_metabolic_processing_of",
-        "increases_metabolic_processing_of",
-        "decreases_metabolic_processing_of",
-        "affects_molecular_modification_of",
-        "increases_molecular_modification_of",
-        "decreases_molecular_modification_of",
-        "affects_synthesis_of",
-        "increases_synthesis_of",
-        "decreases_synthesis_of",
-        "affects_degradation_of",
-        "increases_degradation_of",
-        "decreases_degradation_of",
-        "affects_mutation_rate_of",
-        "increases_mutation_rate_of",
-        "decreases_mutation_rate_of",
-        "affects_response_to",
-        "increases_response_to",
-        "decreases_response_to",
-        "affects_splicing_of",
-        "increases_splicing_of",
-        "decreases_splicing_of",
-        "affects_stability_of",
-        "increases_stability_of",
-        "decreases_stability_of",
-        "affects_transport_of",
-        "increases_transport_of",
-        "decreases_transport_of",
-        "affects_secretion_of",
-        "increases_secretion_of",
-        "decreases_secretion_of",
-        "affects_uptake_of",
-        "increases_uptake_of",
-        "decreases_uptake_of",
-        "regulates_entity_to_entity",
-        "biomarker_for",
         "in_taxon",
-        "has_biological_sequence",
-        "in_pathway_with",
-        "in_complex_with",
-        "in_cell_population_with",
-        "expressed_in"
+        "has_biological_sequence"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/RNAProductIsoform",
       "type": "ClassDefinition"
@@ -8341,72 +7225,8 @@
         "id",
         "macromolecular_machine_name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "molecularly_interacts_with",
-        "affects_abundance_of",
-        "increases_abundance_of",
-        "decreases_abundance_of",
-        "affects_activity_of",
-        "increases_activity_of",
-        "decreases_activity_of",
-        "affects_expression_of",
-        "increases_expression_of",
-        "decreases_expression_of",
-        "affects_folding_of",
-        "increases_folding_of",
-        "decreases_folding_of",
-        "affects_localization_of",
-        "increases_localization_of",
-        "decreases_localization_of",
-        "affects_metabolic_processing_of",
-        "increases_metabolic_processing_of",
-        "decreases_metabolic_processing_of",
-        "affects_molecular_modification_of",
-        "increases_molecular_modification_of",
-        "decreases_molecular_modification_of",
-        "affects_synthesis_of",
-        "increases_synthesis_of",
-        "decreases_synthesis_of",
-        "affects_degradation_of",
-        "increases_degradation_of",
-        "decreases_degradation_of",
-        "affects_mutation_rate_of",
-        "increases_mutation_rate_of",
-        "decreases_mutation_rate_of",
-        "affects_response_to",
-        "increases_response_to",
-        "decreases_response_to",
-        "affects_splicing_of",
-        "increases_splicing_of",
-        "decreases_splicing_of",
-        "affects_stability_of",
-        "increases_stability_of",
-        "decreases_stability_of",
-        "affects_transport_of",
-        "increases_transport_of",
-        "decreases_transport_of",
-        "affects_secretion_of",
-        "increases_secretion_of",
-        "decreases_secretion_of",
-        "affects_uptake_of",
-        "increases_uptake_of",
-        "decreases_uptake_of",
-        "regulates_entity_to_entity",
-        "biomarker_for",
         "in_taxon",
-        "has_biological_sequence",
-        "in_pathway_with",
-        "in_complex_with",
-        "in_cell_population_with",
-        "expressed_in"
+        "has_biological_sequence"
       ],
       "class_uri": "http://semanticscience.org/resource/SIO_001235",
       "subclass_of": "SO:0000655",
@@ -8428,72 +7248,8 @@
         "id",
         "macromolecular_machine_name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "molecularly_interacts_with",
-        "affects_abundance_of",
-        "increases_abundance_of",
-        "decreases_abundance_of",
-        "affects_activity_of",
-        "increases_activity_of",
-        "decreases_activity_of",
-        "affects_expression_of",
-        "increases_expression_of",
-        "decreases_expression_of",
-        "affects_folding_of",
-        "increases_folding_of",
-        "decreases_folding_of",
-        "affects_localization_of",
-        "increases_localization_of",
-        "decreases_localization_of",
-        "affects_metabolic_processing_of",
-        "increases_metabolic_processing_of",
-        "decreases_metabolic_processing_of",
-        "affects_molecular_modification_of",
-        "increases_molecular_modification_of",
-        "decreases_molecular_modification_of",
-        "affects_synthesis_of",
-        "increases_synthesis_of",
-        "decreases_synthesis_of",
-        "affects_degradation_of",
-        "increases_degradation_of",
-        "decreases_degradation_of",
-        "affects_mutation_rate_of",
-        "increases_mutation_rate_of",
-        "decreases_mutation_rate_of",
-        "affects_response_to",
-        "increases_response_to",
-        "decreases_response_to",
-        "affects_splicing_of",
-        "increases_splicing_of",
-        "decreases_splicing_of",
-        "affects_stability_of",
-        "increases_stability_of",
-        "decreases_stability_of",
-        "affects_transport_of",
-        "increases_transport_of",
-        "decreases_transport_of",
-        "affects_secretion_of",
-        "increases_secretion_of",
-        "decreases_secretion_of",
-        "affects_uptake_of",
-        "increases_uptake_of",
-        "decreases_uptake_of",
-        "regulates_entity_to_entity",
-        "biomarker_for",
         "in_taxon",
-        "has_biological_sequence",
-        "in_pathway_with",
-        "in_complex_with",
-        "in_cell_population_with",
-        "expressed_in"
+        "has_biological_sequence"
       ],
       "class_uri": "http://semanticscience.org/resource/SIO_001397",
       "subclass_of": "SO:0000276",
@@ -8518,66 +7274,6 @@
         "id",
         "macromolecular_machine_name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "molecularly_interacts_with",
-        "affects_abundance_of",
-        "increases_abundance_of",
-        "decreases_abundance_of",
-        "affects_activity_of",
-        "increases_activity_of",
-        "decreases_activity_of",
-        "affects_expression_of",
-        "increases_expression_of",
-        "decreases_expression_of",
-        "affects_folding_of",
-        "increases_folding_of",
-        "decreases_folding_of",
-        "affects_localization_of",
-        "increases_localization_of",
-        "decreases_localization_of",
-        "affects_metabolic_processing_of",
-        "increases_metabolic_processing_of",
-        "decreases_metabolic_processing_of",
-        "affects_molecular_modification_of",
-        "increases_molecular_modification_of",
-        "decreases_molecular_modification_of",
-        "affects_synthesis_of",
-        "increases_synthesis_of",
-        "decreases_synthesis_of",
-        "affects_degradation_of",
-        "increases_degradation_of",
-        "decreases_degradation_of",
-        "affects_mutation_rate_of",
-        "increases_mutation_rate_of",
-        "decreases_mutation_rate_of",
-        "affects_response_to",
-        "increases_response_to",
-        "decreases_response_to",
-        "affects_splicing_of",
-        "increases_splicing_of",
-        "decreases_splicing_of",
-        "affects_stability_of",
-        "increases_stability_of",
-        "decreases_stability_of",
-        "affects_transport_of",
-        "increases_transport_of",
-        "decreases_transport_of",
-        "affects_secretion_of",
-        "increases_secretion_of",
-        "decreases_secretion_of",
-        "affects_uptake_of",
-        "increases_uptake_of",
-        "decreases_uptake_of",
-        "regulates_entity_to_entity",
-        "biomarker_for",
         "in_taxon",
         "has_biological_sequence"
       ],
@@ -8616,66 +7312,6 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "molecularly_interacts_with",
-        "affects_abundance_of",
-        "increases_abundance_of",
-        "decreases_abundance_of",
-        "affects_activity_of",
-        "increases_activity_of",
-        "decreases_activity_of",
-        "affects_expression_of",
-        "increases_expression_of",
-        "decreases_expression_of",
-        "affects_folding_of",
-        "increases_folding_of",
-        "decreases_folding_of",
-        "affects_localization_of",
-        "increases_localization_of",
-        "decreases_localization_of",
-        "affects_metabolic_processing_of",
-        "increases_metabolic_processing_of",
-        "decreases_metabolic_processing_of",
-        "affects_molecular_modification_of",
-        "increases_molecular_modification_of",
-        "decreases_molecular_modification_of",
-        "affects_synthesis_of",
-        "increases_synthesis_of",
-        "decreases_synthesis_of",
-        "affects_degradation_of",
-        "increases_degradation_of",
-        "decreases_degradation_of",
-        "affects_mutation_rate_of",
-        "increases_mutation_rate_of",
-        "decreases_mutation_rate_of",
-        "affects_response_to",
-        "increases_response_to",
-        "decreases_response_to",
-        "affects_splicing_of",
-        "increases_splicing_of",
-        "decreases_splicing_of",
-        "affects_stability_of",
-        "increases_stability_of",
-        "decreases_stability_of",
-        "affects_transport_of",
-        "increases_transport_of",
-        "decreases_transport_of",
-        "affects_secretion_of",
-        "increases_secretion_of",
-        "decreases_secretion_of",
-        "affects_uptake_of",
-        "increases_uptake_of",
-        "decreases_uptake_of",
-        "regulates_entity_to_entity",
-        "biomarker_for",
         "in_taxon"
       ],
       "class_uri": "http://semanticscience.org/resource/SIO_001380",
@@ -8695,16 +7331,7 @@
         "has_qualitative_value",
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "subclass_of"
+        "category"
       ],
       "class_uri": "http://purl.obolibrary.org/obo/GENO_0000133",
       "type": "ClassDefinition"
@@ -8726,66 +7353,6 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "molecularly_interacts_with",
-        "affects_abundance_of",
-        "increases_abundance_of",
-        "decreases_abundance_of",
-        "affects_activity_of",
-        "increases_activity_of",
-        "decreases_activity_of",
-        "affects_expression_of",
-        "increases_expression_of",
-        "decreases_expression_of",
-        "affects_folding_of",
-        "increases_folding_of",
-        "decreases_folding_of",
-        "affects_localization_of",
-        "increases_localization_of",
-        "decreases_localization_of",
-        "affects_metabolic_processing_of",
-        "increases_metabolic_processing_of",
-        "decreases_metabolic_processing_of",
-        "affects_molecular_modification_of",
-        "increases_molecular_modification_of",
-        "decreases_molecular_modification_of",
-        "affects_synthesis_of",
-        "increases_synthesis_of",
-        "decreases_synthesis_of",
-        "affects_degradation_of",
-        "increases_degradation_of",
-        "decreases_degradation_of",
-        "affects_mutation_rate_of",
-        "increases_mutation_rate_of",
-        "decreases_mutation_rate_of",
-        "affects_response_to",
-        "increases_response_to",
-        "decreases_response_to",
-        "affects_splicing_of",
-        "increases_splicing_of",
-        "decreases_splicing_of",
-        "affects_stability_of",
-        "increases_stability_of",
-        "decreases_stability_of",
-        "affects_transport_of",
-        "increases_transport_of",
-        "decreases_transport_of",
-        "affects_secretion_of",
-        "increases_secretion_of",
-        "decreases_secretion_of",
-        "affects_uptake_of",
-        "increases_uptake_of",
-        "decreases_uptake_of",
-        "regulates_entity_to_entity",
-        "biomarker_for",
         "in_taxon",
         "has_biological_sequence",
         "has_zygosity"
@@ -8807,66 +7374,6 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "molecularly_interacts_with",
-        "affects_abundance_of",
-        "increases_abundance_of",
-        "decreases_abundance_of",
-        "affects_activity_of",
-        "increases_activity_of",
-        "decreases_activity_of",
-        "affects_expression_of",
-        "increases_expression_of",
-        "decreases_expression_of",
-        "affects_folding_of",
-        "increases_folding_of",
-        "decreases_folding_of",
-        "affects_localization_of",
-        "increases_localization_of",
-        "decreases_localization_of",
-        "affects_metabolic_processing_of",
-        "increases_metabolic_processing_of",
-        "decreases_metabolic_processing_of",
-        "affects_molecular_modification_of",
-        "increases_molecular_modification_of",
-        "decreases_molecular_modification_of",
-        "affects_synthesis_of",
-        "increases_synthesis_of",
-        "decreases_synthesis_of",
-        "affects_degradation_of",
-        "increases_degradation_of",
-        "decreases_degradation_of",
-        "affects_mutation_rate_of",
-        "increases_mutation_rate_of",
-        "decreases_mutation_rate_of",
-        "affects_response_to",
-        "increases_response_to",
-        "decreases_response_to",
-        "affects_splicing_of",
-        "increases_splicing_of",
-        "decreases_splicing_of",
-        "affects_stability_of",
-        "increases_stability_of",
-        "decreases_stability_of",
-        "affects_transport_of",
-        "increases_transport_of",
-        "decreases_transport_of",
-        "affects_secretion_of",
-        "increases_secretion_of",
-        "decreases_secretion_of",
-        "affects_uptake_of",
-        "increases_uptake_of",
-        "decreases_uptake_of",
-        "regulates_entity_to_entity",
-        "biomarker_for",
         "in_taxon",
         "has_biological_sequence"
       ],
@@ -8924,66 +7431,6 @@
         "sequence_variant_id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "molecularly_interacts_with",
-        "affects_abundance_of",
-        "increases_abundance_of",
-        "decreases_abundance_of",
-        "affects_activity_of",
-        "increases_activity_of",
-        "decreases_activity_of",
-        "affects_expression_of",
-        "increases_expression_of",
-        "decreases_expression_of",
-        "affects_folding_of",
-        "increases_folding_of",
-        "decreases_folding_of",
-        "affects_localization_of",
-        "increases_localization_of",
-        "decreases_localization_of",
-        "affects_metabolic_processing_of",
-        "increases_metabolic_processing_of",
-        "decreases_metabolic_processing_of",
-        "affects_molecular_modification_of",
-        "increases_molecular_modification_of",
-        "decreases_molecular_modification_of",
-        "affects_synthesis_of",
-        "increases_synthesis_of",
-        "decreases_synthesis_of",
-        "affects_degradation_of",
-        "increases_degradation_of",
-        "decreases_degradation_of",
-        "affects_mutation_rate_of",
-        "increases_mutation_rate_of",
-        "decreases_mutation_rate_of",
-        "affects_response_to",
-        "increases_response_to",
-        "decreases_response_to",
-        "affects_splicing_of",
-        "increases_splicing_of",
-        "decreases_splicing_of",
-        "affects_stability_of",
-        "increases_stability_of",
-        "decreases_stability_of",
-        "affects_transport_of",
-        "increases_transport_of",
-        "decreases_transport_of",
-        "affects_secretion_of",
-        "increases_secretion_of",
-        "decreases_secretion_of",
-        "affects_uptake_of",
-        "increases_uptake_of",
-        "decreases_uptake_of",
-        "regulates_entity_to_entity",
-        "biomarker_for",
         "in_taxon",
         "sequence_variant_has_biological_sequence",
         "sequence_variant_has_gene"
@@ -9003,19 +7450,7 @@
       "slots": [
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "has_receptor",
-        "has_stressor",
-        "has_route"
+        "category"
       ],
       "class_uri": "http://example.org/UNKNOWN/ECTO/9000000",
       "type": "ClassDefinition"
@@ -9037,19 +7472,7 @@
       "slots": [
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "has_receptor",
-        "has_stressor",
-        "has_route"
+        "category"
       ],
       "class_uri": "http://example.org/UNKNOWN/ECTO/0000509",
       "type": "ClassDefinition"
@@ -9070,20 +7493,7 @@
       "slots": [
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "has_receptor",
-        "has_stressor",
-        "has_route",
-        "treats"
+        "category"
       ],
       "class_uri": "http://purl.obolibrary.org/obo/OGMS_0000090",
       "type": "ClassDefinition"
@@ -9103,14 +7513,6 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
         "latitude",
         "longitude"
       ],
@@ -9127,14 +7529,6 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
         "latitude",
         "longitude",
         "timepoint"
@@ -9164,12 +7558,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label",
-        "has_confidence_level",
-        "has_evidence",
-        "clinical_modifier_qualifier"
+        "provided_by"
       ],
       "class_uri": "http://purl.org/oban/association",
       "type": "ClassDefinition"
@@ -9189,9 +7578,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/GenotypeToGenotypePartAssociation",
       "defining_slots": [
@@ -9215,9 +7602,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/GenotypeToGeneAssociation",
       "defining_slots": [
@@ -9241,9 +7626,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/GenotypeToVariantAssociation",
       "defining_slots": [
@@ -9271,9 +7654,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/GeneToGeneAssociation",
       "defining_slots": [
@@ -9297,9 +7678,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/GeneToGeneHomologyAssociation",
       "defining_slots": [
@@ -9326,9 +7705,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/PairwiseInteractionAssociation",
       "defining_slots": [
@@ -9356,9 +7733,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/PairwiseGeneToGeneInteraction",
       "defining_slots": [
@@ -9384,9 +7759,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/CellLineToThingAssociation",
       "defining_slots": [
@@ -9413,9 +7786,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/CellLineToDiseaseOrPhenotypicFeatureAssociation",
       "type": "ClassDefinition"
@@ -9436,9 +7807,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/ChemicalToThingAssociation",
       "defining_slots": [
@@ -9462,9 +7831,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/CaseToThingAssociation",
       "defining_slots": [
@@ -9490,9 +7857,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/ChemicalToChemicalAssociation",
       "defining_slots": [
@@ -9517,8 +7882,6 @@
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot",
-        "edge_label",
         "chemical_to_chemical_derivation_association_change_is_catalyzed_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/ChemicalToChemicalDerivationAssociation",
@@ -9551,9 +7914,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "http://semanticscience.org/resource/SIO_000993",
       "defining_slots": [
@@ -9583,9 +7944,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "http://semanticscience.org/resource/SIO_001250",
       "defining_slots": [
@@ -9615,9 +7974,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "http://semanticscience.org/resource/SIO_001257",
       "defining_slots": [
@@ -9642,9 +7999,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/MaterialSampleToThingAssociation",
       "defining_slots": [
@@ -9667,9 +8022,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/MaterialSampleDerivationAssociation",
       "defining_slots": [
@@ -9697,9 +8050,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/MaterialSampleToDiseaseOrPhenotypicFeatureAssociation",
       "defining_slots": [
@@ -9755,8 +8106,6 @@
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot",
-        "edge_label",
         "sex_qualifier",
         "frequency_qualifier",
         "severity_qualifier",
@@ -9802,9 +8151,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/DiseaseOrPhenotypicFeatureAssociationToThingAssociation",
       "defining_slots": [
@@ -9830,9 +8177,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "http://purl.obolibrary.org/obo/NCIT_R100",
       "type": "ClassDefinition"
@@ -9852,9 +8197,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/ThingToDiseaseOrPhenotypicFeatureAssociation",
       "defining_slots": [
@@ -9877,9 +8220,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/DiseaseToThingAssociation",
       "defining_slots": [
@@ -9902,9 +8243,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/DiseaseToExposureAssociation",
       "defining_slots": [
@@ -9933,8 +8272,6 @@
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot",
-        "edge_label",
         "sex_qualifier",
         "frequency_qualifier",
         "severity_qualifier",
@@ -9966,8 +8303,6 @@
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot",
-        "edge_label",
         "sex_qualifier",
         "frequency_qualifier",
         "severity_qualifier",
@@ -10000,8 +8335,6 @@
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot",
-        "edge_label",
         "sex_qualifier",
         "frequency_qualifier",
         "severity_qualifier",
@@ -10034,8 +8367,6 @@
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot",
-        "edge_label",
         "sex_qualifier",
         "frequency_qualifier",
         "severity_qualifier",
@@ -10063,9 +8394,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/GeneToThingAssociation",
       "defining_slots": [
@@ -10096,9 +8425,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/VariantToThingAssociation",
       "defining_slots": [
@@ -10128,8 +8455,6 @@
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot",
-        "edge_label",
         "sex_qualifier",
         "frequency_qualifier",
         "severity_qualifier",
@@ -10167,8 +8492,6 @@
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot",
-        "edge_label",
         "frequency_qualifier",
         "severity_qualifier",
         "onset_qualifier"
@@ -10201,8 +8524,6 @@
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot",
-        "edge_label",
         "variant_to_population_association_has_count",
         "variant_to_population_association_has_total",
         "variant_to_population_association_has_quotient",
@@ -10231,9 +8552,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/PopulationToPopulationAssociation",
       "defining_slots": [
@@ -10261,8 +8580,6 @@
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot",
-        "edge_label",
         "sex_qualifier",
         "frequency_qualifier",
         "severity_qualifier",
@@ -10297,8 +8614,6 @@
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot",
-        "edge_label",
         "frequency_qualifier",
         "severity_qualifier",
         "onset_qualifier"
@@ -10339,8 +8654,6 @@
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot",
-        "edge_label",
         "frequency_qualifier",
         "severity_qualifier",
         "onset_qualifier"
@@ -10368,8 +8681,6 @@
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot",
-        "edge_label",
         "frequency_qualifier",
         "severity_qualifier",
         "onset_qualifier",
@@ -10398,9 +8709,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/GenotypeToThingAssociation",
       "defining_slots": [
@@ -10508,8 +8817,6 @@
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot",
-        "edge_label",
         "gene_to_expression_site_association_stage_qualifier",
         "gene_to_expression_site_association_quantifier_qualifier"
       ],
@@ -10540,9 +8847,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/SequenceVariantModulatesTreatmentAssociation",
       "defining_slots": [
@@ -10566,9 +8871,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/FunctionalAssociation",
       "type": "ClassDefinition"
@@ -10588,9 +8891,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/MacromolecularMachineToMolecularActivityAssociation",
       "type": "ClassDefinition"
@@ -10610,9 +8911,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/MacromolecularMachineToBiologicalProcessAssociation",
       "type": "ClassDefinition"
@@ -10632,9 +8931,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/MacromolecularMachineToCellularComponentAssociation",
       "type": "ClassDefinition"
@@ -10659,9 +8956,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "http://bio2rdf.org/wormbase_vocabulary:Gene-GO-Association",
       "defining_slots": [
@@ -10689,8 +8984,6 @@
         "qualifiers",
         "publications",
         "provided_by",
-        "association_slot",
-        "edge_label",
         "start_interbase_coordinate",
         "end_interbase_coordinate",
         "genome_build",
@@ -10714,9 +9007,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/SequenceFeatureRelationship",
       "defining_slots": [
@@ -10740,9 +9031,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/TranscriptToGeneRelationship",
       "defining_slots": [
@@ -10766,9 +9055,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/GeneToGeneProductRelationship",
       "defining_slots": [
@@ -10792,9 +9079,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/ExonToTranscriptRelationship",
       "defining_slots": [
@@ -10818,9 +9103,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/GeneRegulatoryRelationship",
       "type": "ClassDefinition"
@@ -10839,9 +9122,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/AnatomicalEntityToAnatomicalEntityAssociation",
       "defining_slots": [
@@ -10865,9 +9146,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/AnatomicalEntityToAnatomicalEntityPartOfAssociation",
       "defining_slots": [
@@ -10890,9 +9169,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "association_slot",
-        "edge_label"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/AnatomicalEntityToAnatomicalEntityOntogenicAssociation",
       "defining_slots": [
@@ -10912,22 +9189,7 @@
       "slots": [
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "regulates_process_to_process",
-        "has_participant",
-        "has_input",
-        "has_output",
-        "precedes",
-        "positively_regulates_process_to_process",
-        "negatively_regulates_process_to_process"
+        "category"
       ],
       "class_uri": "http://purl.obolibrary.org/obo/BFO_0000003",
       "type": "ClassDefinition"
@@ -10941,15 +9203,7 @@
       "slots": [
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym"
+        "category"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/PhysicalEntity",
       "type": "ClassDefinition"
@@ -10971,21 +9225,9 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
         "has_input",
         "has_output",
-        "enabled_by",
-        "regulates_process_to_process",
-        "has_participant",
-        "precedes"
+        "enabled_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/BiologicalProcessOrActivity",
       "type": "ClassDefinition"
@@ -11018,21 +9260,9 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
         "molecular_activity_has_input",
         "molecular_activity_has_output",
-        "molecular_activity_enabled_by",
-        "regulates_process_to_process",
-        "has_participant",
-        "precedes"
+        "molecular_activity_enabled_by"
       ],
       "class_uri": "http://purl.obolibrary.org/obo/GO_0003674",
       "type": "ClassDefinition"
@@ -11067,20 +9297,7 @@
       "slots": [
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "regulates_process_to_process",
-        "has_participant",
-        "has_input",
-        "has_output",
-        "precedes"
+        "category"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/ActivityAndBehavior",
       "type": "ClassDefinition"
@@ -11111,20 +9328,7 @@
       "slots": [
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "regulates_process_to_process",
-        "has_participant",
-        "has_input",
-        "has_output",
-        "precedes"
+        "category"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/Procedure",
       "type": "ClassDefinition"
@@ -11153,20 +9357,7 @@
       "slots": [
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "regulates_process_to_process",
-        "has_participant",
-        "has_input",
-        "has_output",
-        "precedes"
+        "category"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/Phenomenon",
       "type": "ClassDefinition"
@@ -11193,21 +9384,9 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
         "has_input",
         "has_output",
-        "enabled_by",
-        "regulates_process_to_process",
-        "has_participant",
-        "precedes"
+        "enabled_by"
       ],
       "class_uri": "http://purl.obolibrary.org/obo/GO_0008150",
       "type": "ClassDefinition"
@@ -11235,21 +9414,9 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
         "has_input",
         "has_output",
-        "enabled_by",
-        "regulates_process_to_process",
-        "has_participant",
-        "precedes"
+        "enabled_by"
       ],
       "class_uri": "http://purl.obolibrary.org/obo/GO_0007165",
       "type": "ClassDefinition"
@@ -11289,21 +9456,9 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
         "has_input",
         "has_output",
-        "enabled_by",
-        "regulates_process_to_process",
-        "has_participant",
-        "precedes"
+        "enabled_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/PhysiologicalProcess",
       "type": "ClassDefinition"
@@ -11328,16 +9483,6 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "expresses",
         "in_taxon"
       ],
       "class_uri": "http://purl.obolibrary.org/obo/GO_0005575",
@@ -11365,16 +9510,6 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "expresses",
         "in_taxon"
       ],
       "class_uri": "http://purl.obolibrary.org/obo/GO_0005623",
@@ -11394,16 +9529,7 @@
       "slots": [
         "id",
         "name",
-        "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype"
+        "category"
       ],
       "class_uri": "http://purl.obolibrary.org/obo/CLO_0000031",
       "type": "ClassDefinition"
@@ -11441,16 +9567,6 @@
         "id",
         "name",
         "category",
-        "related_to",
-        "interacts_with",
-        "node_property",
-        "iri",
-        "synonym",
-        "full_name",
-        "description",
-        "systematic_synonym",
-        "has_phenotype",
-        "expresses",
         "in_taxon"
       ],
       "class_uri": "http://purl.obolibrary.org/obo/UBERON_0010000",

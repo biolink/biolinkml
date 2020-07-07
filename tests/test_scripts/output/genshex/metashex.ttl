@@ -2,7 +2,6 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix shex: <http://www.w3.org/ns/shex#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://w3id.org/biolink/biolinkml/meta/AltDescription_tes> a shex:EachOf ;
@@ -267,6 +266,10 @@
                 shex:min 0 ;
                 shex:predicate <https://w3id.org/biolink/biolinkml/meta/owner> ;
                 shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/Definition> ] [ a shex:TripleConstraint ;
+                shex:max -1 ;
+                shex:min 0 ;
+                shex:predicate <https://w3id.org/biolink/biolinkml/meta/domain_of> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/ClassDefinition> ] [ a shex:TripleConstraint ;
                 shex:max 1 ;
                 shex:min 0 ;
                 shex:predicate rdfs:subPropertyOf ;
@@ -390,6 +393,26 @@
                 shex:max -1 ;
                 shex:min 0 ;
                 shex:predicate <https://w3id.org/biolink/biolinkml/meta/values_from> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/type/Uriorcurie> ] [ a shex:TripleConstraint ;
+                shex:max 1 ;
+                shex:min 0 ;
+                shex:predicate <http://purl.org/pav/createdBy> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/type/Uriorcurie> ] [ a shex:TripleConstraint ;
+                shex:max 1 ;
+                shex:min 0 ;
+                shex:predicate <http://purl.org/pav/createdOn> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/type/Datetime> ] [ a shex:TripleConstraint ;
+                shex:max 1 ;
+                shex:min 0 ;
+                shex:predicate <http://purl.org/pav/lastUpdatedOn> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/type/Datetime> ] [ a shex:TripleConstraint ;
+                shex:max 1 ;
+                shex:min 0 ;
+                shex:predicate <http://open-services.net/ns/core#modifiedBy> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/type/Uriorcurie> ] [ a shex:TripleConstraint ;
+                shex:max 1 ;
+                shex:min 0 ;
+                shex:predicate <http://purl.org/ontology/bibo/status> ;
                 shex:valueExpr <https://w3id.org/biolink/biolinkml/type/Uriorcurie> ] ) .
 
 <https://w3id.org/biolink/biolinkml/meta/Example> a shex:Shape ;
@@ -519,26 +542,6 @@
                 shex:max 1 ;
                 shex:min 0 ;
                 shex:predicate <https://w3id.org/biolink/biolinkml/meta/deprecated_element_has_possible_replacement> ;
-                shex:valueExpr <https://w3id.org/biolink/biolinkml/type/Uriorcurie> ] [ a shex:TripleConstraint ;
-                shex:max 1 ;
-                shex:min 0 ;
-                shex:predicate <http://purl.org/pav/createdBy> ;
-                shex:valueExpr <https://w3id.org/biolink/biolinkml/type/Uriorcurie> ] [ a shex:TripleConstraint ;
-                shex:max 1 ;
-                shex:min 0 ;
-                shex:predicate <http://purl.org/pav/createdOn> ;
-                shex:valueExpr <https://w3id.org/biolink/biolinkml/type/Datetime> ] [ a shex:TripleConstraint ;
-                shex:max 1 ;
-                shex:min 0 ;
-                shex:predicate <http://purl.org/pav/lastUpdatedOn> ;
-                shex:valueExpr <https://w3id.org/biolink/biolinkml/type/Datetime> ] [ a shex:TripleConstraint ;
-                shex:max 1 ;
-                shex:min 0 ;
-                shex:predicate <http://open-services.net/ns/core#modifiedBy> ;
-                shex:valueExpr <https://w3id.org/biolink/biolinkml/type/Uriorcurie> ] [ a shex:TripleConstraint ;
-                shex:max 1 ;
-                shex:min 0 ;
-                shex:predicate <http://purl.org/ontology/bibo/status> ;
                 shex:valueExpr <https://w3id.org/biolink/biolinkml/type/Uriorcurie> ] ) .
 
 <https://w3id.org/biolink/biolinkml/meta/SubsetDefinition> a shex:Shape ;

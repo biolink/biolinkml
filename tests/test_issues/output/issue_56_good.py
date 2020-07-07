@@ -1,5 +1,5 @@
 # Auto generated from issue_56_good.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-07-03 16:11
+# Generation date: 2020-07-06 13:33
 # Schema:
 #
 # id: http://example.com
@@ -82,6 +82,7 @@ class C2(C1):
     class_model_uri: ClassVar[URIRef] = URIRef("http://example.com/C2")
 
     id: Union[str, C2Id] = None
+    s1: Optional[str] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -101,6 +102,7 @@ class C3(C2):
     class_model_uri: ClassVar[URIRef] = URIRef("http://example.com/C3")
 
     id: Union[str, C3Id] = None
+    s2: Optional[str] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:

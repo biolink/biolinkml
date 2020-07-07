@@ -7,7 +7,7 @@ A relationship between two anatomical entities where the relationship is mereolo
 URI: [biolink:AnatomicalEntityToAnatomicalEntityPartOfAssociation](https://w3id.org/biolink/vocab/AnatomicalEntityToAnatomicalEntityPartOfAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[Provider],[OntologyClass],[Provider]<provided%20by(i)%200..1-%20[AnatomicalEntityToAnatomicalEntityPartOfAssociation&#124;relation:uriorcurie;id(i):nodeidentifier;negated(i):boolean%20%3F],[Publication]<publications(i)%200..*-%20[AnatomicalEntityToAnatomicalEntityPartOfAssociation],[OntologyClass]<qualifiers(i)%200..*-%20[AnatomicalEntityToAnatomicalEntityPartOfAssociation],[OntologyClass]<association%20type(i)%200..1-%20[AnatomicalEntityToAnatomicalEntityPartOfAssociation],[AnatomicalEntity]<object%201..1-%20[AnatomicalEntityToAnatomicalEntityPartOfAssociation],[AnatomicalEntity]<subject%201..1-%20[AnatomicalEntityToAnatomicalEntityPartOfAssociation],[AnatomicalEntityToAnatomicalEntityAssociation]^-[AnatomicalEntityToAnatomicalEntityPartOfAssociation],[AnatomicalEntityToAnatomicalEntityAssociation],[AnatomicalEntity])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[Provider],[OntologyClass],[AnatomicalEntity]<object%201..1-%20[AnatomicalEntityToAnatomicalEntityPartOfAssociation&#124;relation:uriorcurie;id(i):nodeidentifier;negated(i):boolean%20%3F],[AnatomicalEntity]<subject%201..1-%20[AnatomicalEntityToAnatomicalEntityPartOfAssociation],[AnatomicalEntityToAnatomicalEntityAssociation]^-[AnatomicalEntityToAnatomicalEntityPartOfAssociation],[AnatomicalEntityToAnatomicalEntityAssociation],[AnatomicalEntity])
 
 ## Parents
 
@@ -28,51 +28,24 @@ URI: [biolink:AnatomicalEntityToAnatomicalEntityPartOfAssociation](https://w3id.
  * [anatomical entity to anatomical entity part of association➞subject](anatomical_entity_to_anatomical_entity_part_of_association_subject.md)  <sub>REQ</sub>
     * range: [AnatomicalEntity](AnatomicalEntity.md)
 
-### Inherited from association:
+### Inherited from anatomical entity to anatomical entity association:
 
- * [subject](subject.md)  <sub>REQ</sub>
-    * Description: connects an association to the subject of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
-    * range: [NamedThing](NamedThing.md)
-    * inherited from: [Association](Association.md)
- * [relation](relation.md)  <sub>REQ</sub>
-    * Description: the relationship type by which a subject is connected to an object in an association
-    * range: [Uriorcurie](types/Uriorcurie.md)
-    * inherited from: [Association](Association.md)
- * [object](object.md)  <sub>REQ</sub>
-    * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
-    * range: [NamedThing](NamedThing.md)
-    * inherited from: [Association](Association.md)
+ * [association type](association_type.md)  <sub>OPT</sub>
+    * Description: connects an association to the type of association (e.g. gene to phenotype)
+    * range: [OntologyClass](OntologyClass.md)
  * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
     * range: [Nodeidentifier](types/Nodeidentifier.md)
-    * inherited from: [Association](Association.md)
     * in subsets: (translator_minimal)
  * [negated](negated.md)  <sub>OPT</sub>
     * Description: if set to true, then the association is negated i.e. is not true
     * range: [Boolean](types/Boolean.md)
-    * inherited from: [Association](Association.md)
- * [association type](association_type.md)  <sub>OPT</sub>
-    * Description: connects an association to the type of association (e.g. gene to phenotype)
-    * range: [OntologyClass](OntologyClass.md)
-    * inherited from: [Association](Association.md)
- * [qualifiers](qualifiers.md)  <sub>0..*</sub>
-    * Description: connects an association to qualifiers that modify or qualify the meaning of that association
-    * range: [OntologyClass](OntologyClass.md)
-    * inherited from: [Association](Association.md)
- * [publications](publications.md)  <sub>0..*</sub>
-    * Description: connects an association to publications supporting the association
-    * range: [Publication](Publication.md)
-    * inherited from: [Association](Association.md)
  * [provided by](provided_by.md)  <sub>OPT</sub>
     * Description: connects an association to the agent (person, organization or group) that provided it
     * range: [Provider](Provider.md)
-    * inherited from: [Association](Association.md)
-
-### Domain for slot:
-
- * [anatomical entity to anatomical entity part of association➞object](anatomical_entity_to_anatomical_entity_part_of_association_object.md)  <sub>REQ</sub>
-    * range: [AnatomicalEntity](AnatomicalEntity.md)
- * [anatomical entity to anatomical entity part of association➞relation](anatomical_entity_to_anatomical_entity_part_of_association_relation.md)  <sub>REQ</sub>
-    * range: [Uriorcurie](types/Uriorcurie.md)
- * [anatomical entity to anatomical entity part of association➞subject](anatomical_entity_to_anatomical_entity_part_of_association_subject.md)  <sub>REQ</sub>
-    * range: [AnatomicalEntity](AnatomicalEntity.md)
+ * [publications](publications.md)  <sub>0..*</sub>
+    * Description: connects an association to publications supporting the association
+    * range: [Publication](Publication.md)
+ * [qualifiers](qualifiers.md)  <sub>0..*</sub>
+    * Description: connects an association to qualifiers that modify or qualify the meaning of that association
+    * range: [OntologyClass](OntologyClass.md)

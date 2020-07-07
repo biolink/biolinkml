@@ -7,7 +7,7 @@ A subcellular location, cell type or gross anatomical part
 URI: [biolink:AnatomicalEntity](https://w3id.org/biolink/vocab/AnatomicalEntity)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[ThingWithTaxon],[PhysicalEntity],[PhenotypicFeature],[OrganismalEntity],[OrganismTaxon],[NamedThing],[GrossAnatomicalStructure],[GeneToExpressionSiteAssociation],[GeneOrGeneProduct],[DiseaseOrPhenotypicFeatureAssociationToLocationAssociation],[CellularComponent],[Cell],[AnatomicalEntityToAnatomicalEntityPartOfAssociation],[AnatomicalEntityToAnatomicalEntityOntogenicAssociation],[AnatomicalEntityToAnatomicalEntityAssociation],[OrganismTaxon]<in%20taxon%200..*-%20[AnatomicalEntity&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],[AnatomicalEntityToAnatomicalEntityAssociation]-%20object%201..1>[AnatomicalEntity],[AnatomicalEntityToAnatomicalEntityAssociation]-%20subject%201..1>[AnatomicalEntity],[AnatomicalEntityToAnatomicalEntityOntogenicAssociation]-%20object%201..1>[AnatomicalEntity],[AnatomicalEntityToAnatomicalEntityOntogenicAssociation]-%20subject%201..1>[AnatomicalEntity],[AnatomicalEntityToAnatomicalEntityPartOfAssociation]-%20object%201..1>[AnatomicalEntity],[AnatomicalEntityToAnatomicalEntityPartOfAssociation]-%20subject%201..1>[AnatomicalEntity],[DiseaseOrPhenotypicFeatureAssociationToLocationAssociation]-%20object%201..1>[AnatomicalEntity],[GeneToExpressionSiteAssociation]-%20object%201..1>[AnatomicalEntity],[AnatomicalEntity]uses%20-.->[ThingWithTaxon],[AnatomicalEntity]uses%20-.->[PhysicalEntity],[AnatomicalEntity]^-[GrossAnatomicalStructure],[AnatomicalEntity]^-[CellularComponent],[AnatomicalEntity]^-[Cell],[OrganismalEntity]^-[AnatomicalEntity])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[ThingWithTaxon],[PhysicalEntity],[OrganismalEntity],[OrganismTaxon],[GrossAnatomicalStructure],[GeneToExpressionSiteAssociation],[GeneOrGeneProduct],[DiseaseOrPhenotypicFeatureAssociationToLocationAssociation],[CellularComponent],[Cell],[AnatomicalEntityToAnatomicalEntityPartOfAssociation],[AnatomicalEntityToAnatomicalEntityOntogenicAssociation],[AnatomicalEntityToAnatomicalEntityAssociation],[AnatomicalEntityToAnatomicalEntityAssociation]-%20object%201..1>[AnatomicalEntity&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],[AnatomicalEntityToAnatomicalEntityAssociation]-%20subject%201..1>[AnatomicalEntity],[AnatomicalEntityToAnatomicalEntityOntogenicAssociation]-%20object%201..1>[AnatomicalEntity],[AnatomicalEntityToAnatomicalEntityOntogenicAssociation]-%20subject%201..1>[AnatomicalEntity],[AnatomicalEntityToAnatomicalEntityPartOfAssociation]-%20object%201..1>[AnatomicalEntity],[AnatomicalEntityToAnatomicalEntityPartOfAssociation]-%20subject%201..1>[AnatomicalEntity],[DiseaseOrPhenotypicFeatureAssociationToLocationAssociation]-%20object%201..1>[AnatomicalEntity],[GeneToExpressionSiteAssociation]-%20object%201..1>[AnatomicalEntity],[AnatomicalEntity]uses%20-.->[ThingWithTaxon],[AnatomicalEntity]uses%20-.->[PhysicalEntity],[AnatomicalEntity]^-[GrossAnatomicalStructure],[AnatomicalEntity]^-[CellularComponent],[AnatomicalEntity]^-[Cell],[OrganismalEntity]^-[AnatomicalEntity])
 
 ## Parents
 
@@ -39,36 +39,26 @@ URI: [biolink:AnatomicalEntity](https://w3id.org/biolink/vocab/AnatomicalEntity)
 ## Attributes
 
 
-### Inherited from named thing:
+### Inherited from organismal entity:
 
+ * [category](category.md)  <sub>1..*</sub>
+    * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
+    * range: [IriType](types/IriType.md)
+    * in subsets: (translator_minimal)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
     * range: [IdentifierType](types/IdentifierType.md)
-    * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
  * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing
     * range: [LabelType](types/LabelType.md)
-    * inherited from: [NamedThing](NamedThing.md)
-    * in subsets: (translator_minimal)
- * [category](category.md)  <sub>1..*</sub>
-    * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
-    * range: [IriType](types/IriType.md)
-    * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
 
-### Inherited from thing with taxon:
+### Mixed in from thing with taxon:
 
  * [in taxon](in_taxon.md)  <sub>0..*</sub>
     * Description: connects a thing to a class representing a taxon
     * range: [OrganismTaxon](OrganismTaxon.md)
-    * in subsets: (translator_minimal)
-
-### Domain for slot:
-
- * [expresses](expresses.md)  <sub>0..*</sub>
-    * Description: holds between an anatomical entity and gene or gene product that is expressed there
-    * range: [GeneOrGeneProduct](GeneOrGeneProduct.md)
     * in subsets: (translator_minimal)
 
 ## Other properties

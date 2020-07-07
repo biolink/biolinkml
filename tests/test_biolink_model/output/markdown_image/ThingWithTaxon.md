@@ -30,10 +30,3 @@ URI: [biolink:ThingWithTaxon](https://w3id.org/biolink/vocab/ThingWithTaxon)
     * Description: connects a thing to a class representing a taxon
     * range: [OrganismTaxon](OrganismTaxon.md)
     * in subsets: (translator_minimal)
-
-### Domain for slot:
-
- * [in taxon](in_taxon.md)  <sub>0..*</sub>
-    * Description: connects a thing to a class representing a taxon
-    * range: [OrganismTaxon](OrganismTaxon.md)
-    * in subsets: (translator_minimal)

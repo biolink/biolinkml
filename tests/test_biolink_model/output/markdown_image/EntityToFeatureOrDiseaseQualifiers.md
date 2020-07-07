@@ -41,4 +41,3 @@ URI: [biolink:EntityToFeatureOrDiseaseQualifiers](https://w3id.org/biolink/vocab
  * [frequency qualifier](frequency_qualifier.md)  <sub>OPT</sub>
     * Description: a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject
     * range: [FrequencyValue](FrequencyValue.md)
-    * inherited from: [Association](Association.md)

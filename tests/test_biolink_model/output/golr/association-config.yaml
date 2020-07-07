@@ -39,22 +39,3 @@ fields:
   description: connects an association to the agent (person, organization or group)
     that provided it
   display_name: provided by
-- id: association_slot
-  description: any slot that relates an association to another entity
-  display_name: association slot
-- id: edge_label
-  description: A high-level grouping for the relationship type. AKA minimal predicate.
-    This is analogous to category for nodes.
-  display_name: edge label
-- id: has_confidence_level
-  description: connects an association to a qualitative term denoting the level of
-    confidence
-  display_name: has confidence level
-- id: has_evidence
-  description: connects an association to an instance of supporting evidence
-  display_name: has evidence
-- id: clinical_modifier_qualifier
-  description: Used to characterize and specify the phenotypic abnormalities defined
-    in the Phenotypic abnormality subontology, with respect to severity, laterality,
-    age of onset, and other aspects
-  display_name: clinical modifier qualifier

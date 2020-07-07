@@ -16,6 +16,14 @@ Slots: 101
 	Declared mixin: 0
 	Undeclared mixin: 0
 	Abstract: 1
+	Not in domain: 5
+		slot.name: slot.domain
+		---------  -----------
+		"created_by": "element"
+		"created_on": "element"
+		"last_updated_on": "element"
+		"modified_by": "element"
+		"status": "element"
 	Domain unspecified: 6
 	Ranges:
 		Type:

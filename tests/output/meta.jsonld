@@ -237,6 +237,9 @@
       "key": true,
       "identifier": true,
       "owner": "Element",
+      "domain_of": [
+        "Element"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -252,6 +255,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/definition_uri",
       "readonly": "filled in by the schema loader",
       "owner": "Element",
+      "domain_of": [
+        "Element"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -264,6 +270,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/id_prefixes",
       "multivalued": true,
       "owner": "Element",
+      "domain_of": [
+        "Element"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -281,6 +290,9 @@
       "range": "string",
       "slot_uri": "http://www.w3.org/2004/02/skos/core#definition",
       "owner": "Element",
+      "domain_of": [
+        "Element"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -295,6 +307,9 @@
       "slot_uri": "http://www.w3.org/2004/02/skos/core#altLabel",
       "multivalued": true,
       "owner": "Element",
+      "domain_of": [
+        "Element"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -306,6 +321,9 @@
       "range": "string",
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/deprecated",
       "owner": "Element",
+      "domain_of": [
+        "Element"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -318,6 +336,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/todos",
       "multivalued": true,
       "owner": "Element",
+      "domain_of": [
+        "Element"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -336,6 +357,9 @@
       "slot_uri": "http://www.w3.org/2004/02/skos/core#editorialNote",
       "multivalued": true,
       "owner": "Element",
+      "domain_of": [
+        "Element"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -354,6 +378,9 @@
       "slot_uri": "http://www.w3.org/2004/02/skos/core#note",
       "multivalued": true,
       "owner": "Element",
+      "domain_of": [
+        "Element"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -369,6 +396,9 @@
       "slot_uri": "http://www.geneontology.org/formats/oboInOwl#inSubset",
       "multivalued": true,
       "owner": "Element",
+      "domain_of": [
+        "Element"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -387,6 +417,9 @@
       "slot_uri": "http://www.w3.org/2004/02/skos/core#inScheme",
       "readonly": "supplied by the schema loader",
       "owner": "Element",
+      "domain_of": [
+        "Element"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -399,6 +432,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/imported_from",
       "readonly": "supplied by the schema loader",
       "owner": "Element",
+      "domain_of": [
+        "Element"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -417,6 +453,9 @@
       "slot_uri": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
       "multivalued": true,
       "owner": "Element",
+      "domain_of": [
+        "Element"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -431,6 +470,9 @@
       "range": "uriorcurie",
       "slot_uri": "http://purl.org/pav/createdBy",
       "owner": "created_by",
+      "domain_of": [
+        "Definition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -445,6 +487,9 @@
       "range": "datetime",
       "slot_uri": "http://purl.org/pav/createdOn",
       "owner": "created_on",
+      "domain_of": [
+        "Definition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -459,6 +504,9 @@
       "range": "datetime",
       "slot_uri": "http://purl.org/pav/lastUpdatedOn",
       "owner": "last_updated_on",
+      "domain_of": [
+        "Definition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -473,6 +521,9 @@
       "range": "uriorcurie",
       "slot_uri": "http://open-services.net/ns/core#modifiedBy",
       "owner": "modified_by",
+      "domain_of": [
+        "Definition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -493,6 +544,9 @@
       "range": "uriorcurie",
       "slot_uri": "http://purl.org/ontology/bibo/status",
       "owner": "status",
+      "domain_of": [
+        "Definition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -505,6 +559,9 @@
       "range": "Definition",
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/is_a",
       "owner": "Definition",
+      "domain_of": [
+        "Definition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -516,6 +573,9 @@
       "range": "boolean",
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/abstract",
       "owner": "Definition",
+      "domain_of": [
+        "Definition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -527,6 +587,9 @@
       "range": "boolean",
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/mixin",
       "owner": "Definition",
+      "domain_of": [
+        "Definition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -539,6 +602,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/mixins",
       "multivalued": true,
       "owner": "Definition",
+      "domain_of": [
+        "Definition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -551,6 +617,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/apply_to",
       "multivalued": true,
       "owner": "Definition",
+      "domain_of": [
+        "Definition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -563,6 +632,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/values_from",
       "multivalued": true,
       "owner": "Definition",
+      "domain_of": [
+        "Definition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -575,6 +647,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/id",
       "required": true,
       "owner": "SchemaDefinition",
+      "domain_of": [
+        "SchemaDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -587,6 +662,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/emit_prefixes",
       "multivalued": true,
       "owner": "SchemaDefinition",
+      "domain_of": [
+        "SchemaDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -604,6 +682,9 @@
       "range": "string",
       "slot_uri": "http://purl.org/dc/terms/title",
       "owner": "SchemaDefinition",
+      "domain_of": [
+        "SchemaDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -619,6 +700,9 @@
       "range": "string",
       "slot_uri": "http://purl.org/pav/version",
       "owner": "SchemaDefinition",
+      "domain_of": [
+        "SchemaDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -631,6 +715,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/imports",
       "multivalued": true,
       "owner": "SchemaDefinition",
+      "domain_of": [
+        "SchemaDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -648,6 +735,9 @@
       "range": "string",
       "slot_uri": "http://purl.org/dc/terms/license",
       "owner": "SchemaDefinition",
+      "domain_of": [
+        "SchemaDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -660,6 +750,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/default_curi_maps",
       "multivalued": true,
       "owner": "SchemaDefinition",
+      "domain_of": [
+        "SchemaDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -672,6 +765,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/default_prefix",
       "ifabsent": "default_ns",
       "owner": "SchemaDefinition",
+      "domain_of": [
+        "SchemaDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -686,6 +782,9 @@
       "range": "TypeDefinition",
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/default_range",
       "owner": "SchemaDefinition",
+      "domain_of": [
+        "SchemaDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -699,6 +798,9 @@
       "multivalued": true,
       "inlined": true,
       "owner": "SchemaDefinition",
+      "domain_of": [
+        "SchemaDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -712,6 +814,9 @@
       "multivalued": true,
       "inlined": true,
       "owner": "SchemaDefinition",
+      "domain_of": [
+        "SchemaDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -726,6 +831,9 @@
       "inlined": true,
       "alias": "slots",
       "owner": "SchemaDefinition",
+      "domain_of": [
+        "SchemaDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -739,6 +847,9 @@
       "multivalued": true,
       "inlined": true,
       "owner": "SchemaDefinition",
+      "domain_of": [
+        "SchemaDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -754,6 +865,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/metamodel_version",
       "readonly": "supplied by the schema loader",
       "owner": "SchemaDefinition",
+      "domain_of": [
+        "SchemaDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -769,6 +883,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/source_file",
       "readonly": "suppplied by the schema loader",
       "owner": "SchemaDefinition",
+      "domain_of": [
+        "SchemaDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -784,6 +901,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/source_file_date",
       "readonly": "supplied by the loader",
       "owner": "SchemaDefinition",
+      "domain_of": [
+        "SchemaDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -799,6 +919,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/source_file_size",
       "readonly": "supplied by the schema loader",
       "owner": "SchemaDefinition",
+      "domain_of": [
+        "SchemaDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -814,6 +937,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/generation_date",
       "readonly": "supplied by the schema loader",
       "owner": "SchemaDefinition",
+      "domain_of": [
+        "SchemaDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -829,6 +955,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/slots",
       "multivalued": true,
       "owner": "ClassDefinition",
+      "domain_of": [
+        "ClassDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -845,6 +974,9 @@
       "multivalued": true,
       "inlined": true,
       "owner": "ClassDefinition",
+      "domain_of": [
+        "ClassDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -857,6 +989,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/class_uri",
       "ifabsent": "class_curie",
       "owner": "ClassDefinition",
+      "domain_of": [
+        "ClassDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -871,6 +1006,9 @@
       "range": "uriorcurie",
       "slot_uri": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
       "owner": "ClassDefinition",
+      "domain_of": [
+        "ClassDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -884,6 +1022,9 @@
       "multivalued": true,
       "inherited": true,
       "owner": "ClassDefinition",
+      "domain_of": [
+        "ClassDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -899,6 +1040,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/union_of",
       "multivalued": true,
       "owner": "ClassDefinition",
+      "domain_of": [
+        "ClassDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -911,6 +1055,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/domain",
       "inherited": true,
       "owner": "SlotDefinition",
+      "domain_of": [
+        "SlotDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -924,6 +1071,9 @@
       "inherited": true,
       "ifabsent": "default_range",
       "owner": "SlotDefinition",
+      "domain_of": [
+        "SlotDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -936,6 +1086,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/slot_uri",
       "ifabsent": "slot_curie",
       "owner": "SlotDefinition",
+      "domain_of": [
+        "SlotDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -948,6 +1101,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/multivalued",
       "inherited": true,
       "owner": "SlotDefinition",
+      "domain_of": [
+        "SlotDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -963,6 +1119,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/inherited",
       "inherited": true,
       "owner": "SlotDefinition",
+      "domain_of": [
+        "SlotDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -975,6 +1134,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/readonly",
       "inherited": true,
       "owner": "SlotDefinition",
+      "domain_of": [
+        "SlotDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -987,6 +1149,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/ifabsent",
       "inherited": true,
       "owner": "SlotDefinition",
+      "domain_of": [
+        "SlotDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1001,6 +1166,9 @@
       "range": "string",
       "slot_uri": "http://www.w3.org/2004/02/skos/core#altLabel",
       "owner": "SlotDefinition",
+      "domain_of": [
+        "SlotDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1013,6 +1181,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/required",
       "inherited": true,
       "owner": "SlotDefinition",
+      "domain_of": [
+        "SlotDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1025,6 +1196,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/inlined",
       "inherited": true,
       "owner": "SlotDefinition",
+      "domain_of": [
+        "SlotDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1042,6 +1216,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/key",
       "inherited": true,
       "owner": "SlotDefinition",
+      "domain_of": [
+        "SlotDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1059,6 +1236,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/identifier",
       "inherited": true,
       "owner": "SlotDefinition",
+      "domain_of": [
+        "SlotDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1070,6 +1250,9 @@
       "range": "string",
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/alias",
       "owner": "SlotDefinition",
+      "domain_of": [
+        "SlotDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1083,6 +1266,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/owner",
       "readonly": "filled in by loader -- either class domain or slot domain",
       "owner": "SlotDefinition",
+      "domain_of": [
+        "SlotDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1096,6 +1282,9 @@
       "multivalued": true,
       "readonly": "filled in by the loader",
       "owner": "SlotDefinition",
+      "domain_of": [
+        "SlotDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1108,6 +1297,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/is_usage_slot",
       "readonly": "filled in by the loader",
       "owner": "SlotDefinition",
+      "domain_of": [
+        "SlotDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1122,6 +1314,9 @@
       "range": "uriorcurie",
       "slot_uri": "http://www.w3.org/2000/01/rdf-schema#subPropertyOf",
       "owner": "SlotDefinition",
+      "domain_of": [
+        "SlotDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1133,6 +1328,9 @@
       "range": "boolean",
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/symmetric",
       "owner": "SlotDefinition",
+      "domain_of": [
+        "SlotDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1147,6 +1345,9 @@
       "range": "SlotDefinition",
       "slot_uri": "http://www.w3.org/2002/07/owl#inverseOf",
       "owner": "SlotDefinition",
+      "domain_of": [
+        "SlotDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1158,6 +1359,9 @@
       "range": "boolean",
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/is_class_field",
       "owner": "SlotDefinition",
+      "domain_of": [
+        "SlotDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1170,6 +1374,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/role",
       "inherited": true,
       "owner": "SlotDefinition",
+      "domain_of": [
+        "SlotDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1182,6 +1389,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/minimum_value",
       "inherited": true,
       "owner": "SlotDefinition",
+      "domain_of": [
+        "SlotDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1194,6 +1404,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/maximum_value",
       "inherited": true,
       "owner": "SlotDefinition",
+      "domain_of": [
+        "SlotDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1206,6 +1419,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/pattern",
       "inherited": true,
       "owner": "SlotDefinition",
+      "domain_of": [
+        "SlotDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1220,6 +1436,9 @@
       "range": "string",
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/string_serialization",
       "owner": "SlotDefinition",
+      "domain_of": [
+        "SlotDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1236,6 +1455,9 @@
       "range": "TypeDefinition",
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/typeof",
       "owner": "TypeDefinition",
+      "domain_of": [
+        "TypeDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1252,6 +1474,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/base",
       "inherited": true,
       "owner": "TypeDefinition",
+      "domain_of": [
+        "TypeDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1269,6 +1494,9 @@
       "inherited": true,
       "alias": "uri",
       "owner": "TypeDefinition",
+      "domain_of": [
+        "TypeDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1286,6 +1514,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/repr",
       "inherited": true,
       "owner": "TypeDefinition",
+      "domain_of": [
+        "TypeDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1299,6 +1530,9 @@
       "required": true,
       "alias": "description",
       "owner": "AltDescription",
+      "domain_of": [
+        "AltDescription"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1313,6 +1547,9 @@
       "key": true,
       "alias": "source",
       "owner": "AltDescription",
+      "domain_of": [
+        "AltDescription"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1325,6 +1562,9 @@
       "multivalued": true,
       "inlined": true,
       "owner": "Element",
+      "domain_of": [
+        "Element"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1339,6 +1579,9 @@
       "range": "string",
       "slot_uri": "http://www.w3.org/2004/02/skos/core#example",
       "owner": "Example",
+      "domain_of": [
+        "Example"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1351,6 +1594,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/description",
       "alias": "description",
       "owner": "Example",
+      "domain_of": [
+        "Example"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1367,6 +1613,9 @@
       "multivalued": true,
       "inlined": true,
       "owner": "Element",
+      "domain_of": [
+        "Element"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1380,6 +1629,9 @@
       "required": true,
       "key": true,
       "owner": "Prefix",
+      "domain_of": [
+        "Prefix"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1392,6 +1644,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/prefix_reference",
       "required": true,
       "owner": "Prefix",
+      "domain_of": [
+        "Prefix"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1405,6 +1660,9 @@
       "multivalued": true,
       "inlined": true,
       "owner": "SchemaDefinition",
+      "domain_of": [
+        "SchemaDefinition"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1418,6 +1676,9 @@
       "required": true,
       "key": true,
       "owner": "LocalName",
+      "domain_of": [
+        "LocalName"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1433,6 +1694,9 @@
       "slot_uri": "http://www.w3.org/2004/02/skos/core#altLabel",
       "required": true,
       "owner": "LocalName",
+      "domain_of": [
+        "LocalName"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1445,6 +1709,9 @@
       "multivalued": true,
       "inlined": true,
       "owner": "Element",
+      "domain_of": [
+        "Element"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1460,6 +1727,9 @@
       "slot_uri": "http://www.w3.org/2004/02/skos/core#mappingRelation",
       "multivalued": true,
       "owner": "Element",
+      "domain_of": [
+        "Element"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1476,6 +1746,9 @@
       "slot_uri": "http://www.w3.org/2004/02/skos/core#exactMatch",
       "multivalued": true,
       "owner": "Element",
+      "domain_of": [
+        "Element"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1492,6 +1765,9 @@
       "slot_uri": "http://www.w3.org/2004/02/skos/core#closeMatch",
       "multivalued": true,
       "owner": "Element",
+      "domain_of": [
+        "Element"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1508,6 +1784,9 @@
       "slot_uri": "http://www.w3.org/2004/02/skos/core#relatedMatch",
       "multivalued": true,
       "owner": "Element",
+      "domain_of": [
+        "Element"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1522,6 +1801,9 @@
       "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/deprecated_element_has_exact_replacement",
       "owner": "Element",
+      "domain_of": [
+        "Element"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1536,6 +1818,9 @@
       "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/deprecated_element_has_possible_replacement",
       "owner": "Element",
+      "domain_of": [
+        "Element"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1547,6 +1832,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/is_a",
       "alias": "is_a",
       "owner": "SlotDefinition",
+      "domain_of": [
+        "SlotDefinition"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -1560,6 +1848,9 @@
       "multivalued": true,
       "alias": "mixins",
       "owner": "SlotDefinition",
+      "domain_of": [
+        "SlotDefinition"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -1573,6 +1864,9 @@
       "multivalued": true,
       "alias": "apply_to",
       "owner": "SlotDefinition",
+      "domain_of": [
+        "SlotDefinition"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -1585,6 +1879,9 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/is_a",
       "alias": "is_a",
       "owner": "ClassDefinition",
+      "domain_of": [
+        "ClassDefinition"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -1598,6 +1895,9 @@
       "multivalued": true,
       "alias": "mixins",
       "owner": "ClassDefinition",
+      "domain_of": [
+        "ClassDefinition"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     },
@@ -1611,6 +1911,9 @@
       "multivalued": true,
       "alias": "apply_to",
       "owner": "ClassDefinition",
+      "domain_of": [
+        "ClassDefinition"
+      ],
       "is_usage_slot": true,
       "type": "SlotDefinition"
     }
@@ -1644,12 +1947,7 @@
         "close_mappings",
         "related_mappings",
         "deprecated_element_has_exact_replacement",
-        "deprecated_element_has_possible_replacement",
-        "created_by",
-        "created_on",
-        "last_updated_on",
-        "modified_by",
-        "status"
+        "deprecated_element_has_possible_replacement"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/Element",
       "type": "ClassDefinition"
@@ -1683,11 +1981,6 @@
         "related_mappings",
         "deprecated_element_has_exact_replacement",
         "deprecated_element_has_possible_replacement",
-        "created_by",
-        "created_on",
-        "last_updated_on",
-        "modified_by",
-        "status",
         "id",
         "title",
         "version",
@@ -1740,11 +2033,6 @@
         "related_mappings",
         "deprecated_element_has_exact_replacement",
         "deprecated_element_has_possible_replacement",
-        "created_by",
-        "created_on",
-        "last_updated_on",
-        "modified_by",
-        "status",
         "typeof",
         "base",
         "type_uri",
@@ -1781,12 +2069,7 @@
         "close_mappings",
         "related_mappings",
         "deprecated_element_has_exact_replacement",
-        "deprecated_element_has_possible_replacement",
-        "created_by",
-        "created_on",
-        "last_updated_on",
-        "modified_by",
-        "status"
+        "deprecated_element_has_possible_replacement"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/SubsetDefinition",
       "type": "ClassDefinition"
