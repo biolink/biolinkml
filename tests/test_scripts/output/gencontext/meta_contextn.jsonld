@@ -59,6 +59,9 @@
       "domain": {
          "@type": "@id"
       },
+      "domain_of": {
+         "@type": "@id"
+      },
       "exact_mappings": {
          "@type": "@id"
       },

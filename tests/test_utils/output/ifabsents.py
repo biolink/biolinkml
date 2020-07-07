@@ -1,5 +1,5 @@
 # Auto generated from ifabsents.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-06-23 16:06
+# Generation date: 2020-07-03 16:13
 # Schema: ifabsent
 #
 # id: http://example.org/tests/ifabsent
@@ -22,7 +22,7 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import Bool, ElementIdentifier, NCName, NodeIdentifier, URI, URIorCURIE, XSDDate, XSDDateTime, XSDTime
 
-metamodel_version = "1.4.4"
+metamodel_version = "1.5.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs

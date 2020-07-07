@@ -23,7 +23,7 @@ from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import Bool, ElementIdentifier, NodeIdentifier, URIorCURIE, XSDDate, XSDTime
 from includes.types import Boolean, Date, Double, Float, Integer, Nodeidentifier, String, Time, Uriorcurie
 
-metamodel_version = "1.4.4"
+metamodel_version = "1.5.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -827,7 +827,7 @@ class Attribute(AbstractEntity):
     A property or characteristic of an entity. For example, an apple may have properties such as color, shape, age,
     crispiness. An environmental sample may have attributes such as depth, lat, long, material.
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "subclass_of"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.Attribute
     class_class_curie: ClassVar[str] = "biolink:Attribute"
@@ -879,7 +879,7 @@ class QuantityValue(AbstractEntity):
 
 @dataclass
 class BiologicalSex(Attribute):
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "subclass_of"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.BiologicalSex
     class_class_curie: ClassVar[str] = "biolink:BiologicalSex"
@@ -903,7 +903,7 @@ class PhenotypicSex(BiologicalSex):
     """
     An attribute corresponding to the phenotypic sex of the individual, based upon the reproductive organs present.
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "subclass_of"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.PhenotypicSex
     class_class_curie: ClassVar[str] = "biolink:PhenotypicSex"
@@ -928,7 +928,7 @@ class GenotypicSex(BiologicalSex):
     An attribute corresponding to the genotypic sex of the individual, based upon genotypic composition of sex
     chromosomes.
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "subclass_of"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.GenotypicSex
     class_class_curie: ClassVar[str] = "biolink:GenotypicSex"
@@ -952,7 +952,7 @@ class SeverityValue(Attribute):
     """
     describes the severity of a phenotypic feature or disease
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "subclass_of"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.SeverityValue
     class_class_curie: ClassVar[str] = "biolink:SeverityValue"
@@ -976,7 +976,7 @@ class FrequencyValue(Attribute):
     """
     describes the frequency of occurrence of an event or condition
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "subclass_of"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.FrequencyValue
     class_class_curie: ClassVar[str] = "biolink:FrequencyValue"
@@ -1001,7 +1001,7 @@ class ClinicalModifier(Attribute):
     Used to characterize and specify the phenotypic abnormalities defined in the Phenotypic abnormality subontology,
     with respect to severity, laterality, age of onset, and other aspects
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "subclass_of"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.ClinicalModifier
     class_class_curie: ClassVar[str] = "biolink:ClinicalModifier"
@@ -1025,7 +1025,7 @@ class Onset(Attribute):
     """
     The age group in which manifestations appear
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "subclass_of"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = HP["0003674"]
     class_class_curie: ClassVar[str] = "HP:0003674"
@@ -1049,7 +1049,7 @@ class NamedThing(YAMLRoot):
     """
     a databased entity or concept/class
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "physically_interacts_with", "affects", "regulates", "positively_regulates", "negatively_regulates", "disrupts", "homologous_to", "paralogous_to", "orthologous_to", "xenologous_to", "coexists_with", "colocalizes_with", "affects_risk_for", "predisposes", "contributes_to", "causes", "caused_by", "prevents", "occurs_in", "located_in", "location_of", "model_of", "overlaps", "has_part", "part_of", "participates_in", "actively_involved_in", "capable_of", "derives_into", "derives_from", "manifestation_of", "produces", "same_as", "has_molecular_consequence"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = WD.Q35120
     class_class_curie: ClassVar[str] = "WD:Q35120"
@@ -1078,7 +1078,7 @@ class NamedThing(YAMLRoot):
 
 @dataclass
 class DataFile(NamedThing):
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = EFO["0004095"]
     class_class_curie: ClassVar[str] = "EFO:0004095"
@@ -1099,7 +1099,7 @@ class DataFile(NamedThing):
 
 @dataclass
 class SourceFile(DataFile):
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.SourceFile
     class_class_curie: ClassVar[str] = "biolink:SourceFile"
@@ -1124,7 +1124,7 @@ class SourceFile(DataFile):
 
 @dataclass
 class DataSet(NamedThing):
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = IAO["0000100"]
     class_class_curie: ClassVar[str] = "IAO:0000100"
@@ -1145,7 +1145,7 @@ class DataSet(NamedThing):
 
 @dataclass
 class DataSetVersion(DataSet):
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.DataSetVersion
     class_class_curie: ClassVar[str] = "biolink:DataSetVersion"
@@ -1177,7 +1177,7 @@ class DataSetVersion(DataSet):
 
 @dataclass
 class BiologicalEntity(NamedThing):
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = WD.Q28845870
     class_class_curie: ClassVar[str] = "WD:Q28845870"
@@ -1193,7 +1193,7 @@ class OntologyClass(NamedThing):
     """
     a concept or class in an ontology, vocabulary or thesaurus
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "subclass_of"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.OntologyClass
     class_class_curie: ClassVar[str] = "biolink:OntologyClass"
@@ -1217,7 +1217,7 @@ class RelationshipType(OntologyClass):
     """
     An OWL property used as an edge label
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "subclass_of"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.RelationshipType
     class_class_curie: ClassVar[str] = "biolink:RelationshipType"
@@ -1241,7 +1241,7 @@ class GeneOntologyClass(OntologyClass):
     """
     an ontology class that describes a functional aspect of a gene, gene prodoct or complex
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "subclass_of"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.GeneOntologyClass
     class_class_curie: ClassVar[str] = "biolink:GeneOntologyClass"
@@ -1262,7 +1262,7 @@ class GeneOntologyClass(OntologyClass):
 
 @dataclass
 class OrganismTaxon(OntologyClass):
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "subclass_of"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = WD.Q16521
     class_class_curie: ClassVar[str] = "WD:Q16521"
@@ -1287,7 +1287,7 @@ class OrganismalEntity(BiologicalEntity):
     A named entity that is either a part of an organism, a whole organism, population or clade of organisms, excluding
     molecular entities
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = WD.Q7239
     class_class_curie: ClassVar[str] = "WD:Q7239"
@@ -1300,7 +1300,7 @@ class OrganismalEntity(BiologicalEntity):
 
 @dataclass
 class IndividualOrganism(OrganismalEntity):
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "in_taxon"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = SIO["010000"]
     class_class_curie: ClassVar[str] = "SIO:010000"
@@ -1327,7 +1327,7 @@ class Case(IndividualOrganism):
     """
     An individual organism that has a patient role in some clinical context.
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "in_taxon"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.Case
     class_class_curie: ClassVar[str] = "biolink:Case"
@@ -1353,7 +1353,7 @@ class PopulationOfIndividualOrganisms(OrganismalEntity):
     Characteristics can include, but are not limited to, shared geographic location, genetics, phenotypes [Alliance
     for Genome Resources]
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "in_taxon"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = SIO["001061"]
     class_class_curie: ClassVar[str] = "SIO:001061"
@@ -1382,7 +1382,7 @@ class MaterialSample(NamedThing):
     portion of a substance) to be used for testing, analysis, inspection, investigation, demonstration, or trial use.
     [SIO]
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.MaterialSample
     class_class_curie: ClassVar[str] = "biolink:MaterialSample"
@@ -1410,7 +1410,7 @@ class DiseaseOrPhenotypicFeature(BiologicalEntity):
     Either one of a disease or an individual phenotypic feature. Some knowledge resources such as Monarch treat these
     as distinct, others such as MESH conflate.
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "correlated_with", "has_biomarker", "treated_by", "in_taxon"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.DiseaseOrPhenotypicFeature
     class_class_curie: ClassVar[str] = "biolink:DiseaseOrPhenotypicFeature"
@@ -1434,7 +1434,7 @@ class DiseaseOrPhenotypicFeature(BiologicalEntity):
 
 @dataclass
 class Disease(DiseaseOrPhenotypicFeature):
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "correlated_with", "has_biomarker", "treated_by", "in_taxon"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = MONDO["0000001"]
     class_class_curie: ClassVar[str] = "MONDO:0000001"
@@ -1455,7 +1455,7 @@ class Disease(DiseaseOrPhenotypicFeature):
 
 @dataclass
 class PhenotypicFeature(DiseaseOrPhenotypicFeature):
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "correlated_with", "has_biomarker", "treated_by", "in_taxon"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = UPHENO["0001001"]
     class_class_curie: ClassVar[str] = "UPHENO:0001001"
@@ -1480,7 +1480,7 @@ class ExposureEvent(BiologicalEntity):
     A feature of the environment of an organism that influences one or more phenotypic features of that organism,
     potentially mediated by genes
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = SIO["000955"]
     class_class_curie: ClassVar[str] = "SIO:000955"
@@ -1504,7 +1504,7 @@ class InformationContentEntity(NamedThing):
     """
     a piece of information that typically describes some piece of biology or is used as support.
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = IAO["0000030"]
     class_class_curie: ClassVar[str] = "IAO:0000030"
@@ -1520,7 +1520,7 @@ class ConfidenceLevel(InformationContentEntity):
     """
     Level of confidence in a statement
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = CIO["0000028"]
     class_class_curie: ClassVar[str] = "CIO:0000028"
@@ -1544,7 +1544,7 @@ class EvidenceType(InformationContentEntity):
     """
     Class of evidence that supports an association
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ECO["0000000"]
     class_class_curie: ClassVar[str] = "ECO:0000000"
@@ -1570,7 +1570,7 @@ class Publication(InformationContentEntity):
     legend, or section highlighted by NLP). The scope is intended to be general and include information published on
     the web as well as journals.
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = IAO["0000311"]
     class_class_curie: ClassVar[str] = "IAO:0000311"
@@ -1591,7 +1591,7 @@ class Publication(InformationContentEntity):
 
 @dataclass
 class AdministrativeEntity(NamedThing):
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.AdministrativeEntity
     class_class_curie: ClassVar[str] = "biolink:AdministrativeEntity"
@@ -1607,7 +1607,7 @@ class Provider(AdministrativeEntity):
     """
     person, group, organization or project that provides a piece of information
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.Provider
     class_class_curie: ClassVar[str] = "biolink:Provider"
@@ -1631,7 +1631,7 @@ class MolecularEntity(BiologicalEntity):
     """
     A gene, gene product, small molecule or macromolecule (including protein complex)
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "molecularly_interacts_with", "affects_abundance_of", "increases_abundance_of", "decreases_abundance_of", "affects_activity_of", "increases_activity_of", "decreases_activity_of", "affects_expression_of", "increases_expression_of", "decreases_expression_of", "affects_folding_of", "increases_folding_of", "decreases_folding_of", "affects_localization_of", "increases_localization_of", "decreases_localization_of", "affects_metabolic_processing_of", "increases_metabolic_processing_of", "decreases_metabolic_processing_of", "affects_molecular_modification_of", "increases_molecular_modification_of", "decreases_molecular_modification_of", "affects_synthesis_of", "increases_synthesis_of", "decreases_synthesis_of", "affects_degradation_of", "increases_degradation_of", "decreases_degradation_of", "affects_mutation_rate_of", "increases_mutation_rate_of", "decreases_mutation_rate_of", "affects_response_to", "increases_response_to", "decreases_response_to", "affects_splicing_of", "increases_splicing_of", "decreases_splicing_of", "affects_stability_of", "increases_stability_of", "decreases_stability_of", "affects_transport_of", "increases_transport_of", "decreases_transport_of", "affects_secretion_of", "increases_secretion_of", "decreases_secretion_of", "affects_uptake_of", "increases_uptake_of", "decreases_uptake_of", "regulates_entity_to_entity", "biomarker_for", "in_taxon", "positively_regulates_entity_to_entity", "negatively_regulates_entity_to_entity"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = SIO["010341"]
     class_class_curie: ClassVar[str] = "SIO:010341"
@@ -1659,7 +1659,7 @@ class ChemicalSubstance(MolecularEntity):
     May be a chemical entity or a formulation with a chemical entity as active ingredient, or a complex material with
     multiple chemical entities as part
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "molecularly_interacts_with", "affects_abundance_of", "increases_abundance_of", "decreases_abundance_of", "affects_activity_of", "increases_activity_of", "decreases_activity_of", "affects_expression_of", "increases_expression_of", "decreases_expression_of", "affects_folding_of", "increases_folding_of", "decreases_folding_of", "affects_localization_of", "increases_localization_of", "decreases_localization_of", "affects_metabolic_processing_of", "increases_metabolic_processing_of", "decreases_metabolic_processing_of", "affects_molecular_modification_of", "increases_molecular_modification_of", "decreases_molecular_modification_of", "affects_synthesis_of", "increases_synthesis_of", "decreases_synthesis_of", "affects_degradation_of", "increases_degradation_of", "decreases_degradation_of", "affects_mutation_rate_of", "increases_mutation_rate_of", "decreases_mutation_rate_of", "affects_response_to", "increases_response_to", "decreases_response_to", "affects_splicing_of", "increases_splicing_of", "decreases_splicing_of", "affects_stability_of", "increases_stability_of", "decreases_stability_of", "affects_transport_of", "increases_transport_of", "decreases_transport_of", "affects_secretion_of", "increases_secretion_of", "decreases_secretion_of", "affects_uptake_of", "increases_uptake_of", "decreases_uptake_of", "regulates_entity_to_entity", "biomarker_for", "in_taxon"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = SIO["010004"]
     class_class_curie: ClassVar[str] = "SIO:010004"
@@ -1680,7 +1680,7 @@ class ChemicalSubstance(MolecularEntity):
 
 @dataclass
 class Carbohydrate(ChemicalSubstance):
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "molecularly_interacts_with", "affects_abundance_of", "increases_abundance_of", "decreases_abundance_of", "affects_activity_of", "increases_activity_of", "decreases_activity_of", "affects_expression_of", "increases_expression_of", "decreases_expression_of", "affects_folding_of", "increases_folding_of", "decreases_folding_of", "affects_localization_of", "increases_localization_of", "decreases_localization_of", "affects_metabolic_processing_of", "increases_metabolic_processing_of", "decreases_metabolic_processing_of", "affects_molecular_modification_of", "increases_molecular_modification_of", "decreases_molecular_modification_of", "affects_synthesis_of", "increases_synthesis_of", "decreases_synthesis_of", "affects_degradation_of", "increases_degradation_of", "decreases_degradation_of", "affects_mutation_rate_of", "increases_mutation_rate_of", "decreases_mutation_rate_of", "affects_response_to", "increases_response_to", "decreases_response_to", "affects_splicing_of", "increases_splicing_of", "decreases_splicing_of", "affects_stability_of", "increases_stability_of", "decreases_stability_of", "affects_transport_of", "increases_transport_of", "decreases_transport_of", "affects_secretion_of", "increases_secretion_of", "decreases_secretion_of", "affects_uptake_of", "increases_uptake_of", "decreases_uptake_of", "regulates_entity_to_entity", "biomarker_for", "in_taxon"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.Carbohydrate
     class_class_curie: ClassVar[str] = "biolink:Carbohydrate"
@@ -1704,7 +1704,7 @@ class Drug(ChemicalSubstance):
     """
     A substance intended for use in the diagnosis, cure, mitigation, treatment, or prevention of disease
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "molecularly_interacts_with", "affects_abundance_of", "increases_abundance_of", "decreases_abundance_of", "affects_activity_of", "increases_activity_of", "decreases_activity_of", "affects_expression_of", "increases_expression_of", "decreases_expression_of", "affects_folding_of", "increases_folding_of", "decreases_folding_of", "affects_localization_of", "increases_localization_of", "decreases_localization_of", "affects_metabolic_processing_of", "increases_metabolic_processing_of", "decreases_metabolic_processing_of", "affects_molecular_modification_of", "increases_molecular_modification_of", "decreases_molecular_modification_of", "affects_synthesis_of", "increases_synthesis_of", "decreases_synthesis_of", "affects_degradation_of", "increases_degradation_of", "decreases_degradation_of", "affects_mutation_rate_of", "increases_mutation_rate_of", "decreases_mutation_rate_of", "affects_response_to", "increases_response_to", "decreases_response_to", "affects_splicing_of", "increases_splicing_of", "decreases_splicing_of", "affects_stability_of", "increases_stability_of", "decreases_stability_of", "affects_transport_of", "increases_transport_of", "decreases_transport_of", "affects_secretion_of", "increases_secretion_of", "decreases_secretion_of", "affects_uptake_of", "increases_uptake_of", "decreases_uptake_of", "regulates_entity_to_entity", "biomarker_for", "in_taxon"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = WD.Q12140
     class_class_curie: ClassVar[str] = "WD:Q12140"
@@ -1728,7 +1728,7 @@ class Metabolite(ChemicalSubstance):
     """
     Any intermediate or product resulting from metabolism. Includes primary and secondary metabolites.
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "molecularly_interacts_with", "affects_abundance_of", "increases_abundance_of", "decreases_abundance_of", "affects_activity_of", "increases_activity_of", "decreases_activity_of", "affects_expression_of", "increases_expression_of", "decreases_expression_of", "affects_folding_of", "increases_folding_of", "decreases_folding_of", "affects_localization_of", "increases_localization_of", "decreases_localization_of", "affects_metabolic_processing_of", "increases_metabolic_processing_of", "decreases_metabolic_processing_of", "affects_molecular_modification_of", "increases_molecular_modification_of", "decreases_molecular_modification_of", "affects_synthesis_of", "increases_synthesis_of", "decreases_synthesis_of", "affects_degradation_of", "increases_degradation_of", "decreases_degradation_of", "affects_mutation_rate_of", "increases_mutation_rate_of", "decreases_mutation_rate_of", "affects_response_to", "increases_response_to", "decreases_response_to", "affects_splicing_of", "increases_splicing_of", "decreases_splicing_of", "affects_stability_of", "increases_stability_of", "decreases_stability_of", "affects_transport_of", "increases_transport_of", "decreases_transport_of", "affects_secretion_of", "increases_secretion_of", "decreases_secretion_of", "affects_uptake_of", "increases_uptake_of", "decreases_uptake_of", "regulates_entity_to_entity", "biomarker_for", "in_taxon"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = CHEBI["25212"]
     class_class_curie: ClassVar[str] = "CHEBI:25212"
@@ -1752,7 +1752,7 @@ class AnatomicalEntity(OrganismalEntity):
     """
     A subcellular location, cell type or gross anatomical part
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "expresses", "in_taxon"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = SIO["010046"]
     class_class_curie: ClassVar[str] = "SIO:010046"
@@ -1779,7 +1779,7 @@ class LifeStage(OrganismalEntity):
     """
     A stage of development or growth of an organism, including post-natal adult stages
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "in_taxon"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.LifeStage
     class_class_curie: ClassVar[str] = "biolink:LifeStage"
@@ -1806,7 +1806,7 @@ class PlanetaryEntity(NamedThing):
     """
     Any entity or process that exists at the level of the whole planet
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.PlanetaryEntity
     class_class_curie: ClassVar[str] = "biolink:PlanetaryEntity"
@@ -1827,7 +1827,7 @@ class PlanetaryEntity(NamedThing):
 
 @dataclass
 class EnvironmentalProcess(PlanetaryEntity):
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "regulates_process_to_process", "has_participant", "has_input", "has_output", "precedes"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.EnvironmentalProcess
     class_class_curie: ClassVar[str] = "biolink:EnvironmentalProcess"
@@ -1848,7 +1848,7 @@ class EnvironmentalProcess(PlanetaryEntity):
 
 @dataclass
 class EnvironmentalFeature(PlanetaryEntity):
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.EnvironmentalFeature
     class_class_curie: ClassVar[str] = "biolink:EnvironmentalFeature"
@@ -1873,7 +1873,7 @@ class ClinicalEntity(NamedThing):
     Any entity or process that exists in the clinical domain and outside the biological realm. Diseases are placed
     under biological entities
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.ClinicalEntity
     class_class_curie: ClassVar[str] = "biolink:ClinicalEntity"
@@ -1894,7 +1894,7 @@ class ClinicalEntity(NamedThing):
 
 @dataclass
 class ClinicalTrial(ClinicalEntity):
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.ClinicalTrial
     class_class_curie: ClassVar[str] = "biolink:ClinicalTrial"
@@ -1915,7 +1915,7 @@ class ClinicalTrial(ClinicalEntity):
 
 @dataclass
 class ClinicalIntervention(ClinicalEntity):
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.ClinicalIntervention
     class_class_curie: ClassVar[str] = "biolink:ClinicalIntervention"
@@ -1939,7 +1939,7 @@ class Device(NamedThing):
     """
     A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.Device
     class_class_curie: ClassVar[str] = "biolink:Device"
@@ -1964,7 +1964,7 @@ class GenomicEntity(MolecularEntity):
     an entity that can either be directly located on a genome (gene, transcript, exon, regulatory region) or is
     encoded in a genome (protein)
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "molecularly_interacts_with", "affects_abundance_of", "increases_abundance_of", "decreases_abundance_of", "affects_activity_of", "increases_activity_of", "decreases_activity_of", "affects_expression_of", "increases_expression_of", "decreases_expression_of", "affects_folding_of", "increases_folding_of", "decreases_folding_of", "affects_localization_of", "increases_localization_of", "decreases_localization_of", "affects_metabolic_processing_of", "increases_metabolic_processing_of", "decreases_metabolic_processing_of", "affects_molecular_modification_of", "increases_molecular_modification_of", "decreases_molecular_modification_of", "affects_synthesis_of", "increases_synthesis_of", "decreases_synthesis_of", "affects_degradation_of", "increases_degradation_of", "decreases_degradation_of", "affects_mutation_rate_of", "increases_mutation_rate_of", "decreases_mutation_rate_of", "affects_response_to", "increases_response_to", "decreases_response_to", "affects_splicing_of", "increases_splicing_of", "decreases_splicing_of", "affects_stability_of", "increases_stability_of", "decreases_stability_of", "affects_transport_of", "increases_transport_of", "decreases_transport_of", "affects_secretion_of", "increases_secretion_of", "decreases_secretion_of", "affects_uptake_of", "increases_uptake_of", "decreases_uptake_of", "regulates_entity_to_entity", "biomarker_for", "in_taxon"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = SO["0000110"]
     class_class_curie: ClassVar[str] = "SO:0000110"
@@ -1991,7 +1991,7 @@ class Genome(GenomicEntity):
     """
     A genome is the sum of genetic material within a cell or virion.
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "molecularly_interacts_with", "affects_abundance_of", "increases_abundance_of", "decreases_abundance_of", "affects_activity_of", "increases_activity_of", "decreases_activity_of", "affects_expression_of", "increases_expression_of", "decreases_expression_of", "affects_folding_of", "increases_folding_of", "decreases_folding_of", "affects_localization_of", "increases_localization_of", "decreases_localization_of", "affects_metabolic_processing_of", "increases_metabolic_processing_of", "decreases_metabolic_processing_of", "affects_molecular_modification_of", "increases_molecular_modification_of", "decreases_molecular_modification_of", "affects_synthesis_of", "increases_synthesis_of", "decreases_synthesis_of", "affects_degradation_of", "increases_degradation_of", "decreases_degradation_of", "affects_mutation_rate_of", "increases_mutation_rate_of", "decreases_mutation_rate_of", "affects_response_to", "increases_response_to", "decreases_response_to", "affects_splicing_of", "increases_splicing_of", "decreases_splicing_of", "affects_stability_of", "increases_stability_of", "decreases_stability_of", "affects_transport_of", "increases_transport_of", "decreases_transport_of", "affects_secretion_of", "increases_secretion_of", "decreases_secretion_of", "affects_uptake_of", "increases_uptake_of", "decreases_uptake_of", "regulates_entity_to_entity", "biomarker_for", "in_taxon"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = SO["0001026"]
     class_class_curie: ClassVar[str] = "SO:0001026"
@@ -2015,7 +2015,7 @@ class Transcript(GenomicEntity):
     """
     An RNA synthesized on a DNA or RNA template by an RNA polymerase
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "molecularly_interacts_with", "affects_abundance_of", "increases_abundance_of", "decreases_abundance_of", "affects_activity_of", "increases_activity_of", "decreases_activity_of", "affects_expression_of", "increases_expression_of", "decreases_expression_of", "affects_folding_of", "increases_folding_of", "decreases_folding_of", "affects_localization_of", "increases_localization_of", "decreases_localization_of", "affects_metabolic_processing_of", "increases_metabolic_processing_of", "decreases_metabolic_processing_of", "affects_molecular_modification_of", "increases_molecular_modification_of", "decreases_molecular_modification_of", "affects_synthesis_of", "increases_synthesis_of", "decreases_synthesis_of", "affects_degradation_of", "increases_degradation_of", "decreases_degradation_of", "affects_mutation_rate_of", "increases_mutation_rate_of", "decreases_mutation_rate_of", "affects_response_to", "increases_response_to", "decreases_response_to", "affects_splicing_of", "increases_splicing_of", "decreases_splicing_of", "affects_stability_of", "increases_stability_of", "decreases_stability_of", "affects_transport_of", "increases_transport_of", "decreases_transport_of", "affects_secretion_of", "increases_secretion_of", "decreases_secretion_of", "affects_uptake_of", "increases_uptake_of", "decreases_uptake_of", "regulates_entity_to_entity", "biomarker_for", "in_taxon"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = SO["0000673"]
     class_class_curie: ClassVar[str] = "SO:0000673"
@@ -2040,7 +2040,7 @@ class Exon(GenomicEntity):
     A region of the transcript sequence within a gene which is not removed from the primary RNA transcript by RNA
     splicing
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "molecularly_interacts_with", "affects_abundance_of", "increases_abundance_of", "decreases_abundance_of", "affects_activity_of", "increases_activity_of", "decreases_activity_of", "affects_expression_of", "increases_expression_of", "decreases_expression_of", "affects_folding_of", "increases_folding_of", "decreases_folding_of", "affects_localization_of", "increases_localization_of", "decreases_localization_of", "affects_metabolic_processing_of", "increases_metabolic_processing_of", "decreases_metabolic_processing_of", "affects_molecular_modification_of", "increases_molecular_modification_of", "decreases_molecular_modification_of", "affects_synthesis_of", "increases_synthesis_of", "decreases_synthesis_of", "affects_degradation_of", "increases_degradation_of", "decreases_degradation_of", "affects_mutation_rate_of", "increases_mutation_rate_of", "decreases_mutation_rate_of", "affects_response_to", "increases_response_to", "decreases_response_to", "affects_splicing_of", "increases_splicing_of", "decreases_splicing_of", "affects_stability_of", "increases_stability_of", "decreases_stability_of", "affects_transport_of", "increases_transport_of", "decreases_transport_of", "affects_secretion_of", "increases_secretion_of", "decreases_secretion_of", "affects_uptake_of", "increases_uptake_of", "decreases_uptake_of", "regulates_entity_to_entity", "biomarker_for", "in_taxon"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = SO["0000147"]
     class_class_curie: ClassVar[str] = "SO:0000147"
@@ -2061,7 +2061,7 @@ class Exon(GenomicEntity):
 
 @dataclass
 class CodingSequence(GenomicEntity):
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "molecularly_interacts_with", "affects_abundance_of", "increases_abundance_of", "decreases_abundance_of", "affects_activity_of", "increases_activity_of", "decreases_activity_of", "affects_expression_of", "increases_expression_of", "decreases_expression_of", "affects_folding_of", "increases_folding_of", "decreases_folding_of", "affects_localization_of", "increases_localization_of", "decreases_localization_of", "affects_metabolic_processing_of", "increases_metabolic_processing_of", "decreases_metabolic_processing_of", "affects_molecular_modification_of", "increases_molecular_modification_of", "decreases_molecular_modification_of", "affects_synthesis_of", "increases_synthesis_of", "decreases_synthesis_of", "affects_degradation_of", "increases_degradation_of", "decreases_degradation_of", "affects_mutation_rate_of", "increases_mutation_rate_of", "decreases_mutation_rate_of", "affects_response_to", "increases_response_to", "decreases_response_to", "affects_splicing_of", "increases_splicing_of", "decreases_splicing_of", "affects_stability_of", "increases_stability_of", "decreases_stability_of", "affects_transport_of", "increases_transport_of", "decreases_transport_of", "affects_secretion_of", "increases_secretion_of", "decreases_secretion_of", "affects_uptake_of", "increases_uptake_of", "decreases_uptake_of", "regulates_entity_to_entity", "biomarker_for", "in_taxon"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = SO["0000316"]
     class_class_curie: ClassVar[str] = "SO:0000316"
@@ -2086,7 +2086,7 @@ class MacromolecularMachine(GenomicEntity):
     A union of gene, gene product, and macromolecular complex. These are the basic units of function in a cell. They
     either carry out individual biological activities, or they encode molecules which do this.
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "molecularly_interacts_with", "affects_abundance_of", "increases_abundance_of", "decreases_abundance_of", "affects_activity_of", "increases_activity_of", "decreases_activity_of", "affects_expression_of", "increases_expression_of", "decreases_expression_of", "affects_folding_of", "increases_folding_of", "decreases_folding_of", "affects_localization_of", "increases_localization_of", "decreases_localization_of", "affects_metabolic_processing_of", "increases_metabolic_processing_of", "decreases_metabolic_processing_of", "affects_molecular_modification_of", "increases_molecular_modification_of", "decreases_molecular_modification_of", "affects_synthesis_of", "increases_synthesis_of", "decreases_synthesis_of", "affects_degradation_of", "increases_degradation_of", "decreases_degradation_of", "affects_mutation_rate_of", "increases_mutation_rate_of", "decreases_mutation_rate_of", "affects_response_to", "increases_response_to", "decreases_response_to", "affects_splicing_of", "increases_splicing_of", "decreases_splicing_of", "affects_stability_of", "increases_stability_of", "decreases_stability_of", "affects_transport_of", "increases_transport_of", "decreases_transport_of", "affects_secretion_of", "increases_secretion_of", "decreases_secretion_of", "affects_uptake_of", "increases_uptake_of", "decreases_uptake_of", "regulates_entity_to_entity", "biomarker_for", "in_taxon"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.MacromolecularMachine
     class_class_curie: ClassVar[str] = "biolink:MacromolecularMachine"
@@ -2114,7 +2114,7 @@ class GeneOrGeneProduct(MacromolecularMachine):
     """
     a union of genes or gene products. Frequently an identifier for one will be used as proxy for another
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "molecularly_interacts_with", "affects_abundance_of", "increases_abundance_of", "decreases_abundance_of", "affects_activity_of", "increases_activity_of", "decreases_activity_of", "affects_expression_of", "increases_expression_of", "decreases_expression_of", "affects_folding_of", "increases_folding_of", "decreases_folding_of", "affects_localization_of", "increases_localization_of", "decreases_localization_of", "affects_metabolic_processing_of", "increases_metabolic_processing_of", "decreases_metabolic_processing_of", "affects_molecular_modification_of", "increases_molecular_modification_of", "decreases_molecular_modification_of", "affects_synthesis_of", "increases_synthesis_of", "decreases_synthesis_of", "affects_degradation_of", "increases_degradation_of", "decreases_degradation_of", "affects_mutation_rate_of", "increases_mutation_rate_of", "decreases_mutation_rate_of", "affects_response_to", "increases_response_to", "decreases_response_to", "affects_splicing_of", "increases_splicing_of", "decreases_splicing_of", "affects_stability_of", "increases_stability_of", "decreases_stability_of", "affects_transport_of", "increases_transport_of", "decreases_transport_of", "affects_secretion_of", "increases_secretion_of", "decreases_secretion_of", "affects_uptake_of", "increases_uptake_of", "decreases_uptake_of", "regulates_entity_to_entity", "biomarker_for", "in_taxon", "in_pathway_with", "in_complex_with", "in_cell_population_with", "expressed_in"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.GeneOrGeneProduct
     class_class_curie: ClassVar[str] = "biolink:GeneOrGeneProduct"
@@ -2135,7 +2135,7 @@ class GeneOrGeneProduct(MacromolecularMachine):
 
 @dataclass
 class Gene(GeneOrGeneProduct):
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "molecularly_interacts_with", "affects_abundance_of", "increases_abundance_of", "decreases_abundance_of", "affects_activity_of", "increases_activity_of", "decreases_activity_of", "affects_expression_of", "increases_expression_of", "decreases_expression_of", "affects_folding_of", "increases_folding_of", "decreases_folding_of", "affects_localization_of", "increases_localization_of", "decreases_localization_of", "affects_metabolic_processing_of", "increases_metabolic_processing_of", "decreases_metabolic_processing_of", "affects_molecular_modification_of", "increases_molecular_modification_of", "decreases_molecular_modification_of", "affects_synthesis_of", "increases_synthesis_of", "decreases_synthesis_of", "affects_degradation_of", "increases_degradation_of", "decreases_degradation_of", "affects_mutation_rate_of", "increases_mutation_rate_of", "decreases_mutation_rate_of", "affects_response_to", "increases_response_to", "decreases_response_to", "affects_splicing_of", "increases_splicing_of", "decreases_splicing_of", "affects_stability_of", "increases_stability_of", "decreases_stability_of", "affects_transport_of", "increases_transport_of", "decreases_transport_of", "affects_secretion_of", "increases_secretion_of", "decreases_secretion_of", "affects_uptake_of", "increases_uptake_of", "decreases_uptake_of", "regulates_entity_to_entity", "biomarker_for", "in_taxon", "in_pathway_with", "in_complex_with", "in_cell_population_with", "expressed_in", "genetically_interacts_with", "has_gene_product", "gene_associated_with_condition"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = SO["0000704"]
     class_class_curie: ClassVar[str] = "SO:0000704"
@@ -2159,7 +2159,7 @@ class GeneProduct(GeneOrGeneProduct):
     """
     The functional molecular product of a single gene. Gene products are either proteins or functional RNA molecules
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "molecularly_interacts_with", "affects_abundance_of", "increases_abundance_of", "decreases_abundance_of", "affects_activity_of", "increases_activity_of", "decreases_activity_of", "affects_expression_of", "increases_expression_of", "decreases_expression_of", "affects_folding_of", "increases_folding_of", "decreases_folding_of", "affects_localization_of", "increases_localization_of", "decreases_localization_of", "affects_metabolic_processing_of", "increases_metabolic_processing_of", "decreases_metabolic_processing_of", "affects_molecular_modification_of", "increases_molecular_modification_of", "decreases_molecular_modification_of", "affects_synthesis_of", "increases_synthesis_of", "decreases_synthesis_of", "affects_degradation_of", "increases_degradation_of", "decreases_degradation_of", "affects_mutation_rate_of", "increases_mutation_rate_of", "decreases_mutation_rate_of", "affects_response_to", "increases_response_to", "decreases_response_to", "affects_splicing_of", "increases_splicing_of", "decreases_splicing_of", "affects_stability_of", "increases_stability_of", "decreases_stability_of", "affects_transport_of", "increases_transport_of", "decreases_transport_of", "affects_secretion_of", "increases_secretion_of", "decreases_secretion_of", "affects_uptake_of", "increases_uptake_of", "decreases_uptake_of", "regulates_entity_to_entity", "biomarker_for", "in_taxon", "in_pathway_with", "in_complex_with", "in_cell_population_with", "expressed_in"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = WD.Q424689
     class_class_curie: ClassVar[str] = "WD:Q424689"
@@ -2184,7 +2184,7 @@ class Protein(GeneProduct):
     A gene product that is composed of a chain of amino acid sequences and is produced by ribosome-mediated
     translation of mRNA
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "molecularly_interacts_with", "affects_abundance_of", "increases_abundance_of", "decreases_abundance_of", "affects_activity_of", "increases_activity_of", "decreases_activity_of", "affects_expression_of", "increases_expression_of", "decreases_expression_of", "affects_folding_of", "increases_folding_of", "decreases_folding_of", "affects_localization_of", "increases_localization_of", "decreases_localization_of", "affects_metabolic_processing_of", "increases_metabolic_processing_of", "decreases_metabolic_processing_of", "affects_molecular_modification_of", "increases_molecular_modification_of", "decreases_molecular_modification_of", "affects_synthesis_of", "increases_synthesis_of", "decreases_synthesis_of", "affects_degradation_of", "increases_degradation_of", "decreases_degradation_of", "affects_mutation_rate_of", "increases_mutation_rate_of", "decreases_mutation_rate_of", "affects_response_to", "increases_response_to", "decreases_response_to", "affects_splicing_of", "increases_splicing_of", "decreases_splicing_of", "affects_stability_of", "increases_stability_of", "decreases_stability_of", "affects_transport_of", "increases_transport_of", "decreases_transport_of", "affects_secretion_of", "increases_secretion_of", "decreases_secretion_of", "affects_uptake_of", "increases_uptake_of", "decreases_uptake_of", "regulates_entity_to_entity", "biomarker_for", "in_taxon", "in_pathway_with", "in_complex_with", "in_cell_population_with", "expressed_in"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = PR["000000001"]
     class_class_curie: ClassVar[str] = "PR:000000001"
@@ -2210,7 +2210,7 @@ class GeneProductIsoform(GeneProduct):
     product is intended to represent a specific isoform rather than a canonical or reference or generic product. The
     designation of canonical or reference may be arbitrary, or it may represent the superclass of all isoforms.
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "molecularly_interacts_with", "affects_abundance_of", "increases_abundance_of", "decreases_abundance_of", "affects_activity_of", "increases_activity_of", "decreases_activity_of", "affects_expression_of", "increases_expression_of", "decreases_expression_of", "affects_folding_of", "increases_folding_of", "decreases_folding_of", "affects_localization_of", "increases_localization_of", "decreases_localization_of", "affects_metabolic_processing_of", "increases_metabolic_processing_of", "decreases_metabolic_processing_of", "affects_molecular_modification_of", "increases_molecular_modification_of", "decreases_molecular_modification_of", "affects_synthesis_of", "increases_synthesis_of", "decreases_synthesis_of", "affects_degradation_of", "increases_degradation_of", "decreases_degradation_of", "affects_mutation_rate_of", "increases_mutation_rate_of", "decreases_mutation_rate_of", "affects_response_to", "increases_response_to", "decreases_response_to", "affects_splicing_of", "increases_splicing_of", "decreases_splicing_of", "affects_stability_of", "increases_stability_of", "decreases_stability_of", "affects_transport_of", "increases_transport_of", "decreases_transport_of", "affects_secretion_of", "increases_secretion_of", "decreases_secretion_of", "affects_uptake_of", "increases_uptake_of", "decreases_uptake_of", "regulates_entity_to_entity", "biomarker_for", "in_taxon", "in_pathway_with", "in_complex_with", "in_cell_population_with", "expressed_in"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.GeneProductIsoform
     class_class_curie: ClassVar[str] = "biolink:GeneProductIsoform"
@@ -2227,7 +2227,7 @@ class ProteinIsoform(Protein):
     Represents a protein that is a specific isoform of the canonical or reference protein. See
     https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4114032/
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "molecularly_interacts_with", "affects_abundance_of", "increases_abundance_of", "decreases_abundance_of", "affects_activity_of", "increases_activity_of", "decreases_activity_of", "affects_expression_of", "increases_expression_of", "decreases_expression_of", "affects_folding_of", "increases_folding_of", "decreases_folding_of", "affects_localization_of", "increases_localization_of", "decreases_localization_of", "affects_metabolic_processing_of", "increases_metabolic_processing_of", "decreases_metabolic_processing_of", "affects_molecular_modification_of", "increases_molecular_modification_of", "decreases_molecular_modification_of", "affects_synthesis_of", "increases_synthesis_of", "decreases_synthesis_of", "affects_degradation_of", "increases_degradation_of", "decreases_degradation_of", "affects_mutation_rate_of", "increases_mutation_rate_of", "decreases_mutation_rate_of", "affects_response_to", "increases_response_to", "decreases_response_to", "affects_splicing_of", "increases_splicing_of", "decreases_splicing_of", "affects_stability_of", "increases_stability_of", "decreases_stability_of", "affects_transport_of", "increases_transport_of", "decreases_transport_of", "affects_secretion_of", "increases_secretion_of", "decreases_secretion_of", "affects_uptake_of", "increases_uptake_of", "decreases_uptake_of", "regulates_entity_to_entity", "biomarker_for", "in_taxon", "in_pathway_with", "in_complex_with", "in_cell_population_with", "expressed_in"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.ProteinIsoform
     class_class_curie: ClassVar[str] = "biolink:ProteinIsoform"
@@ -2248,7 +2248,7 @@ class ProteinIsoform(Protein):
 
 @dataclass
 class RNAProduct(GeneProduct):
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "molecularly_interacts_with", "affects_abundance_of", "increases_abundance_of", "decreases_abundance_of", "affects_activity_of", "increases_activity_of", "decreases_activity_of", "affects_expression_of", "increases_expression_of", "decreases_expression_of", "affects_folding_of", "increases_folding_of", "decreases_folding_of", "affects_localization_of", "increases_localization_of", "decreases_localization_of", "affects_metabolic_processing_of", "increases_metabolic_processing_of", "decreases_metabolic_processing_of", "affects_molecular_modification_of", "increases_molecular_modification_of", "decreases_molecular_modification_of", "affects_synthesis_of", "increases_synthesis_of", "decreases_synthesis_of", "affects_degradation_of", "increases_degradation_of", "decreases_degradation_of", "affects_mutation_rate_of", "increases_mutation_rate_of", "decreases_mutation_rate_of", "affects_response_to", "increases_response_to", "decreases_response_to", "affects_splicing_of", "increases_splicing_of", "decreases_splicing_of", "affects_stability_of", "increases_stability_of", "decreases_stability_of", "affects_transport_of", "increases_transport_of", "decreases_transport_of", "affects_secretion_of", "increases_secretion_of", "decreases_secretion_of", "affects_uptake_of", "increases_uptake_of", "decreases_uptake_of", "regulates_entity_to_entity", "biomarker_for", "in_taxon", "in_pathway_with", "in_complex_with", "in_cell_population_with", "expressed_in"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = CHEBI["33697"]
     class_class_curie: ClassVar[str] = "CHEBI:33697"
@@ -2272,7 +2272,7 @@ class RNAProductIsoform(RNAProduct):
     """
     Represents a protein that is a specific isoform of the canonical or reference RNA
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "molecularly_interacts_with", "affects_abundance_of", "increases_abundance_of", "decreases_abundance_of", "affects_activity_of", "increases_activity_of", "decreases_activity_of", "affects_expression_of", "increases_expression_of", "decreases_expression_of", "affects_folding_of", "increases_folding_of", "decreases_folding_of", "affects_localization_of", "increases_localization_of", "decreases_localization_of", "affects_metabolic_processing_of", "increases_metabolic_processing_of", "decreases_metabolic_processing_of", "affects_molecular_modification_of", "increases_molecular_modification_of", "decreases_molecular_modification_of", "affects_synthesis_of", "increases_synthesis_of", "decreases_synthesis_of", "affects_degradation_of", "increases_degradation_of", "decreases_degradation_of", "affects_mutation_rate_of", "increases_mutation_rate_of", "decreases_mutation_rate_of", "affects_response_to", "increases_response_to", "decreases_response_to", "affects_splicing_of", "increases_splicing_of", "decreases_splicing_of", "affects_stability_of", "increases_stability_of", "decreases_stability_of", "affects_transport_of", "increases_transport_of", "decreases_transport_of", "affects_secretion_of", "increases_secretion_of", "decreases_secretion_of", "affects_uptake_of", "increases_uptake_of", "decreases_uptake_of", "regulates_entity_to_entity", "biomarker_for", "in_taxon", "in_pathway_with", "in_complex_with", "in_cell_population_with", "expressed_in"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.RNAProductIsoform
     class_class_curie: ClassVar[str] = "biolink:RNAProductIsoform"
@@ -2293,7 +2293,7 @@ class RNAProductIsoform(RNAProduct):
 
 @dataclass
 class NoncodingRNAProduct(RNAProduct):
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "molecularly_interacts_with", "affects_abundance_of", "increases_abundance_of", "decreases_abundance_of", "affects_activity_of", "increases_activity_of", "decreases_activity_of", "affects_expression_of", "increases_expression_of", "decreases_expression_of", "affects_folding_of", "increases_folding_of", "decreases_folding_of", "affects_localization_of", "increases_localization_of", "decreases_localization_of", "affects_metabolic_processing_of", "increases_metabolic_processing_of", "decreases_metabolic_processing_of", "affects_molecular_modification_of", "increases_molecular_modification_of", "decreases_molecular_modification_of", "affects_synthesis_of", "increases_synthesis_of", "decreases_synthesis_of", "affects_degradation_of", "increases_degradation_of", "decreases_degradation_of", "affects_mutation_rate_of", "increases_mutation_rate_of", "decreases_mutation_rate_of", "affects_response_to", "increases_response_to", "decreases_response_to", "affects_splicing_of", "increases_splicing_of", "decreases_splicing_of", "affects_stability_of", "increases_stability_of", "decreases_stability_of", "affects_transport_of", "increases_transport_of", "decreases_transport_of", "affects_secretion_of", "increases_secretion_of", "decreases_secretion_of", "affects_uptake_of", "increases_uptake_of", "decreases_uptake_of", "regulates_entity_to_entity", "biomarker_for", "in_taxon", "in_pathway_with", "in_complex_with", "in_cell_population_with", "expressed_in"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = SIO["001235"]
     class_class_curie: ClassVar[str] = "SIO:001235"
@@ -2314,7 +2314,7 @@ class NoncodingRNAProduct(RNAProduct):
 
 @dataclass
 class MicroRNA(NoncodingRNAProduct):
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "molecularly_interacts_with", "affects_abundance_of", "increases_abundance_of", "decreases_abundance_of", "affects_activity_of", "increases_activity_of", "decreases_activity_of", "affects_expression_of", "increases_expression_of", "decreases_expression_of", "affects_folding_of", "increases_folding_of", "decreases_folding_of", "affects_localization_of", "increases_localization_of", "decreases_localization_of", "affects_metabolic_processing_of", "increases_metabolic_processing_of", "decreases_metabolic_processing_of", "affects_molecular_modification_of", "increases_molecular_modification_of", "decreases_molecular_modification_of", "affects_synthesis_of", "increases_synthesis_of", "decreases_synthesis_of", "affects_degradation_of", "increases_degradation_of", "decreases_degradation_of", "affects_mutation_rate_of", "increases_mutation_rate_of", "decreases_mutation_rate_of", "affects_response_to", "increases_response_to", "decreases_response_to", "affects_splicing_of", "increases_splicing_of", "decreases_splicing_of", "affects_stability_of", "increases_stability_of", "decreases_stability_of", "affects_transport_of", "increases_transport_of", "decreases_transport_of", "affects_secretion_of", "increases_secretion_of", "decreases_secretion_of", "affects_uptake_of", "increases_uptake_of", "decreases_uptake_of", "regulates_entity_to_entity", "biomarker_for", "in_taxon", "in_pathway_with", "in_complex_with", "in_cell_population_with", "expressed_in"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = SIO["001397"]
     class_class_curie: ClassVar[str] = "SIO:001397"
@@ -2335,7 +2335,7 @@ class MicroRNA(NoncodingRNAProduct):
 
 @dataclass
 class MacromolecularComplex(MacromolecularMachine):
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "molecularly_interacts_with", "affects_abundance_of", "increases_abundance_of", "decreases_abundance_of", "affects_activity_of", "increases_activity_of", "decreases_activity_of", "affects_expression_of", "increases_expression_of", "decreases_expression_of", "affects_folding_of", "increases_folding_of", "decreases_folding_of", "affects_localization_of", "increases_localization_of", "decreases_localization_of", "affects_metabolic_processing_of", "increases_metabolic_processing_of", "decreases_metabolic_processing_of", "affects_molecular_modification_of", "increases_molecular_modification_of", "decreases_molecular_modification_of", "affects_synthesis_of", "increases_synthesis_of", "decreases_synthesis_of", "affects_degradation_of", "increases_degradation_of", "decreases_degradation_of", "affects_mutation_rate_of", "increases_mutation_rate_of", "decreases_mutation_rate_of", "affects_response_to", "increases_response_to", "decreases_response_to", "affects_splicing_of", "increases_splicing_of", "decreases_splicing_of", "affects_stability_of", "increases_stability_of", "decreases_stability_of", "affects_transport_of", "increases_transport_of", "decreases_transport_of", "affects_secretion_of", "increases_secretion_of", "decreases_secretion_of", "affects_uptake_of", "increases_uptake_of", "decreases_uptake_of", "regulates_entity_to_entity", "biomarker_for", "in_taxon"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = SIO["010046"]
     class_class_curie: ClassVar[str] = "SIO:010046"
@@ -2359,7 +2359,7 @@ class GeneFamily(MolecularEntity):
     """
     any grouping of multiple genes or gene products related by common descent
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "molecularly_interacts_with", "affects_abundance_of", "increases_abundance_of", "decreases_abundance_of", "affects_activity_of", "increases_activity_of", "decreases_activity_of", "affects_expression_of", "increases_expression_of", "decreases_expression_of", "affects_folding_of", "increases_folding_of", "decreases_folding_of", "affects_localization_of", "increases_localization_of", "decreases_localization_of", "affects_metabolic_processing_of", "increases_metabolic_processing_of", "decreases_metabolic_processing_of", "affects_molecular_modification_of", "increases_molecular_modification_of", "decreases_molecular_modification_of", "affects_synthesis_of", "increases_synthesis_of", "decreases_synthesis_of", "affects_degradation_of", "increases_degradation_of", "decreases_degradation_of", "affects_mutation_rate_of", "increases_mutation_rate_of", "decreases_mutation_rate_of", "affects_response_to", "increases_response_to", "decreases_response_to", "affects_splicing_of", "increases_splicing_of", "decreases_splicing_of", "affects_stability_of", "increases_stability_of", "decreases_stability_of", "affects_transport_of", "increases_transport_of", "decreases_transport_of", "affects_secretion_of", "increases_secretion_of", "decreases_secretion_of", "affects_uptake_of", "increases_uptake_of", "decreases_uptake_of", "regulates_entity_to_entity", "biomarker_for", "in_taxon"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = SIO["001380"]
     class_class_curie: ClassVar[str] = "SIO:001380"
@@ -2380,7 +2380,7 @@ class GeneFamily(MolecularEntity):
 
 @dataclass
 class Zygosity(Attribute):
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "subclass_of"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = GENO["0000133"]
     class_class_curie: ClassVar[str] = "GENO:0000133"
@@ -2405,7 +2405,7 @@ class Genotype(GenomicEntity):
     An information content entity that describes a genome by specifying the total variation in genomic sequence and/or
     gene expression, relative to some extablished background
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "molecularly_interacts_with", "affects_abundance_of", "increases_abundance_of", "decreases_abundance_of", "affects_activity_of", "increases_activity_of", "decreases_activity_of", "affects_expression_of", "increases_expression_of", "decreases_expression_of", "affects_folding_of", "increases_folding_of", "decreases_folding_of", "affects_localization_of", "increases_localization_of", "decreases_localization_of", "affects_metabolic_processing_of", "increases_metabolic_processing_of", "decreases_metabolic_processing_of", "affects_molecular_modification_of", "increases_molecular_modification_of", "decreases_molecular_modification_of", "affects_synthesis_of", "increases_synthesis_of", "decreases_synthesis_of", "affects_degradation_of", "increases_degradation_of", "decreases_degradation_of", "affects_mutation_rate_of", "increases_mutation_rate_of", "decreases_mutation_rate_of", "affects_response_to", "increases_response_to", "decreases_response_to", "affects_splicing_of", "increases_splicing_of", "decreases_splicing_of", "affects_stability_of", "increases_stability_of", "decreases_stability_of", "affects_transport_of", "increases_transport_of", "decreases_transport_of", "affects_secretion_of", "increases_secretion_of", "decreases_secretion_of", "affects_uptake_of", "increases_uptake_of", "decreases_uptake_of", "regulates_entity_to_entity", "biomarker_for", "in_taxon"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = GENO["0000536"]
     class_class_curie: ClassVar[str] = "GENO:0000536"
@@ -2432,7 +2432,7 @@ class Haplotype(GenomicEntity):
     """
     A set of zero or more Alleles on a single instance of a Sequence[VMC]
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "molecularly_interacts_with", "affects_abundance_of", "increases_abundance_of", "decreases_abundance_of", "affects_activity_of", "increases_activity_of", "decreases_activity_of", "affects_expression_of", "increases_expression_of", "decreases_expression_of", "affects_folding_of", "increases_folding_of", "decreases_folding_of", "affects_localization_of", "increases_localization_of", "decreases_localization_of", "affects_metabolic_processing_of", "increases_metabolic_processing_of", "decreases_metabolic_processing_of", "affects_molecular_modification_of", "increases_molecular_modification_of", "decreases_molecular_modification_of", "affects_synthesis_of", "increases_synthesis_of", "decreases_synthesis_of", "affects_degradation_of", "increases_degradation_of", "decreases_degradation_of", "affects_mutation_rate_of", "increases_mutation_rate_of", "decreases_mutation_rate_of", "affects_response_to", "increases_response_to", "decreases_response_to", "affects_splicing_of", "increases_splicing_of", "decreases_splicing_of", "affects_stability_of", "increases_stability_of", "decreases_stability_of", "affects_transport_of", "increases_transport_of", "decreases_transport_of", "affects_secretion_of", "increases_secretion_of", "decreases_secretion_of", "affects_uptake_of", "increases_uptake_of", "decreases_uptake_of", "regulates_entity_to_entity", "biomarker_for", "in_taxon"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = GENO["0000871"]
     class_class_curie: ClassVar[str] = "GENO:0000871"
@@ -2456,7 +2456,7 @@ class SequenceVariant(GenomicEntity):
     """
     An allele that varies in its sequence from what is considered the reference allele at that locus.
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "molecularly_interacts_with", "affects_abundance_of", "increases_abundance_of", "decreases_abundance_of", "affects_activity_of", "increases_activity_of", "decreases_activity_of", "affects_expression_of", "increases_expression_of", "decreases_expression_of", "affects_folding_of", "increases_folding_of", "decreases_folding_of", "affects_localization_of", "increases_localization_of", "decreases_localization_of", "affects_metabolic_processing_of", "increases_metabolic_processing_of", "decreases_metabolic_processing_of", "affects_molecular_modification_of", "increases_molecular_modification_of", "decreases_molecular_modification_of", "affects_synthesis_of", "increases_synthesis_of", "decreases_synthesis_of", "affects_degradation_of", "increases_degradation_of", "decreases_degradation_of", "affects_mutation_rate_of", "increases_mutation_rate_of", "decreases_mutation_rate_of", "affects_response_to", "increases_response_to", "decreases_response_to", "affects_splicing_of", "increases_splicing_of", "decreases_splicing_of", "affects_stability_of", "increases_stability_of", "decreases_stability_of", "affects_transport_of", "increases_transport_of", "decreases_transport_of", "affects_secretion_of", "increases_secretion_of", "decreases_secretion_of", "affects_uptake_of", "increases_uptake_of", "decreases_uptake_of", "regulates_entity_to_entity", "biomarker_for", "in_taxon"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = GENO["0000002"]
     class_class_curie: ClassVar[str] = "GENO:0000002"
@@ -2486,7 +2486,7 @@ class ChemicalExposure(ExposureEvent):
     """
     A chemical exposure is an intake of a particular chemical substance
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ECTO["9000000"]
     class_class_curie: ClassVar[str] = "ECTO:9000000"
@@ -2510,7 +2510,7 @@ class DrugExposure(ChemicalExposure):
     """
     A drug exposure is an intake of a particular chemical substance
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ECTO["0000509"]
     class_class_curie: ClassVar[str] = "ECTO:0000509"
@@ -2534,7 +2534,7 @@ class Treatment(ExposureEvent):
     """
     A treatment is targeted at a disease or phenotype and may involve multiple drug 'exposures'
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "treats"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = OGMS["0000090"]
     class_class_curie: ClassVar[str] = "OGMS:0000090"
@@ -2544,7 +2544,6 @@ class Treatment(ExposureEvent):
     id: Union[ElementIdentifier, TreatmentId] = None
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
-    treats: List[Union[ElementIdentifier, DiseaseOrPhenotypicFeatureId]] = empty_list()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -2559,7 +2558,7 @@ class GeographicLocation(PlanetaryEntity):
     """
     a location that can be described in lat/long coordinates
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.GeographicLocation
     class_class_curie: ClassVar[str] = "biolink:GeographicLocation"
@@ -2585,7 +2584,7 @@ class GeographicLocationAtTime(GeographicLocation):
     """
     a location that can be described in lat/long coordinates, for a particular time
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.GeographicLocationAtTime
     class_class_curie: ClassVar[str] = "biolink:GeographicLocationAtTime"
@@ -2622,7 +2621,6 @@ class Association(YAMLRoot):
     subject: Union[ElementIdentifier, NamedThingId]
     relation: Union[str, URIorCURIE]
     object: Union[ElementIdentifier, NamedThingId]
-    edge_label: Union[str, LabelType]
     id: Union[str, AssociationId] = bnode()
     negated: Optional[Bool] = None
     association_type: Optional[Union[ElementIdentifier, OntologyClassId]] = None
@@ -2673,7 +2671,6 @@ class GenotypeToGenotypePartAssociation(Association):
     subject: Union[ElementIdentifier, GenotypeId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, GenotypeId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, GenotypeToGenotypePartAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -2712,7 +2709,6 @@ class GenotypeToGeneAssociation(Association):
     subject: Union[ElementIdentifier, GenotypeId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, GeneId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, GenotypeToGeneAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -2750,7 +2746,6 @@ class GenotypeToVariantAssociation(Association):
     subject: Union[ElementIdentifier, GenotypeId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, SequenceVariantId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, GenotypeToVariantAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -2789,7 +2784,6 @@ class GeneToGeneAssociation(Association):
     subject: Union[ElementIdentifier, GeneOrGeneProductId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, GeneOrGeneProductId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, GeneToGeneAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -2820,7 +2814,6 @@ class GeneToGeneHomologyAssociation(GeneToGeneAssociation):
     subject: Union[ElementIdentifier, GeneOrGeneProductId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, GeneOrGeneProductId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, GeneToGeneHomologyAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -2851,7 +2844,6 @@ class PairwiseGeneToGeneInteraction(GeneToGeneAssociation):
     subject: Union[ElementIdentifier, GeneOrGeneProductId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, GeneOrGeneProductId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, PairwiseGeneToGeneInteractionId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -2881,7 +2873,6 @@ class CellLineToThingAssociation(Association):
     subject: Union[ElementIdentifier, CellLineId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, NamedThingId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, CellLineToThingAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -2908,7 +2899,6 @@ class CellLineToDiseaseOrPhenotypicFeatureAssociation(Association):
     subject: Union[ElementIdentifier, DiseaseOrPhenotypicFeatureId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, NamedThingId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, CellLineToDiseaseOrPhenotypicFeatureAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -2938,7 +2928,6 @@ class ChemicalToThingAssociation(Association):
     subject: Union[ElementIdentifier, ChemicalSubstanceId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, NamedThingId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, ChemicalToThingAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -2964,7 +2953,6 @@ class CaseToThingAssociation(Association):
     subject: Union[ElementIdentifier, CaseId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, NamedThingId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, CaseToThingAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -2991,7 +2979,6 @@ class ChemicalToChemicalAssociation(Association):
     subject: Union[ElementIdentifier, NamedThingId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, ChemicalSubstanceId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, ChemicalToChemicalAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -3029,7 +3016,6 @@ class ChemicalToChemicalDerivationAssociation(ChemicalToChemicalAssociation):
     subject: Union[ElementIdentifier, ChemicalSubstanceId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, ChemicalSubstanceId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, ChemicalToChemicalDerivationAssociationId] = bnode()
     change_is_catalyzed_by: List[Union[ElementIdentifier, MacromolecularMachineId]] = empty_list()
 
@@ -3071,7 +3057,6 @@ class ChemicalToDiseaseOrPhenotypicFeatureAssociation(Association):
     subject: Union[ElementIdentifier, NamedThingId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, DiseaseOrPhenotypicFeatureId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, ChemicalToDiseaseOrPhenotypicFeatureAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -3101,7 +3086,6 @@ class ChemicalToPathwayAssociation(Association):
     subject: Union[ElementIdentifier, NamedThingId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, PathwayId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, ChemicalToPathwayAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -3131,7 +3115,6 @@ class ChemicalToGeneAssociation(Association):
     subject: Union[ElementIdentifier, NamedThingId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, GeneOrGeneProductId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, ChemicalToGeneAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -3161,7 +3144,6 @@ class MaterialSampleToThingAssociation(Association):
     subject: Union[ElementIdentifier, MaterialSampleId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, NamedThingId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, MaterialSampleToThingAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -3187,7 +3169,6 @@ class MaterialSampleDerivationAssociation(Association):
     subject: Union[ElementIdentifier, MaterialSampleId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, NamedThingId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, MaterialSampleDerivationAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -3225,7 +3206,6 @@ class MaterialSampleToDiseaseOrPhenotypicFeatureAssociation(Association):
     subject: Union[ElementIdentifier, NamedThingId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, NamedThingId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, MaterialSampleToDiseaseOrPhenotypicFeatureAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -3248,7 +3228,6 @@ class EntityToPhenotypicFeatureAssociation(Association):
     subject: Union[ElementIdentifier, NamedThingId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, PhenotypicFeatureId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, EntityToPhenotypicFeatureAssociationId] = bnode()
     sex_qualifier: Optional[Union[ElementIdentifier, BiologicalSexId]] = None
     severity_qualifier: Optional[Union[ElementIdentifier, SeverityValueId]] = None
@@ -3280,7 +3259,6 @@ class DiseaseOrPhenotypicFeatureAssociationToThingAssociation(Association):
     subject: Union[ElementIdentifier, DiseaseOrPhenotypicFeatureId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, NamedThingId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, DiseaseOrPhenotypicFeatureAssociationToThingAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -3307,7 +3285,6 @@ class DiseaseOrPhenotypicFeatureAssociationToLocationAssociation(DiseaseOrPhenot
     subject: Union[ElementIdentifier, DiseaseOrPhenotypicFeatureId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, AnatomicalEntityId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, DiseaseOrPhenotypicFeatureAssociationToLocationAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -3334,7 +3311,6 @@ class ThingToDiseaseOrPhenotypicFeatureAssociation(Association):
     subject: Union[ElementIdentifier, NamedThingId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, DiseaseOrPhenotypicFeatureId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, ThingToDiseaseOrPhenotypicFeatureAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -3357,7 +3333,6 @@ class DiseaseToThingAssociation(Association):
     subject: Union[ElementIdentifier, DiseaseId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, NamedThingId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, DiseaseToThingAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -3383,7 +3358,6 @@ class DiseaseToExposureAssociation(DiseaseToThingAssociation):
     subject: Union[ElementIdentifier, DiseaseId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, ExposureEventId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, DiseaseToExposureAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -3418,7 +3392,6 @@ class GenotypeToPhenotypicFeatureAssociation(Association):
     subject: Union[ElementIdentifier, GenotypeId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, NamedThingId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, GenotypeToPhenotypicFeatureAssociationId] = bnode()
     sex_qualifier: Optional[Union[ElementIdentifier, BiologicalSexId]] = None
 
@@ -3456,7 +3429,6 @@ class ExposureEventToPhenotypicFeatureAssociation(Association):
     subject: Union[ElementIdentifier, ExposureEventId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, NamedThingId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, ExposureEventToPhenotypicFeatureAssociationId] = bnode()
     sex_qualifier: Optional[Union[ElementIdentifier, BiologicalSexId]] = None
 
@@ -3490,7 +3462,6 @@ class DiseaseToPhenotypicFeatureAssociation(Association):
     subject: Union[ElementIdentifier, NamedThingId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, NamedThingId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, DiseaseToPhenotypicFeatureAssociationId] = bnode()
     sex_qualifier: Optional[Union[ElementIdentifier, BiologicalSexId]] = None
 
@@ -3520,7 +3491,6 @@ class CaseToPhenotypicFeatureAssociation(Association):
     subject: Union[ElementIdentifier, NamedThingId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, NamedThingId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, CaseToPhenotypicFeatureAssociationId] = bnode()
     sex_qualifier: Optional[Union[ElementIdentifier, BiologicalSexId]] = None
 
@@ -3546,7 +3516,6 @@ class GeneToThingAssociation(Association):
     subject: Union[ElementIdentifier, GeneOrGeneProductId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, NamedThingId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, GeneToThingAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -3569,7 +3538,6 @@ class GeneToPhenotypicFeatureAssociation(Association):
     subject: Union[ElementIdentifier, GeneOrGeneProductId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, NamedThingId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, GeneToPhenotypicFeatureAssociationId] = bnode()
     sex_qualifier: Optional[Union[ElementIdentifier, BiologicalSexId]] = None
 
@@ -3599,7 +3567,6 @@ class GeneToDiseaseAssociation(Association):
     subject: Union[ElementIdentifier, GeneOrGeneProductId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, NamedThingId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, GeneToDiseaseAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -3629,7 +3596,6 @@ class VariantToPopulationAssociation(Association):
     subject: Union[ElementIdentifier, SequenceVariantId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, PopulationOfIndividualOrganismsId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, VariantToPopulationAssociationId] = bnode()
     has_count: Optional[int] = None
     has_total: Optional[int] = None
@@ -3670,7 +3636,6 @@ class PopulationToPopulationAssociation(Association):
     subject: Union[ElementIdentifier, PopulationOfIndividualOrganismsId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, PopulationOfIndividualOrganismsId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, PopulationToPopulationAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -3705,7 +3670,6 @@ class VariantToPhenotypicFeatureAssociation(Association):
     subject: Union[ElementIdentifier, SequenceVariantId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, NamedThingId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, VariantToPhenotypicFeatureAssociationId] = bnode()
     sex_qualifier: Optional[Union[ElementIdentifier, BiologicalSexId]] = None
 
@@ -3735,7 +3699,6 @@ class VariantToDiseaseAssociation(Association):
     subject: Union[ElementIdentifier, NamedThingId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, NamedThingId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, VariantToDiseaseAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -3770,7 +3733,6 @@ class GeneAsAModelOfDiseaseAssociation(GeneToDiseaseAssociation):
     subject: Union[ElementIdentifier, GeneOrGeneProductId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, NamedThingId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, GeneAsAModelOfDiseaseAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -3797,7 +3759,6 @@ class GeneHasVariantThatContributesToDiseaseAssociation(GeneToDiseaseAssociation
     subject: Union[ElementIdentifier, GeneOrGeneProductId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, NamedThingId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, GeneHasVariantThatContributesToDiseaseAssociationId] = bnode()
     sequence_variant_qualifier: Optional[Union[ElementIdentifier, SequenceVariantId]] = None
 
@@ -3827,7 +3788,6 @@ class GenotypeToThingAssociation(Association):
     subject: Union[ElementIdentifier, GenotypeId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, NamedThingId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, GenotypeToThingAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -3853,7 +3813,6 @@ class GeneToExpressionSiteAssociation(Association):
     subject: Union[ElementIdentifier, GeneOrGeneProductId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, AnatomicalEntityId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, GeneToExpressionSiteAssociationId] = bnode()
     stage_qualifier: Optional[Union[ElementIdentifier, LifeStageId]] = None
     quantifier_qualifier: Optional[Union[ElementIdentifier, OntologyClassId]] = None
@@ -3898,7 +3857,6 @@ class SequenceVariantModulatesTreatmentAssociation(Association):
     subject: Union[ElementIdentifier, SequenceVariantId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, TreatmentId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, SequenceVariantModulatesTreatmentAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -3929,7 +3887,6 @@ class FunctionalAssociation(Association):
     subject: Union[ElementIdentifier, MacromolecularMachineId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, GeneOntologyClassId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, FunctionalAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -3965,7 +3922,6 @@ class MacromolecularMachineToMolecularActivityAssociation(FunctionalAssociation)
     subject: Union[ElementIdentifier, MacromolecularMachineId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, MolecularActivityId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, MacromolecularMachineToMolecularActivityAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -3997,7 +3953,6 @@ class MacromolecularMachineToBiologicalProcessAssociation(FunctionalAssociation)
     subject: Union[ElementIdentifier, MacromolecularMachineId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, BiologicalProcessId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, MacromolecularMachineToBiologicalProcessAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -4029,7 +3984,6 @@ class MacromolecularMachineToCellularComponentAssociation(FunctionalAssociation)
     subject: Union[ElementIdentifier, MacromolecularMachineId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, CellularComponentId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, MacromolecularMachineToCellularComponentAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -4056,7 +4010,6 @@ class GeneToGoTermAssociation(FunctionalAssociation):
     subject: Union[ElementIdentifier, MolecularEntityId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, GeneOntologyClassId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, GeneToGoTermAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -4091,7 +4044,6 @@ class GenomicSequenceLocalization(Association):
     subject: Union[ElementIdentifier, GenomicEntityId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, GenomicEntityId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, GenomicSequenceLocalizationId] = bnode()
     start_interbase_coordinate: Optional[str] = None
     end_interbase_coordinate: Optional[str] = None
@@ -4129,7 +4081,6 @@ class SequenceFeatureRelationship(Association):
     subject: Union[ElementIdentifier, GenomicEntityId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, GenomicEntityId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, SequenceFeatureRelationshipId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -4163,7 +4114,6 @@ class TranscriptToGeneRelationship(SequenceFeatureRelationship):
     subject: Union[ElementIdentifier, TranscriptId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, GeneId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, TranscriptToGeneRelationshipId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -4197,7 +4147,6 @@ class GeneToGeneProductRelationship(SequenceFeatureRelationship):
     subject: Union[ElementIdentifier, GeneId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, GeneProductId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, GeneToGeneProductRelationshipId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -4235,7 +4184,6 @@ class ExonToTranscriptRelationship(SequenceFeatureRelationship):
     subject: Union[ElementIdentifier, ExonId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, TranscriptId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, ExonToTranscriptRelationshipId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -4269,7 +4217,6 @@ class GeneRegulatoryRelationship(Association):
     subject: Union[ElementIdentifier, GeneOrGeneProductId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, GeneOrGeneProductId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, GeneRegulatoryRelationshipId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -4304,7 +4251,6 @@ class AnatomicalEntityToAnatomicalEntityAssociation(Association):
     subject: Union[ElementIdentifier, AnatomicalEntityId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, AnatomicalEntityId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, AnatomicalEntityToAnatomicalEntityAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -4340,7 +4286,6 @@ class AnatomicalEntityToAnatomicalEntityPartOfAssociation(AnatomicalEntityToAnat
     subject: Union[ElementIdentifier, AnatomicalEntityId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, AnatomicalEntityId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, AnatomicalEntityToAnatomicalEntityPartOfAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -4380,7 +4325,6 @@ class AnatomicalEntityToAnatomicalEntityOntogenicAssociation(AnatomicalEntityToA
     subject: Union[ElementIdentifier, AnatomicalEntityId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, AnatomicalEntityId] = None
-    edge_label: Union[str, LabelType] = None
     id: Union[str, AnatomicalEntityToAnatomicalEntityOntogenicAssociationId] = bnode()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -4408,7 +4352,7 @@ class Occurrent(NamedThing):
     """
     A processual entity
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "regulates_process_to_process", "has_participant", "has_input", "has_output", "precedes", "positively_regulates_process_to_process", "negatively_regulates_process_to_process"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = BFO["0000003"]
     class_class_curie: ClassVar[str] = "BFO:0000003"
@@ -4432,7 +4376,7 @@ class PhysicalEntity(NamedThing):
     """
     An entity that has physical properties such as mass, volume, or charge
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.PhysicalEntity
     class_class_curie: ClassVar[str] = "biolink:PhysicalEntity"
@@ -4456,7 +4400,7 @@ class BiologicalProcessOrActivity(BiologicalEntity):
     """
     Either an individual molecular activity, or a collection of causally connected molecular activities
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "has_input", "has_output", "enabled_by", "regulates_process_to_process", "has_participant", "precedes"]
+    _inherited_slots: ClassVar[List[str]] = ["has_input", "has_output", "enabled_by"]
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.BiologicalProcessOrActivity
     class_class_curie: ClassVar[str] = "biolink:BiologicalProcessOrActivity"
@@ -4466,6 +4410,8 @@ class BiologicalProcessOrActivity(BiologicalEntity):
     id: Union[ElementIdentifier, BiologicalProcessOrActivityId] = None
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
+    has_input: List[Union[ElementIdentifier, NamedThingId]] = empty_list()
+    has_output: List[Union[ElementIdentifier, NamedThingId]] = empty_list()
     enabled_by: List[Union[ElementIdentifier, BiologicalProcessOrActivityId]] = empty_list()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -4473,6 +4419,10 @@ class BiologicalProcessOrActivity(BiologicalEntity):
             raise ValueError(f"id must be supplied")
         if not isinstance(self.id, BiologicalProcessOrActivityId):
             self.id = BiologicalProcessOrActivityId(self.id)
+        self.has_input = [v if isinstance(v, NamedThingId)
+                          else NamedThingId(v) for v in self.has_input]
+        self.has_output = [v if isinstance(v, NamedThingId)
+                           else NamedThingId(v) for v in self.has_output]
         self.enabled_by = [v if isinstance(v, BiologicalProcessOrActivityId)
                            else BiologicalProcessOrActivityId(v) for v in self.enabled_by]
         super().__post_init__(**kwargs)
@@ -4483,7 +4433,7 @@ class MolecularActivity(BiologicalProcessOrActivity):
     """
     An execution of a molecular function carried out by a gene product or macromolecular complex.
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "has_input", "has_output", "enabled_by", "regulates_process_to_process", "has_participant", "precedes"]
+    _inherited_slots: ClassVar[List[str]] = ["has_input", "has_output", "enabled_by"]
 
     class_class_uri: ClassVar[URIRef] = GO["0003674"]
     class_class_curie: ClassVar[str] = "GO:0003674"
@@ -4516,7 +4466,7 @@ class ActivityAndBehavior(Occurrent):
     """
     Activity or behavior of any independent integral living, organization or mechanical actor in the world
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "regulates_process_to_process", "has_participant", "has_input", "has_output", "precedes"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.ActivityAndBehavior
     class_class_curie: ClassVar[str] = "biolink:ActivityAndBehavior"
@@ -4540,7 +4490,7 @@ class Procedure(Occurrent):
     """
     A series of actions conducted in a certain order or manner
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "regulates_process_to_process", "has_participant", "has_input", "has_output", "precedes"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.Procedure
     class_class_curie: ClassVar[str] = "biolink:Procedure"
@@ -4564,7 +4514,7 @@ class Phenomenon(Occurrent):
     """
     a fact or situation that is observed to exist or happen, especially one whose cause or explanation is in question
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "regulates_process_to_process", "has_participant", "has_input", "has_output", "precedes"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.Phenomenon
     class_class_curie: ClassVar[str] = "biolink:Phenomenon"
@@ -4588,7 +4538,7 @@ class BiologicalProcess(BiologicalProcessOrActivity):
     """
     One or more causally connected executions of molecular functions
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "has_input", "has_output", "enabled_by", "regulates_process_to_process", "has_participant", "precedes"]
+    _inherited_slots: ClassVar[List[str]] = ["has_input", "has_output", "enabled_by"]
 
     class_class_uri: ClassVar[URIRef] = GO["0008150"]
     class_class_curie: ClassVar[str] = "GO:0008150"
@@ -4609,7 +4559,7 @@ class BiologicalProcess(BiologicalProcessOrActivity):
 
 @dataclass
 class Pathway(BiologicalProcess):
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "has_input", "has_output", "enabled_by", "regulates_process_to_process", "has_participant", "precedes"]
+    _inherited_slots: ClassVar[List[str]] = ["has_input", "has_output", "enabled_by"]
 
     class_class_uri: ClassVar[URIRef] = GO["0007165"]
     class_class_curie: ClassVar[str] = "GO:0007165"
@@ -4630,7 +4580,7 @@ class Pathway(BiologicalProcess):
 
 @dataclass
 class PhysiologicalProcess(BiologicalProcess):
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "has_input", "has_output", "enabled_by", "regulates_process_to_process", "has_participant", "precedes"]
+    _inherited_slots: ClassVar[List[str]] = ["has_input", "has_output", "enabled_by"]
 
     class_class_uri: ClassVar[URIRef] = BIOLINK.PhysiologicalProcess
     class_class_curie: ClassVar[str] = "biolink:PhysiologicalProcess"
@@ -4654,7 +4604,7 @@ class CellularComponent(AnatomicalEntity):
     """
     A location in or around a cell
     """
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "expresses", "in_taxon"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = GO["0005575"]
     class_class_curie: ClassVar[str] = "GO:0005575"
@@ -4675,7 +4625,7 @@ class CellularComponent(AnatomicalEntity):
 
 @dataclass
 class Cell(AnatomicalEntity):
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "expresses", "in_taxon"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = GO["0005623"]
     class_class_curie: ClassVar[str] = "GO:0005623"
@@ -4696,7 +4646,7 @@ class Cell(AnatomicalEntity):
 
 @dataclass
 class CellLine(OrganismalEntity):
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype"]
+    _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = CLO["0000031"]
     class_class_curie: ClassVar[str] = "CLO:0000031"
@@ -4717,7 +4667,7 @@ class CellLine(OrganismalEntity):
 
 @dataclass
 class GrossAnatomicalStructure(AnatomicalEntity):
-    _inherited_slots: ClassVar[List[str]] = ["related_to", "interacts_with", "has_phenotype", "expresses", "in_taxon"]
+    _inherited_slots: ClassVar[List[str]] = ["in_taxon"]
 
     class_class_uri: ClassVar[URIRef] = UBERON["0010000"]
     class_class_curie: ClassVar[str] = "UBERON:0010000"

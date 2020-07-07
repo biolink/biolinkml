@@ -115,14 +115,17 @@ class ClickTestCase(TestEnvironmentTestCase):
             arg_list.insert(0, self.env.meta_yaml)
             arg_list += ["--importmap", self.env.import_map, "--log_level", DEFAULT_LOG_LEVEL_TEXT]
 
+        target = os.path.join(self.testdir, testFileOrDirectory)
+        self.temp_file_path(self.testdir, is_dir=True)
+
         def do_gen():
             if is_directory:
-                self.env.generate_directory([self.testdir, testFileOrDirectory],
+                self.env.generate_directory(target,
                                             lambda target_dir: self.click_ep(arg_list + ["-d", target_dir],
                                                                              prog_name=self.prog_name,
                                                                              standalone_mode=False))
             else:
-                self.env.generate_single_file([self.testdir, testFileOrDirectory],
+                self.env.generate_single_file(target,
                                               lambda: self.click_ep(arg_list, prog_name=self.prog_name,
                                                                     standalone_mode=False), filtr=filtr,
                                               comparator=comparator)

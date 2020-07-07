@@ -23,7 +23,7 @@ from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import Bool, NCName, URI, URIorCURIE, XSDDateTime
 from includes.types import Boolean, Datetime, Integer, Ncname, String, Uri, Uriorcurie
 
-metamodel_version = "1.4.4"
+metamodel_version = "1.5.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -304,6 +304,11 @@ class Definition(Element):
     mixins: List[Union[str, DefinitionName]] = empty_list()
     apply_to: List[Union[str, DefinitionName]] = empty_list()
     values_from: List[Union[str, URIorCURIE]] = empty_list()
+    created_by: Optional[Union[str, URIorCURIE]] = None
+    created_on: Optional[Union[str, XSDDateTime]] = None
+    last_updated_on: Optional[Union[str, XSDDateTime]] = None
+    modified_by: Optional[Union[str, URIorCURIE]] = None
+    status: Optional[Union[str, URIorCURIE]] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.is_a is not None and not isinstance(self.is_a, DefinitionName):
@@ -314,6 +319,16 @@ class Definition(Element):
                          else DefinitionName(v) for v in self.apply_to]
         self.values_from = [v if isinstance(v, URIorCURIE)
                             else URIorCURIE(v) for v in self.values_from]
+        if self.created_by is not None and not isinstance(self.created_by, URIorCURIE):
+            self.created_by = URIorCURIE(self.created_by)
+        if self.created_on is not None and not isinstance(self.created_on, XSDDateTime):
+            self.created_on = XSDDateTime(self.created_on)
+        if self.last_updated_on is not None and not isinstance(self.last_updated_on, XSDDateTime):
+            self.last_updated_on = XSDDateTime(self.last_updated_on)
+        if self.modified_by is not None and not isinstance(self.modified_by, URIorCURIE):
+            self.modified_by = URIorCURIE(self.modified_by)
+        if self.status is not None and not isinstance(self.status, URIorCURIE):
+            self.status = URIorCURIE(self.status)
         super().__post_init__(**kwargs)
 
 
@@ -347,6 +362,7 @@ class SlotDefinition(Definition):
     identifier: Optional[Bool] = None
     alias: Optional[str] = None
     owner: Optional[Union[str, DefinitionName]] = None
+    domain_of: List[Union[str, ClassDefinitionName]] = empty_list()
     subproperty_of: Optional[Union[str, URIorCURIE]] = None
     symmetric: Optional[Bool] = None
     inverse: Optional[Union[str, SlotDefinitionName]] = None
@@ -377,6 +393,8 @@ class SlotDefinition(Definition):
             self.slot_uri = URIorCURIE(self.slot_uri)
         if self.owner is not None and not isinstance(self.owner, DefinitionName):
             self.owner = DefinitionName(self.owner)
+        self.domain_of = [v if isinstance(v, ClassDefinitionName)
+                          else ClassDefinitionName(v) for v in self.domain_of]
         if self.subproperty_of is not None and not isinstance(self.subproperty_of, URIorCURIE):
             self.subproperty_of = URIorCURIE(self.subproperty_of)
         if self.inverse is not None and not isinstance(self.inverse, SlotDefinitionName):
@@ -716,6 +734,9 @@ slots.alias = Slot(uri=META.alias, name="alias", curie=META.curie('alias'),
 
 slots.owner = Slot(uri=META.owner, name="owner", curie=META.curie('owner'),
                       model_uri=META.owner, domain=SlotDefinition, range=Optional[Union[str, DefinitionName]])
+
+slots.domain_of = Slot(uri=META.domain_of, name="domain_of", curie=META.curie('domain_of'),
+                      model_uri=META.domain_of, domain=SlotDefinition, range=List[Union[str, ClassDefinitionName]])
 
 slots.is_usage_slot = Slot(uri=META.is_usage_slot, name="is_usage_slot", curie=META.curie('is_usage_slot'),
                       model_uri=META.is_usage_slot, domain=SlotDefinition, range=Optional[Bool])

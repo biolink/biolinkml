@@ -21,11 +21,7 @@ URI: [meta:last_updated_on](https://w3id.org/biolink/biolinkml/meta/last_updated
 
  * [ClassDefinition](ClassDefinition.md)
  * [Definition](Definition.md)
- * [Element](Element.md)
- * [SchemaDefinition](SchemaDefinition.md)
  * [SlotDefinition](SlotDefinition.md)
- * [SubsetDefinition](SubsetDefinition.md)
- * [TypeDefinition](TypeDefinition.md)
 
 ## Other properties
 

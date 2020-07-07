@@ -7,7 +7,7 @@ a union of genes or gene products. Frequently an identifier for one will be used
 URI: [biolink:GeneOrGeneProduct](https://w3id.org/biolink/vocab/GeneOrGeneProduct)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Transcript],[PhenotypicFeature],[OrganismTaxon],[NamedThing],[MolecularEntity],[MacromolecularMachine],[GenomicEntity],[GeneToThingAssociation],[GeneToPhenotypicFeatureAssociation],[GeneToGeneAssociation],[GeneToExpressionSiteAssociation],[GeneToDiseaseAssociation],[GeneRegulatoryRelationship],[GeneProduct],[OrganismTaxon]<in%20taxon(i)%200..*-%20[GeneOrGeneProduct&#124;name(i):symbol_type;has_biological_sequence(i):biological_sequence%20%3F;id(i):identifier_type;category(i):iri_type%20%2B],[ChemicalToGeneAssociation]-%20object%201..1>[GeneOrGeneProduct],[GeneAsAModelOfDiseaseAssociation]-%20subject%201..1>[GeneOrGeneProduct],[GeneHasVariantThatContributesToDiseaseAssociation]-%20subject%201..1>[GeneOrGeneProduct],[GeneRegulatoryRelationship]-%20object%201..1>[GeneOrGeneProduct],[GeneRegulatoryRelationship]-%20subject%201..1>[GeneOrGeneProduct],[GeneToDiseaseAssociation]-%20subject%201..1>[GeneOrGeneProduct],[GeneToExpressionSiteAssociation]-%20subject%201..1>[GeneOrGeneProduct],[GeneToGeneAssociation]-%20object%201..1>[GeneOrGeneProduct],[GeneToGeneAssociation]-%20subject%201..1>[GeneOrGeneProduct],[GeneToPhenotypicFeatureAssociation]-%20subject%201..1>[GeneOrGeneProduct],[GeneToThingAssociation]-%20subject%201..1>[GeneOrGeneProduct],[GeneOrGeneProduct]^-[GeneProduct],[GeneOrGeneProduct]^-[Gene],[MacromolecularMachine]^-[GeneOrGeneProduct],[GeneHasVariantThatContributesToDiseaseAssociation],[GeneAsAModelOfDiseaseAssociation],[Gene],[DiseaseOrPhenotypicFeature],[ChemicalToGeneAssociation],[AnatomicalEntity])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon],[MacromolecularMachine],[GeneToThingAssociation],[GeneToPhenotypicFeatureAssociation],[GeneToGeneAssociation],[GeneToExpressionSiteAssociation],[GeneToDiseaseAssociation],[GeneRegulatoryRelationship],[GeneProduct],[ChemicalToGeneAssociation]-%20object%201..1>[GeneOrGeneProduct&#124;name(i):symbol_type;has_biological_sequence(i):biological_sequence%20%3F;id(i):identifier_type;category(i):iri_type%20%2B],[GeneAsAModelOfDiseaseAssociation]-%20subject%201..1>[GeneOrGeneProduct],[GeneHasVariantThatContributesToDiseaseAssociation]-%20subject%201..1>[GeneOrGeneProduct],[GeneRegulatoryRelationship]-%20object%201..1>[GeneOrGeneProduct],[GeneRegulatoryRelationship]-%20subject%201..1>[GeneOrGeneProduct],[GeneToDiseaseAssociation]-%20subject%201..1>[GeneOrGeneProduct],[GeneToExpressionSiteAssociation]-%20subject%201..1>[GeneOrGeneProduct],[GeneToGeneAssociation]-%20object%201..1>[GeneOrGeneProduct],[GeneToGeneAssociation]-%20subject%201..1>[GeneOrGeneProduct],[GeneToPhenotypicFeatureAssociation]-%20subject%201..1>[GeneOrGeneProduct],[GeneToThingAssociation]-%20subject%201..1>[GeneOrGeneProduct],[GeneOrGeneProduct]^-[GeneProduct],[GeneOrGeneProduct]^-[Gene],[MacromolecularMachine]^-[GeneOrGeneProduct],[GeneHasVariantThatContributesToDiseaseAssociation],[GeneAsAModelOfDiseaseAssociation],[Gene],[ChemicalToGeneAssociation],[AnatomicalEntity])
 
 ## Parents
 
@@ -39,60 +39,18 @@ URI: [biolink:GeneOrGeneProduct](https://w3id.org/biolink/vocab/GeneOrGeneProduc
 ## Attributes
 
 
-### Inherited from genomic entity:
-
- * [has biological sequence](has_biological_sequence.md)  <sub>OPT</sub>
-    * Description: connects a genomic feature to its sequence
-    * range: [BiologicalSequence](types/BiologicalSequence.md)
-    * inherited from: [NamedThing](NamedThing.md)
-
 ### Inherited from macromolecular machine:
 
- * [macromolecular machine➞name](macromolecular_machine_name.md)  <sub>REQ</sub>
-    * range: [SymbolType](types/SymbolType.md)
-    * inherited from: [MacromolecularMachine](MacromolecularMachine.md)
-
-### Inherited from named thing:
-
- * [id](id.md)  <sub>REQ</sub>
-    * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
-    * range: [IdentifierType](types/IdentifierType.md)
-    * inherited from: [NamedThing](NamedThing.md)
-    * in subsets: (translator_minimal)
- * [name](name.md)  <sub>REQ</sub>
-    * Description: A human-readable name for a thing
-    * range: [LabelType](types/LabelType.md)
-    * inherited from: [NamedThing](NamedThing.md)
-    * in subsets: (translator_minimal)
  * [category](category.md)  <sub>1..*</sub>
     * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
     * range: [IriType](types/IriType.md)
-    * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
-
-### Inherited from thing with taxon:
-
- * [in taxon](in_taxon.md)  <sub>0..*</sub>
-    * Description: connects a thing to a class representing a taxon
-    * range: [OrganismTaxon](OrganismTaxon.md)
-    * inherited from: [ThingWithTaxon](ThingWithTaxon.md)
+ * [has biological sequence](has_biological_sequence.md)  <sub>OPT</sub>
+    * Description: connects a genomic feature to its sequence
+    * range: [BiologicalSequence](types/BiologicalSequence.md)
+ * [id](id.md)  <sub>REQ</sub>
+    * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
+    * range: [IdentifierType](types/IdentifierType.md)
     * in subsets: (translator_minimal)
-
-### Domain for slot:
-
- * [expressed in](expressed_in.md)  <sub>0..*</sub>
-    * Description: holds between a gene or gene product and an anatomical entity in which it is expressed
-    * range: [AnatomicalEntity](AnatomicalEntity.md)
-    * in subsets: (translator_minimal)
- * [in cell population with](in_cell_population_with.md)  <sub>0..*</sub>
-    * Description: holds between two genes or gene products that are expressed in the same cell type or population
-    * range: [GeneOrGeneProduct](GeneOrGeneProduct.md)
-    * in subsets: (translator_minimal)
- * [in complex with](in_complex_with.md)  <sub>0..*</sub>
-    * Description: holds between two genes or gene products that are part of (or code for products that are part of) in the same macromolecular complex
-    * range: [GeneOrGeneProduct](GeneOrGeneProduct.md)
-    * in subsets: (translator_minimal)
- * [in pathway with](in_pathway_with.md)  <sub>0..*</sub>
-    * Description: holds between two genes or gene products that are part of in the same biological pathway
-    * range: [GeneOrGeneProduct](GeneOrGeneProduct.md)
-    * in subsets: (translator_minimal)
+ * [macromolecular machine➞name](macromolecular_machine_name.md)  <sub>REQ</sub>
+    * range: [SymbolType](types/SymbolType.md)

@@ -20,7 +20,7 @@ class MetaModelTestCase(GeneratorTestCase):
     @unittest.skipIf(SKIP_MARKDOWN_VALIDATION, SKIP_MARKDOWN_VALIDATION_REASON)
     def test_meta_markdown(self):
         """ Test the markdown generator for the biolink model """
-        self.directory_generator('docs', MarkdownGenerator)
+        self.directory_generator('docs', MarkdownGenerator, serialize_args=dict(image_dir='images'))
 
     def test_meta_owl_schema(self):
         """ Test the owl schema generator for the biolink model """
@@ -53,7 +53,7 @@ class MetaModelTestCase(GeneratorTestCase):
 
         # Make a fresh copy of the RDF and validate it as well
         self.single_file_generator('ttl', RDFGenerator,
-                                   serialize_args={"context": env.expected_path('meta.context.jsonld')},
+                                   serialize_args={"context": env.expected_path('context.jsonld')},
                                    comparator=compare_rdf)
 
         # Validate the RDF against the Biolink ShEx

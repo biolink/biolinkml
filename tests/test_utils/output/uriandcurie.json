@@ -101,6 +101,9 @@
       "required": true,
       "identifier": true,
       "owner": "C1",
+      "domain_of": [
+        "C1"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -110,6 +113,9 @@
       "range": "curie",
       "slot_uri": "http://example.org/test/uriandcuriehasCurie",
       "owner": "C1",
+      "domain_of": [
+        "C1"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -119,6 +125,9 @@
       "range": "uri",
       "slot_uri": "http://example.org/test/uriandcuriehasURI",
       "owner": "C1",
+      "domain_of": [
+        "C1"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -128,6 +137,9 @@
       "range": "ncname",
       "slot_uri": "http://example.org/test/uriandcuriehasNcName",
       "owner": "C1",
+      "domain_of": [
+        "C1"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -137,6 +149,9 @@
       "range": "nodeidentifier",
       "slot_uri": "http://example.org/test/uriandcurieid2",
       "owner": "C1",
+      "domain_of": [
+        "C1"
+      ],
       "type": "SlotDefinition"
     }
   ],
@@ -156,11 +171,11 @@
       "type": "ClassDefinition"
     }
   ],
-  "metamodel_version": "1.4.4",
+  "metamodel_version": "1.5.0",
   "source_file": "uriandcurie.yaml",
-  "source_file_date": "Tue Jun  9 11:37:13 2020",
+  "source_file_date": "Friday Sep 27 12:00:00 2003",
   "source_file_size": 1427,
-  "generation_date": "2020-06-26 08:20",
+  "generation_date": "Friday Sep 27 12:00:00 2003",
   "type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/biolink/biolinkml/context.jsonld",

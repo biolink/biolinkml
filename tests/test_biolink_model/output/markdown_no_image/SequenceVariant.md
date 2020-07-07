@@ -7,7 +7,7 @@ An allele that varies in its sequence from what is considered the reference alle
 URI: [biolink:SequenceVariant](https://w3id.org/biolink/vocab/SequenceVariant)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[VariantToThingAssociation],[VariantToPopulationAssociation],[VariantToPhenotypicFeatureAssociation],[Transcript],[SequenceVariantModulatesTreatmentAssociation],[OrganismTaxon]<in%20taxon(i)%200..*-%20[SequenceVariant&#124;id:identifier_type;has_biological_sequence:biological_sequence%20%3F;name(i):label_type;category(i):iri_type%20%2B],[Gene]<has%20gene%200..*-%20[SequenceVariant],[GenotypeToVariantAssociation]-%20object%201..1>[SequenceVariant],[SequenceVariantModulatesTreatmentAssociation]-%20subject%201..1>[SequenceVariant],[Association]-%20sequence%20variant%20qualifier(i)%200..1>[SequenceVariant],[VariantToPhenotypicFeatureAssociation]-%20subject%201..1>[SequenceVariant],[VariantToPopulationAssociation]-%20subject%201..1>[SequenceVariant],[VariantToThingAssociation]-%20subject%201..1>[SequenceVariant],[GenomicEntity]^-[SequenceVariant],[PhenotypicFeature],[OrganismTaxon],[NamedThing],[MolecularEntity],[GenotypeToVariantAssociation],[GenomicEntity],[Gene],[DiseaseOrPhenotypicFeature],[Association])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[VariantToThingAssociation],[VariantToPopulationAssociation],[VariantToPhenotypicFeatureAssociation],[SequenceVariantModulatesTreatmentAssociation],[Gene]<has%20gene%200..*-%20[SequenceVariant&#124;id:identifier_type;has_biological_sequence:biological_sequence%20%3F;name(i):label_type;category(i):iri_type%20%2B],[GenotypeToVariantAssociation]-%20object%201..1>[SequenceVariant],[SequenceVariantModulatesTreatmentAssociation]-%20subject%201..1>[SequenceVariant],[GeneHasVariantThatContributesToDiseaseAssociation]-%20sequence%20variant%20qualifier%200..1>[SequenceVariant],[VariantToPhenotypicFeatureAssociation]-%20subject%201..1>[SequenceVariant],[VariantToPopulationAssociation]-%20subject%201..1>[SequenceVariant],[VariantToThingAssociation]-%20subject%201..1>[SequenceVariant],[GenomicEntity]^-[SequenceVariant],[OrganismTaxon],[GenotypeToVariantAssociation],[GenomicEntity],[GeneHasVariantThatContributesToDiseaseAssociation],[Gene],[Association])
 
 ## Parents
 
@@ -34,40 +34,16 @@ URI: [biolink:SequenceVariant](https://w3id.org/biolink/vocab/SequenceVariant)
  * [sequence variant➞id](sequence_variant_id.md)  <sub>REQ</sub>
     * range: [IdentifierType](types/IdentifierType.md)
 
-### Inherited from named thing:
+### Inherited from genomic entity:
 
- * [id](id.md)  <sub>REQ</sub>
-    * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
-    * range: [IdentifierType](types/IdentifierType.md)
-    * inherited from: [NamedThing](NamedThing.md)
+ * [category](category.md)  <sub>1..*</sub>
+    * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
+    * range: [IriType](types/IriType.md)
     * in subsets: (translator_minimal)
  * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing
     * range: [LabelType](types/LabelType.md)
-    * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
- * [category](category.md)  <sub>1..*</sub>
-    * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
-    * range: [IriType](types/IriType.md)
-    * inherited from: [NamedThing](NamedThing.md)
-    * in subsets: (translator_minimal)
-
-### Inherited from thing with taxon:
-
- * [in taxon](in_taxon.md)  <sub>0..*</sub>
-    * Description: connects a thing to a class representing a taxon
-    * range: [OrganismTaxon](OrganismTaxon.md)
-    * inherited from: [ThingWithTaxon](ThingWithTaxon.md)
-    * in subsets: (translator_minimal)
-
-### Domain for slot:
-
- * [sequence variant➞has biological sequence](sequence_variant_has_biological_sequence.md)  <sub>OPT</sub>
-    * range: [BiologicalSequence](types/BiologicalSequence.md)
- * [sequence variant➞has gene](sequence_variant_has_gene.md)  <sub>0..*</sub>
-    * range: [Gene](Gene.md)
- * [sequence variant➞id](sequence_variant_id.md)  <sub>REQ</sub>
-    * range: [IdentifierType](types/IdentifierType.md)
 
 ## Other properties
 

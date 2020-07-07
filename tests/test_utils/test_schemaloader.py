@@ -2,18 +2,26 @@ import logging
 import os
 import unittest
 from io import StringIO
+from typing import Optional
 
 import jsonasobj
 from jsonasobj import as_json, load
 
 from biolinkml.utils.schemaloader import SchemaLoader
 from tests.test_utils.environment import env
-from tests.test_utils.base import Base
 from tests.utils.filters import json_metadata_filter
+from tests.utils.test_environment import TestEnvironmentTestCase
 
 
-class SchemaLoaderTestCase(Base):
+class SchemaLoaderTestCase(TestEnvironmentTestCase):
     env = env
+
+    def eval_loader(self, base_name: str, logger: Optional[logging.Logger] = None, source: Optional[str] = None) -> None:
+        loader = SchemaLoader(source or self.env.input_path(base_name + '.yaml'), logger=logger)
+        self.env.generate_single_file(base_name + '.json', lambda: as_json(loader.resolve()),
+                                      filtr=json_metadata_filter, value_is_returned=True)
+        self.env.generate_single_file(base_name + '.errs', lambda: '\n'.join(loader.synopsis.errors()),
+                                      filtr=json_metadata_filter, value_is_returned=True)
 
     def test_basic_merge(self):
         """ Test the basic merge paths """
@@ -24,25 +32,16 @@ class SchemaLoaderTestCase(Base):
             logger.removeHandler(handler)
         logger.addHandler(logging.StreamHandler(logstream))
         logger.setLevel(logging.INFO)
-
-        self.eval_loader("merge1", logger=logger)
+        self.eval_loader('merge1', logger=logger)
         self.assertIn("Shared slot and subset names: s1, s2", logstream.getvalue().strip())
 
     def test_mergeerror1(self):
         """ Test conflicting definitions path """
         fn = env.input_path('mergeerror1.yaml')
-        with self.assertRaises(ValueError):
+        with self.assertRaises(ValueError) as ve:
             SchemaLoader(fn)
-
-    def test_meta(self):
-        """ Load up a static image of the metamodel and emit it
-
-        Note: you may want to periodically refresh the metamodel in the data section """
-        self.maxDiff = None
-        self.eval_loader('meta', source=env.meta_yaml)
-
-    def test_types(self):
-        self.eval_loader('includes/types', source=env.types_yaml)
+        self.assertEqual("Conflicting URIs (http://example.org/schema2, http://example.org/schema1) for item: c1",
+                         str(ve.exception))
 
     def test_imports(self):
         self.eval_loader('base')
@@ -86,7 +85,7 @@ class SchemaLoaderTestCase(Base):
         fn = env.input_path('loadererror7.yaml')
         with self.assertRaises(ValueError, msg="Two or more keys are not allowed") as e:
             _ = SchemaLoader(fn).resolve()
-        self.assertIn('loadererror7.yaml", line 17, col 3', str(e.exception))
+        self.assertIn('loadererror7.yaml", line 16, col 3', str(e.exception))
 
     @unittest.skipIf(True, "Never impelemented checking key and identifier")
     def test_key_and_id(self):
@@ -126,16 +125,9 @@ class SchemaLoaderTestCase(Base):
                       "base:import_test_4": "http://example.org/import_test_4",
                       "http://example.org/import_test_4": "import_test_4",
                       "types": "http://w3id.org/biolink/biolinkml/types"}
-        schema = SchemaLoader(fn, importmap=importmap).resolve()
-        schema_image = as_json(schema)
-        outfile = env.input_path('import_test_1.json')
-        if not os.path.exists(outfile):
-            with open(outfile, 'w') as f:
-                f.write(schema_image)
-                self.fail("File {outfile} written - rerun test")
-        expected = load(outfile)
-        self.maxDiff = None
-        self.assertEqual(json_metadata_filter(jsonasobj.as_json(expected)), json_metadata_filter(schema_image))
+        self.env.generate_single_file('import_test_1.json',
+                                      lambda: as_json(SchemaLoader(fn, importmap=importmap).resolve()),
+                                      filtr=json_metadata_filter)
 
 
 if __name__ == '__main__':

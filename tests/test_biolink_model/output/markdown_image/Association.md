@@ -89,52 +89,6 @@ URI: [biolink:Association](https://w3id.org/biolink/vocab/Association)
     * Description: connects an association to the subject of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [NamedThing](NamedThing.md)
 
-### Domain for slot:
-
- * [association slot](association_slot.md)  <sub>OPT</sub>
-    * Description: any slot that relates an association to another entity
-    * range: [String](types/String.md)
- * [association type](association_type.md)  <sub>OPT</sub>
-    * Description: connects an association to the type of association (e.g. gene to phenotype)
-    * range: [OntologyClass](OntologyClass.md)
- * [association➞id](association_id.md)  <sub>REQ</sub>
-    * Description: A unique identifier for an association
-    * range: [Nodeidentifier](types/Nodeidentifier.md)
-    * in subsets: (translator_minimal)
- * [clinical modifier qualifier](clinical_modifier_qualifier.md)  <sub>OPT</sub>
-    * Description: Used to characterize and specify the phenotypic abnormalities defined in the Phenotypic abnormality subontology, with respect to severity, laterality, age of onset, and other aspects
-    * range: [ClinicalModifier](ClinicalModifier.md)
- * [edge label](edge_label.md)  <sub>REQ</sub>
-    * Description: A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.
-    * range: [LabelType](types/LabelType.md)
- * [has confidence level](has_confidence_level.md)  <sub>OPT</sub>
-    * Description: connects an association to a qualitative term denoting the level of confidence
-    * range: [ConfidenceLevel](ConfidenceLevel.md)
- * [has evidence](has_evidence.md)  <sub>OPT</sub>
-    * Description: connects an association to an instance of supporting evidence
-    * range: [EvidenceType](EvidenceType.md)
- * [negated](negated.md)  <sub>OPT</sub>
-    * Description: if set to true, then the association is negated i.e. is not true
-    * range: [Boolean](types/Boolean.md)
- * [object](object.md)  <sub>REQ</sub>
-    * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
-    * range: [NamedThing](NamedThing.md)
- * [provided by](provided_by.md)  <sub>OPT</sub>
-    * Description: connects an association to the agent (person, organization or group) that provided it
-    * range: [Provider](Provider.md)
- * [publications](publications.md)  <sub>0..*</sub>
-    * Description: connects an association to publications supporting the association
-    * range: [Publication](Publication.md)
- * [qualifiers](qualifiers.md)  <sub>0..*</sub>
-    * Description: connects an association to qualifiers that modify or qualify the meaning of that association
-    * range: [OntologyClass](OntologyClass.md)
- * [relation](relation.md)  <sub>REQ</sub>
-    * Description: the relationship type by which a subject is connected to an object in an association
-    * range: [Uriorcurie](types/Uriorcurie.md)
- * [subject](subject.md)  <sub>REQ</sub>
-    * Description: connects an association to the subject of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
-    * range: [NamedThing](NamedThing.md)
-
 ## Other properties
 
 |  |  |  |

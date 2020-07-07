@@ -11,14 +11,19 @@ Classes: 2
 	Abstract: 0
 
 Slots: 2
-	Referenced by: 2 classes, 0 slots, 0 types 
+	Referenced by: 0 classes, 0 slots, 0 types 
 	Root: 2
-	Leaf: 2
-	Standalone: 4
+	Leaf: 0
+	Standalone: 2
 	Declared mixin: 0
 	Undeclared mixin: 0
 	Abstract: 0
 	* Unowned slots: s1, s2
+	Not in domain: 2
+		slot.name: slot.domain
+		---------  -----------
+		"s1": "c1"
+		"s2": "c2"
 	Ranges:
 		Type:
 			string: 2

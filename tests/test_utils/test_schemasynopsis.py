@@ -3,49 +3,35 @@ from typing import Union, List, Optional
 
 from biolinkml.utils.schemaloader import SchemaLoader
 from tests.test_utils.environment import env
-from tests.test_utils.base import Base
+from tests.utils.test_environment import TestEnvironmentTestCase
 
 
-class SchemaSynopsisTestCase(Base):
+class SchemaSynopsisTestCase(TestEnvironmentTestCase):
     env = env
-
-    def __init__(self, *args, **kwargs) -> None:
-        super().__init__(*args, **kwargs)
-        self.loader: SchemaLoader = None
-
-    def loadit(self, source: str) -> None:
-        self.loader = SchemaLoader(source)
-        self.loader.resolve()
 
     """ Tests for various parts of the schema synopsis file """
     def eval_synopsis(self, base_name: str, source: Optional[str]=None) -> None:
-        self.loadit(source if source else env.input_path(base_name + '.yaml'))
-        errors = '\n'.join(self.loader.synopsis.errors())
-        self.eval_output(errors, base_name + '.errs')
+        schema = SchemaLoader(source if source else env.input_path(base_name + '.yaml'))
+        schema.resolve()
+        self.summary = schema.synopsis.summary()
 
-        synopsis = self.loader.synopsis.summary()
-        self.eval_output(synopsis, base_name + '.synopsis')
-
-    def assert_warning(self, text: str) -> bool:
-        return f'* {text}' in self.loader.synopsis.summary()
-
-    def assert_error(self, text: Union[str, List[str]]) -> None:
-        if isinstance(text, str):
-            text = [text]
-        self.assertEqual(text, [e.strip() for e in self.loader.synopsis.errors()])
+        self.env.generate_single_file(base_name + '.errs', lambda: '\n'.join(schema.synopsis.errors()),
+                                      value_is_returned=True)
+        self.env.generate_single_file(base_name + '.synopsis', lambda: self.summary,
+                                      value_is_returned=True)
 
     def test_meta_synopsis(self):
         """ Raise a flag if the number of classes, slots, types or other elements change in the model  """
         self.eval_synopsis('meta', source=env.meta_yaml)
 
     def test_unitialized_domain(self):
-        self.loadit(env.input_path('synopsis1.yaml'))
-        # Owners check no longer occurs
-        # self.assert_error('Slot s1 has no owners')
-        self.assert_warning('Unspecified domain: s1')
+        self.eval_synopsis('synopsis1')
+        # Double check because it is easy to lose the target in the file updates
+        self.assertIn("Domain unspecified: 1", self.summary)
 
     def test_applyto(self):
         self.eval_synopsis('synopsis2')
+        self.assertIn("* Unowned slots: s1, s2", self.summary)
 
 
 if __name__ == '__main__':

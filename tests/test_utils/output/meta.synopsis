@@ -1,6 +1,6 @@
 
 Classes: 11
-	Referenced by: 6 classes, 94 slots, 0 types 
+	Referenced by: 6 classes, 95 slots, 0 types 
 	Root: 5
 	Leaf: 9
 	Standalone: 10
@@ -8,14 +8,22 @@ Classes: 11
 	Undeclared mixin: 0
 	Abstract: 2
 
-Slots: 100
+Slots: 101
 	Referenced by: 11 classes, 9 slots, 0 types 
-	Root: 91
-	Leaf: 96
-	Standalone: 101
+	Root: 92
+	Leaf: 97
+	Standalone: 102
 	Declared mixin: 0
 	Undeclared mixin: 0
 	Abstract: 1
+	Not in domain: 5
+		slot.name: slot.domain
+		---------  -----------
+		"created_by": "element"
+		"created_on": "element"
+		"last_updated_on": "element"
+		"modified_by": "element"
+		"status": "element"
 	Domain unspecified: 6
 	Ranges:
 		Type:
@@ -28,7 +36,7 @@ Slots: 100
 			uriorcurie: 18
 		Class:
 			alt_description: 1
-			class_definition: 6
+			class_definition: 7
 			definition: 4
 			element: 1
 			example: 1
