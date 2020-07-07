@@ -1,0 +1,256 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix meta: <https://w3id.org/biolink/biolinkml/meta/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/sample/example1> a owl:Ontology ;
+    rdfs:label "example1" ;
+    dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
+    meta:generation_date "2020-07-07 13:15" ;
+    meta:metamodel_version "1.5.0" ;
+    meta:source_file "issue_163b.yaml" ;
+    meta:source_file_date "Tue Jul  7 12:45:58 2020" ;
+    meta:source_file_size 667 .
+
+<http://example.org/sample/example1#D2> a owl:Class,
+        meta:ClassDefinition ;
+    rdfs:label "d2" ;
+    rdfs:subClassOf <http://example.org/sample/example1#C> .
+
+<http://example.org/sample/example1#E> a owl:Class,
+        meta:ClassDefinition ;
+    rdfs:label "e" ;
+    rdfs:subClassOf <http://example.org/sample/example1#D1> .
+
+meta:SubsetDefinition a owl:Class ;
+    rdfs:label "subset_definition" ;
+    skos:definition "the name and description of a subset" .
+
+<https://w3id.org/biolink/biolinkml/type/Boolean> a owl:Class,
+        meta:TypeDefinition ;
+    rdfs:label "boolean" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:boolean ;
+            owl:onProperty meta:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A binary (true or false) value" .
+
+<https://w3id.org/biolink/biolinkml/type/Date> a owl:Class,
+        meta:TypeDefinition ;
+    rdfs:label "date" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:date ;
+            owl:onProperty meta:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "a date (year, month and day) in an idealized calendar" ;
+    skos:editorialNote "URI is dateTime because OWL reasoners don't work with straight date or time" .
+
+<https://w3id.org/biolink/biolinkml/type/Datetime> a owl:Class,
+        meta:TypeDefinition ;
+    rdfs:label "datetime" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:dateTime ;
+            owl:onProperty meta:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "The combination of a date and time" .
+
+<https://w3id.org/biolink/biolinkml/type/Double> a owl:Class,
+        meta:TypeDefinition ;
+    rdfs:label "double" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:double ;
+            owl:onProperty meta:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A real number that conforms to the xsd:double specification" .
+
+<https://w3id.org/biolink/biolinkml/type/Float> a owl:Class,
+        meta:TypeDefinition ;
+    rdfs:label "float" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:float ;
+            owl:onProperty meta:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A real number that conforms to the xsd:float specification" .
+
+<https://w3id.org/biolink/biolinkml/type/Ncname> a owl:Class,
+        meta:TypeDefinition ;
+    rdfs:label "ncname" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty meta:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "Prefix part of CURIE" .
+
+<https://w3id.org/biolink/biolinkml/type/Nodeidentifier> a owl:Class,
+        meta:TypeDefinition ;
+    rdfs:label "nodeidentifier" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange <http://www.w3.org/ns/shex#nonLiteral> ;
+            owl:onProperty meta:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A URI, CURIE or BNODE that represents a node in a model." .
+
+<https://w3id.org/biolink/biolinkml/type/Objectidentifier> a owl:Class,
+        meta:TypeDefinition ;
+    rdfs:label "objectidentifier" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange <http://www.w3.org/ns/shex#iri> ;
+            owl:onProperty meta:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A URI or CURIE that represents an object in the model." ;
+    skos:note "Used for inheritence and type checking" .
+
+<https://w3id.org/biolink/biolinkml/type/Time> a owl:Class,
+        meta:TypeDefinition ;
+    rdfs:label "time" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:dateTime ;
+            owl:onProperty meta:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A time object represents a (local) time of day, independent of any particular day" ;
+    skos:editorialNote "URI is dateTime because OWL reasoners don't work with straight date or time" .
+
+<https://w3id.org/biolink/biolinkml/type/Uri> a owl:Class,
+        meta:TypeDefinition ;
+    rdfs:label "uri" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:anyURI ;
+            owl:onProperty meta:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "a complete URI" .
+
+<https://w3id.org/biolink/biolinkml/type/Uriorcurie> a owl:Class,
+        meta:TypeDefinition ;
+    rdfs:label "uriorcurie" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:anyURI ;
+            owl:onProperty meta:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "a URI or a CURIE" .
+
+<http://example.org/sample/example1#D1> a owl:Class,
+        meta:ClassDefinition ;
+    rdfs:label "d1" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://example.org/sample/example1#C> ;
+            owl:onProperty <http://example.org/sample/example1#has_c> ],
+        <http://example.org/sample/example1#C> .
+
+<http://example.org/sample/example1#has_a> a owl:ObjectProperty,
+        meta:SlotDefinition ;
+    rdfs:label "has a" ;
+    rdfs:range <http://example.org/sample/example1#A> .
+
+<http://example.org/sample/example1#has_b> a owl:ObjectProperty,
+        meta:SlotDefinition ;
+    rdfs:label "has b" ;
+    rdfs:range <http://example.org/sample/example1#B> .
+
+<http://example.org/sample/example1#has_c> a owl:ObjectProperty,
+        meta:SlotDefinition ;
+    rdfs:label "has c" ;
+    rdfs:range <http://example.org/sample/example1#C> .
+
+<http://example.org/sample/example1#id> a owl:ObjectProperty,
+        meta:SlotDefinition ;
+    rdfs:label "id" ;
+    rdfs:range <https://w3id.org/biolink/biolinkml/type/String> .
+
+<http://example.org/sample/example1#len> a owl:ObjectProperty,
+        meta:SlotDefinition ;
+    rdfs:label "len" ;
+    rdfs:range <https://w3id.org/biolink/biolinkml/type/Integer> .
+
+<http://example.org/sample/example1#name> a owl:ObjectProperty,
+        meta:SlotDefinition ;
+    rdfs:label "name" ;
+    rdfs:range <https://w3id.org/biolink/biolinkml/type/String> .
+
+<http://example.org/sample/example1#unit> a owl:ObjectProperty,
+        meta:SlotDefinition ;
+    rdfs:label "unit" ;
+    rdfs:range <http://example.org/sample/example1#Unitcode> .
+
+<http://example.org/sample/example1#Unitcode> a owl:Class,
+        meta:TypeDefinition ;
+    rdfs:label "unitcode" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty meta:topValue ;
+            owl:qualifiedCardinality 1 ] .
+
+<https://w3id.org/biolink/biolinkml/type/Integer> a owl:Class,
+        meta:TypeDefinition ;
+    rdfs:label "integer" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:integer ;
+            owl:onProperty meta:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "An integer" .
+
+<http://example.org/sample/example1#A> a owl:Class,
+        meta:ClassDefinition ;
+    rdfs:label "a" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://example.org/sample/example1#Unitcode> ;
+            owl:onProperty <http://example.org/sample/example1#unit> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/type/Integer> ;
+            owl:onProperty <http://example.org/sample/example1#len> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/type/String> ;
+            owl:onProperty <http://example.org/sample/example1#name> ],
+        [ a owl:Restriction ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/type/String> ;
+            owl:onProperty <http://example.org/sample/example1#id> ;
+            owl:qualifiedCardinality 1 ] .
+
+<http://example.org/sample/example1#B> a owl:Class,
+        meta:ClassDefinition ;
+    rdfs:label "b" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://example.org/sample/example1#A> ;
+            owl:onProperty <http://example.org/sample/example1#has_a> ],
+        <http://example.org/sample/example1#A> .
+
+<http://example.org/sample/example1#C> a owl:Class,
+        meta:ClassDefinition ;
+    rdfs:label "c" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://example.org/sample/example1#B> ;
+            owl:onProperty <http://example.org/sample/example1#has_b> ],
+        <http://example.org/sample/example1#B> .
+
+<https://w3id.org/biolink/biolinkml/type/String> a owl:Class,
+        meta:TypeDefinition ;
+    rdfs:label "string" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty meta:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A character string" .
+
+meta:ClassDefinition a owl:Class ;
+    rdfs:label "class_definition" ;
+    skos:definition "the definition of a class or interface" .
+
+meta:SlotDefinition a owl:Class ;
+    rdfs:label "slot_definition" ;
+    skos:definition "the definition of a property or a slot" .
+
+meta:TypeDefinition a owl:Class ;
+    rdfs:label "type_definition" ;
+    skos:definition "A data type definition." .
+
+meta:topValue a owl:DatatypeProperty ;
+    rdfs:label "value" .
+
+

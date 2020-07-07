@@ -1310,15 +1310,12 @@ class IndividualOrganism(OrganismalEntity):
     id: Union[ElementIdentifier, IndividualOrganismId] = None
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
-    in_taxon: List[Union[ElementIdentifier, OrganismTaxonId]] = empty_list()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
             raise ValueError(f"id must be supplied")
         if not isinstance(self.id, IndividualOrganismId):
             self.id = IndividualOrganismId(self.id)
-        self.in_taxon = [v if isinstance(v, OrganismTaxonId)
-                         else OrganismTaxonId(v) for v in self.in_taxon]
         super().__post_init__(**kwargs)
 
 
@@ -1363,15 +1360,12 @@ class PopulationOfIndividualOrganisms(OrganismalEntity):
     id: Union[ElementIdentifier, PopulationOfIndividualOrganismsId] = None
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
-    in_taxon: List[Union[ElementIdentifier, OrganismTaxonId]] = empty_list()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
             raise ValueError(f"id must be supplied")
         if not isinstance(self.id, PopulationOfIndividualOrganismsId):
             self.id = PopulationOfIndividualOrganismsId(self.id)
-        self.in_taxon = [v if isinstance(v, OrganismTaxonId)
-                         else OrganismTaxonId(v) for v in self.in_taxon]
         super().__post_init__(**kwargs)
 
 
@@ -1420,15 +1414,12 @@ class DiseaseOrPhenotypicFeature(BiologicalEntity):
     id: Union[ElementIdentifier, DiseaseOrPhenotypicFeatureId] = None
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
-    in_taxon: List[Union[ElementIdentifier, OrganismTaxonId]] = empty_list()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
             raise ValueError(f"id must be supplied")
         if not isinstance(self.id, DiseaseOrPhenotypicFeatureId):
             self.id = DiseaseOrPhenotypicFeatureId(self.id)
-        self.in_taxon = [v if isinstance(v, OrganismTaxonId)
-                         else OrganismTaxonId(v) for v in self.in_taxon]
         super().__post_init__(**kwargs)
 
 
@@ -1641,15 +1632,12 @@ class MolecularEntity(BiologicalEntity):
     id: Union[ElementIdentifier, MolecularEntityId] = None
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
-    in_taxon: List[Union[ElementIdentifier, OrganismTaxonId]] = empty_list()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
             raise ValueError(f"id must be supplied")
         if not isinstance(self.id, MolecularEntityId):
             self.id = MolecularEntityId(self.id)
-        self.in_taxon = [v if isinstance(v, OrganismTaxonId)
-                         else OrganismTaxonId(v) for v in self.in_taxon]
         super().__post_init__(**kwargs)
 
 
@@ -1762,15 +1750,12 @@ class AnatomicalEntity(OrganismalEntity):
     id: Union[ElementIdentifier, AnatomicalEntityId] = None
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
-    in_taxon: List[Union[ElementIdentifier, OrganismTaxonId]] = empty_list()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
             raise ValueError(f"id must be supplied")
         if not isinstance(self.id, AnatomicalEntityId):
             self.id = AnatomicalEntityId(self.id)
-        self.in_taxon = [v if isinstance(v, OrganismTaxonId)
-                         else OrganismTaxonId(v) for v in self.in_taxon]
         super().__post_init__(**kwargs)
 
 
@@ -1789,15 +1774,12 @@ class LifeStage(OrganismalEntity):
     id: Union[ElementIdentifier, LifeStageId] = None
     name: Union[str, LabelType] = None
     category: List[Union[str, IriType]] = empty_list()
-    in_taxon: List[Union[ElementIdentifier, OrganismTaxonId]] = empty_list()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
             raise ValueError(f"id must be supplied")
         if not isinstance(self.id, LifeStageId):
             self.id = LifeStageId(self.id)
-        self.in_taxon = [v if isinstance(v, OrganismTaxonId)
-                         else OrganismTaxonId(v) for v in self.in_taxon]
         super().__post_init__(**kwargs)
 
 
@@ -3230,8 +3212,6 @@ class EntityToPhenotypicFeatureAssociation(Association):
     object: Union[ElementIdentifier, PhenotypicFeatureId] = None
     id: Union[str, EntityToPhenotypicFeatureAssociationId] = bnode()
     sex_qualifier: Optional[Union[ElementIdentifier, BiologicalSexId]] = None
-    severity_qualifier: Optional[Union[ElementIdentifier, SeverityValueId]] = None
-    onset_qualifier: Optional[Union[ElementIdentifier, OnsetId]] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.object is None:
@@ -3240,10 +3220,6 @@ class EntityToPhenotypicFeatureAssociation(Association):
             self.object = PhenotypicFeatureId(self.object)
         if self.sex_qualifier is not None and not isinstance(self.sex_qualifier, BiologicalSexId):
             self.sex_qualifier = BiologicalSexId(self.sex_qualifier)
-        if self.severity_qualifier is not None and not isinstance(self.severity_qualifier, SeverityValueId):
-            self.severity_qualifier = SeverityValueId(self.severity_qualifier)
-        if self.onset_qualifier is not None and not isinstance(self.onset_qualifier, OnsetId):
-            self.onset_qualifier = OnsetId(self.onset_qualifier)
         super().__post_init__(**kwargs)
 
 
@@ -3393,7 +3369,6 @@ class GenotypeToPhenotypicFeatureAssociation(Association):
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, NamedThingId] = None
     id: Union[str, GenotypeToPhenotypicFeatureAssociationId] = bnode()
-    sex_qualifier: Optional[Union[ElementIdentifier, BiologicalSexId]] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -3408,8 +3383,6 @@ class GenotypeToPhenotypicFeatureAssociation(Association):
             raise ValueError(f"relation must be supplied")
         if not isinstance(self.relation, URIorCURIE):
             self.relation = URIorCURIE(self.relation)
-        if self.sex_qualifier is not None and not isinstance(self.sex_qualifier, BiologicalSexId):
-            self.sex_qualifier = BiologicalSexId(self.sex_qualifier)
         super().__post_init__(**kwargs)
 
 
@@ -3430,7 +3403,6 @@ class ExposureEventToPhenotypicFeatureAssociation(Association):
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, NamedThingId] = None
     id: Union[str, ExposureEventToPhenotypicFeatureAssociationId] = bnode()
-    sex_qualifier: Optional[Union[ElementIdentifier, BiologicalSexId]] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -3441,8 +3413,6 @@ class ExposureEventToPhenotypicFeatureAssociation(Association):
             raise ValueError(f"subject must be supplied")
         if not isinstance(self.subject, ExposureEventId):
             self.subject = ExposureEventId(self.subject)
-        if self.sex_qualifier is not None and not isinstance(self.sex_qualifier, BiologicalSexId):
-            self.sex_qualifier = BiologicalSexId(self.sex_qualifier)
         super().__post_init__(**kwargs)
 
 
@@ -3463,15 +3433,12 @@ class DiseaseToPhenotypicFeatureAssociation(Association):
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, NamedThingId] = None
     id: Union[str, DiseaseToPhenotypicFeatureAssociationId] = bnode()
-    sex_qualifier: Optional[Union[ElementIdentifier, BiologicalSexId]] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
             raise ValueError(f"id must be supplied")
         if not isinstance(self.id, DiseaseToPhenotypicFeatureAssociationId):
             self.id = DiseaseToPhenotypicFeatureAssociationId(self.id)
-        if self.sex_qualifier is not None and not isinstance(self.sex_qualifier, BiologicalSexId):
-            self.sex_qualifier = BiologicalSexId(self.sex_qualifier)
         super().__post_init__(**kwargs)
 
 
@@ -3492,15 +3459,12 @@ class CaseToPhenotypicFeatureAssociation(Association):
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, NamedThingId] = None
     id: Union[str, CaseToPhenotypicFeatureAssociationId] = bnode()
-    sex_qualifier: Optional[Union[ElementIdentifier, BiologicalSexId]] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
             raise ValueError(f"id must be supplied")
         if not isinstance(self.id, CaseToPhenotypicFeatureAssociationId):
             self.id = CaseToPhenotypicFeatureAssociationId(self.id)
-        if self.sex_qualifier is not None and not isinstance(self.sex_qualifier, BiologicalSexId):
-            self.sex_qualifier = BiologicalSexId(self.sex_qualifier)
         super().__post_init__(**kwargs)
 
 
@@ -3539,7 +3503,6 @@ class GeneToPhenotypicFeatureAssociation(Association):
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, NamedThingId] = None
     id: Union[str, GeneToPhenotypicFeatureAssociationId] = bnode()
-    sex_qualifier: Optional[Union[ElementIdentifier, BiologicalSexId]] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -3550,8 +3513,6 @@ class GeneToPhenotypicFeatureAssociation(Association):
             raise ValueError(f"subject must be supplied")
         if not isinstance(self.subject, GeneOrGeneProductId):
             self.subject = GeneOrGeneProductId(self.subject)
-        if self.sex_qualifier is not None and not isinstance(self.sex_qualifier, BiologicalSexId):
-            self.sex_qualifier = BiologicalSexId(self.sex_qualifier)
         super().__post_init__(**kwargs)
 
 
@@ -3600,8 +3561,6 @@ class VariantToPopulationAssociation(Association):
     has_count: Optional[int] = None
     has_total: Optional[int] = None
     has_quotient: Optional[float] = None
-    has_percentage: Optional[float] = None
-    frequency_qualifier: Optional[Union[ElementIdentifier, FrequencyValueId]] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -3616,8 +3575,6 @@ class VariantToPopulationAssociation(Association):
             raise ValueError(f"object must be supplied")
         if not isinstance(self.object, PopulationOfIndividualOrganismsId):
             self.object = PopulationOfIndividualOrganismsId(self.object)
-        if self.frequency_qualifier is not None and not isinstance(self.frequency_qualifier, FrequencyValueId):
-            self.frequency_qualifier = FrequencyValueId(self.frequency_qualifier)
         super().__post_init__(**kwargs)
 
 
@@ -3671,7 +3628,6 @@ class VariantToPhenotypicFeatureAssociation(Association):
     relation: Union[str, URIorCURIE] = None
     object: Union[ElementIdentifier, NamedThingId] = None
     id: Union[str, VariantToPhenotypicFeatureAssociationId] = bnode()
-    sex_qualifier: Optional[Union[ElementIdentifier, BiologicalSexId]] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -3682,8 +3638,6 @@ class VariantToPhenotypicFeatureAssociation(Association):
             raise ValueError(f"subject must be supplied")
         if not isinstance(self.subject, SequenceVariantId):
             self.subject = SequenceVariantId(self.subject)
-        if self.sex_qualifier is not None and not isinstance(self.sex_qualifier, BiologicalSexId):
-            self.sex_qualifier = BiologicalSexId(self.sex_qualifier)
         super().__post_init__(**kwargs)
 
 

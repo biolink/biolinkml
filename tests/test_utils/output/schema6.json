@@ -6,7 +6,7 @@
    "types": [
       {
          "name": "foo",
-         "definition_uri": "http://example.org/schema6.fuzz/Foo",
+         "definition_uri": "http://example.org/schema6.fuzz#Foo",
          "from_schema": "http://example.org/schema6.fuzz",
          "base": "str",
          "uri": "http://example.org/types/String"
@@ -15,7 +15,7 @@
    "slots": [
       {
          "name": "s1",
-         "definition_uri": "http://example.org/schema6.fuzz/s1",
+         "definition_uri": "http://example.org/schema6.fuzz#s1",
          "from_schema": "http://example.org/schema6.fuzz",
          "domain": "c1",
          "range": "foo"
@@ -24,7 +24,7 @@
    "classes": [
       {
          "name": "c1",
-         "definition_uri": "http://example.org/schema6.fuzz/C1",
+         "definition_uri": "http://example.org/schema6.fuzz#C1",
          "from_schema": "http://example.org/schema6.fuzz"
       }
    ],
