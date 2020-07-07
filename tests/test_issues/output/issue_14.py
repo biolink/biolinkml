@@ -1,5 +1,5 @@
 # Auto generated from issue_14.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-07-03 09:24
+# Generation date: 2020-07-07 13:53
 # Schema: test14
 #
 # id: https://example.com/test14
@@ -22,7 +22,7 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 from includes.types import String
 
-metamodel_version = "1.4.4"
+metamodel_version = "1.5.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -96,7 +96,6 @@ class MixinOwner(NamedThing):
     name: str = None
     subject: Union[str, SubjectRange1Id] = None
     object: Union[str, NamedThingId] = None
-    sex_qualifier: Optional[Union[str, NamedThingId]] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -107,8 +106,6 @@ class MixinOwner(NamedThing):
             raise ValueError(f"subject must be supplied")
         if not isinstance(self.subject, SubjectRange1Id):
             self.subject = SubjectRange1Id(self.subject)
-        if self.sex_qualifier is not None and not isinstance(self.sex_qualifier, NamedThingId):
-            self.sex_qualifier = NamedThingId(self.sex_qualifier)
         super().__post_init__(**kwargs)
 
 
