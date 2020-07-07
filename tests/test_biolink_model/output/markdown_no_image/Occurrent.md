@@ -7,7 +7,7 @@ A processual entity
 URI: [biolink:Occurrent](https://w3id.org/biolink/vocab/Occurrent)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Procedure],[Phenomenon],[MolecularActivity]uses%20-.->[Occurrent&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],[EnvironmentalProcess]uses%20-.->[Occurrent],[BiologicalProcessOrActivity]uses%20-.->[Occurrent],[BiologicalProcess]uses%20-.->[Occurrent],[Occurrent]^-[Procedure],[Occurrent]^-[Phenomenon],[Occurrent]^-[ActivityAndBehavior],[NamedThing]^-[Occurrent],[NamedThing],[MolecularActivity],[EnvironmentalProcess],[BiologicalProcessOrActivity],[BiologicalProcess],[ActivityAndBehavior])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Procedure],[Phenomenon],[MolecularActivity]uses%20-.->[Occurrent&#124;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[EnvironmentalProcess]uses%20-.->[Occurrent],[BiologicalProcessOrActivity]uses%20-.->[Occurrent],[BiologicalProcess]uses%20-.->[Occurrent],[Occurrent]^-[Procedure],[Occurrent]^-[Phenomenon],[Occurrent]^-[ActivityAndBehavior],[NamedThing]^-[Occurrent],[NamedThing],[MolecularActivity],[EnvironmentalProcess],[BiologicalProcessOrActivity],[BiologicalProcess],[ActivityAndBehavior])
 
 ## Parents
 
@@ -47,7 +47,7 @@ URI: [biolink:Occurrent](https://w3id.org/biolink/vocab/Occurrent)
     * in subsets: (translator_minimal)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
-    * range: [IdentifierType](types/IdentifierType.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)
  * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing

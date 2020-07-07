@@ -37,7 +37,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='117' y='-49.8'>TranscriptToGeneRelationship</text>
 <polyline fill='none' points='19,-46 215,-46 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='117' y='-34.8'>relation(i):uriorcurie</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='117' y='-19.8'>id(i):nodeidentifier</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='117' y='-19.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='117' y='-4.8'>negated(i):boolean ?</text>
 </g><g class='edge' id='edge1'><title>Gene-&gt;TranscriptToGeneRelationship</title>
 <path d='M44.5284,-144.372C59.7242,-120.81 82.2391,-85.8989 98.1335,-61.2537' fill='none' stroke='black'/>

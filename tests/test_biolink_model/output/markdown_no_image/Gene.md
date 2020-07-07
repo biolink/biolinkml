@@ -7,7 +7,7 @@
 URI: [biolink:Gene](https://w3id.org/biolink/vocab/Gene)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[TranscriptToGeneRelationship],[SequenceVariant],[OrganismTaxon],[NamedThing],[GenotypeToGeneAssociation],[GeneToGeneProductRelationship],[GeneOrGeneProduct],[GeneToGeneProductRelationship]-%20subject%201..1>[Gene&#124;name(i):symbol_type;has_biological_sequence(i):biological_sequence%20%3F;id(i):identifier_type;category(i):iri_type%20%2B],[GenotypeToGeneAssociation]-%20object%201..1>[Gene],[SequenceVariant]-%20has%20gene(i)%200..1>[Gene],[SequenceVariant]-%20has%20gene%200..*>[Gene],[TranscriptToGeneRelationship]-%20object%201..1>[Gene],[GeneOrGeneProduct]^-[Gene])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[TranscriptToGeneRelationship],[SequenceVariant],[OrganismTaxon],[NamedThing],[GenotypeToGeneAssociation],[GeneToGeneProductRelationship],[GeneOrGeneProduct],[GeneToGeneProductRelationship]-%20subject%201..1>[Gene&#124;name(i):symbol_type;has_biological_sequence(i):biological_sequence%20%3F;id(i):string;category(i):iri_type%20%2B],[GenotypeToGeneAssociation]-%20object%201..1>[Gene],[SequenceVariant]-%20has%20gene(i)%200..1>[Gene],[SequenceVariant]-%20has%20gene%200..*>[Gene],[TranscriptToGeneRelationship]-%20object%201..1>[Gene],[GeneOrGeneProduct]^-[Gene])
 
 ## Parents
 
@@ -36,7 +36,7 @@ URI: [biolink:Gene](https://w3id.org/biolink/vocab/Gene)
     * range: [BiologicalSequence](types/BiologicalSequence.md)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
-    * range: [IdentifierType](types/IdentifierType.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)
  * [macromolecular machine➞name](macromolecular_machine_name.md)  <sub>REQ</sub>
     * range: [SymbolType](types/SymbolType.md)

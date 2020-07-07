@@ -37,7 +37,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='488' y='-49.8'>VariantToThingAssociation</text>
 <polyline fill='none' points='398,-46 578,-46 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='488' y='-34.8'>relation(i):uriorcurie</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='488' y='-19.8'>id(i):nodeidentifier</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='488' y='-19.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='488' y='-4.8'>negated(i):boolean ?</text>
 </g><g class='edge' id='edge1'><title>SequenceVariant-&gt;VariantToThingAssociation</title>
 <path d='M122.828,-149.742C195.402,-126.342 315.382,-87.6571 397.888,-61.0549' fill='none' stroke='black'/>

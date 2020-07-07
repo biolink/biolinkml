@@ -9,11 +9,11 @@ URI: [biolink:association_id](https://w3id.org/biolink/vocab/association_id)
 
 ## Domain and Range
 
-[Association](Association.md) ->  <sub>REQ</sub> [Nodeidentifier](types/Nodeidentifier.md)
+[Association](Association.md) ->  <sub>REQ</sub> [String](types/String.md)
 
 ## Parents
 
- *  is_a: [node property](node_property.md)
+ *  is_a: [association slot](association_slot.md)
 
 ## Children
 

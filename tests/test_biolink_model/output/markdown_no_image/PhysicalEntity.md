@@ -7,7 +7,7 @@ An entity that has physical properties such as mass, volume, or charge
 URI: [biolink:PhysicalEntity](https://w3id.org/biolink/vocab/PhysicalEntity)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[MolecularEntity]uses%20-.->[PhysicalEntity&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],[MaterialSample]uses%20-.->[PhysicalEntity],[AnatomicalEntity]uses%20-.->[PhysicalEntity],[NamedThing]^-[PhysicalEntity],[NamedThing],[MolecularEntity],[MaterialSample],[AnatomicalEntity])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[MolecularEntity]uses%20-.->[PhysicalEntity&#124;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[MaterialSample]uses%20-.->[PhysicalEntity],[AnatomicalEntity]uses%20-.->[PhysicalEntity],[NamedThing]^-[PhysicalEntity],[NamedThing],[MolecularEntity],[MaterialSample],[AnatomicalEntity])
 
 ## Parents
 
@@ -33,7 +33,7 @@ URI: [biolink:PhysicalEntity](https://w3id.org/biolink/vocab/PhysicalEntity)
     * in subsets: (translator_minimal)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
-    * range: [IdentifierType](types/IdentifierType.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)
  * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing

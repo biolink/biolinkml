@@ -46,7 +46,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='477' y='-49.8'>MacromolecularMachineToCellularComponentAssociation</text>
 <polyline fill='none' points='300.5,-46 653.5,-46 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='477' y='-34.8'>relation(i):uriorcurie</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='477' y='-19.8'>id(i):nodeidentifier</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='477' y='-19.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='477' y='-4.8'>negated(i):boolean ?</text>
 </g><g class='edge' id='edge1'><title>CellularComponent-&gt;MacromolecularMachineToCellularComponentAssociation</title>
 <path d='M412.038,-144.06C425.694,-120.502 445.817,-85.7903 460.041,-61.2537' fill='none' stroke='black'/>

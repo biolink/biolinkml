@@ -7,7 +7,7 @@ a location that can be described in lat/long coordinates, for a particular time
 URI: [biolink:GeographicLocationAtTime](https://w3id.org/biolink/vocab/GeographicLocationAtTime)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[GeographicLocation]^-[GeographicLocationAtTime&#124;timepoint:time_type%20%3F;latitude(i):float%20%3F;longitude(i):float%20%3F;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],[GeographicLocation])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[GeographicLocation]^-[GeographicLocationAtTime&#124;timepoint:time_type%20%3F;latitude(i):float%20%3F;longitude(i):float%20%3F;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[GeographicLocation])
 
 ## Parents
 
@@ -30,7 +30,7 @@ URI: [biolink:GeographicLocationAtTime](https://w3id.org/biolink/vocab/Geographi
     * in subsets: (translator_minimal)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
-    * range: [IdentifierType](types/IdentifierType.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)
  * [latitude](latitude.md)  <sub>OPT</sub>
     * Description: latitude

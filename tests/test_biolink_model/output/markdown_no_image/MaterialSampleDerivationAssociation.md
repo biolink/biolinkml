@@ -7,7 +7,7 @@ An association between a material sample and the material entity it is derived f
 URI: [biolink:MaterialSampleDerivationAssociation](https://w3id.org/biolink/vocab/MaterialSampleDerivationAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[Provider],[OntologyClass],[NamedThing],[NamedThing]<object%201..1-%20[MaterialSampleDerivationAssociation&#124;relation:uriorcurie;id(i):nodeidentifier;negated(i):boolean%20%3F],[MaterialSample]<subject%201..1-%20[MaterialSampleDerivationAssociation],[Association]^-[MaterialSampleDerivationAssociation],[MaterialSample],[Association])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[Provider],[OntologyClass],[NamedThing],[NamedThing]<object%201..1-%20[MaterialSampleDerivationAssociation&#124;relation:uriorcurie;id(i):string;negated(i):boolean%20%3F],[MaterialSample]<subject%201..1-%20[MaterialSampleDerivationAssociation],[Association]^-[MaterialSampleDerivationAssociation],[MaterialSample],[Association])
 
 ## Parents
 
@@ -35,12 +35,12 @@ URI: [biolink:MaterialSampleDerivationAssociation](https://w3id.org/biolink/voca
     * range: [OntologyClass](OntologyClass.md)
  * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
-    * range: [Nodeidentifier](types/Nodeidentifier.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)
  * [negated](negated.md)  <sub>OPT</sub>
     * Description: if set to true, then the association is negated i.e. is not true
     * range: [Boolean](types/Boolean.md)
- * [provided by](provided_by.md)  <sub>OPT</sub>
+ * [provided by](provided_by.md)  <sub>0..*</sub>
     * Description: connects an association to the agent (person, organization or group) that provided it
     * range: [Provider](Provider.md)
  * [publications](publications.md)  <sub>0..*</sub>

@@ -49,7 +49,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='586' y='-177.8'>ChemicalToGeneAssociation</text>
 <polyline fill='none' points='492,-174 680,-174 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='586' y='-162.8'>relation(i):uriorcurie</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='586' y='-147.8'>id(i):nodeidentifier</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='586' y='-147.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='586' y='-132.8'>negated(i):boolean ?</text>
 </g><g class='edge' id='edge1'><title>GeneOrGeneProduct-&gt;ChemicalToGeneAssociation</title>
 <path d='M531.746,-271.746C543.181,-248.195 559.937,-213.682 571.797,-189.254' fill='none' stroke='black'/>

@@ -7,7 +7,7 @@
 URI: [biolink:AdministrativeEntity](https://w3id.org/biolink/vocab/AdministrativeEntity)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Provider],[NamedThing],[AdministrativeEntity&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B]^-[Provider],[NamedThing]^-[AdministrativeEntity])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Provider],[NamedThing],[AdministrativeEntity&#124;id(i):string;name(i):label_type;category(i):iri_type%20%2B]^-[Provider],[NamedThing]^-[AdministrativeEntity])
 
 ## Parents
 
@@ -31,7 +31,7 @@ URI: [biolink:AdministrativeEntity](https://w3id.org/biolink/vocab/Administrativ
     * in subsets: (translator_minimal)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
-    * range: [IdentifierType](types/IdentifierType.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)
  * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing

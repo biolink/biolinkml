@@ -37,7 +37,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='179' y='-49.8'>GenotypeToVariantAssociation</text>
 <polyline fill='none' points='79,-46 279,-46 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='179' y='-34.8'>relation:uriorcurie</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='179' y='-19.8'>id(i):nodeidentifier</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='179' y='-19.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='179' y='-4.8'>negated(i):boolean ?</text>
 </g><g class='edge' id='edge1'><title>SequenceVariant-&gt;GenotypeToVariantAssociation</title>
 <path d='M81.5651,-144.992C101.887,-121.426 132.335,-86.116 153.774,-61.2537' fill='none' stroke='black'/>

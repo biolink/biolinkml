@@ -49,7 +49,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='698' y='-49.8'>CellLineToThingAssociation</text>
 <polyline fill='none' points='604.5,-46 791.5,-46 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='698' y='-34.8'>relation(i):uriorcurie</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='698' y='-19.8'>id(i):nodeidentifier</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='698' y='-19.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='698' y='-4.8'>negated(i):boolean ?</text>
 </g><g class='edge' id='edge1'><title>CellLine-&gt;CellLineToThingAssociation</title>
 <path d='M521.15,-147.119C557.29,-123.594 613.698,-86.876 653.059,-61.2537' fill='none' stroke='black'/>

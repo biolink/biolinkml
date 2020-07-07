@@ -7,7 +7,7 @@
 URI: [biolink:DistributionLevel](https://w3id.org/biolink/vocab/DistributionLevel)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[DataSetVersion]-%20distribution%200..1>[DistributionLevel&#124;downloadURL:string%20%3F;title(i):string%20%3F;type(i):string%20%3F;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],[DataSetVersion]^-[DistributionLevel],[DataSetVersion],[DataSet],[DataFile])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[DataSetVersion]-%20distribution%200..1>[DistributionLevel&#124;downloadURL:string%20%3F;title(i):string%20%3F;type(i):string%20%3F;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[DataSetVersion]^-[DistributionLevel],[DataSetVersion],[DataSet],[DataFile])
 
 ## Parents
 
@@ -35,7 +35,7 @@ URI: [biolink:DistributionLevel](https://w3id.org/biolink/vocab/DistributionLeve
     * range: [DistributionLevel](DistributionLevel.md)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
-    * range: [IdentifierType](types/IdentifierType.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)
  * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing

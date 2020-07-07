@@ -52,7 +52,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='279' y='-177.8'>ChemicalToDiseaseOrPhenotypicFeatureAssociation</text>
 <polyline fill='none' points='120.5,-174 437.5,-174 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='279' y='-162.8'>relation(i):uriorcurie</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='279' y='-147.8'>id(i):nodeidentifier</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='279' y='-147.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='279' y='-132.8'>negated(i):boolean ?</text>
 </g><g class='edge' id='edge1'><title>DiseaseOrPhenotypicFeature-&gt;ChemicalToDiseaseOrPhenotypicFeatureAssociation</title>
 <path d='M215.662,-272.06C228.977,-248.502 248.597,-213.79 262.465,-189.254' fill='none' stroke='black'/>

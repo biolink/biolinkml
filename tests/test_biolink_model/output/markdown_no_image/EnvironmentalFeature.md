@@ -7,7 +7,7 @@
 URI: [biolink:EnvironmentalFeature](https://w3id.org/biolink/vocab/EnvironmentalFeature)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[PlanetaryEntity],[PlanetaryEntity]^-[EnvironmentalFeature&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[PlanetaryEntity],[PlanetaryEntity]^-[EnvironmentalFeature&#124;id(i):string;name(i):label_type;category(i):iri_type%20%2B])
 
 ## Parents
 
@@ -24,7 +24,7 @@ URI: [biolink:EnvironmentalFeature](https://w3id.org/biolink/vocab/Environmental
     * in subsets: (translator_minimal)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
-    * range: [IdentifierType](types/IdentifierType.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)
  * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing

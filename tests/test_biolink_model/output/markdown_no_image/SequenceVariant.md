@@ -7,7 +7,7 @@ An allele that varies in its sequence from what is considered the reference alle
 URI: [biolink:SequenceVariant](https://w3id.org/biolink/vocab/SequenceVariant)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[VariantToThingAssociation],[VariantToPopulationAssociation],[VariantToPhenotypicFeatureAssociation],[SequenceVariantModulatesTreatmentAssociation],[Gene]<has%20gene%200..*-%20[SequenceVariant&#124;id:identifier_type;has_biological_sequence:biological_sequence%20%3F;name(i):label_type;category(i):iri_type%20%2B],[GenotypeToVariantAssociation]-%20object%201..1>[SequenceVariant],[SequenceVariantModulatesTreatmentAssociation]-%20subject%201..1>[SequenceVariant],[GeneHasVariantThatContributesToDiseaseAssociation]-%20sequence%20variant%20qualifier%200..1>[SequenceVariant],[VariantToPhenotypicFeatureAssociation]-%20subject%201..1>[SequenceVariant],[VariantToPopulationAssociation]-%20subject%201..1>[SequenceVariant],[VariantToThingAssociation]-%20subject%201..1>[SequenceVariant],[GenomicEntity]^-[SequenceVariant],[OrganismTaxon],[GenotypeToVariantAssociation],[GenomicEntity],[GeneHasVariantThatContributesToDiseaseAssociation],[Gene],[Association])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[VariantToThingAssociation],[VariantToPopulationAssociation],[VariantToPhenotypicFeatureAssociation],[SequenceVariantModulatesTreatmentAssociation],[Gene]<has%20gene%200..*-%20[SequenceVariant&#124;id:string;has_biological_sequence:biological_sequence%20%3F;name(i):label_type;category(i):iri_type%20%2B],[GenotypeToVariantAssociation]-%20object%201..1>[SequenceVariant],[SequenceVariantModulatesTreatmentAssociation]-%20subject%201..1>[SequenceVariant],[GeneHasVariantThatContributesToDiseaseAssociation]-%20sequence%20variant%20qualifier%200..1>[SequenceVariant],[VariantToPhenotypicFeatureAssociation]-%20subject%201..1>[SequenceVariant],[VariantToPopulationAssociation]-%20subject%201..1>[SequenceVariant],[VariantToThingAssociation]-%20subject%201..1>[SequenceVariant],[GenomicEntity]^-[SequenceVariant],[OrganismTaxon],[GenotypeToVariantAssociation],[GenomicEntity],[GeneHasVariantThatContributesToDiseaseAssociation],[Gene],[Association])
 
 ## Parents
 
@@ -32,7 +32,7 @@ URI: [biolink:SequenceVariant](https://w3id.org/biolink/vocab/SequenceVariant)
  * [sequence variant➞has gene](sequence_variant_has_gene.md)  <sub>0..*</sub>
     * range: [Gene](Gene.md)
  * [sequence variant➞id](sequence_variant_id.md)  <sub>REQ</sub>
-    * range: [IdentifierType](types/IdentifierType.md)
+    * range: [String](types/String.md)
 
 ### Inherited from genomic entity:
 

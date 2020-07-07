@@ -52,7 +52,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='278' y='-177.8'>CellLineToDiseaseOrPhenotypicFeatureAssociation</text>
 <polyline fill='none' points='122,-174 434,-174 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='278' y='-162.8'>relation(i):uriorcurie</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='278' y='-147.8'>id(i):nodeidentifier</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='278' y='-147.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='278' y='-132.8'>negated(i):boolean ?</text>
 </g><g class='edge' id='edge1'><title>DiseaseOrPhenotypicFeature-&gt;CellLineToDiseaseOrPhenotypicFeatureAssociation</title>
 <path d='M214.662,-272.06C227.977,-248.502 247.597,-213.79 261.465,-189.254' fill='none' stroke='black'/>

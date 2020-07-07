@@ -7,7 +7,7 @@ A homology association between two genes. May be orthology (in which case the sp
 URI: [biolink:GeneToGeneHomologyAssociation](https://w3id.org/biolink/vocab/GeneToGeneHomologyAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[Provider],[OntologyClass],[GeneToGeneAssociation]^-[GeneToGeneHomologyAssociation&#124;relation:uriorcurie;id(i):nodeidentifier;negated(i):boolean%20%3F],[GeneToGeneAssociation],[GeneOrGeneProduct])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[Provider],[OntologyClass],[GeneToGeneAssociation]^-[GeneToGeneHomologyAssociation&#124;relation:uriorcurie;id(i):string;negated(i):boolean%20%3F],[GeneToGeneAssociation],[GeneOrGeneProduct])
 
 ## Parents
 
@@ -31,7 +31,7 @@ URI: [biolink:GeneToGeneHomologyAssociation](https://w3id.org/biolink/vocab/Gene
     * range: [OntologyClass](OntologyClass.md)
  * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
-    * range: [Nodeidentifier](types/Nodeidentifier.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)
  * [gene to gene association➞object](gene_to_gene_association_object.md)  <sub>REQ</sub>
     * range: [GeneOrGeneProduct](GeneOrGeneProduct.md)
@@ -40,7 +40,7 @@ URI: [biolink:GeneToGeneHomologyAssociation](https://w3id.org/biolink/vocab/Gene
  * [negated](negated.md)  <sub>OPT</sub>
     * Description: if set to true, then the association is negated i.e. is not true
     * range: [Boolean](types/Boolean.md)
- * [provided by](provided_by.md)  <sub>OPT</sub>
+ * [provided by](provided_by.md)  <sub>0..*</sub>
     * Description: connects an association to the agent (person, organization or group) that provided it
     * range: [Provider](Provider.md)
  * [publications](publications.md)  <sub>0..*</sub>

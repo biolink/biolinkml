@@ -7,7 +7,7 @@ a databased entity or concept/class
 URI: [biolink:NamedThing](https://w3id.org/biolink/vocab/NamedThing)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[VariantToDiseaseAssociation],[PlanetaryEntity],[PhysicalEntity],[OntologyClass],[Occurrent],[BiologicalProcessOrActivity]-%20has%20input%200..*>[NamedThing&#124;id:identifier_type;name:label_type;category:iri_type%20%2B],[BiologicalProcessOrActivity]-%20has%20output%200..*>[NamedThing],[Attribute]-%20has%20qualitative%20value%200..1>[NamedThing],[MaterialSampleDerivationAssociation]-%20object%201..1>[NamedThing],[ModelToDiseaseMixin]-%20subject(i)%201..1>[NamedThing],[Association]-%20object%201..1>[NamedThing],[Association]-%20subject%201..1>[NamedThing],[VariantToDiseaseAssociation]-%20object%201..1>[NamedThing],[VariantToDiseaseAssociation]-%20subject%201..1>[NamedThing],[NamedThing]^-[PlanetaryEntity],[NamedThing]^-[PhysicalEntity],[NamedThing]^-[OntologyClass],[NamedThing]^-[Occurrent],[NamedThing]^-[MaterialSample],[NamedThing]^-[InformationContentEntity],[NamedThing]^-[Device],[NamedThing]^-[DataSet],[NamedThing]^-[DataFile],[NamedThing]^-[ClinicalEntity],[NamedThing]^-[BiologicalEntity],[NamedThing]^-[AdministrativeEntity],[ModelToDiseaseMixin],[MaterialSampleDerivationAssociation],[MaterialSample],[InformationContentEntity],[DiseaseOrPhenotypicFeature],[Device],[DataSet],[DataFile],[ClinicalEntity],[BiologicalProcessOrActivity],[BiologicalEntity],[Attribute],[Association],[AdministrativeEntity])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[VariantToDiseaseAssociation],[PlanetaryEntity],[PhysicalEntity],[OntologyClass],[Occurrent],[BiologicalProcessOrActivity]-%20has%20input%200..*>[NamedThing&#124;id:string;name:label_type;category:iri_type%20%2B],[BiologicalProcessOrActivity]-%20has%20output%200..*>[NamedThing],[Attribute]-%20has%20qualitative%20value%200..1>[NamedThing],[MaterialSampleDerivationAssociation]-%20object%201..1>[NamedThing],[ModelToDiseaseMixin]-%20subject(i)%201..1>[NamedThing],[Association]-%20object%201..1>[NamedThing],[Association]-%20subject%201..1>[NamedThing],[VariantToDiseaseAssociation]-%20object%201..1>[NamedThing],[VariantToDiseaseAssociation]-%20subject%201..1>[NamedThing],[NamedThing]^-[PlanetaryEntity],[NamedThing]^-[PhysicalEntity],[NamedThing]^-[OntologyClass],[NamedThing]^-[Occurrent],[NamedThing]^-[MaterialSample],[NamedThing]^-[InformationContentEntity],[NamedThing]^-[Device],[NamedThing]^-[DataSet],[NamedThing]^-[DataFile],[NamedThing]^-[ClinicalEntity],[NamedThing]^-[BiologicalEntity],[NamedThing]^-[AdministrativeEntity],[ModelToDiseaseMixin],[MaterialSampleDerivationAssociation],[MaterialSample],[InformationContentEntity],[DiseaseOrPhenotypicFeature],[Device],[DataSet],[DataFile],[ClinicalEntity],[BiologicalProcessOrActivity],[BiologicalEntity],[Attribute],[Association],[AdministrativeEntity])
 
 ## Children
 
@@ -33,6 +33,7 @@ URI: [biolink:NamedThing](https://w3id.org/biolink/vocab/NamedThing)
  *  **[NamedThing](NamedThing.md)** *[coexists with](coexists_with.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[colocalizes with](colocalizes_with.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[contributes to](contributes_to.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
+ *  **[NamedThing](NamedThing.md)** *[correlated with](correlated_with.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[derives from](derives_from.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[derives into](derives_into.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[disrupts](disrupts.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
@@ -81,7 +82,7 @@ URI: [biolink:NamedThing](https://w3id.org/biolink/vocab/NamedThing)
     * in subsets: (translator_minimal)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
-    * range: [IdentifierType](types/IdentifierType.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)
  * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing

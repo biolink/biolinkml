@@ -7,7 +7,7 @@
 URI: [biolink:GeneAsAModelOfDiseaseAssociation](https://w3id.org/biolink/vocab/GeneAsAModelOfDiseaseAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SeverityValue],[Publication],[Provider],[OntologyClass],[Onset],[NamedThing],[ModelToDiseaseMixin],[GeneToDiseaseAssociation],[GeneOrGeneProduct],[GeneOrGeneProduct]<subject%201..1-%20[GeneAsAModelOfDiseaseAssociation&#124;relation(i):uriorcurie;id(i):nodeidentifier;negated(i):boolean%20%3F],[GeneAsAModelOfDiseaseAssociation]uses%20-.->[ModelToDiseaseMixin],[GeneAsAModelOfDiseaseAssociation]uses%20-.->[EntityToDiseaseAssociation],[GeneToDiseaseAssociation]^-[GeneAsAModelOfDiseaseAssociation],[FrequencyValue],[EntityToDiseaseAssociation])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SeverityValue],[Publication],[Provider],[OntologyClass],[Onset],[NamedThing],[ModelToDiseaseMixin],[GeneToDiseaseAssociation],[GeneOrGeneProduct],[GeneOrGeneProduct]<subject%201..1-%20[GeneAsAModelOfDiseaseAssociation&#124;relation(i):uriorcurie;id(i):string;negated(i):boolean%20%3F],[GeneAsAModelOfDiseaseAssociation]uses%20-.->[ModelToDiseaseMixin],[GeneAsAModelOfDiseaseAssociation]uses%20-.->[EntityToDiseaseAssociation],[GeneToDiseaseAssociation]^-[GeneAsAModelOfDiseaseAssociation],[FrequencyValue],[EntityToDiseaseAssociation])
 
 ## Parents
 
@@ -36,7 +36,7 @@ URI: [biolink:GeneAsAModelOfDiseaseAssociation](https://w3id.org/biolink/vocab/G
     * range: [OntologyClass](OntologyClass.md)
  * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
-    * range: [Nodeidentifier](types/Nodeidentifier.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)
  * [negated](negated.md)  <sub>OPT</sub>
     * Description: if set to true, then the association is negated i.e. is not true
@@ -44,7 +44,7 @@ URI: [biolink:GeneAsAModelOfDiseaseAssociation](https://w3id.org/biolink/vocab/G
  * [object](object.md)  <sub>REQ</sub>
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [NamedThing](NamedThing.md)
- * [provided by](provided_by.md)  <sub>OPT</sub>
+ * [provided by](provided_by.md)  <sub>0..*</sub>
     * Description: connects an association to the agent (person, organization or group) that provided it
     * range: [Provider](Provider.md)
  * [publications](publications.md)  <sub>0..*</sub>

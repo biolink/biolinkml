@@ -7,7 +7,7 @@ Used to characterize and specify the phenotypic abnormalities defined in the Phe
 URI: [biolink:ClinicalModifier](https://w3id.org/biolink/vocab/ClinicalModifier)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[QuantityValue],[OntologyClass],[NamedThing],[Attribute]^-[ClinicalModifier&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],[Attribute],[Association])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[QuantityValue],[OntologyClass],[NamedThing],[Attribute]^-[ClinicalModifier&#124;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[Attribute],[Association])
 
 ## Parents
 

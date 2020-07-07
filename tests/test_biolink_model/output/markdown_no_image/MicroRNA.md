@@ -7,7 +7,7 @@
 URI: [biolink:MicroRNA](https://w3id.org/biolink/vocab/MicroRNA)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon],[NoncodingRNAProduct],[NoncodingRNAProduct]^-[MicroRNA&#124;name(i):symbol_type;has_biological_sequence(i):biological_sequence%20%3F;id(i):identifier_type;category(i):iri_type%20%2B])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon],[NoncodingRNAProduct],[NoncodingRNAProduct]^-[MicroRNA&#124;name(i):symbol_type;has_biological_sequence(i):biological_sequence%20%3F;id(i):string;category(i):iri_type%20%2B])
 
 ## Parents
 
@@ -27,7 +27,7 @@ URI: [biolink:MicroRNA](https://w3id.org/biolink/vocab/MicroRNA)
     * range: [BiologicalSequence](types/BiologicalSequence.md)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
-    * range: [IdentifierType](types/IdentifierType.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)
  * [macromolecular machine➞name](macromolecular_machine_name.md)  <sub>REQ</sub>
     * range: [SymbolType](types/SymbolType.md)

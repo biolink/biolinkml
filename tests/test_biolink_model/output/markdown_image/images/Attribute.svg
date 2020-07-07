@@ -42,7 +42,7 @@
 <polygon fill='white' points='258.5,-129 258.5,-189 391.5,-189 391.5,-129 258.5,-129' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='325' y='-177.8'>Attribute</text>
 <polyline fill='none' points='258.5,-174 391.5,-174 ' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='325' y='-162.8'>id:identifier_type</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='325' y='-162.8'>id:string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='325' y='-147.8'>name:label_type</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='325' y='-132.8'>category:iri_type +</text>
 </g><g class='edge' id='edge2'><title>QuantityValue-&gt;Attribute</title>

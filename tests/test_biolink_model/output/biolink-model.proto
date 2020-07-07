@@ -1,14 +1,14 @@
 // Activity or behavior of any independent integral living, organization or mechanical actor in the world
 message ActivityAndBehavior
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
  }
 // A subcellular location, cell type or gross anatomical part
 message AnatomicalEntity
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
@@ -18,12 +18,12 @@ message AnatomicalEntityToAnatomicalEntityAssociation
   subject AnatomicalEntity = 1
   relation Uriorcurie = 2
   object AnatomicalEntity = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
  }
 // A relationship between two anatomical entities where the relationship is ontogenic, i.e the two entities are related by development. A number of different relationship types can be used to specify the precise nature of the relationship
 message AnatomicalEntityToAnatomicalEntityOntogenicAssociation
@@ -31,12 +31,12 @@ message AnatomicalEntityToAnatomicalEntityOntogenicAssociation
   subject AnatomicalEntity = 1
   relation Uriorcurie = 2
   object AnatomicalEntity = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
  }
 // A relationship between two anatomical entities where the relationship is mereological, i.e the two entities are related by parthood. This includes relationships between cellular components and cells, between cells and tissues, tissues and whole organisms
 message AnatomicalEntityToAnatomicalEntityPartOfAssociation
@@ -44,12 +44,12 @@ message AnatomicalEntityToAnatomicalEntityPartOfAssociation
   subject AnatomicalEntity = 1
   relation Uriorcurie = 2
   object AnatomicalEntity = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
  }
 // A typed association between two entities, supported by evidence
 message Association
@@ -57,12 +57,12 @@ message Association
   subject NamedThing = 1
   relation Uriorcurie = 2
   object NamedThing = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
  }
 // A property or characteristic of an entity. For example, an apple may have properties such as color, shape, age, crispiness. An environmental sample may have attributes such as depth, lat, long, material.
 message Attribute
@@ -70,14 +70,14 @@ message Attribute
   optional hasAttributeType OntologyClass = 1
   repeated hasQuantitativeValue QuantityValue = 2
   optional hasQualitativeValue NamedThing = 3
-  id IdentifierType = 4
+  id String = 4
   name LabelType = 5
   repeated category IriType = 6
  }
 // One or more causally connected executions of molecular functions
 message BiologicalProcess
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
   repeated hasInput NamedThing = 4
@@ -87,7 +87,7 @@ message BiologicalProcess
 // Either an individual molecular activity, or a collection of causally connected molecular activities
 message BiologicalProcessOrActivity
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
   repeated hasInput NamedThing = 4
@@ -99,13 +99,13 @@ message BiologicalSex
   optional hasAttributeType OntologyClass = 1
   repeated hasQuantitativeValue QuantityValue = 2
   optional hasQualitativeValue NamedThing = 3
-  id IdentifierType = 4
+  id String = 4
   name LabelType = 5
   repeated category IriType = 6
  }
 message Carbohydrate
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
@@ -113,7 +113,7 @@ message Carbohydrate
 // An individual organism that has a patient role in some clinical context.
 message Case
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
@@ -124,12 +124,12 @@ message CaseToPhenotypicFeatureAssociation
   subject NamedThing = 1
   relation Uriorcurie = 2
   object NamedThing = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
   optional sexQualifier BiologicalSex = 10
   optional frequencyQualifier FrequencyValue = 11
   optional severityQualifier SeverityValue = 12
@@ -137,14 +137,14 @@ message CaseToPhenotypicFeatureAssociation
  }
 message Cell
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
  }
 message CellLine
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
  }
@@ -154,17 +154,17 @@ message CellLineToDiseaseOrPhenotypicFeatureAssociation
   subject DiseaseOrPhenotypicFeature = 1
   relation Uriorcurie = 2
   object NamedThing = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
  }
 // A location in or around a cell
 message CellularComponent
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
@@ -172,14 +172,14 @@ message CellularComponent
 // A chemical exposure is an intake of a particular chemical substance
 message ChemicalExposure
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
  }
 // May be a chemical entity or a formulation with a chemical entity as active ingredient, or a complex material with multiple chemical entities as part
 message ChemicalSubstance
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
@@ -190,12 +190,12 @@ message ChemicalToChemicalAssociation
   subject NamedThing = 1
   relation Uriorcurie = 2
   object ChemicalSubstance = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
  }
 // A causal relationship between two chemical entities, where the subject represents the upstream entity and the object represents the downstream. For any such association there is an implicit reaction:
 //   IF
@@ -210,12 +210,12 @@ message ChemicalToChemicalDerivationAssociation
   subject ChemicalSubstance = 1
   relation Uriorcurie = 2
   object ChemicalSubstance = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
   repeated changeIsCatalyzedBy MacromolecularMachine = 10
  }
 // An interaction between a chemical entity and a phenotype or disease, where the presence of the chemical gives rise to or exacerbates the phenotype
@@ -224,12 +224,12 @@ message ChemicalToDiseaseOrPhenotypicFeatureAssociation
   subject NamedThing = 1
   relation Uriorcurie = 2
   object DiseaseOrPhenotypicFeature = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
  }
 // An interaction between a chemical entity and a gene or gene product
 message ChemicalToGeneAssociation
@@ -237,12 +237,12 @@ message ChemicalToGeneAssociation
   subject NamedThing = 1
   relation Uriorcurie = 2
   object GeneOrGeneProduct = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
  }
 // An interaction between a chemical entity and a biological process or pathway
 message ChemicalToPathwayAssociation
@@ -250,23 +250,23 @@ message ChemicalToPathwayAssociation
   subject NamedThing = 1
   relation Uriorcurie = 2
   object Pathway = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
  }
 // Any entity or process that exists in the clinical domain and outside the biological realm. Diseases are placed under biological entities
 message ClinicalEntity
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
  }
 message ClinicalIntervention
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
  }
@@ -276,19 +276,19 @@ message ClinicalModifier
   optional hasAttributeType OntologyClass = 1
   repeated hasQuantitativeValue QuantityValue = 2
   optional hasQualitativeValue NamedThing = 3
-  id IdentifierType = 4
+  id String = 4
   name LabelType = 5
   repeated category IriType = 6
  }
 message ClinicalTrial
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
  }
 message CodingSequence
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
@@ -297,25 +297,25 @@ message CodingSequence
 // Level of confidence in a statement
 message ConfidenceLevel
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
  }
 message DataFile
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
  }
 message DataSet
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
  }
 message DataSetVersion
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
   optional title String = 4
@@ -327,13 +327,13 @@ message DataSetVersion
 // A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment
 message Device
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
  }
 message Disease
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
@@ -341,7 +341,7 @@ message Disease
 // Either one of a disease or an individual phenotypic feature. Some knowledge resources such as Monarch treat these as distinct, others such as MESH conflate.
 message DiseaseOrPhenotypicFeature
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
@@ -352,12 +352,12 @@ message DiseaseOrPhenotypicFeatureAssociationToLocationAssociation
   subject DiseaseOrPhenotypicFeature = 1
   relation Uriorcurie = 2
   object AnatomicalEntity = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
  }
 // An association between an exposure event and a disease
 message DiseaseToExposureAssociation
@@ -365,12 +365,12 @@ message DiseaseToExposureAssociation
   subject Disease = 1
   relation Uriorcurie = 2
   object ExposureEvent = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
  }
 // An association between a disease and a phenotypic feature in which the phenotypic feature is associated with the disease in some way
 message DiseaseToPhenotypicFeatureAssociation
@@ -378,12 +378,12 @@ message DiseaseToPhenotypicFeatureAssociation
   subject NamedThing = 1
   relation Uriorcurie = 2
   object NamedThing = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
   optional sexQualifier BiologicalSex = 10
   optional frequencyQualifier FrequencyValue = 11
   optional severityQualifier SeverityValue = 12
@@ -392,7 +392,7 @@ message DiseaseToPhenotypicFeatureAssociation
 // A substance intended for use in the diagnosis, cure, mitigation, treatment, or prevention of disease
 message Drug
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
@@ -400,33 +400,33 @@ message Drug
 // A drug exposure is an intake of a particular chemical substance
 message DrugExposure
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
  }
 message EnvironmentalFeature
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
  }
 message EnvironmentalProcess
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
  }
 // Class of evidence that supports an association
 message EvidenceType
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
  }
 // A region of the transcript sequence within a gene which is not removed from the primary RNA transcript by RNA splicing
 message Exon
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
@@ -438,17 +438,17 @@ message ExonToTranscriptRelationship
   subject Exon = 1
   relation Uriorcurie = 2
   object Transcript = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
  }
 // A feature of the environment of an organism that influences one or more phenotypic features of that organism, potentially mediated by genes
 message ExposureEvent
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
  }
@@ -458,12 +458,12 @@ message ExposureEventToPhenotypicFeatureAssociation
   subject ExposureEvent = 1
   relation Uriorcurie = 2
   object NamedThing = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
   optional sexQualifier BiologicalSex = 10
   optional frequencyQualifier FrequencyValue = 11
   optional severityQualifier SeverityValue = 12
@@ -475,7 +475,7 @@ message FrequencyValue
   optional hasAttributeType OntologyClass = 1
   repeated hasQuantitativeValue QuantityValue = 2
   optional hasQualitativeValue NamedThing = 3
-  id IdentifierType = 4
+  id String = 4
   name LabelType = 5
   repeated category IriType = 6
  }
@@ -485,16 +485,16 @@ message FunctionalAssociation
   subject MacromolecularMachine = 1
   relation Uriorcurie = 2
   object GeneOntologyClass = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
  }
 message Gene
  {
-  id IdentifierType = 1
+  id String = 1
   name SymbolType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
@@ -505,12 +505,12 @@ message GeneAsAModelOfDiseaseAssociation
   subject GeneOrGeneProduct = 1
   relation Uriorcurie = 2
   object NamedThing = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
   optional frequencyQualifier FrequencyValue = 10
   optional severityQualifier SeverityValue = 11
   optional onsetQualifier Onset = 12
@@ -518,7 +518,7 @@ message GeneAsAModelOfDiseaseAssociation
 // any grouping of multiple genes or gene products related by common descent
 message GeneFamily
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
@@ -528,12 +528,12 @@ message GeneHasVariantThatContributesToDiseaseAssociation
   subject GeneOrGeneProduct = 1
   relation Uriorcurie = 2
   object NamedThing = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
   optional frequencyQualifier FrequencyValue = 10
   optional severityQualifier SeverityValue = 11
   optional onsetQualifier Onset = 12
@@ -542,14 +542,14 @@ message GeneHasVariantThatContributesToDiseaseAssociation
 // an ontology class that describes a functional aspect of a gene, gene prodoct or complex
 message GeneOntologyClass
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
  }
 // a union of genes or gene products. Frequently an identifier for one will be used as proxy for another
 message GeneOrGeneProduct
  {
-  id IdentifierType = 1
+  id String = 1
   name SymbolType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
@@ -558,7 +558,7 @@ message GeneOrGeneProduct
 // The functional molecular product of a single gene. Gene products are either proteins or functional RNA molecules
 message GeneProduct
  {
-  id IdentifierType = 1
+  id String = 1
   name SymbolType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
@@ -570,24 +570,24 @@ message GeneRegulatoryRelationship
   subject GeneOrGeneProduct = 1
   relation Uriorcurie = 2
   object GeneOrGeneProduct = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
  }
 message GeneToDiseaseAssociation
  {
   subject GeneOrGeneProduct = 1
   relation Uriorcurie = 2
   object NamedThing = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
   optional frequencyQualifier FrequencyValue = 10
   optional severityQualifier SeverityValue = 11
   optional onsetQualifier Onset = 12
@@ -598,12 +598,12 @@ message GeneToExpressionSiteAssociation
   subject GeneOrGeneProduct = 1
   relation Uriorcurie = 2
   object AnatomicalEntity = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
   optional stageQualifier LifeStage = 10
   optional quantifierQualifier OntologyClass = 11
  }
@@ -613,12 +613,12 @@ message GeneToGeneHomologyAssociation
   subject GeneOrGeneProduct = 1
   relation Uriorcurie = 2
   object GeneOrGeneProduct = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
  }
 // A gene is transcribed and potentially translated to a gene product
 message GeneToGeneProductRelationship
@@ -626,36 +626,36 @@ message GeneToGeneProductRelationship
   subject Gene = 1
   relation Uriorcurie = 2
   object GeneProduct = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
  }
 message GeneToGoTermAssociation
  {
   subject MolecularEntity = 1
   relation Uriorcurie = 2
   object GeneOntologyClass = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
  }
 message GeneToPhenotypicFeatureAssociation
  {
   subject GeneOrGeneProduct = 1
   relation Uriorcurie = 2
   object NamedThing = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
   optional sexQualifier BiologicalSex = 10
   optional frequencyQualifier FrequencyValue = 11
   optional severityQualifier SeverityValue = 12
@@ -664,7 +664,7 @@ message GeneToPhenotypicFeatureAssociation
 // A genome is the sum of genetic material within a cell or virion.
 message Genome
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
@@ -673,7 +673,7 @@ message Genome
 // an entity that can either be directly located on a genome (gene, transcript, exon, regulatory region) or is encoded in a genome (protein)
 message GenomicEntity
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
@@ -685,12 +685,12 @@ message GenomicSequenceLocalization
   subject GenomicEntity = 1
   relation Uriorcurie = 2
   object GenomicEntity = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
   optional startInterbaseCoordinate String = 10
   optional endInterbaseCoordinate String = 11
   optional genomeBuild String = 12
@@ -699,7 +699,7 @@ message GenomicSequenceLocalization
 // An information content entity that describes a genome by specifying the total variation in genomic sequence and/or gene expression, relative to some extablished background
 message Genotype
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
@@ -712,12 +712,12 @@ message GenotypeToGeneAssociation
   subject Genotype = 1
   relation Uriorcurie = 2
   object Gene = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
  }
 // Any association between one genotype and a genotypic entity that is a sub-component of it
 message GenotypeToGenotypePartAssociation
@@ -725,12 +725,12 @@ message GenotypeToGenotypePartAssociation
   subject Genotype = 1
   relation Uriorcurie = 2
   object Genotype = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
  }
 // Any association between one genotype and a phenotypic feature, where having the genotype confers the phenotype, either in isolation or through environment
 message GenotypeToPhenotypicFeatureAssociation
@@ -738,12 +738,12 @@ message GenotypeToPhenotypicFeatureAssociation
   subject Genotype = 1
   relation Uriorcurie = 2
   object NamedThing = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
   optional sexQualifier BiologicalSex = 10
   optional frequencyQualifier FrequencyValue = 11
   optional severityQualifier SeverityValue = 12
@@ -755,12 +755,12 @@ message GenotypeToVariantAssociation
   subject Genotype = 1
   relation Uriorcurie = 2
   object SequenceVariant = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
  }
 // An attribute corresponding to the genotypic sex of the individual, based upon genotypic composition of sex chromosomes.
 message GenotypicSex
@@ -768,14 +768,14 @@ message GenotypicSex
   optional hasAttributeType OntologyClass = 1
   repeated hasQuantitativeValue QuantityValue = 2
   optional hasQualitativeValue NamedThing = 3
-  id IdentifierType = 4
+  id String = 4
   name LabelType = 5
   repeated category IriType = 6
  }
 // a location that can be described in lat/long coordinates
 message GeographicLocation
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
   optional latitude Float = 4
@@ -784,7 +784,7 @@ message GeographicLocation
 // a location that can be described in lat/long coordinates, for a particular time
 message GeographicLocationAtTime
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
   optional latitude Float = 4
@@ -793,7 +793,7 @@ message GeographicLocationAtTime
  }
 message GrossAnatomicalStructure
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
@@ -801,7 +801,7 @@ message GrossAnatomicalStructure
 // A set of zero or more Alleles on a single instance of a Sequence[VMC]
 message Haplotype
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
@@ -809,7 +809,7 @@ message Haplotype
  }
 message IndividualOrganism
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
@@ -817,14 +817,14 @@ message IndividualOrganism
 // A stage of development or growth of an organism, including post-natal adult stages
 message LifeStage
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
  }
 message MacromolecularComplex
  {
-  id IdentifierType = 1
+  id String = 1
   name SymbolType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
@@ -833,7 +833,7 @@ message MacromolecularComplex
 // A union of gene, gene product, and macromolecular complex. These are the basic units of function in a cell. They either carry out individual biological activities, or they encode molecules which do this.
 message MacromolecularMachine
  {
-  id IdentifierType = 1
+  id String = 1
   name SymbolType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
@@ -845,12 +845,12 @@ message MacromolecularMachineToBiologicalProcessAssociation
   subject MacromolecularMachine = 1
   relation Uriorcurie = 2
   object BiologicalProcess = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
  }
 // A functional association between a macromolecular machine (gene, gene product or complex) and a cellular component (as represented in the GO cellular component branch), where the entity carries out its function in the cellular component
 message MacromolecularMachineToCellularComponentAssociation
@@ -858,12 +858,12 @@ message MacromolecularMachineToCellularComponentAssociation
   subject MacromolecularMachine = 1
   relation Uriorcurie = 2
   object CellularComponent = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
  }
 // A functional association between a macromolecular machine (gene, gene product or complex) and a molecular activity (as represented in the GO molecular function branch), where the entity carries out the activity, or contributes to its execution
 message MacromolecularMachineToMolecularActivityAssociation
@@ -871,17 +871,17 @@ message MacromolecularMachineToMolecularActivityAssociation
   subject MacromolecularMachine = 1
   relation Uriorcurie = 2
   object MolecularActivity = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
  }
 // A sample is a limited quantity of something (e.g. an individual or set of individuals from a population, or a portion of a substance) to be used for testing, analysis, inspection, investigation, demonstration, or trial use. [SIO]
 message MaterialSample
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
   repeated hasAttribute Attribute = 4
@@ -892,12 +892,12 @@ message MaterialSampleDerivationAssociation
   subject MaterialSample = 1
   relation Uriorcurie = 2
   object NamedThing = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
  }
 // An association between a material sample and a disease or phenotype
 message MaterialSampleToDiseaseOrPhenotypicFeatureAssociation
@@ -905,24 +905,24 @@ message MaterialSampleToDiseaseOrPhenotypicFeatureAssociation
   subject NamedThing = 1
   relation Uriorcurie = 2
   object NamedThing = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
  }
 // Any intermediate or product resulting from metabolism. Includes primary and secondary metabolites.
 message Metabolite
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
  }
 message MicroRNA
  {
-  id IdentifierType = 1
+  id String = 1
   name SymbolType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
@@ -931,7 +931,7 @@ message MicroRNA
 // An execution of a molecular function carried out by a gene product or macromolecular complex.
 message MolecularActivity
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
   repeated hasInput ChemicalSubstance = 4
@@ -941,7 +941,7 @@ message MolecularActivity
 // A gene, gene product, small molecule or macromolecule (including protein complex)
 message MolecularEntity
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
@@ -949,13 +949,13 @@ message MolecularEntity
 // a databased entity or concept/class
 message NamedThing
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
  }
 message NoncodingRNAProduct
  {
-  id IdentifierType = 1
+  id String = 1
   name SymbolType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
@@ -964,7 +964,7 @@ message NoncodingRNAProduct
 // A processual entity
 message Occurrent
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
  }
@@ -974,20 +974,20 @@ message Onset
   optional hasAttributeType OntologyClass = 1
   repeated hasQuantitativeValue QuantityValue = 2
   optional hasQualitativeValue NamedThing = 3
-  id IdentifierType = 4
+  id String = 4
   name LabelType = 5
   repeated category IriType = 6
  }
 // a concept or class in an ontology, vocabulary or thesaurus
 message OntologyClass
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
  }
 message OrganismTaxon
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
  }
@@ -997,16 +997,16 @@ message PairwiseGeneToGeneInteraction
   subject GeneOrGeneProduct = 1
   relation Uriorcurie = 2
   object GeneOrGeneProduct = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
  }
 message Pathway
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
   repeated hasInput NamedThing = 4
@@ -1016,13 +1016,13 @@ message Pathway
 // a fact or situation that is observed to exist or happen, especially one whose cause or explanation is in question
 message Phenomenon
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
  }
 message PhenotypicFeature
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
@@ -1033,20 +1033,20 @@ message PhenotypicSex
   optional hasAttributeType OntologyClass = 1
   repeated hasQuantitativeValue QuantityValue = 2
   optional hasQualitativeValue NamedThing = 3
-  id IdentifierType = 4
+  id String = 4
   name LabelType = 5
   repeated category IriType = 6
  }
 // An entity that has physical properties such as mass, volume, or charge
 message PhysicalEntity
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
  }
 message PhysiologicalProcess
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
   repeated hasInput NamedThing = 4
@@ -1056,14 +1056,14 @@ message PhysiologicalProcess
 // Any entity or process that exists at the level of the whole planet
 message PlanetaryEntity
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
  }
 // A collection of individuals from the same taxonomic class distinguished by one or more characteristics. Characteristics can include, but are not limited to, shared geographic location, genetics, phenotypes [Alliance for Genome Resources]
 message PopulationOfIndividualOrganisms
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
@@ -1074,24 +1074,24 @@ message PopulationToPopulationAssociation
   subject PopulationOfIndividualOrganisms = 1
   relation Uriorcurie = 2
   object PopulationOfIndividualOrganisms = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
  }
 // A series of actions conducted in a certain order or manner
 message Procedure
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
  }
 // A gene product that is composed of a chain of amino acid sequences and is produced by ribosome-mediated translation of mRNA
 message Protein
  {
-  id IdentifierType = 1
+  id String = 1
   name SymbolType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
@@ -1100,7 +1100,7 @@ message Protein
 // Represents a protein that is a specific isoform of the canonical or reference protein. See https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4114032/
 message ProteinIsoform
  {
-  id IdentifierType = 1
+  id String = 1
   name SymbolType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
@@ -1109,14 +1109,14 @@ message ProteinIsoform
 // person, group, organization or project that provides a piece of information
 message Provider
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
  }
 // Any published piece of information. Can refer to a whole publication, or to a part of it (e.g. a figure, figure legend, or section highlighted by NLP). The scope is intended to be general and include information published on the web as well as journals.
 message Publication
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
  }
@@ -1129,13 +1129,13 @@ message QuantityValue
 // An OWL property used as an edge label
 message RelationshipType
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
  }
 message RNAProduct
  {
-  id IdentifierType = 1
+  id String = 1
   name SymbolType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
@@ -1144,7 +1144,7 @@ message RNAProduct
 // Represents a protein that is a specific isoform of the canonical or reference RNA
 message RNAProductIsoform
  {
-  id IdentifierType = 1
+  id String = 1
   name SymbolType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
@@ -1156,17 +1156,17 @@ message SequenceFeatureRelationship
   subject GenomicEntity = 1
   relation Uriorcurie = 2
   object GenomicEntity = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
  }
 // An allele that varies in its sequence from what is considered the reference allele at that locus.
 message SequenceVariant
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
@@ -1179,13 +1179,13 @@ message SeverityValue
   optional hasAttributeType OntologyClass = 1
   repeated hasQuantitativeValue QuantityValue = 2
   optional hasQualitativeValue NamedThing = 3
-  id IdentifierType = 4
+  id String = 4
   name LabelType = 5
   repeated category IriType = 6
  }
 message SourceFile
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
   optional sourceVersion String = 4
@@ -1194,7 +1194,7 @@ message SourceFile
 // An RNA synthesized on a DNA or RNA template by an RNA polymerase
 message Transcript
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
   repeated inTaxon OrganismTaxon = 4
@@ -1206,17 +1206,17 @@ message TranscriptToGeneRelationship
   subject Transcript = 1
   relation Uriorcurie = 2
   object Gene = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
  }
 // A treatment is targeted at a disease or phenotype and may involve multiple drug 'exposures'
 message Treatment
  {
-  id IdentifierType = 1
+  id String = 1
   name LabelType = 2
   repeated category IriType = 3
  }
@@ -1225,12 +1225,12 @@ message VariantToDiseaseAssociation
   subject NamedThing = 1
   relation Uriorcurie = 2
   object NamedThing = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
   optional frequencyQualifier FrequencyValue = 10
   optional severityQualifier SeverityValue = 11
   optional onsetQualifier Onset = 12
@@ -1240,12 +1240,12 @@ message VariantToPhenotypicFeatureAssociation
   subject SequenceVariant = 1
   relation Uriorcurie = 2
   object NamedThing = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
   optional sexQualifier BiologicalSex = 10
   optional frequencyQualifier FrequencyValue = 11
   optional severityQualifier SeverityValue = 12
@@ -1257,12 +1257,12 @@ message VariantToPopulationAssociation
   subject SequenceVariant = 1
   relation Uriorcurie = 2
   object PopulationOfIndividualOrganisms = 3
-  id Nodeidentifier = 4
+  id String = 4
   optional negated Boolean = 5
   optional associationType OntologyClass = 6
   repeated qualifiers OntologyClass = 7
   repeated publications Publication = 8
-  optional providedBy Provider = 9
+  repeated providedBy Provider = 9
   optional hasCount Integer = 10
   optional hasTotal Integer = 11
   optional hasQuotient Double = 12
@@ -1274,7 +1274,7 @@ message Zygosity
   optional hasAttributeType OntologyClass = 1
   repeated hasQuantitativeValue QuantityValue = 2
   optional hasQualitativeValue NamedThing = 3
-  id IdentifierType = 4
+  id String = 4
   name LabelType = 5
   repeated category IriType = 6
  }

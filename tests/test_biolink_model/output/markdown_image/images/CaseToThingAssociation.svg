@@ -49,7 +49,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='638' y='-49.8'>CaseToThingAssociation</text>
 <polyline fill='none' points='555,-46 721,-46 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='638' y='-34.8'>relation(i):uriorcurie</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='638' y='-19.8'>id(i):nodeidentifier</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='638' y='-19.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='638' y='-4.8'>negated(i):boolean ?</text>
 </g><g class='edge' id='edge1'><title>Case-&gt;CaseToThingAssociation</title>
 <path d='M503.093,-146.216C530.913,-122.662 573.567,-86.5503 603.447,-61.2537' fill='none' stroke='black'/>

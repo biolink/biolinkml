@@ -39,7 +39,7 @@
 <polygon fill='white' points='180,-129 180,-189 326,-189 326,-129 180,-129' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='253' y='-177.8'>MolecularActivity</text>
 <polyline fill='none' points='180,-174 326,-174 ' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='253' y='-162.8'>id(i):identifier_type</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='253' y='-162.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='253' y='-147.8'>name(i):label_type</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='253' y='-132.8'>category(i):iri_type +</text>
 </g><g class='edge' id='edge1'><title>MacromolecularMachine-&gt;MolecularActivity</title>

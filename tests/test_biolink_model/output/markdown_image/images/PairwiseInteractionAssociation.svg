@@ -43,7 +43,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='351' y='-49.8'>PairwiseInteractionAssociation</text>
 <polyline fill='none' points='252.5,-46 449.5,-46 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='351' y='-34.8'>relation:uriorcurie</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='351' y='-19.8'>id:nodeidentifier</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='351' y='-19.8'>id:string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='351' y='-4.8'>negated(i):boolean ?</text>
 </g><g class='edge' id='edge1'><title>MolecularEntity-&gt;PairwiseInteractionAssociation</title>
 <path d='M272.507,-144.06C286.163,-120.502 308.726,-85.7903 326.286,-61.2537' fill='none' stroke='black'/>

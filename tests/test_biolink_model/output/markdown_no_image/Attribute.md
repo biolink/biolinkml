@@ -7,7 +7,7 @@ A property or characteristic of an entity. For example, an apple may have proper
 URI: [biolink:Attribute](https://w3id.org/biolink/vocab/Attribute)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Zygosity],[SeverityValue],[QuantityValue],[OntologyClass],[Onset],[NamedThing],[FrequencyValue],[ClinicalModifier],[BiologicalSex],[NamedThing]<has%20qualitative%20value%200..1-%20[Attribute&#124;id:identifier_type;name:label_type;category:iri_type%20%2B],[QuantityValue]<has%20quantitative%20value%200..*-++[Attribute],[OntologyClass]<has%20attribute%20type%200..1-%20[Attribute],[MaterialSample]-%20has%20attribute%200..*>[Attribute],[Attribute]uses%20-.->[OntologyClass],[Attribute]^-[Zygosity],[Attribute]^-[SeverityValue],[Attribute]^-[Onset],[Attribute]^-[FrequencyValue],[Attribute]^-[ClinicalModifier],[Attribute]^-[BiologicalSex],[AbstractEntity]^-[Attribute],[MaterialSample],[AbstractEntity])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Zygosity],[SeverityValue],[QuantityValue],[OntologyClass],[Onset],[NamedThing],[FrequencyValue],[ClinicalModifier],[BiologicalSex],[NamedThing]<has%20qualitative%20value%200..1-%20[Attribute&#124;id:string;name:label_type;category:iri_type%20%2B],[QuantityValue]<has%20quantitative%20value%200..*-++[Attribute],[OntologyClass]<has%20attribute%20type%200..1-%20[Attribute],[MaterialSample]-%20has%20attribute%200..*>[Attribute],[Attribute]uses%20-.->[OntologyClass],[Attribute]^-[Zygosity],[Attribute]^-[SeverityValue],[Attribute]^-[Onset],[Attribute]^-[FrequencyValue],[Attribute]^-[ClinicalModifier],[Attribute]^-[BiologicalSex],[AbstractEntity]^-[Attribute],[MaterialSample],[AbstractEntity])
 
 ## Parents
 
@@ -59,7 +59,7 @@ URI: [biolink:Attribute](https://w3id.org/biolink/vocab/Attribute)
 
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
-    * range: [IdentifierType](types/IdentifierType.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)
 
 ### Mixed in from named thing:

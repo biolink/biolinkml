@@ -7,7 +7,7 @@ An RNA synthesized on a DNA or RNA template by an RNA polymerase
 URI: [biolink:Transcript](https://w3id.org/biolink/vocab/Transcript)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[TranscriptToGeneRelationship],[ExonToTranscriptRelationship]-%20object%201..1>[Transcript&#124;has_biological_sequence(i):biological_sequence%20%3F;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],[TranscriptToGeneRelationship]-%20subject%201..1>[Transcript],[GenomicEntity]^-[Transcript],[OrganismTaxon],[MolecularEntity],[GenomicEntity],[ExonToTranscriptRelationship])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[TranscriptToGeneRelationship],[ExonToTranscriptRelationship]-%20object%201..1>[Transcript&#124;has_biological_sequence(i):biological_sequence%20%3F;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[TranscriptToGeneRelationship]-%20subject%201..1>[Transcript],[GenomicEntity]^-[Transcript],[OrganismTaxon],[MolecularEntity],[GenomicEntity],[ExonToTranscriptRelationship])
 
 ## Parents
 
@@ -35,7 +35,7 @@ URI: [biolink:Transcript](https://w3id.org/biolink/vocab/Transcript)
     * range: [BiologicalSequence](types/BiologicalSequence.md)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
-    * range: [IdentifierType](types/IdentifierType.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)
  * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing

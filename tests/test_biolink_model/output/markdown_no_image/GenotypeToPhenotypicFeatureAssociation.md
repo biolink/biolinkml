@@ -7,7 +7,7 @@ Any association between one genotype and a phenotypic feature, where having the 
 URI: [biolink:GenotypeToPhenotypicFeatureAssociation](https://w3id.org/biolink/vocab/GenotypeToPhenotypicFeatureAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SeverityValue],[Publication],[Provider],[OntologyClass],[Onset],[NamedThing],[GenotypeToThingAssociation],[Genotype]<subject%201..1-%20[GenotypeToPhenotypicFeatureAssociation&#124;relation:uriorcurie;id(i):nodeidentifier;negated(i):boolean%20%3F],[GenotypeToPhenotypicFeatureAssociation]uses%20-.->[EntityToPhenotypicFeatureAssociation],[GenotypeToPhenotypicFeatureAssociation]uses%20-.->[GenotypeToThingAssociation],[Association]^-[GenotypeToPhenotypicFeatureAssociation],[Genotype],[FrequencyValue],[EntityToPhenotypicFeatureAssociation],[BiologicalSex],[Association])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SeverityValue],[Publication],[Provider],[OntologyClass],[Onset],[NamedThing],[GenotypeToThingAssociation],[Genotype]<subject%201..1-%20[GenotypeToPhenotypicFeatureAssociation&#124;relation:uriorcurie;id(i):string;negated(i):boolean%20%3F],[GenotypeToPhenotypicFeatureAssociation]uses%20-.->[EntityToPhenotypicFeatureAssociation],[GenotypeToPhenotypicFeatureAssociation]uses%20-.->[GenotypeToThingAssociation],[Association]^-[GenotypeToPhenotypicFeatureAssociation],[Genotype],[FrequencyValue],[EntityToPhenotypicFeatureAssociation],[BiologicalSex],[Association])
 
 ## Parents
 
@@ -38,7 +38,7 @@ URI: [biolink:GenotypeToPhenotypicFeatureAssociation](https://w3id.org/biolink/v
     * range: [OntologyClass](OntologyClass.md)
  * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
-    * range: [Nodeidentifier](types/Nodeidentifier.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)
  * [negated](negated.md)  <sub>OPT</sub>
     * Description: if set to true, then the association is negated i.e. is not true
@@ -46,7 +46,7 @@ URI: [biolink:GenotypeToPhenotypicFeatureAssociation](https://w3id.org/biolink/v
  * [object](object.md)  <sub>REQ</sub>
     * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [NamedThing](NamedThing.md)
- * [provided by](provided_by.md)  <sub>OPT</sub>
+ * [provided by](provided_by.md)  <sub>0..*</sub>
     * Description: connects an association to the agent (person, organization or group) that provided it
     * range: [Provider](Provider.md)
  * [publications](publications.md)  <sub>0..*</sub>

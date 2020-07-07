@@ -7,7 +7,7 @@
 URI: [biolink:DataSet](https://w3id.org/biolink/vocab/DataSet)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[NamedThing],[DataSetVersion],[DataSetVersion]-%20versionOf%200..1>[DataSet&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],[DataSet]^-[DataSetVersion],[NamedThing]^-[DataSet])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[NamedThing],[DataSetVersion],[DataSetVersion]-%20versionOf%200..1>[DataSet&#124;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[DataSet]^-[DataSetVersion],[NamedThing]^-[DataSet])
 
 ## Parents
 
@@ -32,7 +32,7 @@ URI: [biolink:DataSet](https://w3id.org/biolink/vocab/DataSet)
     * in subsets: (translator_minimal)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
-    * range: [IdentifierType](types/IdentifierType.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)
  * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing

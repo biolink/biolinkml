@@ -7,8 +7,6 @@ PREFIX metatype: <https://w3id.org/biolink/biolinkml/type/>
 
 <ChemicalFormulaValue> xsd:string
 
-<IdentifierType> IRI
-
 <IriType> IRI
 
 <LabelType> xsd:string
@@ -139,7 +137,7 @@ metatype:Nodeidentifier NONLITERAL
              <association_type> @<OntologyClass> ? ;
              <qualifiers> @<OntologyClass> * ;
              <publications> @<Publication> * ;
-             <provided_by> @<Provider> ?
+             <provided_by> @<Provider> *
           ) ;
           rdf:type [ <Association> ]
        )

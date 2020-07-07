@@ -7,7 +7,7 @@ Either an individual molecular activity, or a collection of causally connected m
 URI: [biolink:BiologicalProcessOrActivity](https://w3id.org/biolink/vocab/BiologicalProcessOrActivity)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Occurrent],[NamedThing],[MolecularActivity],[BiologicalProcessOrActivity]<enabled%20by%200..*-%20[BiologicalProcessOrActivity&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],[NamedThing]<has%20output%200..*-%20[BiologicalProcessOrActivity],[NamedThing]<has%20input%200..*-%20[BiologicalProcessOrActivity],[BiologicalProcessOrActivity]uses%20-.->[Occurrent],[BiologicalProcessOrActivity]^-[MolecularActivity],[BiologicalProcessOrActivity]^-[BiologicalProcess],[BiologicalEntity]^-[BiologicalProcessOrActivity],[BiologicalProcess],[BiologicalEntity])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Occurrent],[NamedThing],[MolecularActivity],[BiologicalProcessOrActivity]<enabled%20by%200..*-%20[BiologicalProcessOrActivity&#124;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[NamedThing]<has%20output%200..*-%20[BiologicalProcessOrActivity],[NamedThing]<has%20input%200..*-%20[BiologicalProcessOrActivity],[BiologicalProcessOrActivity]uses%20-.->[Occurrent],[BiologicalProcessOrActivity]^-[MolecularActivity],[BiologicalProcessOrActivity]^-[BiologicalProcess],[BiologicalEntity]^-[BiologicalProcessOrActivity],[BiologicalProcess],[BiologicalEntity])
 
 ## Parents
 
@@ -52,7 +52,7 @@ URI: [biolink:BiologicalProcessOrActivity](https://w3id.org/biolink/vocab/Biolog
     * in subsets: (translator_minimal)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
-    * range: [IdentifierType](types/IdentifierType.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)
  * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing

@@ -46,7 +46,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='444' y='-49.8'>GenotypeToGeneAssociation</text>
 <polyline fill='none' points='350,-46 538,-46 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='444' y='-34.8'>relation:uriorcurie</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='444' y='-19.8'>id(i):nodeidentifier</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='444' y='-19.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='444' y='-4.8'>negated(i):boolean ?</text>
 </g><g class='edge' id='edge1'><title>Gene-&gt;GenotypeToGeneAssociation</title>
 <path d='M373.354,-144.06C388.205,-120.502 410.089,-85.7903 425.557,-61.2537' fill='none' stroke='black'/>

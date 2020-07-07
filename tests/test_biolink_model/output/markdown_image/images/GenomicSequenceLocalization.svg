@@ -50,7 +50,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='385' y='-64.8'>genome_build:string ?</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='385' y='-49.8'>phase:string ?</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='385' y='-34.8'>relation(i):uriorcurie</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='385' y='-19.8'>id(i):nodeidentifier</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='385' y='-19.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='385' y='-4.8'>negated(i):boolean ?</text>
 </g><g class='edge' id='edge1'><title>GenomicEntity-&gt;GenomicSequenceLocalization</title>
 <path d='M379.864,-202.702C378.347,-180.671 377.899,-148.879 378.521,-121.087' fill='none' stroke='black'/>

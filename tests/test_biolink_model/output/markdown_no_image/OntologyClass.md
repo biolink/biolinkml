@@ -7,7 +7,7 @@ a concept or class in an ontology, vocabulary or thesaurus
 URI: [biolink:OntologyClass](https://w3id.org/biolink/vocab/OntologyClass)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[RelationshipType],[PairwiseInteractionAssociation],[OrganismTaxon],[Association]-%20association%20type%200..1>[OntologyClass&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],[GeneToExpressionSiteAssociation]-%20quantifier%20qualifier%200..1>[OntologyClass],[Attribute]-%20has%20attribute%20type%200..1>[OntologyClass],[PairwiseInteractionAssociation]-%20interacting%20molecules%20category(i)%200..1>[OntologyClass],[Association]-%20qualifiers%200..*>[OntologyClass],[GeneToExpressionSiteAssociation]-%20quantifier%20qualifier(i)%200..1>[OntologyClass],[Attribute]uses%20-.->[OntologyClass],[OntologyClass]^-[RelationshipType],[OntologyClass]^-[OrganismTaxon],[OntologyClass]^-[GeneOntologyClass],[NamedThing]^-[OntologyClass],[NamedThing],[GeneToExpressionSiteAssociation],[GeneOntologyClass],[Attribute],[Association])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[RelationshipType],[PairwiseInteractionAssociation],[OrganismTaxon],[Association]-%20association%20type%200..1>[OntologyClass&#124;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[GeneToExpressionSiteAssociation]-%20quantifier%20qualifier%200..1>[OntologyClass],[Attribute]-%20has%20attribute%20type%200..1>[OntologyClass],[PairwiseInteractionAssociation]-%20interacting%20molecules%20category(i)%200..1>[OntologyClass],[Association]-%20qualifiers%200..*>[OntologyClass],[GeneToExpressionSiteAssociation]-%20quantifier%20qualifier(i)%200..1>[OntologyClass],[Attribute]uses%20-.->[OntologyClass],[OntologyClass]^-[RelationshipType],[OntologyClass]^-[OrganismTaxon],[OntologyClass]^-[GeneOntologyClass],[NamedThing]^-[OntologyClass],[NamedThing],[GeneToExpressionSiteAssociation],[GeneOntologyClass],[Attribute],[Association])
 
 ## Parents
 
@@ -44,7 +44,7 @@ URI: [biolink:OntologyClass](https://w3id.org/biolink/vocab/OntologyClass)
     * in subsets: (translator_minimal)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
-    * range: [IdentifierType](types/IdentifierType.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)
  * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing
