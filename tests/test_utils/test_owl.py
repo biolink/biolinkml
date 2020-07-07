@@ -8,7 +8,8 @@ from rdflib import Graph
 
 from biolinkml.generators.owlgen import OwlSchemaGenerator
 from tests.test_utils.environment import env
-from tests.test_utils.base import Base
+from tests.utils.compare_rdf import compare_rdf
+from tests.utils.test_environment import TestEnvironmentTestCase
 
 repl: List[Tuple[str, str]] = [
     (r'\s*meta:generation_date ".*" ;', 'meta:generation_date "Fri Jan 25 14:22:29 2019" ;'),
@@ -20,23 +21,16 @@ def filtr(txt: str) -> str:
     return reduce(lambda s, expr: re.sub(expr[0], expr[1], s, flags=re.MULTILINE), repl, txt)
 
 
-class OWLTestCase(Base):
+class OWLTestCase(TestEnvironmentTestCase):
     env = env
 
-    def assertOwlEqual(self, s1: str, s2: str) -> None:
-        g1 = Graph()
-        g2 = Graph()
-        g1.parse(data=s1, format="turtle")
-        g2.parse(data=s2, format="turtle")
-        self.assertTrue(g1.isomorphic(g2))
-
     def test_cardinalities(self):
-        owl_txt = OwlSchemaGenerator(env.input_path('owl1.yaml')).serialize()
-        self.eval_output(owl_txt, 'owl1.owl', filtr, self.assertOwlEqual)
+        self.env.generate_single_file('owl1.owl', lambda: OwlSchemaGenerator(env.input_path('owl1.yaml')).serialize(),
+                                      filtr=filtr, comparator=compare_rdf, value_is_returned=True)
 
     def test_pred_types(self):
-        owl_txt = OwlSchemaGenerator(env.input_path('owl2.yaml')).serialize()
-        self.eval_output(owl_txt, 'owl2.owl', filtr, self.assertOwlEqual)
+        self.env.generate_single_file('owl2.owl', lambda: OwlSchemaGenerator(env.input_path('owl2.yaml')).serialize(),
+                                      filtr=filtr, comparator=compare_rdf, value_is_returned=True)
 
 
 if __name__ == '__main__':

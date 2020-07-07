@@ -7,7 +7,7 @@
 URI: [biolink:PhysiologicalProcess](https://w3id.org/biolink/vocab/PhysiologicalProcess)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[BiologicalProcessOrActivity]<enabled%20by(i)%200..*-%20[PhysiologicalProcess&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],[BiologicalProcess]^-[PhysiologicalProcess],[PhenotypicFeature],[Occurrent],[NamedThing],[BiologicalProcessOrActivity],[BiologicalProcess])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[BiologicalProcess]^-[PhysiologicalProcess&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],[NamedThing],[BiologicalProcessOrActivity],[BiologicalProcess])
 
 ## Parents
 
@@ -16,30 +16,31 @@ URI: [biolink:PhysiologicalProcess](https://w3id.org/biolink/vocab/Physiological
 ## Attributes
 
 
-### Inherited from biological process or activity:
+### Inherited from biological process:
 
+ * [category](category.md)  <sub>1..*</sub>
+    * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
+    * range: [IriType](types/IriType.md)
+    * in subsets: (translator_minimal)
  * [enabled by](enabled_by.md)  <sub>0..*</sub>
     * Description: holds between a process and a physical entity, where the physical entity executes the process
     * range: [BiologicalProcessOrActivity](BiologicalProcessOrActivity.md)
-    * inherited from: [Occurrent](Occurrent.md)
     * in subsets: (translator_minimal)
-
-### Inherited from named thing:
-
+ * [has input](has_input.md)  <sub>0..*</sub>
+    * Description: holds between a process and a continuant, where the continuant is an input into the process
+    * range: [NamedThing](NamedThing.md)
+    * in subsets: (translator_minimal)
+ * [has output](has_output.md)  <sub>0..*</sub>
+    * Description: holds between a process and a continuant, where the continuant is an output of the process
+    * range: [NamedThing](NamedThing.md)
+    * in subsets: (translator_minimal)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
     * range: [IdentifierType](types/IdentifierType.md)
-    * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
  * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing
     * range: [LabelType](types/LabelType.md)
-    * inherited from: [NamedThing](NamedThing.md)
-    * in subsets: (translator_minimal)
- * [category](category.md)  <sub>1..*</sub>
-    * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
-    * range: [IriType](types/IriType.md)
-    * inherited from: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
 
 ## Other properties

@@ -24,8 +24,8 @@ class ContextTestCase(GeneratorTestCase):
 
     def test_metamodel_context(self):
         self.model_name = 'meta'
-        self.single_file_generator('context.jsonld', ContextGenerator, serialize_args=dict(base=META_BASE_URI),
-                                   filtr=ldcontext_metadata_filter)
+        self.single_file_generator('jsonld', ContextGenerator, serialize_args=dict(base=META_BASE_URI),
+                                   filtr=ldcontext_metadata_filter, output_name='context')
 
 
 if __name__ == '__main__':

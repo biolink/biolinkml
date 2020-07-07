@@ -17,7 +17,7 @@
 meta:metamodel a meta:SchemaDefinition ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "Biolink Schema Metamodel" ;
-    pav:version "1.4.4" ;
+    pav:version "1.5.0" ;
     skos:definition "A metamodel for defining biolink related schemas" ;
     meta:classes meta:AltDescription,
         meta:ClassDefinition,
@@ -46,17 +46,17 @@ meta:metamodel a meta:SchemaDefinition ;
     meta:id biolinkml:meta ;
     meta:imports biolinkml:mappings,
         biolinkml:types ;
-    meta:metamodel_version "1.4.4" ;
-    meta:prefixes [ meta:prefix_prefix "bibo" ;
-            meta:prefix_reference bibo: ],
-        [ meta:prefix_prefix "pav" ;
-            meta:prefix_reference pav: ],
-        [ meta:prefix_prefix "OIO" ;
-            meta:prefix_reference OIO: ],
-        [ meta:prefix_prefix "oslc" ;
+    meta:metamodel_version "1.5.0" ;
+    meta:prefixes [ meta:prefix_prefix "oslc" ;
             meta:prefix_reference oslc: ],
         [ meta:prefix_prefix "skos" ;
             meta:prefix_reference skos: ],
+        [ meta:prefix_prefix "pav" ;
+            meta:prefix_reference pav: ],
+        [ meta:prefix_prefix "bibo" ;
+            meta:prefix_reference bibo: ],
+        [ meta:prefix_prefix "OIO" ;
+            meta:prefix_reference OIO: ],
         [ meta:prefix_prefix "meta" ;
             meta:prefix_reference meta: ],
         [ meta:prefix_prefix "schema" ;
@@ -90,6 +90,7 @@ meta:metamodel a meta:SchemaDefinition ;
         meta:deprecated_element_has_possible_replacement,
         meta:description,
         meta:domain,
+        meta:domain_of,
         meta:emit_prefixes,
         meta:exact_mappings,
         meta:examples,
@@ -240,6 +241,7 @@ meta:class_definition_apply_to a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:alias "apply_to" ;
     meta:domain meta:ClassDefinition ;
+    meta:domain_of meta:ClassDefinition ;
     meta:is_a meta:apply_to ;
     meta:is_usage_slot true ;
     meta:multivalued true ;
@@ -251,6 +253,7 @@ meta:class_definition_is_a a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:alias "is_a" ;
     meta:domain meta:ClassDefinition ;
+    meta:domain_of meta:ClassDefinition ;
     meta:is_a meta:is_a ;
     meta:is_usage_slot true ;
     meta:owner meta:ClassDefinition ;
@@ -261,6 +264,7 @@ meta:class_definition_mixins a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:alias "mixins" ;
     meta:domain meta:ClassDefinition ;
+    meta:domain_of meta:ClassDefinition ;
     meta:is_a meta:mixins ;
     meta:is_usage_slot true ;
     meta:multivalued true ;
@@ -272,6 +276,7 @@ meta:slot_definition_apply_to a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:alias "apply_to" ;
     meta:domain meta:SlotDefinition ;
+    meta:domain_of meta:SlotDefinition ;
     meta:is_a meta:apply_to ;
     meta:is_usage_slot true ;
     meta:multivalued true ;
@@ -283,6 +288,7 @@ meta:slot_definition_is_a a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:alias "is_a" ;
     meta:domain meta:SlotDefinition ;
+    meta:domain_of meta:SlotDefinition ;
     meta:is_a meta:is_a ;
     meta:is_usage_slot true ;
     meta:owner meta:SlotDefinition ;
@@ -293,6 +299,7 @@ meta:slot_definition_mixins a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:alias "mixins" ;
     meta:domain meta:SlotDefinition ;
+    meta:domain_of meta:SlotDefinition ;
     meta:is_a meta:mixins ;
     meta:is_usage_slot true ;
     meta:multivalued true ;
@@ -306,6 +313,7 @@ meta:alt_description_source a meta:SlotDefinition ;
     meta:alias "source" ;
     meta:definition_uri meta:alt_description_source ;
     meta:domain meta:AltDescription ;
+    meta:domain_of meta:AltDescription ;
     meta:key true ;
     meta:owner meta:AltDescription ;
     meta:range meta:ncname ;
@@ -318,6 +326,7 @@ meta:alt_description_text a meta:SlotDefinition ;
     meta:alias "description" ;
     meta:definition_uri meta:alt_description_text ;
     meta:domain meta:AltDescription ;
+    meta:domain_of meta:AltDescription ;
     meta:owner meta:AltDescription ;
     meta:range meta:string ;
     meta:required true ;
@@ -329,6 +338,7 @@ meta:inverse a meta:SlotDefinition ;
     skos:mappingRelation owl:inverseOf ;
     meta:definition_uri meta:inverse ;
     meta:domain meta:SlotDefinition ;
+    meta:domain_of meta:SlotDefinition ;
     meta:owner meta:SlotDefinition ;
     meta:range meta:SlotDefinition ;
     meta:slot_uri owl:inverseOf .
@@ -340,6 +350,7 @@ meta:license a meta:SlotDefinition ;
     skos:mappingRelation dcterms:license ;
     meta:definition_uri meta:license ;
     meta:domain meta:SchemaDefinition ;
+    meta:domain_of meta:SchemaDefinition ;
     meta:owner meta:SchemaDefinition ;
     meta:range meta:string ;
     meta:slot_uri dcterms:license .
@@ -350,6 +361,7 @@ meta:local_name_value a meta:SlotDefinition ;
     skos:mappingRelation skos:altLabel ;
     meta:definition_uri meta:local_name_value ;
     meta:domain meta:LocalName ;
+    meta:domain_of meta:LocalName ;
     meta:owner meta:LocalName ;
     meta:range meta:string ;
     meta:required true ;
@@ -361,6 +373,7 @@ meta:singular_name a meta:SlotDefinition ;
     skos:mappingRelation skos:altLabel ;
     meta:definition_uri meta:singular_name ;
     meta:domain meta:SlotDefinition ;
+    meta:domain_of meta:SlotDefinition ;
     meta:owner meta:SlotDefinition ;
     meta:range meta:string ;
     meta:slot_uri skos:altLabel .
@@ -371,6 +384,7 @@ meta:slot_definitions a meta:SlotDefinition ;
     meta:alias "slots" ;
     meta:definition_uri meta:slot_definitions ;
     meta:domain meta:SchemaDefinition ;
+    meta:domain_of meta:SchemaDefinition ;
     meta:inlined true ;
     meta:multivalued true ;
     meta:owner meta:SchemaDefinition ;
@@ -383,6 +397,7 @@ meta:subclass_of a meta:SlotDefinition ;
     skos:mappingRelation rdfs:subClassOf ;
     meta:definition_uri meta:subclass_of ;
     meta:domain meta:ClassDefinition ;
+    meta:domain_of meta:ClassDefinition ;
     meta:owner meta:ClassDefinition ;
     meta:range meta:uriorcurie ;
     meta:slot_uri rdfs:subClassOf .
@@ -393,6 +408,7 @@ meta:subproperty_of a meta:SlotDefinition ;
     skos:mappingRelation rdfs:subPropertyOf ;
     meta:definition_uri meta:subproperty_of ;
     meta:domain meta:SlotDefinition ;
+    meta:domain_of meta:SlotDefinition ;
     meta:owner meta:SlotDefinition ;
     meta:range meta:uriorcurie ;
     meta:slot_uri rdfs:subPropertyOf .
@@ -404,6 +420,7 @@ meta:title a meta:SlotDefinition ;
     skos:mappingRelation dcterms:title ;
     meta:definition_uri meta:title ;
     meta:domain meta:SchemaDefinition ;
+    meta:domain_of meta:SchemaDefinition ;
     meta:owner meta:SchemaDefinition ;
     meta:range meta:string ;
     meta:slot_uri dcterms:title .
@@ -416,6 +433,7 @@ meta:type_uri a meta:SlotDefinition ;
     meta:alias "uri" ;
     meta:definition_uri meta:type_uri ;
     meta:domain meta:TypeDefinition ;
+    meta:domain_of meta:TypeDefinition ;
     meta:inherited true ;
     meta:owner meta:TypeDefinition ;
     meta:range meta:uriorcurie ;
@@ -427,6 +445,7 @@ meta:value a meta:SlotDefinition ;
     skos:mappingRelation skos:example ;
     meta:definition_uri meta:value ;
     meta:domain meta:Example ;
+    meta:domain_of meta:Example ;
     meta:owner meta:Example ;
     meta:range meta:string ;
     meta:slot_uri skos:example .
@@ -437,6 +456,7 @@ meta:value_description a meta:SlotDefinition ;
     meta:alias "description" ;
     meta:definition_uri meta:value_description ;
     meta:domain meta:Example ;
+    meta:domain_of meta:Example ;
     meta:owner meta:Example ;
     meta:range meta:string ;
     meta:slot_uri meta:description .
@@ -448,6 +468,7 @@ meta:version a meta:SlotDefinition ;
         schema:schemaVersion ;
     meta:definition_uri meta:version ;
     meta:domain meta:SchemaDefinition ;
+    meta:domain_of meta:SchemaDefinition ;
     meta:owner meta:SchemaDefinition ;
     meta:range meta:string ;
     meta:slot_uri pav:version .
@@ -457,6 +478,7 @@ meta:alias a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:alias ;
     meta:domain meta:SlotDefinition ;
+    meta:domain_of meta:SlotDefinition ;
     meta:owner meta:SlotDefinition ;
     meta:range meta:string ;
     meta:slot_uri meta:alias .
@@ -468,6 +490,7 @@ meta:base a meta:SlotDefinition ;
         "the base is inherited by child types but may be overriden.  Base compatibility is not checked." ;
     meta:definition_uri meta:base ;
     meta:domain meta:TypeDefinition ;
+    meta:domain_of meta:TypeDefinition ;
     meta:inherited true ;
     meta:owner meta:TypeDefinition ;
     meta:range meta:string ;
@@ -478,6 +501,7 @@ meta:class_uri a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:class_uri ;
     meta:domain meta:ClassDefinition ;
+    meta:domain_of meta:ClassDefinition ;
     meta:ifabsent "class_curie" ;
     meta:owner meta:ClassDefinition ;
     meta:range meta:uriorcurie ;
@@ -488,6 +512,7 @@ meta:classes a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:classes ;
     meta:domain meta:SchemaDefinition ;
+    meta:domain_of meta:SchemaDefinition ;
     meta:inlined true ;
     meta:multivalued true ;
     meta:owner meta:SchemaDefinition ;
@@ -499,6 +524,7 @@ meta:default_curi_maps a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:default_curi_maps ;
     meta:domain meta:SchemaDefinition ;
+    meta:domain_of meta:SchemaDefinition ;
     meta:multivalued true ;
     meta:owner meta:SchemaDefinition ;
     meta:range meta:string ;
@@ -509,6 +535,7 @@ meta:default_prefix a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:default_prefix ;
     meta:domain meta:SchemaDefinition ;
+    meta:domain_of meta:SchemaDefinition ;
     meta:ifabsent "default_ns" ;
     meta:owner meta:SchemaDefinition ;
     meta:range meta:string ;
@@ -520,6 +547,7 @@ meta:default_range a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:default_range ;
     meta:domain meta:SchemaDefinition ;
+    meta:domain_of meta:SchemaDefinition ;
     meta:owner meta:SchemaDefinition ;
     meta:range meta:TypeDefinition ;
     meta:slot_uri meta:default_range .
@@ -529,6 +557,7 @@ meta:defining_slots a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:defining_slots ;
     meta:domain meta:ClassDefinition ;
+    meta:domain_of meta:ClassDefinition ;
     meta:inherited true ;
     meta:multivalued true ;
     meta:owner meta:ClassDefinition ;
@@ -549,16 +578,30 @@ implicitly asserts that X is an instance of C1
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:domain ;
     meta:domain meta:SlotDefinition ;
+    meta:domain_of meta:SlotDefinition ;
     meta:inherited true ;
     meta:owner meta:SlotDefinition ;
     meta:range meta:ClassDefinition ;
     meta:slot_uri meta:domain .
+
+meta:domain_of a meta:SlotDefinition ;
+    skos:definition "the class(es) that reference the slot in a \"slots\" or \"slot_usage\" context" ;
+    skos:inScheme biolinkml:meta ;
+    meta:definition_uri meta:domain_of ;
+    meta:domain meta:SlotDefinition ;
+    meta:domain_of meta:SlotDefinition ;
+    meta:multivalued true ;
+    meta:owner meta:SlotDefinition ;
+    meta:range meta:ClassDefinition ;
+    meta:readonly "filled in by the loader" ;
+    meta:slot_uri meta:domain_of .
 
 meta:emit_prefixes a meta:SlotDefinition ;
     skos:definition "a list of Curie prefixes that are used in the representation of instances of the model.  All prefixes in this list are added to the prefix sections of the target models." ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:emit_prefixes ;
     meta:domain meta:SchemaDefinition ;
+    meta:domain_of meta:SchemaDefinition ;
     meta:multivalued true ;
     meta:owner meta:SchemaDefinition ;
     meta:range meta:ncname ;
@@ -570,6 +613,7 @@ meta:generation_date a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:generation_date ;
     meta:domain meta:SchemaDefinition ;
+    meta:domain_of meta:SchemaDefinition ;
     meta:owner meta:SchemaDefinition ;
     meta:range meta:datetime ;
     meta:readonly "supplied by the schema loader" ;
@@ -580,6 +624,7 @@ meta:id a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:id ;
     meta:domain meta:SchemaDefinition ;
+    meta:domain_of meta:SchemaDefinition ;
     meta:owner meta:SchemaDefinition ;
     meta:range meta:uri ;
     meta:required true ;
@@ -593,6 +638,7 @@ meta:identifier a meta:SlotDefinition ;
         "identifier slots are always required" ;
     meta:definition_uri meta:identifier ;
     meta:domain meta:SlotDefinition ;
+    meta:domain_of meta:SlotDefinition ;
     meta:inherited true ;
     meta:owner meta:SlotDefinition ;
     meta:range meta:boolean ;
@@ -612,6 +658,7 @@ meta:ifabsent a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:ifabsent ;
     meta:domain meta:SlotDefinition ;
+    meta:domain_of meta:SlotDefinition ;
     meta:inherited true ;
     meta:owner meta:SlotDefinition ;
     meta:range meta:string ;
@@ -622,6 +669,7 @@ meta:imports a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:imports ;
     meta:domain meta:SchemaDefinition ;
+    meta:domain_of meta:SchemaDefinition ;
     meta:multivalued true ;
     meta:owner meta:SchemaDefinition ;
     meta:range meta:uriorcurie ;
@@ -633,6 +681,7 @@ meta:inherited a meta:SlotDefinition ;
     skos:note "Inherited applies to slot values.  Parent *slots* are always inherited by subclasses" ;
     meta:definition_uri meta:inherited ;
     meta:domain meta:SlotDefinition ;
+    meta:domain_of meta:SlotDefinition ;
     meta:inherited true ;
     meta:owner meta:SlotDefinition ;
     meta:range meta:boolean ;
@@ -643,6 +692,7 @@ meta:inlined a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:inlined ;
     meta:domain meta:SlotDefinition ;
+    meta:domain_of meta:SlotDefinition ;
     meta:inherited true ;
     meta:owner meta:SlotDefinition ;
     meta:range meta:boolean ;
@@ -661,6 +711,7 @@ meta:is_class_field a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:is_class_field ;
     meta:domain meta:SlotDefinition ;
+    meta:domain_of meta:SlotDefinition ;
     meta:owner meta:SlotDefinition ;
     meta:range meta:boolean ;
     meta:slot_uri meta:is_class_field .
@@ -670,6 +721,7 @@ meta:is_usage_slot a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:is_usage_slot ;
     meta:domain meta:SlotDefinition ;
+    meta:domain_of meta:SlotDefinition ;
     meta:owner meta:SlotDefinition ;
     meta:range meta:boolean ;
     meta:readonly "filled in by the loader" ;
@@ -683,6 +735,7 @@ meta:key a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:key ;
     meta:domain meta:SlotDefinition ;
+    meta:domain_of meta:SlotDefinition ;
     meta:inherited true ;
     meta:owner meta:SlotDefinition ;
     meta:range meta:boolean ;
@@ -693,6 +746,7 @@ meta:local_name_source a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:local_name_source ;
     meta:domain meta:LocalName ;
+    meta:domain_of meta:LocalName ;
     meta:key true ;
     meta:owner meta:LocalName ;
     meta:range meta:ncname ;
@@ -704,6 +758,7 @@ meta:maximum_value a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:maximum_value ;
     meta:domain meta:SlotDefinition ;
+    meta:domain_of meta:SlotDefinition ;
     meta:inherited true ;
     meta:owner meta:SlotDefinition ;
     meta:range meta:integer ;
@@ -715,6 +770,7 @@ meta:metamodel_version a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:metamodel_version ;
     meta:domain meta:SchemaDefinition ;
+    meta:domain_of meta:SchemaDefinition ;
     meta:owner meta:SchemaDefinition ;
     meta:range meta:string ;
     meta:readonly "supplied by the schema loader" ;
@@ -725,6 +781,7 @@ meta:minimum_value a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:minimum_value ;
     meta:domain meta:SlotDefinition ;
+    meta:domain_of meta:SlotDefinition ;
     meta:inherited true ;
     meta:owner meta:SlotDefinition ;
     meta:range meta:integer ;
@@ -735,6 +792,7 @@ meta:multivalued a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:multivalued ;
     meta:domain meta:SlotDefinition ;
+    meta:domain_of meta:SlotDefinition ;
     meta:inherited true ;
     meta:owner meta:SlotDefinition ;
     meta:range meta:boolean ;
@@ -744,7 +802,9 @@ meta:owner a meta:SlotDefinition ;
     skos:definition "the \"owner\" of the slot. It is the class if it appears in the slots list, otherwise the declaring slot" ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:owner ;
+    meta:deprecated "Will be replaced by domain_of and eventually removed" ;
     meta:domain meta:SlotDefinition ;
+    meta:domain_of meta:SlotDefinition ;
     meta:owner meta:SlotDefinition ;
     meta:range meta:Definition ;
     meta:readonly "filled in by loader -- either class domain or slot domain" ;
@@ -755,6 +815,7 @@ meta:pattern a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:pattern ;
     meta:domain meta:SlotDefinition ;
+    meta:domain_of meta:SlotDefinition ;
     meta:inherited true ;
     meta:owner meta:SlotDefinition ;
     meta:range meta:string ;
@@ -765,6 +826,7 @@ meta:prefix_prefix a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:prefix_prefix ;
     meta:domain meta:Prefix ;
+    meta:domain_of meta:Prefix ;
     meta:key true ;
     meta:owner meta:Prefix ;
     meta:range meta:ncname ;
@@ -776,6 +838,7 @@ meta:prefix_reference a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:prefix_reference ;
     meta:domain meta:Prefix ;
+    meta:domain_of meta:Prefix ;
     meta:owner meta:Prefix ;
     meta:range meta:uri ;
     meta:required true ;
@@ -786,6 +849,7 @@ meta:prefixes a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:prefixes ;
     meta:domain meta:SchemaDefinition ;
+    meta:domain_of meta:SchemaDefinition ;
     meta:inlined true ;
     meta:multivalued true ;
     meta:owner meta:SchemaDefinition ;
@@ -806,6 +870,7 @@ implicitly asserts Y is an instance of C2
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:range ;
     meta:domain meta:SlotDefinition ;
+    meta:domain_of meta:SlotDefinition ;
     meta:ifabsent "default_range" ;
     meta:inherited true ;
     meta:owner meta:SlotDefinition ;
@@ -817,6 +882,7 @@ meta:readonly a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:readonly ;
     meta:domain meta:SlotDefinition ;
+    meta:domain_of meta:SlotDefinition ;
     meta:inherited true ;
     meta:owner meta:SlotDefinition ;
     meta:range meta:string ;
@@ -827,6 +893,7 @@ meta:repr a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:repr ;
     meta:domain meta:TypeDefinition ;
+    meta:domain_of meta:TypeDefinition ;
     meta:examples [ a meta:Example ] ;
     meta:inherited true ;
     meta:owner meta:TypeDefinition ;
@@ -838,6 +905,7 @@ meta:required a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:required ;
     meta:domain meta:SlotDefinition ;
+    meta:domain_of meta:SlotDefinition ;
     meta:inherited true ;
     meta:owner meta:SlotDefinition ;
     meta:range meta:boolean ;
@@ -848,6 +916,7 @@ meta:role a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:role ;
     meta:domain meta:SlotDefinition ;
+    meta:domain_of meta:SlotDefinition ;
     meta:inherited true ;
     meta:owner meta:SlotDefinition ;
     meta:range meta:string ;
@@ -858,6 +927,7 @@ meta:slot_uri a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:slot_uri ;
     meta:domain meta:SlotDefinition ;
+    meta:domain_of meta:SlotDefinition ;
     meta:ifabsent "slot_curie" ;
     meta:owner meta:SlotDefinition ;
     meta:range meta:uriorcurie ;
@@ -869,6 +939,7 @@ meta:slot_usage a meta:SlotDefinition ;
     skos:note "Many slots may be re-used across different classes, but the meaning of the slot may be refined by context. For example, a generic association model may use slots subject/predicate/object with generic semantics and minimal constraints. When this is subclasses, e.g. to disease-phenotype associations then slot usage may specify both local naming (e.g. subject=disease) and local constraints" ;
     meta:definition_uri meta:slot_usage ;
     meta:domain meta:ClassDefinition ;
+    meta:domain_of meta:ClassDefinition ;
     meta:inlined true ;
     meta:multivalued true ;
     meta:owner meta:ClassDefinition ;
@@ -881,6 +952,7 @@ meta:source_file a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:source_file ;
     meta:domain meta:SchemaDefinition ;
+    meta:domain_of meta:SchemaDefinition ;
     meta:owner meta:SchemaDefinition ;
     meta:range meta:string ;
     meta:readonly "suppplied by the schema loader" ;
@@ -892,6 +964,7 @@ meta:source_file_date a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:source_file_date ;
     meta:domain meta:SchemaDefinition ;
+    meta:domain_of meta:SchemaDefinition ;
     meta:owner meta:SchemaDefinition ;
     meta:range meta:datetime ;
     meta:readonly "supplied by the loader" ;
@@ -903,6 +976,7 @@ meta:source_file_size a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:source_file_size ;
     meta:domain meta:SchemaDefinition ;
+    meta:domain_of meta:SchemaDefinition ;
     meta:owner meta:SchemaDefinition ;
     meta:range meta:integer ;
     meta:readonly "supplied by the schema loader" ;
@@ -917,6 +991,7 @@ For example, a Measurement class may have 3 fields: unit, value, and string_valu
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:string_serialization ;
     meta:domain meta:SlotDefinition ;
+    meta:domain_of meta:SlotDefinition ;
     meta:owner meta:SlotDefinition ;
     meta:range meta:string ;
     meta:slot_uri meta:string_serialization .
@@ -926,6 +1001,7 @@ meta:subsets a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:subsets ;
     meta:domain meta:SchemaDefinition ;
+    meta:domain_of meta:SchemaDefinition ;
     meta:inlined true ;
     meta:multivalued true ;
     meta:owner meta:SchemaDefinition ;
@@ -937,6 +1013,7 @@ meta:symmetric a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:symmetric ;
     meta:domain meta:SlotDefinition ;
+    meta:domain_of meta:SlotDefinition ;
     meta:owner meta:SlotDefinition ;
     meta:range meta:boolean ;
     meta:slot_uri meta:symmetric .
@@ -949,6 +1026,7 @@ meta:typeof a meta:SlotDefinition ;
         "type definitions without a typeof slot are referred to as a \"root type\"" ;
     meta:definition_uri meta:typeof ;
     meta:domain meta:TypeDefinition ;
+    meta:domain_of meta:TypeDefinition ;
     meta:owner meta:TypeDefinition ;
     meta:range meta:TypeDefinition ;
     meta:slot_uri meta:typeof .
@@ -958,6 +1036,7 @@ meta:types a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:types ;
     meta:domain meta:SchemaDefinition ;
+    meta:domain_of meta:SchemaDefinition ;
     meta:inlined true ;
     meta:multivalued true ;
     meta:owner meta:SchemaDefinition ;
@@ -970,6 +1049,7 @@ meta:union_of a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:union_of ;
     meta:domain meta:ClassDefinition ;
+    meta:domain_of meta:ClassDefinition ;
     meta:multivalued true ;
     meta:owner meta:ClassDefinition ;
     meta:range meta:ClassDefinition ;
@@ -990,6 +1070,7 @@ meta:slots a meta:SlotDefinition ;
     skos:note "This defines the set of slots that are allowed to be used for a given class. The final list of slots for a class is the combination of the parent (is a) slots, mixins slots, apply to slots minus the slot usage entries. Formally, " ;
     meta:definition_uri meta:slots ;
     meta:domain meta:ClassDefinition ;
+    meta:domain_of meta:ClassDefinition ;
     meta:multivalued true ;
     meta:owner meta:ClassDefinition ;
     meta:range meta:SlotDefinition ;
@@ -1014,8 +1095,6 @@ meta:SubsetDefinition a meta:ClassDefinition ;
         meta:alt_descriptions,
         meta:close_mappings,
         meta:comments,
-        meta:created_by,
-        meta:created_on,
         meta:definition_uri,
         meta:deprecated,
         meta:deprecated_element_has_exact_replacement,
@@ -1027,15 +1106,12 @@ meta:SubsetDefinition a meta:ClassDefinition ;
         meta:id_prefixes,
         meta:imported_from,
         meta:in_subset,
-        meta:last_updated_on,
         meta:local_names,
         meta:mappings,
-        meta:modified_by,
         meta:name,
         meta:notes,
         meta:related_mappings,
         meta:see_also,
-        meta:status,
         meta:todos .
 
 meta:abstract a meta:SlotDefinition ;
@@ -1043,18 +1119,64 @@ meta:abstract a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:abstract ;
     meta:domain meta:Definition ;
+    meta:domain_of meta:Definition ;
     meta:owner meta:Definition ;
     meta:range meta:boolean ;
     meta:slot_uri meta:abstract .
+
+meta:created_by a meta:SlotDefinition ;
+    skos:definition "agent that created the element" ;
+    skos:inScheme biolinkml:meta ;
+    skos:mappingRelation pav:createdBy ;
+    meta:definition_uri meta:created_by ;
+    meta:domain meta:Element ;
+    meta:domain_of meta:Definition ;
+    meta:owner meta:created_by ;
+    meta:range meta:uriorcurie ;
+    meta:slot_uri pav:createdBy .
+
+meta:created_on a meta:SlotDefinition ;
+    skos:definition "time at which the element was created" ;
+    skos:inScheme biolinkml:meta ;
+    skos:mappingRelation pav:createdOn ;
+    meta:definition_uri meta:created_on ;
+    meta:domain meta:Element ;
+    meta:domain_of meta:Definition ;
+    meta:owner meta:created_on ;
+    meta:range meta:datetime ;
+    meta:slot_uri pav:createdOn .
+
+meta:last_updated_on a meta:SlotDefinition ;
+    skos:definition "time at which the element was last updated" ;
+    skos:inScheme biolinkml:meta ;
+    skos:mappingRelation pav:lastUpdatedOn ;
+    meta:definition_uri meta:last_updated_on ;
+    meta:domain meta:Element ;
+    meta:domain_of meta:Definition ;
+    meta:owner meta:last_updated_on ;
+    meta:range meta:datetime ;
+    meta:slot_uri pav:lastUpdatedOn .
 
 meta:mixin a meta:SlotDefinition ;
     skos:definition "this slot or class can only be used as a mixin -- equivalent to abstract" ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:mixin ;
     meta:domain meta:Definition ;
+    meta:domain_of meta:Definition ;
     meta:owner meta:Definition ;
     meta:range meta:boolean ;
     meta:slot_uri meta:mixin .
+
+meta:modified_by a meta:SlotDefinition ;
+    skos:definition "agent that modified the element" ;
+    skos:inScheme biolinkml:meta ;
+    skos:mappingRelation oslc:modifiedBy ;
+    meta:definition_uri meta:modified_by ;
+    meta:domain meta:Element ;
+    meta:domain_of meta:Definition ;
+    meta:owner meta:modified_by ;
+    meta:range meta:uriorcurie ;
+    meta:slot_uri oslc:modifiedBy .
 
 meta:ncname a meta:TypeDefinition ;
     skos:definition "Prefix part of CURIE" ;
@@ -1065,15 +1187,192 @@ meta:ncname a meta:TypeDefinition ;
     meta:repr "str" ;
     meta:uri xsd:string .
 
+meta:status a meta:SlotDefinition ;
+    skos:definition "status of the element" ;
+    skos:inScheme biolinkml:meta ;
+    skos:mappingRelation bibo:status ;
+    meta:definition_uri meta:status ;
+    meta:domain meta:Element ;
+    meta:domain_of meta:Definition ;
+    meta:examples [ a meta:Example ;
+            skos:example "bibo:draft" ] ;
+    meta:owner meta:status ;
+    meta:range meta:uriorcurie ;
+    meta:slot_uri bibo:status .
+
 meta:values_from a meta:SlotDefinition ;
     skos:definition "the identifier of a \"value set\" -- a set of identifiers that form the possible values for the range of a slot" ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:values_from ;
     meta:domain meta:Definition ;
+    meta:domain_of meta:Definition ;
     meta:multivalued true ;
     meta:owner meta:Definition ;
     meta:range meta:uriorcurie ;
     meta:slot_uri meta:values_from .
+
+meta:apply_to a meta:SlotDefinition ;
+    skos:definition "Used to extend class or slot definitions. For example, if we have a core schema where a gene has two slots for identifier and symbol, and we have a specialized schema for my_organism where we wish to add a slot systematic_name, we can avoid subclassing by defining a class gene_my_organism, adding the slot to this class, and then adding an apply_to pointing to the gene class. The new slot will be 'injected into' the gene class." ;
+    skos:inScheme biolinkml:meta ;
+    meta:definition_uri meta:apply_to ;
+    meta:domain meta:Definition ;
+    meta:domain_of meta:Definition ;
+    meta:multivalued true ;
+    meta:owner meta:Definition ;
+    meta:range meta:Definition ;
+    meta:slot_uri meta:apply_to .
+
+meta:is_a a meta:SlotDefinition ;
+    skos:definition "specifies single-inheritance between classes or slots. While multiple inheritance is not allowed, mixins can be provided effectively providing the same thing. The semantics are the same when translated to formalisms that allow MI (e.g. RDFS/OWL). When translating to a SI framework (e.g. java classes, python classes) then is a is used. When translating a framework without polymorphism (e.g. json-schema, solr document schema) then is a and mixins are recursively unfolded" ;
+    skos:inScheme biolinkml:meta ;
+    meta:abstract true ;
+    meta:definition_uri meta:is_a ;
+    meta:domain meta:Definition ;
+    meta:domain_of meta:Definition ;
+    meta:owner meta:Definition ;
+    meta:range meta:Definition ;
+    meta:slot_uri meta:is_a .
+
+meta:mixins a meta:SlotDefinition ;
+    skos:definition "List of definitions to be mixed in. Targets may be any definition of the same type" ;
+    skos:inScheme biolinkml:meta ;
+    meta:definition_uri meta:mixins ;
+    meta:domain meta:Definition ;
+    meta:domain_of meta:Definition ;
+    meta:multivalued true ;
+    meta:owner meta:Definition ;
+    meta:range meta:Definition ;
+    meta:slot_uri meta:mixins .
+
+meta:aliases a meta:SlotDefinition ;
+    skos:inScheme biolinkml:meta ;
+    skos:mappingRelation skos:altLabel ;
+    meta:definition_uri meta:aliases ;
+    meta:domain meta:Element ;
+    meta:domain_of meta:Element ;
+    meta:multivalued true ;
+    meta:owner meta:Element ;
+    meta:range meta:string ;
+    meta:slot_uri skos:altLabel .
+
+meta:close_mappings a meta:SlotDefinition ;
+    skos:definition "A list of terms from different schemas or terminology systems that have close meaning." ;
+    skos:inScheme biolinkml:mappings ;
+    skos:mappingRelation skos:closeMatch ;
+    meta:definition_uri meta:close_mappings ;
+    meta:domain_of meta:Element ;
+    meta:imported_from "biolinkml:mappings" ;
+    meta:is_a meta:mappings ;
+    meta:multivalued true ;
+    meta:owner meta:Element ;
+    meta:range meta:uriorcurie ;
+    meta:slot_uri skos:closeMatch .
+
+meta:comments a meta:SlotDefinition ;
+    OIO:inSubset meta:owl ;
+    skos:definition "notes and comments about an element intended for external consumption" ;
+    skos:inScheme biolinkml:meta ;
+    skos:mappingRelation skos:note ;
+    meta:definition_uri meta:comments ;
+    meta:domain meta:Element ;
+    meta:domain_of meta:Element ;
+    meta:multivalued true ;
+    meta:owner meta:Element ;
+    meta:range meta:string ;
+    meta:slot_uri skos:note .
+
+meta:exact_mappings a meta:SlotDefinition ;
+    skos:definition "A list of terms from different schemas or terminology systems that have identical meaning." ;
+    skos:inScheme biolinkml:mappings ;
+    skos:mappingRelation skos:exactMatch ;
+    meta:definition_uri meta:exact_mappings ;
+    meta:domain_of meta:Element ;
+    meta:imported_from "biolinkml:mappings" ;
+    meta:is_a meta:mappings ;
+    meta:multivalued true ;
+    meta:owner meta:Element ;
+    meta:range meta:uriorcurie ;
+    meta:slot_uri skos:exactMatch .
+
+meta:from_schema a meta:SlotDefinition ;
+    skos:definition "id of the schema that defined the element" ;
+    skos:editorialNote "A stronger model would be range schema_definition, but this doesn't address the import model" ;
+    skos:inScheme biolinkml:meta ;
+    skos:mappingRelation skos:inScheme ;
+    meta:definition_uri meta:from_schema ;
+    meta:domain meta:Element ;
+    meta:domain_of meta:Element ;
+    meta:owner meta:Element ;
+    meta:range meta:uri ;
+    meta:readonly "supplied by the schema loader" ;
+    meta:slot_uri skos:inScheme .
+
+meta:in_subset a meta:SlotDefinition ;
+    skos:definition "used to indicate membership of a term in a defined subset of biolink terms used for a particular domain or application (e.g. the translator_minimal subset holding the minimal set of predicates used in a translator knowledge graph)" ;
+    skos:inScheme biolinkml:meta ;
+    skos:mappingRelation OIO:inSubset ;
+    meta:definition_uri meta:in_subset ;
+    meta:domain meta:Element ;
+    meta:domain_of meta:Element ;
+    meta:multivalued true ;
+    meta:owner meta:Element ;
+    meta:range meta:SubsetDefinition ;
+    meta:slot_uri OIO:inSubset .
+
+meta:name a meta:SlotDefinition ;
+    OIO:inSubset meta:owl ;
+    skos:definition "the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class." ;
+    skos:inScheme biolinkml:meta ;
+    skos:mappingRelation schema:name,
+        rdfs:label ;
+    meta:definition_uri meta:name ;
+    meta:domain meta:Element ;
+    meta:domain_of meta:Element ;
+    meta:identifier true ;
+    meta:key true ;
+    meta:owner meta:Element ;
+    meta:range meta:string ;
+    meta:required true ;
+    meta:slot_uri rdfs:label .
+
+meta:notes a meta:SlotDefinition ;
+    OIO:inSubset meta:owl ;
+    skos:definition "editorial notes about an element intended for internal consumption" ;
+    skos:inScheme biolinkml:meta ;
+    skos:mappingRelation skos:editorialNote ;
+    meta:definition_uri meta:notes ;
+    meta:domain meta:Element ;
+    meta:domain_of meta:Element ;
+    meta:multivalued true ;
+    meta:owner meta:Element ;
+    meta:range meta:string ;
+    meta:slot_uri skos:editorialNote .
+
+meta:related_mappings a meta:SlotDefinition ;
+    skos:definition "A list of terms from different schemas or terminology systems that have related meaning." ;
+    skos:inScheme biolinkml:mappings ;
+    skos:mappingRelation skos:relatedMatch ;
+    meta:definition_uri meta:related_mappings ;
+    meta:domain_of meta:Element ;
+    meta:imported_from "biolinkml:mappings" ;
+    meta:is_a meta:mappings ;
+    meta:multivalued true ;
+    meta:owner meta:Element ;
+    meta:range meta:uriorcurie ;
+    meta:slot_uri skos:relatedMatch .
+
+meta:see_also a meta:SlotDefinition ;
+    OIO:inSubset meta:owl ;
+    skos:definition "a reference" ;
+    skos:inScheme biolinkml:meta ;
+    skos:mappingRelation rdfs:seeAlso ;
+    meta:definition_uri meta:see_also ;
+    meta:domain meta:Element ;
+    meta:domain_of meta:Element ;
+    meta:multivalued true ;
+    meta:owner meta:Element ;
+    meta:range meta:uriorcurie ;
+    meta:slot_uri rdfs:seeAlso .
 
 meta:AltDescription a meta:ClassDefinition ;
     skos:definition "an attributed description" ;
@@ -1099,193 +1398,16 @@ meta:Prefix a meta:ClassDefinition ;
     meta:slots meta:prefix_prefix,
         meta:prefix_reference .
 
-meta:apply_to a meta:SlotDefinition ;
-    skos:definition "Used to extend class or slot definitions. For example, if we have a core schema where a gene has two slots for identifier and symbol, and we have a specialized schema for my_organism where we wish to add a slot systematic_name, we can avoid subclassing by defining a class gene_my_organism, adding the slot to this class, and then adding an apply_to pointing to the gene class. The new slot will be 'injected into' the gene class." ;
-    skos:inScheme biolinkml:meta ;
-    meta:definition_uri meta:apply_to ;
-    meta:domain meta:Definition ;
-    meta:multivalued true ;
-    meta:owner meta:Definition ;
-    meta:range meta:Definition ;
-    meta:slot_uri meta:apply_to .
-
-meta:is_a a meta:SlotDefinition ;
-    skos:definition "specifies single-inheritance between classes or slots. While multiple inheritance is not allowed, mixins can be provided effectively providing the same thing. The semantics are the same when translated to formalisms that allow MI (e.g. RDFS/OWL). When translating to a SI framework (e.g. java classes, python classes) then is a is used. When translating a framework without polymorphism (e.g. json-schema, solr document schema) then is a and mixins are recursively unfolded" ;
-    skos:inScheme biolinkml:meta ;
-    meta:abstract true ;
-    meta:definition_uri meta:is_a ;
-    meta:domain meta:Definition ;
-    meta:owner meta:Definition ;
-    meta:range meta:Definition ;
-    meta:slot_uri meta:is_a .
-
-meta:mixins a meta:SlotDefinition ;
-    skos:definition "List of definitions to be mixed in. Targets may be any definition of the same type" ;
-    skos:inScheme biolinkml:meta ;
-    meta:definition_uri meta:mixins ;
-    meta:domain meta:Definition ;
-    meta:multivalued true ;
-    meta:owner meta:Definition ;
-    meta:range meta:Definition ;
-    meta:slot_uri meta:mixins .
-
-meta:aliases a meta:SlotDefinition ;
-    skos:inScheme biolinkml:meta ;
-    skos:mappingRelation skos:altLabel ;
-    meta:definition_uri meta:aliases ;
-    meta:domain meta:Element ;
-    meta:multivalued true ;
-    meta:owner meta:Element ;
-    meta:range meta:string ;
-    meta:slot_uri skos:altLabel .
-
-meta:close_mappings a meta:SlotDefinition ;
-    skos:definition "A list of terms from different schemas or terminology systems that have close meaning." ;
-    skos:inScheme biolinkml:mappings ;
-    skos:mappingRelation skos:closeMatch ;
-    meta:definition_uri meta:close_mappings ;
-    meta:imported_from "biolinkml:mappings" ;
-    meta:is_a meta:mappings ;
-    meta:multivalued true ;
-    meta:owner meta:Element ;
-    meta:range meta:uriorcurie ;
-    meta:slot_uri skos:closeMatch .
-
-meta:comments a meta:SlotDefinition ;
-    OIO:inSubset meta:owl ;
-    skos:definition "notes and comments about an element intended for external consumption" ;
-    skos:inScheme biolinkml:meta ;
-    skos:mappingRelation skos:note ;
-    meta:definition_uri meta:comments ;
-    meta:domain meta:Element ;
-    meta:multivalued true ;
-    meta:owner meta:Element ;
-    meta:range meta:string ;
-    meta:slot_uri skos:note .
-
-meta:exact_mappings a meta:SlotDefinition ;
-    skos:definition "A list of terms from different schemas or terminology systems that have identical meaning." ;
-    skos:inScheme biolinkml:mappings ;
-    skos:mappingRelation skos:exactMatch ;
-    meta:definition_uri meta:exact_mappings ;
-    meta:imported_from "biolinkml:mappings" ;
-    meta:is_a meta:mappings ;
-    meta:multivalued true ;
-    meta:owner meta:Element ;
-    meta:range meta:uriorcurie ;
-    meta:slot_uri skos:exactMatch .
-
-meta:from_schema a meta:SlotDefinition ;
-    skos:definition "id of the schema that defined the element" ;
-    skos:editorialNote "A stronger model would be range schema_definition, but this doesn't address the import model" ;
-    skos:inScheme biolinkml:meta ;
-    skos:mappingRelation skos:inScheme ;
-    meta:definition_uri meta:from_schema ;
-    meta:domain meta:Element ;
-    meta:owner meta:Element ;
-    meta:range meta:uri ;
-    meta:readonly "supplied by the schema loader" ;
-    meta:slot_uri skos:inScheme .
-
-meta:in_subset a meta:SlotDefinition ;
-    skos:definition "used to indicate membership of a term in a defined subset of biolink terms used for a particular domain or application (e.g. the translator_minimal subset holding the minimal set of predicates used in a translator knowledge graph)" ;
-    skos:inScheme biolinkml:meta ;
-    skos:mappingRelation OIO:inSubset ;
-    meta:definition_uri meta:in_subset ;
-    meta:domain meta:Element ;
-    meta:multivalued true ;
-    meta:owner meta:Element ;
-    meta:range meta:SubsetDefinition ;
-    meta:slot_uri OIO:inSubset .
-
-meta:name a meta:SlotDefinition ;
-    OIO:inSubset meta:owl ;
-    skos:definition "the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class." ;
-    skos:inScheme biolinkml:meta ;
-    skos:mappingRelation schema:name,
-        rdfs:label ;
-    meta:definition_uri meta:name ;
-    meta:domain meta:Element ;
-    meta:identifier true ;
-    meta:key true ;
-    meta:owner meta:Element ;
-    meta:range meta:string ;
-    meta:required true ;
-    meta:slot_uri rdfs:label .
-
-meta:notes a meta:SlotDefinition ;
-    OIO:inSubset meta:owl ;
-    skos:definition "editorial notes about an element intended for internal consumption" ;
-    skos:inScheme biolinkml:meta ;
-    skos:mappingRelation skos:editorialNote ;
-    meta:definition_uri meta:notes ;
-    meta:domain meta:Element ;
-    meta:multivalued true ;
-    meta:owner meta:Element ;
-    meta:range meta:string ;
-    meta:slot_uri skos:editorialNote .
-
-meta:related_mappings a meta:SlotDefinition ;
-    skos:definition "A list of terms from different schemas or terminology systems that have related meaning." ;
-    skos:inScheme biolinkml:mappings ;
-    skos:mappingRelation skos:relatedMatch ;
-    meta:definition_uri meta:related_mappings ;
-    meta:imported_from "biolinkml:mappings" ;
-    meta:is_a meta:mappings ;
-    meta:multivalued true ;
-    meta:owner meta:Element ;
-    meta:range meta:uriorcurie ;
-    meta:slot_uri skos:relatedMatch .
-
-meta:see_also a meta:SlotDefinition ;
-    OIO:inSubset meta:owl ;
-    skos:definition "a reference" ;
-    skos:inScheme biolinkml:meta ;
-    skos:mappingRelation rdfs:seeAlso ;
-    meta:definition_uri meta:see_also ;
-    meta:domain meta:Element ;
-    meta:multivalued true ;
-    meta:owner meta:Element ;
-    meta:range meta:uriorcurie ;
-    meta:slot_uri rdfs:seeAlso .
-
-meta:Example a meta:ClassDefinition ;
-    skos:definition "usage example and description" ;
-    skos:inScheme biolinkml:meta ;
-    meta:class_uri meta:Example ;
-    meta:definition_uri meta:Example ;
-    meta:slots meta:value,
-        meta:value_description .
-
 meta:alt_descriptions a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:alt_descriptions ;
     meta:domain meta:Element ;
+    meta:domain_of meta:Element ;
     meta:inlined true ;
     meta:multivalued true ;
     meta:owner meta:Element ;
     meta:range meta:AltDescription ;
     meta:slot_uri meta:alt_descriptions .
-
-meta:created_by a meta:SlotDefinition ;
-    skos:definition "agent that created the element" ;
-    skos:inScheme biolinkml:meta ;
-    skos:mappingRelation pav:createdBy ;
-    meta:definition_uri meta:created_by ;
-    meta:domain meta:Element ;
-    meta:owner meta:created_by ;
-    meta:range meta:uriorcurie ;
-    meta:slot_uri pav:createdBy .
-
-meta:created_on a meta:SlotDefinition ;
-    skos:definition "time at which the element was created" ;
-    skos:inScheme biolinkml:meta ;
-    skos:mappingRelation pav:createdOn ;
-    meta:definition_uri meta:created_on ;
-    meta:domain meta:Element ;
-    meta:owner meta:created_on ;
-    meta:range meta:datetime ;
-    meta:slot_uri pav:createdOn .
 
 meta:definition_uri a meta:SlotDefinition ;
     skos:definition "the \"native\" URI of the element" ;
@@ -1293,6 +1415,7 @@ meta:definition_uri a meta:SlotDefinition ;
     skos:note "Formed by combining the default_prefix with the mangled element" ;
     meta:definition_uri meta:definition_uri ;
     meta:domain meta:Element ;
+    meta:domain_of meta:Element ;
     meta:owner meta:Element ;
     meta:range meta:uriorcurie ;
     meta:readonly "filled in by the schema loader" ;
@@ -1303,6 +1426,7 @@ meta:deprecated a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:deprecated ;
     meta:domain meta:Element ;
+    meta:domain_of meta:Element ;
     meta:owner meta:Element ;
     meta:range meta:string ;
     meta:slot_uri meta:deprecated .
@@ -1312,6 +1436,7 @@ meta:deprecated_element_has_exact_replacement a meta:SlotDefinition ;
     skos:inScheme biolinkml:mappings ;
     skos:mappingRelation <http://purl.obolibrary.org/obo/IAO_0100001> ;
     meta:definition_uri meta:deprecated_element_has_exact_replacement ;
+    meta:domain_of meta:Element ;
     meta:imported_from "biolinkml:mappings" ;
     meta:owner meta:Element ;
     meta:range meta:uriorcurie ;
@@ -1322,6 +1447,7 @@ meta:deprecated_element_has_possible_replacement a meta:SlotDefinition ;
     skos:inScheme biolinkml:mappings ;
     skos:mappingRelation OIO:consider ;
     meta:definition_uri meta:deprecated_element_has_possible_replacement ;
+    meta:domain_of meta:Element ;
     meta:imported_from "biolinkml:mappings" ;
     meta:owner meta:Element ;
     meta:range meta:uriorcurie ;
@@ -1333,6 +1459,7 @@ meta:examples a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:examples ;
     meta:domain meta:Element ;
+    meta:domain_of meta:Element ;
     meta:inlined true ;
     meta:multivalued true ;
     meta:owner meta:Element ;
@@ -1344,6 +1471,7 @@ meta:id_prefixes a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:id_prefixes ;
     meta:domain meta:Element ;
+    meta:domain_of meta:Element ;
     meta:multivalued true ;
     meta:owner meta:Element ;
     meta:range meta:ncname ;
@@ -1354,58 +1482,29 @@ meta:imported_from a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:imported_from ;
     meta:domain meta:Element ;
+    meta:domain_of meta:Element ;
     meta:owner meta:Element ;
     meta:range meta:string ;
     meta:readonly "supplied by the schema loader" ;
     meta:slot_uri meta:imported_from .
 
-meta:last_updated_on a meta:SlotDefinition ;
-    skos:definition "time at which the element was last updated" ;
-    skos:inScheme biolinkml:meta ;
-    skos:mappingRelation pav:lastUpdatedOn ;
-    meta:definition_uri meta:last_updated_on ;
-    meta:domain meta:Element ;
-    meta:owner meta:last_updated_on ;
-    meta:range meta:datetime ;
-    meta:slot_uri pav:lastUpdatedOn .
-
 meta:local_names a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:local_names ;
     meta:domain meta:Element ;
+    meta:domain_of meta:Element ;
     meta:inlined true ;
     meta:multivalued true ;
     meta:owner meta:Element ;
     meta:range meta:LocalName ;
     meta:slot_uri meta:local_names .
 
-meta:modified_by a meta:SlotDefinition ;
-    skos:definition "agent that modified the element" ;
-    skos:inScheme biolinkml:meta ;
-    skos:mappingRelation oslc:modifiedBy ;
-    meta:definition_uri meta:modified_by ;
-    meta:domain meta:Element ;
-    meta:owner meta:modified_by ;
-    meta:range meta:uriorcurie ;
-    meta:slot_uri oslc:modifiedBy .
-
-meta:status a meta:SlotDefinition ;
-    skos:definition "status of the element" ;
-    skos:inScheme biolinkml:meta ;
-    skos:mappingRelation bibo:status ;
-    meta:definition_uri meta:status ;
-    meta:domain meta:Element ;
-    meta:examples [ a meta:Example ;
-            skos:example "bibo:draft" ] ;
-    meta:owner meta:status ;
-    meta:range meta:uriorcurie ;
-    meta:slot_uri bibo:status .
-
 meta:todos a meta:SlotDefinition ;
     skos:definition "Outstanding issue that needs resolution" ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:todos ;
     meta:domain meta:Element ;
+    meta:domain_of meta:Element ;
     meta:multivalued true ;
     meta:owner meta:Element ;
     meta:range meta:string ;
@@ -1418,9 +1517,18 @@ meta:description a meta:SlotDefinition ;
     skos:mappingRelation skos:definition ;
     meta:definition_uri meta:description ;
     meta:domain meta:Element ;
+    meta:domain_of meta:Element ;
     meta:owner meta:Element ;
     meta:range meta:string ;
     meta:slot_uri skos:definition .
+
+meta:Example a meta:ClassDefinition ;
+    skos:definition "usage example and description" ;
+    skos:inScheme biolinkml:meta ;
+    meta:class_uri meta:Example ;
+    meta:definition_uri meta:Example ;
+    meta:slots meta:value,
+        meta:value_description .
 
 meta:boolean a meta:TypeDefinition ;
     skos:definition "A binary (true or false) value" ;
@@ -1435,6 +1543,7 @@ meta:mappings a meta:SlotDefinition ;
     skos:inScheme biolinkml:mappings ;
     skos:mappingRelation skos:mappingRelation ;
     meta:definition_uri meta:mappings ;
+    meta:domain_of meta:Element ;
     meta:imported_from "biolinkml:mappings" ;
     meta:multivalued true ;
     meta:owner meta:Element ;
@@ -1454,6 +1563,47 @@ meta:uriorcurie a meta:TypeDefinition ;
     meta:imported_from "biolinkml:types" ;
     meta:repr "str" ;
     meta:uri xsd:anyURI .
+
+meta:string a meta:TypeDefinition ;
+    skos:definition "A character string" ;
+    skos:inScheme biolinkml:types ;
+    meta:base "str" ;
+    meta:definition_uri metatype:String ;
+    meta:imported_from "biolinkml:types" ;
+    meta:uri xsd:string .
+
+meta:TypeDefinition a meta:ClassDefinition ;
+    skos:definition "A data type definition." ;
+    skos:inScheme biolinkml:meta ;
+    meta:class_uri meta:TypeDefinition ;
+    meta:definition_uri meta:TypeDefinition ;
+    meta:is_a meta:Element ;
+    meta:slots meta:aliases,
+        meta:alt_descriptions,
+        meta:base,
+        meta:close_mappings,
+        meta:comments,
+        meta:definition_uri,
+        meta:deprecated,
+        meta:deprecated_element_has_exact_replacement,
+        meta:deprecated_element_has_possible_replacement,
+        meta:description,
+        meta:exact_mappings,
+        meta:examples,
+        meta:from_schema,
+        meta:id_prefixes,
+        meta:imported_from,
+        meta:in_subset,
+        meta:local_names,
+        meta:mappings,
+        meta:name,
+        meta:notes,
+        meta:related_mappings,
+        meta:repr,
+        meta:see_also,
+        meta:todos,
+        meta:type_uri,
+        meta:typeof .
 
 meta:Definition a meta:ClassDefinition ;
     skos:definition "base class for definitions" ;
@@ -1495,52 +1645,6 @@ meta:Definition a meta:ClassDefinition ;
         meta:status,
         meta:todos,
         meta:values_from .
-
-meta:TypeDefinition a meta:ClassDefinition ;
-    skos:definition "A data type definition." ;
-    skos:inScheme biolinkml:meta ;
-    meta:class_uri meta:TypeDefinition ;
-    meta:definition_uri meta:TypeDefinition ;
-    meta:is_a meta:Element ;
-    meta:slots meta:aliases,
-        meta:alt_descriptions,
-        meta:base,
-        meta:close_mappings,
-        meta:comments,
-        meta:created_by,
-        meta:created_on,
-        meta:definition_uri,
-        meta:deprecated,
-        meta:deprecated_element_has_exact_replacement,
-        meta:deprecated_element_has_possible_replacement,
-        meta:description,
-        meta:exact_mappings,
-        meta:examples,
-        meta:from_schema,
-        meta:id_prefixes,
-        meta:imported_from,
-        meta:in_subset,
-        meta:last_updated_on,
-        meta:local_names,
-        meta:mappings,
-        meta:modified_by,
-        meta:name,
-        meta:notes,
-        meta:related_mappings,
-        meta:repr,
-        meta:see_also,
-        meta:status,
-        meta:todos,
-        meta:type_uri,
-        meta:typeof .
-
-meta:string a meta:TypeDefinition ;
-    skos:definition "A character string" ;
-    skos:inScheme biolinkml:types ;
-    meta:base "str" ;
-    meta:definition_uri metatype:String ;
-    meta:imported_from "biolinkml:types" ;
-    meta:uri xsd:string .
 
 meta:ClassDefinition a meta:ClassDefinition ;
     skos:definition "the definition of a class or interface" ;
@@ -1599,8 +1703,6 @@ meta:SchemaDefinition a meta:ClassDefinition ;
         meta:classes,
         meta:close_mappings,
         meta:comments,
-        meta:created_by,
-        meta:created_on,
         meta:default_curi_maps,
         meta:default_prefix,
         meta:default_range,
@@ -1619,12 +1721,10 @@ meta:SchemaDefinition a meta:ClassDefinition ;
         meta:imported_from,
         meta:imports,
         meta:in_subset,
-        meta:last_updated_on,
         meta:license,
         meta:local_names,
         meta:mappings,
         meta:metamodel_version,
-        meta:modified_by,
         meta:name,
         meta:notes,
         meta:prefixes,
@@ -1634,7 +1734,6 @@ meta:SchemaDefinition a meta:ClassDefinition ;
         meta:source_file,
         meta:source_file_date,
         meta:source_file_size,
-        meta:status,
         meta:subsets,
         meta:title,
         meta:todos,
@@ -1651,8 +1750,6 @@ meta:Element a meta:ClassDefinition ;
         meta:alt_descriptions,
         meta:close_mappings,
         meta:comments,
-        meta:created_by,
-        meta:created_on,
         meta:definition_uri,
         meta:deprecated,
         meta:deprecated_element_has_exact_replacement,
@@ -1664,15 +1761,12 @@ meta:Element a meta:ClassDefinition ;
         meta:id_prefixes,
         meta:imported_from,
         meta:in_subset,
-        meta:last_updated_on,
         meta:local_names,
         meta:mappings,
-        meta:modified_by,
         meta:name,
         meta:notes,
         meta:related_mappings,
         meta:see_also,
-        meta:status,
         meta:todos .
 
 meta:SlotDefinition a meta:ClassDefinition ;
@@ -1695,6 +1789,7 @@ meta:SlotDefinition a meta:ClassDefinition ;
         meta:deprecated_element_has_possible_replacement,
         meta:description,
         meta:domain,
+        meta:domain_of,
         meta:exact_mappings,
         meta:examples,
         meta:from_schema,

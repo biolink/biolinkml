@@ -19,5 +19,8 @@ slots:
 
 classes:
   c1:
+    slots:
+      - key1
+      - key2
 
 

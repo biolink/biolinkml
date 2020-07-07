@@ -23,8 +23,3 @@ URI: [https://example.com/test65/NamedThing](https://example.com/test65/NamedThi
 
  * [subject](subject.md)  <sub>OPT</sub>
     * range: [String](types/String.md)
-
-### Domain for slot:
-
- * [subject](subject.md)  <sub>OPT</sub>
-    * range: [String](types/String.md)

@@ -7,19 +7,6 @@ type ActivityAndBehavior
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    regulatesProcessToProcess: [Occurrent]
-    hasParticipant: [NamedThing]
-    hasInput: [NamedThing]
-    hasOutput: [NamedThing]
-    precedes: [Occurrent]
   }
 
 interface AdministrativeEntity
@@ -27,14 +14,6 @@ interface AdministrativeEntity
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
   }
 
 type AnatomicalEntity implements ThingWithTaxon, PhysicalEntity
@@ -42,16 +21,6 @@ type AnatomicalEntity implements ThingWithTaxon, PhysicalEntity
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    expresses: [GeneOrGeneProduct]
     inTaxon: [OrganismTaxon]
   }
 
@@ -66,8 +35,6 @@ type AnatomicalEntityToAnatomicalEntityAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 type AnatomicalEntityToAnatomicalEntityOntogenicAssociation
@@ -81,8 +48,6 @@ type AnatomicalEntityToAnatomicalEntityOntogenicAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 type AnatomicalEntityToAnatomicalEntityPartOfAssociation
@@ -96,8 +61,6 @@ type AnatomicalEntityToAnatomicalEntityPartOfAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 type Association
@@ -111,11 +74,6 @@ type Association
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
-    hasConfidenceLevel: ConfidenceLevel
-    hasEvidence: EvidenceType
-    clinicalModifierQualifier: ClinicalModifier
   }
 
 type Attribute implements OntologyClass
@@ -126,15 +84,6 @@ type Attribute implements OntologyClass
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    subclassOf: [IriType]
   }
 
 interface BiologicalEntity
@@ -142,15 +91,6 @@ interface BiologicalEntity
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
   }
 
 type BiologicalProcess implements Occurrent
@@ -158,21 +98,9 @@ type BiologicalProcess implements Occurrent
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
     hasInput: [NamedThing]
     hasOutput: [NamedThing]
     enabledBy: [BiologicalProcessOrActivity]
-    regulatesProcessToProcess: [Occurrent]
-    hasParticipant: [NamedThing]
-    precedes: [Occurrent]
   }
 
 type BiologicalProcessOrActivity implements Occurrent
@@ -180,21 +108,9 @@ type BiologicalProcessOrActivity implements Occurrent
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
     hasInput: [NamedThing]
     hasOutput: [NamedThing]
     enabledBy: [BiologicalProcessOrActivity]
-    regulatesProcessToProcess: [Occurrent]
-    hasParticipant: [NamedThing]
-    precedes: [Occurrent]
   }
 
 type BiologicalSex
@@ -205,15 +121,6 @@ type BiologicalSex
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    subclassOf: [IriType]
   }
 
 type Carbohydrate
@@ -221,66 +128,6 @@ type Carbohydrate
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    molecularlyInteractsWith: [MolecularEntity]
-    affectsAbundanceOf: [MolecularEntity]
-    increasesAbundanceOf: [MolecularEntity]
-    decreasesAbundanceOf: [MolecularEntity]
-    affectsActivityOf: [MolecularEntity]
-    increasesActivityOf: [MolecularEntity]
-    decreasesActivityOf: [MolecularEntity]
-    affectsExpressionOf: [GenomicEntity]
-    increasesExpressionOf: [GenomicEntity]
-    decreasesExpressionOf: [GenomicEntity]
-    affectsFoldingOf: [MolecularEntity]
-    increasesFoldingOf: [MolecularEntity]
-    decreasesFoldingOf: [MolecularEntity]
-    affectsLocalizationOf: [MolecularEntity]
-    increasesLocalizationOf: [MolecularEntity]
-    decreasesLocalizationOf: [MolecularEntity]
-    affectsMetabolicProcessingOf: [MolecularEntity]
-    increasesMetabolicProcessingOf: [MolecularEntity]
-    decreasesMetabolicProcessingOf: [MolecularEntity]
-    affectsMolecularModificationOf: [MolecularEntity]
-    increasesMolecularModificationOf: [MolecularEntity]
-    decreasesMolecularModificationOf: [MolecularEntity]
-    affectsSynthesisOf: [MolecularEntity]
-    increasesSynthesisOf: [MolecularEntity]
-    decreasesSynthesisOf: [MolecularEntity]
-    affectsDegradationOf: [MolecularEntity]
-    increasesDegradationOf: [MolecularEntity]
-    decreasesDegradationOf: [MolecularEntity]
-    affectsMutationRateOf: [GenomicEntity]
-    increasesMutationRateOf: [GenomicEntity]
-    decreasesMutationRateOf: [GenomicEntity]
-    affectsResponseTo: [MolecularEntity]
-    increasesResponseTo: [MolecularEntity]
-    decreasesResponseTo: [MolecularEntity]
-    affectsSplicingOf: [Transcript]
-    increasesSplicingOf: [Transcript]
-    decreasesSplicingOf: [Transcript]
-    affectsStabilityOf: [MolecularEntity]
-    increasesStabilityOf: [MolecularEntity]
-    decreasesStabilityOf: [MolecularEntity]
-    affectsTransportOf: [MolecularEntity]
-    increasesTransportOf: [MolecularEntity]
-    decreasesTransportOf: [MolecularEntity]
-    affectsSecretionOf: [MolecularEntity]
-    increasesSecretionOf: [MolecularEntity]
-    decreasesSecretionOf: [MolecularEntity]
-    affectsUptakeOf: [MolecularEntity]
-    increasesUptakeOf: [MolecularEntity]
-    decreasesUptakeOf: [MolecularEntity]
-    regulatesEntityToEntity: [MolecularEntity]
-    biomarkerFor: [DiseaseOrPhenotypicFeature]
     inTaxon: [OrganismTaxon]
   }
 
@@ -289,15 +136,6 @@ type Case
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
     inTaxon: [OrganismTaxon]
   }
 
@@ -312,8 +150,6 @@ type CaseToPhenotypicFeatureAssociation implements EntityToPhenotypicFeatureAsso
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
     sexQualifier: BiologicalSex
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
@@ -331,8 +167,6 @@ interface CaseToThingAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 type Cell
@@ -340,16 +174,6 @@ type Cell
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    expresses: [GeneOrGeneProduct]
     inTaxon: [OrganismTaxon]
   }
 
@@ -358,15 +182,6 @@ type CellLine
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
   }
 
 type CellLineToDiseaseOrPhenotypicFeatureAssociation implements CellLineToThingAssociation, ThingToDiseaseOrPhenotypicFeatureAssociation
@@ -380,8 +195,6 @@ type CellLineToDiseaseOrPhenotypicFeatureAssociation implements CellLineToThingA
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 interface CellLineToThingAssociation
@@ -395,8 +208,6 @@ interface CellLineToThingAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 type CellularComponent
@@ -404,16 +215,6 @@ type CellularComponent
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    expresses: [GeneOrGeneProduct]
     inTaxon: [OrganismTaxon]
   }
 
@@ -422,18 +223,6 @@ type ChemicalExposure
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    hasReceptor: OrganismalEntity
-    hasStressor: String
-    hasRoute: String
   }
 
 type ChemicalSubstance
@@ -441,66 +230,6 @@ type ChemicalSubstance
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    molecularlyInteractsWith: [MolecularEntity]
-    affectsAbundanceOf: [MolecularEntity]
-    increasesAbundanceOf: [MolecularEntity]
-    decreasesAbundanceOf: [MolecularEntity]
-    affectsActivityOf: [MolecularEntity]
-    increasesActivityOf: [MolecularEntity]
-    decreasesActivityOf: [MolecularEntity]
-    affectsExpressionOf: [GenomicEntity]
-    increasesExpressionOf: [GenomicEntity]
-    decreasesExpressionOf: [GenomicEntity]
-    affectsFoldingOf: [MolecularEntity]
-    increasesFoldingOf: [MolecularEntity]
-    decreasesFoldingOf: [MolecularEntity]
-    affectsLocalizationOf: [MolecularEntity]
-    increasesLocalizationOf: [MolecularEntity]
-    decreasesLocalizationOf: [MolecularEntity]
-    affectsMetabolicProcessingOf: [MolecularEntity]
-    increasesMetabolicProcessingOf: [MolecularEntity]
-    decreasesMetabolicProcessingOf: [MolecularEntity]
-    affectsMolecularModificationOf: [MolecularEntity]
-    increasesMolecularModificationOf: [MolecularEntity]
-    decreasesMolecularModificationOf: [MolecularEntity]
-    affectsSynthesisOf: [MolecularEntity]
-    increasesSynthesisOf: [MolecularEntity]
-    decreasesSynthesisOf: [MolecularEntity]
-    affectsDegradationOf: [MolecularEntity]
-    increasesDegradationOf: [MolecularEntity]
-    decreasesDegradationOf: [MolecularEntity]
-    affectsMutationRateOf: [GenomicEntity]
-    increasesMutationRateOf: [GenomicEntity]
-    decreasesMutationRateOf: [GenomicEntity]
-    affectsResponseTo: [MolecularEntity]
-    increasesResponseTo: [MolecularEntity]
-    decreasesResponseTo: [MolecularEntity]
-    affectsSplicingOf: [Transcript]
-    increasesSplicingOf: [Transcript]
-    decreasesSplicingOf: [Transcript]
-    affectsStabilityOf: [MolecularEntity]
-    increasesStabilityOf: [MolecularEntity]
-    decreasesStabilityOf: [MolecularEntity]
-    affectsTransportOf: [MolecularEntity]
-    increasesTransportOf: [MolecularEntity]
-    decreasesTransportOf: [MolecularEntity]
-    affectsSecretionOf: [MolecularEntity]
-    increasesSecretionOf: [MolecularEntity]
-    decreasesSecretionOf: [MolecularEntity]
-    affectsUptakeOf: [MolecularEntity]
-    increasesUptakeOf: [MolecularEntity]
-    decreasesUptakeOf: [MolecularEntity]
-    regulatesEntityToEntity: [MolecularEntity]
-    biomarkerFor: [DiseaseOrPhenotypicFeature]
     inTaxon: [OrganismTaxon]
   }
 
@@ -515,8 +244,6 @@ type ChemicalToChemicalAssociation implements ChemicalToThingAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 type ChemicalToChemicalDerivationAssociation
@@ -530,8 +257,6 @@ type ChemicalToChemicalDerivationAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
     changeIsCatalyzedBy: [MacromolecularMachine]
   }
 
@@ -546,8 +271,6 @@ type ChemicalToDiseaseOrPhenotypicFeatureAssociation implements ChemicalToThingA
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 type ChemicalToGeneAssociation implements ChemicalToThingAssociation
@@ -561,8 +284,6 @@ type ChemicalToGeneAssociation implements ChemicalToThingAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 type ChemicalToPathwayAssociation implements ChemicalToThingAssociation
@@ -576,8 +297,6 @@ type ChemicalToPathwayAssociation implements ChemicalToThingAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 interface ChemicalToThingAssociation
@@ -591,8 +310,6 @@ interface ChemicalToThingAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 type ClinicalEntity
@@ -600,14 +317,6 @@ type ClinicalEntity
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
   }
 
 type ClinicalIntervention
@@ -615,14 +324,6 @@ type ClinicalIntervention
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
   }
 
 type ClinicalModifier
@@ -633,15 +334,6 @@ type ClinicalModifier
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    subclassOf: [IriType]
   }
 
 type ClinicalTrial
@@ -649,14 +341,6 @@ type ClinicalTrial
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
   }
 
 type CodingSequence
@@ -664,66 +348,6 @@ type CodingSequence
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    molecularlyInteractsWith: [MolecularEntity]
-    affectsAbundanceOf: [MolecularEntity]
-    increasesAbundanceOf: [MolecularEntity]
-    decreasesAbundanceOf: [MolecularEntity]
-    affectsActivityOf: [MolecularEntity]
-    increasesActivityOf: [MolecularEntity]
-    decreasesActivityOf: [MolecularEntity]
-    affectsExpressionOf: [GenomicEntity]
-    increasesExpressionOf: [GenomicEntity]
-    decreasesExpressionOf: [GenomicEntity]
-    affectsFoldingOf: [MolecularEntity]
-    increasesFoldingOf: [MolecularEntity]
-    decreasesFoldingOf: [MolecularEntity]
-    affectsLocalizationOf: [MolecularEntity]
-    increasesLocalizationOf: [MolecularEntity]
-    decreasesLocalizationOf: [MolecularEntity]
-    affectsMetabolicProcessingOf: [MolecularEntity]
-    increasesMetabolicProcessingOf: [MolecularEntity]
-    decreasesMetabolicProcessingOf: [MolecularEntity]
-    affectsMolecularModificationOf: [MolecularEntity]
-    increasesMolecularModificationOf: [MolecularEntity]
-    decreasesMolecularModificationOf: [MolecularEntity]
-    affectsSynthesisOf: [MolecularEntity]
-    increasesSynthesisOf: [MolecularEntity]
-    decreasesSynthesisOf: [MolecularEntity]
-    affectsDegradationOf: [MolecularEntity]
-    increasesDegradationOf: [MolecularEntity]
-    decreasesDegradationOf: [MolecularEntity]
-    affectsMutationRateOf: [GenomicEntity]
-    increasesMutationRateOf: [GenomicEntity]
-    decreasesMutationRateOf: [GenomicEntity]
-    affectsResponseTo: [MolecularEntity]
-    increasesResponseTo: [MolecularEntity]
-    decreasesResponseTo: [MolecularEntity]
-    affectsSplicingOf: [Transcript]
-    increasesSplicingOf: [Transcript]
-    decreasesSplicingOf: [Transcript]
-    affectsStabilityOf: [MolecularEntity]
-    increasesStabilityOf: [MolecularEntity]
-    decreasesStabilityOf: [MolecularEntity]
-    affectsTransportOf: [MolecularEntity]
-    increasesTransportOf: [MolecularEntity]
-    decreasesTransportOf: [MolecularEntity]
-    affectsSecretionOf: [MolecularEntity]
-    increasesSecretionOf: [MolecularEntity]
-    decreasesSecretionOf: [MolecularEntity]
-    affectsUptakeOf: [MolecularEntity]
-    increasesUptakeOf: [MolecularEntity]
-    decreasesUptakeOf: [MolecularEntity]
-    regulatesEntityToEntity: [MolecularEntity]
-    biomarkerFor: [DiseaseOrPhenotypicFeature]
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
   }
@@ -733,14 +357,6 @@ type ConfidenceLevel
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
   }
 
 type DataFile
@@ -748,14 +364,6 @@ type DataFile
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
   }
 
 type DataSet
@@ -763,14 +371,6 @@ type DataSet
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
   }
 
 interface DataSetSummary
@@ -778,14 +378,6 @@ interface DataSetSummary
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
     title: String
     sourceDataFile: DataFile
     versionOf: DataSet
@@ -799,14 +391,6 @@ type DataSetVersion
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
     title: String
     sourceDataFile: DataFile
     versionOf: DataSet
@@ -819,14 +403,6 @@ type Device
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
   }
 
 type Disease
@@ -834,18 +410,6 @@ type Disease
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    correlatedWith: [MolecularEntity]
-    hasBiomarker: [MolecularEntity]
-    treatedBy: [NamedThing]
     inTaxon: [OrganismTaxon]
   }
 
@@ -854,18 +418,6 @@ type DiseaseOrPhenotypicFeature implements ThingWithTaxon
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    correlatedWith: [MolecularEntity]
-    hasBiomarker: [MolecularEntity]
-    treatedBy: [NamedThing]
     inTaxon: [OrganismTaxon]
   }
 
@@ -880,8 +432,6 @@ type DiseaseOrPhenotypicFeatureAssociationToLocationAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 interface DiseaseOrPhenotypicFeatureAssociationToThingAssociation
@@ -895,8 +445,6 @@ interface DiseaseOrPhenotypicFeatureAssociationToThingAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 type DiseaseToExposureAssociation
@@ -910,8 +458,6 @@ type DiseaseToExposureAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 type DiseaseToPhenotypicFeatureAssociation implements EntityToPhenotypicFeatureAssociation, DiseaseToThingAssociation
@@ -925,8 +471,6 @@ type DiseaseToPhenotypicFeatureAssociation implements EntityToPhenotypicFeatureA
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
     sexQualifier: BiologicalSex
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
@@ -944,8 +488,6 @@ interface DiseaseToThingAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 interface DistributionLevel
@@ -953,14 +495,6 @@ interface DistributionLevel
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
     title: String
     sourceDataFile: DataFile
     versionOf: DataSet
@@ -974,66 +508,6 @@ type Drug
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    molecularlyInteractsWith: [MolecularEntity]
-    affectsAbundanceOf: [MolecularEntity]
-    increasesAbundanceOf: [MolecularEntity]
-    decreasesAbundanceOf: [MolecularEntity]
-    affectsActivityOf: [MolecularEntity]
-    increasesActivityOf: [MolecularEntity]
-    decreasesActivityOf: [MolecularEntity]
-    affectsExpressionOf: [GenomicEntity]
-    increasesExpressionOf: [GenomicEntity]
-    decreasesExpressionOf: [GenomicEntity]
-    affectsFoldingOf: [MolecularEntity]
-    increasesFoldingOf: [MolecularEntity]
-    decreasesFoldingOf: [MolecularEntity]
-    affectsLocalizationOf: [MolecularEntity]
-    increasesLocalizationOf: [MolecularEntity]
-    decreasesLocalizationOf: [MolecularEntity]
-    affectsMetabolicProcessingOf: [MolecularEntity]
-    increasesMetabolicProcessingOf: [MolecularEntity]
-    decreasesMetabolicProcessingOf: [MolecularEntity]
-    affectsMolecularModificationOf: [MolecularEntity]
-    increasesMolecularModificationOf: [MolecularEntity]
-    decreasesMolecularModificationOf: [MolecularEntity]
-    affectsSynthesisOf: [MolecularEntity]
-    increasesSynthesisOf: [MolecularEntity]
-    decreasesSynthesisOf: [MolecularEntity]
-    affectsDegradationOf: [MolecularEntity]
-    increasesDegradationOf: [MolecularEntity]
-    decreasesDegradationOf: [MolecularEntity]
-    affectsMutationRateOf: [GenomicEntity]
-    increasesMutationRateOf: [GenomicEntity]
-    decreasesMutationRateOf: [GenomicEntity]
-    affectsResponseTo: [MolecularEntity]
-    increasesResponseTo: [MolecularEntity]
-    decreasesResponseTo: [MolecularEntity]
-    affectsSplicingOf: [Transcript]
-    increasesSplicingOf: [Transcript]
-    decreasesSplicingOf: [Transcript]
-    affectsStabilityOf: [MolecularEntity]
-    increasesStabilityOf: [MolecularEntity]
-    decreasesStabilityOf: [MolecularEntity]
-    affectsTransportOf: [MolecularEntity]
-    increasesTransportOf: [MolecularEntity]
-    decreasesTransportOf: [MolecularEntity]
-    affectsSecretionOf: [MolecularEntity]
-    increasesSecretionOf: [MolecularEntity]
-    decreasesSecretionOf: [MolecularEntity]
-    affectsUptakeOf: [MolecularEntity]
-    increasesUptakeOf: [MolecularEntity]
-    decreasesUptakeOf: [MolecularEntity]
-    regulatesEntityToEntity: [MolecularEntity]
-    biomarkerFor: [DiseaseOrPhenotypicFeature]
     inTaxon: [OrganismTaxon]
   }
 
@@ -1042,18 +516,6 @@ type DrugExposure
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    hasReceptor: OrganismalEntity
-    hasStressor: String
-    hasRoute: String
   }
 
 interface EntityToDiseaseAssociation
@@ -1081,8 +543,6 @@ type EntityToPhenotypicFeatureAssociation implements EntityToFeatureOrDiseaseQua
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
     sexQualifier: BiologicalSex
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
@@ -1094,14 +554,6 @@ type EnvironmentalFeature
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
   }
 
 type EnvironmentalProcess implements Occurrent
@@ -1109,19 +561,6 @@ type EnvironmentalProcess implements Occurrent
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    regulatesProcessToProcess: [Occurrent]
-    hasParticipant: [NamedThing]
-    hasInput: [NamedThing]
-    hasOutput: [NamedThing]
-    precedes: [Occurrent]
   }
 
 type EvidenceType
@@ -1129,14 +568,6 @@ type EvidenceType
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
   }
 
 type Exon
@@ -1144,66 +575,6 @@ type Exon
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    molecularlyInteractsWith: [MolecularEntity]
-    affectsAbundanceOf: [MolecularEntity]
-    increasesAbundanceOf: [MolecularEntity]
-    decreasesAbundanceOf: [MolecularEntity]
-    affectsActivityOf: [MolecularEntity]
-    increasesActivityOf: [MolecularEntity]
-    decreasesActivityOf: [MolecularEntity]
-    affectsExpressionOf: [GenomicEntity]
-    increasesExpressionOf: [GenomicEntity]
-    decreasesExpressionOf: [GenomicEntity]
-    affectsFoldingOf: [MolecularEntity]
-    increasesFoldingOf: [MolecularEntity]
-    decreasesFoldingOf: [MolecularEntity]
-    affectsLocalizationOf: [MolecularEntity]
-    increasesLocalizationOf: [MolecularEntity]
-    decreasesLocalizationOf: [MolecularEntity]
-    affectsMetabolicProcessingOf: [MolecularEntity]
-    increasesMetabolicProcessingOf: [MolecularEntity]
-    decreasesMetabolicProcessingOf: [MolecularEntity]
-    affectsMolecularModificationOf: [MolecularEntity]
-    increasesMolecularModificationOf: [MolecularEntity]
-    decreasesMolecularModificationOf: [MolecularEntity]
-    affectsSynthesisOf: [MolecularEntity]
-    increasesSynthesisOf: [MolecularEntity]
-    decreasesSynthesisOf: [MolecularEntity]
-    affectsDegradationOf: [MolecularEntity]
-    increasesDegradationOf: [MolecularEntity]
-    decreasesDegradationOf: [MolecularEntity]
-    affectsMutationRateOf: [GenomicEntity]
-    increasesMutationRateOf: [GenomicEntity]
-    decreasesMutationRateOf: [GenomicEntity]
-    affectsResponseTo: [MolecularEntity]
-    increasesResponseTo: [MolecularEntity]
-    decreasesResponseTo: [MolecularEntity]
-    affectsSplicingOf: [Transcript]
-    increasesSplicingOf: [Transcript]
-    decreasesSplicingOf: [Transcript]
-    affectsStabilityOf: [MolecularEntity]
-    increasesStabilityOf: [MolecularEntity]
-    decreasesStabilityOf: [MolecularEntity]
-    affectsTransportOf: [MolecularEntity]
-    increasesTransportOf: [MolecularEntity]
-    decreasesTransportOf: [MolecularEntity]
-    affectsSecretionOf: [MolecularEntity]
-    increasesSecretionOf: [MolecularEntity]
-    decreasesSecretionOf: [MolecularEntity]
-    affectsUptakeOf: [MolecularEntity]
-    increasesUptakeOf: [MolecularEntity]
-    decreasesUptakeOf: [MolecularEntity]
-    regulatesEntityToEntity: [MolecularEntity]
-    biomarkerFor: [DiseaseOrPhenotypicFeature]
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
   }
@@ -1219,8 +590,6 @@ type ExonToTranscriptRelationship
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 type ExposureEvent
@@ -1228,18 +597,6 @@ type ExposureEvent
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    hasReceptor: OrganismalEntity
-    hasStressor: String
-    hasRoute: String
   }
 
 type ExposureEventToPhenotypicFeatureAssociation implements EntityToPhenotypicFeatureAssociation
@@ -1253,8 +610,6 @@ type ExposureEventToPhenotypicFeatureAssociation implements EntityToPhenotypicFe
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
     sexQualifier: BiologicalSex
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
@@ -1282,15 +637,6 @@ type FrequencyValue
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    subclassOf: [IriType]
   }
 
 type FunctionalAssociation
@@ -1304,8 +650,6 @@ type FunctionalAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 type Gene
@@ -1313,75 +657,8 @@ type Gene
     id: IdentifierType!
     name: SymbolType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    molecularlyInteractsWith: [MolecularEntity]
-    affectsAbundanceOf: [MolecularEntity]
-    increasesAbundanceOf: [MolecularEntity]
-    decreasesAbundanceOf: [MolecularEntity]
-    affectsActivityOf: [MolecularEntity]
-    increasesActivityOf: [MolecularEntity]
-    decreasesActivityOf: [MolecularEntity]
-    affectsExpressionOf: [GenomicEntity]
-    increasesExpressionOf: [GenomicEntity]
-    decreasesExpressionOf: [GenomicEntity]
-    affectsFoldingOf: [MolecularEntity]
-    increasesFoldingOf: [MolecularEntity]
-    decreasesFoldingOf: [MolecularEntity]
-    affectsLocalizationOf: [MolecularEntity]
-    increasesLocalizationOf: [MolecularEntity]
-    decreasesLocalizationOf: [MolecularEntity]
-    affectsMetabolicProcessingOf: [MolecularEntity]
-    increasesMetabolicProcessingOf: [MolecularEntity]
-    decreasesMetabolicProcessingOf: [MolecularEntity]
-    affectsMolecularModificationOf: [MolecularEntity]
-    increasesMolecularModificationOf: [MolecularEntity]
-    decreasesMolecularModificationOf: [MolecularEntity]
-    affectsSynthesisOf: [MolecularEntity]
-    increasesSynthesisOf: [MolecularEntity]
-    decreasesSynthesisOf: [MolecularEntity]
-    affectsDegradationOf: [MolecularEntity]
-    increasesDegradationOf: [MolecularEntity]
-    decreasesDegradationOf: [MolecularEntity]
-    affectsMutationRateOf: [GenomicEntity]
-    increasesMutationRateOf: [GenomicEntity]
-    decreasesMutationRateOf: [GenomicEntity]
-    affectsResponseTo: [MolecularEntity]
-    increasesResponseTo: [MolecularEntity]
-    decreasesResponseTo: [MolecularEntity]
-    affectsSplicingOf: [Transcript]
-    increasesSplicingOf: [Transcript]
-    decreasesSplicingOf: [Transcript]
-    affectsStabilityOf: [MolecularEntity]
-    increasesStabilityOf: [MolecularEntity]
-    decreasesStabilityOf: [MolecularEntity]
-    affectsTransportOf: [MolecularEntity]
-    increasesTransportOf: [MolecularEntity]
-    decreasesTransportOf: [MolecularEntity]
-    affectsSecretionOf: [MolecularEntity]
-    increasesSecretionOf: [MolecularEntity]
-    decreasesSecretionOf: [MolecularEntity]
-    affectsUptakeOf: [MolecularEntity]
-    increasesUptakeOf: [MolecularEntity]
-    decreasesUptakeOf: [MolecularEntity]
-    regulatesEntityToEntity: [MolecularEntity]
-    biomarkerFor: [DiseaseOrPhenotypicFeature]
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
-    inPathwayWith: [GeneOrGeneProduct]
-    inComplexWith: [GeneOrGeneProduct]
-    inCellPopulationWith: [GeneOrGeneProduct]
-    expressedIn: [AnatomicalEntity]
-    geneticallyInteractsWith: [Gene]
-    hasGeneProduct: [GeneProduct]
-    geneAssociatedWithCondition: [DiseaseOrPhenotypicFeature]
   }
 
 type GeneAsAModelOfDiseaseAssociation implements ModelToDiseaseMixin, EntityToDiseaseAssociation
@@ -1395,8 +672,6 @@ type GeneAsAModelOfDiseaseAssociation implements ModelToDiseaseMixin, EntityToDi
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
     onsetQualifier: Onset
@@ -1407,66 +682,6 @@ type GeneFamily implements GeneGrouping
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    molecularlyInteractsWith: [MolecularEntity]
-    affectsAbundanceOf: [MolecularEntity]
-    increasesAbundanceOf: [MolecularEntity]
-    decreasesAbundanceOf: [MolecularEntity]
-    affectsActivityOf: [MolecularEntity]
-    increasesActivityOf: [MolecularEntity]
-    decreasesActivityOf: [MolecularEntity]
-    affectsExpressionOf: [GenomicEntity]
-    increasesExpressionOf: [GenomicEntity]
-    decreasesExpressionOf: [GenomicEntity]
-    affectsFoldingOf: [MolecularEntity]
-    increasesFoldingOf: [MolecularEntity]
-    decreasesFoldingOf: [MolecularEntity]
-    affectsLocalizationOf: [MolecularEntity]
-    increasesLocalizationOf: [MolecularEntity]
-    decreasesLocalizationOf: [MolecularEntity]
-    affectsMetabolicProcessingOf: [MolecularEntity]
-    increasesMetabolicProcessingOf: [MolecularEntity]
-    decreasesMetabolicProcessingOf: [MolecularEntity]
-    affectsMolecularModificationOf: [MolecularEntity]
-    increasesMolecularModificationOf: [MolecularEntity]
-    decreasesMolecularModificationOf: [MolecularEntity]
-    affectsSynthesisOf: [MolecularEntity]
-    increasesSynthesisOf: [MolecularEntity]
-    decreasesSynthesisOf: [MolecularEntity]
-    affectsDegradationOf: [MolecularEntity]
-    increasesDegradationOf: [MolecularEntity]
-    decreasesDegradationOf: [MolecularEntity]
-    affectsMutationRateOf: [GenomicEntity]
-    increasesMutationRateOf: [GenomicEntity]
-    decreasesMutationRateOf: [GenomicEntity]
-    affectsResponseTo: [MolecularEntity]
-    increasesResponseTo: [MolecularEntity]
-    decreasesResponseTo: [MolecularEntity]
-    affectsSplicingOf: [Transcript]
-    increasesSplicingOf: [Transcript]
-    decreasesSplicingOf: [Transcript]
-    affectsStabilityOf: [MolecularEntity]
-    increasesStabilityOf: [MolecularEntity]
-    decreasesStabilityOf: [MolecularEntity]
-    affectsTransportOf: [MolecularEntity]
-    increasesTransportOf: [MolecularEntity]
-    decreasesTransportOf: [MolecularEntity]
-    affectsSecretionOf: [MolecularEntity]
-    increasesSecretionOf: [MolecularEntity]
-    decreasesSecretionOf: [MolecularEntity]
-    affectsUptakeOf: [MolecularEntity]
-    increasesUptakeOf: [MolecularEntity]
-    decreasesUptakeOf: [MolecularEntity]
-    regulatesEntityToEntity: [MolecularEntity]
-    biomarkerFor: [DiseaseOrPhenotypicFeature]
     inTaxon: [OrganismTaxon]
   }
 
@@ -1485,8 +700,6 @@ type GeneHasVariantThatContributesToDiseaseAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
     onsetQualifier: Onset
@@ -1498,15 +711,6 @@ type GeneOntologyClass
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    subclassOf: [IriType]
   }
 
 type GeneOrGeneProduct
@@ -1514,72 +718,8 @@ type GeneOrGeneProduct
     id: IdentifierType!
     name: SymbolType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    molecularlyInteractsWith: [MolecularEntity]
-    affectsAbundanceOf: [MolecularEntity]
-    increasesAbundanceOf: [MolecularEntity]
-    decreasesAbundanceOf: [MolecularEntity]
-    affectsActivityOf: [MolecularEntity]
-    increasesActivityOf: [MolecularEntity]
-    decreasesActivityOf: [MolecularEntity]
-    affectsExpressionOf: [GenomicEntity]
-    increasesExpressionOf: [GenomicEntity]
-    decreasesExpressionOf: [GenomicEntity]
-    affectsFoldingOf: [MolecularEntity]
-    increasesFoldingOf: [MolecularEntity]
-    decreasesFoldingOf: [MolecularEntity]
-    affectsLocalizationOf: [MolecularEntity]
-    increasesLocalizationOf: [MolecularEntity]
-    decreasesLocalizationOf: [MolecularEntity]
-    affectsMetabolicProcessingOf: [MolecularEntity]
-    increasesMetabolicProcessingOf: [MolecularEntity]
-    decreasesMetabolicProcessingOf: [MolecularEntity]
-    affectsMolecularModificationOf: [MolecularEntity]
-    increasesMolecularModificationOf: [MolecularEntity]
-    decreasesMolecularModificationOf: [MolecularEntity]
-    affectsSynthesisOf: [MolecularEntity]
-    increasesSynthesisOf: [MolecularEntity]
-    decreasesSynthesisOf: [MolecularEntity]
-    affectsDegradationOf: [MolecularEntity]
-    increasesDegradationOf: [MolecularEntity]
-    decreasesDegradationOf: [MolecularEntity]
-    affectsMutationRateOf: [GenomicEntity]
-    increasesMutationRateOf: [GenomicEntity]
-    decreasesMutationRateOf: [GenomicEntity]
-    affectsResponseTo: [MolecularEntity]
-    increasesResponseTo: [MolecularEntity]
-    decreasesResponseTo: [MolecularEntity]
-    affectsSplicingOf: [Transcript]
-    increasesSplicingOf: [Transcript]
-    decreasesSplicingOf: [Transcript]
-    affectsStabilityOf: [MolecularEntity]
-    increasesStabilityOf: [MolecularEntity]
-    decreasesStabilityOf: [MolecularEntity]
-    affectsTransportOf: [MolecularEntity]
-    increasesTransportOf: [MolecularEntity]
-    decreasesTransportOf: [MolecularEntity]
-    affectsSecretionOf: [MolecularEntity]
-    increasesSecretionOf: [MolecularEntity]
-    decreasesSecretionOf: [MolecularEntity]
-    affectsUptakeOf: [MolecularEntity]
-    increasesUptakeOf: [MolecularEntity]
-    decreasesUptakeOf: [MolecularEntity]
-    regulatesEntityToEntity: [MolecularEntity]
-    biomarkerFor: [DiseaseOrPhenotypicFeature]
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
-    inPathwayWith: [GeneOrGeneProduct]
-    inComplexWith: [GeneOrGeneProduct]
-    inCellPopulationWith: [GeneOrGeneProduct]
-    expressedIn: [AnatomicalEntity]
   }
 
 type GeneProduct
@@ -1587,72 +727,8 @@ type GeneProduct
     id: IdentifierType!
     name: SymbolType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    molecularlyInteractsWith: [MolecularEntity]
-    affectsAbundanceOf: [MolecularEntity]
-    increasesAbundanceOf: [MolecularEntity]
-    decreasesAbundanceOf: [MolecularEntity]
-    affectsActivityOf: [MolecularEntity]
-    increasesActivityOf: [MolecularEntity]
-    decreasesActivityOf: [MolecularEntity]
-    affectsExpressionOf: [GenomicEntity]
-    increasesExpressionOf: [GenomicEntity]
-    decreasesExpressionOf: [GenomicEntity]
-    affectsFoldingOf: [MolecularEntity]
-    increasesFoldingOf: [MolecularEntity]
-    decreasesFoldingOf: [MolecularEntity]
-    affectsLocalizationOf: [MolecularEntity]
-    increasesLocalizationOf: [MolecularEntity]
-    decreasesLocalizationOf: [MolecularEntity]
-    affectsMetabolicProcessingOf: [MolecularEntity]
-    increasesMetabolicProcessingOf: [MolecularEntity]
-    decreasesMetabolicProcessingOf: [MolecularEntity]
-    affectsMolecularModificationOf: [MolecularEntity]
-    increasesMolecularModificationOf: [MolecularEntity]
-    decreasesMolecularModificationOf: [MolecularEntity]
-    affectsSynthesisOf: [MolecularEntity]
-    increasesSynthesisOf: [MolecularEntity]
-    decreasesSynthesisOf: [MolecularEntity]
-    affectsDegradationOf: [MolecularEntity]
-    increasesDegradationOf: [MolecularEntity]
-    decreasesDegradationOf: [MolecularEntity]
-    affectsMutationRateOf: [GenomicEntity]
-    increasesMutationRateOf: [GenomicEntity]
-    decreasesMutationRateOf: [GenomicEntity]
-    affectsResponseTo: [MolecularEntity]
-    increasesResponseTo: [MolecularEntity]
-    decreasesResponseTo: [MolecularEntity]
-    affectsSplicingOf: [Transcript]
-    increasesSplicingOf: [Transcript]
-    decreasesSplicingOf: [Transcript]
-    affectsStabilityOf: [MolecularEntity]
-    increasesStabilityOf: [MolecularEntity]
-    decreasesStabilityOf: [MolecularEntity]
-    affectsTransportOf: [MolecularEntity]
-    increasesTransportOf: [MolecularEntity]
-    decreasesTransportOf: [MolecularEntity]
-    affectsSecretionOf: [MolecularEntity]
-    increasesSecretionOf: [MolecularEntity]
-    decreasesSecretionOf: [MolecularEntity]
-    affectsUptakeOf: [MolecularEntity]
-    increasesUptakeOf: [MolecularEntity]
-    decreasesUptakeOf: [MolecularEntity]
-    regulatesEntityToEntity: [MolecularEntity]
-    biomarkerFor: [DiseaseOrPhenotypicFeature]
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
-    inPathwayWith: [GeneOrGeneProduct]
-    inComplexWith: [GeneOrGeneProduct]
-    inCellPopulationWith: [GeneOrGeneProduct]
-    expressedIn: [AnatomicalEntity]
   }
 
 interface GeneProductIsoform
@@ -1660,72 +736,8 @@ interface GeneProductIsoform
     id: IdentifierType!
     name: SymbolType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    molecularlyInteractsWith: [MolecularEntity]
-    affectsAbundanceOf: [MolecularEntity]
-    increasesAbundanceOf: [MolecularEntity]
-    decreasesAbundanceOf: [MolecularEntity]
-    affectsActivityOf: [MolecularEntity]
-    increasesActivityOf: [MolecularEntity]
-    decreasesActivityOf: [MolecularEntity]
-    affectsExpressionOf: [GenomicEntity]
-    increasesExpressionOf: [GenomicEntity]
-    decreasesExpressionOf: [GenomicEntity]
-    affectsFoldingOf: [MolecularEntity]
-    increasesFoldingOf: [MolecularEntity]
-    decreasesFoldingOf: [MolecularEntity]
-    affectsLocalizationOf: [MolecularEntity]
-    increasesLocalizationOf: [MolecularEntity]
-    decreasesLocalizationOf: [MolecularEntity]
-    affectsMetabolicProcessingOf: [MolecularEntity]
-    increasesMetabolicProcessingOf: [MolecularEntity]
-    decreasesMetabolicProcessingOf: [MolecularEntity]
-    affectsMolecularModificationOf: [MolecularEntity]
-    increasesMolecularModificationOf: [MolecularEntity]
-    decreasesMolecularModificationOf: [MolecularEntity]
-    affectsSynthesisOf: [MolecularEntity]
-    increasesSynthesisOf: [MolecularEntity]
-    decreasesSynthesisOf: [MolecularEntity]
-    affectsDegradationOf: [MolecularEntity]
-    increasesDegradationOf: [MolecularEntity]
-    decreasesDegradationOf: [MolecularEntity]
-    affectsMutationRateOf: [GenomicEntity]
-    increasesMutationRateOf: [GenomicEntity]
-    decreasesMutationRateOf: [GenomicEntity]
-    affectsResponseTo: [MolecularEntity]
-    increasesResponseTo: [MolecularEntity]
-    decreasesResponseTo: [MolecularEntity]
-    affectsSplicingOf: [Transcript]
-    increasesSplicingOf: [Transcript]
-    decreasesSplicingOf: [Transcript]
-    affectsStabilityOf: [MolecularEntity]
-    increasesStabilityOf: [MolecularEntity]
-    decreasesStabilityOf: [MolecularEntity]
-    affectsTransportOf: [MolecularEntity]
-    increasesTransportOf: [MolecularEntity]
-    decreasesTransportOf: [MolecularEntity]
-    affectsSecretionOf: [MolecularEntity]
-    increasesSecretionOf: [MolecularEntity]
-    decreasesSecretionOf: [MolecularEntity]
-    affectsUptakeOf: [MolecularEntity]
-    increasesUptakeOf: [MolecularEntity]
-    decreasesUptakeOf: [MolecularEntity]
-    regulatesEntityToEntity: [MolecularEntity]
-    biomarkerFor: [DiseaseOrPhenotypicFeature]
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
-    inPathwayWith: [GeneOrGeneProduct]
-    inComplexWith: [GeneOrGeneProduct]
-    inCellPopulationWith: [GeneOrGeneProduct]
-    expressedIn: [AnatomicalEntity]
   }
 
 type GeneRegulatoryRelationship
@@ -1739,8 +751,6 @@ type GeneRegulatoryRelationship
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 type GeneToDiseaseAssociation implements EntityToDiseaseAssociation, GeneToThingAssociation
@@ -1754,8 +764,6 @@ type GeneToDiseaseAssociation implements EntityToDiseaseAssociation, GeneToThing
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
     onsetQualifier: Onset
@@ -1772,8 +780,6 @@ type GeneToExpressionSiteAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
     stageQualifier: LifeStage
     quantifierQualifier: OntologyClass
   }
@@ -1789,8 +795,6 @@ interface GeneToGeneAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 type GeneToGeneHomologyAssociation
@@ -1804,8 +808,6 @@ type GeneToGeneHomologyAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 type GeneToGeneProductRelationship
@@ -1819,8 +821,6 @@ type GeneToGeneProductRelationship
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 type GeneToGoTermAssociation
@@ -1834,8 +834,6 @@ type GeneToGoTermAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 type GeneToPhenotypicFeatureAssociation implements EntityToPhenotypicFeatureAssociation, GeneToThingAssociation
@@ -1849,8 +847,6 @@ type GeneToPhenotypicFeatureAssociation implements EntityToPhenotypicFeatureAsso
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
     sexQualifier: BiologicalSex
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
@@ -1868,8 +864,6 @@ interface GeneToThingAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 type Genome
@@ -1877,66 +871,6 @@ type Genome
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    molecularlyInteractsWith: [MolecularEntity]
-    affectsAbundanceOf: [MolecularEntity]
-    increasesAbundanceOf: [MolecularEntity]
-    decreasesAbundanceOf: [MolecularEntity]
-    affectsActivityOf: [MolecularEntity]
-    increasesActivityOf: [MolecularEntity]
-    decreasesActivityOf: [MolecularEntity]
-    affectsExpressionOf: [GenomicEntity]
-    increasesExpressionOf: [GenomicEntity]
-    decreasesExpressionOf: [GenomicEntity]
-    affectsFoldingOf: [MolecularEntity]
-    increasesFoldingOf: [MolecularEntity]
-    decreasesFoldingOf: [MolecularEntity]
-    affectsLocalizationOf: [MolecularEntity]
-    increasesLocalizationOf: [MolecularEntity]
-    decreasesLocalizationOf: [MolecularEntity]
-    affectsMetabolicProcessingOf: [MolecularEntity]
-    increasesMetabolicProcessingOf: [MolecularEntity]
-    decreasesMetabolicProcessingOf: [MolecularEntity]
-    affectsMolecularModificationOf: [MolecularEntity]
-    increasesMolecularModificationOf: [MolecularEntity]
-    decreasesMolecularModificationOf: [MolecularEntity]
-    affectsSynthesisOf: [MolecularEntity]
-    increasesSynthesisOf: [MolecularEntity]
-    decreasesSynthesisOf: [MolecularEntity]
-    affectsDegradationOf: [MolecularEntity]
-    increasesDegradationOf: [MolecularEntity]
-    decreasesDegradationOf: [MolecularEntity]
-    affectsMutationRateOf: [GenomicEntity]
-    increasesMutationRateOf: [GenomicEntity]
-    decreasesMutationRateOf: [GenomicEntity]
-    affectsResponseTo: [MolecularEntity]
-    increasesResponseTo: [MolecularEntity]
-    decreasesResponseTo: [MolecularEntity]
-    affectsSplicingOf: [Transcript]
-    increasesSplicingOf: [Transcript]
-    decreasesSplicingOf: [Transcript]
-    affectsStabilityOf: [MolecularEntity]
-    increasesStabilityOf: [MolecularEntity]
-    decreasesStabilityOf: [MolecularEntity]
-    affectsTransportOf: [MolecularEntity]
-    increasesTransportOf: [MolecularEntity]
-    decreasesTransportOf: [MolecularEntity]
-    affectsSecretionOf: [MolecularEntity]
-    increasesSecretionOf: [MolecularEntity]
-    decreasesSecretionOf: [MolecularEntity]
-    affectsUptakeOf: [MolecularEntity]
-    increasesUptakeOf: [MolecularEntity]
-    decreasesUptakeOf: [MolecularEntity]
-    regulatesEntityToEntity: [MolecularEntity]
-    biomarkerFor: [DiseaseOrPhenotypicFeature]
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
   }
@@ -1946,66 +880,6 @@ type GenomicEntity
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    molecularlyInteractsWith: [MolecularEntity]
-    affectsAbundanceOf: [MolecularEntity]
-    increasesAbundanceOf: [MolecularEntity]
-    decreasesAbundanceOf: [MolecularEntity]
-    affectsActivityOf: [MolecularEntity]
-    increasesActivityOf: [MolecularEntity]
-    decreasesActivityOf: [MolecularEntity]
-    affectsExpressionOf: [GenomicEntity]
-    increasesExpressionOf: [GenomicEntity]
-    decreasesExpressionOf: [GenomicEntity]
-    affectsFoldingOf: [MolecularEntity]
-    increasesFoldingOf: [MolecularEntity]
-    decreasesFoldingOf: [MolecularEntity]
-    affectsLocalizationOf: [MolecularEntity]
-    increasesLocalizationOf: [MolecularEntity]
-    decreasesLocalizationOf: [MolecularEntity]
-    affectsMetabolicProcessingOf: [MolecularEntity]
-    increasesMetabolicProcessingOf: [MolecularEntity]
-    decreasesMetabolicProcessingOf: [MolecularEntity]
-    affectsMolecularModificationOf: [MolecularEntity]
-    increasesMolecularModificationOf: [MolecularEntity]
-    decreasesMolecularModificationOf: [MolecularEntity]
-    affectsSynthesisOf: [MolecularEntity]
-    increasesSynthesisOf: [MolecularEntity]
-    decreasesSynthesisOf: [MolecularEntity]
-    affectsDegradationOf: [MolecularEntity]
-    increasesDegradationOf: [MolecularEntity]
-    decreasesDegradationOf: [MolecularEntity]
-    affectsMutationRateOf: [GenomicEntity]
-    increasesMutationRateOf: [GenomicEntity]
-    decreasesMutationRateOf: [GenomicEntity]
-    affectsResponseTo: [MolecularEntity]
-    increasesResponseTo: [MolecularEntity]
-    decreasesResponseTo: [MolecularEntity]
-    affectsSplicingOf: [Transcript]
-    increasesSplicingOf: [Transcript]
-    decreasesSplicingOf: [Transcript]
-    affectsStabilityOf: [MolecularEntity]
-    increasesStabilityOf: [MolecularEntity]
-    decreasesStabilityOf: [MolecularEntity]
-    affectsTransportOf: [MolecularEntity]
-    increasesTransportOf: [MolecularEntity]
-    decreasesTransportOf: [MolecularEntity]
-    affectsSecretionOf: [MolecularEntity]
-    increasesSecretionOf: [MolecularEntity]
-    decreasesSecretionOf: [MolecularEntity]
-    affectsUptakeOf: [MolecularEntity]
-    increasesUptakeOf: [MolecularEntity]
-    decreasesUptakeOf: [MolecularEntity]
-    regulatesEntityToEntity: [MolecularEntity]
-    biomarkerFor: [DiseaseOrPhenotypicFeature]
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
   }
@@ -2021,8 +895,6 @@ type GenomicSequenceLocalization
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
     startInterbaseCoordinate: String
     endInterbaseCoordinate: String
     genomeBuild: String
@@ -2034,66 +906,6 @@ type Genotype
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    molecularlyInteractsWith: [MolecularEntity]
-    affectsAbundanceOf: [MolecularEntity]
-    increasesAbundanceOf: [MolecularEntity]
-    decreasesAbundanceOf: [MolecularEntity]
-    affectsActivityOf: [MolecularEntity]
-    increasesActivityOf: [MolecularEntity]
-    decreasesActivityOf: [MolecularEntity]
-    affectsExpressionOf: [GenomicEntity]
-    increasesExpressionOf: [GenomicEntity]
-    decreasesExpressionOf: [GenomicEntity]
-    affectsFoldingOf: [MolecularEntity]
-    increasesFoldingOf: [MolecularEntity]
-    decreasesFoldingOf: [MolecularEntity]
-    affectsLocalizationOf: [MolecularEntity]
-    increasesLocalizationOf: [MolecularEntity]
-    decreasesLocalizationOf: [MolecularEntity]
-    affectsMetabolicProcessingOf: [MolecularEntity]
-    increasesMetabolicProcessingOf: [MolecularEntity]
-    decreasesMetabolicProcessingOf: [MolecularEntity]
-    affectsMolecularModificationOf: [MolecularEntity]
-    increasesMolecularModificationOf: [MolecularEntity]
-    decreasesMolecularModificationOf: [MolecularEntity]
-    affectsSynthesisOf: [MolecularEntity]
-    increasesSynthesisOf: [MolecularEntity]
-    decreasesSynthesisOf: [MolecularEntity]
-    affectsDegradationOf: [MolecularEntity]
-    increasesDegradationOf: [MolecularEntity]
-    decreasesDegradationOf: [MolecularEntity]
-    affectsMutationRateOf: [GenomicEntity]
-    increasesMutationRateOf: [GenomicEntity]
-    decreasesMutationRateOf: [GenomicEntity]
-    affectsResponseTo: [MolecularEntity]
-    increasesResponseTo: [MolecularEntity]
-    decreasesResponseTo: [MolecularEntity]
-    affectsSplicingOf: [Transcript]
-    increasesSplicingOf: [Transcript]
-    decreasesSplicingOf: [Transcript]
-    affectsStabilityOf: [MolecularEntity]
-    increasesStabilityOf: [MolecularEntity]
-    decreasesStabilityOf: [MolecularEntity]
-    affectsTransportOf: [MolecularEntity]
-    increasesTransportOf: [MolecularEntity]
-    decreasesTransportOf: [MolecularEntity]
-    affectsSecretionOf: [MolecularEntity]
-    increasesSecretionOf: [MolecularEntity]
-    decreasesSecretionOf: [MolecularEntity]
-    affectsUptakeOf: [MolecularEntity]
-    increasesUptakeOf: [MolecularEntity]
-    decreasesUptakeOf: [MolecularEntity]
-    regulatesEntityToEntity: [MolecularEntity]
-    biomarkerFor: [DiseaseOrPhenotypicFeature]
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
     hasZygosity: Zygosity
@@ -2110,8 +922,6 @@ type GenotypeToGeneAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 type GenotypeToGenotypePartAssociation
@@ -2125,8 +935,6 @@ type GenotypeToGenotypePartAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 type GenotypeToPhenotypicFeatureAssociation implements EntityToPhenotypicFeatureAssociation, GenotypeToThingAssociation
@@ -2140,8 +948,6 @@ type GenotypeToPhenotypicFeatureAssociation implements EntityToPhenotypicFeature
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
     sexQualifier: BiologicalSex
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
@@ -2159,8 +965,6 @@ interface GenotypeToThingAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 type GenotypeToVariantAssociation
@@ -2174,8 +978,6 @@ type GenotypeToVariantAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 type GenotypicSex
@@ -2186,15 +988,6 @@ type GenotypicSex
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    subclassOf: [IriType]
   }
 
 type GeographicLocation
@@ -2202,14 +995,6 @@ type GeographicLocation
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
     latitude: Float
     longitude: Float
   }
@@ -2219,14 +1004,6 @@ type GeographicLocationAtTime
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
     latitude: Float
     longitude: Float
     timepoint: TimeType
@@ -2237,16 +1014,6 @@ type GrossAnatomicalStructure
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    expresses: [GeneOrGeneProduct]
     inTaxon: [OrganismTaxon]
   }
 
@@ -2255,66 +1022,6 @@ type Haplotype
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    molecularlyInteractsWith: [MolecularEntity]
-    affectsAbundanceOf: [MolecularEntity]
-    increasesAbundanceOf: [MolecularEntity]
-    decreasesAbundanceOf: [MolecularEntity]
-    affectsActivityOf: [MolecularEntity]
-    increasesActivityOf: [MolecularEntity]
-    decreasesActivityOf: [MolecularEntity]
-    affectsExpressionOf: [GenomicEntity]
-    increasesExpressionOf: [GenomicEntity]
-    decreasesExpressionOf: [GenomicEntity]
-    affectsFoldingOf: [MolecularEntity]
-    increasesFoldingOf: [MolecularEntity]
-    decreasesFoldingOf: [MolecularEntity]
-    affectsLocalizationOf: [MolecularEntity]
-    increasesLocalizationOf: [MolecularEntity]
-    decreasesLocalizationOf: [MolecularEntity]
-    affectsMetabolicProcessingOf: [MolecularEntity]
-    increasesMetabolicProcessingOf: [MolecularEntity]
-    decreasesMetabolicProcessingOf: [MolecularEntity]
-    affectsMolecularModificationOf: [MolecularEntity]
-    increasesMolecularModificationOf: [MolecularEntity]
-    decreasesMolecularModificationOf: [MolecularEntity]
-    affectsSynthesisOf: [MolecularEntity]
-    increasesSynthesisOf: [MolecularEntity]
-    decreasesSynthesisOf: [MolecularEntity]
-    affectsDegradationOf: [MolecularEntity]
-    increasesDegradationOf: [MolecularEntity]
-    decreasesDegradationOf: [MolecularEntity]
-    affectsMutationRateOf: [GenomicEntity]
-    increasesMutationRateOf: [GenomicEntity]
-    decreasesMutationRateOf: [GenomicEntity]
-    affectsResponseTo: [MolecularEntity]
-    increasesResponseTo: [MolecularEntity]
-    decreasesResponseTo: [MolecularEntity]
-    affectsSplicingOf: [Transcript]
-    increasesSplicingOf: [Transcript]
-    decreasesSplicingOf: [Transcript]
-    affectsStabilityOf: [MolecularEntity]
-    increasesStabilityOf: [MolecularEntity]
-    decreasesStabilityOf: [MolecularEntity]
-    affectsTransportOf: [MolecularEntity]
-    increasesTransportOf: [MolecularEntity]
-    decreasesTransportOf: [MolecularEntity]
-    affectsSecretionOf: [MolecularEntity]
-    increasesSecretionOf: [MolecularEntity]
-    decreasesSecretionOf: [MolecularEntity]
-    affectsUptakeOf: [MolecularEntity]
-    increasesUptakeOf: [MolecularEntity]
-    decreasesUptakeOf: [MolecularEntity]
-    regulatesEntityToEntity: [MolecularEntity]
-    biomarkerFor: [DiseaseOrPhenotypicFeature]
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
   }
@@ -2324,15 +1031,6 @@ type IndividualOrganism implements ThingWithTaxon
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
     inTaxon: [OrganismTaxon]
   }
 
@@ -2341,14 +1039,6 @@ interface InformationContentEntity
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
   }
 
 type LifeStage implements ThingWithTaxon
@@ -2356,15 +1046,6 @@ type LifeStage implements ThingWithTaxon
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
     inTaxon: [OrganismTaxon]
   }
 
@@ -2373,66 +1054,6 @@ type MacromolecularComplex
     id: IdentifierType!
     name: SymbolType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    molecularlyInteractsWith: [MolecularEntity]
-    affectsAbundanceOf: [MolecularEntity]
-    increasesAbundanceOf: [MolecularEntity]
-    decreasesAbundanceOf: [MolecularEntity]
-    affectsActivityOf: [MolecularEntity]
-    increasesActivityOf: [MolecularEntity]
-    decreasesActivityOf: [MolecularEntity]
-    affectsExpressionOf: [GenomicEntity]
-    increasesExpressionOf: [GenomicEntity]
-    decreasesExpressionOf: [GenomicEntity]
-    affectsFoldingOf: [MolecularEntity]
-    increasesFoldingOf: [MolecularEntity]
-    decreasesFoldingOf: [MolecularEntity]
-    affectsLocalizationOf: [MolecularEntity]
-    increasesLocalizationOf: [MolecularEntity]
-    decreasesLocalizationOf: [MolecularEntity]
-    affectsMetabolicProcessingOf: [MolecularEntity]
-    increasesMetabolicProcessingOf: [MolecularEntity]
-    decreasesMetabolicProcessingOf: [MolecularEntity]
-    affectsMolecularModificationOf: [MolecularEntity]
-    increasesMolecularModificationOf: [MolecularEntity]
-    decreasesMolecularModificationOf: [MolecularEntity]
-    affectsSynthesisOf: [MolecularEntity]
-    increasesSynthesisOf: [MolecularEntity]
-    decreasesSynthesisOf: [MolecularEntity]
-    affectsDegradationOf: [MolecularEntity]
-    increasesDegradationOf: [MolecularEntity]
-    decreasesDegradationOf: [MolecularEntity]
-    affectsMutationRateOf: [GenomicEntity]
-    increasesMutationRateOf: [GenomicEntity]
-    decreasesMutationRateOf: [GenomicEntity]
-    affectsResponseTo: [MolecularEntity]
-    increasesResponseTo: [MolecularEntity]
-    decreasesResponseTo: [MolecularEntity]
-    affectsSplicingOf: [Transcript]
-    increasesSplicingOf: [Transcript]
-    decreasesSplicingOf: [Transcript]
-    affectsStabilityOf: [MolecularEntity]
-    increasesStabilityOf: [MolecularEntity]
-    decreasesStabilityOf: [MolecularEntity]
-    affectsTransportOf: [MolecularEntity]
-    increasesTransportOf: [MolecularEntity]
-    decreasesTransportOf: [MolecularEntity]
-    affectsSecretionOf: [MolecularEntity]
-    increasesSecretionOf: [MolecularEntity]
-    decreasesSecretionOf: [MolecularEntity]
-    affectsUptakeOf: [MolecularEntity]
-    increasesUptakeOf: [MolecularEntity]
-    decreasesUptakeOf: [MolecularEntity]
-    regulatesEntityToEntity: [MolecularEntity]
-    biomarkerFor: [DiseaseOrPhenotypicFeature]
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
   }
@@ -2442,66 +1063,6 @@ type MacromolecularMachine
     id: IdentifierType!
     name: SymbolType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    molecularlyInteractsWith: [MolecularEntity]
-    affectsAbundanceOf: [MolecularEntity]
-    increasesAbundanceOf: [MolecularEntity]
-    decreasesAbundanceOf: [MolecularEntity]
-    affectsActivityOf: [MolecularEntity]
-    increasesActivityOf: [MolecularEntity]
-    decreasesActivityOf: [MolecularEntity]
-    affectsExpressionOf: [GenomicEntity]
-    increasesExpressionOf: [GenomicEntity]
-    decreasesExpressionOf: [GenomicEntity]
-    affectsFoldingOf: [MolecularEntity]
-    increasesFoldingOf: [MolecularEntity]
-    decreasesFoldingOf: [MolecularEntity]
-    affectsLocalizationOf: [MolecularEntity]
-    increasesLocalizationOf: [MolecularEntity]
-    decreasesLocalizationOf: [MolecularEntity]
-    affectsMetabolicProcessingOf: [MolecularEntity]
-    increasesMetabolicProcessingOf: [MolecularEntity]
-    decreasesMetabolicProcessingOf: [MolecularEntity]
-    affectsMolecularModificationOf: [MolecularEntity]
-    increasesMolecularModificationOf: [MolecularEntity]
-    decreasesMolecularModificationOf: [MolecularEntity]
-    affectsSynthesisOf: [MolecularEntity]
-    increasesSynthesisOf: [MolecularEntity]
-    decreasesSynthesisOf: [MolecularEntity]
-    affectsDegradationOf: [MolecularEntity]
-    increasesDegradationOf: [MolecularEntity]
-    decreasesDegradationOf: [MolecularEntity]
-    affectsMutationRateOf: [GenomicEntity]
-    increasesMutationRateOf: [GenomicEntity]
-    decreasesMutationRateOf: [GenomicEntity]
-    affectsResponseTo: [MolecularEntity]
-    increasesResponseTo: [MolecularEntity]
-    decreasesResponseTo: [MolecularEntity]
-    affectsSplicingOf: [Transcript]
-    increasesSplicingOf: [Transcript]
-    decreasesSplicingOf: [Transcript]
-    affectsStabilityOf: [MolecularEntity]
-    increasesStabilityOf: [MolecularEntity]
-    decreasesStabilityOf: [MolecularEntity]
-    affectsTransportOf: [MolecularEntity]
-    increasesTransportOf: [MolecularEntity]
-    decreasesTransportOf: [MolecularEntity]
-    affectsSecretionOf: [MolecularEntity]
-    increasesSecretionOf: [MolecularEntity]
-    decreasesSecretionOf: [MolecularEntity]
-    affectsUptakeOf: [MolecularEntity]
-    increasesUptakeOf: [MolecularEntity]
-    decreasesUptakeOf: [MolecularEntity]
-    regulatesEntityToEntity: [MolecularEntity]
-    biomarkerFor: [DiseaseOrPhenotypicFeature]
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
   }
@@ -2517,8 +1078,6 @@ type MacromolecularMachineToBiologicalProcessAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 type MacromolecularMachineToCellularComponentAssociation
@@ -2532,8 +1091,6 @@ type MacromolecularMachineToCellularComponentAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 type MacromolecularMachineToMolecularActivityAssociation
@@ -2547,8 +1104,6 @@ type MacromolecularMachineToMolecularActivityAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 type MaterialSample implements SubjectOfInvestigation, PhysicalEntity
@@ -2556,14 +1111,6 @@ type MaterialSample implements SubjectOfInvestigation, PhysicalEntity
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
     hasAttribute: [Attribute]
   }
 
@@ -2578,8 +1125,6 @@ type MaterialSampleDerivationAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 type MaterialSampleToDiseaseOrPhenotypicFeatureAssociation implements MaterialSampleToThingAssociation, ThingToDiseaseOrPhenotypicFeatureAssociation
@@ -2593,8 +1138,6 @@ type MaterialSampleToDiseaseOrPhenotypicFeatureAssociation implements MaterialSa
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 interface MaterialSampleToThingAssociation
@@ -2608,8 +1151,6 @@ interface MaterialSampleToThingAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 type Metabolite
@@ -2617,66 +1158,6 @@ type Metabolite
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    molecularlyInteractsWith: [MolecularEntity]
-    affectsAbundanceOf: [MolecularEntity]
-    increasesAbundanceOf: [MolecularEntity]
-    decreasesAbundanceOf: [MolecularEntity]
-    affectsActivityOf: [MolecularEntity]
-    increasesActivityOf: [MolecularEntity]
-    decreasesActivityOf: [MolecularEntity]
-    affectsExpressionOf: [GenomicEntity]
-    increasesExpressionOf: [GenomicEntity]
-    decreasesExpressionOf: [GenomicEntity]
-    affectsFoldingOf: [MolecularEntity]
-    increasesFoldingOf: [MolecularEntity]
-    decreasesFoldingOf: [MolecularEntity]
-    affectsLocalizationOf: [MolecularEntity]
-    increasesLocalizationOf: [MolecularEntity]
-    decreasesLocalizationOf: [MolecularEntity]
-    affectsMetabolicProcessingOf: [MolecularEntity]
-    increasesMetabolicProcessingOf: [MolecularEntity]
-    decreasesMetabolicProcessingOf: [MolecularEntity]
-    affectsMolecularModificationOf: [MolecularEntity]
-    increasesMolecularModificationOf: [MolecularEntity]
-    decreasesMolecularModificationOf: [MolecularEntity]
-    affectsSynthesisOf: [MolecularEntity]
-    increasesSynthesisOf: [MolecularEntity]
-    decreasesSynthesisOf: [MolecularEntity]
-    affectsDegradationOf: [MolecularEntity]
-    increasesDegradationOf: [MolecularEntity]
-    decreasesDegradationOf: [MolecularEntity]
-    affectsMutationRateOf: [GenomicEntity]
-    increasesMutationRateOf: [GenomicEntity]
-    decreasesMutationRateOf: [GenomicEntity]
-    affectsResponseTo: [MolecularEntity]
-    increasesResponseTo: [MolecularEntity]
-    decreasesResponseTo: [MolecularEntity]
-    affectsSplicingOf: [Transcript]
-    increasesSplicingOf: [Transcript]
-    decreasesSplicingOf: [Transcript]
-    affectsStabilityOf: [MolecularEntity]
-    increasesStabilityOf: [MolecularEntity]
-    decreasesStabilityOf: [MolecularEntity]
-    affectsTransportOf: [MolecularEntity]
-    increasesTransportOf: [MolecularEntity]
-    decreasesTransportOf: [MolecularEntity]
-    affectsSecretionOf: [MolecularEntity]
-    increasesSecretionOf: [MolecularEntity]
-    decreasesSecretionOf: [MolecularEntity]
-    affectsUptakeOf: [MolecularEntity]
-    increasesUptakeOf: [MolecularEntity]
-    decreasesUptakeOf: [MolecularEntity]
-    regulatesEntityToEntity: [MolecularEntity]
-    biomarkerFor: [DiseaseOrPhenotypicFeature]
     inTaxon: [OrganismTaxon]
   }
 
@@ -2685,72 +1166,8 @@ type MicroRNA
     id: IdentifierType!
     name: SymbolType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    molecularlyInteractsWith: [MolecularEntity]
-    affectsAbundanceOf: [MolecularEntity]
-    increasesAbundanceOf: [MolecularEntity]
-    decreasesAbundanceOf: [MolecularEntity]
-    affectsActivityOf: [MolecularEntity]
-    increasesActivityOf: [MolecularEntity]
-    decreasesActivityOf: [MolecularEntity]
-    affectsExpressionOf: [GenomicEntity]
-    increasesExpressionOf: [GenomicEntity]
-    decreasesExpressionOf: [GenomicEntity]
-    affectsFoldingOf: [MolecularEntity]
-    increasesFoldingOf: [MolecularEntity]
-    decreasesFoldingOf: [MolecularEntity]
-    affectsLocalizationOf: [MolecularEntity]
-    increasesLocalizationOf: [MolecularEntity]
-    decreasesLocalizationOf: [MolecularEntity]
-    affectsMetabolicProcessingOf: [MolecularEntity]
-    increasesMetabolicProcessingOf: [MolecularEntity]
-    decreasesMetabolicProcessingOf: [MolecularEntity]
-    affectsMolecularModificationOf: [MolecularEntity]
-    increasesMolecularModificationOf: [MolecularEntity]
-    decreasesMolecularModificationOf: [MolecularEntity]
-    affectsSynthesisOf: [MolecularEntity]
-    increasesSynthesisOf: [MolecularEntity]
-    decreasesSynthesisOf: [MolecularEntity]
-    affectsDegradationOf: [MolecularEntity]
-    increasesDegradationOf: [MolecularEntity]
-    decreasesDegradationOf: [MolecularEntity]
-    affectsMutationRateOf: [GenomicEntity]
-    increasesMutationRateOf: [GenomicEntity]
-    decreasesMutationRateOf: [GenomicEntity]
-    affectsResponseTo: [MolecularEntity]
-    increasesResponseTo: [MolecularEntity]
-    decreasesResponseTo: [MolecularEntity]
-    affectsSplicingOf: [Transcript]
-    increasesSplicingOf: [Transcript]
-    decreasesSplicingOf: [Transcript]
-    affectsStabilityOf: [MolecularEntity]
-    increasesStabilityOf: [MolecularEntity]
-    decreasesStabilityOf: [MolecularEntity]
-    affectsTransportOf: [MolecularEntity]
-    increasesTransportOf: [MolecularEntity]
-    decreasesTransportOf: [MolecularEntity]
-    affectsSecretionOf: [MolecularEntity]
-    increasesSecretionOf: [MolecularEntity]
-    decreasesSecretionOf: [MolecularEntity]
-    affectsUptakeOf: [MolecularEntity]
-    increasesUptakeOf: [MolecularEntity]
-    decreasesUptakeOf: [MolecularEntity]
-    regulatesEntityToEntity: [MolecularEntity]
-    biomarkerFor: [DiseaseOrPhenotypicFeature]
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
-    inPathwayWith: [GeneOrGeneProduct]
-    inComplexWith: [GeneOrGeneProduct]
-    inCellPopulationWith: [GeneOrGeneProduct]
-    expressedIn: [AnatomicalEntity]
   }
 
 interface ModelToDiseaseMixin
@@ -2762,21 +1179,9 @@ type MolecularActivity implements Occurrent
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
     hasInput: [ChemicalSubstance]
     hasOutput: [ChemicalSubstance]
     enabledBy: [MacromolecularMachine]
-    regulatesProcessToProcess: [Occurrent]
-    hasParticipant: [NamedThing]
-    precedes: [Occurrent]
   }
 
 type MolecularEntity implements ThingWithTaxon, PhysicalEntity
@@ -2784,69 +1189,7 @@ type MolecularEntity implements ThingWithTaxon, PhysicalEntity
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    molecularlyInteractsWith: [MolecularEntity]
-    affectsAbundanceOf: [MolecularEntity]
-    increasesAbundanceOf: [MolecularEntity]
-    decreasesAbundanceOf: [MolecularEntity]
-    affectsActivityOf: [MolecularEntity]
-    increasesActivityOf: [MolecularEntity]
-    decreasesActivityOf: [MolecularEntity]
-    affectsExpressionOf: [GenomicEntity]
-    increasesExpressionOf: [GenomicEntity]
-    decreasesExpressionOf: [GenomicEntity]
-    affectsFoldingOf: [MolecularEntity]
-    increasesFoldingOf: [MolecularEntity]
-    decreasesFoldingOf: [MolecularEntity]
-    affectsLocalizationOf: [MolecularEntity]
-    increasesLocalizationOf: [MolecularEntity]
-    decreasesLocalizationOf: [MolecularEntity]
-    affectsMetabolicProcessingOf: [MolecularEntity]
-    increasesMetabolicProcessingOf: [MolecularEntity]
-    decreasesMetabolicProcessingOf: [MolecularEntity]
-    affectsMolecularModificationOf: [MolecularEntity]
-    increasesMolecularModificationOf: [MolecularEntity]
-    decreasesMolecularModificationOf: [MolecularEntity]
-    affectsSynthesisOf: [MolecularEntity]
-    increasesSynthesisOf: [MolecularEntity]
-    decreasesSynthesisOf: [MolecularEntity]
-    affectsDegradationOf: [MolecularEntity]
-    increasesDegradationOf: [MolecularEntity]
-    decreasesDegradationOf: [MolecularEntity]
-    affectsMutationRateOf: [GenomicEntity]
-    increasesMutationRateOf: [GenomicEntity]
-    decreasesMutationRateOf: [GenomicEntity]
-    affectsResponseTo: [MolecularEntity]
-    increasesResponseTo: [MolecularEntity]
-    decreasesResponseTo: [MolecularEntity]
-    affectsSplicingOf: [Transcript]
-    increasesSplicingOf: [Transcript]
-    decreasesSplicingOf: [Transcript]
-    affectsStabilityOf: [MolecularEntity]
-    increasesStabilityOf: [MolecularEntity]
-    decreasesStabilityOf: [MolecularEntity]
-    affectsTransportOf: [MolecularEntity]
-    increasesTransportOf: [MolecularEntity]
-    decreasesTransportOf: [MolecularEntity]
-    affectsSecretionOf: [MolecularEntity]
-    increasesSecretionOf: [MolecularEntity]
-    decreasesSecretionOf: [MolecularEntity]
-    affectsUptakeOf: [MolecularEntity]
-    increasesUptakeOf: [MolecularEntity]
-    decreasesUptakeOf: [MolecularEntity]
-    regulatesEntityToEntity: [MolecularEntity]
-    biomarkerFor: [DiseaseOrPhenotypicFeature]
     inTaxon: [OrganismTaxon]
-    positivelyRegulatesEntityToEntity: [MolecularEntity]
-    negativelyRegulatesEntityToEntity: [MolecularEntity]
   }
 
 type NamedThing
@@ -2854,55 +1197,6 @@ type NamedThing
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    physicallyInteractsWith: [NamedThing]
-    affects: [NamedThing]
-    regulates: [NamedThing]
-    positivelyRegulates: [NamedThing]
-    negativelyRegulates: [NamedThing]
-    disrupts: [NamedThing]
-    homologousTo: [NamedThing]
-    paralogousTo: [NamedThing]
-    orthologousTo: [NamedThing]
-    xenologousTo: [NamedThing]
-    coexistsWith: [NamedThing]
-    colocalizesWith: [NamedThing]
-    affectsRiskFor: [NamedThing]
-    predisposes: [NamedThing]
-    contributesTo: [NamedThing]
-    causes: [NamedThing]
-    causedBy: [NamedThing]
-    prevents: [NamedThing]
-    occursIn: [NamedThing]
-    locatedIn: [NamedThing]
-    locationOf: [NamedThing]
-    modelOf: [NamedThing]
-    overlaps: [NamedThing]
-    hasPart: [NamedThing]
-    partOf: [NamedThing]
-    participatesIn: [Occurrent]
-    activelyInvolvedIn: [Occurrent]
-    capableOf: [Occurrent]
-    derivesInto: [NamedThing]
-    derivesFrom: [NamedThing]
-    manifestationOf: [Disease]
-    produces: [NamedThing]
-    sameAs: [NamedThing]
-    creationDate: Date
-    updateDate: Date
-    hasChemicalFormula: ChemicalFormulaValue
-    aggregateStatistic: String
-    hasMolecularConsequence: [OntologyClass]
-    hasDrug: Drug
-    filler: NamedThing
-    interbaseCoordinate: String
   }
 
 type NoncodingRNAProduct
@@ -2910,72 +1204,8 @@ type NoncodingRNAProduct
     id: IdentifierType!
     name: SymbolType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    molecularlyInteractsWith: [MolecularEntity]
-    affectsAbundanceOf: [MolecularEntity]
-    increasesAbundanceOf: [MolecularEntity]
-    decreasesAbundanceOf: [MolecularEntity]
-    affectsActivityOf: [MolecularEntity]
-    increasesActivityOf: [MolecularEntity]
-    decreasesActivityOf: [MolecularEntity]
-    affectsExpressionOf: [GenomicEntity]
-    increasesExpressionOf: [GenomicEntity]
-    decreasesExpressionOf: [GenomicEntity]
-    affectsFoldingOf: [MolecularEntity]
-    increasesFoldingOf: [MolecularEntity]
-    decreasesFoldingOf: [MolecularEntity]
-    affectsLocalizationOf: [MolecularEntity]
-    increasesLocalizationOf: [MolecularEntity]
-    decreasesLocalizationOf: [MolecularEntity]
-    affectsMetabolicProcessingOf: [MolecularEntity]
-    increasesMetabolicProcessingOf: [MolecularEntity]
-    decreasesMetabolicProcessingOf: [MolecularEntity]
-    affectsMolecularModificationOf: [MolecularEntity]
-    increasesMolecularModificationOf: [MolecularEntity]
-    decreasesMolecularModificationOf: [MolecularEntity]
-    affectsSynthesisOf: [MolecularEntity]
-    increasesSynthesisOf: [MolecularEntity]
-    decreasesSynthesisOf: [MolecularEntity]
-    affectsDegradationOf: [MolecularEntity]
-    increasesDegradationOf: [MolecularEntity]
-    decreasesDegradationOf: [MolecularEntity]
-    affectsMutationRateOf: [GenomicEntity]
-    increasesMutationRateOf: [GenomicEntity]
-    decreasesMutationRateOf: [GenomicEntity]
-    affectsResponseTo: [MolecularEntity]
-    increasesResponseTo: [MolecularEntity]
-    decreasesResponseTo: [MolecularEntity]
-    affectsSplicingOf: [Transcript]
-    increasesSplicingOf: [Transcript]
-    decreasesSplicingOf: [Transcript]
-    affectsStabilityOf: [MolecularEntity]
-    increasesStabilityOf: [MolecularEntity]
-    decreasesStabilityOf: [MolecularEntity]
-    affectsTransportOf: [MolecularEntity]
-    increasesTransportOf: [MolecularEntity]
-    decreasesTransportOf: [MolecularEntity]
-    affectsSecretionOf: [MolecularEntity]
-    increasesSecretionOf: [MolecularEntity]
-    decreasesSecretionOf: [MolecularEntity]
-    affectsUptakeOf: [MolecularEntity]
-    increasesUptakeOf: [MolecularEntity]
-    decreasesUptakeOf: [MolecularEntity]
-    regulatesEntityToEntity: [MolecularEntity]
-    biomarkerFor: [DiseaseOrPhenotypicFeature]
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
-    inPathwayWith: [GeneOrGeneProduct]
-    inComplexWith: [GeneOrGeneProduct]
-    inCellPopulationWith: [GeneOrGeneProduct]
-    expressedIn: [AnatomicalEntity]
   }
 
 type Occurrent
@@ -2983,21 +1213,6 @@ type Occurrent
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    regulatesProcessToProcess: [Occurrent]
-    hasParticipant: [NamedThing]
-    hasInput: [NamedThing]
-    hasOutput: [NamedThing]
-    precedes: [Occurrent]
-    positivelyRegulatesProcessToProcess: [Occurrent]
-    negativelyRegulatesProcessToProcess: [Occurrent]
   }
 
 type Onset
@@ -3008,15 +1223,6 @@ type Onset
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    subclassOf: [IriType]
   }
 
 type OntologyClass
@@ -3024,15 +1230,6 @@ type OntologyClass
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    subclassOf: [IriType]
   }
 
 type OrganismTaxon
@@ -3040,15 +1237,6 @@ type OrganismTaxon
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    subclassOf: [IriType]
   }
 
 interface OrganismalEntity
@@ -3056,15 +1244,6 @@ interface OrganismalEntity
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
   }
 
 type PairwiseGeneToGeneInteraction implements PairwiseInteractionAssociation
@@ -3078,8 +1257,6 @@ type PairwiseGeneToGeneInteraction implements PairwiseInteractionAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 interface PairwiseInteractionAssociation
@@ -3093,8 +1270,6 @@ interface PairwiseInteractionAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 interface PathognomonicityQuantifier
@@ -3106,21 +1281,9 @@ type Pathway
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
     hasInput: [NamedThing]
     hasOutput: [NamedThing]
     enabledBy: [BiologicalProcessOrActivity]
-    regulatesProcessToProcess: [Occurrent]
-    hasParticipant: [NamedThing]
-    precedes: [Occurrent]
   }
 
 type Phenomenon
@@ -3128,19 +1291,6 @@ type Phenomenon
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    regulatesProcessToProcess: [Occurrent]
-    hasParticipant: [NamedThing]
-    hasInput: [NamedThing]
-    hasOutput: [NamedThing]
-    precedes: [Occurrent]
   }
 
 type PhenotypicFeature
@@ -3148,18 +1298,6 @@ type PhenotypicFeature
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    correlatedWith: [MolecularEntity]
-    hasBiomarker: [MolecularEntity]
-    treatedBy: [NamedThing]
     inTaxon: [OrganismTaxon]
   }
 
@@ -3171,15 +1309,6 @@ type PhenotypicSex
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    subclassOf: [IriType]
   }
 
 type PhysicalEntity
@@ -3187,14 +1316,6 @@ type PhysicalEntity
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
   }
 
 type PhysiologicalProcess
@@ -3202,21 +1323,9 @@ type PhysiologicalProcess
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
     hasInput: [NamedThing]
     hasOutput: [NamedThing]
     enabledBy: [BiologicalProcessOrActivity]
-    regulatesProcessToProcess: [Occurrent]
-    hasParticipant: [NamedThing]
-    precedes: [Occurrent]
   }
 
 type PlanetaryEntity
@@ -3224,14 +1333,6 @@ type PlanetaryEntity
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
   }
 
 type PopulationOfIndividualOrganisms implements ThingWithTaxon
@@ -3239,15 +1340,6 @@ type PopulationOfIndividualOrganisms implements ThingWithTaxon
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
     inTaxon: [OrganismTaxon]
   }
 
@@ -3262,8 +1354,6 @@ type PopulationToPopulationAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 type Procedure
@@ -3271,19 +1361,6 @@ type Procedure
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    regulatesProcessToProcess: [Occurrent]
-    hasParticipant: [NamedThing]
-    hasInput: [NamedThing]
-    hasOutput: [NamedThing]
-    precedes: [Occurrent]
   }
 
 type Protein
@@ -3291,72 +1368,8 @@ type Protein
     id: IdentifierType!
     name: SymbolType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    molecularlyInteractsWith: [MolecularEntity]
-    affectsAbundanceOf: [MolecularEntity]
-    increasesAbundanceOf: [MolecularEntity]
-    decreasesAbundanceOf: [MolecularEntity]
-    affectsActivityOf: [MolecularEntity]
-    increasesActivityOf: [MolecularEntity]
-    decreasesActivityOf: [MolecularEntity]
-    affectsExpressionOf: [GenomicEntity]
-    increasesExpressionOf: [GenomicEntity]
-    decreasesExpressionOf: [GenomicEntity]
-    affectsFoldingOf: [MolecularEntity]
-    increasesFoldingOf: [MolecularEntity]
-    decreasesFoldingOf: [MolecularEntity]
-    affectsLocalizationOf: [MolecularEntity]
-    increasesLocalizationOf: [MolecularEntity]
-    decreasesLocalizationOf: [MolecularEntity]
-    affectsMetabolicProcessingOf: [MolecularEntity]
-    increasesMetabolicProcessingOf: [MolecularEntity]
-    decreasesMetabolicProcessingOf: [MolecularEntity]
-    affectsMolecularModificationOf: [MolecularEntity]
-    increasesMolecularModificationOf: [MolecularEntity]
-    decreasesMolecularModificationOf: [MolecularEntity]
-    affectsSynthesisOf: [MolecularEntity]
-    increasesSynthesisOf: [MolecularEntity]
-    decreasesSynthesisOf: [MolecularEntity]
-    affectsDegradationOf: [MolecularEntity]
-    increasesDegradationOf: [MolecularEntity]
-    decreasesDegradationOf: [MolecularEntity]
-    affectsMutationRateOf: [GenomicEntity]
-    increasesMutationRateOf: [GenomicEntity]
-    decreasesMutationRateOf: [GenomicEntity]
-    affectsResponseTo: [MolecularEntity]
-    increasesResponseTo: [MolecularEntity]
-    decreasesResponseTo: [MolecularEntity]
-    affectsSplicingOf: [Transcript]
-    increasesSplicingOf: [Transcript]
-    decreasesSplicingOf: [Transcript]
-    affectsStabilityOf: [MolecularEntity]
-    increasesStabilityOf: [MolecularEntity]
-    decreasesStabilityOf: [MolecularEntity]
-    affectsTransportOf: [MolecularEntity]
-    increasesTransportOf: [MolecularEntity]
-    decreasesTransportOf: [MolecularEntity]
-    affectsSecretionOf: [MolecularEntity]
-    increasesSecretionOf: [MolecularEntity]
-    decreasesSecretionOf: [MolecularEntity]
-    affectsUptakeOf: [MolecularEntity]
-    increasesUptakeOf: [MolecularEntity]
-    decreasesUptakeOf: [MolecularEntity]
-    regulatesEntityToEntity: [MolecularEntity]
-    biomarkerFor: [DiseaseOrPhenotypicFeature]
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
-    inPathwayWith: [GeneOrGeneProduct]
-    inComplexWith: [GeneOrGeneProduct]
-    inCellPopulationWith: [GeneOrGeneProduct]
-    expressedIn: [AnatomicalEntity]
   }
 
 type ProteinIsoform implements GeneProductIsoform
@@ -3364,72 +1377,8 @@ type ProteinIsoform implements GeneProductIsoform
     id: IdentifierType!
     name: SymbolType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    molecularlyInteractsWith: [MolecularEntity]
-    affectsAbundanceOf: [MolecularEntity]
-    increasesAbundanceOf: [MolecularEntity]
-    decreasesAbundanceOf: [MolecularEntity]
-    affectsActivityOf: [MolecularEntity]
-    increasesActivityOf: [MolecularEntity]
-    decreasesActivityOf: [MolecularEntity]
-    affectsExpressionOf: [GenomicEntity]
-    increasesExpressionOf: [GenomicEntity]
-    decreasesExpressionOf: [GenomicEntity]
-    affectsFoldingOf: [MolecularEntity]
-    increasesFoldingOf: [MolecularEntity]
-    decreasesFoldingOf: [MolecularEntity]
-    affectsLocalizationOf: [MolecularEntity]
-    increasesLocalizationOf: [MolecularEntity]
-    decreasesLocalizationOf: [MolecularEntity]
-    affectsMetabolicProcessingOf: [MolecularEntity]
-    increasesMetabolicProcessingOf: [MolecularEntity]
-    decreasesMetabolicProcessingOf: [MolecularEntity]
-    affectsMolecularModificationOf: [MolecularEntity]
-    increasesMolecularModificationOf: [MolecularEntity]
-    decreasesMolecularModificationOf: [MolecularEntity]
-    affectsSynthesisOf: [MolecularEntity]
-    increasesSynthesisOf: [MolecularEntity]
-    decreasesSynthesisOf: [MolecularEntity]
-    affectsDegradationOf: [MolecularEntity]
-    increasesDegradationOf: [MolecularEntity]
-    decreasesDegradationOf: [MolecularEntity]
-    affectsMutationRateOf: [GenomicEntity]
-    increasesMutationRateOf: [GenomicEntity]
-    decreasesMutationRateOf: [GenomicEntity]
-    affectsResponseTo: [MolecularEntity]
-    increasesResponseTo: [MolecularEntity]
-    decreasesResponseTo: [MolecularEntity]
-    affectsSplicingOf: [Transcript]
-    increasesSplicingOf: [Transcript]
-    decreasesSplicingOf: [Transcript]
-    affectsStabilityOf: [MolecularEntity]
-    increasesStabilityOf: [MolecularEntity]
-    decreasesStabilityOf: [MolecularEntity]
-    affectsTransportOf: [MolecularEntity]
-    increasesTransportOf: [MolecularEntity]
-    decreasesTransportOf: [MolecularEntity]
-    affectsSecretionOf: [MolecularEntity]
-    increasesSecretionOf: [MolecularEntity]
-    decreasesSecretionOf: [MolecularEntity]
-    affectsUptakeOf: [MolecularEntity]
-    increasesUptakeOf: [MolecularEntity]
-    decreasesUptakeOf: [MolecularEntity]
-    regulatesEntityToEntity: [MolecularEntity]
-    biomarkerFor: [DiseaseOrPhenotypicFeature]
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
-    inPathwayWith: [GeneOrGeneProduct]
-    inComplexWith: [GeneOrGeneProduct]
-    inCellPopulationWith: [GeneOrGeneProduct]
-    expressedIn: [AnatomicalEntity]
   }
 
 type Provider
@@ -3437,14 +1386,6 @@ type Provider
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
   }
 
 type Publication
@@ -3452,14 +1393,6 @@ type Publication
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
   }
 
 type QuantityValue
@@ -3477,15 +1410,6 @@ type RelationshipType
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    subclassOf: [IriType]
   }
 
 type RNAProduct
@@ -3493,72 +1417,8 @@ type RNAProduct
     id: IdentifierType!
     name: SymbolType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    molecularlyInteractsWith: [MolecularEntity]
-    affectsAbundanceOf: [MolecularEntity]
-    increasesAbundanceOf: [MolecularEntity]
-    decreasesAbundanceOf: [MolecularEntity]
-    affectsActivityOf: [MolecularEntity]
-    increasesActivityOf: [MolecularEntity]
-    decreasesActivityOf: [MolecularEntity]
-    affectsExpressionOf: [GenomicEntity]
-    increasesExpressionOf: [GenomicEntity]
-    decreasesExpressionOf: [GenomicEntity]
-    affectsFoldingOf: [MolecularEntity]
-    increasesFoldingOf: [MolecularEntity]
-    decreasesFoldingOf: [MolecularEntity]
-    affectsLocalizationOf: [MolecularEntity]
-    increasesLocalizationOf: [MolecularEntity]
-    decreasesLocalizationOf: [MolecularEntity]
-    affectsMetabolicProcessingOf: [MolecularEntity]
-    increasesMetabolicProcessingOf: [MolecularEntity]
-    decreasesMetabolicProcessingOf: [MolecularEntity]
-    affectsMolecularModificationOf: [MolecularEntity]
-    increasesMolecularModificationOf: [MolecularEntity]
-    decreasesMolecularModificationOf: [MolecularEntity]
-    affectsSynthesisOf: [MolecularEntity]
-    increasesSynthesisOf: [MolecularEntity]
-    decreasesSynthesisOf: [MolecularEntity]
-    affectsDegradationOf: [MolecularEntity]
-    increasesDegradationOf: [MolecularEntity]
-    decreasesDegradationOf: [MolecularEntity]
-    affectsMutationRateOf: [GenomicEntity]
-    increasesMutationRateOf: [GenomicEntity]
-    decreasesMutationRateOf: [GenomicEntity]
-    affectsResponseTo: [MolecularEntity]
-    increasesResponseTo: [MolecularEntity]
-    decreasesResponseTo: [MolecularEntity]
-    affectsSplicingOf: [Transcript]
-    increasesSplicingOf: [Transcript]
-    decreasesSplicingOf: [Transcript]
-    affectsStabilityOf: [MolecularEntity]
-    increasesStabilityOf: [MolecularEntity]
-    decreasesStabilityOf: [MolecularEntity]
-    affectsTransportOf: [MolecularEntity]
-    increasesTransportOf: [MolecularEntity]
-    decreasesTransportOf: [MolecularEntity]
-    affectsSecretionOf: [MolecularEntity]
-    increasesSecretionOf: [MolecularEntity]
-    decreasesSecretionOf: [MolecularEntity]
-    affectsUptakeOf: [MolecularEntity]
-    increasesUptakeOf: [MolecularEntity]
-    decreasesUptakeOf: [MolecularEntity]
-    regulatesEntityToEntity: [MolecularEntity]
-    biomarkerFor: [DiseaseOrPhenotypicFeature]
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
-    inPathwayWith: [GeneOrGeneProduct]
-    inComplexWith: [GeneOrGeneProduct]
-    inCellPopulationWith: [GeneOrGeneProduct]
-    expressedIn: [AnatomicalEntity]
   }
 
 type RNAProductIsoform implements GeneProductIsoform
@@ -3566,72 +1426,8 @@ type RNAProductIsoform implements GeneProductIsoform
     id: IdentifierType!
     name: SymbolType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    molecularlyInteractsWith: [MolecularEntity]
-    affectsAbundanceOf: [MolecularEntity]
-    increasesAbundanceOf: [MolecularEntity]
-    decreasesAbundanceOf: [MolecularEntity]
-    affectsActivityOf: [MolecularEntity]
-    increasesActivityOf: [MolecularEntity]
-    decreasesActivityOf: [MolecularEntity]
-    affectsExpressionOf: [GenomicEntity]
-    increasesExpressionOf: [GenomicEntity]
-    decreasesExpressionOf: [GenomicEntity]
-    affectsFoldingOf: [MolecularEntity]
-    increasesFoldingOf: [MolecularEntity]
-    decreasesFoldingOf: [MolecularEntity]
-    affectsLocalizationOf: [MolecularEntity]
-    increasesLocalizationOf: [MolecularEntity]
-    decreasesLocalizationOf: [MolecularEntity]
-    affectsMetabolicProcessingOf: [MolecularEntity]
-    increasesMetabolicProcessingOf: [MolecularEntity]
-    decreasesMetabolicProcessingOf: [MolecularEntity]
-    affectsMolecularModificationOf: [MolecularEntity]
-    increasesMolecularModificationOf: [MolecularEntity]
-    decreasesMolecularModificationOf: [MolecularEntity]
-    affectsSynthesisOf: [MolecularEntity]
-    increasesSynthesisOf: [MolecularEntity]
-    decreasesSynthesisOf: [MolecularEntity]
-    affectsDegradationOf: [MolecularEntity]
-    increasesDegradationOf: [MolecularEntity]
-    decreasesDegradationOf: [MolecularEntity]
-    affectsMutationRateOf: [GenomicEntity]
-    increasesMutationRateOf: [GenomicEntity]
-    decreasesMutationRateOf: [GenomicEntity]
-    affectsResponseTo: [MolecularEntity]
-    increasesResponseTo: [MolecularEntity]
-    decreasesResponseTo: [MolecularEntity]
-    affectsSplicingOf: [Transcript]
-    increasesSplicingOf: [Transcript]
-    decreasesSplicingOf: [Transcript]
-    affectsStabilityOf: [MolecularEntity]
-    increasesStabilityOf: [MolecularEntity]
-    decreasesStabilityOf: [MolecularEntity]
-    affectsTransportOf: [MolecularEntity]
-    increasesTransportOf: [MolecularEntity]
-    decreasesTransportOf: [MolecularEntity]
-    affectsSecretionOf: [MolecularEntity]
-    increasesSecretionOf: [MolecularEntity]
-    decreasesSecretionOf: [MolecularEntity]
-    affectsUptakeOf: [MolecularEntity]
-    increasesUptakeOf: [MolecularEntity]
-    decreasesUptakeOf: [MolecularEntity]
-    regulatesEntityToEntity: [MolecularEntity]
-    biomarkerFor: [DiseaseOrPhenotypicFeature]
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
-    inPathwayWith: [GeneOrGeneProduct]
-    inComplexWith: [GeneOrGeneProduct]
-    inCellPopulationWith: [GeneOrGeneProduct]
-    expressedIn: [AnatomicalEntity]
   }
 
 interface SensitivityQuantifier
@@ -3649,8 +1445,6 @@ type SequenceFeatureRelationship
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 type SequenceVariant
@@ -3658,66 +1452,6 @@ type SequenceVariant
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    molecularlyInteractsWith: [MolecularEntity]
-    affectsAbundanceOf: [MolecularEntity]
-    increasesAbundanceOf: [MolecularEntity]
-    decreasesAbundanceOf: [MolecularEntity]
-    affectsActivityOf: [MolecularEntity]
-    increasesActivityOf: [MolecularEntity]
-    decreasesActivityOf: [MolecularEntity]
-    affectsExpressionOf: [GenomicEntity]
-    increasesExpressionOf: [GenomicEntity]
-    decreasesExpressionOf: [GenomicEntity]
-    affectsFoldingOf: [MolecularEntity]
-    increasesFoldingOf: [MolecularEntity]
-    decreasesFoldingOf: [MolecularEntity]
-    affectsLocalizationOf: [MolecularEntity]
-    increasesLocalizationOf: [MolecularEntity]
-    decreasesLocalizationOf: [MolecularEntity]
-    affectsMetabolicProcessingOf: [MolecularEntity]
-    increasesMetabolicProcessingOf: [MolecularEntity]
-    decreasesMetabolicProcessingOf: [MolecularEntity]
-    affectsMolecularModificationOf: [MolecularEntity]
-    increasesMolecularModificationOf: [MolecularEntity]
-    decreasesMolecularModificationOf: [MolecularEntity]
-    affectsSynthesisOf: [MolecularEntity]
-    increasesSynthesisOf: [MolecularEntity]
-    decreasesSynthesisOf: [MolecularEntity]
-    affectsDegradationOf: [MolecularEntity]
-    increasesDegradationOf: [MolecularEntity]
-    decreasesDegradationOf: [MolecularEntity]
-    affectsMutationRateOf: [GenomicEntity]
-    increasesMutationRateOf: [GenomicEntity]
-    decreasesMutationRateOf: [GenomicEntity]
-    affectsResponseTo: [MolecularEntity]
-    increasesResponseTo: [MolecularEntity]
-    decreasesResponseTo: [MolecularEntity]
-    affectsSplicingOf: [Transcript]
-    increasesSplicingOf: [Transcript]
-    decreasesSplicingOf: [Transcript]
-    affectsStabilityOf: [MolecularEntity]
-    increasesStabilityOf: [MolecularEntity]
-    decreasesStabilityOf: [MolecularEntity]
-    affectsTransportOf: [MolecularEntity]
-    increasesTransportOf: [MolecularEntity]
-    decreasesTransportOf: [MolecularEntity]
-    affectsSecretionOf: [MolecularEntity]
-    increasesSecretionOf: [MolecularEntity]
-    decreasesSecretionOf: [MolecularEntity]
-    affectsUptakeOf: [MolecularEntity]
-    increasesUptakeOf: [MolecularEntity]
-    decreasesUptakeOf: [MolecularEntity]
-    regulatesEntityToEntity: [MolecularEntity]
-    biomarkerFor: [DiseaseOrPhenotypicFeature]
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
     hasGene: [Gene]
@@ -3734,8 +1468,6 @@ interface SequenceVariantModulatesTreatmentAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 type SeverityValue
@@ -3746,15 +1478,6 @@ type SeverityValue
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    subclassOf: [IriType]
   }
 
 type SourceFile
@@ -3762,14 +1485,6 @@ type SourceFile
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
     sourceVersion: String
     retrievedOn: Date
   }
@@ -3793,8 +1508,6 @@ interface ThingToDiseaseOrPhenotypicFeatureAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 interface ThingWithTaxon
@@ -3807,66 +1520,6 @@ type Transcript
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    molecularlyInteractsWith: [MolecularEntity]
-    affectsAbundanceOf: [MolecularEntity]
-    increasesAbundanceOf: [MolecularEntity]
-    decreasesAbundanceOf: [MolecularEntity]
-    affectsActivityOf: [MolecularEntity]
-    increasesActivityOf: [MolecularEntity]
-    decreasesActivityOf: [MolecularEntity]
-    affectsExpressionOf: [GenomicEntity]
-    increasesExpressionOf: [GenomicEntity]
-    decreasesExpressionOf: [GenomicEntity]
-    affectsFoldingOf: [MolecularEntity]
-    increasesFoldingOf: [MolecularEntity]
-    decreasesFoldingOf: [MolecularEntity]
-    affectsLocalizationOf: [MolecularEntity]
-    increasesLocalizationOf: [MolecularEntity]
-    decreasesLocalizationOf: [MolecularEntity]
-    affectsMetabolicProcessingOf: [MolecularEntity]
-    increasesMetabolicProcessingOf: [MolecularEntity]
-    decreasesMetabolicProcessingOf: [MolecularEntity]
-    affectsMolecularModificationOf: [MolecularEntity]
-    increasesMolecularModificationOf: [MolecularEntity]
-    decreasesMolecularModificationOf: [MolecularEntity]
-    affectsSynthesisOf: [MolecularEntity]
-    increasesSynthesisOf: [MolecularEntity]
-    decreasesSynthesisOf: [MolecularEntity]
-    affectsDegradationOf: [MolecularEntity]
-    increasesDegradationOf: [MolecularEntity]
-    decreasesDegradationOf: [MolecularEntity]
-    affectsMutationRateOf: [GenomicEntity]
-    increasesMutationRateOf: [GenomicEntity]
-    decreasesMutationRateOf: [GenomicEntity]
-    affectsResponseTo: [MolecularEntity]
-    increasesResponseTo: [MolecularEntity]
-    decreasesResponseTo: [MolecularEntity]
-    affectsSplicingOf: [Transcript]
-    increasesSplicingOf: [Transcript]
-    decreasesSplicingOf: [Transcript]
-    affectsStabilityOf: [MolecularEntity]
-    increasesStabilityOf: [MolecularEntity]
-    decreasesStabilityOf: [MolecularEntity]
-    affectsTransportOf: [MolecularEntity]
-    increasesTransportOf: [MolecularEntity]
-    decreasesTransportOf: [MolecularEntity]
-    affectsSecretionOf: [MolecularEntity]
-    increasesSecretionOf: [MolecularEntity]
-    decreasesSecretionOf: [MolecularEntity]
-    affectsUptakeOf: [MolecularEntity]
-    increasesUptakeOf: [MolecularEntity]
-    decreasesUptakeOf: [MolecularEntity]
-    regulatesEntityToEntity: [MolecularEntity]
-    biomarkerFor: [DiseaseOrPhenotypicFeature]
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
   }
@@ -3882,8 +1535,6 @@ type TranscriptToGeneRelationship
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 type Treatment
@@ -3891,19 +1542,6 @@ type Treatment
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    hasPhenotype: [PhenotypicFeature]
-    hasReceptor: OrganismalEntity
-    hasStressor: String
-    hasRoute: String
-    treats: [DiseaseOrPhenotypicFeature]!
   }
 
 type VariantToDiseaseAssociation implements VariantToThingAssociation, EntityToDiseaseAssociation
@@ -3917,8 +1555,6 @@ type VariantToDiseaseAssociation implements VariantToThingAssociation, EntityToD
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
     onsetQualifier: Onset
@@ -3935,8 +1571,6 @@ type VariantToPhenotypicFeatureAssociation implements VariantToThingAssociation,
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
     sexQualifier: BiologicalSex
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
@@ -3954,8 +1588,6 @@ type VariantToPopulationAssociation implements VariantToThingAssociation, Freque
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
     hasCount: Integer
     hasTotal: Integer
     hasQuotient: Double
@@ -3974,8 +1606,6 @@ interface VariantToThingAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: Provider
-    associationSlot: String
-    edgeLabel: LabelType!
   }
 
 type Zygosity
@@ -3986,14 +1616,5 @@ type Zygosity
     id: IdentifierType!
     name: LabelType!
     category: [IriType]!
-    relatedTo: [NamedThing]
-    interactsWith: [NamedThing]
-    nodeProperty: String
-    iri: IriType
-    synonym: [LabelType]
-    fullName: LabelType
-    description: NarrativeText
-    systematicSynonym: [LabelType]
-    subclassOf: [IriType]
   }
 

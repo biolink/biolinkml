@@ -23,8 +23,3 @@ URI: [https://example.com/test65/ChildOfNamedThing](https://example.com/test65/C
 
  * [child of named thing➞subject](child_of_named_thing_subject.md)  <sub>OPT</sub>
     * range: [String](types/String.md)
-
-### Domain for slot:
-
- * [child of named thing➞subject](child_of_named_thing_subject.md)  <sub>OPT</sub>
-    * range: [String](types/String.md)

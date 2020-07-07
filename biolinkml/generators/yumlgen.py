@@ -102,7 +102,7 @@ class YumlGenerator(Generator):
         if cn not in self.box_generated and (not self.focus_classes or cn in self.focus_classes):
             cls = self.schema.classes[cn]
             for slot in self.filtered_cls_slots(cn, all_slots=True, filtr=lambda s: s.range not in self.schema.classes):
-                if slot.owner != slot.name:
+                if True or cn in slot.domain_of:
                     mod = self.prop_modifier(cls, slot)
                     slot_defs.append(underscore(self.aliased_slot_name(slot)) +
                                      mod + ':' +
@@ -128,7 +128,7 @@ class YumlGenerator(Generator):
             # Slots that reference other classes
             for slot in self.filtered_cls_slots(cn, False, lambda s: s.range in self.schema.classes)[::-1]:
                 # Swap the two boxes because, in the case of self reference, the last definition wins
-                if not slot.range in self.associations_generated and slot.owner != slot.name:
+                if not slot.range in self.associations_generated and cn in slot.domain_of:
                     rhs = self.class_box(cn)
                     lhs = self.class_box(cast(ClassDefinitionName, slot.range))
                     assocs.append(lhs + '<' + self.aliased_slot_name(slot) + self.prop_modifier(cls, slot) +
@@ -139,13 +139,11 @@ class YumlGenerator(Generator):
                 slot = self.schema.slots[slotname]
                 # Don't do self references twice
                 # Also, slot must be owned by the class
-                if slot.owner and slot.owner != slotname and slot.domain and \
-                        (slot.domain != cls.name or slot.range != cls.name) and\
-                        slot.domain not in self.associations_generated:
-                    dom = self.schema.classes[slot.domain]
-                    assocs.append(self.class_box(slot.domain) + (yuml_inline if slot.inlined else yuml_ref) +
-                                  self.aliased_slot_name(slot) + self.prop_modifier(dom, slot) +
-                                  self.cardinality(slot, False) + '>' + self.class_box(cn))
+                if cls.name not in slot.domain_of and cls.name not in self.associations_generated:
+                    for dom in [self.schema.classes[dof] for dof in slot.domain_of]:
+                        assocs.append(self.class_box(dom.name) + (yuml_inline if slot.inlined else yuml_ref) +
+                                      self.aliased_slot_name(slot) + self.prop_modifier(dom, slot) +
+                                      self.cardinality(slot, False) + '>' + self.class_box(cn))
 
             # Mixins used in the class
             for mixin in cls.mixins:

@@ -31,6 +31,7 @@ SKIP_REWRITE_RULES_REASON = "tests/__init__.py SKIP_REWRITE_RULES is True"
 
 # Action on mismatch.  One of 'Ignore', 'Report' or 'Fail'
 #  If 'Fail', the expected file will be saved in the appropriate temp directory
+#  NOTE: Before setting this back to Report or Ignore, you need to run cleartemp.sh in this directory
 DEFAULT_MISMATCH_ACTION = MismatchAction.Report
 
 

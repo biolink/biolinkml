@@ -3,7 +3,7 @@ title: Biolink Schema Metamodel
 name: metamodel
 description: A metamodel for defining biolink related schemas
 license: https://creativecommons.org/publicdomain/zero/1.0/
-version: 1.4.4
+version: 1.5.0
 
 prefixes:
   meta: https://w3id.org/biolink/biolinkml/meta/
@@ -570,6 +570,14 @@ slots:
     description: >-
       the "owner" of the slot. It is the class if it appears in the slots list, otherwise the declaring slot
     readonly: filled in by loader -- either class domain or slot domain
+    deprecated: Will be replaced by domain_of and eventually removed
+
+  domain_of:
+    domain: slot_definition
+    range: class_definition
+    description: the class(es) that reference the slot in a "slots" or "slot_usage" context
+    readonly: filled in by the loader
+    multivalued: true
 
   is_usage_slot:
     domain: slot_definition
@@ -881,6 +889,7 @@ classes:
       - identifier
       - alias
       - owner
+      - domain_of
       - subproperty_of
       - symmetric
       - inverse

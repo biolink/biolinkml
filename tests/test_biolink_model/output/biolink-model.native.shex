@@ -89,7 +89,6 @@ metatype:Nodeidentifier NONLITERAL
              rdf:type [ <ThingWithTaxon> ] ? ;
              &<PhysicalEntity_tes> ;
              rdf:type [ <PhysicalEntity> ] ? ;
-             <expresses> @<GeneOrGeneProduct> * ;
              <in_taxon> @<OrganismTaxon> *
           ) ;
           rdf:type [ <AnatomicalEntity> ]
@@ -140,11 +139,7 @@ metatype:Nodeidentifier NONLITERAL
              <association_type> @<OntologyClass> ? ;
              <qualifiers> @<OntologyClass> * ;
              <publications> @<Publication> * ;
-             <provided_by> @<Provider> ? ;
-             <edge_label> @<LabelType> ;
-             <has_confidence_level> @<ConfidenceLevel> ? ;
-             <has_evidence> @<EvidenceType> ? ;
-             <clinical_modifier_qualifier> @<ClinicalModifier> ?
+             <provided_by> @<Provider> ?
           ) ;
           rdf:type [ <Association> ]
        )
@@ -175,16 +170,7 @@ metatype:Nodeidentifier NONLITERAL
              <has_quantitative_value> @<QuantityValue> * ;
              <has_qualitative_value> @<NamedThing> ? ;
              <name> @<LabelType> ;
-             <category> @<IriType> + ;
-             <related_to> @<NamedThing> * ;
-             <interacts_with> @<NamedThing> * ;
-             <node_property> @metatype:String ? ;
-             <iri> @<IriType> ? ;
-             <synonym> @<LabelType> * ;
-             <full_name> @<LabelType> ? ;
-             <description> @<NarrativeText> ? ;
-             <systematic_synonym> @<LabelType> * ;
-             <subclass_of> @<IriType> *
+             <category> @<IriType> +
           ) ;
           rdf:type [ <Attribute> ]
        )
@@ -198,8 +184,7 @@ metatype:Nodeidentifier NONLITERAL
 
 <BiologicalEntity_struct> {
     (  $<BiologicalEntity_tes> (  &<NamedThing_tes> ;
-          rdf:type [ <NamedThing> ] ? ;
-          <has_phenotype> @<PhenotypicFeature> *
+          rdf:type [ <NamedThing> ] ?
        ) ;
        rdf:type [ <BiologicalEntity> ]
     )
@@ -225,10 +210,7 @@ metatype:Nodeidentifier NONLITERAL
              rdf:type [ <Occurrent> ] ? ;
              <has_input> @<NamedThing> * ;
              <has_output> @<NamedThing> * ;
-             <enabled_by> @<BiologicalProcessOrActivity> * ;
-             <regulates_process_to_process> @<Occurrent> * ;
-             <has_participant> @<NamedThing> * ;
-             <precedes> @<Occurrent> *
+             <enabled_by> @<BiologicalProcessOrActivity> *
           ) ;
           rdf:type [ <BiologicalProcessOrActivity> ]
        )
@@ -537,9 +519,6 @@ metatype:Nodeidentifier NONLITERAL
              rdf:type [ <BiologicalEntity> ] ? ;
              &<ThingWithTaxon_tes> ;
              rdf:type [ <ThingWithTaxon> ] ? ;
-             <correlated_with> @<MolecularEntity> * ;
-             <has_biomarker> @<MolecularEntity> * ;
-             <treated_by> @<NamedThing> * ;
              <in_taxon> @<OrganismTaxon> *
           ) ;
           rdf:type [ <DiseaseOrPhenotypicFeature> ]
@@ -677,12 +656,7 @@ metatype:Nodeidentifier NONLITERAL
     (  $<EnvironmentalProcess_tes> (  &<PlanetaryEntity_tes> ;
           rdf:type [ <PlanetaryEntity> ] ? ;
           &<Occurrent_tes> ;
-          rdf:type [ <Occurrent> ] ? ;
-          <regulates_process_to_process> @<Occurrent> * ;
-          <has_participant> @<NamedThing> * ;
-          <has_input> @<NamedThing> * ;
-          <has_output> @<NamedThing> * ;
-          <precedes> @<Occurrent> *
+          rdf:type [ <Occurrent> ] ?
        ) ;
        rdf:type [ <EnvironmentalProcess> ]
     )
@@ -717,10 +691,7 @@ metatype:Nodeidentifier NONLITERAL
 <ExposureEvent>  (
     CLOSED {
        (  $<ExposureEvent_tes> (  &<BiologicalEntity_tes> ;
-             rdf:type [ <BiologicalEntity> ] ? ;
-             <has_receptor> @<OrganismalEntity> ? ;
-             <has_stressor> @metatype:String ? ;
-             <has_route> @metatype:String ?
+             rdf:type [ <BiologicalEntity> ] ?
           ) ;
           rdf:type [ <ExposureEvent> ]
        )
@@ -785,10 +756,7 @@ metatype:Nodeidentifier NONLITERAL
 
 <Gene> CLOSED {
     (  $<Gene_tes> (  &<GeneOrGeneProduct_tes> ;
-          rdf:type [ <GeneOrGeneProduct> ] ? ;
-          <genetically_interacts_with> @<Gene> * ;
-          <has_gene_product> @<GeneProduct> * ;
-          <gene_associated_with_condition> @<DiseaseOrPhenotypicFeature> *
+          rdf:type [ <GeneOrGeneProduct> ] ?
        ) ;
        rdf:type [ <Gene> ]
     )
@@ -844,11 +812,7 @@ metatype:Nodeidentifier NONLITERAL
 <GeneOrGeneProduct>  (
     CLOSED {
        (  $<GeneOrGeneProduct_tes> (  &<MacromolecularMachine_tes> ;
-             rdf:type [ <MacromolecularMachine> ] ? ;
-             <in_pathway_with> @<GeneOrGeneProduct> * ;
-             <in_complex_with> @<GeneOrGeneProduct> * ;
-             <in_cell_population_with> @<GeneOrGeneProduct> * ;
-             <expressed_in> @<AnatomicalEntity> *
+             rdf:type [ <MacromolecularMachine> ] ?
           ) ;
           rdf:type [ <GeneOrGeneProduct> ]
        )
@@ -1303,60 +1267,7 @@ metatype:Nodeidentifier NONLITERAL
              rdf:type [ <ThingWithTaxon> ] ? ;
              &<PhysicalEntity_tes> ;
              rdf:type [ <PhysicalEntity> ] ? ;
-             <molecularly_interacts_with> @<MolecularEntity> * ;
-             <affects_abundance_of> @<MolecularEntity> * ;
-             <increases_abundance_of> @<MolecularEntity> * ;
-             <decreases_abundance_of> @<MolecularEntity> * ;
-             <affects_activity_of> @<MolecularEntity> * ;
-             <increases_activity_of> @<MolecularEntity> * ;
-             <decreases_activity_of> @<MolecularEntity> * ;
-             <affects_expression_of> @<GenomicEntity> * ;
-             <increases_expression_of> @<GenomicEntity> * ;
-             <decreases_expression_of> @<GenomicEntity> * ;
-             <affects_folding_of> @<MolecularEntity> * ;
-             <increases_folding_of> @<MolecularEntity> * ;
-             <decreases_folding_of> @<MolecularEntity> * ;
-             <affects_localization_of> @<MolecularEntity> * ;
-             <increases_localization_of> @<MolecularEntity> * ;
-             <decreases_localization_of> @<MolecularEntity> * ;
-             <affects_metabolic_processing_of> @<MolecularEntity> * ;
-             <increases_metabolic_processing_of> @<MolecularEntity> * ;
-             <decreases_metabolic_processing_of> @<MolecularEntity> * ;
-             <affects_molecular_modification_of> @<MolecularEntity> * ;
-             <increases_molecular_modification_of> @<MolecularEntity> * ;
-             <decreases_molecular_modification_of> @<MolecularEntity> * ;
-             <affects_synthesis_of> @<MolecularEntity> * ;
-             <increases_synthesis_of> @<MolecularEntity> * ;
-             <decreases_synthesis_of> @<MolecularEntity> * ;
-             <affects_degradation_of> @<MolecularEntity> * ;
-             <increases_degradation_of> @<MolecularEntity> * ;
-             <decreases_degradation_of> @<MolecularEntity> * ;
-             <affects_mutation_rate_of> @<GenomicEntity> * ;
-             <increases_mutation_rate_of> @<GenomicEntity> * ;
-             <decreases_mutation_rate_of> @<GenomicEntity> * ;
-             <affects_response_to> @<MolecularEntity> * ;
-             <increases_response_to> @<MolecularEntity> * ;
-             <decreases_response_to> @<MolecularEntity> * ;
-             <affects_splicing_of> @<Transcript> * ;
-             <increases_splicing_of> @<Transcript> * ;
-             <decreases_splicing_of> @<Transcript> * ;
-             <affects_stability_of> @<MolecularEntity> * ;
-             <increases_stability_of> @<MolecularEntity> * ;
-             <decreases_stability_of> @<MolecularEntity> * ;
-             <affects_transport_of> @<MolecularEntity> * ;
-             <increases_transport_of> @<MolecularEntity> * ;
-             <decreases_transport_of> @<MolecularEntity> * ;
-             <affects_secretion_of> @<MolecularEntity> * ;
-             <increases_secretion_of> @<MolecularEntity> * ;
-             <decreases_secretion_of> @<MolecularEntity> * ;
-             <affects_uptake_of> @<MolecularEntity> * ;
-             <increases_uptake_of> @<MolecularEntity> * ;
-             <decreases_uptake_of> @<MolecularEntity> * ;
-             <regulates_entity_to_entity> @<MolecularEntity> * ;
-             <biomarker_for> @<DiseaseOrPhenotypicFeature> * ;
-             <in_taxon> @<OrganismTaxon> * ;
-             <positively_regulates_entity_to_entity> @<MolecularEntity> * ;
-             <negatively_regulates_entity_to_entity> @<MolecularEntity> *
+             <in_taxon> @<OrganismTaxon> *
           ) ;
           rdf:type [ <MolecularEntity> ]
        )
@@ -1366,52 +1277,7 @@ metatype:Nodeidentifier NONLITERAL
 <NamedThing>  (
     CLOSED {
        (  $<NamedThing_tes> (  <name> @<LabelType> ;
-             <category> @<IriType> + ;
-             <related_to> @<NamedThing> * ;
-             <interacts_with> @<NamedThing> * ;
-             <node_property> @metatype:String ? ;
-             <iri> @<IriType> ? ;
-             <synonym> @<LabelType> * ;
-             <full_name> @<LabelType> ? ;
-             <description> @<NarrativeText> ? ;
-             <systematic_synonym> @<LabelType> * ;
-             <physically_interacts_with> @<NamedThing> * ;
-             <affects> @<NamedThing> * ;
-             <disrupts> @<NamedThing> * ;
-             <homologous_to> @<NamedThing> * ;
-             <paralogous_to> @<NamedThing> * ;
-             <orthologous_to> @<NamedThing> * ;
-             <xenologous_to> @<NamedThing> * ;
-             <coexists_with> @<NamedThing> * ;
-             <colocalizes_with> @<NamedThing> * ;
-             <affects_risk_for> @<NamedThing> * ;
-             <predisposes> @<NamedThing> * ;
-             <contributes_to> @<NamedThing> * ;
-             <causes> @<NamedThing> * ;
-             <caused_by> @<NamedThing> * ;
-             <prevents> @<NamedThing> * ;
-             <occurs_in> @<NamedThing> * ;
-             <located_in> @<NamedThing> * ;
-             <location_of> @<NamedThing> * ;
-             <model_of> @<NamedThing> * ;
-             <overlaps> @<NamedThing> * ;
-             <has_part> @<NamedThing> * ;
-             <part_of> @<NamedThing> * ;
-             <participates_in> @<Occurrent> * ;
-             <actively_involved_in> @<Occurrent> * ;
-             <capable_of> @<Occurrent> * ;
-             <derives_into> @<NamedThing> * ;
-             <derives_from> @<NamedThing> * ;
-             <manifestation_of> @<Disease> * ;
-             <produces> @<NamedThing> * ;
-             <same_as> @<NamedThing> * ;
-             <creation_date> @metatype:Date ? ;
-             <update_date> @metatype:Date ? ;
-             <has_chemical_formula> @<ChemicalFormulaValue> ? ;
-             <has_molecular_consequence> @<OntologyClass> * ;
-             <has_drug> @<Drug> ? ;
-             <filler> @<NamedThing> ? ;
-             <interbase_coordinate> @metatype:String ?
+             <category> @<IriType> +
           ) ;
           rdf:type [ <NamedThing> ]
        )
@@ -1432,14 +1298,7 @@ metatype:Nodeidentifier NONLITERAL
 <Occurrent>  (
     CLOSED {
        (  $<Occurrent_tes> (  &<NamedThing_tes> ;
-             rdf:type [ <NamedThing> ] ? ;
-             <regulates_process_to_process> @<Occurrent> * ;
-             <has_participant> @<NamedThing> * ;
-             <has_input> @<NamedThing> * ;
-             <has_output> @<NamedThing> * ;
-             <precedes> @<Occurrent> * ;
-             <positively_regulates_process_to_process> @<Occurrent> * ;
-             <negatively_regulates_process_to_process> @<Occurrent> *
+             rdf:type [ <NamedThing> ] ?
           ) ;
           rdf:type [ <Occurrent> ]
        )
@@ -1457,8 +1316,7 @@ metatype:Nodeidentifier NONLITERAL
 <OntologyClass>  (
     CLOSED {
        (  $<OntologyClass_tes> (  &<NamedThing_tes> ;
-             rdf:type [ <NamedThing> ] ? ;
-             <subclass_of> @<IriType> *
+             rdf:type [ <NamedThing> ] ?
           ) ;
           rdf:type [ <OntologyClass> ]
        )
@@ -1796,8 +1654,7 @@ metatype:Nodeidentifier NONLITERAL
 
 <Treatment> CLOSED {
     (  $<Treatment_tes> (  &<ExposureEvent_tes> ;
-          rdf:type [ <ExposureEvent> ] ? ;
-          <treats> @<DiseaseOrPhenotypicFeature> +
+          rdf:type [ <ExposureEvent> ] ?
        ) ;
        rdf:type [ <Treatment> ]
     )

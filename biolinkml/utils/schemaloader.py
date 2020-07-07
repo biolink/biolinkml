@@ -117,6 +117,7 @@ class SchemaLoader:
                 if slotname in self.schema.slots:
                     slot = self.schema.slots[cast(SlotDefinitionName, slotname)]
                     slot.owner = cls.name
+                    slot.domain_of.append(cls.name)
                 else:
                     self.raise_value_error(f'Class "{cls.name}" - unknown slot: "{slotname}"', slotname)
 
@@ -127,7 +128,7 @@ class SchemaLoader:
             if slot.domain and slot.domain in self.schema.classes:
                 if slot.name not in self.schema.classes[slot.domain].slots:
                     slot.owner = slot.name
-                    self.schema.classes[slot.domain].slots.append(slot.name)
+                    # self.schema.classes[slot.domain].slots.append(slot.name)
             elif slot.domain:
                 self.raise_value_error(f"slot: {slot.name} - unrecognized domain ({slot.domain})", slot.domain)
 
@@ -197,7 +198,8 @@ class SchemaLoader:
             if slot.domain and slot.domain in self.schema.classes:
                 if slot.name not in self.schema.classes[slot.domain].slots and not slot.owner:
                     slot.owner = slot.name
-                    self.schema.classes[slot.domain].slots.append(slot.name)
+                    # Slot domains to not appear
+                    # self.schema.classes[slot.domain].slots.append(slot.name)
             elif slot.domain:
                 self.raise_value_error(f"slot: {slot.name} - unrecognized domain ({slot.domain})", slot.domain)
             if slot.ifabsent:
@@ -398,7 +400,7 @@ class SchemaLoader:
                 child_name = slot_usage_name(slotname, cls)
                 slot_alias = slotname
             new_slot = SlotDefinition(name=child_name, alias=slot_alias, domain=cls.name, is_usage_slot=Bool(True),
-                                      owner=cls.name)
+                                      owner=cls.name, domain_of=[cls.name])
             self.schema.slots[child_name] = new_slot
             merge_slots(new_slot, slot_usage)
 

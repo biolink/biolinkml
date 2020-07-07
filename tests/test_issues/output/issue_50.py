@@ -1,5 +1,5 @@
 # Auto generated from issue_50.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-06-28 14:39
+# Generation date: 2020-07-07 09:35
 # Schema:
 #
 # id: http://example.com
@@ -22,7 +22,7 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 
 
-metamodel_version = "1.4.4"
+metamodel_version = "1.5.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -64,12 +64,15 @@ class TestClass1(YAMLRoot):
 
     id: Union[str, TestClass1Id]
     required_mixin_slot: str
+    optional_mixin_slot: Optional[str] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
             raise ValueError(f"id must be supplied")
         if not isinstance(self.id, TestClass1Id):
             self.id = TestClass1Id(self.id)
+        if self.required_mixin_slot is None:
+            raise ValueError(f"required_mixin_slot must be supplied")
         super().__post_init__(**kwargs)
 
 
@@ -106,7 +109,6 @@ class TestClass3(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = URIRef("http://example.com/TestClass3")
 
     id: Union[str, TestClass3Id]
-    required_domain_slot: str
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:

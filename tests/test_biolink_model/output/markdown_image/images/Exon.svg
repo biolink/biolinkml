@@ -32,31 +32,26 @@
 <g class='graph' id='graph0' transform='scale(1 1) rotate(0) translate(4 208)'><title>structs</title><g class='node' id='node1'><title>OrganismTaxon</title>
 <polygon fill='white' points='-0.5,-167 -0.5,-203 116.5,-203 116.5,-167 -0.5,-167' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='58' y='-181.3'>OrganismTaxon</text>
-</g><g class='node' id='node2'><title>Exon</title>
-<polygon fill='white' points='83,-0.5 83,-75.5 383,-75.5 383,-0.5 83,-0.5' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='233' y='-64.3'>Exon</text>
-<polyline fill='none' points='83,-60.5 383,-60.5 ' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='233' y='-49.3'>has_biological_sequence(i):biological_sequence ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='233' y='-34.3'>id(i):identifier_type</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='233' y='-19.3'>name(i):label_type</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='233' y='-4.3'>category(i):iri_type +</text>
-</g><g class='edge' id='edge1'><title>OrganismTaxon-&gt;Exon</title>
-<path d='M86.5146,-160.374C114.234,-137.406 156.734,-102.192 188.83,-75.5984' fill='none' stroke='black'/>
-<polygon fill='black' points='78.762,-166.797 83.5912,-156.952 82.6121,-163.607 86.4622,-160.417 86.4622,-160.417 86.4622,-160.417 82.6121,-163.607 89.3333,-163.882 78.762,-166.797 78.762,-166.797' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='169.994' y='-78.622'> </text>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='97.598' y='-156.374'>in taxon(i) 0..*</text>
+</g><g class='node' id='node2'><title>GenomicEntity</title>
+<polygon fill='white' points='135,-167 135,-203 247,-203 247,-167 135,-167' stroke='black'/>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='191' y='-181.3'>GenomicEntity</text>
+</g><g class='node' id='node4'><title>Exon</title>
+<polygon fill='white' points='127,-0.5 127,-75.5 427,-75.5 427,-0.5 127,-0.5' stroke='black'/>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='277' y='-64.3'>Exon</text>
+<polyline fill='none' points='127,-60.5 427,-60.5 ' stroke='black'/>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='277' y='-49.3'>has_biological_sequence(i):biological_sequence ?</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='277' y='-34.3'>id(i):identifier_type</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='277' y='-19.3'>name(i):label_type</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='277' y='-4.3'>category(i):iri_type +</text>
+</g><g class='edge' id='edge2'><title>GenomicEntity-&gt;Exon</title>
+<path d='M206.441,-157.965C220.063,-134.998 240.062,-101.279 255.293,-75.5984' fill='none' stroke='black'/>
+<polygon fill='none' points='203.294,-156.411 201.203,-166.797 209.315,-159.982 203.294,-156.411' stroke='black'/>
 </g><g class='node' id='node3'><title>ExonToTranscriptRelationship</title>
-<polygon fill='white' points='135,-167 135,-203 331,-203 331,-167 135,-167' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='233' y='-181.3'>ExonToTranscriptRelationship</text>
-</g><g class='edge' id='edge2'><title>ExonToTranscriptRelationship-&gt;Exon</title>
-<path d='M233,-166.797C233,-146.974 233,-113.573 233,-85.8885' fill='none' stroke='black'/>
-<polygon fill='black' points='233,-75.5984 237.5,-85.5984 233,-80.5984 233,-85.5984 233,-85.5984 233,-85.5984 233,-80.5984 228.5,-85.5984 233,-75.5984 233,-75.5984' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='226.16' y='-90.6923'> subject 1..1</text>
-</g><g class='node' id='node4'><title>GenomicEntity</title>
-<polygon fill='white' points='349,-167 349,-203 461,-203 461,-167 349,-167' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='405' y='-181.3'>GenomicEntity</text>
-</g><g class='edge' id='edge3'><title>GenomicEntity-&gt;Exon</title>
-<path d='M376.623,-160.077C349.371,-137.104 307.823,-102.078 276.413,-75.5984' fill='none' stroke='black'/>
-<polygon fill='none' points='374.692,-163.028 384.594,-166.797 379.204,-157.676 374.692,-163.028' stroke='black'/>
+<polygon fill='white' points='265,-167 265,-203 461,-203 461,-167 265,-167' stroke='black'/>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='363' y='-181.3'>ExonToTranscriptRelationship</text>
+</g><g class='edge' id='edge1'><title>ExonToTranscriptRelationship-&gt;Exon</title>
+<path d='M352.797,-166.797C340.833,-146.625 320.529,-112.392 303.945,-84.4305' fill='none' stroke='black'/>
+<polygon fill='black' points='298.707,-75.5984 307.678,-81.9038 301.257,-79.8989 303.808,-84.1994 303.808,-84.1994 303.808,-84.1994 301.257,-79.8989 299.938,-86.495 298.707,-75.5984 298.707,-75.5984' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='302.41' y='-91.5524'> subject 1..1</text>
 </g></g>
 <text style='fill: lightslategray; font-size: 6pt; font-family: Verdana' x='372' y='232'>CREATED WITH YUML</text></svg>

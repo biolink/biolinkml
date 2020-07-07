@@ -5,11 +5,9 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://example.org/owl2> a owl:Ontology ;
-    rdfs:label "owl2" ;
-    meta:generation_date "2020-06-16 13:25" ;
-    meta:metamodel_version "1.4.4" ;
-    meta:source_file "owl2.yaml" ;
-    meta:source_file_date "Tue Jun  9 11:37:13 2020" ;
+    rdfs:label "owl2" ;meta:generation_date "Fri Jan 25 14:22:29 2019" ;
+    meta:metamodel_version "1.5.0" ;
+    meta:source_file "owl2.yaml" ;meta:source_file_date "Fri Jan 25 14:22:29 2019" ;
     meta:source_file_size 519 .
 
 meta:SubsetDefinition a owl:Class ;
@@ -56,12 +54,12 @@ meta:C1 a owl:Class,
     rdfs:label "c1" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:C2 ;
-            owl:onProperty meta:objslot ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:string ;
             owl:onProperty meta:dataslot ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:C2 ;
+            owl:onProperty meta:objslot ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:string ;

@@ -26,12 +26,10 @@ types:
 slots:
   id:
     identifier: true
-    domain: named thing
     range: uri
 
   related to:
     description: A relationship that is asserted between two named things
-    domain: named thing
     range: named thing
     multivalued: true
 
@@ -45,3 +43,5 @@ classes:
     description: "a databased entity or concept/class"
     slots:
       - id
+      - related to
+      - same as

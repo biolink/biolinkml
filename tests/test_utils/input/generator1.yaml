@@ -28,32 +28,25 @@ default_range: t1
 slots:
   slot1:
     description: Slot s1
-    domain: c1
     range: t1
 
   slot2:
     description: Slot s2
-    domain: c1
     range: c2
 
   mixin slot 1:
-    domain: mixin1
     range: t1
 
   mixin slot 2:
-    domain: mixin1
     range: t1
 
   mixin slot 3:
-    domain: mixin2
     range: t1
 
   applyto slot 1:
-    domain: applyto1
     range: c1
 
   applyto slot 2:
-    domain: applyto1
     range: t2
 
 classes:
@@ -62,6 +55,9 @@ classes:
       Inherited: None
       Direct: slot 1, slot 2
       Mixin: mixin slot 1, mixin slot 2, mixin slot 3
+    slots:
+      - slot1
+      - slot2
     mixins:
       - mixin1
       - mixin2
@@ -95,10 +91,15 @@ classes:
   mixin1:
     description: Mixin m1
     mixin: true
+    slots:
+      - mixin slot 1
+      - mixin slot 2
 
   mixin2:
     description: Mixin m2
     mixin: true
+    slots:
+      - mixin slot 3
 
   applyto1:
     description: |
@@ -106,3 +107,6 @@ classes:
     apply_to:
       - c2
       - c4
+    slots:
+      - applyto slot 1
+      - applyto slot 2

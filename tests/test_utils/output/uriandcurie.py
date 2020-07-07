@@ -1,5 +1,5 @@
-# Auto generated from uriandcurie.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-06-23 15:52
+# Auto generated from .yaml by pythongen.py version:
+# Generation date:
 # Schema: uriandcurie
 #
 # id: http://example.org/test/uriandcurie
@@ -22,7 +22,7 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import Curie, ElementIdentifier, NCName, NodeIdentifier, URI, URIorCURIE
 
-metamodel_version = "1.4.4"
+metamodel_version = "1.5.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs

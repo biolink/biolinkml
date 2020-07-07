@@ -66,7 +66,12 @@ metatype:Nodeidentifier NONLITERAL
           <mixin> @metatype:Boolean ? ;
           <mixins> @<Definition> * ;
           <apply_to> @<Definition> * ;
-          <values_from> @metatype:Uriorcurie *
+          <values_from> @metatype:Uriorcurie * ;
+          <created_by> @metatype:Uriorcurie ? ;
+          <created_on> @metatype:Datetime ? ;
+          <last_updated_on> @metatype:Datetime ? ;
+          <modified_by> @metatype:Uriorcurie ? ;
+          <status> @metatype:Uriorcurie ?
        ) ;
        rdf:type [ <Definition> ]
     )
@@ -97,12 +102,7 @@ metatype:Nodeidentifier NONLITERAL
           <close_mappings> @metatype:Uriorcurie * ;
           <related_mappings> @metatype:Uriorcurie * ;
           <deprecated_element_has_exact_replacement> @metatype:Uriorcurie ? ;
-          <deprecated_element_has_possible_replacement> @metatype:Uriorcurie ? ;
-          <created_by> @metatype:Uriorcurie ? ;
-          <created_on> @metatype:Datetime ? ;
-          <last_updated_on> @metatype:Datetime ? ;
-          <modified_by> @metatype:Uriorcurie ? ;
-          <status> @metatype:Uriorcurie ?
+          <deprecated_element_has_possible_replacement> @metatype:Uriorcurie ?
        ) ;
        rdf:type [ <Element> ]
     )
@@ -179,6 +179,7 @@ metatype:Nodeidentifier NONLITERAL
           <identifier> @metatype:Boolean ? ;
           <alias> @metatype:String ? ;
           <owner> @<Definition> ? ;
+          <domain_of> @<ClassDefinition> * ;
           <subproperty_of> @metatype:Uriorcurie ? ;
           <symmetric> @metatype:Boolean ? ;
           <inverse> @<SlotDefinition> ? ;
