@@ -249,9 +249,9 @@ class OwlSchemaGenerator(Generator):
         return URIRef(c.definition_uri)
 
     def _prop_uri(self, pn: SlotDefinitionName) -> URIRef:
-        p = self.schema.slots[pn]
+        p = self.schema.slots.get(pn, None)
         if p is None or p.definition_uri is None:
-            logging.error(f'No namespace for {pn}')
+            logging.warning(f" No namespace for slot:'{pn}' - it is aliased")
             return self.metamodel.namespaces[METAMODEL_NAMESPACE_NAME][underscore(pn)]
         else:
             return URIRef(p.definition_uri)
