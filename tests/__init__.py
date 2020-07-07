@@ -19,7 +19,7 @@ SKIP_GRAPHVIZ_VALIDATION = True
 SKIP_MARKDOWN_VALIDATION = False
 
 # Skip RDF comparison, as it takes a lot of time
-SKIP_RDF_COMPARE = False
+SKIP_RDF_COMPARE = True
 
 # Action on mismatch.  One of 'Ignore', 'Report' or 'Fail'
 #  If 'Fail', the expected file will be saved in the appropriate temp directory
