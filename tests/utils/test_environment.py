@@ -254,9 +254,9 @@ class TestEnvironment:
             msg = f"New file {self.verb} created"
         if msg:
             self.log(expected_file_path, msg)
-            if not self.fail_on_error:
-                with open(expected_file_path, 'w') as outf:
-                    outf.write(actual_text)
+        if not msg or not self.fail_on_error:
+            with open(expected_file_path, 'w') as outf:
+                outf.write(actual_text)
         return not msg
 
 
