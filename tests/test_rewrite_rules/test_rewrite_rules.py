@@ -8,6 +8,8 @@ import requests
 
 from rdflib import Namespace, URIRef
 
+from tests import SKIP_REWRITE_RULES, SKIP_REWRITE_RULES_REASON
+
 W3ID_SERVER = "https://w3id.org/"
 DEFAULT_SERVER = W3ID_SERVER
 # DEFAULT_SERVER = "http://localhost:8091/"
@@ -102,7 +104,7 @@ class TestLists:
 FAIL_ON_ERROR = True
 
 
-@unittest.skipIf(True, "Rewrite rules test bypassed except when new rules are submitted to w3id.org")
+@unittest.skipIf(SKIP_REWRITE_RULES, SKIP_REWRITE_RULES_REASON)
 class RewriteRuleTestCase(unittest.TestCase):
     SERVER = DEFAULT_SERVER         # Can be overwritten with a startup parameter
 

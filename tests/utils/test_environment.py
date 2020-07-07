@@ -8,7 +8,7 @@ from enum import Enum
 from importlib import import_module
 from io import StringIO
 from pathlib import Path
-from typing import Optional, Callable
+from typing import Optional, Callable, Union, List
 
 from biolinkml import TYPES_FILE_NAME, LOCAL_METAMODEL_YAML_FILE, LOCAL_TYPES_YAML_FILE, \
     MAPPING_FILE_NAME, LOCAL_MAPPING_YAML_FILE
@@ -27,6 +27,7 @@ class MismatchAction(Enum):
     Ignore = 0
     Report = 1
     Fail = 2
+    FailOnce = 3                    # Run all tests and then fail if there are any mismatches
 
 
 class TestEnvironment:
@@ -159,15 +160,16 @@ class TestEnvironment:
             with open(safety_file, "w") as f:
                 f.write("Generated for safety.  Directory will not be cleared if this file is not present")
 
-    def generate_directory(self, dirname: str, generator: Callable[[str], None]) -> None:
+    def generate_directory(self, dirname: Union[str, List[str]], generator: Callable[[str], None]) -> None:
         """
         Invoke the generator and compare the output in a temp directory to the output directory.  Report the results
         and then update the output directory
         :param dirname: relative directory name (e.g. gengolr/meta)
         :param generator: function to create the output. First argument is the target directory
         """
-        temp_output_directory = self.make_temp_dir(dirname)
-        expected_output_directory = self.expected_path(dirname)
+        dirname = dirname if isinstance(dirname, List) else [dirname]
+        temp_output_directory = self.make_temp_dir(*dirname)
+        expected_output_directory = self.expected_path(*dirname)
         self.make_testing_directory(expected_output_directory)
 
         generator(temp_output_directory)
@@ -181,14 +183,14 @@ class TestEnvironment:
         else:
             shutil.rmtree(temp_output_directory)
 
-    def generate_single_file(self, filename: str, generator: Callable[[Optional[str]], Optional[str]],
+    def generate_single_file(self, filename: Union[str, List[str]], generator: Callable[[Optional[str]], Optional[str]],
                              direct_to_file: bool = False, value_is_returned: bool = False,
                              filtr: Callable[[str], str] = None,
                              comparator: Callable[[str, str], str] = None,
                              use_testing_root: bool = False) -> None:
         """
         Invoke the generator and compare the actual results to the expected.
-        :param filename: relative file name (no path)
+        :param filename: relative file name(s) (no path)
         :param generator: output generator. Either produces a string or creates a file
         :param direct_to_file: True means generator creates a file
         :param value_is_returned: True means that generator returns output directly
@@ -199,9 +201,9 @@ class TestEnvironment:
         # If no filter, default to identity function
         if not filtr:
             filtr = lambda s: s
-
-        actual_file = self.actual_path(filename)
-        expected_file = self.root_expected_path(filename) if use_testing_root else self.expected_path(filename)
+        filename = filename if isinstance(filename, List) else [filename]
+        actual_file = self.actual_path(*filename)
+        expected_file = self.root_expected_path(*filename) if use_testing_root else self.expected_path(*filename)
 
         if direct_to_file:
             # If the output writes directly to a file, create a scratch file to writ it into

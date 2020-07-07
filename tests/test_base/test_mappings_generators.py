@@ -10,7 +10,7 @@ from biolinkml.generators.jsonldgen import JSONLDGenerator
 from biolinkml.generators.markdowngen import MarkdownGenerator
 from biolinkml.generators.pythongen import PythonGenerator
 from biolinkml.generators.rdfgen import RDFGenerator
-from tests import SKIP_MARKDOWN_VALIDATION
+from tests import SKIP_MARKDOWN_VALIDATION, SKIP_MARKDOWN_VALIDATION_REASON
 from tests.utils.generatortestcase import GeneratorTestCase
 from tests.test_base.environment import env
 from tests.utils.filters import metadata_filter, ldcontext_metadata_filter, json_metadata_context_filter
@@ -27,7 +27,7 @@ class MappingsGeneratorTestCase(GeneratorTestCase):
         self.single_file_generator('py', PythonGenerator, subdir='includes', filtr=metadata_filter,
                                    comparator=compare_python)
 
-    @unittest.skipIf(SKIP_MARKDOWN_VALIDATION, "Markdown generation skippee")
+    @unittest.skipIf(SKIP_MARKDOWN_VALIDATION, SKIP_MARKDOWN_VALIDATION_REASON)
     def test_mappings_markdown(self):
         """ Generate documentation for the meta_mappings  """
         self.directory_generator('meta_mappings_docs', MarkdownGenerator, subdir='includes')
@@ -46,7 +46,7 @@ class MappingsGeneratorTestCase(GeneratorTestCase):
                     print(r.reason)
         return success
 
-    @unittest.skipIf(True, "This test needs upgrading to latest harness")
+    @unittest.skip("test_base/test_mappings_generators.py: This test needs upgrading to latest harness")
     def test_mappings_rdf(self):
         """ Test the imported mappings in the biolink metamodel """
         test_dir = self.env.temp_file_path('mappings_rdf_test', is_dir=True)
