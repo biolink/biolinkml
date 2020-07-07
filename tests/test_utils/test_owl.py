@@ -25,12 +25,12 @@ class OWLTestCase(TestEnvironmentTestCase):
     env = env
 
     def test_cardinalities(self):
-        self.env.generate_single_file('owl1.owl', lambda: OwlSchemaGenerator(env.input_path('owl1.yaml')), filtr=filtr,
-                                      comparator=compare_rdf)
+        self.env.generate_single_file('owl1.owl', lambda: OwlSchemaGenerator(env.input_path('owl1.yaml')).serialize(),
+                                      filtr=filtr, comparator=compare_rdf, value_is_returned=True)
 
     def test_pred_types(self):
-        self.env.generate_single_file('owl2.owl', lambda: OwlSchemaGenerator(env.input_path('owl2.yaml')), filtr=filtr,
-                                      comparator=compare_rdf)
+        self.env.generate_single_file('owl2.owl', lambda: OwlSchemaGenerator(env.input_path('owl2.yaml')).serialize(),
+                                      filtr=filtr, comparator=compare_rdf, value_is_returned=True)
 
 
 if __name__ == '__main__':

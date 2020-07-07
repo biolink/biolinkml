@@ -1,4 +1,5 @@
 import os
+import sys
 from contextlib import redirect_stdout
 from io import StringIO
 from typing import Union, TextIO, Optional, Set, List, Any, Callable, Dict
@@ -134,26 +135,34 @@ class MarkdownGenerator(Generator):
                                         f'**{self.class_type_link(slot.range)}**')
 
                 self.header(2, 'Attributes')
-                own_slots = [slot for slot in [self.schema.slots[sn]
-                                               for sn in sorted(cls.slots)] if slot.owner == cls.name]
+
+                # List all of the slots that directly belong to the class
+                slot_list = [slot for slot in [self.schema.slots[sn] for sn in sorted(cls.slots)]]
+                own_slots = [slot for slot in slot_list if cls.name in slot.domain_of]
                 if own_slots:
                     self.header(3, 'Own')
                     for slot in own_slots:
                         self.slot_field(cls, slot)
+                        slot_list.remove(slot)
 
-                for slot_owner in sorted({slot.owner for slot in [self.schema.slots[sn] for sn in cls.slots]
-                                          if slot.owner != slot.name and slot.owner != cls.name}):
-                    self.header(3, "Inherited from " + slot_owner + ':')
-                    for owner_slot_name in self.schema.classes[slot_owner].slots:
-                        owner_slot = self.schema.slots[owner_slot_name]
-                        if owner_slot.owner == slot_owner:
-                            self.slot_field(cls, owner_slot)
+                # List all of the inherited slots
+                ancestors = set(self.ancestors(cls))
+                inherited_slots = [slot for slot in slot_list if set(slot.domain_of).intersection(ancestors)]
+                if inherited_slots:
+                    self.header(3, "Inherited from " + cls.is_a + ':')
+                    for inherited_slot in inherited_slots:
+                        self.slot_field(cls, inherited_slot)
+                        slot_list.remove(inherited_slot)
 
-                domain_for_slots = [slot for slot in [self.schema.slots[sn]
-                                                      for sn in sorted(cls.slots)] if slot.domain == cls.name]
-                if domain_for_slots:
-                    self.header(3, 'Domain for slot:')
-                    for slot in domain_for_slots:
+                # List all of the slots acquired through mixing
+                mixed_in_classes = set()
+                for mixin in cls.mixins:
+                    mixed_in_classes.add(mixin)
+                    mixed_in_classes.update(set(self.ancestors(self.schema.classes[mixin])))
+                for slot in slot_list:
+                    mixers = set(slot.domain_of).intersection(mixed_in_classes)
+                    for mixer in mixers:
+                        self.header(3, "Mixed in from " + mixer + ':')
                         self.slot_field(cls, slot)
 
                 self.element_properties(cls)
@@ -308,8 +317,8 @@ class MarkdownGenerator(Generator):
         #     self.bullet(f'edge label: {self.slot_link(slot.subproperty_of)}', level=1)
         for example in slot.examples:
             self.bullet(f'Example: {example.value} {example.description}', level=1)
-        if slot.name not in self.own_slot_names(cls):
-            self.bullet(f'inherited from: {self.class_link(slot.domain)}', level=1)
+        # if slot.name not in self.own_slot_names(cls):
+        #     self.bullet(f'inherited from: {self.class_link(slot.domain)}', level=1)
         if slot.in_subset:
             ssl = ','.join(slot.in_subset)
             self.bullet(f'in subsets: ({ssl})', level=1)

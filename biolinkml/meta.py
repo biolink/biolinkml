@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-07-06 12:59
+# Generation date: 2020-07-06 13:29
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta
@@ -304,6 +304,11 @@ class Definition(Element):
     mixins: List[Union[str, DefinitionName]] = empty_list()
     apply_to: List[Union[str, DefinitionName]] = empty_list()
     values_from: List[Union[str, URIorCURIE]] = empty_list()
+    created_by: Optional[Union[str, URIorCURIE]] = None
+    created_on: Optional[Union[str, XSDDateTime]] = None
+    last_updated_on: Optional[Union[str, XSDDateTime]] = None
+    modified_by: Optional[Union[str, URIorCURIE]] = None
+    status: Optional[Union[str, URIorCURIE]] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.is_a is not None and not isinstance(self.is_a, DefinitionName):
@@ -314,6 +319,16 @@ class Definition(Element):
                          else DefinitionName(v) for v in self.apply_to]
         self.values_from = [v if isinstance(v, URIorCURIE)
                             else URIorCURIE(v) for v in self.values_from]
+        if self.created_by is not None and not isinstance(self.created_by, URIorCURIE):
+            self.created_by = URIorCURIE(self.created_by)
+        if self.created_on is not None and not isinstance(self.created_on, XSDDateTime):
+            self.created_on = XSDDateTime(self.created_on)
+        if self.last_updated_on is not None and not isinstance(self.last_updated_on, XSDDateTime):
+            self.last_updated_on = XSDDateTime(self.last_updated_on)
+        if self.modified_by is not None and not isinstance(self.modified_by, URIorCURIE):
+            self.modified_by = URIorCURIE(self.modified_by)
+        if self.status is not None and not isinstance(self.status, URIorCURIE):
+            self.status = URIorCURIE(self.status)
         super().__post_init__(**kwargs)
 
 

@@ -19,10 +19,11 @@ SKIP_GRAPHVIZ_VALIDATION = True
 SKIP_MARKDOWN_VALIDATION = False
 
 # Skip RDF comparison, as it takes a lot of time
-SKIP_RDF_COMPARE = True
+SKIP_RDF_COMPARE = False
 
 # Action on mismatch.  One of 'Ignore', 'Report' or 'Fail'
 #  If 'Fail', the expected file will be saved in the appropriate temp directory
+#  NOTE: Before setting this back to Report or Ignore, you need to run cleartemp.sh in this directory
 DEFAULT_MISMATCH_ACTION = MismatchAction.Report
 
 

@@ -74,7 +74,12 @@ metatype:Nodeidentifier NONLITERAL
           <mixin> @metatype:Boolean ? ;
           <mixins> @<Definition> * ;
           <apply_to> @<Definition> * ;
-          <values_from> @metatype:Uriorcurie *
+          <values_from> @metatype:Uriorcurie * ;
+          pav:createdBy @metatype:Uriorcurie ? ;
+          pav:createdOn @metatype:Datetime ? ;
+          pav:lastUpdatedOn @metatype:Datetime ? ;
+          oslc:modifiedBy @metatype:Uriorcurie ? ;
+          bibo:status @metatype:Uriorcurie ?
        ) ;
        rdf:type [ <Definition> ]
     )
@@ -105,12 +110,7 @@ metatype:Nodeidentifier NONLITERAL
           skos:closeMatch @metatype:Uriorcurie * ;
           skos:relatedMatch @metatype:Uriorcurie * ;
           <deprecated_element_has_exact_replacement> @metatype:Uriorcurie ? ;
-          <deprecated_element_has_possible_replacement> @metatype:Uriorcurie ? ;
-          pav:createdBy @metatype:Uriorcurie ? ;
-          pav:createdOn @metatype:Datetime ? ;
-          pav:lastUpdatedOn @metatype:Datetime ? ;
-          oslc:modifiedBy @metatype:Uriorcurie ? ;
-          bibo:status @metatype:Uriorcurie ?
+          <deprecated_element_has_possible_replacement> @metatype:Uriorcurie ?
        ) ;
        rdf:type [ <Element> ]
     )

@@ -24,6 +24,9 @@ def to_graph(inp: Union[Graph, str], fmt: Optional[str] = "turtle") -> Graph:
     if isinstance(inp, Graph):
         return inp
     g = Graph()
+    # If there is no input then return an empty graph
+    if not inp.strip():
+        return g
     if not inp.strip().startswith('{') and '\n' not in inp and '\r' not in inp:
         with open(inp) as f:
             inp = f.read()

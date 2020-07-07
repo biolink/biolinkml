@@ -85,7 +85,7 @@ class SchemaLoaderTestCase(TestEnvironmentTestCase):
         fn = env.input_path('loadererror7.yaml')
         with self.assertRaises(ValueError, msg="Two or more keys are not allowed") as e:
             _ = SchemaLoader(fn).resolve()
-        self.assertIn('loadererror7.yaml", line 17, col 3', str(e.exception))
+        self.assertIn('loadererror7.yaml", line 16, col 3', str(e.exception))
 
     @unittest.skipIf(True, "Never impelemented checking key and identifier")
     def test_key_and_id(self):

@@ -280,6 +280,41 @@
                         "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uriorcurie",
                         "min": 0,
                         "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://purl.org/pav/createdBy",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uriorcurie",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://purl.org/pav/createdOn",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Datetime",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://purl.org/pav/lastUpdatedOn",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Datetime",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://open-services.net/ns/core#modifiedBy",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uriorcurie",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://purl.org/ontology/bibo/status",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uriorcurie",
+                        "min": 0,
+                        "max": 1
                      }
                   ]
                },
@@ -461,41 +496,6 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/deprecated_element_has_possible_replacement",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uriorcurie",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "http://purl.org/pav/createdBy",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uriorcurie",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "http://purl.org/pav/createdOn",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Datetime",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "http://purl.org/pav/lastUpdatedOn",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Datetime",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "http://open-services.net/ns/core#modifiedBy",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uriorcurie",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "http://purl.org/ontology/bibo/status",
                         "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uriorcurie",
                         "min": 0,
                         "max": 1
