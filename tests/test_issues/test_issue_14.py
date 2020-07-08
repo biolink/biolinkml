@@ -2,6 +2,8 @@ import unittest
 
 from biolinkml.generators.pythongen import PythonGenerator
 from tests.utils.python_comparator import compare_python, compile_python
+from tests.utils.filters import metadata_filter
+
 from tests.utils.test_environment import TestEnvironmentTestCase
 from tests.test_issues.environment import env
 # from tests.test_issues.output.issue_14 import MixinOwner, SubjectRange1, NamedThing
@@ -13,7 +15,7 @@ class InheritedPhenotypicFeatureTestCase(TestEnvironmentTestCase):
     def test_inheritence(self):
         env.generate_single_file('issue_14.py',
                                  lambda: PythonGenerator(env.input_path('issue_14.yaml')).serialize(),
-                                 comparator=compare_python, value_is_returned=True)
+                                 comparator=compare_python, filtr=metadata_filter, value_is_returned=True)
 
         # Added test for issue #183, where sex_qualifier disappeared from MixinOwner class
         module = compile_python(env.expected_path('issue_14.py'))
