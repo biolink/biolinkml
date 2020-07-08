@@ -1,5 +1,5 @@
-# Auto generated from meta.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-07-06 13:29
+# Auto generated from .yaml by pythongen.py version:
+# Generation date:
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta
@@ -23,7 +23,7 @@ from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import Bool, NCName, URI, URIorCURIE, XSDDateTime
 from includes.types import Boolean, Datetime, Integer, Ncname, String, Uri, Uriorcurie
 
-metamodel_version = "1.5.0"
+metamodel_version = "1.5.1"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -424,6 +424,7 @@ class ClassDefinition(Definition):
     subclass_of: Optional[Union[str, URIorCURIE]] = None
     union_of: List[Union[str, ClassDefinitionName]] = empty_list()
     defining_slots: List[Union[str, SlotDefinitionName]] = empty_list()
+    tree_root: Optional[Bool] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.name is None:
@@ -692,6 +693,9 @@ slots.defining_slots = Slot(uri=META.defining_slots, name="defining_slots", curi
 
 slots.union_of = Slot(uri=META.union_of, name="union_of", curie=META.curie('union_of'),
                       model_uri=META.union_of, domain=ClassDefinition, range=List[Union[str, ClassDefinitionName]])
+
+slots.tree_root = Slot(uri=META.tree_root, name="tree_root", curie=META.curie('tree_root'),
+                      model_uri=META.tree_root, domain=ClassDefinition, range=Optional[Bool])
 
 slots.domain = Slot(uri=META.domain, name="domain", curie=META.curie('domain'),
                       model_uri=META.domain, domain=SlotDefinition, range=Optional[Union[str, ClassDefinitionName]])

@@ -186,6 +186,9 @@
       "symmetric": {
          "@type": "xsd:boolean"
       },
+      "tree_root": {
+         "@type": "xsd:boolean"
+      },
       "uri": {
          "@type": "@id"
       },

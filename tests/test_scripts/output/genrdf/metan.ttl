@@ -17,7 +17,7 @@
 meta:metamodel a meta:SchemaDefinition ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "Biolink Schema Metamodel" ;
-    pav:version "1.5.0" ;
+    pav:version "1.5.1" ;
     skos:definition "A metamodel for defining biolink related schemas" ;
     meta:classes meta:AltDescription,
         meta:ClassDefinition,
@@ -46,23 +46,23 @@ meta:metamodel a meta:SchemaDefinition ;
     meta:id biolinkml:meta ;
     meta:imports biolinkml:mappings,
         biolinkml:types ;
-    meta:metamodel_version "1.5.0" ;
-    meta:prefixes [ meta:prefix_prefix "schema" ;
-            meta:prefix_reference schema: ],
-        [ meta:prefix_prefix "oslc" ;
-            meta:prefix_reference oslc: ],
-        [ meta:prefix_prefix "pav" ;
-            meta:prefix_reference pav: ],
-        [ meta:prefix_prefix "OIO" ;
+    meta:metamodel_version "1.5.1" ;
+    meta:prefixes [ meta:prefix_prefix "OIO" ;
             meta:prefix_reference OIO: ],
+        [ meta:prefix_prefix "bibo" ;
+            meta:prefix_reference bibo: ],
         [ meta:prefix_prefix "biolinkml" ;
             meta:prefix_reference biolinkml: ],
+        [ meta:prefix_prefix "schema" ;
+            meta:prefix_reference schema: ],
         [ meta:prefix_prefix "skos" ;
             meta:prefix_reference skos: ],
         [ meta:prefix_prefix "meta" ;
             meta:prefix_reference meta: ],
-        [ meta:prefix_prefix "bibo" ;
-            meta:prefix_reference bibo: ] ;
+        [ meta:prefix_prefix "oslc" ;
+            meta:prefix_reference oslc: ],
+        [ meta:prefix_prefix "pav" ;
+            meta:prefix_reference pav: ] ;
     meta:slots meta:abstract,
         meta:alias,
         meta:aliases,
@@ -156,6 +156,7 @@ meta:metamodel a meta:SchemaDefinition ;
         meta:symmetric,
         meta:title,
         meta:todos,
+        meta:tree_root,
         meta:type_uri,
         meta:typeof,
         meta:types,
@@ -995,6 +996,16 @@ meta:title a meta:SlotDefinition ;
     meta:range meta:string ;
     meta:slot_uri meta:title .
 
+meta:tree_root a meta:SlotDefinition ;
+    skos:definition "indicator that this is the root class in tree structures" ;
+    skos:inScheme biolinkml:meta ;
+    meta:definition_uri meta:tree_root ;
+    meta:domain meta:ClassDefinition ;
+    meta:domain_of meta:ClassDefinition ;
+    meta:owner meta:ClassDefinition ;
+    meta:range meta:boolean ;
+    meta:slot_uri meta:tree_root .
+
 meta:typeof a meta:SlotDefinition ;
     skos:definition "Names a parent type" ;
     skos:inScheme biolinkml:meta ;
@@ -1518,14 +1529,6 @@ meta:Example a meta:ClassDefinition ;
     meta:slots meta:value,
         meta:value_description .
 
-meta:boolean a meta:TypeDefinition ;
-    skos:definition "A binary (true or false) value" ;
-    skos:inScheme biolinkml:types ;
-    meta:base "Bool" ;
-    meta:definition_uri metatype:Boolean ;
-    meta:imported_from "biolinkml:types" ;
-    meta:uri xsd:boolean .
-
 meta:description a meta:SlotDefinition ;
     OIO:inSubset meta:owl ;
     skos:definition "a description of the element's purpose and use" ;
@@ -1537,6 +1540,14 @@ meta:description a meta:SlotDefinition ;
     meta:owner meta:Element ;
     meta:range meta:string ;
     meta:slot_uri meta:description .
+
+meta:boolean a meta:TypeDefinition ;
+    skos:definition "A binary (true or false) value" ;
+    skos:inScheme biolinkml:types ;
+    meta:base "Bool" ;
+    meta:definition_uri metatype:Boolean ;
+    meta:imported_from "biolinkml:types" ;
+    meta:uri xsd:boolean .
 
 meta:mappings a meta:SlotDefinition ;
     skos:definition "A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective." ;
@@ -1689,6 +1700,7 @@ meta:ClassDefinition a meta:ClassDefinition ;
         meta:status,
         meta:subclass_of,
         meta:todos,
+        meta:tree_root,
         meta:union_of,
         meta:values_from .
 

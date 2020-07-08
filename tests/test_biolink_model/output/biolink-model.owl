@@ -10,10 +10,10 @@
     rdfs:label "Biolink-Model" ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     skos:definition "Entity and association taxonomy and datamodel for life-sciences data" ;
-    meta:generation_date "2020-07-07 13:43" ;
-    meta:metamodel_version "1.5.0" ;
+    meta:generation_date "2020-07-08 15:30" ;
+    meta:metamodel_version "1.5.1" ;
     meta:source_file "biolink-model.yaml" ;
-    meta:source_file_date "Tue Jul  7 13:38:02 2020" ;
+    meta:source_file_date "Wed Jul  8 15:04:19 2020" ;
     meta:source_file_size 118542 .
 
 meta:ActivityAndBehavior a owl:Class,
@@ -36,12 +36,12 @@ meta:CaseToPhenotypicFeatureAssociation a owl:Class,
             owl:onProperty meta:sex_qualifier ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:SeverityValue ;
-            owl:onProperty meta:severity_qualifier ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:Onset ;
             owl:onProperty meta:onset_qualifier ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:SeverityValue ;
+            owl:onProperty meta:severity_qualifier ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:FrequencyValue ;
@@ -82,20 +82,20 @@ meta:DiseaseToPhenotypicFeatureAssociation a owl:Class,
     rdfs:label "disease to phenotypic feature association" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:FrequencyValue ;
-            owl:onProperty meta:frequency_qualifier ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:Onset ;
-            owl:onProperty meta:onset_qualifier ],
+            owl:onClass meta:SeverityValue ;
+            owl:onProperty meta:severity_qualifier ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:BiologicalSex ;
             owl:onProperty meta:sex_qualifier ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:SeverityValue ;
-            owl:onProperty meta:severity_qualifier ],
+            owl:onClass meta:FrequencyValue ;
+            owl:onProperty meta:frequency_qualifier ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:Onset ;
+            owl:onProperty meta:onset_qualifier ],
         meta:Association,
         meta:DiseaseToThingAssociation,
         meta:EntityToPhenotypicFeatureAssociation ;
@@ -1846,6 +1846,14 @@ meta:ExposureEventToPhenotypicFeatureAssociation a owl:Class,
     rdfs:label "exposure event to phenotypic feature association" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:FrequencyValue ;
+            owl:onProperty meta:frequency_qualifier ],
+        [ a owl:Restriction ;
+            owl:onClass meta:ExposureEvent ;
+            owl:onProperty meta:subject ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:Onset ;
             owl:onProperty meta:onset_qualifier ],
         [ a owl:Restriction ;
@@ -1856,14 +1864,6 @@ meta:ExposureEventToPhenotypicFeatureAssociation a owl:Class,
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:SeverityValue ;
             owl:onProperty meta:severity_qualifier ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:FrequencyValue ;
-            owl:onProperty meta:frequency_qualifier ],
-        [ a owl:Restriction ;
-            owl:onClass meta:ExposureEvent ;
-            owl:onProperty meta:subject ;
-            owl:qualifiedCardinality 1 ],
         meta:Association,
         meta:EntityToPhenotypicFeatureAssociation ;
     skos:definition "Any association between an environment and a phenotypic feature, where being in the environment influences the phenotype" .
@@ -1935,12 +1935,12 @@ meta:GeneToPhenotypicFeatureAssociation a owl:Class,
     rdfs:label "gene to phenotypic feature association" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:BiologicalSex ;
-            owl:onProperty meta:sex_qualifier ],
+            owl:onClass meta:FrequencyValue ;
+            owl:onProperty meta:frequency_qualifier ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:SeverityValue ;
-            owl:onProperty meta:severity_qualifier ],
+            owl:onClass meta:BiologicalSex ;
+            owl:onProperty meta:sex_qualifier ],
         [ a owl:Restriction ;
             owl:onClass meta:GeneOrGeneProduct ;
             owl:onProperty meta:subject ;
@@ -1951,8 +1951,8 @@ meta:GeneToPhenotypicFeatureAssociation a owl:Class,
             owl:onProperty meta:onset_qualifier ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:FrequencyValue ;
-            owl:onProperty meta:frequency_qualifier ],
+            owl:onClass meta:SeverityValue ;
+            owl:onProperty meta:severity_qualifier ],
         meta:Association,
         meta:EntityToPhenotypicFeatureAssociation,
         meta:GeneToThingAssociation .
@@ -2053,6 +2053,10 @@ meta:VariantToPhenotypicFeatureAssociation a owl:Class,
             owl:onProperty meta:severity_qualifier ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:BiologicalSex ;
+            owl:onProperty meta:sex_qualifier ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:FrequencyValue ;
             owl:onProperty meta:frequency_qualifier ],
         [ a owl:Restriction ;
@@ -2063,10 +2067,6 @@ meta:VariantToPhenotypicFeatureAssociation a owl:Class,
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:Onset ;
             owl:onProperty meta:onset_qualifier ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:BiologicalSex ;
-            owl:onProperty meta:sex_qualifier ],
         meta:Association,
         meta:EntityToPhenotypicFeatureAssociation,
         meta:VariantToThingAssociation .
@@ -2461,12 +2461,12 @@ meta:DiseaseToExposureAssociation a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "disease to exposure association" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass meta:ExposureEvent ;
-            owl:onProperty meta:object ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:onClass meta:Disease ;
             owl:onProperty meta:subject ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass meta:ExposureEvent ;
+            owl:onProperty meta:object ;
             owl:qualifiedCardinality 1 ],
         meta:DiseaseToThingAssociation ;
     skos:definition "An association between an exposure event and a disease" .
@@ -2502,12 +2502,12 @@ meta:ExonToTranscriptRelationship a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "exon to transcript relationship" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass meta:Exon ;
-            owl:onProperty meta:subject ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:onClass meta:Transcript ;
             owl:onProperty meta:object ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass meta:Exon ;
+            owl:onProperty meta:subject ;
             owl:qualifiedCardinality 1 ],
         meta:SequenceFeatureRelationship ;
     skos:definition "A transcript is formed from multiple exons" .
@@ -2551,11 +2551,11 @@ meta:GenomicSequenceLocalization a owl:Class,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:string ;
-            owl:onProperty meta:phase ],
+            owl:onProperty meta:start_interbase_coordinate ],
         [ a owl:Restriction ;
-            owl:onClass meta:GenomicEntity ;
-            owl:onProperty meta:object ;
-            owl:qualifiedCardinality 1 ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:string ;
+            owl:onProperty meta:end_interbase_coordinate ],
         [ a owl:Restriction ;
             owl:onClass meta:GenomicEntity ;
             owl:onProperty meta:subject ;
@@ -2563,11 +2563,11 @@ meta:GenomicSequenceLocalization a owl:Class,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:string ;
-            owl:onProperty meta:end_interbase_coordinate ],
+            owl:onProperty meta:phase ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:string ;
-            owl:onProperty meta:start_interbase_coordinate ],
+            owl:onClass meta:GenomicEntity ;
+            owl:onProperty meta:object ;
+            owl:qualifiedCardinality 1 ],
         meta:Association ;
     skos:definition "A relationship between a sequence feature and an entity it is localized to. The reference entity may be a chromosome, chromosome region or information entity such as a contig" .
 
@@ -2575,9 +2575,21 @@ meta:GenotypeToPhenotypicFeatureAssociation a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "genotype to phenotypic feature association" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:FrequencyValue ;
+            owl:onProperty meta:frequency_qualifier ],
+        [ a owl:Restriction ;
             owl:onClass meta:uriorcurie ;
             owl:onProperty meta:relation ;
             owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:Onset ;
+            owl:onProperty meta:onset_qualifier ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:BiologicalSex ;
+            owl:onProperty meta:sex_qualifier ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:SeverityValue ;
@@ -2586,18 +2598,6 @@ meta:GenotypeToPhenotypicFeatureAssociation a owl:Class,
             owl:onClass meta:Genotype ;
             owl:onProperty meta:subject ;
             owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:BiologicalSex ;
-            owl:onProperty meta:sex_qualifier ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:FrequencyValue ;
-            owl:onProperty meta:frequency_qualifier ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:Onset ;
-            owl:onProperty meta:onset_qualifier ],
         meta:Association,
         meta:EntityToPhenotypicFeatureAssociation,
         meta:GenotypeToThingAssociation ;
@@ -2648,12 +2648,12 @@ meta:SequenceVariantModulatesTreatmentAssociation a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "sequence variant modulates treatment association" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass meta:SequenceVariant ;
-            owl:onProperty meta:subject ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:onClass meta:Treatment ;
             owl:onProperty meta:object ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass meta:SequenceVariant ;
+            owl:onProperty meta:subject ;
             owl:qualifiedCardinality 1 ],
         meta:Association ;
     skos:definition "An association between a sequence variant and a treatment or health intervention. The treatment object itself encompasses both the disease and the drug used." ;
@@ -2676,12 +2676,12 @@ meta:TranscriptToGeneRelationship a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "transcript to gene relationship" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass meta:Gene ;
-            owl:onProperty meta:object ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:onClass meta:Transcript ;
             owl:onProperty meta:subject ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass meta:Gene ;
+            owl:onProperty meta:object ;
             owl:qualifiedCardinality 1 ],
         meta:SequenceFeatureRelationship ;
     skos:definition "A gene is a collection of transcripts" .
@@ -2984,16 +2984,16 @@ meta:AnatomicalEntityToAnatomicalEntityOntogenicAssociation a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "anatomical entity to anatomical entity ontogenic association" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass meta:uriorcurie ;
-            owl:onProperty meta:relation ;
+            owl:onClass meta:AnatomicalEntity ;
+            owl:onProperty meta:object ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass meta:AnatomicalEntity ;
             owl:onProperty meta:subject ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:onClass meta:AnatomicalEntity ;
-            owl:onProperty meta:object ;
+            owl:onClass meta:uriorcurie ;
+            owl:onProperty meta:relation ;
             owl:qualifiedCardinality 1 ],
         meta:AnatomicalEntityToAnatomicalEntityAssociation ;
     skos:definition "A relationship between two anatomical entities where the relationship is ontogenic, i.e the two entities are related by development. A number of different relationship types can be used to specify the precise nature of the relationship" .
@@ -3002,12 +3002,12 @@ meta:AnatomicalEntityToAnatomicalEntityPartOfAssociation a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "anatomical entity to anatomical entity part of association" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass meta:AnatomicalEntity ;
-            owl:onProperty meta:subject ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:onClass meta:uriorcurie ;
             owl:onProperty meta:relation ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass meta:AnatomicalEntity ;
+            owl:onProperty meta:subject ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass meta:AnatomicalEntity ;
@@ -3049,16 +3049,16 @@ meta:GeneRegulatoryRelationship a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "gene regulatory relationship" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass meta:uriorcurie ;
+            owl:onProperty meta:relation ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
             owl:onClass meta:GeneOrGeneProduct ;
             owl:onProperty meta:object ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass meta:GeneOrGeneProduct ;
             owl:onProperty meta:subject ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onClass meta:uriorcurie ;
-            owl:onProperty meta:relation ;
             owl:qualifiedCardinality 1 ],
         meta:Association ;
     skos:definition "A regulatory relationship between two genes" .
@@ -3067,10 +3067,6 @@ meta:GeneToDiseaseAssociation a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "gene to disease association" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:SeverityValue ;
-            owl:onProperty meta:severity_qualifier ],
-        [ a owl:Restriction ;
             owl:onClass meta:GeneOrGeneProduct ;
             owl:onProperty meta:subject ;
             owl:qualifiedCardinality 1 ],
@@ -3082,6 +3078,10 @@ meta:GeneToDiseaseAssociation a owl:Class,
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:FrequencyValue ;
             owl:onProperty meta:frequency_qualifier ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:SeverityValue ;
+            owl:onProperty meta:severity_qualifier ],
         meta:Association,
         meta:EntityToDiseaseAssociation,
         meta:GeneToThingAssociation ;
@@ -3091,16 +3091,16 @@ meta:GeneToGeneProductRelationship a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "gene to gene product relationship" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass meta:GeneProduct ;
+            owl:onProperty meta:object ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
             owl:onClass meta:Gene ;
             owl:onProperty meta:subject ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass meta:uriorcurie ;
             owl:onProperty meta:relation ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onClass meta:GeneProduct ;
-            owl:onProperty meta:object ;
             owl:qualifiedCardinality 1 ],
         meta:SequenceFeatureRelationship ;
     skos:definition "A gene is transcribed and potentially translated to a gene product" .
@@ -3118,16 +3118,16 @@ meta:GenotypeToGeneAssociation a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "genotype to gene association" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass meta:Genotype ;
-            owl:onProperty meta:subject ;
+            owl:onClass meta:uriorcurie ;
+            owl:onProperty meta:relation ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass meta:Gene ;
             owl:onProperty meta:object ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:onClass meta:uriorcurie ;
-            owl:onProperty meta:relation ;
+            owl:onClass meta:Genotype ;
+            owl:onProperty meta:subject ;
             owl:qualifiedCardinality 1 ],
         meta:Association ;
     skos:definition "Any association between a genotype and a gene. The genotype have have multiple variants in that gene or a single one. There is no assumption of cardinality" .
@@ -3136,12 +3136,12 @@ meta:GenotypeToGenotypePartAssociation a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "genotype to genotype part association" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass meta:uriorcurie ;
-            owl:onProperty meta:relation ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:onClass meta:Genotype ;
             owl:onProperty meta:object ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass meta:uriorcurie ;
+            owl:onProperty meta:relation ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass meta:Genotype ;
@@ -3188,16 +3188,16 @@ meta:MaterialSampleDerivationAssociation a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "material sample derivation association" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass meta:MaterialSample ;
-            owl:onProperty meta:subject ;
+            owl:onClass meta:NamedThing ;
+            owl:onProperty meta:object ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass meta:uriorcurie ;
             owl:onProperty meta:relation ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:onClass meta:NamedThing ;
-            owl:onProperty meta:object ;
+            owl:onClass meta:MaterialSample ;
+            owl:onProperty meta:subject ;
             owl:qualifiedCardinality 1 ],
         meta:Association ;
     skos:definition "An association between a material sample and the material entity it is derived from" .
@@ -3252,25 +3252,25 @@ meta:VariantToDiseaseAssociation a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "variant to disease association" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:FrequencyValue ;
-            owl:onProperty meta:frequency_qualifier ],
+            owl:onClass meta:NamedThing ;
+            owl:onProperty meta:subject ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass meta:uriorcurie ;
+            owl:onProperty meta:relation ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:Onset ;
             owl:onProperty meta:onset_qualifier ],
         [ a owl:Restriction ;
-            owl:onClass meta:NamedThing ;
-            owl:onProperty meta:subject ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:SeverityValue ;
             owl:onProperty meta:severity_qualifier ],
         [ a owl:Restriction ;
-            owl:onClass meta:uriorcurie ;
-            owl:onProperty meta:relation ;
-            owl:qualifiedCardinality 1 ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:FrequencyValue ;
+            owl:onProperty meta:frequency_qualifier ],
         [ a owl:Restriction ;
             owl:onClass meta:NamedThing ;
             owl:onProperty meta:object ;
@@ -3473,12 +3473,12 @@ meta:QuantityValue a owl:Class,
     rdfs:label "quantity value" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:unit ;
-            owl:onProperty meta:has_unit ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:double ;
             owl:onProperty meta:has_numeric_value ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:unit ;
+            owl:onProperty meta:has_unit ],
         meta:AbstractEntity ;
     skos:definition "A value of an attribute that is quantitative and measurable, expressed as a combination of a unit and a numeric value" .
 
@@ -3609,13 +3609,13 @@ meta:GeneToExpressionSiteAssociation a owl:Class,
             owl:onProperty meta:subject ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:onClass meta:AnatomicalEntity ;
-            owl:onProperty meta:object ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:LifeStage ;
             owl:onProperty meta:stage_qualifier ],
+        [ a owl:Restriction ;
+            owl:onClass meta:AnatomicalEntity ;
+            owl:onProperty meta:object ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:OntologyClass ;
@@ -3649,11 +3649,11 @@ meta:SequenceFeatureRelationship a owl:Class,
     rdfs:label "sequence feature relationship" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onClass meta:GenomicEntity ;
-            owl:onProperty meta:object ;
+            owl:onProperty meta:subject ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass meta:GenomicEntity ;
-            owl:onProperty meta:subject ;
+            owl:onProperty meta:object ;
             owl:qualifiedCardinality 1 ],
         meta:Association ;
     skos:definition "For example, a particular exon is part of a particular transcript or gene" .
@@ -3663,24 +3663,12 @@ meta:VariantToPopulationAssociation a owl:Class,
     rdfs:label "variant to population association" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:integer ;
-            owl:onProperty meta:has_total ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:double ;
-            owl:onProperty meta:has_quotient ],
-        [ a owl:Restriction ;
-            owl:onClass meta:PopulationOfIndividualOrganisms ;
-            owl:onProperty meta:object ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:FrequencyValue ;
             owl:onProperty meta:frequency_qualifier ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:double ;
-            owl:onProperty meta:has_percentage ],
+            owl:onClass meta:integer ;
+            owl:onProperty meta:has_total ],
         [ a owl:Restriction ;
             owl:onClass meta:SequenceVariant ;
             owl:onProperty meta:subject ;
@@ -3689,6 +3677,18 @@ meta:VariantToPopulationAssociation a owl:Class,
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:integer ;
             owl:onProperty meta:has_count ],
+        [ a owl:Restriction ;
+            owl:onClass meta:PopulationOfIndividualOrganisms ;
+            owl:onProperty meta:object ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:double ;
+            owl:onProperty meta:has_quotient ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:double ;
+            owl:onProperty meta:has_percentage ],
         meta:Association,
         meta:FrequencyQualifierMixin,
         meta:FrequencyQuantifier,
@@ -3705,24 +3705,24 @@ meta:DataSetVersion a owl:Class,
     rdfs:label "data set version" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:string ;
-            owl:onProperty meta:type ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:string ;
-            owl:onProperty meta:title ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:DistributionLevel ;
-            owl:onProperty meta:distribution ],
+            owl:onClass meta:DataFile ;
+            owl:onProperty meta:source_data_file ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:DataSet ;
             owl:onProperty meta:versionOf ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:DataFile ;
-            owl:onProperty meta:source_data_file ],
+            owl:onClass meta:DistributionLevel ;
+            owl:onProperty meta:distribution ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:string ;
+            owl:onProperty meta:title ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:string ;
+            owl:onProperty meta:type ],
         meta:DataSet .
 
 meta:Disease a owl:Class,
@@ -3760,20 +3760,20 @@ meta:PairwiseInteractionAssociation a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "pairwise interaction association" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass meta:MolecularEntity ;
-            owl:onProperty meta:object ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onClass meta:MolecularEntity ;
-            owl:onProperty meta:subject ;
+            owl:onClass meta:string ;
+            owl:onProperty meta:id ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass meta:uriorcurie ;
             owl:onProperty meta:relation ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:onClass meta:string ;
-            owl:onProperty meta:id ;
+            owl:onClass meta:MolecularEntity ;
+            owl:onProperty meta:object ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass meta:MolecularEntity ;
+            owl:onProperty meta:subject ;
             owl:qualifiedCardinality 1 ],
         meta:Association,
         meta:mixin ;
@@ -3854,24 +3854,24 @@ meta:EntityToPhenotypicFeatureAssociation a owl:Class,
     rdfs:label "entity to phenotypic feature association" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:SeverityValue ;
-            owl:onProperty meta:severity_qualifier ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:Onset ;
             owl:onProperty meta:onset_qualifier ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:BiologicalSex ;
-            owl:onProperty meta:sex_qualifier ],
+            owl:onClass meta:PhenotypicFeature ;
+            owl:onProperty meta:object ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:FrequencyValue ;
             owl:onProperty meta:frequency_qualifier ],
         [ a owl:Restriction ;
-            owl:onClass meta:PhenotypicFeature ;
-            owl:onProperty meta:object ;
-            owl:qualifiedCardinality 1 ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:SeverityValue ;
+            owl:onProperty meta:severity_qualifier ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:BiologicalSex ;
+            owl:onProperty meta:sex_qualifier ],
         meta:Association,
         meta:EntityToFeatureOrDiseaseQualifiers .
 
@@ -3929,23 +3929,10 @@ meta:severity_qualifier a owl:ObjectProperty,
 meta:Attribute a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "attribute" ;
-    rdfs:subClassOf [ a owl:Class ;
-            owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:allValuesFrom meta:iri_type ;
-                        owl:onProperty meta:category ] [ a owl:Restriction ;
-                        owl:onProperty meta:category ;
-                        owl:someValuesFrom meta:iri_type ] ) ],
-        [ a owl:Restriction ;
-            owl:onClass meta:label_type ;
-            owl:onProperty meta:name ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
+    rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:NamedThing ;
             owl:onProperty meta:has_qualitative_value ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom meta:QuantityValue ;
-            owl:onProperty meta:has_quantitative_value ],
         [ a owl:Restriction ;
             owl:onClass meta:string ;
             owl:onProperty meta:id ;
@@ -3954,6 +3941,19 @@ meta:Attribute a owl:Class,
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:OntologyClass ;
             owl:onProperty meta:has_attribute_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom meta:QuantityValue ;
+            owl:onProperty meta:has_quantitative_value ],
+        [ a owl:Restriction ;
+            owl:onClass meta:label_type ;
+            owl:onProperty meta:name ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:allValuesFrom meta:iri_type ;
+                        owl:onProperty meta:category ] [ a owl:Restriction ;
+                        owl:onProperty meta:category ;
+                        owl:someValuesFrom meta:iri_type ] ) ],
         meta:AbstractEntity,
         meta:OntologyClass ;
     skos:definition "A property or characteristic of an entity. For example, an apple may have properties such as color, shape, age, crispiness. An environmental sample may have attributes such as depth, lat, long, material." .
@@ -4026,6 +4026,9 @@ meta:SequenceVariant a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "sequence variant" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom meta:Gene ;
+            owl:onProperty meta:has_gene ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:biological_sequence ;
             owl:onProperty meta:has_biological_sequence ],
@@ -4033,9 +4036,6 @@ meta:SequenceVariant a owl:Class,
             owl:onClass meta:string ;
             owl:onProperty meta:id ;
             owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom meta:Gene ;
-            owl:onProperty meta:has_gene ],
         meta:GenomicEntity ;
     skos:definition "An allele that varies in its sequence from what is considered the reference allele at that locus." ;
     skos:note "This class is for modeling the specific state at a locus. A single dbSNP rs ID could correspond to more than one sequence variants (e.g CIViC:1252 and CIViC:1253, two distinct BRCA2 alleles for rs28897743)" .
@@ -4156,38 +4156,38 @@ meta:Association a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "association" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass meta:NamedThing ;
-            owl:onProperty meta:subject ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onClass meta:string ;
-            owl:onProperty meta:id ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom meta:Provider ;
-            owl:onProperty meta:provided_by ],
-        [ a owl:Restriction ;
-            owl:onClass meta:uriorcurie ;
-            owl:onProperty meta:relation ;
-            owl:qualifiedCardinality 1 ],
+            owl:allValuesFrom meta:OntologyClass ;
+            owl:onProperty meta:qualifiers ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:boolean ;
             owl:onProperty meta:negated ],
         [ a owl:Restriction ;
+            owl:allValuesFrom meta:Publication ;
+            owl:onProperty meta:publications ],
+        [ a owl:Restriction ;
+            owl:onClass meta:string ;
+            owl:onProperty meta:id ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:OntologyClass ;
             owl:onProperty meta:association_type ],
         [ a owl:Restriction ;
-            owl:allValuesFrom meta:OntologyClass ;
-            owl:onProperty meta:qualifiers ],
+            owl:onClass meta:NamedThing ;
+            owl:onProperty meta:subject ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass meta:NamedThing ;
             owl:onProperty meta:object ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:allValuesFrom meta:Publication ;
-            owl:onProperty meta:publications ] ;
+            owl:onClass meta:uriorcurie ;
+            owl:onProperty meta:relation ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom meta:Provider ;
+            owl:onProperty meta:provided_by ] ;
     skos:definition "A typed association between two entities, supported by evidence" ;
     skos:note "This is roughly the model used by biolink and ontobio at the moment" .
 
@@ -4213,20 +4213,20 @@ meta:MolecularEntity a owl:Class,
 meta:NamedThing a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "named thing" ;
-    rdfs:subClassOf [ a owl:Restriction ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:allValuesFrom meta:iri_type ;
+                        owl:onProperty meta:category ] [ a owl:Restriction ;
+                        owl:onProperty meta:category ;
+                        owl:someValuesFrom meta:iri_type ] ) ],
+        [ a owl:Restriction ;
             owl:onClass meta:label_type ;
             owl:onProperty meta:name ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass meta:string ;
             owl:onProperty meta:id ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Class ;
-            owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:allValuesFrom meta:iri_type ;
-                        owl:onProperty meta:category ] [ a owl:Restriction ;
-                        owl:onProperty meta:category ;
-                        owl:someValuesFrom meta:iri_type ] ) ] ;
+            owl:qualifiedCardinality 1 ] ;
     skos:definition "a databased entity or concept/class" .
 
 meta:ClassDefinition a owl:Class ;

@@ -198,6 +198,13 @@
                         "valueExpr": "https://w3id.org/biolink/biolinkml/meta/SlotDefinition",
                         "min": 0,
                         "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/biolinkml/meta/tree_root",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Boolean",
+                        "min": 0,
+                        "max": 1
                      }
                   ]
                },

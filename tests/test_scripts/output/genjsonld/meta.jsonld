@@ -3,7 +3,7 @@
   "description": "A metamodel for defining biolink related schemas",
   "id": "https://w3id.org/biolink/biolinkml/meta",
   "title": "Biolink Schema Metamodel",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "imports": [
     "biolinkml:types",
     "biolinkml:mappings"
@@ -1039,6 +1039,20 @@
       "range": "ClassDefinition",
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/union_of",
       "multivalued": true,
+      "owner": "ClassDefinition",
+      "domain_of": [
+        "ClassDefinition"
+      ],
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "tree_root",
+      "definition_uri": "meta:tree_root",
+      "description": "indicator that this is the root class in tree structures",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "ClassDefinition",
+      "range": "boolean",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/tree_root",
       "owner": "ClassDefinition",
       "domain_of": [
         "ClassDefinition"
@@ -2233,7 +2247,8 @@
         "class_uri",
         "subclass_of",
         "union_of",
-        "defining_slots"
+        "defining_slots",
+        "tree_root"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/ClassDefinition",
       "type": "ClassDefinition"
@@ -2287,7 +2302,7 @@
       "type": "ClassDefinition"
     }
   ],
-  "metamodel_version": "1.5.0",
+  "metamodel_version": "1.5.1",
   ,
   ,
   ,
@@ -2295,8 +2310,8 @@
   "type": "SchemaDefinition",
   "@context": [
     "file:./output/gencontext/meta.jsonld",
-    "/Users/solbrig/git/biolink/biolinkml/tests/input/includes/types.context.jsonld",
-    "/Users/solbrig/git/biolink/biolinkml/tests/input/includes/mappings.context.jsonld",
+    "/Users/djiao1/Projects/biolink/biolinkml/tests/input/includes/types.context.jsonld",
+    "/Users/djiao1/Projects/biolink/biolinkml/tests/input/includes/mappings.context.jsonld",
     {
       "@base": "https://w3id.org/biolink/biolinkml/meta/"
     }

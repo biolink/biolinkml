@@ -57,7 +57,8 @@ metatype:Nodeidentifier NONLITERAL
           <class_uri> @metatype:Uriorcurie ? ;
           rdfs:subClassOf @metatype:Uriorcurie ? ;
           <union_of> @<ClassDefinition> * ;
-          <defining_slots> @<SlotDefinition> *
+          <defining_slots> @<SlotDefinition> * ;
+          <tree_root> @metatype:Boolean ?
        ) ;
        rdf:type [ <ClassDefinition> ]
     )

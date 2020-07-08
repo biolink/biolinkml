@@ -46,6 +46,7 @@ message ClassDefinition
   optional subclassOf Uriorcurie = 37
   repeated unionOf ClassDefinition = 38
   repeated definingSlots SlotDefinition = 39
+  optional treeRoot Boolean = 40
  }
 // usage example and description
 message Example

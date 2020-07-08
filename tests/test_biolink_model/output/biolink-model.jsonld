@@ -9503,7 +9503,7 @@
       "type": "ClassDefinition"
     }
   ],
-  "metamodel_version": "1.5.0",
+  "metamodel_version": "1.5.1",
   "source_file": "biolink-model.yaml",
   "source_file_date": "2019-01-01-12:00",
   "source_file_size": 118542,
@@ -9511,7 +9511,7 @@
   "type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/biolink/biolinkml/context.jsonld",
-    "/Users/solbrig/git/biolink/biolinkml/includes/types.context.jsonld",
+    "/Users/djiao1/Projects/biolink/biolinkml/includes/types.context.jsonld",
     {
       "@base": "https://w3id.org/biolink/vocab/"
     }

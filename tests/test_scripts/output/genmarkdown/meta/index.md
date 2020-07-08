@@ -117,6 +117,7 @@ A metamodel for defining biolink related schemas
  * [symmetric](symmetric.md) - True means that any instance of  d s r implies that there is also an instance of r s d
  * [title](title.md) - the official title of the schema
  * [todos](todos.md) - Outstanding issue that needs resolution
+ * [tree_root](tree_root.md) - indicator that this is the root class in tree structures
  * [type_definition➞uri](type_uri.md) - The uri that defines the possible values for the type definition
  * [typeof](typeof.md) - Names a parent type
  * [types](types.md) - data types used in the model
