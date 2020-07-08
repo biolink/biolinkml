@@ -97,6 +97,8 @@ class URIorCURIE(Identifier):
 
     @classmethod
     def is_valid(cls, v: Union[str, URIRef, "Curie", "URIorCURIE"]) -> bool:
+        if not isinstance(v, (str, URIRef, Curie, URIorCURIE)):
+            return False
         v = str(v)
         if ':' in v and '://' not in v:
             return URIorCURIE.is_curie(v)
