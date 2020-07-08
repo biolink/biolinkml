@@ -89,7 +89,7 @@ jobs:
 
     - name: Create new docs
       run: pipenv run python -c "from biolinkml.generators.markdowngen import MarkdownGenerator;
-            MarkdownGenerator('meta.yaml').serialize(directory='docs')"
+            MarkdownGenerator('meta.yaml').serialize(directory='docs', image_dir='images')"
 
     - name: Commit changes and push
       run: |
