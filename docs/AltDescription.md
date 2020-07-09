@@ -7,7 +7,7 @@ an attributed description
 URI: [meta:AltDescription](https://w3id.org/biolink/biolinkml/meta/AltDescription)
 
 
-![img](images/AltDescription.svg)
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Element],[Element]++-%20alt_descriptions%200..*>[AltDescription&#124;source(pk):ncname;description:string])
 
 ## Referenced by class
 
