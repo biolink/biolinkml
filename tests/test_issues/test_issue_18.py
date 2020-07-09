@@ -3,6 +3,7 @@ import unittest
 from biolinkml.utils.schemaloader import SchemaLoader
 from biolinkml.utils.yamlutils import as_yaml
 from tests.test_issues.environment import env
+from tests.utils.filters import yaml_filter
 from tests.utils.test_environment import TestEnvironmentTestCase
 
 
@@ -13,7 +14,7 @@ class Issue18TestCase(TestEnvironmentTestCase):
         """ Make sure that inverses are automatically generated """
         env.generate_single_file('issue_18.yaml',
                                  lambda: as_yaml(SchemaLoader(env.input_path('issue_18.yaml')).resolve()),
-                                 value_is_returned=True)
+                                 filtr=yaml_filter, value_is_returned=True)
 
     def test_inverse_mismatch(self):
         """ Test error detection when inverses don't match """
@@ -43,7 +44,7 @@ class Issue18TestCase(TestEnvironmentTestCase):
             env.generate_single_file('issue_18_warning1.yaml',
                                      lambda: as_yaml(SchemaLoader(env.input_path('issue_18_warning1.yaml'),
                                                                   logger=logger).resolve()),
-                                     value_is_returned=True)
+                                     filtr=yaml_filter, value_is_returned=True)
         self.assertIn('Slot s2.inverse (s1), has multi domains (c1, c2)  Multi ranges not yet implemented',
                       logger.result)
 
