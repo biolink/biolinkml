@@ -67,7 +67,7 @@ def set_from_schema(schema: SchemaDefinition) -> None:
             if schema.default_prefix in schema.prefixes:
                 ns = schema.prefixes[schema.default_prefix].prefix_reference
             else:
-                ns = str(URIRef(schema.id) + "#")
+                ns = str(URIRef(schema.id) + "/")
             t[k].definition_uri = f'{ns}{fragment}'
 
 
