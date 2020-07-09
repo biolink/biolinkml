@@ -117,7 +117,8 @@ class SchemaLoader:
                 if slotname in self.schema.slots:
                     slot = self.schema.slots[cast(SlotDefinitionName, slotname)]
                     slot.owner = cls.name
-                    slot.domain_of.append(cls.name)
+                    if cls.name not in slot.domain_of:
+                        slot.domain_of.append(cls.name)
                 else:
                     self.raise_value_error(f'Class "{cls.name}" - unknown slot: "{slotname}"', slotname)
 
@@ -159,6 +160,19 @@ class SchemaLoader:
                     self.namespaces.uri_or_curie_for(self.schema_defaults.get(cls.from_schema, sfx(cls.from_schema)),
                                                                  camelcase(cls.name))
 
+        # Get the inverse ducks all in a row before we start filling other stuff in
+        for slot in self.schema.slots.values():
+            if slot.inverse:
+                inverse_slot = self.schema.slots.get(slot.inverse, None)
+                if inverse_slot:
+                    if not inverse_slot.inverse:
+                        inverse_slot.inverse = slot.name
+                    elif inverse_slot.inverse != slot.name:
+                        self.raise_value_error(f'Slot {slot.name}.inverse ({slot.inverse}) does not match '
+                                               f'slot {inverse_slot.name}.inverse ({inverse_slot.inverse})')
+                else:
+                    self.raise_value_error(f'Slot {slot.name}.inverse ({slot.inverse}) is not defined')
+
         # Update slots with parental information
         merged_slots: List[SlotDefinitionName] = []
         for slot in self.schema.slots.values():
@@ -167,7 +181,9 @@ class SchemaLoader:
             self.merge_slot(slot, merged_slots)
             # Add default ranges
             if slot.range is None:
-                slot.range = self.schema.default_range
+                # Inverses will be handled later on in the process
+                if not slot.inverse:
+                    slot.range = self.schema.default_range
 
         # Update classes with is_a and mixin information
         merged_classes: List[ClassDefinitionName] = []
@@ -249,6 +265,42 @@ class SchemaLoader:
                 slot.slot_uri = \
                     self.namespaces.uri_or_curie_for(self.schema_defaults.get(slot.from_schema, sfx(slot.from_schema)),
                                                                  self.slot_name_for(slot))
+
+        # Evaluate any slot inverses
+        def domain_range_alignment(fwd_slot: SlotDefinition, inverse_slot: SlotDefinition) -> bool:
+            """ Determine whether the range of fwd_slot is compatible with the domain of inverse_slot """
+            # TODO: Determine what to do about class and slot hierarchy
+            if fwd_slot.range and fwd_slot.range not in self.schema.classes:
+                raise ValueError(f"Slot '{fwd_slot.name}' range ({fwd_slot.range}) is not an class -- inverse is not possible")
+            if fwd_slot.domain:
+                if not inverse_slot.range:
+                    inverse_slot.range = fwd_slot.domain
+                elif not domain_range_alignment(fwd_slot, inverse_slot):
+                    self.logger.warning(f"Slot: {slot.name} and inverse slot: {inverse_slot.name} are not compatible")
+            return True
+
+        # Get the inverse domains and ranges sorted
+        for slot in self.schema.slots.values():
+            if slot.inverse:
+                # Note that the inverse OF the inverse will be caught in this same iterator
+                inverse_slot = self.schema.slots[slot.inverse]
+                if not slot.range:
+                    if inverse_slot.domain:
+                        slot.range = inverse_slot.domain
+                    elif len(inverse_slot.domain_of):
+                        if len(inverse_slot.domain_of) > 1:
+                            dom_list = ', '.join(inverse_slot.domain_of)
+                            self.logger.warning(f"Slot {slot.name}.inverse ({inverse_slot.name}), "
+                                                f"has multi domains ({dom_list})  Multi ranges not yet implemented")
+                        slot.range = inverse_slot.domain_of[0]
+                    else:
+                        raise ValueError(f"Unable to determine the range of slot `{slot.name}'. "
+                                         f"Its inverse ({inverse_slot.name}) has no declared domain")
+                elif not inverse_slot.domain and len(inverse_slot.domain_of) == 0:
+                    inverse_slot.domain = slot.range
+                elif slot.range not in (inverse_slot.domain, inverse_slot.domain_of):
+                    self.logger.warning(f"Range of slot '{slot.name}' ({slot.range}) "
+                                        f"does not line with the domain of its inverse ({inverse_slot.name})")
 
         # Check for duplicate class and type names
         def check_dups(s1: Set[ElementName], s2: Set[ElementName]) -> str:
