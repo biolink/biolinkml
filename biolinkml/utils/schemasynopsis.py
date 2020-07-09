@@ -206,30 +206,6 @@ class SchemaSynopsis:
         if undefined_subsets:
             rval += [f"\tUndefined subset references: {', '.join(undefined_subsets)}"]
 
-        # Look for slot domain / class slot mismatches
-        for slotname, owners in self.owners.items():
-            owners = list(owners)
-            # if len(owners) > 1:
-            #     owners_str = ', '.join(owners)
-            #     rval += [f"\tSlot {slotname} has multiple owners: ({owners_str})"]
-            real_owner = self.schema.slots[slotname].owner
-            if real_owner is None or (real_owner != slotname and real_owner != owners[0]):
-                msg = f'\tSlot "{slotname}" owner ({self.schema.slots[slotname].owner}) does not match {owners[0]}'
-                logging.warning(msg)
-                # TODO: discuss this with Harold. not sure this merits a warning
-                #rval += [msg]
-        for slotname, slot in sorted(self.schema.slots.items(), key=lambda e: e[0]):
-            if slotname not in self.owners:
-                # Lack of ownership is no longer a sin
-                # if not self._ancestor_is_owned(slot):
-                #     rval += [f"\tSlot {slotname} has no owners"]
-                pass
-            else:
-                owner = self.owners[slotname]
-                # if slot.domain and (slot.domain not in self.ownslots or slotname not in self.ownslots[slot.domain]):
-                #     rval += [f'\tDomain mismatch: slot "{slotname}" domain is: '
-                #             f'"{slot.domain}" class "{owner}" claims ownership']
-
         # Inlined slots must be multivalued (not a inviolable rule, but we make assumptions about this elsewhere in
         # the python generator
         for slot in self.schema.slots.values():

@@ -155,7 +155,7 @@ slots.friendly_person_knows = Slot(uri=EX.knows, name="friendly_person_knows", c
 http://yuml.me/diagram/nofunky;dir:TB/class/[Person]<knows 0..*- [Person|id:string;first_name:string *;last_name:string;age:int %3F;living:boolean %3F],[FriendlyPerson|id(i):string;first_name(i):string *;last_name(i):string;age(i):int %3F;living(i):boolean %3F]- knows 1..*>[Person],[Person]^-[FriendlyPerson],[FriendlyPerson]
 
 {
-   "_comments": "Auto generated from None by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2020-07-07 11:16\nSchema: synopsis2\n\nid: http://example.org/sample/example1\ndescription: \nlicense: \n",
+   "_comments": "Auto generated from None by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2020-07-09 14:08\nSchema: synopsis2\n\nid: http://example.org/sample/example1\ndescription: \nlicense: \n",
    "@context": {
       "type": "@type",
       "ex": "http://example.org/model/",
