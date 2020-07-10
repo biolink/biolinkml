@@ -45,7 +45,7 @@
 <polygon fill='white' points='352,-1 352,-61 498,-61 498,-1 352,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='425' y='-49.8'>GenotypicSex</text>
 <polyline fill='none' points='352,-46 498,-46 ' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='425' y='-34.8'>id(i):identifier_type</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='425' y='-34.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='425' y='-19.8'>name(i):label_type</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='425' y='-4.8'>category(i):iri_type +</text>
 </g><g class='edge' id='edge1'><title>BiologicalSex-&gt;GenotypicSex</title>

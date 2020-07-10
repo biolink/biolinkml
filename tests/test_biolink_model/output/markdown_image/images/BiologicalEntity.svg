@@ -39,7 +39,7 @@
 <polygon fill='white' points='262,-129 262,-189 408,-189 408,-129 262,-129' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='335' y='-177.8'>BiologicalEntity</text>
 <polyline fill='none' points='262,-174 408,-174 ' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='335' y='-162.8'>id(i):identifier_type</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='335' y='-162.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='335' y='-147.8'>name(i):label_type</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='335' y='-132.8'>category(i):iri_type +</text>
 </g><g class='edge' id='edge6'><title>NamedThing-&gt;BiologicalEntity</title>

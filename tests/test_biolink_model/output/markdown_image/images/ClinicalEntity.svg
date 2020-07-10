@@ -36,7 +36,7 @@
 <polygon fill='white' points='44,-129 44,-189 190,-189 190,-129 44,-129' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='117' y='-177.8'>ClinicalEntity</text>
 <polyline fill='none' points='44,-174 190,-174 ' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='117' y='-162.8'>id(i):identifier_type</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='117' y='-162.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='117' y='-147.8'>name(i):label_type</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='117' y='-132.8'>category(i):iri_type +</text>
 </g><g class='edge' id='edge3'><title>NamedThing-&gt;ClinicalEntity</title>

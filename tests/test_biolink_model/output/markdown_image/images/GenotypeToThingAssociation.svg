@@ -49,7 +49,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='677' y='-49.8'>GenotypeToThingAssociation</text>
 <polyline fill='none' points='581,-46 773,-46 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='677' y='-34.8'>relation(i):uriorcurie</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='677' y='-19.8'>id(i):nodeidentifier</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='677' y='-19.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='677' y='-4.8'>negated(i):boolean ?</text>
 </g><g class='edge' id='edge1'><title>Genotype-&gt;GenotypeToThingAssociation</title>
 <path d='M519.747,-146.82C551.982,-123.283 601.992,-86.7675 636.935,-61.2537' fill='none' stroke='black'/>

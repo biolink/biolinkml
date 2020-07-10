@@ -7,7 +7,7 @@ An association between a variant and a population, where the variant has particu
 URI: [biolink:VariantToPopulationAssociation](https://w3id.org/biolink/vocab/VariantToPopulationAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[VariantToThingAssociation],[PopulationOfIndividualOrganisms]<object%201..1-%20[VariantToPopulationAssociation&#124;has_count:integer%20%3F;has_total:integer%20%3F;has_quotient:double%20%3F;has_percentage:double%20%3F;relation(i):uriorcurie;id(i):nodeidentifier;negated(i):boolean%20%3F],[SequenceVariant]<subject%201..1-%20[VariantToPopulationAssociation],[VariantToPopulationAssociation]uses%20-.->[VariantToThingAssociation],[VariantToPopulationAssociation]uses%20-.->[FrequencyQuantifier],[VariantToPopulationAssociation]uses%20-.->[FrequencyQualifierMixin],[Association]^-[VariantToPopulationAssociation],[SequenceVariant],[Publication],[Provider],[PopulationOfIndividualOrganisms],[OntologyClass],[FrequencyValue],[FrequencyQuantifier],[FrequencyQualifierMixin],[Association])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[VariantToThingAssociation],[PopulationOfIndividualOrganisms]<object%201..1-%20[VariantToPopulationAssociation&#124;has_count:integer%20%3F;has_total:integer%20%3F;has_quotient:double%20%3F;has_percentage:double%20%3F;relation(i):uriorcurie;id(i):string;negated(i):boolean%20%3F],[SequenceVariant]<subject%201..1-%20[VariantToPopulationAssociation],[VariantToPopulationAssociation]uses%20-.->[VariantToThingAssociation],[VariantToPopulationAssociation]uses%20-.->[FrequencyQuantifier],[VariantToPopulationAssociation]uses%20-.->[FrequencyQualifierMixin],[Association]^-[VariantToPopulationAssociation],[SequenceVariant],[Publication],[Provider],[PopulationOfIndividualOrganisms],[OntologyClass],[FrequencyValue],[FrequencyQuantifier],[FrequencyQualifierMixin],[Association])
 
 ## Parents
 
@@ -45,12 +45,12 @@ URI: [biolink:VariantToPopulationAssociation](https://w3id.org/biolink/vocab/Var
     * range: [OntologyClass](OntologyClass.md)
  * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
-    * range: [Nodeidentifier](types/Nodeidentifier.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)
  * [negated](negated.md)  <sub>OPT</sub>
     * Description: if set to true, then the association is negated i.e. is not true
     * range: [Boolean](types/Boolean.md)
- * [provided by](provided_by.md)  <sub>OPT</sub>
+ * [provided by](provided_by.md)  <sub>0..*</sub>
     * Description: connects an association to the agent (person, organization or group) that provided it
     * range: [Provider](Provider.md)
  * [publications](publications.md)  <sub>0..*</sub>

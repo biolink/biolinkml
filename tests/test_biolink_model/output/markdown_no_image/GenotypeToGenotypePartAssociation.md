@@ -7,7 +7,7 @@ Any association between one genotype and a genotypic entity that is a sub-compon
 URI: [biolink:GenotypeToGenotypePartAssociation](https://w3id.org/biolink/vocab/GenotypeToGenotypePartAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[Provider],[OntologyClass],[Genotype]<object%201..1-%20[GenotypeToGenotypePartAssociation&#124;relation:uriorcurie;id(i):nodeidentifier;negated(i):boolean%20%3F],[Genotype]<subject%201..1-%20[GenotypeToGenotypePartAssociation],[Association]^-[GenotypeToGenotypePartAssociation],[Genotype],[Association])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[Provider],[OntologyClass],[Genotype]<object%201..1-%20[GenotypeToGenotypePartAssociation&#124;relation:uriorcurie;id(i):string;negated(i):boolean%20%3F],[Genotype]<subject%201..1-%20[GenotypeToGenotypePartAssociation],[Association]^-[GenotypeToGenotypePartAssociation],[Genotype],[Association])
 
 ## Parents
 
@@ -35,12 +35,12 @@ URI: [biolink:GenotypeToGenotypePartAssociation](https://w3id.org/biolink/vocab/
     * range: [OntologyClass](OntologyClass.md)
  * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
-    * range: [Nodeidentifier](types/Nodeidentifier.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)
  * [negated](negated.md)  <sub>OPT</sub>
     * Description: if set to true, then the association is negated i.e. is not true
     * range: [Boolean](types/Boolean.md)
- * [provided by](provided_by.md)  <sub>OPT</sub>
+ * [provided by](provided_by.md)  <sub>0..*</sub>
     * Description: connects an association to the agent (person, organization or group) that provided it
     * range: [Provider](Provider.md)
  * [publications](publications.md)  <sub>0..*</sub>

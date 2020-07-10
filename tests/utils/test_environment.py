@@ -1,5 +1,6 @@
 import contextlib
 import filecmp
+import logging
 import os
 import sys
 import shutil
@@ -290,3 +291,18 @@ class TestEnvironmentTestCase(unittest.TestCase):
         cls.env.clear_log()
         if msg and cls.env.report_errors:
                 print(msg, file=sys.stderr)
+
+    @contextlib.contextmanager
+    def redirect_logstream(self):
+        logstream = StringIO()
+        logging.basicConfig()
+        logger = logging.getLogger(self.__class__.__name__)
+        for handler in logger.handlers:
+            logger.removeHandler(handler)
+        logger.addHandler(logging.StreamHandler(logstream))
+        logger.setLevel(logging.INFO)
+        try:
+            yield logger
+        finally:
+            logger.result = logstream.getvalue()
+

@@ -36,7 +36,7 @@
 <polygon fill='white' points='793.5,-0.5 793.5,-75.5 1080.5,-75.5 1080.5,-0.5 793.5,-0.5' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='937' y='-64.3'>SequenceVariant</text>
 <polyline fill='none' points='793.5,-60.5 1080.5,-60.5 ' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='937' y='-49.3'>id:identifier_type</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='937' y='-49.3'>id:string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='937' y='-34.3'>has_biological_sequence:biological_sequence ?</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='937' y='-19.3'>name(i):label_type</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='937' y='-4.3'>category(i):iri_type +</text>

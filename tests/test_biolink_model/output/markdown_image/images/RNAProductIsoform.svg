@@ -41,7 +41,7 @@
 <polyline fill='none' points='34,-188.5 334,-188.5 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='184' y='-177.3'>name(i):symbol_type</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='184' y='-162.3'>has_biological_sequence(i):biological_sequence ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='184' y='-147.3'>id(i):identifier_type</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='184' y='-147.3'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='184' y='-132.3'>category(i):iri_type +</text>
 </g><g class='edge' id='edge1'><title>RNAProductIsoform-&gt;GeneProductIsoform</title>
 <path d='M184,-128.41C184,-103.206 184,-70.255 184,-47.3259' fill='none' stroke='black' stroke-dasharray='5,2'/>

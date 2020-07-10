@@ -1,6 +1,6 @@
 # Auto generated from biolink-model.yaml by namespacegen.py version: 0.4.0
 # Generation date:
-# Schema: Biolink_Model
+# Schema: Biolink-Model
 #
 # id: https://w3id.org/biolink/biolink-model
 # description: Entity and association taxonomy and datamodel for life-sciences data
@@ -96,13 +96,13 @@ class BiolinkNameSpace:
         CurieNamespace('SIO', 'http://semanticscience.org/resource/SIO_'),
         CurieNamespace('SMPDB', 'http://smpdb.ca/view/'),
         CurieNamespace('SO', 'http://purl.obolibrary.org/obo/SO_'),
+        CurieNamespace('STATO', 'http://purl.obolibrary.org/obo/STATO_'),
         CurieNamespace('UBERON', 'http://purl.obolibrary.org/obo/UBERON_'),
         CurieNamespace('UMLS', 'http://linkedlifedata.com/resource/umls/id/'),
         CurieNamespace('UMLSSC', 'https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/TUI/'),
         CurieNamespace('UMLSSG', 'https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/GROUP/'),
         CurieNamespace('UMLSST', 'https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/STY/'),
         CurieNamespace('UNII', 'http://fdasis.nlm.nih.gov/srs/unii/'),
-        CurieNamespace('UNIPROTKB', 'http://example.org/UNKNOWN/UNIPROTKB/'),
         CurieNamespace('UO', 'http://purl.obolibrary.org/obo/UO_'),
         CurieNamespace('UPHENO', 'http://purl.obolibrary.org/obo/UPHENO_'),
         CurieNamespace('UniProtKB', 'http://identifiers.org/uniprot/'),
@@ -122,7 +122,7 @@ class BiolinkNameSpace:
         CurieNamespace('qud', 'http://qudt.org/1.1/schema/qudt#'),
         CurieNamespace('rdf', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'),
         CurieNamespace('rdfs', 'http://www.w3.org/2000/01/rdf-schema#'),
-        CurieNamespace('skos', 'http://www.w3.org/2004/02/skos/core#'),
+        CurieNamespace('skos', 'https://www.w3.org/TR/skos-reference/#'),
         CurieNamespace('void', 'http://rdfs.org/ns/void#'),
         CurieNamespace('wgs', 'http://www.w3.org/2003/01/geo/wgs84_pos'),
         CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#'),

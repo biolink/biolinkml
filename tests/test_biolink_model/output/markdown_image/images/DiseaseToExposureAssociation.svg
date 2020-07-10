@@ -46,7 +46,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='549' y='-49.8'>DiseaseToExposureAssociation</text>
 <polyline fill='none' points='449,-46 649,-46 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='549' y='-34.8'>relation(i):uriorcurie</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='549' y='-19.8'>id(i):nodeidentifier</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='549' y='-19.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='549' y='-4.8'>negated(i):boolean ?</text>
 </g><g class='edge' id='edge1'><title>ExposureEvent-&gt;DiseaseToExposureAssociation</title>
 <path d='M412.438,-146.216C440.599,-122.662 483.777,-86.5503 514.023,-61.2537' fill='none' stroke='black'/>

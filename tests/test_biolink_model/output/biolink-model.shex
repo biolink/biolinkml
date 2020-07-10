@@ -2,39 +2,12 @@ BASE <https://w3id.org/biolink/vocab/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-PREFIX OBAN: <http://purl.org/oban/>
-PREFIX BFO: <http://purl.obolibrary.org/obo/BFO_>
-PREFIX CHEBI: <http://purl.obolibrary.org/obo/CHEBI_>
-PREFIX CIO: <http://purl.obolibrary.org/obo/CIO_>
-PREFIX CLO: <http://purl.obolibrary.org/obo/CLO_>
-PREFIX ECO: <http://purl.obolibrary.org/obo/ECO_>
-PREFIX GENO: <http://purl.obolibrary.org/obo/GENO_>
-PREFIX GO: <http://purl.obolibrary.org/obo/GO_>
-PREFIX HP: <http://purl.obolibrary.org/obo/HP_>
-PREFIX IAO: <http://purl.obolibrary.org/obo/IAO_>
-PREFIX MONDO: <http://purl.obolibrary.org/obo/MONDO_>
-PREFIX NCIT: <http://purl.obolibrary.org/obo/NCIT_>
-PREFIX OGMS: <http://purl.obolibrary.org/obo/OGMS_>
-PREFIX PR: <http://purl.obolibrary.org/obo/PR_>
-PREFIX RO: <http://purl.obolibrary.org/obo/RO_>
-PREFIX SO: <http://purl.obolibrary.org/obo/SO_>
-PREFIX UBERON: <http://purl.obolibrary.org/obo/UBERON_>
 PREFIX UO: <http://purl.obolibrary.org/obo/UO_>
-PREFIX UPHENO: <http://purl.obolibrary.org/obo/UPHENO_>
-PREFIX EFO: <http://purl.obolibrary.org/obo/EFO_>
-PREFIX dcterms: <http://purl.org/dc/terms/>
-PREFIX faldo: <http://biohackathon.org/resource/faldo#>
 PREFIX pav: <http://purl.org/pav/>
-PREFIX void: <http://rdfs.org/ns/void#>
 PREFIX metatype: <https://w3id.org/biolink/biolinkml/type/>
-PREFIX WD: <http://example.org/UNKNOWN/WD/>
-PREFIX dct: <http://example.org/UNKNOWN/dct/>
-PREFIX ECTO: <http://example.org/UNKNOWN/ECTO/>
 
 
 <ChemicalFormulaValue> xsd:string
-
-<IdentifierType> IRI
 
 <IriType> IRI
 
@@ -92,7 +65,7 @@ metatype:Nodeidentifier NONLITERAL
 
 <ActivityAndBehavior> CLOSED {
     (  $<ActivityAndBehavior_tes> (  &<Occurrent_tes> ;
-          rdf:type [ BFO:0000003 ] ?
+          rdf:type [ <Occurrent> ] ?
        ) ;
        rdf:type [ <ActivityAndBehavior> ]
     )
@@ -101,7 +74,7 @@ metatype:Nodeidentifier NONLITERAL
 <AdministrativeEntity>  (
     {
        (  $<AdministrativeEntity_tes> (  &<NamedThing_tes> ;
-             rdf:type [ WD:Q35120 ] ?
+             rdf:type [ <NamedThing> ] ?
           ) ;
           rdf:type [ <AdministrativeEntity> ]
        )
@@ -111,14 +84,14 @@ metatype:Nodeidentifier NONLITERAL
 <AnatomicalEntity>  (
     CLOSED {
        (  $<AnatomicalEntity_tes> (  &<OrganismalEntity_tes> ;
-             rdf:type [ WD:Q7239 ] ? ;
+             rdf:type [ <OrganismalEntity> ] ? ;
              &<ThingWithTaxon_tes> ;
              rdf:type [ <ThingWithTaxon> ] ? ;
              &<PhysicalEntity_tes> ;
              rdf:type [ <PhysicalEntity> ] ? ;
-             RO:0002162 @<OrganismTaxon> *
+             <in_taxon> @<OrganismTaxon> *
           ) ;
-          rdf:type [ <http://semanticscience.org/resource/SIO_010046> ]
+          rdf:type [ <AnatomicalEntity> ]
        )
     } OR @<Cell> OR @<CellularComponent> OR @<GrossAnatomicalStructure>
 )
@@ -126,7 +99,7 @@ metatype:Nodeidentifier NONLITERAL
 <AnatomicalEntityToAnatomicalEntityAssociation>  (
     CLOSED {
        (  $<AnatomicalEntityToAnatomicalEntityAssociation_tes> (  &<Association_tes> ;
-             rdf:type [ OBAN:association ] ? ;
+             rdf:type [ <Association> ] ? ;
              <subject> @<AnatomicalEntity> ;
              <object> @<AnatomicalEntity>
           ) ;
@@ -163,12 +136,12 @@ metatype:Nodeidentifier NONLITERAL
              rdf:predicate @metatype:Uriorcurie ;
              rdf:object @<NamedThing> ;
              <negated> @metatype:Boolean ? ;
-             rdf:type @<OntologyClass> ? ;
+             <association_type> @<OntologyClass> ? ;
              <qualifiers> @<OntologyClass> * ;
              <publications> @<Publication> * ;
-             pav:providedBy @<Provider> ?
+             pav:providedBy @<Provider> *
           ) ;
-          rdf:type [ OBAN:association ]
+          rdf:type [ <Association> ]
        )
     } OR @<AnatomicalEntityToAnatomicalEntityAssociation> OR @<CaseToPhenotypicFeatureAssociation> OR @<CaseToThingAssociation> OR
     @<CellLineToDiseaseOrPhenotypicFeatureAssociation> OR @<CellLineToThingAssociation> OR @<ChemicalToChemicalAssociation> OR
@@ -197,7 +170,7 @@ metatype:Nodeidentifier NONLITERAL
              <has_quantitative_value> @<QuantityValue> * ;
              <has_qualitative_value> @<NamedThing> ? ;
              rdfs:label @<LabelType> ;
-             rdfs:subClassOf @<IriType> +
+             rdf:type @<IriType> +
           ) ;
           rdf:type [ <Attribute> ]
        )
@@ -211,9 +184,9 @@ metatype:Nodeidentifier NONLITERAL
 
 <BiologicalEntity_struct> {
     (  $<BiologicalEntity_tes> (  &<NamedThing_tes> ;
-          rdf:type [ WD:Q35120 ] ?
+          rdf:type [ <NamedThing> ] ?
        ) ;
-       rdf:type [ WD:Q28845870 ]
+       rdf:type [ <BiologicalEntity> ]
     )
 }
 
@@ -222,9 +195,9 @@ metatype:Nodeidentifier NONLITERAL
        (  $<BiologicalProcess_tes> (  &<BiologicalProcessOrActivity_tes> ;
              rdf:type [ <BiologicalProcessOrActivity> ] ? ;
              &<Occurrent_tes> ;
-             rdf:type [ BFO:0000003 ] ?
+             rdf:type [ <Occurrent> ] ?
           ) ;
-          rdf:type [ GO:0008150 ]
+          rdf:type [ <BiologicalProcess> ]
        )
     } OR @<Pathway> OR @<PhysiologicalProcess>
 )
@@ -232,12 +205,12 @@ metatype:Nodeidentifier NONLITERAL
 <BiologicalProcessOrActivity>  (
     CLOSED {
        (  $<BiologicalProcessOrActivity_tes> (  &<BiologicalEntity_tes> ;
-             rdf:type [ WD:Q28845870 ] ? ;
+             rdf:type [ <BiologicalEntity> ] ? ;
              &<Occurrent_tes> ;
-             rdf:type [ BFO:0000003 ] ? ;
-             RO:0002233 @<NamedThing> * ;
-             RO:0002234 @<NamedThing> * ;
-             RO:0002333 @<BiologicalProcessOrActivity> *
+             rdf:type [ <Occurrent> ] ? ;
+             <has_input> @<NamedThing> * ;
+             <has_output> @<NamedThing> * ;
+             <enabled_by> @<BiologicalProcessOrActivity> *
           ) ;
           rdf:type [ <BiologicalProcessOrActivity> ]
        )
@@ -256,7 +229,7 @@ metatype:Nodeidentifier NONLITERAL
 
 <Carbohydrate> CLOSED {
     (  $<Carbohydrate_tes> (  &<ChemicalSubstance_tes> ;
-          rdf:type [ <http://semanticscience.org/resource/SIO_010004> ] ?
+          rdf:type [ <ChemicalSubstance> ] ?
        ) ;
        rdf:type [ <Carbohydrate> ]
     )
@@ -264,7 +237,7 @@ metatype:Nodeidentifier NONLITERAL
 
 <Case> CLOSED {
     (  $<Case_tes> (  &<IndividualOrganism_tes> ;
-          rdf:type [ <http://semanticscience.org/resource/SIO_010000> ] ?
+          rdf:type [ <IndividualOrganism> ] ?
        ) ;
        rdf:type [ <Case> ]
     )
@@ -272,7 +245,7 @@ metatype:Nodeidentifier NONLITERAL
 
 <CaseToPhenotypicFeatureAssociation> CLOSED {
     (  $<CaseToPhenotypicFeatureAssociation_tes> (  &<Association_tes> ;
-          rdf:type [ OBAN:association ] ? ;
+          rdf:type [ <Association> ] ? ;
           &<EntityToPhenotypicFeatureAssociation_tes> ;
           rdf:type [ <EntityToPhenotypicFeatureAssociation> ] ? ;
           &<CaseToThingAssociation_tes> ;
@@ -288,7 +261,7 @@ metatype:Nodeidentifier NONLITERAL
 
 <CaseToThingAssociation> {
     (  $<CaseToThingAssociation_tes> (  &<Association_tes> ;
-          rdf:type [ OBAN:association ] ? ;
+          rdf:type [ <Association> ] ? ;
           <subject> @<Case>
        ) ;
        rdf:type [ <CaseToThingAssociation> ]
@@ -297,23 +270,23 @@ metatype:Nodeidentifier NONLITERAL
 
 <Cell> CLOSED {
     (  $<Cell_tes> (  &<AnatomicalEntity_tes> ;
-          rdf:type [ <http://semanticscience.org/resource/SIO_010046> ] ?
+          rdf:type [ <AnatomicalEntity> ] ?
        ) ;
-       rdf:type [ GO:0005623 ]
+       rdf:type [ <Cell> ]
     )
 }
 
 <CellLine> CLOSED {
     (  $<CellLine_tes> (  &<OrganismalEntity_tes> ;
-          rdf:type [ WD:Q7239 ] ?
+          rdf:type [ <OrganismalEntity> ] ?
        ) ;
-       rdf:type [ CLO:0000031 ]
+       rdf:type [ <CellLine> ]
     )
 }
 
 <CellLineToDiseaseOrPhenotypicFeatureAssociation> CLOSED {
     (  $<CellLineToDiseaseOrPhenotypicFeatureAssociation_tes> (  &<Association_tes> ;
-          rdf:type [ OBAN:association ] ? ;
+          rdf:type [ <Association> ] ? ;
           &<CellLineToThingAssociation_tes> ;
           rdf:type [ <CellLineToThingAssociation> ] ? ;
           &<ThingToDiseaseOrPhenotypicFeatureAssociation_tes> ;
@@ -326,7 +299,7 @@ metatype:Nodeidentifier NONLITERAL
 
 <CellLineToThingAssociation> {
     (  $<CellLineToThingAssociation_tes> (  &<Association_tes> ;
-          rdf:type [ OBAN:association ] ? ;
+          rdf:type [ <Association> ] ? ;
           <subject> @<CellLine>
        ) ;
        rdf:type [ <CellLineToThingAssociation> ]
@@ -335,18 +308,18 @@ metatype:Nodeidentifier NONLITERAL
 
 <CellularComponent> CLOSED {
     (  $<CellularComponent_tes> (  &<AnatomicalEntity_tes> ;
-          rdf:type [ <http://semanticscience.org/resource/SIO_010046> ] ?
+          rdf:type [ <AnatomicalEntity> ] ?
        ) ;
-       rdf:type [ GO:0005575 ]
+       rdf:type [ <CellularComponent> ]
     )
 }
 
 <ChemicalExposure>  (
     CLOSED {
        (  $<ChemicalExposure_tes> (  &<ExposureEvent_tes> ;
-             rdf:type [ <http://semanticscience.org/resource/SIO_000955> ] ?
+             rdf:type [ <ExposureEvent> ] ?
           ) ;
-          rdf:type [ ECTO:9000000 ]
+          rdf:type [ <ChemicalExposure> ]
        )
     } OR @<DrugExposure>
 )
@@ -354,9 +327,9 @@ metatype:Nodeidentifier NONLITERAL
 <ChemicalSubstance>  (
     CLOSED {
        (  $<ChemicalSubstance_tes> (  &<MolecularEntity_tes> ;
-             rdf:type [ <http://semanticscience.org/resource/SIO_010341> ] ?
+             rdf:type [ <MolecularEntity> ] ?
           ) ;
-          rdf:type [ <http://semanticscience.org/resource/SIO_010004> ]
+          rdf:type [ <ChemicalSubstance> ]
        )
     } OR @<Carbohydrate> OR @<Drug> OR @<Metabolite>
 )
@@ -364,7 +337,7 @@ metatype:Nodeidentifier NONLITERAL
 <ChemicalToChemicalAssociation>  (
     CLOSED {
        (  $<ChemicalToChemicalAssociation_tes> (  &<Association_tes> ;
-             rdf:type [ OBAN:association ] ? ;
+             rdf:type [ <Association> ] ? ;
              &<ChemicalToThingAssociation_tes> ;
              rdf:type [ <ChemicalToThingAssociation> ] ? ;
              <object> @<ChemicalSubstance>
@@ -388,42 +361,42 @@ metatype:Nodeidentifier NONLITERAL
 
 <ChemicalToDiseaseOrPhenotypicFeatureAssociation> CLOSED {
     (  $<ChemicalToDiseaseOrPhenotypicFeatureAssociation_tes> (  &<Association_tes> ;
-          rdf:type [ OBAN:association ] ? ;
+          rdf:type [ <Association> ] ? ;
           &<ChemicalToThingAssociation_tes> ;
           rdf:type [ <ChemicalToThingAssociation> ] ? ;
           &<ThingToDiseaseOrPhenotypicFeatureAssociation_tes> ;
           rdf:type [ <ThingToDiseaseOrPhenotypicFeatureAssociation> ] ? ;
           <object> @<DiseaseOrPhenotypicFeature>
        ) ;
-       rdf:type [ <http://semanticscience.org/resource/SIO_000993> ]
+       rdf:type [ <ChemicalToDiseaseOrPhenotypicFeatureAssociation> ]
     )
 }
 
 <ChemicalToGeneAssociation> CLOSED {
     (  $<ChemicalToGeneAssociation_tes> (  &<Association_tes> ;
-          rdf:type [ OBAN:association ] ? ;
+          rdf:type [ <Association> ] ? ;
           &<ChemicalToThingAssociation_tes> ;
           rdf:type [ <ChemicalToThingAssociation> ] ? ;
           <object> @<GeneOrGeneProduct>
        ) ;
-       rdf:type [ <http://semanticscience.org/resource/SIO_001257> ]
+       rdf:type [ <ChemicalToGeneAssociation> ]
     )
 }
 
 <ChemicalToPathwayAssociation> CLOSED {
     (  $<ChemicalToPathwayAssociation_tes> (  &<Association_tes> ;
-          rdf:type [ OBAN:association ] ? ;
+          rdf:type [ <Association> ] ? ;
           &<ChemicalToThingAssociation_tes> ;
           rdf:type [ <ChemicalToThingAssociation> ] ? ;
           <object> @<Pathway>
        ) ;
-       rdf:type [ <http://semanticscience.org/resource/SIO_001250> ]
+       rdf:type [ <ChemicalToPathwayAssociation> ]
     )
 }
 
 <ChemicalToThingAssociation> {
     (  $<ChemicalToThingAssociation_tes> (  &<Association_tes> ;
-          rdf:type [ OBAN:association ] ? ;
+          rdf:type [ <Association> ] ? ;
           <subject> @<ChemicalSubstance>
        ) ;
        rdf:type [ <ChemicalToThingAssociation> ]
@@ -433,7 +406,7 @@ metatype:Nodeidentifier NONLITERAL
 <ClinicalEntity>  (
     CLOSED {
        (  $<ClinicalEntity_tes> (  &<NamedThing_tes> ;
-             rdf:type [ WD:Q35120 ] ?
+             rdf:type [ <NamedThing> ] ?
           ) ;
           rdf:type [ <ClinicalEntity> ]
        )
@@ -466,26 +439,26 @@ metatype:Nodeidentifier NONLITERAL
 
 <CodingSequence> CLOSED {
     (  $<CodingSequence_tes> (  &<GenomicEntity_tes> ;
-          rdf:type [ SO:0000110 ] ?
+          rdf:type [ <GenomicEntity> ] ?
        ) ;
-       rdf:type [ SO:0000316 ]
+       rdf:type [ <CodingSequence> ]
     )
 }
 
 <ConfidenceLevel> CLOSED {
     (  $<ConfidenceLevel_tes> (  &<InformationContentEntity_tes> ;
-          rdf:type [ IAO:0000030 ] ?
+          rdf:type [ <InformationContentEntity> ] ?
        ) ;
-       rdf:type [ CIO:0000028 ]
+       rdf:type [ <ConfidenceLevel> ]
     )
 }
 
 <DataFile>  (
     CLOSED {
        (  $<DataFile_tes> (  &<NamedThing_tes> ;
-             rdf:type [ WD:Q35120 ] ?
+             rdf:type [ <NamedThing> ] ?
           ) ;
-          rdf:type [ EFO:0004095 ]
+          rdf:type [ <DataFile> ]
        )
     } OR @<SourceFile>
 )
@@ -493,9 +466,9 @@ metatype:Nodeidentifier NONLITERAL
 <DataSet>  (
     CLOSED {
        (  $<DataSet_tes> (  &<NamedThing_tes> ;
-             rdf:type [ WD:Q35120 ] ?
+             rdf:type [ <NamedThing> ] ?
           ) ;
-          rdf:type [ IAO:0000100 ]
+          rdf:type [ <DataSet> ]
        )
     } OR @<DataSetVersion>
 )
@@ -503,7 +476,7 @@ metatype:Nodeidentifier NONLITERAL
 <DataSetSummary> {
     (  $<DataSetSummary_tes> (  &<DataSetVersion_tes> ;
           rdf:type [ <DataSetVersion> ] ? ;
-          dcterms:source @metatype:String ?
+          <source_web_page> @metatype:String ?
        ) ;
        rdf:type [ <DataSetSummary> ]
     )
@@ -512,12 +485,12 @@ metatype:Nodeidentifier NONLITERAL
 <DataSetVersion>  (
     CLOSED {
        (  $<DataSetVersion_tes> (  &<DataSet_tes> ;
-             rdf:type [ IAO:0000100 ] ? ;
-             dct:title @metatype:String ? ;
-             dcterms:source @<DataFile> ? ;
-             dct:isVersionOf @<DataSet> ? ;
-             rdf:type @metatype:String ? ;
-             void:Dataset @<DistributionLevel> ?
+             rdf:type [ <DataSet> ] ? ;
+             <title> @metatype:String ? ;
+             <source_data_file> @<DataFile> ? ;
+             <versionOf> @<DataSet> ? ;
+             <type> @metatype:String ? ;
+             <distribution> @<DistributionLevel> ?
           ) ;
           rdf:type [ <DataSetVersion> ]
        )
@@ -526,7 +499,7 @@ metatype:Nodeidentifier NONLITERAL
 
 <Device> CLOSED {
     (  $<Device_tes> (  &<NamedThing_tes> ;
-          rdf:type [ WD:Q35120 ] ?
+          rdf:type [ <NamedThing> ] ?
        ) ;
        rdf:type [ <Device> ]
     )
@@ -536,17 +509,17 @@ metatype:Nodeidentifier NONLITERAL
     (  $<Disease_tes> (  &<DiseaseOrPhenotypicFeature_tes> ;
           rdf:type [ <DiseaseOrPhenotypicFeature> ] ?
        ) ;
-       rdf:type [ MONDO:0000001 ]
+       rdf:type [ <Disease> ]
     )
 }
 
 <DiseaseOrPhenotypicFeature>  (
     CLOSED {
        (  $<DiseaseOrPhenotypicFeature_tes> (  &<BiologicalEntity_tes> ;
-             rdf:type [ WD:Q28845870 ] ? ;
+             rdf:type [ <BiologicalEntity> ] ? ;
              &<ThingWithTaxon_tes> ;
              rdf:type [ <ThingWithTaxon> ] ? ;
-             RO:0002162 @<OrganismTaxon> *
+             <in_taxon> @<OrganismTaxon> *
           ) ;
           rdf:type [ <DiseaseOrPhenotypicFeature> ]
        )
@@ -559,14 +532,14 @@ metatype:Nodeidentifier NONLITERAL
           rdf:type [ <DiseaseOrPhenotypicFeatureAssociationToThingAssociation> ] ? ;
           <object> @<AnatomicalEntity>
        ) ;
-       rdf:type [ NCIT:R100 ]
+       rdf:type [ <DiseaseOrPhenotypicFeatureAssociationToLocationAssociation> ]
     )
 }
 
 <DiseaseOrPhenotypicFeatureAssociationToThingAssociation>  (
     {
        (  $<DiseaseOrPhenotypicFeatureAssociationToThingAssociation_tes> (  &<Association_tes> ;
-             rdf:type [ OBAN:association ] ? ;
+             rdf:type [ <Association> ] ? ;
              <subject> @<DiseaseOrPhenotypicFeature>
           ) ;
           rdf:type [ <DiseaseOrPhenotypicFeatureAssociationToThingAssociation> ]
@@ -586,7 +559,7 @@ metatype:Nodeidentifier NONLITERAL
 
 <DiseaseToPhenotypicFeatureAssociation> CLOSED {
     (  $<DiseaseToPhenotypicFeatureAssociation_tes> (  &<Association_tes> ;
-          rdf:type [ OBAN:association ] ? ;
+          rdf:type [ <Association> ] ? ;
           &<EntityToPhenotypicFeatureAssociation_tes> ;
           rdf:type [ <EntityToPhenotypicFeatureAssociation> ] ? ;
           &<DiseaseToThingAssociation_tes> ;
@@ -603,7 +576,7 @@ metatype:Nodeidentifier NONLITERAL
 <DiseaseToThingAssociation>  (
     {
        (  $<DiseaseToThingAssociation_tes> (  &<Association_tes> ;
-             rdf:type [ OBAN:association ] ? ;
+             rdf:type [ <Association> ] ? ;
              <subject> @<Disease>
           ) ;
           rdf:type [ <DiseaseToThingAssociation> ]
@@ -614,7 +587,7 @@ metatype:Nodeidentifier NONLITERAL
 <DistributionLevel> {
     (  $<DistributionLevel_tes> (  &<DataSetVersion_tes> ;
           rdf:type [ <DataSetVersion> ] ? ;
-          dct:downloadURL @metatype:String ?
+          <downloadURL> @metatype:String ?
        ) ;
        rdf:type [ <DistributionLevel> ]
     )
@@ -622,17 +595,17 @@ metatype:Nodeidentifier NONLITERAL
 
 <Drug> CLOSED {
     (  $<Drug_tes> (  &<ChemicalSubstance_tes> ;
-          rdf:type [ <http://semanticscience.org/resource/SIO_010004> ] ?
+          rdf:type [ <ChemicalSubstance> ] ?
        ) ;
-       rdf:type [ WD:Q12140 ]
+       rdf:type [ <Drug> ]
     )
 }
 
 <DrugExposure> CLOSED {
     (  $<DrugExposure_tes> (  &<ChemicalExposure_tes> ;
-          rdf:type [ ECTO:9000000 ] ?
+          rdf:type [ <ChemicalExposure> ] ?
        ) ;
-       rdf:type [ ECTO:0000509 ]
+       rdf:type [ <DrugExposure> ]
     )
 }
 
@@ -658,7 +631,7 @@ metatype:Nodeidentifier NONLITERAL
 
 <EntityToPhenotypicFeatureAssociation> {
     (  $<EntityToPhenotypicFeatureAssociation_tes> (  &<Association_tes> ;
-          rdf:type [ OBAN:association ] ? ;
+          rdf:type [ <Association> ] ? ;
           &<EntityToFeatureOrDiseaseQualifiers_tes> ;
           rdf:type [ <EntityToFeatureOrDiseaseQualifiers> ] ? ;
           <object> @<PhenotypicFeature> ;
@@ -683,7 +656,7 @@ metatype:Nodeidentifier NONLITERAL
     (  $<EnvironmentalProcess_tes> (  &<PlanetaryEntity_tes> ;
           rdf:type [ <PlanetaryEntity> ] ? ;
           &<Occurrent_tes> ;
-          rdf:type [ BFO:0000003 ] ?
+          rdf:type [ <Occurrent> ] ?
        ) ;
        rdf:type [ <EnvironmentalProcess> ]
     )
@@ -691,17 +664,17 @@ metatype:Nodeidentifier NONLITERAL
 
 <EvidenceType> CLOSED {
     (  $<EvidenceType_tes> (  &<InformationContentEntity_tes> ;
-          rdf:type [ IAO:0000030 ] ?
+          rdf:type [ <InformationContentEntity> ] ?
        ) ;
-       rdf:type [ ECO:0000000 ]
+       rdf:type [ <EvidenceType> ]
     )
 }
 
 <Exon> CLOSED {
     (  $<Exon_tes> (  &<GenomicEntity_tes> ;
-          rdf:type [ SO:0000110 ] ?
+          rdf:type [ <GenomicEntity> ] ?
        ) ;
-       rdf:type [ SO:0000147 ]
+       rdf:type [ <Exon> ]
     )
 }
 
@@ -718,16 +691,16 @@ metatype:Nodeidentifier NONLITERAL
 <ExposureEvent>  (
     CLOSED {
        (  $<ExposureEvent_tes> (  &<BiologicalEntity_tes> ;
-             rdf:type [ WD:Q28845870 ] ?
+             rdf:type [ <BiologicalEntity> ] ?
           ) ;
-          rdf:type [ <http://semanticscience.org/resource/SIO_000955> ]
+          rdf:type [ <ExposureEvent> ]
        )
     } OR @<ChemicalExposure> OR @<Treatment>
 )
 
 <ExposureEventToPhenotypicFeatureAssociation> CLOSED {
     (  $<ExposureEventToPhenotypicFeatureAssociation_tes> (  &<Association_tes> ;
-          rdf:type [ OBAN:association ] ? ;
+          rdf:type [ <Association> ] ? ;
           &<EntityToPhenotypicFeatureAssociation_tes> ;
           rdf:type [ <EntityToPhenotypicFeatureAssociation> ] ? ;
           <subject> @<ExposureEvent> ;
@@ -771,7 +744,7 @@ metatype:Nodeidentifier NONLITERAL
 <FunctionalAssociation>  (
     CLOSED {
        (  $<FunctionalAssociation_tes> (  &<Association_tes> ;
-             rdf:type [ OBAN:association ] ? ;
+             rdf:type [ <Association> ] ? ;
              <subject> @<MacromolecularMachine> ;
              <object> @<GeneOntologyClass>
           ) ;
@@ -785,13 +758,13 @@ metatype:Nodeidentifier NONLITERAL
     (  $<Gene_tes> (  &<GeneOrGeneProduct_tes> ;
           rdf:type [ <GeneOrGeneProduct> ] ?
        ) ;
-       rdf:type [ SO:0000704 ]
+       rdf:type [ <Gene> ]
     )
 }
 
 <GeneAsAModelOfDiseaseAssociation> CLOSED {
     (  $<GeneAsAModelOfDiseaseAssociation_tes> (  &<GeneToDiseaseAssociation_tes> ;
-          rdf:type [ <http://semanticscience.org/resource/SIO_000983> ] ? ;
+          rdf:type [ <GeneToDiseaseAssociation> ] ? ;
           &<ModelToDiseaseMixin_tes> ;
           rdf:type [ <ModelToDiseaseMixin> ] ? ;
           &<EntityToDiseaseAssociation_tes> ;
@@ -804,11 +777,11 @@ metatype:Nodeidentifier NONLITERAL
 
 <GeneFamily> CLOSED {
     (  $<GeneFamily_tes> (  &<MolecularEntity_tes> ;
-          rdf:type [ <http://semanticscience.org/resource/SIO_010341> ] ? ;
+          rdf:type [ <MolecularEntity> ] ? ;
           &<GeneGrouping_tes> ;
           rdf:type [ <GeneGrouping> ] ?
        ) ;
-       rdf:type [ <http://semanticscience.org/resource/SIO_001380> ]
+       rdf:type [ <GeneFamily> ]
     )
 }
 
@@ -820,7 +793,7 @@ metatype:Nodeidentifier NONLITERAL
 
 <GeneHasVariantThatContributesToDiseaseAssociation> CLOSED {
     (  $<GeneHasVariantThatContributesToDiseaseAssociation_tes> (  &<GeneToDiseaseAssociation_tes> ;
-          rdf:type [ <http://semanticscience.org/resource/SIO_000983> ] ? ;
+          rdf:type [ <GeneToDiseaseAssociation> ] ? ;
           <subject> @<GeneOrGeneProduct> ;
           <sequence_variant_qualifier> @<SequenceVariant> ?
        ) ;
@@ -851,14 +824,14 @@ metatype:Nodeidentifier NONLITERAL
        (  $<GeneProduct_tes> (  &<GeneOrGeneProduct_tes> ;
              rdf:type [ <GeneOrGeneProduct> ] ?
           ) ;
-          rdf:type [ WD:Q424689 ]
+          rdf:type [ <GeneProduct> ]
        )
     } OR @<RNAProduct> OR @<GeneProductIsoform> OR @<Protein>
 )
 
 <GeneProductIsoform> {
     (  $<GeneProductIsoform_tes> (  &<GeneProduct_tes> ;
-          rdf:type [ WD:Q424689 ] ?
+          rdf:type [ <GeneProduct> ] ?
        ) ;
        rdf:type [ <GeneProductIsoform> ]
     )
@@ -866,7 +839,7 @@ metatype:Nodeidentifier NONLITERAL
 
 <GeneRegulatoryRelationship> CLOSED {
     (  $<GeneRegulatoryRelationship_tes> (  &<Association_tes> ;
-          rdf:type [ OBAN:association ] ? ;
+          rdf:type [ <Association> ] ? ;
           <subject> @<GeneOrGeneProduct> ;
           <relation> @metatype:Uriorcurie ;
           <object> @<GeneOrGeneProduct>
@@ -878,7 +851,7 @@ metatype:Nodeidentifier NONLITERAL
 <GeneToDiseaseAssociation>  (
     CLOSED {
        (  $<GeneToDiseaseAssociation_tes> (  &<Association_tes> ;
-             rdf:type [ OBAN:association ] ? ;
+             rdf:type [ <Association> ] ? ;
              &<EntityToDiseaseAssociation_tes> ;
              rdf:type [ <EntityToDiseaseAssociation> ] ? ;
              &<GeneToThingAssociation_tes> ;
@@ -888,14 +861,14 @@ metatype:Nodeidentifier NONLITERAL
              <severity_qualifier> @<SeverityValue> ? ;
              <onset_qualifier> @<Onset> ?
           ) ;
-          rdf:type [ <http://semanticscience.org/resource/SIO_000983> ]
+          rdf:type [ <GeneToDiseaseAssociation> ]
        )
     } OR @<GeneAsAModelOfDiseaseAssociation> OR @<GeneHasVariantThatContributesToDiseaseAssociation>
 )
 
 <GeneToExpressionSiteAssociation> CLOSED {
     (  $<GeneToExpressionSiteAssociation_tes> (  &<Association_tes> ;
-          rdf:type [ OBAN:association ] ? ;
+          rdf:type [ <Association> ] ? ;
           <subject> @<GeneOrGeneProduct> ;
           <relation> @metatype:Uriorcurie ;
           <object> @<AnatomicalEntity> ;
@@ -912,7 +885,7 @@ metatype:Nodeidentifier NONLITERAL
 
 <GeneToGeneAssociation_struct> {
     (  $<GeneToGeneAssociation_tes> (  &<Association_tes> ;
-          rdf:type [ OBAN:association ] ? ;
+          rdf:type [ <Association> ] ? ;
           <subject> @<GeneOrGeneProduct> ;
           <object> @<GeneOrGeneProduct>
        ) ;
@@ -946,13 +919,13 @@ metatype:Nodeidentifier NONLITERAL
           <subject> @<MolecularEntity> ;
           <object> @<GeneOntologyClass>
        ) ;
-       rdf:type [ <http://bio2rdf.org/wormbase_vocabulary:Gene-GO-Association> ]
+       rdf:type [ <GeneToGoTermAssociation> ]
     )
 }
 
 <GeneToPhenotypicFeatureAssociation> CLOSED {
     (  $<GeneToPhenotypicFeatureAssociation_tes> (  &<Association_tes> ;
-          rdf:type [ OBAN:association ] ? ;
+          rdf:type [ <Association> ] ? ;
           &<EntityToPhenotypicFeatureAssociation_tes> ;
           rdf:type [ <EntityToPhenotypicFeatureAssociation> ] ? ;
           &<GeneToThingAssociation_tes> ;
@@ -963,13 +936,13 @@ metatype:Nodeidentifier NONLITERAL
           <severity_qualifier> @<SeverityValue> ? ;
           <onset_qualifier> @<Onset> ?
        ) ;
-       rdf:type [ <http://bio2rdf.org/wormbase_vocabulary:Gene-Phenotype-Association> ]
+       rdf:type [ <GeneToPhenotypicFeatureAssociation> ]
     )
 }
 
 <GeneToThingAssociation> {
     (  $<GeneToThingAssociation_tes> (  &<Association_tes> ;
-          rdf:type [ OBAN:association ] ? ;
+          rdf:type [ <Association> ] ? ;
           <subject> @<GeneOrGeneProduct>
        ) ;
        rdf:type [ <GeneToThingAssociation> ]
@@ -978,19 +951,19 @@ metatype:Nodeidentifier NONLITERAL
 
 <Genome> CLOSED {
     (  $<Genome_tes> (  &<GenomicEntity_tes> ;
-          rdf:type [ SO:0000110 ] ?
+          rdf:type [ <GenomicEntity> ] ?
        ) ;
-       rdf:type [ SO:0001026 ]
+       rdf:type [ <Genome> ]
     )
 }
 
 <GenomicEntity>  (
     CLOSED {
        (  $<GenomicEntity_tes> (  &<MolecularEntity_tes> ;
-             rdf:type [ <http://semanticscience.org/resource/SIO_010341> ] ? ;
+             rdf:type [ <MolecularEntity> ] ? ;
              <has_biological_sequence> @<BiologicalSequence> ?
           ) ;
-          rdf:type [ SO:0000110 ]
+          rdf:type [ <GenomicEntity> ]
        )
     } OR @<CodingSequence> OR @<Exon> OR @<Genome> OR @<Genotype> OR @<Haplotype> OR @<MacromolecularMachine> OR @<SequenceVariant>
     OR @<Transcript>
@@ -998,7 +971,7 @@ metatype:Nodeidentifier NONLITERAL
 
 <GenomicSequenceLocalization> CLOSED {
     (  $<GenomicSequenceLocalization_tes> (  &<Association_tes> ;
-          rdf:type [ OBAN:association ] ? ;
+          rdf:type [ <Association> ] ? ;
           <subject> @<GenomicEntity> ;
           <object> @<GenomicEntity> ;
           <start_interbase_coordinate> @metatype:String ? ;
@@ -1006,22 +979,22 @@ metatype:Nodeidentifier NONLITERAL
           <genome_build> @metatype:String ? ;
           <phase> @metatype:String ?
        ) ;
-       rdf:type [ faldo:location ]
+       rdf:type [ <GenomicSequenceLocalization> ]
     )
 }
 
 <Genotype> CLOSED {
     (  $<Genotype_tes> (  &<GenomicEntity_tes> ;
-          rdf:type [ SO:0000110 ] ? ;
+          rdf:type [ <GenomicEntity> ] ? ;
           <has_zygosity> @<Zygosity> ?
        ) ;
-       rdf:type [ GENO:0000536 ]
+       rdf:type [ <Genotype> ]
     )
 }
 
 <GenotypeToGeneAssociation> CLOSED {
     (  $<GenotypeToGeneAssociation_tes> (  &<Association_tes> ;
-          rdf:type [ OBAN:association ] ? ;
+          rdf:type [ <Association> ] ? ;
           <subject> @<Genotype> ;
           <relation> @metatype:Uriorcurie ;
           <object> @<Gene>
@@ -1032,7 +1005,7 @@ metatype:Nodeidentifier NONLITERAL
 
 <GenotypeToGenotypePartAssociation> CLOSED {
     (  $<GenotypeToGenotypePartAssociation_tes> (  &<Association_tes> ;
-          rdf:type [ OBAN:association ] ? ;
+          rdf:type [ <Association> ] ? ;
           <subject> @<Genotype> ;
           <relation> @metatype:Uriorcurie ;
           <object> @<Genotype>
@@ -1043,7 +1016,7 @@ metatype:Nodeidentifier NONLITERAL
 
 <GenotypeToPhenotypicFeatureAssociation> CLOSED {
     (  $<GenotypeToPhenotypicFeatureAssociation_tes> (  &<Association_tes> ;
-          rdf:type [ OBAN:association ] ? ;
+          rdf:type [ <Association> ] ? ;
           &<EntityToPhenotypicFeatureAssociation_tes> ;
           rdf:type [ <EntityToPhenotypicFeatureAssociation> ] ? ;
           &<GenotypeToThingAssociation_tes> ;
@@ -1061,7 +1034,7 @@ metatype:Nodeidentifier NONLITERAL
 
 <GenotypeToThingAssociation> {
     (  $<GenotypeToThingAssociation_tes> (  &<Association_tes> ;
-          rdf:type [ OBAN:association ] ? ;
+          rdf:type [ <Association> ] ? ;
           <subject> @<Genotype>
        ) ;
        rdf:type [ <GenotypeToThingAssociation> ]
@@ -1070,7 +1043,7 @@ metatype:Nodeidentifier NONLITERAL
 
 <GenotypeToVariantAssociation> CLOSED {
     (  $<GenotypeToVariantAssociation_tes> (  &<Association_tes> ;
-          rdf:type [ OBAN:association ] ? ;
+          rdf:type [ <Association> ] ? ;
           <subject> @<Genotype> ;
           <relation> @metatype:Uriorcurie ;
           <object> @<SequenceVariant>
@@ -1091,8 +1064,8 @@ metatype:Nodeidentifier NONLITERAL
     CLOSED {
        (  $<GeographicLocation_tes> (  &<PlanetaryEntity_tes> ;
              rdf:type [ <PlanetaryEntity> ] ? ;
-             <http://www.w3.org/2003/01/geo/wgs84_poslat> @metatype:Float ? ;
-             <http://www.w3.org/2003/01/geo/wgs84_poslong> @metatype:Float ?
+             <latitude> @metatype:Float ? ;
+             <longitude> @metatype:Float ?
           ) ;
           rdf:type [ <GeographicLocation> ]
        )
@@ -1110,29 +1083,29 @@ metatype:Nodeidentifier NONLITERAL
 
 <GrossAnatomicalStructure> CLOSED {
     (  $<GrossAnatomicalStructure_tes> (  &<AnatomicalEntity_tes> ;
-          rdf:type [ <http://semanticscience.org/resource/SIO_010046> ] ?
+          rdf:type [ <AnatomicalEntity> ] ?
        ) ;
-       rdf:type [ UBERON:0010000 ]
+       rdf:type [ <GrossAnatomicalStructure> ]
     )
 }
 
 <Haplotype> CLOSED {
     (  $<Haplotype_tes> (  &<GenomicEntity_tes> ;
-          rdf:type [ SO:0000110 ] ?
+          rdf:type [ <GenomicEntity> ] ?
        ) ;
-       rdf:type [ GENO:0000871 ]
+       rdf:type [ <Haplotype> ]
     )
 }
 
 <IndividualOrganism>  (
     CLOSED {
        (  $<IndividualOrganism_tes> (  &<OrganismalEntity_tes> ;
-             rdf:type [ WD:Q7239 ] ? ;
+             rdf:type [ <OrganismalEntity> ] ? ;
              &<ThingWithTaxon_tes> ;
              rdf:type [ <ThingWithTaxon> ] ? ;
-             RO:0002162 @<OrganismTaxon> *
+             <in_taxon> @<OrganismTaxon> *
           ) ;
-          rdf:type [ <http://semanticscience.org/resource/SIO_010000> ]
+          rdf:type [ <IndividualOrganism> ]
        )
     } OR @<Case>
 )
@@ -1143,18 +1116,18 @@ metatype:Nodeidentifier NONLITERAL
 
 <InformationContentEntity_struct> {
     (  $<InformationContentEntity_tes> (  &<NamedThing_tes> ;
-          rdf:type [ WD:Q35120 ] ?
+          rdf:type [ <NamedThing> ] ?
        ) ;
-       rdf:type [ IAO:0000030 ]
+       rdf:type [ <InformationContentEntity> ]
     )
 }
 
 <LifeStage> CLOSED {
     (  $<LifeStage_tes> (  &<OrganismalEntity_tes> ;
-          rdf:type [ WD:Q7239 ] ? ;
+          rdf:type [ <OrganismalEntity> ] ? ;
           &<ThingWithTaxon_tes> ;
           rdf:type [ <ThingWithTaxon> ] ? ;
-          RO:0002162 @<OrganismTaxon> *
+          <in_taxon> @<OrganismTaxon> *
        ) ;
        rdf:type [ <LifeStage> ]
     )
@@ -1164,14 +1137,14 @@ metatype:Nodeidentifier NONLITERAL
     (  $<MacromolecularComplex_tes> (  &<MacromolecularMachine_tes> ;
           rdf:type [ <MacromolecularMachine> ] ?
        ) ;
-       rdf:type [ <http://semanticscience.org/resource/SIO_010046> ]
+       rdf:type [ <MacromolecularComplex> ]
     )
 }
 
 <MacromolecularMachine>  (
     CLOSED {
        (  $<MacromolecularMachine_tes> (  &<GenomicEntity_tes> ;
-             rdf:type [ SO:0000110 ] ? ;
+             rdf:type [ <GenomicEntity> ] ? ;
              <name> @<SymbolType>
           ) ;
           rdf:type [ <MacromolecularMachine> ]
@@ -1208,7 +1181,7 @@ metatype:Nodeidentifier NONLITERAL
 
 <MaterialSample> CLOSED {
     (  $<MaterialSample_tes> (  &<NamedThing_tes> ;
-          rdf:type [ WD:Q35120 ] ? ;
+          rdf:type [ <NamedThing> ] ? ;
           &<SubjectOfInvestigation_tes> ;
           rdf:type [ <SubjectOfInvestigation> ] ? ;
           &<PhysicalEntity_tes> ;
@@ -1221,7 +1194,7 @@ metatype:Nodeidentifier NONLITERAL
 
 <MaterialSampleDerivationAssociation> CLOSED {
     (  $<MaterialSampleDerivationAssociation_tes> (  &<Association_tes> ;
-          rdf:type [ OBAN:association ] ? ;
+          rdf:type [ <Association> ] ? ;
           <subject> @<MaterialSample> ;
           <relation> @metatype:Uriorcurie ;
           <object> @<NamedThing>
@@ -1232,7 +1205,7 @@ metatype:Nodeidentifier NONLITERAL
 
 <MaterialSampleToDiseaseOrPhenotypicFeatureAssociation> CLOSED {
     (  $<MaterialSampleToDiseaseOrPhenotypicFeatureAssociation_tes> (  &<Association_tes> ;
-          rdf:type [ OBAN:association ] ? ;
+          rdf:type [ <Association> ] ? ;
           &<MaterialSampleToThingAssociation_tes> ;
           rdf:type [ <MaterialSampleToThingAssociation> ] ? ;
           &<ThingToDiseaseOrPhenotypicFeatureAssociation_tes> ;
@@ -1244,7 +1217,7 @@ metatype:Nodeidentifier NONLITERAL
 
 <MaterialSampleToThingAssociation> {
     (  $<MaterialSampleToThingAssociation_tes> (  &<Association_tes> ;
-          rdf:type [ OBAN:association ] ? ;
+          rdf:type [ <Association> ] ? ;
           <subject> @<MaterialSample>
        ) ;
        rdf:type [ <MaterialSampleToThingAssociation> ]
@@ -1253,17 +1226,17 @@ metatype:Nodeidentifier NONLITERAL
 
 <Metabolite> CLOSED {
     (  $<Metabolite_tes> (  &<ChemicalSubstance_tes> ;
-          rdf:type [ <http://semanticscience.org/resource/SIO_010004> ] ?
+          rdf:type [ <ChemicalSubstance> ] ?
        ) ;
-       rdf:type [ CHEBI:25212 ]
+       rdf:type [ <Metabolite> ]
     )
 }
 
 <MicroRNA> CLOSED {
     (  $<MicroRNA_tes> (  &<NoncodingRNAProduct_tes> ;
-          rdf:type [ <http://semanticscience.org/resource/SIO_001235> ] ?
+          rdf:type [ <NoncodingRNAProduct> ] ?
        ) ;
-       rdf:type [ <http://semanticscience.org/resource/SIO_001397> ]
+       rdf:type [ <MicroRNA> ]
     )
 }
 
@@ -1277,26 +1250,26 @@ metatype:Nodeidentifier NONLITERAL
     (  $<MolecularActivity_tes> (  &<BiologicalProcessOrActivity_tes> ;
           rdf:type [ <BiologicalProcessOrActivity> ] ? ;
           &<Occurrent_tes> ;
-          rdf:type [ BFO:0000003 ] ? ;
+          rdf:type [ <Occurrent> ] ? ;
           <has_input> @<ChemicalSubstance> * ;
           <has_output> @<ChemicalSubstance> * ;
           <enabled_by> @<MacromolecularMachine> *
        ) ;
-       rdf:type [ GO:0003674 ]
+       rdf:type [ <MolecularActivity> ]
     )
 }
 
 <MolecularEntity>  (
     CLOSED {
        (  $<MolecularEntity_tes> (  &<BiologicalEntity_tes> ;
-             rdf:type [ WD:Q28845870 ] ? ;
+             rdf:type [ <BiologicalEntity> ] ? ;
              &<ThingWithTaxon_tes> ;
              rdf:type [ <ThingWithTaxon> ] ? ;
              &<PhysicalEntity_tes> ;
              rdf:type [ <PhysicalEntity> ] ? ;
-             RO:0002162 @<OrganismTaxon> *
+             <in_taxon> @<OrganismTaxon> *
           ) ;
-          rdf:type [ <http://semanticscience.org/resource/SIO_010341> ]
+          rdf:type [ <MolecularEntity> ]
        )
     } OR @<ChemicalSubstance> OR @<GeneFamily> OR @<GenomicEntity>
 )
@@ -1304,9 +1277,9 @@ metatype:Nodeidentifier NONLITERAL
 <NamedThing>  (
     CLOSED {
        (  $<NamedThing_tes> (  rdfs:label @<LabelType> ;
-             rdfs:subClassOf @<IriType> +
+             rdf:type @<IriType> +
           ) ;
-          rdf:type [ WD:Q35120 ]
+          rdf:type [ <NamedThing> ]
        )
     } OR @<AdministrativeEntity> OR @<BiologicalEntity> OR @<ClinicalEntity> OR @<DataFile> OR @<DataSet> OR @<Device> OR
     @<InformationContentEntity> OR @<MaterialSample> OR @<Occurrent> OR @<OntologyClass> OR @<PhysicalEntity> OR @<PlanetaryEntity>
@@ -1315,9 +1288,9 @@ metatype:Nodeidentifier NONLITERAL
 <NoncodingRNAProduct>  (
     CLOSED {
        (  $<NoncodingRNAProduct_tes> (  &<RNAProduct_tes> ;
-             rdf:type [ CHEBI:33697 ] ?
+             rdf:type [ <RNAProduct> ] ?
           ) ;
-          rdf:type [ <http://semanticscience.org/resource/SIO_001235> ]
+          rdf:type [ <NoncodingRNAProduct> ]
        )
     } OR @<MicroRNA>
 )
@@ -1325,9 +1298,9 @@ metatype:Nodeidentifier NONLITERAL
 <Occurrent>  (
     CLOSED {
        (  $<Occurrent_tes> (  &<NamedThing_tes> ;
-             rdf:type [ WD:Q35120 ] ?
+             rdf:type [ <NamedThing> ] ?
           ) ;
-          rdf:type [ BFO:0000003 ]
+          rdf:type [ <Occurrent> ]
        )
     } OR @<ActivityAndBehavior> OR @<Phenomenon> OR @<Procedure>
 )
@@ -1336,14 +1309,14 @@ metatype:Nodeidentifier NONLITERAL
     (  $<Onset_tes> (  &<Attribute_tes> ;
           rdf:type [ <Attribute> ] ?
        ) ;
-       rdf:type [ HP:0003674 ]
+       rdf:type [ <Onset> ]
     )
 }
 
 <OntologyClass>  (
     CLOSED {
        (  $<OntologyClass_tes> (  &<NamedThing_tes> ;
-             rdf:type [ WD:Q35120 ] ?
+             rdf:type [ <NamedThing> ] ?
           ) ;
           rdf:type [ <OntologyClass> ]
        )
@@ -1354,7 +1327,7 @@ metatype:Nodeidentifier NONLITERAL
     (  $<OrganismTaxon_tes> (  &<OntologyClass_tes> ;
           rdf:type [ <OntologyClass> ] ?
        ) ;
-       rdf:type [ WD:Q16521 ]
+       rdf:type [ <OrganismTaxon> ]
     )
 }
 
@@ -1364,9 +1337,9 @@ metatype:Nodeidentifier NONLITERAL
 
 <OrganismalEntity_struct> {
     (  $<OrganismalEntity_tes> (  &<BiologicalEntity_tes> ;
-          rdf:type [ WD:Q28845870 ] ?
+          rdf:type [ <BiologicalEntity> ] ?
        ) ;
-       rdf:type [ WD:Q7239 ]
+       rdf:type [ <OrganismalEntity> ]
     )
 }
 
@@ -1383,7 +1356,7 @@ metatype:Nodeidentifier NONLITERAL
 
 <PairwiseInteractionAssociation> {
     (  $<PairwiseInteractionAssociation_tes> (  &<Association_tes> ;
-          rdf:type [ OBAN:association ] ? ;
+          rdf:type [ <Association> ] ? ;
           <subject> @<MolecularEntity> ;
           <relation> @metatype:Uriorcurie ;
           <object> @<MolecularEntity>
@@ -1402,15 +1375,15 @@ metatype:Nodeidentifier NONLITERAL
 
 <Pathway> CLOSED {
     (  $<Pathway_tes> (  &<BiologicalProcess_tes> ;
-          rdf:type [ GO:0008150 ] ?
+          rdf:type [ <BiologicalProcess> ] ?
        ) ;
-       rdf:type [ GO:0007165 ]
+       rdf:type [ <Pathway> ]
     )
 }
 
 <Phenomenon> CLOSED {
     (  $<Phenomenon_tes> (  &<Occurrent_tes> ;
-          rdf:type [ BFO:0000003 ] ?
+          rdf:type [ <Occurrent> ] ?
        ) ;
        rdf:type [ <Phenomenon> ]
     )
@@ -1420,7 +1393,7 @@ metatype:Nodeidentifier NONLITERAL
     (  $<PhenotypicFeature_tes> (  &<DiseaseOrPhenotypicFeature_tes> ;
           rdf:type [ <DiseaseOrPhenotypicFeature> ] ?
        ) ;
-       rdf:type [ UPHENO:0001001 ]
+       rdf:type [ <PhenotypicFeature> ]
     )
 }
 
@@ -1434,7 +1407,7 @@ metatype:Nodeidentifier NONLITERAL
 
 <PhysicalEntity> CLOSED {
     (  $<PhysicalEntity_tes> (  &<NamedThing_tes> ;
-          rdf:type [ WD:Q35120 ] ?
+          rdf:type [ <NamedThing> ] ?
        ) ;
        rdf:type [ <PhysicalEntity> ]
     )
@@ -1442,7 +1415,7 @@ metatype:Nodeidentifier NONLITERAL
 
 <PhysiologicalProcess> CLOSED {
     (  $<PhysiologicalProcess_tes> (  &<BiologicalProcess_tes> ;
-          rdf:type [ GO:0008150 ] ?
+          rdf:type [ <BiologicalProcess> ] ?
        ) ;
        rdf:type [ <PhysiologicalProcess> ]
     )
@@ -1451,7 +1424,7 @@ metatype:Nodeidentifier NONLITERAL
 <PlanetaryEntity>  (
     CLOSED {
        (  $<PlanetaryEntity_tes> (  &<NamedThing_tes> ;
-             rdf:type [ WD:Q35120 ] ?
+             rdf:type [ <NamedThing> ] ?
           ) ;
           rdf:type [ <PlanetaryEntity> ]
        )
@@ -1460,18 +1433,18 @@ metatype:Nodeidentifier NONLITERAL
 
 <PopulationOfIndividualOrganisms> CLOSED {
     (  $<PopulationOfIndividualOrganisms_tes> (  &<OrganismalEntity_tes> ;
-          rdf:type [ WD:Q7239 ] ? ;
+          rdf:type [ <OrganismalEntity> ] ? ;
           &<ThingWithTaxon_tes> ;
           rdf:type [ <ThingWithTaxon> ] ? ;
-          RO:0002162 @<OrganismTaxon> *
+          <in_taxon> @<OrganismTaxon> *
        ) ;
-       rdf:type [ <http://semanticscience.org/resource/SIO_001061> ]
+       rdf:type [ <PopulationOfIndividualOrganisms> ]
     )
 }
 
 <PopulationToPopulationAssociation> CLOSED {
     (  $<PopulationToPopulationAssociation_tes> (  &<Association_tes> ;
-          rdf:type [ OBAN:association ] ? ;
+          rdf:type [ <Association> ] ? ;
           <subject> @<PopulationOfIndividualOrganisms> ;
           <relation> @metatype:Uriorcurie ;
           <object> @<PopulationOfIndividualOrganisms>
@@ -1482,7 +1455,7 @@ metatype:Nodeidentifier NONLITERAL
 
 <Procedure> CLOSED {
     (  $<Procedure_tes> (  &<Occurrent_tes> ;
-          rdf:type [ BFO:0000003 ] ?
+          rdf:type [ <Occurrent> ] ?
        ) ;
        rdf:type [ <Procedure> ]
     )
@@ -1491,16 +1464,16 @@ metatype:Nodeidentifier NONLITERAL
 <Protein>  (
     CLOSED {
        (  $<Protein_tes> (  &<GeneProduct_tes> ;
-             rdf:type [ WD:Q424689 ] ?
+             rdf:type [ <GeneProduct> ] ?
           ) ;
-          rdf:type [ PR:000000001 ]
+          rdf:type [ <Protein> ]
        )
     } OR @<ProteinIsoform>
 )
 
 <ProteinIsoform> CLOSED {
     (  $<ProteinIsoform_tes> (  &<Protein_tes> ;
-          rdf:type [ PR:000000001 ] ? ;
+          rdf:type [ <Protein> ] ? ;
           &<GeneProductIsoform_tes> ;
           rdf:type [ <GeneProductIsoform> ] ?
        ) ;
@@ -1518,9 +1491,9 @@ metatype:Nodeidentifier NONLITERAL
 
 <Publication> CLOSED {
     (  $<Publication_tes> (  &<InformationContentEntity_tes> ;
-          rdf:type [ IAO:0000030 ] ?
+          rdf:type [ <InformationContentEntity> ] ?
        ) ;
-       rdf:type [ IAO:0000311 ]
+       rdf:type [ <Publication> ]
     )
 }
 
@@ -1555,16 +1528,16 @@ metatype:Nodeidentifier NONLITERAL
 <RNAProduct>  (
     CLOSED {
        (  $<RNAProduct_tes> (  &<GeneProduct_tes> ;
-             rdf:type [ WD:Q424689 ] ?
+             rdf:type [ <GeneProduct> ] ?
           ) ;
-          rdf:type [ CHEBI:33697 ]
+          rdf:type [ <RNAProduct> ]
        )
     } OR @<RNAProductIsoform> OR @<NoncodingRNAProduct>
 )
 
 <RNAProductIsoform> CLOSED {
     (  $<RNAProductIsoform_tes> (  &<RNAProduct_tes> ;
-          rdf:type [ CHEBI:33697 ] ? ;
+          rdf:type [ <RNAProduct> ] ? ;
           &<GeneProductIsoform_tes> ;
           rdf:type [ <GeneProductIsoform> ] ?
        ) ;
@@ -1583,7 +1556,7 @@ metatype:Nodeidentifier NONLITERAL
 <SequenceFeatureRelationship>  (
     CLOSED {
        (  $<SequenceFeatureRelationship_tes> (  &<Association_tes> ;
-             rdf:type [ OBAN:association ] ? ;
+             rdf:type [ <Association> ] ? ;
              <subject> @<GenomicEntity> ;
              <object> @<GenomicEntity>
           ) ;
@@ -1594,17 +1567,17 @@ metatype:Nodeidentifier NONLITERAL
 
 <SequenceVariant> CLOSED {
     (  $<SequenceVariant_tes> (  &<GenomicEntity_tes> ;
-          rdf:type [ SO:0000110 ] ? ;
+          rdf:type [ <GenomicEntity> ] ? ;
           <has_biological_sequence> @<BiologicalSequence> ? ;
           <has_gene> @<Gene> *
        ) ;
-       rdf:type [ GENO:0000002 ]
+       rdf:type [ <SequenceVariant> ]
     )
 }
 
 <SequenceVariantModulatesTreatmentAssociation> {
     (  $<SequenceVariantModulatesTreatmentAssociation_tes> (  &<Association_tes> ;
-          rdf:type [ OBAN:association ] ? ;
+          rdf:type [ <Association> ] ? ;
           <subject> @<SequenceVariant> ;
           <object> @<Treatment>
        ) ;
@@ -1622,9 +1595,9 @@ metatype:Nodeidentifier NONLITERAL
 
 <SourceFile> CLOSED {
     (  $<SourceFile_tes> (  &<DataFile_tes> ;
-          rdf:type [ EFO:0004095 ] ? ;
-          pav:version @metatype:String ? ;
-          pav:retrievedOn @metatype:Date ?
+          rdf:type [ <DataFile> ] ? ;
+          <source_version> @metatype:String ? ;
+          <retrievedOn> @metatype:Date ?
        ) ;
        rdf:type [ <SourceFile> ]
     )
@@ -1648,7 +1621,7 @@ metatype:Nodeidentifier NONLITERAL
 
 <ThingToDiseaseOrPhenotypicFeatureAssociation> {
     (  $<ThingToDiseaseOrPhenotypicFeatureAssociation_tes> (  &<Association_tes> ;
-          rdf:type [ OBAN:association ] ? ;
+          rdf:type [ <Association> ] ? ;
           <object> @<DiseaseOrPhenotypicFeature>
        ) ;
        rdf:type [ <ThingToDiseaseOrPhenotypicFeatureAssociation> ]
@@ -1656,16 +1629,16 @@ metatype:Nodeidentifier NONLITERAL
 }
 
 <ThingWithTaxon> {
-    (  $<ThingWithTaxon_tes> RO:0002162 @<OrganismTaxon> * ;
+    (  $<ThingWithTaxon_tes> <in_taxon> @<OrganismTaxon> * ;
        rdf:type [ <ThingWithTaxon> ] ?
     )
 }
 
 <Transcript> CLOSED {
     (  $<Transcript_tes> (  &<GenomicEntity_tes> ;
-          rdf:type [ SO:0000110 ] ?
+          rdf:type [ <GenomicEntity> ] ?
        ) ;
-       rdf:type [ SO:0000673 ]
+       rdf:type [ <Transcript> ]
     )
 }
 
@@ -1681,15 +1654,15 @@ metatype:Nodeidentifier NONLITERAL
 
 <Treatment> CLOSED {
     (  $<Treatment_tes> (  &<ExposureEvent_tes> ;
-          rdf:type [ <http://semanticscience.org/resource/SIO_000955> ] ?
+          rdf:type [ <ExposureEvent> ] ?
        ) ;
-       rdf:type [ OGMS:0000090 ]
+       rdf:type [ <Treatment> ]
     )
 }
 
 <VariantToDiseaseAssociation> CLOSED {
     (  $<VariantToDiseaseAssociation_tes> (  &<Association_tes> ;
-          rdf:type [ OBAN:association ] ? ;
+          rdf:type [ <Association> ] ? ;
           &<VariantToThingAssociation_tes> ;
           rdf:type [ <VariantToThingAssociation> ] ? ;
           &<EntityToDiseaseAssociation_tes> ;
@@ -1707,7 +1680,7 @@ metatype:Nodeidentifier NONLITERAL
 
 <VariantToPhenotypicFeatureAssociation> CLOSED {
     (  $<VariantToPhenotypicFeatureAssociation_tes> (  &<Association_tes> ;
-          rdf:type [ OBAN:association ] ? ;
+          rdf:type [ <Association> ] ? ;
           &<VariantToThingAssociation_tes> ;
           rdf:type [ <VariantToThingAssociation> ] ? ;
           &<EntityToPhenotypicFeatureAssociation_tes> ;
@@ -1724,7 +1697,7 @@ metatype:Nodeidentifier NONLITERAL
 
 <VariantToPopulationAssociation> CLOSED {
     (  $<VariantToPopulationAssociation_tes> (  &<Association_tes> ;
-          rdf:type [ OBAN:association ] ? ;
+          rdf:type [ <Association> ] ? ;
           &<VariantToThingAssociation_tes> ;
           rdf:type [ <VariantToThingAssociation> ] ? ;
           &<FrequencyQuantifier_tes> ;
@@ -1745,7 +1718,7 @@ metatype:Nodeidentifier NONLITERAL
 
 <VariantToThingAssociation> {
     (  $<VariantToThingAssociation_tes> (  &<Association_tes> ;
-          rdf:type [ OBAN:association ] ? ;
+          rdf:type [ <Association> ] ? ;
           <subject> @<SequenceVariant>
        ) ;
        rdf:type [ <VariantToThingAssociation> ]
@@ -1756,7 +1729,7 @@ metatype:Nodeidentifier NONLITERAL
     (  $<Zygosity_tes> (  &<Attribute_tes> ;
           rdf:type [ <Attribute> ] ?
        ) ;
-       rdf:type [ GENO:0000133 ]
+       rdf:type [ <Zygosity> ]
     )
 }
 

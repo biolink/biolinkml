@@ -172,7 +172,8 @@ class MarkdownGenerator(Generator):
     def visit_type(self, typ: TypeDefinition) -> None:
         with open(self.dir_path(typ), 'w') as typefile:
             with redirect_stdout(typefile):
-                full_path = sfx(self.namespaces._base) + (sfx(typ.imported_from) if typ.imported_from else '')
+                full_path = sfx(self.namespaces.uri_for(typ.imported_from)
+                                if typ.imported_from else self.namespaces._base)
                 type_curie = self.namespaces.uri_or_curie_for(full_path, camelcase(typ.name))
                 type_uri = self.namespaces.uri_for(type_curie)
                 self.element_header(typ, typ.name, type_curie, type_uri)

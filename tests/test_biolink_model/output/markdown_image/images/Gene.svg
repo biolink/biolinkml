@@ -38,7 +38,7 @@
 <polyline fill='none' points='210,-60.5 510,-60.5 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='360' y='-49.3'>name(i):symbol_type</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='360' y='-34.3'>has_biological_sequence(i):biological_sequence ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='360' y='-19.3'>id(i):identifier_type</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='360' y='-19.3'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='360' y='-4.3'>category(i):iri_type +</text>
 </g><g class='edge' id='edge5'><title>TranscriptToGeneRelationship-&gt;Gene</title>
 <path d='M128.825,-166.94C166.995,-145.816 233.309,-109.115 285.151,-80.424' fill='none' stroke='black'/>

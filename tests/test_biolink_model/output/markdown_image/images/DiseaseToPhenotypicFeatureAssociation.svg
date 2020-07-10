@@ -61,7 +61,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='832' y='-177.8'>DiseaseToPhenotypicFeatureAssociation</text>
 <polyline fill='none' points='706.5,-174 957.5,-174 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='832' y='-162.8'>relation(i):uriorcurie</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='832' y='-147.8'>id(i):nodeidentifier</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='832' y='-147.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='832' y='-132.8'>negated(i):boolean ?</text>
 </g><g class='edge' id='edge1'><title>DiseaseToPhenotypicFeatureAssociation-&gt;EntityToPhenotypicFeatureAssociation</title>
 <path d='M807.611,-128.734C786.851,-103.821 757.355,-68.4262 737.72,-44.8641' fill='none' stroke='black' stroke-dasharray='5,2'/>

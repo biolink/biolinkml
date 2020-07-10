@@ -46,7 +46,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='470' y='-49.8'>MacromolecularMachineToBiologicalProcessAssociation</text>
 <polyline fill='none' points='298,-46 642,-46 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='470' y='-34.8'>relation(i):uriorcurie</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='470' y='-19.8'>id(i):nodeidentifier</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='470' y='-19.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='470' y='-4.8'>negated(i):boolean ?</text>
 </g><g class='edge' id='edge1'><title>BiologicalProcess-&gt;MacromolecularMachineToBiologicalProcessAssociation</title>
 <path d='M406.662,-144.06C419.977,-120.502 439.597,-85.7903 453.465,-61.2537' fill='none' stroke='black'/>

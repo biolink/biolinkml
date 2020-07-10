@@ -42,7 +42,7 @@
 <polygon fill='white' points='576,-1 576,-61 722,-61 722,-1 576,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='649' y='-49.8'>Disease</text>
 <polyline fill='none' points='576,-46 722,-46 ' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='649' y='-34.8'>id(i):identifier_type</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='649' y='-34.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='649' y='-19.8'>name(i):label_type</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='649' y='-4.8'>category(i):iri_type +</text>
 </g><g class='edge' id='edge3'><title>EntityToDiseaseAssociation-&gt;Disease</title>

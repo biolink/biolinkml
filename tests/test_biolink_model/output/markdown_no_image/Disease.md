@@ -7,7 +7,7 @@
 URI: [biolink:Disease](https://w3id.org/biolink/vocab/Disease)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon],[NamedThing],[EntityToDiseaseAssociation],[DiseaseToThingAssociation],[DiseaseToExposureAssociation],[DiseaseOrPhenotypicFeature],[DiseaseToExposureAssociation]-%20subject%201..1>[Disease&#124;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],[DiseaseToThingAssociation]-%20subject%201..1>[Disease],[EntityToDiseaseAssociation]-%20object(i)%201..1>[Disease],[DiseaseOrPhenotypicFeature]^-[Disease])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon],[NamedThing],[EntityToDiseaseAssociation],[DiseaseToThingAssociation],[DiseaseToExposureAssociation],[DiseaseOrPhenotypicFeature],[DiseaseToExposureAssociation]-%20subject%201..1>[Disease&#124;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[DiseaseToThingAssociation]-%20subject%201..1>[Disease],[EntityToDiseaseAssociation]-%20object(i)%201..1>[Disease],[DiseaseOrPhenotypicFeature]^-[Disease])
 
 ## Parents
 
@@ -31,7 +31,7 @@ URI: [biolink:Disease](https://w3id.org/biolink/vocab/Disease)
     * in subsets: (translator_minimal)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
-    * range: [IdentifierType](types/IdentifierType.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)
  * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing

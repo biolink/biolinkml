@@ -46,7 +46,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='639' y='-49.8'>DiseaseOrPhenotypicFeatureAssociationToLocationAssociation</text>
 <polyline fill='none' points='450.5,-46 827.5,-46 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='639' y='-34.8'>relation(i):uriorcurie</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='639' y='-19.8'>id(i):nodeidentifier</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='639' y='-19.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='639' y='-4.8'>negated(i):boolean ?</text>
 </g><g class='edge' id='edge2'><title>DiseaseOrPhenotypicFeatureAssociationToThingAssociation-&gt;DiseaseOrPhenotypicFeatureAssociationToLocationAssociation</title>
 <path d='M532.268,-145.3C554.468,-121.734 587.919,-86.2246 611.442,-61.2537' fill='none' stroke='black'/>

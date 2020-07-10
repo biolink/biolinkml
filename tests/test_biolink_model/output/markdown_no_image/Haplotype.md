@@ -7,7 +7,7 @@ A set of zero or more Alleles on a single instance of a Sequence[VMC]
 URI: [biolink:Haplotype](https://w3id.org/biolink/vocab/Haplotype)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon],[GenomicEntity]^-[Haplotype&#124;has_biological_sequence(i):biological_sequence%20%3F;id(i):identifier_type;name(i):label_type;category(i):iri_type%20%2B],[GenomicEntity])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon],[GenomicEntity]^-[Haplotype&#124;has_biological_sequence(i):biological_sequence%20%3F;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[GenomicEntity])
 
 ## Parents
 
@@ -27,7 +27,7 @@ URI: [biolink:Haplotype](https://w3id.org/biolink/vocab/Haplotype)
     * range: [BiologicalSequence](types/BiologicalSequence.md)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
-    * range: [IdentifierType](types/IdentifierType.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)
  * [name](name.md)  <sub>REQ</sub>
     * Description: A human-readable name for a thing

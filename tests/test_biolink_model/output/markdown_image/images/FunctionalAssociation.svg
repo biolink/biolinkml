@@ -55,7 +55,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='724' y='-177.8'>FunctionalAssociation</text>
 <polyline fill='none' points='649,-174 799,-174 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='724' y='-162.8'>relation(i):uriorcurie</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='724' y='-147.8'>id(i):nodeidentifier</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='724' y='-147.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='724' y='-132.8'>negated(i):boolean ?</text>
 </g><g class='edge' id='edge2'><title>MacromolecularMachine-&gt;FunctionalAssociation</title>
 <path d='M583.299,-274.216C612.314,-250.662 656.8,-214.55 687.963,-189.254' fill='none' stroke='black'/>

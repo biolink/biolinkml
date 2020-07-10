@@ -32,7 +32,7 @@ URI: [biolink:SequenceVariant](https://w3id.org/biolink/vocab/SequenceVariant)
  * [sequence variant➞has gene](sequence_variant_has_gene.md)  <sub>0..*</sub>
     * range: [Gene](Gene.md)
  * [sequence variant➞id](sequence_variant_id.md)  <sub>REQ</sub>
-    * range: [IdentifierType](types/IdentifierType.md)
+    * range: [String](types/String.md)
 
 ### Inherited from genomic entity:
 

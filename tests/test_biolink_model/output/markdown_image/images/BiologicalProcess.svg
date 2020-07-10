@@ -48,7 +48,7 @@
 <polygon fill='white' points='240,-129 240,-189 386,-189 386,-129 240,-129' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='313' y='-177.8'>BiologicalProcess</text>
 <polyline fill='none' points='240,-174 386,-174 ' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='313' y='-162.8'>id(i):identifier_type</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='313' y='-162.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='313' y='-147.8'>name(i):label_type</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='313' y='-132.8'>category(i):iri_type +</text>
 </g><g class='edge' id='edge1'><title>MacromolecularMachineToBiologicalProcessAssociation-&gt;BiologicalProcess</title>

@@ -52,7 +52,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='288' y='-177.8'>MaterialSampleToDiseaseOrPhenotypicFeatureAssociation</text>
 <polyline fill='none' points='111.5,-174 464.5,-174 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='288' y='-162.8'>relation(i):uriorcurie</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='288' y='-147.8'>id(i):nodeidentifier</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='288' y='-147.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='288' y='-132.8'>negated(i):boolean ?</text>
 </g><g class='edge' id='edge2'><title>MaterialSampleToDiseaseOrPhenotypicFeatureAssociation-&gt;ThingToDiseaseOrPhenotypicFeatureAssociation</title>
 <path d='M258.31,-128.734C232.815,-103.604 196.5,-67.8071 172.601,-44.2494' fill='none' stroke='black' stroke-dasharray='5,2'/>

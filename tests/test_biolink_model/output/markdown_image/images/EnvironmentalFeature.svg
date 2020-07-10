@@ -36,7 +36,7 @@
 <polygon fill='white' points='-1,-1 -1,-61 149,-61 149,-1 -1,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='74' y='-49.8'>EnvironmentalFeature</text>
 <polyline fill='none' points='-1,-46 149,-46 ' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='74' y='-34.8'>id(i):identifier_type</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='74' y='-34.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='74' y='-19.8'>name(i):label_type</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='74' y='-4.8'>category(i):iri_type +</text>
 </g><g class='edge' id='edge1'><title>PlanetaryEntity-&gt;EnvironmentalFeature</title>

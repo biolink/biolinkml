@@ -7,7 +7,7 @@ An association between a macromolecular machine (gene, gene product or complex o
 URI: [biolink:FunctionalAssociation](https://w3id.org/biolink/vocab/FunctionalAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[Provider],[OntologyClass],[MacromolecularMachineToMolecularActivityAssociation],[MacromolecularMachineToCellularComponentAssociation],[MacromolecularMachineToBiologicalProcessAssociation],[MacromolecularMachine],[GeneToGoTermAssociation],[GeneOntologyClass],[GeneOntologyClass]<object%201..1-%20[FunctionalAssociation&#124;relation(i):uriorcurie;id(i):nodeidentifier;negated(i):boolean%20%3F],[MacromolecularMachine]<subject%201..1-%20[FunctionalAssociation],[FunctionalAssociation]^-[MacromolecularMachineToMolecularActivityAssociation],[FunctionalAssociation]^-[MacromolecularMachineToCellularComponentAssociation],[FunctionalAssociation]^-[MacromolecularMachineToBiologicalProcessAssociation],[FunctionalAssociation]^-[GeneToGoTermAssociation],[Association]^-[FunctionalAssociation],[Association])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[Provider],[OntologyClass],[MacromolecularMachineToMolecularActivityAssociation],[MacromolecularMachineToCellularComponentAssociation],[MacromolecularMachineToBiologicalProcessAssociation],[MacromolecularMachine],[GeneToGoTermAssociation],[GeneOntologyClass],[GeneOntologyClass]<object%201..1-%20[FunctionalAssociation&#124;relation(i):uriorcurie;id(i):string;negated(i):boolean%20%3F],[MacromolecularMachine]<subject%201..1-%20[FunctionalAssociation],[FunctionalAssociation]^-[MacromolecularMachineToMolecularActivityAssociation],[FunctionalAssociation]^-[MacromolecularMachineToCellularComponentAssociation],[FunctionalAssociation]^-[MacromolecularMachineToBiologicalProcessAssociation],[FunctionalAssociation]^-[GeneToGoTermAssociation],[Association]^-[FunctionalAssociation],[Association])
 
 ## Parents
 
@@ -40,12 +40,12 @@ URI: [biolink:FunctionalAssociation](https://w3id.org/biolink/vocab/FunctionalAs
     * range: [OntologyClass](OntologyClass.md)
  * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
-    * range: [Nodeidentifier](types/Nodeidentifier.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)
  * [negated](negated.md)  <sub>OPT</sub>
     * Description: if set to true, then the association is negated i.e. is not true
     * range: [Boolean](types/Boolean.md)
- * [provided by](provided_by.md)  <sub>OPT</sub>
+ * [provided by](provided_by.md)  <sub>0..*</sub>
     * Description: connects an association to the agent (person, organization or group) that provided it
     * range: [Provider](Provider.md)
  * [publications](publications.md)  <sub>0..*</sub>

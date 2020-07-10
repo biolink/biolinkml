@@ -7,7 +7,7 @@ A functional association between a macromolecular machine (gene, gene product or
 URI: [biolink:MacromolecularMachineToBiologicalProcessAssociation](https://w3id.org/biolink/vocab/MacromolecularMachineToBiologicalProcessAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[Provider],[OntologyClass],[BiologicalProcess]<object%201..1-%20[MacromolecularMachineToBiologicalProcessAssociation&#124;relation(i):uriorcurie;id(i):nodeidentifier;negated(i):boolean%20%3F],[FunctionalAssociation]^-[MacromolecularMachineToBiologicalProcessAssociation],[MacromolecularMachine],[FunctionalAssociation],[BiologicalProcess])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[Provider],[OntologyClass],[BiologicalProcess]<object%201..1-%20[MacromolecularMachineToBiologicalProcessAssociation&#124;relation(i):uriorcurie;id(i):string;negated(i):boolean%20%3F],[FunctionalAssociation]^-[MacromolecularMachineToBiologicalProcessAssociation],[MacromolecularMachine],[FunctionalAssociation],[BiologicalProcess])
 
 ## Parents
 
@@ -31,14 +31,14 @@ URI: [biolink:MacromolecularMachineToBiologicalProcessAssociation](https://w3id.
     * range: [OntologyClass](OntologyClass.md)
  * [association➞id](association_id.md)  <sub>REQ</sub>
     * Description: A unique identifier for an association
-    * range: [Nodeidentifier](types/Nodeidentifier.md)
+    * range: [String](types/String.md)
     * in subsets: (translator_minimal)
  * [functional association➞subject](functional_association_subject.md)  <sub>REQ</sub>
     * range: [MacromolecularMachine](MacromolecularMachine.md)
  * [negated](negated.md)  <sub>OPT</sub>
     * Description: if set to true, then the association is negated i.e. is not true
     * range: [Boolean](types/Boolean.md)
- * [provided by](provided_by.md)  <sub>OPT</sub>
+ * [provided by](provided_by.md)  <sub>0..*</sub>
     * Description: connects an association to the agent (person, organization or group) that provided it
     * range: [Provider](Provider.md)
  * [publications](publications.md)  <sub>0..*</sub>

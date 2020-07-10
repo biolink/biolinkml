@@ -36,7 +36,7 @@
 <polygon fill='white' points='122,-1 122,-61 268,-61 268,-1 122,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='195' y='-49.8'>Pathway</text>
 <polyline fill='none' points='122,-46 268,-46 ' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='195' y='-34.8'>id(i):identifier_type</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='195' y='-34.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='195' y='-19.8'>name(i):label_type</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='195' y='-4.8'>category(i):iri_type +</text>
 </g><g class='edge' id='edge1'><title>ChemicalToPathwayAssociation-&gt;Pathway</title>

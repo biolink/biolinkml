@@ -4,7 +4,7 @@
 
 An integer
 
-URI: [https://w3id.org/biolink/biolinkml/meta/biolinkml:types/Integer](https://w3id.org/biolink/biolinkml/meta/biolinkml:types/Integer)
+URI: [https://w3id.org/biolink/biolinkml/types/Integer](https://w3id.org/biolink/biolinkml/types/Integer)
 
 |  |  |  |
 | --- | --- | --- |

@@ -46,7 +46,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='391' y='-49.8'>AnatomicalEntityToAnatomicalEntityOntogenicAssociation</text>
 <polyline fill='none' points='212.5,-46 569.5,-46 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='391' y='-34.8'>relation:uriorcurie</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='391' y='-19.8'>id(i):nodeidentifier</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='391' y='-19.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='391' y='-4.8'>negated(i):boolean ?</text>
 </g><g class='edge' id='edge1'><title>AnatomicalEntity-&gt;AnatomicalEntityToAnatomicalEntityOntogenicAssociation</title>
 <path d='M385.501,-142.798C383.88,-119.277 383.834,-85.3561 385.365,-61.2537' fill='none' stroke='black'/>

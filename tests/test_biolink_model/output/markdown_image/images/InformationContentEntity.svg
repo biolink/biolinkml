@@ -39,7 +39,7 @@
 <polygon fill='white' points='77,-129 77,-189 247,-189 247,-129 77,-129' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='162' y='-177.8'>InformationContentEntity</text>
 <polyline fill='none' points='77,-174 247,-174 ' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='162' y='-162.8'>id(i):identifier_type</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='162' y='-162.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='162' y='-147.8'>name(i):label_type</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='162' y='-132.8'>category(i):iri_type +</text>
 </g><g class='edge' id='edge4'><title>NamedThing-&gt;InformationContentEntity</title>

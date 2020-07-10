@@ -52,7 +52,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='273' y='-177.8'>GeneToGeneAssociation</text>
 <polyline fill='none' points='191,-174 355,-174 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='273' y='-162.8'>relation(i):uriorcurie</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='273' y='-147.8'>id(i):nodeidentifier</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='273' y='-147.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='273' y='-132.8'>negated(i):boolean ?</text>
 </g><g class='edge' id='edge1'><title>GeneOrGeneProduct-&gt;GeneToGeneAssociation</title>
 <path d='M267.501,-270.798C265.88,-247.277 265.834,-213.356 267.365,-189.254' fill='none' stroke='black'/>
