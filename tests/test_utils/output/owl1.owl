@@ -11,7 +11,7 @@
     meta:source_file "owl1.yaml" ;meta:source_file_date "Fri Jan 25 14:22:29 2019" ;
     meta:source_file_size 639 .
 
-<http://example.org/owl1#String> a owl:Class,
+<http://example.org/owl1/String> a owl:Class,
         meta:TypeDefinition ;
     rdfs:label "string" ;
     rdfs:subClassOf [ a owl:Restriction ;
@@ -23,23 +23,23 @@ meta:SubsetDefinition a owl:Class ;
     rdfs:label "subset_definition" ;
     skos:definition "the name and description of a subset" .
 
-<http://example.org/owl1#slotopt> a owl:ObjectProperty,
+<http://example.org/owl1/slotopt> a owl:ObjectProperty,
         meta:SlotDefinition ;
     rdfs:label "slotopt" ;
-    rdfs:domain <http://example.org/owl1#C1> ;
-    rdfs:range <http://example.org/owl1#C2> .
+    rdfs:domain <http://example.org/owl1/C1> ;
+    rdfs:range <http://example.org/owl1/C2> .
 
-<http://example.org/owl1#slotreq> a owl:ObjectProperty,
+<http://example.org/owl1/slotreq> a owl:ObjectProperty,
         meta:SlotDefinition ;
     rdfs:label "slotreq" ;
-    rdfs:domain <http://example.org/owl1#C1> ;
-    rdfs:range <http://example.org/owl1#C2> .
+    rdfs:domain <http://example.org/owl1/C1> ;
+    rdfs:range <http://example.org/owl1/C2> .
 
-<http://example.org/owl1#slotzeromany> a owl:ObjectProperty,
+<http://example.org/owl1/slotzeromany> a owl:ObjectProperty,
         meta:SlotDefinition ;
     rdfs:label "slotzeromany" ;
-    rdfs:domain <http://example.org/owl1#C1> ;
-    rdfs:range <http://example.org/owl1#C2> .
+    rdfs:domain <http://example.org/owl1/C1> ;
+    rdfs:range <http://example.org/owl1/C2> .
 
 meta:TypeDefinition a owl:Class ;
     rdfs:label "type_definition" ;
@@ -48,42 +48,42 @@ meta:TypeDefinition a owl:Class ;
 meta:topValue a owl:DatatypeProperty ;
     rdfs:label "value" .
 
-<http://example.org/owl1#slotonemany> a owl:ObjectProperty,
+<http://example.org/owl1/slotonemany> a owl:ObjectProperty,
         meta:SlotDefinition ;
     rdfs:label "slotonemany" ;
-    rdfs:domain <http://example.org/owl1#C1> ;
-    rdfs:range <http://example.org/owl1#C2> .
+    rdfs:domain <http://example.org/owl1/C1> ;
+    rdfs:range <http://example.org/owl1/C2> .
 
 meta:ClassDefinition a owl:Class ;
     rdfs:label "class_definition" ;
     skos:definition "the definition of a class or interface" .
 
-<http://example.org/owl1#C1> a owl:Class,
+<http://example.org/owl1/C1> a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "c1" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://example.org/owl1#C2> ;
-            owl:onProperty <http://example.org/owl1#slotopt> ],
-        [ a owl:Class ;
+    rdfs:subClassOf [ a owl:Class ;
             owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:allValuesFrom <http://example.org/owl1#C2> ;
-                        owl:onProperty <http://example.org/owl1#slotonemany> ] [ a owl:Restriction ;
-                        owl:onProperty <http://example.org/owl1#slotonemany> ;
-                        owl:someValuesFrom <http://example.org/owl1#C2> ] ) ],
+                        owl:allValuesFrom <http://example.org/owl1/C2> ;
+                        owl:onProperty <http://example.org/owl1/slotonemany> ] [ a owl:Restriction ;
+                        owl:onProperty <http://example.org/owl1/slotonemany> ;
+                        owl:someValuesFrom <http://example.org/owl1/C2> ] ) ],
         [ a owl:Restriction ;
-            owl:onClass <http://example.org/owl1#C2> ;
-            owl:onProperty <http://example.org/owl1#slotreq> ;
-            owl:qualifiedCardinality 1 ],
+            owl:allValuesFrom <http://example.org/owl1/C2> ;
+            owl:onProperty <http://example.org/owl1/slotzeromany> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <http://example.org/owl1#C2> ;
-            owl:onProperty <http://example.org/owl1#slotzeromany> ] .
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://example.org/owl1/C2> ;
+            owl:onProperty <http://example.org/owl1/slotopt> ],
+        [ a owl:Restriction ;
+            owl:onClass <http://example.org/owl1/C2> ;
+            owl:onProperty <http://example.org/owl1/slotreq> ;
+            owl:qualifiedCardinality 1 ] .
 
 meta:SlotDefinition a owl:Class ;
     rdfs:label "slot_definition" ;
     skos:definition "the definition of a property or a slot" .
 
-<http://example.org/owl1#C2> a owl:Class,
+<http://example.org/owl1/C2> a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "c2" .
 

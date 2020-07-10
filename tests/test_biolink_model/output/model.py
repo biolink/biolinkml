@@ -1309,6 +1309,8 @@ class IndividualOrganism(OrganismalEntity):
             raise ValueError(f"id must be supplied")
         if not isinstance(self.id, IndividualOrganismId):
             self.id = IndividualOrganismId(self.id)
+        self.in_taxon = [v if isinstance(v, OrganismTaxonId)
+                         else OrganismTaxonId(v) for v in self.in_taxon]
         super().__post_init__(**kwargs)
 
 
@@ -1360,6 +1362,8 @@ class PopulationOfIndividualOrganisms(OrganismalEntity):
             raise ValueError(f"id must be supplied")
         if not isinstance(self.id, PopulationOfIndividualOrganismsId):
             self.id = PopulationOfIndividualOrganismsId(self.id)
+        self.in_taxon = [v if isinstance(v, OrganismTaxonId)
+                         else OrganismTaxonId(v) for v in self.in_taxon]
         super().__post_init__(**kwargs)
 
 
@@ -1415,6 +1419,8 @@ class DiseaseOrPhenotypicFeature(BiologicalEntity):
             raise ValueError(f"id must be supplied")
         if not isinstance(self.id, DiseaseOrPhenotypicFeatureId):
             self.id = DiseaseOrPhenotypicFeatureId(self.id)
+        self.in_taxon = [v if isinstance(v, OrganismTaxonId)
+                         else OrganismTaxonId(v) for v in self.in_taxon]
         super().__post_init__(**kwargs)
 
 
@@ -1634,6 +1640,8 @@ class MolecularEntity(BiologicalEntity):
             raise ValueError(f"id must be supplied")
         if not isinstance(self.id, MolecularEntityId):
             self.id = MolecularEntityId(self.id)
+        self.in_taxon = [v if isinstance(v, OrganismTaxonId)
+                         else OrganismTaxonId(v) for v in self.in_taxon]
         super().__post_init__(**kwargs)
 
 
@@ -1753,6 +1761,8 @@ class AnatomicalEntity(OrganismalEntity):
             raise ValueError(f"id must be supplied")
         if not isinstance(self.id, AnatomicalEntityId):
             self.id = AnatomicalEntityId(self.id)
+        self.in_taxon = [v if isinstance(v, OrganismTaxonId)
+                         else OrganismTaxonId(v) for v in self.in_taxon]
         super().__post_init__(**kwargs)
 
 
@@ -1778,6 +1788,8 @@ class LifeStage(OrganismalEntity):
             raise ValueError(f"id must be supplied")
         if not isinstance(self.id, LifeStageId):
             self.id = LifeStageId(self.id)
+        self.in_taxon = [v if isinstance(v, OrganismTaxonId)
+                         else OrganismTaxonId(v) for v in self.in_taxon]
         super().__post_init__(**kwargs)
 
 
@@ -3275,6 +3287,10 @@ class EntityToPhenotypicFeatureAssociation(Association):
             self.object = PhenotypicFeatureId(self.object)
         if self.sex_qualifier is not None and not isinstance(self.sex_qualifier, BiologicalSexId):
             self.sex_qualifier = BiologicalSexId(self.sex_qualifier)
+        if self.severity_qualifier is not None and not isinstance(self.severity_qualifier, SeverityValueId):
+            self.severity_qualifier = SeverityValueId(self.severity_qualifier)
+        if self.onset_qualifier is not None and not isinstance(self.onset_qualifier, OnsetId):
+            self.onset_qualifier = OnsetId(self.onset_qualifier)
         super().__post_init__(**kwargs)
 
 
@@ -3384,6 +3400,8 @@ class GenotypeToPhenotypicFeatureAssociation(Association):
             raise ValueError(f"relation must be supplied")
         if not isinstance(self.relation, URIorCURIE):
             self.relation = URIorCURIE(self.relation)
+        if self.sex_qualifier is not None and not isinstance(self.sex_qualifier, BiologicalSexId):
+            self.sex_qualifier = BiologicalSexId(self.sex_qualifier)
         super().__post_init__(**kwargs)
 
 
@@ -3415,6 +3433,8 @@ class ExposureEventToPhenotypicFeatureAssociation(Association):
             raise ValueError(f"subject must be supplied")
         if not isinstance(self.subject, ExposureEventId):
             self.subject = ExposureEventId(self.subject)
+        if self.sex_qualifier is not None and not isinstance(self.sex_qualifier, BiologicalSexId):
+            self.sex_qualifier = BiologicalSexId(self.sex_qualifier)
         super().__post_init__(**kwargs)
 
 
@@ -3442,6 +3462,8 @@ class DiseaseToPhenotypicFeatureAssociation(Association):
             raise ValueError(f"id must be supplied")
         if not isinstance(self.id, DiseaseToPhenotypicFeatureAssociationId):
             self.id = DiseaseToPhenotypicFeatureAssociationId(self.id)
+        if self.sex_qualifier is not None and not isinstance(self.sex_qualifier, BiologicalSexId):
+            self.sex_qualifier = BiologicalSexId(self.sex_qualifier)
         super().__post_init__(**kwargs)
 
 
@@ -3469,6 +3491,8 @@ class CaseToPhenotypicFeatureAssociation(Association):
             raise ValueError(f"id must be supplied")
         if not isinstance(self.id, CaseToPhenotypicFeatureAssociationId):
             self.id = CaseToPhenotypicFeatureAssociationId(self.id)
+        if self.sex_qualifier is not None and not isinstance(self.sex_qualifier, BiologicalSexId):
+            self.sex_qualifier = BiologicalSexId(self.sex_qualifier)
         super().__post_init__(**kwargs)
 
 
@@ -3518,6 +3542,8 @@ class GeneToPhenotypicFeatureAssociation(Association):
             raise ValueError(f"subject must be supplied")
         if not isinstance(self.subject, GeneOrGeneProductId):
             self.subject = GeneOrGeneProductId(self.subject)
+        if self.sex_qualifier is not None and not isinstance(self.sex_qualifier, BiologicalSexId):
+            self.sex_qualifier = BiologicalSexId(self.sex_qualifier)
         super().__post_init__(**kwargs)
 
 
@@ -3582,6 +3608,8 @@ class VariantToPopulationAssociation(Association):
             raise ValueError(f"object must be supplied")
         if not isinstance(self.object, PopulationOfIndividualOrganismsId):
             self.object = PopulationOfIndividualOrganismsId(self.object)
+        if self.frequency_qualifier is not None and not isinstance(self.frequency_qualifier, FrequencyValueId):
+            self.frequency_qualifier = FrequencyValueId(self.frequency_qualifier)
         super().__post_init__(**kwargs)
 
 
@@ -3646,6 +3674,8 @@ class VariantToPhenotypicFeatureAssociation(Association):
             raise ValueError(f"subject must be supplied")
         if not isinstance(self.subject, SequenceVariantId):
             self.subject = SequenceVariantId(self.subject)
+        if self.sex_qualifier is not None and not isinstance(self.sex_qualifier, BiologicalSexId):
+            self.sex_qualifier = BiologicalSexId(self.sex_qualifier)
         super().__post_init__(**kwargs)
 
 

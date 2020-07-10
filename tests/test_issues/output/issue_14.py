@@ -1,5 +1,5 @@
-# Auto generated from issue_14.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-07-07 17:47
+# Auto generated from .yaml by pythongen.py version:
+# Generation date:
 # Schema: test14
 #
 # id: https://example.com/test14
@@ -96,6 +96,7 @@ class MixinOwner(NamedThing):
     name: str = None
     subject: Union[str, SubjectRange1Id] = None
     object: Union[str, NamedThingId] = None
+    sex_qualifier: Optional[Union[str, NamedThingId]] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -106,6 +107,8 @@ class MixinOwner(NamedThing):
             raise ValueError(f"subject must be supplied")
         if not isinstance(self.subject, SubjectRange1Id):
             self.subject = SubjectRange1Id(self.subject)
+        if self.sex_qualifier is not None and not isinstance(self.sex_qualifier, NamedThingId):
+            self.sex_qualifier = NamedThingId(self.sex_qualifier)
         super().__post_init__(**kwargs)
 
 

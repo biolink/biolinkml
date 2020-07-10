@@ -2827,7 +2827,7 @@
     },
     {
       "name": "association_id",
-      "definition_uri": "biolink:association_id",
+      "definition_uri": "https://w3id.org/biolink/vocab/association_id",
       "description": "A unique identifier for an association",
       "in_subset": [
         "translator_minimal"
@@ -3042,7 +3042,7 @@
     },
     {
       "name": "chi_squared_statistic",
-      "definition_uri": "biolink:chi_squared_statistic",
+      "definition_uri": "https://w3id.org/biolink/vocab/chi_squared_statistic",
       "mappings": [
         "STATO:0000030"
       ],
@@ -3057,7 +3057,7 @@
     },
     {
       "name": "p_value",
-      "definition_uri": "biolink:p_value",
+      "definition_uri": "https://w3id.org/biolink/vocab/p_value",
       "mappings": [
         "OBI:0000175"
       ],
@@ -7991,7 +7991,7 @@
     },
     {
       "name": "DiseaseToThingAssociation",
-      "definition_uri": "biolink:DiseaseToThingAssociation",
+      "definition_uri": "https://w3id.org/biolink/vocab/DiseaseToThingAssociation",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
       "abstract": true,
@@ -8014,7 +8014,7 @@
     },
     {
       "name": "DiseaseToExposureAssociation",
-      "definition_uri": "biolink:DiseaseToExposureAssociation",
+      "definition_uri": "https://w3id.org/biolink/vocab/DiseaseToExposureAssociation",
       "description": "An association between an exposure event and a disease",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "DiseaseToThingAssociation",

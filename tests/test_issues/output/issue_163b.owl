@@ -8,21 +8,21 @@
 <http://example.org/sample/example1> a owl:Ontology ;
     rdfs:label "example1" ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
-    meta:generation_date "2020-07-07 13:15" ;
+    meta:generation_date "2020-07-10 13:03" ;
     meta:metamodel_version "1.5.0" ;
     meta:source_file "issue_163b.yaml" ;
-    meta:source_file_date "Tue Jul  7 12:45:58 2020" ;
-    meta:source_file_size 667 .
+    meta:source_file_date "Fri Jul 10 12:55:59 2020" ;
+    meta:source_file_size 690 .
 
-<http://example.org/sample/example1#D2> a owl:Class,
+<http://example.org/sample/example1/D2> a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "d2" ;
-    rdfs:subClassOf <http://example.org/sample/example1#C> .
+    rdfs:subClassOf <http://example.org/sample/example1/C> .
 
-<http://example.org/sample/example1#E> a owl:Class,
+<http://example.org/sample/example1/E> a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "e" ;
-    rdfs:subClassOf <http://example.org/sample/example1#D1> .
+    rdfs:subClassOf <http://example.org/sample/example1/D1> .
 
 meta:SubsetDefinition a owl:Class ;
     rdfs:label "subset_definition" ;
@@ -130,51 +130,51 @@ meta:SubsetDefinition a owl:Class ;
             owl:qualifiedCardinality 1 ] ;
     skos:definition "a URI or a CURIE" .
 
-<http://example.org/sample/example1#D1> a owl:Class,
+<http://example.org/sample/example1/D1> a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "d1" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://example.org/sample/example1#C> ;
-            owl:onProperty <http://example.org/sample/example1#has_c> ],
-        <http://example.org/sample/example1#C> .
+            owl:onClass <http://example.org/sample/example1/C> ;
+            owl:onProperty <http://example.org/sample/example1/has_c> ],
+        <http://example.org/sample/example1/C> .
 
-<http://example.org/sample/example1#has_a> a owl:ObjectProperty,
+<http://example.org/sample/example1/has_a> a owl:ObjectProperty,
         meta:SlotDefinition ;
     rdfs:label "has a" ;
-    rdfs:range <http://example.org/sample/example1#A> .
+    rdfs:range <http://example.org/sample/example1/A> .
 
-<http://example.org/sample/example1#has_b> a owl:ObjectProperty,
+<http://example.org/sample/example1/has_b> a owl:ObjectProperty,
         meta:SlotDefinition ;
     rdfs:label "has b" ;
-    rdfs:range <http://example.org/sample/example1#B> .
+    rdfs:range <http://example.org/sample/example1/B> .
 
-<http://example.org/sample/example1#has_c> a owl:ObjectProperty,
+<http://example.org/sample/example1/has_c> a owl:ObjectProperty,
         meta:SlotDefinition ;
     rdfs:label "has c" ;
-    rdfs:range <http://example.org/sample/example1#C> .
+    rdfs:range <http://example.org/sample/example1/C> .
 
-<http://example.org/sample/example1#id> a owl:ObjectProperty,
+<http://example.org/sample/example1/id> a owl:ObjectProperty,
         meta:SlotDefinition ;
     rdfs:label "id" ;
     rdfs:range <https://w3id.org/biolink/biolinkml/type/String> .
 
-<http://example.org/sample/example1#len> a owl:ObjectProperty,
+<http://example.org/sample/example1/len> a owl:ObjectProperty,
         meta:SlotDefinition ;
     rdfs:label "len" ;
     rdfs:range <https://w3id.org/biolink/biolinkml/type/Integer> .
 
-<http://example.org/sample/example1#name> a owl:ObjectProperty,
+<http://example.org/sample/example1/name> a owl:ObjectProperty,
         meta:SlotDefinition ;
     rdfs:label "name" ;
     rdfs:range <https://w3id.org/biolink/biolinkml/type/String> .
 
-<http://example.org/sample/example1#unit> a owl:ObjectProperty,
+<http://example.org/sample/example1/unit> a owl:ObjectProperty,
         meta:SlotDefinition ;
     rdfs:label "unit" ;
-    rdfs:range <http://example.org/sample/example1#Unitcode> .
+    rdfs:range <http://example.org/sample/example1/Unitcode> .
 
-<http://example.org/sample/example1#Unitcode> a owl:Class,
+<http://example.org/sample/example1/Unitcode> a owl:Class,
         meta:TypeDefinition ;
     rdfs:label "unitcode" ;
     rdfs:subClassOf [ a owl:Restriction ;
@@ -191,43 +191,43 @@ meta:SubsetDefinition a owl:Class ;
             owl:qualifiedCardinality 1 ] ;
     skos:definition "An integer" .
 
-<http://example.org/sample/example1#A> a owl:Class,
+<http://example.org/sample/example1/A> a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "a" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/type/String> ;
+            owl:onProperty <http://example.org/sample/example1/id> ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://example.org/sample/example1#Unitcode> ;
-            owl:onProperty <http://example.org/sample/example1#unit> ],
+            owl:onClass <http://example.org/sample/example1/Unitcode> ;
+            owl:onProperty <http://example.org/sample/example1/unit> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/type/String> ;
+            owl:onProperty <http://example.org/sample/example1/name> ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/biolink/biolinkml/type/Integer> ;
-            owl:onProperty <http://example.org/sample/example1#len> ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/type/String> ;
-            owl:onProperty <http://example.org/sample/example1#name> ],
-        [ a owl:Restriction ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/type/String> ;
-            owl:onProperty <http://example.org/sample/example1#id> ;
-            owl:qualifiedCardinality 1 ] .
+            owl:onProperty <http://example.org/sample/example1/len> ] .
 
-<http://example.org/sample/example1#B> a owl:Class,
+<http://example.org/sample/example1/B> a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "b" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://example.org/sample/example1#A> ;
-            owl:onProperty <http://example.org/sample/example1#has_a> ],
-        <http://example.org/sample/example1#A> .
+            owl:onClass <http://example.org/sample/example1/A> ;
+            owl:onProperty <http://example.org/sample/example1/has_a> ],
+        <http://example.org/sample/example1/A> .
 
-<http://example.org/sample/example1#C> a owl:Class,
+<http://example.org/sample/example1/C> a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "c" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://example.org/sample/example1#B> ;
-            owl:onProperty <http://example.org/sample/example1#has_b> ],
-        <http://example.org/sample/example1#B> .
+            owl:onClass <http://example.org/sample/example1/B> ;
+            owl:onProperty <http://example.org/sample/example1/has_b> ],
+        <http://example.org/sample/example1/B> .
 
 <https://w3id.org/biolink/biolinkml/type/String> a owl:Class,
         meta:TypeDefinition ;
