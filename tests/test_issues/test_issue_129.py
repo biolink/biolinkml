@@ -17,9 +17,9 @@ class IssueJSONSchemaTypesTestCase(TestEnvironmentTestCase):
             gen.topCls = 'c'
             return gen.serialize()
 
-        env.generate_single_file('issue_129.json', lambda: generator(), value_is_returned=True)
+        sobj_str = env.generate_single_file('issue_129.json', lambda: generator(), value_is_returned=True)
 
-        sobj = jsonasobj.load(env.expected_path('issue_129.json'))
+        sobj = jsonasobj.loads(sobj_str)
         defs = sobj['definitions']
         C = defs['C']
         props = C['properties']
