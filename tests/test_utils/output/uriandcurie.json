@@ -20,7 +20,7 @@
   "types": [
     {
       "name": "string",
-      "definition_uri": "m:String",
+      "definition_uri": "http://example.org/test/uriandcurieString",
       "description": "A character string",
       "from_schema": "http://example.org/test/uriandcurie",
       "base": "str",
@@ -29,7 +29,7 @@
     },
     {
       "name": "uriorcurie",
-      "definition_uri": "m:Uriorcurie",
+      "definition_uri": "http://example.org/test/uriandcurieUriorcurie",
       "description": "a URI or a CURIE",
       "from_schema": "http://example.org/test/uriandcurie",
       "base": "URIorCURIE",
@@ -39,7 +39,7 @@
     },
     {
       "name": "uri",
-      "definition_uri": "m:Uri",
+      "definition_uri": "http://example.org/test/uriandcurieUri",
       "description": "a complete URI",
       "from_schema": "http://example.org/test/uriandcurie",
       "base": "URI",
@@ -49,7 +49,7 @@
     },
     {
       "name": "curie",
-      "definition_uri": "m:Curie",
+      "definition_uri": "http://example.org/test/uriandcurieCurie",
       "description": "a CURIE",
       "from_schema": "http://example.org/test/uriandcurie",
       "base": "Curie",
@@ -59,7 +59,7 @@
     },
     {
       "name": "ncname",
-      "definition_uri": "m:Ncname",
+      "definition_uri": "http://example.org/test/uriandcurieNcname",
       "description": "Prefix part of CURIE",
       "from_schema": "http://example.org/test/uriandcurie",
       "base": "NCName",
@@ -69,7 +69,7 @@
     },
     {
       "name": "objectidentifier",
-      "definition_uri": "m:Objectidentifier",
+      "definition_uri": "http://example.org/test/uriandcurieObjectidentifier",
       "description": "A URI or CURIE that represents an object in the model.",
       "comments": [
         "Used for inheritence and type checking"
@@ -82,7 +82,7 @@
     },
     {
       "name": "nodeidentifier",
-      "definition_uri": "m:Nodeidentifier",
+      "definition_uri": "http://example.org/test/uriandcurieNodeidentifier",
       "description": "A URI, CURIE or BNODE that represents a node in a model.",
       "from_schema": "http://example.org/test/uriandcurie",
       "base": "NodeIdentifier",
@@ -94,7 +94,7 @@
   "slots": [
     {
       "name": "id",
-      "definition_uri": "m:id",
+      "definition_uri": "http://example.org/test/uriandcurieid",
       "from_schema": "http://example.org/test/uriandcurie",
       "range": "objectidentifier",
       "slot_uri": "http://example.org/test/uriandcurieid",
@@ -108,7 +108,7 @@
     },
     {
       "name": "hasCurie",
-      "definition_uri": "m:hasCurie",
+      "definition_uri": "http://example.org/test/uriandcuriehasCurie",
       "from_schema": "http://example.org/test/uriandcurie",
       "range": "curie",
       "slot_uri": "http://example.org/test/uriandcuriehasCurie",
@@ -120,7 +120,7 @@
     },
     {
       "name": "hasURI",
-      "definition_uri": "m:hasURI",
+      "definition_uri": "http://example.org/test/uriandcuriehasURI",
       "from_schema": "http://example.org/test/uriandcurie",
       "range": "uri",
       "slot_uri": "http://example.org/test/uriandcuriehasURI",
@@ -132,7 +132,7 @@
     },
     {
       "name": "hasNcName",
-      "definition_uri": "m:hasNcName",
+      "definition_uri": "http://example.org/test/uriandcuriehasNcName",
       "from_schema": "http://example.org/test/uriandcurie",
       "range": "ncname",
       "slot_uri": "http://example.org/test/uriandcuriehasNcName",
@@ -144,7 +144,7 @@
     },
     {
       "name": "id2",
-      "definition_uri": "m:id2",
+      "definition_uri": "http://example.org/test/uriandcurieid2",
       "from_schema": "http://example.org/test/uriandcurie",
       "range": "nodeidentifier",
       "slot_uri": "http://example.org/test/uriandcurieid2",
@@ -158,7 +158,7 @@
   "classes": [
     {
       "name": "C1",
-      "definition_uri": "m:C1",
+      "definition_uri": "http://example.org/test/uriandcurieC1",
       "from_schema": "http://example.org/test/uriandcurie",
       "slots": [
         "id",

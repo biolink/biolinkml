@@ -1,5 +1,6 @@
 import contextlib
 import filecmp
+import logging
 import os
 import sys
 import shutil
@@ -235,9 +236,9 @@ class TestEnvironment:
             msg = f"New file {self.verb} created"
         if msg:
             self.log(expected_file_path, msg)
-            if not self.fail_on_error:
-                with open(expected_file_path, 'w') as outf:
-                    outf.write(actual_text)
+        if not msg or not self.fail_on_error:
+            with open(expected_file_path, 'w') as outf:
+                outf.write(actual_text)
         return not msg
 
 
@@ -271,3 +272,18 @@ class TestEnvironmentTestCase(unittest.TestCase):
         cls.env.clear_log()
         if msg and cls.env.report_errors:
                 print(msg, file=sys.stderr)
+
+    @contextlib.contextmanager
+    def redirect_logstream(self):
+        logstream = StringIO()
+        logging.basicConfig()
+        logger = logging.getLogger(self.__class__.__name__)
+        for handler in logger.handlers:
+            logger.removeHandler(handler)
+        logger.addHandler(logging.StreamHandler(logstream))
+        logger.setLevel(logging.INFO)
+        try:
+            yield logger
+        finally:
+            logger.result = logstream.getvalue()
+

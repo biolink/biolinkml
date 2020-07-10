@@ -36,7 +36,7 @@ class GenRDFTestCase(ClickTestCase):
 
     def _gen_context_file(self, fname: str, metauris: bool = False) -> str:
         cntxt_txt = ContextGenerator(env.meta_yaml, useuris=not metauris).serialize()
-        cntxt_file_path = env.expected_path(fname)
+        cntxt_file_path = self.expected_file_path(fname)
         if os.path.exists(cntxt_file_path):
             with open(cntxt_file_path) as f:
                 expected = f.read()

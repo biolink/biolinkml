@@ -19,13 +19,11 @@ class JsonLDTestCase(GeneratorTestCase):
 
     def test_mappings_context(self):
         self.model_name = 'mappings'
-        self.subdir = 'includes'
         self.single_file_generator('jsonld', JSONLDGenerator, serialize_args=dict(base=META_BASE_URI),
                                    filtr=json_metadata_filter, subdir='includes')
 
     def test_metamodel_context(self):
         self.model_name = 'meta'
-        self.subdir = ''
         self.single_file_generator('jsonld', JSONLDGenerator, serialize_args=dict(base=META_BASE_URI),
                                    filtr=json_metadata_filter)
 

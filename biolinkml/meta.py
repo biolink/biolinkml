@@ -123,6 +123,7 @@ class Element(YAMLRoot):
     deprecated_element_has_exact_replacement: Optional[Union[str, URIorCURIE]] = None
     deprecated_element_has_possible_replacement: Optional[Union[str, URIorCURIE]] = None
 
+    # noinspection PyDataclass
     def __post_init__(self, **kwargs: Dict[str, Any]):
         self.id_prefixes = [v if isinstance(v, NCName)
                             else NCName(v) for v in self.id_prefixes]
