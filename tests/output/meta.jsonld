@@ -1047,7 +1047,7 @@
     },
     {
       "name": "tree_root",
-      "definition_uri": "meta:tree_root",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/tree_root",
       "description": "indicator that this is the root class in tree structures",
       "from_schema": "https://w3id.org/biolink/biolinkml/meta",
       "domain": "ClassDefinition",

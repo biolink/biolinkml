@@ -1047,7 +1047,7 @@
     },
     {
       "name": "tree_root",
-      "definition_uri": "meta:tree_root",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/tree_root",
       "description": "indicator that this is the root class in tree structures",
       "from_schema": "https://w3id.org/biolink/biolinkml/meta",
       "domain": "ClassDefinition",
@@ -2310,8 +2310,8 @@
   "type": "SchemaDefinition",
   "@context": [
     "file:./output/gencontext/meta.jsonld",
-    "/Users/djiao1/Projects/biolink/biolinkml/tests/input/includes/types.context.jsonld",
-    "/Users/djiao1/Projects/biolink/biolinkml/tests/input/includes/mappings.context.jsonld",
+    "/Users/solbrig/git/biolink/biolinkml/tests/input/includes/types.context.jsonld",
+    "/Users/solbrig/git/biolink/biolinkml/tests/input/includes/mappings.context.jsonld",
     {
       "@base": "https://w3id.org/biolink/biolinkml/meta/"
     }
