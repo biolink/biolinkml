@@ -3,6 +3,8 @@ id: http://example.org/sample/example1
 prefixes:
   biolinkml: https://w3id.org/biolink/biolinkml/
 
+default_range: string
+
 imports:
   - biolinkml:types
 subsets:

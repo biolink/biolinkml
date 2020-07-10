@@ -5,6 +5,7 @@ prefixes:
   biolinkml: https://w3id.org/biolink/biolinkml/
 
 default_prefix: ex
+default_range: string
 
 imports:
   - biolinkml:types
