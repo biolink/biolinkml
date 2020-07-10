@@ -185,19 +185,17 @@ class TestEnvironment:
             shutil.rmtree(temp_output_directory)
 
     def generate_single_file(self, filename: Union[str, List[str]], generator: Callable[[Optional[str]], Optional[str]],
-                             direct_to_file: bool = False, value_is_returned: bool = False,
-                             filtr: Callable[[str], str] = None,
-                             comparator: Callable[[str, str], str] = None,
-                             use_testing_root: bool = False) -> None:
+                             value_is_returned: bool = False, filtr: Callable[[str], str] = None,
+                             comparator: Callable[[str, str], str] = None, use_testing_root: bool = False) -> str:
         """
         Invoke the generator and compare the actual results to the expected.
         :param filename: relative file name(s) (no path)
         :param generator: output generator. Either produces a string or creates a file
-        :param direct_to_file: True means generator creates a file
         :param value_is_returned: True means that generator returns output directly
         :param filtr: Optional filter to remove non-compare information (e.g. dates, specific paths, etc.)
         :param comparator: Optional output comparison function.
         :param use_testing_root: True means output directory is in test root instead of local directory
+        :return: the generator output
         """
         # If no filter, default to identity function
         if not filtr:
@@ -206,25 +204,7 @@ class TestEnvironment:
         actual_file = self.actual_path(*filename)
         expected_file = self.root_expected_path(*filename) if use_testing_root else self.expected_path(*filename)
 
-        if direct_to_file:
-            # If the output writes directly to a file, create a scratch file to writ it into
-            os.makedirs(self.tempdir, exist_ok=True)
-            with contextlib.suppress(FileNotFoundError):
-                os.remove(actual_file)
-
-            generator(actual_file)
-
-            if os.path.exists(actual_file):
-                with open(actual_file) as tmpf:
-                    actual = filtr(tmpf.read())
-                os.remove(actual_file)
-            else:
-                self.log(expected_file, f"No output {self.verb} generated")
-                if not self.fail_on_error:
-                    with contextlib.suppress(FileNotFoundError):
-                        os.remove(expected_file)
-                return
-        elif value_is_returned:
+        if value_is_returned:
             actual = filtr(generator())
         else:
             outf = StringIO()
@@ -236,9 +216,10 @@ class TestEnvironment:
                     pass
             actual = filtr(outf.getvalue())
 
-        if not self.eval_single_file(expected_file, actual, filtr, comparator if comparator else self.string_comparator) and not direct_to_file:
+        if not self.eval_single_file(expected_file, actual, filtr, comparator if comparator else self.string_comparator):
             with open(actual_file, 'w') as actualf:
                 actualf.write(actual)
+        return actual
 
     def eval_single_file(self, expected_file_path: str, actual_text: str,  filtr: Callable[[str], str],
                          comparator: Callable[[str, str], str] = None) -> bool:

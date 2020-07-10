@@ -49,6 +49,9 @@ URI: [meta:ClassDefinition](https://w3id.org/biolink/biolinkml/meta/ClassDefinit
  * [subclass_of](subclass_of.md)  <sub>OPT</sub>
     * Description: rdfs:subClassOf to be emitted in OWL generation
     * range: [Uriorcurie](types/Uriorcurie.md)
+ * [tree_root](tree_root.md)  <sub>OPT</sub>
+    * Description: indicator that this is the root class in tree structures
+    * range: [Boolean](types/Boolean.md)
  * [union_of](union_of.md)  <sub>0..*</sub>
     * Description: indicates that the domain class consists exactly of the members of the classes in the range
     * range: [ClassDefinition](ClassDefinition.md)

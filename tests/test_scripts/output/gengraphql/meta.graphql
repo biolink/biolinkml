@@ -45,6 +45,7 @@ type ClassDefinition
     subclassOf: Uriorcurie
     unionOf: [ClassDefinition]
     definingSlots: [SlotDefinition]
+    treeRoot: Boolean
   }
 
 interface Definition

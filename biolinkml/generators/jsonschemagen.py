@@ -15,7 +15,7 @@ class JsonSchemaGenerator(Generator):
     valid_formats = ["json"]
     visit_all_class_slots = True
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], top_class : str = None, **kwargs) -> None:
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], top_class: str = None, **kwargs) -> None:
         super().__init__(schema, **kwargs)
         self.schemaobj: JsonObj = None
         self.clsobj: JsonObj = None
@@ -26,16 +26,16 @@ class JsonSchemaGenerator(Generator):
         # so we duplicate slots from inherited parents and mixins
         self.visit_all_slots = True
 
-    def visit_schema(self, inline: bool=False, **kwargs) -> None:
+    def visit_schema(self, inline: bool = False, **kwargs) -> None:
         self.inline = inline
         self.schemaobj = JsonObj(title=self.schema.name,
                                  type="object",
                                  properties={},
                                  definitions=JsonObj())
-        for p,c in self.entryProperties.items():
+        for p, c in self.entryProperties.items():
             self.schemaobj['properties'][p] = {
                 'type': "array",
-                 'items': { '$ref': f"#/definitions/{camelcase(c)}"}}
+                'items': {'$ref': f"#/definitions/{camelcase(c)}"}}
         self.schemaobj['$schema'] = "http://json-schema.org/draft-07/schema#"
         self.schemaobj['$id'] = self.schema.id
 
@@ -88,7 +88,7 @@ class JsonSchemaGenerator(Generator):
                 prop = ref
         else:
             if slot.multivalued:
-                prop = JsonObj(type="array", items={'type':rng})
+                prop = JsonObj(type="array", items={'type': rng})
             else:
                 prop = JsonObj(type=rng)
         if slot.description:
@@ -97,7 +97,8 @@ class JsonSchemaGenerator(Generator):
             self.clsobj.required.append(underscore(aliased_slot_name))
 
         self.clsobj.properties[underscore(aliased_slot_name)] = prop
-        if self.topCls is not None and camelcase(self.topCls) == camelcase(cls.name):
+        if self.topCls is not None and camelcase(self.topCls) == camelcase(cls.name) or \
+                self.topCls is None and cls.tree_root:
             self.schemaobj.properties[underscore(aliased_slot_name)] = prop
 
 

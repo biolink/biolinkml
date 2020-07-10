@@ -3,7 +3,7 @@ title: Biolink Schema Metamodel
 name: metamodel
 description: A metamodel for defining biolink related schemas
 license: https://creativecommons.org/publicdomain/zero/1.0/
-version: 1.5.0
+version: 1.5.1
 
 prefixes:
   meta: https://w3id.org/biolink/biolinkml/meta/
@@ -430,6 +430,11 @@ slots:
     description: indicates that the domain class consists exactly of the members of the classes in the range
     notes:
       - this only applies in the OWL generation
+
+  tree_root:
+    domain: class_definition
+    range: boolean
+    description: indicator that this is the root class in tree structures
 
 
   # -----------------------------------
@@ -919,6 +924,7 @@ classes:
       - subclass_of
       - union_of
       - defining_slots
+      - tree_root
     slot_usage:
       is_a:
         range: class_definition

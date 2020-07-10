@@ -6,7 +6,7 @@
 
 <http://example.org/owl2> a owl:Ontology ;
     rdfs:label "owl2" ;meta:generation_date "Fri Jan 25 14:22:29 2019" ;
-    meta:metamodel_version "1.5.0" ;
+    meta:metamodel_version "1.5.1" ;
     meta:source_file "owl2.yaml" ;meta:source_file_date "Fri Jan 25 14:22:29 2019" ;
     meta:source_file_size 519 .
 
@@ -58,16 +58,16 @@ meta:ClassDefinition a owl:Class ;
             owl:onProperty <http://example.org/owl2/annotslot2> ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://example.org/owl2/String> ;
-            owl:onProperty <http://example.org/owl2/dataslot> ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://example.org/owl2/C2> ;
             owl:onProperty <http://example.org/owl2/objslot> ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://example.org/owl2/C2> ;
-            owl:onProperty <http://example.org/owl2/annotslot> ] .
+            owl:onProperty <http://example.org/owl2/annotslot> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://example.org/owl2/String> ;
+            owl:onProperty <http://example.org/owl2/dataslot> ] .
 
 <http://example.org/owl2/C2> a owl:Class,
         meta:ClassDefinition ;

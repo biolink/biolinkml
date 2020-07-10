@@ -1,5 +1,5 @@
 # Auto generated from issue_121.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-07-10 13:03
+# Generation date: 2020-07-10 13:32
 # Schema: schema
 #
 # id: https://microbiomedata/schema
@@ -22,7 +22,7 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 from includes.types import String
 
-metamodel_version = "1.5.0"
+metamodel_version = "1.5.1"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs

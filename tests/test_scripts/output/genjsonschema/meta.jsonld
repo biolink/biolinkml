@@ -225,6 +225,10 @@
                },
                "type": "array"
             },
+            "tree_root": {
+               "description": "indicator that this is the root class in tree structures",
+               "type": "boolean"
+            },
             "union_of": {
                "description": "indicates that the domain class consists exactly of the members of the classes in the range",
                "items": {

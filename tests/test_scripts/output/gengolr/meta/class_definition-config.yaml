@@ -156,3 +156,6 @@ fields:
     into an OWL equivalence axiom
   display_name: defining_slots
   cardinality: multi
+- id: tree_root
+  description: indicator that this is the root class in tree structures
+  display_name: tree_root

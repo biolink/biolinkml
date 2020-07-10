@@ -56,7 +56,11 @@
                 shex:max -1 ;
                 shex:min 0 ;
                 shex:predicate <https://w3id.org/biolink/biolinkml/meta/defining_slots> ;
-                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/SlotDefinition> ] ) .
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/SlotDefinition> ] [ a shex:TripleConstraint ;
+                shex:max 1 ;
+                shex:min 0 ;
+                shex:predicate <https://w3id.org/biolink/biolinkml/meta/tree_root> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/type/Boolean> ] ) .
 
 <https://w3id.org/biolink/biolinkml/meta/Definition_struct> a shex:Shape ;
     shex:closed false ;

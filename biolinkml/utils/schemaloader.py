@@ -360,6 +360,14 @@ class SchemaLoader:
         if self.schema.source_file and '://' not in self.schema.source_file:
             self.schema.source_file = os.path.basename(self.schema.source_file)
 
+        # Make sure there is only one tree_root
+        tree_root = None
+        for cls in self.schema.classes.values():
+            if cls.tree_root:
+                if tree_root is not None:
+                    self.logger.warning(f"Duplicate tree_root: {cls.name} with {tree_root}")
+                else:
+                    tree_root = cls.name
 
         self.synopsis = SchemaSynopsis(self.schema)
         errs = self.synopsis.errors()
