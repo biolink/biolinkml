@@ -201,7 +201,7 @@ class TestEnvironment:
         if not filtr:
             filtr = lambda s: s
         filename = filename if isinstance(filename, List) else [filename]
-        actual_file = self.actual_path(*filename)
+        actual_file = self.root_temp_file_path(*filename) if use_testing_root else self.actual_path(*filename)
         expected_file = self.root_expected_path(*filename) if use_testing_root else self.expected_path(*filename)
 
         if value_is_returned:
