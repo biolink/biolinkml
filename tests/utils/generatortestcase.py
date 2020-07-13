@@ -59,7 +59,7 @@ class GeneratorTestCase(TestEnvironmentTestCase):
         generator_args['log_level'] = DEFAULT_LOG_LEVEL
         yaml_file = self.env.input_path(subdir or '', self.model_name + '.yaml')
 
-        self.env.generate_single_file(os.path.join(subdir or '', (output_name or self.model_name) + '.' + suffix),
+        self.env.generate_single_file([subdir or '', (output_name or self.model_name) + '.' + suffix],
                                       lambda: gen(yaml_file, **generator_args).serialize(**serialize_args),
                                       filtr=filtr, comparator=comparator, value_is_returned=True)
 
