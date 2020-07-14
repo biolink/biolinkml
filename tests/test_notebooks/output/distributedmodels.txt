@@ -29,8 +29,10 @@ metamodel_version = "1.5.1"
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
+AEOLUS = CurieNamespace('Aeolus', 'http://translator.ncats.nih.gov/Aeolus_')
 BFO = CurieNamespace('BFO', 'http://purl.obolibrary.org/obo/BFO_')
 BIOSAMPLE = CurieNamespace('BIOSAMPLE', 'http://identifiers.org/biosample/')
+BSPO = CurieNamespace('BSPO', 'http://purl.obolibrary.org/obo/BSPO_')
 CAID = CurieNamespace('CAID', 'http://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/by_caid?caid=')
 CHEBI = CurieNamespace('CHEBI', 'http://purl.obolibrary.org/obo/CHEBI_')
 CHEMBL_COMPOUND = CurieNamespace('CHEMBL_COMPOUND', 'http://identifiers.org/chembl.compound/')
@@ -38,24 +40,34 @@ CHEMBL_TARGET = CurieNamespace('CHEMBL_TARGET', 'http://identifiers.org/chembl.t
 CIO = CurieNamespace('CIO', 'http://purl.obolibrary.org/obo/CIO_')
 CL = CurieNamespace('CL', 'http://purl.obolibrary.org/obo/CL_')
 CLO = CurieNamespace('CLO', 'http://purl.obolibrary.org/obo/CLO_')
+CTD = CurieNamespace('CTD', 'http://translator.ncats.nih.gov/CTD_')
 CLINVAR = CurieNamespace('ClinVar', 'http://www.ncbi.nlm.nih.gov/clinvar/')
 DBSNP = CurieNamespace('DBSNP', 'http://identifiers.org/dbsnp/')
 DOID = CurieNamespace('DOID', 'http://purl.obolibrary.org/obo/DOID_')
 DRUGBANK = CurieNamespace('DRUGBANK', 'http://identifiers.org/drugbank/')
+DRUGCENTRAL = CurieNamespace('DrugCentral', 'http://translator.ncats.nih.gov/DrugCentral_')
+EC = CurieNamespace('EC', 'http://www.enzyme-database.org/query.php?ec=')
 ECO = CurieNamespace('ECO', 'http://purl.obolibrary.org/obo/ECO_')
 ECTO = CurieNamespace('ECTO', 'http://example.org/UNKNOWN/ECTO/')
 EFO = CurieNamespace('EFO', 'http://identifiers.org/efo/')
 ENSEMBL = CurieNamespace('ENSEMBL', 'http://identifiers.org/ensembl/')
 EXO = CurieNamespace('ExO', 'http://example.org/UNKNOWN/ExO/')
 FAO = CurieNamespace('FAO', 'http://purl.obolibrary.org/obo/FAO_')
+GAMMA = CurieNamespace('GAMMA', 'http://translator.renci.org/GAMMA_')
 GENO = CurieNamespace('GENO', 'http://purl.obolibrary.org/obo/GENO_')
 GO = CurieNamespace('GO', 'http://purl.obolibrary.org/obo/GO_')
 GOLD_META = CurieNamespace('GOLD_META', 'http://identifiers.org/gold.meta/')
+GOREL = CurieNamespace('GOREL', 'http://purl.obolibrary.org/obo/GOREL_')
+GTEX = CurieNamespace('GTEx', 'http://example.org/UNKNOWN/GTEx/')
 HANCESTRO = CurieNamespace('HANCESTRO', 'http://example.org/UNKNOWN/HANCESTRO/')
 HGNC = CurieNamespace('HGNC', 'http://identifiers.org/hgnc/')
+HGNC_FAMILY = CurieNamespace('HGNC_FAMILY', 'http://identifiers.org/hgnc.family/')
 HMDB = CurieNamespace('HMDB', 'http://identifiers.org/hmdb/')
 HP = CurieNamespace('HP', 'http://purl.obolibrary.org/obo/HP_')
 IAO = CurieNamespace('IAO', 'http://purl.obolibrary.org/obo/IAO_')
+ICD0 = CurieNamespace('ICD0', 'http://translator.ncats.nih.gov/ICD0_')
+ICD10 = CurieNamespace('ICD10', 'http://translator.ncats.nih.gov/ICD10_')
+ICD9 = CurieNamespace('ICD9', 'http://translator.ncats.nih.gov/ICD9_')
 INCHI = CurieNamespace('INCHI', 'http://identifiers.org/inchi/')
 INCHIKEY = CurieNamespace('INCHIKEY', 'http://identifiers.org/inchikey/')
 INTACT = CurieNamespace('INTACT', 'http://identifiers.org/intact/')
@@ -66,16 +78,20 @@ MESH = CurieNamespace('MESH', 'http://identifiers.org/mesh/')
 MGI = CurieNamespace('MGI', 'http://identifiers.org/mgi/')
 MIR = CurieNamespace('MIR', 'http://identifiers.org/mir/')
 MONDO = CurieNamespace('MONDO', 'http://purl.obolibrary.org/obo/MONDO_')
+MP = CurieNamespace('MP', 'http://purl.obolibrary.org/obo/MP_')
+METACYC = CurieNamespace('MetaCyc', 'http://translator.ncats.nih.gov/MetaCyc_')
 NCBIGENE = CurieNamespace('NCBIGene', 'http://www.ncbi.nlm.nih.gov/gene/')
+NCBITAXON = CurieNamespace('NCBITaxon', 'http://purl.obolibrary.org/obo/NCBITaxon_')
 NCIT = CurieNamespace('NCIT', 'http://purl.obolibrary.org/obo/NCIT_')
 OBAN = CurieNamespace('OBAN', 'http://purl.org/oban/')
 OBI = CurieNamespace('OBI', 'http://purl.obolibrary.org/obo/OBI_')
 OGMS = CurieNamespace('OGMS', 'http://purl.obolibrary.org/obo/OGMS_')
 OMIM = CurieNamespace('OMIM', 'http://purl.obolibrary.org/obo/OMIM_')
 ORPHANET = CurieNamespace('ORPHANET', 'http://identifiers.org/orphanet/')
-PANTHER = CurieNamespace('PANTHER', 'http://www.pantherdb.org/panther/family.do?clsAccession=')
+PANTHER_FAMILY = CurieNamespace('PANTHER_FAMILY', 'http://identifiers.org/panther.family/')
 PHARMGKB_DRUG = CurieNamespace('PHARMGKB_DRUG', 'http://identifiers.org/pharmgkb.drug/')
 PHARMGKB_PATHWAYS = CurieNamespace('PHARMGKB_PATHWAYS', 'http://identifiers.org/pharmgkb.pathways/')
+PHAROS = CurieNamespace('PHAROS', 'http://example.org/UNKNOWN/PHAROS/')
 PMID = CurieNamespace('PMID', 'http://www.ncbi.nlm.nih.gov/pubmed/')
 PO = CurieNamespace('PO', 'http://purl.obolibrary.org/obo/PO_')
 PR = CurieNamespace('PR', 'http://purl.obolibrary.org/obo/PR_')
@@ -91,9 +107,13 @@ SEMMEDDB = CurieNamespace('SEMMEDDB', 'http://example.org/UNKNOWN/SEMMEDDB/')
 SGD = CurieNamespace('SGD', 'http://identifiers.org/sgd/')
 SIO = CurieNamespace('SIO', 'http://semanticscience.org/resource/SIO_')
 SMPDB = CurieNamespace('SMPDB', 'http://identifiers.org/smpdb/')
+SNOMEDCT = CurieNamespace('SNOMEDCT', 'http://identifiers.org/snomedct/')
+SNPEFF = CurieNamespace('SNPEFF', 'http://translator.ncats.nih.gov/SNPEFF_')
 SO = CurieNamespace('SO', 'http://purl.obolibrary.org/obo/SO_')
 STATO = CurieNamespace('STATO', 'http://purl.obolibrary.org/obo/STATO_')
+UBERGRAPH = CurieNamespace('UBERGRAPH', 'http://translator.renci.org/ubergraph-axioms.ofn#')
 UBERON = CurieNamespace('UBERON', 'http://purl.obolibrary.org/obo/UBERON_')
+UBERON_CORE = CurieNamespace('UBERON_CORE', 'http://example.org/UNKNOWN/UBERON_CORE/')
 UMLS = CurieNamespace('UMLS', 'http://identifiers.org/umls/')
 UMLSSC = CurieNamespace('UMLSSC', 'https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/TUI/')
 UMLSSG = CurieNamespace('UMLSSG', 'https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/GROUP/')
@@ -104,16 +124,20 @@ UPHENO = CurieNamespace('UPHENO', 'http://purl.obolibrary.org/obo/UPHENO_')
 UNIPROTKB = CurieNamespace('UniProtKB', 'http://identifiers.org/uniprot/')
 VMC = CurieNamespace('VMC', 'http://example.org/UNKNOWN/VMC/')
 WB = CurieNamespace('WB', 'http://identifiers.org/wb/')
+WD = CurieNamespace('WD', 'http://example.org/UNKNOWN/WD/')
 WIKIDATA = CurieNamespace('WIKIDATA', 'http://identifiers.org/wikidata/')
 WIKIPATHWAYS = CurieNamespace('WIKIPATHWAYS', 'http://identifiers.org/wikipathways/')
 ZFIN = CurieNamespace('ZFIN', 'http://identifiers.org/zfin/')
 BIOLINK = CurieNamespace('biolink', 'https://w3id.org/biolink/vocab/')
 BIOLINKML = CurieNamespace('biolinkml', 'https://w3id.org/biolink/biolinkml/')
+CHEMBIO = CurieNamespace('chembio', 'http://example.org/UNKNOWN/chembio/')
 DCTERMS = CurieNamespace('dcterms', 'http://purl.org/dc/terms/')
 DICTYBASE = CurieNamespace('dictyBase', 'http://dictybase.org/gene/')
 DIST = CurieNamespace('dist', 'http://example.org/examples/dist1#')
 FALDO = CurieNamespace('faldo', 'http://biohackathon.org/resource/faldo#')
 GTPO = CurieNamespace('gtpo', 'https://rdf.guidetopharmacology.org/ns/gtpo#')
+HETIO = CurieNamespace('hetio', 'http://translator.ncats.nih.gov/hetio_')
+MEDGEN = CurieNamespace('medgen', 'http://example.org/UNKNOWN/medgen/')
 OWL = CurieNamespace('owl', 'http://www.w3.org/2002/07/owl#')
 PAV = CurieNamespace('pav', 'http://purl.org/pav/')
 QUD = CurieNamespace('qud', 'http://qudt.org/1.1/schema/qudt#')
@@ -4732,7 +4756,7 @@ slots.gene_has_sequence = Slot(uri=DIST.hasSeq, name="gene has sequence", curie=
                       model_uri=DIST.gene_has_sequence, domain=Gene, range=Union[str, GeneSequence])
 
 slots.related_to = Slot(uri=BIOLINK.related_to, name="related to", curie=BIOLINK.curie('related_to'),
-                      model_uri=DIST.related_to, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [OWL.topObjectProperty, SEMMEDDB.ASSOCIATED_WITH])
+                      model_uri=DIST.related_to, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [OWL.topObjectProperty, SEMMEDDB.ASSOCIATED_WITH, BFO["0000054"], UBERON_CORE.protects, GOREL["0002005"], GOREL["0012006"]])
 
 slots.interacts_with = Slot(uri=BIOLINK.interacts_with, name="interacts with", curie=BIOLINK.curie('interacts_with'),
                       model_uri=DIST.interacts_with, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [RO["0002434"]])
@@ -4741,166 +4765,166 @@ slots.physically_interacts_with = Slot(uri=BIOLINK.physically_interacts_with, na
                       model_uri=DIST.physically_interacts_with, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [WIKIDATA.P129, SEMMEDDB.INTERACTS_WITH])
 
 slots.molecularly_interacts_with = Slot(uri=BIOLINK.molecularly_interacts_with, name="molecularly interacts with", curie=BIOLINK.curie('molecularly_interacts_with'),
-                      model_uri=DIST.molecularly_interacts_with, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [RO["0002436"]])
+                      model_uri=DIST.molecularly_interacts_with, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [RO["0002436"], CTD.molecularly_interacts_with])
 
 slots.genetically_interacts_with = Slot(uri=BIOLINK.genetically_interacts_with, name="genetically interacts with", curie=BIOLINK.curie('genetically_interacts_with'),
                       model_uri=DIST.genetically_interacts_with, domain=Gene, range=List[Union[str, GeneId]], mappings = [RO["0002435"]])
 
 slots.affects = Slot(uri=BIOLINK.affects, name="affects", curie=BIOLINK.curie('affects'),
-                      model_uri=DIST.affects, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [SEMMEDDB.AFFECTS])
+                      model_uri=DIST.affects, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [SEMMEDDB.AFFECTS, GOREL["0001006"], CTD.inferred, CTD.prediction_hypothesis, UPHENO["0000001"]])
 
 slots.affects_abundance_of = Slot(uri=BIOLINK.affects_abundance_of, name="affects abundance of", curie=BIOLINK.curie('affects_abundance_of'),
-                      model_uri=DIST.affects_abundance_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.affects_abundance_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.affects_abundance_of])
 
 slots.increases_abundance_of = Slot(uri=BIOLINK.increases_abundance_of, name="increases abundance of", curie=BIOLINK.curie('increases_abundance_of'),
-                      model_uri=DIST.increases_abundance_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.increases_abundance_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.increases_abundance_of, UBERGRAPH.is_increase_of])
 
 slots.decreases_abundance_of = Slot(uri=BIOLINK.decreases_abundance_of, name="decreases abundance of", curie=BIOLINK.curie('decreases_abundance_of'),
-                      model_uri=DIST.decreases_abundance_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.decreases_abundance_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.decreases_abundance_of, UBERGRAPH.is_decrease_of])
 
 slots.affects_activity_of = Slot(uri=BIOLINK.affects_activity_of, name="affects activity of", curie=BIOLINK.curie('affects_activity_of'),
-                      model_uri=DIST.affects_activity_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.affects_activity_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.affects_activity_of, GAMMA.allosteric_modulator, GAMMA.modulator, GAMMA.regulator])
 
 slots.increases_activity_of = Slot(uri=BIOLINK.increases_activity_of, name="increases activity of", curie=BIOLINK.curie('increases_activity_of'),
-                      model_uri=DIST.increases_activity_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.increases_activity_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.increases_activity_of, GAMMA.activator, GAMMA.partial_agonist, GAMMA.agonist, GAMMA.opener, GAMMA.positive_allosteric_modulator, GAMMA.positive_modulator, GAMMA.ec50, GAMMA.ac50, GAMMA.inducer, GAMMA.potentiator, GAMMA.stimulator])
 
 slots.decreases_activity_of = Slot(uri=BIOLINK.decreases_activity_of, name="decreases activity of", curie=BIOLINK.curie('decreases_activity_of'),
-                      model_uri=DIST.decreases_activity_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.decreases_activity_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.decreases_activity_of, GAMMA.allosteric_antagonist, GAMMA.partial_antagonist, GAMMA.antagonist, GAMMA.weak_inhibitor, GAMMA.inhibitor, GAMMA.channel_blocker, GAMMA.gating_inhibitor, GAMMA.blocker, GAMMA.inverse_agonist, GAMMA.inactivator, GAMMA.downregulator, GAMMA.negative_modulator, GAMMA.negative_allosteric_modulator, GAMMA.inhibitory_allosteric_modulator, GAMMA.ic50, GAMMA.ki, GAMMA.aggregation_inhibitor, GAMMA.conversion_inhibitor, GAMMA.suppressor])
 
 slots.affects_expression_of = Slot(uri=BIOLINK.affects_expression_of, name="affects expression of", curie=BIOLINK.curie('affects_expression_of'),
-                      model_uri=DIST.affects_expression_of, domain=MolecularEntity, range=List[Union[str, GenomicEntityId]])
+                      model_uri=DIST.affects_expression_of, domain=MolecularEntity, range=List[Union[str, GenomicEntityId]], mappings = [CTD.affects_expression_of])
 
 slots.increases_expression_of = Slot(uri=BIOLINK.increases_expression_of, name="increases expression of", curie=BIOLINK.curie('increases_expression_of'),
-                      model_uri=DIST.increases_expression_of, domain=MolecularEntity, range=List[Union[str, GenomicEntityId]])
+                      model_uri=DIST.increases_expression_of, domain=MolecularEntity, range=List[Union[str, GenomicEntityId]], mappings = [CTD.increases_expression_of])
 
 slots.decreases_expression_of = Slot(uri=BIOLINK.decreases_expression_of, name="decreases expression of", curie=BIOLINK.curie('decreases_expression_of'),
-                      model_uri=DIST.decreases_expression_of, domain=MolecularEntity, range=List[Union[str, GenomicEntityId]])
+                      model_uri=DIST.decreases_expression_of, domain=MolecularEntity, range=List[Union[str, GenomicEntityId]], mappings = [CTD.decreases_expression_of])
 
 slots.affects_folding_of = Slot(uri=BIOLINK.affects_folding_of, name="affects folding of", curie=BIOLINK.curie('affects_folding_of'),
-                      model_uri=DIST.affects_folding_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.affects_folding_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.affects_folding_of])
 
 slots.increases_folding_of = Slot(uri=BIOLINK.increases_folding_of, name="increases folding of", curie=BIOLINK.curie('increases_folding_of'),
-                      model_uri=DIST.increases_folding_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.increases_folding_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.increases_folding_of])
 
 slots.decreases_folding_of = Slot(uri=BIOLINK.decreases_folding_of, name="decreases folding of", curie=BIOLINK.curie('decreases_folding_of'),
-                      model_uri=DIST.decreases_folding_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.decreases_folding_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.decreases_folding_of])
 
 slots.affects_localization_of = Slot(uri=BIOLINK.affects_localization_of, name="affects localization of", curie=BIOLINK.curie('affects_localization_of'),
-                      model_uri=DIST.affects_localization_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.affects_localization_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.affects_localization_of, GAMMA.storage, GOREL["0002003"]])
 
 slots.increases_localization_of = Slot(uri=BIOLINK.increases_localization_of, name="increases localization of", curie=BIOLINK.curie('increases_localization_of'),
-                      model_uri=DIST.increases_localization_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.increases_localization_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.increases_localization_of])
 
 slots.decreases_localization_of = Slot(uri=BIOLINK.decreases_localization_of, name="decreases localization of", curie=BIOLINK.curie('decreases_localization_of'),
-                      model_uri=DIST.decreases_localization_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.decreases_localization_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.decreases_localization_of])
 
 slots.affects_metabolic_processing_of = Slot(uri=BIOLINK.affects_metabolic_processing_of, name="affects metabolic processing of", curie=BIOLINK.curie('affects_metabolic_processing_of'),
-                      model_uri=DIST.affects_metabolic_processing_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.affects_metabolic_processing_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.affects_metabolic_processing_of, GAMMA.catalytic_activity])
 
 slots.increases_metabolic_processing_of = Slot(uri=BIOLINK.increases_metabolic_processing_of, name="increases metabolic processing of", curie=BIOLINK.curie('increases_metabolic_processing_of'),
-                      model_uri=DIST.increases_metabolic_processing_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.increases_metabolic_processing_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.increases_metabolic_processing_of])
 
 slots.decreases_metabolic_processing_of = Slot(uri=BIOLINK.decreases_metabolic_processing_of, name="decreases metabolic processing of", curie=BIOLINK.curie('decreases_metabolic_processing_of'),
-                      model_uri=DIST.decreases_metabolic_processing_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.decreases_metabolic_processing_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.decreases_metabolic_processing_of])
 
 slots.affects_molecular_modification_of = Slot(uri=BIOLINK.affects_molecular_modification_of, name="affects molecular modification of", curie=BIOLINK.curie('affects_molecular_modification_of'),
-                      model_uri=DIST.affects_molecular_modification_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.affects_molecular_modification_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.affects_molecular_modification_of, CTD.affects_acetylation, CTD.affects_acylation, CTD.affects_alkylation, CTD.affects_amination, CTD.affects_carbamoylation, CTD.affects_ethylation, CTD.affects_glutathionylation, CTD.affects_glycation, CTD.affects_glycosylation, CTD.affects_glucuronidation, CTD["affects_N-linked_glycosylation"], CTD["affects_O-linked_glycosylation"], CTD.affects_hydroxylation, CTD.affects_lipidation, CTD.affects_farnesylation, CTD.affects_geranoylation, CTD.affects_myristoylation, CTD.affects_palmitoylation, CTD.affects_prenylation, CTD.affects_methylation, CTD.affects_nitrosation, CTD.affects_nucleotidylation, CTD.affects_phosphorylation, CTD.affects_ribosylation, CTD["affects_ADP-ribosylation"], CTD.affects_sulfation, CTD.affects_sumoylation, CTD.affects_ubiquitination, CTD.affects_oxidation, CTD.affects_reduction, CTD.affects_carboxylation])
 
 slots.increases_molecular_modification_of = Slot(uri=BIOLINK.increases_molecular_modification_of, name="increases molecular modification of", curie=BIOLINK.curie('increases_molecular_modification_of'),
-                      model_uri=DIST.increases_molecular_modification_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.increases_molecular_modification_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.increases_molecular_modification_of, CTD.increases_acetylation, CTD.increases_acylation, CTD.increases_alkylation, CTD.increases_amination, CTD.increases_carbamoylation, CTD.increases_ethylation, CTD.increases_glutathionylation, CTD.increases_glycation, CTD.increases_glycosylation, CTD.increases_glucuronidation, CTD["increases_N-linked_glycosylation"], CTD["increases_O-linked_glycosylation"], CTD.increases_hydroxylation, CTD.increases_lipidation, CTD.increases_farnesylation, CTD.increases_geranoylation, CTD.increases_myristoylation, CTD.increases_palmitoylation, CTD.increases_prenylation, CTD.increases_methylation, CTD.increases_nitrosation, CTD.increases_nucleotidylation, CTD.increases_phosphorylation, CTD.increases_ribosylation, CTD["increases_ADP-ribosylation"], CTD.increases_sulfation, CTD.increases_sumoylation, CTD.increases_ubiquitination, CTD.increases_oxidation, CTD.increases_reduction, CTD.increases_carboxylation, GAMMA.acetylation, GAMMA.oxidizer])
 
 slots.decreases_molecular_modification_of = Slot(uri=BIOLINK.decreases_molecular_modification_of, name="decreases molecular modification of", curie=BIOLINK.curie('decreases_molecular_modification_of'),
-                      model_uri=DIST.decreases_molecular_modification_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.decreases_molecular_modification_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.decreases_molecular_modification_of, CTD.decreases_acetylation, CTD.decreases_acylation, CTD.decreases_alkylation, CTD.decreases_amination, CTD.decreases_carbamoylation, CTD.decreases_ethylation, CTD.decreases_glutathionylation, CTD.decreases_glycation, CTD.decreases_glycosylation, CTD.decreases_glucuronidation, CTD["decreases_N-linked_glycosylation"], CTD["decreases_O-linked_glycosylation"], CTD.decreases_hydroxylation, CTD.decreases_lipidation, CTD.decreases_farnesylation, CTD.decreases_geranoylation, CTD.decreases_myristoylation, CTD.decreases_palmitoylation, CTD.decreases_prenylation, CTD.decreases_methylation, CTD.decreases_nitrosation, CTD.decreases_nucleotidylation, CTD.decreases_phosphorylation, CTD.decreases_ribosylation, CTD["decreases_ADP-ribosylation"], CTD.decreases_sulfation, CTD.decreases_sumoylation, CTD.decreases_ubiquitination, CTD.decreases_oxidation, CTD.decreases_reduction, CTD.decreases_carboxylation, GAMMA.deoxidizer])
 
 slots.affects_synthesis_of = Slot(uri=BIOLINK.affects_synthesis_of, name="affects synthesis of", curie=BIOLINK.curie('affects_synthesis_of'),
-                      model_uri=DIST.affects_synthesis_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.affects_synthesis_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.affects_synthesis_of])
 
 slots.increases_synthesis_of = Slot(uri=BIOLINK.increases_synthesis_of, name="increases synthesis of", curie=BIOLINK.curie('increases_synthesis_of'),
-                      model_uri=DIST.increases_synthesis_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.increases_synthesis_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.increases_synthesis_of])
 
 slots.decreases_synthesis_of = Slot(uri=BIOLINK.decreases_synthesis_of, name="decreases synthesis of", curie=BIOLINK.curie('decreases_synthesis_of'),
-                      model_uri=DIST.decreases_synthesis_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.decreases_synthesis_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.decreases_synthesis_of, GAMMA.inhibition_of_synthesis])
 
 slots.affects_degradation_of = Slot(uri=BIOLINK.affects_degradation_of, name="affects degradation of", curie=BIOLINK.curie('affects_degradation_of'),
-                      model_uri=DIST.affects_degradation_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.affects_degradation_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.affects_degradation_of, CTD.affects_cleavage, CTD.affects_hydrolysis])
 
 slots.increases_degradation_of = Slot(uri=BIOLINK.increases_degradation_of, name="increases degradation of", curie=BIOLINK.curie('increases_degradation_of'),
-                      model_uri=DIST.increases_degradation_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.increases_degradation_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.increases_degradation_of, CTD.increases_cleavage, CTD.increases_hydrolysis, GAMMA.substrate, GOREL["0002004"]])
 
 slots.decreases_degradation_of = Slot(uri=BIOLINK.decreases_degradation_of, name="decreases degradation of", curie=BIOLINK.curie('decreases_degradation_of'),
-                      model_uri=DIST.decreases_degradation_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.decreases_degradation_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.decreases_degradation_of, CTD.decreases_cleavage, CTD.decreases_hydrolysis])
 
 slots.affects_mutation_rate_of = Slot(uri=BIOLINK.affects_mutation_rate_of, name="affects mutation rate of", curie=BIOLINK.curie('affects_mutation_rate_of'),
-                      model_uri=DIST.affects_mutation_rate_of, domain=MolecularEntity, range=List[Union[str, GenomicEntityId]])
+                      model_uri=DIST.affects_mutation_rate_of, domain=MolecularEntity, range=List[Union[str, GenomicEntityId]], mappings = [CTD.affects_mutation_rate_of, CTD.affects_mutagenesis])
 
 slots.increases_mutation_rate_of = Slot(uri=BIOLINK.increases_mutation_rate_of, name="increases mutation rate of", curie=BIOLINK.curie('increases_mutation_rate_of'),
-                      model_uri=DIST.increases_mutation_rate_of, domain=MolecularEntity, range=List[Union[str, GenomicEntityId]])
+                      model_uri=DIST.increases_mutation_rate_of, domain=MolecularEntity, range=List[Union[str, GenomicEntityId]], mappings = [CTD.increases_mutation_rate_of, CTD.increases_mutagenesis])
 
 slots.decreases_mutation_rate_of = Slot(uri=BIOLINK.decreases_mutation_rate_of, name="decreases mutation rate of", curie=BIOLINK.curie('decreases_mutation_rate_of'),
-                      model_uri=DIST.decreases_mutation_rate_of, domain=MolecularEntity, range=List[Union[str, GenomicEntityId]])
+                      model_uri=DIST.decreases_mutation_rate_of, domain=MolecularEntity, range=List[Union[str, GenomicEntityId]], mappings = [CTD.decreases_mutation_rate_of, CTD.decreases_mutagenesis])
 
 slots.affects_response_to = Slot(uri=BIOLINK.affects_response_to, name="affects response to", curie=BIOLINK.curie('affects_response_to'),
-                      model_uri=DIST.affects_response_to, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.affects_response_to, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.affects_response_to])
 
 slots.increases_response_to = Slot(uri=BIOLINK.increases_response_to, name="increases response to", curie=BIOLINK.curie('increases_response_to'),
-                      model_uri=DIST.increases_response_to, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.increases_response_to, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.increases_response_to])
 
 slots.decreases_response_to = Slot(uri=BIOLINK.decreases_response_to, name="decreases response to", curie=BIOLINK.curie('decreases_response_to'),
-                      model_uri=DIST.decreases_response_to, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.decreases_response_to, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.decreases_response_to, CTD.decreases_response_to_substance, GAMMA.desensitize_the_target])
 
 slots.affects_splicing_of = Slot(uri=BIOLINK.affects_splicing_of, name="affects splicing of", curie=BIOLINK.curie('affects_splicing_of'),
-                      model_uri=DIST.affects_splicing_of, domain=MolecularEntity, range=List[Union[str, TranscriptId]])
+                      model_uri=DIST.affects_splicing_of, domain=MolecularEntity, range=List[Union[str, TranscriptId]], mappings = [CTD.affects_splicing_of, CTD.affects_RNA_splicing])
 
 slots.increases_splicing_of = Slot(uri=BIOLINK.increases_splicing_of, name="increases splicing of", curie=BIOLINK.curie('increases_splicing_of'),
-                      model_uri=DIST.increases_splicing_of, domain=MolecularEntity, range=List[Union[str, TranscriptId]])
+                      model_uri=DIST.increases_splicing_of, domain=MolecularEntity, range=List[Union[str, TranscriptId]], mappings = [CTD.increases_splicing_of, CTD.increases_RNA_splicing])
 
 slots.decreases_splicing_of = Slot(uri=BIOLINK.decreases_splicing_of, name="decreases splicing of", curie=BIOLINK.curie('decreases_splicing_of'),
-                      model_uri=DIST.decreases_splicing_of, domain=MolecularEntity, range=List[Union[str, TranscriptId]])
+                      model_uri=DIST.decreases_splicing_of, domain=MolecularEntity, range=List[Union[str, TranscriptId]], mappings = [CTD.decreases_splicing_of, CTD.decreases_RNA_splicing])
 
 slots.affects_stability_of = Slot(uri=BIOLINK.affects_stability_of, name="affects stability of", curie=BIOLINK.curie('affects_stability_of'),
-                      model_uri=DIST.affects_stability_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.affects_stability_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.affects_stability_of, GAMMA.stabilization])
 
 slots.increases_stability_of = Slot(uri=BIOLINK.increases_stability_of, name="increases stability of", curie=BIOLINK.curie('increases_stability_of'),
-                      model_uri=DIST.increases_stability_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.increases_stability_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.increases_stability_of])
 
 slots.decreases_stability_of = Slot(uri=BIOLINK.decreases_stability_of, name="decreases stability of", curie=BIOLINK.curie('decreases_stability_of'),
-                      model_uri=DIST.decreases_stability_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.decreases_stability_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.decreases_stability_of])
 
 slots.affects_transport_of = Slot(uri=BIOLINK.affects_transport_of, name="affects transport of", curie=BIOLINK.curie('affects_transport_of'),
-                      model_uri=DIST.affects_transport_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.affects_transport_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.affects_transport_of])
 
 slots.increases_transport_of = Slot(uri=BIOLINK.increases_transport_of, name="increases transport of", curie=BIOLINK.curie('increases_transport_of'),
-                      model_uri=DIST.increases_transport_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.increases_transport_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.increases_transport_of, GAMMA.carrier, GAMMA.transporter])
 
 slots.decreases_transport_of = Slot(uri=BIOLINK.decreases_transport_of, name="decreases transport of", curie=BIOLINK.curie('decreases_transport_of'),
-                      model_uri=DIST.decreases_transport_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.decreases_transport_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.decreases_transport_of])
 
 slots.affects_secretion_of = Slot(uri=BIOLINK.affects_secretion_of, name="affects secretion of", curie=BIOLINK.curie('affects_secretion_of'),
-                      model_uri=DIST.affects_secretion_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.affects_secretion_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.affects_secretion_of, CTD.affects_export])
 
 slots.increases_secretion_of = Slot(uri=BIOLINK.increases_secretion_of, name="increases secretion of", curie=BIOLINK.curie('increases_secretion_of'),
-                      model_uri=DIST.increases_secretion_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.increases_secretion_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.increases_secretion_of, CTD.increases_export])
 
 slots.decreases_secretion_of = Slot(uri=BIOLINK.decreases_secretion_of, name="decreases secretion of", curie=BIOLINK.curie('decreases_secretion_of'),
-                      model_uri=DIST.decreases_secretion_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.decreases_secretion_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.decreases_secretion_of, CTD.decreases_export])
 
 slots.affects_uptake_of = Slot(uri=BIOLINK.affects_uptake_of, name="affects uptake of", curie=BIOLINK.curie('affects_uptake_of'),
-                      model_uri=DIST.affects_uptake_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.affects_uptake_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.affects_uptake_of, CTD.affects_import])
 
 slots.increases_uptake_of = Slot(uri=BIOLINK.increases_uptake_of, name="increases uptake of", curie=BIOLINK.curie('increases_uptake_of'),
-                      model_uri=DIST.increases_uptake_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.increases_uptake_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.increases_uptake_of, CTD.increases_import])
 
 slots.decreases_uptake_of = Slot(uri=BIOLINK.decreases_uptake_of, name="decreases uptake of", curie=BIOLINK.curie('decreases_uptake_of'),
-                      model_uri=DIST.decreases_uptake_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]])
+                      model_uri=DIST.decreases_uptake_of, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.decreases_uptake_of, CTD.decreases_import])
 
 slots.regulates = Slot(uri=BIOLINK.regulates, name="regulates", curie=BIOLINK.curie('regulates'),
                       model_uri=DIST.regulates, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [WIKIDATA.P128])
 
 slots.positively_regulates = Slot(uri=BIOLINK.positively_regulates, name="positively regulates", curie=BIOLINK.curie('positively_regulates'),
-                      model_uri=DIST.positively_regulates, domain=NamedThing, range=List[Union[str, NamedThingId]])
+                      model_uri=DIST.positively_regulates, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [RO["0002213"]])
 
 slots.negatively_regulates = Slot(uri=BIOLINK.negatively_regulates, name="negatively regulates", curie=BIOLINK.curie('negatively_regulates'),
-                      model_uri=DIST.negatively_regulates, domain=NamedThing, range=List[Union[str, NamedThingId]])
+                      model_uri=DIST.negatively_regulates, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [RO["0004033"], RO["0004035"]])
 
 slots.regulates_process_to_process = Slot(uri=BIOLINK.regulates_process_to_process, name="regulates, process to process", curie=BIOLINK.curie('regulates_process_to_process'),
                       model_uri=DIST.regulates_process_to_process, domain=Occurrent, range=List[Union[str, OccurrentId]], mappings = [RO["0002211"]])
@@ -4915,10 +4939,10 @@ slots.regulates_entity_to_entity = Slot(uri=BIOLINK.regulates_entity_to_entity, 
                       model_uri=DIST.regulates_entity_to_entity, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [RO["0002448"]])
 
 slots.positively_regulates_entity_to_entity = Slot(uri=BIOLINK.positively_regulates_entity_to_entity, name="positively regulates, entity to entity", curie=BIOLINK.curie('positively_regulates_entity_to_entity'),
-                      model_uri=DIST.positively_regulates_entity_to_entity, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [RO["0002450"], SEMMEDDB.STIMULATES])
+                      model_uri=DIST.positively_regulates_entity_to_entity, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [RO["0002450"], SEMMEDDB.STIMULATES, HETIO.UPREGULATES_AuG, HETIO.UPREGULATES_DuG, RO["0004034"]])
 
 slots.negatively_regulates_entity_to_entity = Slot(uri=BIOLINK.negatively_regulates_entity_to_entity, name="negatively regulates, entity to entity", curie=BIOLINK.curie('negatively_regulates_entity_to_entity'),
-                      model_uri=DIST.negatively_regulates_entity_to_entity, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [RO["0002449"], SEMMEDDB.INHIBITS])
+                      model_uri=DIST.negatively_regulates_entity_to_entity, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [RO["0002449"], SEMMEDDB.INHIBITS, HETIO.DOWNREGULATES_AdG, HETIO.DOWNREGULATES_DdG])
 
 slots.disrupts = Slot(uri=BIOLINK.disrupts, name="disrupts", curie=BIOLINK.curie('disrupts'),
                       model_uri=DIST.disrupts, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [SEMMEDDB.DISRUPTS])
@@ -4927,7 +4951,7 @@ slots.has_gene_product = Slot(uri=BIOLINK.has_gene_product, name="has gene produ
                       model_uri=DIST.has_gene_product, domain=Gene, range=List[Union[str, GeneProductId]], mappings = [RO["0002205"], WIKIDATA.P688])
 
 slots.homologous_to = Slot(uri=BIOLINK.homologous_to, name="homologous to", curie=BIOLINK.curie('homologous_to'),
-                      model_uri=DIST.homologous_to, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [RO.HOM0000001, SIO["010302"]])
+                      model_uri=DIST.homologous_to, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [RO.HOM0000001, SIO["010302"], UBERON_CORE.sexually_homologous_to])
 
 slots.paralogous_to = Slot(uri=BIOLINK.paralogous_to, name="paralogous to", curie=BIOLINK.curie('paralogous_to'),
                       model_uri=DIST.paralogous_to, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [RO.HOM0000011])
@@ -4939,7 +4963,7 @@ slots.xenologous_to = Slot(uri=BIOLINK.xenologous_to, name="xenologous to", curi
                       model_uri=DIST.xenologous_to, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [RO.HOM0000018])
 
 slots.coexists_with = Slot(uri=BIOLINK.coexists_with, name="coexists with", curie=BIOLINK.curie('coexists_with'),
-                      model_uri=DIST.coexists_with, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [SEMMEDDB.COEXISTS_WITH])
+                      model_uri=DIST.coexists_with, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [SEMMEDDB.COEXISTS_WITH, BSPO["0000096"], BSPO["0000097"], BSPO["0000098"], BSPO["0000099"], BSPO["0000100"], BSPO["0000102"], BSPO["0000104"], BSPO["0015001"], BSPO["0015002"], BSPO["0015003"], BSPO["0015005"], BSPO["0015007"], BSPO["0015008"], BSPO["0015014"], UBERON_CORE.anastomoses_with, UBERON_CORE.anteriorly_connected_to, UBERON_CORE.posteriorly_connected_to, UBERON_CORE.channel_for, UBERON_CORE.channels_from, UBERON_CORE.channels_into, UBERON_CORE.conduit_for, UBERON_CORE.distally_connected_to, UBERON_CORE.extends_fibers_into, UBERON_CORE.filtered_through, UBERON_CORE.indirectly_supplies, UBERON_CORE.proximally_connected_to, UBERON_CORE.synapsed_by, UBERON_CORE.transitively_anteriorly_connected_to, UBERON_CORE.transitively_connected_to, UBERON_CORE.transitively_distally_connected_to, UBERON_CORE.transitively_proximally_connected_to, BSPO["0015009"], BSPO["0015012"], BSPO.parallel_to])
 
 slots.in_pathway_with = Slot(uri=BIOLINK.in_pathway_with, name="in pathway with", curie=BIOLINK.curie('in_pathway_with'),
                       model_uri=DIST.in_pathway_with, domain=GeneOrGeneProduct, range=List[Union[str, GeneOrGeneProductId]])
@@ -4954,7 +4978,7 @@ slots.colocalizes_with = Slot(uri=BIOLINK.colocalizes_with, name="colocalizes wi
                       model_uri=DIST.colocalizes_with, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [RO["00002325"]])
 
 slots.gene_associated_with_condition = Slot(uri=BIOLINK.gene_associated_with_condition, name="gene associated with condition", curie=BIOLINK.curie('gene_associated_with_condition'),
-                      model_uri=DIST.gene_associated_with_condition, domain=Gene, range=List[Union[str, DiseaseOrPhenotypicFeatureId]], mappings = [WIKIDATA.P2293])
+                      model_uri=DIST.gene_associated_with_condition, domain=Gene, range=List[Union[str, DiseaseOrPhenotypicFeatureId]], mappings = [WD.P2293, GENO["0000840"], GENO["0000841"], NCIT.R176, HETIO.ASSOCIATES_DaG])
 
 slots.affects_risk_for = Slot(uri=BIOLINK.affects_risk_for, name="affects risk for", curie=BIOLINK.curie('affects_risk_for'),
                       model_uri=DIST.affects_risk_for, domain=NamedThing, range=List[Union[str, NamedThingId]])
@@ -4963,16 +4987,16 @@ slots.predisposes = Slot(uri=BIOLINK.predisposes, name="predisposes", curie=BIOL
                       model_uri=DIST.predisposes, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [SEMMEDDB.PREDISPOSES])
 
 slots.contributes_to = Slot(uri=BIOLINK.contributes_to, name="contributes to", curie=BIOLINK.curie('contributes_to'),
-                      model_uri=DIST.contributes_to, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [RO["0002326"]])
+                      model_uri=DIST.contributes_to, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [RO["0002326"], CTD.marker_mechanism, CTD.positivecorrelation])
 
 slots.causes = Slot(uri=BIOLINK.causes, name="causes", curie=BIOLINK.curie('causes'),
-                      model_uri=DIST.causes, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [RO["0002410"], SEMMEDDB.CAUSES, WIKIDATA.P1542])
+                      model_uri=DIST.causes, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [RO["0002410"], SEMMEDDB.CAUSES, WIKIDATA.P1542, MONDO.disease_triggers])
 
 slots.caused_by = Slot(uri=BIOLINK.caused_by, name="caused by", curie=BIOLINK.curie('caused_by'),
                       model_uri=DIST.caused_by, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [WIKIDATA.P828])
 
 slots.treats = Slot(uri=BIOLINK.treats, name="treats", curie=BIOLINK.curie('treats'),
-                      model_uri=DIST.treats, domain=Treatment, range=List[Union[str, DiseaseOrPhenotypicFeatureId]], mappings = [RO["0002606"], RO["0003307"], SEMMEDDB.TREATS, WIKIDATA.P2175])
+                      model_uri=DIST.treats, domain=Treatment, range=List[Union[str, DiseaseOrPhenotypicFeatureId]], mappings = [RO["0002606"], RO["0003307"], SEMMEDDB.TREATS, WIKIDATA.P2175, CTD.therapeutic, CTD.negativecorrelation, MONDO.disease_responds_to])
 
 slots.prevents = Slot(uri=BIOLINK.prevents, name="prevents", curie=BIOLINK.curie('prevents'),
                       model_uri=DIST.prevents, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [RO["0002599"], SEMMEDDB.PREVENTS])
@@ -4993,16 +5017,16 @@ slots.expressed_in = Slot(uri=BIOLINK.expressed_in, name="expressed in", curie=B
                       model_uri=DIST.expressed_in, domain=GeneOrGeneProduct, range=List[Union[str, AnatomicalEntityId]], mappings = [RO["0002206"]])
 
 slots.expresses = Slot(uri=BIOLINK.expresses, name="expresses", curie=BIOLINK.curie('expresses'),
-                      model_uri=DIST.expresses, domain=AnatomicalEntity, range=List[Union[str, GeneOrGeneProductId]], mappings = [RO["0002292"]])
+                      model_uri=DIST.expresses, domain=AnatomicalEntity, range=List[Union[str, GeneOrGeneProductId]], mappings = [RO["0002292"], HETIO.EXPRESSES_AeG])
 
 slots.has_phenotype = Slot(uri=BIOLINK.has_phenotype, name="has phenotype", curie=BIOLINK.curie('has_phenotype'),
-                      model_uri=DIST.has_phenotype, domain=BiologicalEntity, range=List[Union[str, PhenotypicFeatureId]], mappings = [RO["0002200"]])
+                      model_uri=DIST.has_phenotype, domain=BiologicalEntity, range=List[Union[str, PhenotypicFeatureId]], mappings = [RO["0002200"], HETIO.PRESENTS_DpS])
 
 slots.occurs_in = Slot(uri=BIOLINK.occurs_in, name="occurs in", curie=BIOLINK.curie('occurs_in'),
-                      model_uri=DIST.occurs_in, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [BFO["0000066"], SEMMEDDB.OCCURS_IN, SEMMEDDB.PROCESS_OF])
+                      model_uri=DIST.occurs_in, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [BFO["0000066"], SEMMEDDB.OCCURS_IN, SEMMEDDB.PROCESS_OF, UBERON_CORE.site_of])
 
 slots.located_in = Slot(uri=BIOLINK.located_in, name="located in", curie=BIOLINK.curie('located_in'),
-                      model_uri=DIST.located_in, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [RO["0001025"]])
+                      model_uri=DIST.located_in, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [RO["0001025"], GOREL["0001004"], BSPO["0000107"], BSPO["0000108"], BSPO["0000120"], BSPO["0000121"], BSPO["0000122"], BSPO["0000123"], BSPO["0000124"], BSPO["0000125"], BSPO["0000126"], BSPO["0001100"], BSPO["0001101"], BSPO["0001107"], BSPO["0015101"], BSPO["0015102"], BSPO["0015202"], UBERON_CORE.in_central_side_of, UBERON_CORE.in_innermost_side_of, UBERON_CORE.in_outermost_side_of])
 
 slots.location_of = Slot(uri=BIOLINK.location_of, name="location of", curie=BIOLINK.curie('location_of'),
                       model_uri=DIST.location_of, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [RO["0001015"], SEMMEDDB.LOCATION_OF, WIKIDATA["276"]])
@@ -5011,16 +5035,16 @@ slots.model_of = Slot(uri=BIOLINK.model_of, name="model of", curie=BIOLINK.curie
                       model_uri=DIST.model_of, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [RO["0003301"]])
 
 slots.overlaps = Slot(uri=BIOLINK.overlaps, name="overlaps", curie=BIOLINK.curie('overlaps'),
-                      model_uri=DIST.overlaps, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [RO["0002131"]])
+                      model_uri=DIST.overlaps, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [RO["0002131"], BSPO["0005001"]])
 
 slots.has_part = Slot(uri=BIOLINK.has_part, name="has part", curie=BIOLINK.curie('has_part'),
                       model_uri=DIST.has_part, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [BFO["0000051"], WIKIDATA.P527])
 
 slots.part_of = Slot(uri=BIOLINK.part_of, name="part of", curie=BIOLINK.curie('part_of'),
-                      model_uri=DIST.part_of, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [BFO["0000050"], SEMMEDDB.PART_OF, WIKIDATA.P361])
+                      model_uri=DIST.part_of, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [BFO["0000050"], SEMMEDDB.PART_OF, WIKIDATA.P361, BSPO["0001106"], BSPO["0001108"], BSPO["0001113"], BSPO["0001115"], UBERON_CORE.layer_part_of, UBERON_CORE.subdivision_of, UBERON_CORE.trunk_part_of])
 
 slots.has_participant = Slot(uri=BIOLINK.has_participant, name="has participant", curie=BIOLINK.curie('has_participant'),
-                      model_uri=DIST.has_participant, domain=Occurrent, range=List[Union[str, NamedThingId]], mappings = [RO["0000057"], WIKIDATA.P2283])
+                      model_uri=DIST.has_participant, domain=Occurrent, range=List[Union[str, NamedThingId]], mappings = [RO["0000057"], WIKIDATA.P2283, GOREL["0001007"], GOREL["0002008"]])
 
 slots.has_input = Slot(uri=BIOLINK.has_input, name="has input", curie=BIOLINK.curie('has_input'),
                       model_uri=DIST.has_input, domain=Occurrent, range=List[Union[str, NamedThingId]], mappings = [RO["0002233"], SEMMEDDB.USES])
@@ -5029,7 +5053,7 @@ slots.has_output = Slot(uri=BIOLINK.has_output, name="has output", curie=BIOLINK
                       model_uri=DIST.has_output, domain=Occurrent, range=List[Union[str, NamedThingId]], mappings = [RO["0002234"]])
 
 slots.participates_in = Slot(uri=BIOLINK.participates_in, name="participates in", curie=BIOLINK.curie('participates_in'),
-                      model_uri=DIST.participates_in, domain=NamedThing, range=List[Union[str, OccurrentId]], mappings = [RO["0000056"]])
+                      model_uri=DIST.participates_in, domain=NamedThing, range=List[Union[str, OccurrentId]], mappings = [RO["0000056"], BFO["0000056"]])
 
 slots.actively_involved_in = Slot(uri=BIOLINK.actively_involved_in, name="actively involved in", curie=BIOLINK.curie('actively_involved_in'),
                       model_uri=DIST.actively_involved_in, domain=NamedThing, range=List[Union[str, OccurrentId]], mappings = [RO["0002331"]])
@@ -5053,16 +5077,76 @@ slots.manifestation_of = Slot(uri=BIOLINK.manifestation_of, name="manifestation 
                       model_uri=DIST.manifestation_of, domain=NamedThing, range=List[Union[str, DiseaseId]], mappings = [SEMMEDDB.MANIFESTATION_OF, WIKIDATA.P1557])
 
 slots.produces = Slot(uri=BIOLINK.produces, name="produces", curie=BIOLINK.curie('produces'),
-                      model_uri=DIST.produces, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [RO["0003000"], WIKIDATA.P1056, SEMMEDDB.PRODUCES])
+                      model_uri=DIST.produces, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [RO["0003000"], WIKIDATA.P1056, SEMMEDDB.PRODUCES, GOREL["0001010"]])
 
 slots.precedes = Slot(uri=BIOLINK.precedes, name="precedes", curie=BIOLINK.curie('precedes'),
-                      model_uri=DIST.precedes, domain=Occurrent, range=List[Union[str, OccurrentId]], mappings = [BFO["0000063"], SEMMEDDB.PRECEDES, WIKIDATA.P156])
+                      model_uri=DIST.precedes, domain=Occurrent, range=List[Union[str, OccurrentId]], mappings = [BFO["0000063"], SEMMEDDB.PRECEDES, WIKIDATA.P156, RO["0002263"], RO["0002264"]])
 
 slots.same_as = Slot(uri=BIOLINK.same_as, name="same as", curie=BIOLINK.curie('same_as'),
                       model_uri=DIST.same_as, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [OWL.equivalentClass, OWL.sameAs, SKOS.exactMatch, WIKIDATA.P2888])
 
 slots.subclass_of = Slot(uri=BIOLINK.subclass_of, name="subclass of", curie=BIOLINK.curie('subclass_of'),
                       model_uri=DIST.subclass_of, domain=OntologyClass, range=List[Union[str, OntologyClassId]], mappings = [RDFS.subClassOf, SEMMEDDB.IS_A, WIKIDATA.P279])
+
+slots.directly_interacts_with = Slot(uri=BIOLINK.directly_interacts_with, name="directly interacts with", curie=BIOLINK.curie('directly_interacts_with'),
+                      model_uri=DIST.directly_interacts_with, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [SIO["000203"], CHEMBIO.interacts, CTD.interacts_with, CTD.affects_binding, PHAROS.drug_targets, GAMMA.interacts_with, GAMMA.antibody_binding, GAMMA.other, GAMMA.other_unknown, GAMMA.pharmacological_chaperone, GAMMA.releasing_agent, GAMMA.kd, GAMMA.kb, GAMMA.binder, GAMMA.binding, GAMMA.ligand, GAMMA.cofactor, GAMMA.potency, GAMMA.none, GAMMA.multitarget, GAMMA.chaperone, GAMMA.component, GAMMA.adduct, GAMMA.antibody])
+
+slots.affects_expression_in = Slot(uri=BIOLINK.affects_expression_in, name="affects expression in", curie=BIOLINK.curie('affects_expression_in'),
+                      model_uri=DIST.affects_expression_in, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [GTEX.affects_expression_in])
+
+slots.is_missense_variant_of = Slot(uri=BIOLINK.is_missense_variant_of, name="is missense variant of", curie=BIOLINK.curie('is_missense_variant_of'),
+                      model_uri=DIST.is_missense_variant_of, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [SO["0001583"], SNPEFF.missense_variant, SNPEFF.initiator_codon_variant, SNPEFF.structural_interaction_variant])
+
+slots.is_synonymous_variant_of = Slot(uri=BIOLINK.is_synonymous_variant_of, name="is synonymous variant of", curie=BIOLINK.curie('is_synonymous_variant_of'),
+                      model_uri=DIST.is_synonymous_variant_of, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [SO["0001819"], SNPEFF.synonymous_variant, SNPEFF.start_retained, SNPEFF.stop_retained_variant])
+
+slots.is_nonsense_variant_of = Slot(uri=BIOLINK.is_nonsense_variant_of, name="is nonsense variant of", curie=BIOLINK.curie('is_nonsense_variant_of'),
+                      model_uri=DIST.is_nonsense_variant_of, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [SO["0002054"], SNPEFF.stop_gained, SNPEFF.start_lost, SNPEFF.stop_lost, SNPEFF.frameshift_variant])
+
+slots.is_splice_site_variant_of = Slot(uri=BIOLINK.is_splice_site_variant_of, name="is splice site variant of", curie=BIOLINK.curie('is_splice_site_variant_of'),
+                      model_uri=DIST.is_splice_site_variant_of, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [SO["0001629"], SNPEFF.splice_region_variant, SNPEFF.splice_acceptor_variant, SNPEFF.splice_donor_variant])
+
+slots.is_nearby_variant_of = Slot(uri=BIOLINK.is_nearby_variant_of, name="is nearby variant of", curie=BIOLINK.curie('is_nearby_variant_of'),
+                      model_uri=DIST.is_nearby_variant_of, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [GAMMA["0000102"], SNPEFF.downstream_gene_variant, SNPEFF.upstream_gene_variant])
+
+slots.is_non_coding_variant_of = Slot(uri=BIOLINK.is_non_coding_variant_of, name="is non coding variant of", curie=BIOLINK.curie('is_non_coding_variant_of'),
+                      model_uri=DIST.is_non_coding_variant_of, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [GAMMA["0000103"], SNPEFF["3_prime_UTR_variant"], SNPEFF["5_prime_UTR_variant"], SNPEFF["5_prime_UTR_premature_start_codon_gain_variant"], SNPEFF.non_coding_transcript_exon_variant, SNPEFF.intron_variant])
+
+slots.disease_has_basis_in = Slot(uri=BIOLINK.disease_has_basis_in, name="disease has basis in", curie=BIOLINK.curie('disease_has_basis_in'),
+                      model_uri=DIST.disease_has_basis_in, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [MONDO.disease_has_basis_in_development_of, MONDO.disease_has_basis_in_accumulation_of])
+
+slots.causes_adverse_event = Slot(uri=BIOLINK.causes_adverse_event, name="causes adverse event", curie=BIOLINK.curie('causes_adverse_event'),
+                      model_uri=DIST.causes_adverse_event, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [AEOLUS["0000001"]])
+
+slots.contraindicated_for = Slot(uri=BIOLINK.contraindicated_for, name="contraindicated for", curie=BIOLINK.curie('contraindicated_for'),
+                      model_uri=DIST.contraindicated_for, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [DRUGCENTRAL["0000001"]])
+
+slots.has_not_completed = Slot(uri=BIOLINK.has_not_completed, name="has not completed", curie=BIOLINK.curie('has_not_completed'),
+                      model_uri=DIST.has_not_completed, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [CL.has_not_completed])
+
+slots.has_completed = Slot(uri=BIOLINK.has_completed, name="has completed", curie=BIOLINK.curie('has_completed'),
+                      model_uri=DIST.has_completed, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [CL.has_completed])
+
+slots.decreases_molecular_interaction = Slot(uri=BIOLINK.decreases_molecular_interaction, name="decreases molecular interaction", curie=BIOLINK.curie('decreases_molecular_interaction'),
+                      model_uri=DIST.decreases_molecular_interaction, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.decreases_molecular_interaction_with])
+
+slots.increases_molecular_interaction = Slot(uri=BIOLINK.increases_molecular_interaction, name="increases molecular interaction", curie=BIOLINK.curie('increases_molecular_interaction'),
+                      model_uri=DIST.increases_molecular_interaction, domain=MolecularEntity, range=List[Union[str, MolecularEntityId]], mappings = [CTD.increases_molecular_interaction_with])
+
+slots.produced_by = Slot(uri=BIOLINK.produced_by, name="produced by", curie=BIOLINK.curie('produced_by'),
+                      model_uri=DIST.produced_by, domain=NamedThing, range=List[Union[str, NamedThingId]])
+
+slots.in_linkage_disequilibrium_with = Slot(uri=BIOLINK.in_linkage_disequilibrium_with, name="in linkage disequilibrium with", curie=BIOLINK.curie('in_linkage_disequilibrium_with'),
+                      model_uri=DIST.in_linkage_disequilibrium_with, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [NCIT.C16798])
+
+slots.has_increased_amount = Slot(uri=BIOLINK.has_increased_amount, name="has increased amount", curie=BIOLINK.curie('has_increased_amount'),
+                      model_uri=DIST.has_increased_amount, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [CL.has_high_plasma_membrane_amount])
+
+slots.has_decreased_amount = Slot(uri=BIOLINK.has_decreased_amount, name="has decreased amount", curie=BIOLINK.curie('has_decreased_amount'),
+                      model_uri=DIST.has_decreased_amount, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [CL.has_low_plasma_membrane_amount])
+
+slots.lacks_part = Slot(uri=BIOLINK.lacks_part, name="lacks part", curie=BIOLINK.curie('lacks_part'),
+                      model_uri=DIST.lacks_part, domain=NamedThing, range=List[Union[str, NamedThingId]], mappings = [CL.lacks_part, CL.lacks_plasma_membrane_part])
 
 slots.node_property = Slot(uri=BIOLINK.node_property, name="node property", curie=BIOLINK.curie('node_property'),
                       model_uri=DIST.node_property, domain=NamedThing, range=Optional[str])

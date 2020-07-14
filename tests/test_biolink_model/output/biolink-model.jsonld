@@ -9511,7 +9511,7 @@
   "type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/biolink/biolinkml/context.jsonld",
-    "/Users/solbrig/git/biolink/biolinkml/includes/types.context.jsonld",
+    "/home/runner/work/biolinkml/biolinkml/includes/types.context.jsonld",
     {
       "@base": "https://w3id.org/biolink/vocab/"
     }

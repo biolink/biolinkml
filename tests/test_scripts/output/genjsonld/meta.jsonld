@@ -2310,8 +2310,8 @@
   "type": "SchemaDefinition",
   "@context": [
     "file:./output/gencontext/meta.jsonld",
-    "/Users/solbrig/git/biolink/biolinkml/tests/input/includes/types.context.jsonld",
-    "/Users/solbrig/git/biolink/biolinkml/tests/input/includes/mappings.context.jsonld",
+    "/home/runner/work/biolinkml/biolinkml/tests/input/includes/types.context.jsonld",
+    "/home/runner/work/biolinkml/biolinkml/tests/input/includes/mappings.context.jsonld",
     {
       "@base": "https://w3id.org/biolink/biolinkml/meta/"
     }

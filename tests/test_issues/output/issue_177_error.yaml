@@ -30,6 +30,6 @@ classes:
     tree_root: true
 metamodel_version: 1.5.1
 source_file: issue_177_error.yaml
-source_file_date: Fri Jul 10 13:24:53 2020
+source_file_date: Tue Jul 14 16:41:50 2020
 source_file_size: 180
-generation_date: 2020-07-10 13:32
+generation_date: 2020-07-14 16:43
