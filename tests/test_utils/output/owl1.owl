@@ -61,23 +61,23 @@ meta:ClassDefinition a owl:Class ;
 <http://example.org/owl1/C1> a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "c1" ;
-    rdfs:subClassOf [ a owl:Restriction ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:allValuesFrom <http://example.org/owl1/C2> ;
+                        owl:onProperty <http://example.org/owl1/slotonemany> ] [ a owl:Restriction ;
+                        owl:onProperty <http://example.org/owl1/slotonemany> ;
+                        owl:someValuesFrom <http://example.org/owl1/C2> ] ) ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://example.org/owl1/C2> ;
+            owl:onProperty <http://example.org/owl1/slotopt> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom <http://example.org/owl1/C2> ;
             owl:onProperty <http://example.org/owl1/slotzeromany> ],
         [ a owl:Restriction ;
             owl:onClass <http://example.org/owl1/C2> ;
             owl:onProperty <http://example.org/owl1/slotreq> ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://example.org/owl1/C2> ;
-            owl:onProperty <http://example.org/owl1/slotopt> ],
-        [ a owl:Class ;
-            owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:allValuesFrom <http://example.org/owl1/C2> ;
-                        owl:onProperty <http://example.org/owl1/slotonemany> ] [ a owl:Restriction ;
-                        owl:onProperty <http://example.org/owl1/slotonemany> ;
-                        owl:someValuesFrom <http://example.org/owl1/C2> ] ) ] .
+            owl:qualifiedCardinality 1 ] .
 
 meta:SlotDefinition a owl:Class ;
     rdfs:label "slot_definition" ;

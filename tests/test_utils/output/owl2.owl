@@ -54,20 +54,20 @@ meta:ClassDefinition a owl:Class ;
     rdfs:label "c1" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://example.org/owl2/String> ;
-            owl:onProperty <http://example.org/owl2/dataslot> ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://example.org/owl2/String> ;
-            owl:onProperty <http://example.org/owl2/annotslot2> ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://example.org/owl2/C2> ;
             owl:onProperty <http://example.org/owl2/annotslot> ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://example.org/owl2/String> ;
+            owl:onProperty <http://example.org/owl2/dataslot> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://example.org/owl2/C2> ;
-            owl:onProperty <http://example.org/owl2/objslot> ] .
+            owl:onProperty <http://example.org/owl2/objslot> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://example.org/owl2/String> ;
+            owl:onProperty <http://example.org/owl2/annotslot2> ] .
 
 <http://example.org/owl2/C2> a owl:Class,
         meta:ClassDefinition ;

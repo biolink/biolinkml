@@ -1,5 +1,5 @@
 # Auto generated from issue_80.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-07-14 16:43
+# Generation date: 2020-07-15 04:41
 # Schema: Issue 80 test case
 #
 # id: http://example.org/issues/80
