@@ -94,3 +94,6 @@ ENV/
 
 # Graphviz out is varied enough it isn't worth carrying this for test cases
 tests/test_biolink_model/source/graphviz/
+
+# Test config
+tests/test_config.ini
