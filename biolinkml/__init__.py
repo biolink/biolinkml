@@ -135,7 +135,7 @@ METAMAPPING_NAMESPACE_NAME = 'meta'
 
 # Namespace for metamodel elements
 METAMODEL_NAMESPACE = Namespace(METAMODEL_URI + '/')
-METATYPE_NAMESPACE = Namespace(META_BASE_URI + 'type/')
+METATYPE_NAMESPACE = Namespace(META_BASE_URI + 'meta/types/')
 METAMAPPING_NAMESPACE = METAMODEL_NAMESPACE
 
 # Metamodel Context URI
