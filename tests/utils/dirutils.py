@@ -66,6 +66,7 @@ def _do_cmp(f1, f2):
             if not b1:
                 return True
 
+
 filecmp._do_cmp = _do_cmp
 
 
@@ -79,10 +80,15 @@ def are_dir_trees_equal(dir1: str, dir2: str) -> Optional[str]:
 
     @return: None if directories match, else summary of differences
    """
+    def has_local_diffs(dc: dircmp) -> bool:
+        return dc.diff_files or dc.funny_files or dc.left_only or dc.right_only
+
+    def has_diffs(dc: dircmp) -> bool:
+        return has_local_diffs(dc) or any(has_diffs(sd) for sd in dc.subdirs.values())
 
     dirs_cmp = dircmp(dir1, dir2, ignore=['generated'])
-    output = StringIO()
-    if dirs_cmp.diff_files or dirs_cmp.funny_files or dirs_cmp.left_only or dirs_cmp.right_only or dirs_cmp.funny_files:
+    if has_diffs(dirs_cmp):
+        output = StringIO()
         with redirect_stdout(output):
             dirs_cmp.report_full_closure()
         return output.getvalue()
