@@ -17,18 +17,22 @@ class PythonTestCase(TestEnvironmentTestCase):
         env.make_testing_directory(env.root_temp_file_path('includes'))
 
     def test_types_python(self):
-        env.generate_single_file('includes/types.py', lambda: PythonGenerator(env.types_yaml).serialize(),
+        env.generate_single_file('includes/types.py',
+                                 lambda: PythonGenerator(env.types_yaml, importmap=env.import_map).serialize(),
                                  value_is_returned=True, filtr=metadata_filter, comparator=compare_python,
                                  use_testing_root=True)
 
     def test_mapping_python(self):
-        env.generate_single_file('includes/mappings.py', lambda: PythonGenerator(env.mapping_yaml).serialize(),
+        env.generate_single_file('includes/mappings.py',
+                                 lambda: PythonGenerator(env.mapping_yaml, importmap=env.import_map).serialize(),
                                  value_is_returned=True, filtr=metadata_filter, comparator=compare_python,
                                  use_testing_root=True)
 
     def test_metamodel_python(self):
-        env.generate_single_file('meta.py', lambda: PythonGenerator(env.meta_yaml).serialize(), value_is_returned=True,
-                                 filtr=metadata_filter, comparator=compare_python, use_testing_root=True)
+        env.generate_single_file('meta.py',
+                                 lambda: PythonGenerator(env.meta_yaml, importmap=env.import_map).serialize(),
+                                 value_is_returned=True, filtr=metadata_filter, comparator=compare_python,
+                                 use_testing_root=True)
 
 
 if __name__ == '__main__':

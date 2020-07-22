@@ -9,7 +9,7 @@ PREFIX bibo: <http://purl.org/ontology/bibo/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>
-PREFIX metatype: <https://w3id.org/biolink/biolinkml/type/>
+PREFIX metatype: <https://w3id.org/biolink/biolinkml/meta/types/>
 
 
 metatype:String xsd:string

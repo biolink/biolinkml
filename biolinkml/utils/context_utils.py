@@ -61,6 +61,7 @@ def parse_import_map(map: Optional[Union[str, Dict[str, str], TextIOWrapper]], b
     if map is None:
         rval = dict()
     elif isinstance(map, TextIOWrapper):
+        map.seek(0)
         return parse_import_map(map.read(), base)
     elif isinstance(map, dict):
         rval = map
@@ -70,7 +71,7 @@ def parse_import_map(map: Optional[Union[str, Dict[str, str], TextIOWrapper]], b
         rval = yaml.load(map)
     else:
         with open(map) as ml:
-            return parse_import_map(ml.read(), base)
+            return parse_import_map(ml.read(), os.path.dirname(map))
 
     if base:
         outmap = dict()

@@ -16,6 +16,7 @@ URI: [meta:name](https://w3id.org/biolink/biolinkml/meta/name)
 
 ## Children
 
+ *  [schema_definition➞name](schema_definition_name.md)
 
 ## Used by
 

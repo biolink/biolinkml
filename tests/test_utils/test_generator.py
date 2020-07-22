@@ -37,7 +37,7 @@ class GeneratorTest(Generator):
             logger.removeHandler(handler)
         logger.addHandler(logging.StreamHandler(self.logstream))
         logger.setLevel(logging.INFO)
-        super().__init__(schema, fmt, emit_metadata, logger=logger)
+        super().__init__(schema, fmt, emit_metadata, logger=logger, importmap=env.import_map)
 
     def visit_schema(self, **kwargs) -> None:
         self.visited = ['init']

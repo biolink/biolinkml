@@ -11,7 +11,7 @@ class SchemaSynopsisTestCase(TestEnvironmentTestCase):
 
     """ Tests for various parts of the schema synopsis file """
     def eval_synopsis(self, base_name: str, source: Optional[str]=None) -> None:
-        schema = SchemaLoader(source if source else env.input_path(base_name + '.yaml'))
+        schema = SchemaLoader(source if source else env.input_path(base_name + '.yaml'), importmap=env.import_map)
         schema.resolve()
         self.summary = schema.synopsis.summary()
 

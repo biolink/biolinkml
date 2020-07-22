@@ -33,8 +33,9 @@ class OwlSchemaGenerator(Generator):
     def __init__(self, schema: Union[str, TextIO, SchemaDefinition], **kwargs) -> None:
         super().__init__(schema, **kwargs)
         self.graph: Optional[Graph] = None
-        self.metamodel = SchemaLoader(LOCAL_METAMODEL_YAML_FILE) if os.path.exists(LOCAL_METAMODEL_YAML_FILE) else\
-            SchemaLoader(METAMODEL_YAML_URI, base_dir=META_BASE_URI)
+        self.metamodel = SchemaLoader(LOCAL_METAMODEL_YAML_FILE, importmap=kwargs.get('importmap', None)) \
+            if os.path.exists(LOCAL_METAMODEL_YAML_FILE) else\
+            SchemaLoader(METAMODEL_YAML_URI, base_dir=META_BASE_URI, importmap=kwargs.get('importmap', None))
         self.metamodel.resolve()
         self.top_value_uri: Optional[URIRef] = None
 

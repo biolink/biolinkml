@@ -217,8 +217,9 @@ class TestEnvironment:
             actual = filtr(outf.getvalue())
 
         if not self.eval_single_file(expected_file, actual, filtr, comparator if comparator else self.string_comparator):
-            with open(actual_file, 'w') as actualf:
-                actualf.write(actual)
+            if self.fail_on_error:
+                with open(actual_file, 'w') as actualf:
+                    actualf.write(actual)
         return actual
 
     def eval_single_file(self, expected_file_path: str, actual_text: str,  filtr: Callable[[str], str],

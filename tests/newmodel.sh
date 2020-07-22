@@ -1,5 +1,6 @@
 #!/bin/bash
 cp input/meta.yaml ../meta.yaml
+cp input/includes/* ../includes
 pushd output
 # Update everything in the root
 cp context.jsonld ../../
