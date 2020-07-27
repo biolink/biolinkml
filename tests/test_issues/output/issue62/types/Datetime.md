@@ -4,7 +4,7 @@
 
 The combination of a date and time
 
-URI: [https://example.com/test62/meta:types/Datetime](https://example.com/test62/meta:types/Datetime)
+URI: [metatype:Datetime](https://w3id.org/biolink/biolinkml/meta/types/Datetime)
 
 |  |  |  |
 | --- | --- | --- |

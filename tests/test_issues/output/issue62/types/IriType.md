@@ -4,7 +4,7 @@
 
 An IRI
 
-URI: [https://example.com/test62/IriType](https://example.com/test62/IriType)
+URI: [:IriType](https://example.com/test62/IriType)
 
 |  |  |  |
 | --- | --- | --- |

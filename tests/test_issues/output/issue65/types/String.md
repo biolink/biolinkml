@@ -4,7 +4,7 @@
 
 A character string
 
-URI: [https://example.com/test65/meta:types/String](https://example.com/test65/meta:types/String)
+URI: [metatype:String](https://w3id.org/biolink/biolinkml/meta/types/String)
 
 |  |  |  |
 | --- | --- | --- |

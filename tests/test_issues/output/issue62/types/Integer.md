@@ -4,7 +4,7 @@
 
 An integer
 
-URI: [https://example.com/test62/meta:types/Integer](https://example.com/test62/meta:types/Integer)
+URI: [metatype:Integer](https://w3id.org/biolink/biolinkml/meta/types/Integer)
 
 |  |  |  |
 | --- | --- | --- |

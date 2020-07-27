@@ -4,7 +4,7 @@
 
 A time object represents a (local) time of day, independent of any particular day
 
-URI: [https://example.com/test65/meta:types/Time](https://example.com/test65/meta:types/Time)
+URI: [metatype:Time](https://w3id.org/biolink/biolinkml/meta/types/Time)
 
 |  |  |  |
 | --- | --- | --- |

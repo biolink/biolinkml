@@ -89,6 +89,7 @@ A metamodel for defining biolink related schemas
  * [modified_by](modified_by.md) - agent that modified the element
  * [multivalued](multivalued.md) - true means that slot can have more than one value
  * [name](name.md) - the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class.
+    * [schema_definition➞name](schema_definition_name.md)
  * [notes](notes.md) - editorial notes about an element intended for internal consumption
  * [owner](owner.md) - the "owner" of the slot. It is the class if it appears in the slots list, otherwise the declaring slot
  * [pattern](pattern.md) - the string value of the slot must conform to this regular expression

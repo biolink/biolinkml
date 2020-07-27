@@ -4,7 +4,7 @@
 
 
 
-URI: [http://example.org/sample/example1/String](http://example.org/sample/example1/String)
+URI: [:String](http://example.org/sample/example1/String)
 
 |  |  |  |
 | --- | --- | --- |

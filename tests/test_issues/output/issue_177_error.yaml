@@ -28,8 +28,8 @@ classes:
     from_schema: http://example.org/tests/issue177
     class_uri: http://example.org/tests/issue177/C3
     tree_root: true
-metamodel_version: 1.5.1
+metamodel_version: 1.5.2
 source_file: issue_177_error.yaml
-source_file_date: Wed Jul 15 04:39:26 2020
+source_file_date: Mon Jul 27 16:43:35 2020
 source_file_size: 180
-generation_date: 2020-07-15 04:41
+generation_date: 2020-07-27 16:45

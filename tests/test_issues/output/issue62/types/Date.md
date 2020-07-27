@@ -4,7 +4,7 @@
 
 a date (year, month and day) in an idealized calendar
 
-URI: [https://example.com/test62/meta:types/Date](https://example.com/test62/meta:types/Date)
+URI: [metatype:Date](https://w3id.org/biolink/biolinkml/meta/types/Date)
 
 |  |  |  |
 | --- | --- | --- |

@@ -132,7 +132,7 @@ type Prefix
 type SchemaDefinition
   {
     idPrefixes: [Ncname]
-    name: String!
+    name: Ncname!
     definitionUri: Uriorcurie
     aliases: [String]
     localNames: [LocalName]

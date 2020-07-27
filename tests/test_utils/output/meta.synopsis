@@ -1,6 +1,6 @@
 
 Classes: 11
-	Referenced by: 6 classes, 96 slots, 0 types 
+	Referenced by: 6 classes, 97 slots, 0 types 
 	Root: 5
 	Leaf: 9
 	Standalone: 10
@@ -8,8 +8,8 @@ Classes: 11
 	Undeclared mixin: 0
 	Abstract: 2
 
-Slots: 102
-	Referenced by: 11 classes, 9 slots, 0 types 
+Slots: 103
+	Referenced by: 11 classes, 10 slots, 0 types 
 	Root: 93
 	Leaf: 98
 	Standalone: 103
@@ -30,7 +30,7 @@ Slots: 102
 			boolean: 12
 			datetime: 4
 			integer: 3
-			ncname: 5
+			ncname: 6
 			string: 28
 			uri: 3
 			uriorcurie: 18
@@ -47,7 +47,7 @@ Slots: 102
 			type_definition: 3
 
 Types: 13
-	Referenced by: 0 classes, 73 slots, 0 types 
+	Referenced by: 0 classes, 74 slots, 0 types 
 	Bases:
 		Bool:
 			boolean

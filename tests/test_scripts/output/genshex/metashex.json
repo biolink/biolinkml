@@ -9,67 +9,67 @@
    "shapes": [
       {
          "type": "NodeConstraint",
-         "id": "https://w3id.org/biolink/biolinkml/type/String",
+         "id": "https://w3id.org/biolink/biolinkml/meta/types/String",
          "datatype": "http://www.w3.org/2001/XMLSchema#string"
       },
       {
          "type": "NodeConstraint",
-         "id": "https://w3id.org/biolink/biolinkml/type/Integer",
+         "id": "https://w3id.org/biolink/biolinkml/meta/types/Integer",
          "datatype": "http://www.w3.org/2001/XMLSchema#integer"
       },
       {
          "type": "NodeConstraint",
-         "id": "https://w3id.org/biolink/biolinkml/type/Boolean",
+         "id": "https://w3id.org/biolink/biolinkml/meta/types/Boolean",
          "datatype": "http://www.w3.org/2001/XMLSchema#boolean"
       },
       {
          "type": "NodeConstraint",
-         "id": "https://w3id.org/biolink/biolinkml/type/Float",
+         "id": "https://w3id.org/biolink/biolinkml/meta/types/Float",
          "datatype": "http://www.w3.org/2001/XMLSchema#float"
       },
       {
          "type": "NodeConstraint",
-         "id": "https://w3id.org/biolink/biolinkml/type/Double",
+         "id": "https://w3id.org/biolink/biolinkml/meta/types/Double",
          "datatype": "http://www.w3.org/2001/XMLSchema#double"
       },
       {
          "type": "NodeConstraint",
-         "id": "https://w3id.org/biolink/biolinkml/type/Time",
+         "id": "https://w3id.org/biolink/biolinkml/meta/types/Time",
          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime"
       },
       {
          "type": "NodeConstraint",
-         "id": "https://w3id.org/biolink/biolinkml/type/Date",
+         "id": "https://w3id.org/biolink/biolinkml/meta/types/Date",
          "datatype": "http://www.w3.org/2001/XMLSchema#date"
       },
       {
          "type": "NodeConstraint",
-         "id": "https://w3id.org/biolink/biolinkml/type/Datetime",
+         "id": "https://w3id.org/biolink/biolinkml/meta/types/Datetime",
          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime"
       },
       {
          "type": "NodeConstraint",
-         "id": "https://w3id.org/biolink/biolinkml/type/Uriorcurie",
+         "id": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
          "nodeKind": "iri"
       },
       {
          "type": "NodeConstraint",
-         "id": "https://w3id.org/biolink/biolinkml/type/Uri",
+         "id": "https://w3id.org/biolink/biolinkml/meta/types/Uri",
          "nodeKind": "iri"
       },
       {
          "type": "NodeConstraint",
-         "id": "https://w3id.org/biolink/biolinkml/type/Ncname",
+         "id": "https://w3id.org/biolink/biolinkml/meta/types/Ncname",
          "datatype": "http://www.w3.org/2001/XMLSchema#string"
       },
       {
          "type": "NodeConstraint",
-         "id": "https://w3id.org/biolink/biolinkml/type/Objectidentifier",
+         "id": "https://w3id.org/biolink/biolinkml/meta/types/Objectidentifier",
          "nodeKind": "iri"
       },
       {
          "type": "NodeConstraint",
-         "id": "https://w3id.org/biolink/biolinkml/type/Nodeidentifier",
+         "id": "https://w3id.org/biolink/biolinkml/meta/types/Nodeidentifier",
          "nodeKind": "nonliteral"
       },
       {
@@ -86,14 +86,14 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/source",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Ncname",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Ncname",
                         "min": 1,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/description",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
                         "min": 1,
                         "max": 1
                      }
@@ -174,14 +174,14 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/class_uri",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uriorcurie",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uriorcurie",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
                         "min": 0,
                         "max": 1
                      },
@@ -202,7 +202,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/tree_root",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Boolean",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Boolean",
                         "min": 0,
                         "max": 1
                      }
@@ -256,14 +256,14 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/abstract",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Boolean",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Boolean",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/mixin",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Boolean",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Boolean",
                         "min": 0,
                         "max": 1
                      },
@@ -284,42 +284,42 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/values_from",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uriorcurie",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
                         "min": 0,
                         "max": -1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "http://purl.org/pav/createdBy",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uriorcurie",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "http://purl.org/pav/createdOn",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Datetime",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Datetime",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "http://purl.org/pav/lastUpdatedOn",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Datetime",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Datetime",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "http://open-services.net/ns/core#modifiedBy",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uriorcurie",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "http://purl.org/ontology/bibo/status",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uriorcurie",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
                         "min": 0,
                         "max": 1
                      }
@@ -363,21 +363,21 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/id_prefixes",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Ncname",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Ncname",
                         "min": 0,
                         "max": -1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/definition_uri",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uriorcurie",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "http://www.w3.org/2004/02/skos/core#altLabel",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
                         "min": 0,
                         "max": -1
                      },
@@ -391,14 +391,14 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "http://www.w3.org/2004/02/skos/core#mappingRelation",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uriorcurie",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
                         "min": 0,
                         "max": -1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "http://www.w3.org/2004/02/skos/core#definition",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
                         "min": 0,
                         "max": 1
                      },
@@ -412,28 +412,28 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/deprecated",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/todos",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
                         "min": 0,
                         "max": -1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "http://www.w3.org/2004/02/skos/core#editorialNote",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
                         "min": 0,
                         "max": -1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "http://www.w3.org/2004/02/skos/core#note",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
                         "min": 0,
                         "max": -1
                      },
@@ -454,56 +454,56 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "http://www.w3.org/2004/02/skos/core#inScheme",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uri",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uri",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/imported_from",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uriorcurie",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
                         "min": 0,
                         "max": -1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "http://www.w3.org/2004/02/skos/core#exactMatch",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uriorcurie",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
                         "min": 0,
                         "max": -1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "http://www.w3.org/2004/02/skos/core#closeMatch",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uriorcurie",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
                         "min": 0,
                         "max": -1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "http://www.w3.org/2004/02/skos/core#relatedMatch",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uriorcurie",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
                         "min": 0,
                         "max": -1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/deprecated_element_has_exact_replacement",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uriorcurie",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/deprecated_element_has_possible_replacement",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uriorcurie",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
                         "min": 0,
                         "max": 1
                      }
@@ -537,14 +537,14 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "http://www.w3.org/2004/02/skos/core#example",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/description",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
                         "min": 0,
                         "max": 1
                      }
@@ -578,14 +578,14 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/local_name_source",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Ncname",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Ncname",
                         "min": 1,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "http://www.w3.org/2004/02/skos/core#altLabel",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
                         "min": 1,
                         "max": 1
                      }
@@ -619,14 +619,14 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/prefix_prefix",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Ncname",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Ncname",
                         "min": 1,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/prefix_reference",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uri",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uri",
                         "min": 1,
                         "max": 1
                      }
@@ -672,35 +672,35 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/id",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uri",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uri",
                         "min": 1,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "http://purl.org/dc/terms/title",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "http://purl.org/pav/version",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/imports",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uriorcurie",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
                         "min": 0,
                         "max": -1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "http://purl.org/dc/terms/license",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
                         "min": 0,
                         "max": 1
                      },
@@ -714,21 +714,21 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/emit_prefixes",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Ncname",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Ncname",
                         "min": 0,
                         "max": -1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/default_curi_maps",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
                         "min": 0,
                         "max": -1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/default_prefix",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
                         "min": 0,
                         "max": 1
                      },
@@ -770,35 +770,35 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/metamodel_version",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/source_file",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/source_file_date",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Datetime",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Datetime",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/source_file_size",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Integer",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Integer",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/generation_date",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Datetime",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Datetime",
                         "min": 0,
                         "max": 1
                      }
@@ -865,7 +865,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "http://www.w3.org/2004/02/skos/core#altLabel",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
                         "min": 0,
                         "max": 1
                      },
@@ -886,70 +886,70 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/slot_uri",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uriorcurie",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/multivalued",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Boolean",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Boolean",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/inherited",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Boolean",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Boolean",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/readonly",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/ifabsent",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/required",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Boolean",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Boolean",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/inlined",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Boolean",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Boolean",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/key",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Boolean",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Boolean",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/identifier",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Boolean",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Boolean",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/alias",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
                         "min": 0,
                         "max": 1
                      },
@@ -970,14 +970,14 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "http://www.w3.org/2000/01/rdf-schema#subPropertyOf",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uriorcurie",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/symmetric",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Boolean",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Boolean",
                         "min": 0,
                         "max": 1
                      },
@@ -991,49 +991,49 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/is_class_field",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Boolean",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Boolean",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/role",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/is_usage_slot",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Boolean",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Boolean",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/minimum_value",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Integer",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Integer",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/maximum_value",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Integer",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Integer",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/pattern",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/string_serialization",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
                         "min": 0,
                         "max": 1
                      }
@@ -1125,21 +1125,21 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/base",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/uri",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/Uriorcurie",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/repr",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/type/String",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
                         "min": 0,
                         "max": 1
                      }

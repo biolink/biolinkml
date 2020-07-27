@@ -4,7 +4,7 @@
 
 a complete URI
 
-URI: [https://w3id.org/biolink/vocab/biolinkml:types/Uri](https://w3id.org/biolink/vocab/biolinkml:types/Uri)
+URI: [metatype:Uri](https://w3id.org/biolink/biolinkml/meta/types/Uri)
 
 |  |  |  |
 | --- | --- | --- |

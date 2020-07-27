@@ -4,7 +4,7 @@
 
 A URI, CURIE or BNODE that represents a node in a model.
 
-URI: [https://w3id.org/biolink/biolinkml/types/Nodeidentifier](https://w3id.org/biolink/biolinkml/types/Nodeidentifier)
+URI: [metatype:Nodeidentifier](https://w3id.org/biolink/biolinkml/meta/types/Nodeidentifier)
 
 |  |  |  |
 | --- | --- | --- |

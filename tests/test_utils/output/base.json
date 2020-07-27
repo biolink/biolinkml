@@ -53,7 +53,7 @@
       },
       {
          "name": "string",
-         "definition_uri": "https://w3id.org/biolink/biolinkml/type/String",
+         "definition_uri": "https://w3id.org/biolink/biolinkml/meta/types/String",
          "description": "A character string",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "str",
@@ -61,7 +61,7 @@
       },
       {
          "name": "integer",
-         "definition_uri": "https://w3id.org/biolink/biolinkml/type/Integer",
+         "definition_uri": "https://w3id.org/biolink/biolinkml/meta/types/Integer",
          "description": "An integer",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "int",
@@ -69,7 +69,7 @@
       },
       {
          "name": "boolean",
-         "definition_uri": "https://w3id.org/biolink/biolinkml/type/Boolean",
+         "definition_uri": "https://w3id.org/biolink/biolinkml/meta/types/Boolean",
          "description": "A binary (true or false) value",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "Bool",
@@ -77,7 +77,7 @@
       },
       {
          "name": "float",
-         "definition_uri": "https://w3id.org/biolink/biolinkml/type/Float",
+         "definition_uri": "https://w3id.org/biolink/biolinkml/meta/types/Float",
          "description": "A real number that conforms to the xsd:float specification",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "float",
@@ -85,7 +85,7 @@
       },
       {
          "name": "double",
-         "definition_uri": "https://w3id.org/biolink/biolinkml/type/Double",
+         "definition_uri": "https://w3id.org/biolink/biolinkml/meta/types/Double",
          "description": "A real number that conforms to the xsd:double specification",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "float",
@@ -93,7 +93,7 @@
       },
       {
          "name": "time",
-         "definition_uri": "https://w3id.org/biolink/biolinkml/type/Time",
+         "definition_uri": "https://w3id.org/biolink/biolinkml/meta/types/Time",
          "description": "A time object represents a (local) time of day, independent of any particular day",
          "notes": [
             "URI is dateTime because OWL reasoners don't work with straight date or time"
@@ -105,7 +105,7 @@
       },
       {
          "name": "date",
-         "definition_uri": "https://w3id.org/biolink/biolinkml/type/Date",
+         "definition_uri": "https://w3id.org/biolink/biolinkml/meta/types/Date",
          "description": "a date (year, month and day) in an idealized calendar",
          "notes": [
             "URI is dateTime because OWL reasoners don't work with straight date or time"
@@ -117,7 +117,7 @@
       },
       {
          "name": "datetime",
-         "definition_uri": "https://w3id.org/biolink/biolinkml/type/Datetime",
+         "definition_uri": "https://w3id.org/biolink/biolinkml/meta/types/Datetime",
          "description": "The combination of a date and time",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "XSDDateTime",
@@ -126,7 +126,7 @@
       },
       {
          "name": "uriorcurie",
-         "definition_uri": "https://w3id.org/biolink/biolinkml/type/Uriorcurie",
+         "definition_uri": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
          "description": "a URI or a CURIE",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "URIorCURIE",
@@ -135,7 +135,7 @@
       },
       {
          "name": "uri",
-         "definition_uri": "https://w3id.org/biolink/biolinkml/type/Uri",
+         "definition_uri": "https://w3id.org/biolink/biolinkml/meta/types/Uri",
          "description": "a complete URI",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "URI",
@@ -144,7 +144,7 @@
       },
       {
          "name": "ncname",
-         "definition_uri": "https://w3id.org/biolink/biolinkml/type/Ncname",
+         "definition_uri": "https://w3id.org/biolink/biolinkml/meta/types/Ncname",
          "description": "Prefix part of CURIE",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "NCName",
@@ -153,7 +153,7 @@
       },
       {
          "name": "objectidentifier",
-         "definition_uri": "https://w3id.org/biolink/biolinkml/type/Objectidentifier",
+         "definition_uri": "https://w3id.org/biolink/biolinkml/meta/types/Objectidentifier",
          "description": "A URI or CURIE that represents an object in the model.",
          "comments": [
             "Used for inheritence and type checking"
@@ -165,7 +165,7 @@
       },
       {
          "name": "nodeidentifier",
-         "definition_uri": "https://w3id.org/biolink/biolinkml/type/Nodeidentifier",
+         "definition_uri": "https://w3id.org/biolink/biolinkml/meta/types/Nodeidentifier",
          "description": "A URI, CURIE or BNODE that represents a node in a model.",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "NodeIdentifier",
@@ -173,7 +173,7 @@
          "repr": "str"
       }
    ],
-   "metamodel_version": "1.5.1",
+   "metamodel_version": "1.5.2",
    "source_file": "base.yaml",
    "source_file_date": "Friday Sep 27 12:00:00 2003",
    "source_file_size": 487,

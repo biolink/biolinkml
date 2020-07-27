@@ -4,7 +4,7 @@
 
 a complete URI
 
-URI: [https://example.com/test65/meta:types/Uri](https://example.com/test65/meta:types/Uri)
+URI: [metatype:Uri](https://w3id.org/biolink/biolinkml/meta/types/Uri)
 
 |  |  |  |
 | --- | --- | --- |

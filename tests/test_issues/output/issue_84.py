@@ -1,5 +1,5 @@
 # Auto generated from issue_84.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-07-15 04:41
+# Generation date: 2020-07-27 16:45
 # Schema: nmdc_schema
 #
 # id: https://microbiomedata/schema
@@ -23,7 +23,7 @@ from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import ElementIdentifier
 from includes.types import Double, Float, String
 
-metamodel_version = "1.5.1"
+metamodel_version = "1.5.2"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -87,7 +87,7 @@ class Biosample(YAMLRoot):
         if not isinstance(self.id, BiosampleId):
             self.id = BiosampleId(self.id)
         self.annotations = [v if isinstance(v, Annotation)
-                            else Annotation(**v) for v in self.annotations]
+                            else Annotation(**v) for v in ([self.annotations] if isinstance(self.annotations, str) else self.annotations)]
         super().__post_init__(**kwargs)
 
 
@@ -108,9 +108,9 @@ class BiosampleProcessing(YAMLRoot):
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         self.input = [v if isinstance(v, BiosampleId)
-                      else BiosampleId(v) for v in self.input]
+                      else BiosampleId(v) for v in ([self.input] if isinstance(self.input, str) else self.input)]
         self.output = [v if isinstance(v, BiosampleId)
-                       else BiosampleId(v) for v in self.output]
+                       else BiosampleId(v) for v in ([self.output] if isinstance(self.output, str) else self.output)]
         super().__post_init__(**kwargs)
 
 

@@ -4,7 +4,7 @@
 
 A real number that conforms to the xsd:float specification
 
-URI: [https://example.com/test62/meta:types/Float](https://example.com/test62/meta:types/Float)
+URI: [metatype:Float](https://w3id.org/biolink/biolinkml/meta/types/Float)
 
 |  |  |  |
 | --- | --- | --- |

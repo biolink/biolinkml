@@ -20,7 +20,7 @@ from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import URIorCURIE
 from includes.types import Uriorcurie
 
-metamodel_version = "1.5.1"
+metamodel_version = "1.5.2"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -60,7 +60,7 @@ class NamedThing(YAMLRoot):
         if not isinstance(self.category, list) or len(self.category) == 0:
             raise ValueError(f"category must be a non-empty list")
         self.category = [v if isinstance(v, IriType)
-                         else IriType(v) for v in self.category]
+                         else IriType(v) for v in ([self.category] if isinstance(self.category, str) else self.category)]
         super().__post_init__(**kwargs)
 
 

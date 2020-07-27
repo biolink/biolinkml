@@ -11,10 +11,7 @@ fields:
   display_name: id_prefixes
   cardinality: multi
 - id: name
-  description: the unique name of the element within the context of the schema.  Name
-    is combined with the default prefix to form the globally unique subject of the
-    target class.
-  display_name: name
+  display_name: schema_definition_name
 - id: definition_uri
   description: the "native" URI of the element
   display_name: definition_uri

@@ -70,7 +70,7 @@ message Prefix
 message SchemaDefinition
  {
   repeated idPrefixes Ncname = 1
-  optional name String = 2
+  optional name Ncname = 2
   optional definitionUri Uriorcurie = 3
   repeated aliases String = 4
   repeated localNames LocalName = 5

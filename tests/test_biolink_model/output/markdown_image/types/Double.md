@@ -4,7 +4,7 @@
 
 A real number that conforms to the xsd:double specification
 
-URI: [https://w3id.org/biolink/vocab/biolinkml:types/Double](https://w3id.org/biolink/vocab/biolinkml:types/Double)
+URI: [metatype:Double](https://w3id.org/biolink/biolinkml/meta/types/Double)
 
 |  |  |  |
 | --- | --- | --- |

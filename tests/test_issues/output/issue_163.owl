@@ -18,17 +18,17 @@
 <http://example.org/sample/example1> a owl:Ontology ;
     rdfs:label "example1" ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
-    meta:generation_date "2020-07-15 04:41" ;
-    meta:metamodel_version "1.5.1" ;
+    meta:generation_date "2020-07-27 16:45" ;
+    meta:metamodel_version "1.5.2" ;
     meta:source_file "issue_163.yaml" ;
-    meta:source_file_date "Wed Jul 15 04:39:26 2020" ;
+    meta:source_file_date "Mon Jul 27 16:43:35 2020" ;
     meta:source_file_size 735 .
 
 meta:SubsetDefinition a owl:Class ;
     rdfs:label "subset_definition" ;
     skos:definition "the name and description of a subset" .
 
-<https://w3id.org/biolink/biolinkml/type/Boolean> a owl:Class,
+<https://w3id.org/biolink/biolinkml/meta/types/Boolean> a owl:Class,
         meta:TypeDefinition ;
     rdfs:label "boolean" ;
     rdfs:subClassOf [ a owl:Restriction ;
@@ -37,7 +37,7 @@ meta:SubsetDefinition a owl:Class ;
             owl:qualifiedCardinality 1 ] ;
     skos:definition "A binary (true or false) value" .
 
-<https://w3id.org/biolink/biolinkml/type/Date> a owl:Class,
+<https://w3id.org/biolink/biolinkml/meta/types/Date> a owl:Class,
         meta:TypeDefinition ;
     rdfs:label "date" ;
     rdfs:subClassOf [ a owl:Restriction ;
@@ -47,7 +47,7 @@ meta:SubsetDefinition a owl:Class ;
     skos:definition "a date (year, month and day) in an idealized calendar" ;
     skos:editorialNote "URI is dateTime because OWL reasoners don't work with straight date or time" .
 
-<https://w3id.org/biolink/biolinkml/type/Datetime> a owl:Class,
+<https://w3id.org/biolink/biolinkml/meta/types/Datetime> a owl:Class,
         meta:TypeDefinition ;
     rdfs:label "datetime" ;
     rdfs:subClassOf [ a owl:Restriction ;
@@ -56,7 +56,7 @@ meta:SubsetDefinition a owl:Class ;
             owl:qualifiedCardinality 1 ] ;
     skos:definition "The combination of a date and time" .
 
-<https://w3id.org/biolink/biolinkml/type/Double> a owl:Class,
+<https://w3id.org/biolink/biolinkml/meta/types/Double> a owl:Class,
         meta:TypeDefinition ;
     rdfs:label "double" ;
     rdfs:subClassOf [ a owl:Restriction ;
@@ -65,7 +65,7 @@ meta:SubsetDefinition a owl:Class ;
             owl:qualifiedCardinality 1 ] ;
     skos:definition "A real number that conforms to the xsd:double specification" .
 
-<https://w3id.org/biolink/biolinkml/type/Float> a owl:Class,
+<https://w3id.org/biolink/biolinkml/meta/types/Float> a owl:Class,
         meta:TypeDefinition ;
     rdfs:label "float" ;
     rdfs:subClassOf [ a owl:Restriction ;
@@ -74,7 +74,7 @@ meta:SubsetDefinition a owl:Class ;
             owl:qualifiedCardinality 1 ] ;
     skos:definition "A real number that conforms to the xsd:float specification" .
 
-<https://w3id.org/biolink/biolinkml/type/Ncname> a owl:Class,
+<https://w3id.org/biolink/biolinkml/meta/types/Ncname> a owl:Class,
         meta:TypeDefinition ;
     rdfs:label "ncname" ;
     rdfs:subClassOf [ a owl:Restriction ;
@@ -83,7 +83,7 @@ meta:SubsetDefinition a owl:Class ;
             owl:qualifiedCardinality 1 ] ;
     skos:definition "Prefix part of CURIE" .
 
-<https://w3id.org/biolink/biolinkml/type/Nodeidentifier> a owl:Class,
+<https://w3id.org/biolink/biolinkml/meta/types/Nodeidentifier> a owl:Class,
         meta:TypeDefinition ;
     rdfs:label "nodeidentifier" ;
     rdfs:subClassOf [ a owl:Restriction ;
@@ -92,7 +92,7 @@ meta:SubsetDefinition a owl:Class ;
             owl:qualifiedCardinality 1 ] ;
     skos:definition "A URI, CURIE or BNODE that represents a node in a model." .
 
-<https://w3id.org/biolink/biolinkml/type/Objectidentifier> a owl:Class,
+<https://w3id.org/biolink/biolinkml/meta/types/Objectidentifier> a owl:Class,
         meta:TypeDefinition ;
     rdfs:label "objectidentifier" ;
     rdfs:subClassOf [ a owl:Restriction ;
@@ -102,7 +102,7 @@ meta:SubsetDefinition a owl:Class ;
     skos:definition "A URI or CURIE that represents an object in the model." ;
     skos:note "Used for inheritence and type checking" .
 
-<https://w3id.org/biolink/biolinkml/type/Time> a owl:Class,
+<https://w3id.org/biolink/biolinkml/meta/types/Time> a owl:Class,
         meta:TypeDefinition ;
     rdfs:label "time" ;
     rdfs:subClassOf [ a owl:Restriction ;
@@ -112,7 +112,7 @@ meta:SubsetDefinition a owl:Class ;
     skos:definition "A time object represents a (local) time of day, independent of any particular day" ;
     skos:editorialNote "URI is dateTime because OWL reasoners don't work with straight date or time" .
 
-<https://w3id.org/biolink/biolinkml/type/Uri> a owl:Class,
+<https://w3id.org/biolink/biolinkml/meta/types/Uri> a owl:Class,
         meta:TypeDefinition ;
     rdfs:label "uri" ;
     rdfs:subClassOf [ a owl:Restriction ;
@@ -121,7 +121,7 @@ meta:SubsetDefinition a owl:Class ;
             owl:qualifiedCardinality 1 ] ;
     skos:definition "a complete URI" .
 
-<https://w3id.org/biolink/biolinkml/type/Uriorcurie> a owl:Class,
+<https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> a owl:Class,
         meta:TypeDefinition ;
     rdfs:label "uriorcurie" ;
     rdfs:subClassOf [ a owl:Restriction ;
@@ -157,17 +157,17 @@ meta:SubsetDefinition a owl:Class ;
 <http://example.org/id> a owl:ObjectProperty,
         meta:SlotDefinition ;
     rdfs:label "id" ;
-    rdfs:range <https://w3id.org/biolink/biolinkml/type/String> .
+    rdfs:range <https://w3id.org/biolink/biolinkml/meta/types/String> .
 
 <http://example.org/len> a owl:ObjectProperty,
         meta:SlotDefinition ;
     rdfs:label "len" ;
-    rdfs:range <https://w3id.org/biolink/biolinkml/type/Integer> .
+    rdfs:range <https://w3id.org/biolink/biolinkml/meta/types/Integer> .
 
 <http://example.org/name> a owl:ObjectProperty,
         meta:SlotDefinition ;
     rdfs:label "name" ;
-    rdfs:range <https://w3id.org/biolink/biolinkml/type/String> .
+    rdfs:range <https://w3id.org/biolink/biolinkml/meta/types/String> .
 
 <http://example.org/unit> a owl:ObjectProperty,
         meta:SlotDefinition ;
@@ -182,7 +182,7 @@ meta:SubsetDefinition a owl:Class ;
             owl:onProperty meta:topValue ;
             owl:qualifiedCardinality 1 ] .
 
-<https://w3id.org/biolink/biolinkml/type/Integer> a owl:Class,
+<https://w3id.org/biolink/biolinkml/meta/types/Integer> a owl:Class,
         meta:TypeDefinition ;
     rdfs:label "integer" ;
     rdfs:subClassOf [ a owl:Restriction ;
@@ -196,20 +196,20 @@ meta:SubsetDefinition a owl:Class ;
     rdfs:label "a" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/type/Integer> ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Integer> ;
             owl:onProperty <http://example.org/len> ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://example.org/Unitcode> ;
             owl:onProperty <http://example.org/unit> ],
         [ a owl:Restriction ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/type/String> ;
-            owl:onProperty <http://example.org/id> ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/type/String> ;
-            owl:onProperty <http://example.org/name> ] .
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty <http://example.org/name> ],
+        [ a owl:Restriction ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty <http://example.org/id> ;
+            owl:qualifiedCardinality 1 ] .
 
 <http://example.org/B> a owl:Class,
         meta:ClassDefinition ;
@@ -229,7 +229,7 @@ meta:SubsetDefinition a owl:Class ;
             owl:onProperty <http://example.org/has_b> ],
         <http://example.org/B> .
 
-<https://w3id.org/biolink/biolinkml/type/String> a owl:Class,
+<https://w3id.org/biolink/biolinkml/meta/types/String> a owl:Class,
         meta:TypeDefinition ;
     rdfs:label "string" ;
     rdfs:subClassOf [ a owl:Restriction ;
