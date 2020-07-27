@@ -4,7 +4,7 @@
 
 Prefix part of CURIE
 
-URI: [https://w3id.org/biolink/biolinkml/types/Ncname](https://w3id.org/biolink/biolinkml/types/Ncname)
+URI: [metatype:Ncname](https://w3id.org/biolink/biolinkml/meta/types/Ncname)
 
 |  |  |  |
 | --- | --- | --- |

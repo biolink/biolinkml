@@ -57,6 +57,8 @@ URI: [meta:SchemaDefinition](https://w3id.org/biolink/biolinkml/meta/SchemaDefin
  * [prefixes](prefixes.md)  <sub>0..*</sub>
     * Description: prefix / URI definitions to be added to the context beyond those fetched from prefixcommons in id prefixes
     * range: [Prefix](Prefix.md)
+ * [schema_definition➞name](schema_definition_name.md)  <sub>REQ</sub>
+    * range: [Ncname](types/Ncname.md)
  * [schema_definition➞slots](slot_definitions.md)  <sub>0..*</sub>
     * Description: slot definitions
     * range: [SlotDefinition](SlotDefinition.md)
@@ -139,10 +141,6 @@ URI: [meta:SchemaDefinition](https://w3id.org/biolink/biolinkml/meta/SchemaDefin
  * [mappings](mappings.md)  <sub>0..*</sub>
     * Description: A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective.
     * range: [Uriorcurie](types/Uriorcurie.md)
- * [name](name.md)  <sub>REQ</sub>
-    * Description: the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class.
-    * range: [String](types/String.md)
-    * in subsets: (owl)
  * [notes](notes.md)  <sub>0..*</sub>
     * Description: editorial notes about an element intended for internal consumption
     * range: [String](types/String.md)

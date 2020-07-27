@@ -1,5 +1,4 @@
 import os
-import sys
 from contextlib import redirect_stdout
 from io import StringIO
 from typing import Union, TextIO, Optional, Set, List, Any, Callable, Dict
@@ -9,7 +8,7 @@ import click
 from biolinkml.generators.yumlgen import YumlGenerator
 from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, Element, ClassDefinitionName, \
     TypeDefinition
-from biolinkml.utils.formatutils import camelcase, be, underscore, sfx
+from biolinkml.utils.formatutils import camelcase, be, underscore
 from biolinkml.utils.generator import Generator, shared_arguments
 from biolinkml.utils.typereferences import References
 
@@ -172,10 +171,8 @@ class MarkdownGenerator(Generator):
     def visit_type(self, typ: TypeDefinition) -> None:
         with open(self.dir_path(typ), 'w') as typefile:
             with redirect_stdout(typefile):
-                full_path = sfx(self.namespaces.uri_for(typ.imported_from)
-                                if typ.imported_from else self.namespaces._base)
-                type_curie = self.namespaces.uri_or_curie_for(full_path, camelcase(typ.name))
-                type_uri = self.namespaces.uri_for(type_curie)
+                type_uri = typ.definition_uri
+                type_curie = self.namespaces.curie_for(type_uri)
                 self.element_header(typ, typ.name, type_curie, type_uri)
 
                 print("|  |  |  |")

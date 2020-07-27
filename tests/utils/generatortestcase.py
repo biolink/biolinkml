@@ -14,7 +14,6 @@ BIOLINK_NS = Namespace("https://w3id.org/biolink/vocab/")
 
 class GeneratorTestCase(TestEnvironmentTestCase):
     model_name: str = None              # yaml name (sans '.yaml')
-    importmap: str = None               # Location of the import mappings if any
 
     @staticmethod
     def _print_triples(g: Graph):
@@ -54,8 +53,8 @@ class GeneratorTestCase(TestEnvironmentTestCase):
             generator_args = {}
         if format:
             generator_args["format"] = format
-        if self.importmap is not None and 'importmap' not in generator_args:
-            generator_args['importmap'] = self.importmap
+        if self.env.import_map is not None and 'importmap' not in generator_args:
+            generator_args['importmap'] = self.env.import_map
         generator_args['log_level'] = DEFAULT_LOG_LEVEL
         yaml_file = self.env.input_path(subdir or '', self.model_name + '.yaml')
 
@@ -85,8 +84,8 @@ class GeneratorTestCase(TestEnvironmentTestCase):
             generator_args = {}
         else:
             generator_args = dict(generator_args)           # Make a copy so we don't damage the original
-        if self.importmap is not None and 'importmap' not in generator_args:
-            generator_args['importmap'] = self.importmap
+        if self.env.import_map is not None and 'importmap' not in generator_args:
+            generator_args['importmap'] = self.env.import_map
         generator_args['log_level'] = DEFAULT_LOG_LEVEL
         yaml_file = self.env.input_path(subdir, self.model_name + '.yaml')
 

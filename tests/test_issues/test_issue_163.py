@@ -15,7 +15,8 @@ class IssueOWLNamespaceTestCase(TestEnvironmentTestCase):
 
     def _test_owl(self, name: str) -> Graph:
         self.env.generate_single_file(f'{name}.owl',
-                                      lambda: OwlSchemaGenerator(env.input_path(f'{name}.yaml')).serialize(),
+                                      lambda: OwlSchemaGenerator(env.input_path(f'{name}.yaml'),
+                                                                 importmap=env.import_map).serialize(),
                                       value_is_returned=True, comparator=compare_rdf)
         g = Graph()
         g.parse(env.expected_path(f'{name}.owl'), format="turtle")

@@ -599,10 +599,12 @@ class slots:
                     rlines.append(f'\t\tself.{slotname}[k] = {base_type_name}{class_init}')
                 elif not single_typed:
                     rlines.append(f'self.{slotname} = [v if isinstance(v, {base_type_name})')
-                    rlines.append(f'{indent}else {base_type_name}(**v) for v in self.{slotname}]')
+                    rlines.append(f'{indent}else {base_type_name}(**v) for v in ([self.{slotname}] '
+                                  f'if isinstance(self.{slotname}, str) else self.{slotname})]')
             elif not single_typed:
                 rlines.append(f'self.{slotname} = [v if isinstance(v, {base_type_name})')
-                rlines.append(f'{indent}else {base_type_name}(v) for v in self.{slotname}]')
+                rlines.append(f'{indent}else {base_type_name}(v) for v in ([self.{slotname}] '
+                              f'if isinstance(self.{slotname}, str) else self.{slotname})]')
         return '\n\t\t'.join(rlines)
 
 

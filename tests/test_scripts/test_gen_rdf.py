@@ -35,7 +35,7 @@ class GenRDFTestCase(ClickTestCase):
         self.do_test("--help", 'help')
 
     def _gen_context_file(self, fname: str, metauris: bool = False) -> str:
-        cntxt_txt = ContextGenerator(env.meta_yaml, useuris=not metauris).serialize()
+        cntxt_txt = ContextGenerator(env.meta_yaml, useuris=not metauris, importmap=env.import_map).serialize()
         cntxt_file_path = self.expected_file_path(fname)
         if os.path.exists(cntxt_file_path):
             with open(cntxt_file_path) as f:

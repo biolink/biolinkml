@@ -32,7 +32,9 @@ from tests.utils.filters import metadata_filter
 from tests.utils.generatortestcase import GeneratorTestCase
 from tests.utils.python_comparator import compare_python
 
+
 BIOLINK_NS = Namespace("https://w3id.org/biolink/vocab/")
+
 
 class CurrentBiolinkModelTestCase(GeneratorTestCase):
     env = env

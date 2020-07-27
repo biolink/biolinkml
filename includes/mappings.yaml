@@ -7,7 +7,7 @@ version: 1.0.1
 
 prefixes:
   meta: https://w3id.org/biolink/biolinkml/meta/
-  metatype: https://w3id.org/biolink/biolinkml/type/
+  metatype: https://w3id.org/biolink/biolinkml/meta/types/
   biolinkml: https://w3id.org/biolink/biolinkml/
   skos: http://www.w3.org/2004/02/skos/core#
   OIO: http://www.geneontology.org/formats/oboInOwl#

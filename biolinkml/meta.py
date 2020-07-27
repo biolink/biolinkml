@@ -23,7 +23,7 @@ from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import Bool, NCName, URI, URIorCURIE, XSDDateTime
 from includes.types import Boolean, Datetime, Integer, Ncname, String, Uri, Uriorcurie
 
-metamodel_version = "1.5.1"
+metamodel_version = "1.5.2"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -123,10 +123,9 @@ class Element(YAMLRoot):
     deprecated_element_has_exact_replacement: Optional[Union[str, URIorCURIE]] = None
     deprecated_element_has_possible_replacement: Optional[Union[str, URIorCURIE]] = None
 
-    # noinspection PyDataclass
     def __post_init__(self, **kwargs: Dict[str, Any]):
         self.id_prefixes = [v if isinstance(v, NCName)
-                            else NCName(v) for v in self.id_prefixes]
+                            else NCName(v) for v in ([self.id_prefixes] if isinstance(self.id_prefixes, str) else self.id_prefixes)]
         if self.name is None:
             raise ValueError(f"name must be supplied")
         if not isinstance(self.name, ElementName):
@@ -137,24 +136,24 @@ class Element(YAMLRoot):
             if not isinstance(v, LocalName):
                 self.local_names[k] = LocalName(k, v)
         self.mappings = [v if isinstance(v, URIorCURIE)
-                         else URIorCURIE(v) for v in self.mappings]
+                         else URIorCURIE(v) for v in ([self.mappings] if isinstance(self.mappings, str) else self.mappings)]
         for k, v in self.alt_descriptions.items():
             if not isinstance(v, AltDescription):
                 self.alt_descriptions[k] = AltDescription(k, v)
         self.examples = [v if isinstance(v, Example)
-                         else Example(**v) for v in self.examples]
+                         else Example(**v) for v in ([self.examples] if isinstance(self.examples, str) else self.examples)]
         self.in_subset = [v if isinstance(v, SubsetDefinitionName)
-                          else SubsetDefinitionName(v) for v in self.in_subset]
+                          else SubsetDefinitionName(v) for v in ([self.in_subset] if isinstance(self.in_subset, str) else self.in_subset)]
         if self.from_schema is not None and not isinstance(self.from_schema, URI):
             self.from_schema = URI(self.from_schema)
         self.see_also = [v if isinstance(v, URIorCURIE)
-                         else URIorCURIE(v) for v in self.see_also]
+                         else URIorCURIE(v) for v in ([self.see_also] if isinstance(self.see_also, str) else self.see_also)]
         self.exact_mappings = [v if isinstance(v, URIorCURIE)
-                               else URIorCURIE(v) for v in self.exact_mappings]
+                               else URIorCURIE(v) for v in ([self.exact_mappings] if isinstance(self.exact_mappings, str) else self.exact_mappings)]
         self.close_mappings = [v if isinstance(v, URIorCURIE)
-                               else URIorCURIE(v) for v in self.close_mappings]
+                               else URIorCURIE(v) for v in ([self.close_mappings] if isinstance(self.close_mappings, str) else self.close_mappings)]
         self.related_mappings = [v if isinstance(v, URIorCURIE)
-                                 else URIorCURIE(v) for v in self.related_mappings]
+                                 else URIorCURIE(v) for v in ([self.related_mappings] if isinstance(self.related_mappings, str) else self.related_mappings)]
         if self.deprecated_element_has_exact_replacement is not None and not isinstance(self.deprecated_element_has_exact_replacement, URIorCURIE):
             self.deprecated_element_has_exact_replacement = URIorCURIE(self.deprecated_element_has_exact_replacement)
         if self.deprecated_element_has_possible_replacement is not None and not isinstance(self.deprecated_element_has_possible_replacement, URIorCURIE):
@@ -207,12 +206,12 @@ class SchemaDefinition(Element):
         if not isinstance(self.id, URI):
             self.id = URI(self.id)
         self.imports = [v if isinstance(v, URIorCURIE)
-                        else URIorCURIE(v) for v in self.imports]
+                        else URIorCURIE(v) for v in ([self.imports] if isinstance(self.imports, str) else self.imports)]
         for k, v in self.prefixes.items():
             if not isinstance(v, Prefix):
                 self.prefixes[k] = Prefix(k, v)
         self.emit_prefixes = [v if isinstance(v, NCName)
-                              else NCName(v) for v in self.emit_prefixes]
+                              else NCName(v) for v in ([self.emit_prefixes] if isinstance(self.emit_prefixes, str) else self.emit_prefixes)]
         if self.default_range is not None and not isinstance(self.default_range, TypeDefinitionName):
             self.default_range = TypeDefinitionName(self.default_range)
         for k, v in self.subsets.items():
@@ -315,11 +314,11 @@ class Definition(Element):
         if self.is_a is not None and not isinstance(self.is_a, DefinitionName):
             self.is_a = DefinitionName(self.is_a)
         self.mixins = [v if isinstance(v, DefinitionName)
-                       else DefinitionName(v) for v in self.mixins]
+                       else DefinitionName(v) for v in ([self.mixins] if isinstance(self.mixins, str) else self.mixins)]
         self.apply_to = [v if isinstance(v, DefinitionName)
-                         else DefinitionName(v) for v in self.apply_to]
+                         else DefinitionName(v) for v in ([self.apply_to] if isinstance(self.apply_to, str) else self.apply_to)]
         self.values_from = [v if isinstance(v, URIorCURIE)
-                            else URIorCURIE(v) for v in self.values_from]
+                            else URIorCURIE(v) for v in ([self.values_from] if isinstance(self.values_from, str) else self.values_from)]
         if self.created_by is not None and not isinstance(self.created_by, URIorCURIE):
             self.created_by = URIorCURIE(self.created_by)
         if self.created_on is not None and not isinstance(self.created_on, XSDDateTime):
@@ -383,9 +382,9 @@ class SlotDefinition(Definition):
         if self.is_a is not None and not isinstance(self.is_a, SlotDefinitionName):
             self.is_a = SlotDefinitionName(self.is_a)
         self.mixins = [v if isinstance(v, SlotDefinitionName)
-                       else SlotDefinitionName(v) for v in self.mixins]
+                       else SlotDefinitionName(v) for v in ([self.mixins] if isinstance(self.mixins, str) else self.mixins)]
         self.apply_to = [v if isinstance(v, SlotDefinitionName)
-                         else SlotDefinitionName(v) for v in self.apply_to]
+                         else SlotDefinitionName(v) for v in ([self.apply_to] if isinstance(self.apply_to, str) else self.apply_to)]
         if self.domain is not None and not isinstance(self.domain, ClassDefinitionName):
             self.domain = ClassDefinitionName(self.domain)
         if self.range is not None and not isinstance(self.range, ElementName):
@@ -395,7 +394,7 @@ class SlotDefinition(Definition):
         if self.owner is not None and not isinstance(self.owner, DefinitionName):
             self.owner = DefinitionName(self.owner)
         self.domain_of = [v if isinstance(v, ClassDefinitionName)
-                          else ClassDefinitionName(v) for v in self.domain_of]
+                          else ClassDefinitionName(v) for v in ([self.domain_of] if isinstance(self.domain_of, str) else self.domain_of)]
         if self.subproperty_of is not None and not isinstance(self.subproperty_of, URIorCURIE):
             self.subproperty_of = URIorCURIE(self.subproperty_of)
         if self.inverse is not None and not isinstance(self.inverse, SlotDefinitionName):
@@ -435,11 +434,11 @@ class ClassDefinition(Definition):
         if self.is_a is not None and not isinstance(self.is_a, ClassDefinitionName):
             self.is_a = ClassDefinitionName(self.is_a)
         self.mixins = [v if isinstance(v, ClassDefinitionName)
-                       else ClassDefinitionName(v) for v in self.mixins]
+                       else ClassDefinitionName(v) for v in ([self.mixins] if isinstance(self.mixins, str) else self.mixins)]
         self.apply_to = [v if isinstance(v, ClassDefinitionName)
-                         else ClassDefinitionName(v) for v in self.apply_to]
+                         else ClassDefinitionName(v) for v in ([self.apply_to] if isinstance(self.apply_to, str) else self.apply_to)]
         self.slots = [v if isinstance(v, SlotDefinitionName)
-                      else SlotDefinitionName(v) for v in self.slots]
+                      else SlotDefinitionName(v) for v in ([self.slots] if isinstance(self.slots, str) else self.slots)]
         for k, v in self.slot_usage.items():
             if not isinstance(v, SlotDefinition):
                 self.slot_usage[k] = SlotDefinition(name=k, **({} if v is None else v))
@@ -448,9 +447,9 @@ class ClassDefinition(Definition):
         if self.subclass_of is not None and not isinstance(self.subclass_of, URIorCURIE):
             self.subclass_of = URIorCURIE(self.subclass_of)
         self.union_of = [v if isinstance(v, ClassDefinitionName)
-                         else ClassDefinitionName(v) for v in self.union_of]
+                         else ClassDefinitionName(v) for v in ([self.union_of] if isinstance(self.union_of, str) else self.union_of)]
         self.defining_slots = [v if isinstance(v, SlotDefinitionName)
-                               else SlotDefinitionName(v) for v in self.defining_slots]
+                               else SlotDefinitionName(v) for v in ([self.defining_slots] if isinstance(self.defining_slots, str) else self.defining_slots)]
         super().__post_init__(**kwargs)
 
 
@@ -820,6 +819,9 @@ slots.local_name_value = Slot(uri=SKOS.altLabel, name="local_name_value", curie=
 
 slots.local_names = Slot(uri=META.local_names, name="local_names", curie=META.curie('local_names'),
                       model_uri=META.local_names, domain=Element, range=Union[dict, "LocalName"])
+
+slots.schema_definition_name = Slot(uri=META.name, name="schema_definition_name", curie=META.curie('name'),
+                      model_uri=META.schema_definition_name, domain=SchemaDefinition, range=Union[str, SchemaDefinitionName])
 
 slots.slot_definition_is_a = Slot(uri=META.is_a, name="slot_definition_is_a", curie=META.curie('is_a'),
                       model_uri=META.slot_definition_is_a, domain=SlotDefinition, range=Optional[Union[str, SlotDefinitionName]])
