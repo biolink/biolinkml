@@ -24,8 +24,7 @@ class ModelURITestCase(unittest.TestCase):
             self.assertEqual(source_file, model_yaml.source_file)
 
         check_yaml(source)
-        # TODO: Re-enable this check once we get the URI base change committed
-        # check_yaml(uri)
+        check_yaml(uri)
 
     def test_model_uris(self):
         """ Test that the variables in meta.yaml match the contents of biolinkml/__init__.py """
