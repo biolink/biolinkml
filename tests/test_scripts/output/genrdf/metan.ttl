@@ -49,20 +49,20 @@ meta:metamodel a meta:SchemaDefinition ;
     meta:metamodel_version "1.5.2" ;
     meta:prefixes [ meta:prefix_prefix "pav" ;
             meta:prefix_reference pav: ],
-        [ meta:prefix_prefix "meta" ;
-            meta:prefix_reference meta: ],
         [ meta:prefix_prefix "oslc" ;
             meta:prefix_reference oslc: ],
         [ meta:prefix_prefix "OIO" ;
             meta:prefix_reference OIO: ],
-        [ meta:prefix_prefix "skos" ;
-            meta:prefix_reference skos: ],
+        [ meta:prefix_prefix "schema" ;
+            meta:prefix_reference schema: ],
         [ meta:prefix_prefix "biolinkml" ;
             meta:prefix_reference biolinkml: ],
         [ meta:prefix_prefix "bibo" ;
             meta:prefix_reference bibo: ],
-        [ meta:prefix_prefix "schema" ;
-            meta:prefix_reference schema: ] ;
+        [ meta:prefix_prefix "meta" ;
+            meta:prefix_reference meta: ],
+        [ meta:prefix_prefix "skos" ;
+            meta:prefix_reference skos: ] ;
     meta:slots meta:abstract,
         meta:alias,
         meta:aliases,
