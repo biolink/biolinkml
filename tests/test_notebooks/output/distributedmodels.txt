@@ -191,6 +191,14 @@ class LabelType(String):
     type_model_uri = DIST.LabelType
 
 
+class EdgeLabelType(Uriorcurie):
+    """ A CURIE from the biolink related_to hierarchy. For example, biolink:related_to, biolink:causes, biolink:treats. """
+    type_class_uri = XSD.anyURI
+    type_class_curie = "xsd:anyURI"
+    type_name = "edge label type"
+    type_model_uri = DIST.EdgeLabelType
+
+
 class NarrativeText(String):
     """ A string that provides a human-readable description of something """
     type_class_uri = XSD.string
@@ -5214,11 +5222,11 @@ slots.subject = Slot(uri=RDF.subject, name="subject", curie=RDF.curie('subject')
 slots.object = Slot(uri=RDF.object, name="object", curie=RDF.curie('object'),
                       model_uri=DIST.object, domain=Association, range=Union[str, NamedThingId], mappings = [OWL.annotatedTarget, OBAN.association_has_object])
 
-slots.edge_label = Slot(uri=BIOLINK.edge_label, name="edge label", curie=BIOLINK.curie('edge_label'),
-                      model_uri=DIST.edge_label, domain=Association, range=Union[str, LabelType])
+slots.edge_label = Slot(uri=RDF.predicate, name="edge label", curie=RDF.curie('predicate'),
+                      model_uri=DIST.edge_label, domain=Association, range=Union[str, EdgeLabelType], mappings = [OWL.annotatedProperty, OBAN.association_has_predicate])
 
-slots.relation = Slot(uri=RDF.predicate, name="relation", curie=RDF.curie('predicate'),
-                      model_uri=DIST.relation, domain=Association, range=Union[str, URIorCURIE], mappings = [OWL.annotatedProperty, OBAN.association_has_predicate])
+slots.relation = Slot(uri=BIOLINK.relation, name="relation", curie=BIOLINK.curie('relation'),
+                      model_uri=DIST.relation, domain=Association, range=Union[str, URIorCURIE])
 
 slots.negated = Slot(uri=BIOLINK.negated, name="negated", curie=BIOLINK.curie('negated'),
                       model_uri=DIST.negated, domain=Association, range=Optional[Bool])

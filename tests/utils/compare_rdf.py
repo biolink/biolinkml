@@ -11,7 +11,7 @@ from biolinkml.meta import BIOLINKML, META
 # TODO: Find out why test_issue_namespace is emitting generation_date in the TYPE namespace
 from tests import SKIP_RDF_COMPARE, SKIP_RDF_COMPARE_REASON
 
-TYPE = Namespace(BIOLINKML['type/'])
+TYPE = Namespace(BIOLINKML['meta/types/'])
 
 
 def to_graph(inp: Union[Graph, str], fmt: Optional[str] = "turtle") -> Graph:

@@ -1,6 +1,6 @@
 id: "http://example.org/importBase"
 title: Base for import test
-name: Import Base Test
+name: Import_Base_Test
 
 prefixes:
   base: http://example.org/b/

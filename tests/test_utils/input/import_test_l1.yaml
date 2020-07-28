@@ -1,6 +1,6 @@
 id: "http://example.org/importLevel1"
 title: Level 1 for import test
-name: Import Level 1 Test
+name: Import_Level_1_Test
 
 prefixes:
   l1: http://example.org/l1/

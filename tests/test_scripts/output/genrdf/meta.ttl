@@ -4,6 +4,7 @@
 @prefix biolinkml: <https://w3id.org/biolink/biolinkml/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix meta: <https://w3id.org/biolink/biolinkml/meta/> .
+@prefix metatype: <https://w3id.org/biolink/biolinkml/meta/types/> .
 @prefix oslc: <http://open-services.net/ns/core#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix pav: <http://purl.org/pav/> .
@@ -46,22 +47,22 @@ meta:metamodel a meta:SchemaDefinition ;
     meta:imports biolinkml:mappings,
         biolinkml:types ;
     meta:metamodel_version "1.5.2" ;
-    meta:prefixes [ meta:prefix_prefix "skos" ;
-            meta:prefix_reference skos: ],
-        [ meta:prefix_prefix "bibo" ;
-            meta:prefix_reference bibo: ],
-        [ meta:prefix_prefix "pav" ;
-            meta:prefix_reference pav: ],
-        [ meta:prefix_prefix "OIO" ;
+    meta:prefixes [ meta:prefix_prefix "OIO" ;
             meta:prefix_reference OIO: ],
-        [ meta:prefix_prefix "schema" ;
-            meta:prefix_reference schema: ],
         [ meta:prefix_prefix "biolinkml" ;
             meta:prefix_reference biolinkml: ],
         [ meta:prefix_prefix "meta" ;
             meta:prefix_reference meta: ],
+        [ meta:prefix_prefix "schema" ;
+            meta:prefix_reference schema: ],
+        [ meta:prefix_prefix "bibo" ;
+            meta:prefix_reference bibo: ],
+        [ meta:prefix_prefix "pav" ;
+            meta:prefix_reference pav: ],
         [ meta:prefix_prefix "oslc" ;
-            meta:prefix_reference oslc: ] ;
+            meta:prefix_reference oslc: ],
+        [ meta:prefix_prefix "skos" ;
+            meta:prefix_reference skos: ] ;
     meta:slots meta:abstract,
         meta:alias,
         meta:aliases,
@@ -188,7 +189,7 @@ meta:date a meta:TypeDefinition ;
     skos:editorialNote "URI is dateTime because OWL reasoners don't work with straight date or time" ;
     skos:inScheme biolinkml:types ;
     meta:base "XSDDate" ;
-    meta:definition_uri <https://w3id.org/biolink/biolinkml/meta/types/Date> ;
+    meta:definition_uri metatype:Date ;
     meta:imported_from "biolinkml:types" ;
     meta:repr "str" ;
     meta:uri xsd:date .
@@ -197,7 +198,7 @@ meta:double a meta:TypeDefinition ;
     skos:definition "A real number that conforms to the xsd:double specification" ;
     skos:inScheme biolinkml:types ;
     meta:base "float" ;
-    meta:definition_uri <https://w3id.org/biolink/biolinkml/meta/types/Double> ;
+    meta:definition_uri metatype:Double ;
     meta:imported_from "biolinkml:types" ;
     meta:uri xsd:double .
 
@@ -205,7 +206,7 @@ meta:float a meta:TypeDefinition ;
     skos:definition "A real number that conforms to the xsd:float specification" ;
     skos:inScheme biolinkml:types ;
     meta:base "float" ;
-    meta:definition_uri <https://w3id.org/biolink/biolinkml/meta/types/Float> ;
+    meta:definition_uri metatype:Float ;
     meta:imported_from "biolinkml:types" ;
     meta:uri xsd:float .
 
@@ -213,7 +214,7 @@ meta:nodeidentifier a meta:TypeDefinition ;
     skos:definition "A URI, CURIE or BNODE that represents a node in a model." ;
     skos:inScheme biolinkml:types ;
     meta:base "NodeIdentifier" ;
-    meta:definition_uri <https://w3id.org/biolink/biolinkml/meta/types/Nodeidentifier> ;
+    meta:definition_uri metatype:Nodeidentifier ;
     meta:imported_from "biolinkml:types" ;
     meta:repr "str" ;
     meta:uri shex:nonLiteral .
@@ -223,7 +224,7 @@ meta:objectidentifier a meta:TypeDefinition ;
     skos:inScheme biolinkml:types ;
     skos:note "Used for inheritence and type checking" ;
     meta:base "ElementIdentifier" ;
-    meta:definition_uri <https://w3id.org/biolink/biolinkml/meta/types/Objectidentifier> ;
+    meta:definition_uri metatype:Objectidentifier ;
     meta:imported_from "biolinkml:types" ;
     meta:repr "str" ;
     meta:uri shex:iri .
@@ -233,7 +234,7 @@ meta:time a meta:TypeDefinition ;
     skos:editorialNote "URI is dateTime because OWL reasoners don't work with straight date or time" ;
     skos:inScheme biolinkml:types ;
     meta:base "XSDTime" ;
-    meta:definition_uri <https://w3id.org/biolink/biolinkml/meta/types/Time> ;
+    meta:definition_uri metatype:Time ;
     meta:imported_from "biolinkml:types" ;
     meta:repr "str" ;
     meta:uri xsd:dateTime .
@@ -717,7 +718,7 @@ meta:integer a meta:TypeDefinition ;
     skos:definition "An integer" ;
     skos:inScheme biolinkml:types ;
     meta:base "int" ;
-    meta:definition_uri <https://w3id.org/biolink/biolinkml/meta/types/Integer> ;
+    meta:definition_uri metatype:Integer ;
     meta:imported_from "biolinkml:types" ;
     meta:uri xsd:integer .
 
@@ -1084,7 +1085,7 @@ meta:datetime a meta:TypeDefinition ;
     skos:definition "The combination of a date and time" ;
     skos:inScheme biolinkml:types ;
     meta:base "XSDDateTime" ;
-    meta:definition_uri <https://w3id.org/biolink/biolinkml/meta/types/Datetime> ;
+    meta:definition_uri metatype:Datetime ;
     meta:imported_from "biolinkml:types" ;
     meta:repr "str" ;
     meta:uri xsd:dateTime .
@@ -1105,7 +1106,7 @@ meta:uri a meta:TypeDefinition ;
     skos:definition "a complete URI" ;
     skos:inScheme biolinkml:types ;
     meta:base "URI" ;
-    meta:definition_uri <https://w3id.org/biolink/biolinkml/meta/types/Uri> ;
+    meta:definition_uri metatype:Uri ;
     meta:imported_from "biolinkml:types" ;
     meta:repr "str" ;
     meta:uri xsd:anyURI .
@@ -1231,7 +1232,7 @@ meta:ncname a meta:TypeDefinition ;
     skos:definition "Prefix part of CURIE" ;
     skos:inScheme biolinkml:types ;
     meta:base "NCName" ;
-    meta:definition_uri <https://w3id.org/biolink/biolinkml/meta/types/Ncname> ;
+    meta:definition_uri metatype:Ncname ;
     meta:imported_from "biolinkml:types" ;
     meta:repr "str" ;
     meta:uri xsd:string .
@@ -1571,7 +1572,7 @@ meta:boolean a meta:TypeDefinition ;
     skos:definition "A binary (true or false) value" ;
     skos:inScheme biolinkml:types ;
     meta:base "Bool" ;
-    meta:definition_uri <https://w3id.org/biolink/biolinkml/meta/types/Boolean> ;
+    meta:definition_uri metatype:Boolean ;
     meta:imported_from "biolinkml:types" ;
     meta:uri xsd:boolean .
 
@@ -1584,7 +1585,7 @@ meta:uriorcurie a meta:TypeDefinition ;
     skos:definition "a URI or a CURIE" ;
     skos:inScheme biolinkml:types ;
     meta:base "URIorCURIE" ;
-    meta:definition_uri <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
+    meta:definition_uri metatype:Uriorcurie ;
     meta:imported_from "biolinkml:types" ;
     meta:repr "str" ;
     meta:uri xsd:anyURI .
@@ -1593,7 +1594,7 @@ meta:string a meta:TypeDefinition ;
     skos:definition "A character string" ;
     skos:inScheme biolinkml:types ;
     meta:base "str" ;
-    meta:definition_uri <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+    meta:definition_uri metatype:String ;
     meta:imported_from "biolinkml:types" ;
     meta:uri xsd:string .
 

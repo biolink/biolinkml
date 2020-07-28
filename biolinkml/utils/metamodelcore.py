@@ -51,7 +51,7 @@ class NCName(str):
     """ Wrapper for NCName class """
     def __init__(self, v: str) -> None:
         if is_strict() and not self.is_valid(v):
-            raise ValueError(f"{v}: invalid prefix")
+            raise ValueError(f"{v}: Not a valid NCName")
         self.nsm: Optional[Namespaces] = None
         super().__init__()
 

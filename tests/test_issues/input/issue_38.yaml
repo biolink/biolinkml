@@ -1,5 +1,5 @@
 id: http://clinicalprofiles.org/biolink/extension
-name: ClinicalProfile Biolink Model extensions
+name: ClinicalProfile_Biolink_Model_extensions
 description: Biolink model extensions for the ClinicalProfile knowledge graphs
 license: https://creativecommons.org/publicdomain/zero/1.0/
 

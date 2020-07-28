@@ -253,11 +253,16 @@ class slots:
                 if pkeys:
                     for pk in pkeys:
                         classname = camelcase(cls.name) + camelcase(self.aliased_slot_name(pk))
-                        if cls.is_a and self.class_identifier(cls.is_a):
+                        # If we've got a parent slot and the range of the parent is the range of the child, the
+                        # child slot is a subclass of the parent.  Otherwise, the child range has been overridden,
+                        # so the inheritence chain has been broken
+                        parent_pk = self.class_identifier(cls.is_a, False) if cls.is_a else None
+                        parent_pk_slot = self.schema.slots[parent_pk] if parent_pk else None
+                        pk_slot = self.schema.slots[pk]
+                        if parent_pk_slot and (parent_pk_slot.name == pk or pk_slot.range == parent_pk_slot.range):
                             parents = self.class_identifier_path(cls.is_a, False)
                         else:
-                            parents = self.slot_type_path(self.schema.slots[pk])
-                        # TODO: check if parents[-1] is str, float, or int. changed it to extedned_
+                            parents = self.slot_type_path(pk_slot)
                         parent_cls = 'extended_' + parents[-1] if parents[-1] in ['str', 'float', 'int'] else parents[-1]
                         rval.append(f'class {classname}({parent_cls}):\n\tpass')
                         break       # We only do the first primary key

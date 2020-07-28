@@ -1,6 +1,6 @@
 # Auto generated from issue_80.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-07-27 16:45
-# Schema: Issue 80 test case
+# Generation date: 2020-07-28 12:01
+# Schema: Issue_80_test_case
 #
 # id: http://example.org/issues/80
 # description: Example identifier

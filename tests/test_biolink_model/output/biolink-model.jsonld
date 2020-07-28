@@ -9433,7 +9433,7 @@
   "type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/biolink/biolinkml/context.jsonld",
-    "/home/runner/work/biolinkml/biolinkml/tests/input/includes/types.context.jsonld",
+    "https://w3id.org/biolink/biolinkml/types.context.jsonld",
     {
       "@base": "https://w3id.org/biolink/vocab/"
     }

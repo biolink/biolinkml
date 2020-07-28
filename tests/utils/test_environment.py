@@ -13,6 +13,7 @@ from typing import Optional, Callable, Union, List
 
 from biolinkml import TYPES_FILE_NAME, LOCAL_METAMODEL_YAML_FILE, LOCAL_TYPES_YAML_FILE, \
     MAPPING_FILE_NAME, LOCAL_MAPPING_YAML_FILE
+
 from tests.utils.dirutils import are_dir_trees_equal
 from tests.utils.mismatchlog import MismatchLog
 
@@ -62,7 +63,8 @@ class TestEnvironment:
             self.mapping_yaml = self.input_path('includes', MAPPING_FILE_NAME)
             self._check_changed(self.mapping_yaml, LOCAL_MAPPING_YAML_FILE)
 
-            self.import_map = self.input_path('local_import_map.json')
+            from tests import USE_LOCAL_IMPORT_MAP
+            self.import_map = self.input_path('local_import_map.json') if USE_LOCAL_IMPORT_MAP else None
             from tests import DEFAULT_MISMATCH_ACTION
             self.mismatch_action = DEFAULT_MISMATCH_ACTION
             self.root_input_path = self.input_path
@@ -76,6 +78,12 @@ class TestEnvironment:
             print(
                 f"WARNING: Test file {test_file} does not match {runtime_file}.  "
                 f"You may want to update the test version and rerun")
+        from tests import USE_LOCAL_IMPORT_MAP
+        if USE_LOCAL_IMPORT_MAP:
+            print(
+                f"WARNING: USE_LOCAL_IMPORT_MAP must be reset to False before completing submission."
+            )
+
 
     def clear_log(self) -> None:
         """ Clear the output log """

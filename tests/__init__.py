@@ -29,7 +29,7 @@ SKIP_MARKDOWN_VALIDATION = test_settings.getboolean('SKIP_MARKDOWN_VALIDATION', 
 SKIP_MARKDOWN_VALIDATION_REASON = test_settings.get('SKIP_MARKDOWN_VALIDATION_REASON', 'tests/__init__.py Markdown generation SKIP_MARKDOWN_VALIDATION is True')
 
 # Skip RDF comparison, as it takes a lot of time
-SKIP_RDF_COMPARE = test_settings.getboolean('SKIP_RDF_COMPARE', True)
+SKIP_RDF_COMPARE = test_settings.getboolean('SKIP_RDF_COMPARE', False)
 SKIP_RDF_COMPARE_REASON = test_settings.get('SKIP_RDF_COMPARE_REASON', 'tests/__init__.py RDF output not checked SKIP_RDF_COMPARE is True')
 
 # Skip Rewrite rules tests -- these only get re-tested when we change the w3id.org server
@@ -40,6 +40,11 @@ SKIP_REWRITE_RULES_REASON = test_settings.get('SKIP_REWRITE_RULES_REASON', 'test
 #  If 'Fail', the expected file will be saved in the appropriate temp directory
 #  NOTE: Before setting this back to Report or Ignore, you need to run cleartemp.sh in this directory
 DEFAULT_MISMATCH_ACTION = eval(test_settings.get('DEFAULT_MISMATCH_ACTION', 'MismatchAction.Report'))
+
+# Use local import map.  If True, tests/input/local_import_map.json is used to create the test files.  Note that this
+#  will result in local path names being recorded in jsonld files.  This should always be set to False before generating
+#  the final output
+USE_LOCAL_IMPORT_MAP = test_settings.getboolean('USE_LOCAL_IMPORT_MAP', False)
 
 # Exception for use in script testing.  Global to prevent redefinition
 class CLIExitException(Exception):

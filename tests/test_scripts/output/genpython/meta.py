@@ -52,7 +52,7 @@ class ElementName(extended_str):
     pass
 
 
-class SchemaDefinitionName(ElementName):
+class SchemaDefinitionName(NCName):
     pass
 
 

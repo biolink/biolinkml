@@ -6,6 +6,7 @@ from biolinkml.generators.jsonschemagen import JsonSchemaGenerator
 from biolinkml.utils.schemaloader import SchemaLoader
 from biolinkml.utils.yamlutils import as_yaml
 from tests.test_issues.environment import env
+from tests.utils.filters import yaml_filter
 from tests.utils.test_environment import TestEnvironmentTestCase
 
 
@@ -28,7 +29,7 @@ class Issue18TestCase(TestEnvironmentTestCase):
     def test_issue_177_dup(self):
         env.generate_single_file('issue_177_error.yaml',
                                  lambda: as_yaml(SchemaLoader(env.input_path('issue_177_error.yaml')).resolve()),
-                                 value_is_returned=True)
+                                 value_is_returned=True, filtr=yaml_filter)
 
 
 if __name__ == '__main__':

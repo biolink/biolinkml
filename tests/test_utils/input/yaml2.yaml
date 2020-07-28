@@ -1,4 +1,4 @@
-name: YAML with inner duplicate key
+name: YAML_with_inner_duplicate_key
 f1: yaml1.yaml
 f2:
   f3: abc
