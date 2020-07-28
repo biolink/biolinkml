@@ -1,5 +1,5 @@
 # Auto generated from issue_84.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-07-28 17:25
+# Generation date: 2020-07-28 18:02
 # Schema: nmdc_schema
 #
 # id: https://microbiomedata/schema

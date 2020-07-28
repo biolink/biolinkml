@@ -36,10 +36,10 @@
 <http://example.org/sample/example163c> a owl:Ontology ;
     rdfs:label "example163c" ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
-    meta:generation_date "2020-07-28 17:25" ;
+    meta:generation_date "2020-07-28 18:02" ;
     meta:metamodel_version "1.5.2" ;
     meta:source_file "issue_163c.yaml" ;
-    meta:source_file_date "Tue Jul 28 17:23:32 2020" ;
+    meta:source_file_date "Tue Jul 28 18:00:29 2020" ;
     meta:source_file_size 671 .
 
 meta:SubsetDefinition a owl:Class ;

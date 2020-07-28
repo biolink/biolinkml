@@ -1,5 +1,5 @@
 # Auto generated from issue_120.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-07-28 17:25
+# Generation date: 2020-07-28 18:02
 # Schema: example1
 #
 # id: http://example.org/sample/example1
