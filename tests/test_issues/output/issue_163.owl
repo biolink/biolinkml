@@ -18,10 +18,10 @@
 <http://example.org/sample/example1> a owl:Ontology ;
     rdfs:label "example1" ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
-    meta:generation_date "2020-07-28 12:17" ;
+    meta:generation_date "2020-07-28 17:25" ;
     meta:metamodel_version "1.5.2" ;
     meta:source_file "issue_163.yaml" ;
-    meta:source_file_date "Tue Jul 28 09:42:39 2020" ;
+    meta:source_file_date "Tue Jul 28 17:23:32 2020" ;
     meta:source_file_size 735 .
 
 meta:SubsetDefinition a owl:Class ;
@@ -196,6 +196,10 @@ meta:SubsetDefinition a owl:Class ;
     rdfs:label "a" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty <http://example.org/name> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Integer> ;
             owl:onProperty <http://example.org/len> ],
         [ a owl:Restriction ;
@@ -205,11 +209,7 @@ meta:SubsetDefinition a owl:Class ;
         [ a owl:Restriction ;
             owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
             owl:onProperty <http://example.org/id> ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty <http://example.org/name> ] .
+            owl:qualifiedCardinality 1 ] .
 
 <http://example.org/B> a owl:Class,
         meta:ClassDefinition ;
