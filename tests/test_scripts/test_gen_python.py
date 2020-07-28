@@ -64,7 +64,6 @@ types:
         """ Test the multi-identifier error """
         self.gen_and_comp_python('multi_id')
 
-    @unittest.skipIf(True, "See https://github.com/biolink/biolinkml/issues/141")
     def test_timepoint(self):
         """ Test an issue with the biolink-model timepoint rendering """
         self.gen_and_comp_python('timepoint')
