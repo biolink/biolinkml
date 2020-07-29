@@ -159,27 +159,18 @@ class slots:
 
             def add_element(self, e: Element) -> None:
                 if e.imported_from:
-                    if str(e.imported_from) == biolinkml.METATYPE_URI:
-                        # TODO: figure out how to make this sort of stuff part of the model
-                        self.v.setdefault(types.__name__, set()).add(camelcase(e.name))
-                    elif str(e.imported_from) == biolinkml.BIOLINK_MODEL_URI:
-                        self.v.setdefault(biolinkml.BIOLINK_MODEL_PYTHON_LOC, set()).add(camelcase(e.name))
-                    elif e.imported_from.__contains__('://'):
-                        raise ValueError(f"Cannot map {e.imported_from} into a python import statement")
-                    else:
-                        self.v.setdefault(types.__name__, set()).add(camelcase(e.name))
+                    self.add_entry(e.imported_from, camelcase(e.name))
 
-            def add_entry(self, path: Union[str, URIRef], name: str) -> None:
-                path = str(path)
-                if path == biolinkml.METATYPE_URI:
-                    # TODO: figure out how to make this sort of stuff part of the model
-                    self.v.setdefault(types.__name__, set()).add(name)
+            def add_entry(innerself, path: Union[str, URIRef], name: str) -> None:
+                path = str(self.namespaces.uri_for(path) if ':' in path else path)
+                if path.startswith(biolinkml.META_BASE_URI):
+                    innerself.v.setdefault('includes.' + path[len(biolinkml.META_BASE_URI):], set()).add(name)
                 elif path == biolinkml.BIOLINK_MODEL_URI:
-                    self.v.setdefault(biolinkml.BIOLINK_MODEL_PYTHON_LOC, set()).add(name)
+                    innerself.v.setdefault(biolinkml.BIOLINK_MODEL_PYTHON_LOC, set()).add(name)
                 elif path.__contains__('://'):
                     raise ValueError(f"Cannot map {path} into a python import statement")
                 else:
-                    self.v.setdefault(path.replace('/', '.'), set()).add(name)
+                    innerself.v.setdefault(path.replace('/', '.'), set()).add(name)
 
             def values(self) -> Dict[str, List[str]]:
                 return {k: sorted(self.v[k]) for k in sorted(self.v.keys())}
