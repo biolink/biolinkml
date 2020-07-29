@@ -12,17 +12,25 @@ class ContextTestCase(GeneratorTestCase):
     env = env
 
     def test_types_context(self):
-        """ Build an image of types.jsonld in the local includes directory """
+        """ Build includes/types.context.jsonld """
         self.model_name = 'types'
         self.single_file_generator('context.jsonld', ContextGenerator, subdir='includes',
                                    serialize_args=dict(base=META_BASE_URI), filtr=ldcontext_metadata_filter)
 
     def test_mappings_context(self):
+        """ Build includes/mappings.context.jsonld """
         self.model_name = 'mappings'
         self.single_file_generator('context.jsonld', ContextGenerator, subdir='includes',
                                    serialize_args=dict(base=META_BASE_URI), filtr=ldcontext_metadata_filter)
 
+    def test_extensions_context(self):
+        """ Build includes/extensions.context.jsonld """
+        self.model_name = 'extensions'
+        self.single_file_generator('context.jsonld', ContextGenerator, subdir='includes',
+                                   serialize_args=dict(base=META_BASE_URI), filtr=ldcontext_metadata_filter)
+
     def test_metamodel_context(self):
+        """ Build meta.context.jsonld """
         self.model_name = 'meta'
         self.single_file_generator('jsonld', ContextGenerator, serialize_args=dict(base=META_BASE_URI),
                                    filtr=ldcontext_metadata_filter, output_name='context')

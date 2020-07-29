@@ -647,13 +647,12 @@ classes:
         gen.logstream.truncate(0)
         gen.logstream.seek(0)
 
-        self.assertEqual(References(
-            classrefs={cast(ClassDefinitionName, e) for e in ['class_definition', 'local_name',
-                                                              'subset_definition', 'alt_description', 'definition',
-                                                              'example', 'slot_definition', 'element']},
-            slotrefs={cast(SlotDefinitionName, e) for e in ['is_a', 'apply_to', 'mixins', 'owner']},
-            typerefs={cast(TypeDefinitionName, e) for e in ['uriorcurie', 'boolean', 'uri', 'ncname', 'datetime', 'string']},
-            subsetrefs=set()), gen.neighborhood('definition'))
+        self.assertEqual(References(classrefs={'class_definition', 'extension', 'slot_definition', 'definition',
+                                               'alt_description', 'local_name', 'subset_definition', 'element',
+                                               'example'},
+                                    slotrefs={'mixins', 'apply_to', 'is_a', 'owner'},
+                                    typerefs={'ncname', 'boolean', 'uriorcurie', 'uri', 'string', 'datetime'},
+                                    subsetrefs=set()), gen.neighborhood('definition'))
 
 
 if __name__ == '__main__':

@@ -21,6 +21,7 @@ from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import Bool, NCName, URI, URIorCURIE, XSDDateTime
+from includes.extensions import Extension
 from includes.types import Boolean, Datetime, Integer, Ncname, String, Uri, Uriorcurie
 
 metamodel_version = "1.5.2"
@@ -122,6 +123,7 @@ class Element(YAMLRoot):
     related_mappings: List[Union[str, URIorCURIE]] = empty_list()
     deprecated_element_has_exact_replacement: Optional[Union[str, URIorCURIE]] = None
     deprecated_element_has_possible_replacement: Optional[Union[str, URIorCURIE]] = None
+    extensions: List[Union[dict, Extension]] = empty_list()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         self.id_prefixes = [v if isinstance(v, NCName)
@@ -158,6 +160,8 @@ class Element(YAMLRoot):
             self.deprecated_element_has_exact_replacement = URIorCURIE(self.deprecated_element_has_exact_replacement)
         if self.deprecated_element_has_possible_replacement is not None and not isinstance(self.deprecated_element_has_possible_replacement, URIorCURIE):
             self.deprecated_element_has_possible_replacement = URIorCURIE(self.deprecated_element_has_possible_replacement)
+        self.extensions = [v if isinstance(v, Extension)
+                           else Extension(**v) for v in ([self.extensions] if isinstance(self.extensions, str) else self.extensions)]
         super().__post_init__(**kwargs)
 
 

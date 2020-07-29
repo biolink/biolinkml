@@ -1,12 +1,21 @@
 import logging
 import configparser
 # Global testing control variables
+import os
+
 from tests.utils.test_environment import MismatchAction
 
-# Don't change this file. Use test_config.ini for local settings.
+# ---------------------------------------------------------------
+#                DO NOT change this file.
+# To change the default test harness settings:
+#  > cd tests
+#  > cp test_config.ini.example test_config.ini
+#
+#  Make your edits in test_config.ini.  Note that it is in .gitignore and will not be submitted
+# ----------------------------------------------------------------
 
 config = configparser.ConfigParser()
-config.read('test_config.ini')
+config.read(os.path.join(os.path.dirname(__file__), 'test_config.ini'))
 if 'test.settings' not in config.sections():
     config['test.settings'] = {}  # initialize a blank setting if file doesn't exist
 test_settings = config['test.settings']

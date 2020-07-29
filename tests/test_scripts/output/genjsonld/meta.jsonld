@@ -6,7 +6,8 @@
   "version": "1.5.2",
   "imports": [
     "biolinkml:types",
-    "biolinkml:mappings"
+    "biolinkml:mappings",
+    "biolinkml:extensions"
   ],
   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
   "prefixes": [
@@ -1838,6 +1839,58 @@
       "type": "SlotDefinition"
     },
     {
+      "name": "extensions",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/extensions",
+      "description": "a tag/text tuple attached to an arbitrary element",
+      "from_schema": "https://w3id.org/biolink/biolinkml/extensions",
+      "imported_from": "biolinkml:extensions",
+      "domain": "Extensible",
+      "range": "Extension",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/extensions",
+      "multivalued": true,
+      "inlined": true,
+      "owner": "Extensible",
+      "domain_of": [
+        "Extension",
+        "Extensible"
+      ],
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "extension_tag",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/extension_tag",
+      "description": "a tag associated with an extension",
+      "from_schema": "https://w3id.org/biolink/biolinkml/extensions",
+      "imported_from": "biolinkml:extensions",
+      "domain": "Extension",
+      "range": "uriorcurie",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/tag",
+      "required": true,
+      "alias": "tag",
+      "owner": "Extension",
+      "domain_of": [
+        "Extension"
+      ],
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "extension_value",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/extension_value",
+      "description": "the actual annotation",
+      "from_schema": "https://w3id.org/biolink/biolinkml/extensions",
+      "imported_from": "biolinkml:extensions",
+      "domain": "Extension",
+      "range": "string",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/value",
+      "required": true,
+      "alias": "value",
+      "owner": "Extension",
+      "domain_of": [
+        "Extension"
+      ],
+      "type": "SlotDefinition"
+    },
+    {
       "name": "schema_definition_name",
       "from_schema": "https://w3id.org/biolink/biolinkml/meta",
       "is_a": "name",
@@ -1957,6 +2010,9 @@
       "description": "a named element in the model",
       "from_schema": "https://w3id.org/biolink/biolinkml/meta",
       "abstract": true,
+      "mixins": [
+        "Extensible"
+      ],
       "slots": [
         "id_prefixes",
         "name",
@@ -1979,7 +2035,8 @@
         "close_mappings",
         "related_mappings",
         "deprecated_element_has_exact_replacement",
-        "deprecated_element_has_possible_replacement"
+        "deprecated_element_has_possible_replacement",
+        "extensions"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/Element",
       "type": "ClassDefinition"
@@ -2013,6 +2070,7 @@
         "related_mappings",
         "deprecated_element_has_exact_replacement",
         "deprecated_element_has_possible_replacement",
+        "extensions",
         "id",
         "title",
         "version",
@@ -2065,6 +2123,7 @@
         "related_mappings",
         "deprecated_element_has_exact_replacement",
         "deprecated_element_has_possible_replacement",
+        "extensions",
         "typeof",
         "base",
         "type_uri",
@@ -2101,7 +2160,8 @@
         "close_mappings",
         "related_mappings",
         "deprecated_element_has_exact_replacement",
-        "deprecated_element_has_possible_replacement"
+        "deprecated_element_has_possible_replacement",
+        "extensions"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/SubsetDefinition",
       "type": "ClassDefinition"
@@ -2136,6 +2196,7 @@
         "related_mappings",
         "deprecated_element_has_exact_replacement",
         "deprecated_element_has_possible_replacement",
+        "extensions",
         "is_a",
         "abstract",
         "mixin",
@@ -2180,6 +2241,7 @@
         "related_mappings",
         "deprecated_element_has_exact_replacement",
         "deprecated_element_has_possible_replacement",
+        "extensions",
         "slot_definition_is_a",
         "abstract",
         "mixin",
@@ -2249,6 +2311,7 @@
         "related_mappings",
         "deprecated_element_has_exact_replacement",
         "deprecated_element_has_possible_replacement",
+        "extensions",
         "class_definition_is_a",
         "abstract",
         "mixin",
@@ -2318,6 +2381,33 @@
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/AltDescription",
       "type": "ClassDefinition"
+    },
+    {
+      "name": "Extension",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/Extension",
+      "description": "a tag/value pair used to add non-model information to an entry",
+      "from_schema": "https://w3id.org/biolink/biolinkml/extensions",
+      "imported_from": "biolinkml:extensions",
+      "slots": [
+        "extension_tag",
+        "extension_value",
+        "extensions"
+      ],
+      "class_uri": "https://w3id.org/biolink/biolinkml/meta/Extension",
+      "type": "ClassDefinition"
+    },
+    {
+      "name": "Extensible",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/Extensible",
+      "description": "mixin for classes that support extension",
+      "from_schema": "https://w3id.org/biolink/biolinkml/extensions",
+      "imported_from": "biolinkml:extensions",
+      "mixin": true,
+      "slots": [
+        "extensions"
+      ],
+      "class_uri": "https://w3id.org/biolink/biolinkml/meta/Extensible",
+      "type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.5.2",
@@ -2330,6 +2420,7 @@
     "file:./output/gencontext/meta.jsonld",
     "https://w3id.org/biolink/biolinkml/types.context.jsonld",
     "https://w3id.org/biolink/biolinkml/mappings.context.jsonld",
+    "/Users/solbrig/git/biolink/biolinkml/tests/input/includes/extensions.context.jsonld",
     {
       "@base": "https://w3id.org/biolink/biolinkml/meta/"
     }

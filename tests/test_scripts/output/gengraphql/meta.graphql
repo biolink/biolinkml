@@ -28,6 +28,7 @@ type ClassDefinition
     relatedMappings: [Uriorcurie]
     deprecatedElementHasExactReplacement: Uriorcurie
     deprecatedElementHasPossibleReplacement: Uriorcurie
+    extensions: [Extension]
     isA: ClassDefinition
     abstract: Boolean
     mixin: Boolean
@@ -72,6 +73,7 @@ interface Definition
     relatedMappings: [Uriorcurie]
     deprecatedElementHasExactReplacement: Uriorcurie
     deprecatedElementHasPossibleReplacement: Uriorcurie
+    extensions: [Extension]
     isA: Definition
     abstract: Boolean
     mixin: Boolean
@@ -85,7 +87,7 @@ interface Definition
     status: Uriorcurie
   }
 
-interface Element
+type Element implements Extensible
   {
     idPrefixes: [Ncname]
     name: String!
@@ -109,12 +111,25 @@ interface Element
     relatedMappings: [Uriorcurie]
     deprecatedElementHasExactReplacement: Uriorcurie
     deprecatedElementHasPossibleReplacement: Uriorcurie
+    extensions: [Extension]
   }
 
 type Example
   {
     value: String
     description: String
+  }
+
+interface Extensible
+  {
+    extensions: [Extension]
+  }
+
+type Extension
+  {
+    tag: Uriorcurie!
+    value: String!
+    extensions: [Extension]
   }
 
 type LocalName
@@ -153,6 +168,7 @@ type SchemaDefinition
     relatedMappings: [Uriorcurie]
     deprecatedElementHasExactReplacement: Uriorcurie
     deprecatedElementHasPossibleReplacement: Uriorcurie
+    extensions: [Extension]
     id: Uri!
     title: String
     version: String
@@ -198,6 +214,7 @@ type SlotDefinition
     relatedMappings: [Uriorcurie]
     deprecatedElementHasExactReplacement: Uriorcurie
     deprecatedElementHasPossibleReplacement: Uriorcurie
+    extensions: [Extension]
     isA: SlotDefinition
     abstract: Boolean
     mixin: Boolean
@@ -260,6 +277,7 @@ type SubsetDefinition
     relatedMappings: [Uriorcurie]
     deprecatedElementHasExactReplacement: Uriorcurie
     deprecatedElementHasPossibleReplacement: Uriorcurie
+    extensions: [Extension]
   }
 
 type TypeDefinition
@@ -286,6 +304,7 @@ type TypeDefinition
     relatedMappings: [Uriorcurie]
     deprecatedElementHasExactReplacement: Uriorcurie
     deprecatedElementHasPossibleReplacement: Uriorcurie
+    extensions: [Extension]
     typeof: TypeDefinition
     base: String
     uri: Uriorcurie

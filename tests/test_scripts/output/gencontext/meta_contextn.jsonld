@@ -68,6 +68,12 @@
       "examples": {
          "@type": "@id"
       },
+      "tag": {
+         "@type": "@id"
+      },
+      "extensions": {
+         "@type": "@id"
+      },
       "from_schema": {
          "@type": "@id"
       },

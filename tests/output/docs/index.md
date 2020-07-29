@@ -16,11 +16,13 @@ A metamodel for defining biolink related schemas
     * [SubsetDefinition](SubsetDefinition.md) - the name and description of a subset
     * [TypeDefinition](TypeDefinition.md) - A data type definition.
  * [Example](Example.md) - usage example and description
+ * [Extension](Extension.md) - a tag/value pair used to add non-model information to an entry
  * [LocalName](LocalName.md) - an attributed label
  * [Prefix](Prefix.md) - prefix URI tuple
 
 ### Mixins
 
+ * [Extensible](Extensible.md) - mixin for classes that support extension
 
 ### Slots
 
@@ -52,6 +54,9 @@ A metamodel for defining biolink related schemas
  * [domain_of](domain_of.md) - the class(es) that reference the slot in a "slots" or "slot_usage" context
  * [emit_prefixes](emit_prefixes.md) - a list of Curie prefixes that are used in the representation of instances of the model.  All prefixes in this list are added to the prefix sections of the target models.
  * [examples](examples.md) - example usages of an element
+ * [extension➞tag](extension_tag.md) - a tag associated with an extension
+ * [extension➞value](extension_value.md) - the actual annotation
+ * [extensions](extensions.md) - a tag/text tuple attached to an arbitrary element
  * [from_schema](from_schema.md) - id of the schema that defined the element
  * [generation_date](generation_date.md) - date and time that the schema was loaded/generated
  * [id](id.md) - The official schema URI

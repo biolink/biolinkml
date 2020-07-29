@@ -83,7 +83,9 @@ metatype:Nodeidentifier NONLITERAL
 )
 
 <Element_struct> {
-    (  $<Element_tes> (  <id_prefixes> @metatype:Ncname * ;
+    (  $<Element_tes> (  &<Extensible_tes> ;
+          rdf:type [ <Extensible> ] ? ;
+          <id_prefixes> @metatype:Ncname * ;
           <definition_uri> @metatype:Uriorcurie ? ;
           <aliases> @metatype:String * ;
           <local_names> @<LocalName> * ;
@@ -103,7 +105,8 @@ metatype:Nodeidentifier NONLITERAL
           <close_mappings> @metatype:Uriorcurie * ;
           <related_mappings> @metatype:Uriorcurie * ;
           <deprecated_element_has_exact_replacement> @metatype:Uriorcurie ? ;
-          <deprecated_element_has_possible_replacement> @metatype:Uriorcurie ?
+          <deprecated_element_has_possible_replacement> @metatype:Uriorcurie ? ;
+          <extensions> @<Extension> *
        ) ;
        rdf:type [ <Element> ]
     )
@@ -114,6 +117,21 @@ metatype:Nodeidentifier NONLITERAL
           <description> @metatype:String ?
        ) ;
        rdf:type [ <Example> ] ?
+    )
+}
+
+<Extensible> {
+    (  $<Extensible_tes> <extensions> @<Extension> * ;
+       rdf:type [ <Extensible> ] ?
+    )
+}
+
+<Extension> CLOSED {
+    (  $<Extension_tes> (  <tag> @metatype:Uriorcurie ;
+          <value> @metatype:String ;
+          <extensions> @<Extension> *
+       ) ;
+       rdf:type [ <Extension> ] ?
     )
 }
 

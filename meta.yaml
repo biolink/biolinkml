@@ -35,6 +35,7 @@ emit_prefixes:
 imports:
   - biolinkml:types
   - biolinkml:mappings
+  - biolinkml:extensions
 
 subsets:
   owl:
@@ -233,16 +234,6 @@ slots:
     range: uriorcurie
     description: >-
       the identifier of a "value set" -- a set of identifiers that form the possible values for the range of a slot
-
-#  values from:
-#    multivalued: true
-##    range: uri
-#    description: defines the set of URI's that can fill the range of a slot
-#    comments:
-#      - >-
-#        When a slot range references a class with a value from element, the possible values of the slot range are
-#        considered to be all URI's which satisfy the values from target.  Typically this identifies URI's in a
-#        given ontology or any subclass of a given node.
 
   # -----------------------------------
   # Schema definition slots
@@ -795,6 +786,8 @@ classes:
   element:
     description: a named element in the model
     abstract: true
+    mixins:
+      - extensible
     slots:
       - id_prefixes
       - name

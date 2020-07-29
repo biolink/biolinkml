@@ -29,30 +29,38 @@ message ClassDefinition
   repeated relatedMappings Uriorcurie = 20
   optional deprecatedElementHasExactReplacement Uriorcurie = 21
   optional deprecatedElementHasPossibleReplacement Uriorcurie = 22
-  optional isA ClassDefinition = 23
-  optional abstract Boolean = 24
-  optional mixin Boolean = 25
-  repeated mixins ClassDefinition = 26
-  repeated applyTo ClassDefinition = 27
-  repeated valuesFrom Uriorcurie = 28
-  optional createdBy Uriorcurie = 29
-  optional createdOn Datetime = 30
-  optional lastUpdatedOn Datetime = 31
-  optional modifiedBy Uriorcurie = 32
-  optional status Uriorcurie = 33
-  repeated slots SlotDefinition = 34
-  repeated slotUsage SlotDefinition = 35
-  optional classUri Uriorcurie = 36
-  optional subclassOf Uriorcurie = 37
-  repeated unionOf ClassDefinition = 38
-  repeated definingSlots SlotDefinition = 39
-  optional treeRoot Boolean = 40
+  repeated extensions Extension = 23
+  optional isA ClassDefinition = 24
+  optional abstract Boolean = 25
+  optional mixin Boolean = 26
+  repeated mixins ClassDefinition = 27
+  repeated applyTo ClassDefinition = 28
+  repeated valuesFrom Uriorcurie = 29
+  optional createdBy Uriorcurie = 30
+  optional createdOn Datetime = 31
+  optional lastUpdatedOn Datetime = 32
+  optional modifiedBy Uriorcurie = 33
+  optional status Uriorcurie = 34
+  repeated slots SlotDefinition = 35
+  repeated slotUsage SlotDefinition = 36
+  optional classUri Uriorcurie = 37
+  optional subclassOf Uriorcurie = 38
+  repeated unionOf ClassDefinition = 39
+  repeated definingSlots SlotDefinition = 40
+  optional treeRoot Boolean = 41
  }
 // usage example and description
 message Example
  {
   optional value String = 1
   optional description String = 2
+ }
+// a tag/value pair used to add non-model information to an entry
+message Extension
+ {
+  tag Uriorcurie = 1
+  value String = 2
+  repeated extensions Extension = 3
  }
 // an attributed label
 message LocalName
@@ -91,25 +99,26 @@ message SchemaDefinition
   repeated relatedMappings Uriorcurie = 20
   optional deprecatedElementHasExactReplacement Uriorcurie = 21
   optional deprecatedElementHasPossibleReplacement Uriorcurie = 22
-  id Uri = 23
-  optional title String = 24
-  optional version String = 25
-  repeated imports Uriorcurie = 26
-  optional license String = 27
-  repeated prefixes Prefix = 28
-  repeated emitPrefixes Ncname = 29
-  repeated defaultCuriMaps String = 30
-  optional defaultPrefix String = 31
-  optional defaultRange TypeDefinition = 32
-  repeated subsets SubsetDefinition = 33
-  repeated types TypeDefinition = 34
-  repeated slots SlotDefinition = 35
-  repeated classes ClassDefinition = 36
-  optional metamodelVersion String = 37
-  optional sourceFile String = 38
-  optional sourceFileDate Datetime = 39
-  optional sourceFileSize Integer = 40
-  optional generationDate Datetime = 41
+  repeated extensions Extension = 23
+  id Uri = 24
+  optional title String = 25
+  optional version String = 26
+  repeated imports Uriorcurie = 27
+  optional license String = 28
+  repeated prefixes Prefix = 29
+  repeated emitPrefixes Ncname = 30
+  repeated defaultCuriMaps String = 31
+  optional defaultPrefix String = 32
+  optional defaultRange TypeDefinition = 33
+  repeated subsets SubsetDefinition = 34
+  repeated types TypeDefinition = 35
+  repeated slots SlotDefinition = 36
+  repeated classes ClassDefinition = 37
+  optional metamodelVersion String = 38
+  optional sourceFile String = 39
+  optional sourceFileDate Datetime = 40
+  optional sourceFileSize Integer = 41
+  optional generationDate Datetime = 42
  }
 // the definition of a property or a slot
 message SlotDefinition
@@ -136,42 +145,43 @@ message SlotDefinition
   repeated relatedMappings Uriorcurie = 20
   optional deprecatedElementHasExactReplacement Uriorcurie = 21
   optional deprecatedElementHasPossibleReplacement Uriorcurie = 22
-  optional isA SlotDefinition = 23
-  optional abstract Boolean = 24
-  optional mixin Boolean = 25
-  repeated mixins SlotDefinition = 26
-  repeated applyTo SlotDefinition = 27
-  repeated valuesFrom Uriorcurie = 28
-  optional createdBy Uriorcurie = 29
-  optional createdOn Datetime = 30
-  optional lastUpdatedOn Datetime = 31
-  optional modifiedBy Uriorcurie = 32
-  optional status Uriorcurie = 33
-  optional singularName String = 34
-  optional domain ClassDefinition = 35
-  optional range Element = 36
-  optional slotUri Uriorcurie = 37
-  optional multivalued Boolean = 38
-  optional inherited Boolean = 39
-  optional readonly String = 40
-  optional ifabsent String = 41
-  optional required Boolean = 42
-  optional inlined Boolean = 43
-  optional key Boolean = 44
-  optional identifier Boolean = 45
-  optional alias String = 46
-  optional owner Definition = 47
-  repeated domainOf ClassDefinition = 48
-  optional subpropertyOf Uriorcurie = 49
-  optional symmetric Boolean = 50
-  optional inverse SlotDefinition = 51
-  optional isClassField Boolean = 52
-  optional role String = 53
-  optional isUsageSlot Boolean = 54
-  optional minimumValue Integer = 55
-  optional maximumValue Integer = 56
-  optional pattern String = 57
-  optional stringSerialization String = 58
+  repeated extensions Extension = 23
+  optional isA SlotDefinition = 24
+  optional abstract Boolean = 25
+  optional mixin Boolean = 26
+  repeated mixins SlotDefinition = 27
+  repeated applyTo SlotDefinition = 28
+  repeated valuesFrom Uriorcurie = 29
+  optional createdBy Uriorcurie = 30
+  optional createdOn Datetime = 31
+  optional lastUpdatedOn Datetime = 32
+  optional modifiedBy Uriorcurie = 33
+  optional status Uriorcurie = 34
+  optional singularName String = 35
+  optional domain ClassDefinition = 36
+  optional range Element = 37
+  optional slotUri Uriorcurie = 38
+  optional multivalued Boolean = 39
+  optional inherited Boolean = 40
+  optional readonly String = 41
+  optional ifabsent String = 42
+  optional required Boolean = 43
+  optional inlined Boolean = 44
+  optional key Boolean = 45
+  optional identifier Boolean = 46
+  optional alias String = 47
+  optional owner Definition = 48
+  repeated domainOf ClassDefinition = 49
+  optional subpropertyOf Uriorcurie = 50
+  optional symmetric Boolean = 51
+  optional inverse SlotDefinition = 52
+  optional isClassField Boolean = 53
+  optional role String = 54
+  optional isUsageSlot Boolean = 55
+  optional minimumValue Integer = 56
+  optional maximumValue Integer = 57
+  optional pattern String = 58
+  optional stringSerialization String = 59
  }
 // the name and description of a subset
 message SubsetDefinition
@@ -198,6 +208,7 @@ message SubsetDefinition
   repeated relatedMappings Uriorcurie = 20
   optional deprecatedElementHasExactReplacement Uriorcurie = 21
   optional deprecatedElementHasPossibleReplacement Uriorcurie = 22
+  repeated extensions Extension = 23
  }
 // A data type definition.
 message TypeDefinition
@@ -224,9 +235,10 @@ message TypeDefinition
   repeated relatedMappings Uriorcurie = 20
   optional deprecatedElementHasExactReplacement Uriorcurie = 21
   optional deprecatedElementHasPossibleReplacement Uriorcurie = 22
-  optional typeof TypeDefinition = 23
-  optional base String = 24
-  optional uri Uriorcurie = 25
-  optional repr String = 26
+  repeated extensions Extension = 23
+  optional typeof TypeDefinition = 24
+  optional base String = 25
+  optional uri Uriorcurie = 26
+  optional repr String = 27
  }
 

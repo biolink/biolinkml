@@ -24,6 +24,8 @@ meta:metamodel a meta:SchemaDefinition ;
         meta:Definition,
         meta:Element,
         meta:Example,
+        meta:Extensible,
+        meta:Extension,
         meta:LocalName,
         meta:Prefix,
         meta:SchemaDefinition,
@@ -44,25 +46,26 @@ meta:metamodel a meta:SchemaDefinition ;
         "xsd" ;
     meta:generation_date "2019-01-25 12:34"^^xsd:dateTime ;
     meta:id biolinkml:meta ;
-    meta:imports biolinkml:mappings,
+    meta:imports biolinkml:extensions,
+        biolinkml:mappings,
         biolinkml:types ;
     meta:metamodel_version "1.5.2" ;
     meta:prefixes [ meta:prefix_prefix "OIO" ;
             meta:prefix_reference OIO: ],
-        [ meta:prefix_prefix "oslc" ;
-            meta:prefix_reference oslc: ],
-        [ meta:prefix_prefix "biolinkml" ;
-            meta:prefix_reference biolinkml: ],
         [ meta:prefix_prefix "schema" ;
             meta:prefix_reference schema: ],
-        [ meta:prefix_prefix "skos" ;
-            meta:prefix_reference skos: ],
-        [ meta:prefix_prefix "pav" ;
-            meta:prefix_reference pav: ],
         [ meta:prefix_prefix "bibo" ;
             meta:prefix_reference bibo: ],
+        [ meta:prefix_prefix "oslc" ;
+            meta:prefix_reference oslc: ],
+        [ meta:prefix_prefix "pav" ;
+            meta:prefix_reference pav: ],
         [ meta:prefix_prefix "meta" ;
-            meta:prefix_reference meta: ] ;
+            meta:prefix_reference meta: ],
+        [ meta:prefix_prefix "biolinkml" ;
+            meta:prefix_reference biolinkml: ],
+        [ meta:prefix_prefix "skos" ;
+            meta:prefix_reference skos: ] ;
     meta:slots meta:abstract,
         meta:alias,
         meta:aliases,
@@ -94,6 +97,9 @@ meta:metamodel a meta:SchemaDefinition ;
         meta:emit_prefixes,
         meta:exact_mappings,
         meta:examples,
+        meta:extension_tag,
+        meta:extension_value,
+        meta:extensions,
         meta:from_schema,
         meta:generation_date,
         meta:id,
@@ -347,6 +353,32 @@ meta:alt_description_text a meta:SlotDefinition ;
     meta:range meta:string ;
     meta:required true ;
     meta:slot_uri meta:description .
+
+meta:extension_tag a meta:SlotDefinition ;
+    skos:definition "a tag associated with an extension" ;
+    skos:inScheme biolinkml:extensions ;
+    meta:alias "tag" ;
+    meta:definition_uri meta:extension_tag ;
+    meta:domain meta:Extension ;
+    meta:domain_of meta:Extension ;
+    meta:imported_from "biolinkml:extensions" ;
+    meta:owner meta:Extension ;
+    meta:range meta:uriorcurie ;
+    meta:required true ;
+    meta:slot_uri meta:tag .
+
+meta:extension_value a meta:SlotDefinition ;
+    skos:definition "the actual annotation" ;
+    skos:inScheme biolinkml:extensions ;
+    meta:alias "value" ;
+    meta:definition_uri meta:extension_value ;
+    meta:domain meta:Extension ;
+    meta:domain_of meta:Extension ;
+    meta:imported_from "biolinkml:extensions" ;
+    meta:owner meta:Extension ;
+    meta:range meta:string ;
+    meta:required true ;
+    meta:slot_uri meta:value .
 
 meta:slot_definitions a meta:SlotDefinition ;
     skos:definition "slot definitions" ;
@@ -1058,17 +1090,6 @@ meta:union_of a meta:SlotDefinition ;
     meta:range meta:ClassDefinition ;
     meta:slot_uri meta:union_of .
 
-meta:value a meta:SlotDefinition ;
-    skos:definition "example value" ;
-    skos:inScheme biolinkml:meta ;
-    skos:mappingRelation skos:example ;
-    meta:definition_uri meta:value ;
-    meta:domain meta:Example ;
-    meta:domain_of meta:Example ;
-    meta:owner meta:Example ;
-    meta:range meta:string ;
-    meta:slot_uri meta:value .
-
 meta:version a meta:SlotDefinition ;
     skos:definition "particular version of schema" ;
     skos:inScheme biolinkml:meta ;
@@ -1111,6 +1132,17 @@ meta:uri a meta:TypeDefinition ;
     meta:repr "str" ;
     meta:uri xsd:anyURI .
 
+meta:value a meta:SlotDefinition ;
+    skos:definition "example value" ;
+    skos:inScheme biolinkml:meta ;
+    skos:mappingRelation skos:example ;
+    meta:definition_uri meta:value ;
+    meta:domain meta:Example ;
+    meta:domain_of meta:Example ;
+    meta:owner meta:Example ;
+    meta:range meta:string ;
+    meta:slot_uri meta:value .
+
 meta:SubsetDefinition a meta:ClassDefinition ;
     skos:definition "the name and description of a subset" ;
     skos:inScheme biolinkml:meta ;
@@ -1128,6 +1160,7 @@ meta:SubsetDefinition a meta:ClassDefinition ;
         meta:description,
         meta:exact_mappings,
         meta:examples,
+        meta:extensions,
         meta:from_schema,
         meta:id_prefixes,
         meta:imported_from,
@@ -1170,6 +1203,15 @@ meta:values_from a meta:SlotDefinition ;
     meta:owner meta:Definition ;
     meta:range meta:uriorcurie ;
     meta:slot_uri meta:values_from .
+
+meta:Extensible a meta:ClassDefinition ;
+    skos:definition "mixin for classes that support extension" ;
+    skos:inScheme biolinkml:extensions ;
+    meta:class_uri meta:Extensible ;
+    meta:definition_uri meta:Extensible ;
+    meta:imported_from "biolinkml:extensions" ;
+    meta:mixin true ;
+    meta:slots meta:extensions .
 
 meta:created_by a meta:SlotDefinition ;
     skos:definition "agent that created the element" ;
@@ -1520,6 +1562,16 @@ meta:todos a meta:SlotDefinition ;
     meta:range meta:string ;
     meta:slot_uri meta:todos .
 
+meta:Extension a meta:ClassDefinition ;
+    skos:definition "a tag/value pair used to add non-model information to an entry" ;
+    skos:inScheme biolinkml:extensions ;
+    meta:class_uri meta:Extension ;
+    meta:definition_uri meta:Extension ;
+    meta:imported_from "biolinkml:extensions" ;
+    meta:slots meta:extension_tag,
+        meta:extension_value,
+        meta:extensions .
+
 meta:name a meta:SlotDefinition ;
     OIO:inSubset meta:owl ;
     skos:definition "the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class." ;
@@ -1556,6 +1608,20 @@ meta:description a meta:SlotDefinition ;
     meta:range meta:string ;
     meta:slot_uri meta:description .
 
+meta:extensions a meta:SlotDefinition ;
+    skos:definition "a tag/text tuple attached to an arbitrary element" ;
+    skos:inScheme biolinkml:extensions ;
+    meta:definition_uri meta:extensions ;
+    meta:domain meta:Extensible ;
+    meta:domain_of meta:Extensible,
+        meta:Extension ;
+    meta:imported_from "biolinkml:extensions" ;
+    meta:inlined true ;
+    meta:multivalued true ;
+    meta:owner meta:Extensible ;
+    meta:range meta:Extension ;
+    meta:slot_uri meta:extensions .
+
 meta:boolean a meta:TypeDefinition ;
     skos:definition "A binary (true or false) value" ;
     skos:inScheme biolinkml:types ;
@@ -1590,14 +1656,6 @@ meta:uriorcurie a meta:TypeDefinition ;
     meta:repr "str" ;
     meta:uri xsd:anyURI .
 
-meta:string a meta:TypeDefinition ;
-    skos:definition "A character string" ;
-    skos:inScheme biolinkml:types ;
-    meta:base "str" ;
-    meta:definition_uri metatype:String ;
-    meta:imported_from "biolinkml:types" ;
-    meta:uri xsd:string .
-
 meta:TypeDefinition a meta:ClassDefinition ;
     skos:definition "A data type definition." ;
     skos:inScheme biolinkml:meta ;
@@ -1616,6 +1674,7 @@ meta:TypeDefinition a meta:ClassDefinition ;
         meta:description,
         meta:exact_mappings,
         meta:examples,
+        meta:extensions,
         meta:from_schema,
         meta:id_prefixes,
         meta:imported_from,
@@ -1630,6 +1689,14 @@ meta:TypeDefinition a meta:ClassDefinition ;
         meta:todos,
         meta:type_uri,
         meta:typeof .
+
+meta:string a meta:TypeDefinition ;
+    skos:definition "A character string" ;
+    skos:inScheme biolinkml:types ;
+    meta:base "str" ;
+    meta:definition_uri metatype:String ;
+    meta:imported_from "biolinkml:types" ;
+    meta:uri xsd:string .
 
 meta:Definition a meta:ClassDefinition ;
     skos:definition "base class for definitions" ;
@@ -1653,6 +1720,7 @@ meta:Definition a meta:ClassDefinition ;
         meta:description,
         meta:exact_mappings,
         meta:examples,
+        meta:extensions,
         meta:from_schema,
         meta:id_prefixes,
         meta:imported_from,
@@ -1697,6 +1765,7 @@ meta:ClassDefinition a meta:ClassDefinition ;
         meta:description,
         meta:exact_mappings,
         meta:examples,
+        meta:extensions,
         meta:from_schema,
         meta:id_prefixes,
         meta:imported_from,
@@ -1741,6 +1810,7 @@ meta:SchemaDefinition a meta:ClassDefinition ;
         meta:emit_prefixes,
         meta:exact_mappings,
         meta:examples,
+        meta:extensions,
         meta:from_schema,
         meta:generation_date,
         meta:id,
@@ -1773,6 +1843,7 @@ meta:Element a meta:ClassDefinition ;
     meta:abstract true ;
     meta:class_uri meta:Element ;
     meta:definition_uri meta:Element ;
+    meta:mixins meta:Extensible ;
     meta:slots meta:aliases,
         meta:alt_descriptions,
         meta:close_mappings,
@@ -1784,6 +1855,7 @@ meta:Element a meta:ClassDefinition ;
         meta:description,
         meta:exact_mappings,
         meta:examples,
+        meta:extensions,
         meta:from_schema,
         meta:id_prefixes,
         meta:imported_from,
@@ -1819,6 +1891,7 @@ meta:SlotDefinition a meta:ClassDefinition ;
         meta:domain_of,
         meta:exact_mappings,
         meta:examples,
+        meta:extensions,
         meta:from_schema,
         meta:id_prefixes,
         meta:identifier,

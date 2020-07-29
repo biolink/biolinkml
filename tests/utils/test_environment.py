@@ -33,6 +33,8 @@ class MismatchAction(Enum):
 
 
 class TestEnvironment:
+    import_map_warning_emitted: bool = False
+
     """ Testing environment """
     def __init__(self, filedir: str) -> None:
         self.cwd = os.path.dirname(filedir)                     # base directory for indir, outdir and tempdir
@@ -79,10 +81,11 @@ class TestEnvironment:
                 f"WARNING: Test file {test_file} does not match {runtime_file}.  "
                 f"You may want to update the test version and rerun")
         from tests import USE_LOCAL_IMPORT_MAP
-        if USE_LOCAL_IMPORT_MAP:
+        if USE_LOCAL_IMPORT_MAP and not TestEnvironment.import_map_warning_emitted:
             print(
                 f"WARNING: USE_LOCAL_IMPORT_MAP must be reset to False before completing submission."
             )
+            TestEnvironment.import_map_warning_emitted = True
 
 
     def clear_log(self) -> None:

@@ -9,6 +9,10 @@ URI: [meta:Element](https://w3id.org/biolink/biolinkml/meta/Element)
 
 ![img](images/Element.svg)
 
+## Uses Mixins
+
+ *  mixin: [Extensible](Extensible.md) - mixin for classes that support extension
+
 ## Children
 
  * [Definition](Definition.md) - base class for definitions
@@ -94,3 +98,9 @@ URI: [meta:Element](https://w3id.org/biolink/biolinkml/meta/Element)
  * [todos](todos.md)  <sub>0..*</sub>
     * Description: Outstanding issue that needs resolution
     * range: [String](types/String.md)
+
+### Mixed in from extensible:
+
+ * [extensions](extensions.md)  <sub>0..*</sub>
+    * Description: a tag/text tuple attached to an arbitrary element
+    * range: [Extension](Extension.md)

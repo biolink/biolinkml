@@ -1,0 +1,44 @@
+id: http://example.org/tests/issue167
+name: extensions_test
+
+types:
+  string:
+    base: str
+    uri: xsd:string
+    extensions:
+      http://example.org/c1: test1
+      EX:foo1: bar1
+
+  integer:
+    base: int
+    uri: xsd:int
+
+subsets:
+  random:
+    description: A random subset
+    extensions:
+      http://example.org/c2: test2
+      EX:foo2: bar2
+
+
+classes:
+  c1:
+    tree_root: true
+    slots:
+      - sa
+      - sb
+    extensions:
+      http://example.org/c3: test3
+      EX:foo3: bar3
+
+  c2:
+    slots:
+      - sb
+
+slots:
+  sa:
+  sb:
+    range: integer
+  extensions:
+    http://example.org/c4: test4
+    EX:foo4: bar4

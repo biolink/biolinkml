@@ -115,6 +115,13 @@
                },
                "type": "array"
             },
+            "extensions": {
+               "description": "a tag/text tuple attached to an arbitrary element",
+               "items": {
+                  "$ref": "#/definitions/Extension"
+               },
+               "type": "array"
+            },
             "from_schema": {
                "description": "id of the schema that defined the element",
                "type": "string"
@@ -267,6 +274,49 @@
          "title": "Example",
          "type": "object"
       },
+      "Extensible": {
+         "additionalProperties": false,
+         "description": "mixin for classes that support extension",
+         "properties": {
+            "extensions": {
+               "description": "a tag/text tuple attached to an arbitrary element",
+               "items": {
+                  "$ref": "#/definitions/Extension"
+               },
+               "type": "array"
+            }
+         },
+         "required": [],
+         "title": "Extensible",
+         "type": "object"
+      },
+      "Extension": {
+         "additionalProperties": false,
+         "description": "a tag/value pair used to add non-model information to an entry",
+         "properties": {
+            "extensions": {
+               "description": "a tag/text tuple attached to an arbitrary element",
+               "items": {
+                  "$ref": "#/definitions/Extension"
+               },
+               "type": "array"
+            },
+            "tag": {
+               "description": "a tag associated with an extension",
+               "type": "string"
+            },
+            "value": {
+               "description": "the actual annotation",
+               "type": "string"
+            }
+         },
+         "required": [
+            "tag",
+            "value"
+         ],
+         "title": "Extension",
+         "type": "object"
+      },
       "LocalName": {
          "additionalProperties": false,
          "description": "an attributed label",
@@ -397,6 +447,13 @@
                "description": "example usages of an element",
                "items": {
                   "$ref": "#/definitions/Example"
+               },
+               "type": "array"
+            },
+            "extensions": {
+               "description": "a tag/text tuple attached to an arbitrary element",
+               "items": {
+                  "$ref": "#/definitions/Extension"
                },
                "type": "array"
             },
@@ -639,6 +696,13 @@
                "description": "example usages of an element",
                "items": {
                   "$ref": "#/definitions/Example"
+               },
+               "type": "array"
+            },
+            "extensions": {
+               "description": "a tag/text tuple attached to an arbitrary element",
+               "items": {
+                  "$ref": "#/definitions/Extension"
                },
                "type": "array"
             },
@@ -900,6 +964,13 @@
                },
                "type": "array"
             },
+            "extensions": {
+               "description": "a tag/text tuple attached to an arbitrary element",
+               "items": {
+                  "$ref": "#/definitions/Extension"
+               },
+               "type": "array"
+            },
             "from_schema": {
                "description": "id of the schema that defined the element",
                "type": "string"
@@ -1039,6 +1110,13 @@
                "description": "example usages of an element",
                "items": {
                   "$ref": "#/definitions/Example"
+               },
+               "type": "array"
+            },
+            "extensions": {
+               "description": "a tag/text tuple attached to an arbitrary element",
+               "items": {
+                  "$ref": "#/definitions/Extension"
                },
                "type": "array"
             },
