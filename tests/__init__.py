@@ -53,7 +53,7 @@ DEFAULT_MISMATCH_ACTION = eval(test_settings.get('DEFAULT_MISMATCH_ACTION', 'Mis
 # Use local import map.  If True, tests/input/local_import_map.json is used to create the test files.  Note that this
 #  will result in local path names being recorded in jsonld files.  This should always be set to False before generating
 #  the final output
-USE_LOCAL_IMPORT_MAP = test_settings.getboolean('USE_LOCAL_IMPORT_MAP', False)
+USE_LOCAL_IMPORT_MAP = test_settings.getboolean('USE_LOCAL_IMPORT_MAP', True)
 
 # Exception for use in script testing.  Global to prevent redefinition
 class CLIExitException(Exception):
