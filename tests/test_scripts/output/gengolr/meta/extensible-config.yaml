@@ -1,0 +1,11 @@
+id: extensible
+schema_generating: true
+description: mixin for classes that support extension
+display_name: extensible
+document_category: extensible
+weight: 20
+fields:
+- id: extensions
+  description: a tag/text tuple attached to an arbitrary element
+  display_name: extensions
+  cardinality: multi

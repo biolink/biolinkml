@@ -2518,8 +2518,8 @@
     "https://w3id.org/biolink/biolinkml/context.jsonld",
     "https://w3id.org/biolink/biolinkml/types.context.jsonld",
     "https://w3id.org/biolink/biolinkml/mappings.context.jsonld",
-    "/Users/solbrig/git/biolink/biolinkml/tests/input/includes/extensions.context.jsonld",
-    "/Users/solbrig/git/biolink/biolinkml/tests/input/includes/annotations.context.jsonld",
+    "/home/runner/work/biolinkml/biolinkml/tests/input/includes/extensions.context.jsonld",
+    "/home/runner/work/biolinkml/biolinkml/tests/input/includes/annotations.context.jsonld",
     {
       "@base": "https://w3id.org/biolink/biolinkml/meta/"
     }

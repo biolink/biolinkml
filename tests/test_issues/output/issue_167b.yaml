@@ -1,0 +1,292 @@
+name: annotations_test
+id: http://example.org/tests/issue167b
+imports:
+- biolinkml:annotations
+- biolinkml:types
+- biolinkml:extensions
+license: https://creativecommons.org/publicdomain/zero/1.0/
+prefixes:
+  ex:
+    prefix_prefix: ex
+    prefix_reference: http://example.org/
+  biolinkml:
+    prefix_prefix: biolinkml
+    prefix_reference: https://w3id.org/biolink/biolinkml/
+default_curi_maps:
+- semweb_context
+default_prefix: ex
+default_range: string
+types:
+  string:
+    name: string
+    definition_uri: https://w3id.org/biolink/biolinkml/meta/types/String
+    description: A character string
+    from_schema: https://w3id.org/biolink/biolinkml/types
+    imported_from: biolinkml:types
+    base: str
+    uri: xsd:string
+  integer:
+    name: integer
+    definition_uri: https://w3id.org/biolink/biolinkml/meta/types/Integer
+    description: An integer
+    from_schema: https://w3id.org/biolink/biolinkml/types
+    imported_from: biolinkml:types
+    base: int
+    uri: xsd:integer
+  boolean:
+    name: boolean
+    definition_uri: https://w3id.org/biolink/biolinkml/meta/types/Boolean
+    description: A binary (true or false) value
+    from_schema: https://w3id.org/biolink/biolinkml/types
+    imported_from: biolinkml:types
+    base: Bool
+    uri: xsd:boolean
+  float:
+    name: float
+    definition_uri: https://w3id.org/biolink/biolinkml/meta/types/Float
+    description: A real number that conforms to the xsd:float specification
+    from_schema: https://w3id.org/biolink/biolinkml/types
+    imported_from: biolinkml:types
+    base: float
+    uri: xsd:float
+  double:
+    name: double
+    definition_uri: https://w3id.org/biolink/biolinkml/meta/types/Double
+    description: A real number that conforms to the xsd:double specification
+    from_schema: https://w3id.org/biolink/biolinkml/types
+    imported_from: biolinkml:types
+    base: float
+    uri: xsd:double
+  time:
+    name: time
+    definition_uri: https://w3id.org/biolink/biolinkml/meta/types/Time
+    description: A time object represents a (local) time of day, independent of any
+      particular day
+    notes:
+    - URI is dateTime because OWL reasoners don't work with straight date or time
+    from_schema: https://w3id.org/biolink/biolinkml/types
+    imported_from: biolinkml:types
+    base: XSDTime
+    uri: xsd:dateTime
+    repr: str
+  date:
+    name: date
+    definition_uri: https://w3id.org/biolink/biolinkml/meta/types/Date
+    description: a date (year, month and day) in an idealized calendar
+    notes:
+    - URI is dateTime because OWL reasoners don't work with straight date or time
+    from_schema: https://w3id.org/biolink/biolinkml/types
+    imported_from: biolinkml:types
+    base: XSDDate
+    uri: xsd:date
+    repr: str
+  datetime:
+    name: datetime
+    definition_uri: https://w3id.org/biolink/biolinkml/meta/types/Datetime
+    description: The combination of a date and time
+    from_schema: https://w3id.org/biolink/biolinkml/types
+    imported_from: biolinkml:types
+    base: XSDDateTime
+    uri: xsd:dateTime
+    repr: str
+  uriorcurie:
+    name: uriorcurie
+    definition_uri: https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie
+    description: a URI or a CURIE
+    from_schema: https://w3id.org/biolink/biolinkml/types
+    imported_from: biolinkml:types
+    base: URIorCURIE
+    uri: xsd:anyURI
+    repr: str
+  uri:
+    name: uri
+    definition_uri: https://w3id.org/biolink/biolinkml/meta/types/Uri
+    description: a complete URI
+    from_schema: https://w3id.org/biolink/biolinkml/types
+    imported_from: biolinkml:types
+    base: URI
+    uri: xsd:anyURI
+    repr: str
+  ncname:
+    name: ncname
+    definition_uri: https://w3id.org/biolink/biolinkml/meta/types/Ncname
+    description: Prefix part of CURIE
+    from_schema: https://w3id.org/biolink/biolinkml/types
+    imported_from: biolinkml:types
+    base: NCName
+    uri: xsd:string
+    repr: str
+  objectidentifier:
+    name: objectidentifier
+    definition_uri: https://w3id.org/biolink/biolinkml/meta/types/Objectidentifier
+    description: A URI or CURIE that represents an object in the model.
+    comments:
+    - Used for inheritence and type checking
+    from_schema: https://w3id.org/biolink/biolinkml/types
+    imported_from: biolinkml:types
+    base: ElementIdentifier
+    uri: shex:iri
+    repr: str
+  nodeidentifier:
+    name: nodeidentifier
+    definition_uri: https://w3id.org/biolink/biolinkml/meta/types/Nodeidentifier
+    description: A URI, CURIE or BNODE that represents a node in a model.
+    from_schema: https://w3id.org/biolink/biolinkml/types
+    imported_from: biolinkml:types
+    base: NodeIdentifier
+    uri: shex:nonLiteral
+    repr: str
+slots:
+  annotations:
+    name: annotations
+    definition_uri: https://w3id.org/biolink/biolinkml/meta/annotations
+    description: a collection of tag/text tuples with the semantics of OWL Annotation
+    from_schema: https://w3id.org/biolink/biolinkml/annotations
+    imported_from: biolinkml:annotations
+    is_a: extensions
+    domain: annotatable
+    range: annotation
+    slot_uri: meta:annotations
+    multivalued: true
+    inlined: true
+    owner: annotatable
+    domain_of:
+    - annotation
+    - annotatable
+  extensions:
+    name: extensions
+    definition_uri: https://w3id.org/biolink/biolinkml/meta/extensions
+    description: a tag/text tuple attached to an arbitrary element
+    from_schema: https://w3id.org/biolink/biolinkml/extensions
+    imported_from: biolinkml:extensions
+    domain: extensible
+    range: extension
+    slot_uri: meta:extensions
+    multivalued: true
+    inlined: true
+    owner: extensible
+    domain_of:
+    - extension
+    - extensible
+  extension_tag:
+    name: extension_tag
+    definition_uri: https://w3id.org/biolink/biolinkml/meta/extension_tag
+    description: a tag associated with an extension
+    from_schema: https://w3id.org/biolink/biolinkml/extensions
+    imported_from: biolinkml:extensions
+    domain: extension
+    range: uriorcurie
+    slot_uri: meta:tag
+    required: true
+    alias: tag
+    owner: extension
+    domain_of:
+    - extension
+  extension_value:
+    name: extension_value
+    definition_uri: https://w3id.org/biolink/biolinkml/meta/extension_value
+    description: the actual annotation
+    from_schema: https://w3id.org/biolink/biolinkml/extensions
+    imported_from: biolinkml:extensions
+    domain: extension
+    range: string
+    slot_uri: meta:value
+    required: true
+    alias: value
+    owner: extension
+    domain_of:
+    - extension
+  annotation_extension_value:
+    name: annotation_extension_value
+    from_schema: http://example.org/tests/issue167b
+    is_a: extension_value
+    domain: annotation
+    range: boolean
+    slot_uri: ex:value
+    required: true
+    alias: value
+    owner: annotation
+    domain_of:
+    - annotation
+    is_usage_slot: true
+    usage_slot_name: extension_value
+classes:
+  my class:
+    name: my class
+    definition_uri: http://example.org/MyClass
+    description: Annotations as tag value pairs. Note that altLabel is defined in
+      the default namespace, not in the SKOS namespace
+    from_schema: http://example.org/tests/issue167b
+    annotations:
+    - tag: SKOS:prefLabel
+      value: a label
+    - tag: altLabel
+      value: some other label
+    class_uri: ex:MyClass
+  my class 2:
+    name: my class 2
+    definition_uri: http://example.org/MyClass2
+    description: -> This form of annotations is a tag/value format, which allows annotations
+      to be annotated.  Note, however, that the annotation source is NOT a CURIE,
+      rather just a string.
+    from_schema: http://example.org/tests/issue167b
+    annotations:
+    - tag: prefLabel
+      value: a preferred label
+      annotations:
+      - tag: source
+        value: PMID:12345
+    class_uri: ex:MyClass2
+  annotation:
+    name: annotation
+    definition_uri: https://w3id.org/biolink/biolinkml/meta/Annotation
+    description: a tag/value pair with the semantics of OWL Annotation
+    from_schema: https://w3id.org/biolink/biolinkml/annotations
+    imported_from: biolinkml:annotations
+    is_a: extension
+    slots:
+    - extension_tag
+    - extensions
+    - annotations
+    - annotation_extension_value
+    slot_usage:
+      extension_value:
+        name: extension_value
+        range: boolean
+    class_uri: meta:Annotation
+  annotatable:
+    name: annotatable
+    definition_uri: https://w3id.org/biolink/biolinkml/meta/Annotatable
+    description: mixin for classes that support annotations
+    from_schema: https://w3id.org/biolink/biolinkml/annotations
+    imported_from: biolinkml:annotations
+    mixin: true
+    slots:
+    - annotations
+    class_uri: meta:Annotatable
+  extension:
+    name: extension
+    definition_uri: https://w3id.org/biolink/biolinkml/meta/Extension
+    description: a tag/value pair used to add non-model information to an entry
+    from_schema: https://w3id.org/biolink/biolinkml/extensions
+    imported_from: biolinkml:extensions
+    slots:
+    - extension_tag
+    - extension_value
+    - extensions
+    class_uri: meta:Extension
+  extensible:
+    name: extensible
+    definition_uri: https://w3id.org/biolink/biolinkml/meta/Extensible
+    description: mixin for classes that support extension
+    from_schema: https://w3id.org/biolink/biolinkml/extensions
+    imported_from: biolinkml:extensions
+    mixin: true
+    slots:
+    - extensions
+    class_uri: meta:Extensible
+metamodel_version: 1.5.3
+source_file: issue_167b.yaml
+source_file_date: Friday Sep 27 12:00:00 2003
+source_file_size:  23600
+generation_date: Friday Sep 27 12:00:00 2003

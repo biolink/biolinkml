@@ -1,0 +1,86 @@
+name: extensions_test
+id: http://example.org/tests/issue167
+default_prefix: http://example.org/tests/issue167/
+default_range: string
+subsets:
+  random:
+    name: random
+    definition_uri: http://example.org/tests/issue167/Random
+    description: A random subset
+    from_schema: http://example.org/tests/issue167
+    extensions:
+    - tag: http://example.org/c2
+      value: test2
+    - tag: EX:foo2
+      value: bar2
+types:
+  string:
+    name: string
+    definition_uri: http://example.org/tests/issue167/String
+    from_schema: http://example.org/tests/issue167
+    extensions:
+    - tag: http://example.org/c1
+      value: test1
+    - tag: EX:foo1
+      value: bar1
+    base: str
+    uri: xsd:string
+  integer:
+    name: integer
+    definition_uri: http://example.org/tests/issue167/Integer
+    from_schema: http://example.org/tests/issue167
+    base: int
+    uri: xsd:int
+slots:
+  sa:
+    name: sa
+    definition_uri: http://example.org/tests/issue167/sa
+    from_schema: http://example.org/tests/issue167
+    range: string
+    slot_uri: http://example.org/tests/issue167/sa
+    owner: c1
+    domain_of:
+    - c1
+  sb:
+    name: sb
+    definition_uri: http://example.org/tests/issue167/sb
+    from_schema: http://example.org/tests/issue167
+    extensions:
+    - tag: http://example.org/c4
+      value: test4
+      extensions:
+      - tag: http://semantics.r.us/c1
+        value: 143
+    range: integer
+    slot_uri: http://example.org/tests/issue167/sb
+    owner: c2
+    domain_of:
+    - c1
+    - c2
+classes:
+  c1:
+    name: c1
+    definition_uri: http://example.org/tests/issue167/C1
+    from_schema: http://example.org/tests/issue167
+    extensions:
+    - tag: http://example.org/c3
+      value: test3
+    - tag: EX:foo3
+      value: bar3
+    slots:
+    - sa
+    - sb
+    class_uri: http://example.org/tests/issue167/C1
+    tree_root: true
+  c2:
+    name: c2
+    definition_uri: http://example.org/tests/issue167/C2
+    from_schema: http://example.org/tests/issue167
+    slots:
+    - sb
+    class_uri: http://example.org/tests/issue167/C2
+metamodel_version: 1.5.3
+source_file: issue_167.yaml
+source_file_date: Friday Sep 27 12:00:00 2003
+source_file_size:  23600
+generation_date: Friday Sep 27 12:00:00 2003
