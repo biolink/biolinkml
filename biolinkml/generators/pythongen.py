@@ -205,7 +205,7 @@ class slots:
             if not slot.imported_from:
                 if slot.is_a:
                     parent = self.schema.slots[slot.is_a]
-                    if parent.imported_from:
+                    if parent.key and parent.imported_from:
                         rval.add_element(self.schema.slots[slot.is_a])
                 if slot.domain:
                     domain = self.schema.classes[slot.domain]
@@ -548,8 +548,7 @@ class slots:
         rlines: List[str] = []
         slotname = self.slot_name(slot.name)
         range_type_name, base_type, base_type_name = self.class_reference_type(slot, cls)
-        single_typed = range_type_name == base_type
-        root_definition = not cls.is_a
+        complex_range = range_type_name != base_type
 
         # Generate existence check for required slots.  Note that inherited classes have to check post-init because
         # named variables can't be mixed in the class signature
@@ -562,10 +561,11 @@ class slots:
             else:
                 rlines.append(f'if not isinstance(self.{slotname}, list) or len(self.{slotname}) == 0:')
                 rlines.append(f'\traise ValueError(f"{slotname} must be a non-empty list")')
-        if slot.range in self.schema.classes or slot.range in self.schema.types:
+        range_element = self.schema.classes.get(slot.range) or self.schema.types.get(slot.range)
+        if range_element:
             indent = len(f'self.{slotname} = [') * ' '
             if not slot.multivalued:
-                if not single_typed:
+                if complex_range:
                     if slot.required:
                         rlines.append(f'if not isinstance(self.{slotname}, {base_type_name}):')
                     else:
@@ -593,11 +593,19 @@ class slots:
                     rlines.append(f'for k, v in self.{slotname}.items():')
                     rlines.append(f'\tif not isinstance(v, {base_type_name}):')
                     rlines.append(f'\t\tself.{slotname}[k] = {base_type_name}{class_init}')
-                elif not single_typed:
-                    rlines.append(f'self.{slotname} = [v if isinstance(v, {base_type_name})')
-                    rlines.append(f'{indent}else {base_type_name}(**v) for v in ([self.{slotname}] '
-                                  f'if isinstance(self.{slotname}, str) else self.{slotname})]')
-            elif not single_typed:
+                elif complex_range:
+                    sn = f'self.{slotname}'
+                    # We've got a range that is a structure with no keys.  There are two ways to fill this sort of range
+                    # 1)  - i1v1: v1
+                    #       i1v2: v2
+                    # 2)  v1: v2
+                    #
+                    # Option 1 creates an inner class as C(i1v1=v1, i1v2=v2), while
+                    # Option 2 creates an inner class as C(v1, v2)
+                    rlines.append(f'{sn} = [{base_type_name}(*e) for e in {sn}.items()] if isinstance({sn}, dict) \\')
+                    rlines.append(f'{indent}else [v if isinstance(v, {base_type_name}) else {base_type_name}(**v)')
+                    rlines.append(f'{indent}      for v in ([{sn}] if isinstance({sn}, str) else {sn})]')
+            elif complex_range:
                 rlines.append(f'self.{slotname} = [v if isinstance(v, {base_type_name})')
                 rlines.append(f'{indent}else {base_type_name}(v) for v in ([self.{slotname}] '
                               f'if isinstance(self.{slotname}, str) else self.{slotname})]')
