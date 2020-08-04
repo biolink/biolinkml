@@ -211,7 +211,7 @@ class MarkdownGenerator(Generator):
                         self.bullet(f'{self.class_link(rc)}')
                 if aliased_slot_name == 'relation':
                     if slot.subproperty_of:
-                        self.bullet(f' reifies: {self.slot_link(slot.subproperty_of)}')
+                        self.bullet(f' reifies: {self.slot_link(slot.subproperty_of) if slot.subproperty_of in self.schema.slots else slot.subproperty_of}')
                 self.element_properties(slot)
 
     def element_header(self, obj: Element, name: str, curie: str, uri: str) -> None:
