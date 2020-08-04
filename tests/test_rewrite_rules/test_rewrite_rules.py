@@ -8,6 +8,10 @@ import requests
 
 from rdflib import Namespace, URIRef
 
+if __name__ == '__main__':
+    sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
+    print(sys.path)
+
 from tests import SKIP_REWRITE_RULES, SKIP_REWRITE_RULES_REASON
 
 W3ID_SERVER = "https://w3id.org/"
@@ -26,6 +30,19 @@ class TestEntry:
     accept_header: Optional[str] = None
 
 
+def build_test_entry_set(input_url: Namespace, model: str) -> List[TestEntry]:
+    return [
+        TestEntry(input_url, f'biolinkml/includes/{model}'),
+        TestEntry(input_url, f'biolinkml/includes/{model}.yaml', 'text/yaml'),
+        TestEntry(input_url, f'biolinkml/includes/{model}.ttl', 'text/turtle'),
+        TestEntry(input_url, f'biolinkml/includes/{model}.jsonld', 'application/json'),
+        TestEntry(input_url, f'biolinkml/includes/{model}.shex', 'text/shex'),
+        TestEntry(input_url['.context.jsonld'], f'biolinkml/includes/{model}.context.jsonld'),
+        TestEntry(input_url['.owl'], f'biolinkml/includes/{model}.owl'),
+        TestEntry(input_url['/'], f'biolinkml/includes/{model}/')
+    ]
+
+
 class TestLists:
     def __init__(self, server: str) -> None:
         if not server.endswith(('#', '/')):
@@ -34,6 +51,8 @@ class TestLists:
         self.biolinkml = self.biolink + 'biolinkml/'
         self.types = Namespace(self.biolinkml + 'types')
         self.mappings = Namespace(self.biolinkml + 'mappings')
+        self.extensions = Namespace(self.biolinkml + 'extensions')
+        self.annotations = Namespace(self.biolinkml + 'annotations')
         self.metas = Namespace(self.biolinkml + 'meta')
         self.type = Namespace(self.biolinkml + 'type/')
         self.mapping = Namespace(self.biolinkml + 'mapping/')
@@ -44,24 +63,12 @@ class TestLists:
             TestEntry(self.biolink + 'foo', 'biolink-model/foo')
         ]
 
-        self.model_entries: List[TestEntry] = [
-            TestEntry(self.types, 'biolinkml/includes/types'),
-            TestEntry(self.types, 'biolinkml/includes/types.yaml', 'text/yaml'),
-            TestEntry(self.types, 'biolinkml/includes/types.ttl', 'text/turtle'),
-            TestEntry(self.types, 'biolinkml/includes/types.jsonld', 'application/json'),
-            TestEntry(self.types, 'biolinkml/includes/types.shex', 'text/shex'),
-            TestEntry(self.types['.owl'], 'biolinkml/includes/types.owl'),
-            TestEntry(self.biolinkml + 'includes/context.jsonld', 'biolinkml/includes/context.jsonld'),
-            TestEntry(self.types['/'], 'biolinkml/includes/types/'),
-            TestEntry(self.mappings, 'biolinkml/includes/mappings'),
-            TestEntry(self.mappings, 'biolinkml/includes/mappings.yaml', 'text/yaml'),
-            TestEntry(self.mappings, 'biolinkml/includes/mappings.ttl', 'text/turtle'),
-            TestEntry(self.mappings, 'biolinkml/includes/mappings.jsonld', 'application/json'),
-            TestEntry(self.mappings, 'biolinkml/includes/mappings.shex', 'text/shex'),
-            TestEntry(self.mappings['.owl'], 'biolinkml/includes/mappings.owl'),
-            # TestEntry(self.mappings, 'biolinkml/includes/mappings.context.jsonld', 'application.jsonld'),
-            TestEntry(self.mappings['/'], 'biolinkml/includes/mappings/')
-        ]
+        self.model_entries: List[TestEntry] = []
+
+        self.model_entries += build_test_entry_set(self.types, 'types')
+        self.model_entries += build_test_entry_set(self.mappings, 'mappings')
+        self.model_entries += build_test_entry_set(self.extensions, 'extensions')
+        self.model_entries += build_test_entry_set(self.annotations, 'annotations')
 
         self.vocab_entries: List[TestEntry] = [
             TestEntry(self.type['index'], 'biolinkml/docs/types/index'),
