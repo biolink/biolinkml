@@ -327,7 +327,7 @@
   "@context": [
     "https://w3id.org/biolink/biolinkml/context.jsonld",
     "https://w3id.org/biolink/biolinkml/types.context.jsonld",
-    "/home/runner/work/biolinkml/biolinkml/tests/input/includes/extensions.context.jsonld",
+    "https://w3id.org/biolink/biolinkml/extensions.context.jsonld",
     {
       "@base": "https://w3id.org/biolink/biolinkml/meta/"
     }

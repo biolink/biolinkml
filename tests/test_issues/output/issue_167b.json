@@ -369,9 +369,9 @@
   "type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/biolink/biolinkml/context.jsonld",
-    "/home/runner/work/biolinkml/biolinkml/tests/input/includes/annotations.context.jsonld",
+    "https://w3id.org/biolink/biolinkml/annotations.context.jsonld",
     "https://w3id.org/biolink/biolinkml/types.context.jsonld",
-    "/home/runner/work/biolinkml/biolinkml/tests/input/includes/extensions.context.jsonld",
+    "https://w3id.org/biolink/biolinkml/extensions.context.jsonld",
     {
       "@base": "http://example.org/"
     }
