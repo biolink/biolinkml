@@ -43,7 +43,7 @@ jobs:
 
     - name: Check in test outputs
       run: |
-        git add tests
+        git add --force tests
         if [[ ! -z $(git status -s tests) ]]
         then
           git config --local user.email "action@github.com"
