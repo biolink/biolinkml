@@ -444,6 +444,9 @@ class SchemaLoader:
         :return: usage item
         """
         for slotname, slot_usage in cls.slot_usage.items():
+            if slot_usage.alias:
+                self.raise_value_error(f'Class: "{cls.name}" - alias not permitted in slot_usage slot:'
+                                       f' {slot_usage.alias}')
             # Construct a new slot
             # Follow the ancestry of the class to get the most proximal parent
             parent_slot = self.slot_definition_for(slotname, cls)
@@ -458,11 +461,11 @@ class SchemaLoader:
                 slot_alias = None
             else:
                 child_name = slot_usage_name(slotname, cls)
-                slot_alias = slotname
+                slot_alias = parent_slot.alias if parent_slot.alias else slotname
             new_slot = SlotDefinition(name=child_name, alias=slot_alias, domain=cls.name, is_usage_slot=Bool(True),
-                                      owner=cls.name, domain_of=[cls.name])
+                                      usage_slot_name=slotname, owner=cls.name, domain_of=[cls.name])
             self.schema.slots[child_name] = new_slot
-            merge_slots(new_slot, slot_usage)
+            merge_slots(new_slot, slot_usage, inheriting=False)
 
             # Copy the parent definition.  If there is no parent definition, the slot is being defined
             # locally as a slot_usage
@@ -474,6 +477,8 @@ class SchemaLoader:
                     if child_name in cls.slots:
                         del cls.slots[cls.slots.index(child_name)]
                     cls.slots[cls.slots.index(parent_slot.name)] = child_name
+                else:
+                    cls.slots.append(child_name)
 
     def merge_type(self, typ: TypeDefinition, merged_types: List[TypeDefinitionName]) -> None:
         """
@@ -499,7 +504,8 @@ class SchemaLoader:
         if cls.is_a:
             for sn in self.schema.classes[cls.is_a].slots:
                 slot = self.schema.slots[sn]
-                if slot.alias and slotname == slot.alias or slotname == slot.name:
+                if (slot.usage_slot_name and slotname == slot.usage_slot_name) or\
+                   (not slot.usage_slot_name and slotname == slot.name):
                     return slot
         for mixin in cls.mixins:
             for sn in self.schema.classes[mixin].slots:
