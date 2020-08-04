@@ -19,7 +19,6 @@ URI: [meta:value](https://w3id.org/biolink/biolinkml/meta/value)
 
 ## Used by
 
- * [Annotation](Annotation.md)
  * [Example](Example.md)
 
 ## Other properties
