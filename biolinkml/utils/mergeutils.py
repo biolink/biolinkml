@@ -85,19 +85,20 @@ def merge_dicts(target: Dict[str, Element], source: Dict[str, Element], imported
 
 
 def merge_slots(target: Union[SlotDefinition, TypeDefinition], source: Union[SlotDefinition, TypeDefinition],
-                skip: List[Union[SlotDefinitionName, TypeDefinitionName]] = None) -> None:
+                skip: List[Union[SlotDefinitionName, TypeDefinitionName]] = None, inheriting: bool = True) -> None:
     """
     Merge slot source into target
 
     :param target: slot to merge into
     :param source: slot to be merged from
     :param skip: Properties to not merge (used to prevent provenance such as 'inherited from' from propagating)
+    :param inheriting: True means source is the parent.  False means that everything gets copied
     """
     if skip is None:
         skip = []
     for k, v in dataclasses.asdict(source).items():
         if k not in skip and v is not None and getattr(target, k, None) is None:
-            if k in source._inherited_slots:
+            if k in source._inherited_slots or not inheriting:
                 setattr(target, k, deepcopy(v))
             else:
                 setattr(target, k, None)

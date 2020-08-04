@@ -20,11 +20,14 @@ fields:
   display_name: category
   cardinality: multi
 - id: has_input
+  description: A chemical entity that is the input for the reaction
   display_name: molecular activity_has input
   cardinality: multi
 - id: has_output
+  description: A chemical entity that is the output for the reaction
   display_name: molecular activity_has output
   cardinality: multi
 - id: enabled_by
+  description: The gene product, gene, or complex that catalyzes the reaction
   display_name: molecular activity_enabled by
   cardinality: multi

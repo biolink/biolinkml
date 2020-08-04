@@ -30,25 +30,28 @@ def compare_python(expected: str, actual: str) -> Optional[str]:
     exp_txt, exp_fn = to_text(expected)
     act_txt, _ = to_text(actual)
 
-    msg = validate_python(act_txt) or ''
+    msg = validate_python(act_txt, True) or ''
 
     if exp_txt != act_txt:
         msg += "\nOutput mismatch" + (f"for file {exp_fn}" if exp_fn else '')
     return msg
 
 
-def validate_python(text: str) -> Optional[str]:
+def validate_python(text: str, fail_on_error: bool = False) -> Optional[str]:
     """
     Validate the python in text
-    :param text: Input puthon
+    :param text: Input python
+    :param fail_on_error: True means fail if python is bad
     :return: None if success, otherwise the error message
     """
-    try:
-        spec = compile(text, 'test', 'exec')
-        module = ModuleType('test')
-        exec(spec, module.__dict__)
-    except Exception as e:
-        return str(e)
+    if fail_on_error:
+        try:
+            compile_python(text)
+        except Exception as e:
+            return str(e)
+    else:
+        compile_python(text)
+        return None
 
 
 def compile_python(text_or_fn: str) -> ModuleType:

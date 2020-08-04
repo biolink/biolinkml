@@ -26,6 +26,9 @@
       "alt_descriptions": {
          "@type": "@id"
       },
+      "annotations": {
+         "@type": "@id"
+      },
       "apply_to": {
          "@type": "@id"
       },
@@ -79,6 +82,12 @@
          "@id": "skos:exactMatch"
       },
       "examples": {
+         "@type": "@id"
+      },
+      "tag": {
+         "@type": "@id"
+      },
+      "extensions": {
          "@type": "@id"
       },
       "from_schema": {

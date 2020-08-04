@@ -2,7 +2,7 @@
 # Type: molecular activity_has output
 
 
-
+A chemical entity that is the output for the reaction
 
 URI: [biolink:molecular_activity_has_output](https://w3id.org/biolink/vocab/molecular_activity_has_output)
 

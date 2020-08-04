@@ -32,6 +32,7 @@ URI: [biolink:GeneToDiseaseAssociation](https://w3id.org/biolink/vocab/GeneToDis
 ### Own
 
  * [gene to disease association➞subject](gene_to_disease_association_subject.md)  <sub>REQ</sub>
+    * Description: gene in which variation is correlated with the disease - may be protective or causative or associative, or as a model
     * range: [GeneOrGeneProduct](GeneOrGeneProduct.md)
 
 ### Inherited from association:

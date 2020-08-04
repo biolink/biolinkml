@@ -7,14 +7,10 @@ display_name: genomic sequence localization
 document_category: genomic sequence localization
 weight: 20
 fields:
-- id: subject
-  display_name: genomic sequence localization_subject
 - id: relation
   description: the relationship type by which a subject is connected to an object
     in an association
   display_name: relation
-- id: object
-  display_name: genomic sequence localization_object
 - id: id
   description: A unique identifier for an association
   display_name: association_id
@@ -48,3 +44,7 @@ fields:
 - id: phase
   description: TODO
   display_name: phase
+- id: subject
+  display_name: genomic sequence localization_subject
+- id: object
+  display_name: genomic sequence localization_object

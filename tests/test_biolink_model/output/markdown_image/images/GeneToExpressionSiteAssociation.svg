@@ -38,14 +38,14 @@
 </g><g class='node' id='node3'><title>OntologyClass</title>
 <polygon fill='white' points='201.5,-153 201.5,-189 310.5,-189 310.5,-153 201.5,-153' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='256' y='-167.3'>OntologyClass</text>
-</g><g class='node' id='node5'><title>GeneToExpressionSiteAssociation</title>
+</g><g class='node' id='node6'><title>GeneToExpressionSiteAssociation</title>
 <polygon fill='white' points='381.5,-1 381.5,-61 598.5,-61 598.5,-1 381.5,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='490' y='-49.8'>GeneToExpressionSiteAssociation</text>
 <polyline fill='none' points='381.5,-46 598.5,-46 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='490' y='-34.8'>relation:uriorcurie</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='490' y='-19.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='490' y='-4.8'>negated(i):boolean ?</text>
-</g><g class='edge' id='edge1'><title>OntologyClass-&gt;GeneToExpressionSiteAssociation</title>
+</g><g class='edge' id='edge3'><title>OntologyClass-&gt;GeneToExpressionSiteAssociation</title>
 <path d='M293.788,-147.715C333.632,-124.217 396.581,-87.0932 440.396,-61.2537' fill='none' stroke='black'/>
 <polygon fill='black' points='285.163,-152.801 291.491,-143.845 289.47,-150.261 293.777,-147.721 293.777,-147.721 293.777,-147.721 289.47,-150.261 296.063,-151.597 285.163,-152.801 285.163,-152.801' stroke='black'/>
 <text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='420.733' y='-61.2086'> </text>
@@ -53,15 +53,15 @@
 </g><g class='node' id='node4'><title>LifeStage</title>
 <polygon fill='white' points='328.5,-153 328.5,-189 409.5,-189 409.5,-153 328.5,-153' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='369' y='-167.3'>LifeStage</text>
-</g><g class='edge' id='edge2'><title>LifeStage-&gt;GeneToExpressionSiteAssociation</title>
+</g><g class='edge' id='edge4'><title>LifeStage-&gt;GeneToExpressionSiteAssociation</title>
 <path d='M390.928,-144.992C411.591,-121.426 442.55,-86.116 464.35,-61.2537' fill='none' stroke='black'/>
 <polygon fill='black' points='384.08,-152.801 387.289,-142.315 387.376,-149.042 390.673,-145.282 390.673,-145.282 390.673,-145.282 387.376,-149.042 394.056,-148.249 384.08,-152.801 384.08,-152.801' stroke='black'/>
 <text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='446.816' y='-67.1751'> </text>
 <text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='401.614' y='-139.48'>stage qualifier 0..1</text>
-</g><g class='node' id='node6'><title>AnatomicalEntity</title>
+</g><g class='node' id='node5'><title>AnatomicalEntity</title>
 <polygon fill='white' points='427.5,-153 427.5,-189 552.5,-189 552.5,-153 427.5,-153' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='490' y='-167.3'>AnatomicalEntity</text>
-</g><g class='edge' id='edge3'><title>AnatomicalEntity-&gt;GeneToExpressionSiteAssociation</title>
+</g><g class='edge' id='edge1'><title>AnatomicalEntity-&gt;GeneToExpressionSiteAssociation</title>
 <path d='M490,-142.798C490,-119.277 490,-85.3561 490,-61.2537' fill='none' stroke='black'/>
 <polygon fill='black' points='490,-152.801 485.5,-142.801 490,-147.801 490,-142.801 490,-142.801 490,-142.801 490,-147.801 494.5,-142.801 490,-152.801 490,-152.801' stroke='black'/>
 <text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='483.16' y='-76.3476'> </text>
@@ -69,7 +69,7 @@
 </g><g class='node' id='node7'><title>GeneOrGeneProduct</title>
 <polygon fill='white' points='571,-153 571,-189 713,-189 713,-153 571,-153' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='642' y='-167.3'>GeneOrGeneProduct</text>
-</g><g class='edge' id='edge4'><title>GeneOrGeneProduct-&gt;GeneToExpressionSiteAssociation</title>
+</g><g class='edge' id='edge2'><title>GeneOrGeneProduct-&gt;GeneToExpressionSiteAssociation</title>
 <path d='M615.468,-145.912C589.519,-122.353 549.965,-86.4418 522.221,-61.2537' fill='none' stroke='black'/>
 <polygon fill='black' points='623.056,-152.801 612.628,-149.411 619.355,-149.44 615.653,-146.079 615.653,-146.079 615.653,-146.079 619.355,-149.44 618.677,-142.748 623.056,-152.801 623.056,-152.801' stroke='black'/>
 <text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='531.538' y='-75.2512'> </text>

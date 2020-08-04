@@ -27,6 +27,7 @@ URI: [biolink:GeneToThingAssociation](https://w3id.org/biolink/vocab/GeneToThing
 ### Own
 
  * [gene to thing association➞subject](gene_to_thing_association_subject.md)  <sub>REQ</sub>
+    * Description: gene that is the subject of the association
     * range: [GeneOrGeneProduct](GeneOrGeneProduct.md)
 
 ### Inherited from association:

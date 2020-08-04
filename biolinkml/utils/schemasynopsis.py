@@ -121,9 +121,9 @@ class SchemaSynopsis:
             self.slotusages.setdefault(slotname, set()).add(k)
             self.add_ref(ClassType, k, SlotType, slotname)
             slot_alias = self.schema.slots[slotname].alias
-            if slot_alias:
-                self.add_ref(SlotType, slotname, SlotType, cast(SlotDefinitionName, slot_alias))
-                self.add_ref(ClassType, k, SlotType, cast(SlotDefinitionName, slot_alias))
+            # if slot_alias:
+            #     self.add_ref(SlotType, slotname, SlotType, cast(SlotDefinitionName, slot_alias))
+            #     self.add_ref(ClassType, k, SlotType, cast(SlotDefinitionName, slot_alias))
 
     def summarize_definition(self, typ: RefType, k: DefinitionName, v: Definition) -> None:
         """

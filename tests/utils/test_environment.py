@@ -33,6 +33,8 @@ class MismatchAction(Enum):
 
 
 class TestEnvironment:
+    import_map_warning_emitted: bool = False
+
     """ Testing environment """
     def __init__(self, filedir: str) -> None:
         self.cwd = os.path.dirname(filedir)                     # base directory for indir, outdir and tempdir
@@ -79,10 +81,11 @@ class TestEnvironment:
                 f"WARNING: Test file {test_file} does not match {runtime_file}.  "
                 f"You may want to update the test version and rerun")
         from tests import USE_LOCAL_IMPORT_MAP
-        if USE_LOCAL_IMPORT_MAP:
+        if USE_LOCAL_IMPORT_MAP and not TestEnvironment.import_map_warning_emitted:
             print(
                 f"WARNING: USE_LOCAL_IMPORT_MAP must be reset to False before completing submission."
             )
+            TestEnvironment.import_map_warning_emitted = True
 
 
     def clear_log(self) -> None:
@@ -240,7 +243,7 @@ class TestEnvironment:
         if os.path.exists(expected_file_path):
             with open(expected_file_path) as expf:
                 expected_text = filtr(expf.read())
-            msg = comparator(expected_text, actual_text)
+            msg = comparator(expected_text, filtr(actual_text))
         else:
             msg = f"New file {self.verb} created"
         if msg:
@@ -280,7 +283,7 @@ class TestEnvironmentTestCase(unittest.TestCase):
         msg = str(cls.env)
         cls.env.clear_log()
         if msg and cls.env.report_errors:
-                print(msg, file=sys.stderr)
+            print(msg, file=sys.stderr)
 
     @contextlib.contextmanager
     def redirect_logstream(self):

@@ -2,7 +2,7 @@
 # Type: variant to population association_has total
 
 
-
+number all populations that carry a particular allele, aka allele number
 
 URI: [biolink:variant_to_population_association_has_total](https://w3id.org/biolink/vocab/variant_to_population_association_has_total)
 

@@ -2,7 +2,7 @@
 # Type: material sample derivation association_object
 
 
-
+the material entity the sample was derived from. This may be another material sample, or any other material entity, including for example an organism, a geographic feature, or some environmental material.
 
 URI: [biolink:material_sample_derivation_association_object](https://w3id.org/biolink/vocab/material_sample_derivation_association_object)
 

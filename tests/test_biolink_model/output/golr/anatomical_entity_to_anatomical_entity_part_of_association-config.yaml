@@ -8,12 +8,6 @@ display_name: anatomical entity to anatomical entity part of association
 document_category: anatomical entity to anatomical entity part of association
 weight: 20
 fields:
-- id: subject
-  display_name: anatomical entity to anatomical entity part of association_subject
-- id: relation
-  display_name: anatomical entity to anatomical entity part of association_relation
-- id: object
-  display_name: anatomical entity to anatomical entity part of association_object
 - id: id
   description: A unique identifier for an association
   display_name: association_id
@@ -37,3 +31,11 @@ fields:
     that provided it
   display_name: provided by
   cardinality: multi
+- id: subject
+  description: the part
+  display_name: anatomical entity to anatomical entity part of association_subject
+- id: object
+  description: the whole
+  display_name: anatomical entity to anatomical entity part of association_object
+- id: relation
+  display_name: anatomical entity to anatomical entity part of association_relation

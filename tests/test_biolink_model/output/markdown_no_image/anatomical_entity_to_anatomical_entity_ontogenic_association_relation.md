@@ -21,3 +21,4 @@ URI: [biolink:anatomical_entity_to_anatomical_entity_ontogenic_association_relat
 ## Used by
 
  * [AnatomicalEntityToAnatomicalEntityOntogenicAssociation](AnatomicalEntityToAnatomicalEntityOntogenicAssociation.md)
+ *  reifies: develops from

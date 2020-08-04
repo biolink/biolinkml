@@ -6,10 +6,6 @@ display_name: genotype to phenotypic feature association
 document_category: genotype to phenotypic feature association
 weight: 20
 fields:
-- id: subject
-  display_name: genotype to phenotypic feature association_subject
-- id: relation
-  display_name: genotype to phenotypic feature association_relation
 - id: object
   description: connects an association to the object of the association. For example,
     in a gene-to-phenotype association, the gene is subject and phenotype is object.
@@ -37,10 +33,19 @@ fields:
     that provided it
   display_name: provided by
   cardinality: multi
+- id: relation
+  display_name: genotype to phenotypic feature association_relation
+- id: subject
+  description: genotype that is associated with the phenotypic feature
+  display_name: genotype to phenotypic feature association_subject
 - id: sex_qualifier
   description: a qualifier used in a phenotypic association to state whether the association
     is specific to a particular sex.
   display_name: sex qualifier
+- id: description
+  description: A description of specific aspects of this phenotype, not otherwise
+    covered by the phenotype ontology class
+  display_name: entity to phenotypic feature association_description
 - id: frequency_qualifier
   description: a qualifier used in a phenotypic association to state how frequent
     the phenotype is observed in the subject

@@ -7,7 +7,7 @@ A treatment is targeted at a disease or phenotype and may involve multiple drug 
 URI: [biolink:Treatment](https://w3id.org/biolink/vocab/Treatment)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SequenceVariantModulatesTreatmentAssociation]-%20object%201..1>[Treatment&#124;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[ExposureEvent]^-[Treatment],[SequenceVariantModulatesTreatmentAssociation],[ExposureEvent])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[DrugExposure]<has%20part%201..*-%20[Treatment&#124;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[SequenceVariantModulatesTreatmentAssociation]-%20object%201..1>[Treatment],[ExposureEvent]^-[Treatment],[SequenceVariantModulatesTreatmentAssociation],[ExposureEvent],[DrugExposure])
 
 ## Parents
 
@@ -19,6 +19,11 @@ URI: [biolink:Treatment](https://w3id.org/biolink/vocab/Treatment)
 
 ## Attributes
 
+
+### Own
+
+ * [treatment➞has part](treatment_has_part.md)  <sub>1..*</sub>
+    * range: [DrugExposure](DrugExposure.md)
 
 ### Inherited from exposure event:
 

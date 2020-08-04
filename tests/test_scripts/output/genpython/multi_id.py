@@ -19,7 +19,7 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import URIorCURIE
 
-metamodel_version = "1.5.2"
+metamodel_version = "1.5.3"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -80,7 +80,7 @@ class NamedThing(YAMLRoot):
 
 @dataclass
 class SequenceVariant(NamedThing):
-    _inherited_slots: ClassVar[List[str]] = ["node_property", "id"]
+    _inherited_slots: ClassVar[List[str]] = ["id", "node_property"]
 
     class_class_uri: ClassVar[URIRef] = URIRef("http://example.org/example/multi_id/SequenceVariant")
     class_class_curie: ClassVar[str] = None

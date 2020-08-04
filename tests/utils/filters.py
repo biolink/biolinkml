@@ -16,7 +16,7 @@ def ldcontext_metadata_filter(s: str) -> str:
 def json_metadata_filter(s: str) -> str:
     return re.sub(r'("source_file_date": )".*"', r'\1"Friday Sep 27 12:00:00 2003"',
            re.sub(r'("generation_date": )".*"', r'\1"Friday Sep 27 12:00:00 2003"',
-           re.sub(r'("source_file_size": )".*"', r'\123600', s)))
+           re.sub(r'("source_file_size": )".*"', r'\1 23600', s)))
 
 
 def json_metadata_context_filter(s: str) -> str:
@@ -34,4 +34,4 @@ def yaml_filter(s: str) -> str:
     # generation_date: 2020-07-09 15:43
     return re.sub(r'(source_file_date: ).*', r'\1Friday Sep 27 12:00:00 2003',
            re.sub(r'(generation_date: ).*', r'\1Friday Sep 27 12:00:00 2003',
-           re.sub(r'(source_file_size: ).*', r'\123600', s)))
+           re.sub(r'(source_file_size: ).*', r'\1 23600', s)))

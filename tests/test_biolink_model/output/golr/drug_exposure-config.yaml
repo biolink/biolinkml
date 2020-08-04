@@ -18,3 +18,6 @@ fields:
     this MAY correspond to the neo4j label tag
   display_name: category
   cardinality: multi
+- id: has_drug
+  display_name: drug exposure_has drug
+  cardinality: multi

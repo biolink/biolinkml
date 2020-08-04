@@ -25,6 +25,12 @@ URI: [biolink:EntityToDiseaseAssociation](https://w3id.org/biolink/vocab/EntityT
 ## Attributes
 
 
+### Own
+
+ * [entity to disease association➞object](entity_to_disease_association_object.md)  <sub>REQ</sub>
+    * Description: disease
+    * range: [Disease](Disease.md)
+
 ### Inherited from entity to feature or disease qualifiers:
 
  * [frequency qualifier](frequency_qualifier.md)  <sub>OPT</sub>

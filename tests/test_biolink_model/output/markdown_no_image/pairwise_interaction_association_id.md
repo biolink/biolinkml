@@ -2,7 +2,7 @@
 # Type: pairwise interaction association_id
 
 
-
+identifier for the interaction. This may come from an interaction database such as IMEX.
 
 URI: [biolink:pairwise_interaction_association_id](https://w3id.org/biolink/vocab/pairwise_interaction_association_id)
 
@@ -13,7 +13,7 @@ URI: [biolink:pairwise_interaction_association_id](https://w3id.org/biolink/voca
 
 ## Parents
 
- *  is_a: [association➞id](association_id.md)
+ *  is_a: [id](id.md)
 
 ## Children
 

@@ -7,7 +7,7 @@ A drug exposure is an intake of a particular chemical substance
 URI: [biolink:DrugExposure](https://w3id.org/biolink/vocab/DrugExposure)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Treatment],[Treatment]-%20has%20part(i)%201..*>[DrugExposure&#124;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[ChemicalExposure]^-[DrugExposure],[ChemicalExposure])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Treatment],[ChemicalSubstance]<has%20drug%201..*-%20[DrugExposure&#124;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[Treatment]-%20has%20part%201..*>[DrugExposure],[ChemicalExposure]^-[DrugExposure],[ChemicalSubstance],[ChemicalExposure])
 
 ## Parents
 
@@ -19,6 +19,11 @@ URI: [biolink:DrugExposure](https://w3id.org/biolink/vocab/DrugExposure)
 
 ## Attributes
 
+
+### Own
+
+ * [drug exposure➞has drug](drug_exposure_has_drug.md)  <sub>1..*</sub>
+    * range: [ChemicalSubstance](ChemicalSubstance.md)
 
 ### Inherited from chemical exposure:
 

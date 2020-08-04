@@ -26,6 +26,7 @@ URI: [biolink:PairwiseGeneToGeneInteraction](https://w3id.org/biolink/vocab/Pair
 ### Own
 
  * [pairwise gene to gene interaction➞relation](pairwise_gene_to_gene_interaction_relation.md)  <sub>REQ</sub>
+    * Description: interaction relationship type
     * range: [Uriorcurie](types/Uriorcurie.md)
 
 ### Inherited from gene to gene association:
@@ -38,8 +39,10 @@ URI: [biolink:PairwiseGeneToGeneInteraction](https://w3id.org/biolink/vocab/Pair
     * range: [String](types/String.md)
     * in subsets: (translator_minimal)
  * [gene to gene association➞object](gene_to_gene_association_object.md)  <sub>REQ</sub>
+    * Description: the object gene in the association. If the relation is symmetric, subject vs object is arbitrary. We allow a gene product to stand as proxy for the gene or vice versa
     * range: [GeneOrGeneProduct](GeneOrGeneProduct.md)
  * [gene to gene association➞subject](gene_to_gene_association_subject.md)  <sub>REQ</sub>
+    * Description: the subject gene in the association. If the relation is symmetric, subject vs object is arbitrary. We allow a gene product to stand as proxy for the gene or vice versa
     * range: [GeneOrGeneProduct](GeneOrGeneProduct.md)
  * [negated](negated.md)  <sub>OPT</sub>
     * Description: if set to true, then the association is negated i.e. is not true

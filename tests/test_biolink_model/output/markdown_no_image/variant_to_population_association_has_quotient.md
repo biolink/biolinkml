@@ -2,7 +2,7 @@
 # Type: variant to population association_has quotient
 
 
-
+frequency of allele in population, expressed as a number with allele divided by number in reference population, aka allele frequency
 
 URI: [biolink:variant_to_population_association_has_quotient](https://w3id.org/biolink/vocab/variant_to_population_association_has_quotient)
 

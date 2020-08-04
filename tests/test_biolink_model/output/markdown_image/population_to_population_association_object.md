@@ -2,7 +2,7 @@
 # Type: population to population association_object
 
 
-
+the population that form the object of the association
 
 URI: [biolink:population_to_population_association_object](https://w3id.org/biolink/vocab/population_to_population_association_object)
 

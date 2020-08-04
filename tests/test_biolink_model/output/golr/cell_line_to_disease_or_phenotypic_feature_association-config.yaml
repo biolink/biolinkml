@@ -6,8 +6,6 @@ display_name: cell line to disease or phenotypic feature association
 document_category: cell line to disease or phenotypic feature association
 weight: 20
 fields:
-- id: subject
-  display_name: cell line to disease or phenotypic feature association_subject
 - id: relation
   description: the relationship type by which a subject is connected to an object
     in an association
@@ -39,3 +37,5 @@ fields:
     that provided it
   display_name: provided by
   cardinality: multi
+- id: subject
+  display_name: cell line to disease or phenotypic feature association_subject

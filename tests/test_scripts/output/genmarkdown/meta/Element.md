@@ -7,7 +7,12 @@ a named element in the model
 URI: [meta:Element](https://w3id.org/biolink/biolinkml/meta/Element)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[TypeDefinition],[SubsetDefinition],[SlotDefinition],[SchemaDefinition],[LocalName],[Example],[SubsetDefinition]<in_subset%200..*-%20[Element&#124;id_prefixes:ncname%20*;name(pk):string;definition_uri:uriorcurie%20%3F;aliases:string%20*;mappings:uriorcurie%20*;description:string%20%3F;deprecated:string%20%3F;todos:string%20*;notes:string%20*;comments:string%20*;from_schema:uri%20%3F;imported_from:string%20%3F;see_also:uriorcurie%20*;exact_mappings:uriorcurie%20*;close_mappings:uriorcurie%20*;related_mappings:uriorcurie%20*;deprecated_element_has_exact_replacement:uriorcurie%20%3F;deprecated_element_has_possible_replacement:uriorcurie%20%3F],[Example]<examples%200..*-++[Element],[AltDescription]<alt_descriptions%200..*-++[Element],[LocalName]<local_names%200..*-++[Element],[SlotDefinition]-%20range%200..1>[Element],[Element]^-[TypeDefinition],[Element]^-[SubsetDefinition],[Element]^-[SchemaDefinition],[Element]^-[Definition],[Definition],[AltDescription])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[TypeDefinition],[SubsetDefinition],[SlotDefinition],[SchemaDefinition],[LocalName],[Extension],[Extensible],[Example],[SubsetDefinition]<in_subset%200..*-%20[Element&#124;id_prefixes:ncname%20*;name(pk):string;definition_uri:uriorcurie%20%3F;aliases:string%20*;mappings:uriorcurie%20*;description:string%20%3F;deprecated:string%20%3F;todos:string%20*;notes:string%20*;comments:string%20*;from_schema:uri%20%3F;imported_from:string%20%3F;see_also:uriorcurie%20*;exact_mappings:uriorcurie%20*;close_mappings:uriorcurie%20*;related_mappings:uriorcurie%20*;deprecated_element_has_exact_replacement:uriorcurie%20%3F;deprecated_element_has_possible_replacement:uriorcurie%20%3F],[Example]<examples%200..*-++[Element],[AltDescription]<alt_descriptions%200..*-++[Element],[LocalName]<local_names%200..*-++[Element],[SlotDefinition]-%20range%200..1>[Element],[Element]uses%20-.->[Extensible],[Element]uses%20-.->[Annotatable],[Element]^-[TypeDefinition],[Element]^-[SubsetDefinition],[Element]^-[SchemaDefinition],[Element]^-[Definition],[Definition],[Annotation],[Annotatable],[AltDescription])
+
+## Uses Mixins
+
+ *  mixin: [Extensible](Extensible.md) - mixin for classes that support extension
+ *  mixin: [Annotatable](Annotatable.md) - mixin for classes that support annotations
 
 ## Children
 
@@ -94,3 +99,15 @@ URI: [meta:Element](https://w3id.org/biolink/biolinkml/meta/Element)
  * [todos](todos.md)  <sub>0..*</sub>
     * Description: Outstanding issue that needs resolution
     * range: [String](types/String.md)
+
+### Mixed in from annotatable:
+
+ * [annotations](annotations.md)  <sub>0..*</sub>
+    * Description: a collection of tag/text tuples with the semantics of OWL Annotation
+    * range: [Annotation](Annotation.md)
+
+### Mixed in from extensible:
+
+ * [extensions](extensions.md)  <sub>0..*</sub>
+    * Description: a tag/text tuple attached to an arbitrary element
+    * range: [Extension](Extension.md)

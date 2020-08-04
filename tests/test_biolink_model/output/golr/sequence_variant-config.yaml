@@ -6,8 +6,6 @@ display_name: sequence variant
 document_category: sequence variant
 weight: 20
 fields:
-- id: id
-  display_name: sequence variant_id
 - id: name
   description: A human-readable name for a thing
   display_name: name
@@ -21,8 +19,12 @@ fields:
   description: connects a thing to a class representing a taxon
   display_name: in taxon
   cardinality: multi
-- id: has_biological_sequence
-  display_name: sequence variant_has biological sequence
 - id: has_gene
+  description: Each allele can be associated with any number of genes
   display_name: sequence variant_has gene
   cardinality: multi
+- id: has_biological_sequence
+  description: The state of the sequence w.r.t a reference sequence
+  display_name: sequence variant_has biological sequence
+- id: id
+  display_name: sequence variant_id

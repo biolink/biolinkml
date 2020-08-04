@@ -2,7 +2,7 @@
 # Type: chemical to chemical association_object
 
 
-
+the chemical element that is the target of the statement
 
 URI: [biolink:chemical_to_chemical_association_object](https://w3id.org/biolink/vocab/chemical_to_chemical_association_object)
 

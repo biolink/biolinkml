@@ -1,18 +1,18 @@
 
-Classes: 11
-	Referenced by: 6 classes, 97 slots, 0 types 
-	Root: 5
-	Leaf: 9
-	Standalone: 10
-	Declared mixin: 0
+Classes: 15
+	Referenced by: 8 classes, 103 slots, 0 types 
+	Root: 8
+	Leaf: 12
+	Standalone: 14
+	Declared mixin: 2
 	Undeclared mixin: 0
 	Abstract: 2
 
-Slots: 103
-	Referenced by: 11 classes, 10 slots, 0 types 
-	Root: 93
-	Leaf: 98
-	Standalone: 103
+Slots: 109
+	Referenced by: 15 classes, 12 slots, 0 types 
+	Root: 97
+	Leaf: 102
+	Standalone: 110
 	Declared mixin: 0
 	Undeclared mixin: 0
 	Abstract: 1
@@ -27,19 +27,21 @@ Slots: 103
 	Domain unspecified: 6
 	Ranges:
 		Type:
-			boolean: 12
+			boolean: 13
 			datetime: 4
 			integer: 3
 			ncname: 6
-			string: 28
+			string: 30
 			uri: 3
-			uriorcurie: 18
+			uriorcurie: 19
 		Class:
 			alt_description: 1
+			annotation: 1
 			class_definition: 7
 			definition: 4
 			element: 1
 			example: 1
+			extension: 1
 			local_name: 1
 			prefix: 1
 			slot_definition: 8
@@ -47,7 +49,7 @@ Slots: 103
 			type_definition: 3
 
 Types: 13
-	Referenced by: 0 classes, 74 slots, 0 types 
+	Referenced by: 0 classes, 78 slots, 0 types 
 	Bases:
 		Bool:
 			boolean

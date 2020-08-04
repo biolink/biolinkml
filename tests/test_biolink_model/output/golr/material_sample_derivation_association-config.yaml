@@ -6,12 +6,6 @@ display_name: material sample derivation association
 document_category: material sample derivation association
 weight: 20
 fields:
-- id: subject
-  display_name: material sample derivation association_subject
-- id: relation
-  display_name: material sample derivation association_relation
-- id: object
-  display_name: material sample derivation association_object
 - id: id
   description: A unique identifier for an association
   display_name: association_id
@@ -35,3 +29,14 @@ fields:
     that provided it
   display_name: provided by
   cardinality: multi
+- id: subject
+  description: the material sample being described
+  display_name: material sample derivation association_subject
+- id: object
+  description: the material entity the sample was derived from. This may be another
+    material sample, or any other material entity, including for example an organism,
+    a geographic feature, or some environmental material.
+  display_name: material sample derivation association_object
+- id: relation
+  description: derivation relationship
+  display_name: material sample derivation association_relation

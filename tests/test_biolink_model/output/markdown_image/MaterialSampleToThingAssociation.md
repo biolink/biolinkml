@@ -26,6 +26,7 @@ URI: [biolink:MaterialSampleToThingAssociation](https://w3id.org/biolink/vocab/M
 ### Own
 
  * [material sample to thing association➞subject](material_sample_to_thing_association_subject.md)  <sub>REQ</sub>
+    * Description: the material sample being described
     * range: [MaterialSample](MaterialSample.md)
 
 ### Inherited from association:

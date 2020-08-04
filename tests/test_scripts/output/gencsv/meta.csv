@@ -1,9 +1,13 @@
 id,mappings,description
 alt_description,,an attributed description
+annotatable,,mixin for classes that support annotations
+annotation,,a tag/value pair with the semantics of OWL Annotation
 class_definition,,the definition of a class or interface
 definition,,base class for definitions
 element,,a named element in the model
 example,,usage example and description
+extensible,,mixin for classes that support extension
+extension,,a tag/value pair used to add non-model information to an entry
 local_name,,an attributed label
 prefix,,prefix URI tuple
 schema_definition,,"a collection of subset, type, slot and class definitions"

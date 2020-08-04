@@ -2,7 +2,7 @@
 # Type: material sample to thing association_subject
 
 
-
+the material sample being described
 
 URI: [biolink:material_sample_to_thing_association_subject](https://w3id.org/biolink/vocab/material_sample_to_thing_association_subject)
 

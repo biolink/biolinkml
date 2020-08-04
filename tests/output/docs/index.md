@@ -16,11 +16,15 @@ A metamodel for defining biolink related schemas
     * [SubsetDefinition](SubsetDefinition.md) - the name and description of a subset
     * [TypeDefinition](TypeDefinition.md) - A data type definition.
  * [Example](Example.md) - usage example and description
+ * [Extension](Extension.md) - a tag/value pair used to add non-model information to an entry
+    * [Annotation](Annotation.md) - a tag/value pair with the semantics of OWL Annotation
  * [LocalName](LocalName.md) - an attributed label
  * [Prefix](Prefix.md) - prefix URI tuple
 
 ### Mixins
 
+ * [Annotatable](Annotatable.md) - mixin for classes that support annotations
+ * [Extensible](Extensible.md) - mixin for classes that support extension
 
 ### Slots
 
@@ -52,6 +56,11 @@ A metamodel for defining biolink related schemas
  * [domain_of](domain_of.md) - the class(es) that reference the slot in a "slots" or "slot_usage" context
  * [emit_prefixes](emit_prefixes.md) - a list of Curie prefixes that are used in the representation of instances of the model.  All prefixes in this list are added to the prefix sections of the target models.
  * [examples](examples.md) - example usages of an element
+ * [extension➞tag](extension_tag.md) - a tag associated with an extension
+ * [extension➞value](extension_value.md) - the actual annotation
+    * [annotation➞value](annotation_extension_value.md)
+ * [extensions](extensions.md) - a tag/text tuple attached to an arbitrary element
+    * [annotations](annotations.md) - a collection of tag/text tuples with the semantics of OWL Annotation
  * [from_schema](from_schema.md) - id of the schema that defined the element
  * [generation_date](generation_date.md) - date and time that the schema was loaded/generated
  * [id](id.md) - The official schema URI
@@ -123,6 +132,7 @@ A metamodel for defining biolink related schemas
  * [typeof](typeof.md) - Names a parent type
  * [types](types.md) - data types used in the model
  * [union_of](union_of.md) - indicates that the domain class consists exactly of the members of the classes in the range
+ * [usage_slot_name](usage_slot_name.md) - The name of the slot referenced in the slot_usage
  * [value](value.md) - example value
  * [example➞description](value_description.md) - description of what the value is doing
  * [values_from](values_from.md) - the identifier of a "value set" -- a set of identifiers that form the possible values for the range of a slot

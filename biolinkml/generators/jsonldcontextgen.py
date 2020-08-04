@@ -102,7 +102,7 @@ license: {be(self.schema.license)}
             slot_def = '@id'
         else:
             slot_def = {}
-            if not slot.is_usage_slot:
+            if not slot.usage_slot_name:
                 if slot.range in self.schema.classes:
                     slot_def['@type'] = '@id'
                 else:

@@ -2,7 +2,7 @@
 # Type: sequence variant modulates treatment association_subject
 
 
-
+variant that modulates the treatment of some disease
 
 URI: [biolink:sequence_variant_modulates_treatment_association_subject](https://w3id.org/biolink/vocab/sequence_variant_modulates_treatment_association_subject)
 

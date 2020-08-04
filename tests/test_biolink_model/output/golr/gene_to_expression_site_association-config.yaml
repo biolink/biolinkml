@@ -6,12 +6,6 @@ display_name: gene to expression site association
 document_category: gene to expression site association
 weight: 20
 fields:
-- id: subject
-  display_name: gene to expression site association_subject
-- id: relation
-  display_name: gene to expression site association_relation
-- id: object
-  display_name: gene to expression site association_object
 - id: id
   description: A unique identifier for an association
   display_name: association_id
@@ -36,6 +30,17 @@ fields:
   display_name: provided by
   cardinality: multi
 - id: stage_qualifier
+  description: stage at which the gene is expressed in the site
   display_name: gene to expression site association_stage qualifier
 - id: quantifier_qualifier
+  description: can be used to indicate magnitude, or also ranking
   display_name: gene to expression site association_quantifier qualifier
+- id: subject
+  description: gene in which variation is correlated with the phenotypic feature
+  display_name: gene to expression site association_subject
+- id: object
+  description: location in which the gene is expressed
+  display_name: gene to expression site association_object
+- id: relation
+  description: expression relationship
+  display_name: gene to expression site association_relation

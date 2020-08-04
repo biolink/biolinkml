@@ -41,27 +41,27 @@
 </g><g class='node' id='node4'><title>MacromolecularMachine</title>
 <polygon fill='white' points='328.5,-153 328.5,-189 495.5,-189 495.5,-153 328.5,-153' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='412' y='-167.3'>MacromolecularMachine</text>
-</g><g class='node' id='node5'><title>ChemicalToChemicalDerivationAssociation</title>
+</g><g class='node' id='node6'><title>ChemicalToChemicalDerivationAssociation</title>
 <polygon fill='white' points='447,-1 447,-61 717,-61 717,-1 447,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='582' y='-49.8'>ChemicalToChemicalDerivationAssociation</text>
 <polyline fill='none' points='447,-46 717,-46 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='582' y='-34.8'>relation:uriorcurie</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='582' y='-19.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='582' y='-4.8'>negated(i):boolean ?</text>
-</g><g class='edge' id='edge1'><title>MacromolecularMachine-&gt;ChemicalToChemicalDerivationAssociation</title>
+</g><g class='edge' id='edge3'><title>MacromolecularMachine-&gt;ChemicalToChemicalDerivationAssociation</title>
 <path d='M441.299,-146.216C470.314,-122.662 514.8,-86.5503 545.963,-61.2537' fill='none' stroke='black'/>
 <polygon fill='black' points='433.187,-152.801 438.115,-143.005 437.069,-149.65 440.951,-146.499 440.951,-146.499 440.951,-146.499 437.069,-149.65 443.787,-149.992 433.187,-152.801 433.187,-152.801' stroke='black'/>
 <text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='527.06' y='-64.0877'> </text>
 <text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='452.089' y='-142.567'>change is catalyzed by 0..*</text>
-</g><g class='node' id='node6'><title>ChemicalSubstance</title>
+</g><g class='node' id='node5'><title>ChemicalSubstance</title>
 <polygon fill='white' points='514,-153 514,-189 650,-189 650,-153 514,-153' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='582' y='-167.3'>ChemicalSubstance</text>
-</g><g class='edge' id='edge2'><title>ChemicalSubstance-&gt;ChemicalToChemicalDerivationAssociation</title>
+</g><g class='edge' id='edge1'><title>ChemicalSubstance-&gt;ChemicalToChemicalDerivationAssociation</title>
 <path d='M576.501,-142.798C574.88,-119.277 574.834,-85.3561 576.365,-61.2537' fill='none' stroke='black'/>
 <polygon fill='black' points='577.356,-152.801 572.02,-143.221 576.93,-147.819 576.504,-142.838 576.504,-142.838 576.504,-142.838 576.93,-147.819 580.987,-142.454 577.356,-152.801 577.356,-152.801' stroke='black'/>
 <text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='568.505' y='-75.9445'> </text>
 <text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='582.57' y='-129.793'>object 1..1</text>
-</g><g class='edge' id='edge3'><title>ChemicalSubstance-&gt;ChemicalToChemicalDerivationAssociation</title>
+</g><g class='edge' id='edge2'><title>ChemicalSubstance-&gt;ChemicalToChemicalDerivationAssociation</title>
 <path d='M587.499,-142.798C589.12,-119.277 589.166,-85.3561 587.635,-61.2537' fill='none' stroke='black'/>
 <polygon fill='black' points='586.644,-152.801 583.013,-142.454 587.07,-147.819 587.496,-142.838 587.496,-142.838 587.496,-142.838 587.07,-147.819 591.98,-143.221 586.644,-152.801 586.644,-152.801' stroke='black'/>
 <text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='581.835' y='-76.6941'> </text>

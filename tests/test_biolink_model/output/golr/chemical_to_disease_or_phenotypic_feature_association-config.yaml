@@ -14,8 +14,6 @@ fields:
   description: the relationship type by which a subject is connected to an object
     in an association
   display_name: relation
-- id: object
-  display_name: chemical to disease or phenotypic feature association_object
 - id: id
   description: A unique identifier for an association
   display_name: association_id
@@ -39,3 +37,6 @@ fields:
     that provided it
   display_name: provided by
   cardinality: multi
+- id: object
+  description: the disease or phenotype that is affected by the chemical
+  display_name: chemical to disease or phenotypic feature association_object

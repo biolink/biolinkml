@@ -96,3 +96,11 @@ fields:
   description: When an element is deprecated, it can be potentially replaced by this
     uri or curie
   display_name: deprecated element has possible replacement
+- id: extensions
+  description: a tag/text tuple attached to an arbitrary element
+  display_name: extensions
+  cardinality: multi
+- id: annotations
+  description: a collection of tag/text tuples with the semantics of OWL Annotation
+  display_name: annotations
+  cardinality: multi

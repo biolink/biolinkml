@@ -7,12 +7,6 @@ display_name: pairwise gene to gene interaction
 document_category: pairwise gene to gene interaction
 weight: 20
 fields:
-- id: subject
-  display_name: gene to gene association_subject
-- id: relation
-  display_name: pairwise gene to gene interaction_relation
-- id: object
-  display_name: gene to gene association_object
 - id: id
   description: A unique identifier for an association
   display_name: association_id
@@ -36,3 +30,16 @@ fields:
     that provided it
   display_name: provided by
   cardinality: multi
+- id: subject
+  description: the subject gene in the association. If the relation is symmetric,
+    subject vs object is arbitrary. We allow a gene product to stand as proxy for
+    the gene or vice versa
+  display_name: gene to gene association_subject
+- id: object
+  description: the object gene in the association. If the relation is symmetric, subject
+    vs object is arbitrary. We allow a gene product to stand as proxy for the gene
+    or vice versa
+  display_name: gene to gene association_object
+- id: relation
+  description: interaction relationship type
+  display_name: pairwise gene to gene interaction_relation

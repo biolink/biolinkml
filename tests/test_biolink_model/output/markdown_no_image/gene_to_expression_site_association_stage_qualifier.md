@@ -2,7 +2,7 @@
 # Type: gene to expression site association_stage qualifier
 
 
-
+stage at which the gene is expressed in the site
 
 URI: [biolink:gene_to_expression_site_association_stage_qualifier](https://w3id.org/biolink/vocab/gene_to_expression_site_association_stage_qualifier)
 

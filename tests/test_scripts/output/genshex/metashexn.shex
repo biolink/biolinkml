@@ -38,19 +38,35 @@ metatype:Nodeidentifier NONLITERAL
     )
 }
 
+<Annotatable> {
+    (  $<Annotatable_tes> <annotations> @<Annotation> * ;
+       rdf:type [ <Annotatable> ] ?
+    )
+}
+
+<Annotation> CLOSED {
+    (  $<Annotation_tes> (  &<Extension_tes> ;
+          rdf:type [ <Extension> ] ? ;
+          <annotations> @<Annotation> * ;
+          <value> @metatype:Boolean
+       ) ;
+       rdf:type [ <Annotation> ] ?
+    )
+}
+
 <ClassDefinition> CLOSED {
     (  $<ClassDefinition_tes> (  &<Definition_tes> ;
           rdf:type [ <Definition> ] ? ;
-          <is_a> @<ClassDefinition> ? ;
-          <mixins> @<ClassDefinition> * ;
-          <apply_to> @<ClassDefinition> * ;
           <slots> @<SlotDefinition> * ;
           <slot_usage> @<SlotDefinition> * ;
           <class_uri> @metatype:Uriorcurie ? ;
           <subclass_of> @metatype:Uriorcurie ? ;
           <union_of> @<ClassDefinition> * ;
           <defining_slots> @<SlotDefinition> * ;
-          <tree_root> @metatype:Boolean ?
+          <tree_root> @metatype:Boolean ? ;
+          <is_a> @<ClassDefinition> ? ;
+          <mixins> @<ClassDefinition> * ;
+          <apply_to> @<ClassDefinition> *
        ) ;
        rdf:type [ <ClassDefinition> ]
     )
@@ -83,7 +99,11 @@ metatype:Nodeidentifier NONLITERAL
 )
 
 <Element_struct> {
-    (  $<Element_tes> (  <id_prefixes> @metatype:Ncname * ;
+    (  $<Element_tes> (  &<Extensible_tes> ;
+          rdf:type [ <Extensible> ] ? ;
+          &<Annotatable_tes> ;
+          rdf:type [ <Annotatable> ] ? ;
+          <id_prefixes> @metatype:Ncname * ;
           <definition_uri> @metatype:Uriorcurie ? ;
           <aliases> @metatype:String * ;
           <local_names> @<LocalName> * ;
@@ -103,7 +123,9 @@ metatype:Nodeidentifier NONLITERAL
           <close_mappings> @metatype:Uriorcurie * ;
           <related_mappings> @metatype:Uriorcurie * ;
           <deprecated_element_has_exact_replacement> @metatype:Uriorcurie ? ;
-          <deprecated_element_has_possible_replacement> @metatype:Uriorcurie ?
+          <deprecated_element_has_possible_replacement> @metatype:Uriorcurie ? ;
+          <extensions> @<Extension> * ;
+          <annotations> @<Annotation> *
        ) ;
        rdf:type [ <Element> ]
     )
@@ -116,6 +138,23 @@ metatype:Nodeidentifier NONLITERAL
        rdf:type [ <Example> ] ?
     )
 }
+
+<Extensible> {
+    (  $<Extensible_tes> <extensions> @<Extension> * ;
+       rdf:type [ <Extensible> ] ?
+    )
+}
+
+<Extension>  (
+    CLOSED {
+       (  $<Extension_tes> (  <tag> @metatype:Uriorcurie ;
+             <value> @metatype:String ;
+             <extensions> @<Extension> *
+          ) ;
+          rdf:type [ <Extension> ] ?
+       )
+    } OR @<Annotation>
+)
 
 <LocalName> CLOSED {
     (  $<LocalName_tes> (  <local_name_source> @metatype:Ncname ;
@@ -163,9 +202,6 @@ metatype:Nodeidentifier NONLITERAL
 <SlotDefinition> CLOSED {
     (  $<SlotDefinition_tes> (  &<Definition_tes> ;
           rdf:type [ <Definition> ] ? ;
-          <is_a> @<SlotDefinition> ? ;
-          <mixins> @<SlotDefinition> * ;
-          <apply_to> @<SlotDefinition> * ;
           <singular_name> @metatype:String ? ;
           <domain> @<ClassDefinition> ? ;
           <range> @<Element> ? ;
@@ -187,10 +223,14 @@ metatype:Nodeidentifier NONLITERAL
           <is_class_field> @metatype:Boolean ? ;
           <role> @metatype:String ? ;
           <is_usage_slot> @metatype:Boolean ? ;
+          <usage_slot_name> @metatype:String ? ;
           <minimum_value> @metatype:Integer ? ;
           <maximum_value> @metatype:Integer ? ;
           <pattern> @metatype:String ? ;
-          <string_serialization> @metatype:String ?
+          <string_serialization> @metatype:String ? ;
+          <is_a> @<SlotDefinition> ? ;
+          <mixins> @<SlotDefinition> * ;
+          <apply_to> @<SlotDefinition> *
        ) ;
        rdf:type [ <SlotDefinition> ]
     )

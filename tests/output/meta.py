@@ -21,9 +21,11 @@ from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import Bool, NCName, URI, URIorCURIE, XSDDateTime
+from includes.annotations import Annotation
+from includes.extensions import Extension
 from includes.types import Boolean, Datetime, Integer, Ncname, String, Uri, Uriorcurie
 
-metamodel_version = "1.5.2"
+metamodel_version = "1.5.3"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -122,6 +124,8 @@ class Element(YAMLRoot):
     related_mappings: List[Union[str, URIorCURIE]] = empty_list()
     deprecated_element_has_exact_replacement: Optional[Union[str, URIorCURIE]] = None
     deprecated_element_has_possible_replacement: Optional[Union[str, URIorCURIE]] = None
+    extensions: List[Union[dict, Extension]] = empty_list()
+    annotations: List[Union[dict, Annotation]] = empty_list()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         self.id_prefixes = [v if isinstance(v, NCName)
@@ -140,8 +144,9 @@ class Element(YAMLRoot):
         for k, v in self.alt_descriptions.items():
             if not isinstance(v, AltDescription):
                 self.alt_descriptions[k] = AltDescription(k, v)
-        self.examples = [v if isinstance(v, Example)
-                         else Example(**v) for v in ([self.examples] if isinstance(self.examples, str) else self.examples)]
+        self.examples = [Example(*e) for e in self.examples.items()] if isinstance(self.examples, dict) \
+                         else [v if isinstance(v, Example) else Example(**v)
+                               for v in ([self.examples] if isinstance(self.examples, str) else self.examples)]
         self.in_subset = [v if isinstance(v, SubsetDefinitionName)
                           else SubsetDefinitionName(v) for v in ([self.in_subset] if isinstance(self.in_subset, str) else self.in_subset)]
         if self.from_schema is not None and not isinstance(self.from_schema, URI):
@@ -158,6 +163,12 @@ class Element(YAMLRoot):
             self.deprecated_element_has_exact_replacement = URIorCURIE(self.deprecated_element_has_exact_replacement)
         if self.deprecated_element_has_possible_replacement is not None and not isinstance(self.deprecated_element_has_possible_replacement, URIorCURIE):
             self.deprecated_element_has_possible_replacement = URIorCURIE(self.deprecated_element_has_possible_replacement)
+        self.extensions = [Extension(*e) for e in self.extensions.items()] if isinstance(self.extensions, dict) \
+                           else [v if isinstance(v, Extension) else Extension(**v)
+                                 for v in ([self.extensions] if isinstance(self.extensions, str) else self.extensions)]
+        self.annotations = [Annotation(*e) for e in self.annotations.items()] if isinstance(self.annotations, dict) \
+                            else [v if isinstance(v, Annotation) else Annotation(**v)
+                                  for v in ([self.annotations] if isinstance(self.annotations, str) else self.annotations)]
         super().__post_init__(**kwargs)
 
 
@@ -345,9 +356,6 @@ class SlotDefinition(Definition):
     class_model_uri: ClassVar[URIRef] = META.SlotDefinition
 
     name: Union[str, SlotDefinitionName] = None
-    is_a: Optional[Union[str, SlotDefinitionName]] = None
-    mixins: List[Union[str, SlotDefinitionName]] = empty_list()
-    apply_to: List[Union[str, SlotDefinitionName]] = empty_list()
     singular_name: Optional[str] = None
     domain: Optional[Union[str, ClassDefinitionName]] = None
     range: Optional[Union[str, ElementName]] = None
@@ -369,22 +377,20 @@ class SlotDefinition(Definition):
     is_class_field: Optional[Bool] = None
     role: Optional[str] = None
     is_usage_slot: Optional[Bool] = None
+    usage_slot_name: Optional[str] = None
     minimum_value: Optional[int] = None
     maximum_value: Optional[int] = None
     pattern: Optional[str] = None
     string_serialization: Optional[str] = None
+    is_a: Optional[Union[str, SlotDefinitionName]] = None
+    mixins: List[Union[str, SlotDefinitionName]] = empty_list()
+    apply_to: List[Union[str, SlotDefinitionName]] = empty_list()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.name is None:
             raise ValueError(f"name must be supplied")
         if not isinstance(self.name, SlotDefinitionName):
             self.name = SlotDefinitionName(self.name)
-        if self.is_a is not None and not isinstance(self.is_a, SlotDefinitionName):
-            self.is_a = SlotDefinitionName(self.is_a)
-        self.mixins = [v if isinstance(v, SlotDefinitionName)
-                       else SlotDefinitionName(v) for v in ([self.mixins] if isinstance(self.mixins, str) else self.mixins)]
-        self.apply_to = [v if isinstance(v, SlotDefinitionName)
-                         else SlotDefinitionName(v) for v in ([self.apply_to] if isinstance(self.apply_to, str) else self.apply_to)]
         if self.domain is not None and not isinstance(self.domain, ClassDefinitionName):
             self.domain = ClassDefinitionName(self.domain)
         if self.range is not None and not isinstance(self.range, ElementName):
@@ -399,6 +405,12 @@ class SlotDefinition(Definition):
             self.subproperty_of = URIorCURIE(self.subproperty_of)
         if self.inverse is not None and not isinstance(self.inverse, SlotDefinitionName):
             self.inverse = SlotDefinitionName(self.inverse)
+        if self.is_a is not None and not isinstance(self.is_a, SlotDefinitionName):
+            self.is_a = SlotDefinitionName(self.is_a)
+        self.mixins = [v if isinstance(v, SlotDefinitionName)
+                       else SlotDefinitionName(v) for v in ([self.mixins] if isinstance(self.mixins, str) else self.mixins)]
+        self.apply_to = [v if isinstance(v, SlotDefinitionName)
+                         else SlotDefinitionName(v) for v in ([self.apply_to] if isinstance(self.apply_to, str) else self.apply_to)]
         super().__post_init__(**kwargs)
 
 
@@ -415,9 +427,6 @@ class ClassDefinition(Definition):
     class_model_uri: ClassVar[URIRef] = META.ClassDefinition
 
     name: Union[str, ClassDefinitionName] = None
-    is_a: Optional[Union[str, ClassDefinitionName]] = None
-    mixins: List[Union[str, ClassDefinitionName]] = empty_list()
-    apply_to: List[Union[str, ClassDefinitionName]] = empty_list()
     slots: List[Union[str, SlotDefinitionName]] = empty_list()
     slot_usage: Dict[Union[str, SlotDefinitionName], Union[dict, SlotDefinition]] = empty_dict()
     class_uri: Optional[Union[str, URIorCURIE]] = None
@@ -425,18 +434,15 @@ class ClassDefinition(Definition):
     union_of: List[Union[str, ClassDefinitionName]] = empty_list()
     defining_slots: List[Union[str, SlotDefinitionName]] = empty_list()
     tree_root: Optional[Bool] = None
+    is_a: Optional[Union[str, ClassDefinitionName]] = None
+    mixins: List[Union[str, ClassDefinitionName]] = empty_list()
+    apply_to: List[Union[str, ClassDefinitionName]] = empty_list()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.name is None:
             raise ValueError(f"name must be supplied")
         if not isinstance(self.name, ClassDefinitionName):
             self.name = ClassDefinitionName(self.name)
-        if self.is_a is not None and not isinstance(self.is_a, ClassDefinitionName):
-            self.is_a = ClassDefinitionName(self.is_a)
-        self.mixins = [v if isinstance(v, ClassDefinitionName)
-                       else ClassDefinitionName(v) for v in ([self.mixins] if isinstance(self.mixins, str) else self.mixins)]
-        self.apply_to = [v if isinstance(v, ClassDefinitionName)
-                         else ClassDefinitionName(v) for v in ([self.apply_to] if isinstance(self.apply_to, str) else self.apply_to)]
         self.slots = [v if isinstance(v, SlotDefinitionName)
                       else SlotDefinitionName(v) for v in ([self.slots] if isinstance(self.slots, str) else self.slots)]
         for k, v in self.slot_usage.items():
@@ -450,6 +456,12 @@ class ClassDefinition(Definition):
                          else ClassDefinitionName(v) for v in ([self.union_of] if isinstance(self.union_of, str) else self.union_of)]
         self.defining_slots = [v if isinstance(v, SlotDefinitionName)
                                else SlotDefinitionName(v) for v in ([self.defining_slots] if isinstance(self.defining_slots, str) else self.defining_slots)]
+        if self.is_a is not None and not isinstance(self.is_a, ClassDefinitionName):
+            self.is_a = ClassDefinitionName(self.is_a)
+        self.mixins = [v if isinstance(v, ClassDefinitionName)
+                       else ClassDefinitionName(v) for v in ([self.mixins] if isinstance(self.mixins, str) else self.mixins)]
+        self.apply_to = [v if isinstance(v, ClassDefinitionName)
+                         else ClassDefinitionName(v) for v in ([self.apply_to] if isinstance(self.apply_to, str) else self.apply_to)]
         super().__post_init__(**kwargs)
 
 
@@ -745,6 +757,9 @@ slots.domain_of = Slot(uri=META.domain_of, name="domain_of", curie=META.curie('d
 slots.is_usage_slot = Slot(uri=META.is_usage_slot, name="is_usage_slot", curie=META.curie('is_usage_slot'),
                       model_uri=META.is_usage_slot, domain=SlotDefinition, range=Optional[Bool])
 
+slots.usage_slot_name = Slot(uri=META.usage_slot_name, name="usage_slot_name", curie=META.curie('usage_slot_name'),
+                      model_uri=META.usage_slot_name, domain=SlotDefinition, range=Optional[str])
+
 slots.subproperty_of = Slot(uri=RDFS.subPropertyOf, name="subproperty_of", curie=RDFS.curie('subPropertyOf'),
                       model_uri=META.subproperty_of, domain=SlotDefinition, range=Optional[Union[str, URIorCURIE]])
 
@@ -840,3 +855,6 @@ slots.class_definition_mixins = Slot(uri=META.mixins, name="class_definition_mix
 
 slots.class_definition_apply_to = Slot(uri=META.apply_to, name="class_definition_apply_to", curie=META.curie('apply_to'),
                       model_uri=META.class_definition_apply_to, domain=ClassDefinition, range=List[Union[str, ClassDefinitionName]])
+
+slots.annotation_extension_value = Slot(uri=META.value, name="annotation_extension_value", curie=META.curie('value'),
+                      model_uri=META.annotation_extension_value, domain=Annotation, range=Bool)

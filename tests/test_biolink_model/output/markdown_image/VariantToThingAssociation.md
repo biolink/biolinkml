@@ -28,6 +28,7 @@ URI: [biolink:VariantToThingAssociation](https://w3id.org/biolink/vocab/VariantT
 ### Own
 
  * [variant to thing association➞subject](variant_to_thing_association_subject.md)  <sub>REQ</sub>
+    * Description: a sequence variant in which the allele state is associated with some other entity
     * range: [SequenceVariant](SequenceVariant.md)
 
 ### Inherited from association:

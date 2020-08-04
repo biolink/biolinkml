@@ -140,6 +140,9 @@ For example, a Measurement class may have 3 fields: unit, value, and string_valu
  * [symmetric](symmetric.md)  <sub>OPT</sub>
     * Description: True means that any instance of  d s r implies that there is also an instance of r s d
     * range: [Boolean](types/Boolean.md)
+ * [usage_slot_name](usage_slot_name.md)  <sub>OPT</sub>
+    * Description: The name of the slot referenced in the slot_usage
+    * range: [String](types/String.md)
 
 ### Inherited from definition:
 
