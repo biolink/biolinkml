@@ -1,31 +1,30 @@
 
-# Type: extensions
+# Type: annotations
 
 
-a tag/text tuple attached to an arbitrary element
+a collection of tag/text tuples with the semantics of OWL Annotation
 
-URI: [meta:extensions](https://w3id.org/biolink/biolinkml/meta/extensions)
+URI: [meta:annotations](https://w3id.org/biolink/biolinkml/meta/annotations)
 
 
 ## Domain and Range
 
-[Extensible](Extensible.md) ->  <sub>0..*</sub> [Extension](Extension.md)
+[Annotatable](Annotatable.md) ->  <sub>0..*</sub> [Annotation](Annotation.md)
 
 ## Parents
 
+ *  is_a: [extensions](extensions.md)
 
 ## Children
 
- *  [annotations](annotations.md)
 
 ## Used by
 
+ * [Annotatable](Annotatable.md)
  * [Annotation](Annotation.md)
  * [ClassDefinition](ClassDefinition.md)
  * [Definition](Definition.md)
  * [Element](Element.md)
- * [Extensible](Extensible.md)
- * [Extension](Extension.md)
  * [SchemaDefinition](SchemaDefinition.md)
  * [SlotDefinition](SlotDefinition.md)
  * [SubsetDefinition](SubsetDefinition.md)

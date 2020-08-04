@@ -1,10 +1,11 @@
 {
-  "name": "extensions",
-  "description": "Extension mixin",
-  "id": "https://w3id.org/biolink/biolinkml/extensions",
+  "name": "annotations",
+  "description": "Annotations mixin",
+  "id": "https://w3id.org/biolink/biolinkml/annotations",
   "version": "0.0.1",
   "imports": [
-    "biolinkml:types"
+    "biolinkml:types",
+    "biolinkml:extensions"
   ],
   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
   "prefixes": [
@@ -174,10 +175,29 @@
   ],
   "slots": [
     {
+      "name": "annotations",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/annotations",
+      "description": "a collection of tag/text tuples with the semantics of OWL Annotation",
+      "from_schema": "https://w3id.org/biolink/biolinkml/annotations",
+      "is_a": "extensions",
+      "domain": "Annotatable",
+      "range": "Annotation",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/annotations",
+      "multivalued": true,
+      "inlined": true,
+      "owner": "Annotatable",
+      "domain_of": [
+        "Annotation",
+        "Annotatable"
+      ],
+      "type": "SlotDefinition"
+    },
+    {
       "name": "extensions",
       "definition_uri": "https://w3id.org/biolink/biolinkml/meta/extensions",
       "description": "a tag/text tuple attached to an arbitrary element",
       "from_schema": "https://w3id.org/biolink/biolinkml/extensions",
+      "imported_from": "biolinkml:extensions",
       "domain": "Extensible",
       "range": "Extension",
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/extensions",
@@ -195,6 +215,7 @@
       "definition_uri": "https://w3id.org/biolink/biolinkml/meta/extension_tag",
       "description": "a tag associated with an extension",
       "from_schema": "https://w3id.org/biolink/biolinkml/extensions",
+      "imported_from": "biolinkml:extensions",
       "domain": "Extension",
       "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/tag",
@@ -211,6 +232,7 @@
       "definition_uri": "https://w3id.org/biolink/biolinkml/meta/extension_value",
       "description": "the actual annotation",
       "from_schema": "https://w3id.org/biolink/biolinkml/extensions",
+      "imported_from": "biolinkml:extensions",
       "domain": "Extension",
       "range": "string",
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/value",
@@ -221,14 +243,58 @@
         "Extension"
       ],
       "type": "SlotDefinition"
+    },
+    {
+      "name": "annotation_extension_value",
+      "from_schema": "https://w3id.org/biolink/biolinkml/annotations",
+      "is_a": "extension_value",
+      "domain": "Annotation",
+      "range": "boolean",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/value",
+      "required": true,
+      "alias": "value",
+      "owner": "Annotation",
+      "domain_of": [
+        "Annotation"
+      ],
+      "is_usage_slot": true,
+      "type": "SlotDefinition"
     }
   ],
   "classes": [
+    {
+      "name": "Annotation",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/Annotation",
+      "description": "a tag/value pair with the semantics of OWL Annotation",
+      "from_schema": "https://w3id.org/biolink/biolinkml/annotations",
+      "is_a": "Extension",
+      "slots": [
+        "extension_tag",
+        "extensions",
+        "annotations",
+        "annotation_extension_value"
+      ],
+      "class_uri": "https://w3id.org/biolink/biolinkml/meta/Annotation",
+      "type": "ClassDefinition"
+    },
+    {
+      "name": "Annotatable",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/Annotatable",
+      "description": "mixin for classes that support annotations",
+      "from_schema": "https://w3id.org/biolink/biolinkml/annotations",
+      "mixin": true,
+      "slots": [
+        "annotations"
+      ],
+      "class_uri": "https://w3id.org/biolink/biolinkml/meta/Annotatable",
+      "type": "ClassDefinition"
+    },
     {
       "name": "Extension",
       "definition_uri": "https://w3id.org/biolink/biolinkml/meta/Extension",
       "description": "a tag/value pair used to add non-model information to an entry",
       "from_schema": "https://w3id.org/biolink/biolinkml/extensions",
+      "imported_from": "biolinkml:extensions",
       "slots": [
         "extension_tag",
         "extension_value",
@@ -242,6 +308,7 @@
       "definition_uri": "https://w3id.org/biolink/biolinkml/meta/Extensible",
       "description": "mixin for classes that support extension",
       "from_schema": "https://w3id.org/biolink/biolinkml/extensions",
+      "imported_from": "biolinkml:extensions",
       "mixin": true,
       "slots": [
         "extensions"
@@ -251,14 +318,15 @@
     }
   ],
   "metamodel_version": "1.5.3",
-  "source_file": "extensions.yaml",
+  "source_file": "annotations.yaml",
   "source_file_date": "Friday Sep 27 12:00:00 2003",
-  "source_file_size": 1127,
+  "source_file_size": 928,
   "generation_date": "Friday Sep 27 12:00:00 2003",
   "type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/biolink/biolinkml/context.jsonld",
     "https://w3id.org/biolink/biolinkml/types.context.jsonld",
+    "/Users/solbrig/git/biolink/biolinkml/tests/input/includes/extensions.context.jsonld",
     {
       "@base": "https://w3id.org/biolink/biolinkml/meta/"
     }

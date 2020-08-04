@@ -9,6 +9,10 @@ URI: [meta:Extension](https://w3id.org/biolink/biolinkml/meta/Extension)
 
 ![img](images/Extension.svg)
 
+## Children
+
+ * [Annotation](Annotation.md) - a tag/value pair with the semantics of OWL Annotation
+
 ## Referenced by class
 
  *  **[Extensible](Extensible.md)** *[extensions](extensions.md)*  <sub>0..*</sub>  **[Extension](Extension.md)**

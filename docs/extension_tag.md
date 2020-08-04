@@ -19,4 +19,5 @@ URI: [meta:extension_tag](https://w3id.org/biolink/biolinkml/meta/extension_tag)
 
 ## Used by
 
+ * [Annotation](Annotation.md)
  * [Extension](Extension.md)

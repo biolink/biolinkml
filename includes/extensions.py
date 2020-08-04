@@ -23,7 +23,7 @@ from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import URIorCURIE
 from includes.types import String, Uriorcurie
 
-metamodel_version = "1.5.2"
+metamodel_version = "1.5.3"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -63,8 +63,9 @@ class Extension(YAMLRoot):
             self.tag = URIorCURIE(self.tag)
         if self.value is None:
             raise ValueError(f"value must be supplied")
-        self.extensions = [v if isinstance(v, Extension)
-                           else Extension(**v) for v in ([self.extensions] if isinstance(self.extensions, str) else self.extensions)]
+        self.extensions = [Extension(*e) for e in self.extensions.items()] if isinstance(self.extensions, dict) \
+                           else [v if isinstance(v, Extension) else Extension(**v)
+                                 for v in ([self.extensions] if isinstance(self.extensions, str) else self.extensions)]
         super().__post_init__(**kwargs)
 
 
