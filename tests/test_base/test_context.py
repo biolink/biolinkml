@@ -29,6 +29,12 @@ class ContextTestCase(GeneratorTestCase):
         self.single_file_generator('context.jsonld', ContextGenerator, subdir='includes',
                                    serialize_args=dict(base=META_BASE_URI), filtr=ldcontext_metadata_filter)
 
+    def test_annotations_context(self):
+        """ Build includes/annotations.context.jsonld """
+        self.model_name = 'annotations'
+        self.single_file_generator('context.jsonld', ContextGenerator, subdir='includes',
+                                   serialize_args=dict(base=META_BASE_URI), filtr=ldcontext_metadata_filter)
+
     def test_metamodel_context(self):
         """ Build meta.context.jsonld """
         self.model_name = 'meta'

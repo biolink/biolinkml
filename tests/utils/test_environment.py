@@ -243,7 +243,7 @@ class TestEnvironment:
         if os.path.exists(expected_file_path):
             with open(expected_file_path) as expf:
                 expected_text = filtr(expf.read())
-            msg = comparator(expected_text, actual_text)
+            msg = comparator(expected_text, filtr(actual_text))
         else:
             msg = f"New file {self.verb} created"
         if msg:
@@ -283,7 +283,7 @@ class TestEnvironmentTestCase(unittest.TestCase):
         msg = str(cls.env)
         cls.env.clear_log()
         if msg and cls.env.report_errors:
-                print(msg, file=sys.stderr)
+            print(msg, file=sys.stderr)
 
     @contextlib.contextmanager
     def redirect_logstream(self):

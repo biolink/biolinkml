@@ -65,7 +65,7 @@
 </g><g class='edge' id='edge5'><title>DrugExposure-&gt;ChemicalSubstance</title>
 <path d='M482.469,-280.801C494.994,-260.223 516.337,-225.16 532.813,-198.094' fill='none' stroke='black'/>
 <polygon fill='black' points='538.193,-189.254 536.838,-200.136 535.594,-193.525 532.994,-197.796 532.994,-197.796 532.994,-197.796 535.594,-193.525 529.15,-195.456 538.193,-189.254 538.193,-189.254' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='522.579' y='-198.051'> has drug(i) 1..*</text>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='522.579' y='-198.051'> has drug 1..*</text>
 </g><g class='node' id='node6'><title>Drug</title>
 <polygon fill='white' points='528,-1 528,-37 584,-37 584,-1 528,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='556' y='-15.3'>Drug</text>

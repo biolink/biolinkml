@@ -48,7 +48,7 @@
 </g><g class='edge' id='edge3'><title>EntityToDiseaseAssociation-&gt;Disease</title>
 <path d='M382.581,-152.94C430.632,-131.128 514.89,-92.8787 575.806,-65.2261' fill='none' stroke='black'/>
 <polygon fill='black' points='584.995,-61.0549 577.749,-69.286 580.442,-63.1216 575.889,-65.1884 575.889,-65.1884 575.889,-65.1884 580.442,-63.1216 574.029,-61.0909 584.995,-61.0549 584.995,-61.0549' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='565.054' y='-58.8947'> object(i) 1..1</text>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='565.054' y='-58.8947'> object 1..1</text>
 </g><g class='node' id='node4'><title>DiseaseToThingAssociation</title>
 <polygon fill='white' points='454,-153 454,-189 636,-189 636,-153 454,-153' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='545' y='-167.3'>DiseaseToThingAssociation</text>

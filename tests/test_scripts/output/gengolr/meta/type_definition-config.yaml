@@ -100,6 +100,10 @@ fields:
   description: a tag/text tuple attached to an arbitrary element
   display_name: extensions
   cardinality: multi
+- id: annotations
+  description: a collection of tag/text tuples with the semantics of OWL Annotation
+  display_name: annotations
+  cardinality: multi
 - id: typeof
   description: Names a parent type
   display_name: typeof

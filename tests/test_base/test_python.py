@@ -38,6 +38,14 @@ class PythonTestCase(TestEnvironmentTestCase):
                                  value_is_returned=True, filtr=metadata_filter, comparator=compare_python,
                                  use_testing_root=True)
 
+    def test_annotations_python(self):
+        """ Build includes/annotations.py """
+        env.generate_single_file('includes/annotations.py',
+                                 lambda: PythonGenerator(env.input_path('includes', 'annotations.yaml'),
+                                                         importmap=env.import_map).serialize(),
+                                 value_is_returned=True, filtr=metadata_filter, comparator=compare_python,
+                                 use_testing_root=True)
+
     def test_metamodel_python(self):
         """ Build meta.py """
         env.generate_single_file('meta.py',

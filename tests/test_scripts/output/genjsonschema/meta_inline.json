@@ -22,6 +22,55 @@
          "title": "AltDescription",
          "type": "object"
       },
+      "Annotatable": {
+         "additionalProperties": false,
+         "description": "mixin for classes that support annotations",
+         "properties": {
+            "annotations": {
+               "description": "a collection of tag/text tuples with the semantics of OWL Annotation",
+               "items": {
+                  "$ref": "#/definitions/Annotation"
+               },
+               "type": "array"
+            }
+         },
+         "required": [],
+         "title": "Annotatable",
+         "type": "object"
+      },
+      "Annotation": {
+         "additionalProperties": false,
+         "description": "a tag/value pair with the semantics of OWL Annotation",
+         "properties": {
+            "annotations": {
+               "description": "a collection of tag/text tuples with the semantics of OWL Annotation",
+               "items": {
+                  "$ref": "#/definitions/Annotation"
+               },
+               "type": "array"
+            },
+            "extensions": {
+               "description": "a tag/text tuple attached to an arbitrary element",
+               "items": {
+                  "$ref": "#/definitions/Extension"
+               },
+               "type": "array"
+            },
+            "tag": {
+               "description": "a tag associated with an extension",
+               "type": "string"
+            },
+            "value": {
+               "type": "boolean"
+            }
+         },
+         "required": [
+            "tag",
+            "value"
+         ],
+         "title": "Annotation",
+         "type": "object"
+      },
       "ClassDefinition": {
          "additionalProperties": false,
          "description": "the definition of a class or interface",
@@ -39,6 +88,13 @@
             "alt_descriptions": {
                "items": {
                   "$ref": "#/definitions/AltDescription"
+               },
+               "type": "array"
+            },
+            "annotations": {
+               "description": "a collection of tag/text tuples with the semantics of OWL Annotation",
+               "items": {
+                  "$ref": "#/definitions/Annotation"
                },
                "type": "array"
             },
@@ -373,6 +429,13 @@
                },
                "type": "array"
             },
+            "annotations": {
+               "description": "a collection of tag/text tuples with the semantics of OWL Annotation",
+               "items": {
+                  "$ref": "#/definitions/Annotation"
+               },
+               "type": "array"
+            },
             "classes": {
                "description": "class definitions",
                "items": {
@@ -596,8 +659,8 @@
             }
          },
          "required": [
-            "name",
-            "id"
+            "id",
+            "name"
          ],
          "title": "SchemaDefinition",
          "type": "object"
@@ -623,6 +686,13 @@
             "alt_descriptions": {
                "items": {
                   "$ref": "#/definitions/AltDescription"
+               },
+               "type": "array"
+            },
+            "annotations": {
+               "description": "a collection of tag/text tuples with the semantics of OWL Annotation",
+               "items": {
+                  "$ref": "#/definitions/Annotation"
                },
                "type": "array"
             },
@@ -886,6 +956,10 @@
                },
                "type": "array"
             },
+            "usage_slot_name": {
+               "description": "The name of the slot referenced in the slot_usage",
+               "type": "string"
+            },
             "values_from": {
                "description": "the identifier of a \"value set\" -- a set of identifiers that form the possible values for the range of a slot",
                "items": {
@@ -913,6 +987,13 @@
             "alt_descriptions": {
                "items": {
                   "$ref": "#/definitions/AltDescription"
+               },
+               "type": "array"
+            },
+            "annotations": {
+               "description": "a collection of tag/text tuples with the semantics of OWL Annotation",
+               "items": {
+                  "$ref": "#/definitions/Annotation"
                },
                "type": "array"
             },
@@ -1058,6 +1139,13 @@
             "alt_descriptions": {
                "items": {
                   "$ref": "#/definitions/AltDescription"
+               },
+               "type": "array"
+            },
+            "annotations": {
+               "description": "a collection of tag/text tuples with the semantics of OWL Annotation",
+               "items": {
+                  "$ref": "#/definitions/Annotation"
                },
                "type": "array"
             },

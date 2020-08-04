@@ -7,12 +7,6 @@ display_name: anatomical entity to anatomical entity ontogenic association
 document_category: anatomical entity to anatomical entity ontogenic association
 weight: 20
 fields:
-- id: subject
-  display_name: anatomical entity to anatomical entity ontogenic association_subject
-- id: relation
-  display_name: anatomical entity to anatomical entity ontogenic association_relation
-- id: object
-  display_name: anatomical entity to anatomical entity ontogenic association_object
 - id: id
   description: A unique identifier for an association
   display_name: association_id
@@ -36,3 +30,11 @@ fields:
     that provided it
   display_name: provided by
   cardinality: multi
+- id: subject
+  description: the structure at a later time
+  display_name: anatomical entity to anatomical entity ontogenic association_subject
+- id: object
+  description: the structure at an earlier time
+  display_name: anatomical entity to anatomical entity ontogenic association_object
+- id: relation
+  display_name: anatomical entity to anatomical entity ontogenic association_relation

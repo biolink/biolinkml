@@ -19,3 +19,6 @@ fields:
     this MAY correspond to the neo4j label tag
   display_name: category
   cardinality: multi
+- id: has_part
+  display_name: treatment_has part
+  cardinality: multi

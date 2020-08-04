@@ -28,8 +28,10 @@ URI: [biolink:SequenceVariant](https://w3id.org/biolink/vocab/SequenceVariant)
 ### Own
 
  * [sequence variant➞has biological sequence](sequence_variant_has_biological_sequence.md)  <sub>OPT</sub>
+    * Description: The state of the sequence w.r.t a reference sequence
     * range: [BiologicalSequence](types/BiologicalSequence.md)
  * [sequence variant➞has gene](sequence_variant_has_gene.md)  <sub>0..*</sub>
+    * Description: Each allele can be associated with any number of genes
     * range: [Gene](Gene.md)
  * [sequence variant➞id](sequence_variant_id.md)  <sub>REQ</sub>
     * range: [String](types/String.md)

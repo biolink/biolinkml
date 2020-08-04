@@ -7,7 +7,7 @@ An association between a disease and a phenotypic feature in which the phenotypi
 URI: [biolink:DiseaseToPhenotypicFeatureAssociation](https://w3id.org/biolink/vocab/DiseaseToPhenotypicFeatureAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SeverityValue],[Publication],[Provider],[OntologyClass],[Onset],[NamedThing],[FrequencyValue],[EntityToPhenotypicFeatureAssociation],[DiseaseToThingAssociation],[DiseaseToPhenotypicFeatureAssociation&#124;relation(i):uriorcurie;id(i):string;negated(i):boolean%20%3F]uses%20-.->[EntityToPhenotypicFeatureAssociation],[DiseaseToPhenotypicFeatureAssociation]uses%20-.->[DiseaseToThingAssociation],[Association]^-[DiseaseToPhenotypicFeatureAssociation],[BiologicalSex],[Association])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SeverityValue],[Publication],[Provider],[OntologyClass],[Onset],[NamedThing],[FrequencyValue],[EntityToPhenotypicFeatureAssociation],[DiseaseToThingAssociation],[DiseaseToPhenotypicFeatureAssociation&#124;description:narrative_text%20%3F;relation(i):uriorcurie;id(i):string;negated(i):boolean%20%3F]uses%20-.->[EntityToPhenotypicFeatureAssociation],[DiseaseToPhenotypicFeatureAssociation]uses%20-.->[DiseaseToThingAssociation],[Association]^-[DiseaseToPhenotypicFeatureAssociation],[BiologicalSex],[Association])
 
 ## Parents
 
@@ -51,6 +51,12 @@ URI: [biolink:DiseaseToPhenotypicFeatureAssociation](https://w3id.org/biolink/vo
  * [subject](subject.md)  <sub>REQ</sub>
     * Description: connects an association to the subject of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [NamedThing](NamedThing.md)
+
+### Mixed in from entity to phenotypic feature association:
+
+ * [entity to phenotypic feature association➞description](entity_to_phenotypic_feature_association_description.md)  <sub>OPT</sub>
+    * Description: A description of specific aspects of this phenotype, not otherwise covered by the phenotype ontology class
+    * range: [NarrativeText](types/NarrativeText.md)
 
 ### Mixed in from entity to phenotypic feature association:
 

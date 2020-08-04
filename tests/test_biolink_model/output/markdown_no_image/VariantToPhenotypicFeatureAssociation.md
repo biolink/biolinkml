@@ -7,7 +7,7 @@
 URI: [biolink:VariantToPhenotypicFeatureAssociation](https://w3id.org/biolink/vocab/VariantToPhenotypicFeatureAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[VariantToThingAssociation],[SequenceVariant]<subject%201..1-%20[VariantToPhenotypicFeatureAssociation&#124;relation(i):uriorcurie;id(i):string;negated(i):boolean%20%3F],[VariantToPhenotypicFeatureAssociation]uses%20-.->[VariantToThingAssociation],[VariantToPhenotypicFeatureAssociation]uses%20-.->[EntityToPhenotypicFeatureAssociation],[Association]^-[VariantToPhenotypicFeatureAssociation],[SeverityValue],[SequenceVariant],[Publication],[Provider],[OntologyClass],[Onset],[NamedThing],[FrequencyValue],[EntityToPhenotypicFeatureAssociation],[BiologicalSex],[Association])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[VariantToThingAssociation],[SequenceVariant]<subject%201..1-%20[VariantToPhenotypicFeatureAssociation&#124;description:narrative_text%20%3F;relation(i):uriorcurie;id(i):string;negated(i):boolean%20%3F],[VariantToPhenotypicFeatureAssociation]uses%20-.->[VariantToThingAssociation],[VariantToPhenotypicFeatureAssociation]uses%20-.->[EntityToPhenotypicFeatureAssociation],[Association]^-[VariantToPhenotypicFeatureAssociation],[SeverityValue],[SequenceVariant],[Publication],[Provider],[OntologyClass],[Onset],[NamedThing],[FrequencyValue],[EntityToPhenotypicFeatureAssociation],[BiologicalSex],[Association])
 
 ## Parents
 
@@ -27,6 +27,7 @@ URI: [biolink:VariantToPhenotypicFeatureAssociation](https://w3id.org/biolink/vo
 ### Own
 
  * [variant to phenotypic feature association➞subject](variant_to_phenotypic_feature_association_subject.md)  <sub>REQ</sub>
+    * Description: a sequence variant in which the allele state is associated in some way with the phenotype state
     * range: [SequenceVariant](SequenceVariant.md)
 
 ### Inherited from association:
@@ -56,6 +57,12 @@ URI: [biolink:VariantToPhenotypicFeatureAssociation](https://w3id.org/biolink/vo
  * [relation](relation.md)  <sub>REQ</sub>
     * Description: the relationship type by which a subject is connected to an object in an association
     * range: [Uriorcurie](types/Uriorcurie.md)
+
+### Mixed in from entity to phenotypic feature association:
+
+ * [entity to phenotypic feature association➞description](entity_to_phenotypic_feature_association_description.md)  <sub>OPT</sub>
+    * Description: A description of specific aspects of this phenotype, not otherwise covered by the phenotype ontology class
+    * range: [NarrativeText](types/NarrativeText.md)
 
 ### Mixed in from entity to phenotypic feature association:
 

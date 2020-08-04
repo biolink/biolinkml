@@ -20,6 +20,11 @@ URI: [biolink:DrugExposure](https://w3id.org/biolink/vocab/DrugExposure)
 ## Attributes
 
 
+### Own
+
+ * [drug exposure➞has drug](drug_exposure_has_drug.md)  <sub>1..*</sub>
+    * range: [ChemicalSubstance](ChemicalSubstance.md)
+
 ### Inherited from chemical exposure:
 
  * [category](category.md)  <sub>1..*</sub>

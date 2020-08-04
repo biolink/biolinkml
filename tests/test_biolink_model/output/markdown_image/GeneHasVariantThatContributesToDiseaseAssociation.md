@@ -22,6 +22,7 @@ URI: [biolink:GeneHasVariantThatContributesToDiseaseAssociation](https://w3id.or
 ### Own
 
  * [gene has variant that contributes to disease association➞subject](gene_has_variant_that_contributes_to_disease_association_subject.md)  <sub>REQ</sub>
+    * Description: A gene that has a role in modeling the disease. This may be a model organism ortholog of a known disease gene, or it may be a gene whose mutants recapitulate core features of the disease.
     * range: [GeneOrGeneProduct](GeneOrGeneProduct.md)
  * [sequence variant qualifier](sequence_variant_qualifier.md)  <sub>OPT</sub>
     * Description: a qualifier used in an association where the variant

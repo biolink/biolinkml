@@ -7,7 +7,7 @@ An association between a gene and an expression site, possibly qualified by stag
 URI: [biolink:GeneToExpressionSiteAssociation](https://w3id.org/biolink/vocab/GeneToExpressionSiteAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[Provider],[OntologyClass],[LifeStage],[OntologyClass]<quantifier%20qualifier%200..1-%20[GeneToExpressionSiteAssociation&#124;relation:uriorcurie;id(i):string;negated(i):boolean%20%3F],[LifeStage]<stage%20qualifier%200..1-%20[GeneToExpressionSiteAssociation],[AnatomicalEntity]<object%201..1-%20[GeneToExpressionSiteAssociation],[GeneOrGeneProduct]<subject%201..1-%20[GeneToExpressionSiteAssociation],[Association]^-[GeneToExpressionSiteAssociation],[GeneOrGeneProduct],[Association],[AnatomicalEntity])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[Provider],[OntologyClass],[LifeStage],[AnatomicalEntity]<object%201..1-%20[GeneToExpressionSiteAssociation&#124;relation:uriorcurie;id(i):string;negated(i):boolean%20%3F],[GeneOrGeneProduct]<subject%201..1-%20[GeneToExpressionSiteAssociation],[OntologyClass]<quantifier%20qualifier%200..1-%20[GeneToExpressionSiteAssociation],[LifeStage]<stage%20qualifier%200..1-%20[GeneToExpressionSiteAssociation],[Association]^-[GeneToExpressionSiteAssociation],[GeneOrGeneProduct],[Association],[AnatomicalEntity])
 
 ## Parents
 
@@ -22,14 +22,19 @@ URI: [biolink:GeneToExpressionSiteAssociation](https://w3id.org/biolink/vocab/Ge
 ### Own
 
  * [gene to expression site association➞object](gene_to_expression_site_association_object.md)  <sub>REQ</sub>
+    * Description: location in which the gene is expressed
     * range: [AnatomicalEntity](AnatomicalEntity.md)
  * [gene to expression site association➞quantifier qualifier](gene_to_expression_site_association_quantifier_qualifier.md)  <sub>OPT</sub>
+    * Description: can be used to indicate magnitude, or also ranking
     * range: [OntologyClass](OntologyClass.md)
  * [gene to expression site association➞relation](gene_to_expression_site_association_relation.md)  <sub>REQ</sub>
+    * Description: expression relationship
     * range: [Uriorcurie](types/Uriorcurie.md)
  * [gene to expression site association➞stage qualifier](gene_to_expression_site_association_stage_qualifier.md)  <sub>OPT</sub>
+    * Description: stage at which the gene is expressed in the site
     * range: [LifeStage](LifeStage.md)
  * [gene to expression site association➞subject](gene_to_expression_site_association_subject.md)  <sub>REQ</sub>
+    * Description: gene in which variation is correlated with the phenotypic feature
     * range: [GeneOrGeneProduct](GeneOrGeneProduct.md)
 
 ### Inherited from association:

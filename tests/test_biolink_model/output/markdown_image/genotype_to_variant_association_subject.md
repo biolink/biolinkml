@@ -2,7 +2,7 @@
 # Type: genotype to variant association_subject
 
 
-
+parent genotype
 
 URI: [biolink:genotype_to_variant_association_subject](https://w3id.org/biolink/vocab/genotype_to_variant_association_subject)
 

@@ -12,6 +12,7 @@ URI: [meta:Element](https://w3id.org/biolink/biolinkml/meta/Element)
 ## Uses Mixins
 
  *  mixin: [Extensible](Extensible.md) - mixin for classes that support extension
+ *  mixin: [Annotatable](Annotatable.md) - mixin for classes that support annotations
 
 ## Children
 
@@ -98,6 +99,12 @@ URI: [meta:Element](https://w3id.org/biolink/biolinkml/meta/Element)
  * [todos](todos.md)  <sub>0..*</sub>
     * Description: Outstanding issue that needs resolution
     * range: [String](types/String.md)
+
+### Mixed in from annotatable:
+
+ * [annotations](annotations.md)  <sub>0..*</sub>
+    * Description: a collection of tag/text tuples with the semantics of OWL Annotation
+    * range: [Annotation](Annotation.md)
 
 ### Mixed in from extensible:
 

@@ -2,7 +2,7 @@
 # Type: material sample derivation association_subject
 
 
-
+the material sample being described
 
 URI: [biolink:material_sample_derivation_association_subject](https://w3id.org/biolink/vocab/material_sample_derivation_association_subject)
 

@@ -7,7 +7,7 @@ mixin class for any association whose object (target node) is a disease
 URI: [biolink:EntityToDiseaseAssociation](https://w3id.org/biolink/vocab/EntityToDiseaseAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SeverityValue],[Onset],[FrequencyValue],[EntityToFeatureOrDiseaseQualifiers],[VariantToDiseaseAssociation]uses%20-.->[EntityToDiseaseAssociation],[GeneToDiseaseAssociation]uses%20-.->[EntityToDiseaseAssociation],[GeneAsAModelOfDiseaseAssociation]uses%20-.->[EntityToDiseaseAssociation],[EntityToFeatureOrDiseaseQualifiers]^-[EntityToDiseaseAssociation],[VariantToDiseaseAssociation],[GeneToDiseaseAssociation],[GeneAsAModelOfDiseaseAssociation])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SeverityValue],[Onset],[FrequencyValue],[EntityToFeatureOrDiseaseQualifiers],[Disease]<object%201..1-%20[EntityToDiseaseAssociation],[VariantToDiseaseAssociation]uses%20-.->[EntityToDiseaseAssociation],[GeneToDiseaseAssociation]uses%20-.->[EntityToDiseaseAssociation],[GeneAsAModelOfDiseaseAssociation]uses%20-.->[EntityToDiseaseAssociation],[EntityToFeatureOrDiseaseQualifiers]^-[EntityToDiseaseAssociation],[VariantToDiseaseAssociation],[GeneToDiseaseAssociation],[GeneAsAModelOfDiseaseAssociation],[Disease])
 
 ## Parents
 
@@ -24,6 +24,12 @@ URI: [biolink:EntityToDiseaseAssociation](https://w3id.org/biolink/vocab/EntityT
 
 ## Attributes
 
+
+### Own
+
+ * [entity to disease association➞object](entity_to_disease_association_object.md)  <sub>REQ</sub>
+    * Description: disease
+    * range: [Disease](Disease.md)
 
 ### Inherited from entity to feature or disease qualifiers:
 

@@ -1,5 +1,5 @@
 {
-   "_comments": "Auto generated from meta.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2020-07-29 14:56\nSchema: metamodel\n\nid: https://w3id.org/biolink/biolinkml/meta\ndescription: A metamodel for defining biolink related schemas\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
+   "_comments": "Auto generated from meta.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2020-08-04 09:39\nSchema: metamodel\n\nid: https://w3id.org/biolink/biolinkml/meta\ndescription: A metamodel for defining biolink related schemas\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
    "@context": {
       "type": "@type",
       "IAO": "http://purl.obolibrary.org/obo/IAO_",
@@ -24,6 +24,9 @@
          "@id": "skos:altLabel"
       },
       "alt_descriptions": {
+         "@type": "@id"
+      },
+      "annotations": {
          "@type": "@id"
       },
       "apply_to": {

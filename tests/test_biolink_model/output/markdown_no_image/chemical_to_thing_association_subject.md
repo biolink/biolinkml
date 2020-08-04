@@ -2,7 +2,7 @@
 # Type: chemical to thing association_subject
 
 
-
+the chemical substance or entity that is an interactor
 
 URI: [biolink:chemical_to_thing_association_subject](https://w3id.org/biolink/vocab/chemical_to_thing_association_subject)
 

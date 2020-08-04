@@ -14,7 +14,7 @@ A causal relationship between two chemical entities, where the subject represent
 URI: [biolink:ChemicalToChemicalDerivationAssociation](https://w3id.org/biolink/vocab/ChemicalToChemicalDerivationAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[Provider],[OntologyClass],[MacromolecularMachine],[MacromolecularMachine]<change%20is%20catalyzed%20by%200..*-%20[ChemicalToChemicalDerivationAssociation&#124;relation:uriorcurie;id(i):string;negated(i):boolean%20%3F],[ChemicalSubstance]<object%201..1-%20[ChemicalToChemicalDerivationAssociation],[ChemicalSubstance]<subject%201..1-%20[ChemicalToChemicalDerivationAssociation],[ChemicalToChemicalAssociation]^-[ChemicalToChemicalDerivationAssociation],[ChemicalToChemicalAssociation],[ChemicalSubstance])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[Provider],[OntologyClass],[MacromolecularMachine],[ChemicalSubstance]<object%201..1-%20[ChemicalToChemicalDerivationAssociation&#124;relation:uriorcurie;id(i):string;negated(i):boolean%20%3F],[ChemicalSubstance]<subject%201..1-%20[ChemicalToChemicalDerivationAssociation],[MacromolecularMachine]<change%20is%20catalyzed%20by%200..*-%20[ChemicalToChemicalDerivationAssociation],[ChemicalToChemicalAssociation]^-[ChemicalToChemicalDerivationAssociation],[ChemicalToChemicalAssociation],[ChemicalSubstance])
 
 ## Parents
 
@@ -29,12 +29,15 @@ URI: [biolink:ChemicalToChemicalDerivationAssociation](https://w3id.org/biolink/
 ### Own
 
  * [chemical to chemical derivation association➞change is catalyzed by](chemical_to_chemical_derivation_association_change_is_catalyzed_by.md)  <sub>0..*</sub>
+    * Description: this connects the derivation edge to the molecular entity that catalyzes the reaction that causes the subject chemical to transform into the object chemical
     * range: [MacromolecularMachine](MacromolecularMachine.md)
  * [chemical to chemical derivation association➞object](chemical_to_chemical_derivation_association_object.md)  <sub>REQ</sub>
+    * Description: the downstream chemical entity
     * range: [ChemicalSubstance](ChemicalSubstance.md)
  * [chemical to chemical derivation association➞relation](chemical_to_chemical_derivation_association_relation.md)  <sub>REQ</sub>
     * range: [Uriorcurie](types/Uriorcurie.md)
  * [chemical to chemical derivation association➞subject](chemical_to_chemical_derivation_association_subject.md)  <sub>REQ</sub>
+    * Description: the upstream chemical entity
     * range: [ChemicalSubstance](ChemicalSubstance.md)
 
 ### Inherited from chemical to chemical association:

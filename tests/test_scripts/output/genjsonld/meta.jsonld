@@ -3,11 +3,12 @@
   "description": "A metamodel for defining biolink related schemas",
   "id": "https://w3id.org/biolink/biolinkml/meta",
   "title": "Biolink Schema Metamodel",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "imports": [
     "biolinkml:types",
     "biolinkml:mappings",
-    "biolinkml:extensions"
+    "biolinkml:extensions",
+    "biolinkml:annotations"
   ],
   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
   "prefixes": [
@@ -948,7 +949,7 @@
       "definition_uri": "https://w3id.org/biolink/biolinkml/meta/slots",
       "description": "list of slot names that are applicable to a class",
       "comments": [
-        "This defines the set of slots that are allowed to be used for a given class. The final list of slots for a class is the combination of the parent (is a) slots, mixins slots, apply to slots minus the slot usage entries. Formally, "
+        "This defines the set of slots that are allowed to be used for a given class. The final list of slots for a class is the combination of the parent (is a) slots, mixins slots, apply to slots minus the slot usage entries. Formally,"
       ],
       "from_schema": "https://w3id.org/biolink/biolinkml/meta",
       "domain": "ClassDefinition",
@@ -1306,10 +1307,26 @@
       "name": "is_usage_slot",
       "definition_uri": "https://w3id.org/biolink/biolinkml/meta/is_usage_slot",
       "description": "True means that this slot was defined in a slot_usage situation",
+      "deprecated": "Replaced by usage_slot_name",
       "from_schema": "https://w3id.org/biolink/biolinkml/meta",
       "domain": "SlotDefinition",
       "range": "boolean",
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/is_usage_slot",
+      "readonly": "filled in by the loader",
+      "owner": "SlotDefinition",
+      "domain_of": [
+        "SlotDefinition"
+      ],
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "usage_slot_name",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/usage_slot_name",
+      "description": "The name of the slot referenced in the slot_usage",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SlotDefinition",
+      "range": "string",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/usage_slot_name",
       "readonly": "filled in by the loader",
       "owner": "SlotDefinition",
       "domain_of": [
@@ -1891,6 +1908,25 @@
       "type": "SlotDefinition"
     },
     {
+      "name": "annotations",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/annotations",
+      "description": "a collection of tag/text tuples with the semantics of OWL Annotation",
+      "from_schema": "https://w3id.org/biolink/biolinkml/annotations",
+      "imported_from": "biolinkml:annotations",
+      "is_a": "extensions",
+      "domain": "Annotatable",
+      "range": "Annotation",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/annotations",
+      "multivalued": true,
+      "inlined": true,
+      "owner": "Annotatable",
+      "domain_of": [
+        "Annotation",
+        "Annotatable"
+      ],
+      "type": "SlotDefinition"
+    },
+    {
       "name": "schema_definition_name",
       "from_schema": "https://w3id.org/biolink/biolinkml/meta",
       "is_a": "name",
@@ -1906,6 +1942,7 @@
         "SchemaDefinition"
       ],
       "is_usage_slot": true,
+      "usage_slot_name": "name",
       "type": "SlotDefinition"
     },
     {
@@ -1921,6 +1958,7 @@
         "SlotDefinition"
       ],
       "is_usage_slot": true,
+      "usage_slot_name": "is_a",
       "type": "SlotDefinition"
     },
     {
@@ -1937,6 +1975,7 @@
         "SlotDefinition"
       ],
       "is_usage_slot": true,
+      "usage_slot_name": "mixins",
       "type": "SlotDefinition"
     },
     {
@@ -1953,6 +1992,7 @@
         "SlotDefinition"
       ],
       "is_usage_slot": true,
+      "usage_slot_name": "apply_to",
       "type": "SlotDefinition"
     },
     {
@@ -1968,6 +2008,7 @@
         "ClassDefinition"
       ],
       "is_usage_slot": true,
+      "usage_slot_name": "is_a",
       "type": "SlotDefinition"
     },
     {
@@ -1984,6 +2025,7 @@
         "ClassDefinition"
       ],
       "is_usage_slot": true,
+      "usage_slot_name": "mixins",
       "type": "SlotDefinition"
     },
     {
@@ -2000,6 +2042,24 @@
         "ClassDefinition"
       ],
       "is_usage_slot": true,
+      "usage_slot_name": "apply_to",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "annotation_extension_value",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "is_a": "extension_value",
+      "domain": "Annotation",
+      "range": "boolean",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/value",
+      "required": true,
+      "alias": "value",
+      "owner": "Annotation",
+      "domain_of": [
+        "Annotation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "extension_value",
       "type": "SlotDefinition"
     }
   ],
@@ -2011,7 +2071,8 @@
       "from_schema": "https://w3id.org/biolink/biolinkml/meta",
       "abstract": true,
       "mixins": [
-        "Extensible"
+        "Extensible",
+        "Annotatable"
       ],
       "slots": [
         "id_prefixes",
@@ -2036,7 +2097,8 @@
         "related_mappings",
         "deprecated_element_has_exact_replacement",
         "deprecated_element_has_possible_replacement",
-        "extensions"
+        "extensions",
+        "annotations"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/Element",
       "type": "ClassDefinition"
@@ -2049,7 +2111,6 @@
       "is_a": "Element",
       "slots": [
         "id_prefixes",
-        "schema_definition_name",
         "definition_uri",
         "aliases",
         "local_names",
@@ -2071,6 +2132,7 @@
         "deprecated_element_has_exact_replacement",
         "deprecated_element_has_possible_replacement",
         "extensions",
+        "annotations",
         "id",
         "title",
         "version",
@@ -2089,7 +2151,8 @@
         "source_file",
         "source_file_date",
         "source_file_size",
-        "generation_date"
+        "generation_date",
+        "schema_definition_name"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/SchemaDefinition",
       "type": "ClassDefinition"
@@ -2124,6 +2187,7 @@
         "deprecated_element_has_exact_replacement",
         "deprecated_element_has_possible_replacement",
         "extensions",
+        "annotations",
         "typeof",
         "base",
         "type_uri",
@@ -2161,7 +2225,8 @@
         "related_mappings",
         "deprecated_element_has_exact_replacement",
         "deprecated_element_has_possible_replacement",
-        "extensions"
+        "extensions",
+        "annotations"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/SubsetDefinition",
       "type": "ClassDefinition"
@@ -2197,6 +2262,7 @@
         "deprecated_element_has_exact_replacement",
         "deprecated_element_has_possible_replacement",
         "extensions",
+        "annotations",
         "is_a",
         "abstract",
         "mixin",
@@ -2242,11 +2308,9 @@
         "deprecated_element_has_exact_replacement",
         "deprecated_element_has_possible_replacement",
         "extensions",
-        "slot_definition_is_a",
+        "annotations",
         "abstract",
         "mixin",
-        "slot_definition_mixins",
-        "slot_definition_apply_to",
         "values_from",
         "created_by",
         "created_on",
@@ -2274,10 +2338,14 @@
         "is_class_field",
         "role",
         "is_usage_slot",
+        "usage_slot_name",
         "minimum_value",
         "maximum_value",
         "pattern",
-        "string_serialization"
+        "string_serialization",
+        "slot_definition_is_a",
+        "slot_definition_mixins",
+        "slot_definition_apply_to"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/SlotDefinition",
       "type": "ClassDefinition"
@@ -2312,11 +2380,9 @@
         "deprecated_element_has_exact_replacement",
         "deprecated_element_has_possible_replacement",
         "extensions",
-        "class_definition_is_a",
+        "annotations",
         "abstract",
         "mixin",
-        "class_definition_mixins",
-        "class_definition_apply_to",
         "values_from",
         "created_by",
         "created_on",
@@ -2329,7 +2395,10 @@
         "subclass_of",
         "union_of",
         "defining_slots",
-        "tree_root"
+        "tree_root",
+        "class_definition_is_a",
+        "class_definition_mixins",
+        "class_definition_apply_to"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/ClassDefinition",
       "type": "ClassDefinition"
@@ -2408,9 +2477,38 @@
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/Extensible",
       "type": "ClassDefinition"
+    },
+    {
+      "name": "Annotation",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/Annotation",
+      "description": "a tag/value pair with the semantics of OWL Annotation",
+      "from_schema": "https://w3id.org/biolink/biolinkml/annotations",
+      "imported_from": "biolinkml:annotations",
+      "is_a": "Extension",
+      "slots": [
+        "extension_tag",
+        "extensions",
+        "annotations",
+        "annotation_extension_value"
+      ],
+      "class_uri": "https://w3id.org/biolink/biolinkml/meta/Annotation",
+      "type": "ClassDefinition"
+    },
+    {
+      "name": "Annotatable",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/Annotatable",
+      "description": "mixin for classes that support annotations",
+      "from_schema": "https://w3id.org/biolink/biolinkml/annotations",
+      "imported_from": "biolinkml:annotations",
+      "mixin": true,
+      "slots": [
+        "annotations"
+      ],
+      "class_uri": "https://w3id.org/biolink/biolinkml/meta/Annotatable",
+      "type": "ClassDefinition"
     }
   ],
-  "metamodel_version": "1.5.2",
+  "metamodel_version": "1.5.3",
   ,
   ,
   ,
@@ -2421,6 +2519,7 @@
     "https://w3id.org/biolink/biolinkml/types.context.jsonld",
     "https://w3id.org/biolink/biolinkml/mappings.context.jsonld",
     "/Users/solbrig/git/biolink/biolinkml/tests/input/includes/extensions.context.jsonld",
+    "/Users/solbrig/git/biolink/biolinkml/tests/input/includes/annotations.context.jsonld",
     {
       "@base": "https://w3id.org/biolink/biolinkml/meta/"
     }

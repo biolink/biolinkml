@@ -100,8 +100,10 @@ fields:
   description: a tag/text tuple attached to an arbitrary element
   display_name: extensions
   cardinality: multi
-- id: is_a
-  display_name: slot_definition_is_a
+- id: annotations
+  description: a collection of tag/text tuples with the semantics of OWL Annotation
+  display_name: annotations
+  cardinality: multi
 - id: abstract
   description: an abstract class is a high level class or slot that is typically used
     to group common slots together and cannot be directly instantiated.
@@ -109,12 +111,6 @@ fields:
 - id: mixin
   description: this slot or class can only be used as a mixin -- equivalent to abstract
   display_name: mixin
-- id: mixins
-  display_name: slot_definition_mixins
-  cardinality: multi
-- id: apply_to
-  display_name: slot_definition_apply_to
-  cardinality: multi
 - id: values_from
   description: the identifier of a "value set" -- a set of identifiers that form the
     possible values for the range of a slot
@@ -219,6 +215,9 @@ fields:
 - id: is_usage_slot
   description: True means that this slot was defined in a slot_usage situation
   display_name: is_usage_slot
+- id: usage_slot_name
+  description: The name of the slot referenced in the slot_usage
+  display_name: usage_slot_name
 - id: minimum_value
   description: for slots with ranges of type number, the value must be equal to or
     higher than this
@@ -247,3 +246,11 @@ fields:
     The string_value slot may have a string_serialization of {value}{unit} such that
     if unit=cm and value=2, the value of string_value shouldd be 2cm'
   display_name: string_serialization
+- id: is_a
+  display_name: slot_definition_is_a
+- id: mixins
+  display_name: slot_definition_mixins
+  cardinality: multi
+- id: apply_to
+  display_name: slot_definition_apply_to
+  cardinality: multi

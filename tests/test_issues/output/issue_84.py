@@ -1,5 +1,5 @@
 # Auto generated from issue_84.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-07-28 18:02
+# Generation date: 2020-08-04 09:38
 # Schema: nmdc_schema
 #
 # id: https://microbiomedata/schema
@@ -23,7 +23,7 @@ from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import ElementIdentifier
 from includes.types import Double, Float, String
 
-metamodel_version = "1.5.2"
+metamodel_version = "1.5.3"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -86,8 +86,9 @@ class Biosample(YAMLRoot):
             raise ValueError(f"id must be supplied")
         if not isinstance(self.id, BiosampleId):
             self.id = BiosampleId(self.id)
-        self.annotations = [v if isinstance(v, Annotation)
-                            else Annotation(**v) for v in ([self.annotations] if isinstance(self.annotations, str) else self.annotations)]
+        self.annotations = [Annotation(*e) for e in self.annotations.items()] if isinstance(self.annotations, dict) \
+                            else [v if isinstance(v, Annotation) else Annotation(**v)
+                                  for v in ([self.annotations] if isinstance(self.annotations, str) else self.annotations)]
         super().__post_init__(**kwargs)
 
 

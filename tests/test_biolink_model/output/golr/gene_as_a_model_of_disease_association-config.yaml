@@ -4,8 +4,6 @@ display_name: gene as a model of disease association
 document_category: gene as a model of disease association
 weight: 20
 fields:
-- id: subject
-  display_name: gene as a model of disease association_subject
 - id: relation
   description: the relationship type by which a subject is connected to an object
     in an association
@@ -49,3 +47,8 @@ fields:
   description: a qualifier used in a phenotypic association to state when the phenotype
     appears is in the subject
   display_name: onset qualifier
+- id: subject
+  description: A gene that has a role in modeling the disease. This may be a model
+    organism ortholog of a known disease gene, or it may be a gene whose mutants recapitulate
+    core features of the disease.
+  display_name: gene as a model of disease association_subject

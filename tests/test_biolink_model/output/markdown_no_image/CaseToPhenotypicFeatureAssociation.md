@@ -7,7 +7,7 @@ An association between a case (e.g. individual patient) and a phenotypic feature
 URI: [biolink:CaseToPhenotypicFeatureAssociation](https://w3id.org/biolink/vocab/CaseToPhenotypicFeatureAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SeverityValue],[Publication],[Provider],[OntologyClass],[Onset],[NamedThing],[FrequencyValue],[EntityToPhenotypicFeatureAssociation],[CaseToThingAssociation],[CaseToPhenotypicFeatureAssociation&#124;relation(i):uriorcurie;id(i):string;negated(i):boolean%20%3F]uses%20-.->[EntityToPhenotypicFeatureAssociation],[CaseToPhenotypicFeatureAssociation]uses%20-.->[CaseToThingAssociation],[Association]^-[CaseToPhenotypicFeatureAssociation],[BiologicalSex],[Association])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SeverityValue],[Publication],[Provider],[OntologyClass],[Onset],[NamedThing],[FrequencyValue],[EntityToPhenotypicFeatureAssociation],[CaseToThingAssociation],[CaseToPhenotypicFeatureAssociation&#124;description:narrative_text%20%3F;relation(i):uriorcurie;id(i):string;negated(i):boolean%20%3F]uses%20-.->[EntityToPhenotypicFeatureAssociation],[CaseToPhenotypicFeatureAssociation]uses%20-.->[CaseToThingAssociation],[Association]^-[CaseToPhenotypicFeatureAssociation],[BiologicalSex],[Association])
 
 ## Parents
 
@@ -51,6 +51,12 @@ URI: [biolink:CaseToPhenotypicFeatureAssociation](https://w3id.org/biolink/vocab
  * [subject](subject.md)  <sub>REQ</sub>
     * Description: connects an association to the subject of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [NamedThing](NamedThing.md)
+
+### Mixed in from entity to phenotypic feature association:
+
+ * [entity to phenotypic feature association➞description](entity_to_phenotypic_feature_association_description.md)  <sub>OPT</sub>
+    * Description: A description of specific aspects of this phenotype, not otherwise covered by the phenotype ontology class
+    * range: [NarrativeText](types/NarrativeText.md)
 
 ### Mixed in from entity to phenotypic feature association:
 

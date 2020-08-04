@@ -23,6 +23,9 @@
       "alt_descriptions": {
          "@type": "@id"
       },
+      "annotations": {
+         "@type": "@id"
+      },
       "apply_to": {
          "@type": "@id"
       },

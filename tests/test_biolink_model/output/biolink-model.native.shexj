@@ -416,15 +416,15 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/relation",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
+                        "predicate": "https://w3id.org/biolink/vocab/object",
+                        "valueExpr": "https://w3id.org/biolink/vocab/AnatomicalEntity",
                         "min": 1,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/object",
-                        "valueExpr": "https://w3id.org/biolink/vocab/AnatomicalEntity",
+                        "predicate": "https://w3id.org/biolink/vocab/relation",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
                         "min": 1,
                         "max": 1
                      }
@@ -476,15 +476,15 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/relation",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
+                        "predicate": "https://w3id.org/biolink/vocab/object",
+                        "valueExpr": "https://w3id.org/biolink/vocab/AnatomicalEntity",
                         "min": 1,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/object",
-                        "valueExpr": "https://w3id.org/biolink/vocab/AnatomicalEntity",
+                        "predicate": "https://w3id.org/biolink/vocab/relation",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
                         "min": 1,
                         "max": 1
                      }
@@ -1096,6 +1096,13 @@
                      },
                      {
                         "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/description",
+                        "valueExpr": "https://w3id.org/biolink/vocab/NarrativeText",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/vocab/frequency_qualifier",
                         "valueExpr": "https://w3id.org/biolink/vocab/FrequencyValue",
                         "min": 0,
@@ -1591,15 +1598,15 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/subject",
-                        "valueExpr": "https://w3id.org/biolink/vocab/ChemicalSubstance",
-                        "min": 1,
-                        "max": 1
+                        "predicate": "https://w3id.org/biolink/vocab/change_is_catalyzed_by",
+                        "valueExpr": "https://w3id.org/biolink/vocab/MacromolecularMachine",
+                        "min": 0,
+                        "max": -1
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/relation",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
+                        "predicate": "https://w3id.org/biolink/vocab/subject",
+                        "valueExpr": "https://w3id.org/biolink/vocab/ChemicalSubstance",
                         "min": 1,
                         "max": 1
                      },
@@ -1612,10 +1619,10 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/change_is_catalyzed_by",
-                        "valueExpr": "https://w3id.org/biolink/vocab/MacromolecularMachine",
-                        "min": 0,
-                        "max": -1
+                        "predicate": "https://w3id.org/biolink/vocab/relation",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
+                        "min": 1,
+                        "max": 1
                      }
                   ]
                },
@@ -2673,6 +2680,13 @@
                      },
                      {
                         "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/description",
+                        "valueExpr": "https://w3id.org/biolink/vocab/NarrativeText",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/vocab/frequency_qualifier",
                         "valueExpr": "https://w3id.org/biolink/vocab/FrequencyValue",
                         "min": 0,
@@ -2867,6 +2881,13 @@
                            ]
                         },
                         "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/has_drug",
+                        "valueExpr": "https://w3id.org/biolink/vocab/ChemicalSubstance",
+                        "min": 1,
+                        "max": -1
                      }
                   ]
                },
@@ -2906,6 +2927,13 @@
                            ]
                         },
                         "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/object",
+                        "valueExpr": "https://w3id.org/biolink/vocab/Disease",
+                        "min": 1,
+                        "max": 1
                      }
                   ]
                },
@@ -3019,16 +3047,23 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/object",
-                        "valueExpr": "https://w3id.org/biolink/vocab/PhenotypicFeature",
-                        "min": 1,
+                        "predicate": "https://w3id.org/biolink/vocab/sex_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/BiologicalSex",
+                        "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/sex_qualifier",
-                        "valueExpr": "https://w3id.org/biolink/vocab/BiologicalSex",
+                        "predicate": "https://w3id.org/biolink/vocab/description",
+                        "valueExpr": "https://w3id.org/biolink/vocab/NarrativeText",
                         "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/object",
+                        "valueExpr": "https://w3id.org/biolink/vocab/PhenotypicFeature",
+                        "min": 1,
                         "max": 1
                      },
                      {
@@ -3381,6 +3416,13 @@
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/vocab/sex_qualifier",
                         "valueExpr": "https://w3id.org/biolink/vocab/BiologicalSex",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/description",
+                        "valueExpr": "https://w3id.org/biolink/vocab/NarrativeText",
                         "min": 0,
                         "max": 1
                      },
@@ -3837,16 +3879,16 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/subject",
-                        "valueExpr": "https://w3id.org/biolink/vocab/GeneOrGeneProduct",
-                        "min": 1,
+                        "predicate": "https://w3id.org/biolink/vocab/sequence_variant_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/SequenceVariant",
+                        "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/sequence_variant_qualifier",
-                        "valueExpr": "https://w3id.org/biolink/vocab/SequenceVariant",
-                        "min": 0,
+                        "predicate": "https://w3id.org/biolink/vocab/subject",
+                        "valueExpr": "https://w3id.org/biolink/vocab/GeneOrGeneProduct",
+                        "min": 1,
                         "max": 1
                      }
                   ]
@@ -4061,15 +4103,15 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/subject",
-                        "valueExpr": "https://w3id.org/biolink/vocab/GeneOrGeneProduct",
+                        "predicate": "https://w3id.org/biolink/vocab/relation",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
                         "min": 1,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/relation",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
+                        "predicate": "https://w3id.org/biolink/vocab/subject",
+                        "valueExpr": "https://w3id.org/biolink/vocab/GeneOrGeneProduct",
                         "min": 1,
                         "max": 1
                      },
@@ -4219,15 +4261,22 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/subject",
-                        "valueExpr": "https://w3id.org/biolink/vocab/GeneOrGeneProduct",
-                        "min": 1,
+                        "predicate": "https://w3id.org/biolink/vocab/stage_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/LifeStage",
+                        "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/relation",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
+                        "predicate": "https://w3id.org/biolink/vocab/quantifier_qualifier",
+                        "valueExpr": "https://w3id.org/biolink/vocab/OntologyClass",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/subject",
+                        "valueExpr": "https://w3id.org/biolink/vocab/GeneOrGeneProduct",
                         "min": 1,
                         "max": 1
                      },
@@ -4240,16 +4289,9 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/stage_qualifier",
-                        "valueExpr": "https://w3id.org/biolink/vocab/LifeStage",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/quantifier_qualifier",
-                        "valueExpr": "https://w3id.org/biolink/vocab/OntologyClass",
-                        "min": 0,
+                        "predicate": "https://w3id.org/biolink/vocab/relation",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
+                        "min": 1,
                         "max": 1
                      }
                   ]
@@ -4407,15 +4449,15 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/relation",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
+                        "predicate": "https://w3id.org/biolink/vocab/object",
+                        "valueExpr": "https://w3id.org/biolink/vocab/GeneProduct",
                         "min": 1,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/object",
-                        "valueExpr": "https://w3id.org/biolink/vocab/GeneProduct",
+                        "predicate": "https://w3id.org/biolink/vocab/relation",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
                         "min": 1,
                         "max": 1
                      }
@@ -4546,6 +4588,13 @@
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/vocab/sex_qualifier",
                         "valueExpr": "https://w3id.org/biolink/vocab/BiologicalSex",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/description",
+                        "valueExpr": "https://w3id.org/biolink/vocab/NarrativeText",
                         "min": 0,
                         "max": 1
                      },
@@ -4755,20 +4804,6 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/subject",
-                        "valueExpr": "https://w3id.org/biolink/vocab/GenomicEntity",
-                        "min": 1,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/object",
-                        "valueExpr": "https://w3id.org/biolink/vocab/GenomicEntity",
-                        "min": 1,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/vocab/start_interbase_coordinate",
                         "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
                         "min": 0,
@@ -4793,6 +4828,20 @@
                         "predicate": "https://w3id.org/biolink/vocab/phase",
                         "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
                         "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/subject",
+                        "valueExpr": "https://w3id.org/biolink/vocab/GenomicEntity",
+                        "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/object",
+                        "valueExpr": "https://w3id.org/biolink/vocab/GenomicEntity",
+                        "min": 1,
                         "max": 1
                      }
                   ]
@@ -4882,15 +4931,15 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/subject",
-                        "valueExpr": "https://w3id.org/biolink/vocab/Genotype",
+                        "predicate": "https://w3id.org/biolink/vocab/relation",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
                         "min": 1,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/relation",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
+                        "predicate": "https://w3id.org/biolink/vocab/subject",
+                        "valueExpr": "https://w3id.org/biolink/vocab/Genotype",
                         "min": 1,
                         "max": 1
                      },
@@ -4942,15 +4991,15 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/subject",
-                        "valueExpr": "https://w3id.org/biolink/vocab/Genotype",
+                        "predicate": "https://w3id.org/biolink/vocab/relation",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
                         "min": 1,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/relation",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
+                        "predicate": "https://w3id.org/biolink/vocab/subject",
+                        "valueExpr": "https://w3id.org/biolink/vocab/Genotype",
                         "min": 1,
                         "max": 1
                      },
@@ -5026,13 +5075,6 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/subject",
-                        "valueExpr": "https://w3id.org/biolink/vocab/Genotype",
-                        "min": 1,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/vocab/relation",
                         "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
                         "min": 1,
@@ -5040,8 +5082,22 @@
                      },
                      {
                         "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/subject",
+                        "valueExpr": "https://w3id.org/biolink/vocab/Genotype",
+                        "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/vocab/sex_qualifier",
                         "valueExpr": "https://w3id.org/biolink/vocab/BiologicalSex",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/description",
+                        "valueExpr": "https://w3id.org/biolink/vocab/NarrativeText",
                         "min": 0,
                         "max": 1
                      },
@@ -5153,15 +5209,15 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/subject",
-                        "valueExpr": "https://w3id.org/biolink/vocab/Genotype",
+                        "predicate": "https://w3id.org/biolink/vocab/relation",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
                         "min": 1,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/relation",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
+                        "predicate": "https://w3id.org/biolink/vocab/subject",
+                        "valueExpr": "https://w3id.org/biolink/vocab/Genotype",
                         "min": 1,
                         "max": 1
                      },
@@ -5912,15 +5968,15 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/relation",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
+                        "predicate": "https://w3id.org/biolink/vocab/object",
+                        "valueExpr": "https://w3id.org/biolink/vocab/NamedThing",
                         "min": 1,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/object",
-                        "valueExpr": "https://w3id.org/biolink/vocab/NamedThing",
+                        "predicate": "https://w3id.org/biolink/vocab/relation",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
                         "min": 1,
                         "max": 1
                      }
@@ -6135,11 +6191,24 @@
             "type": "EachOf",
             "expressions": [
                {
-                  "type": "TripleConstraint",
+                  "type": "EachOf",
                   "id": "https://w3id.org/biolink/vocab/ModelToDiseaseMixin_tes",
-                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
-                  "min": 0,
-                  "max": -1
+                  "expressions": [
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/subject",
+                        "valueExpr": "https://w3id.org/biolink/vocab/NamedThing",
+                        "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/relation",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
+                        "min": 1,
+                        "max": 1
+                     }
+                  ]
                },
                {
                   "type": "TripleConstraint",
@@ -7158,15 +7227,15 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/relation",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
+                        "predicate": "https://w3id.org/biolink/vocab/object",
+                        "valueExpr": "https://w3id.org/biolink/vocab/PopulationOfIndividualOrganisms",
                         "min": 1,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/object",
-                        "valueExpr": "https://w3id.org/biolink/vocab/PopulationOfIndividualOrganisms",
+                        "predicate": "https://w3id.org/biolink/vocab/relation",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
                         "min": 1,
                         "max": 1
                      }
@@ -7750,17 +7819,17 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/has_biological_sequence",
-                        "valueExpr": "https://w3id.org/biolink/vocab/BiologicalSequence",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/vocab/has_gene",
                         "valueExpr": "https://w3id.org/biolink/vocab/Gene",
                         "min": 0,
                         "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/has_biological_sequence",
+                        "valueExpr": "https://w3id.org/biolink/vocab/BiologicalSequence",
+                        "min": 0,
+                        "max": 1
                      }
                   ]
                },
@@ -8185,6 +8254,13 @@
                            ]
                         },
                         "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/has_part",
+                        "valueExpr": "https://w3id.org/biolink/vocab/DrugExposure",
+                        "min": 1,
+                        "max": -1
                      }
                   ]
                },
@@ -8370,6 +8446,13 @@
                      },
                      {
                         "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/description",
+                        "valueExpr": "https://w3id.org/biolink/vocab/NarrativeText",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/vocab/frequency_qualifier",
                         "valueExpr": "https://w3id.org/biolink/vocab/FrequencyValue",
                         "min": 0,
@@ -8480,6 +8563,13 @@
                      },
                      {
                         "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/has_quotient",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Double",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/vocab/has_count",
                         "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Integer",
                         "min": 0,
@@ -8489,13 +8579,6 @@
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/vocab/has_total",
                         "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Integer",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/has_quotient",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Double",
                         "min": 0,
                         "max": 1
                      },

@@ -7,7 +7,7 @@ An association between a variant and a population, where the variant has particu
 URI: [biolink:VariantToPopulationAssociation](https://w3id.org/biolink/vocab/VariantToPopulationAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[VariantToThingAssociation],[PopulationOfIndividualOrganisms]<object%201..1-%20[VariantToPopulationAssociation&#124;has_count:integer%20%3F;has_total:integer%20%3F;has_quotient:double%20%3F;has_percentage:double%20%3F;relation(i):uriorcurie;id(i):string;negated(i):boolean%20%3F],[SequenceVariant]<subject%201..1-%20[VariantToPopulationAssociation],[VariantToPopulationAssociation]uses%20-.->[VariantToThingAssociation],[VariantToPopulationAssociation]uses%20-.->[FrequencyQuantifier],[VariantToPopulationAssociation]uses%20-.->[FrequencyQualifierMixin],[Association]^-[VariantToPopulationAssociation],[SequenceVariant],[Publication],[Provider],[PopulationOfIndividualOrganisms],[OntologyClass],[FrequencyValue],[FrequencyQuantifier],[FrequencyQualifierMixin],[Association])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[VariantToThingAssociation],[PopulationOfIndividualOrganisms]<object%201..1-%20[VariantToPopulationAssociation&#124;has_quotient:double%20%3F;has_count:integer%20%3F;has_total:integer%20%3F;has_percentage:double%20%3F;relation(i):uriorcurie;id(i):string;negated(i):boolean%20%3F],[SequenceVariant]<subject%201..1-%20[VariantToPopulationAssociation],[VariantToPopulationAssociation]uses%20-.->[VariantToThingAssociation],[VariantToPopulationAssociation]uses%20-.->[FrequencyQuantifier],[VariantToPopulationAssociation]uses%20-.->[FrequencyQualifierMixin],[Association]^-[VariantToPopulationAssociation],[SequenceVariant],[Publication],[Provider],[PopulationOfIndividualOrganisms],[OntologyClass],[FrequencyValue],[FrequencyQuantifier],[FrequencyQualifierMixin],[Association])
 
 ## Parents
 
@@ -28,14 +28,19 @@ URI: [biolink:VariantToPopulationAssociation](https://w3id.org/biolink/vocab/Var
 ### Own
 
  * [variant to population association➞has count](variant_to_population_association_has_count.md)  <sub>OPT</sub>
+    * Description: number in object population that carry a particular allele, aka allele count
     * range: [Integer](types/Integer.md)
  * [variant to population association➞has quotient](variant_to_population_association_has_quotient.md)  <sub>OPT</sub>
+    * Description: frequency of allele in population, expressed as a number with allele divided by number in reference population, aka allele frequency
     * range: [Double](types/Double.md)
  * [variant to population association➞has total](variant_to_population_association_has_total.md)  <sub>OPT</sub>
+    * Description: number all populations that carry a particular allele, aka allele number
     * range: [Integer](types/Integer.md)
  * [variant to population association➞object](variant_to_population_association_object.md)  <sub>REQ</sub>
+    * Description: the population that is observed to have the frequency
     * range: [PopulationOfIndividualOrganisms](PopulationOfIndividualOrganisms.md)
  * [variant to population association➞subject](variant_to_population_association_subject.md)  <sub>REQ</sub>
+    * Description: an allele that has a certain frequency in a given population
     * range: [SequenceVariant](SequenceVariant.md)
 
 ### Inherited from association:

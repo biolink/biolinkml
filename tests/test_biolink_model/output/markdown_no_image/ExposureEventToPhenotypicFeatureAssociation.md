@@ -7,7 +7,7 @@ Any association between an environment and a phenotypic feature, where being in 
 URI: [biolink:ExposureEventToPhenotypicFeatureAssociation](https://w3id.org/biolink/vocab/ExposureEventToPhenotypicFeatureAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SeverityValue],[Publication],[Provider],[OntologyClass],[Onset],[NamedThing],[FrequencyValue],[ExposureEvent]<subject%201..1-%20[ExposureEventToPhenotypicFeatureAssociation&#124;relation(i):uriorcurie;id(i):string;negated(i):boolean%20%3F],[ExposureEventToPhenotypicFeatureAssociation]uses%20-.->[EntityToPhenotypicFeatureAssociation],[Association]^-[ExposureEventToPhenotypicFeatureAssociation],[ExposureEvent],[EntityToPhenotypicFeatureAssociation],[BiologicalSex],[Association])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SeverityValue],[Publication],[Provider],[OntologyClass],[Onset],[NamedThing],[FrequencyValue],[ExposureEvent]<subject%201..1-%20[ExposureEventToPhenotypicFeatureAssociation&#124;description:narrative_text%20%3F;relation(i):uriorcurie;id(i):string;negated(i):boolean%20%3F],[ExposureEventToPhenotypicFeatureAssociation]uses%20-.->[EntityToPhenotypicFeatureAssociation],[Association]^-[ExposureEventToPhenotypicFeatureAssociation],[ExposureEvent],[EntityToPhenotypicFeatureAssociation],[BiologicalSex],[Association])
 
 ## Parents
 
@@ -55,6 +55,12 @@ URI: [biolink:ExposureEventToPhenotypicFeatureAssociation](https://w3id.org/biol
  * [relation](relation.md)  <sub>REQ</sub>
     * Description: the relationship type by which a subject is connected to an object in an association
     * range: [Uriorcurie](types/Uriorcurie.md)
+
+### Mixed in from entity to phenotypic feature association:
+
+ * [entity to phenotypic feature association➞description](entity_to_phenotypic_feature_association_description.md)  <sub>OPT</sub>
+    * Description: A description of specific aspects of this phenotype, not otherwise covered by the phenotype ontology class
+    * range: [NarrativeText](types/NarrativeText.md)
 
 ### Mixed in from entity to phenotypic feature association:
 

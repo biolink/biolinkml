@@ -150,7 +150,7 @@
 </g><g class='edge' id='edge5'><title>ModelToDiseaseMixin-&gt;NamedThing</title>
 <path d='M1088.25,-280.94C1028.14,-258.027 920.461,-216.977 847.4,-189.125' fill='none' stroke='black'/>
 <polygon fill='black' points='837.775,-185.456 848.722,-184.813 842.447,-187.237 847.119,-189.018 847.119,-189.018 847.119,-189.018 842.447,-187.237 845.516,-193.223 837.775,-185.456 837.775,-185.456' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='852.9' y='-194.842'> subject(i) 1..1</text>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='852.9' y='-194.842'> subject 1..1</text>
 </g><g class='node' id='node11'><title>Association</title>
 <polygon fill='white' points='1229,-281 1229,-317 1321,-317 1321,-281 1229,-281' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1275' y='-295.3'>Association</text>

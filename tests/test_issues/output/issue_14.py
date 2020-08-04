@@ -22,7 +22,7 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 from includes.types import String
 
-metamodel_version = "1.5.2"
+metamodel_version = "1.5.3"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -94,8 +94,8 @@ class MixinOwner(NamedThing):
 
     id: Union[str, MixinOwnerId] = None
     name: str = None
-    subject: Union[str, SubjectRange1Id] = None
     object: Union[str, NamedThingId] = None
+    subject: Union[str, SubjectRange1Id] = None
     sex_qualifier: Optional[Union[str, NamedThingId]] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -165,11 +165,16 @@ class MixinClass(YAMLRoot):
     class_name: ClassVar[str] = "mixin_class"
     class_model_uri: ClassVar[URIRef] = URIRef("https://example.com/test14/MixinClass")
 
+    object: Union[str, ObjectRange1Id]
     sex_qualifier: Optional[Union[str, NamedThingId]] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.sex_qualifier is not None and not isinstance(self.sex_qualifier, NamedThingId):
             self.sex_qualifier = NamedThingId(self.sex_qualifier)
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, ObjectRange1Id):
+            self.object = ObjectRange1Id(self.object)
         super().__post_init__(**kwargs)
 
 

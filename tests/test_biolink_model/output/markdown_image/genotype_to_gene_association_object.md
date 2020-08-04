@@ -2,7 +2,7 @@
 # Type: genotype to gene association_object
 
 
-
+gene implicated in genotype
 
 URI: [biolink:genotype_to_gene_association_object](https://w3id.org/biolink/vocab/genotype_to_gene_association_object)
 

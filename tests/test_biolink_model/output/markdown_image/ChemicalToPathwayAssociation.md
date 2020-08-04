@@ -26,6 +26,7 @@ URI: [biolink:ChemicalToPathwayAssociation](https://w3id.org/biolink/vocab/Chemi
 ### Own
 
  * [chemical to pathway association➞object](chemical_to_pathway_association_object.md)  <sub>REQ</sub>
+    * Description: the pathway that is affected by the chemical
     * range: [Pathway](Pathway.md)
 
 ### Inherited from association:

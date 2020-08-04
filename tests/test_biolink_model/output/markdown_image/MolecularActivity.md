@@ -27,10 +27,13 @@ URI: [biolink:MolecularActivity](https://w3id.org/biolink/vocab/MolecularActivit
 ### Own
 
  * [molecular activity➞enabled by](molecular_activity_enabled_by.md)  <sub>0..*</sub>
+    * Description: The gene product, gene, or complex that catalyzes the reaction
     * range: [MacromolecularMachine](MacromolecularMachine.md)
  * [molecular activity➞has input](molecular_activity_has_input.md)  <sub>0..*</sub>
+    * Description: A chemical entity that is the input for the reaction
     * range: [ChemicalSubstance](ChemicalSubstance.md)
  * [molecular activity➞has output](molecular_activity_has_output.md)  <sub>0..*</sub>
+    * Description: A chemical entity that is the output for the reaction
     * range: [ChemicalSubstance](ChemicalSubstance.md)
 
 ### Inherited from biological process or activity:

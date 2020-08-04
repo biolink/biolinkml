@@ -4,6 +4,19 @@ type AltDescription
     description: String!
   }
 
+interface Annotatable
+  {
+    annotations: [Annotation]
+  }
+
+type Annotation
+  {
+    tag: Uriorcurie!
+    extensions: [Extension]
+    annotations: [Annotation]
+    value: Boolean!
+  }
+
 type ClassDefinition
   {
     idPrefixes: [Ncname]
@@ -29,11 +42,9 @@ type ClassDefinition
     deprecatedElementHasExactReplacement: Uriorcurie
     deprecatedElementHasPossibleReplacement: Uriorcurie
     extensions: [Extension]
-    isA: ClassDefinition
+    annotations: [Annotation]
     abstract: Boolean
     mixin: Boolean
-    mixins: [ClassDefinition]
-    applyTo: [ClassDefinition]
     valuesFrom: [Uriorcurie]
     createdBy: Uriorcurie
     createdOn: Datetime
@@ -47,6 +58,9 @@ type ClassDefinition
     unionOf: [ClassDefinition]
     definingSlots: [SlotDefinition]
     treeRoot: Boolean
+    isA: ClassDefinition
+    mixins: [ClassDefinition]
+    applyTo: [ClassDefinition]
   }
 
 interface Definition
@@ -74,6 +88,7 @@ interface Definition
     deprecatedElementHasExactReplacement: Uriorcurie
     deprecatedElementHasPossibleReplacement: Uriorcurie
     extensions: [Extension]
+    annotations: [Annotation]
     isA: Definition
     abstract: Boolean
     mixin: Boolean
@@ -87,7 +102,7 @@ interface Definition
     status: Uriorcurie
   }
 
-type Element implements Extensible
+type Element implements Extensible, Annotatable
   {
     idPrefixes: [Ncname]
     name: String!
@@ -112,6 +127,7 @@ type Element implements Extensible
     deprecatedElementHasExactReplacement: Uriorcurie
     deprecatedElementHasPossibleReplacement: Uriorcurie
     extensions: [Extension]
+    annotations: [Annotation]
   }
 
 type Example
@@ -147,7 +163,6 @@ type Prefix
 type SchemaDefinition
   {
     idPrefixes: [Ncname]
-    name: Ncname!
     definitionUri: Uriorcurie
     aliases: [String]
     localNames: [LocalName]
@@ -169,6 +184,7 @@ type SchemaDefinition
     deprecatedElementHasExactReplacement: Uriorcurie
     deprecatedElementHasPossibleReplacement: Uriorcurie
     extensions: [Extension]
+    annotations: [Annotation]
     id: Uri!
     title: String
     version: String
@@ -188,6 +204,7 @@ type SchemaDefinition
     sourceFileDate: Datetime
     sourceFileSize: Integer
     generationDate: Datetime
+    name: Ncname!
   }
 
 type SlotDefinition
@@ -215,11 +232,9 @@ type SlotDefinition
     deprecatedElementHasExactReplacement: Uriorcurie
     deprecatedElementHasPossibleReplacement: Uriorcurie
     extensions: [Extension]
-    isA: SlotDefinition
+    annotations: [Annotation]
     abstract: Boolean
     mixin: Boolean
-    mixins: [SlotDefinition]
-    applyTo: [SlotDefinition]
     valuesFrom: [Uriorcurie]
     createdBy: Uriorcurie
     createdOn: Datetime
@@ -247,10 +262,14 @@ type SlotDefinition
     isClassField: Boolean
     role: String
     isUsageSlot: Boolean
+    usageSlotName: String
     minimumValue: Integer
     maximumValue: Integer
     pattern: String
     stringSerialization: String
+    isA: SlotDefinition
+    mixins: [SlotDefinition]
+    applyTo: [SlotDefinition]
   }
 
 type SubsetDefinition
@@ -278,6 +297,7 @@ type SubsetDefinition
     deprecatedElementHasExactReplacement: Uriorcurie
     deprecatedElementHasPossibleReplacement: Uriorcurie
     extensions: [Extension]
+    annotations: [Annotation]
   }
 
 type TypeDefinition
@@ -305,6 +325,7 @@ type TypeDefinition
     deprecatedElementHasExactReplacement: Uriorcurie
     deprecatedElementHasPossibleReplacement: Uriorcurie
     extensions: [Extension]
+    annotations: [Annotation]
     typeof: TypeDefinition
     base: String
     uri: Uriorcurie

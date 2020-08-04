@@ -42,7 +42,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='352' y='-34.8'>relation(i):uriorcurie</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='352' y='-19.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='352' y='-4.8'>negated(i):boolean ?</text>
-</g><g class='edge' id='edge1'><title>SequenceVariant-&gt;GeneHasVariantThatContributesToDiseaseAssociation</title>
+</g><g class='edge' id='edge2'><title>SequenceVariant-&gt;GeneHasVariantThatContributesToDiseaseAssociation</title>
 <path d='M213.782,-146.216C242.285,-122.662 285.986,-86.5503 316.599,-61.2537' fill='none' stroke='black'/>
 <polygon fill='black' points='205.813,-152.801 210.655,-142.962 209.667,-149.616 213.522,-146.431 213.522,-146.431 213.522,-146.431 209.667,-149.616 216.388,-149.9 205.813,-152.801 205.813,-152.801' stroke='black'/>
 <text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='297.754' y='-64.2524'> </text>
@@ -71,7 +71,7 @@
 </g><g class='node' id='node9'><title>GeneOrGeneProduct</title>
 <polygon fill='white' points='459,-153 459,-189 601,-189 601,-153 459,-153' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='530' y='-167.3'>GeneOrGeneProduct</text>
-</g><g class='edge' id='edge2'><title>GeneOrGeneProduct-&gt;GeneHasVariantThatContributesToDiseaseAssociation</title>
+</g><g class='edge' id='edge1'><title>GeneOrGeneProduct-&gt;GeneHasVariantThatContributesToDiseaseAssociation</title>
 <path d='M499.712,-146.518C469.341,-122.973 422.502,-86.6589 389.733,-61.2537' fill='none' stroke='black'/>
 <polygon fill='black' points='507.816,-152.801 497.156,-150.23 503.865,-149.738 499.913,-146.674 499.913,-146.674 499.913,-146.674 503.865,-149.738 502.67,-143.118 507.816,-152.801 507.816,-152.801' stroke='black'/>
 <text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='400.395' y='-74.4749'> </text>

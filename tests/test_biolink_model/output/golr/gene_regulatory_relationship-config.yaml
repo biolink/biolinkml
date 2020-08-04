@@ -5,12 +5,6 @@ display_name: gene regulatory relationship
 document_category: gene regulatory relationship
 weight: 20
 fields:
-- id: subject
-  display_name: gene regulatory relationship_subject
-- id: relation
-  display_name: gene regulatory relationship_relation
-- id: object
-  display_name: gene regulatory relationship_object
 - id: id
   description: A unique identifier for an association
   display_name: association_id
@@ -34,3 +28,10 @@ fields:
     that provided it
   display_name: provided by
   cardinality: multi
+- id: relation
+  description: the direction is always from regulator to regulated
+  display_name: gene regulatory relationship_relation
+- id: subject
+  display_name: gene regulatory relationship_subject
+- id: object
+  display_name: gene regulatory relationship_object

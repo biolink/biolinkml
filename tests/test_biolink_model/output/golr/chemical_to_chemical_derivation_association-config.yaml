@@ -9,12 +9,6 @@ display_name: chemical to chemical derivation association
 document_category: chemical to chemical derivation association
 weight: 20
 fields:
-- id: subject
-  display_name: chemical to chemical derivation association_subject
-- id: relation
-  display_name: chemical to chemical derivation association_relation
-- id: object
-  display_name: chemical to chemical derivation association_object
 - id: id
   description: A unique identifier for an association
   display_name: association_id
@@ -39,5 +33,15 @@ fields:
   display_name: provided by
   cardinality: multi
 - id: change_is_catalyzed_by
+  description: this connects the derivation edge to the molecular entity that catalyzes
+    the reaction that causes the subject chemical to transform into the object chemical
   display_name: chemical to chemical derivation association_change is catalyzed by
   cardinality: multi
+- id: subject
+  description: the upstream chemical entity
+  display_name: chemical to chemical derivation association_subject
+- id: object
+  description: the downstream chemical entity
+  display_name: chemical to chemical derivation association_object
+- id: relation
+  display_name: chemical to chemical derivation association_relation

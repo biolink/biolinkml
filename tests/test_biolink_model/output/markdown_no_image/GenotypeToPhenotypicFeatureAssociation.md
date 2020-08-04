@@ -7,7 +7,7 @@ Any association between one genotype and a phenotypic feature, where having the 
 URI: [biolink:GenotypeToPhenotypicFeatureAssociation](https://w3id.org/biolink/vocab/GenotypeToPhenotypicFeatureAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SeverityValue],[Publication],[Provider],[OntologyClass],[Onset],[NamedThing],[GenotypeToThingAssociation],[Genotype]<subject%201..1-%20[GenotypeToPhenotypicFeatureAssociation&#124;relation:uriorcurie;id(i):string;negated(i):boolean%20%3F],[GenotypeToPhenotypicFeatureAssociation]uses%20-.->[EntityToPhenotypicFeatureAssociation],[GenotypeToPhenotypicFeatureAssociation]uses%20-.->[GenotypeToThingAssociation],[Association]^-[GenotypeToPhenotypicFeatureAssociation],[Genotype],[FrequencyValue],[EntityToPhenotypicFeatureAssociation],[BiologicalSex],[Association])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SeverityValue],[Publication],[Provider],[OntologyClass],[Onset],[NamedThing],[GenotypeToThingAssociation],[Genotype]<subject%201..1-%20[GenotypeToPhenotypicFeatureAssociation&#124;relation:uriorcurie;description:narrative_text%20%3F;id(i):string;negated(i):boolean%20%3F],[GenotypeToPhenotypicFeatureAssociation]uses%20-.->[EntityToPhenotypicFeatureAssociation],[GenotypeToPhenotypicFeatureAssociation]uses%20-.->[GenotypeToThingAssociation],[Association]^-[GenotypeToPhenotypicFeatureAssociation],[Genotype],[FrequencyValue],[EntityToPhenotypicFeatureAssociation],[BiologicalSex],[Association])
 
 ## Parents
 
@@ -29,6 +29,7 @@ URI: [biolink:GenotypeToPhenotypicFeatureAssociation](https://w3id.org/biolink/v
  * [genotype to phenotypic feature association➞relation](genotype_to_phenotypic_feature_association_relation.md)  <sub>REQ</sub>
     * range: [Uriorcurie](types/Uriorcurie.md)
  * [genotype to phenotypic feature association➞subject](genotype_to_phenotypic_feature_association_subject.md)  <sub>REQ</sub>
+    * Description: genotype that is associated with the phenotypic feature
     * range: [Genotype](Genotype.md)
 
 ### Inherited from association:
@@ -55,6 +56,12 @@ URI: [biolink:GenotypeToPhenotypicFeatureAssociation](https://w3id.org/biolink/v
  * [qualifiers](qualifiers.md)  <sub>0..*</sub>
     * Description: connects an association to qualifiers that modify or qualify the meaning of that association
     * range: [OntologyClass](OntologyClass.md)
+
+### Mixed in from entity to phenotypic feature association:
+
+ * [entity to phenotypic feature association➞description](entity_to_phenotypic_feature_association_description.md)  <sub>OPT</sub>
+    * Description: A description of specific aspects of this phenotype, not otherwise covered by the phenotype ontology class
+    * range: [NarrativeText](types/NarrativeText.md)
 
 ### Mixed in from entity to phenotypic feature association:
 

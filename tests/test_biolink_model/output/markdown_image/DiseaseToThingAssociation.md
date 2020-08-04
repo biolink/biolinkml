@@ -30,6 +30,7 @@ URI: [biolink:DiseaseToThingAssociation](https://w3id.org/biolink/vocab/DiseaseT
 ### Own
 
  * [disease to thing association➞subject](disease_to_thing_association_subject.md)  <sub>REQ</sub>
+    * Description: disease class
     * range: [Disease](Disease.md)
 
 ### Inherited from association:

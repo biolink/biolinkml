@@ -5,12 +5,6 @@ display_name: gene to gene product relationship
 document_category: gene to gene product relationship
 weight: 20
 fields:
-- id: subject
-  display_name: gene to gene product relationship_subject
-- id: relation
-  display_name: gene to gene product relationship_relation
-- id: object
-  display_name: gene to gene product relationship_object
 - id: id
   description: A unique identifier for an association
   display_name: association_id
@@ -34,3 +28,9 @@ fields:
     that provided it
   display_name: provided by
   cardinality: multi
+- id: subject
+  display_name: gene to gene product relationship_subject
+- id: object
+  display_name: gene to gene product relationship_object
+- id: relation
+  display_name: gene to gene product relationship_relation

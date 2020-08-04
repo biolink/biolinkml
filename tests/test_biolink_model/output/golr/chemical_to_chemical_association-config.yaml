@@ -14,8 +14,6 @@ fields:
   description: the relationship type by which a subject is connected to an object
     in an association
   display_name: relation
-- id: object
-  display_name: chemical to chemical association_object
 - id: id
   description: A unique identifier for an association
   display_name: association_id
@@ -39,3 +37,6 @@ fields:
     that provided it
   display_name: provided by
   cardinality: multi
+- id: object
+  description: the chemical element that is the target of the statement
+  display_name: chemical to chemical association_object

@@ -2,7 +2,7 @@
 # Type: molecular activity_enabled by
 
 
-
+The gene product, gene, or complex that catalyzes the reaction
 
 URI: [biolink:molecular_activity_enabled_by](https://w3id.org/biolink/vocab/molecular_activity_enabled_by)
 

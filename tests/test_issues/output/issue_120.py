@@ -1,5 +1,5 @@
 # Auto generated from issue_120.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-07-28 18:02
+# Generation date: 2020-08-04 09:37
 # Schema: example1
 #
 # id: http://example.org/sample/example1
@@ -22,7 +22,7 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 
 
-metamodel_version = "1.5.2"
+metamodel_version = "1.5.3"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs

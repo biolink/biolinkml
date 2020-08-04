@@ -2,7 +2,7 @@
 # Type: gene to gene homology association_relation
 
 
-
+homology relationship type
 
 URI: [biolink:gene_to_gene_homology_association_relation](https://w3id.org/biolink/vocab/gene_to_gene_homology_association_relation)
 
@@ -21,3 +21,4 @@ URI: [biolink:gene_to_gene_homology_association_relation](https://w3id.org/bioli
 ## Used by
 
  * [GeneToGeneHomologyAssociation](GeneToGeneHomologyAssociation.md)
+ *  reifies: [homologous to](homologous_to.md)

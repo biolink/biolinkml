@@ -957,7 +957,7 @@
         ],
         "https://w3id.org/biolink/biolinkml/meta/metamodel_version": [
           {
-            "@value": "1.5.2"
+            "@value": "1.5.3"
           }
         ],
         "https://w3id.org/biolink/biolinkml/meta/source_file": [

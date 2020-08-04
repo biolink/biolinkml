@@ -20,6 +20,11 @@ URI: [biolink:Treatment](https://w3id.org/biolink/vocab/Treatment)
 ## Attributes
 
 
+### Own
+
+ * [treatment➞has part](treatment_has_part.md)  <sub>1..*</sub>
+    * range: [DrugExposure](DrugExposure.md)
+
 ### Inherited from exposure event:
 
  * [category](category.md)  <sub>1..*</sub>
