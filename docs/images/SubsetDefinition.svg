@@ -37,7 +37,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='183' y='-274.3'>SubsetDefinition</text>
 <polyline fill='none' points='0,-270.5 366,-270.5 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='183' y='-259.3'>id_prefixes(i):ncname *</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='183' y='-244.3'>name(pk)(i):string</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='183' y='-244.3'>name(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='183' y='-229.3'>definition_uri(i):uriorcurie ?</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='183' y='-214.3'>aliases(i):string *</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='183' y='-199.3'>mappings(i):uriorcurie *</text>

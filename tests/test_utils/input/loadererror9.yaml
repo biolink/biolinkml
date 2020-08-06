@@ -11,12 +11,13 @@ types:
 
 slots:
   key1:
-    domain: c1
     key: true
 
 
 classes:
   c1:
+    slots:
+      - key1
 
   c2:
     is_a: c1

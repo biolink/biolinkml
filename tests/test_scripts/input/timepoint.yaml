@@ -19,7 +19,6 @@ types:
 slots:
   k:
     domain: geographic location
-    key: true
     identifier: true
 
   timepoint:

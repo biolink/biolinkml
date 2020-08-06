@@ -133,13 +133,6 @@ class SchemaLoader:
             elif slot.domain:
                 self.raise_value_error(f"slot: {slot.name} - unrecognized domain ({slot.domain})", slot.domain)
 
-            # Keys and identifiers must be present
-            if bool(slot.key or slot.identifier):
-                if slot.required is None:
-                    slot.required = True
-                elif not slot.required:
-                    self.raise_value_error(f"slot: {slot.name} - key and identifier slots cannot be optional", slot.name)
-
             # Validate the slot range
             if slot.range is not None and  slot.range not in self.schema.types and \
                     slot.range not in self.schema.classes:
@@ -210,6 +203,15 @@ class SchemaLoader:
 
         # Massage initial set of slots
         for slot in self.schema.slots.values():
+            # Keys and identifiers must be present
+            if bool(slot.key or slot.identifier):
+                if slot.required is None:
+                    slot.required = True
+                elif not slot.required:
+                    self.raise_value_error(f"slot: {slot.name} - key and identifier slots cannot be optional", slot.name)
+                if slot.key and slot.identifier:
+                    self.raise_value_error(f"slot: {slot.name} - A slot cannot be both a key and identifier at the same time", slot.name)
+
             # Propagate domain to containing class
             if slot.domain and slot.domain in self.schema.classes:
                 if slot.name not in self.schema.classes[slot.domain].slots and not slot.owner:

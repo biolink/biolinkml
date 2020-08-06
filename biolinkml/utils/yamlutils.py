@@ -1,5 +1,5 @@
 from dataclasses import dataclass, InitVar
-from typing import Union, Any, Dict, List
+from typing import Union, Any, Dict, List, Optional
 
 import yaml
 import os
@@ -112,7 +112,15 @@ class TypedNode:
 
 
 class extended_str(str, TypedNode):
-    pass
+    def concat(self, *items) -> "extended_str":
+        rval = extended_str(str(self) + ''.join([str(item) for item in items]))
+        for item in items[::-1]:
+            if isinstance(item, TypedNode):
+                rval._s = item._s
+                rval._len = item._len
+                break
+        return rval
+
 
 
 class extended_int(int, TypedNode):

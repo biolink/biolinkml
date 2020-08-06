@@ -1,13 +1,14 @@
 import dataclasses
-import os
 from copy import deepcopy
 from typing import Dict, Optional, Union, cast, List
+
 from rdflib import URIRef
 
 from biolinkml.meta import SchemaDefinition, Element, SlotDefinition, ClassDefinition, TypeDefinition, \
     SlotDefinitionName, TypeDefinitionName
-from biolinkml.utils.formatutils import uri_for, camelcase, underscore
+from biolinkml.utils.formatutils import camelcase, underscore
 from biolinkml.utils.namespaces import Namespaces
+from biolinkml.utils.yamlutils import extended_str
 
 
 def merge_schemas(target: SchemaDefinition, mergee: SchemaDefinition, imported_from: Optional[str] = None,
@@ -112,7 +113,7 @@ def slot_usage_name(usage_name: SlotDefinitionName, owning_class: ClassDefinitio
     :param owning_class:
     :return: Synthesized name
     """
-    return SlotDefinitionName(owning_class.name + '_' + usage_name)
+    return SlotDefinitionName(extended_str.concat(owning_class.name, '_', usage_name))
 
 
 def alias_root(schema: SchemaDefinition, slotname: SlotDefinitionName) -> Optional[SlotDefinitionName]:

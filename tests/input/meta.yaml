@@ -53,7 +53,6 @@ slots:
   # -----------------------------------
   name:
     domain: element
-    key: true
     identifier: true
     description: >-
       the unique name of the element within the context of the schema.  Name is combined with the default prefix to
