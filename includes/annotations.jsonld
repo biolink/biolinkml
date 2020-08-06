@@ -258,6 +258,7 @@
         "Annotation"
       ],
       "is_usage_slot": true,
+      "usage_slot_name": "extension_value",
       "type": "SlotDefinition"
     }
   ],
@@ -326,7 +327,7 @@
   "@context": [
     "https://w3id.org/biolink/biolinkml/context.jsonld",
     "https://w3id.org/biolink/biolinkml/types.context.jsonld",
-    "/Users/solbrig/git/biolink/biolinkml/tests/input/includes/extensions.context.jsonld",
+    "https://w3id.org/biolink/biolinkml/extensions.context.jsonld",
     {
       "@base": "https://w3id.org/biolink/biolinkml/meta/"
     }

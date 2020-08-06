@@ -55,9 +55,14 @@ class SchemaLoaderTestCase(TestEnvironmentTestCase):
         self.assertIn('loadererror1.yaml", line 11, col 13', str(e.exception))
 
         fn = env.input_path('loadererror2.yaml')
+        with self.assertRaises(ValueError, msg="No Type URI") as e:
+            SchemaLoader(fn).resolve()
+        self.assertIn('type "string" does not declare a URI', str(e.exception))
+
+        fn = env.input_path('loadererror2a.yaml')
         with self.assertRaises(ValueError, msg="Optional key slot should fail") as e:
             SchemaLoader(fn).resolve()
-        self.assertIn('loadererror2.yaml", line 10, col 3', str(e.exception))
+        self.assertIn('slot: s1 - key and identifier slots cannot be optional', str(e.exception))
 
         fn = env.input_path('loadertest1.yaml')
         schema = SchemaLoader(fn).resolve()
@@ -87,19 +92,17 @@ class SchemaLoaderTestCase(TestEnvironmentTestCase):
             _ = SchemaLoader(fn).resolve()
         self.assertIn('loadererror7.yaml", line 16, col 3', str(e.exception))
 
-    @unittest.skipIf(True, "Never impelemented checking key and identifier")
     def test_key_and_id(self):
         """ A slot cannot be both a key and an identifier """
         fn = env.input_path('loadererror8.yaml')
-        _ = SchemaLoader(fn).resolve()
         with self.assertRaises(ValueError, msg="A slot cannot be both a key and identifier") as e:
             _ = SchemaLoader(fn).resolve()
-        self.assertIn('loadererror8.yaml', str(e.exception))
+        self.assertIn('A slot cannot be both a key and identifier at the same time', str(e.exception))
 
         fn = env.input_path('loadererror9.yaml')
         with self.assertRaises(ValueError, msg="A slot cannot be both a key and identifier") as e:
             _ = SchemaLoader(fn).resolve()
-        self.assertIn('loadererror9.yaml', str(e.exception))
+        self.assertIn('A slot cannot be both a key and identifier at the same time', str(e.exception))
 
     def test_missing_type_uri(self):
         """ A type with neither a typeof or uri is an error """

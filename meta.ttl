@@ -46,29 +46,29 @@ meta:metamodel a meta:SchemaDefinition ;
         "rdfs",
         "skos",
         "xsd" ;
-    meta:generation_date "2020-08-03 16:18"^^xsd:dateTime ;
+    meta:generation_date "2020-08-06 13:32"^^xsd:dateTime ;
     meta:id biolinkml:meta ;
     meta:imports biolinkml:annotations,
         biolinkml:extensions,
         biolinkml:mappings,
         biolinkml:types ;
     meta:metamodel_version "1.5.3" ;
-    meta:prefixes [ meta:prefix_prefix "oslc" ;
-            meta:prefix_reference oslc: ],
+    meta:prefixes [ meta:prefix_prefix "pav" ;
+            meta:prefix_reference pav: ],
+        [ meta:prefix_prefix "skos" ;
+            meta:prefix_reference skos: ],
+        [ meta:prefix_prefix "meta" ;
+            meta:prefix_reference meta: ],
+        [ meta:prefix_prefix "bibo" ;
+            meta:prefix_reference bibo: ],
         [ meta:prefix_prefix "biolinkml" ;
             meta:prefix_reference biolinkml: ],
         [ meta:prefix_prefix "schema" ;
             meta:prefix_reference schema: ],
-        [ meta:prefix_prefix "meta" ;
-            meta:prefix_reference meta: ],
-        [ meta:prefix_prefix "pav" ;
-            meta:prefix_reference pav: ],
+        [ meta:prefix_prefix "oslc" ;
+            meta:prefix_reference oslc: ],
         [ meta:prefix_prefix "OIO" ;
-            meta:prefix_reference OIO: ],
-        [ meta:prefix_prefix "bibo" ;
-            meta:prefix_reference bibo: ],
-        [ meta:prefix_prefix "skos" ;
-            meta:prefix_reference skos: ] ;
+            meta:prefix_reference OIO: ] ;
     meta:slots meta:abstract,
         meta:alias,
         meta:aliases,
@@ -179,8 +179,8 @@ meta:metamodel a meta:SchemaDefinition ;
         meta:values_from,
         meta:version ;
     meta:source_file "meta.yaml" ;
-    meta:source_file_date "Mon Aug  3 16:17:06 2020"^^xsd:dateTime ;
-    meta:source_file_size 26668 ;
+    meta:source_file_date "Wed Aug  5 16:56:00 2020"^^xsd:dateTime ;
+    meta:source_file_size 26654 ;
     meta:subsets meta:owl ;
     meta:types meta:boolean,
         meta:date,
@@ -261,7 +261,8 @@ meta:annotation_extension_value a meta:SlotDefinition ;
     meta:owner meta:Annotation ;
     meta:range meta:boolean ;
     meta:required true ;
-    meta:slot_uri meta:value .
+    meta:slot_uri meta:value ;
+    meta:usage_slot_name "extension_value" .
 
 meta:class_definition_apply_to a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
@@ -273,7 +274,8 @@ meta:class_definition_apply_to a meta:SlotDefinition ;
     meta:multivalued true ;
     meta:owner meta:ClassDefinition ;
     meta:range meta:ClassDefinition ;
-    meta:slot_uri meta:apply_to .
+    meta:slot_uri meta:apply_to ;
+    meta:usage_slot_name "apply_to" .
 
 meta:class_definition_is_a a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
@@ -284,7 +286,8 @@ meta:class_definition_is_a a meta:SlotDefinition ;
     meta:is_usage_slot true ;
     meta:owner meta:ClassDefinition ;
     meta:range meta:ClassDefinition ;
-    meta:slot_uri meta:is_a .
+    meta:slot_uri meta:is_a ;
+    meta:usage_slot_name "is_a" .
 
 meta:class_definition_mixins a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
@@ -296,7 +299,8 @@ meta:class_definition_mixins a meta:SlotDefinition ;
     meta:multivalued true ;
     meta:owner meta:ClassDefinition ;
     meta:range meta:ClassDefinition ;
-    meta:slot_uri meta:mixins .
+    meta:slot_uri meta:mixins ;
+    meta:usage_slot_name "mixins" .
 
 meta:schema_definition_name a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
@@ -306,11 +310,11 @@ meta:schema_definition_name a meta:SlotDefinition ;
     meta:identifier true ;
     meta:is_a meta:name ;
     meta:is_usage_slot true ;
-    meta:key true ;
     meta:owner meta:SchemaDefinition ;
     meta:range meta:ncname ;
     meta:required true ;
-    meta:slot_uri meta:name .
+    meta:slot_uri meta:name ;
+    meta:usage_slot_name "name" .
 
 meta:slot_definition_apply_to a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
@@ -322,7 +326,8 @@ meta:slot_definition_apply_to a meta:SlotDefinition ;
     meta:multivalued true ;
     meta:owner meta:SlotDefinition ;
     meta:range meta:SlotDefinition ;
-    meta:slot_uri meta:apply_to .
+    meta:slot_uri meta:apply_to ;
+    meta:usage_slot_name "apply_to" .
 
 meta:slot_definition_is_a a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
@@ -333,7 +338,8 @@ meta:slot_definition_is_a a meta:SlotDefinition ;
     meta:is_usage_slot true ;
     meta:owner meta:SlotDefinition ;
     meta:range meta:SlotDefinition ;
-    meta:slot_uri meta:is_a .
+    meta:slot_uri meta:is_a ;
+    meta:usage_slot_name "is_a" .
 
 meta:slot_definition_mixins a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
@@ -345,7 +351,8 @@ meta:slot_definition_mixins a meta:SlotDefinition ;
     meta:multivalued true ;
     meta:owner meta:SlotDefinition ;
     meta:range meta:SlotDefinition ;
-    meta:slot_uri meta:mixins .
+    meta:slot_uri meta:mixins ;
+    meta:usage_slot_name "mixins" .
 
 meta:alt_description_source a meta:SlotDefinition ;
     skos:definition "the source of an attributed description" ;
@@ -1613,7 +1620,6 @@ meta:name a meta:SlotDefinition ;
     meta:domain meta:Element ;
     meta:domain_of meta:Element ;
     meta:identifier true ;
-    meta:key true ;
     meta:owner meta:Element ;
     meta:range meta:string ;
     meta:required true ;
