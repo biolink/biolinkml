@@ -236,7 +236,6 @@
       "range": "string",
       "slot_uri": "http://www.w3.org/2000/01/rdf-schema#label",
       "required": true,
-      "key": true,
       "identifier": true,
       "owner": "Element",
       "domain_of": [
@@ -1934,7 +1933,6 @@
       "range": "ncname",
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/name",
       "required": true,
-      "key": true,
       "identifier": true,
       "alias": "name",
       "owner": "SchemaDefinition",
@@ -2511,7 +2509,7 @@
   "metamodel_version": "1.5.3",
   "source_file": "meta.yaml",
   "source_file_date": "Friday Sep 27 12:00:00 2003",
-  "source_file_size": 26668,
+  "source_file_size": 26654,
   "generation_date": "Friday Sep 27 12:00:00 2003",
   "type": "SchemaDefinition",
   "@context": [

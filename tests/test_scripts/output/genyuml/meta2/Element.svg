@@ -40,7 +40,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='332' y='-402.3'>Element</text>
 <polyline fill='none' points='155.5,-398.5 508.5,-398.5 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='332' y='-387.3'>id_prefixes:ncname *</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='332' y='-372.3'>name(pk):string</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='332' y='-372.3'>name:string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='332' y='-357.3'>definition_uri:uriorcurie ?</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='332' y='-342.3'>aliases:string *</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='332' y='-327.3'>mappings:uriorcurie *</text>

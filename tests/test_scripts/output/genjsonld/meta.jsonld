@@ -236,7 +236,6 @@
       "range": "string",
       "slot_uri": "http://www.w3.org/2000/01/rdf-schema#label",
       "required": true,
-      "key": true,
       "identifier": true,
       "owner": "Element",
       "domain_of": [
@@ -1934,7 +1933,6 @@
       "range": "ncname",
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/name",
       "required": true,
-      "key": true,
       "identifier": true,
       "alias": "name",
       "owner": "SchemaDefinition",

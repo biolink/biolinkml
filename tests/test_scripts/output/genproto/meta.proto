@@ -16,7 +16,7 @@ message Annotation
 message ClassDefinition
  {
   repeated idPrefixes Ncname = 1
-  optional name String = 2
+  name String = 2
   optional definitionUri Uriorcurie = 3
   repeated aliases String = 4
   repeated localNames LocalName = 5
@@ -128,13 +128,13 @@ message SchemaDefinition
   optional sourceFileDate Datetime = 40
   optional sourceFileSize Integer = 41
   optional generationDate Datetime = 42
-  optional name Ncname = 43
+  name Ncname = 43
  }
 // the definition of a property or a slot
 message SlotDefinition
  {
   repeated idPrefixes Ncname = 1
-  optional name String = 2
+  name String = 2
   optional definitionUri Uriorcurie = 3
   repeated aliases String = 4
   repeated localNames LocalName = 5
@@ -199,7 +199,7 @@ message SlotDefinition
 message SubsetDefinition
  {
   repeated idPrefixes Ncname = 1
-  optional name String = 2
+  name String = 2
   optional definitionUri Uriorcurie = 3
   repeated aliases String = 4
   repeated localNames LocalName = 5
@@ -227,7 +227,7 @@ message SubsetDefinition
 message TypeDefinition
  {
   repeated idPrefixes Ncname = 1
-  optional name String = 2
+  name String = 2
   optional definitionUri Uriorcurie = 3
   repeated aliases String = 4
   repeated localNames LocalName = 5
