@@ -24,7 +24,7 @@ For an example, see the [Jupyter notebook example](https://nbviewer.jupyter.org/
 
 ## Installation
 
-This project uses [pipenv](https://pipenv-fork.readthedocs.io/en/latest/) to install and manage the project:
+This project uses [pipenv](https://pipenv-fork.readthedocs.io/en/latest/) to install. Some IDE's like [PyCharms also have direct support for pipenv](https://www.jetbrains.com/help/pycharm/pipenv.html). Once pipenv is running, the project may be installed:
 
 ```bash
 > pipenv install biolinkml
