@@ -23,6 +23,9 @@ Quickstart docs:
 For an example, see the [Jupyter notebook example](https://nbviewer.jupyter.org/github/biolink/biolinkml/blob/master/notebooks/examples.ipynb)
 
 ## Installation
+
+This project uses [pipenv](https://pipenv-fork.readthedocs.io/en/latest/) to install and manage the project:
+
 ```bash
 > pipenv install biolinkml
 ```
