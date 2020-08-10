@@ -114,7 +114,7 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
         """ Test the python generator for the biolink model """
         self.output_name = 'namespaces'
         self.single_file_generator('py', NamespaceGenerator, generator_args={'emit_metadata': True},
-                                   filtr=metadata_filter, comparator=compare_python)
+                                   filtr=metadata_filter, comparator=compare_python, output_name='namespaces')
 
 
     @staticmethod

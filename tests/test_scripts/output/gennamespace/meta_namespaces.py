@@ -1,36 +1,10 @@
-import os
-
-import click
-
-from biolinkml.generators import PYTHON_GEN_VERSION
-from biolinkml.generators.pythongen import PythonGenerator
-from biolinkml.utils.formatutils import split_line, be
-from biolinkml.utils.generator import shared_arguments
-
-
-class NamespaceGenerator(PythonGenerator):
-    generatorname = os.path.basename(__file__)
-    generatorversion = PYTHON_GEN_VERSION
-    valid_formats = ['py']
-    visit_all_class_slots = False
-
-    def gen_namespaces(self) -> str:
-        return '\n\t\t'.join([
-            f"CurieNamespace('{pfx.replace('.', '_')}', '{self.namespaces[pfx]}'),"
-            for pfx in sorted(self.emit_prefixes) if pfx in self.namespaces
-        ])
-
-    def gen_schema(self) -> str:
-        split_descripton = '\n#              '.join(split_line(be(self.schema.description), split_len=100))
-        head = f'''# Auto generated from {self.schema.source_file} by {self.generatorname} version: {self.generatorversion}
-# Generation date: {self.schema.generation_date}
-# Schema: {self.schema.name}
-#''' if self.emit_metadata else ''
-
-        return f'''{head}
-# id: {self.schema.id}
-# description: {split_descripton}
-# license: {be(self.schema.license)}
+# Auto generated from meta.yaml by namespacegen.py version: 0.4.0
+# Generation date: 2020-08-10 15:26
+# Schema: metamodel
+#
+# id: https://w3id.org/biolink/biolinkml/meta
+# description: A metamodel for defining biolink related schemas
+# license: https://creativecommons.org/publicdomain/zero/1.0/
 
 from collections import defaultdict
 from typing import Iterable, Dict, Tuple
@@ -54,12 +28,24 @@ class BiolinkNameSpace:
     """
 
     _namespaces = [
-        {self.gen_namespaces()}
+        CurieNamespace('OIO', 'http://www.geneontology.org/formats/oboInOwl#'),
+        CurieNamespace('bibo', 'http://purl.org/ontology/bibo/'),
+        CurieNamespace('biolinkml', 'https://w3id.org/biolink/biolinkml/'),
+        CurieNamespace('dcterms', 'http://purl.org/dc/terms/'),
+        CurieNamespace('meta', 'https://w3id.org/biolink/biolinkml/meta/'),
+        CurieNamespace('oslc', 'http://open-services.net/ns/core#'),
+        CurieNamespace('owl', 'http://www.w3.org/2002/07/owl#'),
+        CurieNamespace('pav', 'http://purl.org/pav/'),
+        CurieNamespace('rdf', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'),
+        CurieNamespace('rdfs', 'http://www.w3.org/2000/01/rdf-schema#'),
+        CurieNamespace('schema', 'http://schema.org/'),
+        CurieNamespace('skos', 'http://www.w3.org/2004/02/skos/core#'),
+        CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#'),
     ]
 
     # class level dictionaries
 
-    _prefix_map: Dict[str, CurieNamespace] = {{}}
+    _prefix_map: Dict[str, CurieNamespace] = {}
 
     @classmethod
     def _get_prefix_map(cls):
@@ -181,11 +167,4 @@ def curie(identifier) -> str:
         identifier_object_id: str
         namespace, identifier_object_id = BiolinkNameSpace.parse_identifier(identifier)
         return namespace.curie(identifier_object_id)
-'''
 
-
-@shared_arguments(NamespaceGenerator)
-@click.command()
-def cli(yamlfile, **args):
-    """ Generate a namespace manager for all of the prefixes represented in a biolink model """
-    print(NamespaceGenerator(yamlfile,**args).serialize(**args))

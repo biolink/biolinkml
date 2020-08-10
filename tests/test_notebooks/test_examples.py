@@ -15,7 +15,7 @@ class NotebookTests(unittest.TestCase):
         with redirect_stdout(output):
             importlib.import_module(import_module)
         with open(output_file, 'w') as f:
-            f.write(re.sub(r'# Generation date: .*', r'# Generation date:', output.getvalue()))
+            f.write(re.sub(r'Generation date: .*?(["\n])', r'Generation date:\1', output.getvalue()))
         print(f"Output written to {output_file}")
 
     def test_examples(self):

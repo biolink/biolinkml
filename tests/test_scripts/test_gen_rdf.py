@@ -13,6 +13,7 @@ from biolinkml.generators.jsonldcontextgen import ContextGenerator
 from biolinkml.generators import rdfgen
 from tests.test_scripts.environment import env
 from tests.utils.clicktestcase import ClickTestCase
+from tests.utils.filters import ldcontext_metadata_filter
 
 repl1: List[Tuple[str, str]] = [
     (r'(\s*):generation_date\s*".*"\^\^xsd:dateTime', r'\1:generation_date "2019-01-25 12:34"^^xsd:dateTime'),
@@ -35,11 +36,12 @@ class GenRDFTestCase(ClickTestCase):
         self.do_test("--help", 'help')
 
     def _gen_context_file(self, fname: str, metauris: bool = False) -> str:
-        cntxt_txt = ContextGenerator(env.meta_yaml, useuris=not metauris, importmap=env.import_map).serialize()
+        cntxt_txt = ldcontext_metadata_filter(ContextGenerator(env.meta_yaml, useuris=not metauris,
+                                                               importmap=env.import_map).serialize())
         cntxt_file_path = self.expected_file_path(fname)
         if os.path.exists(cntxt_file_path):
             with open(cntxt_file_path) as f:
-                expected = f.read()
+                expected = ldcontext_metadata_filter(f.read())
         else:
             expected = ''
         if expected != cntxt_txt:

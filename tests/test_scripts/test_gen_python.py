@@ -8,6 +8,7 @@ from biolinkml.generators import pythongen
 from tests.test_scripts.environment import env
 from tests.utils.clicktestcase import ClickTestCase
 from tests.utils.filters import metadata_filter
+from tests.utils.python_comparator import compare_python
 
 
 class GenPythonTestCase(ClickTestCase):
@@ -37,8 +38,8 @@ class GenPythonTestCase(ClickTestCase):
 
     def test_meta(self):
         self.maxDiff = None
-        self.do_test([], 'meta.py', filtr=metadata_filter)
-        self.do_test('-f py', 'meta.py', filtr=metadata_filter)
+        self.do_test([], 'meta.py', filtr=metadata_filter, comparator=compare_python)
+        self.do_test('-f py', 'meta.py', filtr=metadata_filter, comparator=compare_python)
         self.do_test('-f xsv', 'meta_error', expected_error=click.exceptions.BadParameter)
 
     def test_head(self):
