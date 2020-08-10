@@ -257,7 +257,7 @@ typeof:
 
 [A Github action] is set up to automatically release the Pypi package. When it is ready
 for a new release, create a [Github release](https://github.com/biolink/biolinkml/releases). The version
-should be in the vX.X.X format following [the smantic versioning specification](https://semver.org/).
+should be in the vX.X.X format following [the semantic versioning specification](https://semver.org/).
 
 After the release is created, the GitHub action will be triggered to publish to Pypi. The release version will be used to create the Pypi package.
 
