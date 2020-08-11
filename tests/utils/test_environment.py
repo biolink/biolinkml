@@ -18,9 +18,9 @@ from tests.utils.dirutils import are_dir_trees_equal
 from tests.utils.mismatchlog import MismatchLog
 
 
-def no_click_exit(_self, _code=0):
+def no_click_exit(_self, code=0):
     from tests import CLIExitException
-    raise CLIExitException()
+    raise CLIExitException(code)
 
 import click
 click.core.Context.exit = no_click_exit

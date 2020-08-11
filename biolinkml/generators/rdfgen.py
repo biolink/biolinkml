@@ -45,7 +45,7 @@ class RDFGenerator(Generator):
 @shared_arguments(RDFGenerator)
 @click.command()
 @click.option("-o", "--output", help="Output file name")
-@click.option("--context", default=METAMODEL_CONTEXT_URI, multiple=True,
+@click.option("--context", default=[METAMODEL_CONTEXT_URI], multiple=True,
               help=f"JSONLD context file (default: {METAMODEL_CONTEXT_URI})")
 def cli(yamlfile, **kwargs):
     """ Generate an RDF representation of a biolink model """
