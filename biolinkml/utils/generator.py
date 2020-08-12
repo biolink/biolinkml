@@ -36,7 +36,7 @@ class Generator(metaclass=abc.ABCMeta):
                  useuris: Optional[bool] = None,
                  importmap: Optional[str] = None,
                  log_level: int = DEFAULT_LOG_LEVEL_INT,
-                 merge_imports: Optional[bool] = True,
+                 mergeimports: Optional[bool] = True,
                  **kwargs) -> None:
         """
         Constructor
@@ -48,7 +48,7 @@ class Generator(metaclass=abc.ABCMeta):
         :param useuris: True means declared class slot uri's are used.  False means use model uris
         :param importmap: File name of import mapping file -- maps import name/uri to target
         :param log_level: Logging level
-        :param merge_imports: True means merge non-biolinkml sources into importing package.  False means separate packages.
+        :param mergeimports: True means merge non-biolinkml sources into importing package.  False means separate packages.
         :param logger: pre-set logger (hidden in kwargs)
         """
         if 'logger' in kwargs:
@@ -63,7 +63,7 @@ class Generator(metaclass=abc.ABCMeta):
         assert format in self.valid_formats, f"Unrecognized format: {format}"
         self.format = format
         self.emit_metadata = emit_metadata
-        self.merge_imports = merge_imports
+        self.merge_imports = mergeimports
         if isinstance(schema, Generator):
             gen = schema
             self.schema = gen.schema
@@ -77,7 +77,7 @@ class Generator(metaclass=abc.ABCMeta):
             self.logger = gen.logger
         else:
             loader = SchemaLoader(schema, self.base_dir, useuris=useuris, importmap=importmap, logger=self.logger,
-                                  mergeimports=merge_imports)
+                                  mergeimports=mergeimports)
             loader.resolve()
             self.schema = loader.schema
             self.synopsis = loader.synopsis
