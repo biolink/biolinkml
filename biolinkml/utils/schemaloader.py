@@ -24,7 +24,8 @@ class SchemaLoader:
                  namespaces: Optional[Namespaces] = None,
                  useuris: Optional[bool] = None,
                  importmap: Optional[Mapping[str, str]] = None,
-                 logger: Optional[logging.Logger] = None) \
+                 logger: Optional[logging.Logger] = None,
+                 mergeimports: Optional[bool] = True) \
             -> None:
         """ Constructor - load and process a YAML or pre-processed schema
 
@@ -34,12 +35,13 @@ class SchemaLoader:
         :param useuris: True means class_uri and slot_uri are identifiers.  False means they are mappings.
         :param importmap: A map from import entries to URI or file name.
         :param logger: Target Logger, if any
+        :param mergeimports: True means combine imports into single package. False means separate packages
         """
         self.logger = logger if logger is not None else logging.getLogger(self.__class__.__name__)
         if isinstance(data, SchemaDefinition):
             self.schema = data
         else:
-            self.schema = load_raw_schema(data, base_dir=base_dir)
+            self.schema = load_raw_schema(data, base_dir=base_dir, merge_modules=mergeimports)
         # Map from URI to source and version tuple
         self.loaded: OrderedDict[str, Tuple[str, str]] = {self.schema.id: (self.schema.source_file, self.schema.version)}
         self.base_dir = self._get_base_dir(base_dir)
@@ -49,6 +51,7 @@ class SchemaLoader:
         self.synopsis: Optional[SchemaSynopsis] = None
         self.schema_location: Optional[str] = None
         self.schema_defaults: Dict[str, str] = {}           # Map from schema URI to default namespace
+        self.merge_modules = mergeimports
 
     def resolve(self) -> SchemaDefinition:
         """Reconcile a loaded schema, applying is_a, mixins, apply_to's and other such things.  Also validate the
@@ -85,7 +88,8 @@ class SchemaLoader:
             sname = self.importmap.get(str(sname), sname)               # It may also use URI or other forms
             import_schemadefinition = \
                 load_raw_schema(sname + '.yaml',
-                                base_dir=os.path.dirname(self.schema.source_file) if self.schema.source_file else None)
+                                base_dir=os.path.dirname(self.schema.source_file) if self.schema.source_file else None,
+                                merge_modules=self.merge_modules)
             loaded_schema = (str(sname), import_schemadefinition.version)
             if import_schemadefinition.id in self.loaded:
                 # If we've already loaded this, make sure that we've got the same version
@@ -99,7 +103,8 @@ class SchemaLoader:
                                            f"{self.loaded[import_schemadefinition.id][0]} : {loaded_schema[0]}")
             else:
                 self.loaded[import_schemadefinition.id] = loaded_schema
-                merge_schemas(self.schema, import_schemadefinition, imp, self.namespaces)
+                merge_schemas(self.schema, import_schemadefinition, imp, self.namespaces,
+                              merge_imports=self.merge_modules)
                 self.schema_defaults[import_schemadefinition.id] = import_schemadefinition.default_prefix
 
         self.namespaces._base = self.schema.default_prefix if ':' in self.schema.default_prefix else \

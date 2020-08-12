@@ -20,7 +20,8 @@ def load_raw_schema(data: Union[str, dict, TextIO],
                     source_file: Optional[str] = None,
                     source_file_date: Optional[str] = None,
                     source_file_size: Optional[int] = None,
-                    base_dir: Optional[str] = None) -> SchemaDefinition:
+                    base_dir: Optional[str] = None,
+                    merge_modules: Optional[bool] = True) -> SchemaDefinition:
     """ Load and flatten SchemaDefinition from a file name, a URL or a block of text
 
     @param data: URL, file name or block of text YAML Object or open file handle
@@ -28,6 +29,7 @@ def load_raw_schema(data: Union[str, dict, TextIO],
     @param source_file_date: timestamp of source file if data is type TextIO
     @param source_file_size: size of source file if data is type TextIO
     @param base_dir: Working directory or base URL of sources
+    @param merge_modules: True means combine modules into one source, false means keep separate
     @return: Un-processed Schema Definition object
     """
     def _name_from_url(url) -> str:
@@ -144,5 +146,5 @@ def load_raw_schema(data: Union[str, dict, TextIO],
                 schema.metamodel_version = metamodel_version
                 set_from_schema(schema)
             else:
-                merge_schemas(schema, sdef)
+                merge_schemas(schema, sdef, merge_imports=merge_modules)
         return schema
