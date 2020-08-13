@@ -61,8 +61,7 @@ class SchemaLoader:
         """
         if not self.schema.default_range:
             self.schema.default_range = 'string'
-            print(f"Warning: default_range not specified. Default set to '{self.schema.default_range}'",
-                  file=sys.stderr)
+            self.logger.info(f"Default_range not specified. Default set to '{self.schema.default_range}'")
 
         # Process the namespace declarations
         if not self.schema.default_prefix:
@@ -462,10 +461,12 @@ class SchemaLoader:
 
             # If parent slot is still not defined, it means that we introduced a NEW slot in the slot usages
             if not parent_slot:
-                self.logger.warning(f'class "{cls.name}" slot "{slotname}" does not reference an existing slot.  '
+                self.logger.info(f'class "{cls.name}" slot "{slotname}" does not reference an existing slot.  '
                                     f'New slot was created.')
                 child_name = slotname
                 slot_alias = None
+                if not slot_usage.range:
+                    slot_usage.range = self.schema.default_range
             else:
                 child_name = slot_usage_name(slotname, cls)
                 slot_alias = parent_slot.alias if parent_slot.alias else slotname
