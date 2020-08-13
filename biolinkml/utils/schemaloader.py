@@ -128,6 +128,8 @@ class SchemaLoader:
                 else:
                     self.raise_value_error(f'Class "{cls.name}" - unknown slot: "{slotname}"', slotname)
 
+        # Process slots defined as slot usages
+        self.process_slot_usage_definitions()
 
         # Massage initial set of slots
         for slot in self.schema.slots.values():
@@ -444,6 +446,33 @@ class SchemaLoader:
                 else:
                     self.raise_value_error(f'Class: "{cls.name}" - unknown mixin reference: {mixin}', mixin)
 
+    def process_slot_usage_definitions(self):
+        """
+        Slot usages can be used to completely define classes.  Iterate over the class hierarchy finding all slot
+        definitions that are introduced strictly as usages and add them to the slots component
+        """
+        visited: Set[ClassDefinitionName] = set()
+
+        def visit(classname: ClassDefinitionName) -> None:
+            cls = self.schema.classes.get(classname)
+            if cls and cls.name not in visited:
+                if cls.is_a:
+                    visit(cls.is_a)
+                for mixin in cls.mixins:
+                    visit(mixin)
+                for slot_usage in cls.slot_usage.values():
+                    if slot_usage.alias:
+                        self.raise_value_error(f'Class: "{cls.name}" - alias not permitted in slot_usage slot:'
+                                               f' {slot_usage.alias}')
+                    if slot_usage.name not in self.schema.slots:
+                        self.logger.info(f'class "{cls.name}" slot "{slot_usage.name}" does not reference an existing slot.  '
+                                         f'New slot was created.')
+                        self.schema.slots[slot_usage.name] = slot_usage
+            visited.add(classname)
+
+        for classname in self.schema.classes.keys():
+            visit(classname)
+
     def process_slot_usages(self, cls: ClassDefinition) -> None:
         """
         Connect any slot usage items
@@ -463,12 +492,11 @@ class SchemaLoader:
 
             # If parent slot is still not defined, it means that we introduced a NEW slot in the slot usages
             if not parent_slot:
-                self.logger.info(f'class "{cls.name}" slot "{slotname}" does not reference an existing slot.  '
-                                    f'New slot was created.')
-                child_name = slotname
-                slot_alias = None
-                if not slot_usage.range:
-                    slot_usage.range = self.schema.default_range
+                self.logger.error(f'class "{cls.name}" slot "{slotname}" -- error occurred. This should not happen')
+                # child_name = slotname
+                # slot_alias = None
+                # if not slot_usage.range:
+                #     slot_usage.range = self.schema.default_range
             else:
                 child_name = slot_usage_name(slotname, cls)
                 slot_alias = parent_slot.alias if parent_slot.alias else slotname
