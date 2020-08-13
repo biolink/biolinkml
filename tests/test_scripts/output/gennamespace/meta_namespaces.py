@@ -159,7 +159,7 @@ def fix_curies(identifiers, prefix=''):
 
 
 def curie(identifier) -> str:
-    # Ignore enpty strings
+    # Ignore empty strings
     if not identifier:
         return ""
     else:
