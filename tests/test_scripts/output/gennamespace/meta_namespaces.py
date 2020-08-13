@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by namespacegen.py version: 0.4.0
-# Generation date: 2020-08-10 15:26
+# Generation date:
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta
@@ -159,7 +159,7 @@ def fix_curies(identifiers, prefix=''):
 
 
 def curie(identifier) -> str:
-    # Ignore empty strings
+    # Ignore enpty strings
     if not identifier:
         return ""
     else:
