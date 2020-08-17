@@ -21,7 +21,7 @@ class NamespaceGenerator(PythonGenerator):
         ])
 
     def gen_schema(self) -> str:
-        split_descripton = '\n#              '.join(split_line(be(self.schema.description), split_len=100))
+        split_description = '\n#              '.join(split_line(be(self.schema.description), split_len=100))
         head = f'''# Auto generated from {self.schema.source_file} by {self.generatorname} version: {self.generatorversion}
 # Generation date: {self.schema.generation_date}
 # Schema: {self.schema.name}
@@ -29,7 +29,7 @@ class NamespaceGenerator(PythonGenerator):
 
         return f'''{head}
 # id: {self.schema.id}
-# description: {split_descripton}
+# description: {split_description}
 # license: {be(self.schema.license)}
 
 from collections import defaultdict
@@ -37,20 +37,13 @@ from typing import Iterable, Dict, Tuple
 
 from biolinkml.utils.curienamespace import CurieNamespace
 
-GENE = 'gene'
-DISEASE = 'disease'
-CHEMICAL_SUBSTANCE = 'chemical substance'
-
-SYMBOL = 'Approved_Symbol'
-
-
 class IdentifierResolverException(RuntimeError):
     pass
 
 
-class BiolinkNameSpace:
+class {self.schema.name}NameSpace:
     """
-    Map of BioLink Model registered URI Namespaces
+    Map of {self.schema.name} registered URI Namespaces
     """
 
     _namespaces = [
@@ -143,8 +136,9 @@ def object_id(identifier, keep_version=False) -> str:
 
 def fix_curies(identifiers, prefix=''):
     """
-    Applies the specified XMLNS prefix to (an) identifier(s) known
-    to be "raw" IDs as keys in a dictionary or elements in a list (or a simple string)
+    Applies the specified XMLNS prefix to (an) identifier(s) known to be
+    "raw" IDs as keys in a dictionary or elements in a list (or a simple string)
+
     :param identifiers:
     :param prefix:
     :return:
@@ -173,13 +167,13 @@ def fix_curies(identifiers, prefix=''):
 
 
 def curie(identifier) -> str:
-    # Ignore enpty strings
+    # Ignore empty strings
     if not identifier:
         return ""
     else:
         namespace: CurieNamespace
         identifier_object_id: str
-        namespace, identifier_object_id = BiolinkNameSpace.parse_identifier(identifier)
+        namespace, identifier_object_id = {self.schema.name}NameSpace.parse_identifier(identifier)
         return namespace.curie(identifier_object_id)
 '''
 
@@ -188,4 +182,4 @@ def curie(identifier) -> str:
 @click.command()
 def cli(yamlfile, **args):
     """ Generate a namespace manager for all of the prefixes represented in a biolink model """
-    print(NamespaceGenerator(yamlfile,**args).serialize(**args))
+    print(NamespaceGenerator(yamlfile, **args).serialize(**args))

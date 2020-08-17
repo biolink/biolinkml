@@ -11,20 +11,13 @@ from typing import Iterable, Dict, Tuple
 
 from biolinkml.utils.curienamespace import CurieNamespace
 
-GENE = 'gene'
-DISEASE = 'disease'
-CHEMICAL_SUBSTANCE = 'chemical substance'
-
-SYMBOL = 'Approved_Symbol'
-
-
 class IdentifierResolverException(RuntimeError):
     pass
 
 
-class BiolinkNameSpace:
+class metamodelNameSpace:
     """
-    Map of BioLink Model registered URI Namespaces
+    Map of metamodel registered URI Namespaces
     """
 
     _namespaces = [
@@ -129,8 +122,9 @@ def object_id(identifier, keep_version=False) -> str:
 
 def fix_curies(identifiers, prefix=''):
     """
-    Applies the specified XMLNS prefix to (an) identifier(s) known
-    to be "raw" IDs as keys in a dictionary or elements in a list (or a simple string)
+    Applies the specified XMLNS prefix to (an) identifier(s) known to be
+    "raw" IDs as keys in a dictionary or elements in a list (or a simple string)
+
     :param identifiers:
     :param prefix:
     :return:
@@ -159,12 +153,12 @@ def fix_curies(identifiers, prefix=''):
 
 
 def curie(identifier) -> str:
-    # Ignore enpty strings
+    # Ignore empty strings
     if not identifier:
         return ""
     else:
         namespace: CurieNamespace
         identifier_object_id: str
-        namespace, identifier_object_id = BiolinkNameSpace.parse_identifier(identifier)
+        namespace, identifier_object_id = metamodelNameSpace.parse_identifier(identifier)
         return namespace.curie(identifier_object_id)
 
