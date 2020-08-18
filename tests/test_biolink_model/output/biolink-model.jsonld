@@ -3750,6 +3750,20 @@
       "type": "SlotDefinition"
     },
     {
+      "name": "interacting_molecules_category",
+      "examples": [
+        {
+          "value": "MI:1048",
+          "description": "smallmolecule-protein",
+          "type": "Example"
+        }
+      ],
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "range": "OntologyClass",
+      "slot_uri": "https://w3id.org/biolink/vocab/interacting_molecules_category",
+      "type": "SlotDefinition"
+    },
+    {
       "name": "macromolecular_machine_name",
       "description": "genes are typically designated by a short symbol and a full name. We map the symbol to the default display name and use an additional slot for full name",
       "from_schema": "https://w3id.org/biolink/biolink-model",
@@ -4148,11 +4162,13 @@
       "type": "SlotDefinition"
     },
     {
-      "name": "interacting_molecules_category",
+      "name": "pairwise_interaction_association_interacting_molecules_category",
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "is_a": "interacting_molecules_category",
       "domain": "PairwiseInteractionAssociation",
       "range": "OntologyClass",
       "slot_uri": "https://w3id.org/biolink/vocab/interacting_molecules_category",
+      "alias": "interacting molecules category",
       "owner": "PairwiseInteractionAssociation",
       "domain_of": [
         "PairwiseInteractionAssociation"
@@ -7842,7 +7858,8 @@
         "pairwise_interaction_association_subject",
         "pairwise_interaction_association_id",
         "pairwise_interaction_association_relation",
-        "pairwise_interaction_association_object"
+        "pairwise_interaction_association_object",
+        "pairwise_interaction_association_interacting_molecules_category"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/PairwiseInteractionAssociation",
       "defining_slots": [
@@ -7870,7 +7887,8 @@
         "provided_by",
         "gene_to_gene_association_subject",
         "gene_to_gene_association_object",
-        "pairwise_gene_to_gene_interaction_relation"
+        "pairwise_gene_to_gene_interaction_relation",
+        "pairwise_interaction_association_interacting_molecules_category"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/PairwiseGeneToGeneInteraction",
       "defining_slots": [
