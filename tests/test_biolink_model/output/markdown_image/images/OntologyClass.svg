@@ -45,7 +45,7 @@
 </g><g class='edge' id='edge4'><title>PairwiseInteractionAssociation-&gt;OntologyClass</title>
 <path d='M96.9773,-536.886C95.9801,-508.636 96.904,-451.087 117,-408 158.738,-318.511 244.591,-239.192 298.217,-195.552' fill='none' stroke='black'/>
 <polygon fill='black' points='306.21,-189.117 301.243,-198.893 302.316,-192.252 298.421,-195.388 298.421,-195.388 298.421,-195.388 302.316,-192.252 295.599,-191.882 306.21,-189.117 306.21,-189.117' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='249.424' y='-204.788'> interacting molecules category(i) 0..1</text>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='249.424' y='-204.788'> interacting molecules category 0..1</text>
 </g><g class='node' id='node3'><title>OrganismTaxon</title>
 <polygon fill='white' points='286.5,-1 286.5,-37 403.5,-37 403.5,-1 286.5,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='345' y='-15.3'>OrganismTaxon</text>

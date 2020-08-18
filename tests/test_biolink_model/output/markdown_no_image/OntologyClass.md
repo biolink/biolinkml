@@ -7,7 +7,7 @@ a concept or class in an ontology, vocabulary or thesaurus
 URI: [biolink:OntologyClass](https://w3id.org/biolink/vocab/OntologyClass)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[RelationshipType],[PairwiseInteractionAssociation],[OrganismTaxon],[Association]-%20association%20type%200..1>[OntologyClass&#124;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[GeneToExpressionSiteAssociation]-%20quantifier%20qualifier%200..1>[OntologyClass],[Attribute]-%20has%20attribute%20type%200..1>[OntologyClass],[PairwiseInteractionAssociation]-%20interacting%20molecules%20category(i)%200..1>[OntologyClass],[Association]-%20qualifiers%200..*>[OntologyClass],[GeneToExpressionSiteAssociation]-%20quantifier%20qualifier(i)%200..1>[OntologyClass],[Attribute]uses%20-.->[OntologyClass],[OntologyClass]^-[RelationshipType],[OntologyClass]^-[OrganismTaxon],[OntologyClass]^-[GeneOntologyClass],[NamedThing]^-[OntologyClass],[NamedThing],[GeneToExpressionSiteAssociation],[GeneOntologyClass],[Attribute],[Association])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[RelationshipType],[PairwiseInteractionAssociation],[OrganismTaxon],[Association]-%20association%20type%200..1>[OntologyClass&#124;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[GeneToExpressionSiteAssociation]-%20quantifier%20qualifier%200..1>[OntologyClass],[Attribute]-%20has%20attribute%20type%200..1>[OntologyClass],[PairwiseInteractionAssociation]-%20interacting%20molecules%20category%200..1>[OntologyClass],[Association]-%20qualifiers%200..*>[OntologyClass],[GeneToExpressionSiteAssociation]-%20quantifier%20qualifier(i)%200..1>[OntologyClass],[Attribute]uses%20-.->[OntologyClass],[OntologyClass]^-[RelationshipType],[OntologyClass]^-[OrganismTaxon],[OntologyClass]^-[GeneOntologyClass],[NamedThing]^-[OntologyClass],[NamedThing],[GeneToExpressionSiteAssociation],[GeneOntologyClass],[Attribute],[Association])
 
 ## Parents
 
@@ -29,7 +29,8 @@ URI: [biolink:OntologyClass](https://w3id.org/biolink/vocab/OntologyClass)
  *  **[GeneToExpressionSiteAssociation](GeneToExpressionSiteAssociation.md)** *[gene to expression site association➞quantifier qualifier](gene_to_expression_site_association_quantifier_qualifier.md)*  <sub>OPT</sub>  **[OntologyClass](OntologyClass.md)**
  *  **[Attribute](Attribute.md)** *[has attribute type](has_attribute_type.md)*  <sub>OPT</sub>  **[OntologyClass](OntologyClass.md)**
  *  **[NamedThing](NamedThing.md)** *[has molecular consequence](has_molecular_consequence.md)*  <sub>0..*</sub>  **[OntologyClass](OntologyClass.md)**
- *  **[PairwiseInteractionAssociation](PairwiseInteractionAssociation.md)** *[interacting molecules category](interacting_molecules_category.md)*  <sub>OPT</sub>  **[OntologyClass](OntologyClass.md)**
+ *  **None** *[interacting molecules category](interacting_molecules_category.md)*  <sub>OPT</sub>  **[OntologyClass](OntologyClass.md)**
+ *  **[PairwiseInteractionAssociation](PairwiseInteractionAssociation.md)** *[pairwise interaction association➞interacting molecules category](pairwise_interaction_association_interacting_molecules_category.md)*  <sub>OPT</sub>  **[OntologyClass](OntologyClass.md)**
  *  **[Association](Association.md)** *[qualifiers](qualifiers.md)*  <sub>0..*</sub>  **[OntologyClass](OntologyClass.md)**
  *  **[Association](Association.md)** *[quantifier qualifier](quantifier_qualifier.md)*  <sub>OPT</sub>  **[OntologyClass](OntologyClass.md)**
 
