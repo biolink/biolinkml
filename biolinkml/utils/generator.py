@@ -36,6 +36,7 @@ class Generator(metaclass=abc.ABCMeta):
                  useuris: Optional[bool] = None,
                  importmap: Optional[str] = None,
                  log_level: int = DEFAULT_LOG_LEVEL_INT,
+                 mergeimports: Optional[bool] = True,
                  **kwargs) -> None:
         """
         Constructor
@@ -47,6 +48,7 @@ class Generator(metaclass=abc.ABCMeta):
         :param useuris: True means declared class slot uri's are used.  False means use model uris
         :param importmap: File name of import mapping file -- maps import name/uri to target
         :param log_level: Logging level
+        :param mergeimports: True means merge non-biolinkml sources into importing package.  False means separate packages.
         :param logger: pre-set logger (hidden in kwargs)
         """
         if 'logger' in kwargs:
@@ -61,6 +63,7 @@ class Generator(metaclass=abc.ABCMeta):
         assert format in self.valid_formats, f"Unrecognized format: {format}"
         self.format = format
         self.emit_metadata = emit_metadata
+        self.merge_imports = mergeimports
         if isinstance(schema, Generator):
             gen = schema
             self.schema = gen.schema
@@ -73,7 +76,8 @@ class Generator(metaclass=abc.ABCMeta):
             self.schema_defaults = gen.schema_defaults
             self.logger = gen.logger
         else:
-            loader = SchemaLoader(schema, self.base_dir, useuris=useuris, importmap=importmap, logger=self.logger)
+            loader = SchemaLoader(schema, self.base_dir, useuris=useuris, importmap=importmap, logger=self.logger,
+                                  mergeimports=mergeimports)
             loader.resolve()
             self.schema = loader.schema
             self.synopsis = loader.synopsis
@@ -558,6 +562,8 @@ def shared_arguments(g: Generator) -> Callable[[Command], Command]:
                    help=f"Logging level (default={DEFAULT_LOG_LEVEL})",
                    default=DEFAULT_LOG_LEVEL)
         )
+        f.params.append(
+            Option(("--mergeimports/--no-mergeimports", ), default=True, help="Merge imports into source file"))
         return f
     return decorator
 
