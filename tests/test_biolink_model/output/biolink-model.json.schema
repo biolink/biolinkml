@@ -4582,6 +4582,9 @@
                "description": "A unique identifier for an association",
                "type": "string"
             },
+            "interacting_molecules_category": {
+               "type": "string"
+            },
             "negated": {
                "description": "if set to true, then the association is negated i.e. is not true",
                "type": "boolean"

@@ -2848,6 +2848,7 @@ class PairwiseGeneToGeneInteraction(GeneToGeneAssociation):
     subject: Union[str, GeneOrGeneProductId] = None
     object: Union[str, GeneOrGeneProductId] = None
     relation: Union[str, URIorCURIE] = None
+    interacting_molecules_category: Optional[Union[str, OntologyClassId]] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -2858,6 +2859,8 @@ class PairwiseGeneToGeneInteraction(GeneToGeneAssociation):
             raise ValueError(f"relation must be supplied")
         if not isinstance(self.relation, URIorCURIE):
             self.relation = URIorCURIE(self.relation)
+        if self.interacting_molecules_category is not None and not isinstance(self.interacting_molecules_category, OntologyClassId):
+            self.interacting_molecules_category = OntologyClassId(self.interacting_molecules_category)
         super().__post_init__(**kwargs)
 
 
@@ -5267,6 +5270,9 @@ slots.has_numeric_value = Slot(uri=BIOLINK.has_numeric_value, name="has numeric 
 slots.has_unit = Slot(uri=BIOLINK.has_unit, name="has unit", curie=BIOLINK.curie('has_unit'),
                       model_uri=BIOLINK.has_unit, domain=QuantityValue, range=Optional[Union[str, Unit]], mappings = [QUD.unit])
 
+slots.interacting_molecules_category = Slot(uri=BIOLINK.interacting_molecules_category, name="interacting molecules category", curie=BIOLINK.curie('interacting_molecules_category'),
+                      model_uri=BIOLINK.interacting_molecules_category, domain=None, range=Optional[Union[str, OntologyClassId]])
+
 slots.macromolecular_machine_name = Slot(uri=BIOLINK.name, name="macromolecular machine_name", curie=BIOLINK.curie('name'),
                       model_uri=BIOLINK.macromolecular_machine_name, domain=MacromolecularMachine, range=Union[str, SymbolType])
 
@@ -5333,8 +5339,8 @@ slots.pairwise_interaction_association_relation = Slot(uri=BIOLINK.relation, nam
 slots.pairwise_interaction_association_object = Slot(uri=BIOLINK.object, name="pairwise interaction association_object", curie=BIOLINK.curie('object'),
                       model_uri=BIOLINK.pairwise_interaction_association_object, domain=None, range=Union[str, MolecularEntityId])
 
-slots.interacting_molecules_category = Slot(uri=BIOLINK.interacting_molecules_category, name="interacting molecules category", curie=BIOLINK.curie('interacting_molecules_category'),
-                      model_uri=BIOLINK.interacting_molecules_category, domain=None, range=Optional[Union[str, OntologyClassId]])
+slots.pairwise_interaction_association_interacting_molecules_category = Slot(uri=BIOLINK.interacting_molecules_category, name="pairwise interaction association_interacting molecules category", curie=BIOLINK.curie('interacting_molecules_category'),
+                      model_uri=BIOLINK.pairwise_interaction_association_interacting_molecules_category, domain=None, range=Optional[Union[str, OntologyClassId]])
 
 slots.pairwise_gene_to_gene_interaction_relation = Slot(uri=BIOLINK.relation, name="pairwise gene to gene interaction_relation", curie=BIOLINK.curie('relation'),
                       model_uri=BIOLINK.pairwise_gene_to_gene_interaction_relation, domain=PairwiseGeneToGeneInteraction, range=Union[str, URIorCURIE])

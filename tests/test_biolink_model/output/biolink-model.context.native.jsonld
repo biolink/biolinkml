@@ -416,6 +416,9 @@
       "increases_uptake_of": {
          "@type": "@id"
       },
+      "interacting_molecules_category": {
+         "@type": "@id"
+      },
       "interacts_with": {
          "@type": "@id"
       },
