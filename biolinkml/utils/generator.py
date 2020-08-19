@@ -2,7 +2,7 @@ import abc
 import logging
 from contextlib import redirect_stdout
 from io import StringIO
-from typing import List, Set, Union, TextIO, Optional, cast, Callable
+from typing import List, Set, Union, TextIO, Optional, cast, Callable, Type
 
 import click
 from click import Command, Argument, Option
@@ -532,7 +532,7 @@ class Generator(metaclass=abc.ABCMeta):
                 (set(cls.mixins).intersection(slot.domain_of))]
 
 
-def shared_arguments(g: Generator) -> Callable[[Command], Command]:
+def shared_arguments(g: Type[Generator]) -> Callable[[Command], Command]:
     _LOG_LEVEL_STRINGS = ['CRITICAL', 'ERROR', 'WARNING', 'INFO', 'DEBUG']
 
     def _log_level_string_to_int(log_level_string: str) -> int:
@@ -548,12 +548,13 @@ def shared_arguments(g: Generator) -> Callable[[Command], Command]:
         f.params.append(
             Argument(("yamlfile", ), type=click.Path(exists=True, dir_okay=False)))
         f.params.append(
-            Option(("--format", "-f"), type=click.Choice(g.valid_formats), help="Output format",
+            Option(("--format", "-f"), type=click.Choice(g.valid_formats),
+                   help=f"Output format (default={g.valid_formats[0]})",
                    default=g.valid_formats[0]))
         f.params.append(
-            Option(("--metadata/--no-metadata", ), default=True, help="Include metadata in output"))
+            Option(("--metadata/--no-metadata", ), default=True, help="Include metadata in output (default=--metadata)"))
         f.params.append(
-            Option(("--useuris/--metauris", ), default=True, help="Include metadata in output"))
+            Option(("--useuris/--metauris", ), default=True, help="Include metadata in output (default=--useuris)"))
         f.params.append(
             Option(("--importmap", "-im"), type=click.File(), help="Import mapping file")
         )
@@ -563,7 +564,8 @@ def shared_arguments(g: Generator) -> Callable[[Command], Command]:
                    default=DEFAULT_LOG_LEVEL)
         )
         f.params.append(
-            Option(("--mergeimports/--no-mergeimports", ), default=True, help="Merge imports into source file"))
+            Option(("--mergeimports/--no-mergeimports", ), default=True,
+                   help="Merge imports into source file (default=mergeimports)"))
         return f
     return decorator
 
