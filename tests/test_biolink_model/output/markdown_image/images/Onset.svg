@@ -39,22 +39,22 @@
 <polygon fill='white' points='253.5,-281 253.5,-317 480.5,-317 480.5,-281 253.5,-281' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='367' y='-295.3'>EntityToFeatureOrDiseaseQualifiers</text>
 </g><g class='node' id='node4'><title>Onset</title>
-<polygon fill='white' points='327,-1 327,-61 473,-61 473,-1 327,-1' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='400' y='-49.8'>Onset</text>
-<polyline fill='none' points='327,-46 473,-46 ' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='400' y='-34.8'>id(i):string</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='400' y='-19.8'>name(i):label_type</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='400' y='-4.8'>category(i):iri_type +</text>
+<polygon fill='white' points='318,-1 318,-61 498,-61 498,-1 318,-1' stroke='black'/>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='408' y='-49.8'>Onset</text>
+<polyline fill='none' points='318,-46 498,-46 ' stroke='black'/>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='408' y='-34.8'>id(i):string</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='408' y='-19.8'>name(i):label_type</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='408' y='-4.8'>category(i):category_type +</text>
 </g><g class='edge' id='edge1'><title>EntityToFeatureOrDiseaseQualifiers-&gt;Onset</title>
-<path d='M369.114,-280.956C374.308,-239.094 387.798,-130.353 395.113,-71.3927' fill='none' stroke='black'/>
-<polygon fill='black' points='396.361,-61.3362 399.595,-71.8142 395.745,-66.2982 395.129,-71.2601 395.129,-71.2601 395.129,-71.2601 395.745,-66.2982 390.664,-70.7061 396.361,-61.3362 396.361,-61.3362' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='382.707' y='-84.3493'> onset qualifier 0..1</text>
-</g><g class='node' id='node5'><title>Attribute</title>
-<polygon fill='white' points='395.5,-153 395.5,-189 472.5,-189 472.5,-153 395.5,-153' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='434' y='-167.3'>Attribute</text>
-</g><g class='edge' id='edge2'><title>Attribute-&gt;Onset</title>
-<path d='M427.298,-142.798C421.503,-119.277 413.146,-85.3561 407.207,-61.2537' fill='none' stroke='black'/>
-<polygon fill='none' points='423.972,-143.929 429.763,-152.801 430.769,-142.254 423.972,-143.929' stroke='black'/>
+<path d='M368.936,-280.876C372.091,-253.561 378.722,-198.466 386,-152 390.254,-124.84 395.85,-94.3744 400.333,-70.9363' fill='none' stroke='black'/>
+<polygon fill='black' points='402.242,-61.0262 404.769,-71.697 401.296,-65.9359 400.35,-70.8456 400.35,-70.8456 400.35,-70.8456 401.296,-65.9359 395.931,-69.9942 402.242,-61.0262 402.242,-61.0262' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='386.834' y='-83.0667'> onset qualifier 0..1</text>
+</g><g class='node' id='node5'><title>ClinicalCourse</title>
+<polygon fill='white' points='395,-153 395,-189 505,-189 505,-153 395,-153' stroke='black'/>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='450' y='-167.3'>ClinicalCourse</text>
+</g><g class='edge' id='edge2'><title>ClinicalCourse-&gt;Onset</title>
+<path d='M441.818,-143.116C434.656,-119.583 424.272,-85.4646 416.903,-61.2537' fill='none' stroke='black'/>
+<polygon fill='none' points='438.506,-144.254 444.766,-152.801 445.202,-142.215 438.506,-144.254' stroke='black'/>
 </g><g class='node' id='node6'><title>NamedThing</title>
 <polygon fill='white' points='498.5,-281 498.5,-317 599.5,-317 599.5,-281 498.5,-281' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='549' y='-295.3'>NamedThing</text>

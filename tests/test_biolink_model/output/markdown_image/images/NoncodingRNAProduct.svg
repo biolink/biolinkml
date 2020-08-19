@@ -39,7 +39,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='184' y='-177.3'>name(i):symbol_type</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='184' y='-162.3'>has_biological_sequence(i):biological_sequence ?</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='184' y='-147.3'>id(i):string</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='184' y='-132.3'>category(i):iri_type +</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='184' y='-132.3'>category(i):category_type +</text>
 </g><g class='node' id='node3'><title>MicroRNA</title>
 <polygon fill='white' points='138.5,-1 138.5,-37 229.5,-37 229.5,-1 138.5,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='184' y='-15.3'>MicroRNA</text>

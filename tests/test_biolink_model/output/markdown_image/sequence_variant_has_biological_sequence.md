@@ -21,3 +21,4 @@ URI: [biolink:sequence_variant_has_biological_sequence](https://w3id.org/biolink
 ## Used by
 
  * [SequenceVariant](SequenceVariant.md)
+ * [Snv](Snv.md)

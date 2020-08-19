@@ -39,12 +39,12 @@
 <polygon fill='white' points='254,-153 254,-189 436,-189 436,-153 254,-153' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='345' y='-167.3'>EntityToDiseaseAssociation</text>
 </g><g class='node' id='node7'><title>Disease</title>
-<polygon fill='white' points='576,-1 576,-61 722,-61 722,-1 576,-1' stroke='black'/>
+<polygon fill='white' points='559,-1 559,-61 739,-61 739,-1 559,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='649' y='-49.8'>Disease</text>
-<polyline fill='none' points='576,-46 722,-46 ' stroke='black'/>
+<polyline fill='none' points='559,-46 739,-46 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='649' y='-34.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='649' y='-19.8'>name(i):label_type</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='649' y='-4.8'>category(i):iri_type +</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='649' y='-4.8'>category(i):category_type +</text>
 </g><g class='edge' id='edge3'><title>EntityToDiseaseAssociation-&gt;Disease</title>
 <path d='M382.581,-152.94C430.632,-131.128 514.89,-92.8787 575.806,-65.2261' fill='none' stroke='black'/>
 <polygon fill='black' points='584.995,-61.0549 577.749,-69.286 580.442,-63.1216 575.889,-65.1884 575.889,-65.1884 575.889,-65.1884 580.442,-63.1216 574.029,-61.0909 584.995,-61.0549 584.995,-61.0549' stroke='black'/>

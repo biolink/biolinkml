@@ -7,7 +7,7 @@ May be a chemical entity or a formulation with a chemical entity as active ingre
 URI: [biolink:ChemicalSubstance](https://w3id.org/biolink/vocab/ChemicalSubstance)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon],[MolecularEntity],[MolecularActivity],[Metabolite],[DrugExposure],[Drug],[ChemicalToThingAssociation],[ChemicalToChemicalDerivationAssociation],[ChemicalToChemicalAssociation],[ChemicalToChemicalAssociation]-%20object%201..1>[ChemicalSubstance&#124;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[ChemicalToChemicalDerivationAssociation]-%20object%201..1>[ChemicalSubstance],[ChemicalToChemicalDerivationAssociation]-%20subject%201..1>[ChemicalSubstance],[ChemicalToThingAssociation]-%20subject%201..1>[ChemicalSubstance],[DrugExposure]-%20has%20drug%201..*>[ChemicalSubstance],[MolecularActivity]-%20has%20input%200..*>[ChemicalSubstance],[MolecularActivity]-%20has%20output%200..*>[ChemicalSubstance],[ChemicalSubstance]^-[Metabolite],[ChemicalSubstance]^-[Drug],[ChemicalSubstance]^-[Carbohydrate],[MolecularEntity]^-[ChemicalSubstance],[Carbohydrate])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon],[MolecularEntity],[MolecularActivity],[Metabolite],[DrugExposure],[Drug],[ChemicalToThingAssociation],[ChemicalToChemicalDerivationAssociation],[ChemicalToChemicalAssociation],[ChemicalToChemicalAssociation]-%20object%201..1>[ChemicalSubstance&#124;id(i):string;name(i):label_type;category(i):category_type%20%2B],[ChemicalToChemicalDerivationAssociation]-%20object%201..1>[ChemicalSubstance],[ChemicalToChemicalDerivationAssociation]-%20subject%201..1>[ChemicalSubstance],[ChemicalToThingAssociation]-%20subject%201..1>[ChemicalSubstance],[DrugExposure]-%20has%20drug%201..*>[ChemicalSubstance],[MolecularActivity]-%20has%20input%200..*>[ChemicalSubstance],[MolecularActivity]-%20has%20output%200..*>[ChemicalSubstance],[ChemicalSubstance]^-[Metabolite],[ChemicalSubstance]^-[Drug],[ChemicalSubstance]^-[Carbohydrate],[MolecularEntity]^-[ChemicalSubstance],[Carbohydrate])
 
 ## Parents
 
@@ -36,7 +36,7 @@ URI: [biolink:ChemicalSubstance](https://w3id.org/biolink/vocab/ChemicalSubstanc
 
  * [category](category.md)  <sub>1..*</sub>
     * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
-    * range: [IriType](types/IriType.md)
+    * range: [CategoryType](types/CategoryType.md)
     * in subsets: (translator_minimal)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
@@ -52,7 +52,7 @@ URI: [biolink:ChemicalSubstance](https://w3id.org/biolink/vocab/ChemicalSubstanc
 |  |  |  |
 | --- | --- | --- |
 | **Mappings:** | | SIO:010004 |
-|  | | WD:Q79529 |
+|  | | WIKIDATA:Q79529 |
 |  | | UMLSSC:T167 |
 |  | | UMLSST:sbst |
 |  | | UMLSSG:CHEM |

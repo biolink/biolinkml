@@ -33,12 +33,12 @@
 <polygon fill='white' points='0,-153 0,-189 118,-189 118,-153 0,-153' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='59' y='-167.3'>MolecularEntity</text>
 </g><g class='node' id='node2'><title>PhysicalEntity</title>
-<polygon fill='white' points='190,-1 190,-61 336,-61 336,-1 190,-1' stroke='black'/>
+<polygon fill='white' points='173,-1 173,-61 353,-61 353,-1 173,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='263' y='-49.8'>PhysicalEntity</text>
-<polyline fill='none' points='190,-46 336,-46 ' stroke='black'/>
+<polyline fill='none' points='173,-46 353,-46 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='263' y='-34.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='263' y='-19.8'>name(i):label_type</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='263' y='-4.8'>category(i):iri_type +</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='263' y='-4.8'>category(i):category_type +</text>
 </g><g class='edge' id='edge1'><title>MolecularEntity-&gt;PhysicalEntity</title>
 <path d='M84.4243,-152.801C116.034,-131.418 170.766,-94.3936 211.328,-66.9544' fill='none' stroke='black' stroke-dasharray='5,2'/>
 <polygon fill='black' points='219.755,-61.2537 213.994,-70.5841 215.614,-64.0553 211.473,-66.8569 211.473,-66.8569 211.473,-66.8569 215.614,-64.0553 208.951,-63.1296 219.755,-61.2537 219.755,-61.2537' stroke='black'/>

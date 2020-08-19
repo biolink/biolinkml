@@ -18,6 +18,7 @@ case_to_phenotypic_feature_association		An association between a case (e.g. indi
 case_to_thing_association		An abstract association for use where the case is the subject
 cell		
 cell_line		
+cell_line_as_a_model_of_disease_association		
 cell_line_to_disease_or_phenotypic_feature_association		An relationship between a cell line and a disease or a phenotype, where the cell line is derived from an individual with that disease or phenotype
 cell_line_to_thing_association		An relationship between a cell line and another entity
 cellular_component		A location in or around a cell
@@ -36,9 +37,10 @@ chemical_to_disease_or_phenotypic_feature_association		An interaction between a 
 chemical_to_gene_association		An interaction between a chemical entity and a gene or gene product
 chemical_to_pathway_association		An interaction between a chemical entity and a biological process or pathway
 chemical_to_thing_association		An interaction between a chemical entity and another entity
+clinical_course		The course a disease typically takes from its onset, progression in time, and eventual resolution or death of the affected individual
 clinical_entity		Any entity or process that exists in the clinical domain and outside the biological realm. Diseases are placed under biological entities
 clinical_intervention		
-clinical_modifier		Used to characterize and specify the phenotypic abnormalities defined in the Phenotypic abnormality subontology, with respect to severity, laterality, age of onset, and other aspects
+clinical_modifier		Used to characterize and specify the phenotypic abnormalities defined in the Phenotypic abnormality subontology, with respect to severity, laterality, and other aspects
 clinical_trial		
 coding_sequence		
 confidence_level		Level of confidence in a statement
@@ -93,6 +95,8 @@ genome		A genome is the sum of genetic material within a cell or virion.
 genomic_entity		an entity that can either be directly located on a genome (gene, transcript, exon, regulatory region) or is encoded in a genome (protein)
 genomic_sequence_localization		A relationship between a sequence feature and an entity it is localized to. The reference entity may be a chromosome, chromosome region or information entity such as a contig
 genotype		An information content entity that describes a genome by specifying the total variation in genomic sequence and/or gene expression, relative to some extablished background
+genotype_as_a_model_of_disease_association		
+genotype_to_disease_association		
 genotype_to_gene_association		Any association between a genotype and a gene. The genotype have have multiple variants in that gene or a single one. There is no assumption of cardinality
 genotype_to_genotype_part_association		Any association between one genotype and a genotypic entity that is a sub-component of it
 genotype_to_phenotypic_feature_association		Any association between one genotype and a phenotypic feature, where having the genotype confers the phenotype, either in isolation or through environment
@@ -105,6 +109,7 @@ gross_anatomical_structure
 haplotype		A set of zero or more Alleles on a single instance of a Sequence[VMC]
 individual_organism		
 information_content_entity		a piece of information that typically describes some piece of biology or is used as support.
+inheritance		The pattern in which a particular genetic trait or disorder is passed from one generation to the next
 life_stage		A stage of development or growth of an organism, including post-natal adult stages
 macromolecular_complex		
 macromolecular_machine		A union of gene, gene product, and macromolecular complex. These are the basic units of function in a cell. They either carry out individual biological activities, or they encode molecules which do this.
@@ -125,8 +130,9 @@ noncoding_RNA_product
 occurrent		A processual entity
 onset		The age group in which manifestations appear
 ontology_class		a concept or class in an ontology, vocabulary or thesaurus
-organism_taxon		
+organism_taxon		A classification of a set of organisms. Examples: NCBITaxon:9606 (Homo sapiens), NCBITaxon:2 (Bacteria). Can also be used to represent strains or subspecies.
 organismal_entity		A named entity that is either a part of an organism, a whole organism, population or clade of organisms, excluding molecular entities
+organismal_entity_as_a_model_of_disease_association		
 pairwise_gene_to_gene_interaction		An interaction between two genes or two gene products. May be physical (e.g. protein binding) or genetic (between genes). May be symmetric (e.g. protein interaction) or directed (e.g. phosphorylation)
 pairwise_interaction_association		An interaction at the molecular level between two physical entities
 pathognomonicity_quantifier		A relationship quantifier between a variant or symptom and a disease, which is high when the presence of the feature implies the existence of the disease
@@ -145,6 +151,7 @@ protein_isoform		Represents a protein that is a specific isoform of the canonica
 provider		person, group, organization or project that provides a piece of information
 publication		Any published piece of information. Can refer to a whole publication, or to a part of it (e.g. a figure, figure legend, or section highlighted by NLP). The scope is intended to be general and include information published on the web as well as journals.
 quantity_value		A value of an attribute that is quantitative and measurable, expressed as a combination of a unit and a numeric value
+reagent_targeted_gene		A gene altered in its expression level in the context of some experiment as a result of being targeted by gene-knockdown reagent(s) such as a morpholino or RNAi
 relationship_quantifier		
 relationship_type		An OWL property used as an edge label
 RNA_product		
@@ -154,6 +161,7 @@ sequence_feature_relationship		For example, a particular exon is part of a parti
 sequence_variant		An allele that varies in its sequence from what is considered the reference allele at that locus.
 sequence_variant_modulates_treatment_association		An association between a sequence variant and a treatment or health intervention. The treatment object itself encompasses both the disease and the drug used.
 severity_value		describes the severity of a phenotypic feature or disease
+snv		SNVs are single nucleotide positions in genomic DNA at which different sequence alternatives exist
 source_file		
 specificity_quantifier		
 subject_of_investigation		An entity that has the role of being studied in an investigation, study, or experiment
@@ -162,6 +170,7 @@ thing_with_taxon		A mixin that can be used on any entity with a taxon
 transcript		An RNA synthesized on a DNA or RNA template by an RNA polymerase
 transcript_to_gene_relationship		A gene is a collection of transcripts
 treatment		A treatment is targeted at a disease or phenotype and may involve multiple drug 'exposures'
+variant_as_a_model_of_disease_association		
 variant_to_disease_association		
 variant_to_phenotypic_feature_association		
 variant_to_population_association		An association between a variant and a population, where the variant has particular frequency in the population

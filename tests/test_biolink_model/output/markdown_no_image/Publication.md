@@ -7,7 +7,7 @@ Any published piece of information. Can refer to a whole publication, or to a pa
 URI: [biolink:Publication](https://w3id.org/biolink/vocab/Publication)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Association]-%20publications%200..*>[Publication&#124;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[InformationContentEntity]^-[Publication],[InformationContentEntity],[Association])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Association]-%20publications%200..*>[Publication&#124;id(i):string;name(i):label_type;category(i):category_type%20%2B],[InformationContentEntity]^-[Publication],[InformationContentEntity],[Association])
 
 ## Parents
 
@@ -24,7 +24,7 @@ URI: [biolink:Publication](https://w3id.org/biolink/vocab/Publication)
 
  * [category](category.md)  <sub>1..*</sub>
     * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
-    * range: [IriType](types/IriType.md)
+    * range: [CategoryType](types/CategoryType.md)
     * in subsets: (translator_minimal)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
@@ -41,6 +41,7 @@ URI: [biolink:Publication](https://w3id.org/biolink/vocab/Publication)
 | --- | --- | --- |
 | **Aliases:** | | reference |
 | **Mappings:** | | IAO:0000311 |
+|  | | IAO:0000013 |
 |  | | UMLSSC:T170 |
 |  | | UMLSST:inpr |
 

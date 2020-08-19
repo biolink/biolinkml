@@ -33,12 +33,12 @@
 <polygon fill='white' points='0,-153 0,-189 242,-189 242,-153 0,-153' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='121' y='-167.3'>EntityToPhenotypicFeatureAssociation</text>
 </g><g class='node' id='node2'><title>PhenotypicFeature</title>
-<polygon fill='white' points='164,-1 164,-61 310,-61 310,-1 164,-1' stroke='black'/>
+<polygon fill='white' points='147,-1 147,-61 327,-61 327,-1 147,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='237' y='-49.8'>PhenotypicFeature</text>
-<polyline fill='none' points='164,-46 310,-46 ' stroke='black'/>
+<polyline fill='none' points='147,-46 327,-46 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='237' y='-34.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='237' y='-19.8'>name(i):label_type</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='237' y='-4.8'>category(i):iri_type +</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='237' y='-4.8'>category(i):category_type +</text>
 </g><g class='edge' id='edge1'><title>EntityToPhenotypicFeatureAssociation-&gt;PhenotypicFeature</title>
 <path d='M135.457,-152.801C152.98,-131.955 182.999,-96.2427 205.866,-69.0387' fill='none' stroke='black'/>
 <polygon fill='black' points='212.41,-61.2537 209.42,-71.8042 209.193,-65.0812 205.975,-68.9086 205.975,-68.9086 205.975,-68.9086 209.193,-65.0812 202.531,-66.0131 212.41,-61.2537 212.41,-61.2537' stroke='black'/>

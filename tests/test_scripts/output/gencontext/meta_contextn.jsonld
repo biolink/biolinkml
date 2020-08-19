@@ -29,6 +29,9 @@
       "apply_to": {
          "@type": "@id"
       },
+      "broad_mappings": {
+         "@type": "@id"
+      },
       "class_uri": {
          "@type": "@id"
       },
@@ -144,6 +147,9 @@
          "@type": "xsd:boolean"
       },
       "name": "@id",
+      "narrow_mappings": {
+         "@type": "@id"
+      },
       "owner": {
          "@type": "@id"
       },

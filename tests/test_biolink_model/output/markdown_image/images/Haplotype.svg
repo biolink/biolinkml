@@ -42,7 +42,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='191' y='-49.3'>has_biological_sequence(i):biological_sequence ?</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='191' y='-34.3'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='191' y='-19.3'>name(i):label_type</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='191' y='-4.3'>category(i):iri_type +</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='191' y='-4.3'>category(i):category_type +</text>
 </g><g class='edge' id='edge1'><title>GenomicEntity-&gt;Haplotype</title>
 <path d='M191,-156.73C191,-133.802 191,-100.822 191,-75.5984' fill='none' stroke='black'/>
 <polygon fill='none' points='187.5,-156.797 191,-166.797 194.5,-156.797 187.5,-156.797' stroke='black'/>

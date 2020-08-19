@@ -39,12 +39,12 @@
 <polygon fill='white' points='118.5,-281 118.5,-317 315.5,-317 315.5,-281 118.5,-281' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='217' y='-295.3'>PairwiseInteractionAssociation</text>
 </g><g class='node' id='node6'><title>MolecularEntity</title>
-<polygon fill='white' points='248,-129 248,-189 394,-189 394,-129 248,-129' stroke='black'/>
+<polygon fill='white' points='231,-129 231,-189 411,-189 411,-129 231,-129' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='321' y='-177.8'>MolecularEntity</text>
-<polyline fill='none' points='248,-174 394,-174 ' stroke='black'/>
+<polyline fill='none' points='231,-174 411,-174 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='321' y='-162.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='321' y='-147.8'>name(i):label_type</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='321' y='-132.8'>category(i):iri_type +</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='321' y='-132.8'>category(i):category_type +</text>
 </g><g class='edge' id='edge2'><title>PairwiseInteractionAssociation-&gt;MolecularEntity</title>
 <path d='M225.318,-280.801C238.82,-259.955 265.262,-224.243 287.027,-197.039' fill='none' stroke='black'/>
 <polygon fill='black' points='293.319,-189.254 290.533,-199.86 290.176,-193.142 287.033,-197.031 287.033,-197.031 287.033,-197.031 290.176,-193.142 283.533,-194.203 293.319,-189.254 293.319,-189.254' stroke='black'/>

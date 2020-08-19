@@ -7,7 +7,7 @@ Represents a protein that is a specific isoform of the canonical or reference pr
 URI: [biolink:ProteinIsoform](https://w3id.org/biolink/vocab/ProteinIsoform)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[ProteinIsoform&#124;name(i):symbol_type;has_biological_sequence(i):biological_sequence%20%3F;id(i):string;category(i):iri_type%20%2B]uses%20-.->[GeneProductIsoform],[Protein]^-[ProteinIsoform],[Protein],[OrganismTaxon],[GeneProductIsoform])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[ProteinIsoform&#124;name(i):symbol_type;has_biological_sequence(i):biological_sequence%20%3F;id(i):string;category(i):category_type%20%2B]uses%20-.->[GeneProductIsoform],[Protein]^-[ProteinIsoform],[Protein],[OrganismTaxon],[GeneProductIsoform])
 
 ## Parents
 
@@ -24,7 +24,7 @@ URI: [biolink:ProteinIsoform](https://w3id.org/biolink/vocab/ProteinIsoform)
 
  * [category](category.md)  <sub>1..*</sub>
     * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
-    * range: [IriType](types/IriType.md)
+    * range: [CategoryType](types/CategoryType.md)
     * in subsets: (translator_minimal)
  * [has biological sequence](has_biological_sequence.md)  <sub>OPT</sub>
     * Description: connects a genomic feature to its sequence

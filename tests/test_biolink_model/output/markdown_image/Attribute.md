@@ -20,9 +20,10 @@ URI: [biolink:Attribute](https://w3id.org/biolink/vocab/Attribute)
 ## Children
 
  * [BiologicalSex](BiologicalSex.md)
- * [ClinicalModifier](ClinicalModifier.md) - Used to characterize and specify the phenotypic abnormalities defined in the Phenotypic abnormality subontology, with respect to severity, laterality, age of onset, and other aspects
+ * [ClinicalCourse](ClinicalCourse.md) - The course a disease typically takes from its onset, progression in time, and eventual resolution or death of the affected individual
+ * [ClinicalModifier](ClinicalModifier.md) - Used to characterize and specify the phenotypic abnormalities defined in the Phenotypic abnormality subontology, with respect to severity, laterality, and other aspects
  * [FrequencyValue](FrequencyValue.md) - describes the frequency of occurrence of an event or condition
- * [Onset](Onset.md) - The age group in which manifestations appear
+ * [Inheritance](Inheritance.md) - The pattern in which a particular genetic trait or disorder is passed from one generation to the next
  * [SeverityValue](SeverityValue.md) - describes the severity of a phenotypic feature or disease
  * [Zygosity](Zygosity.md)
 
@@ -52,7 +53,7 @@ URI: [biolink:Attribute](https://w3id.org/biolink/vocab/Attribute)
 
  * [category](category.md)  <sub>1..*</sub>
     * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
-    * range: [IriType](types/IriType.md)
+    * range: [CategoryType](types/CategoryType.md)
     * in subsets: (translator_minimal)
 
 ### Mixed in from named thing:

@@ -7,11 +7,11 @@ The age group in which manifestations appear
 URI: [biolink:Onset](https://w3id.org/biolink/vocab/Onset)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[QuantityValue],[OntologyClass],[EntityToFeatureOrDiseaseQualifiers]-%20onset%20qualifier%200..1>[Onset&#124;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[Attribute]^-[Onset],[NamedThing],[EntityToFeatureOrDiseaseQualifiers],[Attribute],[Association])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[QuantityValue],[OntologyClass],[EntityToFeatureOrDiseaseQualifiers]-%20onset%20qualifier%200..1>[Onset&#124;id(i):string;name(i):label_type;category(i):category_type%20%2B],[ClinicalCourse]^-[Onset],[NamedThing],[EntityToFeatureOrDiseaseQualifiers],[ClinicalCourse],[Association])
 
 ## Parents
 
- *  is_a: [Attribute](Attribute.md) - A property or characteristic of an entity. For example, an apple may have properties such as color, shape, age, crispiness. An environmental sample may have attributes such as depth, lat, long, material.
+ *  is_a: [ClinicalCourse](ClinicalCourse.md) - The course a disease typically takes from its onset, progression in time, and eventual resolution or death of the affected individual
 
 ## Referenced by class
 
@@ -20,7 +20,7 @@ URI: [biolink:Onset](https://w3id.org/biolink/vocab/Onset)
 ## Attributes
 
 
-### Inherited from attribute:
+### Inherited from clinical course:
 
  * [has attribute type](has_attribute_type.md)  <sub>OPT</sub>
     * Description: connects an attribute to a class that describes it

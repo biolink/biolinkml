@@ -18,6 +18,10 @@ URI: [biolink:VariantToDiseaseAssociation](https://w3id.org/biolink/vocab/Varian
  *  mixin: [VariantToThingAssociation](VariantToThingAssociation.md)
  *  mixin: [EntityToDiseaseAssociation](EntityToDiseaseAssociation.md) - mixin class for any association whose object (target node) is a disease
 
+## Children
+
+ * [VariantAsAModelOfDiseaseAssociation](VariantAsAModelOfDiseaseAssociation.md)
+
 ## Referenced by class
 
 

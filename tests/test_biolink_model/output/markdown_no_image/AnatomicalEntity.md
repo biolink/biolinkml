@@ -7,7 +7,7 @@ A subcellular location, cell type or gross anatomical part
 URI: [biolink:AnatomicalEntity](https://w3id.org/biolink/vocab/AnatomicalEntity)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[ThingWithTaxon],[PhysicalEntity],[OrganismalEntity],[OrganismTaxon],[GrossAnatomicalStructure],[GeneToExpressionSiteAssociation],[GeneOrGeneProduct],[DiseaseOrPhenotypicFeatureAssociationToLocationAssociation],[CellularComponent],[Cell],[AnatomicalEntityToAnatomicalEntityPartOfAssociation],[AnatomicalEntityToAnatomicalEntityOntogenicAssociation],[AnatomicalEntityToAnatomicalEntityAssociation],[AnatomicalEntityToAnatomicalEntityAssociation]-%20object%201..1>[AnatomicalEntity&#124;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[AnatomicalEntityToAnatomicalEntityAssociation]-%20subject%201..1>[AnatomicalEntity],[AnatomicalEntityToAnatomicalEntityOntogenicAssociation]-%20object%201..1>[AnatomicalEntity],[AnatomicalEntityToAnatomicalEntityOntogenicAssociation]-%20subject%201..1>[AnatomicalEntity],[AnatomicalEntityToAnatomicalEntityPartOfAssociation]-%20object%201..1>[AnatomicalEntity],[AnatomicalEntityToAnatomicalEntityPartOfAssociation]-%20subject%201..1>[AnatomicalEntity],[DiseaseOrPhenotypicFeatureAssociationToLocationAssociation]-%20object%201..1>[AnatomicalEntity],[GeneToExpressionSiteAssociation]-%20object%201..1>[AnatomicalEntity],[AnatomicalEntity]uses%20-.->[ThingWithTaxon],[AnatomicalEntity]uses%20-.->[PhysicalEntity],[AnatomicalEntity]^-[GrossAnatomicalStructure],[AnatomicalEntity]^-[CellularComponent],[AnatomicalEntity]^-[Cell],[OrganismalEntity]^-[AnatomicalEntity])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[ThingWithTaxon],[PhysicalEntity],[OrganismalEntity],[OrganismTaxon],[GrossAnatomicalStructure],[GeneToExpressionSiteAssociation],[GeneOrGeneProduct],[DiseaseOrPhenotypicFeatureAssociationToLocationAssociation],[CellularComponent],[Cell],[AnatomicalEntityToAnatomicalEntityPartOfAssociation],[AnatomicalEntityToAnatomicalEntityOntogenicAssociation],[AnatomicalEntityToAnatomicalEntityAssociation],[AnatomicalEntityToAnatomicalEntityAssociation]-%20object%201..1>[AnatomicalEntity&#124;id(i):string;name(i):label_type;category(i):category_type%20%2B],[AnatomicalEntityToAnatomicalEntityAssociation]-%20subject%201..1>[AnatomicalEntity],[AnatomicalEntityToAnatomicalEntityOntogenicAssociation]-%20object%201..1>[AnatomicalEntity],[AnatomicalEntityToAnatomicalEntityOntogenicAssociation]-%20subject%201..1>[AnatomicalEntity],[AnatomicalEntityToAnatomicalEntityPartOfAssociation]-%20object%201..1>[AnatomicalEntity],[AnatomicalEntityToAnatomicalEntityPartOfAssociation]-%20subject%201..1>[AnatomicalEntity],[DiseaseOrPhenotypicFeatureAssociationToLocationAssociation]-%20object%201..1>[AnatomicalEntity],[GeneToExpressionSiteAssociation]-%20object%201..1>[AnatomicalEntity],[AnatomicalEntity]uses%20-.->[ThingWithTaxon],[AnatomicalEntity]uses%20-.->[PhysicalEntity],[AnatomicalEntity]^-[GrossAnatomicalStructure],[AnatomicalEntity]^-[CellularComponent],[AnatomicalEntity]^-[Cell],[OrganismalEntity]^-[AnatomicalEntity])
 
 ## Parents
 
@@ -43,7 +43,7 @@ URI: [biolink:AnatomicalEntity](https://w3id.org/biolink/vocab/AnatomicalEntity)
 
  * [category](category.md)  <sub>1..*</sub>
     * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
-    * range: [IriType](types/IriType.md)
+    * range: [CategoryType](types/CategoryType.md)
     * in subsets: (translator_minimal)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
@@ -66,7 +66,8 @@ URI: [biolink:AnatomicalEntity](https://w3id.org/biolink/vocab/AnatomicalEntity)
 |  |  |  |
 | --- | --- | --- |
 | **Mappings:** | | SIO:010046 |
-|  | | WD:Q4936952 |
+|  | | UBERON:0001062 |
+|  | | WIKIDATA:Q4936952 |
 |  | | UMLSSG:ANAT |
 |  | | UMLSSC:T022 |
 |  | | UMLSST:bdsy |
