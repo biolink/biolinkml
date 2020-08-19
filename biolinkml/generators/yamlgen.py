@@ -32,5 +32,5 @@ class YAMLGenerator(Generator):
 @click.option("--validateonly/--generate", "-v/-g", default=False,
               help="Just validate / generate output (default: generate)")
 def cli(yamlfile, **args):
-    """ Generate TSV summary files for viewing in Excel and the like """
+    """ Validate input and produce fully resolved yaml equivalent """
     print(YAMLGenerator(yamlfile, **args).serialize(**args))
