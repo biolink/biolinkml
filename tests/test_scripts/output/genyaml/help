@@ -1,6 +1,6 @@
 Usage: gen-yaml [OPTIONS] YAMLFILE
 
-  Generate TSV summary files for viewing in Excel and the like
+  Validate input and produce fully resolved yaml equivalent
 
 Options:
   -v, --validateonly / -g, --generate
