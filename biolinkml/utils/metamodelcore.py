@@ -5,6 +5,7 @@ from dataclasses import field
 from typing import Union, Optional, Tuple
 from urllib.parse import urlparse
 
+from ShExJSG.ShExJ import IRIREF, PN_PREFIX
 from rdflib import Literal, BNode, URIRef
 from rdflib.namespace import is_ncname
 from rdflib.term import Identifier as rdflib_Identifier
@@ -133,8 +134,7 @@ class URI(URIorCURIE):
 
     @classmethod
     def is_valid(cls, v: str) -> bool:
-        # TODO: need to get a bit more rigorous here...
-        return v is not None and not URIorCURIE.is_curie(v) and bool(urlparse(v))
+        return v is not None and not URIorCURIE.is_curie(v) and isinstance(v, IRIREF)
 
 
 class Curie(URIorCURIE):
@@ -166,7 +166,9 @@ class Curie(URIorCURIE):
 
     @classmethod
     def is_valid(cls, v: str) -> bool:
-        return cls.ns_ln(v) is not None
+        pnln = cls.ns_ln(v)
+        pn, ln = pnln
+        return pnln is not None and (not pn or isinstance(pn, PN_PREFIX))
 
     # This code was extracted from the termorcurie package of the rdfa
     def as_uri(self, nsm: Namespaces) -> Optional[URIRef]:
