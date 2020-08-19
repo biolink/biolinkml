@@ -2,7 +2,7 @@
 
 | command line | module | Generator name | function | help file |
 | -----------  | ------ | -------------  | -------- | --------- |
-| gen-yaml     | [yamlgen.py]() | YamlGenerator | Validate YAML or emit compiled module | [yamlgen help](../../tests/test_scripts/output/gentaml/help) |
+| gen-yaml     | [yamlgen.py]() | YamlGenerator | Validate YAML or emit compiled module | [yamlgen help](../../tests/test_scripts/output/gennaml/help) |
 |  gen-jsonld-context   | [jsonldcontextgen.py]() |    ContextGenerator | generate a JSON-LD @context block  | [contextgen help](../../tests/test_scripts/output/gencontext/help) |
 |  gen-csv   | [csvgen.py]() |    CsvGenerator | generate a csv summary  | [csvgen help](../../tests/test_scripts/output/gencsv/help) |
 |  gen-graphviz   | [dotgen.py]() |    DotGenerator | generate graphviz representation  | [dotgen help](../../tests/test_scripts/output/gengraphviz/help) |
