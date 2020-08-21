@@ -36,6 +36,17 @@ class TCCMTestCase(TestEnvironmentTestCase):
         self.assertIn('Unrecognized prefix: LA', logger.result, "Inherited slot mapping validation failure")
         self.assertIn('Unrecognized prefix: TI', logger.result, "Inherited class mapping mapping validation failure")
 
+    def test_local_imports(self):
+        """ Make sure there is a '.' on a local import in python """
+        env.generate_single_file('importee.py',
+                                 lambda: PythonGenerator(env.input_path('issue_tccm', 'importee.yaml'),
+                                                         importmap=env.import_map, mergeimports=False).serialize(),
+                                 comparator=compare_python, value_is_returned=True)
+        env.generate_single_file('importer.py',
+                                 lambda: PythonGenerator(env.input_path('issue_tccm', 'importer.yaml'),
+                                                         importmap=env.import_map, mergeimports=False).serialize(),
+                                 comparator=compare_python, value_is_returned=True)
+
 
 if __name__ == '__main__':
     unittest.main()
