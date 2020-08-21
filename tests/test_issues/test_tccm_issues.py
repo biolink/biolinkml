@@ -1,6 +1,7 @@
 import unittest
 
 from biolinkml.generators.pythongen import PythonGenerator
+from biolinkml.generators.yamlgen import YAMLGenerator
 from biolinkml.utils.schemaloader import SchemaLoader
 from tests.utils.python_comparator import compare_python
 from tests.utils.test_environment import TestEnvironmentTestCase
@@ -21,10 +22,30 @@ class TCCMTestCase(TestEnvironmentTestCase):
                                  lambda: PythonGenerator(env.input_path('issue_tccm', 'resourcedescription.yaml'),
                                                          importmap=env.import_map, mergeimports=False).serialize(),
                                  comparator=compare_python, value_is_returned=True)
-        # schema = SchemaLoader(env.input_path('issue_tccm', 'entityreference.yaml'), mergeimports=False).resolve()
-        # print("HERE")
 
+    def test_mapping_prefix(self):
+        """ Prefix validation fails in  """
+        with self.redirect_logstream() as logger:
+            YAMLGenerator(env.input_path('issue_tccm', 'illegal_mapping_prefix.yaml'),
+                          mergeimports=False, logger=logger).serialize(validateonly=True)
+        self.assertIn('Unrecognized prefix: DO', logger.result, "Basic slot mapping validation failure")
+        self.assertIn('Unrecognized prefix: RE', logger.result, "Basic class mapping validation failure")
+        self.assertIn('Unrecognized prefix: MI', logger.result, "Solo slot usage mapping validation failure")
+        self.assertIn('Unrecognized prefix: FA', logger.result, "Slot usage specialization validation failure")
+        self.assertIn('Unrecognized prefix: SO', logger.result, "Slot usage variant validation failure")
+        self.assertIn('Unrecognized prefix: LA', logger.result, "Inherited slot mapping validation failure")
+        self.assertIn('Unrecognized prefix: TI', logger.result, "Inherited class mapping mapping validation failure")
 
+    def test_local_imports(self):
+        """ Make sure there is a '.' on a local import in python """
+        env.generate_single_file('importee.py',
+                                 lambda: PythonGenerator(env.input_path('issue_tccm', 'importee.yaml'),
+                                                         importmap=env.import_map, mergeimports=False).serialize(),
+                                 comparator=compare_python, value_is_returned=True)
+        env.generate_single_file('importer.py',
+                                 lambda: PythonGenerator(env.input_path('issue_tccm', 'importer.yaml'),
+                                                         importmap=env.import_map, mergeimports=False).serialize(),
+                                 comparator=compare_python, value_is_returned=True)
 
 
 if __name__ == '__main__':

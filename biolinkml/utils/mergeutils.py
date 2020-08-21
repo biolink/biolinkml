@@ -100,7 +100,7 @@ def merge_slots(target: Union[SlotDefinition, TypeDefinition], source: Union[Slo
     if skip is None:
         skip = []
     for k, v in dataclasses.asdict(source).items():
-        if k not in skip and v is not None and getattr(target, k, None) is None:
+        if k not in skip and v is not None and (not inheriting or getattr(target, k, None) is None):
             if k in source._inherited_slots or not inheriting:
                 setattr(target, k, deepcopy(v))
             else:
