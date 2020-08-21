@@ -189,6 +189,7 @@ class SchemaLoader:
         # Update classes with is_a and mixin information
         merged_classes: List[ClassDefinitionName] = []
         for cls in self.schema.classes.values():
+            self.process_slot_usages(cls)
             if not cls.from_schema:
                 cls.from_schema = self.schema.id
             self.merge_class(cls, merged_classes)
@@ -431,7 +432,6 @@ class SchemaLoader:
         """
         if cls.name not in merged_classes:
             merged_classes.append(cls.name)
-            self.process_slot_usages(cls)
             if cls.is_a:
                 if cls.is_a in self.schema.classes:
                     self.merge_class(self.schema.classes[cls.is_a], merged_classes)
@@ -448,7 +448,7 @@ class SchemaLoader:
 
     def process_slot_usage_definitions(self):
         """
-        Slot usages can be used to completely define classes.  Iterate over the class hierarchy finding all slot
+        Slot usages can be used to completely define slots.  Iterate over the class hierarchy finding all slot
         definitions that are introduced strictly as usages and add them to the slots component
         """
         visited: Set[ClassDefinitionName] = set()
@@ -490,20 +490,18 @@ class SchemaLoader:
             if not parent_slot and slotname in self.schema.slots:
                 parent_slot = self.schema.slots[slotname]
 
-            # If parent slot is still not defined, it means that we introduced a NEW slot in the slot usages
             if not parent_slot:
+                # This test is here because it is really easy to break things in the slot merge utilities.  It should
+                # stay
                 self.logger.error(f'class "{cls.name}" slot "{slotname}" -- error occurred. This should not happen')
-                # child_name = slotname
-                # slot_alias = None
-                # if not slot_usage.range:
-                #     slot_usage.range = self.schema.default_range
             else:
                 child_name = slot_usage_name(slotname, cls)
                 slot_alias = parent_slot.alias if parent_slot.alias else slotname
             new_slot = SlotDefinition(name=child_name, alias=slot_alias, domain=cls.name, is_usage_slot=Bool(True),
                                       usage_slot_name=slotname, owner=cls.name, domain_of=[cls.name])
             self.schema.slots[child_name] = new_slot
-            merge_slots(new_slot, slot_usage, inheriting=False)
+            merge_slots(new_slot, slot_usage, inheriting=False, skip=['name', 'alias', 'domain', 'is_usage_slot',
+                                                                      'usage_slot_name', 'owner', 'domain_of'])
 
             # Copy the parent definition.  If there is no parent definition, the slot is being defined
             # locally as a slot_usage
