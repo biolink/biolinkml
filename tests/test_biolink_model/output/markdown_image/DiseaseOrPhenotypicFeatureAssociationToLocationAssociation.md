@@ -24,6 +24,7 @@ URI: [biolink:DiseaseOrPhenotypicFeatureAssociationToLocationAssociation](https:
  * [disease or phenotypic feature association to location association➞object](disease_or_phenotypic_feature_association_to_location_association_object.md)  <sub>REQ</sub>
     * Description: anatomical entity in which the disease or feature is found
     * range: [AnatomicalEntity](AnatomicalEntity.md)
+    * Example:    
 
 ### Inherited from disease or phenotypic feature association to thing association:
 
@@ -37,6 +38,8 @@ URI: [biolink:DiseaseOrPhenotypicFeatureAssociationToLocationAssociation](https:
  * [disease or phenotypic feature association to thing association➞subject](disease_or_phenotypic_feature_association_to_thing_association_subject.md)  <sub>REQ</sub>
     * Description: disease or phenotype
     * range: [DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md)
+    * Example:    
+    * Example:    
  * [negated](negated.md)  <sub>OPT</sub>
     * Description: if set to true, then the association is negated i.e. is not true
     * range: [Boolean](types/Boolean.md)

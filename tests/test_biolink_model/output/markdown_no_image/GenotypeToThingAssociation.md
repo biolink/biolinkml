@@ -29,6 +29,9 @@ URI: [biolink:GenotypeToThingAssociation](https://w3id.org/biolink/vocab/Genotyp
  * [genotype to thing association➞subject](genotype_to_thing_association_subject.md)  <sub>REQ</sub>
     * Description: genotype that is the subject of the association
     * range: [Genotype](Genotype.md)
+ * [genotype to thing association➞subject](genotype_to_thing_association_subject.md)  <sub>REQ</sub>
+    * Description: genotype that is the subject of the association
+    * range: [Genotype](Genotype.md)
 
 ### Inherited from association:
 

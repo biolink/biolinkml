@@ -7,7 +7,7 @@ An association between a material sample and a disease or phenotype
 URI: [biolink:MaterialSampleToDiseaseOrPhenotypicFeatureAssociation](https://w3id.org/biolink/vocab/MaterialSampleToDiseaseOrPhenotypicFeatureAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[ThingToDiseaseOrPhenotypicFeatureAssociation],[Publication],[Provider],[OntologyClass],[NamedThing],[MaterialSampleToThingAssociation],[MaterialSampleToDiseaseOrPhenotypicFeatureAssociation&#124;relation(i):uriorcurie;id(i):string;negated(i):boolean%20%3F]uses%20-.->[MaterialSampleToThingAssociation],[MaterialSampleToDiseaseOrPhenotypicFeatureAssociation]uses%20-.->[ThingToDiseaseOrPhenotypicFeatureAssociation],[Association]^-[MaterialSampleToDiseaseOrPhenotypicFeatureAssociation],[Association])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[ThingToDiseaseOrPhenotypicFeatureAssociation],[Publication],[Provider],[OntologyClass],[NamedThing],[MaterialSampleToThingAssociation],[MaterialSampleToDiseaseOrPhenotypicFeatureAssociation&#124;relation(i):uriorcurie;id(i):string;negated(i):boolean%20%3F]uses%20-.->[MaterialSampleToThingAssociation],[MaterialSampleToDiseaseOrPhenotypicFeatureAssociation]uses%20-.->[ThingToDiseaseOrPhenotypicFeatureAssociation],[Association]^-[MaterialSampleToDiseaseOrPhenotypicFeatureAssociation],[DiseaseOrPhenotypicFeature],[Association])
 
 ## Parents
 
@@ -51,3 +51,11 @@ URI: [biolink:MaterialSampleToDiseaseOrPhenotypicFeatureAssociation](https://w3i
  * [subject](subject.md)  <sub>REQ</sub>
     * Description: connects an association to the subject of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [NamedThing](NamedThing.md)
+
+### Mixed in from thing to disease or phenotypic feature association:
+
+ * [thing to disease or phenotypic feature association➞object](thing_to_disease_or_phenotypic_feature_association_object.md)  <sub>REQ</sub>
+    * Description: disease or phenotype
+    * range: [DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md)
+    * Example:    
+    * Example:    

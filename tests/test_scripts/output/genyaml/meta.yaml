@@ -1283,8 +1283,6 @@ slots:
     name: repr
     definition_uri: https://w3id.org/biolink/biolinkml/meta/repr
     description: the name of the python object that implements this type definition
-    examples:
-    - {}
     from_schema: https://w3id.org/biolink/biolinkml/meta
     domain: type_definition
     range: string
@@ -2172,7 +2170,7 @@ classes:
     class_uri: meta:Annotatable
 metamodel_version: 1.5.3
 source_file: meta.yaml
-source_file_date: Wed Aug 19 21:00:32 2020
-source_file_size: 26654
-generation_date: 2020-08-19 21:03
+source_file_date: Fri Aug 21 16:39:18 2020
+source_file_size: 26625
+generation_date: 2020-08-21 16:42
 

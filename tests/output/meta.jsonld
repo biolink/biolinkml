@@ -1534,11 +1534,6 @@
       "name": "repr",
       "definition_uri": "https://w3id.org/biolink/biolinkml/meta/repr",
       "description": "the name of the python object that implements this type definition",
-      "examples": [
-        {
-          "type": "Example"
-        }
-      ],
       "from_schema": "https://w3id.org/biolink/biolinkml/meta",
       "domain": "TypeDefinition",
       "range": "string",
@@ -2539,7 +2534,7 @@
   "metamodel_version": "1.5.3",
   "source_file": "meta.yaml",
   "source_file_date": "Friday Sep 27 12:00:00 2003",
-  "source_file_size": 26654,
+  "source_file_size": 26625,
   "generation_date": "Friday Sep 27 12:00:00 2003",
   "type": "SchemaDefinition",
   "@context": [

@@ -722,7 +722,7 @@
                "type": "boolean"
             },
             "object": {
-               "description": "connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.",
+               "description": "disease or phenotype",
                "type": "string"
             },
             "onset_qualifier": {
@@ -765,8 +765,8 @@
          },
          "required": [
             "relation",
-            "object",
             "id",
+            "object",
             "subject"
          ],
          "title": "CellLineAsAModelOfDiseaseAssociation",
@@ -3468,7 +3468,7 @@
                "type": "string"
             },
             "subject": {
-               "description": "A genotype that has a role in modeling the disease.",
+               "description": "genotype that is the subject of the association",
                "type": "string"
             }
          },

@@ -36,6 +36,7 @@ URI: [biolink:MacromolecularMachineToCellularComponentAssociation](https://w3id.
  * [functional association➞subject](functional_association_subject.md)  <sub>REQ</sub>
     * Description: gene, product or macromolecular complex that has the function associated with the GO term
     * range: [MacromolecularMachine](MacromolecularMachine.md)
+    * Example:    
  * [negated](negated.md)  <sub>OPT</sub>
     * Description: if set to true, then the association is negated i.e. is not true
     * range: [Boolean](types/Boolean.md)

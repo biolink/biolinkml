@@ -35,6 +35,7 @@ URI: [biolink:EntityToDiseaseAssociation](https://w3id.org/biolink/vocab/EntityT
  * [entity to disease association➞object](entity_to_disease_association_object.md)  <sub>REQ</sub>
     * Description: disease
     * range: [Disease](Disease.md)
+    * Example:    
 
 ### Inherited from entity to feature or disease qualifiers:
 

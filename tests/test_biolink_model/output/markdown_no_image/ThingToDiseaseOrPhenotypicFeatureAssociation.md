@@ -30,6 +30,13 @@ URI: [biolink:ThingToDiseaseOrPhenotypicFeatureAssociation](https://w3id.org/bio
  * [thing to disease or phenotypic feature association➞object](thing_to_disease_or_phenotypic_feature_association_object.md)  <sub>REQ</sub>
     * Description: disease or phenotype
     * range: [DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md)
+    * Example:    
+    * Example:    
+ * [thing to disease or phenotypic feature association➞object](thing_to_disease_or_phenotypic_feature_association_object.md)  <sub>REQ</sub>
+    * Description: disease or phenotype
+    * range: [DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md)
+    * Example:    
+    * Example:    
 
 ### Inherited from association:
 

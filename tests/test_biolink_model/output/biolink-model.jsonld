@@ -4803,6 +4803,16 @@
     },
     {
       "name": "sequence_variant_id",
+      "examples": [
+        {
+          "value": "ZFIN:ZDB-ALT-980203-1091",
+          "description": "ti282a allele from ZFIN"
+        },
+        {
+          "value": "ClinVarVariant:17681",
+          "description": "NM_007294.3(BRCA1):c.2521C>T (p.Arg841Trp)"
+        }
+      ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "id",
       "domain": "SequenceVariant",
@@ -5094,8 +5104,18 @@
     {
       "name": "pairwise_interaction_association_id",
       "description": "identifier for the interaction. This may come from an interaction database such as IMEX.",
+      "examples": [
+        {
+          "value": "WB:WBInteraction000538741",
+          "description": null
+        }
+      ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "id",
+      "values_from": [
+        "IMEX",
+        "BioGRID"
+      ],
       "domain": "PairwiseInteractionAssociation",
       "range": "string",
       "slot_uri": "https://w3id.org/biolink/vocab/id",
@@ -5113,8 +5133,18 @@
     {
       "name": "pairwise_interaction_association_relation",
       "description": "interaction relationship type",
+      "examples": [
+        {
+          "value": "RO:0002447",
+          "description": "the subject molecular phosphorylates the object molecule"
+        }
+      ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "relation",
+      "values_from": [
+        "ro",
+        "mi"
+      ],
       "domain": "PairwiseInteractionAssociation",
       "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/vocab/relation",
@@ -5148,6 +5178,12 @@
     },
     {
       "name": "pairwise_interaction_association_interacting_molecules_category",
+      "examples": [
+        {
+          "value": "MI:1048",
+          "description": "smallmolecule-protein"
+        }
+      ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "interacting_molecules_category",
       "domain": "PairwiseInteractionAssociation",
@@ -5167,6 +5203,10 @@
       "description": "interaction relationship type",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "relation",
+      "values_from": [
+        "ro",
+        "mi"
+      ],
       "domain": "PairwiseGeneToGeneInteraction",
       "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/vocab/relation",
@@ -5214,24 +5254,6 @@
       ],
       "is_usage_slot": true,
       "usage_slot_name": "subject",
-      "type": "SlotDefinition"
-    },
-    {
-      "name": "thing_to_disease_or_phenotypic_feature_association_object",
-      "description": "disease or phenotype",
-      "from_schema": "https://w3id.org/biolink/biolink-model",
-      "is_a": "object",
-      "domain": "ThingToDiseaseOrPhenotypicFeatureAssociation",
-      "range": "DiseaseOrPhenotypicFeature",
-      "slot_uri": "https://w3id.org/biolink/vocab/object",
-      "required": true,
-      "alias": "object",
-      "owner": "ThingToDiseaseOrPhenotypicFeatureAssociation",
-      "domain_of": [
-        "ThingToDiseaseOrPhenotypicFeatureAssociation"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "object",
       "type": "SlotDefinition"
     },
     {
@@ -5490,8 +5512,21 @@
     {
       "name": "disease_to_thing_association_subject",
       "description": "disease class",
+      "examples": [
+        {
+          "value": "MONDO:0017314",
+          "description": "Ehlers-Danlos syndrome, vascular type"
+        }
+      ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
+      "values_from": [
+        "mondo",
+        "omim",
+        "orphanet",
+        "ncit",
+        "doid"
+      ],
       "domain": "DiseaseToThingAssociation",
       "range": "Disease",
       "slot_uri": "https://w3id.org/biolink/vocab/subject",
@@ -5559,8 +5594,28 @@
     {
       "name": "entity_to_phenotypic_feature_association_object",
       "description": "phenotypic class",
+      "examples": [
+        {
+          "value": "HP:0002487",
+          "description": "Hyperkinesis"
+        },
+        {
+          "value": "WBPhenotype:0000180",
+          "description": "axon morphology variant"
+        },
+        {
+          "value": "MP:0001569",
+          "description": "abnormal circulating bilirubin level"
+        }
+      ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "object",
+      "values_from": [
+        "upheno",
+        "hp",
+        "mp",
+        "wbphenotypic feature"
+      ],
       "domain": "EntityToPhenotypicFeatureAssociation",
       "range": "PhenotypicFeature",
       "slot_uri": "https://w3id.org/biolink/vocab/object",
@@ -5577,6 +5632,12 @@
     {
       "name": "entity_to_disease_association_object",
       "description": "disease",
+      "examples": [
+        {
+          "value": "MONDO:0020066",
+          "description": "Ehlers-Danlos syndrome"
+        }
+      ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "object",
       "domain": "EntityToDiseaseAssociation",
@@ -5595,6 +5656,16 @@
     {
       "name": "disease_or_phenotypic_feature_association_to_thing_association_subject",
       "description": "disease or phenotype",
+      "examples": [
+        {
+          "value": "MONDO:0017314",
+          "description": "Ehlers-Danlos syndrome, vascular type"
+        },
+        {
+          "value": "MP:0013229",
+          "description": "abnormal brain ventricle size"
+        }
+      ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "DiseaseOrPhenotypicFeatureAssociationToThingAssociation",
@@ -5613,6 +5684,12 @@
     {
       "name": "disease_or_phenotypic_feature_association_to_location_association_object",
       "description": "anatomical entity in which the disease or feature is found",
+      "examples": [
+        {
+          "value": "UBERON:0002048",
+          "description": "lung"
+        }
+      ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "object",
       "domain": "DiseaseOrPhenotypicFeatureAssociationToLocationAssociation",
@@ -5623,6 +5700,34 @@
       "owner": "DiseaseOrPhenotypicFeatureAssociationToLocationAssociation",
       "domain_of": [
         "DiseaseOrPhenotypicFeatureAssociationToLocationAssociation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "object",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "thing_to_disease_or_phenotypic_feature_association_object",
+      "description": "disease or phenotype",
+      "examples": [
+        {
+          "value": "MONDO:0017314",
+          "description": "Ehlers-Danlos syndrome, vascular type"
+        },
+        {
+          "value": "MP:0013229",
+          "description": "abnormal brain ventricle size"
+        }
+      ],
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "is_a": "object",
+      "domain": "ThingToDiseaseOrPhenotypicFeatureAssociation",
+      "range": "DiseaseOrPhenotypicFeature",
+      "slot_uri": "https://w3id.org/biolink/vocab/object",
+      "required": true,
+      "alias": "object",
+      "owner": "ThingToDiseaseOrPhenotypicFeatureAssociation",
+      "domain_of": [
+        "ThingToDiseaseOrPhenotypicFeatureAssociation"
       ],
       "is_usage_slot": true,
       "usage_slot_name": "object",
@@ -5659,24 +5764,6 @@
       "owner": "GenotypeToPhenotypicFeatureAssociation",
       "domain_of": [
         "GenotypeToPhenotypicFeatureAssociation"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "subject",
-      "type": "SlotDefinition"
-    },
-    {
-      "name": "genotype_to_thing_association_subject",
-      "description": "genotype that is the subject of the association",
-      "from_schema": "https://w3id.org/biolink/biolink-model",
-      "is_a": "subject",
-      "domain": "GenotypeToThingAssociation",
-      "range": "Genotype",
-      "slot_uri": "https://w3id.org/biolink/vocab/subject",
-      "required": true,
-      "alias": "subject",
-      "owner": "GenotypeToThingAssociation",
-      "domain_of": [
-        "GenotypeToThingAssociation"
       ],
       "is_usage_slot": true,
       "usage_slot_name": "subject",
@@ -5720,6 +5807,16 @@
     {
       "name": "variant_to_thing_association_subject",
       "description": "a sequence variant in which the allele state is associated with some other entity",
+      "examples": [
+        {
+          "value": "ClinVar:38077",
+          "description": "ClinVar representation of NM_000059.3(BRCA2):c.7007G>A (p.Arg2336His)"
+        },
+        {
+          "value": "ClinGen:CA024716",
+          "description": "chr13:g.32921033G>C (hg19) in ClinGen"
+        }
+      ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "VariantToThingAssociation",
@@ -5738,6 +5835,12 @@
     {
       "name": "gene_to_phenotypic_feature_association_subject",
       "description": "gene in which variation is correlated with the phenotypic feature",
+      "examples": [
+        {
+          "value": "HGNC:2197",
+          "description": "COL1A1 (Human)"
+        }
+      ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "GeneToPhenotypicFeatureAssociation",
@@ -5774,6 +5877,12 @@
     {
       "name": "variant_to_population_association_subject",
       "description": "an allele that has a certain frequency in a given population",
+      "examples": [
+        {
+          "value": "NC_000017.11:g.43051071A>T",
+          "description": "17:41203088 A/C in gnomad"
+        }
+      ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "VariantToPopulationAssociation",
@@ -5792,6 +5901,12 @@
     {
       "name": "variant_to_population_association_object",
       "description": "the population that is observed to have the frequency",
+      "examples": [
+        {
+          "value": "HANCESTRO:0010",
+          "description": "African"
+        }
+      ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "object",
       "domain": "VariantToPopulationAssociation",
@@ -5810,6 +5925,12 @@
     {
       "name": "variant_to_population_association_has_quotient",
       "description": "frequency of allele in population, expressed as a number with allele divided by number in reference population, aka allele frequency",
+      "examples": [
+        {
+          "value": "0.0001666",
+          "description": null
+        }
+      ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "has_quotient",
       "domain": "VariantToPopulationAssociation",
@@ -5827,6 +5948,12 @@
     {
       "name": "variant_to_population_association_has_count",
       "description": "number in object population that carry a particular allele, aka allele count",
+      "examples": [
+        {
+          "value": "4",
+          "description": "4 individuals in gnomad set"
+        }
+      ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "has_count",
       "domain": "VariantToPopulationAssociation",
@@ -5844,6 +5971,12 @@
     {
       "name": "variant_to_population_association_has_total",
       "description": "number all populations that carry a particular allele, aka allele number",
+      "examples": [
+        {
+          "value": "24014",
+          "description": "24014 individuals in gnomad set"
+        }
+      ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "has_total",
       "domain": "VariantToPopulationAssociation",
@@ -5933,6 +6066,12 @@
     {
       "name": "variant_to_disease_association_subject",
       "description": "a sequence variant in which the allele state is associated in some way with the disease state",
+      "examples": [
+        {
+          "value": "ClinVar:52241",
+          "description": "NM_000059.3(BRCA2):c.7007G>C (p.Arg2336Pro)"
+        }
+      ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "VariantToDiseaseAssociation",
@@ -5970,6 +6109,12 @@
     {
       "name": "variant_to_disease_association_object",
       "description": "a disease that is associated with that variant",
+      "examples": [
+        {
+          "value": "MONDO:0016419",
+          "description": "hereditary breast cancer"
+        }
+      ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "object",
       "domain": "VariantToDiseaseAssociation",
@@ -6025,6 +6170,12 @@
     {
       "name": "genotype_to_disease_association_object",
       "description": "a disease that is associated with that genotype",
+      "examples": [
+        {
+          "value": "MONDO:0016419",
+          "description": "hereditary breast cancer"
+        }
+      ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "object",
       "domain": "GenotypeToDiseaseAssociation",
@@ -6186,6 +6337,24 @@
       "type": "SlotDefinition"
     },
     {
+      "name": "genotype_to_thing_association_subject",
+      "description": "genotype that is the subject of the association",
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "is_a": "subject",
+      "domain": "GenotypeToThingAssociation",
+      "range": "Genotype",
+      "slot_uri": "https://w3id.org/biolink/vocab/subject",
+      "required": true,
+      "alias": "subject",
+      "owner": "GenotypeToThingAssociation",
+      "domain_of": [
+        "GenotypeToThingAssociation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "subject",
+      "type": "SlotDefinition"
+    },
+    {
       "name": "gene_to_expression_site_association_subject",
       "description": "gene in which variation is correlated with the phenotypic feature",
       "from_schema": "https://w3id.org/biolink/biolink-model",
@@ -6206,6 +6375,12 @@
     {
       "name": "gene_to_expression_site_association_object",
       "description": "location in which the gene is expressed",
+      "examples": [
+        {
+          "value": "UBERON:0002037",
+          "description": "cerebellum"
+        }
+      ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "object",
       "domain": "GeneToExpressionSiteAssociation",
@@ -6243,6 +6418,12 @@
     {
       "name": "gene_to_expression_site_association_stage_qualifier",
       "description": "stage at which the gene is expressed in the site",
+      "examples": [
+        {
+          "value": "UBERON:0000069",
+          "description": "larval stage"
+        }
+      ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "stage_qualifier",
       "domain": "GeneToExpressionSiteAssociation",
@@ -6313,6 +6494,12 @@
     {
       "name": "functional_association_subject",
       "description": "gene, product or macromolecular complex that has the function associated with the GO term",
+      "examples": [
+        {
+          "value": "ZFIN:ZDB-GENE-050417-357",
+          "description": "twist1b"
+        }
+      ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "FunctionalAssociation",
@@ -6331,8 +6518,21 @@
     {
       "name": "functional_association_object",
       "description": "class describing the activity, process or localization of the gene product",
+      "examples": [
+        {
+          "value": "GO:0016301",
+          "description": "kinase activity"
+        },
+        {
+          "value": "GO:0045211",
+          "description": "postsynaptic membrane"
+        }
+      ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "object",
+      "values_from": [
+        "go"
+      ],
       "domain": "FunctionalAssociation",
       "range": "GeneOntologyClass",
       "slot_uri": "https://w3id.org/biolink/vocab/object",
@@ -6400,6 +6600,12 @@
     {
       "name": "gene_to_go_term_association_subject",
       "description": "gene, product or macromolecular complex that has the function associated with the GO term",
+      "examples": [
+        {
+          "value": "ZFIN:ZDB-GENE-050417-357",
+          "description": "twist1b"
+        }
+      ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "functional_association_subject",
       "domain": "GeneToGoTermAssociation",
@@ -6418,8 +6624,17 @@
     {
       "name": "gene_to_go_term_association_object",
       "description": "class describing the activity, process or localization of the gene product",
+      "examples": [
+        {
+          "value": "GO:0016301",
+          "description": "kinase activity"
+        }
+      ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "functional_association_object",
+      "values_from": [
+        "go"
+      ],
       "domain": "GeneToGoTermAssociation",
       "range": "GeneOntologyClass",
       "slot_uri": "https://w3id.org/biolink/vocab/object",
@@ -6435,6 +6650,9 @@
     },
     {
       "name": "genomic_sequence_localization_subject",
+      "aliases": [
+        "sequence feature"
+      ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "subject",
       "domain": "GenomicSequenceLocalization",
@@ -6452,6 +6670,9 @@
     },
     {
       "name": "genomic_sequence_localization_object",
+      "aliases": [
+        "reference"
+      ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "object",
       "domain": "GenomicSequenceLocalization",
@@ -9209,7 +9430,8 @@
         "qualifiers",
         "publications",
         "provided_by",
-        "cell_line_to_disease_or_phenotypic_feature_association_subject"
+        "cell_line_to_disease_or_phenotypic_feature_association_subject",
+        "thing_to_disease_or_phenotypic_feature_association_object"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/CellLineToDiseaseOrPhenotypicFeatureAssociation",
       "type": "ClassDefinition"
@@ -9337,7 +9559,8 @@
         "qualifiers",
         "publications",
         "provided_by",
-        "chemical_to_disease_or_phenotypic_feature_association_object"
+        "chemical_to_disease_or_phenotypic_feature_association_object",
+        "thing_to_disease_or_phenotypic_feature_association_object"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/ChemicalToDiseaseOrPhenotypicFeatureAssociation",
       "defining_slots": [
@@ -9473,7 +9696,8 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by"
+        "provided_by",
+        "thing_to_disease_or_phenotypic_feature_association_object"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/MaterialSampleToDiseaseOrPhenotypicFeatureAssociation",
       "defining_slots": [
@@ -9660,6 +9884,7 @@
       "slots": [
         "subject",
         "relation",
+        "thing_to_disease_or_phenotypic_feature_association_object",
         "association_id",
         "negated",
         "association_type",
@@ -9698,7 +9923,8 @@
         "entity_to_phenotypic_feature_association_description",
         "frequency_qualifier",
         "severity_qualifier",
-        "onset_qualifier"
+        "onset_qualifier",
+        "genotype_to_thing_association_subject"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/GenotypeToPhenotypicFeatureAssociation",
       "defining_slots": [
@@ -10075,6 +10301,7 @@
         "genotype_to_disease_association_subject",
         "genotype_to_disease_association_relation",
         "genotype_to_disease_association_object",
+        "genotype_to_thing_association_subject",
         "frequency_qualifier",
         "severity_qualifier",
         "onset_qualifier"
@@ -10180,6 +10407,7 @@
         "provided_by",
         "genotype_to_disease_association_relation",
         "genotype_to_disease_association_object",
+        "genotype_to_thing_association_subject",
         "frequency_qualifier",
         "severity_qualifier",
         "onset_qualifier",
@@ -10204,13 +10432,13 @@
       ],
       "slots": [
         "relation",
-        "object",
         "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
+        "thing_to_disease_or_phenotypic_feature_association_object",
         "cell_line_as_a_model_of_disease_association_subject",
         "frequency_qualifier",
         "severity_qualifier",
@@ -10290,6 +10518,7 @@
       "is_a": "Association",
       "abstract": true,
       "slots": [
+        "genotype_to_thing_association_subject",
         "relation",
         "object",
         "association_id",

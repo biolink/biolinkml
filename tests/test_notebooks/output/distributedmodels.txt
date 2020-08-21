@@ -2244,14 +2244,18 @@ class MacromolecularMachine(GenomicEntity):
     class_model_uri: ClassVar[URIRef] = DIST.MacromolecularMachine
 
     id: Union[str, MacromolecularMachineId] = None
-    category: List[Union[str, CategoryType]] = empty_list()
     name: Union[str, SymbolType] = None
+    category: List[Union[str, CategoryType]] = empty_list()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
             raise ValueError(f"id must be supplied")
         if not isinstance(self.id, MacromolecularMachineId):
             self.id = MacromolecularMachineId(self.id)
+        if self.name is None:
+            raise ValueError(f"name must be supplied")
+        if not isinstance(self.name, SymbolType):
+            self.name = SymbolType(self.name)
         if self.name is None:
             raise ValueError(f"name must be supplied")
         if not isinstance(self.name, SymbolType):
@@ -2272,8 +2276,8 @@ class GeneOrGeneProduct(MacromolecularMachine):
     class_model_uri: ClassVar[URIRef] = DIST.GeneOrGeneProduct
 
     id: Union[str, GeneOrGeneProductId] = None
-    category: List[Union[str, CategoryType]] = empty_list()
     name: Union[str, SymbolType] = None
+    category: List[Union[str, CategoryType]] = empty_list()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -2293,8 +2297,8 @@ class Gene(GeneOrGeneProduct):
     class_model_uri: ClassVar[URIRef] = DIST.Gene
 
     id: Union[str, GeneId] = None
-    category: List[Union[str, CategoryType]] = empty_list()
     name: Union[str, SymbolType] = None
+    category: List[Union[str, CategoryType]] = empty_list()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -2317,8 +2321,8 @@ class MyGene(Gene):
     class_model_uri: ClassVar[URIRef] = DIST.MyGene
 
     id: Union[str, MyGeneId] = None
-    category: List[Union[str, CategoryType]] = empty_list()
     name: Union[str, SymbolType] = None
+    category: List[Union[str, CategoryType]] = empty_list()
     gene_has_sequence: Union[str, GeneSequence] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -2346,8 +2350,8 @@ class GeneProduct(GeneOrGeneProduct):
     class_model_uri: ClassVar[URIRef] = DIST.GeneProduct
 
     id: Union[str, GeneProductId] = None
-    category: List[Union[str, CategoryType]] = empty_list()
     name: Union[str, SymbolType] = None
+    category: List[Union[str, CategoryType]] = empty_list()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -2371,8 +2375,8 @@ class Protein(GeneProduct):
     class_model_uri: ClassVar[URIRef] = DIST.Protein
 
     id: Union[str, ProteinId] = None
-    category: List[Union[str, CategoryType]] = empty_list()
     name: Union[str, SymbolType] = None
+    category: List[Union[str, CategoryType]] = empty_list()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -2397,8 +2401,8 @@ class GeneProductIsoform(GeneProduct):
     class_model_uri: ClassVar[URIRef] = DIST.GeneProductIsoform
 
     id: Union[str, GeneProductIsoformId] = None
-    category: List[Union[str, CategoryType]] = empty_list()
     name: Union[str, SymbolType] = None
+    category: List[Union[str, CategoryType]] = empty_list()
 
 @dataclass
 class ProteinIsoform(Protein):
@@ -2414,8 +2418,8 @@ class ProteinIsoform(Protein):
     class_model_uri: ClassVar[URIRef] = DIST.ProteinIsoform
 
     id: Union[str, ProteinIsoformId] = None
-    category: List[Union[str, CategoryType]] = empty_list()
     name: Union[str, SymbolType] = None
+    category: List[Union[str, CategoryType]] = empty_list()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -2435,8 +2439,8 @@ class RNAProduct(GeneProduct):
     class_model_uri: ClassVar[URIRef] = DIST.RNAProduct
 
     id: Union[str, RNAProductId] = None
-    category: List[Union[str, CategoryType]] = empty_list()
     name: Union[str, SymbolType] = None
+    category: List[Union[str, CategoryType]] = empty_list()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -2459,8 +2463,8 @@ class RNAProductIsoform(RNAProduct):
     class_model_uri: ClassVar[URIRef] = DIST.RNAProductIsoform
 
     id: Union[str, RNAProductIsoformId] = None
-    category: List[Union[str, CategoryType]] = empty_list()
     name: Union[str, SymbolType] = None
+    category: List[Union[str, CategoryType]] = empty_list()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -2480,8 +2484,8 @@ class NoncodingRNAProduct(RNAProduct):
     class_model_uri: ClassVar[URIRef] = DIST.NoncodingRNAProduct
 
     id: Union[str, NoncodingRNAProductId] = None
-    category: List[Union[str, CategoryType]] = empty_list()
     name: Union[str, SymbolType] = None
+    category: List[Union[str, CategoryType]] = empty_list()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -2501,8 +2505,8 @@ class MicroRNA(NoncodingRNAProduct):
     class_model_uri: ClassVar[URIRef] = DIST.MicroRNA
 
     id: Union[str, MicroRNAId] = None
-    category: List[Union[str, CategoryType]] = empty_list()
     name: Union[str, SymbolType] = None
+    category: List[Union[str, CategoryType]] = empty_list()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -3151,6 +3155,10 @@ class CellLineToDiseaseOrPhenotypicFeatureAssociation(Association):
             raise ValueError(f"subject must be supplied")
         if not isinstance(self.subject, DiseaseOrPhenotypicFeatureId):
             self.subject = DiseaseOrPhenotypicFeatureId(self.subject)
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, DiseaseOrPhenotypicFeatureId):
+            self.object = DiseaseOrPhenotypicFeatureId(self.object)
         super().__post_init__(**kwargs)
 
 
@@ -3309,6 +3317,10 @@ class ChemicalToDiseaseOrPhenotypicFeatureAssociation(Association):
             raise ValueError(f"object must be supplied")
         if not isinstance(self.object, DiseaseOrPhenotypicFeatureId):
             self.object = DiseaseOrPhenotypicFeatureId(self.object)
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, DiseaseOrPhenotypicFeatureId):
+            self.object = DiseaseOrPhenotypicFeatureId(self.object)
         super().__post_init__(**kwargs)
 
 
@@ -3454,6 +3466,10 @@ class MaterialSampleToDiseaseOrPhenotypicFeatureAssociation(Association):
             raise ValueError(f"id must be supplied")
         if not isinstance(self.id, MaterialSampleToDiseaseOrPhenotypicFeatureAssociationId):
             self.id = MaterialSampleToDiseaseOrPhenotypicFeatureAssociationId(self.id)
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, DiseaseOrPhenotypicFeatureId):
+            self.object = DiseaseOrPhenotypicFeatureId(self.object)
         super().__post_init__(**kwargs)
 
 
@@ -3617,6 +3633,10 @@ class ThingToDiseaseOrPhenotypicFeatureAssociation(Association):
             raise ValueError(f"object must be supplied")
         if not isinstance(self.object, DiseaseOrPhenotypicFeatureId):
             self.object = DiseaseOrPhenotypicFeatureId(self.object)
+        if self.object is None:
+            raise ValueError(f"object must be supplied")
+        if not isinstance(self.object, DiseaseOrPhenotypicFeatureId):
+            self.object = DiseaseOrPhenotypicFeatureId(self.object)
         super().__post_init__(**kwargs)
 
 
@@ -3657,6 +3677,10 @@ class GenotypeToPhenotypicFeatureAssociation(Association):
             self.sex_qualifier = BiologicalSexId(self.sex_qualifier)
         if self.description is not None and not isinstance(self.description, NarrativeText):
             self.description = NarrativeText(self.description)
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, GenotypeId):
+            self.subject = GenotypeId(self.subject)
         super().__post_init__(**kwargs)
 
 
@@ -4014,6 +4038,10 @@ class GenotypeToDiseaseAssociation(Association):
             raise ValueError(f"object must be supplied")
         if not isinstance(self.object, NamedThingId):
             self.object = NamedThingId(self.object)
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, GenotypeId):
+            self.subject = GenotypeId(self.subject)
         super().__post_init__(**kwargs)
 
 
@@ -4106,7 +4134,7 @@ class CellLineAsAModelOfDiseaseAssociation(CellLineToDiseaseOrPhenotypicFeatureA
 
     id: Union[str, CellLineAsAModelOfDiseaseAssociationId] = None
     relation: Union[str, URIorCURIE] = None
-    object: Union[str, NamedThingId] = None
+    object: Union[str, DiseaseOrPhenotypicFeatureId] = None
     subject: Union[str, CellLineId] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -4186,11 +4214,15 @@ class GenotypeToThingAssociation(Association):
     class_model_uri: ClassVar[URIRef] = DIST.GenotypeToThingAssociation
 
     id: Union[str, GenotypeToThingAssociationId] = None
+    subject: Union[str, GenotypeId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[str, NamedThingId] = None
-    subject: Union[str, GenotypeId] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
+        if self.subject is None:
+            raise ValueError(f"subject must be supplied")
+        if not isinstance(self.subject, GenotypeId):
+            self.subject = GenotypeId(self.subject)
         if self.subject is None:
             raise ValueError(f"subject must be supplied")
         if not isinstance(self.subject, GenotypeId):
@@ -5805,9 +5837,6 @@ slots.cell_line_to_thing_association_subject = Slot(uri=DIST.subject, name="cell
 slots.cell_line_to_disease_or_phenotypic_feature_association_subject = Slot(uri=DIST.subject, name="cell line to disease or phenotypic feature association_subject", curie=DIST.curie('subject'),
                       model_uri=DIST.cell_line_to_disease_or_phenotypic_feature_association_subject, domain=CellLineToDiseaseOrPhenotypicFeatureAssociation, range=Union[str, DiseaseOrPhenotypicFeatureId])
 
-slots.thing_to_disease_or_phenotypic_feature_association_object = Slot(uri=DIST.object, name="thing to disease or phenotypic feature association_object", curie=DIST.curie('object'),
-                      model_uri=DIST.thing_to_disease_or_phenotypic_feature_association_object, domain=ThingToDiseaseOrPhenotypicFeatureAssociation, range=Union[str, DiseaseOrPhenotypicFeatureId])
-
 slots.chemical_to_thing_association_subject = Slot(uri=DIST.subject, name="chemical to thing association_subject", curie=DIST.curie('subject'),
                       model_uri=DIST.chemical_to_thing_association_subject, domain=ChemicalToThingAssociation, range=Union[str, ChemicalSubstanceId])
 
@@ -5874,14 +5903,14 @@ slots.disease_or_phenotypic_feature_association_to_thing_association_subject = S
 slots.disease_or_phenotypic_feature_association_to_location_association_object = Slot(uri=DIST.object, name="disease or phenotypic feature association to location association_object", curie=DIST.curie('object'),
                       model_uri=DIST.disease_or_phenotypic_feature_association_to_location_association_object, domain=DiseaseOrPhenotypicFeatureAssociationToLocationAssociation, range=Union[str, AnatomicalEntityId])
 
+slots.thing_to_disease_or_phenotypic_feature_association_object = Slot(uri=DIST.object, name="thing to disease or phenotypic feature association_object", curie=DIST.curie('object'),
+                      model_uri=DIST.thing_to_disease_or_phenotypic_feature_association_object, domain=ThingToDiseaseOrPhenotypicFeatureAssociation, range=Union[str, DiseaseOrPhenotypicFeatureId])
+
 slots.genotype_to_phenotypic_feature_association_relation = Slot(uri=DIST.relation, name="genotype to phenotypic feature association_relation", curie=DIST.curie('relation'),
                       model_uri=DIST.genotype_to_phenotypic_feature_association_relation, domain=GenotypeToPhenotypicFeatureAssociation, range=Union[str, URIorCURIE])
 
 slots.genotype_to_phenotypic_feature_association_subject = Slot(uri=DIST.subject, name="genotype to phenotypic feature association_subject", curie=DIST.curie('subject'),
                       model_uri=DIST.genotype_to_phenotypic_feature_association_subject, domain=GenotypeToPhenotypicFeatureAssociation, range=Union[str, GenotypeId])
-
-slots.genotype_to_thing_association_subject = Slot(uri=DIST.subject, name="genotype to thing association_subject", curie=DIST.curie('subject'),
-                      model_uri=DIST.genotype_to_thing_association_subject, domain=GenotypeToThingAssociation, range=Union[str, GenotypeId])
 
 slots.exposure_event_to_phenotypic_feature_association_subject = Slot(uri=DIST.subject, name="exposure event to phenotypic feature association_subject", curie=DIST.curie('subject'),
                       model_uri=DIST.exposure_event_to_phenotypic_feature_association_subject, domain=ExposureEventToPhenotypicFeatureAssociation, range=Union[str, ExposureEventId])
@@ -5966,6 +5995,9 @@ slots.organismal_entity_as_a_model_of_disease_association_subject = Slot(uri=DIS
 
 slots.gene_has_variant_that_contributes_to_disease_association_subject = Slot(uri=DIST.subject, name="gene has variant that contributes to disease association_subject", curie=DIST.curie('subject'),
                       model_uri=DIST.gene_has_variant_that_contributes_to_disease_association_subject, domain=GeneHasVariantThatContributesToDiseaseAssociation, range=Union[str, GeneOrGeneProductId])
+
+slots.genotype_to_thing_association_subject = Slot(uri=DIST.subject, name="genotype to thing association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.genotype_to_thing_association_subject, domain=GenotypeToThingAssociation, range=Union[str, GenotypeId])
 
 slots.gene_to_expression_site_association_subject = Slot(uri=DIST.subject, name="gene to expression site association_subject", curie=DIST.curie('subject'),
                       model_uri=DIST.gene_to_expression_site_association_subject, domain=GeneToExpressionSiteAssociation, range=Union[str, GeneOrGeneProductId])

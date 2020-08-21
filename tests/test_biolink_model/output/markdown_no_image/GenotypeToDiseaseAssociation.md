@@ -7,7 +7,7 @@
 URI: [biolink:GenotypeToDiseaseAssociation](https://w3id.org/biolink/vocab/GenotypeToDiseaseAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SeverityValue],[Publication],[Provider],[OntologyClass],[Onset],[NamedThing],[GenotypeToThingAssociation],[NamedThing]<object%201..1-%20[GenotypeToDiseaseAssociation&#124;relation:uriorcurie;id(i):string;negated(i):boolean%20%3F],[NamedThing]<subject%201..1-%20[GenotypeToDiseaseAssociation],[GenotypeToDiseaseAssociation]uses%20-.->[GenotypeToThingAssociation],[GenotypeToDiseaseAssociation]uses%20-.->[EntityToDiseaseAssociation],[GenotypeToDiseaseAssociation]^-[GenotypeAsAModelOfDiseaseAssociation],[Association]^-[GenotypeToDiseaseAssociation],[GenotypeAsAModelOfDiseaseAssociation],[FrequencyValue],[EntityToDiseaseAssociation],[Association])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SeverityValue],[Publication],[Provider],[OntologyClass],[Onset],[NamedThing],[GenotypeToThingAssociation],[NamedThing]<object%201..1-%20[GenotypeToDiseaseAssociation&#124;relation:uriorcurie;id(i):string;negated(i):boolean%20%3F],[NamedThing]<subject%201..1-%20[GenotypeToDiseaseAssociation],[GenotypeToDiseaseAssociation]uses%20-.->[GenotypeToThingAssociation],[GenotypeToDiseaseAssociation]uses%20-.->[EntityToDiseaseAssociation],[GenotypeToDiseaseAssociation]^-[GenotypeAsAModelOfDiseaseAssociation],[Association]^-[GenotypeToDiseaseAssociation],[GenotypeAsAModelOfDiseaseAssociation],[Genotype],[FrequencyValue],[EntityToDiseaseAssociation],[Association])
 
 ## Parents
 
@@ -33,6 +33,7 @@ URI: [biolink:GenotypeToDiseaseAssociation](https://w3id.org/biolink/vocab/Genot
  * [genotype to disease association➞object](genotype_to_disease_association_object.md)  <sub>REQ</sub>
     * Description: a disease that is associated with that genotype
     * range: [NamedThing](NamedThing.md)
+    * Example:    
  * [genotype to disease association➞relation](genotype_to_disease_association_relation.md)  <sub>REQ</sub>
     * Description: E.g. is pathogenic for
     * range: [Uriorcurie](types/Uriorcurie.md)
@@ -67,6 +68,12 @@ URI: [biolink:GenotypeToDiseaseAssociation](https://w3id.org/biolink/vocab/Genot
  * [frequency qualifier](frequency_qualifier.md)  <sub>OPT</sub>
     * Description: a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject
     * range: [FrequencyValue](FrequencyValue.md)
+
+### Mixed in from genotype to thing association:
+
+ * [genotype to thing association➞subject](genotype_to_thing_association_subject.md)  <sub>REQ</sub>
+    * Description: genotype that is the subject of the association
+    * range: [Genotype](Genotype.md)
 
 ### Mixed in from entity to feature or disease qualifiers:
 

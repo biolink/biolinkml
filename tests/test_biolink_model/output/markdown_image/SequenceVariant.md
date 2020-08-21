@@ -40,6 +40,8 @@ URI: [biolink:SequenceVariant](https://w3id.org/biolink/vocab/SequenceVariant)
     * range: [Gene](Gene.md)
  * [sequence variant➞id](sequence_variant_id.md)  <sub>REQ</sub>
     * range: [String](types/String.md)
+    * Example:    
+    * Example:    
 
 ### Inherited from genomic entity:
 

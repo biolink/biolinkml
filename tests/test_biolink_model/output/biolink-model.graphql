@@ -188,13 +188,13 @@ type CellLine
 type CellLineAsAModelOfDiseaseAssociation implements ModelToDiseaseMixin, EntityToDiseaseAssociation
   {
     relation: Uriorcurie!
-    object: NamedThing!
     id: String!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: [Provider]
+    object: DiseaseOrPhenotypicFeature!
     subject: CellLine!
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
@@ -954,10 +954,10 @@ type GenotypeAsAModelOfDiseaseAssociation implements ModelToDiseaseMixin, Entity
     providedBy: [Provider]
     relation: Uriorcurie!
     object: NamedThing!
+    subject: Genotype!
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
     onsetQualifier: Onset
-    subject: Genotype!
   }
 
 type GenotypeToDiseaseAssociation implements GenotypeToThingAssociation, EntityToDiseaseAssociation
@@ -1022,6 +1022,7 @@ type GenotypeToPhenotypicFeatureAssociation implements EntityToPhenotypicFeature
 
 interface GenotypeToThingAssociation
   {
+    subject: Genotype!
     relation: Uriorcurie!
     object: NamedThing!
     id: String!
@@ -1030,7 +1031,6 @@ interface GenotypeToThingAssociation
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: [Provider]
-    subject: Genotype!
   }
 
 type GenotypeToVariantAssociation
@@ -1616,13 +1616,13 @@ interface ThingToDiseaseOrPhenotypicFeatureAssociation
   {
     subject: NamedThing!
     relation: Uriorcurie!
+    object: DiseaseOrPhenotypicFeature!
     id: String!
     negated: Boolean
     associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
     providedBy: [Provider]
-    object: DiseaseOrPhenotypicFeature!
   }
 
 interface ThingWithTaxon
