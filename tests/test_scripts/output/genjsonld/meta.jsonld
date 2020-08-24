@@ -2533,9 +2533,6 @@
   ],
   "metamodel_version": "1.5.3",
   ,
-  ,
-  ,
-  ,
   "type": "SchemaDefinition",
   "@context": [
     "file:./output/gencontext/meta.jsonld",

@@ -1,7 +1,4 @@
-# Auto generated from None by pythongen.py version: 0.4.0
-# Generation date:
-# Schema: dist1
-#
+
 # id: http://example.org/examples/distributeExample
 # description: A toy extension to the base biolink model
 # license: https://creativecommons.org/publicdomain/zero/1.0/

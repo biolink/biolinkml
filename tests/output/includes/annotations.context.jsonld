@@ -1,5 +1,5 @@
 {
-   "_comments": "Auto generated from ... by jsonldcontextgen.py version: 0.1.1\nGeneration date: \nSchema: annotations\n\nid: https://w3id.org/biolink/biolinkml/annotations\ndescription: Annotations mixin\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
+   "_comments": "Auto generated from ... by jsonldcontextgen.py version: 0.1.1\nid: https://w3id.org/biolink/biolinkml/annotations\ndescription: Annotations mixin\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
    "@context": {
       "type": "@type",
       "biolinkml": "https://w3id.org/biolink/biolinkml/",

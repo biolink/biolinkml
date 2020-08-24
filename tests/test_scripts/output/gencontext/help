@@ -4,7 +4,7 @@ Usage: gen-jsonld-context [OPTIONS] YAMLFILE
 
 Options:
   --base TEXT                     Base URI for model
-  -f, --format [json]             Output format (default=json)
+  -f, --format [context|json]     Output format (default=context)
   --metadata / --no-metadata      Include metadata in output
                                   (default=--metadata)
 

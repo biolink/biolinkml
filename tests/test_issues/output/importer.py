@@ -1,7 +1,4 @@
-# Auto generated from importer.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-21 16:41
-# Schema: importer
-#
+
 # id: https://example.org/importer
 # description: Test of local import with an identifier
 # license: https://creativecommons.org/publicdomain/zero/1.0/

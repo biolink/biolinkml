@@ -1,7 +1,4 @@
-# Auto generated from .yaml by pythongen.py version:
-# Generation date:
-# Schema: test14
-#
+
 # id: https://example.com/test14
 # description:
 # license: https://creativecommons.org/publicdomain/zero/1.0/

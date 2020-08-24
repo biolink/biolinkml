@@ -1,7 +1,4 @@
-# Auto generated from .yaml by pythongen.py version:
-# Generation date:
-# Schema: uriandcurie
-#
+
 # id: http://example.org/test/uriandcurie
 # description:
 # license:

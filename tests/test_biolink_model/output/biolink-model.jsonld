@@ -11330,9 +11330,6 @@
   ],
   "metamodel_version": "1.5.3",
   "source_file": "biolink-model.yaml",
-  "source_file_date": "2019-01-01-12:00",
-  "source_file_size": 143918,
-  "generation_date": "2019-01-01 12:00",
   "type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/biolink/biolinkml/context.jsonld",

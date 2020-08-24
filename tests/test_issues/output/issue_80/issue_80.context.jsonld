@@ -1,5 +1,5 @@
 {
-   "_comments": "Auto generated from issue_80.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2020-07-28 10:26\nSchema: Issue_80_test_case\n\nid: http://example.org/issues/80\ndescription: Example identifier\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
+   "_comments": "Auto generated from issue_80.yaml by jsonldcontextgen.py version: 0.1.1\nid: http://example.org/issues/80\ndescription: Example identifier\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
    "@context": {
       "type": "@type",
       "biolink": "https://w3id.org/biolink/vocab/",

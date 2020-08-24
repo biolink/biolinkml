@@ -1,7 +1,4 @@
-# Auto generated from ifabsent_uri.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-04 09:40
-# Schema: ifabsent
-#
+
 # id: http://example.org/tests/ifabsent
 # description:
 # license: https://creativecommons.org/publicdomain/zero/1.0/

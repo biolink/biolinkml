@@ -1,7 +1,4 @@
-# Auto generated from .yaml by pythongen.py version:
-# Generation date:
-# Schema: mappings
-#
+
 # id: https://w3id.org/biolink/biolinkml/mappings
 # description: Biolink model for mappings
 # license: https://creativecommons.org/publicdomain/zero/1.0/
