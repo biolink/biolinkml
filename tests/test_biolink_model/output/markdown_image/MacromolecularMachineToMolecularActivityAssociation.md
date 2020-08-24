@@ -36,6 +36,7 @@ URI: [biolink:MacromolecularMachineToMolecularActivityAssociation](https://w3id.
  * [functional association➞subject](functional_association_subject.md)  <sub>REQ</sub>
     * Description: gene, product or macromolecular complex that has the function associated with the GO term
     * range: [MacromolecularMachine](MacromolecularMachine.md)
+    * Example:    
  * [negated](negated.md)  <sub>OPT</sub>
     * Description: if set to true, then the association is negated i.e. is not true
     * range: [Boolean](types/Boolean.md)
@@ -49,5 +50,5 @@ URI: [biolink:MacromolecularMachineToMolecularActivityAssociation](https://w3id.
     * Description: connects an association to qualifiers that modify or qualify the meaning of that association
     * range: [OntologyClass](OntologyClass.md)
  * [relation](relation.md)  <sub>REQ</sub>
-    * Description: the relationship type by which a subject is connected to an object in an association
+    * Description: The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.
     * range: [Uriorcurie](types/Uriorcurie.md)

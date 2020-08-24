@@ -36,12 +36,12 @@
 <polygon fill='white' points='126.5,-153 126.5,-189 231.5,-189 231.5,-153 126.5,-153' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='179' y='-167.3'>BiologicalSex</text>
 </g><g class='node' id='node3'><title>PhenotypicSex</title>
-<polygon fill='white' points='106,-1 106,-61 252,-61 252,-1 106,-1' stroke='black'/>
+<polygon fill='white' points='89,-1 89,-61 269,-61 269,-1 89,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='179' y='-49.8'>PhenotypicSex</text>
-<polyline fill='none' points='106,-46 252,-46 ' stroke='black'/>
+<polyline fill='none' points='89,-46 269,-46 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='179' y='-34.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='179' y='-19.8'>name(i):label_type</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='179' y='-4.8'>category(i):iri_type +</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='179' y='-4.8'>category(i):category_type +</text>
 </g><g class='edge' id='edge1'><title>BiologicalSex-&gt;PhenotypicSex</title>
 <path d='M179,-142.798C179,-119.277 179,-85.3561 179,-61.2537' fill='none' stroke='black'/>
 <polygon fill='none' points='175.5,-142.801 179,-152.801 182.5,-142.801 175.5,-142.801' stroke='black'/>

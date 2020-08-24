@@ -7,7 +7,7 @@ describes the frequency of occurrence of an event or condition
 URI: [biolink:FrequencyValue](https://w3id.org/biolink/vocab/FrequencyValue)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[QuantityValue],[OntologyClass],[NamedThing],[FrequencyQualifierMixin]-%20frequency%20qualifier%200..1>[FrequencyValue&#124;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[Attribute]^-[FrequencyValue],[FrequencyQualifierMixin],[Attribute],[Association])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[QuantityValue],[OntologyClass],[NamedThing],[FrequencyQualifierMixin]-%20frequency%20qualifier%200..1>[FrequencyValue&#124;id(i):string;name(i):label_type;category(i):category_type%20%2B],[Attribute]^-[FrequencyValue],[FrequencyQualifierMixin],[Attribute],[Association])
 
 ## Parents
 

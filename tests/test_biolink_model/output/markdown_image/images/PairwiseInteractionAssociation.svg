@@ -35,41 +35,46 @@
 </g><g class='node' id='node2'><title>Provider</title>
 <polygon fill='white' points='108.5,-153 108.5,-189 183.5,-189 183.5,-153 108.5,-153' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='146' y='-167.3'>Provider</text>
-</g><g class='node' id='node3'><title>MolecularEntity</title>
-<polygon fill='white' points='202,-153 202,-189 320,-189 320,-153 202,-153' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='261' y='-167.3'>MolecularEntity</text>
+</g><g class='node' id='node3'><title>OntologyClass</title>
+<polygon fill='white' points='201.5,-153 201.5,-189 310.5,-189 310.5,-153 201.5,-153' stroke='black'/>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='256' y='-167.3'>OntologyClass</text>
 </g><g class='node' id='node4'><title>PairwiseInteractionAssociation</title>
-<polygon fill='white' points='252.5,-1 252.5,-61 449.5,-61 449.5,-1 252.5,-1' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='351' y='-49.8'>PairwiseInteractionAssociation</text>
-<polyline fill='none' points='252.5,-46 449.5,-46 ' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='351' y='-34.8'>id:string</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='351' y='-19.8'>relation:uriorcurie</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='351' y='-4.8'>negated(i):boolean ?</text>
-</g><g class='edge' id='edge1'><title>MolecularEntity-&gt;PairwiseInteractionAssociation</title>
-<path d='M272.507,-144.06C286.163,-120.502 308.726,-85.7903 326.286,-61.2537' fill='none' stroke='black'/>
-<polygon fill='black' points='267.573,-152.801 268.57,-141.881 270.031,-148.447 272.489,-144.093 272.489,-144.093 272.489,-144.093 270.031,-148.447 276.407,-146.305 267.573,-152.801 267.573,-152.801' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='309.852' y='-68.9518'> </text>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='282.768' y='-136.098'>object 1..1</text>
+<polygon fill='white' points='289.5,-1 289.5,-61 486.5,-61 486.5,-1 289.5,-1' stroke='black'/>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='388' y='-49.8'>PairwiseInteractionAssociation</text>
+<polyline fill='none' points='289.5,-46 486.5,-46 ' stroke='black'/>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='388' y='-34.8'>id:string</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='388' y='-19.8'>relation:uriorcurie</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='388' y='-4.8'>negated(i):boolean ?</text>
+</g><g class='edge' id='edge1'><title>OntologyClass-&gt;PairwiseInteractionAssociation</title>
+<path d='M279.626,-145.3C302.167,-121.734 336.133,-86.2246 360.018,-61.2537' fill='none' stroke='black'/>
+<polygon fill='black' points='272.451,-152.801 276.111,-142.464 275.907,-149.188 279.363,-145.575 279.363,-145.575 279.363,-145.575 275.907,-149.188 282.615,-148.685 272.451,-152.801 272.451,-152.801' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='342.084' y='-66.4067'> </text>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='290.385' y='-140.248'>interacting molecules category 0..1</text>
+</g><g class='node' id='node5'><title>MolecularEntity</title>
+<polygon fill='white' points='329,-153 329,-189 447,-189 447,-153 329,-153' stroke='black'/>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='388' y='-167.3'>MolecularEntity</text>
 </g><g class='edge' id='edge2'><title>MolecularEntity-&gt;PairwiseInteractionAssociation</title>
-<path d='M282.876,-144.682C299.997,-121.117 322.985,-86.0075 337.557,-61.2537' fill='none' stroke='black'/>
-<polygon fill='black' points='276.86,-152.801 279.198,-142.087 279.837,-148.784 282.814,-144.766 282.814,-144.766 282.814,-144.766 279.837,-148.784 286.429,-147.445 276.86,-152.801 276.86,-152.801' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='322.045' y='-70.1783'> </text>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='293.545' y='-138.073'>subject 1..1</text>
-</g><g class='node' id='node5'><title>PairwiseGeneToGeneInteraction</title>
-<polygon fill='white' points='338,-153 338,-189 544,-189 544,-153 338,-153' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='441' y='-167.3'>PairwiseGeneToGeneInteraction</text>
-</g><g class='edge' id='edge3'><title>PairwiseGeneToGeneInteraction-&gt;PairwiseInteractionAssociation</title>
-<path d='M429.783,-152.801C416.305,-132.134 393.297,-96.8547 375.614,-69.7411' fill='none' stroke='black' stroke-dasharray='5,2'/>
-<polygon fill='black' points='370.079,-61.2537 379.31,-67.1716 372.81,-65.4418 375.541,-69.6298 375.541,-69.6298 375.541,-69.6298 372.81,-65.4418 371.772,-72.0881 370.079,-61.2537 370.079,-61.2537' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='425.247' y='-129.623'>uses </text>
-</g><g class='node' id='node6'><title>Association</title>
-<polygon fill='white' points='562,-153 562,-189 654,-189 654,-153 562,-153' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='608' y='-167.3'>Association</text>
-</g><g class='edge' id='edge4'><title>Association-&gt;PairwiseInteractionAssociation</title>
-<path d='M567.291,-148.14C523.465,-124.608 453.537,-87.0587 405.109,-61.0549' fill='none' stroke='black'/>
-<polygon fill='none' points='565.763,-151.293 576.229,-152.94 569.075,-145.126 565.763,-151.293' stroke='black'/>
-</g><g class='node' id='node7'><title>OntologyClass</title>
-<polygon fill='white' points='672.5,-153 672.5,-189 781.5,-189 781.5,-153 672.5,-153' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='727' y='-167.3'>OntologyClass</text>
+<path d='M382.501,-142.798C380.88,-119.277 380.834,-85.3561 382.365,-61.2537' fill='none' stroke='black'/>
+<polygon fill='black' points='383.356,-152.801 378.02,-143.221 382.93,-147.819 382.504,-142.838 382.504,-142.838 382.504,-142.838 382.93,-147.819 386.987,-142.454 383.356,-152.801 383.356,-152.801' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='374.505' y='-75.9445'> </text>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='388.57' y='-129.793'>object 1..1</text>
+</g><g class='edge' id='edge3'><title>MolecularEntity-&gt;PairwiseInteractionAssociation</title>
+<path d='M393.499,-142.798C395.12,-119.277 395.166,-85.3561 393.635,-61.2537' fill='none' stroke='black'/>
+<polygon fill='black' points='392.644,-152.801 389.013,-142.454 393.07,-147.819 393.496,-142.838 393.496,-142.838 393.496,-142.838 393.07,-147.819 397.98,-143.221 392.644,-152.801 392.644,-152.801' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='387.835' y='-76.6941'> </text>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='401.061' y='-130.959'>subject 1..1</text>
+</g><g class='node' id='node6'><title>PairwiseGeneToGeneInteraction</title>
+<polygon fill='white' points='465,-153 465,-189 671,-189 671,-153 465,-153' stroke='black'/>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='568' y='-167.3'>PairwiseGeneToGeneInteraction</text>
+</g><g class='edge' id='edge4'><title>PairwiseGeneToGeneInteraction-&gt;PairwiseInteractionAssociation</title>
+<path d='M545.567,-152.801C517.909,-131.597 470.19,-95.0122 434.494,-67.6452' fill='none' stroke='black' stroke-dasharray='5,2'/>
+<polygon fill='black' points='426.157,-61.2537 436.831,-63.7668 430.125,-64.2959 434.093,-67.3381 434.093,-67.3381 434.093,-67.3381 430.125,-64.2959 431.355,-70.9093 426.157,-61.2537 426.157,-61.2537' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='534.814' y='-132.238'>uses </text>
+</g><g class='node' id='node7'><title>Association</title>
+<polygon fill='white' points='689,-153 689,-189 781,-189 781,-153 689,-153' stroke='black'/>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='735' y='-167.3'>Association</text>
+</g><g class='edge' id='edge5'><title>Association-&gt;PairwiseInteractionAssociation</title>
+<path d='M682.611,-149.165C623.634,-125.71 527.402,-87.4395 461.058,-61.0549' fill='none' stroke='black'/>
+<polygon fill='none' points='681.517,-152.497 692.103,-152.94 684.104,-145.992 681.517,-152.497' stroke='black'/>
 </g></g>
 <text style='fill: lightslategray; font-size: 6pt; font-family: Verdana' x='692' y='218'>CREATED WITH YUML</text></svg>

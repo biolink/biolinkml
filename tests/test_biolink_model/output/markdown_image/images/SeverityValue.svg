@@ -33,12 +33,12 @@
 <polygon fill='white' points='-0.5,-281 -0.5,-317 226.5,-317 226.5,-281 -0.5,-281' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='113' y='-295.3'>EntityToFeatureOrDiseaseQualifiers</text>
 </g><g class='node' id='node2'><title>SeverityValue</title>
-<polygon fill='white' points='73,-1 73,-61 219,-61 219,-1 73,-1' stroke='black'/>
+<polygon fill='white' points='56,-1 56,-61 236,-61 236,-1 56,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='146' y='-49.8'>SeverityValue</text>
-<polyline fill='none' points='73,-46 219,-46 ' stroke='black'/>
+<polyline fill='none' points='56,-46 236,-46 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='146' y='-34.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='146' y='-19.8'>name(i):label_type</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='146' y='-4.8'>category(i):iri_type +</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='146' y='-4.8'>category(i):category_type +</text>
 </g><g class='edge' id='edge1'><title>EntityToFeatureOrDiseaseQualifiers-&gt;SeverityValue</title>
 <path d='M115.114,-280.956C120.308,-239.094 133.798,-130.353 141.113,-71.3927' fill='none' stroke='black'/>
 <polygon fill='black' points='142.361,-61.3362 145.595,-71.8142 141.745,-66.2982 141.129,-71.2601 141.129,-71.2601 141.129,-71.2601 141.745,-66.2982 136.664,-70.7061 142.361,-61.3362 142.361,-61.3362' stroke='black'/>

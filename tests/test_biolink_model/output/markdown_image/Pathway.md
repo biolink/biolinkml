@@ -24,11 +24,11 @@ URI: [biolink:Pathway](https://w3id.org/biolink/vocab/Pathway)
 
  * [category](category.md)  <sub>1..*</sub>
     * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
-    * range: [IriType](types/IriType.md)
+    * range: [CategoryType](types/CategoryType.md)
     * in subsets: (translator_minimal)
  * [enabled by](enabled_by.md)  <sub>0..*</sub>
     * Description: holds between a process and a physical entity, where the physical entity executes the process
-    * range: [BiologicalProcessOrActivity](BiologicalProcessOrActivity.md)
+    * range: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
  * [has input](has_input.md)  <sub>0..*</sub>
     * Description: holds between a process and a continuant, where the continuant is an input into the process
@@ -54,5 +54,5 @@ URI: [biolink:Pathway](https://w3id.org/biolink/vocab/Pathway)
 | **Mappings:** | | GO:0007165 |
 |  | | SIO:010526 |
 |  | | PW:0000001 |
-|  | | WD:Q4915012 |
+|  | | WIKIDATA:Q4915012 |
 

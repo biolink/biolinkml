@@ -2,7 +2,7 @@ import abc
 import logging
 from contextlib import redirect_stdout
 from io import StringIO
-from typing import List, Set, Union, TextIO, Optional, cast, Callable
+from typing import List, Set, Union, TextIO, Optional, cast, Callable, Type
 
 import click
 from click import Command, Argument, Option
@@ -22,7 +22,8 @@ DEFAULT_LOG_LEVEL_INT: int = logging.WARNING
 class Generator(metaclass=abc.ABCMeta):
     generatorname: str = None                   # Set to os.path.basename(__file__)
     generatorversion: str = None                # Generator version identifier
-    valid_formats: List[str] = []               # Allowed formats
+    valid_formats: List[str] = []               # Allowed formats - first format is default
+    directory_output: bool = False              # True means output is to a directory, False is to stdout
     base_dir: str = None                        # Base directory of schema
 
     visit_all_class_slots: bool = False         # False means only visit own slots, True means visit all slots
@@ -36,6 +37,10 @@ class Generator(metaclass=abc.ABCMeta):
                  useuris: Optional[bool] = None,
                  importmap: Optional[str] = None,
                  log_level: int = DEFAULT_LOG_LEVEL_INT,
+                 mergeimports: Optional[bool] = True,
+                 source_file_date: Optional[str] = None,
+                 source_file_size: Optional[int] = None,
+                 logger: Optional[logging.Logger] = None,
                  **kwargs) -> None:
         """
         Constructor
@@ -47,10 +52,13 @@ class Generator(metaclass=abc.ABCMeta):
         :param useuris: True means declared class slot uri's are used.  False means use model uris
         :param importmap: File name of import mapping file -- maps import name/uri to target
         :param log_level: Logging level
-        :param logger: pre-set logger (hidden in kwargs)
+        :param mergeimports: True means merge non-biolinkml sources into importing package.  False means separate packages.
+        :param source_file_date: Modification date of input source file
+        :param source_file_size: Source file size
+        :param logger: pre-set logger
         """
-        if 'logger' in kwargs:
-            self.logger = kwargs.pop('logger')
+        if logger:
+            self.logger = logger
         else:
             logging.basicConfig()
             self.logger = logging.getLogger(self.__class__.__name__)
@@ -61,6 +69,9 @@ class Generator(metaclass=abc.ABCMeta):
         assert format in self.valid_formats, f"Unrecognized format: {format}"
         self.format = format
         self.emit_metadata = emit_metadata
+        self.merge_imports = mergeimports
+        self.source_file_date = source_file_date if emit_metadata else None
+        self.source_file_size = source_file_size if emit_metadata else None
         if isinstance(schema, Generator):
             gen = schema
             self.schema = gen.schema
@@ -69,11 +80,15 @@ class Generator(metaclass=abc.ABCMeta):
             self.namespaces = gen.namespaces
             self.base_dir = gen.base_dir
             self.importmap = gen.importmap
+            self.source_file_data = gen.source_file_date
+            self.source_file_size = gen.source_file_size
             self.schema_location = gen.schema_location
             self.schema_defaults = gen.schema_defaults
             self.logger = gen.logger
         else:
-            loader = SchemaLoader(schema, self.base_dir, useuris=useuris, importmap=importmap, logger=self.logger)
+            loader = SchemaLoader(schema, self.base_dir, useuris=useuris, importmap=importmap, logger=self.logger,
+                                  mergeimports=mergeimports, emit_metadata=emit_metadata,
+                                  source_file_date=self.source_file_date, source_file_size=self.source_file_size)
             loader.resolve()
             self.schema = loader.schema
             self.synopsis = loader.synopsis
@@ -81,6 +96,8 @@ class Generator(metaclass=abc.ABCMeta):
             self.namespaces = loader.namespaces
             self.base_dir = loader.base_dir
             self.importmap = loader.importmap
+            self.source_file_data = loader.source_file_date
+            self.source_file_size = loader.source_file_size
             self.schema_location = loader.schema_location
             self.schema_defaults = loader.schema_defaults
 
@@ -528,7 +545,7 @@ class Generator(metaclass=abc.ABCMeta):
                 (set(cls.mixins).intersection(slot.domain_of))]
 
 
-def shared_arguments(g: Generator) -> Callable[[Command], Command]:
+def shared_arguments(g: Type[Generator]) -> Callable[[Command], Command]:
     _LOG_LEVEL_STRINGS = ['CRITICAL', 'ERROR', 'WARNING', 'INFO', 'DEBUG']
 
     def _log_level_string_to_int(log_level_string: str) -> int:
@@ -544,12 +561,13 @@ def shared_arguments(g: Generator) -> Callable[[Command], Command]:
         f.params.append(
             Argument(("yamlfile", ), type=click.Path(exists=True, dir_okay=False)))
         f.params.append(
-            Option(("--format", "-f"), type=click.Choice(g.valid_formats), help="Output format",
+            Option(("--format", "-f"), type=click.Choice(g.valid_formats),
+                   help=f"Output format (default={g.valid_formats[0]})",
                    default=g.valid_formats[0]))
         f.params.append(
-            Option(("--metadata/--no-metadata", ), default=True, help="Include metadata in output"))
+            Option(("--metadata/--no-metadata", ), default=True, help="Include metadata in output (default=--metadata)"))
         f.params.append(
-            Option(("--useuris/--metauris", ), default=True, help="Include metadata in output"))
+            Option(("--useuris/--metauris", ), default=True, help="Include metadata in output (default=--useuris)"))
         f.params.append(
             Option(("--importmap", "-im"), type=click.File(), help="Import mapping file")
         )
@@ -558,6 +576,9 @@ def shared_arguments(g: Generator) -> Callable[[Command], Command]:
                    help=f"Logging level (default={DEFAULT_LOG_LEVEL})",
                    default=DEFAULT_LOG_LEVEL)
         )
+        f.params.append(
+            Option(("--mergeimports/--no-mergeimports", ), default=True,
+                   help="Merge imports into source file (default=mergeimports)"))
         return f
     return decorator
 

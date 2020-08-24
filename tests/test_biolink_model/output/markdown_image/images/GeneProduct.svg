@@ -45,7 +45,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='202' y='-177.3'>name(i):symbol_type</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='202' y='-162.3'>has_biological_sequence(i):biological_sequence ?</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='202' y='-147.3'>id(i):string</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='202' y='-132.3'>category(i):iri_type +</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='202' y='-132.3'>category(i):category_type +</text>
 </g><g class='edge' id='edge1'><title>GeneToGeneProductRelationship-&gt;GeneProduct</title>
 <path d='M116.508,-294.797C130.061,-274.538 153.102,-240.095 171.851,-212.068' fill='none' stroke='black'/>
 <polygon fill='black' points='177.517,-203.598 175.697,-214.412 174.737,-207.754 171.957,-211.91 171.957,-211.91 171.957,-211.91 174.737,-207.754 168.216,-209.408 177.517,-203.598 177.517,-203.598' stroke='black'/>

@@ -63,6 +63,12 @@ URI: [biolink:GenotypeToPhenotypicFeatureAssociation](https://w3id.org/biolink/v
     * Description: A description of specific aspects of this phenotype, not otherwise covered by the phenotype ontology class
     * range: [NarrativeText](types/NarrativeText.md)
 
+### Mixed in from genotype to thing association:
+
+ * [genotype to thing association➞subject](genotype_to_thing_association_subject.md)  <sub>REQ</sub>
+    * Description: genotype that is the subject of the association
+    * range: [Genotype](Genotype.md)
+
 ### Mixed in from entity to phenotypic feature association:
 
  * [sex qualifier](sex_qualifier.md)  <sub>OPT</sub>

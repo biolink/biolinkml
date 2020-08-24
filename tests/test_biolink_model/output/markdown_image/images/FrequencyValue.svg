@@ -42,12 +42,12 @@
 <polygon fill='white' points='373,-281 373,-317 541,-317 541,-281 373,-281' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='457' y='-295.3'>FrequencyQualifierMixin</text>
 </g><g class='node' id='node5'><title>FrequencyValue</title>
-<polygon fill='white' points='417,-1 417,-61 563,-61 563,-1 417,-1' stroke='black'/>
+<polygon fill='white' points='400,-1 400,-61 580,-61 580,-1 400,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='490' y='-49.8'>FrequencyValue</text>
-<polyline fill='none' points='417,-46 563,-46 ' stroke='black'/>
+<polyline fill='none' points='400,-46 580,-46 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='490' y='-34.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='490' y='-19.8'>name(i):label_type</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='490' y='-4.8'>category(i):iri_type +</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='490' y='-4.8'>category(i):category_type +</text>
 </g><g class='edge' id='edge1'><title>FrequencyQualifierMixin-&gt;FrequencyValue</title>
 <path d='M459.114,-280.956C464.308,-239.094 477.798,-130.353 485.113,-71.3927' fill='none' stroke='black'/>
 <polygon fill='black' points='486.361,-61.3362 489.595,-71.8142 485.745,-66.2982 485.129,-71.2601 485.129,-71.2601 485.129,-71.2601 485.745,-66.2982 480.664,-70.7061 486.361,-61.3362 486.361,-61.3362' stroke='black'/>

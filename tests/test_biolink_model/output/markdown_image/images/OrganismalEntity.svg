@@ -32,48 +32,55 @@
 <g class='graph' id='graph0' transform='scale(1 1) rotate(0) translate(4 322)'><title>structs</title><g class='node' id='node1'><title>PopulationOfIndividualOrganisms</title>
 <polygon fill='white' points='0,-1 0,-37 216,-37 216,-1 0,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='108' y='-15.3'>PopulationOfIndividualOrganisms</text>
-</g><g class='node' id='node2'><title>OrganismalEntity</title>
-<polygon fill='white' points='330,-129 330,-189 476,-189 476,-129 330,-129' stroke='black'/>
+</g><g class='node' id='node2'><title>OrganismalEntityAsAModelOfDiseaseAssociation</title>
+<polygon fill='white' points='135,-281 135,-317 441,-317 441,-281 135,-281' stroke='black'/>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='288' y='-295.3'>OrganismalEntityAsAModelOfDiseaseAssociation</text>
+</g><g class='node' id='node3'><title>OrganismalEntity</title>
+<polygon fill='white' points='313,-129 313,-189 493,-189 493,-129 313,-129' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='403' y='-177.8'>OrganismalEntity</text>
-<polyline fill='none' points='330,-174 476,-174 ' stroke='black'/>
+<polyline fill='none' points='313,-174 493,-174 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='403' y='-162.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='403' y='-147.8'>name(i):label_type</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='403' y='-132.8'>category(i):iri_type +</text>
-</g><g class='edge' id='edge1'><title>OrganismalEntity-&gt;PopulationOfIndividualOrganisms</title>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='403' y='-132.8'>category(i):category_type +</text>
+</g><g class='edge' id='edge1'><title>OrganismalEntityAsAModelOfDiseaseAssociation-&gt;OrganismalEntity</title>
+<path d='M302.332,-280.801C319.704,-259.955 349.464,-224.243 372.134,-197.039' fill='none' stroke='black'/>
+<polygon fill='black' points='378.622,-189.254 375.677,-199.817 375.421,-193.095 372.22,-196.936 372.22,-196.936 372.22,-196.936 375.421,-193.095 368.763,-194.055 378.622,-189.254 378.622,-189.254' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='361.335' y='-195.612'> subject 1..1</text>
+</g><g class='edge' id='edge2'><title>OrganismalEntity-&gt;PopulationOfIndividualOrganisms</title>
 <path d='M331.524,-124.564C272.486,-96.9462 191.087,-58.8676 144.561,-37.1033' fill='none' stroke='black'/>
 <polygon fill='none' points='330.258,-127.835 340.799,-128.902 333.224,-121.495 330.258,-127.835' stroke='black'/>
-</g><g class='node' id='node3'><title>LifeStage</title>
+</g><g class='node' id='node4'><title>LifeStage</title>
 <polygon fill='white' points='234.5,-1 234.5,-37 315.5,-37 315.5,-1 234.5,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='275' y='-15.3'>LifeStage</text>
-</g><g class='edge' id='edge2'><title>OrganismalEntity-&gt;LifeStage</title>
+</g><g class='edge' id='edge3'><title>OrganismalEntity-&gt;LifeStage</title>
 <path d='M368.944,-121.283C343.618,-93.9793 310.217,-57.9683 290.824,-37.0599' fill='none' stroke='black'/>
 <polygon fill='none' points='366.488,-123.782 375.854,-128.734 371.62,-119.022 366.488,-123.782' stroke='black'/>
-</g><g class='node' id='node4'><title>IndividualOrganism</title>
+</g><g class='node' id='node5'><title>IndividualOrganism</title>
 <polygon fill='white' points='334,-1 334,-37 472,-37 472,-1 334,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='403' y='-15.3'>IndividualOrganism</text>
-</g><g class='edge' id='edge3'><title>OrganismalEntity-&gt;IndividualOrganism</title>
+</g><g class='edge' id='edge4'><title>OrganismalEntity-&gt;IndividualOrganism</title>
 <path d='M403,-118.453C403,-91.5346 403,-57.2534 403,-37.0599' fill='none' stroke='black'/>
 <polygon fill='none' points='399.5,-118.734 403,-128.734 406.5,-118.734 399.5,-118.734' stroke='black'/>
-</g><g class='node' id='node5'><title>CellLine</title>
+</g><g class='node' id='node6'><title>CellLine</title>
 <polygon fill='white' points='490,-1 490,-37 566,-37 566,-1 490,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='528' y='-15.3'>CellLine</text>
-</g><g class='edge' id='edge4'><title>OrganismalEntity-&gt;CellLine</title>
+</g><g class='edge' id='edge5'><title>OrganismalEntity-&gt;CellLine</title>
 <path d='M436.258,-121.283C460.99,-93.9793 493.608,-57.9683 512.547,-37.0599' fill='none' stroke='black'/>
 <polygon fill='none' points='433.629,-118.972 429.509,-128.734 438.817,-123.672 433.629,-118.972' stroke='black'/>
-</g><g class='node' id='node6'><title>AnatomicalEntity</title>
+</g><g class='node' id='node7'><title>AnatomicalEntity</title>
 <polygon fill='white' points='584.5,-1 584.5,-37 709.5,-37 709.5,-1 584.5,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='647' y='-15.3'>AnatomicalEntity</text>
-</g><g class='edge' id='edge5'><title>OrganismalEntity-&gt;AnatomicalEntity</title>
+</g><g class='edge' id='edge6'><title>OrganismalEntity-&gt;AnatomicalEntity</title>
 <path d='M463.328,-123.88C512.057,-96.3205 578.594,-58.6885 616.759,-37.1033' fill='none' stroke='black'/>
 <polygon fill='none' points='461.429,-120.933 454.448,-128.902 464.875,-127.026 461.429,-120.933' stroke='black'/>
-</g><g class='node' id='node7'><title>BiologicalEntity</title>
-<polygon fill='white' points='344,-281 344,-317 462,-317 462,-281 344,-281' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='403' y='-295.3'>BiologicalEntity</text>
-</g><g class='edge' id='edge6'><title>BiologicalEntity-&gt;OrganismalEntity</title>
-<path d='M403,-270.798C403,-247.277 403,-213.356 403,-189.254' fill='none' stroke='black'/>
-<polygon fill='none' points='399.5,-270.801 403,-280.801 406.5,-270.801 399.5,-270.801' stroke='black'/>
-</g><g class='node' id='node8'><title>ExposureEvent</title>
-<polygon fill='white' points='480.5,-281 480.5,-317 591.5,-317 591.5,-281 480.5,-281' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='536' y='-295.3'>ExposureEvent</text>
+</g><g class='node' id='node8'><title>BiologicalEntity</title>
+<polygon fill='white' points='459,-281 459,-317 577,-317 577,-281 459,-281' stroke='black'/>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='518' y='-295.3'>BiologicalEntity</text>
+</g><g class='edge' id='edge7'><title>BiologicalEntity-&gt;OrganismalEntity</title>
+<path d='M497.16,-272.992C477.521,-249.426 448.097,-214.116 427.378,-189.254' fill='none' stroke='black'/>
+<polygon fill='none' points='494.577,-275.36 503.668,-280.801 499.955,-270.878 494.577,-275.36' stroke='black'/>
+</g><g class='node' id='node9'><title>ExposureEvent</title>
+<polygon fill='white' points='595.5,-281 595.5,-317 706.5,-317 706.5,-281 595.5,-281' stroke='black'/>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='651' y='-295.3'>ExposureEvent</text>
 </g></g>
 <text style='fill: lightslategray; font-size: 6pt; font-family: Verdana' x='620' y='346'>CREATED WITH YUML</text></svg>

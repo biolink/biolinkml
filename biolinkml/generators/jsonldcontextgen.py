@@ -21,7 +21,7 @@ URI_RANGES = (XSD.anyURI, SHEX.nonliteral, SHEX.bnode, SHEX.iri)
 class ContextGenerator(Generator):
     generatorname = os.path.basename(__file__)
     generatorversion = "0.1.1"
-    valid_formats = ['json']
+    valid_formats = ['context', 'json']
     visit_all_class_slots = False
 
     def __init__(self, schema: Union[str, TextIO, SchemaDefinition], **kwargs) -> None:
@@ -47,16 +47,22 @@ class ContextGenerator(Generator):
             dflt = self.namespaces.prefix_for(self.schema.default_prefix)
             if dflt:
                 self.default_ns = dflt
-            default_uri = self.namespaces[self.default_ns]
-            self.emit_prefixes.add(self.default_ns)
+            if self.default_ns:
+                default_uri = self.namespaces[self.default_ns]
+                self.emit_prefixes.add(self.default_ns)
+            else:
+                default_uri=self.schema.default_prefix
             self.context_body['@vocab'] = default_uri
             # self.context_body['@base'] = self.base_dir
 
     def end_schema(self, base: Optional[str] = None, output: Optional[str] = None, **_) -> None:
-        comments = f'''Auto generated from {self.schema.source_file} by {self.generatorname} version: {self.generatorversion}
+        comments = f'''Auto generated from {self.schema.source_file} by {self.generatorname} version: {self.generatorversion}'''
+        if self.schema.generation_date:
+            comments += f'''
 Generation date: {self.schema.generation_date}
 Schema: {self.schema.name}
-
+'''
+        comments += f'''
 id: {self.schema.id}
 description: {be(self.schema.description)}
 license: {be(self.schema.license)}

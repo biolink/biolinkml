@@ -1,0 +1,15 @@
+{
+  "name": "prefixes",
+  "id": "https://hotecosystem.org/tccm/prefixes",
+  "default_prefix": "https://hotecosystem.org/tccm/prefixes/",
+  "default_range": "string",
+  "metamodel_version": "1.5.3",
+  "source_file": "minimalmodel.yaml",
+  "type": "SchemaDefinition",
+  "@context": [
+    "https://w3id.org/biolink/biolinkml/context.jsonld",
+    {
+      "@base": "https://hotecosystem.org/tccm/prefixes/"
+    }
+  ]
+}

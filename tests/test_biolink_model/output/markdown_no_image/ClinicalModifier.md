@@ -2,12 +2,12 @@
 # Type: clinical modifier
 
 
-Used to characterize and specify the phenotypic abnormalities defined in the Phenotypic abnormality subontology, with respect to severity, laterality, age of onset, and other aspects
+Used to characterize and specify the phenotypic abnormalities defined in the Phenotypic abnormality subontology, with respect to severity, laterality, and other aspects
 
 URI: [biolink:ClinicalModifier](https://w3id.org/biolink/vocab/ClinicalModifier)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[QuantityValue],[OntologyClass],[NamedThing],[Attribute]^-[ClinicalModifier&#124;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[Attribute],[Association])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[QuantityValue],[OntologyClass],[NamedThing],[Attribute]^-[ClinicalModifier&#124;id(i):string;name(i):label_type;category(i):category_type%20%2B],[Attribute],[Association])
 
 ## Parents
 
@@ -34,3 +34,10 @@ URI: [biolink:ClinicalModifier](https://w3id.org/biolink/vocab/ClinicalModifier)
     * Description: connects an attribute to a value
     * range: [QuantityValue](QuantityValue.md)
     * in subsets: (samples)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | HP:0012823 |
+

@@ -31,7 +31,7 @@ URI: [biolink:GeneProduct](https://w3id.org/biolink/vocab/GeneProduct)
 
  * [category](category.md)  <sub>1..*</sub>
     * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
-    * range: [IriType](types/IriType.md)
+    * range: [CategoryType](types/CategoryType.md)
     * in subsets: (translator_minimal)
  * [has biological sequence](has_biological_sequence.md)  <sub>OPT</sub>
     * Description: connects a genomic feature to its sequence
@@ -48,5 +48,5 @@ URI: [biolink:GeneProduct](https://w3id.org/biolink/vocab/GeneProduct)
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | WD:Q424689 |
+| **Mappings:** | | WIKIDATA:Q424689 |
 

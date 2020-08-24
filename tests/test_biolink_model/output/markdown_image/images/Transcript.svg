@@ -39,7 +39,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='312' y='-49.3'>has_biological_sequence(i):biological_sequence ?</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='312' y='-34.3'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='312' y='-19.3'>name(i):label_type</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='312' y='-4.3'>category(i):iri_type +</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='312' y='-4.3'>category(i):category_type +</text>
 </g><g class='edge' id='edge2'><title>TranscriptToGeneRelationship-&gt;Transcript</title>
 <path d='M123.389,-166.797C154.256,-145.883 207.431,-109.853 249.467,-81.3704' fill='none' stroke='black'/>
 <polygon fill='black' points='257.986,-75.5984 252.231,-84.9332 253.846,-78.4031 249.707,-81.2078 249.707,-81.2078 249.707,-81.2078 253.846,-78.4031 247.183,-77.4824 257.986,-75.5984 257.986,-75.5984' stroke='black'/>

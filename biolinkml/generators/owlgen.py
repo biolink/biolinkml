@@ -27,15 +27,17 @@ class ElementDefinition(object):
 class OwlSchemaGenerator(Generator):
     generatorname = os.path.basename(__file__)
     generatorversion = "0.1.1"
-    valid_formats = ['ttl'] + [x.name for x in rdflib_plugins(None, rdflib_Parser) if '/' not in str(x.name)]
+    valid_formats = ['owl', 'ttl'] + [x.name for x in rdflib_plugins(None, rdflib_Parser) if '/' not in str(x.name)]
     visits_are_sorted = True
 
     def __init__(self, schema: Union[str, TextIO, SchemaDefinition], **kwargs) -> None:
         super().__init__(schema, **kwargs)
         self.graph: Optional[Graph] = None
-        self.metamodel = SchemaLoader(LOCAL_METAMODEL_YAML_FILE, importmap=kwargs.get('importmap', None)) \
+        self.metamodel = SchemaLoader(LOCAL_METAMODEL_YAML_FILE, importmap=kwargs.get('importmap', None),
+                                      mergeimports=self.merge_imports) \
             if os.path.exists(LOCAL_METAMODEL_YAML_FILE) else\
-            SchemaLoader(METAMODEL_YAML_URI, base_dir=META_BASE_URI, importmap=kwargs.get('importmap', None))
+            SchemaLoader(METAMODEL_YAML_URI, base_dir=META_BASE_URI, importmap=kwargs.get('importmap', None),
+                         mergeimports=self.merge_imports)
         self.metamodel.resolve()
         self.top_value_uri: Optional[URIRef] = None
 
@@ -58,7 +60,7 @@ class OwlSchemaGenerator(Generator):
         self.graph.add((self.top_value_uri, RDFS.label, Literal("value")))
 
     def end_schema(self, output: Optional[str] = None, **_) -> None:
-        data = self.graph.serialize(format='turtle' if self.format == 'ttl' else self.format).decode()
+        data = self.graph.serialize(format='turtle' if self.format in ['owl', 'ttl'] else self.format).decode()
         if output:
             with open(output, 'w') as outf:
                 outf.write(data)

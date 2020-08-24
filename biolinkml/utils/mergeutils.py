@@ -12,7 +12,7 @@ from biolinkml.utils.yamlutils import extended_str
 
 
 def merge_schemas(target: SchemaDefinition, mergee: SchemaDefinition, imported_from: Optional[str] = None,
-                  namespaces: Optional[Namespaces] = None) -> None:
+                  namespaces: Optional[Namespaces] = None, merge_imports: bool = True) -> None:
     """ Merge mergee into target """
     assert target.name is not None, "Schema name must be supplied"
     if target.license is None:
@@ -31,10 +31,10 @@ def merge_schemas(target: SchemaDefinition, mergee: SchemaDefinition, imported_f
             imported_from_uri = imported_from
         else:
             imported_from_uri = namespaces.uri_for(imported_from)
-    merge_dicts(target.classes, mergee.classes, imported_from, imported_from_uri)
-    merge_dicts(target.slots, mergee.slots, imported_from, imported_from_uri)
-    merge_dicts(target.types, mergee.types, imported_from, imported_from_uri)
-    merge_dicts(target.subsets, mergee.subsets, imported_from, imported_from_uri)
+    merge_dicts(target.classes, mergee.classes, imported_from, imported_from_uri, merge_imports)
+    merge_dicts(target.slots, mergee.slots, imported_from, imported_from_uri, merge_imports)
+    merge_dicts(target.types, mergee.types, imported_from, imported_from_uri, merge_imports)
+    merge_dicts(target.subsets, mergee.subsets, imported_from, imported_from_uri, merge_imports)
 
 
 def merge_namespaces(target: SchemaDefinition, mergee: SchemaDefinition, namespaces) -> None:
@@ -72,7 +72,8 @@ def set_from_schema(schema: SchemaDefinition) -> None:
             t[k].definition_uri = f'{ns}{fragment}'
 
 
-def merge_dicts(target: Dict[str, Element], source: Dict[str, Element], imported_from: str, imported_from_uri: str) -> None:
+def merge_dicts(target: Dict[str, Element], source: Dict[str, Element], imported_from: str,
+                imported_from_uri: str, merge_imports: bool) -> None:
     for k, v in source.items():
         if k in target and source[k].from_schema != target[k].from_schema:
             raise ValueError(f"Conflicting URIs ({source[k].from_schema}, {target[k].from_schema}) for item: {k}")
@@ -81,7 +82,8 @@ def merge_dicts(target: Dict[str, Element], source: Dict[str, Element], imported
         # internal biolinkml types, which are considered separate
         # https://github.com/biolink/biolinkml/issues/121
         if imported_from is not None:
-            if imported_from.startswith("biolinkml") or imported_from_uri.startswith("https://w3id.org/biolink/biolinkml"):
+            if not merge_imports or imported_from.startswith("biolinkml") or \
+                    imported_from_uri.startswith("https://w3id.org/biolink/biolinkml"):
                 target[k].imported_from = imported_from
 
 
@@ -98,7 +100,7 @@ def merge_slots(target: Union[SlotDefinition, TypeDefinition], source: Union[Slo
     if skip is None:
         skip = []
     for k, v in dataclasses.asdict(source).items():
-        if k not in skip and v is not None and getattr(target, k, None) is None:
+        if k not in skip and v is not None and (not inheriting or getattr(target, k, None) is None):
             if k in source._inherited_slots or not inheriting:
                 setattr(target, k, deepcopy(v))
             else:

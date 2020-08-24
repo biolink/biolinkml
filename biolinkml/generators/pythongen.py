@@ -24,13 +24,12 @@ class PythonGenerator(Generator):
     valid_formats = ['py']
     visit_all_class_slots = False
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], format: str = valid_formats[0],
-                 emit_metadata: bool = True, **kwargs) -> None:
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], format: str = valid_formats[0], **kwargs) -> None:
         self.sourcefile = schema
         self.emit_prefixes: Set[str] = set()
         if format is None:
             format = self.valid_formats[0]
-        super().__init__(schema, format, emit_metadata=emit_metadata, **kwargs)
+        super().__init__(schema, format, **kwargs)
         if not self.schema.source_file and isinstance(self.sourcefile, str) and '\n' not in self.sourcefile:
             self.schema.source_file = os.path.basename(self.sourcefile)
 
@@ -93,7 +92,7 @@ class PythonGenerator(Generator):
         head = f'''# Auto generated from {self.schema.source_file} by {self.generatorname} version: {self.generatorversion}
 # Generation date: {self.schema.generation_date}
 # Schema: {self.schema.name}
-#''' if self.emit_metadata else ''
+#''' if self.schema.generation_date else ''
 
         return f'''{head}
 # id: {self.schema.id}
@@ -167,10 +166,14 @@ class slots:
                     innerself.v.setdefault('includes.' + path[len(biolinkml.META_BASE_URI):], set()).add(name)
                 elif path == biolinkml.BIOLINK_MODEL_URI:
                     innerself.v.setdefault(biolinkml.BIOLINK_MODEL_PYTHON_LOC, set()).add(name)
-                elif path.__contains__('://'):
+                elif '://' in path:
                     raise ValueError(f"Cannot map {path} into a python import statement")
-                else:
+                elif '/' in path:
                     innerself.v.setdefault(path.replace('/', '.'), set()).add(name)
+                else:
+                    # TODO: Decide whether to emit a '.' which gives import errors, nothing or a qualified path
+                    #innerself.v.setdefault('.' + path, set()).add(name)
+                    innerself.v.setdefault(path, set()).add(name)
 
             def values(self) -> Dict[str, List[str]]:
                 return {k: sorted(self.v[k]) for k in sorted(self.v.keys())}
@@ -205,20 +208,21 @@ class slots:
             if not slot.imported_from:
                 if slot.is_a:
                     parent = self.schema.slots[slot.is_a]
-                    if parent.key and parent.imported_from:
+                    if (parent.key or parent.identifier) and parent.imported_from:
                         rval.add_element(self.schema.slots[slot.is_a])
                 if slot.domain:
                     domain = self.schema.classes[slot.domain]
                     if domain.imported_from:
                         rval.add_element(self.schema.classes[slot.domain])
                 add_slot_range(slot)
+
         for cls in self.schema.classes.values():
             if not cls.imported_from:
                 if cls.is_a:
                     parent = self.schema.classes[cls.is_a]
                     if parent.imported_from:
                         rval.add_element(self.schema.classes[cls.is_a])
-                        if self.class_identifier(parent):
+                        if self.class_identifier(parent, keys_count=True):
                             rval.add_entry(parent.imported_from, self.class_identifier_path(parent, False)[-1])
                 for slotname in cls.slots:
                     add_slot_range(self.schema.slots[slotname])
@@ -247,7 +251,7 @@ class slots:
                         # If we've got a parent slot and the range of the parent is the range of the child, the
                         # child slot is a subclass of the parent.  Otherwise, the child range has been overridden,
                         # so the inheritence chain has been broken
-                        parent_pk = self.class_identifier(cls.is_a, False) if cls.is_a else None
+                        parent_pk = self.class_identifier(cls.is_a, keys_count=True) if cls.is_a else None
                         parent_pk_slot = self.schema.slots[parent_pk] if parent_pk else None
                         pk_slot = self.schema.slots[pk]
                         if parent_pk_slot and (parent_pk_slot.name == pk or pk_slot.range == parent_pk_slot.range):

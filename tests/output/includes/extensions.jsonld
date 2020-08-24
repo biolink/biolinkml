@@ -252,9 +252,6 @@
   ],
   "metamodel_version": "1.5.3",
   "source_file": "extensions.yaml",
-  "source_file_date": "Friday Sep 27 12:00:00 2003",
-  "source_file_size": 1127,
-  "generation_date": "Friday Sep 27 12:00:00 2003",
   "type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/biolink/biolinkml/context.jsonld",

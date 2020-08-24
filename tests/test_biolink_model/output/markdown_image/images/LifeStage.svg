@@ -36,12 +36,12 @@
 <polygon fill='white' points='-0.5,-281 -0.5,-317 124.5,-317 124.5,-281 -0.5,-281' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='62' y='-295.3'>OrganismalEntity</text>
 </g><g class='node' id='node5'><title>LifeStage</title>
-<polygon fill='white' points='89,-129 89,-189 235,-189 235,-129 89,-129' stroke='black'/>
+<polygon fill='white' points='72,-129 72,-189 252,-189 252,-129 72,-129' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='162' y='-177.8'>LifeStage</text>
-<polyline fill='none' points='89,-174 235,-174 ' stroke='black'/>
+<polyline fill='none' points='72,-174 252,-174 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='162' y='-162.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='162' y='-147.8'>name(i):label_type</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='162' y='-132.8'>category(i):iri_type +</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='162' y='-132.8'>category(i):category_type +</text>
 </g><g class='edge' id='edge4'><title>OrganismalEntity-&gt;LifeStage</title>
 <path d='M80.3461,-272.682C97.4221,-249.117 122.864,-214.007 140.802,-189.254' fill='none' stroke='black'/>
 <polygon fill='none' points='77.4965,-270.65 74.4629,-280.801 83.1648,-274.757 77.4965,-270.65' stroke='black'/>

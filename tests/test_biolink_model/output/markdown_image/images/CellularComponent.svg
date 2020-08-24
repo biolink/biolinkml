@@ -36,12 +36,12 @@
 <polygon fill='white' points='134.5,-153 134.5,-189 487.5,-189 487.5,-153 134.5,-153' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='311' y='-167.3'>MacromolecularMachineToCellularComponentAssociation</text>
 </g><g class='node' id='node3'><title>CellularComponent</title>
-<polygon fill='white' points='366,-1 366,-61 512,-61 512,-1 366,-1' stroke='black'/>
+<polygon fill='white' points='349,-1 349,-61 529,-61 529,-1 349,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='439' y='-49.8'>CellularComponent</text>
-<polyline fill='none' points='366,-46 512,-46 ' stroke='black'/>
+<polyline fill='none' points='349,-46 529,-46 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='439' y='-34.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='439' y='-19.8'>name(i):label_type</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='439' y='-4.8'>category(i):iri_type +</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='439' y='-4.8'>category(i):category_type +</text>
 </g><g class='edge' id='edge1'><title>MacromolecularMachineToCellularComponentAssociation-&gt;CellularComponent</title>
 <path d='M326.952,-152.801C346.371,-131.865 379.697,-95.9359 404.97,-68.6889' fill='none' stroke='black'/>
 <polygon fill='black' points='411.866,-61.2537 408.365,-71.6457 408.466,-64.9196 405.066,-68.5855 405.066,-68.5855 405.066,-68.5855 408.466,-64.9196 401.766,-65.5253 411.866,-61.2537 411.866,-61.2537' stroke='black'/>

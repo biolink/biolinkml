@@ -1534,11 +1534,6 @@
       "name": "repr",
       "definition_uri": "https://w3id.org/biolink/biolinkml/meta/repr",
       "description": "the name of the python object that implements this type definition",
-      "examples": [
-        {
-          "type": "Example"
-        }
-      ],
       "from_schema": "https://w3id.org/biolink/biolinkml/meta",
       "domain": "TypeDefinition",
       "range": "string",
@@ -1818,6 +1813,36 @@
       "domain_of": [
         "Element"
       ],
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "narrow_mappings",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/narrow_mappings",
+      "mappings": [
+        "skos:narrowMatch"
+      ],
+      "description": "A list of terms from different schemas or terminology systems that have narrower meaning.",
+      "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
+      "imported_from": "biolinkml:mappings",
+      "is_a": "mappings",
+      "range": "uriorcurie",
+      "slot_uri": "http://www.w3.org/2004/02/skos/core#narrowMatch",
+      "multivalued": true,
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "broad_mappings",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/broad_mappings",
+      "mappings": [
+        "skos:broadMatch"
+      ],
+      "description": "A list of terms from different schemas or terminology systems that have broader meaning.",
+      "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
+      "imported_from": "biolinkml:mappings",
+      "is_a": "mappings",
+      "range": "uriorcurie",
+      "slot_uri": "http://www.w3.org/2004/02/skos/core#broadMatch",
+      "multivalued": true,
       "type": "SlotDefinition"
     },
     {
@@ -2508,9 +2533,6 @@
   ],
   "metamodel_version": "1.5.3",
   "source_file": "meta.yaml",
-  "source_file_date": "Friday Sep 27 12:00:00 2003",
-  "source_file_size": 26654,
-  "generation_date": "Friday Sep 27 12:00:00 2003",
   "type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/biolink/biolinkml/context.jsonld",

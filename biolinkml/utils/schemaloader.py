@@ -24,7 +24,11 @@ class SchemaLoader:
                  namespaces: Optional[Namespaces] = None,
                  useuris: Optional[bool] = None,
                  importmap: Optional[Mapping[str, str]] = None,
-                 logger: Optional[logging.Logger] = None) \
+                 logger: Optional[logging.Logger] = None,
+                 mergeimports: Optional[bool] = True,
+                 emit_metadata: Optional[bool] = True,
+                 source_file_date: Optional[str] = None,
+                 source_file_size: Optional[int] = None) \
             -> None:
         """ Constructor - load and process a YAML or pre-processed schema
 
@@ -34,21 +38,31 @@ class SchemaLoader:
         :param useuris: True means class_uri and slot_uri are identifiers.  False means they are mappings.
         :param importmap: A map from import entries to URI or file name.
         :param logger: Target Logger, if any
+        :param mergeimports: True means combine imports into single package. False means separate packages
+        :param emit_metadata: True means include source file, size and date
+        :param source_file_date: modification of source file
+        :param source_file_size: size of source file
         """
         self.logger = logger if logger is not None else logging.getLogger(self.__class__.__name__)
         if isinstance(data, SchemaDefinition):
             self.schema = data
         else:
-            self.schema = load_raw_schema(data, base_dir=base_dir)
+            self.schema = load_raw_schema(data, base_dir=base_dir, merge_modules=mergeimports,
+                                          emit_metadata=emit_metadata, source_file_date=source_file_date,
+                                          source_file_size=source_file_size)
         # Map from URI to source and version tuple
         self.loaded: OrderedDict[str, Tuple[str, str]] = {self.schema.id: (self.schema.source_file, self.schema.version)}
         self.base_dir = self._get_base_dir(base_dir)
         self.namespaces = namespaces if namespaces else Namespaces()
         self.useuris = useuris if useuris is not None else True
         self.importmap = parse_import_map(importmap, self.base_dir) if importmap is not None else dict()
+        self.source_file_date = source_file_date
+        self.source_file_size = source_file_size
         self.synopsis: Optional[SchemaSynopsis] = None
         self.schema_location: Optional[str] = None
         self.schema_defaults: Dict[str, str] = {}           # Map from schema URI to default namespace
+        self.merge_modules = mergeimports
+        self.emit_metadata = emit_metadata
 
     def resolve(self) -> SchemaDefinition:
         """Reconcile a loaded schema, applying is_a, mixins, apply_to's and other such things.  Also validate the
@@ -58,8 +72,7 @@ class SchemaLoader:
         """
         if not self.schema.default_range:
             self.schema.default_range = 'string'
-            print(f"Warning: default_range not specified. Default set to '{self.schema.default_range}'",
-                  file=sys.stderr)
+            self.logger.info(f"Default_range not specified. Default set to '{self.schema.default_range}'")
 
         # Process the namespace declarations
         if not self.schema.default_prefix:
@@ -85,7 +98,8 @@ class SchemaLoader:
             sname = self.importmap.get(str(sname), sname)               # It may also use URI or other forms
             import_schemadefinition = \
                 load_raw_schema(sname + '.yaml',
-                                base_dir=os.path.dirname(self.schema.source_file) if self.schema.source_file else None)
+                                base_dir=os.path.dirname(self.schema.source_file) if self.schema.source_file else None,
+                                merge_modules=self.merge_modules, emit_metadata=self.emit_metadata)
             loaded_schema = (str(sname), import_schemadefinition.version)
             if import_schemadefinition.id in self.loaded:
                 # If we've already loaded this, make sure that we've got the same version
@@ -94,12 +108,15 @@ class SchemaLoader:
                                            import_schemadefinition.name)
                 # Note: for debugging purposes we also check whether the version came from the same spot.  This should
                 #       be loosened to version only once we're sure that everything is working
-                if self.loaded[import_schemadefinition.id] != loaded_schema:
-                    self.raise_value_error(f"Schema imported from different files: "
-                                           f"{self.loaded[import_schemadefinition.id][0]} : {loaded_schema[0]}")
+                # TODO: The test below needs review -- there are cases where it fails because self.loaded[...][0] has the
+                #       full path name and loaded_schema[0] is just the local name
+                # if self.loaded[import_schemadefinition.id] != loaded_schema:
+                #     self.raise_value_error(f"Schema imported from different files: "
+                #                            f"{self.loaded[import_schemadefinition.id][0]} : {loaded_schema[0]}")
             else:
                 self.loaded[import_schemadefinition.id] = loaded_schema
-                merge_schemas(self.schema, import_schemadefinition, imp, self.namespaces)
+                merge_schemas(self.schema, import_schemadefinition, imp, self.namespaces,
+                              merge_imports=self.merge_modules)
                 self.schema_defaults[import_schemadefinition.id] = import_schemadefinition.default_prefix
 
         self.namespaces._base = self.schema.default_prefix if ':' in self.schema.default_prefix else \
@@ -122,6 +139,8 @@ class SchemaLoader:
                 else:
                     self.raise_value_error(f'Class "{cls.name}" - unknown slot: "{slotname}"', slotname)
 
+        # Process slots defined as slot usages
+        self.process_slot_usage_definitions()
 
         # Massage initial set of slots
         for slot in self.schema.slots.values():
@@ -181,6 +200,7 @@ class SchemaLoader:
         # Update classes with is_a and mixin information
         merged_classes: List[ClassDefinitionName] = []
         for cls in self.schema.classes.values():
+            self.process_slot_usages(cls)
             if not cls.from_schema:
                 cls.from_schema = self.schema.id
             self.merge_class(cls, merged_classes)
@@ -318,9 +338,10 @@ class SchemaLoader:
         self.validate_item_names("subset", subsets)
 
         # Check that the default range is valid
-        if not self.schema.default_range:
-            raise ValueError("Default range is not specified")
-        if self.schema.default_range not in self.schema.types and self.schema.default_range not in self.schema.classes:
+        default_range_needed = any(slot.range == self.schema.default_range for slot in self.schema.slots.values())
+        if default_range_needed and \
+                self.schema.default_range not in self.schema.types and \
+                self.schema.default_range not in self.schema.classes:
             raise ValueError(f'Unknown default range: "{self.schema.default_range}"')
 
         # We are currently limited to one key per class
@@ -423,7 +444,6 @@ class SchemaLoader:
         """
         if cls.name not in merged_classes:
             merged_classes.append(cls.name)
-            self.process_slot_usages(cls)
             if cls.is_a:
                 if cls.is_a in self.schema.classes:
                     self.merge_class(self.schema.classes[cls.is_a], merged_classes)
@@ -437,6 +457,33 @@ class SchemaLoader:
                     merge_classes(self.schema, cls, self.schema.classes[mixin], True)
                 else:
                     self.raise_value_error(f'Class: "{cls.name}" - unknown mixin reference: {mixin}', mixin)
+
+    def process_slot_usage_definitions(self):
+        """
+        Slot usages can be used to completely define slots.  Iterate over the class hierarchy finding all slot
+        definitions that are introduced strictly as usages and add them to the slots component
+        """
+        visited: Set[ClassDefinitionName] = set()
+
+        def visit(classname: ClassDefinitionName) -> None:
+            cls = self.schema.classes.get(classname)
+            if cls and cls.name not in visited:
+                if cls.is_a:
+                    visit(cls.is_a)
+                for mixin in cls.mixins:
+                    visit(mixin)
+                for slot_usage in cls.slot_usage.values():
+                    if slot_usage.alias:
+                        self.raise_value_error(f'Class: "{cls.name}" - alias not permitted in slot_usage slot:'
+                                               f' {slot_usage.alias}')
+                    if slot_usage.name not in self.schema.slots:
+                        self.logger.info(f'class "{cls.name}" slot "{slot_usage.name}" does not reference an existing slot.  '
+                                         f'New slot was created.')
+                        self.schema.slots[slot_usage.name] = slot_usage
+            visited.add(classname)
+
+        for classname in self.schema.classes.keys():
+            visit(classname)
 
     def process_slot_usages(self, cls: ClassDefinition) -> None:
         """
@@ -455,19 +502,18 @@ class SchemaLoader:
             if not parent_slot and slotname in self.schema.slots:
                 parent_slot = self.schema.slots[slotname]
 
-            # If parent slot is still not defined, it means that we introduced a NEW slot in the slot usages
             if not parent_slot:
-                self.logger.warning(f'class "{cls.name}" slot "{slotname}" does not reference an existing slot.  '
-                                    f'New slot was created.')
-                child_name = slotname
-                slot_alias = None
+                # This test is here because it is really easy to break things in the slot merge utilities.  It should
+                # stay
+                self.logger.error(f'class "{cls.name}" slot "{slotname}" -- error occurred. This should not happen')
             else:
                 child_name = slot_usage_name(slotname, cls)
                 slot_alias = parent_slot.alias if parent_slot.alias else slotname
             new_slot = SlotDefinition(name=child_name, alias=slot_alias, domain=cls.name, is_usage_slot=Bool(True),
                                       usage_slot_name=slotname, owner=cls.name, domain_of=[cls.name])
             self.schema.slots[child_name] = new_slot
-            merge_slots(new_slot, slot_usage, inheriting=False)
+            merge_slots(new_slot, slot_usage, inheriting=False, skip=['name', 'alias', 'domain', 'is_usage_slot',
+                                                                      'usage_slot_name', 'owner', 'domain_of'])
 
             # Copy the parent definition.  If there is no parent definition, the slot is being defined
             # locally as a slot_usage

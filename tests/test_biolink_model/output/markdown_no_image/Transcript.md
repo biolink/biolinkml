@@ -7,7 +7,7 @@ An RNA synthesized on a DNA or RNA template by an RNA polymerase
 URI: [biolink:Transcript](https://w3id.org/biolink/vocab/Transcript)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[TranscriptToGeneRelationship],[ExonToTranscriptRelationship]-%20object%201..1>[Transcript&#124;has_biological_sequence(i):biological_sequence%20%3F;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[TranscriptToGeneRelationship]-%20subject%201..1>[Transcript],[GenomicEntity]^-[Transcript],[OrganismTaxon],[MolecularEntity],[GenomicEntity],[ExonToTranscriptRelationship])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[TranscriptToGeneRelationship],[ExonToTranscriptRelationship]-%20object%201..1>[Transcript&#124;has_biological_sequence(i):biological_sequence%20%3F;id(i):string;name(i):label_type;category(i):category_type%20%2B],[TranscriptToGeneRelationship]-%20subject%201..1>[Transcript],[GenomicEntity]^-[Transcript],[OrganismTaxon],[MolecularEntity],[GenomicEntity],[ExonToTranscriptRelationship])
 
 ## Parents
 
@@ -28,7 +28,7 @@ URI: [biolink:Transcript](https://w3id.org/biolink/vocab/Transcript)
 
  * [category](category.md)  <sub>1..*</sub>
     * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
-    * range: [IriType](types/IriType.md)
+    * range: [CategoryType](types/CategoryType.md)
     * in subsets: (translator_minimal)
  * [has biological sequence](has_biological_sequence.md)  <sub>OPT</sub>
     * Description: connects a genomic feature to its sequence

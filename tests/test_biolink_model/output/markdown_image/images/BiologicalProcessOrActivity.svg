@@ -41,17 +41,22 @@
 <polyline fill='none' points='72.5,-174 257.5,-174 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='165' y='-162.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='165' y='-147.8'>name(i):label_type</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='165' y='-132.8'>category(i):iri_type +</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='165' y='-132.8'>category(i):category_type +</text>
+</g><g class='edge' id='edge1'><title>NamedThing-&gt;BiologicalProcessOrActivity</title>
+<path d='M154.001,-270.798C150.759,-247.277 150.669,-213.356 153.73,-189.254' fill='none' stroke='black'/>
+<polygon fill='black' points='155.712,-280.801 149.59,-271.703 154.869,-275.873 154.026,-270.944 154.026,-270.944 154.026,-270.944 154.869,-275.873 158.462,-270.186 155.712,-280.801 155.712,-280.801' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='144.88' y='-203.489'> </text>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='159.286' y='-257.423'>enabled by 0..*</text>
 </g><g class='edge' id='edge2'><title>NamedThing-&gt;BiologicalProcessOrActivity</title>
-<path d='M159.501,-270.798C157.88,-247.277 157.834,-213.356 159.365,-189.254' fill='none' stroke='black'/>
-<polygon fill='black' points='160.356,-280.801 155.02,-271.221 159.93,-275.819 159.504,-270.838 159.504,-270.838 159.504,-270.838 159.93,-275.819 163.987,-270.454 160.356,-280.801 160.356,-280.801' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='151.505' y='-203.945'> </text>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='165.57' y='-257.793'>has output 0..*</text>
+<path d='M165,-270.798C165,-247.277 165,-213.356 165,-189.254' fill='none' stroke='black'/>
+<polygon fill='black' points='165,-280.801 160.5,-270.801 165,-275.801 165,-270.801 165,-270.801 165,-270.801 165,-275.801 169.5,-270.801 165,-280.801 165,-280.801' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='158.16' y='-204.348'> </text>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='171.84' y='-258.307'>has output 0..*</text>
 </g><g class='edge' id='edge3'><title>NamedThing-&gt;BiologicalProcessOrActivity</title>
-<path d='M170.499,-270.798C172.12,-247.277 172.166,-213.356 170.635,-189.254' fill='none' stroke='black'/>
-<polygon fill='black' points='169.644,-280.801 166.013,-270.454 170.07,-275.819 170.496,-270.838 170.496,-270.838 170.496,-270.838 170.07,-275.819 174.98,-271.221 169.644,-280.801 169.644,-280.801' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='164.835' y='-204.694'> </text>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='178.061' y='-258.959'>has input 0..*</text>
+<path d='M175.999,-270.798C179.241,-247.277 179.331,-213.356 176.27,-189.254' fill='none' stroke='black'/>
+<polygon fill='black' points='174.288,-280.801 171.538,-270.186 175.131,-275.873 175.974,-270.944 175.974,-270.944 175.974,-270.944 175.131,-275.873 180.41,-271.703 174.288,-280.801 174.288,-280.801' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='171.521' y='-204.982'> </text>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='184.199' y='-259.73'>has input 0..*</text>
 </g><g class='node' id='node3'><title>MolecularActivity</title>
 <polygon fill='white' points='100.5,-1 100.5,-37 229.5,-37 229.5,-1 100.5,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='165' y='-15.3'>MolecularActivity</text>
@@ -62,11 +67,6 @@
 </g><g class='edge' id='edge5'><title>BiologicalProcessOrActivity-&gt;MolecularActivity</title>
 <path d='M165,-118.453C165,-91.5346 165,-57.2534 165,-37.0599' fill='none' stroke='black'/>
 <polygon fill='none' points='161.5,-118.734 165,-128.734 168.5,-118.734 161.5,-118.734' stroke='black'/>
-</g><g class='edge' id='edge1'><title>BiologicalProcessOrActivity-&gt;BiologicalProcessOrActivity</title>
-<path d='M266.724,-176.095C271.927,-171.863 275,-166.165 275,-159 275,-148.336 268.192,-140.921 257.688,-136.755' fill='none' stroke='black'/>
-<polygon fill='black' points='257.688,-181.245 264.148,-172.383 262.032,-178.769 266.376,-176.293 266.376,-176.293 266.376,-176.293 262.032,-178.769 268.604,-180.203 257.688,-181.245 257.688,-181.245' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='272.094' y='-146.928'> </text>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='277.403' y='-174.182'>enabled by 0..*</text>
 </g><g class='node' id='node5'><title>BiologicalProcess</title>
 <polygon fill='white' points='248,-1 248,-37 374,-37 374,-1 248,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='311' y='-15.3'>BiologicalProcess</text>
