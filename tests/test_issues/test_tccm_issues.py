@@ -57,19 +57,19 @@ class TCCMTestCase(TestEnvironmentTestCase):
 
         env.make_testing_directory(env.expected_path('issue_tccm'))
         for generator in Generator.__subclasses__():
-            if not generator.directory_output:
-                print("-->" + generator.__name__)
+            if not generator.__module__.startswith('biolinkml.generators'):
+                pass
+            elif not generator.directory_output:
                 env.generate_single_file(['issue_tccm', 'minimalmodel.' + generator.valid_formats[0]],
                                          lambda: generator(env.input_path('issue_tccm', 'minimalmodel.yaml'),
                                                            importmap=env.import_map, mergeimports=False,
                                                            emit_metadata=False).serialize(),
                                          value_is_returned=True)
             else:
-                print(generator.__name__)
-                # env.generate_directory(['issue_tccm', generator.__name__],
-                #                         lambda d: env.input_path('issue_tccm', 'minimalmodel.yaml'),
-                #                                            importmap=env.import_map, mergeimports=False,
-                #                                            emit_metadata=False).serialize())
+                env.generate_directory(['issue_tccm', generator.__name__],
+                                        lambda d: generator(env.input_path('issue_tccm', 'minimalmodel.yaml'),
+                                                           importmap=env.import_map, mergeimports=False,
+                                                           emit_metadata=False).serialize(directory=d))
 
 
     @unittest.skipIf(True, "Outstanding issue")

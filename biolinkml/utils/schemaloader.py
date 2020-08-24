@@ -26,7 +26,9 @@ class SchemaLoader:
                  importmap: Optional[Mapping[str, str]] = None,
                  logger: Optional[logging.Logger] = None,
                  mergeimports: Optional[bool] = True,
-                 emitmetadata: Optional[bool] = True) \
+                 emit_metadata: Optional[bool] = True,
+                 source_file_date: Optional[str] = None,
+                 source_file_size: Optional[int] = None) \
             -> None:
         """ Constructor - load and process a YAML or pre-processed schema
 
@@ -37,25 +39,30 @@ class SchemaLoader:
         :param importmap: A map from import entries to URI or file name.
         :param logger: Target Logger, if any
         :param mergeimports: True means combine imports into single package. False means separate packages
-        :param emitmetadata: True means include source file, size and date
+        :param emit_metadata: True means include source file, size and date
+        :param source_file_date: modification of source file
+        :param source_file_size: size of source file
         """
         self.logger = logger if logger is not None else logging.getLogger(self.__class__.__name__)
         if isinstance(data, SchemaDefinition):
             self.schema = data
         else:
             self.schema = load_raw_schema(data, base_dir=base_dir, merge_modules=mergeimports,
-                                          emit_metadata=emitmetadata)
+                                          emit_metadata=emit_metadata, source_file_date=source_file_date,
+                                          source_file_size=source_file_size)
         # Map from URI to source and version tuple
         self.loaded: OrderedDict[str, Tuple[str, str]] = {self.schema.id: (self.schema.source_file, self.schema.version)}
         self.base_dir = self._get_base_dir(base_dir)
         self.namespaces = namespaces if namespaces else Namespaces()
         self.useuris = useuris if useuris is not None else True
         self.importmap = parse_import_map(importmap, self.base_dir) if importmap is not None else dict()
+        self.source_file_date = source_file_date
+        self.source_file_size = source_file_size
         self.synopsis: Optional[SchemaSynopsis] = None
         self.schema_location: Optional[str] = None
         self.schema_defaults: Dict[str, str] = {}           # Map from schema URI to default namespace
         self.merge_modules = mergeimports
-        self.emit_metadata = emitmetadata
+        self.emit_metadata = emit_metadata
 
     def resolve(self) -> SchemaDefinition:
         """Reconcile a loaded schema, applying is_a, mixins, apply_to's and other such things.  Also validate the

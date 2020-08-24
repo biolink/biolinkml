@@ -38,6 +38,9 @@ class Generator(metaclass=abc.ABCMeta):
                  importmap: Optional[str] = None,
                  log_level: int = DEFAULT_LOG_LEVEL_INT,
                  mergeimports: Optional[bool] = True,
+                 source_file_date: Optional[str] = None,
+                 source_file_size: Optional[int] = None,
+                 logger: Optional[logging.Logger] = None,
                  **kwargs) -> None:
         """
         Constructor
@@ -50,10 +53,12 @@ class Generator(metaclass=abc.ABCMeta):
         :param importmap: File name of import mapping file -- maps import name/uri to target
         :param log_level: Logging level
         :param mergeimports: True means merge non-biolinkml sources into importing package.  False means separate packages.
-        :param logger: pre-set logger (hidden in kwargs)
+        :param source_file_date: Modification date of input source file
+        :param source_file_size: Source file size
+        :param logger: pre-set logger
         """
-        if 'logger' in kwargs:
-            self.logger = kwargs.pop('logger')
+        if logger:
+            self.logger = logger
         else:
             logging.basicConfig()
             self.logger = logging.getLogger(self.__class__.__name__)
@@ -65,6 +70,8 @@ class Generator(metaclass=abc.ABCMeta):
         self.format = format
         self.emit_metadata = emit_metadata
         self.merge_imports = mergeimports
+        self.source_file_date = source_file_date if emit_metadata else None
+        self.source_file_size = source_file_size if emit_metadata else None
         if isinstance(schema, Generator):
             gen = schema
             self.schema = gen.schema
@@ -73,12 +80,15 @@ class Generator(metaclass=abc.ABCMeta):
             self.namespaces = gen.namespaces
             self.base_dir = gen.base_dir
             self.importmap = gen.importmap
+            self.source_file_data = gen.source_file_date
+            self.source_file_size = gen.source_file_size
             self.schema_location = gen.schema_location
             self.schema_defaults = gen.schema_defaults
             self.logger = gen.logger
         else:
             loader = SchemaLoader(schema, self.base_dir, useuris=useuris, importmap=importmap, logger=self.logger,
-                                  mergeimports=mergeimports, emitmetadata=emit_metadata)
+                                  mergeimports=mergeimports, emit_metadata=emit_metadata,
+                                  source_file_date=self.source_file_date, source_file_size=self.source_file_size)
             loader.resolve()
             self.schema = loader.schema
             self.synopsis = loader.synopsis
@@ -86,6 +96,8 @@ class Generator(metaclass=abc.ABCMeta):
             self.namespaces = loader.namespaces
             self.base_dir = loader.base_dir
             self.importmap = loader.importmap
+            self.source_file_data = loader.source_file_date
+            self.source_file_size = loader.source_file_size
             self.schema_location = loader.schema_location
             self.schema_defaults = loader.schema_defaults
 

@@ -40,7 +40,8 @@ def load_raw_schema(data: Union[str, dict, TextIO],
     if isinstance(data, str):
         # If passing the actual YAML
         if '\n' in data:
-            return load_raw_schema(StringIO(data), source_file, source_file_date, source_file_size, base_dir,
+            return load_raw_schema(StringIO(data), source_file=source_file, base_dir=base_dir,
+                                   source_file_date=source_file_date, source_file_size=source_file_size,
                                    emit_metadata=emit_metadata)
 
         # Passing a URL or file name
@@ -62,7 +63,6 @@ def load_raw_schema(data: Union[str, dict, TextIO],
             with response:
                 return load_raw_schema(response, fname, response.info()['Last-Modified'],
                                        response.info()['Content-Length'], emit_metadata=emit_metadata)
-
 
         else:
             # File name
@@ -93,12 +93,12 @@ def load_raw_schema(data: Union[str, dict, TextIO],
 
         def check_is_dict(element: str) -> None:
             """ Verify that element is an instance of a dictionary, mapping empty elements to dictionaries """
-            for schemaname, body in schemadefs.items():
-                if element in body:
-                    if body[element] is None:
-                        body[element] = dict()
-                    elif not isinstance(body[element], dict):
-                        raise ValueError(f'Schema: {schemaname} - Element: {element} must be a dictionary')
+            for body_schemaname, body_body in schemadefs.items():
+                if element in body_body:
+                    if body_body[element] is None:
+                        body_body[element] = dict()
+                    elif not isinstance(body_body[element], dict):
+                        raise ValueError(f'Schema: {body_schemaname} - Element: {element} must be a dictionary')
 
         def fix_multiples(container:  str, element: str) -> None:
             """
@@ -107,9 +107,9 @@ def load_raw_schema(data: Union[str, dict, TextIO],
             :param element:  name or list element to adjust (e.g. notes"
             """
             # Note: multiple bodies in the schema are an at-risk feature.  Doesn't seem to have a real use case.
-            for body in schema_body:
-                if container in body:
-                    for c in body[container].values():
+            for body_body in schema_body:
+                if container in body_body:
+                    for c in body_body[container].values():
                         if c and element in c and isinstance(c[element], str):
                             c[element] = [c[element]]
 
@@ -138,7 +138,7 @@ def load_raw_schema(data: Union[str, dict, TextIO],
                     if 'domain' not in usage:
                         usage['domain'] = cname
 
-        schema: SchemaDefinition = None
+        schema: Optional[SchemaDefinition] = None
         for sname, sdef in {k: SchemaDefinition(name=k, **v) for k, v in schemadefs.items()}.items():
             if schema is None:
                 schema = sdef
@@ -147,8 +147,7 @@ def load_raw_schema(data: Union[str, dict, TextIO],
                 if emit_metadata:
                     schema.source_file_date = source_file_date
                     schema.source_file_size = source_file_size
-                    if schema.source_file_date:         # proxy for emitmetadata = False
-                        schema.generation_date = datetime.now().strftime("%Y-%m-%d %H:%M")
+                    schema.generation_date = datetime.now().strftime("%Y-%m-%d %H:%M")
                 schema.metamodel_version = metamodel_version
                 set_from_schema(schema)
             else:
