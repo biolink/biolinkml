@@ -30,7 +30,6 @@ URI: [meta:TypeDefinition](https://w3id.org/biolink/biolinkml/meta/TypeDefinitio
  * [repr](repr.md)  <sub>OPT</sub>
     * Description: the name of the python object that implements this type definition
     * range: [String](types/String.md)
-    * Example: None None
  * [type_definition➞uri](type_uri.md)  <sub>OPT</sub>
     * Description: The uri that defines the possible values for the type definition
     * range: [Uriorcurie](types/Uriorcurie.md)
