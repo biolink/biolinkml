@@ -12,7 +12,6 @@ class SlotUsageDefaultTest(TestEnvironmentTestCase):
     def test_slot_usage_range(self):
         """ Test to make the absolute minimal model work """
         schema = SchemaLoader(env.input_path('issue_213.yaml')).resolve()
-        self.assertEqual('string', schema.slots['a_my slot'].range)
         self.assertEqual('string', schema.slots['my slot'].range)
 
 

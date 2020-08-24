@@ -527,6 +527,8 @@ class SchemaLoader:
                     cls.slots[cls.slots.index(parent_slot.name)] = child_name
                 else:
                     cls.slots.append(child_name)
+            elif not new_slot.range:
+                new_slot.range = self.schema.default_range
 
     def merge_type(self, typ: TypeDefinition, merged_types: List[TypeDefinitionName]) -> None:
         """
