@@ -692,8 +692,6 @@ slots:
     domain: type_definition
     range: string
     description: the name of the python object that implements this type definition
-    examples:
-      - value:
     inherited: true
 
   # -----------------------------------
