@@ -16,6 +16,7 @@ from biolinkml.utils.typereferences import References
 class MarkdownGenerator(Generator):
     generatorname = os.path.basename(__file__)
     generatorversion = "0.1.1"
+    directory_output = True
     valid_formats = ["md"]
     visit_all_class_slots = False
 

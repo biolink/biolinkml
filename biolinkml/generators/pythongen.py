@@ -24,13 +24,12 @@ class PythonGenerator(Generator):
     valid_formats = ['py']
     visit_all_class_slots = False
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], format: str = valid_formats[0],
-                 emit_metadata: bool = True, **kwargs) -> None:
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], format: str = valid_formats[0], **kwargs) -> None:
         self.sourcefile = schema
         self.emit_prefixes: Set[str] = set()
         if format is None:
             format = self.valid_formats[0]
-        super().__init__(schema, format, emit_metadata=emit_metadata, **kwargs)
+        super().__init__(schema, format, **kwargs)
         if not self.schema.source_file and isinstance(self.sourcefile, str) and '\n' not in self.sourcefile:
             self.schema.source_file = os.path.basename(self.sourcefile)
 
@@ -93,7 +92,7 @@ class PythonGenerator(Generator):
         head = f'''# Auto generated from {self.schema.source_file} by {self.generatorname} version: {self.generatorversion}
 # Generation date: {self.schema.generation_date}
 # Schema: {self.schema.name}
-#''' if self.emit_metadata else ''
+#''' if self.schema.generation_date else ''
 
         return f'''{head}
 # id: {self.schema.id}

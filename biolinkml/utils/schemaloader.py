@@ -25,7 +25,8 @@ class SchemaLoader:
                  useuris: Optional[bool] = None,
                  importmap: Optional[Mapping[str, str]] = None,
                  logger: Optional[logging.Logger] = None,
-                 mergeimports: Optional[bool] = True) \
+                 mergeimports: Optional[bool] = True,
+                 emitmetadata: Optional[bool] = True) \
             -> None:
         """ Constructor - load and process a YAML or pre-processed schema
 
@@ -36,12 +37,14 @@ class SchemaLoader:
         :param importmap: A map from import entries to URI or file name.
         :param logger: Target Logger, if any
         :param mergeimports: True means combine imports into single package. False means separate packages
+        :param emitmetadata: True means include source file, size and date
         """
         self.logger = logger if logger is not None else logging.getLogger(self.__class__.__name__)
         if isinstance(data, SchemaDefinition):
             self.schema = data
         else:
-            self.schema = load_raw_schema(data, base_dir=base_dir, merge_modules=mergeimports)
+            self.schema = load_raw_schema(data, base_dir=base_dir, merge_modules=mergeimports,
+                                          emit_metadata=emitmetadata)
         # Map from URI to source and version tuple
         self.loaded: OrderedDict[str, Tuple[str, str]] = {self.schema.id: (self.schema.source_file, self.schema.version)}
         self.base_dir = self._get_base_dir(base_dir)
@@ -52,6 +55,7 @@ class SchemaLoader:
         self.schema_location: Optional[str] = None
         self.schema_defaults: Dict[str, str] = {}           # Map from schema URI to default namespace
         self.merge_modules = mergeimports
+        self.emit_metadata = emitmetadata
 
     def resolve(self) -> SchemaDefinition:
         """Reconcile a loaded schema, applying is_a, mixins, apply_to's and other such things.  Also validate the
@@ -88,7 +92,7 @@ class SchemaLoader:
             import_schemadefinition = \
                 load_raw_schema(sname + '.yaml',
                                 base_dir=os.path.dirname(self.schema.source_file) if self.schema.source_file else None,
-                                merge_modules=self.merge_modules)
+                                merge_modules=self.merge_modules, emit_metadata=self.emit_metadata)
             loaded_schema = (str(sname), import_schemadefinition.version)
             if import_schemadefinition.id in self.loaded:
                 # If we've already loaded this, make sure that we've got the same version
@@ -327,9 +331,10 @@ class SchemaLoader:
         self.validate_item_names("subset", subsets)
 
         # Check that the default range is valid
-        if not self.schema.default_range:
-            raise ValueError("Default range is not specified")
-        if self.schema.default_range not in self.schema.types and self.schema.default_range not in self.schema.classes:
+        default_range_needed = any(slot.range == self.schema.default_range for slot in self.schema.slots.values())
+        if default_range_needed and \
+                self.schema.default_range not in self.schema.types and \
+                self.schema.default_range not in self.schema.classes:
             raise ValueError(f'Unknown default range: "{self.schema.default_range}"')
 
         # We are currently limited to one key per class

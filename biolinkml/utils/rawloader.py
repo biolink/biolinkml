@@ -21,7 +21,8 @@ def load_raw_schema(data: Union[str, dict, TextIO],
                     source_file_date: Optional[str] = None,
                     source_file_size: Optional[int] = None,
                     base_dir: Optional[str] = None,
-                    merge_modules: Optional[bool] = True) -> SchemaDefinition:
+                    merge_modules: Optional[bool] = True,
+                    emit_metadata: Optional[bool] = True) -> SchemaDefinition:
     """ Load and flatten SchemaDefinition from a file name, a URL or a block of text
 
     @param data: URL, file name or block of text YAML Object or open file handle
@@ -30,6 +31,7 @@ def load_raw_schema(data: Union[str, dict, TextIO],
     @param source_file_size: size of source file if data is type TextIO
     @param base_dir: Working directory or base URL of sources
     @param merge_modules: True means combine modules into one source, false means keep separate
+    @param emit_metadata: True means add source file info to the output
     @return: Un-processed Schema Definition object
     """
     def _name_from_url(url) -> str:
@@ -38,7 +40,8 @@ def load_raw_schema(data: Union[str, dict, TextIO],
     if isinstance(data, str):
         # If passing the actual YAML
         if '\n' in data:
-            return load_raw_schema(StringIO(data), source_file, source_file_date, source_file_size, base_dir)
+            return load_raw_schema(StringIO(data), source_file, source_file_date, source_file_size, base_dir,
+                                   emit_metadata=emit_metadata)
 
         # Passing a URL or file name
         assert source_file is None, "source_file parameter not allowed if data is a file or URL"
@@ -58,7 +61,7 @@ def load_raw_schema(data: Union[str, dict, TextIO],
                 raise e
             with response:
                 return load_raw_schema(response, fname, response.info()['Last-Modified'],
-                                       response.info()['Content-Length'])
+                                       response.info()['Content-Length'], emit_metadata=emit_metadata)
 
 
         else:
@@ -69,7 +72,8 @@ def load_raw_schema(data: Union[str, dict, TextIO],
             else:
                 fname = data if os.path.isabs(data) else os.path.abspath(os.path.join(base_dir, data))
             with open(fname) as f:
-                return load_raw_schema(f, fname, time.ctime(os.path.getmtime(fname)), os.path.getsize(fname), base_dir)
+                return load_raw_schema(f, fname, time.ctime(os.path.getmtime(fname)), os.path.getsize(fname), base_dir,
+                                       emit_metadata=emit_metadata)
     else:
         # Loaded YAML or file handle that references YAML
         schemadefs = copy.deepcopy(data) if isinstance(data, dict) else yaml.load(data, DupCheckYamlLoader)
@@ -140,9 +144,11 @@ def load_raw_schema(data: Union[str, dict, TextIO],
                 schema = sdef
                 if source_file:
                     schema.source_file = source_file
-                schema.source_file_date = source_file_date
-                schema.source_file_size = source_file_size
-                schema.generation_date = datetime.now().strftime("%Y-%m-%d %H:%M")
+                if emit_metadata:
+                    schema.source_file_date = source_file_date
+                    schema.source_file_size = source_file_size
+                    if schema.source_file_date:         # proxy for emitmetadata = False
+                        schema.generation_date = datetime.now().strftime("%Y-%m-%d %H:%M")
                 schema.metamodel_version = metamodel_version
                 set_from_schema(schema)
             else:

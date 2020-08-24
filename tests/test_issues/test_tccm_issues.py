@@ -1,7 +1,10 @@
+import logging
 import unittest
 
+from biolinkml.generators import *
 from biolinkml.generators.pythongen import PythonGenerator
 from biolinkml.generators.yamlgen import YAMLGenerator
+from biolinkml.utils.generator import Generator
 from biolinkml.utils.schemaloader import SchemaLoader
 from tests.utils.python_comparator import compare_python
 from tests.utils.test_environment import TestEnvironmentTestCase
@@ -47,6 +50,37 @@ class TCCMTestCase(TestEnvironmentTestCase):
                                                          importmap=env.import_map, mergeimports=False).serialize(),
                                  comparator=compare_python, value_is_returned=True)
 
+    def test_minimal_model(self):
+        """ Test to make the absolute minimal model work """
+        YAMLGenerator(env.input_path('issue_tccm', 'minimalmodel.yaml'),
+                      mergeimports=False, log_level=logging.INFO).serialize(validateonly=True)
+
+        env.make_testing_directory(env.expected_path('issue_tccm'))
+        for generator in Generator.__subclasses__():
+            if not generator.directory_output:
+                print("-->" + generator.__name__)
+                env.generate_single_file(['issue_tccm', 'minimalmodel.' + generator.valid_formats[0]],
+                                         lambda: generator(env.input_path('issue_tccm', 'minimalmodel.yaml'),
+                                                           importmap=env.import_map, mergeimports=False,
+                                                           emit_metadata=False).serialize(),
+                                         value_is_returned=True)
+            else:
+                print(generator.__name__)
+                # env.generate_directory(['issue_tccm', generator.__name__],
+                #                         lambda d: env.input_path('issue_tccm', 'minimalmodel.yaml'),
+                #                                            importmap=env.import_map, mergeimports=False,
+                #                                            emit_metadata=False).serialize())
+
+
+    @unittest.skipIf(True, "Outstanding issue")
+    def test_dictionary_name(self):
+        """ Allow dictionaries w/ explicit keys or identifiers through as long as they match """
+        yaml = env.generate_single_file(['issue_tccm', 'explicit_key_id.yaml'],
+                                        lambda: YAMLGenerator(env.input_path('issue_tccm', 'explicit_key_id.yaml'),
+                                        importmap=env.import_map, mergeimports=False,
+                                        emit_metadata=False).serialize(),
+                                        value_is_returned = True)
+        print(yaml)
 
 if __name__ == '__main__':
     unittest.main()

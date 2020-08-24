@@ -22,7 +22,8 @@ DEFAULT_LOG_LEVEL_INT: int = logging.WARNING
 class Generator(metaclass=abc.ABCMeta):
     generatorname: str = None                   # Set to os.path.basename(__file__)
     generatorversion: str = None                # Generator version identifier
-    valid_formats: List[str] = []               # Allowed formats
+    valid_formats: List[str] = []               # Allowed formats - first format is default
+    directory_output: bool = False              # True means output is to a directory, False is to stdout
     base_dir: str = None                        # Base directory of schema
 
     visit_all_class_slots: bool = False         # False means only visit own slots, True means visit all slots
@@ -77,7 +78,7 @@ class Generator(metaclass=abc.ABCMeta):
             self.logger = gen.logger
         else:
             loader = SchemaLoader(schema, self.base_dir, useuris=useuris, importmap=importmap, logger=self.logger,
-                                  mergeimports=mergeimports)
+                                  mergeimports=mergeimports, emitmetadata=emit_metadata)
             loader.resolve()
             self.schema = loader.schema
             self.synopsis = loader.synopsis

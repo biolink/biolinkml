@@ -103,7 +103,7 @@ class TestEnvironment:
     def actual_path(self, *path: str, is_dir: bool = False) -> str:
         """ Return the full path to the path fragments in path """
         dir_path = [p for p in (path if is_dir else path[:-1]) if p]
-        self.make_temp_dir(*dir_path)
+        self.make_temp_dir(*dir_path, clear=False)
         return os.path.join(self.tempdir, *[p for p in path if p])
 
     def temp_file_path(self, *path: str, is_dir:bool = False) -> str:
@@ -131,14 +131,14 @@ class TestEnvironment:
         """ Return the current state of the log file """
         return '\n\n'.join([str(e) for e in self._log.entries])
 
-    def make_temp_dir(self, *paths: str) -> str:
+    def make_temp_dir(self, *paths: str, clear: bool=True) -> str:
         """ Create and initialize a list of paths """
         full_path = self.tempdir
         TestEnvironment.make_testing_directory(full_path)
         if len(paths):
             for i in range(len(paths)):
                 full_path = os.path.join(full_path, paths[i])
-                TestEnvironment.make_testing_directory(full_path, clear=i == len(paths) - 1)
+                TestEnvironment.make_testing_directory(full_path, clear=clear and i == len(paths) - 1)
         return full_path
 
     def string_comparator(self, expected: str, actual: str) -> Optional[str]:
@@ -227,7 +227,7 @@ class TestEnvironment:
                     pass
             actual = filtr(outf.getvalue())
 
-        if not self.eval_single_file(expected_file, actual, filtr, comparator if comparator else self.string_comparator):
+        if not self.eval_single_file(expected_file, actual, filtr, comparator):
             if self.fail_on_error:
                 with open(actual_file, 'w') as actualf:
                     actualf.write(actual)
