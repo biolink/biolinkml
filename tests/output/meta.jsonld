@@ -3,7 +3,7 @@
   "description": "A metamodel for defining biolink related schemas",
   "id": "https://w3id.org/biolink/biolinkml/meta",
   "title": "Biolink Schema Metamodel",
-  "version": "1.5.4",
+  "version": "1.5.8",
   "imports": [
     "biolinkml:types",
     "biolinkml:mappings",
@@ -2590,9 +2590,9 @@
   ],
   "metamodel_version": "1.5.3",
   "source_file": "meta.yaml",
-  "source_file_date": "Tue Aug 25 16:38:08 2020",
+  "source_file_date": "Tue Aug 25 12:38:33 2020",
   "source_file_size": 27254,
-  "generation_date": "2020-08-25 16:38",
+  "generation_date": "2020-08-25 12:39",
   "type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/biolink/biolinkml/context.jsonld",
