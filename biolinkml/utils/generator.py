@@ -33,7 +33,7 @@ class Generator(metaclass=abc.ABCMeta):
     def __init__(self,
                  schema: Union[str, TextIO, SchemaDefinition, "Generator"],
                  format: Optional[str] = None,
-                 emit_metadata: bool = False,
+                 emit_metadata: bool = True,
                  useuris: Optional[bool] = None,
                  importmap: Optional[str] = None,
                  log_level: int = DEFAULT_LOG_LEVEL_INT,

@@ -25,7 +25,12 @@ URI: [meta:identifier](https://w3id.org/biolink/biolinkml/meta/identifier)
 
 |  |  |  |
 | --- | --- | --- |
+| **Aliases:** | | primary key |
+|  | | ID |
+|  | | UID |
+|  | | code |
 | **Comments:** | | identifier is inherited |
 |  | | identifier slots are always required |
 |  | | a given domain can have at most one identifier |
+| **See also:** | | https://en.wikipedia.org/wiki/Identifier |
 

@@ -1,5 +1,5 @@
 import os
-from typing import Union, TextIO
+from typing import Union, TextIO, Optional
 
 import click
 from jsonasobj import JsonObj, as_json
@@ -15,7 +15,7 @@ class JsonSchemaGenerator(Generator):
     valid_formats = ["json"]
     visit_all_class_slots = True
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], top_class: str = None, **kwargs) -> None:
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], top_class: Optional[str] = None, **kwargs) -> None:
         super().__init__(schema, **kwargs)
         self.schemaobj: JsonObj = None
         self.clsobj: JsonObj = None
