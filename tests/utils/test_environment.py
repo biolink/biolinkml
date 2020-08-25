@@ -216,7 +216,7 @@ class TestEnvironment:
         expected_file = self.root_expected_path(*filename) if use_testing_root else self.expected_path(*filename)
 
         if value_is_returned:
-            actual = filtr(generator())
+            actual = generator()
         else:
             outf = StringIO()
             from tests import CLIExitException
@@ -225,7 +225,7 @@ class TestEnvironment:
                     generator()
                 except CLIExitException:
                     pass
-            actual = filtr(outf.getvalue())
+            actual = outf.getvalue()
 
         if not self.eval_single_file(expected_file, actual, filtr, comparator):
             if self.fail_on_error:

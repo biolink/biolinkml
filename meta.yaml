@@ -3,7 +3,7 @@ title: Biolink Schema Metamodel
 name: metamodel
 description: A metamodel for defining biolink related schemas
 license: https://creativecommons.org/publicdomain/zero/1.0/
-version: 1.5.3
+version: 1.5.4
 
 prefixes:
   meta: https://w3id.org/biolink/biolinkml/meta/
@@ -62,6 +62,8 @@ slots:
       - owl
     mappings:
       - schema:name
+    see_also:
+      - https://en.wikipedia.org/wiki/Data_element_name
 
   definition_uri:
     domain: element
@@ -548,6 +550,13 @@ slots:
     description: >-
       true means that this slot is the subject of a set of assertions.  Identifiers do not appear as
       predicates in the model
+    aliases:
+      - primary key
+      - ID
+      - UID
+      - code
+    see_also:
+      - https://en.wikipedia.org/wiki/Identifier
     comments:
       - identifier is inherited
       - identifier slots are always required
@@ -815,11 +824,17 @@ classes:
       - exact mappings
       - close mappings
       - related mappings
+      - narrow mappings
+      - broad mappings
       - deprecated element has exact replacement
       - deprecated element has possible replacement
+    see_also:
+      - https://en.wikipedia.org/wiki/Data_element
 
   schema_definition:
     description: "a collection of subset, type, slot and class definitions"
+    aliases:
+      - data dictionary
     is_a: element
     slots:
       - id
@@ -841,6 +856,8 @@ classes:
       - source_file_date
       - source_file_size
       - generation_date
+    see_also:
+      - https://en.wikipedia.org/wiki/Data_dictionary
     slot_usage:
       name:
         range: ncname
@@ -877,9 +894,16 @@ classes:
       - last_updated_on
       - modified_by
       - status
+    see_also:
+      - https://en.wikipedia.org/wiki/Data_element_definition
 
   slot_definition:
     description: the definition of a property or a slot
+    aliases:
+      - slot
+      - field
+      - property
+      - attribute
     is_a: definition
     slots:
       - singular_name
@@ -919,6 +943,10 @@ classes:
 
   class_definition:
     description: the definition of a class or interface
+    aliases:
+      - table
+      - record
+      - template
     is_a: definition
     slots:
       - slots

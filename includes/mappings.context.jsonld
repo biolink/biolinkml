@@ -12,6 +12,10 @@
       "skos": "http://www.w3.org/2004/02/skos/core#",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "@vocab": "https://w3id.org/biolink/biolinkml/meta/",
+      "broad_mappings": {
+         "@type": "@id",
+         "@id": "skos:broadMatch"
+      },
       "close_mappings": {
          "@type": "@id",
          "@id": "skos:closeMatch"
@@ -29,6 +33,10 @@
       "mappings": {
          "@type": "@id",
          "@id": "skos:mappingRelation"
+      },
+      "narrow_mappings": {
+         "@type": "@id",
+         "@id": "skos:narrowMatch"
       },
       "related_mappings": {
          "@type": "@id",

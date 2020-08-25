@@ -38,7 +38,7 @@ SKIP_MARKDOWN_VALIDATION = test_settings.getboolean('SKIP_MARKDOWN_VALIDATION', 
 SKIP_MARKDOWN_VALIDATION_REASON = test_settings.get('SKIP_MARKDOWN_VALIDATION_REASON', 'tests/__init__.py Markdown generation SKIP_MARKDOWN_VALIDATION is True')
 
 # Skip RDF comparison, as it takes a lot of time
-SKIP_RDF_COMPARE = test_settings.getboolean('SKIP_RDF_COMPARE', True)
+SKIP_RDF_COMPARE = test_settings.getboolean('SKIP_RDF_COMPARE', False)
 SKIP_RDF_COMPARE_REASON = test_settings.get('SKIP_RDF_COMPARE_REASON', 'tests/__init__.py RDF output not checked SKIP_RDF_COMPARE is True')
 
 # Skip Rewrite rules tests -- these only get re-tested when we change the w3id.org server
