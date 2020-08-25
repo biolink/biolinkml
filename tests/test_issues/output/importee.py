@@ -1,4 +1,7 @@
-
+# Auto generated from importee.yaml by pythongen.py version: 0.4.0
+# Generation date: 2020-08-25 16:45
+# Schema: importee
+#
 # id: https://example.org/importee
 # description: A minimal element to import
 # license: https://creativecommons.org/publicdomain/zero/1.0/

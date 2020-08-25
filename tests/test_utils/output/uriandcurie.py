@@ -1,4 +1,7 @@
-
+# Auto generated from uriandcurie.yaml by pythongen.py version: 0.4.0
+# Generation date: 2020-08-25 16:46
+# Schema: uriandcurie
+#
 # id: http://example.org/test/uriandcurie
 # description:
 # license:

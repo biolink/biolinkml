@@ -39,6 +39,8 @@ type ClassDefinition
     exactMappings: [Uriorcurie]
     closeMappings: [Uriorcurie]
     relatedMappings: [Uriorcurie]
+    narrowMappings: [Uriorcurie]
+    broadMappings: [Uriorcurie]
     deprecatedElementHasExactReplacement: Uriorcurie
     deprecatedElementHasPossibleReplacement: Uriorcurie
     extensions: [Extension]
@@ -85,6 +87,8 @@ interface Definition
     exactMappings: [Uriorcurie]
     closeMappings: [Uriorcurie]
     relatedMappings: [Uriorcurie]
+    narrowMappings: [Uriorcurie]
+    broadMappings: [Uriorcurie]
     deprecatedElementHasExactReplacement: Uriorcurie
     deprecatedElementHasPossibleReplacement: Uriorcurie
     extensions: [Extension]
@@ -124,6 +128,8 @@ type Element implements Extensible, Annotatable
     exactMappings: [Uriorcurie]
     closeMappings: [Uriorcurie]
     relatedMappings: [Uriorcurie]
+    narrowMappings: [Uriorcurie]
+    broadMappings: [Uriorcurie]
     deprecatedElementHasExactReplacement: Uriorcurie
     deprecatedElementHasPossibleReplacement: Uriorcurie
     extensions: [Extension]
@@ -181,6 +187,8 @@ type SchemaDefinition
     exactMappings: [Uriorcurie]
     closeMappings: [Uriorcurie]
     relatedMappings: [Uriorcurie]
+    narrowMappings: [Uriorcurie]
+    broadMappings: [Uriorcurie]
     deprecatedElementHasExactReplacement: Uriorcurie
     deprecatedElementHasPossibleReplacement: Uriorcurie
     extensions: [Extension]
@@ -229,6 +237,8 @@ type SlotDefinition
     exactMappings: [Uriorcurie]
     closeMappings: [Uriorcurie]
     relatedMappings: [Uriorcurie]
+    narrowMappings: [Uriorcurie]
+    broadMappings: [Uriorcurie]
     deprecatedElementHasExactReplacement: Uriorcurie
     deprecatedElementHasPossibleReplacement: Uriorcurie
     extensions: [Extension]
@@ -294,6 +304,8 @@ type SubsetDefinition
     exactMappings: [Uriorcurie]
     closeMappings: [Uriorcurie]
     relatedMappings: [Uriorcurie]
+    narrowMappings: [Uriorcurie]
+    broadMappings: [Uriorcurie]
     deprecatedElementHasExactReplacement: Uriorcurie
     deprecatedElementHasPossibleReplacement: Uriorcurie
     extensions: [Extension]
@@ -322,6 +334,8 @@ type TypeDefinition
     exactMappings: [Uriorcurie]
     closeMappings: [Uriorcurie]
     relatedMappings: [Uriorcurie]
+    narrowMappings: [Uriorcurie]
+    broadMappings: [Uriorcurie]
     deprecatedElementHasExactReplacement: Uriorcurie
     deprecatedElementHasPossibleReplacement: Uriorcurie
     extensions: [Extension]

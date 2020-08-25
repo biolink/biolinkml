@@ -3,7 +3,7 @@
   "description": "A metamodel for defining biolink related schemas",
   "id": "https://w3id.org/biolink/biolinkml/meta",
   "title": "Biolink Schema Metamodel",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "imports": [
     "biolinkml:types",
     "biolinkml:mappings",
@@ -232,6 +232,9 @@
         "owl"
       ],
       "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "see_also": [
+        "https://en.wikipedia.org/wiki/Data_element_name"
+      ],
       "domain": "Element",
       "range": "string",
       "slot_uri": "http://www.w3.org/2000/01/rdf-schema#label",
@@ -1239,6 +1242,12 @@
     {
       "name": "identifier",
       "definition_uri": "https://w3id.org/biolink/biolinkml/meta/identifier",
+      "aliases": [
+        "primary key",
+        "ID",
+        "UID",
+        "code"
+      ],
       "description": "true means that this slot is the subject of a set of assertions.  Identifiers do not appear as predicates in the model",
       "comments": [
         "identifier is inherited",
@@ -1246,6 +1255,9 @@
         "a given domain can have at most one identifier"
       ],
       "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "see_also": [
+        "https://en.wikipedia.org/wiki/Identifier"
+      ],
       "domain": "SlotDefinition",
       "range": "boolean",
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/identifier",
@@ -1828,6 +1840,10 @@
       "range": "uriorcurie",
       "slot_uri": "http://www.w3.org/2004/02/skos/core#narrowMatch",
       "multivalued": true,
+      "owner": "Element",
+      "domain_of": [
+        "Element"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -1843,6 +1859,10 @@
       "range": "uriorcurie",
       "slot_uri": "http://www.w3.org/2004/02/skos/core#broadMatch",
       "multivalued": true,
+      "owner": "Element",
+      "domain_of": [
+        "Element"
+      ],
       "type": "SlotDefinition"
     },
     {
@@ -2092,6 +2112,9 @@
       "definition_uri": "https://w3id.org/biolink/biolinkml/meta/Element",
       "description": "a named element in the model",
       "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "see_also": [
+        "https://en.wikipedia.org/wiki/Data_element"
+      ],
       "abstract": true,
       "mixins": [
         "Extensible",
@@ -2118,6 +2141,8 @@
         "exact_mappings",
         "close_mappings",
         "related_mappings",
+        "narrow_mappings",
+        "broad_mappings",
         "deprecated_element_has_exact_replacement",
         "deprecated_element_has_possible_replacement",
         "extensions",
@@ -2129,8 +2154,14 @@
     {
       "name": "SchemaDefinition",
       "definition_uri": "https://w3id.org/biolink/biolinkml/meta/SchemaDefinition",
+      "aliases": [
+        "data dictionary"
+      ],
       "description": "a collection of subset, type, slot and class definitions",
       "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "see_also": [
+        "https://en.wikipedia.org/wiki/Data_dictionary"
+      ],
       "is_a": "Element",
       "slots": [
         "id_prefixes",
@@ -2152,6 +2183,8 @@
         "exact_mappings",
         "close_mappings",
         "related_mappings",
+        "narrow_mappings",
+        "broad_mappings",
         "deprecated_element_has_exact_replacement",
         "deprecated_element_has_possible_replacement",
         "extensions",
@@ -2207,6 +2240,8 @@
         "exact_mappings",
         "close_mappings",
         "related_mappings",
+        "narrow_mappings",
+        "broad_mappings",
         "deprecated_element_has_exact_replacement",
         "deprecated_element_has_possible_replacement",
         "extensions",
@@ -2246,6 +2281,8 @@
         "exact_mappings",
         "close_mappings",
         "related_mappings",
+        "narrow_mappings",
+        "broad_mappings",
         "deprecated_element_has_exact_replacement",
         "deprecated_element_has_possible_replacement",
         "extensions",
@@ -2259,6 +2296,9 @@
       "definition_uri": "https://w3id.org/biolink/biolinkml/meta/Definition",
       "description": "base class for definitions",
       "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "see_also": [
+        "https://en.wikipedia.org/wiki/Data_element_definition"
+      ],
       "is_a": "Element",
       "abstract": true,
       "slots": [
@@ -2282,6 +2322,8 @@
         "exact_mappings",
         "close_mappings",
         "related_mappings",
+        "narrow_mappings",
+        "broad_mappings",
         "deprecated_element_has_exact_replacement",
         "deprecated_element_has_possible_replacement",
         "extensions",
@@ -2304,6 +2346,12 @@
     {
       "name": "SlotDefinition",
       "definition_uri": "https://w3id.org/biolink/biolinkml/meta/SlotDefinition",
+      "aliases": [
+        "slot",
+        "field",
+        "property",
+        "attribute"
+      ],
       "description": "the definition of a property or a slot",
       "from_schema": "https://w3id.org/biolink/biolinkml/meta",
       "is_a": "Definition",
@@ -2328,6 +2376,8 @@
         "exact_mappings",
         "close_mappings",
         "related_mappings",
+        "narrow_mappings",
+        "broad_mappings",
         "deprecated_element_has_exact_replacement",
         "deprecated_element_has_possible_replacement",
         "extensions",
@@ -2376,6 +2426,11 @@
     {
       "name": "ClassDefinition",
       "definition_uri": "https://w3id.org/biolink/biolinkml/meta/ClassDefinition",
+      "aliases": [
+        "table",
+        "record",
+        "template"
+      ],
       "description": "the definition of a class or interface",
       "from_schema": "https://w3id.org/biolink/biolinkml/meta",
       "is_a": "Definition",
@@ -2400,6 +2455,8 @@
         "exact_mappings",
         "close_mappings",
         "related_mappings",
+        "narrow_mappings",
+        "broad_mappings",
         "deprecated_element_has_exact_replacement",
         "deprecated_element_has_possible_replacement",
         "extensions",
@@ -2533,6 +2590,9 @@
   ],
   "metamodel_version": "1.5.3",
   "source_file": "meta.yaml",
+  "source_file_date": "Tue Aug 25 16:38:08 2020",
+  "source_file_size": 27254,
+  "generation_date": "2020-08-25 16:38",
   "type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/biolink/biolinkml/context.jsonld",

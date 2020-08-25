@@ -1,4 +1,7 @@
-
+# Auto generated from meta.yaml by namespacegen.py version: 0.4.0
+# Generation date: 2020-08-25 16:45
+# Schema: metamodel
+#
 # id: https://w3id.org/biolink/biolinkml/meta
 # description: A metamodel for defining biolink related schemas
 # license: https://creativecommons.org/publicdomain/zero/1.0/

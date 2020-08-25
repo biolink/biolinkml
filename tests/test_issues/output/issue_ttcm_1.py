@@ -1,4 +1,7 @@
-
+# Auto generated from resourcedescription.yaml by pythongen.py version: 0.4.0
+# Generation date: 2020-08-25 16:45
+# Schema: resourcedescription
+#
 # id: https://hotecosystem.org/tccm/resourcedescription
 # description: ResourceDescription represents the shared characteristics common to both abstract and resource
 #              version descriptions. ResourceDescription is an abstract type and, as such, cannot be directly

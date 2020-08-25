@@ -624,6 +624,16 @@ required(related_mappings).
 slotrange(uriorcurie).
 multivalued_in(related_mappings, class_definition).
 range_in(related_mappings, uriorcurie, class_definition).
+class_slot(class_definition, narrow_mappings).
+required(narrow_mappings).
+slotrange(uriorcurie).
+multivalued_in(narrow_mappings, class_definition).
+range_in(narrow_mappings, uriorcurie, class_definition).
+class_slot(class_definition, broad_mappings).
+required(broad_mappings).
+slotrange(uriorcurie).
+multivalued_in(broad_mappings, class_definition).
+range_in(broad_mappings, uriorcurie, class_definition).
 class_slot(class_definition, deprecated_element_has_exact_replacement).
 required(deprecated_element_has_exact_replacement).
 slotrange(uriorcurie).
@@ -819,6 +829,16 @@ required(related_mappings).
 slotrange(uriorcurie).
 multivalued_in(related_mappings, definition).
 range_in(related_mappings, uriorcurie, definition).
+class_slot(definition, narrow_mappings).
+required(narrow_mappings).
+slotrange(uriorcurie).
+multivalued_in(narrow_mappings, definition).
+range_in(narrow_mappings, uriorcurie, definition).
+class_slot(definition, broad_mappings).
+required(broad_mappings).
+slotrange(uriorcurie).
+multivalued_in(broad_mappings, definition).
+range_in(broad_mappings, uriorcurie, definition).
 class_slot(definition, deprecated_element_has_exact_replacement).
 required(deprecated_element_has_exact_replacement).
 slotrange(uriorcurie).
@@ -983,6 +1003,16 @@ required(related_mappings).
 slotrange(uriorcurie).
 multivalued_in(related_mappings, element).
 range_in(related_mappings, uriorcurie, element).
+class_slot(element, narrow_mappings).
+required(narrow_mappings).
+slotrange(uriorcurie).
+multivalued_in(narrow_mappings, element).
+range_in(narrow_mappings, uriorcurie, element).
+class_slot(element, broad_mappings).
+required(broad_mappings).
+slotrange(uriorcurie).
+multivalued_in(broad_mappings, element).
+range_in(broad_mappings, uriorcurie, element).
 class_slot(element, deprecated_element_has_exact_replacement).
 required(deprecated_element_has_exact_replacement).
 slotrange(uriorcurie).
@@ -1152,6 +1182,16 @@ required(related_mappings).
 slotrange(uriorcurie).
 multivalued_in(related_mappings, schema_definition).
 range_in(related_mappings, uriorcurie, schema_definition).
+class_slot(schema_definition, narrow_mappings).
+required(narrow_mappings).
+slotrange(uriorcurie).
+multivalued_in(narrow_mappings, schema_definition).
+range_in(narrow_mappings, uriorcurie, schema_definition).
+class_slot(schema_definition, broad_mappings).
+required(broad_mappings).
+slotrange(uriorcurie).
+multivalued_in(broad_mappings, schema_definition).
+range_in(broad_mappings, uriorcurie, schema_definition).
 class_slot(schema_definition, deprecated_element_has_exact_replacement).
 required(deprecated_element_has_exact_replacement).
 slotrange(uriorcurie).
@@ -1358,6 +1398,16 @@ required(related_mappings).
 slotrange(uriorcurie).
 multivalued_in(related_mappings, slot_definition).
 range_in(related_mappings, uriorcurie, slot_definition).
+class_slot(slot_definition, narrow_mappings).
+required(narrow_mappings).
+slotrange(uriorcurie).
+multivalued_in(narrow_mappings, slot_definition).
+range_in(narrow_mappings, uriorcurie, slot_definition).
+class_slot(slot_definition, broad_mappings).
+required(broad_mappings).
+slotrange(uriorcurie).
+multivalued_in(broad_mappings, slot_definition).
+range_in(broad_mappings, uriorcurie, slot_definition).
 class_slot(slot_definition, deprecated_element_has_exact_replacement).
 required(deprecated_element_has_exact_replacement).
 slotrange(uriorcurie).
@@ -1626,6 +1676,16 @@ required(related_mappings).
 slotrange(uriorcurie).
 multivalued_in(related_mappings, subset_definition).
 range_in(related_mappings, uriorcurie, subset_definition).
+class_slot(subset_definition, narrow_mappings).
+required(narrow_mappings).
+slotrange(uriorcurie).
+multivalued_in(narrow_mappings, subset_definition).
+range_in(narrow_mappings, uriorcurie, subset_definition).
+class_slot(subset_definition, broad_mappings).
+required(broad_mappings).
+slotrange(uriorcurie).
+multivalued_in(broad_mappings, subset_definition).
+range_in(broad_mappings, uriorcurie, subset_definition).
 class_slot(subset_definition, deprecated_element_has_exact_replacement).
 required(deprecated_element_has_exact_replacement).
 slotrange(uriorcurie).
@@ -1742,6 +1802,16 @@ required(related_mappings).
 slotrange(uriorcurie).
 multivalued_in(related_mappings, type_definition).
 range_in(related_mappings, uriorcurie, type_definition).
+class_slot(type_definition, narrow_mappings).
+required(narrow_mappings).
+slotrange(uriorcurie).
+multivalued_in(narrow_mappings, type_definition).
+range_in(narrow_mappings, uriorcurie, type_definition).
+class_slot(type_definition, broad_mappings).
+required(broad_mappings).
+slotrange(uriorcurie).
+multivalued_in(broad_mappings, type_definition).
+range_in(broad_mappings, uriorcurie, type_definition).
 class_slot(type_definition, deprecated_element_has_exact_replacement).
 required(deprecated_element_has_exact_replacement).
 slotrange(uriorcurie).

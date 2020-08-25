@@ -11,8 +11,8 @@ Classes: 15
 Slots: 111
 	Referenced by: 15 classes, 14 slots, 0 types 
 	Root: 97
-	Leaf: 102
-	Standalone: 110
+	Leaf: 104
+	Standalone: 112
 	Declared mixin: 0
 	Undeclared mixin: 0
 	Abstract: 1

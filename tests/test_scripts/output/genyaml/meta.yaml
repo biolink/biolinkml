@@ -2,7 +2,7 @@ name: metamodel
 description: A metamodel for defining biolink related schemas
 id: https://w3id.org/biolink/biolinkml/meta
 title: Biolink Schema Metamodel
-version: 1.5.3
+version: 1.5.4
 imports:
 - biolinkml:types
 - biolinkml:mappings
@@ -187,6 +187,8 @@ slots:
     in_subset:
     - owl
     from_schema: https://w3id.org/biolink/biolinkml/meta
+    see_also:
+    - https://en.wikipedia.org/wiki/Data_element_name
     domain: element
     range: string
     slot_uri: rdfs:label
@@ -1021,6 +1023,11 @@ slots:
   identifier:
     name: identifier
     definition_uri: https://w3id.org/biolink/biolinkml/meta/identifier
+    aliases:
+    - primary key
+    - ID
+    - UID
+    - code
     description: true means that this slot is the subject of a set of assertions.  Identifiers
       do not appear as predicates in the model
     comments:
@@ -1028,6 +1035,8 @@ slots:
     - identifier slots are always required
     - a given domain can have at most one identifier
     from_schema: https://w3id.org/biolink/biolinkml/meta
+    see_also:
+    - https://en.wikipedia.org/wiki/Identifier
     domain: slot_definition
     range: boolean
     slot_uri: meta:identifier
@@ -1530,6 +1539,9 @@ slots:
     slot_uri: skos:narrowMatch
     multivalued: true
     inherited: false
+    owner: element
+    domain_of:
+    - element
   broad mappings:
     name: broad mappings
     definition_uri: https://w3id.org/biolink/biolinkml/meta/broad_mappings
@@ -1544,6 +1556,9 @@ slots:
     slot_uri: skos:broadMatch
     multivalued: true
     inherited: false
+    owner: element
+    domain_of:
+    - element
   deprecated element has exact replacement:
     name: deprecated element has exact replacement
     definition_uri: https://w3id.org/biolink/biolinkml/meta/deprecated_element_has_exact_replacement
@@ -1748,6 +1763,8 @@ classes:
     definition_uri: https://w3id.org/biolink/biolinkml/meta/Element
     description: a named element in the model
     from_schema: https://w3id.org/biolink/biolinkml/meta
+    see_also:
+    - https://en.wikipedia.org/wiki/Data_element
     abstract: true
     mixins:
     - extensible
@@ -1773,6 +1790,8 @@ classes:
     - exact mappings
     - close mappings
     - related mappings
+    - narrow mappings
+    - broad mappings
     - deprecated element has exact replacement
     - deprecated element has possible replacement
     - extensions
@@ -1781,8 +1800,12 @@ classes:
   schema_definition:
     name: schema_definition
     definition_uri: https://w3id.org/biolink/biolinkml/meta/SchemaDefinition
+    aliases:
+    - data dictionary
     description: a collection of subset, type, slot and class definitions
     from_schema: https://w3id.org/biolink/biolinkml/meta
+    see_also:
+    - https://en.wikipedia.org/wiki/Data_dictionary
     is_a: element
     slots:
     - id_prefixes
@@ -1804,6 +1827,8 @@ classes:
     - exact mappings
     - close mappings
     - related mappings
+    - narrow mappings
+    - broad mappings
     - deprecated element has exact replacement
     - deprecated element has possible replacement
     - extensions
@@ -1860,6 +1885,8 @@ classes:
     - exact mappings
     - close mappings
     - related mappings
+    - narrow mappings
+    - broad mappings
     - deprecated element has exact replacement
     - deprecated element has possible replacement
     - extensions
@@ -1896,6 +1923,8 @@ classes:
     - exact mappings
     - close mappings
     - related mappings
+    - narrow mappings
+    - broad mappings
     - deprecated element has exact replacement
     - deprecated element has possible replacement
     - extensions
@@ -1906,6 +1935,8 @@ classes:
     definition_uri: https://w3id.org/biolink/biolinkml/meta/Definition
     description: base class for definitions
     from_schema: https://w3id.org/biolink/biolinkml/meta
+    see_also:
+    - https://en.wikipedia.org/wiki/Data_element_definition
     is_a: element
     abstract: true
     slots:
@@ -1929,6 +1960,8 @@ classes:
     - exact mappings
     - close mappings
     - related mappings
+    - narrow mappings
+    - broad mappings
     - deprecated element has exact replacement
     - deprecated element has possible replacement
     - extensions
@@ -1948,6 +1981,11 @@ classes:
   slot_definition:
     name: slot_definition
     definition_uri: https://w3id.org/biolink/biolinkml/meta/SlotDefinition
+    aliases:
+    - slot
+    - field
+    - property
+    - attribute
     description: the definition of a property or a slot
     from_schema: https://w3id.org/biolink/biolinkml/meta
     is_a: definition
@@ -1972,6 +2010,8 @@ classes:
     - exact mappings
     - close mappings
     - related mappings
+    - narrow mappings
+    - broad mappings
     - deprecated element has exact replacement
     - deprecated element has possible replacement
     - extensions
@@ -2027,6 +2067,10 @@ classes:
   class_definition:
     name: class_definition
     definition_uri: https://w3id.org/biolink/biolinkml/meta/ClassDefinition
+    aliases:
+    - table
+    - record
+    - template
     description: the definition of a class or interface
     from_schema: https://w3id.org/biolink/biolinkml/meta
     is_a: definition
@@ -2051,6 +2095,8 @@ classes:
     - exact mappings
     - close mappings
     - related mappings
+    - narrow mappings
+    - broad mappings
     - deprecated element has exact replacement
     - deprecated element has possible replacement
     - extensions
@@ -2170,4 +2216,7 @@ classes:
     class_uri: meta:Annotatable
 metamodel_version: 1.5.3
 source_file: meta.yaml
+source_file_date: Tue Aug 25 16:38:08 2020
+source_file_size: 27254
+generation_date: 2020-08-25 16:46
 

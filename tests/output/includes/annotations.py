@@ -1,4 +1,7 @@
-
+# Auto generated from annotations.yaml by pythongen.py version: 0.4.0
+# Generation date: 2020-08-25 16:38
+# Schema: annotations
+#
 # id: https://w3id.org/biolink/biolinkml/annotations
 # description: Annotations mixin
 # license: https://creativecommons.org/publicdomain/zero/1.0/

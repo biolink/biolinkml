@@ -1,5 +1,5 @@
 {
-   "_comments": "Auto generated from ... by jsonldcontextgen.py version: 0.1.1\nid: https://w3id.org/biolink/biolinkml/extensions\ndescription: Extension mixin\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
+   "_comments": "Auto generated from extensions.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2020-08-25 16:38\nSchema: extensions\n\nid: https://w3id.org/biolink/biolinkml/extensions\ndescription: Extension mixin\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
    "@context": {
       "type": "@type",
       "biolinkml": "https://w3id.org/biolink/biolinkml/",

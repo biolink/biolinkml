@@ -1,4 +1,7 @@
-
+# Auto generated from meta.yaml by pythongen.py version: 0.4.0
+# Generation date: 2020-08-25 16:38
+# Schema: metamodel
+#
 # id: https://w3id.org/biolink/biolinkml/meta
 # description: A metamodel for defining biolink related schemas
 # license: https://creativecommons.org/publicdomain/zero/1.0/
@@ -119,6 +122,8 @@ class Element(YAMLRoot):
     exact_mappings: List[Union[str, URIorCURIE]] = empty_list()
     close_mappings: List[Union[str, URIorCURIE]] = empty_list()
     related_mappings: List[Union[str, URIorCURIE]] = empty_list()
+    narrow_mappings: List[Union[str, URIorCURIE]] = empty_list()
+    broad_mappings: List[Union[str, URIorCURIE]] = empty_list()
     deprecated_element_has_exact_replacement: Optional[Union[str, URIorCURIE]] = None
     deprecated_element_has_possible_replacement: Optional[Union[str, URIorCURIE]] = None
     extensions: List[Union[dict, Extension]] = empty_list()
@@ -156,6 +161,10 @@ class Element(YAMLRoot):
                                else URIorCURIE(v) for v in ([self.close_mappings] if isinstance(self.close_mappings, str) else self.close_mappings)]
         self.related_mappings = [v if isinstance(v, URIorCURIE)
                                  else URIorCURIE(v) for v in ([self.related_mappings] if isinstance(self.related_mappings, str) else self.related_mappings)]
+        self.narrow_mappings = [v if isinstance(v, URIorCURIE)
+                                else URIorCURIE(v) for v in ([self.narrow_mappings] if isinstance(self.narrow_mappings, str) else self.narrow_mappings)]
+        self.broad_mappings = [v if isinstance(v, URIorCURIE)
+                               else URIorCURIE(v) for v in ([self.broad_mappings] if isinstance(self.broad_mappings, str) else self.broad_mappings)]
         if self.deprecated_element_has_exact_replacement is not None and not isinstance(self.deprecated_element_has_exact_replacement, URIorCURIE):
             self.deprecated_element_has_exact_replacement = URIorCURIE(self.deprecated_element_has_exact_replacement)
         if self.deprecated_element_has_possible_replacement is not None and not isinstance(self.deprecated_element_has_possible_replacement, URIorCURIE):

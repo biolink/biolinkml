@@ -1,4 +1,7 @@
-
+# Auto generated from types.yaml by pythongen.py version: 0.4.0
+# Generation date: 2020-08-25 16:38
+# Schema: types
+#
 # id: https://w3id.org/biolink/biolinkml/types
 # description: Shared type definitions for the core biolink mode and metamodel
 # license: https://creativecommons.org/publicdomain/zero/1.0/

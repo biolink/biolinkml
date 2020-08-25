@@ -173,6 +173,9 @@
   ],
   "metamodel_version": "1.5.3",
   "source_file": "uriandcurie.yaml",
+  "source_file_date": "Tue Aug 25 16:38:09 2020",
+  "source_file_size": 1427,
+  "generation_date": "2020-08-25 16:46",
   "type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/biolink/biolinkml/context.jsonld",

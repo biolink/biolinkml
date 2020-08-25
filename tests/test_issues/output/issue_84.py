@@ -1,4 +1,7 @@
-
+# Auto generated from issue_84.yaml by pythongen.py version: 0.4.0
+# Generation date: 2020-08-25 16:45
+# Schema: nmdc_schema
+#
 # id: https://microbiomedata/schema
 # description: Schema for NMDC. Alpha. Currently focuses on samples
 # license: https://creativecommons.org/publicdomain/zero/1.0/
