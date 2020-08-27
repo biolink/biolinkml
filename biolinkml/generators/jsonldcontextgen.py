@@ -70,7 +70,10 @@ license: {be(self.schema.license)}
             else:
                 self.context_body['@base'] = base
         for prefix in sorted(self.emit_prefixes):
-            context_content[prefix] = self.namespaces[prefix]
+            prefix_obj = JsonObj()
+            prefix_obj["@id"] = self.namespaces[prefix]
+            prefix_obj["@prefix"] = True
+            context_content[prefix] = prefix_obj
         for k, v in self.context_body.items():
             context_content[k] = v
         for k, v in self.slot_class_maps.items():
