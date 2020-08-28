@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-25 16:45
+# Generation date: 2020-08-28 14:52
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta
@@ -861,6 +861,3 @@ slots.class_definition_mixins = Slot(uri=META.mixins, name="class_definition_mix
 
 slots.class_definition_apply_to = Slot(uri=META.apply_to, name="class_definition_apply_to", curie=META.curie('apply_to'),
                       model_uri=META.class_definition_apply_to, domain=ClassDefinition, range=List[Union[str, ClassDefinitionName]])
-
-slots.annotation_extension_value = Slot(uri=META.value, name="annotation_extension_value", curie=META.curie('value'),
-                      model_uri=META.annotation_extension_value, domain=Annotation, range=Bool)

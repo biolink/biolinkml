@@ -58,14 +58,6 @@ URI: [biolink:ChemicalToDiseaseOrPhenotypicFeatureAssociation](https://w3id.org/
     * Description: connects an association to the subject of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
     * range: [NamedThing](NamedThing.md)
 
-### Mixed in from thing to disease or phenotypic feature association:
-
- * [thing to disease or phenotypic feature association➞object](thing_to_disease_or_phenotypic_feature_association_object.md)  <sub>REQ</sub>
-    * Description: disease or phenotype
-    * range: [DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md)
-    * Example:    
-    * Example:    
-
 ## Other properties
 
 |  |  |  |

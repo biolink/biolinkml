@@ -1,5 +1,5 @@
 # Auto generated from issue_260b.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-28 08:45
+# Generation date: 2020-08-28 14:52
 # Schema: issue_260b
 #
 # id: http://example.org/tests/issue_260b

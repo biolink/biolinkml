@@ -1,5 +1,5 @@
 # Auto generated from annotations.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-25 16:38
+# Generation date: 2020-08-28 14:44
 # Schema: annotations
 #
 # id: https://w3id.org/biolink/biolinkml/annotations
@@ -22,7 +22,7 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import Bool, URIorCURIE
 from includes.extensions import Extension
-from includes.types import Boolean, Uriorcurie
+from includes.types import Boolean, String, Uriorcurie
 
 metamodel_version = "1.5.3"
 

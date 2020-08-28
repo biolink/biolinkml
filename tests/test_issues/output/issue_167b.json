@@ -246,6 +246,7 @@
     {
       "name": "annotation_extension_value",
       "from_schema": "http://example.org/tests/issue167b",
+      "imported_from": "biolinkml:annotations",
       "is_a": "extension_value",
       "domain": "Annotation",
       "range": "boolean",
@@ -363,9 +364,9 @@
   ],
   "metamodel_version": "1.5.3",
   "source_file": "issue_167b.yaml",
-  "source_file_date": "Tue Aug 25 16:38:09 2020",
+  "source_file_date": "Fri Aug 28 14:43:25 2020",
   "source_file_size": 835,
-  "generation_date": "2020-08-25 16:45",
+  "generation_date": "2020-08-28 14:51",
   "type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/biolink/biolinkml/context.jsonld",

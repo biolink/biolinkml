@@ -266,8 +266,8 @@ Entity and association taxonomy and datamodel for life-sciences data
        * [genotype to variant association➞relation](genotype_to_variant_association_relation.md) - the relationship type used to connect genotype to gene
        * [material sample derivation association➞relation](material_sample_derivation_association_relation.md) - derivation relationship
        * [model to disease mixin➞relation](model_to_disease_mixin_relation.md) - The relationship to the disease
-       * [pairwise gene to gene interaction➞relation](pairwise_gene_to_gene_interaction_relation.md) - interaction relationship type
        * [pairwise interaction association➞relation](pairwise_interaction_association_relation.md) - interaction relationship type
+          * [pairwise gene to gene interaction➞relation](pairwise_gene_to_gene_interaction_relation.md)
        * [population to population association➞relation](population_to_population_association_relation.md) - A relationship type that holds between the subject and object populations. Standard mereological relations can be used. E.g. subject part-of object, subject overlaps object. Derivation relationships can also be used
        * [variant to disease association➞relation](variant_to_disease_association_relation.md) - E.g. is pathogenic for
     * [sequence variant qualifier](sequence_variant_qualifier.md) - a qualifier used in an association where the variant

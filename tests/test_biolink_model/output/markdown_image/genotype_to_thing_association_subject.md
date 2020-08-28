@@ -20,7 +20,4 @@ URI: [biolink:genotype_to_thing_association_subject](https://w3id.org/biolink/vo
 
 ## Used by
 
- * [GenotypeAsAModelOfDiseaseAssociation](GenotypeAsAModelOfDiseaseAssociation.md)
- * [GenotypeToDiseaseAssociation](GenotypeToDiseaseAssociation.md)
- * [GenotypeToPhenotypicFeatureAssociation](GenotypeToPhenotypicFeatureAssociation.md)
  * [GenotypeToThingAssociation](GenotypeToThingAssociation.md)

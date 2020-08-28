@@ -69,12 +69,6 @@ URI: [biolink:GenotypeToDiseaseAssociation](https://w3id.org/biolink/vocab/Genot
     * Description: a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject
     * range: [FrequencyValue](FrequencyValue.md)
 
-### Mixed in from genotype to thing association:
-
- * [genotype to thing association➞subject](genotype_to_thing_association_subject.md)  <sub>REQ</sub>
-    * Description: genotype that is the subject of the association
-    * range: [Genotype](Genotype.md)
-
 ### Mixed in from entity to feature or disease qualifiers:
 
  * [onset qualifier](onset_qualifier.md)  <sub>OPT</sub>

@@ -2244,18 +2244,14 @@ class MacromolecularMachine(GenomicEntity):
     class_model_uri: ClassVar[URIRef] = DIST.MacromolecularMachine
 
     id: Union[str, MacromolecularMachineId] = None
-    name: Union[str, SymbolType] = None
     category: List[Union[str, CategoryType]] = empty_list()
+    name: Union[str, SymbolType] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
             raise ValueError(f"id must be supplied")
         if not isinstance(self.id, MacromolecularMachineId):
             self.id = MacromolecularMachineId(self.id)
-        if self.name is None:
-            raise ValueError(f"name must be supplied")
-        if not isinstance(self.name, SymbolType):
-            self.name = SymbolType(self.name)
         if self.name is None:
             raise ValueError(f"name must be supplied")
         if not isinstance(self.name, SymbolType):
@@ -2276,8 +2272,8 @@ class GeneOrGeneProduct(MacromolecularMachine):
     class_model_uri: ClassVar[URIRef] = DIST.GeneOrGeneProduct
 
     id: Union[str, GeneOrGeneProductId] = None
-    name: Union[str, SymbolType] = None
     category: List[Union[str, CategoryType]] = empty_list()
+    name: Union[str, SymbolType] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -2297,8 +2293,8 @@ class Gene(GeneOrGeneProduct):
     class_model_uri: ClassVar[URIRef] = DIST.Gene
 
     id: Union[str, GeneId] = None
-    name: Union[str, SymbolType] = None
     category: List[Union[str, CategoryType]] = empty_list()
+    name: Union[str, SymbolType] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -2321,8 +2317,8 @@ class MyGene(Gene):
     class_model_uri: ClassVar[URIRef] = DIST.MyGene
 
     id: Union[str, MyGeneId] = None
-    name: Union[str, SymbolType] = None
     category: List[Union[str, CategoryType]] = empty_list()
+    name: Union[str, SymbolType] = None
     gene_has_sequence: Union[str, GeneSequence] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -2350,8 +2346,8 @@ class GeneProduct(GeneOrGeneProduct):
     class_model_uri: ClassVar[URIRef] = DIST.GeneProduct
 
     id: Union[str, GeneProductId] = None
-    name: Union[str, SymbolType] = None
     category: List[Union[str, CategoryType]] = empty_list()
+    name: Union[str, SymbolType] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -2375,8 +2371,8 @@ class Protein(GeneProduct):
     class_model_uri: ClassVar[URIRef] = DIST.Protein
 
     id: Union[str, ProteinId] = None
-    name: Union[str, SymbolType] = None
     category: List[Union[str, CategoryType]] = empty_list()
+    name: Union[str, SymbolType] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -2401,8 +2397,8 @@ class GeneProductIsoform(GeneProduct):
     class_model_uri: ClassVar[URIRef] = DIST.GeneProductIsoform
 
     id: Union[str, GeneProductIsoformId] = None
-    name: Union[str, SymbolType] = None
     category: List[Union[str, CategoryType]] = empty_list()
+    name: Union[str, SymbolType] = None
 
 @dataclass
 class ProteinIsoform(Protein):
@@ -2418,8 +2414,8 @@ class ProteinIsoform(Protein):
     class_model_uri: ClassVar[URIRef] = DIST.ProteinIsoform
 
     id: Union[str, ProteinIsoformId] = None
-    name: Union[str, SymbolType] = None
     category: List[Union[str, CategoryType]] = empty_list()
+    name: Union[str, SymbolType] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -2439,8 +2435,8 @@ class RNAProduct(GeneProduct):
     class_model_uri: ClassVar[URIRef] = DIST.RNAProduct
 
     id: Union[str, RNAProductId] = None
-    name: Union[str, SymbolType] = None
     category: List[Union[str, CategoryType]] = empty_list()
+    name: Union[str, SymbolType] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -2463,8 +2459,8 @@ class RNAProductIsoform(RNAProduct):
     class_model_uri: ClassVar[URIRef] = DIST.RNAProductIsoform
 
     id: Union[str, RNAProductIsoformId] = None
-    name: Union[str, SymbolType] = None
     category: List[Union[str, CategoryType]] = empty_list()
+    name: Union[str, SymbolType] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -2484,8 +2480,8 @@ class NoncodingRNAProduct(RNAProduct):
     class_model_uri: ClassVar[URIRef] = DIST.NoncodingRNAProduct
 
     id: Union[str, NoncodingRNAProductId] = None
-    name: Union[str, SymbolType] = None
     category: List[Union[str, CategoryType]] = empty_list()
+    name: Union[str, SymbolType] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -2505,8 +2501,8 @@ class MicroRNA(NoncodingRNAProduct):
     class_model_uri: ClassVar[URIRef] = DIST.MicroRNA
 
     id: Union[str, MicroRNAId] = None
-    name: Union[str, SymbolType] = None
     category: List[Union[str, CategoryType]] = empty_list()
+    name: Union[str, SymbolType] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -3155,10 +3151,6 @@ class CellLineToDiseaseOrPhenotypicFeatureAssociation(Association):
             raise ValueError(f"subject must be supplied")
         if not isinstance(self.subject, DiseaseOrPhenotypicFeatureId):
             self.subject = DiseaseOrPhenotypicFeatureId(self.subject)
-        if self.object is None:
-            raise ValueError(f"object must be supplied")
-        if not isinstance(self.object, DiseaseOrPhenotypicFeatureId):
-            self.object = DiseaseOrPhenotypicFeatureId(self.object)
         super().__post_init__(**kwargs)
 
 
@@ -3317,10 +3309,6 @@ class ChemicalToDiseaseOrPhenotypicFeatureAssociation(Association):
             raise ValueError(f"object must be supplied")
         if not isinstance(self.object, DiseaseOrPhenotypicFeatureId):
             self.object = DiseaseOrPhenotypicFeatureId(self.object)
-        if self.object is None:
-            raise ValueError(f"object must be supplied")
-        if not isinstance(self.object, DiseaseOrPhenotypicFeatureId):
-            self.object = DiseaseOrPhenotypicFeatureId(self.object)
         super().__post_init__(**kwargs)
 
 
@@ -3466,10 +3454,6 @@ class MaterialSampleToDiseaseOrPhenotypicFeatureAssociation(Association):
             raise ValueError(f"id must be supplied")
         if not isinstance(self.id, MaterialSampleToDiseaseOrPhenotypicFeatureAssociationId):
             self.id = MaterialSampleToDiseaseOrPhenotypicFeatureAssociationId(self.id)
-        if self.object is None:
-            raise ValueError(f"object must be supplied")
-        if not isinstance(self.object, DiseaseOrPhenotypicFeatureId):
-            self.object = DiseaseOrPhenotypicFeatureId(self.object)
         super().__post_init__(**kwargs)
 
 
@@ -3633,10 +3617,6 @@ class ThingToDiseaseOrPhenotypicFeatureAssociation(Association):
             raise ValueError(f"object must be supplied")
         if not isinstance(self.object, DiseaseOrPhenotypicFeatureId):
             self.object = DiseaseOrPhenotypicFeatureId(self.object)
-        if self.object is None:
-            raise ValueError(f"object must be supplied")
-        if not isinstance(self.object, DiseaseOrPhenotypicFeatureId):
-            self.object = DiseaseOrPhenotypicFeatureId(self.object)
         super().__post_init__(**kwargs)
 
 
@@ -3677,10 +3657,6 @@ class GenotypeToPhenotypicFeatureAssociation(Association):
             self.sex_qualifier = BiologicalSexId(self.sex_qualifier)
         if self.description is not None and not isinstance(self.description, NarrativeText):
             self.description = NarrativeText(self.description)
-        if self.subject is None:
-            raise ValueError(f"subject must be supplied")
-        if not isinstance(self.subject, GenotypeId):
-            self.subject = GenotypeId(self.subject)
         super().__post_init__(**kwargs)
 
 
@@ -4038,10 +4014,6 @@ class GenotypeToDiseaseAssociation(Association):
             raise ValueError(f"object must be supplied")
         if not isinstance(self.object, NamedThingId):
             self.object = NamedThingId(self.object)
-        if self.subject is None:
-            raise ValueError(f"subject must be supplied")
-        if not isinstance(self.subject, GenotypeId):
-            self.subject = GenotypeId(self.subject)
         super().__post_init__(**kwargs)
 
 
@@ -4134,7 +4106,7 @@ class CellLineAsAModelOfDiseaseAssociation(CellLineToDiseaseOrPhenotypicFeatureA
 
     id: Union[str, CellLineAsAModelOfDiseaseAssociationId] = None
     relation: Union[str, URIorCURIE] = None
-    object: Union[str, DiseaseOrPhenotypicFeatureId] = None
+    object: Union[str, NamedThingId] = None
     subject: Union[str, CellLineId] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -4214,15 +4186,11 @@ class GenotypeToThingAssociation(Association):
     class_model_uri: ClassVar[URIRef] = DIST.GenotypeToThingAssociation
 
     id: Union[str, GenotypeToThingAssociationId] = None
-    subject: Union[str, GenotypeId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[str, NamedThingId] = None
+    subject: Union[str, GenotypeId] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
-        if self.subject is None:
-            raise ValueError(f"subject must be supplied")
-        if not isinstance(self.subject, GenotypeId):
-            self.subject = GenotypeId(self.subject)
         if self.subject is None:
             raise ValueError(f"subject must be supplied")
         if not isinstance(self.subject, GenotypeId):

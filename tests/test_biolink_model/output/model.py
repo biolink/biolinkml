@@ -1,5 +1,5 @@
 # Auto generated from biolink-model.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-25 16:40
+# Generation date: 2020-08-28 14:47
 # Schema: Biolink-Model
 #
 # id: https://w3id.org/biolink/biolink-model
@@ -3111,10 +3111,6 @@ class CellLineToDiseaseOrPhenotypicFeatureAssociation(Association):
             raise ValueError(f"subject must be supplied")
         if not isinstance(self.subject, DiseaseOrPhenotypicFeatureId):
             self.subject = DiseaseOrPhenotypicFeatureId(self.subject)
-        if self.object is None:
-            raise ValueError(f"object must be supplied")
-        if not isinstance(self.object, DiseaseOrPhenotypicFeatureId):
-            self.object = DiseaseOrPhenotypicFeatureId(self.object)
         super().__post_init__(**kwargs)
 
 
@@ -3273,10 +3269,6 @@ class ChemicalToDiseaseOrPhenotypicFeatureAssociation(Association):
             raise ValueError(f"object must be supplied")
         if not isinstance(self.object, DiseaseOrPhenotypicFeatureId):
             self.object = DiseaseOrPhenotypicFeatureId(self.object)
-        if self.object is None:
-            raise ValueError(f"object must be supplied")
-        if not isinstance(self.object, DiseaseOrPhenotypicFeatureId):
-            self.object = DiseaseOrPhenotypicFeatureId(self.object)
         super().__post_init__(**kwargs)
 
 
@@ -3422,10 +3414,6 @@ class MaterialSampleToDiseaseOrPhenotypicFeatureAssociation(Association):
             raise ValueError(f"id must be supplied")
         if not isinstance(self.id, MaterialSampleToDiseaseOrPhenotypicFeatureAssociationId):
             self.id = MaterialSampleToDiseaseOrPhenotypicFeatureAssociationId(self.id)
-        if self.object is None:
-            raise ValueError(f"object must be supplied")
-        if not isinstance(self.object, DiseaseOrPhenotypicFeatureId):
-            self.object = DiseaseOrPhenotypicFeatureId(self.object)
         super().__post_init__(**kwargs)
 
 
@@ -3589,10 +3577,6 @@ class ThingToDiseaseOrPhenotypicFeatureAssociation(Association):
             raise ValueError(f"object must be supplied")
         if not isinstance(self.object, DiseaseOrPhenotypicFeatureId):
             self.object = DiseaseOrPhenotypicFeatureId(self.object)
-        if self.object is None:
-            raise ValueError(f"object must be supplied")
-        if not isinstance(self.object, DiseaseOrPhenotypicFeatureId):
-            self.object = DiseaseOrPhenotypicFeatureId(self.object)
         super().__post_init__(**kwargs)
 
 
@@ -3633,10 +3617,6 @@ class GenotypeToPhenotypicFeatureAssociation(Association):
             self.sex_qualifier = BiologicalSexId(self.sex_qualifier)
         if self.description is not None and not isinstance(self.description, NarrativeText):
             self.description = NarrativeText(self.description)
-        if self.subject is None:
-            raise ValueError(f"subject must be supplied")
-        if not isinstance(self.subject, GenotypeId):
-            self.subject = GenotypeId(self.subject)
         super().__post_init__(**kwargs)
 
 
@@ -3994,10 +3974,6 @@ class GenotypeToDiseaseAssociation(Association):
             raise ValueError(f"object must be supplied")
         if not isinstance(self.object, NamedThingId):
             self.object = NamedThingId(self.object)
-        if self.subject is None:
-            raise ValueError(f"subject must be supplied")
-        if not isinstance(self.subject, GenotypeId):
-            self.subject = GenotypeId(self.subject)
         super().__post_init__(**kwargs)
 
 
@@ -4090,7 +4066,7 @@ class CellLineAsAModelOfDiseaseAssociation(CellLineToDiseaseOrPhenotypicFeatureA
 
     id: Union[str, CellLineAsAModelOfDiseaseAssociationId] = None
     relation: Union[str, URIorCURIE] = None
-    object: Union[str, DiseaseOrPhenotypicFeatureId] = None
+    object: Union[str, NamedThingId] = None
     subject: Union[str, CellLineId] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -4170,15 +4146,11 @@ class GenotypeToThingAssociation(Association):
     class_model_uri: ClassVar[URIRef] = BIOLINK.GenotypeToThingAssociation
 
     id: Union[str, GenotypeToThingAssociationId] = None
-    subject: Union[str, GenotypeId] = None
     relation: Union[str, URIorCURIE] = None
     object: Union[str, NamedThingId] = None
+    subject: Union[str, GenotypeId] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
-        if self.subject is None:
-            raise ValueError(f"subject must be supplied")
-        if not isinstance(self.subject, GenotypeId):
-            self.subject = GenotypeId(self.subject)
         if self.subject is None:
             raise ValueError(f"subject must be supplied")
         if not isinstance(self.subject, GenotypeId):

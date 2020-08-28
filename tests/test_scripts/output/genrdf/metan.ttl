@@ -46,29 +46,29 @@ meta:metamodel a meta:SchemaDefinition ;
         "rdfs",
         "skos",
         "xsd" ;
-    meta:generation_date "2020-08-25 18:02"^^xsd:dateTime ;
+    meta:generation_date "2020-08-28 14:52"^^xsd:dateTime ;
     meta:id biolinkml:meta ;
     meta:imports biolinkml:annotations,
         biolinkml:extensions,
         biolinkml:mappings,
         biolinkml:types ;
     meta:metamodel_version "1.5.3" ;
-    meta:prefixes [ meta:prefix_prefix "oslc" ;
-            meta:prefix_reference oslc: ],
+    meta:prefixes [ meta:prefix_prefix "biolinkml" ;
+            meta:prefix_reference biolinkml: ],
         [ meta:prefix_prefix "OIO" ;
             meta:prefix_reference OIO: ],
-        [ meta:prefix_prefix "meta" ;
-            meta:prefix_reference meta: ],
-        [ meta:prefix_prefix "skos" ;
-            meta:prefix_reference skos: ],
-        [ meta:prefix_prefix "pav" ;
-            meta:prefix_reference pav: ],
         [ meta:prefix_prefix "bibo" ;
             meta:prefix_reference bibo: ],
-        [ meta:prefix_prefix "biolinkml" ;
-            meta:prefix_reference biolinkml: ],
+        [ meta:prefix_prefix "meta" ;
+            meta:prefix_reference meta: ],
         [ meta:prefix_prefix "schema" ;
-            meta:prefix_reference schema: ] ;
+            meta:prefix_reference schema: ],
+        [ meta:prefix_prefix "pav" ;
+            meta:prefix_reference pav: ],
+        [ meta:prefix_prefix "oslc" ;
+            meta:prefix_reference oslc: ],
+        [ meta:prefix_prefix "skos" ;
+            meta:prefix_reference skos: ] ;
     meta:slots meta:abstract,
         meta:alias,
         meta:aliases,
@@ -181,7 +181,7 @@ meta:metamodel a meta:SchemaDefinition ;
         meta:values_from,
         meta:version ;
     meta:source_file "meta.yaml" ;
-    meta:source_file_date "Tue Aug 25 17:54:25 2020"^^xsd:dateTime ;
+    meta:source_file_date "Fri Aug 28 14:43:24 2020"^^xsd:dateTime ;
     meta:source_file_size 27254 ;
     meta:subsets meta:owl ;
     meta:types meta:boolean,
@@ -258,6 +258,7 @@ meta:annotation_extension_value a meta:SlotDefinition ;
     meta:alias "value" ;
     meta:domain meta:Annotation ;
     meta:domain_of meta:Annotation ;
+    meta:imported_from "biolinkml:annotations" ;
     meta:is_a meta:extension_value ;
     meta:is_usage_slot true ;
     meta:owner meta:Annotation ;

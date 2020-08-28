@@ -17,6 +17,7 @@ URI: [biolink:pairwise_interaction_association_relation](https://w3id.org/biolin
 
 ## Children
 
+ *  [pairwise gene to gene interaction➞relation](pairwise_gene_to_gene_interaction_relation.md)
 
 ## Used by
 

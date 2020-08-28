@@ -1746,6 +1746,7 @@ slots:
   annotation_extension_value:
     name: annotation_extension_value
     from_schema: https://w3id.org/biolink/biolinkml/meta
+    imported_from: biolinkml:annotations
     is_a: extension_value
     domain: annotation
     range: boolean
@@ -2216,7 +2217,7 @@ classes:
     class_uri: meta:Annotatable
 metamodel_version: 1.5.3
 source_file: meta.yaml
-source_file_date: Wed Aug 26 20:11:38 2020
+source_file_date: Fri Aug 28 14:43:24 2020
 source_file_size: 27254
-generation_date: 2020-08-26 20:22
+generation_date: 2020-08-28 14:53
 

@@ -312,8 +312,7 @@ metatype:Nodeidentifier NONLITERAL
              rdf:type [ <CellLineToThingAssociation> ] ? ;
              &<ThingToDiseaseOrPhenotypicFeatureAssociation_tes> ;
              rdf:type [ <ThingToDiseaseOrPhenotypicFeatureAssociation> ] ? ;
-             <subject> @<DiseaseOrPhenotypicFeature> ;
-             <object> @<DiseaseOrPhenotypicFeature>
+             <subject> @<DiseaseOrPhenotypicFeature>
           ) ;
           rdf:type [ <CellLineToDiseaseOrPhenotypicFeatureAssociation> ]
        )
@@ -1290,8 +1289,7 @@ metatype:Nodeidentifier NONLITERAL
           &<MaterialSampleToThingAssociation_tes> ;
           rdf:type [ <MaterialSampleToThingAssociation> ] ? ;
           &<ThingToDiseaseOrPhenotypicFeatureAssociation_tes> ;
-          rdf:type [ <ThingToDiseaseOrPhenotypicFeatureAssociation> ] ? ;
-          <object> @<DiseaseOrPhenotypicFeature>
+          rdf:type [ <ThingToDiseaseOrPhenotypicFeatureAssociation> ] ?
        ) ;
        rdf:type [ <MaterialSampleToDiseaseOrPhenotypicFeatureAssociation> ]
     )

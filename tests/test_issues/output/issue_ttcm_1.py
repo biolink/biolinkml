@@ -1,5 +1,5 @@
 # Auto generated from resourcedescription.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-26 20:20
+# Generation date: 2020-08-28 14:52
 # Schema: resourcedescription
 #
 # id: https://hotecosystem.org/tccm/resourcedescription
@@ -23,12 +23,12 @@ else:
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
-from biolinkml.utils.metamodelcore import Bool, Curie, URIorCURIE, XSDDateTime
-from datatypes import CURIE, DateAndTime, LocalIdentifier, URIorCurie
+from biolinkml.utils.metamodelcore import URIorCURIE, XSDDateTime
+from datatypes import DateAndTime, LocalIdentifier, URIorCurie
 from includes.annotations import Annotation
 from includes.extensions import Extension
-from includes.types import Boolean, String
-from references import CodeSystemReference, CodeSystemVersionReference, MapReference, MapVersionReference, NameAndMeaningReference, OntologyLanguageReference, OntologySyntaxReference, PredicateReference, RoleReference, SourceAndRoleReference
+from includes.types import String
+from references import CodeSystemReference, MapReference, NameAndMeaningReference, OntologyLanguageReference, OntologySyntaxReference, RoleReference
 from uritypes import DocumentURI, ExternalURI, LocalURI, PersistentURI, RenderingURI
 
 metamodel_version = "1.5.3"
@@ -325,36 +325,3 @@ slots.ResourceVersionDescription_officialReleaseDate = Slot(uri=TCCM.officialRel
 
 slots.ResourceVersionDescription_officialActivationDate = Slot(uri=TCCM.officialActivationDate, name="ResourceVersionDescription_officialActivationDate", curie=TCCM.curie('officialActivationDate'),
                       model_uri=TCCM.ResourceVersionDescription_officialActivationDate, domain=ResourceVersionDescription, range=Optional[Union[str, XSDDateTime]])
-
-slots.NameAndMeaningReference_name = Slot(uri=TCCM.name, name="NameAndMeaningReference_name", curie=TCCM.curie('name'),
-                      model_uri=TCCM.NameAndMeaningReference_name, domain=NameAndMeaningReference, range=Union[str, LocalIdentifier])
-
-slots.NameAndMeaningReference_uri = Slot(uri=TCCM.uri, name="NameAndMeaningReference_uri", curie=TCCM.curie('uri'),
-                      model_uri=TCCM.NameAndMeaningReference_uri, domain=NameAndMeaningReference, range=Optional[Union[str, ExternalURI]])
-
-slots.NameAndMeaningReference_href = Slot(uri=TCCM.href, name="NameAndMeaningReference_href", curie=TCCM.curie('href'),
-                      model_uri=TCCM.NameAndMeaningReference_href, domain=NameAndMeaningReference, range=Optional[Union[str, RenderingURI]])
-
-slots.CodeSystemVersionReference_codeSystem = Slot(uri=TCCM.codeSystem, name="CodeSystemVersionReference_codeSystem", curie=TCCM.curie('codeSystem'),
-                      model_uri=TCCM.CodeSystemVersionReference_codeSystem, domain=CodeSystemVersionReference, range=Optional[Union[dict, CodeSystemReference]])
-
-slots.MapVersionReference_map = Slot(uri=TCCM.map, name="MapVersionReference_map", curie=TCCM.curie('map'),
-                      model_uri=TCCM.MapVersionReference_map, domain=MapVersionReference, range=Optional[Union[dict, MapReference]])
-
-slots.PredicateReference_uri = Slot(uri=TCCM.uri, name="PredicateReference_uri", curie=TCCM.curie('uri'),
-                      model_uri=TCCM.PredicateReference_uri, domain=PredicateReference, range=Union[str, ExternalURI])
-
-slots.PredicateReference_name = Slot(uri=TCCM.name, name="PredicateReference_name", curie=TCCM.curie('name'),
-                      model_uri=TCCM.PredicateReference_name, domain=PredicateReference, range=Curie)
-
-slots.PredicateReference_href = Slot(uri=TCCM.href, name="PredicateReference_href", curie=TCCM.curie('href'),
-                      model_uri=TCCM.PredicateReference_href, domain=PredicateReference, range=Optional[Union[str, RenderingURI]])
-
-slots.PredicateReference_designation = Slot(uri=TCCM.designation, name="PredicateReference_designation", curie=TCCM.curie('designation'),
-                      model_uri=TCCM.PredicateReference_designation, domain=PredicateReference, range=Optional[str])
-
-slots.SourceAndRoleReference_role = Slot(uri=TCCM.role, name="SourceAndRoleReference_role", curie=TCCM.curie('role'),
-                      model_uri=TCCM.SourceAndRoleReference_role, domain=SourceAndRoleReference, range=Optional[Union[dict, RoleReference]])
-
-slots.annotation_extension_value = Slot(uri=TCCM.value, name="annotation_extension_value", curie=TCCM.curie('value'),
-                      model_uri=TCCM.annotation_extension_value, domain=Annotation, range=Bool)

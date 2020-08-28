@@ -33,9 +33,6 @@ fields:
 - id: object
   description: a disease that is associated with that genotype
   display_name: genotype to disease association_object
-- id: subject
-  description: genotype that is the subject of the association
-  display_name: genotype to thing association_subject
 - id: frequency_qualifier
   description: a qualifier used in a phenotypic association to state how frequent
     the phenotype is observed in the subject
@@ -48,3 +45,6 @@ fields:
   description: a qualifier used in a phenotypic association to state when the phenotype
     appears is in the subject
   display_name: onset qualifier
+- id: subject
+  description: A genotype that has a role in modeling the disease.
+  display_name: genotype as a model of disease association_subject

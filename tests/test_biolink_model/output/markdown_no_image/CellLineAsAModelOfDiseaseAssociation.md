@@ -7,7 +7,7 @@
 URI: [biolink:CellLineAsAModelOfDiseaseAssociation](https://w3id.org/biolink/vocab/CellLineAsAModelOfDiseaseAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SeverityValue],[Publication],[Provider],[OntologyClass],[Onset],[ModelToDiseaseMixin],[FrequencyValue],[EntityToDiseaseAssociation],[DiseaseOrPhenotypicFeature],[CellLineToDiseaseOrPhenotypicFeatureAssociation],[CellLine]<subject%201..1-%20[CellLineAsAModelOfDiseaseAssociation&#124;relation(i):uriorcurie;id(i):string;negated(i):boolean%20%3F],[CellLineAsAModelOfDiseaseAssociation]uses%20-.->[ModelToDiseaseMixin],[CellLineAsAModelOfDiseaseAssociation]uses%20-.->[EntityToDiseaseAssociation],[CellLineToDiseaseOrPhenotypicFeatureAssociation]^-[CellLineAsAModelOfDiseaseAssociation],[CellLine])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SeverityValue],[Publication],[Provider],[OntologyClass],[Onset],[NamedThing],[ModelToDiseaseMixin],[FrequencyValue],[EntityToDiseaseAssociation],[CellLineToDiseaseOrPhenotypicFeatureAssociation],[CellLine]<subject%201..1-%20[CellLineAsAModelOfDiseaseAssociation&#124;relation(i):uriorcurie;id(i):string;negated(i):boolean%20%3F],[CellLineAsAModelOfDiseaseAssociation]uses%20-.->[ModelToDiseaseMixin],[CellLineAsAModelOfDiseaseAssociation]uses%20-.->[EntityToDiseaseAssociation],[CellLineToDiseaseOrPhenotypicFeatureAssociation]^-[CellLineAsAModelOfDiseaseAssociation],[CellLine])
 
 ## Parents
 
@@ -42,6 +42,9 @@ URI: [biolink:CellLineAsAModelOfDiseaseAssociation](https://w3id.org/biolink/voc
  * [negated](negated.md)  <sub>OPT</sub>
     * Description: if set to true, then the association is negated i.e. is not true
     * range: [Boolean](types/Boolean.md)
+ * [object](object.md)  <sub>REQ</sub>
+    * Description: connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
+    * range: [NamedThing](NamedThing.md)
  * [provided by](provided_by.md)  <sub>0..*</sub>
     * Description: connects an association to the agent (person, organization or group) that provided it
     * range: [Provider](Provider.md)

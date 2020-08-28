@@ -5202,7 +5202,7 @@
       "name": "pairwise_gene_to_gene_interaction_relation",
       "description": "interaction relationship type",
       "from_schema": "https://w3id.org/biolink/biolink-model",
-      "is_a": "relation",
+      "is_a": "pairwise_interaction_association_relation",
       "values_from": [
         "ro",
         "mi"
@@ -9430,8 +9430,7 @@
         "qualifiers",
         "publications",
         "provided_by",
-        "cell_line_to_disease_or_phenotypic_feature_association_subject",
-        "thing_to_disease_or_phenotypic_feature_association_object"
+        "cell_line_to_disease_or_phenotypic_feature_association_subject"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/CellLineToDiseaseOrPhenotypicFeatureAssociation",
       "type": "ClassDefinition"
@@ -9559,8 +9558,7 @@
         "qualifiers",
         "publications",
         "provided_by",
-        "chemical_to_disease_or_phenotypic_feature_association_object",
-        "thing_to_disease_or_phenotypic_feature_association_object"
+        "chemical_to_disease_or_phenotypic_feature_association_object"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/ChemicalToDiseaseOrPhenotypicFeatureAssociation",
       "defining_slots": [
@@ -9696,8 +9694,7 @@
         "association_type",
         "qualifiers",
         "publications",
-        "provided_by",
-        "thing_to_disease_or_phenotypic_feature_association_object"
+        "provided_by"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/MaterialSampleToDiseaseOrPhenotypicFeatureAssociation",
       "defining_slots": [
@@ -9884,7 +9881,6 @@
       "slots": [
         "subject",
         "relation",
-        "thing_to_disease_or_phenotypic_feature_association_object",
         "association_id",
         "negated",
         "association_type",
@@ -9923,8 +9919,7 @@
         "entity_to_phenotypic_feature_association_description",
         "frequency_qualifier",
         "severity_qualifier",
-        "onset_qualifier",
-        "genotype_to_thing_association_subject"
+        "onset_qualifier"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/GenotypeToPhenotypicFeatureAssociation",
       "defining_slots": [
@@ -10301,7 +10296,6 @@
         "genotype_to_disease_association_subject",
         "genotype_to_disease_association_relation",
         "genotype_to_disease_association_object",
-        "genotype_to_thing_association_subject",
         "frequency_qualifier",
         "severity_qualifier",
         "onset_qualifier"
@@ -10407,7 +10401,6 @@
         "provided_by",
         "genotype_to_disease_association_relation",
         "genotype_to_disease_association_object",
-        "genotype_to_thing_association_subject",
         "frequency_qualifier",
         "severity_qualifier",
         "onset_qualifier",
@@ -10432,13 +10425,13 @@
       ],
       "slots": [
         "relation",
+        "object",
         "association_id",
         "negated",
         "association_type",
         "qualifiers",
         "publications",
         "provided_by",
-        "thing_to_disease_or_phenotypic_feature_association_object",
         "cell_line_as_a_model_of_disease_association_subject",
         "frequency_qualifier",
         "severity_qualifier",
@@ -10518,7 +10511,6 @@
       "is_a": "Association",
       "abstract": true,
       "slots": [
-        "genotype_to_thing_association_subject",
         "relation",
         "object",
         "association_id",
@@ -11330,9 +11322,9 @@
   ],
   "metamodel_version": "1.5.3",
   "source_file": "biolink-model.yaml",
-  "source_file_date": "Tue Aug 25 16:38:08 2020",
+  "source_file_date": "Fri Aug 28 14:43:24 2020",
   "source_file_size": 143918,
-  "generation_date": "2020-08-25 16:38",
+  "generation_date": "2020-08-28 14:44",
   "type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/biolink/biolinkml/context.jsonld",

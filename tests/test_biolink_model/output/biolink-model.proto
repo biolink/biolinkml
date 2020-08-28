@@ -152,13 +152,13 @@ message CellLine
 message CellLineAsAModelOfDiseaseAssociation
  {
   relation Uriorcurie = 1
-  id String = 2
-  optional negated Boolean = 3
-  optional associationType OntologyClass = 4
-  repeated qualifiers OntologyClass = 5
-  repeated publications Publication = 6
-  repeated providedBy Provider = 7
-  object DiseaseOrPhenotypicFeature = 8
+  object NamedThing = 2
+  id String = 3
+  optional negated Boolean = 4
+  optional associationType OntologyClass = 5
+  repeated qualifiers OntologyClass = 6
+  repeated publications Publication = 7
+  repeated providedBy Provider = 8
   subject CellLine = 9
   optional frequencyQualifier FrequencyValue = 10
   optional severityQualifier SeverityValue = 11
@@ -746,10 +746,10 @@ message GenotypeAsAModelOfDiseaseAssociation
   repeated providedBy Provider = 6
   relation Uriorcurie = 7
   object NamedThing = 8
-  subject Genotype = 9
-  optional frequencyQualifier FrequencyValue = 10
-  optional severityQualifier SeverityValue = 11
-  optional onsetQualifier Onset = 12
+  optional frequencyQualifier FrequencyValue = 9
+  optional severityQualifier SeverityValue = 10
+  optional onsetQualifier Onset = 11
+  subject Genotype = 12
  }
 message GenotypeToDiseaseAssociation
  {

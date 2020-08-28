@@ -1,5 +1,5 @@
 # Auto generated from issue_167b.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-25 16:45
+# Generation date: 2020-08-28 14:51
 # Schema: annotations_test
 #
 # id: http://example.org/tests/issue167b
@@ -20,9 +20,7 @@ else:
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
-from biolinkml.utils.metamodelcore import Bool
-from includes.annotations import Annotation
-from includes.types import Boolean
+
 
 metamodel_version = "1.5.3"
 
@@ -71,5 +69,3 @@ class MyClass2(YAMLRoot):
 class slots:
     pass
 
-slots.annotation_extension_value = Slot(uri=EX.value, name="annotation_extension_value", curie=EX.curie('value'),
-                      model_uri=EX.annotation_extension_value, domain=Annotation, range=Bool)

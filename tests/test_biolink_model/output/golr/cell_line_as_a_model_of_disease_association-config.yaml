@@ -9,6 +9,10 @@ fields:
     object in a more granular manner. Usually this is a term from Relation Ontology,
     but it can be any edge CURIE.
   display_name: relation
+- id: object
+  description: connects an association to the object of the association. For example,
+    in a gene-to-phenotype association, the gene is subject and phenotype is object.
+  display_name: object
 - id: id
   description: A unique identifier for an association
   display_name: association_id
@@ -32,9 +36,6 @@ fields:
     that provided it
   display_name: provided by
   cardinality: multi
-- id: object
-  description: disease or phenotype
-  display_name: thing to disease or phenotypic feature association_object
 - id: subject
   description: A cell line derived from an organismal entity with a disease state
     that is used as a model of that disease.
