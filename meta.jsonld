@@ -3,7 +3,7 @@
   "description": "A metamodel for defining biolink related schemas",
   "id": "https://w3id.org/biolink/biolinkml/meta",
   "title": "Biolink Schema Metamodel",
-  "version": "1.5.8",
+  "version": "1.5.9",
   "imports": [
     "biolinkml:types",
     "biolinkml:mappings",
@@ -1060,6 +1060,24 @@
       "owner": "ClassDefinition",
       "domain_of": [
         "ClassDefinition"
+      ],
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "string_template",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/string_template",
+      "description": "A string template that conforms to the python format() and parse() spec",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "see_also": [
+        "https://pypi.org/project/parse/",
+        "https://docs.python.org/3.8/library/string.html#formatspec"
+      ],
+      "domain": "ClassDefinition",
+      "range": "string",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/string_template",
+      "owner": "string_template",
+      "domain_of": [
+        "Element"
       ],
       "type": "SlotDefinition"
     },
@@ -2139,6 +2157,7 @@
         "from_schema",
         "imported_from",
         "see_also",
+        "string_template",
         "exact_mappings",
         "close_mappings",
         "related_mappings",
@@ -2181,6 +2200,7 @@
         "from_schema",
         "imported_from",
         "see_also",
+        "string_template",
         "exact_mappings",
         "close_mappings",
         "related_mappings",
@@ -2238,6 +2258,7 @@
         "from_schema",
         "imported_from",
         "see_also",
+        "string_template",
         "exact_mappings",
         "close_mappings",
         "related_mappings",
@@ -2279,6 +2300,7 @@
         "from_schema",
         "imported_from",
         "see_also",
+        "string_template",
         "exact_mappings",
         "close_mappings",
         "related_mappings",
@@ -2320,6 +2342,7 @@
         "from_schema",
         "imported_from",
         "see_also",
+        "string_template",
         "exact_mappings",
         "close_mappings",
         "related_mappings",
@@ -2374,6 +2397,7 @@
         "from_schema",
         "imported_from",
         "see_also",
+        "string_template",
         "exact_mappings",
         "close_mappings",
         "related_mappings",
@@ -2453,6 +2477,7 @@
         "from_schema",
         "imported_from",
         "see_also",
+        "string_template",
         "exact_mappings",
         "close_mappings",
         "related_mappings",
@@ -2591,9 +2616,9 @@
   ],
   "metamodel_version": "1.5.3",
   "source_file": "meta.yaml",
-  "source_file_date": "Tue Aug 25 12:56:39 2020",
-  "source_file_size": 27254,
-  "generation_date": "2020-08-26 16:26",
+  "source_file_date": "Fri Aug 28 14:14:39 2020",
+  "source_file_size": 27555,
+  "generation_date": "2020-08-28 14:15",
   "type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/biolink/biolinkml/context.jsonld",

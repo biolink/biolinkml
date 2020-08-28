@@ -17,7 +17,7 @@
 meta:metamodel a meta:SchemaDefinition ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "Biolink Schema Metamodel" ;
-    pav:version "1.5.8" ;
+    pav:version "1.5.9" ;
     skos:definition "A metamodel for defining biolink related schemas" ;
     meta:classes meta:AltDescription,
         meta:Annotatable,
@@ -46,29 +46,29 @@ meta:metamodel a meta:SchemaDefinition ;
         "rdfs",
         "skos",
         "xsd" ;
-    meta:generation_date "2020-08-26 16:26"^^xsd:dateTime ;
+    meta:generation_date "2020-08-28 14:15"^^xsd:dateTime ;
     meta:id biolinkml:meta ;
     meta:imports biolinkml:annotations,
         biolinkml:extensions,
         biolinkml:mappings,
         biolinkml:types ;
     meta:metamodel_version "1.5.3" ;
-    meta:prefixes [ meta:prefix_prefix "biolinkml" ;
-            meta:prefix_reference biolinkml: ],
-        [ meta:prefix_prefix "oslc" ;
-            meta:prefix_reference oslc: ],
-        [ meta:prefix_prefix "OIO" ;
+    meta:prefixes [ meta:prefix_prefix "OIO" ;
             meta:prefix_reference OIO: ],
-        [ meta:prefix_prefix "meta" ;
-            meta:prefix_reference meta: ],
-        [ meta:prefix_prefix "schema" ;
-            meta:prefix_reference schema: ],
-        [ meta:prefix_prefix "pav" ;
-            meta:prefix_reference pav: ],
         [ meta:prefix_prefix "bibo" ;
             meta:prefix_reference bibo: ],
+        [ meta:prefix_prefix "pav" ;
+            meta:prefix_reference pav: ],
+        [ meta:prefix_prefix "oslc" ;
+            meta:prefix_reference oslc: ],
         [ meta:prefix_prefix "skos" ;
-            meta:prefix_reference skos: ] ;
+            meta:prefix_reference skos: ],
+        [ meta:prefix_prefix "schema" ;
+            meta:prefix_reference schema: ],
+        [ meta:prefix_prefix "biolinkml" ;
+            meta:prefix_reference biolinkml: ],
+        [ meta:prefix_prefix "meta" ;
+            meta:prefix_reference meta: ] ;
     meta:slots meta:abstract,
         meta:alias,
         meta:aliases,
@@ -164,6 +164,7 @@ meta:metamodel a meta:SchemaDefinition ;
         meta:source_file_size,
         meta:status,
         meta:string_serialization,
+        meta:string_template,
         meta:subclass_of,
         meta:subproperty_of,
         meta:subsets,
@@ -181,8 +182,8 @@ meta:metamodel a meta:SchemaDefinition ;
         meta:values_from,
         meta:version ;
     meta:source_file "meta.yaml" ;
-    meta:source_file_date "Tue Aug 25 12:56:39 2020"^^xsd:dateTime ;
-    meta:source_file_size 27254 ;
+    meta:source_file_date "Fri Aug 28 14:14:39 2020"^^xsd:dateTime ;
+    meta:source_file_size 27555 ;
     meta:subsets meta:owl ;
     meta:types meta:boolean,
         meta:date,
@@ -1218,6 +1219,7 @@ meta:SubsetDefinition a meta:ClassDefinition ;
         meta:notes,
         meta:related_mappings,
         meta:see_also,
+        meta:string_template,
         meta:todos .
 
 meta:abstract a meta:SlotDefinition ;
@@ -1692,6 +1694,18 @@ meta:description a meta:SlotDefinition ;
     meta:range meta:string ;
     meta:slot_uri skos:definition .
 
+meta:string_template a meta:SlotDefinition ;
+    rdfs:seeAlso <https://docs.python.org/3.8/library/string.html#formatspec>,
+        <https://pypi.org/project/parse/> ;
+    skos:definition "A string template that conforms to the python format() and parse() spec" ;
+    skos:inScheme biolinkml:meta ;
+    meta:definition_uri meta:string_template ;
+    meta:domain meta:ClassDefinition ;
+    meta:domain_of meta:Element ;
+    meta:owner meta:string_template ;
+    meta:range meta:string ;
+    meta:slot_uri meta:string_template .
+
 meta:Extension a meta:ClassDefinition ;
     skos:definition "a tag/value pair used to add non-model information to an entry" ;
     skos:inScheme biolinkml:extensions ;
@@ -1798,6 +1812,7 @@ meta:TypeDefinition a meta:ClassDefinition ;
         meta:related_mappings,
         meta:repr,
         meta:see_also,
+        meta:string_template,
         meta:todos,
         meta:type_uri,
         meta:typeof .
@@ -1845,6 +1860,7 @@ meta:Definition a meta:ClassDefinition ;
         meta:related_mappings,
         meta:see_also,
         meta:status,
+        meta:string_template,
         meta:todos,
         meta:values_from .
 
@@ -1904,6 +1920,7 @@ meta:ClassDefinition a meta:ClassDefinition ;
         meta:slot_usage,
         meta:slots,
         meta:status,
+        meta:string_template,
         meta:subclass_of,
         meta:todos,
         meta:tree_root,
@@ -1958,6 +1975,7 @@ meta:SchemaDefinition a meta:ClassDefinition ;
         meta:source_file,
         meta:source_file_date,
         meta:source_file_size,
+        meta:string_template,
         meta:subsets,
         meta:title,
         meta:todos,
@@ -1998,6 +2016,7 @@ meta:Element a meta:ClassDefinition ;
         meta:notes,
         meta:related_mappings,
         meta:see_also,
+        meta:string_template,
         meta:todos .
 
 meta:SlotDefinition a meta:ClassDefinition ;
@@ -2068,6 +2087,7 @@ meta:SlotDefinition a meta:ClassDefinition ;
         meta:slot_uri,
         meta:status,
         meta:string_serialization,
+        meta:string_template,
         meta:subproperty_of,
         meta:symmetric,
         meta:todos,

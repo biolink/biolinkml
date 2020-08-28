@@ -240,6 +240,9 @@ For example, a Measurement class may have 3 fields: unit, value, and string_valu
     * Description: status of the element
     * range: [Uriorcurie](types/Uriorcurie.md)
     * Example: bibo:draft None
+ * [string_template](string_template.md)  <sub>OPT</sub>
+    * Description: A string template that conforms to the python format() and parse() spec
+    * range: [String](types/String.md)
  * [todos](todos.md)  <sub>0..*</sub>
     * Description: Outstanding issue that needs resolution
     * range: [String](types/String.md)

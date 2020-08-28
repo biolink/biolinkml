@@ -3,7 +3,7 @@ title: Biolink Schema Metamodel
 name: metamodel
 description: A metamodel for defining biolink related schemas
 license: https://creativecommons.org/publicdomain/zero/1.0/
-version: 1.5.8
+version: 1.5.9
 
 prefixes:
   meta: https://w3id.org/biolink/biolinkml/meta/
@@ -429,6 +429,14 @@ slots:
     range: boolean
     description: indicator that this is the root class in tree structures
 
+  string_template:
+    description: A string template that conforms to the python format() and parse() spec
+    see_also:
+      - https://pypi.org/project/parse/
+      - https://docs.python.org/3.8/library/string.html#formatspec
+    domain: class_definition
+    range: string
+
 
   # -----------------------------------
   # Slot definition slots
@@ -821,6 +829,7 @@ classes:
       - from_schema
       - imported_from
       - see_also
+      - string_template
       - exact mappings
       - close mappings
       - related mappings

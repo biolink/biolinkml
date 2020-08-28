@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-26 16:26
+# Generation date: 2020-08-28 14:14
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta
@@ -119,6 +119,7 @@ class Element(YAMLRoot):
     from_schema: Optional[Union[str, URI]] = None
     imported_from: Optional[str] = None
     see_also: List[Union[str, URIorCURIE]] = empty_list()
+    string_template: Optional[str] = None
     exact_mappings: List[Union[str, URIorCURIE]] = empty_list()
     close_mappings: List[Union[str, URIorCURIE]] = empty_list()
     related_mappings: List[Union[str, URIorCURIE]] = empty_list()
@@ -714,6 +715,9 @@ slots.union_of = Slot(uri=META.union_of, name="union_of", curie=META.curie('unio
 
 slots.tree_root = Slot(uri=META.tree_root, name="tree_root", curie=META.curie('tree_root'),
                       model_uri=META.tree_root, domain=ClassDefinition, range=Optional[Bool])
+
+slots.string_template = Slot(uri=META.string_template, name="string_template", curie=META.curie('string_template'),
+                      model_uri=META.string_template, domain=ClassDefinition, range=Optional[str])
 
 slots.domain = Slot(uri=META.domain, name="domain", curie=META.curie('domain'),
                       model_uri=META.domain, domain=SlotDefinition, range=Optional[Union[str, ClassDefinitionName]])

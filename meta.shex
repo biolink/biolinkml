@@ -127,6 +127,7 @@ metatype:Nodeidentifier NONLITERAL
           skos:inScheme @metatype:Uri ? ;
           <imported_from> @metatype:String ? ;
           rdfs:seeAlso @metatype:Uriorcurie * ;
+          <string_template> @metatype:String ? ;
           skos:exactMatch @metatype:Uriorcurie * ;
           skos:closeMatch @metatype:Uriorcurie * ;
           skos:relatedMatch @metatype:Uriorcurie * ;

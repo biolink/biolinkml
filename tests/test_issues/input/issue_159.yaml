@@ -1,0 +1,27 @@
+id: https://github.com/biolink/biolinkml/tests/test_issues/test_issue_159
+name: Templatetest
+description: Outline of a formatting template proposal
+
+prefixes:
+  biolinkml: https://w3id.org/biolink/biolinkml/
+  tt: https://github.com/biolink/biolinkml/tests/test_issues/test_issue_159/
+
+imports:
+  - biolinkml:types
+
+default_prefix: tt
+
+slots:
+  value:
+    range: float
+    required: true
+
+  units:
+    range: string
+
+classes:
+  c1:
+    slots:
+      - value
+      - units
+    # string_serialization: {value} {units}
