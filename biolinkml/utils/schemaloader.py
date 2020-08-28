@@ -197,12 +197,15 @@ class SchemaLoader:
                 if not slot.inverse:
                     slot.range = self.schema.default_range
 
-        # Update classes with is_a and mixin information
-        merged_classes: List[ClassDefinitionName] = []
+        # Process the slot_usages
         for cls in self.schema.classes.values():
             self.process_slot_usages(cls)
             if not cls.from_schema:
                 cls.from_schema = self.schema.id
+
+        # Merge class with its mixins and the like
+        merged_classes: List[ClassDefinitionName] = []
+        for cls in self.schema.classes.values():
             self.merge_class(cls, merged_classes)
 
         # Update types with parental information
@@ -510,7 +513,8 @@ class SchemaLoader:
                 child_name = slot_usage_name(slotname, cls)
                 slot_alias = parent_slot.alias if parent_slot.alias else slotname
             new_slot = SlotDefinition(name=child_name, alias=slot_alias, domain=cls.name, is_usage_slot=Bool(True),
-                                      usage_slot_name=slotname, owner=cls.name, domain_of=[cls.name])
+                                      usage_slot_name=slotname, owner=cls.name, domain_of=[cls.name],
+                                      imported_from=cls.imported_from)
             self.schema.slots[child_name] = new_slot
             merge_slots(new_slot, slot_usage, inheriting=False, skip=['name', 'alias', 'domain', 'is_usage_slot',
                                                                       'usage_slot_name', 'owner', 'domain_of'])
@@ -601,15 +605,20 @@ class SchemaLoader:
     def check_prefix(self, prefix: str) -> None:
         prefix = self.namespaces.prefix_for(prefix)
         if prefix and prefix not in self.namespaces:
-            self.logger.warning(f"Unrecognized prefix: {prefix}")
+            self.logger.warning(f"{self.yaml_loc(prefix)}Unrecognized prefix: {prefix}")
             self.namespaces[prefix] = f"http://example.org/UNKNOWN/{prefix}/"
 
     @staticmethod
     def slot_name_for(slot: SlotDefinition) -> str:
         return underscore(slot.alias if slot.alias else slot.name)
 
+    @staticmethod
+    def yaml_loc(loc_str: Optional[Union[TypedNode, str]] = None) -> str:
+        """ Return the yaml file and location of loc_str if it exists """
+        return '' if loc_str is None or not getattr(loc_str, "loc", None) else (loc_str.loc() + ": ")
+
     def raise_value_error(self, error: str, loc_str: Optional[Union[TypedNode, str]] = None) -> None:
-        raise ValueError(f'{"" if loc_str is None or not getattr(loc_str, "loc") else (loc_str.loc() + " ")} {error}')
+        raise ValueError(f'{self.yaml_loc(loc_str)} {error}')
 
     def _get_base_dir(self, stated_base: str) -> Optional[str]:
         if stated_base:

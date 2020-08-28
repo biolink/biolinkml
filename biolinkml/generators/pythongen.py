@@ -169,10 +169,10 @@ class slots:
                 elif '://' in path:
                     raise ValueError(f"Cannot map {path} into a python import statement")
                 elif '/' in path:
-                    innerself.v.setdefault(path.replace('/', '.'), set()).add(name)
+                    innerself.v.setdefault(path.replace('./', '.').replace('/', '.'), set()).add(name)
                 else:
-                    # TODO: Decide whether to emit a '.' which gives import errors, nothing or a qualified path
-                    #innerself.v.setdefault('.' + path, set()).add(name)
+                    # The '.' causes failures in a number of the test cases
+                    # innerself.v.setdefault('.' + path, set()).add(name)
                     innerself.v.setdefault(path, set()).add(name)
 
             def values(self) -> Dict[str, List[str]]:
@@ -195,8 +195,12 @@ class slots:
                 else:
                     cls = self.schema.classes[slot.range]
                     if cls.imported_from:
-                        if self.class_identifier(cls):
-                            rval.add_entry(cls.imported_from, self.class_identifier_path(cls, False)[-1])
+                        if self.class_identifier(cls, keys_count=True):
+                            identifier_range = self.class_identifier_path(cls, False)[-1]
+                            if identifier_range in self.schema.types:
+                                add_type_ref(identifier_range)
+                            else:
+                                rval.add_entry(cls.imported_from, identifier_range)
                         if slot.inlined:
                             rval.add_element(cls)
 
@@ -225,6 +229,8 @@ class slots:
                         if self.class_identifier(parent, keys_count=True):
                             rval.add_entry(parent.imported_from, self.class_identifier_path(parent, False)[-1])
                 for slotname in cls.slots:
+                    add_slot_range(self.schema.slots[slotname])
+                for slotname in cls.slot_usage:
                     add_slot_range(self.schema.slots[slotname])
 
         return rval.values()
@@ -579,7 +585,7 @@ class slots:
                     if slot.range in self.schema.classes and not self.schema.classes[slot.range].slots:
                         rlines.append(f'\tself.{slotname} = {base_type_name}()')
                     else:
-                        if self.class_identifier(slot.range) or slot.range in self.schema.types:
+                        if self.class_identifier(slot.range, keys_count=True) or slot.range in self.schema.types:
                             rlines.append(f'\tself.{slotname} = {base_type_name}(self.{slotname})')
                         else:
                             rlines.append(f'\tself.{slotname} = {base_type_name}(**self.{slotname})')
