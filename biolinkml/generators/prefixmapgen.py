@@ -49,36 +49,21 @@ class ContextGenerator(Generator):
                 self.default_ns = dflt
             default_uri = self.namespaces[self.default_ns]
             self.emit_prefixes.add(self.default_ns)
-            self.context_body['@vocab'] = default_uri
-            #self.context_body['@base'] = self.base_dir
 
     def end_schema(self, base: Optional[str] = None, output: Optional[str] = None, **_) -> None:
-        comments = f'''Auto generated from {self.schema.source_file} by {self.generatorname} version: {self.generatorversion}
-Generation date: {self.schema.generation_date}
-Schema: {self.schema.name}
-
-id: {self.schema.id}
-description: {be(self.schema.description)}
-license: {be(self.schema.license)}
-'''
+        
         context = JsonObj()
-        context["_comments"] = comments
-        context_content = {"type": "@type"}
         if base:
             if '://' not in base:
                 self.context_body['@base'] = os.path.relpath(base, os.path.dirname(self.schema.source_file))
             else:
                 self.context_body['@base'] = base
         for prefix in sorted(self.emit_prefixes):
-            prefix_obj = JsonObj()
-            prefix_obj["@id"] = self.namespaces[prefix]
-            prefix_obj["@prefix"] = True
-            context_content[prefix] = prefix_obj
+            context[prefix] = self.namespaces[prefix]
         for k, v in self.context_body.items():
-            context_content[k] = v
+            context[k] = v
         for k, v in self.slot_class_maps.items():
-            context_content[k] = v
-        context['@context'] = context_content
+            context[k] = v
         if output:
             with open(output, 'w') as outf:
                 outf.write(as_json(context))
