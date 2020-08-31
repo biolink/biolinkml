@@ -4,10 +4,10 @@ description: Entity and association taxonomy and datamodel for life-sciences dat
 license: https://creativecommons.org/publicdomain/zero/1.0/
 
 # CURIE namespaces (prefixes/base URI's) mappings of prefixes used in the body of the Biolink Model specification are resolved using a specific precedence order,
-# for use in the generation of the Biolink Model context.jsonld mappings to namespaces. Any prefixes encountered in the Biolink Model but not resolved by the following 
+# for use in the generation of the Biolink Model context.jsonld mappings to namespaces. Any prefixes encountered in the Biolink Model but not resolved by the following
 # precedence sources, are anonymously declared by biolinkml as http://example.org/UNKNOWN/ rooted base URI's which should ideally be repaired in one of the precedence lists.
 #
-# 1. The following 'prefixes:' delimited list has first precedence in resolution. 
+# 1. The following 'prefixes:' delimited list has first precedence in resolution.
 prefixes:
   biolink: 'https://w3id.org/biolink/vocab/'
   biolinkml: 'https://w3id.org/biolink/biolinkml/'
@@ -32,11 +32,11 @@ prefixes:
   ICD9: 'http://translator.ncats.nih.gov/ICD9_'
   ICD10: 'http://translator.ncats.nih.gov/ICD10_'
   MetaCyc: 'http://translator.ncats.nih.gov/MetaCyc_'
-  
+
 default_prefix: biolink
 default_range: string
 
-# 2. The following prefix maps are retrieved from the 
+# 2. The following prefix maps are retrieved from the
 #    specified contexts defined at https://prefixcommons.org/
 default_curi_maps:
   - obo_context
@@ -334,7 +334,7 @@ slots:
     domain: molecular entity
     range: genomic entity
     mappings:
-      - CTD:increases_expression_of      
+      - CTD:increases_expression_of
 
   decreases expression of:
     description: >-
@@ -1783,7 +1783,7 @@ slots:
     is_a: related to
     mappings:
       - CL:has_low_plasma_membrane_amount
-  
+
   lacks part:
     is_a: related to
     mappings:
@@ -1895,8 +1895,7 @@ slots:
 
   type:
     is_a: node property
-    mappings:
-      - rdf:type
+    slot_uri: rdf:type
 
   id:
     is_a: node property
@@ -1947,7 +1946,7 @@ slots:
       - oboInOwl:hasRelatedSynonym
 
   category:
-    is_a: node property
+    is_a: type
     domain: named thing
     range: category type
     description: >-
@@ -1958,7 +1957,6 @@ slots:
     in_subset:
       - translator_minimal
     required: true
-    slot_uri: rdf:type
 
   full name:
     is_a: node property
@@ -2302,7 +2300,7 @@ slots:
     description: >-
       hyperedge connecting an association between two causally connected entities (for example, two chemical entities, or a chemical entity in
       that changes location) and the gene product, gene, or complex that enables or catalyzes the change.
-      
+
   has biological sequence:
     is_a: node property
     description: >-
@@ -2425,6 +2423,18 @@ slots:
     in_subset:
       - samples
 
+  has variant part:
+    notes:
+      - TBD define this property
+
+  develops from:
+    notes:
+      - TBD define this property
+
+  related condition:
+    notes:
+      - TBD define this property
+
 classes:
 
   abstract entity:
@@ -2457,7 +2467,7 @@ classes:
     slots:
       - has unit
       - has numeric value
-      
+
   ## ------
   ## THINGS
   ## ------
@@ -2510,7 +2520,7 @@ classes:
     mappings:
       - HP:0003674
     is_a: clinical course
-    
+
   inheritance:
     description: >-
       The pattern in which a particular genetic trait or disorder is passed from one
@@ -2779,7 +2789,7 @@ classes:
     mixin: true
     description: >-
       An entity that has the role of being studied in an investigation, study, or experiment
-      
+
   material sample:
     aliases: ['biospecimen', 'sample', 'biosample', 'physical sample']
     is_a: named thing
@@ -3911,7 +3921,7 @@ classes:
         description: >-
           this connects the derivation edge to the molecular entity that catalyzes the reaction that causes the
           subject chemical to transform into the object chemical
-        
+
   chemical to disease or phenotypic feature association:
     is_a: association
     mappings:
@@ -4067,7 +4077,7 @@ classes:
       object:
         range: phenotypic feature
         description: "phenotypic class"
-        values_from: ['upheno', 'hp', 'mp', 'wbphenotypic feature']
+        values_from: ['upheno', 'hp', 'mp', 'wbphenotypic_feature']
         examples:
           - value: HP:0002487
             description: Hyperkinesis

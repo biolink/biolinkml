@@ -306,6 +306,10 @@ class SchemaLoader:
                     self.namespaces.uri_or_curie_for(self.schema_defaults.get(slot.from_schema, sfx(slot.from_schema)),
                                                                  self.slot_name_for(slot))
 
+            if slot.subproperty_of and slot.subproperty_of not in self.schema.slots:
+                self.raise_value_error(f'Slot: "{slot.name}" - subproperty_of: "{slot.subproperty_of}" '
+                                       f'does not reference a slot definition', slot.subproperty_of)
+
         # Evaluate any slot inverses
         def domain_range_alignment(fwd_slot: SlotDefinition, inverse_slot: SlotDefinition) -> bool:
             """ Determine whether the range of fwd_slot is compatible with the domain of inverse_slot """

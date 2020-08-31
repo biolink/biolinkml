@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-28 15:40
+# Generation date: 2020-08-31 17:55
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta
@@ -377,7 +377,7 @@ class SlotDefinition(Definition):
     alias: Optional[str] = None
     owner: Optional[Union[str, DefinitionName]] = None
     domain_of: List[Union[str, ClassDefinitionName]] = empty_list()
-    subproperty_of: Optional[Union[str, URIorCURIE]] = None
+    subproperty_of: Optional[Union[str, SlotDefinitionName]] = None
     symmetric: Optional[Bool] = None
     inverse: Optional[Union[str, SlotDefinitionName]] = None
     is_class_field: Optional[Bool] = None
@@ -407,8 +407,8 @@ class SlotDefinition(Definition):
             self.owner = DefinitionName(self.owner)
         self.domain_of = [v if isinstance(v, ClassDefinitionName)
                           else ClassDefinitionName(v) for v in ([self.domain_of] if isinstance(self.domain_of, str) else self.domain_of)]
-        if self.subproperty_of is not None and not isinstance(self.subproperty_of, URIorCURIE):
-            self.subproperty_of = URIorCURIE(self.subproperty_of)
+        if self.subproperty_of is not None and not isinstance(self.subproperty_of, SlotDefinitionName):
+            self.subproperty_of = SlotDefinitionName(self.subproperty_of)
         if self.inverse is not None and not isinstance(self.inverse, SlotDefinitionName):
             self.inverse = SlotDefinitionName(self.inverse)
         if self.is_a is not None and not isinstance(self.is_a, SlotDefinitionName):
@@ -774,7 +774,7 @@ slots.usage_slot_name = Slot(uri=META.usage_slot_name, name="usage_slot_name", c
                       model_uri=META.usage_slot_name, domain=SlotDefinition, range=Optional[str])
 
 slots.subproperty_of = Slot(uri=RDFS.subPropertyOf, name="subproperty_of", curie=RDFS.curie('subPropertyOf'),
-                      model_uri=META.subproperty_of, domain=SlotDefinition, range=Optional[Union[str, URIorCURIE]])
+                      model_uri=META.subproperty_of, domain=SlotDefinition, range=Optional[Union[str, SlotDefinitionName]])
 
 slots.symmetric = Slot(uri=META.symmetric, name="symmetric", curie=META.curie('symmetric'),
                       model_uri=META.symmetric, domain=SlotDefinition, range=Optional[Bool])

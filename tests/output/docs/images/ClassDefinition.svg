@@ -71,32 +71,37 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='190' y='-19.8'>deprecated_element_has_exact_replacement(i):uriorcurie ?</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='190' y='-4.8'>deprecated_element_has_possible_replacement(i):uriorcurie ?</text>
 </g><g class='edge' id='edge4'><title>SlotDefinition-&gt;ClassDefinition</title>
-<path d='M174.695,-562.971C169.926,-543.12 166.616,-513.991 164.764,-481.26' fill='none' stroke='black'/>
-<polygon fill='black' points='177.407,-572.743 170.396,-564.311 176.069,-567.925 174.732,-563.107 174.732,-563.107 174.732,-563.107 176.069,-567.925 179.068,-561.903 177.407,-572.743 177.407,-572.743' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='159.095' y='-496.739'> </text>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='178.971' y='-549.104'>defining_slots 0..*</text>
+<path d='M170.951,-563.245C164.946,-543.388 160.781,-514.142 158.455,-481.26' fill='none' stroke='black'/>
+<polygon fill='black' points='174.258,-572.743 166.72,-564.779 172.614,-568.021 170.969,-563.299 170.969,-563.299 170.969,-563.299 172.614,-568.021 175.219,-561.819 174.258,-572.743 174.258,-572.743' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='153.082' y='-496.824'> </text>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='174.537' y='-549.045'>defining_slots 0..*</text>
 </g><g class='edge' id='edge6'><title>SlotDefinition-&gt;ClassDefinition</title>
-<path d='M182.314,-562.696C180.244,-545.332 178.726,-520.95 177.762,-493.299' fill='none' stroke='black'/>
-<polygon fill='black' points='183.703,-572.743 177.876,-563.453 183.019,-567.79 182.334,-562.837 182.334,-562.837 182.334,-562.837 183.019,-567.79 186.791,-562.221 183.703,-572.743 183.703,-572.743' stroke='black'/>
-<polygon fill='black' points='177.76,-493.254 173.573,-487.383 177.382,-481.26 181.569,-487.131 177.76,-493.254' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='187.905' y='-549.489'>slot_usage 0..*</text>
+<path d='M178.472,-562.696C175.365,-545.332 173.089,-520.95 171.642,-493.299' fill='none' stroke='black'/>
+<polygon fill='black' points='180.555,-572.743 174.118,-563.865 179.54,-567.847 178.524,-562.951 178.524,-562.951 178.524,-562.951 179.54,-567.847 182.931,-562.037 180.555,-572.743 180.555,-572.743' stroke='black'/>
+<polygon fill='black' points='171.64,-493.246 167.361,-487.442 171.073,-481.26 175.352,-487.064 171.64,-493.246' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='183.436' y='-549.251'>attributes 0..*</text>
 </g><g class='edge' id='edge7'><title>SlotDefinition-&gt;ClassDefinition</title>
-<path d='M190,-562.696C190,-542.851 190,-513.84 190,-481.26' fill='none' stroke='black'/>
-<polygon fill='black' points='190,-572.743 185.5,-562.743 190,-567.743 190,-562.743 190,-562.743 190,-562.743 190,-567.743 194.5,-562.743 190,-572.743 190,-572.743' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='183.16' y='-496.354'> </text>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='196.84' y='-550.249'>slots 0..*</text>
-</g><g class='edge' id='edge9'><title>SlotDefinition-&gt;ClassDefinition</title>
-<path d='M196.297,-572.743C199.138,-555.205 201.139,-525.796 202.299,-491.539' fill='none' stroke='black'/>
-<polygon fill='black' points='202.618,-481.26 206.806,-491.395 202.463,-486.257 202.308,-491.255 202.308,-491.255 202.308,-491.255 202.463,-486.257 197.81,-491.115 202.618,-481.26 202.618,-481.26' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='195.198' y='-496.132'> domain 0..1</text>
+<path d='M186.157,-562.696C185.122,-545.332 184.363,-520.95 183.881,-493.299' fill='none' stroke='black'/>
+<polygon fill='black' points='186.852,-572.743 181.673,-563.077 186.507,-567.755 186.162,-562.766 186.162,-562.766 186.162,-562.766 186.507,-567.755 190.651,-562.456 186.852,-572.743 186.852,-572.743' stroke='black'/>
+<polygon fill='black' points='183.88,-493.258 179.786,-487.322 183.691,-481.26 187.785,-487.196 183.88,-493.258' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='192.38' y='-549.822'>slot_usage 0..*</text>
+</g><g class='edge' id='edge8'><title>SlotDefinition-&gt;ClassDefinition</title>
+<path d='M193.843,-562.696C195.026,-542.851 195.848,-513.84 196.309,-481.26' fill='none' stroke='black'/>
+<polygon fill='black' points='193.148,-572.743 189.349,-562.456 193.493,-567.755 193.838,-562.766 193.838,-562.766 193.838,-562.766 193.493,-567.755 198.327,-563.077 193.148,-572.743 193.148,-572.743' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='189.179' y='-496.246'> </text>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='201.269' y='-550.765'>slots 0..*</text>
 </g><g class='edge' id='edge10'><title>SlotDefinition-&gt;ClassDefinition</title>
-<path d='M202.593,-572.743C208.276,-555.205 212.278,-525.796 214.598,-491.539' fill='none' stroke='black'/>
-<polygon fill='black' points='215.236,-481.26 219.108,-491.519 214.926,-486.25 214.616,-491.241 214.616,-491.241 214.616,-491.241 214.926,-486.25 210.125,-490.962 215.236,-481.26 215.236,-481.26' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='207.245' y='-495.894'> domain_of 0..*</text>
+<path d='M199.445,-572.743C203.707,-555.205 206.708,-525.796 208.448,-491.539' fill='none' stroke='black'/>
+<polygon fill='black' points='208.927,-481.26 212.957,-491.458 208.694,-486.254 208.462,-491.249 208.462,-491.249 208.462,-491.249 208.694,-486.254 203.967,-491.04 208.927,-481.26 208.927,-481.26' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='201.22' y='-496.015'> domain 0..1</text>
+</g><g class='edge' id='edge11'><title>SlotDefinition-&gt;ClassDefinition</title>
+<path d='M205.742,-572.743C212.845,-555.205 217.847,-525.796 220.747,-491.539' fill='none' stroke='black'/>
+<polygon fill='black' points='221.545,-481.26 225.258,-491.578 221.158,-486.245 220.771,-491.23 220.771,-491.23 220.771,-491.23 221.158,-486.245 216.285,-490.882 221.545,-481.26 221.545,-481.26' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='213.271' y='-495.768'> domain_of 0..*</text>
 </g><g class='node' id='node3'><title>SchemaDefinition</title>
 <polygon fill='white' points='261,-573 261,-609 389,-609 389,-573 261,-573' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='325' y='-587.3'>SchemaDefinition</text>
-</g><g class='edge' id='edge8'><title>SchemaDefinition-&gt;ClassDefinition</title>
+</g><g class='edge' id='edge9'><title>SchemaDefinition-&gt;ClassDefinition</title>
 <path d='M313.868,-561.303C306.968,-543.517 297.368,-518.77 286.535,-490.846' fill='none' stroke='black'/>
 <polygon fill='black' points='313.965,-561.555 319.865,-565.702 318.305,-572.743 312.406,-568.595 313.965,-561.555' stroke='black'/>
 <polygon fill='black' points='282.816,-481.26 290.628,-488.955 284.625,-485.921 286.433,-490.583 286.433,-490.583 286.433,-490.583 284.625,-485.921 282.238,-492.21 282.816,-481.26 282.816,-481.26' stroke='black'/>
@@ -113,7 +118,7 @@
 </g><g class='node' id='node7'><title>Definition</title>
 <polygon fill='white' points='407,-573 407,-609 491,-609 491,-573 407,-573' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='449' y='-587.3'>Definition</text>
-</g><g class='edge' id='edge11'><title>Definition-&gt;ClassDefinition</title>
+</g><g class='edge' id='edge12'><title>Definition-&gt;ClassDefinition</title>
 <path d='M430.093,-564.596C415.306,-544.728 393.104,-514.896 368.07,-481.26' fill='none' stroke='black'/>
 <polygon fill='none' points='427.378,-566.81 436.156,-572.743 432.993,-562.631 427.378,-566.81' stroke='black'/>
 </g><g class='edge' id='edge1'><title>ClassDefinition-&gt;ClassDefinition</title>

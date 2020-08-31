@@ -228,7 +228,7 @@ metatype:Nodeidentifier NONLITERAL
           <alias> @metatype:String ? ;
           <owner> @<Definition> ? ;
           <domain_of> @<ClassDefinition> * ;
-          rdfs:subPropertyOf @metatype:Uriorcurie ? ;
+          rdfs:subPropertyOf @<SlotDefinition> ? ;
           <symmetric> @metatype:Boolean ? ;
           owl:inverseOf @<SlotDefinition> ? ;
           <is_class_field> @metatype:Boolean ? ;
