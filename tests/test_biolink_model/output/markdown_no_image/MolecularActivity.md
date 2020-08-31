@@ -7,7 +7,7 @@ An execution of a molecular function carried out by a gene product or macromolec
 URI: [biolink:MolecularActivity](https://w3id.org/biolink/vocab/MolecularActivity)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Occurrent],[MacromolecularMachine]<enabled%20by%200..*-%20[MolecularActivity&#124;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[ChemicalSubstance]<has%20output%200..*-%20[MolecularActivity],[ChemicalSubstance]<has%20input%200..*-%20[MolecularActivity],[MacromolecularMachineToMolecularActivityAssociation]-%20object%201..1>[MolecularActivity],[MolecularActivity]uses%20-.->[Occurrent],[BiologicalProcessOrActivity]^-[MolecularActivity],[MacromolecularMachineToMolecularActivityAssociation],[MacromolecularMachine],[ChemicalSubstance],[BiologicalProcessOrActivity])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Occurrent],[MacromolecularMachine]<enabled%20by%200..*-%20[MolecularActivity&#124;id(i):string;name(i):label_type;category(i):category_type%20%2B],[ChemicalSubstance]<has%20output%200..*-%20[MolecularActivity],[ChemicalSubstance]<has%20input%200..*-%20[MolecularActivity],[MacromolecularMachineToMolecularActivityAssociation]-%20object%201..1>[MolecularActivity],[MolecularActivity]uses%20-.->[Occurrent],[BiologicalProcessOrActivity]^-[MolecularActivity],[MacromolecularMachineToMolecularActivityAssociation],[MacromolecularMachine],[ChemicalSubstance],[BiologicalProcessOrActivity])
 
 ## Parents
 
@@ -40,7 +40,7 @@ URI: [biolink:MolecularActivity](https://w3id.org/biolink/vocab/MolecularActivit
 
  * [category](category.md)  <sub>1..*</sub>
     * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
-    * range: [IriType](types/IriType.md)
+    * range: [CategoryType](types/CategoryType.md)
     * in subsets: (translator_minimal)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI

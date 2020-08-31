@@ -1,5 +1,5 @@
-# Auto generated from .yaml by pythongen.py version:
-# Generation date:
+# Auto generated from mappings.yaml by pythongen.py version: 0.4.0
+# Generation date: 2020-08-25 15:31
 # Schema: mappings
 #
 # id: https://w3id.org/biolink/biolinkml/mappings
@@ -64,6 +64,12 @@ slots.close_mappings = Slot(uri=SKOS.closeMatch, name="close mappings", curie=SK
 
 slots.related_mappings = Slot(uri=SKOS.relatedMatch, name="related mappings", curie=SKOS.curie('relatedMatch'),
                       model_uri=META.related_mappings, domain=None, range=List[Union[str, URIorCURIE]])
+
+slots.narrow_mappings = Slot(uri=SKOS.narrowMatch, name="narrow mappings", curie=SKOS.curie('narrowMatch'),
+                      model_uri=META.narrow_mappings, domain=None, range=List[Union[str, URIorCURIE]])
+
+slots.broad_mappings = Slot(uri=SKOS.broadMatch, name="broad mappings", curie=SKOS.curie('broadMatch'),
+                      model_uri=META.broad_mappings, domain=None, range=List[Union[str, URIorCURIE]])
 
 slots.deprecated_element_has_exact_replacement = Slot(uri=META.deprecated_element_has_exact_replacement, name="deprecated element has exact replacement", curie=META.curie('deprecated_element_has_exact_replacement'),
                       model_uri=META.deprecated_element_has_exact_replacement, domain=None, range=Optional[Union[str, URIorCURIE]], mappings = [IAO["0100001"]])

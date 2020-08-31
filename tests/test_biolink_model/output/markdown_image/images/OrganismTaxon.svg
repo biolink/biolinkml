@@ -33,12 +33,12 @@
 <polygon fill='white' points='-0.5,-153 -0.5,-189 122.5,-189 122.5,-153 -0.5,-153' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='61' y='-167.3'>ThingWithTaxon</text>
 </g><g class='node' id='node2'><title>OrganismTaxon</title>
-<polygon fill='white' points='55,-1 55,-61 201,-61 201,-1 55,-1' stroke='black'/>
+<polygon fill='white' points='38,-1 38,-61 218,-61 218,-1 38,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='128' y='-49.8'>OrganismTaxon</text>
-<polyline fill='none' points='55,-46 201,-46 ' stroke='black'/>
+<polyline fill='none' points='38,-46 218,-46 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='128' y='-34.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='128' y='-19.8'>name(i):label_type</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='128' y='-4.8'>category(i):iri_type +</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='128' y='-4.8'>category(i):category_type +</text>
 </g><g class='edge' id='edge1'><title>ThingWithTaxon-&gt;OrganismTaxon</title>
 <path d='M69.3501,-152.801C79.2974,-132.313 96.2165,-97.4645 109.334,-70.4471' fill='none' stroke='black'/>
 <polygon fill='black' points='113.797,-61.2537 113.478,-72.215 111.613,-65.7516 109.43,-70.2495 109.43,-70.2495 109.43,-70.2495 111.613,-65.7516 105.381,-68.2841 113.797,-61.2537 113.797,-61.2537' stroke='black'/>

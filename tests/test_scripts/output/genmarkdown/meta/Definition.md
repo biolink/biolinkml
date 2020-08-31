@@ -7,7 +7,7 @@ base class for definitions
 URI: [meta:Definition](https://w3id.org/biolink/biolinkml/meta/Definition)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SubsetDefinition],[SlotDefinition],[LocalName],[Extension],[Example],[Element],[Definition]<apply_to%200..*-%20[Definition&#124;abstract:boolean%20%3F;mixin:boolean%20%3F;values_from:uriorcurie%20*;created_by:uriorcurie%20%3F;created_on:datetime%20%3F;last_updated_on:datetime%20%3F;modified_by:uriorcurie%20%3F;status:uriorcurie%20%3F;id_prefixes(i):ncname%20*;name(i):string;definition_uri(i):uriorcurie%20%3F;aliases(i):string%20*;mappings(i):uriorcurie%20*;description(i):string%20%3F;deprecated(i):string%20%3F;todos(i):string%20*;notes(i):string%20*;comments(i):string%20*;from_schema(i):uri%20%3F;imported_from(i):string%20%3F;see_also(i):uriorcurie%20*;exact_mappings(i):uriorcurie%20*;close_mappings(i):uriorcurie%20*;related_mappings(i):uriorcurie%20*;deprecated_element_has_exact_replacement(i):uriorcurie%20%3F;deprecated_element_has_possible_replacement(i):uriorcurie%20%3F],[Definition]<mixins%200..*-%20[Definition],[Definition]<is_a%200..1-%20[Definition],[SlotDefinition]-%20owner%200..1>[Definition],[Definition]^-[SlotDefinition],[Definition]^-[ClassDefinition],[Element]^-[Definition],[ClassDefinition],[Annotation],[AltDescription])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SubsetDefinition],[SlotDefinition],[LocalName],[Extension],[Example],[Element],[Definition]<apply_to%200..*-%20[Definition&#124;abstract:boolean%20%3F;mixin:boolean%20%3F;values_from:uriorcurie%20*;created_by:uriorcurie%20%3F;created_on:datetime%20%3F;last_updated_on:datetime%20%3F;modified_by:uriorcurie%20%3F;status:uriorcurie%20%3F;id_prefixes(i):ncname%20*;name(i):string;definition_uri(i):uriorcurie%20%3F;aliases(i):string%20*;mappings(i):uriorcurie%20*;description(i):string%20%3F;deprecated(i):string%20%3F;todos(i):string%20*;notes(i):string%20*;comments(i):string%20*;from_schema(i):uri%20%3F;imported_from(i):string%20%3F;see_also(i):uriorcurie%20*;exact_mappings(i):uriorcurie%20*;close_mappings(i):uriorcurie%20*;related_mappings(i):uriorcurie%20*;narrow_mappings(i):uriorcurie%20*;broad_mappings(i):uriorcurie%20*;deprecated_element_has_exact_replacement(i):uriorcurie%20%3F;deprecated_element_has_possible_replacement(i):uriorcurie%20%3F],[Definition]<mixins%200..*-%20[Definition],[Definition]<is_a%200..1-%20[Definition],[SlotDefinition]-%20owner%200..1>[Definition],[Definition]^-[SlotDefinition],[Definition]^-[ClassDefinition],[Element]^-[Definition],[ClassDefinition],[Annotation],[AltDescription])
 
 ## Parents
 
@@ -71,6 +71,9 @@ URI: [meta:Definition](https://w3id.org/biolink/biolinkml/meta/Definition)
     * range: [String](types/String.md)
  * [alt_descriptions](alt_descriptions.md)  <sub>0..*</sub>
     * range: [AltDescription](AltDescription.md)
+ * [broad mappings](broad_mappings.md)  <sub>0..*</sub>
+    * Description: A list of terms from different schemas or terminology systems that have broader meaning.
+    * range: [Uriorcurie](types/Uriorcurie.md)
  * [close mappings](close_mappings.md)  <sub>0..*</sub>
     * Description: A list of terms from different schemas or terminology systems that have close meaning.
     * range: [Uriorcurie](types/Uriorcurie.md)
@@ -122,6 +125,9 @@ URI: [meta:Definition](https://w3id.org/biolink/biolinkml/meta/Definition)
     * Description: the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class.
     * range: [String](types/String.md)
     * in subsets: (owl)
+ * [narrow mappings](narrow_mappings.md)  <sub>0..*</sub>
+    * Description: A list of terms from different schemas or terminology systems that have narrower meaning.
+    * range: [Uriorcurie](types/Uriorcurie.md)
  * [notes](notes.md)  <sub>0..*</sub>
     * Description: editorial notes about an element intended for internal consumption
     * range: [String](types/String.md)
@@ -136,3 +142,10 @@ URI: [meta:Definition](https://w3id.org/biolink/biolinkml/meta/Definition)
  * [todos](todos.md)  <sub>0..*</sub>
     * Description: Outstanding issue that needs resolution
     * range: [String](types/String.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **See also:** | | https://en.wikipedia.org/wiki/Data_element_definition |
+

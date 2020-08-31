@@ -177,11 +177,11 @@ class SchemaSynopsis:
         :return:
         """
         if totype is ClassType:
-            self.classrefs.setdefault(cast(ClassDefinitionName, toname), References()).addref(fromtype, fromname)
+            self.classrefs.setdefault(ClassDefinitionName(toname), References()).addref(fromtype, fromname)
         elif totype is SlotType:
-            self.slotrefs.setdefault(cast(SlotDefinitionName, toname), References()).addref(fromtype, fromname)
+            self.slotrefs.setdefault(SlotDefinitionName(toname), References()).addref(fromtype, fromname)
         elif totype is TypeType:
-            self.typerefs.setdefault(cast(TypeDefinitionName, toname), References()).addref(fromtype, fromname)
+            self.typerefs.setdefault(TypeDefinitionName(toname), References()).addref(fromtype, fromname)
         elif totype is SubsetType:
             self.subsetrefs.setdefault(cast(SubsetDefinitionName, toname), References()).addref(fromtype, fromname)
         else:

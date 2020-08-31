@@ -55,7 +55,7 @@ types:
    string:
       base: str
       uri: xsd:string'''
-        output = pythongen.PythonGenerator(yaml, "py", emit_metadata=True).serialize()
+        output = pythongen.PythonGenerator(yaml, "py", emit_metadata=True, source_file_date="August 10, 2020", source_file_size=173).serialize()
         self.assertTrue(output.startswith(f'# Auto generated from None by pythongen.py version: '
                                           f'{pythongen.PythonGenerator.generatorversion}'))
         output = pythongen.PythonGenerator(yaml, "py", emit_metadata=False).serialize()

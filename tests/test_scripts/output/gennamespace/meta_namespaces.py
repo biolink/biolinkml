@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by namespacegen.py version: 0.4.0
-# Generation date: 2020-08-10 15:26
+# Generation date: 2020-08-25 16:45
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta

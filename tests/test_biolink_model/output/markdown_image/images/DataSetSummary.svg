@@ -36,15 +36,15 @@
 <polygon fill='white' points='143,-197 143,-233 257,-233 257,-197 143,-197' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='200' y='-211.3'>DataSetVersion</text>
 </g><g class='node' id='node3'><title>DataSetSummary</title>
-<polygon fill='white' points='115,-0.5 115,-105.5 285,-105.5 285,-0.5 115,-0.5' stroke='black'/>
+<polygon fill='white' points='110,-0.5 110,-105.5 290,-105.5 290,-0.5 110,-0.5' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='200' y='-94.3'>DataSetSummary</text>
-<polyline fill='none' points='115,-90.5 285,-90.5 ' stroke='black'/>
+<polyline fill='none' points='110,-90.5 290,-90.5 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='200' y='-79.3'>source_web_page:string ?</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='200' y='-64.3'>title(i):string ?</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='200' y='-49.3'>type(i):string ?</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='200' y='-34.3'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='200' y='-19.3'>name(i):label_type</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='200' y='-4.3'>category(i):iri_type +</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='200' y='-4.3'>category(i):category_type +</text>
 </g><g class='edge' id='edge1'><title>DataSetVersion-&gt;DataSetSummary</title>
 <path d='M200,-186.847C200,-164.679 200,-132.717 200,-105.699' fill='none' stroke='black'/>
 <polygon fill='none' points='196.5,-186.877 200,-196.877 203.5,-186.877 196.5,-186.877' stroke='black'/>

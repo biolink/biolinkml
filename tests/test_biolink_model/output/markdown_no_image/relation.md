@@ -2,7 +2,7 @@
 # Type: relation
 
 
-the relationship type by which a subject is connected to an object in an association
+The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.
 
 URI: [biolink:relation](https://w3id.org/biolink/vocab/relation)
 
@@ -24,13 +24,13 @@ URI: [biolink:relation](https://w3id.org/biolink/vocab/relation)
  *  [gene to expression site association➞relation](gene_to_expression_site_association_relation.md)
  *  [gene to gene homology association➞relation](gene_to_gene_homology_association_relation.md)
  *  [gene to gene product relationship➞relation](gene_to_gene_product_relationship_relation.md)
+ *  [genotype to disease association➞relation](genotype_to_disease_association_relation.md)
  *  [genotype to gene association➞relation](genotype_to_gene_association_relation.md)
  *  [genotype to genotype part association➞relation](genotype_to_genotype_part_association_relation.md)
  *  [genotype to phenotypic feature association➞relation](genotype_to_phenotypic_feature_association_relation.md)
  *  [genotype to variant association➞relation](genotype_to_variant_association_relation.md)
  *  [material sample derivation association➞relation](material_sample_derivation_association_relation.md)
  *  [model to disease mixin➞relation](model_to_disease_mixin_relation.md)
- *  [pairwise gene to gene interaction➞relation](pairwise_gene_to_gene_interaction_relation.md)
  *  [pairwise interaction association➞relation](pairwise_interaction_association_relation.md)
  *  [population to population association➞relation](population_to_population_association_relation.md)
  *  [variant to disease association➞relation](variant_to_disease_association_relation.md)
@@ -43,6 +43,7 @@ URI: [biolink:relation](https://w3id.org/biolink/vocab/relation)
  * [Association](Association.md)
  * [CaseToPhenotypicFeatureAssociation](CaseToPhenotypicFeatureAssociation.md)
  * [CaseToThingAssociation](CaseToThingAssociation.md)
+ * [CellLineAsAModelOfDiseaseAssociation](CellLineAsAModelOfDiseaseAssociation.md)
  * [CellLineToDiseaseOrPhenotypicFeatureAssociation](CellLineToDiseaseOrPhenotypicFeatureAssociation.md)
  * [CellLineToThingAssociation](CellLineToThingAssociation.md)
  * [ChemicalToChemicalAssociation](ChemicalToChemicalAssociation.md)
@@ -72,6 +73,7 @@ URI: [biolink:relation](https://w3id.org/biolink/vocab/relation)
  * [GeneToPhenotypicFeatureAssociation](GeneToPhenotypicFeatureAssociation.md)
  * [GeneToThingAssociation](GeneToThingAssociation.md)
  * [GenomicSequenceLocalization](GenomicSequenceLocalization.md)
+ * [GenotypeToDiseaseAssociation](GenotypeToDiseaseAssociation.md)
  * [GenotypeToGeneAssociation](GenotypeToGeneAssociation.md)
  * [GenotypeToGenotypePartAssociation](GenotypeToGenotypePartAssociation.md)
  * [GenotypeToPhenotypicFeatureAssociation](GenotypeToPhenotypicFeatureAssociation.md)
@@ -84,6 +86,7 @@ URI: [biolink:relation](https://w3id.org/biolink/vocab/relation)
  * [MaterialSampleToDiseaseOrPhenotypicFeatureAssociation](MaterialSampleToDiseaseOrPhenotypicFeatureAssociation.md)
  * [MaterialSampleToThingAssociation](MaterialSampleToThingAssociation.md)
  * [ModelToDiseaseMixin](ModelToDiseaseMixin.md)
+ * [OrganismalEntityAsAModelOfDiseaseAssociation](OrganismalEntityAsAModelOfDiseaseAssociation.md)
  * [PairwiseGeneToGeneInteraction](PairwiseGeneToGeneInteraction.md)
  * [PairwiseInteractionAssociation](PairwiseInteractionAssociation.md)
  * [PopulationToPopulationAssociation](PopulationToPopulationAssociation.md)
@@ -95,14 +98,3 @@ URI: [biolink:relation](https://w3id.org/biolink/vocab/relation)
  * [VariantToPhenotypicFeatureAssociation](VariantToPhenotypicFeatureAssociation.md)
  * [VariantToPopulationAssociation](VariantToPopulationAssociation.md)
  * [VariantToThingAssociation](VariantToThingAssociation.md)
-
-## Other properties
-
-|  |  |  |
-| --- | --- | --- |
-| **Local names:** | | annotation predicate (ga4gh) |
-|  | | predicate (translator) |
-| **Mappings:** | | rdf:predicate |
-|  | | owl:annotatedProperty |
-|  | | OBAN:association_has_predicate |
-

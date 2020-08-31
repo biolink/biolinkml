@@ -1,5 +1,5 @@
 # Auto generated from issue_56_good.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-04 09:38
+# Generation date: 2020-08-25 16:45
 # Schema:
 #
 # id: http://example.com

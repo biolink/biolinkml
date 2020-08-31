@@ -36,12 +36,12 @@
 <polygon fill='white' points='-0.5,-281 -0.5,-317 290.5,-317 290.5,-281 -0.5,-281' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='145' y='-295.3'>ExposureEventToPhenotypicFeatureAssociation</text>
 </g><g class='node' id='node4'><title>ExposureEvent</title>
-<polygon fill='white' points='336,-129 336,-189 482,-189 482,-129 336,-129' stroke='black'/>
+<polygon fill='white' points='319,-129 319,-189 499,-189 499,-129 319,-129' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='409' y='-177.8'>ExposureEvent</text>
-<polyline fill='none' points='336,-174 482,-174 ' stroke='black'/>
+<polyline fill='none' points='319,-174 499,-174 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='409' y='-162.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='409' y='-147.8'>name(i):label_type</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='409' y='-132.8'>category(i):iri_type +</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='409' y='-132.8'>category(i):category_type +</text>
 </g><g class='edge' id='edge2'><title>ExposureEventToPhenotypicFeatureAssociation-&gt;ExposureEvent</title>
 <path d='M177.636,-280.94C219.107,-259.262 291.636,-221.349 344.457,-193.738' fill='none' stroke='black'/>
 <polygon fill='black' points='353.417,-189.055 346.639,-197.675 348.986,-191.371 344.555,-193.687 344.555,-193.687 344.555,-193.687 348.986,-191.371 342.47,-189.699 353.417,-189.055 353.417,-189.055' stroke='black'/>

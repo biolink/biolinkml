@@ -65,6 +65,9 @@ URI: [meta:ClassDefinition](https://w3id.org/biolink/biolinkml/meta/ClassDefinit
     * range: [String](types/String.md)
  * [alt_descriptions](alt_descriptions.md)  <sub>0..*</sub>
     * range: [AltDescription](AltDescription.md)
+ * [broad mappings](broad_mappings.md)  <sub>0..*</sub>
+    * Description: A list of terms from different schemas or terminology systems that have broader meaning.
+    * range: [Uriorcurie](types/Uriorcurie.md)
  * [close mappings](close_mappings.md)  <sub>0..*</sub>
     * Description: A list of terms from different schemas or terminology systems that have close meaning.
     * range: [Uriorcurie](types/Uriorcurie.md)
@@ -131,6 +134,9 @@ URI: [meta:ClassDefinition](https://w3id.org/biolink/biolinkml/meta/ClassDefinit
     * Description: the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class.
     * range: [String](types/String.md)
     * in subsets: (owl)
+ * [narrow mappings](narrow_mappings.md)  <sub>0..*</sub>
+    * Description: A list of terms from different schemas or terminology systems that have narrower meaning.
+    * range: [Uriorcurie](types/Uriorcurie.md)
  * [notes](notes.md)  <sub>0..*</sub>
     * Description: editorial notes about an element intended for internal consumption
     * range: [String](types/String.md)
@@ -152,3 +158,12 @@ URI: [meta:ClassDefinition](https://w3id.org/biolink/biolinkml/meta/ClassDefinit
  * [values_from](values_from.md)  <sub>0..*</sub>
     * Description: the identifier of a "value set" -- a set of identifiers that form the possible values for the range of a slot
     * range: [Uriorcurie](types/Uriorcurie.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Aliases:** | | table |
+|  | | record |
+|  | | template |
+

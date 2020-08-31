@@ -2,12 +2,12 @@
 # Type: organism taxon
 
 
-
+A classification of a set of organisms. Examples: NCBITaxon:9606 (Homo sapiens), NCBITaxon:2 (Bacteria). Can also be used to represent strains or subspecies.
 
 URI: [biolink:OrganismTaxon](https://w3id.org/biolink/vocab/OrganismTaxon)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[ThingWithTaxon],[ThingWithTaxon]-%20in%20taxon%200..*>[OrganismTaxon&#124;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[OntologyClass]^-[OrganismTaxon],[OntologyClass])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[ThingWithTaxon],[ThingWithTaxon]-%20in%20taxon%200..*>[OrganismTaxon&#124;id(i):string;name(i):label_type;category(i):category_type%20%2B],[OntologyClass]^-[OrganismTaxon],[OntologyClass])
 
 ## Parents
 
@@ -24,7 +24,7 @@ URI: [biolink:OrganismTaxon](https://w3id.org/biolink/vocab/OrganismTaxon)
 
  * [category](category.md)  <sub>1..*</sub>
     * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
-    * range: [IriType](types/IriType.md)
+    * range: [CategoryType](types/CategoryType.md)
     * in subsets: (translator_minimal)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
@@ -39,5 +39,6 @@ URI: [biolink:OrganismTaxon](https://w3id.org/biolink/vocab/OrganismTaxon)
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | WD:Q16521 |
+| **Mappings:** | | WIKIDATA:Q16521 |
+|  | | NCBITaxon:1 |
 

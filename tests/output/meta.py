@@ -1,5 +1,5 @@
-# Auto generated from .yaml by pythongen.py version:
-# Generation date:
+# Auto generated from meta.yaml by pythongen.py version: 0.4.0
+# Generation date: 2020-08-28 14:44
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta
@@ -122,6 +122,8 @@ class Element(YAMLRoot):
     exact_mappings: List[Union[str, URIorCURIE]] = empty_list()
     close_mappings: List[Union[str, URIorCURIE]] = empty_list()
     related_mappings: List[Union[str, URIorCURIE]] = empty_list()
+    narrow_mappings: List[Union[str, URIorCURIE]] = empty_list()
+    broad_mappings: List[Union[str, URIorCURIE]] = empty_list()
     deprecated_element_has_exact_replacement: Optional[Union[str, URIorCURIE]] = None
     deprecated_element_has_possible_replacement: Optional[Union[str, URIorCURIE]] = None
     extensions: List[Union[dict, Extension]] = empty_list()
@@ -159,6 +161,10 @@ class Element(YAMLRoot):
                                else URIorCURIE(v) for v in ([self.close_mappings] if isinstance(self.close_mappings, str) else self.close_mappings)]
         self.related_mappings = [v if isinstance(v, URIorCURIE)
                                  else URIorCURIE(v) for v in ([self.related_mappings] if isinstance(self.related_mappings, str) else self.related_mappings)]
+        self.narrow_mappings = [v if isinstance(v, URIorCURIE)
+                                else URIorCURIE(v) for v in ([self.narrow_mappings] if isinstance(self.narrow_mappings, str) else self.narrow_mappings)]
+        self.broad_mappings = [v if isinstance(v, URIorCURIE)
+                               else URIorCURIE(v) for v in ([self.broad_mappings] if isinstance(self.broad_mappings, str) else self.broad_mappings)]
         if self.deprecated_element_has_exact_replacement is not None and not isinstance(self.deprecated_element_has_exact_replacement, URIorCURIE):
             self.deprecated_element_has_exact_replacement = URIorCURIE(self.deprecated_element_has_exact_replacement)
         if self.deprecated_element_has_possible_replacement is not None and not isinstance(self.deprecated_element_has_possible_replacement, URIorCURIE):
@@ -855,6 +861,3 @@ slots.class_definition_mixins = Slot(uri=META.mixins, name="class_definition_mix
 
 slots.class_definition_apply_to = Slot(uri=META.apply_to, name="class_definition_apply_to", curie=META.curie('apply_to'),
                       model_uri=META.class_definition_apply_to, domain=ClassDefinition, range=List[Union[str, ClassDefinitionName]])
-
-slots.annotation_extension_value = Slot(uri=META.value, name="annotation_extension_value", curie=META.curie('value'),
-                      model_uri=META.annotation_extension_value, domain=Annotation, range=Bool)

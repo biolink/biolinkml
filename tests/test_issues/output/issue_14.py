@@ -1,5 +1,5 @@
-# Auto generated from .yaml by pythongen.py version:
-# Generation date:
+# Auto generated from issue_14.yaml by pythongen.py version: 0.4.0
+# Generation date: 2020-08-25 16:45
 # Schema: test14
 #
 # id: https://example.com/test14

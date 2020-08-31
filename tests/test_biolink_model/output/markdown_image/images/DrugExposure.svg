@@ -33,12 +33,12 @@
 <polygon fill='white' points='-0.5,-153 -0.5,-189 84.5,-189 84.5,-153 -0.5,-153' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='42' y='-167.3'>Treatment</text>
 </g><g class='node' id='node3'><title>DrugExposure</title>
-<polygon fill='white' points='98,-1 98,-61 244,-61 244,-1 98,-1' stroke='black'/>
+<polygon fill='white' points='81,-1 81,-61 261,-61 261,-1 81,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='171' y='-49.8'>DrugExposure</text>
-<polyline fill='none' points='98,-46 244,-46 ' stroke='black'/>
+<polyline fill='none' points='81,-46 261,-46 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='171' y='-34.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='171' y='-19.8'>name(i):label_type</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='171' y='-4.8'>category(i):iri_type +</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='171' y='-4.8'>category(i):category_type +</text>
 </g><g class='edge' id='edge2'><title>Treatment-&gt;DrugExposure</title>
 <path d='M58.0771,-152.801C77.6475,-131.865 111.234,-95.9359 136.704,-68.6889' fill='none' stroke='black'/>
 <polygon fill='black' points='143.654,-61.2537 140.113,-71.632 140.24,-64.9064 136.825,-68.559 136.825,-68.559 136.825,-68.559 140.24,-64.9064 133.538,-65.486 143.654,-61.2537 143.654,-61.2537' stroke='black'/>

@@ -104,6 +104,13 @@
                },
                "type": "array"
             },
+            "broad_mappings": {
+               "description": "A list of terms from different schemas or terminology systems that have broader meaning.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
             "class_uri": {
                "description": "URI of the class in an RDF environment",
                "type": "string"
@@ -237,6 +244,13 @@
             "name": {
                "description": "the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class.",
                "type": "string"
+            },
+            "narrow_mappings": {
+               "description": "A list of terms from different schemas or terminology systems that have narrower meaning.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "notes": {
                "description": "editorial notes about an element intended for internal consumption",
@@ -436,6 +450,13 @@
                },
                "type": "array"
             },
+            "broad_mappings": {
+               "description": "A list of terms from different schemas or terminology systems that have broader meaning.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
             "classes": {
                "description": "class definitions",
                "items": {
@@ -581,6 +602,13 @@
             "name": {
                "type": "string"
             },
+            "narrow_mappings": {
+               "description": "A list of terms from different schemas or terminology systems that have narrower meaning.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
             "notes": {
                "description": "editorial notes about an element intended for internal consumption",
                "items": {
@@ -697,6 +725,13 @@
                "type": "array"
             },
             "apply_to": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "broad_mappings": {
+               "description": "A list of terms from different schemas or terminology systems that have broader meaning.",
                "items": {
                   "type": "string"
                },
@@ -880,6 +915,13 @@
                "description": "the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class.",
                "type": "string"
             },
+            "narrow_mappings": {
+               "description": "A list of terms from different schemas or terminology systems that have narrower meaning.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
             "notes": {
                "description": "editorial notes about an element intended for internal consumption",
                "items": {
@@ -997,6 +1039,13 @@
                },
                "type": "array"
             },
+            "broad_mappings": {
+               "description": "A list of terms from different schemas or terminology systems that have broader meaning.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
             "close_mappings": {
                "description": "A list of terms from different schemas or terminology systems that have close meaning.",
                "items": {
@@ -1090,6 +1139,13 @@
             "name": {
                "description": "the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class.",
                "type": "string"
+            },
+            "narrow_mappings": {
+               "description": "A list of terms from different schemas or terminology systems that have narrower meaning.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "notes": {
                "description": "editorial notes about an element intended for internal consumption",
@@ -1153,6 +1209,13 @@
                "description": "python base type that implements this type definition",
                "type": "string"
             },
+            "broad_mappings": {
+               "description": "A list of terms from different schemas or terminology systems that have broader meaning.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
             "close_mappings": {
                "description": "A list of terms from different schemas or terminology systems that have close meaning.",
                "items": {
@@ -1246,6 +1309,13 @@
             "name": {
                "description": "the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class.",
                "type": "string"
+            },
+            "narrow_mappings": {
+               "description": "A list of terms from different schemas or terminology systems that have narrower meaning.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "notes": {
                "description": "editorial notes about an element intended for internal consumption",

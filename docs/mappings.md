@@ -16,8 +16,10 @@ None ->  <sub>0..*</sub> [Uriorcurie](types/Uriorcurie.md)
 
 ## Children
 
+ *  [broad mappings](broad_mappings.md)
  *  [close mappings](close_mappings.md)
  *  [exact mappings](exact_mappings.md)
+ *  [narrow mappings](narrow_mappings.md)
  *  [related mappings](related_mappings.md)
 
 ## Used by

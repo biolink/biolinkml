@@ -1,0 +1,21 @@
+id: t
+
+license: https://creativecommons.org/publicdomain/zero/1.0/
+version: 0.0.1
+
+prefixes:
+  t: http://w3id.org/t
+  biolinkml: https://w3id.org/biolink/biolinkml/
+
+default_prefix: t
+default_range: string
+
+imports:
+  - biolinkml:types
+
+classes:
+  a:
+    slot_usage:
+      my slot:
+        description: >-
+          my slot

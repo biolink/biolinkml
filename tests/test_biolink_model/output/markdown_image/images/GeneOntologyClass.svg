@@ -33,12 +33,12 @@
 <polygon fill='white' points='-0.5,-153 -0.5,-189 108.5,-189 108.5,-153 -0.5,-153' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='54' y='-167.3'>OntologyClass</text>
 </g><g class='node' id='node4'><title>GeneOntologyClass</title>
-<polygon fill='white' points='145,-1 145,-61 291,-61 291,-1 145,-1' stroke='black'/>
+<polygon fill='white' points='128,-1 128,-61 308,-61 308,-1 128,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='218' y='-49.8'>GeneOntologyClass</text>
-<polyline fill='none' points='145,-46 291,-46 ' stroke='black'/>
+<polyline fill='none' points='128,-46 308,-46 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='218' y='-34.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='218' y='-19.8'>name(i):label_type</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='218' y='-4.8'>category(i):iri_type +</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='218' y='-4.8'>category(i):category_type +</text>
 </g><g class='edge' id='edge3'><title>OntologyClass-&gt;GeneOntologyClass</title>
 <path d='M82.2653,-146.216C110.256,-122.662 153.172,-86.5503 183.235,-61.2537' fill='none' stroke='black'/>
 <polygon fill='none' points='79.8372,-143.685 74.4391,-152.801 84.3442,-149.041 79.8372,-143.685' stroke='black'/>

@@ -122,6 +122,8 @@ metatype:Nodeidentifier NONLITERAL
           <exact_mappings> @metatype:Uriorcurie * ;
           <close_mappings> @metatype:Uriorcurie * ;
           <related_mappings> @metatype:Uriorcurie * ;
+          <narrow_mappings> @metatype:Uriorcurie * ;
+          <broad_mappings> @metatype:Uriorcurie * ;
           <deprecated_element_has_exact_replacement> @metatype:Uriorcurie ? ;
           <deprecated_element_has_possible_replacement> @metatype:Uriorcurie ? ;
           <extensions> @<Extension> * ;

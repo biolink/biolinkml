@@ -36,12 +36,12 @@
 <polygon fill='white' points='-0.5,-537 -0.5,-573 196.5,-573 196.5,-537 -0.5,-537' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='98' y='-551.3'>PairwiseInteractionAssociation</text>
 </g><g class='node' id='node5'><title>OntologyClass</title>
-<polygon fill='white' points='272,-129 272,-189 418,-189 418,-129 272,-129' stroke='black'/>
+<polygon fill='white' points='255,-129 255,-189 435,-189 435,-129 255,-129' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='345' y='-177.8'>OntologyClass</text>
-<polyline fill='none' points='272,-174 418,-174 ' stroke='black'/>
+<polyline fill='none' points='255,-174 435,-174 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='345' y='-162.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='345' y='-147.8'>name(i):label_type</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='345' y='-132.8'>category(i):iri_type +</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='345' y='-132.8'>category(i):category_type +</text>
 </g><g class='edge' id='edge4'><title>PairwiseInteractionAssociation-&gt;OntologyClass</title>
 <path d='M96.9773,-536.886C95.9801,-508.636 96.904,-451.087 117,-408 158.738,-318.511 244.591,-239.192 298.217,-195.552' fill='none' stroke='black'/>
 <polygon fill='black' points='306.21,-189.117 301.243,-198.893 302.316,-192.252 298.421,-195.388 298.421,-195.388 298.421,-195.388 302.316,-192.252 295.599,-191.882 306.21,-189.117 306.21,-189.117' stroke='black'/>

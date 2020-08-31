@@ -7,7 +7,7 @@ A named entity that is either a part of an organism, a whole organism, populatio
 URI: [biolink:OrganismalEntity](https://w3id.org/biolink/vocab/OrganismalEntity)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[PopulationOfIndividualOrganisms],[OrganismalEntity&#124;id(i):string;name(i):label_type;category(i):iri_type%20%2B]^-[PopulationOfIndividualOrganisms],[OrganismalEntity]^-[LifeStage],[OrganismalEntity]^-[IndividualOrganism],[OrganismalEntity]^-[CellLine],[OrganismalEntity]^-[AnatomicalEntity],[BiologicalEntity]^-[OrganismalEntity],[LifeStage],[IndividualOrganism],[ExposureEvent],[CellLine],[BiologicalEntity],[AnatomicalEntity])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[PopulationOfIndividualOrganisms],[OrganismalEntityAsAModelOfDiseaseAssociation],[OrganismalEntityAsAModelOfDiseaseAssociation]-%20subject%201..1>[OrganismalEntity&#124;id(i):string;name(i):label_type;category(i):category_type%20%2B],[OrganismalEntity]^-[PopulationOfIndividualOrganisms],[OrganismalEntity]^-[LifeStage],[OrganismalEntity]^-[IndividualOrganism],[OrganismalEntity]^-[CellLine],[OrganismalEntity]^-[AnatomicalEntity],[BiologicalEntity]^-[OrganismalEntity],[LifeStage],[IndividualOrganism],[ExposureEvent],[CellLine],[BiologicalEntity],[AnatomicalEntity])
 
 ## Parents
 
@@ -24,6 +24,7 @@ URI: [biolink:OrganismalEntity](https://w3id.org/biolink/vocab/OrganismalEntity)
 ## Referenced by class
 
  *  **[ExposureEvent](ExposureEvent.md)** *[has receptor](has_receptor.md)*  <sub>OPT</sub>  **[OrganismalEntity](OrganismalEntity.md)**
+ *  **[OrganismalEntityAsAModelOfDiseaseAssociation](OrganismalEntityAsAModelOfDiseaseAssociation.md)** *[organismal entity as a model of disease association➞subject](organismal_entity_as_a_model_of_disease_association_subject.md)*  <sub>REQ</sub>  **[OrganismalEntity](OrganismalEntity.md)**
 
 ## Attributes
 
@@ -32,7 +33,7 @@ URI: [biolink:OrganismalEntity](https://w3id.org/biolink/vocab/OrganismalEntity)
 
  * [category](category.md)  <sub>1..*</sub>
     * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
-    * range: [IriType](types/IriType.md)
+    * range: [CategoryType](types/CategoryType.md)
     * in subsets: (translator_minimal)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
@@ -47,5 +48,5 @@ URI: [biolink:OrganismalEntity](https://w3id.org/biolink/vocab/OrganismalEntity)
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | WD:Q7239 |
+| **Mappings:** | | WIKIDATA:Q7239 |
 

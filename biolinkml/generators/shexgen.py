@@ -113,7 +113,7 @@ class ShExGenerator(Generator):
             constraint.valueExpr = self._class_or_type_uri(slot.range)
 
     def end_schema(self, output: Optional[str] = None, **_) -> None:
-        self.shex.shapes = self.shapes
+        self.shex.shapes = self.shapes if self.shapes else [Shape()]
         shex = as_json(self.shex)
         if self.format == 'rdf':
             g = Graph()

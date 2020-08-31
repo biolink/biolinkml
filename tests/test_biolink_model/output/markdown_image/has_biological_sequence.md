@@ -39,5 +39,6 @@ URI: [biolink:has_biological_sequence](https://w3id.org/biolink/vocab/has_biolog
  * [NoncodingRNAProduct](NoncodingRNAProduct.md)
  * [Protein](Protein.md)
  * [ProteinIsoform](ProteinIsoform.md)
+ * [ReagentTargetedGene](ReagentTargetedGene.md)
  * [SequenceVariant](SequenceVariant.md)
  * [Transcript](Transcript.md)
