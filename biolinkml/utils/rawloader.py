@@ -13,8 +13,9 @@ import yaml
 from biolinkml.meta import SchemaDefinition, metamodel_version
 from biolinkml.utils.mergeutils import merge_schemas, set_from_schema
 from biolinkml.utils.namespaces import Namespaces
-from biolinkml.utils.yamlutils import DupCheckYamlLoader
+from biolinkml.utils.yamlutils import DupCheckYamlLoader, YAMLMark
 
+yaml.error.Mark = YAMLMark
 
 def load_raw_schema(data: Union[str, dict, TextIO],
                     source_file: Optional[str] = None,
@@ -77,6 +78,10 @@ def load_raw_schema(data: Union[str, dict, TextIO],
     else:
         # Loaded YAML or file handle that references YAML
         schemadefs = copy.deepcopy(data) if isinstance(data, dict) else yaml.load(data, DupCheckYamlLoader)
+        if schemadefs is None:
+            raise ValueError("Empty schema - cannot process")
+        elif not isinstance(schemadefs, dict):
+            raise ValueError("Unrecognized schema content - cannot process")
 
         # Convert the schema into a "name: definition" form
         if not all(isinstance(e, dict) for e in schemadefs.values()):

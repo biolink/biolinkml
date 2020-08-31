@@ -2,12 +2,21 @@ from dataclasses import dataclass, InitVar
 from typing import Union, Any, Dict, List, Optional
 
 import yaml
-import os
 from jsonasobj import JsonObj, as_json
 from rdflib import Graph
 from yaml.constructor import ConstructorError
 
 from biolinkml.utils.context_utils import CONTEXTS_PARAM_TYPE, merge_contexts
+
+
+class YAMLMark(yaml.error.Mark):
+    def __str__(self):
+        snippet = self.get_snippet()
+        where = "\nFile \"%s\", line %d, column %d"   \
+                % (self.name, self.line+1, self.column+1)
+        if snippet is not None:
+            where += ":\n"+snippet
+        return where
 
 
 class YAMLRoot(JsonObj):
@@ -142,6 +151,14 @@ class DupCheckYamlLoader(yaml.loader.SafeLoader):
         self.add_constructor('tag:yaml.org,2002:str', DupCheckYamlLoader.construct_yaml_str)
         self.add_constructor('tag:yaml.org,2002:int', DupCheckYamlLoader.construct_yaml_int)
         self.add_constructor('tag:yaml.org,2002:float', DupCheckYamlLoader.construct_yaml_float)
+
+    def get_mark(self):
+        if self.stream is None:
+            return YAMLMark(self.name, self.index, self.line, self.column,
+                    self.buffer, self.pointer)
+        else:
+            return YAMLMark(self.name, self.index, self.line, self.column,
+                    None, None)
 
     def construct_yaml_int(self, node):
         """ Scalar constructor that returns the node information as the value """
