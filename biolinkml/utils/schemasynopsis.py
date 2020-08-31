@@ -183,7 +183,7 @@ class SchemaSynopsis:
         elif totype is TypeType:
             self.typerefs.setdefault(TypeDefinitionName(toname), References()).addref(fromtype, fromname)
         elif totype is SubsetType:
-            self.subsetrefs.setdefault(cast(SubsetDefinitionName, toname), References()).addref(fromtype, fromname)
+            self.subsetrefs.setdefault(SubsetDefinitionName(toname), References()).addref(fromtype, fromname)
         else:
             raise TypeError("Unknown typ: {typ}")
 

@@ -3,7 +3,7 @@ title: Biolink Schema Metamodel
 name: metamodel
 description: A metamodel for defining biolink related schemas
 license: https://creativecommons.org/publicdomain/zero/1.0/
-version: 1.5.8
+version: 1.5.9
 
 prefixes:
   meta: https://w3id.org/biolink/biolinkml/meta/
@@ -599,7 +599,7 @@ slots:
 
   subproperty_of:
     domain: slot_definition
-    range: uriorcurie
+    range: slot_definition
     description: Ontology property which this slot is a subproperty of
     slot_uri: rdfs:subPropertyOf
 

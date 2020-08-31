@@ -8,7 +8,8 @@ from tests.utils.python_comparator import validate_python
 class Issue39UnitTest(unittest.TestCase):
     def test_python_import(self):
         """ Import generates for biolink-model """
-        python = PythonGenerator(env.input_path('issue_38.yaml')).serialize()
+        python = PythonGenerator(env.input_path('issue_38.yaml'),
+                                 importmap=env.input_path('biolink-model-importmap.json')).serialize()
         msg = validate_python(python)
         if msg:
             self.fail(msg)

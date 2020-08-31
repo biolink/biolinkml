@@ -167,8 +167,7 @@ class Curie(URIorCURIE):
     @classmethod
     def is_valid(cls, v: str) -> bool:
         pnln = cls.ns_ln(v)
-        pn, ln = pnln
-        return pnln is not None and (not pn or isinstance(pn, PN_PREFIX))
+        return pnln is not None and (not pnln[0] or isinstance(pnln[0], PN_PREFIX))
 
     # This code was extracted from the termorcurie package of the rdfa
     def as_uri(self, nsm: Namespaces) -> Optional[URIRef]:
