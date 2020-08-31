@@ -8,7 +8,7 @@ from urllib.parse import urlparse
 from biolinkml.meta import SchemaDefinition, SlotDefinition, SlotDefinitionName, ClassDefinition, \
     ClassDefinitionName, TypeDefinitionName, TypeDefinition, ElementName
 from biolinkml.utils.context_utils import parse_import_map
-from biolinkml.utils.formatutils import underscore, camelcase, sfx
+from biolinkml.utils.formatutils import underscore, camelcase, sfx, lcamelcase
 from biolinkml.utils.mergeutils import merge_schemas, merge_slots, merge_classes, slot_usage_name
 from biolinkml.utils.metamodelcore import Bool
 from biolinkml.utils.namespaces import Namespaces
@@ -121,6 +121,21 @@ class SchemaLoader:
 
         self.namespaces._base = self.schema.default_prefix if ':' in self.schema.default_prefix else \
             self.namespaces[self.schema.default_prefix]
+
+        # Promote embedded attribute definitions to first class slots.
+        for cls in self.schema.classes.values():
+            for attribute in cls.attributes.values():
+                mangled_slot_name = lcamelcase(cls.name) + '__' + underscore(attribute.name)
+                if mangled_slot_name in self.schema.slots:
+                    self.raise_value_error(f'Class: "{cls.name}" attribute "{attribute.name}" - '
+                                           f'mangled name: {mangled_slot_name} already exists', attribute.name)
+                new_slot = SlotDefinition(**attribute.__dict__)
+                new_slot.domain_of.append(cls.name)
+                if not new_slot.alias:
+                    new_slot.alias = attribute.name
+                new_slot.name = mangled_slot_name
+                self.schema.slots[new_slot.name] = new_slot
+                cls.slots.append(mangled_slot_name)
 
         # Assign class slot ownership
         for cls in self.schema.classes.values():
