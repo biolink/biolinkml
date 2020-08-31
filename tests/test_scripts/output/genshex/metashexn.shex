@@ -219,7 +219,7 @@ metatype:Nodeidentifier NONLITERAL
           <alias> @metatype:String ? ;
           <owner> @<Definition> ? ;
           <domain_of> @<ClassDefinition> * ;
-          <subproperty_of> @metatype:Uriorcurie ? ;
+          <subproperty_of> @<SlotDefinition> ? ;
           <symmetric> @metatype:Boolean ? ;
           <inverse> @<SlotDefinition> ? ;
           <is_class_field> @metatype:Boolean ? ;

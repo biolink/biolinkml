@@ -23,6 +23,7 @@ URI: [meta:SlotDefinition](https://w3id.org/biolink/biolinkml/meta/SlotDefinitio
  *  **[SchemaDefinition](SchemaDefinition.md)** *[schema_definition➞slots](slot_definitions.md)*  <sub>0..*</sub>  **[SlotDefinition](SlotDefinition.md)**
  *  **[ClassDefinition](ClassDefinition.md)** *[slot_usage](slot_usage.md)*  <sub>0..*</sub>  **[SlotDefinition](SlotDefinition.md)**
  *  **[ClassDefinition](ClassDefinition.md)** *[slots](slots.md)*  <sub>0..*</sub>  **[SlotDefinition](SlotDefinition.md)**
+ *  **[SlotDefinition](SlotDefinition.md)** *[subproperty_of](subproperty_of.md)*  <sub>OPT</sub>  **[SlotDefinition](SlotDefinition.md)**
 
 ## Attributes
 
@@ -136,7 +137,7 @@ For example, a Measurement class may have 3 fields: unit, value, and string_valu
     * range: [String](types/String.md)
  * [subproperty_of](subproperty_of.md)  <sub>OPT</sub>
     * Description: Ontology property which this slot is a subproperty of
-    * range: [Uriorcurie](types/Uriorcurie.md)
+    * range: [SlotDefinition](SlotDefinition.md)
  * [symmetric](symmetric.md)  <sub>OPT</sub>
     * Description: True means that any instance of  d s r implies that there is also an instance of r s d
     * range: [Boolean](types/Boolean.md)

@@ -3,7 +3,7 @@
   "description": "A metamodel for defining biolink related schemas",
   "id": "https://w3id.org/biolink/biolinkml/meta",
   "title": "Biolink Schema Metamodel",
-  "version": "1.5.8",
+  "version": "1.5.9",
   "imports": [
     "biolinkml:types",
     "biolinkml:mappings",
@@ -1354,7 +1354,7 @@
       "description": "Ontology property which this slot is a subproperty of",
       "from_schema": "https://w3id.org/biolink/biolinkml/meta",
       "domain": "SlotDefinition",
-      "range": "uriorcurie",
+      "range": "SlotDefinition",
       "slot_uri": "http://www.w3.org/2000/01/rdf-schema#subPropertyOf",
       "owner": "SlotDefinition",
       "domain_of": [
@@ -2591,9 +2591,9 @@
   ],
   "metamodel_version": "1.5.3",
   "source_file": "meta.yaml",
-  "source_file_date": "Fri Aug 28 14:43:24 2020",
-  "source_file_size": 27254,
-  "generation_date": "2020-08-28 14:52",
+  "source_file_date": "Mon Aug 31 22:49:11 2020",
+  "source_file_size": 27259,
+  "generation_date": "2020-08-31 22:54",
   "type": "SchemaDefinition",
   "@context": [
     "file:./output/gencontext/meta.jsonld",

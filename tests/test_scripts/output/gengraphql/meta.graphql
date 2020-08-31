@@ -266,7 +266,7 @@ type SlotDefinition
     alias: String
     owner: Definition
     domainOf: [ClassDefinition]
-    subpropertyOf: Uriorcurie
+    subpropertyOf: SlotDefinition
     symmetric: Boolean
     inverse: SlotDefinition
     isClassField: Boolean

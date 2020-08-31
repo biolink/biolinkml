@@ -323,12 +323,14 @@ Entity and association taxonomy and datamodel for life-sciences data
        * [variant to phenotypic feature association➞subject](variant_to_phenotypic_feature_association_subject.md) - a sequence variant in which the allele state is associated in some way with the phenotype state
        * [variant to population association➞subject](variant_to_population_association_subject.md) - an allele that has a certain frequency in a given population
        * [variant to thing association➞subject](variant_to_thing_association_subject.md) - a sequence variant in which the allele state is associated with some other entity
+ * [develops from](develops_from.md)
  * [has attribute](has_attribute.md) - connects any named thing to an attribute
  * [has attribute type](has_attribute_type.md) - connects an attribute to a class that describes it
  * [has numeric value](has_numeric_value.md) - connects a quantity value to a number
  * [has qualitative value](has_qualitative_value.md) - connects an attribute to a value
  * [has quantitative value](has_quantitative_value.md) - connects an attribute to a value
  * [has unit](has_unit.md) - connects a quantity value to a unit
+ * [has variant part](has_variant_part.md)
  * [interacting molecules category](interacting_molecules_category.md)
     * [pairwise interaction association➞interacting molecules category](pairwise_interaction_association_interacting_molecules_category.md)
  * [node property](node_property.md) - A grouping for any property that holds between a node and a value
@@ -340,7 +342,6 @@ Entity and association taxonomy and datamodel for life-sciences data
           * [variant to population association➞has quotient](variant_to_population_association_has_quotient.md) - frequency of allele in population, expressed as a number with allele divided by number in reference population, aka allele frequency
        * [has total](has_total.md) - total number of things in a particular reference set
           * [variant to population association➞has total](variant_to_population_association_has_total.md) - number all populations that carry a particular allele, aka allele number
-    * [category](category.md) - Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
     * [created_with](created_with.md)
     * [creation date](creation_date.md) - date on which thing was created. This can be applied to nodes or edges
     * [description](description.md) - a human-readable description of a thing
@@ -385,8 +386,10 @@ Entity and association taxonomy and datamodel for life-sciences data
     * [timepoint](timepoint.md) - a point in time
     * [title](title.md)
     * [type](type.md)
+       * [category](category.md) - Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
     * [update date](update_date.md) - date on which thing was updated. This can be applied to nodes or edges
     * [versionOf](versionOf.md)
+ * [related condition](related_condition.md)
  * [related to](related_to.md) - A relationship that is asserted between two named things
     * [affects](affects.md) - describes an entity that has a direct affect on the state or quality of another existing entity. Use of the 'affects' predicate implies that the affected entity already exists, unlike predicates such as 'affects risk for' and 'prevents, where the outcome is something that may or may not come to be.
        * [affects abundance of](affects_abundance_of.md) - holds between two molecular entities where the action or effect of one changes the amount of the other within a system of interest
