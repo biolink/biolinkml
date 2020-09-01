@@ -186,7 +186,7 @@ message SlotDefinition
   optional alias String = 47
   optional owner Definition = 48
   repeated domainOf ClassDefinition = 49
-  optional subpropertyOf Uriorcurie = 50
+  optional subpropertyOf SlotDefinition = 50
   optional symmetric Boolean = 51
   optional inverse SlotDefinition = 52
   optional isClassField Boolean = 53

@@ -3628,7 +3628,7 @@
       "is_a": "node_property",
       "domain": "NamedThing",
       "range": "string",
-      "slot_uri": "https://w3id.org/biolink/vocab/type",
+      "slot_uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
       "owner": "DataSetVersion",
       "domain_of": [
         "DataSetVersion"
@@ -3724,18 +3724,15 @@
     {
       "name": "category",
       "definition_uri": "https://w3id.org/biolink/vocab/category",
-      "mappings": [
-        "rdf:type"
-      ],
       "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
-      "is_a": "node_property",
+      "is_a": "type",
       "domain": "NamedThing",
       "range": "category_type",
-      "slot_uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "slot_uri": "https://w3id.org/biolink/vocab/category",
       "multivalued": true,
       "required": true,
       "owner": "NamedThing",
@@ -4735,6 +4732,39 @@
       "type": "SlotDefinition"
     },
     {
+      "name": "has_variant_part",
+      "definition_uri": "https://w3id.org/biolink/vocab/has_variant_part",
+      "notes": [
+        "TBD define this property"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "range": "string",
+      "slot_uri": "https://w3id.org/biolink/vocab/has_variant_part",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "develops_from",
+      "definition_uri": "https://w3id.org/biolink/vocab/develops_from",
+      "notes": [
+        "TBD define this property"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "range": "string",
+      "slot_uri": "https://w3id.org/biolink/vocab/develops_from",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "related_condition",
+      "definition_uri": "https://w3id.org/biolink/vocab/related_condition",
+      "notes": [
+        "TBD define this property"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "range": "string",
+      "slot_uri": "https://w3id.org/biolink/vocab/related_condition",
+      "type": "SlotDefinition"
+    },
+    {
       "name": "interacting_molecules_category",
       "examples": [
         {
@@ -4879,7 +4909,7 @@
       "domain_of": [
         "GenotypeToGenotypePartAssociation"
       ],
-      "subproperty_of": "has variant part",
+      "subproperty_of": "has_variant_part",
       "is_usage_slot": true,
       "usage_slot_name": "relation",
       "type": "SlotDefinition"
@@ -5078,7 +5108,7 @@
       "domain_of": [
         "GeneToGeneHomologyAssociation"
       ],
-      "subproperty_of": "homologous to",
+      "subproperty_of": "homologous_to",
       "symmetric": true,
       "is_usage_slot": true,
       "usage_slot_name": "relation",
@@ -5154,7 +5184,7 @@
       "domain_of": [
         "PairwiseInteractionAssociation"
       ],
-      "subproperty_of": "molecularly interacts with",
+      "subproperty_of": "molecularly_interacts_with",
       "is_usage_slot": true,
       "usage_slot_name": "relation",
       "type": "SlotDefinition"
@@ -5216,7 +5246,7 @@
       "domain_of": [
         "PairwiseGeneToGeneInteraction"
       ],
-      "subproperty_of": "molecularly interacts with",
+      "subproperty_of": "molecularly_interacts_with",
       "symmetric": true,
       "is_usage_slot": true,
       "usage_slot_name": "relation",
@@ -5359,7 +5389,7 @@
       "domain_of": [
         "ChemicalToChemicalDerivationAssociation"
       ],
-      "subproperty_of": "derives into",
+      "subproperty_of": "derives_into",
       "is_usage_slot": true,
       "usage_slot_name": "relation",
       "type": "SlotDefinition"
@@ -5504,7 +5534,7 @@
       "domain_of": [
         "MaterialSampleDerivationAssociation"
       ],
-      "subproperty_of": "derives from",
+      "subproperty_of": "derives_from",
       "is_usage_slot": true,
       "usage_slot_name": "relation",
       "type": "SlotDefinition"
@@ -5614,7 +5644,7 @@
         "upheno",
         "hp",
         "mp",
-        "wbphenotypic feature"
+        "wbphenotypic_feature"
       ],
       "domain": "EntityToPhenotypicFeatureAssociation",
       "range": "PhenotypicFeature",
@@ -5746,7 +5776,7 @@
       "domain_of": [
         "GenotypeToPhenotypicFeatureAssociation"
       ],
-      "subproperty_of": "has phenotype",
+      "subproperty_of": "has_phenotype",
       "is_usage_slot": true,
       "usage_slot_name": "relation",
       "type": "SlotDefinition"
@@ -6101,7 +6131,7 @@
       "domain_of": [
         "VariantToDiseaseAssociation"
       ],
-      "subproperty_of": "related condition",
+      "subproperty_of": "related_condition",
       "is_usage_slot": true,
       "usage_slot_name": "relation",
       "type": "SlotDefinition"
@@ -6162,7 +6192,7 @@
       "domain_of": [
         "GenotypeToDiseaseAssociation"
       ],
-      "subproperty_of": "related condition",
+      "subproperty_of": "related_condition",
       "is_usage_slot": true,
       "usage_slot_name": "relation",
       "type": "SlotDefinition"
@@ -6223,7 +6253,7 @@
       "domain_of": [
         "ModelToDiseaseMixin"
       ],
-      "subproperty_of": "model of",
+      "subproperty_of": "model_of",
       "is_usage_slot": true,
       "usage_slot_name": "relation",
       "type": "SlotDefinition"
@@ -6410,7 +6440,7 @@
       "domain_of": [
         "GeneToExpressionSiteAssociation"
       ],
-      "subproperty_of": "expressed in",
+      "subproperty_of": "expressed_in",
       "is_usage_slot": true,
       "usage_slot_name": "relation",
       "type": "SlotDefinition"
@@ -6803,7 +6833,7 @@
       "domain_of": [
         "GeneToGeneProductRelationship"
       ],
-      "subproperty_of": "has gene product",
+      "subproperty_of": "has_gene_product",
       "is_usage_slot": true,
       "usage_slot_name": "relation",
       "type": "SlotDefinition"
@@ -6979,7 +7009,7 @@
       "domain_of": [
         "AnatomicalEntityToAnatomicalEntityPartOfAssociation"
       ],
-      "subproperty_of": "part of",
+      "subproperty_of": "part_of",
       "is_usage_slot": true,
       "usage_slot_name": "relation",
       "type": "SlotDefinition"
@@ -7033,7 +7063,7 @@
       "domain_of": [
         "AnatomicalEntityToAnatomicalEntityOntogenicAssociation"
       ],
-      "subproperty_of": "develops from",
+      "subproperty_of": "develops_from",
       "is_usage_slot": true,
       "usage_slot_name": "relation",
       "type": "SlotDefinition"
@@ -11322,9 +11352,9 @@
   ],
   "metamodel_version": "1.5.3",
   "source_file": "biolink-model.yaml",
-  "source_file_date": "Fri Aug 28 14:43:24 2020",
-  "source_file_size": 143918,
-  "generation_date": "2020-08-28 14:44",
+  "source_file_date": "Mon Aug 31 22:49:11 2020",
+  "source_file_size": 144028,
+  "generation_date": "2020-08-31 22:50",
   "type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/biolink/biolinkml/context.jsonld",

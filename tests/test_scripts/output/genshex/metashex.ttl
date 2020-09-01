@@ -280,7 +280,7 @@
                 shex:max 1 ;
                 shex:min 0 ;
                 shex:predicate rdfs:subPropertyOf ;
-                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ] [ a shex:TripleConstraint ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/SlotDefinition> ] [ a shex:TripleConstraint ;
                 shex:max 1 ;
                 shex:min 0 ;
                 shex:predicate <https://w3id.org/biolink/biolinkml/meta/symmetric> ;

@@ -1166,7 +1166,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "http://www.w3.org/2000/01/rdf-schema#subPropertyOf",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/SlotDefinition",
                         "min": 0,
                         "max": 1
                      },

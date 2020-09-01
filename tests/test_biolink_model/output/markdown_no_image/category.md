@@ -13,7 +13,7 @@ URI: [biolink:category](https://w3id.org/biolink/vocab/category)
 
 ## Parents
 
- *  is_a: [node property](node_property.md)
+ *  is_a: [type](type.md)
 
 ## Children
 
@@ -119,6 +119,5 @@ URI: [biolink:category](https://w3id.org/biolink/vocab/category)
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | rdf:type |
 | **In Subsets:** | | translator_minimal |
 

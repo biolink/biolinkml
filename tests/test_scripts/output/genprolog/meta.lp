@@ -421,7 +421,7 @@ range(subclass_of, uriorcurie).
 has_uri(subclass_of, 'http://w3id.org/biolink/vocab/subclass_of').
 slot(subproperty_of).
 domain(subproperty_of, slot_definition).
-range(subproperty_of, uriorcurie).
+range(subproperty_of, slot_definition).
 has_uri(subproperty_of, 'http://w3id.org/biolink/vocab/subproperty_of').
 slot(subsets).
 domain(subsets, schema_definition).
@@ -1522,8 +1522,8 @@ multivalued_in(domain_of, slot_definition).
 range_in(domain_of, class_definition, slot_definition).
 class_slot(slot_definition, subproperty_of).
 required(subproperty_of).
-slotrange(uriorcurie).
-range_in(subproperty_of, uriorcurie, slot_definition).
+slotrange(slot_definition).
+range_in(subproperty_of, slot_definition, slot_definition).
 class_slot(slot_definition, symmetric).
 required(symmetric).
 slotrange(boolean).

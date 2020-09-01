@@ -33,7 +33,7 @@ Slots: 111
 			ncname: 6
 			string: 30
 			uri: 3
-			uriorcurie: 21
+			uriorcurie: 20
 		Class:
 			alt_description: 1
 			annotation: 1
@@ -44,12 +44,12 @@ Slots: 111
 			extension: 1
 			local_name: 1
 			prefix: 1
-			slot_definition: 8
+			slot_definition: 9
 			subset_definition: 2
 			type_definition: 3
 
 Types: 13
-	Referenced by: 0 classes, 80 slots, 0 types 
+	Referenced by: 0 classes, 79 slots, 0 types 
 	Bases:
 		Bool:
 			boolean

@@ -1,5 +1,5 @@
 # Auto generated from biolink-model.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-28 14:47
+# Generation date: 2020-08-31 22:51
 # Schema: Biolink-Model
 #
 # id: https://w3id.org/biolink/biolink-model
@@ -5486,8 +5486,8 @@ slots.downloadURL = Slot(uri=BIOLINK.downloadURL, name="downloadURL", curie=BIOL
 slots.distribution = Slot(uri=BIOLINK.distribution, name="distribution", curie=BIOLINK.curie('distribution'),
                       model_uri=BIOLINK.distribution, domain=DataSetVersion, range=Optional[Union[str, DistributionLevelId]], mappings = [VOID.Dataset, DCTYPES.Dataset])
 
-slots.type = Slot(uri=BIOLINK.type, name="type", curie=BIOLINK.curie('type'),
-                      model_uri=BIOLINK.type, domain=NamedThing, range=Optional[str], mappings = [RDF.type])
+slots.type = Slot(uri=RDF.type, name="type", curie=RDF.curie('type'),
+                      model_uri=BIOLINK.type, domain=NamedThing, range=Optional[str])
 
 slots.id = Slot(uri=BIOLINK.id, name="id", curie=BIOLINK.curie('id'),
                       model_uri=BIOLINK.id, domain=NamedThing, range=Union[str, NamedThingId])
@@ -5501,7 +5501,7 @@ slots.name = Slot(uri=RDFS.label, name="name", curie=RDFS.curie('label'),
 slots.synonym = Slot(uri=BIOLINK.synonym, name="synonym", curie=BIOLINK.curie('synonym'),
                       model_uri=BIOLINK.synonym, domain=NamedThing, range=List[Union[str, LabelType]], mappings = [OIO.hasExactSynonym, OIO.hasNarrowSynonym, OIO.hasBroadSynonym, OIO.hasRelatedSynonym])
 
-slots.category = Slot(uri=RDF.type, name="category", curie=RDF.curie('type'),
+slots.category = Slot(uri=BIOLINK.category, name="category", curie=BIOLINK.curie('category'),
                       model_uri=BIOLINK.category, domain=NamedThing, range=List[Union[str, CategoryType]])
 
 slots.full_name = Slot(uri=BIOLINK.full_name, name="full name", curie=BIOLINK.curie('full_name'),
@@ -5680,6 +5680,15 @@ slots.has_numeric_value = Slot(uri=BIOLINK.has_numeric_value, name="has numeric 
 
 slots.has_unit = Slot(uri=BIOLINK.has_unit, name="has unit", curie=BIOLINK.curie('has_unit'),
                       model_uri=BIOLINK.has_unit, domain=QuantityValue, range=Optional[Union[str, Unit]], mappings = [QUD.unit])
+
+slots.has_variant_part = Slot(uri=BIOLINK.has_variant_part, name="has variant part", curie=BIOLINK.curie('has_variant_part'),
+                      model_uri=BIOLINK.has_variant_part, domain=None, range=Optional[str])
+
+slots.develops_from = Slot(uri=BIOLINK.develops_from, name="develops from", curie=BIOLINK.curie('develops_from'),
+                      model_uri=BIOLINK.develops_from, domain=None, range=Optional[str])
+
+slots.related_condition = Slot(uri=BIOLINK.related_condition, name="related condition", curie=BIOLINK.curie('related_condition'),
+                      model_uri=BIOLINK.related_condition, domain=None, range=Optional[str])
 
 slots.interacting_molecules_category = Slot(uri=BIOLINK.interacting_molecules_category, name="interacting molecules category", curie=BIOLINK.curie('interacting_molecules_category'),
                       model_uri=BIOLINK.interacting_molecules_category, domain=None, range=Optional[Union[str, OntologyClassId]])

@@ -17,6 +17,7 @@ URI: [biolink:type](https://w3id.org/biolink/vocab/type)
 
 ## Children
 
+ *  [category](category.md)
 
 ## Used by
 
