@@ -28,6 +28,9 @@ URI: [meta:ClassDefinition](https://w3id.org/biolink/biolinkml/meta/ClassDefinit
 
 ### Own
 
+ * [attributes](attributes.md)  <sub>0..*</sub>
+    * Description: Inline definition of slots
+    * range: [SlotDefinition](SlotDefinition.md)
  * [class_definition➞apply_to](class_definition_apply_to.md)  <sub>0..*</sub>
     * range: [ClassDefinition](ClassDefinition.md)
  * [class_definition➞is_a](class_definition_is_a.md)  <sub>OPT</sub>

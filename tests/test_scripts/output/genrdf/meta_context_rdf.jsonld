@@ -32,6 +32,9 @@
       "apply_to": {
          "@type": "@id"
       },
+      "attributes": {
+         "@type": "@id"
+      },
       "broad_mappings": {
          "@type": "@id",
          "@id": "skos:broadMatch"

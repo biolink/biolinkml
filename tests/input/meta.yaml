@@ -395,6 +395,17 @@ slots:
         minimal constraints. When this is subclasses, e.g. to disease-phenotype associations then slot usage may
         specify both local naming (e.g. subject=disease) and local constraints
 
+  attributes:
+    domain: class_definition
+    multivalued: true
+    range: slot_definition
+    inlined: true
+    description: Inline definition of slots
+    comments:
+      - >-
+        attributes are an alternative way of defining new slots.  An attribute adds a slot to the global space in the
+        form <class_name>__<slot_name> (lower case, double underscores).  Attributes can be specialized via slot_usage.
+
   class_uri:
     domain: class_definition
     range: uriorcurie
@@ -951,6 +962,7 @@ classes:
     slots:
       - slots
       - slot_usage
+      - attributes
       - class_uri
       - subclass_of
       - union_of
