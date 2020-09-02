@@ -1,0 +1,38 @@
+id: http://examples.org/biolinkml/test/lists_and_keys
+name: lists_and_keys
+description: python generation for variants of lists and keys
+license: https://creativecommons.org/publicdomain/zero/1.0/
+
+prefixes:
+  biolinkml: https://w3id.org/biolink/biolinkml/
+  lists_and_keys: http://examples.org/biolinkml/test/lists_and_keys
+
+default_prefix: lists_and_keys
+default_range: string
+
+imports:
+  - python_complex_ranges
+
+classes:
+  OptionalOneElementRange:
+    attributes:
+      v1:
+        range: OneElementClass
+
+  RequiredOneElementRange:
+    is_a: OptionalOneElementRange
+    slot_usage:
+      v1:
+        required: true
+
+  OptionalOneElementRangeList:
+    is_a: OptionalOneElementRange
+    slot_usage:
+      v1:
+        multivalued: true
+
+  RequiredOneElementRangeList:
+    is_a: OptionalOneElementRangeList
+    slot_usage:
+      v1:
+        required: true

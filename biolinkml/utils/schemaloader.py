@@ -624,20 +624,15 @@ class SchemaLoader:
     def check_prefix(self, prefix: str) -> None:
         prefix = self.namespaces.prefix_for(prefix)
         if prefix and prefix not in self.namespaces:
-            self.logger.warning(f"{self.yaml_loc(prefix)}Unrecognized prefix: {prefix}")
+            self.logger.warning(f"{TypedNode.yaml_loc(prefix)}Unrecognized prefix: {prefix}")
             self.namespaces[prefix] = f"http://example.org/UNKNOWN/{prefix}/"
 
     @staticmethod
     def slot_name_for(slot: SlotDefinition) -> str:
         return underscore(slot.alias if slot.alias else slot.name)
 
-    @staticmethod
-    def yaml_loc(loc_str: Optional[Union[TypedNode, str]] = None) -> str:
-        """ Return the yaml file and location of loc_str if it exists """
-        return '' if loc_str is None or not getattr(loc_str, "loc", None) else (loc_str.loc() + ": ")
-
     def raise_value_error(self, error: str, loc_str: Optional[Union[TypedNode, str]] = None) -> None:
-        raise ValueError(f'{self.yaml_loc(loc_str)} {error}')
+        raise ValueError(f'{TypedNode.yaml_loc(loc_str)} {error}')
 
     def _get_base_dir(self, stated_base: str) -> Optional[str]:
         if stated_base:

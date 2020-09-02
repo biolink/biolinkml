@@ -119,6 +119,11 @@ class TypedNode:
     def loc(self) -> str:
         return f'File "{self._s.name}", line {self._s.line + 1}, col {self._s.column + 1}'
 
+    @staticmethod
+    def yaml_loc(loc_str: Optional[Union["TypedNode", str]] = None) -> str:
+        """ Return the yaml file and location of loc_str if it exists """
+        return '' if loc_str is None or not getattr(loc_str, "loc", None) else (loc_str.loc() + ": ")
+
 
 class extended_str(str, TypedNode):
     def concat(self, *items) -> "extended_str":
@@ -129,7 +134,6 @@ class extended_str(str, TypedNode):
                 rval._len = item._len
                 break
         return rval
-
 
 
 class extended_int(int, TypedNode):

@@ -12,28 +12,28 @@ class Issue260TestCase(TestEnvironmentTestCase):
 
     def test_local_imports(self):
         """ Check the local import behavior """
-        dir = 'issue_260'
+        test_dir = 'issue_260'
 
         # Useful to have an __init__.py available
-        init_path = env.actual_path(dir, '__init__.py')
+        init_path = env.actual_path(test_dir, '__init__.py')
         if not os.path.exists(init_path):
             with open(init_path, 'w'):
                 pass
 
-        env.generate_single_file('issue_260/issue_260a.py',
-                                 lambda: PythonGenerator(env.input_path(dir, 'issue_260a.yaml'),
+        env.generate_single_file(f'{test_dir}/issue_260a.py',
+                                 lambda: PythonGenerator(env.input_path(test_dir, 'issue_260a.yaml'),
                                                          importmap=env.import_map, mergeimports=False).serialize(),
                                  comparator=compare_python, value_is_returned=True)
-        env.generate_single_file('issue_260/issue_260b.py',
-                                 lambda: PythonGenerator(env.input_path(dir, 'issue_260b.yaml'),
+        env.generate_single_file(f'{test_dir}/issue_260b.py',
+                                 lambda: PythonGenerator(env.input_path(test_dir, 'issue_260b.yaml'),
                                                          importmap=env.import_map, mergeimports=False).serialize(),
                                  comparator=compare_python, value_is_returned=True)
-        env.generate_single_file('issue_260/issue_260c.py',
-                                 lambda: PythonGenerator(env.input_path(dir, 'issue_260c.yaml'),
+        env.generate_single_file(f'{test_dir}/issue_260c.py',
+                                 lambda: PythonGenerator(env.input_path(test_dir, 'issue_260c.yaml'),
                                                          importmap=env.import_map, mergeimports=False).serialize(),
                                  comparator=compare_python, value_is_returned=True)
-        env.generate_single_file('issue_260/issue_260.py',
-                                 lambda: PythonGenerator(env.input_path(dir, 'issue_260.yaml'),
+        env.generate_single_file(f'{test_dir}/issue_260.py',
+                                 lambda: PythonGenerator(env.input_path(test_dir, 'issue_260.yaml'),
                                                          importmap=env.import_map, mergeimports=False).serialize(),
                                  comparator=compare_python, value_is_returned=True)
 

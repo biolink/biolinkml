@@ -101,6 +101,7 @@ class PythonGenerator(Generator):
 
 import dataclasses
 import sys
+import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
@@ -706,8 +707,9 @@ class slots:
             mappings = ', mappings = [' + ', '.join(map_texts)+ ']'
         else:
             mappings = ''
+        pattern = f",\n                   pattern=re.compile(r'{slot.pattern}')" if slot.pattern else ""
         return f"""slots.{python_slot_name} = Slot(uri={slot_uri}, name="{slot.name}", curie={slot_curie},
-                      model_uri={slot_model_uri}, domain={domain}, range={rnge}{mappings})"""
+                   model_uri={slot_model_uri}, domain={domain}, range={rnge}{mappings}{pattern})"""
 
 
 @shared_arguments(PythonGenerator)

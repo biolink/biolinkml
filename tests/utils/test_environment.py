@@ -249,6 +249,7 @@ class TestEnvironment:
         if msg:
             self.log(expected_file_path, msg)
         if msg and not self.fail_on_error:
+            self.make_temp_dir(os.path.dirname(expected_file_path), clear=False)
             with open(expected_file_path, 'w') as outf:
                 outf.write(actual_text)
         return not msg

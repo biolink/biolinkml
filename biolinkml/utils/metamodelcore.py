@@ -201,7 +201,7 @@ class Bool:
         return isinstance(v, bool) or cls.bool_true.match(str(v)) or cls.bool_false.match(str(v))
 
 
-class XSDTime(str):
+class XSDTime(str, TypedNode):
     """ Wrapper for time datatype """
     def __new__(cls, value: Union[str, datetime.time, datetime.datetime, Literal]) -> str:
         if is_strict() and not cls.is_valid(value):
@@ -233,7 +233,7 @@ class XSDTime(str):
         return True
 
 
-class XSDDate(str):
+class XSDDate(str, TypedNode):
     """ Wrapper for date datatype """
     def __new__(cls, value: Union[str, datetime.date, Literal]) -> str:
         if is_strict() and not cls.is_valid(value):
@@ -265,7 +265,7 @@ class XSDDate(str):
         return True
 
 
-class XSDDateTime(str):
+class XSDDateTime(str, TypedNode):
     """ Wrapper for date time dataclass """
     def __new__(cls, value: Union[str, datetime.datetime, Literal]) -> str:
         if is_strict() and not cls.is_valid(value):
@@ -329,4 +329,3 @@ class ElementIdentifier(NodeIdentifier):
 
     def __post_init__(self):
         pass
-
