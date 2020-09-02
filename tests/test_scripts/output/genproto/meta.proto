@@ -51,14 +51,15 @@ message ClassDefinition
   optional status Uriorcurie = 34
   repeated slots SlotDefinition = 35
   repeated slotUsage SlotDefinition = 36
-  optional classUri Uriorcurie = 37
-  optional subclassOf Uriorcurie = 38
-  repeated unionOf ClassDefinition = 39
-  repeated definingSlots SlotDefinition = 40
-  optional treeRoot Boolean = 41
-  optional isA ClassDefinition = 42
-  repeated mixins ClassDefinition = 43
-  repeated applyTo ClassDefinition = 44
+  repeated attributes SlotDefinition = 37
+  optional classUri Uriorcurie = 38
+  optional subclassOf Uriorcurie = 39
+  repeated unionOf ClassDefinition = 40
+  repeated definingSlots SlotDefinition = 41
+  optional treeRoot Boolean = 42
+  optional isA ClassDefinition = 43
+  repeated mixins ClassDefinition = 44
+  repeated applyTo ClassDefinition = 45
  }
 // usage example and description
 message Example

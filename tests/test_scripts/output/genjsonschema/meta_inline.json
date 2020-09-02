@@ -104,6 +104,13 @@
                },
                "type": "array"
             },
+            "attributes": {
+               "description": "Inline definition of slots",
+               "items": {
+                  "$ref": "#/definitions/SlotDefinition"
+               },
+               "type": "array"
+            },
             "broad_mappings": {
                "description": "A list of terms from different schemas or terminology systems that have broader meaning.",
                "items": {

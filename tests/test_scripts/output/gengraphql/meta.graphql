@@ -55,6 +55,7 @@ type ClassDefinition
     status: Uriorcurie
     slots: [SlotDefinition]
     slotUsage: [SlotDefinition]
+    attributes: [SlotDefinition]
     classUri: Uriorcurie
     subclassOf: Uriorcurie
     unionOf: [ClassDefinition]

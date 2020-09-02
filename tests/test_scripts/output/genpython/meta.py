@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-31 22:55
+# Generation date: 2020-09-02 21:38
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta
@@ -435,6 +435,7 @@ class ClassDefinition(Definition):
     name: Union[str, ClassDefinitionName] = None
     slots: List[Union[str, SlotDefinitionName]] = empty_list()
     slot_usage: Dict[Union[str, SlotDefinitionName], Union[dict, SlotDefinition]] = empty_dict()
+    attributes: Dict[Union[str, SlotDefinitionName], Union[dict, SlotDefinition]] = empty_dict()
     class_uri: Optional[Union[str, URIorCURIE]] = None
     subclass_of: Optional[Union[str, URIorCURIE]] = None
     union_of: List[Union[str, ClassDefinitionName]] = empty_list()
@@ -454,6 +455,9 @@ class ClassDefinition(Definition):
         for k, v in self.slot_usage.items():
             if not isinstance(v, SlotDefinition):
                 self.slot_usage[k] = SlotDefinition(name=k, **({} if v is None else v))
+        for k, v in self.attributes.items():
+            if not isinstance(v, SlotDefinition):
+                self.attributes[k] = SlotDefinition(name=k, **({} if v is None else v))
         if self.class_uri is not None and not isinstance(self.class_uri, URIorCURIE):
             self.class_uri = URIorCURIE(self.class_uri)
         if self.subclass_of is not None and not isinstance(self.subclass_of, URIorCURIE):
@@ -699,6 +703,9 @@ slots.slots = Slot(uri=META.slots, name="slots", curie=META.curie('slots'),
 
 slots.slot_usage = Slot(uri=META.slot_usage, name="slot_usage", curie=META.curie('slot_usage'),
                       model_uri=META.slot_usage, domain=ClassDefinition, range=Dict[Union[str, SlotDefinitionName], Union[dict, SlotDefinition]])
+
+slots.attributes = Slot(uri=META.attributes, name="attributes", curie=META.curie('attributes'),
+                      model_uri=META.attributes, domain=ClassDefinition, range=Dict[Union[str, SlotDefinitionName], Union[dict, SlotDefinition]])
 
 slots.class_uri = Slot(uri=META.class_uri, name="class_uri", curie=META.curie('class_uri'),
                       model_uri=META.class_uri, domain=ClassDefinition, range=Optional[Union[str, URIorCURIE]])

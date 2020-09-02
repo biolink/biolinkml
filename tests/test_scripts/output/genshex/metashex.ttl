@@ -44,6 +44,10 @@
                 shex:min 0 ;
                 shex:predicate <https://w3id.org/biolink/biolinkml/meta/slot_usage> ;
                 shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/SlotDefinition> ] [ a shex:TripleConstraint ;
+                shex:max -1 ;
+                shex:min 0 ;
+                shex:predicate <https://w3id.org/biolink/biolinkml/meta/attributes> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/SlotDefinition> ] [ a shex:TripleConstraint ;
                 shex:max 1 ;
                 shex:min 0 ;
                 shex:predicate <https://w3id.org/biolink/biolinkml/meta/class_uri> ;
