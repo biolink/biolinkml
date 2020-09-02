@@ -46,29 +46,29 @@ meta:metamodel a meta:SchemaDefinition ;
         "rdfs",
         "skos",
         "xsd" ;
-    meta:generation_date "2020-08-31 22:55"^^xsd:dateTime ;
+    meta:generation_date "2020-09-02 21:39"^^xsd:dateTime ;
     meta:id biolinkml:meta ;
     meta:imports biolinkml:annotations,
         biolinkml:extensions,
         biolinkml:mappings,
         biolinkml:types ;
     meta:metamodel_version "1.5.3" ;
-    meta:prefixes [ meta:prefix_prefix "schema" ;
-            meta:prefix_reference schema: ],
-        [ meta:prefix_prefix "skos" ;
-            meta:prefix_reference skos: ],
-        [ meta:prefix_prefix "OIO" ;
-            meta:prefix_reference OIO: ],
-        [ meta:prefix_prefix "meta" ;
+    meta:prefixes [ meta:prefix_prefix "meta" ;
             meta:prefix_reference meta: ],
-        [ meta:prefix_prefix "biolinkml" ;
-            meta:prefix_reference biolinkml: ],
         [ meta:prefix_prefix "bibo" ;
             meta:prefix_reference bibo: ],
+        [ meta:prefix_prefix "OIO" ;
+            meta:prefix_reference OIO: ],
         [ meta:prefix_prefix "pav" ;
             meta:prefix_reference pav: ],
+        [ meta:prefix_prefix "skos" ;
+            meta:prefix_reference skos: ],
         [ meta:prefix_prefix "oslc" ;
-            meta:prefix_reference oslc: ] ;
+            meta:prefix_reference oslc: ],
+        [ meta:prefix_prefix "biolinkml" ;
+            meta:prefix_reference biolinkml: ],
+        [ meta:prefix_prefix "schema" ;
+            meta:prefix_reference schema: ] ;
     meta:slots meta:abstract,
         meta:alias,
         meta:aliases,
@@ -78,6 +78,7 @@ meta:metamodel a meta:SchemaDefinition ;
         meta:annotation_extension_value,
         meta:annotations,
         meta:apply_to,
+        meta:attributes,
         meta:base,
         meta:broad_mappings,
         meta:class_definition_apply_to,
@@ -181,8 +182,8 @@ meta:metamodel a meta:SchemaDefinition ;
         meta:values_from,
         meta:version ;
     meta:source_file "meta.yaml" ;
-    meta:source_file_date "Mon Aug 31 22:49:11 2020"^^xsd:dateTime ;
-    meta:source_file_size 27259 ;
+    meta:source_file_date "Wed Sep  2 21:35:29 2020"^^xsd:dateTime ;
+    meta:source_file_size 27696 ;
     meta:subsets meta:owl ;
     meta:types meta:boolean,
         meta:date,
@@ -521,6 +522,19 @@ meta:alias a meta:SlotDefinition ;
     meta:owner meta:SlotDefinition ;
     meta:range meta:string ;
     meta:slot_uri meta:alias .
+
+meta:attributes a meta:SlotDefinition ;
+    skos:definition "Inline definition of slots" ;
+    skos:inScheme biolinkml:meta ;
+    skos:note "attributes are an alternative way of defining new slots.  An attribute adds a slot to the global space in the form <class_name>__<slot_name> (lower case, double underscores).  Attributes can be specialized via slot_usage." ;
+    meta:definition_uri meta:attributes ;
+    meta:domain meta:ClassDefinition ;
+    meta:domain_of meta:ClassDefinition ;
+    meta:inlined true ;
+    meta:multivalued true ;
+    meta:owner meta:ClassDefinition ;
+    meta:range meta:SlotDefinition ;
+    meta:slot_uri meta:attributes .
 
 meta:base a meta:SlotDefinition ;
     skos:definition "python base type that implements this type definition" ;
@@ -1869,6 +1883,7 @@ meta:ClassDefinition a meta:ClassDefinition ;
         meta:aliases,
         meta:alt_descriptions,
         meta:annotations,
+        meta:attributes,
         meta:broad_mappings,
         meta:class_definition_apply_to,
         meta:class_definition_is_a,

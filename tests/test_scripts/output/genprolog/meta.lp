@@ -41,6 +41,11 @@ domain(apply_to, definition).
 range(apply_to, definition).
 has_uri(apply_to, 'http://w3id.org/biolink/vocab/apply_to').
 multivalued(apply_to).
+slot(attributes).
+domain(attributes, class_definition).
+range(attributes, slot_definition).
+has_uri(attributes, 'http://w3id.org/biolink/vocab/attributes').
+multivalued(attributes).
 slot(base).
 domain(base, type_definition).
 range(base, string).
@@ -695,6 +700,11 @@ required(slot_usage).
 slotrange(slot_definition).
 multivalued_in(slot_usage, class_definition).
 range_in(slot_usage, slot_definition, class_definition).
+class_slot(class_definition, attributes).
+required(attributes).
+slotrange(slot_definition).
+multivalued_in(attributes, class_definition).
+range_in(attributes, slot_definition, class_definition).
 class_slot(class_definition, class_uri).
 required(class_uri).
 slotrange(uriorcurie).

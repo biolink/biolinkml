@@ -149,6 +149,10 @@ fields:
   description: the redefinition of a slot in the context of the containing class definition.
   display_name: slot_usage
   cardinality: multi
+- id: attributes
+  description: Inline definition of slots
+  display_name: attributes
+  cardinality: multi
 - id: class_uri
   description: URI of the class in an RDF environment
   display_name: class_uri

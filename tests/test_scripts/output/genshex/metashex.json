@@ -234,6 +234,13 @@
                      },
                      {
                         "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/biolinkml/meta/attributes",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/SlotDefinition",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/class_uri",
                         "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
                         "min": 0,

@@ -984,6 +984,25 @@
       "type": "SlotDefinition"
     },
     {
+      "name": "attributes",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/attributes",
+      "description": "Inline definition of slots",
+      "comments": [
+        "attributes are an alternative way of defining new slots.  An attribute adds a slot to the global space in the form <class_name>__<slot_name> (lower case, double underscores).  Attributes can be specialized via slot_usage."
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "ClassDefinition",
+      "range": "SlotDefinition",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/attributes",
+      "multivalued": true,
+      "inlined": true,
+      "owner": "ClassDefinition",
+      "domain_of": [
+        "ClassDefinition"
+      ],
+      "type": "SlotDefinition"
+    },
+    {
       "name": "class_uri",
       "definition_uri": "https://w3id.org/biolink/biolinkml/meta/class_uri",
       "description": "URI of the class in an RDF environment",
@@ -2472,6 +2491,7 @@
         "status",
         "slots",
         "slot_usage",
+        "attributes",
         "class_uri",
         "subclass_of",
         "union_of",
@@ -2591,9 +2611,9 @@
   ],
   "metamodel_version": "1.5.3",
   "source_file": "meta.yaml",
-  "source_file_date": "Mon Aug 31 22:49:11 2020",
-  "source_file_size": 27259,
-  "generation_date": "2020-08-31 22:54",
+  "source_file_date": "Wed Sep  2 21:35:29 2020",
+  "source_file_size": 27696,
+  "generation_date": "2020-09-02 21:38",
   "type": "SchemaDefinition",
   "@context": [
     "file:./output/gencontext/meta.jsonld",

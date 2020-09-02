@@ -67,6 +67,7 @@ metatype:Nodeidentifier NONLITERAL
           rdf:type [ <Definition> ] ? ;
           <slots> @<SlotDefinition> * ;
           <slot_usage> @<SlotDefinition> * ;
+          <attributes> @<SlotDefinition> * ;
           <class_uri> @metatype:Uriorcurie ? ;
           rdfs:subClassOf @metatype:Uriorcurie ? ;
           <union_of> @<ClassDefinition> * ;
