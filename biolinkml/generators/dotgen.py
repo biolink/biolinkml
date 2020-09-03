@@ -17,6 +17,7 @@ valid_formats = sorted(list(FORMATS))
 class DotGenerator(Generator):
     generatorname = os.path.basename(__file__)
     generatorversion = "0.1.1"
+    directory_output = True
     valid_formats: List[str] = ['png'] + valid_formats
     visit_all_class_slots = True
 

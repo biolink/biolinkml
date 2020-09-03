@@ -36,12 +36,12 @@
 <polygon fill='white' points='111.5,-281 111.5,-317 212.5,-317 212.5,-281 111.5,-281' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='162' y='-295.3'>NamedThing</text>
 </g><g class='node' id='node3'><title>InformationContentEntity</title>
-<polygon fill='white' points='77,-129 77,-189 247,-189 247,-129 77,-129' stroke='black'/>
+<polygon fill='white' points='72,-129 72,-189 252,-189 252,-129 72,-129' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='162' y='-177.8'>InformationContentEntity</text>
-<polyline fill='none' points='77,-174 247,-174 ' stroke='black'/>
+<polyline fill='none' points='72,-174 252,-174 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='162' y='-162.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='162' y='-147.8'>name(i):label_type</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='162' y='-132.8'>category(i):iri_type +</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='162' y='-132.8'>category(i):category_type +</text>
 </g><g class='edge' id='edge4'><title>NamedThing-&gt;InformationContentEntity</title>
 <path d='M162,-270.798C162,-247.277 162,-213.356 162,-189.254' fill='none' stroke='black'/>
 <polygon fill='none' points='158.5,-270.801 162,-280.801 165.5,-270.801 158.5,-270.801' stroke='black'/>

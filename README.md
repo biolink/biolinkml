@@ -23,6 +23,9 @@ Quickstart docs:
 For an example, see the [Jupyter notebook example](https://nbviewer.jupyter.org/github/biolink/biolinkml/blob/master/notebooks/examples.ipynb)
 
 ## Installation
+
+This project uses [pipenv](https://pipenv-fork.readthedocs.io/en/latest/) to install. Some IDE's like [PyCharms also have direct support for pipenv](https://www.jetbrains.com/help/pycharm/pipenv.html). Once pipenv is running, the project may be installed:
+
 ```bash
 > pipenv install biolinkml
 ```
@@ -262,3 +265,18 @@ should be in the vX.X.X format following [the semantic versioning specification]
 After the release is created, the GitHub action will be triggered to publish to Pypi. The release version will be used to create the Pypi package.
 
 If the Pypi release failed, make fixes, [delete the GitHub release](https://help.github.com/en/enterprise/2.16/user/github/administering-a-repository/editing-and-deleting-releases#:~:text=Deleting%20a%20release,-Tip%3A%20You%20must&text=Under%20your%20repository%20name%2C%20click%20Releases.,of%20the%20page%2C%20click%20Delete.), and recreate a release with the same version again.
+
+## Additional Documentation
+
+ * [BiolinkML for environmental and omics metadata](https://docs.google.com/presentation/d/1xK__vZdv0jHtOu0eOTzGUJeDt9YMVOGR1jxIXTtdXDM/edit?usp=sharing)
+
+## Example Projects
+
+ * https://github.com/biolink/biolink-model -- this was the original biolinkml project
+ * https://github.com/microbiomedata/nmdc-metadata
+ * https://github.com/cmungall/metadata_converter
+ * https://sssom-py.readthedocs.io/
+ * https://cmungall.github.io/ontology-change-language/
+ * https://github.com/diatomsRcool/collections-attribution-model
+ * https://github.com/cmungall/dasher/tree/master/src/schema
+ * CCDH (todo: add link)

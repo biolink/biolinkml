@@ -7,7 +7,7 @@
 URI: [biolink:PhysiologicalProcess](https://w3id.org/biolink/vocab/PhysiologicalProcess)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[BiologicalProcess]^-[PhysiologicalProcess&#124;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[NamedThing],[BiologicalProcessOrActivity],[BiologicalProcess])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[BiologicalProcess]^-[PhysiologicalProcess&#124;id(i):string;name(i):label_type;category(i):category_type%20%2B],[NamedThing],[BiologicalProcess])
 
 ## Parents
 
@@ -20,11 +20,11 @@ URI: [biolink:PhysiologicalProcess](https://w3id.org/biolink/vocab/Physiological
 
  * [category](category.md)  <sub>1..*</sub>
     * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
-    * range: [IriType](types/IriType.md)
+    * range: [CategoryType](types/CategoryType.md)
     * in subsets: (translator_minimal)
  * [enabled by](enabled_by.md)  <sub>0..*</sub>
     * Description: holds between a process and a physical entity, where the physical entity executes the process
-    * range: [BiologicalProcessOrActivity](BiologicalProcessOrActivity.md)
+    * range: [NamedThing](NamedThing.md)
     * in subsets: (translator_minimal)
  * [has input](has_input.md)  <sub>0..*</sub>
     * Description: holds between a process and a continuant, where the continuant is an input into the process

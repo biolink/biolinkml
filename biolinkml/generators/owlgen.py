@@ -9,7 +9,7 @@ import logging
 import click
 from rdflib import Graph, URIRef, RDF, OWL, Literal, BNode
 from rdflib.collection import Collection
-from rdflib.namespace import RDFS
+from rdflib.namespace import RDFS, SKOS
 from rdflib.plugin import plugins as rdflib_plugins, Parser as rdflib_Parser
 
 from biolinkml import LOCAL_METAMODEL_YAML_FILE, METAMODEL_NAMESPACE_NAME, METAMODEL_NAMESPACE, METAMODEL_YAML_URI, META_BASE_URI
@@ -27,7 +27,7 @@ class ElementDefinition(object):
 class OwlSchemaGenerator(Generator):
     generatorname = os.path.basename(__file__)
     generatorversion = "0.1.1"
-    valid_formats = ['ttl'] + [x.name for x in rdflib_plugins(None, rdflib_Parser) if '/' not in str(x.name)]
+    valid_formats = ['owl', 'ttl'] + [x.name for x in rdflib_plugins(None, rdflib_Parser) if '/' not in str(x.name)]
     visits_are_sorted = True
 
     def __init__(self, schema: Union[str, TextIO, SchemaDefinition], **kwargs) -> None:
@@ -60,15 +60,28 @@ class OwlSchemaGenerator(Generator):
         self.graph.add((self.top_value_uri, RDFS.label, Literal("value")))
 
     def end_schema(self, output: Optional[str] = None, **_) -> None:
-        data = self.graph.serialize(format='turtle' if self.format == 'ttl' else self.format).decode()
+        data = self.graph.serialize(format='turtle' if self.format in ['owl', 'ttl'] else self.format).decode()
         if output:
             with open(output, 'w') as outf:
                 outf.write(data)
         else:
             print(data)
 
+    def add_metadata(self, e: SchemaDefinition, uri: URIRef) -> None:
+        if e.aliases is not None:
+            for s in e.aliases:
+                self.graph.add((uri, SKOS.altLabel, Literal(s)))
+        if e.mappings is not None:
+            for m in e.mappings:
+                m_uri = self.namespaces.uri_for(m)
+                if m_uri is not None:
+                    self.graph.add((uri, SKOS.exactMatch, m_uri))
+                else:
+                    logging.warning(f'No URI for {m}')
+
     def visit_class(self, cls: ClassDefinition) -> bool:
         cls_uri = self._class_uri(cls.name)
+        self.add_metadata(cls, cls_uri)
         self.graph.add((cls_uri, RDF.type, OWL.Class))
         self.graph.add((cls_uri, RDF.type,
                         self.metamodel.namespaces[METAMODEL_NAMESPACE_NAME][camelcase('class definition')]))

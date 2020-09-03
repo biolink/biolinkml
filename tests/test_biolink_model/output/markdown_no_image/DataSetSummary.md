@@ -7,7 +7,7 @@
 URI: [biolink:DataSetSummary](https://w3id.org/biolink/vocab/DataSetSummary)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[DistributionLevel],[DataSetVersion],[DataSetVersion]^-[DataSetSummary&#124;source_web_page:string%20%3F;title(i):string%20%3F;type(i):string%20%3F;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[DataSet],[DataFile])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[DistributionLevel],[DataSetVersion],[DataSetVersion]^-[DataSetSummary&#124;source_web_page:string%20%3F;title(i):string%20%3F;type(i):string%20%3F;id(i):string;name(i):label_type;category(i):category_type%20%2B],[DataSet],[DataFile])
 
 ## Parents
 
@@ -28,7 +28,7 @@ URI: [biolink:DataSetSummary](https://w3id.org/biolink/vocab/DataSetSummary)
 
  * [category](category.md)  <sub>1..*</sub>
     * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
-    * range: [IriType](types/IriType.md)
+    * range: [CategoryType](types/CategoryType.md)
     * in subsets: (translator_minimal)
  * [distribution](distribution.md)  <sub>OPT</sub>
     * range: [DistributionLevel](DistributionLevel.md)

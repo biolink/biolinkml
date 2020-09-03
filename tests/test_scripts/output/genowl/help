@@ -4,13 +4,19 @@ Usage: gen-owl [OPTIONS] YAMLFILE
 
 Options:
   -o, --output TEXT               Output file name
-  -f, --format [ttl|json-ld|xml|n3|turtle|ttl|ntriples|nt|nt11|nquads|trix|trig]
-                                  Output format
+  -f, --format [owl|ttl|json-ld|xml|n3|turtle|ttl|ntriples|nt|nt11|nquads|trix|trig]
+                                  Output format (default=owl)
   --metadata / --no-metadata      Include metadata in output
+                                  (default=--metadata)
+
   --useuris / --metauris          Include metadata in output
+                                  (default=--useuris)
+
   -im, --importmap FILENAME       Import mapping file
   --log_level [CRITICAL|ERROR|WARNING|INFO|DEBUG]
                                   Logging level (default=WARNING)
   --mergeimports / --no-mergeimports
                                   Merge imports into source file
+                                  (default=mergeimports)
+
   --help                          Show this message and exit.

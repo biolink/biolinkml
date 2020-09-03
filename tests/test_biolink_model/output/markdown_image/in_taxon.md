@@ -55,7 +55,9 @@ URI: [biolink:in_taxon](https://w3id.org/biolink/vocab/in_taxon)
  * [PopulationOfIndividualOrganisms](PopulationOfIndividualOrganisms.md)
  * [Protein](Protein.md)
  * [ProteinIsoform](ProteinIsoform.md)
+ * [ReagentTargetedGene](ReagentTargetedGene.md)
  * [SequenceVariant](SequenceVariant.md)
+ * [Snv](Snv.md)
  * [ThingWithTaxon](ThingWithTaxon.md)
  * [Transcript](Transcript.md)
 
@@ -64,6 +66,6 @@ URI: [biolink:in_taxon](https://w3id.org/biolink/vocab/in_taxon)
 |  |  |  |
 | --- | --- | --- |
 | **Mappings:** | | RO:0002162 |
-|  | | WD:P703 |
+|  | | WIKIDATA:P703 |
 | **In Subsets:** | | translator_minimal |
 

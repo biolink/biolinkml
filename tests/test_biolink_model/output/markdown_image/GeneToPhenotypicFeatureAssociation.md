@@ -29,6 +29,7 @@ URI: [biolink:GeneToPhenotypicFeatureAssociation](https://w3id.org/biolink/vocab
  * [gene to phenotypic feature association➞subject](gene_to_phenotypic_feature_association_subject.md)  <sub>REQ</sub>
     * Description: gene in which variation is correlated with the phenotypic feature
     * range: [GeneOrGeneProduct](GeneOrGeneProduct.md)
+    * Example:    
 
 ### Inherited from association:
 
@@ -55,7 +56,7 @@ URI: [biolink:GeneToPhenotypicFeatureAssociation](https://w3id.org/biolink/vocab
     * Description: connects an association to qualifiers that modify or qualify the meaning of that association
     * range: [OntologyClass](OntologyClass.md)
  * [relation](relation.md)  <sub>REQ</sub>
-    * Description: the relationship type by which a subject is connected to an object in an association
+    * Description: The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.
     * range: [Uriorcurie](types/Uriorcurie.md)
 
 ### Mixed in from entity to phenotypic feature association:

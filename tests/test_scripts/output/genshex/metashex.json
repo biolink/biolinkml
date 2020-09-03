@@ -234,6 +234,13 @@
                      },
                      {
                         "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/biolinkml/meta/attributes",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/SlotDefinition",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/class_uri",
                         "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
                         "min": 0,
@@ -595,6 +602,20 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "http://www.w3.org/2004/02/skos/core#relatedMatch",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/2004/02/skos/core#narrowMatch",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/2004/02/skos/core#broadMatch",
                         "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
                         "min": 0,
                         "max": -1
@@ -1152,7 +1173,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "http://www.w3.org/2000/01/rdf-schema#subPropertyOf",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/SlotDefinition",
                         "min": 0,
                         "max": 1
                      },

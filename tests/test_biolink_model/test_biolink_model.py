@@ -134,7 +134,7 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
     def test_biolink_rdf(self):
         """ Test the rdf generator for the biolink model """
         self.single_file_generator('ttl', RDFGenerator, serialize_args=dict(
-            context=["https://w3id.org/biolink/biolink-model/context.jsonld"]), comparator=compare_rdf)
+            context=["https://w3id.org/biolink/biolinkml/context.jsonld"]), comparator=compare_rdf)
 
         # Validate the RDF against the Biolink ShEx
         if SKIP_SHEX_VALIDATION:

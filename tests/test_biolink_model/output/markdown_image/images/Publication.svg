@@ -33,12 +33,12 @@
 <polygon fill='white' points='0,-153 0,-189 92,-189 92,-153 0,-153' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='46' y='-167.3'>Association</text>
 </g><g class='node' id='node2'><title>Publication</title>
-<polygon fill='white' points='47,-1 47,-61 193,-61 193,-1 47,-1' stroke='black'/>
+<polygon fill='white' points='30,-1 30,-61 210,-61 210,-1 30,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='120' y='-49.8'>Publication</text>
-<polyline fill='none' points='47,-46 193,-46 ' stroke='black'/>
+<polyline fill='none' points='30,-46 210,-46 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='120' y='-34.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='120' y='-19.8'>name(i):label_type</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='120' y='-4.8'>category(i):iri_type +</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='120' y='-4.8'>category(i):category_type +</text>
 </g><g class='edge' id='edge1'><title>Association-&gt;Publication</title>
 <path d='M55.2225,-152.801C66.257,-132.223 85.0592,-97.1599 99.573,-70.0937' fill='none' stroke='black'/>
 <polygon fill='black' points='104.313,-61.2537 103.553,-72.1933 101.95,-65.6602 99.5874,-70.0666 99.5874,-70.0666 99.5874,-70.0666 101.95,-65.6602 95.6216,-67.94 104.313,-61.2537 104.313,-61.2537' stroke='black'/>

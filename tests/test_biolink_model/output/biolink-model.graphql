@@ -6,21 +6,21 @@ type ActivityAndBehavior
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
   }
 
 interface AdministrativeEntity
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
   }
 
 type AnatomicalEntity implements ThingWithTaxon, PhysicalEntity
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
   }
 
@@ -83,34 +83,34 @@ type Attribute implements OntologyClass
     hasQualitativeValue: NamedThing
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
   }
 
 interface BiologicalEntity
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
   }
 
 type BiologicalProcess implements Occurrent
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     hasInput: [NamedThing]
     hasOutput: [NamedThing]
-    enabledBy: [BiologicalProcessOrActivity]
+    enabledBy: [NamedThing]
   }
 
 type BiologicalProcessOrActivity implements Occurrent
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     hasInput: [NamedThing]
     hasOutput: [NamedThing]
-    enabledBy: [BiologicalProcessOrActivity]
+    enabledBy: [NamedThing]
   }
 
 type BiologicalSex
@@ -120,14 +120,14 @@ type BiologicalSex
     hasQualitativeValue: NamedThing
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
   }
 
 type Carbohydrate
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
   }
 
@@ -135,7 +135,7 @@ type Case
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
   }
 
@@ -174,7 +174,7 @@ type Cell
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
   }
 
@@ -182,7 +182,23 @@ type CellLine
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
+  }
+
+type CellLineAsAModelOfDiseaseAssociation implements ModelToDiseaseMixin, EntityToDiseaseAssociation
+  {
+    relation: Uriorcurie!
+    object: NamedThing!
+    id: String!
+    negated: Boolean
+    associationType: OntologyClass
+    qualifiers: [OntologyClass]
+    publications: [Publication]
+    providedBy: [Provider]
+    subject: CellLine!
+    frequencyQualifier: FrequencyValue
+    severityQualifier: SeverityValue
+    onsetQualifier: Onset
   }
 
 type CellLineToDiseaseOrPhenotypicFeatureAssociation implements CellLineToThingAssociation, ThingToDiseaseOrPhenotypicFeatureAssociation
@@ -215,7 +231,7 @@ type CellularComponent
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
   }
 
@@ -223,14 +239,14 @@ type ChemicalExposure
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
   }
 
 type ChemicalSubstance
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
   }
 
@@ -313,18 +329,28 @@ interface ChemicalToThingAssociation
     subject: ChemicalSubstance!
   }
 
+type ClinicalCourse
+  {
+    hasAttributeType: OntologyClass
+    hasQuantitativeValue: [QuantityValue]
+    hasQualitativeValue: NamedThing
+    id: String!
+    name: LabelType!
+    category: [CategoryType]!
+  }
+
 type ClinicalEntity
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
   }
 
 type ClinicalIntervention
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
   }
 
 type ClinicalModifier
@@ -334,21 +360,21 @@ type ClinicalModifier
     hasQualitativeValue: NamedThing
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
   }
 
 type ClinicalTrial
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
   }
 
 type CodingSequence
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
   }
@@ -357,28 +383,28 @@ type ConfidenceLevel
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
   }
 
 type DataFile
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
   }
 
 type DataSet
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
   }
 
 interface DataSetSummary
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     title: String
     sourceDataFile: DataFile
     versionOf: DataSet
@@ -391,7 +417,7 @@ type DataSetVersion
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     title: String
     sourceDataFile: DataFile
     versionOf: DataSet
@@ -403,14 +429,14 @@ type Device
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
   }
 
 type Disease
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
   }
 
@@ -418,7 +444,7 @@ type DiseaseOrPhenotypicFeature implements ThingWithTaxon
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
   }
 
@@ -496,7 +522,7 @@ interface DistributionLevel
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     title: String
     sourceDataFile: DataFile
     versionOf: DataSet
@@ -509,7 +535,7 @@ type Drug
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
   }
 
@@ -517,7 +543,7 @@ type DrugExposure
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     hasDrug: [ChemicalSubstance]!
   }
 
@@ -558,28 +584,28 @@ type EnvironmentalFeature
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
   }
 
 type EnvironmentalProcess implements Occurrent
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
   }
 
 type EvidenceType
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
   }
 
 type Exon
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
   }
@@ -601,7 +627,7 @@ type ExposureEvent
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
   }
 
 type ExposureEventToPhenotypicFeatureAssociation implements EntityToPhenotypicFeatureAssociation
@@ -642,7 +668,7 @@ type FrequencyValue
     hasQualitativeValue: NamedThing
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
   }
 
 type FunctionalAssociation
@@ -661,7 +687,7 @@ type FunctionalAssociation
 type Gene
   {
     id: String!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
     name: SymbolType!
@@ -687,7 +713,7 @@ type GeneFamily implements GeneGrouping
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
   }
 
@@ -716,13 +742,13 @@ type GeneOntologyClass
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
   }
 
 type GeneOrGeneProduct
   {
     id: String!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
     name: SymbolType!
@@ -731,7 +757,7 @@ type GeneOrGeneProduct
 type GeneProduct
   {
     id: String!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
     name: SymbolType!
@@ -740,7 +766,7 @@ type GeneProduct
 interface GeneProductIsoform
   {
     id: String!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
     name: SymbolType!
@@ -877,7 +903,7 @@ type Genome
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
   }
@@ -886,7 +912,7 @@ type GenomicEntity
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
   }
@@ -912,10 +938,42 @@ type Genotype
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
     hasZygosity: Zygosity
+  }
+
+type GenotypeAsAModelOfDiseaseAssociation implements ModelToDiseaseMixin, EntityToDiseaseAssociation
+  {
+    id: String!
+    negated: Boolean
+    associationType: OntologyClass
+    qualifiers: [OntologyClass]
+    publications: [Publication]
+    providedBy: [Provider]
+    relation: Uriorcurie!
+    object: NamedThing!
+    frequencyQualifier: FrequencyValue
+    severityQualifier: SeverityValue
+    onsetQualifier: Onset
+    subject: Genotype!
+  }
+
+type GenotypeToDiseaseAssociation implements GenotypeToThingAssociation, EntityToDiseaseAssociation
+  {
+    id: String!
+    negated: Boolean
+    associationType: OntologyClass
+    qualifiers: [OntologyClass]
+    publications: [Publication]
+    providedBy: [Provider]
+    subject: NamedThing!
+    relation: Uriorcurie!
+    object: NamedThing!
+    frequencyQualifier: FrequencyValue
+    severityQualifier: SeverityValue
+    onsetQualifier: Onset
   }
 
 type GenotypeToGeneAssociation
@@ -995,14 +1053,14 @@ type GenotypicSex
     hasQualitativeValue: NamedThing
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
   }
 
 type GeographicLocation
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     latitude: Float
     longitude: Float
   }
@@ -1011,7 +1069,7 @@ type GeographicLocationAtTime
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     latitude: Float
     longitude: Float
     timepoint: TimeType
@@ -1021,7 +1079,7 @@ type GrossAnatomicalStructure
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
   }
 
@@ -1029,7 +1087,7 @@ type Haplotype
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
   }
@@ -1038,7 +1096,7 @@ type IndividualOrganism implements ThingWithTaxon
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
   }
 
@@ -1046,21 +1104,31 @@ interface InformationContentEntity
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
+  }
+
+type Inheritance
+  {
+    hasAttributeType: OntologyClass
+    hasQuantitativeValue: [QuantityValue]
+    hasQualitativeValue: NamedThing
+    id: String!
+    name: LabelType!
+    category: [CategoryType]!
   }
 
 type LifeStage implements ThingWithTaxon
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
   }
 
 type MacromolecularComplex
   {
     id: String!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
     name: SymbolType!
@@ -1069,7 +1137,7 @@ type MacromolecularComplex
 type MacromolecularMachine
   {
     id: String!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
     name: SymbolType!
@@ -1118,7 +1186,7 @@ type MaterialSample implements SubjectOfInvestigation, PhysicalEntity
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     hasAttribute: [Attribute]
   }
 
@@ -1165,14 +1233,14 @@ type Metabolite
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
   }
 
 type MicroRNA
   {
     id: String!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
     name: SymbolType!
@@ -1188,7 +1256,7 @@ type MolecularActivity implements Occurrent
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     hasInput: [ChemicalSubstance]
     hasOutput: [ChemicalSubstance]
     enabledBy: [MacromolecularMachine]
@@ -1198,7 +1266,7 @@ type MolecularEntity implements ThingWithTaxon, PhysicalEntity
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
   }
 
@@ -1206,13 +1274,13 @@ type NamedThing
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
   }
 
 type NoncodingRNAProduct
   {
     id: String!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
     name: SymbolType!
@@ -1222,7 +1290,7 @@ type Occurrent
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
   }
 
 type Onset
@@ -1232,28 +1300,44 @@ type Onset
     hasQualitativeValue: NamedThing
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
   }
 
 type OntologyClass
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
   }
 
 type OrganismTaxon
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
   }
 
 interface OrganismalEntity
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
+  }
+
+type OrganismalEntityAsAModelOfDiseaseAssociation implements ModelToDiseaseMixin, EntityToDiseaseAssociation
+  {
+    relation: Uriorcurie!
+    object: NamedThing!
+    id: String!
+    negated: Boolean
+    associationType: OntologyClass
+    qualifiers: [OntologyClass]
+    publications: [Publication]
+    providedBy: [Provider]
+    subject: OrganismalEntity!
+    frequencyQualifier: FrequencyValue
+    severityQualifier: SeverityValue
+    onsetQualifier: Onset
   }
 
 type PairwiseGeneToGeneInteraction implements PairwiseInteractionAssociation
@@ -1292,24 +1376,24 @@ type Pathway
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     hasInput: [NamedThing]
     hasOutput: [NamedThing]
-    enabledBy: [BiologicalProcessOrActivity]
+    enabledBy: [NamedThing]
   }
 
 type Phenomenon
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
   }
 
 type PhenotypicFeature
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
   }
 
@@ -1320,38 +1404,38 @@ type PhenotypicSex
     hasQualitativeValue: NamedThing
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
   }
 
 type PhysicalEntity
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
   }
 
 type PhysiologicalProcess
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     hasInput: [NamedThing]
     hasOutput: [NamedThing]
-    enabledBy: [BiologicalProcessOrActivity]
+    enabledBy: [NamedThing]
   }
 
 type PlanetaryEntity
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
   }
 
 type PopulationOfIndividualOrganisms implements ThingWithTaxon
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
   }
 
@@ -1372,13 +1456,13 @@ type Procedure
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
   }
 
 type Protein
   {
     id: String!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
     name: SymbolType!
@@ -1387,7 +1471,7 @@ type Protein
 type ProteinIsoform implements GeneProductIsoform
   {
     id: String!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
     name: SymbolType!
@@ -1397,20 +1481,29 @@ type Provider
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
   }
 
 type Publication
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
   }
 
 type QuantityValue
   {
     hasUnit: Unit
     hasNumericValue: Double
+  }
+
+type ReagentTargetedGene
+  {
+    id: String!
+    name: LabelType!
+    category: [CategoryType]!
+    inTaxon: [OrganismTaxon]
+    hasBiologicalSequence: BiologicalSequence
   }
 
 interface RelationshipQuantifier
@@ -1421,13 +1514,13 @@ type RelationshipType
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
   }
 
 type RNAProduct
   {
     id: String!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
     name: SymbolType!
@@ -1436,7 +1529,7 @@ type RNAProduct
 type RNAProductIsoform implements GeneProductIsoform
   {
     id: String!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
     name: SymbolType!
@@ -1462,7 +1555,7 @@ type SequenceFeatureRelationship
 type SequenceVariant
   {
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
     hasGene: [Gene]
     hasBiologicalSequence: BiologicalSequence
@@ -1489,14 +1582,24 @@ type SeverityValue
     hasQualitativeValue: NamedThing
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
+  }
+
+type Snv
+  {
+    name: LabelType!
+    category: [CategoryType]!
+    inTaxon: [OrganismTaxon]
+    hasGene: [Gene]
+    hasBiologicalSequence: BiologicalSequence
+    id: String!
   }
 
 type SourceFile
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     sourceVersion: String
     retrievedOn: Date
   }
@@ -1531,7 +1634,7 @@ type Transcript
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
   }
@@ -1553,8 +1656,24 @@ type Treatment
   {
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
     hasPart: [DrugExposure]!
+  }
+
+type VariantAsAModelOfDiseaseAssociation implements ModelToDiseaseMixin, EntityToDiseaseAssociation
+  {
+    id: String!
+    negated: Boolean
+    associationType: OntologyClass
+    qualifiers: [OntologyClass]
+    publications: [Publication]
+    providedBy: [Provider]
+    relation: Uriorcurie!
+    object: NamedThing!
+    frequencyQualifier: FrequencyValue
+    severityQualifier: SeverityValue
+    onsetQualifier: Onset
+    subject: SequenceVariant!
   }
 
 type VariantToDiseaseAssociation implements VariantToThingAssociation, EntityToDiseaseAssociation
@@ -1629,6 +1748,6 @@ type Zygosity
     hasQualitativeValue: NamedThing
     id: String!
     name: LabelType!
-    category: [IriType]!
+    category: [CategoryType]!
   }
 

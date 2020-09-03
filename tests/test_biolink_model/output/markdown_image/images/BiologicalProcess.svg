@@ -45,12 +45,12 @@
 <polygon fill='white' points='0,-281 0,-317 344,-317 344,-281 0,-281' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='172' y='-295.3'>MacromolecularMachineToBiologicalProcessAssociation</text>
 </g><g class='node' id='node7'><title>BiologicalProcess</title>
-<polygon fill='white' points='240,-129 240,-189 386,-189 386,-129 240,-129' stroke='black'/>
+<polygon fill='white' points='223,-129 223,-189 403,-189 403,-129 223,-129' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='313' y='-177.8'>BiologicalProcess</text>
-<polyline fill='none' points='240,-174 386,-174 ' stroke='black'/>
+<polyline fill='none' points='223,-174 403,-174 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='313' y='-162.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='313' y='-147.8'>name(i):label_type</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='313' y='-132.8'>category(i):iri_type +</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='313' y='-132.8'>category(i):category_type +</text>
 </g><g class='edge' id='edge1'><title>MacromolecularMachineToBiologicalProcessAssociation-&gt;BiologicalProcess</title>
 <path d='M189.573,-280.801C211.055,-259.776 247.988,-223.629 275.87,-196.34' fill='none' stroke='black'/>
 <polygon fill='black' points='283.11,-189.254 279.111,-199.464 279.537,-192.751 275.964,-196.248 275.964,-196.248 275.964,-196.248 279.537,-192.751 272.816,-193.032 283.11,-189.254 283.11,-189.254' stroke='black'/>

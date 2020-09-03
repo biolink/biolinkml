@@ -17,7 +17,7 @@
 meta:metamodel a meta:SchemaDefinition ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "Biolink Schema Metamodel" ;
-    pav:version "1.5.3" ;
+    pav:version "1.5.9" ;
     skos:definition "A metamodel for defining biolink related schemas" ;
     meta:classes meta:AltDescription,
         meta:Annotatable,
@@ -46,7 +46,7 @@ meta:metamodel a meta:SchemaDefinition ;
         "rdfs",
         "skos",
         "xsd" ;
-    meta:generation_date "2019-01-25 12:34"^^xsd:dateTime ;
+    meta:generation_date "2020-09-02 21:39"^^xsd:dateTime ;
     meta:id biolinkml:meta ;
     meta:imports biolinkml:annotations,
         biolinkml:extensions,
@@ -55,20 +55,20 @@ meta:metamodel a meta:SchemaDefinition ;
     meta:metamodel_version "1.5.3" ;
     meta:prefixes [ meta:prefix_prefix "meta" ;
             meta:prefix_reference meta: ],
-        [ meta:prefix_prefix "OIO" ;
-            meta:prefix_reference OIO: ],
-        [ meta:prefix_prefix "bibo" ;
-            meta:prefix_reference bibo: ],
-        [ meta:prefix_prefix "skos" ;
-            meta:prefix_reference skos: ],
         [ meta:prefix_prefix "schema" ;
             meta:prefix_reference schema: ],
         [ meta:prefix_prefix "biolinkml" ;
             meta:prefix_reference biolinkml: ],
+        [ meta:prefix_prefix "oslc" ;
+            meta:prefix_reference oslc: ],
+        [ meta:prefix_prefix "skos" ;
+            meta:prefix_reference skos: ],
         [ meta:prefix_prefix "pav" ;
             meta:prefix_reference pav: ],
-        [ meta:prefix_prefix "oslc" ;
-            meta:prefix_reference oslc: ] ;
+        [ meta:prefix_prefix "OIO" ;
+            meta:prefix_reference OIO: ],
+        [ meta:prefix_prefix "bibo" ;
+            meta:prefix_reference bibo: ] ;
     meta:slots meta:abstract,
         meta:alias,
         meta:aliases,
@@ -78,7 +78,9 @@ meta:metamodel a meta:SchemaDefinition ;
         meta:annotation_extension_value,
         meta:annotations,
         meta:apply_to,
+        meta:attributes,
         meta:base,
+        meta:broad_mappings,
         meta:class_definition_apply_to,
         meta:class_definition_is_a,
         meta:class_definition_mixins,
@@ -135,6 +137,7 @@ meta:metamodel a meta:SchemaDefinition ;
         meta:modified_by,
         meta:multivalued,
         meta:name,
+        meta:narrow_mappings,
         meta:notes,
         meta:owner,
         meta:pattern,
@@ -179,8 +182,8 @@ meta:metamodel a meta:SchemaDefinition ;
         meta:values_from,
         meta:version ;
     meta:source_file "meta.yaml" ;
-    meta:source_file_date "2019-01-25 12:34"^^xsd:dateTime ;
-    meta:source_file_size 10000 ;
+    meta:source_file_date "Wed Sep  2 21:35:29 2020"^^xsd:dateTime ;
+    meta:source_file_size 27696 ;
     meta:subsets meta:owl ;
     meta:types meta:boolean,
         meta:date,
@@ -256,6 +259,7 @@ meta:annotation_extension_value a meta:SlotDefinition ;
     meta:alias "value" ;
     meta:domain meta:Annotation ;
     meta:domain_of meta:Annotation ;
+    meta:imported_from "biolinkml:annotations" ;
     meta:is_a meta:extension_value ;
     meta:is_usage_slot true ;
     meta:owner meta:Annotation ;
@@ -310,7 +314,6 @@ meta:schema_definition_name a meta:SlotDefinition ;
     meta:identifier true ;
     meta:is_a meta:name ;
     meta:is_usage_slot true ;
-    meta:key true ;
     meta:owner meta:SchemaDefinition ;
     meta:range meta:ncname ;
     meta:required true ;
@@ -427,6 +430,19 @@ meta:alias a meta:SlotDefinition ;
     meta:owner meta:SlotDefinition ;
     meta:range meta:string ;
     meta:slot_uri meta:alias .
+
+meta:attributes a meta:SlotDefinition ;
+    skos:definition "Inline definition of slots" ;
+    skos:inScheme biolinkml:meta ;
+    skos:note "attributes are an alternative way of defining new slots.  An attribute adds a slot to the global space in the form <class_name>__<slot_name> (lower case, double underscores).  Attributes can be specialized via slot_usage." ;
+    meta:definition_uri meta:attributes ;
+    meta:domain meta:ClassDefinition ;
+    meta:domain_of meta:ClassDefinition ;
+    meta:inlined true ;
+    meta:multivalued true ;
+    meta:owner meta:ClassDefinition ;
+    meta:range meta:SlotDefinition ;
+    meta:slot_uri meta:attributes .
 
 meta:base a meta:SlotDefinition ;
     skos:definition "python base type that implements this type definition" ;
@@ -602,6 +618,11 @@ meta:id a meta:SlotDefinition ;
     meta:slot_uri meta:id .
 
 meta:identifier a meta:SlotDefinition ;
+    rdfs:seeAlso <https://en.wikipedia.org/wiki/Identifier> ;
+    skos:altLabel "ID",
+        "UID",
+        "code",
+        "primary key" ;
     skos:definition "true means that this slot is the subject of a set of assertions.  Identifiers do not appear as predicates in the model" ;
     skos:inScheme biolinkml:meta ;
     skos:note "a given domain can have at most one identifier",
@@ -901,7 +922,6 @@ meta:repr a meta:SlotDefinition ;
     meta:definition_uri meta:repr ;
     meta:domain meta:TypeDefinition ;
     meta:domain_of meta:TypeDefinition ;
-    meta:examples [ a meta:Example ] ;
     meta:inherited true ;
     meta:owner meta:TypeDefinition ;
     meta:range meta:string ;
@@ -1033,7 +1053,7 @@ meta:subproperty_of a meta:SlotDefinition ;
     meta:domain meta:SlotDefinition ;
     meta:domain_of meta:SlotDefinition ;
     meta:owner meta:SlotDefinition ;
-    meta:range meta:uriorcurie ;
+    meta:range meta:SlotDefinition ;
     meta:slot_uri meta:subproperty_of .
 
 meta:subsets a meta:SlotDefinition ;
@@ -1179,6 +1199,7 @@ meta:SubsetDefinition a meta:ClassDefinition ;
     meta:slots meta:aliases,
         meta:alt_descriptions,
         meta:annotations,
+        meta:broad_mappings,
         meta:close_mappings,
         meta:comments,
         meta:definition_uri,
@@ -1196,6 +1217,7 @@ meta:SubsetDefinition a meta:ClassDefinition ;
         meta:local_names,
         meta:mappings,
         meta:name,
+        meta:narrow_mappings,
         meta:notes,
         meta:related_mappings,
         meta:see_also,
@@ -1418,6 +1440,19 @@ meta:alt_descriptions a meta:SlotDefinition ;
     meta:range meta:AltDescription ;
     meta:slot_uri meta:alt_descriptions .
 
+meta:broad_mappings a meta:SlotDefinition ;
+    skos:definition "A list of terms from different schemas or terminology systems that have broader meaning." ;
+    skos:inScheme biolinkml:mappings ;
+    skos:mappingRelation skos:broadMatch ;
+    meta:definition_uri meta:broad_mappings ;
+    meta:domain_of meta:Element ;
+    meta:imported_from "biolinkml:mappings" ;
+    meta:is_a meta:mappings ;
+    meta:multivalued true ;
+    meta:owner meta:Element ;
+    meta:range meta:uriorcurie ;
+    meta:slot_uri meta:broad_mappings .
+
 meta:close_mappings a meta:SlotDefinition ;
     skos:definition "A list of terms from different schemas or terminology systems that have close meaning." ;
     skos:inScheme biolinkml:mappings ;
@@ -1572,6 +1607,19 @@ meta:local_names a meta:SlotDefinition ;
     meta:range meta:LocalName ;
     meta:slot_uri meta:local_names .
 
+meta:narrow_mappings a meta:SlotDefinition ;
+    skos:definition "A list of terms from different schemas or terminology systems that have narrower meaning." ;
+    skos:inScheme biolinkml:mappings ;
+    skos:mappingRelation skos:narrowMatch ;
+    meta:definition_uri meta:narrow_mappings ;
+    meta:domain_of meta:Element ;
+    meta:imported_from "biolinkml:mappings" ;
+    meta:is_a meta:mappings ;
+    meta:multivalued true ;
+    meta:owner meta:Element ;
+    meta:range meta:uriorcurie ;
+    meta:slot_uri meta:narrow_mappings .
+
 meta:notes a meta:SlotDefinition ;
     OIO:inSubset meta:owl ;
     skos:definition "editorial notes about an element intended for internal consumption" ;
@@ -1622,8 +1670,17 @@ meta:todos a meta:SlotDefinition ;
     meta:range meta:string ;
     meta:slot_uri meta:todos .
 
+meta:Example a meta:ClassDefinition ;
+    skos:definition "usage example and description" ;
+    skos:inScheme biolinkml:meta ;
+    meta:class_uri meta:Example ;
+    meta:definition_uri meta:Example ;
+    meta:slots meta:value,
+        meta:value_description .
+
 meta:name a meta:SlotDefinition ;
     OIO:inSubset meta:owl ;
+    rdfs:seeAlso <https://en.wikipedia.org/wiki/Data_element_name> ;
     skos:definition "the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class." ;
     skos:inScheme biolinkml:meta ;
     skos:mappingRelation schema:name,
@@ -1632,19 +1689,10 @@ meta:name a meta:SlotDefinition ;
     meta:domain meta:Element ;
     meta:domain_of meta:Element ;
     meta:identifier true ;
-    meta:key true ;
     meta:owner meta:Element ;
     meta:range meta:string ;
     meta:required true ;
     meta:slot_uri meta:name .
-
-meta:Example a meta:ClassDefinition ;
-    skos:definition "usage example and description" ;
-    skos:inScheme biolinkml:meta ;
-    meta:class_uri meta:Example ;
-    meta:definition_uri meta:Example ;
-    meta:slots meta:value,
-        meta:value_description .
 
 meta:Extension a meta:ClassDefinition ;
     skos:definition "a tag/value pair used to add non-model information to an entry" ;
@@ -1683,18 +1731,6 @@ meta:description a meta:SlotDefinition ;
     meta:range meta:string ;
     meta:slot_uri meta:description .
 
-meta:mappings a meta:SlotDefinition ;
-    skos:definition "A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective." ;
-    skos:inScheme biolinkml:mappings ;
-    skos:mappingRelation skos:mappingRelation ;
-    meta:definition_uri meta:mappings ;
-    meta:domain_of meta:Element ;
-    meta:imported_from "biolinkml:mappings" ;
-    meta:multivalued true ;
-    meta:owner meta:Element ;
-    meta:range meta:uriorcurie ;
-    meta:slot_uri meta:mappings .
-
 meta:boolean a meta:TypeDefinition ;
     skos:definition "A binary (true or false) value" ;
     skos:inScheme biolinkml:types ;
@@ -1722,6 +1758,18 @@ meta:owl a meta:SubsetDefinition ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:Owl .
 
+meta:mappings a meta:SlotDefinition ;
+    skos:definition "A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective." ;
+    skos:inScheme biolinkml:mappings ;
+    skos:mappingRelation skos:mappingRelation ;
+    meta:definition_uri meta:mappings ;
+    meta:domain_of meta:Element ;
+    meta:imported_from "biolinkml:mappings" ;
+    meta:multivalued true ;
+    meta:owner meta:Element ;
+    meta:range meta:uriorcurie ;
+    meta:slot_uri meta:mappings .
+
 meta:uriorcurie a meta:TypeDefinition ;
     skos:definition "a URI or a CURIE" ;
     skos:inScheme biolinkml:types ;
@@ -1741,6 +1789,7 @@ meta:TypeDefinition a meta:ClassDefinition ;
         meta:alt_descriptions,
         meta:annotations,
         meta:base,
+        meta:broad_mappings,
         meta:close_mappings,
         meta:comments,
         meta:definition_uri,
@@ -1758,6 +1807,7 @@ meta:TypeDefinition a meta:ClassDefinition ;
         meta:local_names,
         meta:mappings,
         meta:name,
+        meta:narrow_mappings,
         meta:notes,
         meta:related_mappings,
         meta:repr,
@@ -1767,6 +1817,7 @@ meta:TypeDefinition a meta:ClassDefinition ;
         meta:typeof .
 
 meta:Definition a meta:ClassDefinition ;
+    rdfs:seeAlso <https://en.wikipedia.org/wiki/Data_element_definition> ;
     skos:definition "base class for definitions" ;
     skos:inScheme biolinkml:meta ;
     meta:abstract true ;
@@ -1778,6 +1829,7 @@ meta:Definition a meta:ClassDefinition ;
         meta:alt_descriptions,
         meta:annotations,
         meta:apply_to,
+        meta:broad_mappings,
         meta:close_mappings,
         meta:comments,
         meta:created_by,
@@ -1802,6 +1854,7 @@ meta:Definition a meta:ClassDefinition ;
         meta:mixins,
         meta:modified_by,
         meta:name,
+        meta:narrow_mappings,
         meta:notes,
         meta:related_mappings,
         meta:see_also,
@@ -1818,6 +1871,9 @@ meta:string a meta:TypeDefinition ;
     meta:uri xsd:string .
 
 meta:ClassDefinition a meta:ClassDefinition ;
+    skos:altLabel "record",
+        "table",
+        "template" ;
     skos:definition "the definition of a class or interface" ;
     skos:inScheme biolinkml:meta ;
     meta:class_uri meta:ClassDefinition ;
@@ -1827,6 +1883,8 @@ meta:ClassDefinition a meta:ClassDefinition ;
         meta:aliases,
         meta:alt_descriptions,
         meta:annotations,
+        meta:attributes,
+        meta:broad_mappings,
         meta:class_definition_apply_to,
         meta:class_definition_is_a,
         meta:class_definition_mixins,
@@ -1854,6 +1912,7 @@ meta:ClassDefinition a meta:ClassDefinition ;
         meta:mixin,
         meta:modified_by,
         meta:name,
+        meta:narrow_mappings,
         meta:notes,
         meta:related_mappings,
         meta:see_also,
@@ -1867,6 +1926,8 @@ meta:ClassDefinition a meta:ClassDefinition ;
         meta:values_from .
 
 meta:SchemaDefinition a meta:ClassDefinition ;
+    rdfs:seeAlso <https://en.wikipedia.org/wiki/Data_dictionary> ;
+    skos:altLabel "data dictionary" ;
     skos:definition "a collection of subset, type, slot and class definitions" ;
     skos:inScheme biolinkml:meta ;
     meta:class_uri meta:SchemaDefinition ;
@@ -1875,6 +1936,7 @@ meta:SchemaDefinition a meta:ClassDefinition ;
     meta:slots meta:aliases,
         meta:alt_descriptions,
         meta:annotations,
+        meta:broad_mappings,
         meta:classes,
         meta:close_mappings,
         meta:comments,
@@ -1901,6 +1963,7 @@ meta:SchemaDefinition a meta:ClassDefinition ;
         meta:local_names,
         meta:mappings,
         meta:metamodel_version,
+        meta:narrow_mappings,
         meta:notes,
         meta:prefixes,
         meta:related_mappings,
@@ -1917,6 +1980,7 @@ meta:SchemaDefinition a meta:ClassDefinition ;
         meta:version .
 
 meta:Element a meta:ClassDefinition ;
+    rdfs:seeAlso <https://en.wikipedia.org/wiki/Data_element> ;
     skos:definition "a named element in the model" ;
     skos:inScheme biolinkml:meta ;
     meta:abstract true ;
@@ -1927,6 +1991,7 @@ meta:Element a meta:ClassDefinition ;
     meta:slots meta:aliases,
         meta:alt_descriptions,
         meta:annotations,
+        meta:broad_mappings,
         meta:close_mappings,
         meta:comments,
         meta:definition_uri,
@@ -1944,12 +2009,17 @@ meta:Element a meta:ClassDefinition ;
         meta:local_names,
         meta:mappings,
         meta:name,
+        meta:narrow_mappings,
         meta:notes,
         meta:related_mappings,
         meta:see_also,
         meta:todos .
 
 meta:SlotDefinition a meta:ClassDefinition ;
+    skos:altLabel "attribute",
+        "field",
+        "property",
+        "slot" ;
     skos:definition "the definition of a property or a slot" ;
     skos:inScheme biolinkml:meta ;
     meta:class_uri meta:SlotDefinition ;
@@ -1960,6 +2030,7 @@ meta:SlotDefinition a meta:ClassDefinition ;
         meta:aliases,
         meta:alt_descriptions,
         meta:annotations,
+        meta:broad_mappings,
         meta:close_mappings,
         meta:comments,
         meta:created_by,
@@ -1995,6 +2066,7 @@ meta:SlotDefinition a meta:ClassDefinition ;
         meta:modified_by,
         meta:multivalued,
         meta:name,
+        meta:narrow_mappings,
         meta:notes,
         meta:owner,
         meta:pattern,

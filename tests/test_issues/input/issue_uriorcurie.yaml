@@ -1,0 +1,14 @@
+id: http://example.org/test/test_uriorcurie
+name: test_uriorcurie
+
+prefixes:
+  biolinkml: https://w3id.org/biolink/biolinkml/
+
+imports:
+  - biolinkml:types
+
+default_prefix: biolinkml
+
+slots:
+  s1:
+    subproperty_of: homologous to

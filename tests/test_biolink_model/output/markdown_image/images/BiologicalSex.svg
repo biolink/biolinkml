@@ -48,12 +48,12 @@
 <polygon fill='white' points='126,-281 126,-317 368,-317 368,-281 126,-281' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='247' y='-295.3'>EntityToPhenotypicFeatureAssociation</text>
 </g><g class='node' id='node7'><title>BiologicalSex</title>
-<polygon fill='white' points='263,-129 263,-189 409,-189 409,-129 263,-129' stroke='black'/>
+<polygon fill='white' points='246,-129 246,-189 426,-189 426,-129 246,-129' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='336' y='-177.8'>BiologicalSex</text>
-<polyline fill='none' points='263,-174 409,-174 ' stroke='black'/>
+<polyline fill='none' points='246,-174 426,-174 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='336' y='-162.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='336' y='-147.8'>name(i):label_type</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='336' y='-132.8'>category(i):iri_type +</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='336' y='-132.8'>category(i):category_type +</text>
 </g><g class='edge' id='edge1'><title>EntityToPhenotypicFeatureAssociation-&gt;BiologicalSex</title>
 <path d='M258.092,-280.801C271.421,-260.134 294.173,-224.855 311.66,-197.741' fill='none' stroke='black'/>
 <polygon fill='black' points='317.133,-189.254 315.495,-200.097 314.424,-193.456 311.714,-197.658 311.714,-197.658 311.714,-197.658 314.424,-193.456 307.932,-195.219 317.133,-189.254 317.133,-189.254' stroke='black'/>

@@ -31,9 +31,12 @@ URI: [biolink:FunctionalAssociation](https://w3id.org/biolink/vocab/FunctionalAs
  * [functional association➞object](functional_association_object.md)  <sub>REQ</sub>
     * Description: class describing the activity, process or localization of the gene product
     * range: [GeneOntologyClass](GeneOntologyClass.md)
+    * Example:    
+    * Example:    
  * [functional association➞subject](functional_association_subject.md)  <sub>REQ</sub>
     * Description: gene, product or macromolecular complex that has the function associated with the GO term
     * range: [MacromolecularMachine](MacromolecularMachine.md)
+    * Example:    
 
 ### Inherited from association:
 
@@ -57,5 +60,5 @@ URI: [biolink:FunctionalAssociation](https://w3id.org/biolink/vocab/FunctionalAs
     * Description: connects an association to qualifiers that modify or qualify the meaning of that association
     * range: [OntologyClass](OntologyClass.md)
  * [relation](relation.md)  <sub>REQ</sub>
-    * Description: the relationship type by which a subject is connected to an object in an association
+    * Description: The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.
     * range: [Uriorcurie](types/Uriorcurie.md)
