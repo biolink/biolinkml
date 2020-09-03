@@ -199,6 +199,7 @@ slots:
   annotation_extension_value:
     name: annotation_extension_value
     from_schema: http://example.org/tests/issue167b
+    imported_from: biolinkml:annotations
     is_a: extension_value
     domain: annotation
     range: boolean
@@ -287,6 +288,6 @@ classes:
     class_uri: meta:Extensible
 metamodel_version: 1.5.3
 source_file: issue_167b.yaml
-source_file_date: Friday Sep 27 12:00:00 2003
-source_file_size:  23600
-generation_date: Friday Sep 27 12:00:00 2003
+source_file_date: Fri Aug 28 14:43:25 2020
+source_file_size: 835
+generation_date: 2020-08-28 14:52

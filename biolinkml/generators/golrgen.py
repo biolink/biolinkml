@@ -42,6 +42,7 @@ class GOLRClass(YAMLRoot):
 class GolrSchemaGenerator(Generator):
     generatorname = os.path.basename(__file__)
     generatorversion = "0.1.1"
+    directory_output = True
     valid_formats = ["golr"]
     visit_all_class_slots = True
 

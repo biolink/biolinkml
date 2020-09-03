@@ -36,14 +36,14 @@
 <polygon fill='white' points='135,-281 135,-317 253,-317 253,-281 135,-281' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='194' y='-295.3'>MolecularEntity</text>
 </g><g class='node' id='node10'><title>ChemicalSubstance</title>
-<polygon fill='white' points='483,-129 483,-189 629,-189 629,-129 483,-129' stroke='black'/>
+<polygon fill='white' points='466,-129 466,-189 646,-189 646,-129 466,-129' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='556' y='-177.8'>ChemicalSubstance</text>
-<polyline fill='none' points='483,-174 629,-174 ' stroke='black'/>
+<polyline fill='none' points='466,-174 646,-174 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='556' y='-162.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='556' y='-147.8'>name(i):label_type</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='556' y='-132.8'>category(i):iri_type +</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='556' y='-132.8'>category(i):category_type +</text>
 </g><g class='edge' id='edge11'><title>MolecularEntity-&gt;ChemicalSubstance</title>
-<path d='M248.413,-277.257C310.836,-253.46 413.491,-214.327 482.864,-187.88' fill='none' stroke='black'/>
+<path d='M248.274,-277.31C309.766,-253.868 410.429,-215.494 479.784,-189.055' fill='none' stroke='black'/>
 <polygon fill='none' points='246.849,-274.107 238.751,-280.94 249.342,-280.648 246.849,-274.107' stroke='black'/>
 </g><g class='node' id='node3'><title>MolecularActivity</title>
 <polygon fill='white' points='271.5,-281 271.5,-317 400.5,-317 400.5,-281 271.5,-281' stroke='black'/>
@@ -84,16 +84,16 @@
 <polygon fill='black' points='620.488,-189.055 631.452,-188.823 625.09,-191.01 629.692,-192.965 629.692,-192.965 629.692,-192.965 625.09,-191.01 627.932,-197.107 620.488,-189.055 620.488,-189.055' stroke='black'/>
 <text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='635.111' y='-198.999'> object 1..1</text>
 </g><g class='edge' id='edge3'><title>ChemicalToChemicalDerivationAssociation-&gt;ChemicalSubstance</title>
-<path d='M852.463,-280.94C801.312,-258.763 707.183,-219.594 638.639,-191.847' fill='none' stroke='black'/>
-<polygon fill='black' points='629.144,-188.01 640.102,-187.584 633.78,-189.883 638.416,-191.756 638.416,-191.756 638.416,-191.756 633.78,-189.883 636.73,-195.929 629.144,-188.01 629.144,-188.01' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='644.007' y='-197.693'> subject 1..1</text>
+<path d='M852.463,-280.94C801.948,-259.038 709.515,-220.564 641.205,-192.886' fill='none' stroke='black'/>
+<polygon fill='black' points='631.733,-189.055 642.691,-188.633 636.368,-190.93 641.004,-192.804 641.004,-192.804 641.004,-192.804 636.368,-190.93 639.316,-196.976 631.733,-189.055 631.733,-189.055' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='646.591' y='-198.743'> subject 1..1</text>
 </g><g class='node' id='node9'><title>ChemicalToChemicalAssociation</title>
 <polygon fill='white' points='1042,-281 1042,-317 1254,-317 1254,-281 1042,-281' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1148' y='-295.3'>ChemicalToChemicalAssociation</text>
 </g><g class='edge' id='edge1'><title>ChemicalToChemicalAssociation-&gt;ChemicalSubstance</title>
-<path d='M1074.82,-280.94C964.197,-255.154 755.034,-206.396 638.928,-179.331' fill='none' stroke='black'/>
-<polygon fill='black' points='629.017,-177.021 639.778,-174.909 633.887,-178.156 638.756,-179.291 638.756,-179.291 638.756,-179.291 633.887,-178.156 637.735,-183.674 629.017,-177.021 629.017,-177.021' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='645.768' y='-184.249'> object 1..1</text>
+<path d='M1074.82,-280.94C969.426,-256.373 774.591,-210.955 655.999,-183.311' fill='none' stroke='black'/>
+<polygon fill='black' points='646.182,-181.022 656.942,-178.91 651.051,-182.157 655.92,-183.292 655.92,-183.292 655.92,-183.292 651.051,-182.157 654.899,-187.675 646.182,-181.022 646.182,-181.022' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='662.932' y='-188.25'> object 1..1</text>
 </g><g class='edge' id='edge8'><title>ChemicalSubstance-&gt;Metabolite</title>
 <path d='M531.367,-120.229C513.647,-93.0584 490.587,-57.7002 477.126,-37.0599' fill='none' stroke='black'/>
 <polygon fill='none' points='528.519,-122.27 536.913,-128.734 534.382,-118.446 528.519,-122.27' stroke='black'/>

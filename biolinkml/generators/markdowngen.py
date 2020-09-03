@@ -16,6 +16,7 @@ from biolinkml.utils.typereferences import References
 class MarkdownGenerator(Generator):
     generatorname = os.path.basename(__file__)
     generatorversion = "0.1.1"
+    directory_output = True
     valid_formats = ["md"]
     visit_all_class_slots = False
 
@@ -314,7 +315,7 @@ class MarkdownGenerator(Generator):
         # if slot.subproperty_of:
         #     self.bullet(f'edge label: {self.slot_link(slot.subproperty_of)}', level=1)
         for example in slot.examples:
-            self.bullet(f'Example: {example.value} {example.description}', level=1)
+            self.bullet(f'Example: {getattr(example, "value", " ")} {getattr(example, "description", " ")}', level=1)
         # if slot.name not in self.own_slot_names(cls):
         #     self.bullet(f'inherited from: {self.class_link(slot.domain)}', level=1)
         if slot.in_subset:

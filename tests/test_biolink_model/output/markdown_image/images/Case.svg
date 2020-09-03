@@ -36,12 +36,12 @@
 <polygon fill='white' points='135,-153 135,-189 273,-189 273,-153 135,-153' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='204' y='-167.3'>IndividualOrganism</text>
 </g><g class='node' id='node4'><title>Case</title>
-<polygon fill='white' points='216,-1 216,-61 362,-61 362,-1 216,-1' stroke='black'/>
+<polygon fill='white' points='199,-1 199,-61 379,-61 379,-1 199,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='289' y='-49.8'>Case</text>
-<polyline fill='none' points='216,-46 362,-46 ' stroke='black'/>
+<polyline fill='none' points='199,-46 379,-46 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='289' y='-34.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='289' y='-19.8'>name(i):label_type</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='289' y='-4.8'>category(i):iri_type +</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='289' y='-4.8'>category(i):category_type +</text>
 </g><g class='edge' id='edge2'><title>IndividualOrganism-&gt;Case</title>
 <path d='M219.978,-144.06C234.488,-120.502 255.868,-85.7903 270.981,-61.2537' fill='none' stroke='black'/>
 <polygon fill='none' points='216.858,-142.451 214.593,-152.801 222.818,-146.122 216.858,-142.451' stroke='black'/>

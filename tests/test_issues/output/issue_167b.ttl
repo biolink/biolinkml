@@ -18,23 +18,23 @@
     meta:default_curi_maps "semweb_context" ;
     meta:default_prefix "ex" ;
     meta:default_range <http://example.org/string> ;
-    meta:generation_date "2020-08-04 17:48"^^xsd:dateTime ;
+    meta:generation_date "2020-08-28 14:51"^^xsd:dateTime ;
     meta:id <http://example.org/tests/issue167b> ;
     meta:imports biolinkml:annotations,
         biolinkml:extensions,
         biolinkml:types ;
     meta:metamodel_version "1.5.3" ;
-    meta:prefixes [ meta:prefix_prefix "biolinkml" ;
-            meta:prefix_reference biolinkml: ],
-        [ meta:prefix_prefix "ex" ;
-            meta:prefix_reference <http://example.org/> ] ;
+    meta:prefixes [ meta:prefix_prefix "ex" ;
+            meta:prefix_reference <http://example.org/> ],
+        [ meta:prefix_prefix "biolinkml" ;
+            meta:prefix_reference biolinkml: ] ;
     meta:slots <http://example.org/annotation_extension_value>,
         <http://example.org/annotations>,
         <http://example.org/extension_tag>,
         <http://example.org/extension_value>,
         <http://example.org/extensions> ;
     meta:source_file "issue_167b.yaml" ;
-    meta:source_file_date "Tue Aug  4 17:46:56 2020"^^xsd:dateTime ;
+    meta:source_file_date "Fri Aug 28 14:43:25 2020"^^xsd:dateTime ;
     meta:source_file_size 835 ;
     meta:types <http://example.org/boolean>,
         <http://example.org/date>,
@@ -145,6 +145,7 @@
     meta:alias "value" ;
     meta:domain <http://example.org/Annotation> ;
     meta:domain_of <http://example.org/Annotation> ;
+    meta:imported_from "biolinkml:annotations" ;
     meta:is_a <http://example.org/extension_value> ;
     meta:is_usage_slot true ;
     meta:owner <http://example.org/Annotation> ;
@@ -174,11 +175,11 @@
     skos:definition "Annotations as tag value pairs. Note that altLabel is defined in the default namespace, not in the SKOS namespace" ;
     skos:inScheme <http://example.org/tests/issue167b> ;
     meta:annotations [ a meta:Annotation ;
-            skos:example "some other label" ;
-            meta:tag <http://example.org/altLabel> ],
-        [ a meta:Annotation ;
             skos:example "a label" ;
-            meta:tag skos:prefLabel ] ;
+            meta:tag skos:prefLabel ],
+        [ a meta:Annotation ;
+            skos:example "some other label" ;
+            meta:tag <http://example.org/altLabel> ] ;
     meta:class_uri <http://example.org/MyClass> ;
     meta:definition_uri <http://example.org/MyClass> .
 

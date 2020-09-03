@@ -88,6 +88,16 @@ fields:
     have related meaning.
   display_name: related mappings
   cardinality: multi
+- id: narrow_mappings
+  description: A list of terms from different schemas or terminology systems that
+    have narrower meaning.
+  display_name: narrow mappings
+  cardinality: multi
+- id: broad_mappings
+  description: A list of terms from different schemas or terminology systems that
+    have broader meaning.
+  display_name: broad mappings
+  cardinality: multi
 - id: deprecated_element_has_exact_replacement
   description: When an element is deprecated, it can be automatically replaced by
     this uri or curie
@@ -138,6 +148,10 @@ fields:
 - id: slot_usage
   description: the redefinition of a slot in the context of the containing class definition.
   display_name: slot_usage
+  cardinality: multi
+- id: attributes
+  description: Inline definition of slots
+  display_name: attributes
   cardinality: multi
 - id: class_uri
   description: URI of the class in an RDF environment

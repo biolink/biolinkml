@@ -35,4 +35,5 @@ URI: [meta:name](https://w3id.org/biolink/biolinkml/meta/name)
 | **Mappings:** | | rdfs:label |
 |  | | schema:name |
 | **In Subsets:** | | owl |
+| **See also:** | | https://en.wikipedia.org/wiki/Data_element_name |
 

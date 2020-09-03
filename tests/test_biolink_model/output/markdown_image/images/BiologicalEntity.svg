@@ -36,12 +36,12 @@
 <polygon fill='white' points='284.5,-281 284.5,-317 385.5,-317 385.5,-281 284.5,-281' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='335' y='-295.3'>NamedThing</text>
 </g><g class='node' id='node7'><title>BiologicalEntity</title>
-<polygon fill='white' points='262,-129 262,-189 408,-189 408,-129 262,-129' stroke='black'/>
+<polygon fill='white' points='245,-129 245,-189 425,-189 425,-129 245,-129' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='335' y='-177.8'>BiologicalEntity</text>
-<polyline fill='none' points='262,-174 408,-174 ' stroke='black'/>
+<polyline fill='none' points='245,-174 425,-174 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='335' y='-162.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='335' y='-147.8'>name(i):label_type</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='335' y='-132.8'>category(i):iri_type +</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='335' y='-132.8'>category(i):category_type +</text>
 </g><g class='edge' id='edge6'><title>NamedThing-&gt;BiologicalEntity</title>
 <path d='M335,-270.798C335,-247.277 335,-213.356 335,-189.254' fill='none' stroke='black'/>
 <polygon fill='none' points='331.5,-270.801 335,-280.801 338.5,-270.801 331.5,-270.801' stroke='black'/>
@@ -70,7 +70,7 @@
 <path d='M377.908,-122.329C410.897,-94.9051 455.006,-58.2363 480.479,-37.0599' fill='none' stroke='black'/>
 <polygon fill='none' points='375.657,-119.65 370.204,-128.734 380.132,-125.032 375.657,-119.65' stroke='black'/>
 </g><g class='edge' id='edge5'><title>BiologicalEntity-&gt;BiologicalProcessOrActivity</title>
-<path d='M418.155,-126.901C492.475,-99.1067 598.606,-59.4157 658.432,-37.0416' fill='none' stroke='black'/>
-<polygon fill='none' points='416.484,-123.789 408.344,-130.571 418.936,-130.346 416.484,-123.789' stroke='black'/>
+<path d='M422.602,-125.238C496.697,-97.5281 599.902,-58.931 658.528,-37.0057' fill='none' stroke='black'/>
+<polygon fill='none' points='420.945,-122.121 412.805,-128.902 423.397,-128.678 420.945,-122.121' stroke='black'/>
 </g></g>
 <text style='fill: lightslategray; font-size: 6pt; font-family: Verdana' x='707' y='346'>CREATED WITH YUML</text></svg>

@@ -30,6 +30,8 @@ URI: [biolink:VariantToThingAssociation](https://w3id.org/biolink/vocab/VariantT
  * [variant to thing association➞subject](variant_to_thing_association_subject.md)  <sub>REQ</sub>
     * Description: a sequence variant in which the allele state is associated with some other entity
     * range: [SequenceVariant](SequenceVariant.md)
+    * Example:    
+    * Example:    
 
 ### Inherited from association:
 
@@ -56,7 +58,7 @@ URI: [biolink:VariantToThingAssociation](https://w3id.org/biolink/vocab/VariantT
     * Description: connects an association to qualifiers that modify or qualify the meaning of that association
     * range: [OntologyClass](OntologyClass.md)
  * [relation](relation.md)  <sub>REQ</sub>
-    * Description: the relationship type by which a subject is connected to an object in an association
+    * Description: The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.
     * range: [Uriorcurie](types/Uriorcurie.md)
 
 ## Other properties

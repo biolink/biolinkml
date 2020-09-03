@@ -30,7 +30,6 @@ URI: [meta:TypeDefinition](https://w3id.org/biolink/biolinkml/meta/TypeDefinitio
  * [repr](repr.md)  <sub>OPT</sub>
     * Description: the name of the python object that implements this type definition
     * range: [String](types/String.md)
-    * Example: None None
  * [type_definition➞uri](type_uri.md)  <sub>OPT</sub>
     * Description: The uri that defines the possible values for the type definition
     * range: [Uriorcurie](types/Uriorcurie.md)
@@ -44,6 +43,9 @@ URI: [meta:TypeDefinition](https://w3id.org/biolink/biolinkml/meta/TypeDefinitio
     * range: [String](types/String.md)
  * [alt_descriptions](alt_descriptions.md)  <sub>0..*</sub>
     * range: [AltDescription](AltDescription.md)
+ * [broad mappings](broad_mappings.md)  <sub>0..*</sub>
+    * Description: A list of terms from different schemas or terminology systems that have broader meaning.
+    * range: [Uriorcurie](types/Uriorcurie.md)
  * [close mappings](close_mappings.md)  <sub>0..*</sub>
     * Description: A list of terms from different schemas or terminology systems that have close meaning.
     * range: [Uriorcurie](types/Uriorcurie.md)
@@ -95,6 +97,9 @@ URI: [meta:TypeDefinition](https://w3id.org/biolink/biolinkml/meta/TypeDefinitio
     * Description: the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class.
     * range: [String](types/String.md)
     * in subsets: (owl)
+ * [narrow mappings](narrow_mappings.md)  <sub>0..*</sub>
+    * Description: A list of terms from different schemas or terminology systems that have narrower meaning.
+    * range: [Uriorcurie](types/Uriorcurie.md)
  * [notes](notes.md)  <sub>0..*</sub>
     * Description: editorial notes about an element intended for internal consumption
     * range: [String](types/String.md)

@@ -61,3 +61,4 @@ URI: [biolink:PairwiseGeneToGeneInteraction](https://w3id.org/biolink/vocab/Pair
 
  * [pairwise interaction association➞interacting molecules category](pairwise_interaction_association_interacting_molecules_category.md)  <sub>OPT</sub>
     * range: [OntologyClass](OntologyClass.md)
+    * Example:    

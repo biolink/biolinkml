@@ -39,15 +39,15 @@
 <polygon fill='white' points='-0.5,-281 -0.5,-317 124.5,-317 124.5,-281 -0.5,-281' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='62' y='-295.3'>OrganismalEntity</text>
 </g><g class='node' id='node14'><title>AnatomicalEntity</title>
-<polygon fill='white' points='868,-129 868,-189 1014,-189 1014,-129 868,-129' stroke='black'/>
+<polygon fill='white' points='851,-129 851,-189 1031,-189 1031,-129 851,-129' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='941' y='-177.8'>AnatomicalEntity</text>
-<polyline fill='none' points='868,-174 1014,-174 ' stroke='black'/>
+<polyline fill='none' points='851,-174 1031,-174 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='941' y='-162.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='941' y='-147.8'>name(i):label_type</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='941' y='-132.8'>category(i):iri_type +</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='941' y='-132.8'>category(i):category_type +</text>
 </g><g class='edge' id='edge14'><title>OrganismalEntity-&gt;AnatomicalEntity</title>
-<path d='M134.815,-279.723C409.763,-225.096 727.325,-184.95 867.87,-168.352' fill='none' stroke='black'/>
-<polygon fill='none' points='133.762,-276.364 124.642,-281.754 135.133,-283.228 133.762,-276.364' stroke='black'/>
+<path d='M134.83,-279.719C399.461,-227.139 702.879,-188.069 850.813,-170.379' fill='none' stroke='black'/>
+<polygon fill='none' points='133.762,-276.363 124.642,-281.754 135.133,-283.228 133.762,-276.363' stroke='black'/>
 </g><g class='node' id='node4'><title>OrganismTaxon</title>
 <polygon fill='white' points='1821.5,-281 1821.5,-317 1938.5,-317 1938.5,-281 1821.5,-281' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1880' y='-295.3'>OrganismTaxon</text>
@@ -58,9 +58,9 @@
 <polygon fill='white' points='142.5,-281 142.5,-317 359.5,-317 359.5,-281 142.5,-281' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='251' y='-295.3'>GeneToExpressionSiteAssociation</text>
 </g><g class='edge' id='edge8'><title>GeneToExpressionSiteAssociation-&gt;AnatomicalEntity</title>
-<path d='M336.3,-280.94C469.66,-254.268 725.906,-203.019 857.901,-176.62' fill='none' stroke='black'/>
-<polygon fill='black' points='867.959,-174.608 859.036,-180.982 863.057,-175.589 858.154,-176.569 858.154,-176.569 858.154,-176.569 863.057,-175.589 857.271,-172.157 867.959,-174.608 867.959,-174.608' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='848.189' y='-167.886'> object 1..1</text>
+<path d='M336.3,-280.94C464.166,-255.367 705,-207.2 840.97,-180.006' fill='none' stroke='black'/>
+<polygon fill='black' points='850.978,-178.004 842.055,-184.378 846.075,-178.985 841.172,-179.966 841.172,-179.966 841.172,-179.966 846.075,-178.985 840.289,-175.553 850.978,-178.004 850.978,-178.004' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='831.207' y='-171.283'> object 1..1</text>
 </g><g class='node' id='node7'><title>GeneOrGeneProduct</title>
 <polygon fill='white' points='1957,-281 1957,-317 2099,-317 2099,-281 1957,-281' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2028' y='-295.3'>GeneOrGeneProduct</text>
@@ -68,9 +68,9 @@
 <polygon fill='white' points='377.5,-281 377.5,-317 754.5,-317 754.5,-281 377.5,-281' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='566' y='-295.3'>DiseaseOrPhenotypicFeatureAssociationToLocationAssociation</text>
 </g><g class='edge' id='edge7'><title>DiseaseOrPhenotypicFeatureAssociationToLocationAssociation-&gt;AnatomicalEntity</title>
-<path d='M612.358,-280.94C673.621,-258.395 782.599,-218.292 858.181,-190.477' fill='none' stroke='black'/>
-<polygon fill='black' points='867.689,-186.978 859.859,-194.655 862.997,-188.705 858.305,-190.432 858.305,-190.432 858.305,-190.432 862.997,-188.705 856.75,-186.209 867.689,-186.978 867.689,-186.978' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='847.689' y='-183.349'> object 1..1</text>
+<path d='M612.358,-280.94C672.118,-258.949 777.279,-220.249 852.558,-192.547' fill='none' stroke='black'/>
+<polygon fill='black' points='862.047,-189.055 854.216,-196.732 857.354,-190.782 852.662,-192.509 852.662,-192.509 852.662,-192.509 857.354,-190.782 851.108,-188.285 862.047,-189.055 862.047,-189.055' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='842.047' y='-185.426'> object 1..1</text>
 </g><g class='node' id='node9'><title>CellularComponent</title>
 <polygon fill='white' points='1046,-1 1046,-37 1182,-37 1182,-1 1046,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1114' y='-15.3'>CellularComponent</text>
@@ -96,20 +96,20 @@
 <polygon fill='black' points='1012.23,-189.055 1023.18,-188.465 1016.89,-190.859 1021.55,-192.662 1021.55,-192.662 1021.55,-192.662 1016.89,-190.859 1019.93,-196.859 1012.23,-189.055 1012.23,-189.055' stroke='black'/>
 <text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1027.29' y='-198.514'> object 1..1</text>
 </g><g class='edge' id='edge4'><title>AnatomicalEntityToAnatomicalEntityOntogenicAssociation-&gt;AnatomicalEntity</title>
-<path d='M1265.51,-280.94C1207.32,-258.015 1098.99,-216.933 1023.54,-189.08' fill='none' stroke='black'/>
-<polygon fill='black' points='1014.05,-185.582 1024.98,-184.817 1018.74,-187.31 1023.43,-189.039 1023.43,-189.039 1023.43,-189.039 1018.74,-187.31 1021.87,-193.262 1014.05,-185.582 1014.05,-185.582' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1029.31' y='-194.799'> subject 1..1</text>
+<path d='M1265.51,-280.94C1209.69,-258.949 1107.73,-220.249 1032.92,-192.547' fill='none' stroke='black'/>
+<polygon fill='black' points='1023.47,-189.055 1034.41,-188.302 1028.16,-190.789 1032.85,-192.523 1032.85,-192.523 1032.85,-192.523 1028.16,-190.789 1031.29,-196.744 1023.47,-189.055 1023.47,-189.055' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1038.73' y='-198.288'> subject 1..1</text>
 </g><g class='node' id='node13'><title>AnatomicalEntityToAnatomicalEntityAssociation</title>
 <polygon fill='white' points='1502.5,-281 1502.5,-317 1803.5,-317 1803.5,-281 1502.5,-281' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1653' y='-295.3'>AnatomicalEntityToAnatomicalEntityAssociation</text>
 </g><g class='edge' id='edge1'><title>AnatomicalEntityToAnatomicalEntityAssociation-&gt;AnatomicalEntity</title>
-<path d='M1560.35,-280.94C1420.64,-254.409 1158.28,-203.558 1024.29,-177.039' fill='none' stroke='black'/>
-<polygon fill='black' points='1014.08,-175.017 1024.76,-172.546 1018.98,-175.989 1023.89,-176.961 1023.89,-176.961 1023.89,-176.961 1018.98,-175.989 1023.01,-181.375 1014.08,-175.017 1014.08,-175.017' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1031.19' y='-181.68'> object 1..1</text>
+<path d='M1560.35,-280.94C1426.33,-255.49 1179.46,-207.663 1041.29,-180.4' fill='none' stroke='black'/>
+<polygon fill='black' points='1031.13,-178.393 1041.81,-175.915 1036.03,-179.361 1040.94,-180.33 1040.94,-180.33 1040.94,-180.33 1036.03,-179.361 1040.07,-184.745 1031.13,-178.393 1031.13,-178.393' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1048.24' y='-185.045'> object 1..1</text>
 </g><g class='edge' id='edge2'><title>AnatomicalEntityToAnatomicalEntityAssociation-&gt;AnatomicalEntity</title>
-<path d='M1569.61,-280.94C1432.48,-253.802 1161.12,-201.219 1024.15,-175.258' fill='none' stroke='black'/>
-<polygon fill='black' points='1014.12,-173.36 1024.79,-170.799 1019.04,-174.29 1023.95,-175.22 1023.95,-175.22 1023.95,-175.22 1019.04,-174.29 1023.11,-179.641 1014.12,-173.36 1014.12,-173.36' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1031.32' y='-179.877'> subject 1..1</text>
+<path d='M1569.61,-280.94C1437.95,-254.884 1182.55,-205.371 1041.16,-178.487' fill='none' stroke='black'/>
+<polygon fill='black' points='1031.18,-176.591 1041.84,-174.036 1036.09,-177.524 1041,-178.457 1041,-178.457 1041,-178.457 1036.09,-177.524 1040.16,-182.878 1031.18,-176.591 1031.18,-176.591' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1048.36' y='-183.119'> subject 1..1</text>
 </g><g class='edge' id='edge9'><title>AnatomicalEntity-&gt;ThingWithTaxon</title>
 <path d='M879.642,-128.902C824.5,-102.752 744.792,-64.9527 695.253,-41.4602' fill='none' stroke='black' stroke-dasharray='5,2'/>
 <polygon fill='black' points='686.066,-37.1033 697.029,-37.3222 690.583,-39.2457 695.101,-41.3882 695.101,-41.3882 695.101,-41.3882 690.583,-39.2457 693.173,-45.4542 686.066,-37.1033 686.066,-37.1033' stroke='black'/>

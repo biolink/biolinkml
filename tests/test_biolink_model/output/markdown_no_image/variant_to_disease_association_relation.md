@@ -20,5 +20,6 @@ URI: [biolink:variant_to_disease_association_relation](https://w3id.org/biolink/
 
 ## Used by
 
+ * [VariantAsAModelOfDiseaseAssociation](VariantAsAModelOfDiseaseAssociation.md)
  * [VariantToDiseaseAssociation](VariantToDiseaseAssociation.md)
- *  reifies: related condition
+ *  reifies: [related condition](related_condition.md)

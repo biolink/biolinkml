@@ -1,0 +1,7 @@
+{
+   "_comments": "Auto generated from minimalmodel.yaml by jsonldcontextgen.py version: 0.1.1\nid: https://hotecosystem.org/tccm/prefixes\ndescription: \nlicense: \n",
+   "@context": {
+      "type": "@type",
+      "@vocab": "https://hotecosystem.org/tccm/prefixes/"
+   }
+}

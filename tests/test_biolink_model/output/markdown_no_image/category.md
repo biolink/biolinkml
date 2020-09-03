@@ -9,11 +9,11 @@ URI: [biolink:category](https://w3id.org/biolink/vocab/category)
 
 ## Domain and Range
 
-[NamedThing](NamedThing.md) ->  <sub>1..*</sub> [IriType](types/IriType.md)
+[NamedThing](NamedThing.md) ->  <sub>1..*</sub> [CategoryType](types/CategoryType.md)
 
 ## Parents
 
- *  is_a: [node property](node_property.md)
+ *  is_a: [type](type.md)
 
 ## Children
 
@@ -37,6 +37,7 @@ URI: [biolink:category](https://w3id.org/biolink/vocab/category)
  * [CellularComponent](CellularComponent.md)
  * [ChemicalExposure](ChemicalExposure.md)
  * [ChemicalSubstance](ChemicalSubstance.md)
+ * [ClinicalCourse](ClinicalCourse.md)
  * [ClinicalEntity](ClinicalEntity.md)
  * [ClinicalIntervention](ClinicalIntervention.md)
  * [ClinicalModifier](ClinicalModifier.md)
@@ -75,6 +76,7 @@ URI: [biolink:category](https://w3id.org/biolink/vocab/category)
  * [Haplotype](Haplotype.md)
  * [IndividualOrganism](IndividualOrganism.md)
  * [InformationContentEntity](InformationContentEntity.md)
+ * [Inheritance](Inheritance.md)
  * [LifeStage](LifeStage.md)
  * [MacromolecularComplex](MacromolecularComplex.md)
  * [MacromolecularMachine](MacromolecularMachine.md)
@@ -103,9 +105,11 @@ URI: [biolink:category](https://w3id.org/biolink/vocab/category)
  * [ProteinIsoform](ProteinIsoform.md)
  * [Provider](Provider.md)
  * [Publication](Publication.md)
+ * [ReagentTargetedGene](ReagentTargetedGene.md)
  * [RelationshipType](RelationshipType.md)
  * [SequenceVariant](SequenceVariant.md)
  * [SeverityValue](SeverityValue.md)
+ * [Snv](Snv.md)
  * [SourceFile](SourceFile.md)
  * [Transcript](Transcript.md)
  * [Treatment](Treatment.md)
@@ -115,6 +119,5 @@ URI: [biolink:category](https://w3id.org/biolink/vocab/category)
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | rdf:type |
 | **In Subsets:** | | translator_minimal |
 

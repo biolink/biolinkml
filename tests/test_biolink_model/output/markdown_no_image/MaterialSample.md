@@ -7,7 +7,7 @@ A sample is a limited quantity of something (e.g. an individual or set of indivi
 URI: [biolink:MaterialSample](https://w3id.org/biolink/vocab/MaterialSample)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SubjectOfInvestigation],[PhysicalEntity],[NamedThing],[MaterialSampleToThingAssociation],[MaterialSampleDerivationAssociation],[Attribute]<has%20attribute%200..*-%20[MaterialSample&#124;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[MaterialSampleDerivationAssociation]-%20subject%201..1>[MaterialSample],[MaterialSampleToThingAssociation]-%20subject%201..1>[MaterialSample],[MaterialSample]uses%20-.->[SubjectOfInvestigation],[MaterialSample]uses%20-.->[PhysicalEntity],[NamedThing]^-[MaterialSample],[Attribute])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SubjectOfInvestigation],[PhysicalEntity],[NamedThing],[MaterialSampleToThingAssociation],[MaterialSampleDerivationAssociation],[Attribute]<has%20attribute%200..*-%20[MaterialSample&#124;id(i):string;name(i):label_type;category(i):category_type%20%2B],[MaterialSampleDerivationAssociation]-%20subject%201..1>[MaterialSample],[MaterialSampleToThingAssociation]-%20subject%201..1>[MaterialSample],[MaterialSample]uses%20-.->[SubjectOfInvestigation],[MaterialSample]uses%20-.->[PhysicalEntity],[NamedThing]^-[MaterialSample],[Attribute])
 
 ## Parents
 
@@ -37,7 +37,7 @@ URI: [biolink:MaterialSample](https://w3id.org/biolink/vocab/MaterialSample)
 
  * [category](category.md)  <sub>1..*</sub>
     * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
-    * range: [IriType](types/IriType.md)
+    * range: [CategoryType](types/CategoryType.md)
     * in subsets: (translator_minimal)
  * [id](id.md)  <sub>REQ</sub>
     * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI

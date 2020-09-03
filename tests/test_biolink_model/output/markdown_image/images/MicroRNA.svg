@@ -42,7 +42,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='214' y='-49.3'>name(i):symbol_type</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='214' y='-34.3'>has_biological_sequence(i):biological_sequence ?</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='214' y='-19.3'>id(i):string</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='214' y='-4.3'>category(i):iri_type +</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='214' y='-4.3'>category(i):category_type +</text>
 </g><g class='edge' id='edge1'><title>NoncodingRNAProduct-&gt;MicroRNA</title>
 <path d='M214,-156.73C214,-133.802 214,-100.822 214,-75.5984' fill='none' stroke='black'/>
 <polygon fill='none' points='210.5,-156.797 214,-166.797 217.5,-156.797 210.5,-156.797' stroke='black'/>

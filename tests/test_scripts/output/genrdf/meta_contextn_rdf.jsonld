@@ -32,6 +32,13 @@
       "apply_to": {
          "@type": "@id"
       },
+      "attributes": {
+         "@type": "@id"
+      },
+      "broad_mappings": {
+         "@type": "@id",
+         "@id": "skos:broadMatch"
+      },
       "class_uri": {
          "@type": "@id"
       },
@@ -169,6 +176,10 @@
          "@type": "xsd:boolean"
       },
       "name": "@id",
+      "narrow_mappings": {
+         "@type": "@id",
+         "@id": "skos:narrowMatch"
+      },
       "notes": {
          "@id": "skos:editorialNote"
       },

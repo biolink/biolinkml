@@ -7,11 +7,15 @@ This mixin is used for any association class for which the subject (source node)
 URI: [biolink:ModelToDiseaseMixin](https://w3id.org/biolink/vocab/ModelToDiseaseMixin)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[NamedThing],[NamedThing]<subject%201..1-%20[ModelToDiseaseMixin&#124;relation:uriorcurie],[GeneAsAModelOfDiseaseAssociation]uses%20-.->[ModelToDiseaseMixin],[GeneAsAModelOfDiseaseAssociation])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[NamedThing],[NamedThing]<subject%201..1-%20[ModelToDiseaseMixin&#124;relation:uriorcurie],[VariantAsAModelOfDiseaseAssociation]uses%20-.->[ModelToDiseaseMixin],[OrganismalEntityAsAModelOfDiseaseAssociation]uses%20-.->[ModelToDiseaseMixin],[GenotypeAsAModelOfDiseaseAssociation]uses%20-.->[ModelToDiseaseMixin],[GeneAsAModelOfDiseaseAssociation]uses%20-.->[ModelToDiseaseMixin],[CellLineAsAModelOfDiseaseAssociation]uses%20-.->[ModelToDiseaseMixin],[VariantAsAModelOfDiseaseAssociation],[OrganismalEntityAsAModelOfDiseaseAssociation],[GenotypeAsAModelOfDiseaseAssociation],[GeneAsAModelOfDiseaseAssociation],[CellLineAsAModelOfDiseaseAssociation])
 
 ## Mixin for
 
+ * [CellLineAsAModelOfDiseaseAssociation](CellLineAsAModelOfDiseaseAssociation.md) (mixin) 
  * [GeneAsAModelOfDiseaseAssociation](GeneAsAModelOfDiseaseAssociation.md) (mixin) 
+ * [GenotypeAsAModelOfDiseaseAssociation](GenotypeAsAModelOfDiseaseAssociation.md) (mixin) 
+ * [OrganismalEntityAsAModelOfDiseaseAssociation](OrganismalEntityAsAModelOfDiseaseAssociation.md) (mixin) 
+ * [VariantAsAModelOfDiseaseAssociation](VariantAsAModelOfDiseaseAssociation.md) (mixin) 
 
 ## Referenced by class
 

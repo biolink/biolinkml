@@ -28,5 +28,5 @@ URI: [biolink:title](https://w3id.org/biolink/vocab/title)
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | dct:title |
+| **Mappings:** | | dcterms:title |
 

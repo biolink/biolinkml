@@ -37,6 +37,7 @@ A metamodel for defining biolink related schemas
  * [apply_to](apply_to.md) - Used to extend class or slot definitions. For example, if we have a core schema where a gene has two slots for identifier and symbol, and we have a specialized schema for my_organism where we wish to add a slot systematic_name, we can avoid subclassing by defining a class gene_my_organism, adding the slot to this class, and then adding an apply_to pointing to the gene class. The new slot will be 'injected into' the gene class.
     * [class_definition➞apply_to](class_definition_apply_to.md)
     * [slot_definition➞apply_to](slot_definition_apply_to.md)
+ * [attributes](attributes.md) - Inline definition of slots
  * [base](base.md) - python base type that implements this type definition
  * [class_uri](class_uri.md) - URI of the class in an RDF environment
  * [classes](classes.md) - class definitions
@@ -85,8 +86,10 @@ A metamodel for defining biolink related schemas
  * [local_name_value](local_name_value.md) - a name assigned to an element in a given ontology
  * [local_names](local_names.md)
  * [mappings](mappings.md) - A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective.
+    * [broad mappings](broad_mappings.md) - A list of terms from different schemas or terminology systems that have broader meaning.
     * [close mappings](close_mappings.md) - A list of terms from different schemas or terminology systems that have close meaning.
     * [exact mappings](exact_mappings.md) - A list of terms from different schemas or terminology systems that have identical meaning.
+    * [narrow mappings](narrow_mappings.md) - A list of terms from different schemas or terminology systems that have narrower meaning.
     * [related mappings](related_mappings.md) - A list of terms from different schemas or terminology systems that have related meaning.
  * [maximum_value](maximum_value.md) - for slots with ranges of type number, the value must be equal to or lowe than this
  * [metamodel_version](metamodel_version.md) - Version of the metamodel used to load the schema

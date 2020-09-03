@@ -15,8 +15,13 @@ URI: [biolink:EntityToDiseaseAssociation](https://w3id.org/biolink/vocab/EntityT
 
 ## Mixin for
 
+ * [CellLineAsAModelOfDiseaseAssociation](CellLineAsAModelOfDiseaseAssociation.md) (mixin) 
  * [GeneAsAModelOfDiseaseAssociation](GeneAsAModelOfDiseaseAssociation.md) (mixin) 
  * [GeneToDiseaseAssociation](GeneToDiseaseAssociation.md) (mixin) 
+ * [GenotypeAsAModelOfDiseaseAssociation](GenotypeAsAModelOfDiseaseAssociation.md) (mixin) 
+ * [GenotypeToDiseaseAssociation](GenotypeToDiseaseAssociation.md) (mixin) 
+ * [OrganismalEntityAsAModelOfDiseaseAssociation](OrganismalEntityAsAModelOfDiseaseAssociation.md) (mixin) 
+ * [VariantAsAModelOfDiseaseAssociation](VariantAsAModelOfDiseaseAssociation.md) (mixin) 
  * [VariantToDiseaseAssociation](VariantToDiseaseAssociation.md) (mixin) 
 
 ## Referenced by class
@@ -30,6 +35,7 @@ URI: [biolink:EntityToDiseaseAssociation](https://w3id.org/biolink/vocab/EntityT
  * [entity to disease association➞object](entity_to_disease_association_object.md)  <sub>REQ</sub>
     * Description: disease
     * range: [Disease](Disease.md)
+    * Example:    
 
 ### Inherited from entity to feature or disease qualifiers:
 

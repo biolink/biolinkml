@@ -114,7 +114,7 @@
                "type": "array"
             },
             "relation": {
-               "description": "the relationship type by which a subject is connected to an object in an association",
+               "description": "The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.",
                "type": "string"
             },
             "subject": {
@@ -288,7 +288,7 @@
                "type": "array"
             },
             "relation": {
-               "description": "the relationship type by which a subject is connected to an object in an association",
+               "description": "The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.",
                "type": "string"
             },
             "subject": {
@@ -613,7 +613,7 @@
                "type": "array"
             },
             "relation": {
-               "description": "the relationship type by which a subject is connected to an object in an association",
+               "description": "The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.",
                "type": "string"
             },
             "severity_qualifier": {
@@ -701,6 +701,77 @@
          "title": "CellLine",
          "type": "object"
       },
+      "CellLineAsAModelOfDiseaseAssociation": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "association_type": {
+               "description": "connects an association to the type of association (e.g. gene to phenotype)",
+               "type": "string"
+            },
+            "frequency_qualifier": {
+               "description": "a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject",
+               "type": "string"
+            },
+            "id": {
+               "description": "A unique identifier for an association",
+               "type": "string"
+            },
+            "negated": {
+               "description": "if set to true, then the association is negated i.e. is not true",
+               "type": "boolean"
+            },
+            "object": {
+               "description": "connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.",
+               "type": "string"
+            },
+            "onset_qualifier": {
+               "description": "a qualifier used in a phenotypic association to state when the phenotype appears is in the subject",
+               "type": "string"
+            },
+            "provided_by": {
+               "description": "connects an association to the agent (person, organization or group) that provided it",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "publications": {
+               "description": "connects an association to publications supporting the association",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "qualifiers": {
+               "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "relation": {
+               "description": "The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.",
+               "type": "string"
+            },
+            "severity_qualifier": {
+               "description": "a qualifier used in a phenotypic association to state how severe the phenotype is in the subject",
+               "type": "string"
+            },
+            "subject": {
+               "description": "A cell line derived from an organismal entity with a disease state that is used as a model of that disease.",
+               "type": "string"
+            }
+         },
+         "required": [
+            "relation",
+            "object",
+            "id",
+            "subject"
+         ],
+         "title": "CellLineAsAModelOfDiseaseAssociation",
+         "type": "object"
+      },
       "CellLineToDiseaseOrPhenotypicFeatureAssociation": {
          "additionalProperties": false,
          "description": "An relationship between a cell line and a disease or a phenotype, where the cell line is derived from an individual with that disease or phenotype",
@@ -743,7 +814,7 @@
                "type": "array"
             },
             "relation": {
-               "description": "the relationship type by which a subject is connected to an object in an association",
+               "description": "The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.",
                "type": "string"
             },
             "subject": {
@@ -899,7 +970,7 @@
                "type": "array"
             },
             "relation": {
-               "description": "the relationship type by which a subject is connected to an object in an association",
+               "description": "The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.",
                "type": "string"
             },
             "subject": {
@@ -1023,7 +1094,7 @@
                "type": "array"
             },
             "relation": {
-               "description": "the relationship type by which a subject is connected to an object in an association",
+               "description": "The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.",
                "type": "string"
             },
             "subject": {
@@ -1082,7 +1153,7 @@
                "type": "array"
             },
             "relation": {
-               "description": "the relationship type by which a subject is connected to an object in an association",
+               "description": "The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.",
                "type": "string"
             },
             "subject": {
@@ -1141,7 +1212,7 @@
                "type": "array"
             },
             "relation": {
-               "description": "the relationship type by which a subject is connected to an object in an association",
+               "description": "The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.",
                "type": "string"
             },
             "subject": {
@@ -1156,6 +1227,49 @@
             "object"
          ],
          "title": "ChemicalToPathwayAssociation",
+         "type": "object"
+      },
+      "ClinicalCourse": {
+         "additionalProperties": false,
+         "description": "The course a disease typically takes from its onset, progression in time, and eventual resolution or death of the affected individual",
+         "properties": {
+            "category": {
+               "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "has_attribute_type": {
+               "description": "connects an attribute to a class that describes it",
+               "type": "string"
+            },
+            "has_qualitative_value": {
+               "description": "connects an attribute to a value",
+               "type": "string"
+            },
+            "has_quantitative_value": {
+               "description": "connects an attribute to a value",
+               "items": {
+                  "$ref": "#/definitions/QuantityValue"
+               },
+               "type": "array"
+            },
+            "id": {
+               "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
+               "type": "string"
+            },
+            "name": {
+               "description": "A human-readable name for a thing",
+               "type": "string"
+            }
+         },
+         "required": [
+            "id",
+            "name",
+            "category"
+         ],
+         "title": "ClinicalCourse",
          "type": "object"
       },
       "ClinicalEntity": {
@@ -1216,7 +1330,7 @@
       },
       "ClinicalModifier": {
          "additionalProperties": false,
-         "description": "Used to characterize and specify the phenotypic abnormalities defined in the Phenotypic abnormality subontology, with respect to severity, laterality, age of onset, and other aspects",
+         "description": "Used to characterize and specify the phenotypic abnormalities defined in the Phenotypic abnormality subontology, with respect to severity, laterality, and other aspects",
          "properties": {
             "category": {
                "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag",
@@ -1637,7 +1751,7 @@
                "type": "array"
             },
             "relation": {
-               "description": "the relationship type by which a subject is connected to an object in an association",
+               "description": "The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.",
                "type": "string"
             },
             "subject": {
@@ -1695,7 +1809,7 @@
                "type": "array"
             },
             "relation": {
-               "description": "the relationship type by which a subject is connected to an object in an association",
+               "description": "The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.",
                "type": "string"
             },
             "subject": {
@@ -1765,7 +1879,7 @@
                "type": "array"
             },
             "relation": {
-               "description": "the relationship type by which a subject is connected to an object in an association",
+               "description": "The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.",
                "type": "string"
             },
             "severity_qualifier": {
@@ -2070,7 +2184,7 @@
                "type": "array"
             },
             "relation": {
-               "description": "the relationship type by which a subject is connected to an object in an association",
+               "description": "The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.",
                "type": "string"
             },
             "subject": {
@@ -2168,7 +2282,7 @@
                "type": "array"
             },
             "relation": {
-               "description": "the relationship type by which a subject is connected to an object in an association",
+               "description": "The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.",
                "type": "string"
             },
             "severity_qualifier": {
@@ -2314,7 +2428,7 @@
                "type": "array"
             },
             "relation": {
-               "description": "the relationship type by which a subject is connected to an object in an association",
+               "description": "The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.",
                "type": "string"
             },
             "subject": {
@@ -2420,7 +2534,7 @@
                "type": "array"
             },
             "relation": {
-               "description": "the relationship type by which a subject is connected to an object in an association",
+               "description": "The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.",
                "type": "string"
             },
             "severity_qualifier": {
@@ -2526,7 +2640,7 @@
                "type": "array"
             },
             "relation": {
-               "description": "the relationship type by which a subject is connected to an object in an association",
+               "description": "The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.",
                "type": "string"
             },
             "sequence_variant_qualifier": {
@@ -2764,7 +2878,7 @@
                "type": "array"
             },
             "relation": {
-               "description": "the relationship type by which a subject is connected to an object in an association",
+               "description": "The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.",
                "type": "string"
             },
             "severity_qualifier": {
@@ -3009,7 +3123,7 @@
                "type": "array"
             },
             "relation": {
-               "description": "the relationship type by which a subject is connected to an object in an association",
+               "description": "The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.",
                "type": "string"
             },
             "subject": {
@@ -3080,7 +3194,7 @@
                "type": "array"
             },
             "relation": {
-               "description": "the relationship type by which a subject is connected to an object in an association",
+               "description": "The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.",
                "type": "string"
             },
             "severity_qualifier": {
@@ -3235,7 +3349,7 @@
                "type": "array"
             },
             "relation": {
-               "description": "the relationship type by which a subject is connected to an object in an association",
+               "description": "The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.",
                "type": "string"
             },
             "start_interbase_coordinate": {
@@ -3294,6 +3408,148 @@
             "category"
          ],
          "title": "Genotype",
+         "type": "object"
+      },
+      "GenotypeAsAModelOfDiseaseAssociation": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "association_type": {
+               "description": "connects an association to the type of association (e.g. gene to phenotype)",
+               "type": "string"
+            },
+            "frequency_qualifier": {
+               "description": "a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject",
+               "type": "string"
+            },
+            "id": {
+               "description": "A unique identifier for an association",
+               "type": "string"
+            },
+            "negated": {
+               "description": "if set to true, then the association is negated i.e. is not true",
+               "type": "boolean"
+            },
+            "object": {
+               "description": "a disease that is associated with that genotype",
+               "type": "string"
+            },
+            "onset_qualifier": {
+               "description": "a qualifier used in a phenotypic association to state when the phenotype appears is in the subject",
+               "type": "string"
+            },
+            "provided_by": {
+               "description": "connects an association to the agent (person, organization or group) that provided it",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "publications": {
+               "description": "connects an association to publications supporting the association",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "qualifiers": {
+               "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "relation": {
+               "description": "E.g. is pathogenic for",
+               "type": "string"
+            },
+            "severity_qualifier": {
+               "description": "a qualifier used in a phenotypic association to state how severe the phenotype is in the subject",
+               "type": "string"
+            },
+            "subject": {
+               "description": "A genotype that has a role in modeling the disease.",
+               "type": "string"
+            }
+         },
+         "required": [
+            "id",
+            "relation",
+            "object",
+            "subject"
+         ],
+         "title": "GenotypeAsAModelOfDiseaseAssociation",
+         "type": "object"
+      },
+      "GenotypeToDiseaseAssociation": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "association_type": {
+               "description": "connects an association to the type of association (e.g. gene to phenotype)",
+               "type": "string"
+            },
+            "frequency_qualifier": {
+               "description": "a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject",
+               "type": "string"
+            },
+            "id": {
+               "description": "A unique identifier for an association",
+               "type": "string"
+            },
+            "negated": {
+               "description": "if set to true, then the association is negated i.e. is not true",
+               "type": "boolean"
+            },
+            "object": {
+               "description": "a disease that is associated with that genotype",
+               "type": "string"
+            },
+            "onset_qualifier": {
+               "description": "a qualifier used in a phenotypic association to state when the phenotype appears is in the subject",
+               "type": "string"
+            },
+            "provided_by": {
+               "description": "connects an association to the agent (person, organization or group) that provided it",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "publications": {
+               "description": "connects an association to publications supporting the association",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "qualifiers": {
+               "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "relation": {
+               "description": "E.g. is pathogenic for",
+               "type": "string"
+            },
+            "severity_qualifier": {
+               "description": "a qualifier used in a phenotypic association to state how severe the phenotype is in the subject",
+               "type": "string"
+            },
+            "subject": {
+               "description": "a genotype that is associated in some way with a disease state",
+               "type": "string"
+            }
+         },
+         "required": [
+            "id",
+            "subject",
+            "relation",
+            "object"
+         ],
+         "title": "GenotypeToDiseaseAssociation",
          "type": "object"
       },
       "GenotypeToGeneAssociation": {
@@ -3778,6 +4034,49 @@
          "title": "IndividualOrganism",
          "type": "object"
       },
+      "Inheritance": {
+         "additionalProperties": false,
+         "description": "The pattern in which a particular genetic trait or disorder is passed from one generation to the next",
+         "properties": {
+            "category": {
+               "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "has_attribute_type": {
+               "description": "connects an attribute to a class that describes it",
+               "type": "string"
+            },
+            "has_qualitative_value": {
+               "description": "connects an attribute to a value",
+               "type": "string"
+            },
+            "has_quantitative_value": {
+               "description": "connects an attribute to a value",
+               "items": {
+                  "$ref": "#/definitions/QuantityValue"
+               },
+               "type": "array"
+            },
+            "id": {
+               "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
+               "type": "string"
+            },
+            "name": {
+               "description": "A human-readable name for a thing",
+               "type": "string"
+            }
+         },
+         "required": [
+            "id",
+            "name",
+            "category"
+         ],
+         "title": "Inheritance",
+         "type": "object"
+      },
       "LifeStage": {
          "additionalProperties": false,
          "description": "A stage of development or growth of an organism, including post-natal adult stages",
@@ -3932,7 +4231,7 @@
                "type": "array"
             },
             "relation": {
-               "description": "the relationship type by which a subject is connected to an object in an association",
+               "description": "The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.",
                "type": "string"
             },
             "subject": {
@@ -3990,7 +4289,7 @@
                "type": "array"
             },
             "relation": {
-               "description": "the relationship type by which a subject is connected to an object in an association",
+               "description": "The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.",
                "type": "string"
             },
             "subject": {
@@ -4048,7 +4347,7 @@
                "type": "array"
             },
             "relation": {
-               "description": "the relationship type by which a subject is connected to an object in an association",
+               "description": "The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.",
                "type": "string"
             },
             "subject": {
@@ -4201,7 +4500,7 @@
                "type": "array"
             },
             "relation": {
-               "description": "the relationship type by which a subject is connected to an object in an association",
+               "description": "The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.",
                "type": "string"
             },
             "subject": {
@@ -4544,7 +4843,7 @@
       },
       "OrganismTaxon": {
          "additionalProperties": false,
-         "description": "",
+         "description": "A classification of a set of organisms. Examples: NCBITaxon:9606 (Homo sapiens), NCBITaxon:2 (Bacteria). Can also be used to represent strains or subspecies.",
          "properties": {
             "category": {
                "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag",
@@ -4568,6 +4867,77 @@
             "category"
          ],
          "title": "OrganismTaxon",
+         "type": "object"
+      },
+      "OrganismalEntityAsAModelOfDiseaseAssociation": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "association_type": {
+               "description": "connects an association to the type of association (e.g. gene to phenotype)",
+               "type": "string"
+            },
+            "frequency_qualifier": {
+               "description": "a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject",
+               "type": "string"
+            },
+            "id": {
+               "description": "A unique identifier for an association",
+               "type": "string"
+            },
+            "negated": {
+               "description": "if set to true, then the association is negated i.e. is not true",
+               "type": "boolean"
+            },
+            "object": {
+               "description": "connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.",
+               "type": "string"
+            },
+            "onset_qualifier": {
+               "description": "a qualifier used in a phenotypic association to state when the phenotype appears is in the subject",
+               "type": "string"
+            },
+            "provided_by": {
+               "description": "connects an association to the agent (person, organization or group) that provided it",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "publications": {
+               "description": "connects an association to publications supporting the association",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "qualifiers": {
+               "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "relation": {
+               "description": "The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.",
+               "type": "string"
+            },
+            "severity_qualifier": {
+               "description": "a qualifier used in a phenotypic association to state how severe the phenotype is in the subject",
+               "type": "string"
+            },
+            "subject": {
+               "description": "A organismal entity (strain, breed) with a predisposition to a disease, or bred/created specifically to model a disease.",
+               "type": "string"
+            }
+         },
+         "required": [
+            "relation",
+            "object",
+            "id",
+            "subject"
+         ],
+         "title": "OrganismalEntityAsAModelOfDiseaseAssociation",
          "type": "object"
       },
       "PairwiseGeneToGeneInteraction": {
@@ -5251,6 +5621,45 @@
          "title": "RNAProductIsoform",
          "type": "object"
       },
+      "ReagentTargetedGene": {
+         "additionalProperties": false,
+         "description": "A gene altered in its expression level in the context of some experiment as a result of being targeted by gene-knockdown reagent(s) such as a morpholino or RNAi",
+         "properties": {
+            "category": {
+               "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "has_biological_sequence": {
+               "description": "connects a genomic feature to its sequence",
+               "type": "string"
+            },
+            "id": {
+               "description": "A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI",
+               "type": "string"
+            },
+            "in_taxon": {
+               "description": "connects a thing to a class representing a taxon",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "name": {
+               "description": "A human-readable name for a thing",
+               "type": "string"
+            }
+         },
+         "required": [
+            "id",
+            "name",
+            "category"
+         ],
+         "title": "ReagentTargetedGene",
+         "type": "object"
+      },
       "RelationshipType": {
          "additionalProperties": false,
          "description": "An OWL property used as an edge label",
@@ -5328,7 +5737,7 @@
                "type": "array"
             },
             "relation": {
-               "description": "the relationship type by which a subject is connected to an object in an association",
+               "description": "The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.",
                "type": "string"
             },
             "subject": {
@@ -5430,6 +5839,51 @@
             "category"
          ],
          "title": "SeverityValue",
+         "type": "object"
+      },
+      "Snv": {
+         "additionalProperties": false,
+         "description": "SNVs are single nucleotide positions in genomic DNA at which different sequence alternatives exist",
+         "properties": {
+            "category": {
+               "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "has_biological_sequence": {
+               "description": "The state of the sequence w.r.t a reference sequence",
+               "type": "string"
+            },
+            "has_gene": {
+               "description": "Each allele can be associated with any number of genes",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "id": {
+               "type": "string"
+            },
+            "in_taxon": {
+               "description": "connects a thing to a class representing a taxon",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "name": {
+               "description": "A human-readable name for a thing",
+               "type": "string"
+            }
+         },
+         "required": [
+            "name",
+            "category",
+            "id"
+         ],
+         "title": "Snv",
          "type": "object"
       },
       "SourceFile": {
@@ -5554,7 +6008,7 @@
                "type": "array"
             },
             "relation": {
-               "description": "the relationship type by which a subject is connected to an object in an association",
+               "description": "The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.",
                "type": "string"
             },
             "subject": {
@@ -5603,6 +6057,77 @@
             "has_part"
          ],
          "title": "Treatment",
+         "type": "object"
+      },
+      "VariantAsAModelOfDiseaseAssociation": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "association_type": {
+               "description": "connects an association to the type of association (e.g. gene to phenotype)",
+               "type": "string"
+            },
+            "frequency_qualifier": {
+               "description": "a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject",
+               "type": "string"
+            },
+            "id": {
+               "description": "A unique identifier for an association",
+               "type": "string"
+            },
+            "negated": {
+               "description": "if set to true, then the association is negated i.e. is not true",
+               "type": "boolean"
+            },
+            "object": {
+               "description": "a disease that is associated with that variant",
+               "type": "string"
+            },
+            "onset_qualifier": {
+               "description": "a qualifier used in a phenotypic association to state when the phenotype appears is in the subject",
+               "type": "string"
+            },
+            "provided_by": {
+               "description": "connects an association to the agent (person, organization or group) that provided it",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "publications": {
+               "description": "connects an association to publications supporting the association",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "qualifiers": {
+               "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "relation": {
+               "description": "E.g. is pathogenic for",
+               "type": "string"
+            },
+            "severity_qualifier": {
+               "description": "a qualifier used in a phenotypic association to state how severe the phenotype is in the subject",
+               "type": "string"
+            },
+            "subject": {
+               "description": "A variant that has a role in modeling the disease.",
+               "type": "string"
+            }
+         },
+         "required": [
+            "id",
+            "relation",
+            "object",
+            "subject"
+         ],
+         "title": "VariantAsAModelOfDiseaseAssociation",
          "type": "object"
       },
       "VariantToDiseaseAssociation": {
@@ -5730,7 +6255,7 @@
                "type": "array"
             },
             "relation": {
-               "description": "the relationship type by which a subject is connected to an object in an association",
+               "description": "The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.",
                "type": "string"
             },
             "severity_qualifier": {
@@ -5817,7 +6342,7 @@
                "type": "array"
             },
             "relation": {
-               "description": "the relationship type by which a subject is connected to an object in an association",
+               "description": "The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.",
                "type": "string"
             },
             "subject": {

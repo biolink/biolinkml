@@ -44,6 +44,10 @@
                 shex:min 0 ;
                 shex:predicate <https://w3id.org/biolink/biolinkml/meta/slot_usage> ;
                 shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/SlotDefinition> ] [ a shex:TripleConstraint ;
+                shex:max -1 ;
+                shex:min 0 ;
+                shex:predicate <https://w3id.org/biolink/biolinkml/meta/attributes> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/SlotDefinition> ] [ a shex:TripleConstraint ;
                 shex:max 1 ;
                 shex:min 0 ;
                 shex:predicate <https://w3id.org/biolink/biolinkml/meta/class_uri> ;
@@ -280,7 +284,7 @@
                 shex:max 1 ;
                 shex:min 0 ;
                 shex:predicate rdfs:subPropertyOf ;
-                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ] [ a shex:TripleConstraint ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/SlotDefinition> ] [ a shex:TripleConstraint ;
                 shex:max 1 ;
                 shex:min 0 ;
                 shex:predicate <https://w3id.org/biolink/biolinkml/meta/symmetric> ;
@@ -610,6 +614,14 @@
                 shex:max -1 ;
                 shex:min 0 ;
                 shex:predicate <http://www.w3.org/2004/02/skos/core#relatedMatch> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ] [ a shex:TripleConstraint ;
+                shex:max -1 ;
+                shex:min 0 ;
+                shex:predicate <http://www.w3.org/2004/02/skos/core#narrowMatch> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ] [ a shex:TripleConstraint ;
+                shex:max -1 ;
+                shex:min 0 ;
+                shex:predicate <http://www.w3.org/2004/02/skos/core#broadMatch> ;
                 shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ] [ a shex:TripleConstraint ;
                 shex:max 1 ;
                 shex:min 0 ;

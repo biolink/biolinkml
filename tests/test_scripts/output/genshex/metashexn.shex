@@ -59,6 +59,7 @@ metatype:Nodeidentifier NONLITERAL
           rdf:type [ <Definition> ] ? ;
           <slots> @<SlotDefinition> * ;
           <slot_usage> @<SlotDefinition> * ;
+          <attributes> @<SlotDefinition> * ;
           <class_uri> @metatype:Uriorcurie ? ;
           <subclass_of> @metatype:Uriorcurie ? ;
           <union_of> @<ClassDefinition> * ;
@@ -122,6 +123,8 @@ metatype:Nodeidentifier NONLITERAL
           <exact_mappings> @metatype:Uriorcurie * ;
           <close_mappings> @metatype:Uriorcurie * ;
           <related_mappings> @metatype:Uriorcurie * ;
+          <narrow_mappings> @metatype:Uriorcurie * ;
+          <broad_mappings> @metatype:Uriorcurie * ;
           <deprecated_element_has_exact_replacement> @metatype:Uriorcurie ? ;
           <deprecated_element_has_possible_replacement> @metatype:Uriorcurie ? ;
           <extensions> @<Extension> * ;
@@ -217,7 +220,7 @@ metatype:Nodeidentifier NONLITERAL
           <alias> @metatype:String ? ;
           <owner> @<Definition> ? ;
           <domain_of> @<ClassDefinition> * ;
-          <subproperty_of> @metatype:Uriorcurie ? ;
+          <subproperty_of> @<SlotDefinition> ? ;
           <symmetric> @metatype:Boolean ? ;
           <inverse> @<SlotDefinition> ? ;
           <is_class_field> @metatype:Boolean ? ;

@@ -15,6 +15,7 @@ URI: [biolink:Genotype](https://w3id.org/biolink/vocab/Genotype)
 
 ## Referenced by class
 
+ *  **[GenotypeAsAModelOfDiseaseAssociation](GenotypeAsAModelOfDiseaseAssociation.md)** *[genotype as a model of disease association➞subject](genotype_as_a_model_of_disease_association_subject.md)*  <sub>REQ</sub>  **[Genotype](Genotype.md)**
  *  **[GenotypeToGeneAssociation](GenotypeToGeneAssociation.md)** *[genotype to gene association➞subject](genotype_to_gene_association_subject.md)*  <sub>REQ</sub>  **[Genotype](Genotype.md)**
  *  **[GenotypeToGenotypePartAssociation](GenotypeToGenotypePartAssociation.md)** *[genotype to genotype part association➞object](genotype_to_genotype_part_association_object.md)*  <sub>REQ</sub>  **[Genotype](Genotype.md)**
  *  **[GenotypeToGenotypePartAssociation](GenotypeToGenotypePartAssociation.md)** *[genotype to genotype part association➞subject](genotype_to_genotype_part_association_subject.md)*  <sub>REQ</sub>  **[Genotype](Genotype.md)**
@@ -34,7 +35,7 @@ URI: [biolink:Genotype](https://w3id.org/biolink/vocab/Genotype)
 
  * [category](category.md)  <sub>1..*</sub>
     * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
-    * range: [IriType](types/IriType.md)
+    * range: [CategoryType](types/CategoryType.md)
     * in subsets: (translator_minimal)
  * [has biological sequence](has_biological_sequence.md)  <sub>OPT</sub>
     * Description: connects a genomic feature to its sequence
