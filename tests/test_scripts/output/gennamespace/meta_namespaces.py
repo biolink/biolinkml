@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by namespacegen.py version: 0.4.0
-# Generation date: 2020-09-04 19:47
+# Generation date: 2020-09-04 20:06
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta
@@ -50,6 +50,14 @@ class metamodelNameSpace:
                 # index by upper case for uniformity of search
                 cls._prefix_map[ns.prefix.upper()] = ns
         return cls._prefix_map
+
+    @classmethod
+    def _get_uri_map(cls):
+        if not cls._prefix_map:
+            for ns in cls._namespaces:
+                # index by base uri (but not yet sure how to use this below in parse_uri)
+                cls._uri_map[str(ns)] = ns
+        return cls._uri_map
 
     @classmethod
     def parse_curie(cls, curie: str) -> Tuple[CurieNamespace, str]:

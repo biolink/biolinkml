@@ -66,6 +66,14 @@ class {self.schema.name}NameSpace:
         return cls._prefix_map
 
     @classmethod
+    def _get_uri_map(cls):
+        if not cls._prefix_map:
+            for ns in cls._namespaces:
+                # index by base uri (but not yet sure how to use this below in parse_uri)
+                cls._uri_map[str(ns)] = ns
+        return cls._uri_map
+
+    @classmethod
     def parse_curie(cls, curie: str) -> Tuple[CurieNamespace, str]:
         """
         Parse a candidate CURIE
