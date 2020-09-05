@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by namespacegen.py version: 0.4.0
-# Generation date: 2020-08-25 16:45
+# Generation date: 2020-09-04 17:44
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta
@@ -7,9 +7,11 @@
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 
 from collections import defaultdict
+from functools import lru_cache
 from typing import Iterable, Dict, Tuple
 
 from biolinkml.utils.curienamespace import CurieNamespace
+
 
 class IdentifierResolverException(RuntimeError):
     pass
@@ -151,9 +153,9 @@ def fix_curies(identifiers, prefix=''):
     else:
         raise RuntimeError("fix_curie() is not sure how to fix an instance of data type '", type(identifiers))
 
-
+@lru_cache
 def curie(identifier) -> str:
-    # Ignore enpty strings
+    # Ignore empty strings
     if not identifier:
         return ""
     else:

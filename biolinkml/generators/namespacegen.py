@@ -33,9 +33,11 @@ class NamespaceGenerator(PythonGenerator):
 # license: {be(self.schema.license)}
 
 from collections import defaultdict
+from functools import lru_cache
 from typing import Iterable, Dict, Tuple
 
 from biolinkml.utils.curienamespace import CurieNamespace
+
 
 class IdentifierResolverException(RuntimeError):
     pass
@@ -165,7 +167,7 @@ def fix_curies(identifiers, prefix=''):
     else:
         raise RuntimeError("fix_curie() is not sure how to fix an instance of data type '", type(identifiers))
 
-
+@lru_cache
 def curie(identifier) -> str:
     # Ignore empty strings
     if not identifier:
