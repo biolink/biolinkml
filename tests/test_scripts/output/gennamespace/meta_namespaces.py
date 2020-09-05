@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by namespacegen.py version: 0.4.0
-# Generation date: 2020-09-04 17:44
+# Generation date: 2020-09-04 19:47
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta
@@ -41,6 +41,7 @@ class metamodelNameSpace:
     # class level dictionaries
 
     _prefix_map: Dict[str, CurieNamespace] = {}
+    _uri_map: Dict[str, CurieNamespace] = {}
 
     @classmethod
     def _get_prefix_map(cls):
@@ -153,7 +154,8 @@ def fix_curies(identifiers, prefix=''):
     else:
         raise RuntimeError("fix_curie() is not sure how to fix an instance of data type '", type(identifiers))
 
-@lru_cache
+
+@lru_cache(maxsize=1000)
 def curie(identifier) -> str:
     # Ignore empty strings
     if not identifier:

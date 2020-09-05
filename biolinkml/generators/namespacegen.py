@@ -55,6 +55,7 @@ class {self.schema.name}NameSpace:
     # class level dictionaries
 
     _prefix_map: Dict[str, CurieNamespace] = {{}}
+    _uri_map: Dict[str, CurieNamespace] = {{}}
 
     @classmethod
     def _get_prefix_map(cls):
@@ -167,7 +168,8 @@ def fix_curies(identifiers, prefix=''):
     else:
         raise RuntimeError("fix_curie() is not sure how to fix an instance of data type '", type(identifiers))
 
-@lru_cache
+
+@lru_cache(maxsize=1000)
 def curie(identifier) -> str:
     # Ignore empty strings
     if not identifier:
