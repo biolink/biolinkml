@@ -1,4 +1,5 @@
-from typing import Union, Any, List, Optional, Type
+from dataclasses import dataclass, InitVar
+from typing import Union, Any, Dict, List, Optional
 
 import yaml
 from jsonasobj import JsonObj, as_json
@@ -28,7 +29,7 @@ class YAMLRoot(JsonObj):
             messages: List[str] = []
             for k in kwargs.keys():
                 v = repr(kwargs[k])[:40].replace('\n', '\\n')
-                messages.append(f"{TypedNode.yaml_loc(k)} Unknown argument: {k} = {v}")
+                messages.append(f"Unknown argument: {k} = {v}  {k.loc() if getattr(k, 'loc', None) else ''}")
             raise ValueError('\n'.join(messages))
 
     def _default(self, obj):
@@ -63,65 +64,6 @@ class YAMLRoot(JsonObj):
             return rval
         else:
             return super()._default(obj)
-
-    def _normalize_inlined_slot(self, slot_name: str, slot_type: Type, key_name: Optional[str],
-                                inlined_as_list: bool, keyed: bool) -> None:
-        """
-         __post_init__ function for a list of inlined keyed or identified classes.
-        The input to this is either a list or dictionary of dictionaries.  In the list case, every key entry
-        in the list must be unique.  In the dictionary case, the key may or may not be repeated in the dictionary
-        element. The internal storage structure is a dictionary of dictionaries.
-        @param slot_name: Name of the slot being normalized
-        @param slot_type: Slot range type
-        @param key_name: Name of the key or identifier in the range
-        @param inlined_as_list: True means represent as a list, false as a dictionary
-        @param keyed: True means each identifier must be unique
-        """
-        raw_slot: Union[list, dict] = self[slot_name]
-        cooked_slot = list() if inlined_as_list else dict()
-        key_list = list()
-
-        def cook_a_slot(entry) -> None:
-            if keyed:
-                if key in key_list:
-                    raise ValueError(f"{TypedNode.yaml_loc(key)}: duplicate key")
-                key_list.append(key)
-            if inlined_as_list:
-                cooked_slot.append(entry)
-            else:
-                cooked_slot[entry[key_name]] = entry
-
-        if isinstance(raw_slot, list):
-            # A list of dictionaries
-            #   [ {key_name: v11, slot_2: v12, ..., slot_n:v1n}, {key_name: v21, slot_2: v22, ..., slot_n:v2n}, ...]
-            for raw_slot_entry in raw_slot:
-                if not isinstance(raw_slot_entry, dict):
-                    raise ValueError(f"Slot: {slot_name} - unrecognized element: {raw_slot_entry}")
-                if not isinstance(raw_slot_entry, slot_type):
-                    raw_slot_entry = slot_type(**raw_slot_entry)
-                cook_a_slot(raw_slot_entry)
-        elif isinstance(raw_slot, dict):
-            # A dictionary
-            # One of:
-            #    {key_1: {[key_name: v11], slot_2: v12, ... slot_n: v1n}, key_2: {...}}   or
-            #    {v11: v12, v21: v22, ...}
-            for key, value in raw_slot.items():
-                if not isinstance(value, dict):
-                    cook_a_slot(slot_type(key, value))
-                else:
-                    # Inject a key if not there otherwise make sure it matches
-                    vk = value.get(key_name, None)
-                    if vk is None:
-                        value_copy = value.copy()
-                        value_copy[key_name] = key
-                        cook_a_slot(slot_type(**value_copy))
-                    elif vk != key:
-                        raise ValueError(f"Slot: {slot_name} - value ({vk}) does not match key ({key})")
-                    else:
-                        cook_a_slot(slot_type(**value))
-        else:
-            raise ValueError(f"Slot: {slot_name} must be a dictionary or a list")
-        self[slot_name] = cooked_slot
 
 
 def root_representer(dumper: yaml.Dumper, data: YAMLRoot):
@@ -175,13 +117,7 @@ class TypedNode:
         return self
 
     def loc(self) -> str:
-        return f'File "{self._s.name}", line {self._s.line + 1}, col {self._s.column + 1}' if self._s else ''
-
-
-    @staticmethod
-    def yaml_loc(loc_str: Optional[Union["TypedNode", str]] = None) -> str:
-        """ Return the yaml file and location of loc_str if it exists """
-        return '' if loc_str is None or not hasattr(loc_str, "loc" or not callable(loc_str.loc)) else (loc_str.loc() + ": ")
+        return f'File "{self._s.name}", line {self._s.line + 1}, col {self._s.column + 1}'
 
 
 class extended_str(str, TypedNode):
@@ -193,6 +129,7 @@ class extended_str(str, TypedNode):
                 rval._len = item._len
                 break
         return rval
+
 
 
 class extended_int(int, TypedNode):
@@ -237,19 +174,6 @@ class DupCheckYamlLoader(yaml.loader.SafeLoader):
         return extended_float(super().construct_yaml_float(node)).add_node(node)
 
     @staticmethod
-    def seq_constructor(loader, node, deep=False):
-        if not isinstance(node, yaml.SequenceNode):
-            raise ConstructorError(None, None,
-                                   "expected a sequence node, but found %s" % node.id,
-                                   node.start_mark)
-        for child in node.value:
-            if not child.value:
-                raise ConstructorError(None, None, "Empty list elements are not allowed", node.start_mark)
-        return [loader.construct_object(child, deep=deep)
-                for child in node.value]
-
-
-    @staticmethod
     def map_constructor(loader,  node, deep=False):
         """ Duplicate of constructor.construct_mapping w/ exception that we check for dups
 
@@ -266,6 +190,18 @@ class DupCheckYamlLoader(yaml.loader.SafeLoader):
                 raise ValueError(f"Duplicate key: \"{key}\"")
             mapping[key] = value
         return mapping
+
+    @staticmethod
+    def seq_constructor(loader, node, deep=False):
+        if not isinstance(node, yaml.SequenceNode):
+            raise ConstructorError(None, None,
+                                   "expected a sequence node, but found %s" % node.id,
+                                   node.start_mark)
+        for child in node.value:
+            if not child.value:
+                raise ConstructorError(None, None, "Empty list elements are not allowed", node.start_mark)
+        return [loader.construct_object(child, deep=deep)
+                for child in node.value]
 
 
 yaml.SafeDumper.add_multi_representer(YAMLRoot, root_representer)
