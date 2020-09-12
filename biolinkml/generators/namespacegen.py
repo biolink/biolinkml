@@ -34,12 +34,13 @@ class NamespaceGenerator(PythonGenerator):
 
 from collections import defaultdict
 from functools import lru_cache
-from typing import Iterable, Dict, Tuple
+from typing import Iterable, Dict, List, Tuple
+import re
 
 from biolinkml.utils.curienamespace import CurieNamespace
 
 
-class IdentifierResolverException(RuntimeError):
+class NameSpaceException(RuntimeError):
     pass
 
 
@@ -55,7 +56,7 @@ class {self.schema.name}NameSpace:
     # class level dictionaries
 
     _prefix_map: Dict[str, CurieNamespace] = {{}}
-    _uri_map: Dict[str, CurieNamespace] = {{}}
+    _uri_map: Dict[str, List[CurieNamespace]] = {{}}
 
     @classmethod
     def _get_prefix_map(cls):
@@ -65,24 +66,54 @@ class {self.schema.name}NameSpace:
                 cls._prefix_map[ns.prefix.upper()] = ns
         return cls._prefix_map
 
+    URI_REGEX = re.compile(r"^(?P<scheme>[^:]+)://(?P<host>[^/:]+):?(?P<port>[^/?#]+)?"+
+                           "(?P<path>[^?#]*)?([?](?P<parameters>[^?#]+))?(#(?P<hashtag>.*))?$")
+    
+    @classmethod
+    def uri_parts(cls, uri) -> Tuple[str, str, str, str, str, str]:
+        """
+        Parses a URI into basic component parts
+        :param uri: 
+        :return: tuple of scheme, host, port, path, parameters, hashtag
+        """
+        if not uri:
+            raise NameSpaceException("uri_parts() ERROR: null or empty URI string?")
+
+        match = cls.URI_REGEX.match(str(uri))
+
+        if not match:
+            raise NameSpaceException("uri_parts() ERROR: could not parse URI"+str(uri)+"?")
+        else:
+            return (match.group('scheme'),
+                    match.group('host'),
+                    match.group('port'),
+                    match.group('path'),
+                    match.group('parameters'),
+                    match.group('hashtag'))
+
     @classmethod
     def _get_uri_map(cls):
-        if not cls._prefix_map:
+        if not cls._uri_map:
             for ns in cls._namespaces:
-                # index by base uri (but not yet sure how to use this below in parse_uri)
-                cls._uri_map[str(ns)] = ns
+                nsp = cls.uri_parts(ns)
+                host = nsp[1]
+                # index in bucket by hostname
+                if host not in cls._uri_map:
+                    cls._uri_map[host] = []
+                cls._uri_map[host].append(ns)
+
         return cls._uri_map
 
     @classmethod
-    def parse_curie(cls, curie: str) -> Tuple[CurieNamespace, str]:
+    def parse_curie(cls, identifier: str) -> Tuple[CurieNamespace, str]:
         """
         Parse a candidate CURIE
-        :param curie: candidate curie string
+        :param identifier: candidate curie string
         :return: CURIE namespace and object_id
         """
-        found = CurieNamespace("", ""), curie  # default value if not a CURIE or unknown XMLNS prefix
-        if ':' in curie:
-            part = curie.split(":")
+        found = CurieNamespace("", ""), identifier  # default value if not a CURIE or unknown XMLNS prefix
+        if ':' in identifier:
+            part = identifier.split(":")
             # Normalize retrieval with upper case of prefix for lookup
             prefix = part[0].upper()
             if prefix in cls._get_prefix_map():
@@ -98,14 +129,22 @@ class {self.schema.name}NameSpace:
         """
         found = CurieNamespace("", ""), uri   # default value returned if unknown URI namespace
 
-        # TODO: is there a more efficient lookup scheme here than a linear search of namespaces?
-        for ns in cls._namespaces:
-            base_uri = str(ns)
-            if uri.startswith(base_uri):
-                # simple minded deletion of base_uri to give the object_id
-                object_id = uri.replace(base_uri, "")
-                found = ns, object_id
-                break
+        urip = cls.uri_parts(uri)
+        host = urip[1]
+
+        uri_map = cls._get_uri_map()
+
+        if host not in uri_map:
+            return found # empty CURIE
+        else:
+            uri_list = uri_map[host]
+            for ns in uri_list:
+                base_uri = str(ns)
+                if uri.startswith(base_uri):
+                    # simple minded deletion of base_uri to give the object_id
+                    object_id = uri.replace(base_uri, "")
+                    found = ns, object_id
+                    break
         return found
 
     @classmethod
@@ -128,6 +167,7 @@ def object_id(identifier, keep_version=False) -> str:
     """
     Returns the core object_id of a CURIE, with or without the version suffix.
     Note:  not designed to be used with a URI (will give an invalid outcome)
+
     :param identifier: candidate CURIE identifier for processing
     :param keep_version: True if the version string suffix is to be retained in the identifier
     :return:
@@ -135,6 +175,9 @@ def object_id(identifier, keep_version=False) -> str:
     # trivial case: null input value?
     if not identifier:
         return identifier
+
+    # Better coerce into a string, just in case
+    identifier = str(identifier)
 
     if ':' in identifier:
         identifier = identifier.split(":")[1]
@@ -172,6 +215,10 @@ def fix_curies(identifiers, prefix=''):
 
     elif isinstance(identifiers, Iterable):
         return [prefix + ':' + object_id(x, keep_version=True) for x in identifiers]
+
+    elif isinstance(identifiers, int):
+        # single string to convert
+        return prefix + ':' + object_id(str(identifiers), keep_version=True)
 
     else:
         raise RuntimeError("fix_curie() is not sure how to fix an instance of data type '", type(identifiers))
