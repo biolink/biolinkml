@@ -42,8 +42,7 @@ class Issue83TestCase(unittest.TestCase):
         parsed_yaml = yaml.load(yaml_str, DupCheckYamlLoader)
         with self.assertRaises(ValueError) as e:
             Issue83TestCase.FesterBesterTester(**parsed_yaml['base'])
-        self.assertEqual('Unknown argument: c = \'sell\'  File "<unicode string>", line 4, col 9',
-                         str(e.exception).strip())
+        self.assertIn('Unknown argument: c = \'sell\'', str(e.exception).strip())
 
         parsed_yaml['base'].pop('c', None)
         try:
