@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by namespacegen.py version: 0.4.0
-# Generation date: 2020-09-11 16:59
+# Generation date: 2020-09-11 17:58
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta
@@ -58,7 +58,8 @@ class metamodelNameSpace:
     @classmethod
     def uri_parts(cls, uri) -> Tuple[str, str, str, str, str, str]:
         """
-        Parses a URI into basic component parts
+        Parses a URI object (which may be expressed as a str value) into its basic component parts
+
         :param uri:
         :return: tuple of scheme, host, port, path, parameters, hashtag
         """
@@ -94,6 +95,7 @@ class metamodelNameSpace:
     def parse_curie(cls, identifier: str) -> Tuple[CurieNamespace, str]:
         """
         Parse a candidate CURIE
+
         :param identifier: candidate curie string
         :return: CURIE namespace and object_id
         """
@@ -110,8 +112,9 @@ class metamodelNameSpace:
     def parse_uri(cls, uri: str) -> Tuple[CurieNamespace,  str]:
         """
         Parse a candidate URI
+
         :param uri: candidate URI string
-        :return: namespace and object_id
+        :return: CURIE namespace and object_id
         """
         found = CurieNamespace("", ""), uri   # default value returned if unknown URI namespace
 
@@ -135,7 +138,13 @@ class metamodelNameSpace:
 
     @classmethod
     def parse_identifier(cls,  identifier: str) -> Tuple[CurieNamespace,  str]:
+        """
+        Parse and validate an identifier (may be URI or a proper CURIE)
+        into a known locally registered CURIE namespace and object_id
 
+        :param identifier:
+        :return: CURIE namespace and object_id of the identifier
+        """
         # trivial case of a null identifier?
         if not identifier:
             return CurieNamespace("", ""), ""
@@ -156,7 +165,7 @@ def object_id(identifier, keep_version=False) -> str:
 
     :param identifier: candidate CURIE identifier for processing
     :param keep_version: True if the version string suffix is to be retained in the identifier
-    :return:
+    :return: object identifier string
     """
     # trivial case: null input value?
     if not identifier:
@@ -181,7 +190,7 @@ def fix_curies(identifiers, prefix=''):
 
     :param identifiers:
     :param prefix:
-    :return:
+    :return: identifiers with preferred prefix
     """
     if not prefix:
         # return identifiers without modification
@@ -212,6 +221,12 @@ def fix_curies(identifiers, prefix=''):
 
 @lru_cache(maxsize=1000)
 def curie(identifier) -> str:
+    """
+    Parses an input identifier (can be a URI), to return a proper CURIE
+
+    :param identifier:
+    :return: CURIE string, properly mapped onto a known locally registered namespace
+    """
     # Ignore empty strings
     if not identifier:
         return ""
