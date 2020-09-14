@@ -18,7 +18,7 @@ from includes.types import SHEX
 URI_RANGES = (XSD.anyURI, SHEX.nonliteral, SHEX.bnode, SHEX.iri)
 
 
-class CntxtGenerator(Generator):
+class PrefixGenerator(Generator):
     generatorname = os.path.basename(__file__)
     generatorversion = "0.1.1"
     valid_formats = ['json']
@@ -119,9 +119,9 @@ class CntxtGenerator(Generator):
             self.add_prefix(id_prefix)
 
 
-@shared_arguments(CntxtGenerator)
+@shared_arguments(PrefixGenerator)
 @click.command()
 @click.option("--base", help="Base URI for model")
 def cli(yamlfile, **args):
     """ Generate jsonld @context definition from biolink model """
-    print(CntxtGenerator(yamlfile, **args).serialize(**args))
+    print(PrefixGenerator(yamlfile, **args).serialize(**args))

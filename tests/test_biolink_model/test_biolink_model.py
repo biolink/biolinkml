@@ -13,7 +13,7 @@ from biolinkml.generators.dotgen import DotGenerator
 from biolinkml.generators.golrgen import GolrSchemaGenerator
 from biolinkml.generators.graphqlgen import GraphqlGenerator
 from biolinkml.generators.jsonldcontextgen import ContextGenerator
-from biolinkml.generators.prefixmapgen import CntxtGenerator
+from biolinkml.generators.prefixmapgen import PrefixGenerator
 from biolinkml.generators.jsonldgen import JSONLDGenerator
 from biolinkml.generators.jsonschemagen import JsonSchemaGenerator
 from biolinkml.generators.markdowngen import MarkdownGenerator
