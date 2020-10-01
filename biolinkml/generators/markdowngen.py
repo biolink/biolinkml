@@ -167,7 +167,7 @@ class MarkdownGenerator(Generator):
 
                 self.element_properties(cls)
 
-        return True
+        return False
 
     def visit_type(self, typ: TypeDefinition) -> None:
         with open(self.dir_path(typ), 'w') as typefile:
@@ -185,7 +185,7 @@ class MarkdownGenerator(Generator):
                     print(f"| Representation | | {typ.repr} |")
                 self.element_properties(typ)
 
-    def visit_class_slot(self, cls: ClassDefinition, aliased_slot_name: str, slot: SlotDefinition) -> None:
+    def visit_slot(self, aliased_slot_name: str, slot: SlotDefinition) -> None:
         with open(self.dir_path(slot), 'w') as slotfile:
             with redirect_stdout(slotfile):
                 slot_curie = self.namespaces.uri_or_curie_for(self.namespaces._base, underscore(slot.name))
@@ -250,6 +250,11 @@ class MarkdownGenerator(Generator):
             # from_schema
             # imported_from
             prop_list('See also', obj.see_also)
+            prop_list('Exact Mappings', obj.exact_mappings)
+            prop_list('Close Mappings', obj.close_mappings)
+            prop_list('Narrow Mappings', obj.narrow_mappings)
+            prop_list('Broad Mappings', obj.broad_mappings)
+            prop_list('Related Mappings', obj.related_mappings)
             #       - exact mappings
             #       - close mappings
             #       - related mappings
@@ -266,7 +271,7 @@ class MarkdownGenerator(Generator):
         if cls.name in sorted(self.synopsis.isarefs):
             for child in sorted(self.synopsis.isarefs[cls.name].classrefs):
                 self.class_hier(self.schema.classes[child], level+1)
-        
+
     def pred_hier(self, slot: SlotDefinition, level=0) -> None:
         self.bullet(self.slot_link(slot, use_desc=True), level)
         if slot.name in sorted(self.synopsis.isarefs):
