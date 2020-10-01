@@ -1,5 +1,5 @@
 # Auto generated from importer.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-09-11 18:34
+# Generation date: 2020-10-01 22:08
 # Schema: importer
 #
 # id: https://example.org/importer

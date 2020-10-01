@@ -1,5 +1,5 @@
 # Auto generated from resourcedescription.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-09-11 18:34
+# Generation date: 2020-10-01 22:08
 # Schema: resourcedescription
 #
 # id: https://hotecosystem.org/tccm/resourcedescription

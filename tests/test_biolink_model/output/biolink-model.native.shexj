@@ -622,7 +622,6 @@
             "https://w3id.org/biolink/vocab/GeneToGeneAssociation",
             "https://w3id.org/biolink/vocab/GeneToPhenotypicFeatureAssociation",
             "https://w3id.org/biolink/vocab/GeneToThingAssociation",
-            "https://w3id.org/biolink/vocab/GenomicSequenceLocalization",
             "https://w3id.org/biolink/vocab/GenotypeToDiseaseAssociation",
             "https://w3id.org/biolink/vocab/GenotypeToGeneAssociation",
             "https://w3id.org/biolink/vocab/GenotypeToGenotypePartAssociation",
@@ -635,6 +634,7 @@
             "https://w3id.org/biolink/vocab/OrganismalEntityAsAModelOfDiseaseAssociation",
             "https://w3id.org/biolink/vocab/PairwiseInteractionAssociation",
             "https://w3id.org/biolink/vocab/PopulationToPopulationAssociation",
+            "https://w3id.org/biolink/vocab/SequenceAssociation",
             "https://w3id.org/biolink/vocab/SequenceFeatureRelationship",
             "https://w3id.org/biolink/vocab/SequenceVariantModulatesTreatmentAssociation",
             "https://w3id.org/biolink/vocab/ThingToDiseaseOrPhenotypicFeatureAssociation",
@@ -4946,14 +4946,14 @@
                   "type": "EachOf",
                   "id": "https://w3id.org/biolink/vocab/GenomicSequenceLocalization_tes",
                   "expressions": [
-                     "https://w3id.org/biolink/vocab/Association_tes",
+                     "https://w3id.org/biolink/vocab/SequenceAssociation_tes",
                      {
                         "type": "TripleConstraint",
                         "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "https://w3id.org/biolink/vocab/Association"
+                              "https://w3id.org/biolink/vocab/SequenceAssociation"
                            ]
                         },
                         "min": 0
@@ -4961,20 +4961,27 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/vocab/start_interbase_coordinate",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Integer",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/vocab/end_interbase_coordinate",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Integer",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/vocab/genome_build",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/strand",
                         "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
                         "min": 0,
                         "max": 1
@@ -4997,6 +5004,13 @@
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/vocab/object",
                         "valueExpr": "https://w3id.org/biolink/vocab/GenomicEntity",
+                        "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/relation",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
                         "min": 1,
                         "max": 1
                      }
@@ -8252,6 +8266,51 @@
                }
             ]
          }
+      },
+      {
+         "type": "ShapeOr",
+         "id": "https://w3id.org/biolink/vocab/SequenceAssociation",
+         "shapeExprs": [
+            {
+               "type": "Shape",
+               "closed": true,
+               "expression": {
+                  "type": "EachOf",
+                  "expressions": [
+                     {
+                        "type": "EachOf",
+                        "id": "https://w3id.org/biolink/vocab/SequenceAssociation_tes",
+                        "expressions": [
+                           "https://w3id.org/biolink/vocab/Association_tes",
+                           {
+                              "type": "TripleConstraint",
+                              "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                              "valueExpr": {
+                                 "type": "NodeConstraint",
+                                 "values": [
+                                    "https://w3id.org/biolink/vocab/Association"
+                                 ]
+                              },
+                              "min": 0
+                           }
+                        ]
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://w3id.org/biolink/vocab/SequenceAssociation"
+                           ]
+                        },
+                        "min": 1
+                     }
+                  ]
+               }
+            },
+            "https://w3id.org/biolink/vocab/GenomicSequenceLocalization"
+         ]
       },
       {
          "type": "ShapeOr",

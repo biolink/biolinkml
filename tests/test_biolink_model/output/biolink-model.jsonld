@@ -98,6 +98,14 @@
     {
       "prefix_prefix": "MetaCyc",
       "prefix_reference": "http://translator.ncats.nih.gov/MetaCyc_"
+    },
+    {
+      "prefix_prefix": "RTXKG1",
+      "prefix_reference": "http://arax.rtx.ai/"
+    },
+    {
+      "prefix_prefix": "RXNORM",
+      "prefix_reference": "http://purl.bioontology.org/ontology/RXNORM/"
     }
   ],
   "emit_prefixes": [
@@ -430,16 +438,135 @@
     {
       "name": "related_to",
       "definition_uri": "https://w3id.org/biolink/vocab/related_to",
-      "mappings": [
-        "owl:topObjectProperty",
+      "description": "A relationship that is asserted between two named things",
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "skos:relatedMatch",
         "SEMMEDDB:ASSOCIATED_WITH",
+        "SEMMEDDB:associated_with",
+        "UMLS:related_to"
+      ],
+      "narrow_mappings": [
+        "SEMMEDDB:compared_with",
+        "SEMMEDDB:higher_than",
+        "SEMMEDDB:lower_than",
         "BFO:0000054",
         "UBERON_CORE:protects",
         "GOREL:0002005",
-        "GOREL:0012006"
+        "GOREL:0012006",
+        "BFO:0000068",
+        "BFO:0000069",
+        "BTO:related_to",
+        "CHEBI:is_conjugate_acid_of",
+        "CHEBI:is_conjugate_base_of",
+        "CPT:has_add_on_code",
+        "CPT:mapped_to",
+        "EFO:0006351",
+        "FMA:connected_to",
+        "FMA:continuous_with",
+        "FMA:homonym_of",
+        "FMA:related_developmental_entity_of",
+        "GO:ends_during",
+        "GO:happens_during",
+        "GO:inverse_ends_during",
+        "GOREL:0002005",
+        "GOREL:0012006",
+        "HCPCS:mapped_to",
+        "HMDB:disease",
+        "HMDB:has_protein_association",
+        "IAO:0000136",
+        "LOINC:has_answer",
+        "LOINC:has_challenge",
+        "LOINC:has_evaluation",
+        "LOINC:mapped_to",
+        "LOINC:mth_has_expanded_form",
+        "MESH:RO",
+        "MESH:has_mapping_qualifier",
+        "MESH:mapped_to",
+        "MONDO:disease_shares_features_of",
+        "NCIT:disease_may_have_associated_disease",
+        "NCIT:human_disease_maps_to_eo_disease",
+        "NCIT:is_abnormal_cell_of_disease",
+        "NCIT:is_related_to_endogenous_product",
+        "OBO:core#connected_to",
+        "OBO:core#innervated_by",
+        "OBO:envo#has_increased_levels_of",
+        "OBO:has_role",
+        "OBO:nbo#is_about",
+        "OBOREL:bearer_of",
+        "PATO:decreased_in_magnitude_relative_to",
+        "PATO:has_cross_section",
+        "PATO:has_relative_magnitude",
+        "PATO:increased_in_magnitude_relative_to",
+        "PATO:reciprocal_of",
+        "RO:0000052",
+        "RO:0002001",
+        "RO:0002002",
+        "RO:0002003",
+        "RO:0002008",
+        "RO:0002134",
+        "RO:0002150",
+        "RO:0002159",
+        "RO:0002176",
+        "RO:0002177",
+        "RO:0002178",
+        "RO:0002179",
+        "RO:0002314",
+        "RO:0002322",
+        "RO:0002328",
+        "RO:0002332",
+        "RO:0002338",
+        "RO:0002339",
+        "RO:0002341",
+        "RO:0002342",
+        "RO:0002344",
+        "RO:0002348",
+        "RO:0002349",
+        "RO:0002356",
+        "RO:0002371",
+        "RO:0002372",
+        "RO:0002373",
+        "RO:0002374",
+        "RO:0002385",
+        "RO:0002387",
+        "RO:0002451",
+        "RO:0002494",
+        "RO:0002495",
+        "RO:0002568",
+        "RO:0002573",
+        "RO:0004026",
+        "RO:0004027",
+        "RO:0009001",
+        "RO:0009004",
+        "RTXKG1:functionally_related_to",
+        "RXNORM:has_form",
+        "RXNORM:reformulated_to",
+        "SNOMED:has_associated_morphology",
+        "SNOMED:has_associated_procedure",
+        "SNOMED:has_direct_morphology",
+        "SNOMED:has_disposition",
+        "SNOMED:has_indirect_morphology",
+        "SNOMED:has_modification",
+        "SNOMED:has_procedure_morphology",
+        "SNOMED:has_specimen_source_morphology",
+        "SNOMED:inheres_in",
+        "SNOMED:is_interpreted_by",
+        "SNOMED:relative_to_part_of",
+        "UBERON:synapsed_by",
+        "UMLS:RO",
+        "UMLS:RQ",
+        "UMLS:class_code_classified_by",
+        "UMLS:exhibited_by",
+        "UMLS:has_context_binding",
+        "UMLS:has_form",
+        "UMLS:has_mapping_qualifier",
+        "UMLS:larger_than",
+        "UMLS:mapped_to",
+        "UMLS:owning_section_of"
       ],
-      "description": "A relationship that is asserted between two named things",
-      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "broad_mappings": [
+        "owl:topObjectProperty"
+      ],
       "domain": "NamedThing",
       "range": "NamedThing",
       "slot_uri": "https://w3id.org/biolink/vocab/related_to",
@@ -449,16 +576,175 @@
       "type": "SlotDefinition"
     },
     {
+      "name": "superclass_of",
+      "definition_uri": "https://w3id.org/biolink/vocab/superclass_of",
+      "description": "holds between two classes where the domain class is a super class of the range class",
+      "in_subset": [
+        "translator_minimal"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "WD:Q66088480",
+        "CHEMBL.MECHANISM:superset_of",
+        "GO:inverse_isa",
+        "MESH:inverse_isa",
+        "RXNORM:inverse_isa",
+        "VANDF:inverse_isa"
+      ],
+      "narrow_mappings": [
+        "NCIT:cdrh_parent_of",
+        "NCIT:ctcae_5_parent_of",
+        "NCIT:subset_includes_concept",
+        "OMIM:has_manifestation",
+        "SNOMED:has_basic_dose_form",
+        "UMLS:RB"
+      ],
+      "is_a": "related_to",
+      "domain": "OntologyClass",
+      "range": "iri_type",
+      "slot_uri": "https://w3id.org/biolink/vocab/superclass_of",
+      "multivalued": true,
+      "inherited": true,
+      "owner": "superclass_of",
+      "inverse": "subclass_of",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "subclass_of",
+      "definition_uri": "https://w3id.org/biolink/vocab/subclass_of",
+      "mappings": [
+        "rdfs:subClassOf"
+      ],
+      "description": "holds between two classes where the domain class is a specialization of the range class",
+      "in_subset": [
+        "translator_minimal"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "rdfs:subClassOf",
+        "SEMMEDDB:IS_A",
+        "SEMMEDDB:isa",
+        "WIKIDATA:P279",
+        "CHEMBL.MECHANISM:subset_of",
+        "GO:isa",
+        "MESH:isa",
+        "RTXKG1:subclass_of",
+        "RXNORM:isa",
+        "VANDF:isa"
+      ],
+      "close_mappings": [
+        "CHEMBL.MECHANISM:superset_of",
+        "LOINC:class_of",
+        "LOINC:has_class"
+      ],
+      "narrow_mappings": [
+        "CHEBI:has_parent_hydride",
+        "LOINC:has_archetype",
+        "LOINC:has_parent_group",
+        "LOINC:is_presence_guidance_for",
+        "NCIT:gene_product_has_chemical_classification",
+        "NCIT:gene_is_biomarker_type",
+        "NCIT:gene_product_is_biomarker_type",
+        "NCIT:has_inc_parent",
+        "NCIT:has_nichd_parent",
+        "NCIT:neoplasm_has_special_category",
+        "NCIT:role_has_parent",
+        "NDDF:has_dose_form",
+        "OBO:intersection_of",
+        "RXNORM:has_dose_form",
+        "RXNORM:has_doseformgroup",
+        "SNOMED:entire_anatomy_structure_of",
+        "SNOMED:has_dose_form",
+        "rdfs:subPropertyOf"
+      ],
+      "is_a": "related_to",
+      "domain": "OntologyClass",
+      "range": "OntologyClass",
+      "slot_uri": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+      "multivalued": true,
+      "inherited": true,
+      "owner": "subclass_of",
+      "inverse": "superclass_of",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "same_as",
+      "definition_uri": "https://w3id.org/biolink/vocab/same_as",
+      "description": "holds between two entities that are considered equivalent to each other",
+      "in_subset": [
+        "translator_minimal"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "owl:sameAs",
+        "skos:exactMatch",
+        "WIKIDATA:P2888",
+        "CHEMBL.MECHANISM:equivalent_to",
+        "MONDO:equivalentTo"
+      ],
+      "close_mappings": [
+        "owl:equivalentClass"
+      ],
+      "narrow_mappings": [
+        "DRUGBANK:external-identifier"
+      ],
+      "is_a": "related_to",
+      "domain": "NamedThing",
+      "range": "NamedThing",
+      "slot_uri": "https://w3id.org/biolink/vocab/same_as",
+      "multivalued": true,
+      "inherited": true,
+      "owner": "same_as",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "close_match",
+      "definition_uri": "https://w3id.org/biolink/vocab/close_match",
+      "description": "holds between two entities that are considered a skos:closeMatch to one another",
+      "in_subset": [
+        "translator_minimal"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "skos:closeMatch",
+        "SEMMEDDB:SAME_AS",
+        "SEMMEDDB:same_as"
+      ],
+      "narrow_mappings": [
+        "CHEBI:is_enantiomer_of",
+        "CHEBI:is_tautomer_of",
+        "MEDDRA:classified_as",
+        "OBO:xref",
+        "oboFormat:xref",
+        "RXNORM:has_quantified_form",
+        "UMLS:SY"
+      ],
+      "is_a": "related_to",
+      "domain": "NamedThing",
+      "range": "NamedThing",
+      "slot_uri": "https://w3id.org/biolink/vocab/close_match",
+      "multivalued": true,
+      "inherited": true,
+      "owner": "close_match",
+      "type": "SlotDefinition"
+    },
+    {
       "name": "interacts_with",
       "definition_uri": "https://w3id.org/biolink/vocab/interacts_with",
-      "mappings": [
-        "RO:0002434"
-      ],
       "description": "holds between any two entities that directly or indirectly interact with each other",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "RO:0002434"
+      ],
+      "narrow_mappings": [
+        "RO:0002103",
+        "RO:0002120",
+        "RO:0002130",
+        "SEMMEDDB:complicates"
+      ],
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "NamedThing",
@@ -471,15 +757,32 @@
     {
       "name": "physically_interacts_with",
       "definition_uri": "https://w3id.org/biolink/vocab/physically_interacts_with",
-      "mappings": [
-        "WIKIDATA:P129",
-        "SEMMEDDB:INTERACTS_WITH"
-      ],
       "description": "holds between two entities that make physical contact as part of some interaction",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "WIKIDATA:P129",
+        "RTXKG1:physically_interacts_with"
+      ],
+      "close_mappings": [
+        "CHEMBL.MECHANISM:binding_agent",
+        "CHEMBL.MECHANISM:chelating_agent",
+        "CHEMBL.MECHANISM:cross-linking_agent",
+        "CHEMBL.MECHANISM:oxidative_enzyme",
+        "CHEMBL.MECHANISM:sequestering_agent",
+        "CHEMBL.MECHANISM:substrate",
+        "DRUGBANK:target"
+      ],
+      "narrow_mappings": [
+        "SEMMEDDB:INTERACTS_WITH",
+        "SEMMEDDB:interacts_with",
+        "DRUGBANK:drug-interaction",
+        "FMA:adheres_to",
+        "NCIT:has_target",
+        "PR:non-covalently_bound_to"
+      ],
       "is_a": "interacts_with",
       "domain": "NamedThing",
       "range": "NamedThing",
@@ -493,14 +796,18 @@
     {
       "name": "molecularly_interacts_with",
       "definition_uri": "https://w3id.org/biolink/vocab/molecularly_interacts_with",
-      "mappings": [
-        "RO:0002436",
-        "CTD:molecularly_interacts_with"
-      ],
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "RO:0002436",
+        "CTD:molecularly_interacts_with",
+        "RTXKG1:targets"
+      ],
+      "related_mappings": [
+        "DGIdb:antibody"
+      ],
       "is_a": "physically_interacts_with",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -513,14 +820,14 @@
     {
       "name": "genetically_interacts_with",
       "definition_uri": "https://w3id.org/biolink/vocab/genetically_interacts_with",
-      "mappings": [
-        "RO:0002435"
-      ],
       "description": "holds between two genes whose phenotypic effects are dependent on each other in some way - such that their combined phenotypic effects are the result of some interaction between the activity of their gene products. Examples include epistasis and synthetic lethality.",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "RO:0002435"
+      ],
       "is_a": "interacts_with",
       "domain": "Gene",
       "range": "Gene",
@@ -533,18 +840,51 @@
     {
       "name": "affects",
       "definition_uri": "https://w3id.org/biolink/vocab/affects",
-      "mappings": [
-        "SEMMEDDB:AFFECTS",
-        "GOREL:0001006",
-        "CTD:inferred",
-        "CTD:prediction_hypothesis",
-        "UPHENO:0000001"
-      ],
       "description": "describes an entity that has a direct affect on the state or quality of another existing entity. Use of the 'affects' predicate implies that the affected entity already exists, unlike predicates such as 'affects risk for' and 'prevents, where the outcome is something that may or may not come to be.",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "SEMMEDDB:AFFECTS",
+        "SEMMEDDB:affects",
+        "DGIdb:affects",
+        "RTXKG1:affects"
+      ],
+      "related_mappings": [
+        "DRUGBANK:pathway"
+      ],
+      "narrow_mappings": [
+        "SEMMEDDB:administered_to",
+        "CTD:prediction_hypothesis",
+        "GOREL:0001006",
+        "CTD:inferred",
+        "UPHENO:0000001",
+        "GO:acts_upstream_of",
+        "GO:acts_upstream_of_or_within",
+        "CIT:allele_plays_altered_role_in_process",
+        "NCIT:allele_plays_role_in_metabolism_of_chemical_or_drug",
+        "NCIT:biological_process_has_associated_location",
+        "NCIT:chemical_or_drug_affects_abnormal_cell",
+        "NCIT:chemical_or_drug_affects_cell_type_or_tissue",
+        "NCIT:chemical_or_drug_affects_gene_product",
+        "NCIT:chemical_or_drug_has_mechanism_of_action",
+        "NCIT:cytogenetic_abnormality_involves_chromosome",
+        "NCIT:disease_has_associated_anatomic_site",
+        "NCIT:disease_has_metastatic_anatomic_site",
+        "NCIT:disease_has_primary_anatomic_site",
+        "NCIT:disease_may_have_abnormal_cell",
+        "NCIT:eo_disease_has_associated_cell_type",
+        "NCIT:eo_disease_has_associated_eo_anatomy",
+        "NCIT:gene_mapped_to_disease",
+        "NCIT:gene_product_has_abnormality",
+        "RO:0002343",
+        "RO:0002355",
+        "RO:0002591",
+        "RO:0002592",
+        "RO:0012003",
+        "SNOMED:has_pathological_process"
+      ],
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "NamedThing",
@@ -557,14 +897,14 @@
     {
       "name": "affects_abundance_of",
       "definition_uri": "https://w3id.org/biolink/vocab/affects_abundance_of",
-      "mappings": [
-        "CTD:affects_abundance_of"
-      ],
       "description": "holds between two molecular entities where the action or effect of one changes the amount of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:affects_abundance_of"
+      ],
       "is_a": "affects",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -577,15 +917,17 @@
     {
       "name": "increases_abundance_of",
       "definition_uri": "https://w3id.org/biolink/vocab/increases_abundance_of",
-      "mappings": [
-        "CTD:increases_abundance_of",
-        "UBERGRAPH:is_increase_of"
-      ],
       "description": "holds between two molecular entities where the action or effect of one increases the amount of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:increases_abundance_of"
+      ],
+      "related_mappings": [
+        "UBERGRAPH:is_increase_of"
+      ],
       "is_a": "affects_abundance_of",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -598,15 +940,17 @@
     {
       "name": "decreases_abundance_of",
       "definition_uri": "https://w3id.org/biolink/vocab/decreases_abundance_of",
-      "mappings": [
-        "CTD:decreases_abundance_of",
-        "UBERGRAPH:is_decrease_of"
-      ],
       "description": "holds between two molecular entities where the action or effect of one decreases the amount of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:decreases_abundance_of"
+      ],
+      "related_mappings": [
+        "UBERGRAPH:is_decrease_of"
+      ],
       "is_a": "affects_abundance_of",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -619,17 +963,21 @@
     {
       "name": "affects_activity_of",
       "definition_uri": "https://w3id.org/biolink/vocab/affects_activity_of",
-      "mappings": [
-        "CTD:affects_activity_of",
-        "GAMMA:allosteric_modulator",
-        "GAMMA:modulator",
-        "GAMMA:regulator"
-      ],
       "description": "holds between two molecular entities where the action or effect of one changes the activity of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:affects_activity_of"
+      ],
+      "narrow_mappings": [
+        "GAMMA:allosteric_modulator",
+        "GAMMA:modulator",
+        "GAMMA:regulator",
+        "DGIdb:modulator",
+        "DGIdb:allosteric_modulator"
+      ],
       "is_a": "affects",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -642,25 +990,39 @@
     {
       "name": "increases_activity_of",
       "definition_uri": "https://w3id.org/biolink/vocab/increases_activity_of",
-      "mappings": [
-        "CTD:increases_activity_of",
+      "description": "holds between two molecular entities where the action or effect of one increases the activity of the other within a system of interest",
+      "in_subset": [
+        "translator_minimal"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:increases_activity_of"
+      ],
+      "related_mappings": [
+        "GAMMA:ec50",
+        "GAMMA:ac50"
+      ],
+      "narrow_mappings": [
         "GAMMA:activator",
         "GAMMA:partial_agonist",
         "GAMMA:agonist",
         "GAMMA:opener",
         "GAMMA:positive_allosteric_modulator",
         "GAMMA:positive_modulator",
-        "GAMMA:ec50",
-        "GAMMA:ac50",
         "GAMMA:inducer",
         "GAMMA:potentiator",
-        "GAMMA:stimulator"
+        "GAMMA:stimulator",
+        "CHEMBL.MECHANISM:agonist",
+        "CHEMBL.MECHANISM:opener",
+        "CHEMBL.MECHANISM:partial_agonist",
+        "CHEMBL.MECHANISM:positive_allosteric_modulator",
+        "CHEMBL.MECHANISM:positive_modulator",
+        "DGIdb:agonist",
+        "DGIdb:partial_agonist",
+        "DGIdb:inducer",
+        "DGIdb:positive_allosteric_modulator",
+        "DGIdb:stimulator"
       ],
-      "description": "holds between two molecular entities where the action or effect of one increases the activity of the other within a system of interest",
-      "in_subset": [
-        "translator_minimal"
-      ],
-      "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_activity_of",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -673,8 +1035,20 @@
     {
       "name": "decreases_activity_of",
       "definition_uri": "https://w3id.org/biolink/vocab/decreases_activity_of",
-      "mappings": [
-        "CTD:decreases_activity_of",
+      "description": "holds between two molecular entities where the action or effect of one decreases the activity of the other within a system of interest",
+      "in_subset": [
+        "translator_minimal"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:decreases_activity_of"
+      ],
+      "related_mappings": [
+        "GAMMA:ic50",
+        "GAMMA:ki",
+        "DGIdb:vaccine"
+      ],
+      "narrow_mappings": [
         "GAMMA:allosteric_antagonist",
         "GAMMA:partial_antagonist",
         "GAMMA:antagonist",
@@ -689,17 +1063,21 @@
         "GAMMA:negative_modulator",
         "GAMMA:negative_allosteric_modulator",
         "GAMMA:inhibitory_allosteric_modulator",
-        "GAMMA:ic50",
-        "GAMMA:ki",
         "GAMMA:aggregation_inhibitor",
         "GAMMA:conversion_inhibitor",
-        "GAMMA:suppressor"
+        "GAMMA:suppressor",
+        "CHEMBL.MECHANISM:antagonist",
+        "CHEMBL.MECHANISM:allosteric_antagonist",
+        "CHEMBL.MECHANISM:inverse_agonist",
+        "DGIdb:antagonist",
+        "DGIdb:blocker",
+        "DGIdb:channel_blocker",
+        "DGIdb:gating_inhibitor",
+        "DGIdb:inhibitor",
+        "DGIdb:negative_modulator",
+        "DGIdb:inhibitory_allosteric_modulator",
+        "DGIdb:inverse_agonist"
       ],
-      "description": "holds between two molecular entities where the action or effect of one decreases the activity of the other within a system of interest",
-      "in_subset": [
-        "translator_minimal"
-      ],
-      "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_activity_of",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -712,14 +1090,14 @@
     {
       "name": "affects_expression_of",
       "definition_uri": "https://w3id.org/biolink/vocab/affects_expression_of",
-      "mappings": [
-        "CTD:affects_expression_of"
-      ],
       "description": "holds between two molecular entities where the action or effect of one changes the level of expression of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:affects_expression_of"
+      ],
       "is_a": "affects",
       "domain": "MolecularEntity",
       "range": "GenomicEntity",
@@ -732,14 +1110,17 @@
     {
       "name": "increases_expression_of",
       "definition_uri": "https://w3id.org/biolink/vocab/increases_expression_of",
-      "mappings": [
-        "CTD:increases_expression_of"
-      ],
       "description": "holds between two molecular entities where the action or effect of one increases the level of expression of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:increases_expression_of"
+      ],
+      "close_mappings": [
+        "CHEMBL.MECHANISM:releasing_agent"
+      ],
       "is_a": "affects_expression_of",
       "domain": "MolecularEntity",
       "range": "GenomicEntity",
@@ -752,14 +1133,21 @@
     {
       "name": "decreases_expression_of",
       "definition_uri": "https://w3id.org/biolink/vocab/decreases_expression_of",
-      "mappings": [
-        "CTD:decreases_expression_of"
-      ],
       "description": "holds between two molecular entities where the action or effect of one decreases the level of expression of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:decreases_expression_of"
+      ],
+      "related_mappings": [
+        "DGIdb:antisense",
+        "DGIdb:antisense_oligonucleotide"
+      ],
+      "narrow_mappings": [
+        "CHEMBL.MECHANISM:antisense_inhibitor"
+      ],
       "is_a": "affects_expression_of",
       "domain": "MolecularEntity",
       "range": "GenomicEntity",
@@ -772,14 +1160,14 @@
     {
       "name": "affects_folding_of",
       "definition_uri": "https://w3id.org/biolink/vocab/affects_folding_of",
-      "mappings": [
-        "CTD:affects_folding_of"
-      ],
       "description": "holds between two molecular entities where the action or effect of one changes the rate or quality of folding of the other",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:affects_folding_of"
+      ],
       "is_a": "affects",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -792,14 +1180,14 @@
     {
       "name": "increases_folding_of",
       "definition_uri": "https://w3id.org/biolink/vocab/increases_folding_of",
-      "mappings": [
-        "CTD:increases_folding_of"
-      ],
       "description": "holds between two molecular entities where the action or effect of one increases the rate or quality of folding of the other",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:increases_folding_of"
+      ],
       "is_a": "affects_folding_of",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -812,14 +1200,14 @@
     {
       "name": "decreases_folding_of",
       "definition_uri": "https://w3id.org/biolink/vocab/decreases_folding_of",
-      "mappings": [
-        "CTD:decreases_folding_of"
-      ],
       "description": "holds between two molecular entities where the action or effect of one decreases the rate or quality of folding of the other",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:decreases_folding_of"
+      ],
       "is_a": "affects_folding_of",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -832,16 +1220,18 @@
     {
       "name": "affects_localization_of",
       "definition_uri": "https://w3id.org/biolink/vocab/affects_localization_of",
-      "mappings": [
-        "CTD:affects_localization_of",
-        "GAMMA:storage",
-        "GOREL:0002003"
-      ],
       "description": "holds between two molecular entities where the action or effect of one changes the localization of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:affects_localization_of",
+        "GOREL:0002003"
+      ],
+      "related_mappings": [
+        "GAMMA:storage"
+      ],
       "is_a": "affects",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -854,14 +1244,14 @@
     {
       "name": "increases_localization_of",
       "definition_uri": "https://w3id.org/biolink/vocab/increases_localization_of",
-      "mappings": [
-        "CTD:increases_localization_of"
-      ],
       "description": "holds between two molecular entities where the action or effect of one increases the proper localization of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:increases_localization_of"
+      ],
       "is_a": "affects_localization_of",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -874,14 +1264,14 @@
     {
       "name": "decreases_localization_of",
       "definition_uri": "https://w3id.org/biolink/vocab/decreases_localization_of",
-      "mappings": [
-        "CTD:decreases_localization_of"
-      ],
       "description": "holds between two molecular entities where the action or effect of one decreases the proper localization of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:decreases_localization_of"
+      ],
       "is_a": "affects_localization_of",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -894,15 +1284,17 @@
     {
       "name": "affects_metabolic_processing_of",
       "definition_uri": "https://w3id.org/biolink/vocab/affects_metabolic_processing_of",
-      "mappings": [
-        "CTD:affects_metabolic_processing_of",
-        "GAMMA:catalytic_activity"
-      ],
       "description": "holds between two molecular entities where the action or effect of one impacts the metabolic processing of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:affects_metabolic_processing_of"
+      ],
+      "related_mappings": [
+        "GAMMA:catalytic_activity"
+      ],
       "is_a": "affects",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -915,14 +1307,17 @@
     {
       "name": "increases_metabolic_processing_of",
       "definition_uri": "https://w3id.org/biolink/vocab/increases_metabolic_processing_of",
-      "mappings": [
-        "CTD:increases_metabolic_processing_of"
-      ],
       "description": "holds between two molecular entities where the action or effect of one increases the rate of metabolic processing of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:increases_metabolic_processing_of"
+      ],
+      "narrow_mappings": [
+        "NCIT:enzyme_metabolizes_chemical_or_drug"
+      ],
       "is_a": "affects_metabolic_processing_of",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -935,14 +1330,14 @@
     {
       "name": "decreases_metabolic_processing_of",
       "definition_uri": "https://w3id.org/biolink/vocab/decreases_metabolic_processing_of",
-      "mappings": [
-        "CTD:decreases_metabolic_processing_of"
-      ],
       "description": "holds between two molecular entities where the action or effect of one decreases the rate of metabolic processing of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:decreases_metabolic_processing_of"
+      ],
       "is_a": "affects_metabolic_processing_of",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -955,8 +1350,15 @@
     {
       "name": "affects_molecular_modification_of",
       "definition_uri": "https://w3id.org/biolink/vocab/affects_molecular_modification_of",
-      "mappings": [
-        "CTD:affects_molecular_modification_of",
+      "description": "holds between two molecular entities where the action or effect of one leads changes in the molecular modification(s) of the other (e.g. via post-translational modifications of proteins such as the addition of phosphoryl group, or via redox reaction that adds or subtracts electrons)",
+      "in_subset": [
+        "translator_minimal"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:affects_molecular_modification_of"
+      ],
+      "narrow_mappings": [
         "CTD:affects_acetylation",
         "CTD:affects_acylation",
         "CTD:affects_alkylation",
@@ -989,11 +1391,6 @@
         "CTD:affects_reduction",
         "CTD:affects_carboxylation"
       ],
-      "description": "holds between two molecular entities where the action or effect of one leads changes in the molecular modification(s) of the other (e.g. via post-translational modifications of proteins such as the addition of phosphoryl group, or via redox reaction that adds or subtracts electrons)",
-      "in_subset": [
-        "translator_minimal"
-      ],
-      "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -1006,8 +1403,15 @@
     {
       "name": "increases_molecular_modification_of",
       "definition_uri": "https://w3id.org/biolink/vocab/increases_molecular_modification_of",
-      "mappings": [
-        "CTD:increases_molecular_modification_of",
+      "description": "holds between two molecular entities where the action or effect of one leads to increased molecular modification(s) of the other (e.g. via post-translational modifications of proteins such as the addition of phosphoryl group, or via redox reaction that adds or subtracts electrons)",
+      "in_subset": [
+        "translator_minimal"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:increases_molecular_modification_of"
+      ],
+      "narrow_mappings": [
         "CTD:increases_acetylation",
         "CTD:increases_acylation",
         "CTD:increases_alkylation",
@@ -1042,11 +1446,6 @@
         "GAMMA:acetylation",
         "GAMMA:oxidizer"
       ],
-      "description": "holds between two molecular entities where the action or effect of one leads to increased molecular modification(s) of the other (e.g. via post-translational modifications of proteins such as the addition of phosphoryl group, or via redox reaction that adds or subtracts electrons)",
-      "in_subset": [
-        "translator_minimal"
-      ],
-      "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_molecular_modification_of",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -1059,8 +1458,15 @@
     {
       "name": "decreases_molecular_modification_of",
       "definition_uri": "https://w3id.org/biolink/vocab/decreases_molecular_modification_of",
-      "mappings": [
-        "CTD:decreases_molecular_modification_of",
+      "description": "holds between two molecular entities where the action or effect of one leads to decreased molecular modification(s) of the other (e.g. via post-translational modifications of proteins such as the addition of phosphoryl group, or via redox reaction that adds or subtracts electrons)",
+      "in_subset": [
+        "translator_minimal"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:decreases_molecular_modification_of"
+      ],
+      "narrow_mappings": [
         "CTD:decreases_acetylation",
         "CTD:decreases_acylation",
         "CTD:decreases_alkylation",
@@ -1094,11 +1500,6 @@
         "CTD:decreases_carboxylation",
         "GAMMA:deoxidizer"
       ],
-      "description": "holds between two molecular entities where the action or effect of one leads to decreased molecular modification(s) of the other (e.g. via post-translational modifications of proteins such as the addition of phosphoryl group, or via redox reaction that adds or subtracts electrons)",
-      "in_subset": [
-        "translator_minimal"
-      ],
-      "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "affects_molecular_modification_of",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -1111,14 +1512,14 @@
     {
       "name": "affects_synthesis_of",
       "definition_uri": "https://w3id.org/biolink/vocab/affects_synthesis_of",
-      "mappings": [
-        "CTD:affects_synthesis_of"
-      ],
       "description": "holds between two molecular entities where the action or effect of one impacts the rate of chemical synthesis of the other",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:affects_synthesis_of"
+      ],
       "is_a": "affects",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -1131,14 +1532,14 @@
     {
       "name": "increases_synthesis_of",
       "definition_uri": "https://w3id.org/biolink/vocab/increases_synthesis_of",
-      "mappings": [
-        "CTD:increases_synthesis_of"
-      ],
       "description": "holds between two molecular entities where the action or effect of one increases the rate of chemical synthesis of the other",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:increases_synthesis_of"
+      ],
       "is_a": "affects_synthesis_of",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -1152,7 +1553,6 @@
       "name": "decreases_synthesis_of",
       "definition_uri": "https://w3id.org/biolink/vocab/decreases_synthesis_of",
       "mappings": [
-        "CTD:decreases_synthesis_of",
         "GAMMA:inhibition_of_synthesis"
       ],
       "description": "holds between two molecular entities where the action or effect of one decreases the rate of chemical synthesis of the other",
@@ -1160,6 +1560,9 @@
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:decreases_synthesis_of"
+      ],
       "is_a": "affects_synthesis_of",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -1172,16 +1575,18 @@
     {
       "name": "affects_degradation_of",
       "definition_uri": "https://w3id.org/biolink/vocab/affects_degradation_of",
-      "mappings": [
-        "CTD:affects_degradation_of",
-        "CTD:affects_cleavage",
-        "CTD:affects_hydrolysis"
-      ],
-      "description": "holds between two molecular entities where the action or effect of one impacts the rate of degradation of the other within a system of interest",
+      "description": "holds between two molecular entities where the action or effect of one impacts the rate of degradation of the other within a system of interest, where chemical degradation is defined act or process of simplifying or breaking down a molecule into smaller parts, either naturally or artificially (Oxford English Dictionary, UK, 1995)",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:affects_degradation_of"
+      ],
+      "narrow_mappings": [
+        "CTD:affects_cleavage",
+        "CTD:affects_hydrolysis"
+      ],
       "is_a": "affects",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -1194,18 +1599,28 @@
     {
       "name": "increases_degradation_of",
       "definition_uri": "https://w3id.org/biolink/vocab/increases_degradation_of",
-      "mappings": [
-        "CTD:increases_degradation_of",
-        "CTD:increases_cleavage",
-        "CTD:increases_hydrolysis",
-        "GAMMA:substrate",
-        "GOREL:0002004"
-      ],
       "description": "holds between two molecular entities where the action or effect of one increases the rate of degradation of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:increases_degradation_of"
+      ],
+      "close_mappings": [
+        "CHEMBL.MECHANISM:degrader",
+        "CHEMBL.MECHANISM:proteolytic_enzyme",
+        "CHEMBL.MECHANISM:hydrolytic_enzyme"
+      ],
+      "related_mappings": [
+        "GAMMA:substrate",
+        "CHEMBL.MECHANISM:substrate"
+      ],
+      "narrow_mappings": [
+        "CTD:increases_cleavage",
+        "CTD:increases_hydrolysis",
+        "GOREL:0002004"
+      ],
       "is_a": "affects_degradation_of",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -1218,16 +1633,18 @@
     {
       "name": "decreases_degradation_of",
       "definition_uri": "https://w3id.org/biolink/vocab/decreases_degradation_of",
-      "mappings": [
-        "CTD:decreases_degradation_of",
-        "CTD:decreases_cleavage",
-        "CTD:decreases_hydrolysis"
-      ],
       "description": "holds between two molecular entities where the action or effect of one decreases the rate of degradation of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:decreases_degradation_of"
+      ],
+      "narrow_mappings": [
+        "CTD:decreases_cleavage",
+        "CTD:decreases_hydrolysis"
+      ],
       "is_a": "affects_degradation_of",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -1240,15 +1657,17 @@
     {
       "name": "affects_mutation_rate_of",
       "definition_uri": "https://w3id.org/biolink/vocab/affects_mutation_rate_of",
-      "mappings": [
-        "CTD:affects_mutation_rate_of",
-        "CTD:affects_mutagenesis"
-      ],
       "description": "holds between a molecular entity and a genomic entity where the action or effect of the molecular entity impacts the rate of mutation of the genomic entity within a system of interest",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:affects_mutation_rate_of"
+      ],
+      "broad_mappings": [
+        "CTD:affects_mutagenesis"
+      ],
       "is_a": "affects",
       "domain": "MolecularEntity",
       "range": "GenomicEntity",
@@ -1261,15 +1680,17 @@
     {
       "name": "increases_mutation_rate_of",
       "definition_uri": "https://w3id.org/biolink/vocab/increases_mutation_rate_of",
-      "mappings": [
-        "CTD:increases_mutation_rate_of",
-        "CTD:increases_mutagenesis"
-      ],
       "description": "holds between a molecular entity and a genomic entity where the action or effect of the molecular entity increases the rate of mutation of the genomic entity within a system of interest",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:increases_mutation_rate_of"
+      ],
+      "broad_mappings": [
+        "CTD:increases_mutagenesis"
+      ],
       "is_a": "affects_mutation_rate_of",
       "domain": "MolecularEntity",
       "range": "GenomicEntity",
@@ -1282,15 +1703,17 @@
     {
       "name": "decreases_mutation_rate_of",
       "definition_uri": "https://w3id.org/biolink/vocab/decreases_mutation_rate_of",
-      "mappings": [
-        "CTD:decreases_mutation_rate_of",
-        "CTD:decreases_mutagenesis"
-      ],
       "description": "holds between a molecular entity and a genomic entity where the action or effect of the molecular entity decreases the rate of mutation of the genomic entity within a system of interest",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:decreases_mutation_rate_of"
+      ],
+      "broad_mappings": [
+        "CTD:decreases_mutagenesis"
+      ],
       "is_a": "affects_mutation_rate_of",
       "domain": "MolecularEntity",
       "range": "GenomicEntity",
@@ -1303,14 +1726,14 @@
     {
       "name": "affects_response_to",
       "definition_uri": "https://w3id.org/biolink/vocab/affects_response_to",
-      "mappings": [
-        "CTD:affects_response_to"
-      ],
       "description": "holds between two molecular entities where the action or effect of one impacts the susceptibility of a biological entity or system (e.g. an organism, cell, cellular component, macromolecular machine, biological or pathological process) to the other",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:affects_response_to"
+      ],
       "is_a": "affects",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -1323,14 +1746,14 @@
     {
       "name": "increases_response_to",
       "definition_uri": "https://w3id.org/biolink/vocab/increases_response_to",
-      "mappings": [
-        "CTD:increases_response_to"
-      ],
       "description": "holds between two molecular entities where the action or effect of one increases the susceptibility of a biological entity or system (e.g. an organism, cell, cellular component, macromolecular machine, biological or pathological process) to the other",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:increases_response_to"
+      ],
       "is_a": "affects_response_to",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -1343,16 +1766,18 @@
     {
       "name": "decreases_response_to",
       "definition_uri": "https://w3id.org/biolink/vocab/decreases_response_to",
-      "mappings": [
-        "CTD:decreases_response_to",
-        "CTD:decreases_response_to_substance",
-        "GAMMA:desensitize_the_target"
-      ],
       "description": "holds between two molecular entities where the action or effect of one decreases the susceptibility of a biological entity or system (e.g. an organism, cell, cellular component, macromolecular machine, biological or pathological process) to the other",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:decreases_response_to"
+      ],
+      "narrow_mappings": [
+        "CTD:decreases_response_to_substance",
+        "GAMMA:desensitize_the_target"
+      ],
       "is_a": "affects_response_to",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -1365,15 +1790,17 @@
     {
       "name": "affects_splicing_of",
       "definition_uri": "https://w3id.org/biolink/vocab/affects_splicing_of",
-      "mappings": [
-        "CTD:affects_splicing_of",
-        "CTD:affects_RNA_splicing"
-      ],
       "description": "holds between a molecular entity and an mRNA where the action or effect of the molecular entity impacts the splicing of the mRNA",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:affects_RNA_splicing"
+      ],
+      "broad_mappings": [
+        "CTD:affects_splicing_of"
+      ],
       "is_a": "affects",
       "domain": "MolecularEntity",
       "range": "Transcript",
@@ -1386,15 +1813,17 @@
     {
       "name": "increases_splicing_of",
       "definition_uri": "https://w3id.org/biolink/vocab/increases_splicing_of",
-      "mappings": [
-        "CTD:increases_splicing_of",
-        "CTD:increases_RNA_splicing"
-      ],
       "description": "holds between a molecular entity and an mRNA where the action or effect of the molecular entity increases the proper splicing of the mRNA",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:increases_RNA_splicing"
+      ],
+      "broad_mappings": [
+        "CTD:increases_splicing_of"
+      ],
       "is_a": "affects_splicing_of",
       "domain": "MolecularEntity",
       "range": "Transcript",
@@ -1407,15 +1836,17 @@
     {
       "name": "decreases_splicing_of",
       "definition_uri": "https://w3id.org/biolink/vocab/decreases_splicing_of",
-      "mappings": [
-        "CTD:decreases_splicing_of",
-        "CTD:decreases_RNA_splicing"
-      ],
       "description": "holds between a molecular entity and an mRNA where the action or effect of the molecular entity decreases the proper splicing of the mRNA",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:decreases_RNA_splicing"
+      ],
+      "broad_mappings": [
+        "CTD:decreases_splicing_of"
+      ],
       "is_a": "affects_splicing_of",
       "domain": "MolecularEntity",
       "range": "Transcript",
@@ -1428,15 +1859,17 @@
     {
       "name": "affects_stability_of",
       "definition_uri": "https://w3id.org/biolink/vocab/affects_stability_of",
-      "mappings": [
-        "CTD:affects_stability_of",
-        "GAMMA:stabilization"
-      ],
       "description": "holds between two molecular entities where the action or effect of one impacts the stability of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:affects_stability_of"
+      ],
+      "close_mappings": [
+        "GAMMA:stabilization"
+      ],
       "is_a": "affects",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -1449,14 +1882,17 @@
     {
       "name": "increases_stability_of",
       "definition_uri": "https://w3id.org/biolink/vocab/increases_stability_of",
-      "mappings": [
-        "CTD:increases_stability_of"
-      ],
       "description": "holds between two molecular entities where the action or effect of one increases the stability of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:increases_stability_of"
+      ],
+      "close_mappings": [
+        "CHEMBL.MECHANISM:stabiliser"
+      ],
       "is_a": "affects_stability_of",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -1469,14 +1905,14 @@
     {
       "name": "decreases_stability_of",
       "definition_uri": "https://w3id.org/biolink/vocab/decreases_stability_of",
-      "mappings": [
-        "CTD:decreases_stability_of"
-      ],
       "description": "holds between two molecular entities where the action or effect of one decreases the stability of the other within a system of interest",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:decreases_stability_of"
+      ],
       "is_a": "affects_stability_of",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -1489,14 +1925,19 @@
     {
       "name": "affects_transport_of",
       "definition_uri": "https://w3id.org/biolink/vocab/affects_transport_of",
-      "mappings": [
-        "CTD:affects_transport_of"
-      ],
       "description": "holds between two molecular entities where the action or effect of one impacts the rate of transport of the other across some boundary in a system of interest",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:affects_transport_of"
+      ],
+      "narrow_mappings": [
+        "RO:0002313",
+        "RO:0002340",
+        "RO:0002345"
+      ],
       "is_a": "affects",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -1509,16 +1950,18 @@
     {
       "name": "increases_transport_of",
       "definition_uri": "https://w3id.org/biolink/vocab/increases_transport_of",
-      "mappings": [
-        "CTD:increases_transport_of",
-        "GAMMA:carrier",
-        "GAMMA:transporter"
-      ],
       "description": "holds between two molecular entities where the action or effect of one increases the rate of transport of the other across some boundary in a system of interest",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:increases_transport_of"
+      ],
+      "close_mappings": [
+        "GAMMA:carrier",
+        "GAMMA:transporter"
+      ],
       "is_a": "affects_transport_of",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -1531,14 +1974,14 @@
     {
       "name": "decreases_transport_of",
       "definition_uri": "https://w3id.org/biolink/vocab/decreases_transport_of",
-      "mappings": [
-        "CTD:decreases_transport_of"
-      ],
       "description": "holds between two molecular entities where the action or effect of one decreases the rate of transport of the other across some boundary in a system of interest",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:decreases_transport_of"
+      ],
       "is_a": "affects_transport_of",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -1551,15 +1994,17 @@
     {
       "name": "affects_secretion_of",
       "definition_uri": "https://w3id.org/biolink/vocab/affects_secretion_of",
-      "mappings": [
-        "CTD:affects_secretion_of",
-        "CTD:affects_export"
-      ],
       "description": "holds between two molecular entities where the action or effect of one impacts the rate of secretion of the other out of a cell, gland, or organ",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:affects_secretion_of"
+      ],
+      "broad_mappings": [
+        "CTD:affects_export"
+      ],
       "is_a": "affects",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -1572,15 +2017,17 @@
     {
       "name": "increases_secretion_of",
       "definition_uri": "https://w3id.org/biolink/vocab/increases_secretion_of",
-      "mappings": [
-        "CTD:increases_secretion_of",
-        "CTD:increases_export"
-      ],
       "description": "holds between two molecular entities where the action or effect of one increases the rate of secretion of the other out of a cell, gland, or organ",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:increases_secretion_of"
+      ],
+      "broad_mappings": [
+        "CTD:increases_export"
+      ],
       "is_a": "affects_secretion_of",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -1593,15 +2040,17 @@
     {
       "name": "decreases_secretion_of",
       "definition_uri": "https://w3id.org/biolink/vocab/decreases_secretion_of",
-      "mappings": [
-        "CTD:decreases_secretion_of",
-        "CTD:decreases_export"
-      ],
       "description": "holds between two molecular entities where the action or effect of one decreases the rate of secretion of the other out of a cell, gland, or organ",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:decreases_secretion_of"
+      ],
+      "broad_mappings": [
+        "CTD:decreases_export"
+      ],
       "is_a": "affects_secretion_of",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -1614,15 +2063,17 @@
     {
       "name": "affects_uptake_of",
       "definition_uri": "https://w3id.org/biolink/vocab/affects_uptake_of",
-      "mappings": [
-        "CTD:affects_uptake_of",
-        "CTD:affects_import"
-      ],
       "description": "holds between two molecular entities where the action or effect of one impacts the rate of uptake of the other into of a cell, gland, or organ",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:affects_uptake_of"
+      ],
+      "broad_mappings": [
+        "CTD:affects_import"
+      ],
       "is_a": "affects",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -1635,15 +2086,17 @@
     {
       "name": "increases_uptake_of",
       "definition_uri": "https://w3id.org/biolink/vocab/increases_uptake_of",
-      "mappings": [
-        "CTD:increases_uptake_of",
-        "CTD:increases_import"
-      ],
       "description": "holds between two molecular entities where the action or effect of one increases the rate of uptake of the other into of a cell, gland, or organ",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:increases_uptake_of"
+      ],
+      "broad_mappings": [
+        "CTD:increases_import"
+      ],
       "is_a": "affects_uptake_of",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -1656,15 +2109,17 @@
     {
       "name": "decreases_uptake_of",
       "definition_uri": "https://w3id.org/biolink/vocab/decreases_uptake_of",
-      "mappings": [
-        "CTD:decreases_uptake_of",
-        "CTD:decreases_import"
-      ],
       "description": "holds between two molecular entities where the action or effect of one decreases the rate of uptake of the other into of a cell, gland, or organ",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:decreases_uptake_of"
+      ],
+      "broad_mappings": [
+        "CTD:decreases_import"
+      ],
       "is_a": "affects_uptake_of",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -1677,13 +2132,26 @@
     {
       "name": "regulates",
       "definition_uri": "https://w3id.org/biolink/vocab/regulates",
-      "mappings": [
-        "WIKIDATA:P128"
-      ],
       "comments": [
         "This is a grouping for process-process and entity-entity relations"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "GO:regulates"
+      ],
+      "close_mappings": [
+        "GO:regulated_by",
+        "RO:0002334"
+      ],
+      "narrow_mappings": [
+        "WIKIDATA:P128",
+        "CHEMBL.MECHANISM:modulator",
+        "RO:0002295",
+        "RO:0002332",
+        "RO:0002578",
+        "RTXKG1:regulates_activity_of",
+        "RTXKG1:regulates_expression_of"
+      ],
       "is_a": "affects",
       "abstract": true,
       "mixin": true,
@@ -1698,13 +2166,25 @@
     {
       "name": "positively_regulates",
       "definition_uri": "https://w3id.org/biolink/vocab/positively_regulates",
-      "mappings": [
-        "RO:0002213"
-      ],
       "comments": [
         "This is a grouping for process-process and entity-entity relations"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "RO:0002213",
+        "GO:positively_regulates"
+      ],
+      "close_mappings": [
+        "GO:positively_regulated_by"
+      ],
+      "narrow_mappings": [
+        "CHEMBL.MECHANISM:activator",
+        "DGIdb:activator",
+        "GO:acts_upstream_of_or_within_positive_effect",
+        "GO:acts_upstream_of_positive_effect",
+        "RO:0002629",
+        "SEMMEDDB:augments"
+      ],
       "is_a": "regulates",
       "abstract": true,
       "mixin": true,
@@ -1719,14 +2199,29 @@
     {
       "name": "negatively_regulates",
       "definition_uri": "https://w3id.org/biolink/vocab/negatively_regulates",
-      "mappings": [
-        "RO:0004033",
-        "RO:0004035"
-      ],
       "comments": [
         "This is a grouping for process-process and entity-entity relations"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "RO:0004035",
+        "GO:negatively_regulates"
+      ],
+      "close_mappings": [
+        "GO:negatively_regulated_by"
+      ],
+      "narrow_mappings": [
+        "CHEMBL.MECHANISM:blocker",
+        "CHEMBL.MECHANISM:inhibitor",
+        "CHEMBL.MECHANISM:negative_allosteric_modulator",
+        "CHEMBL.MECHANISM:negative_modulator",
+        "GO:acts_upstream_of_negative_effect",
+        "GO:acts_upstream_of_or_within_negative_effect",
+        "RO:0002630"
+      ],
+      "broad_mappings": [
+        "RO:0004033"
+      ],
       "is_a": "regulates",
       "abstract": true,
       "mixin": true,
@@ -1741,10 +2236,10 @@
     {
       "name": "regulates_process_to_process",
       "definition_uri": "https://w3id.org/biolink/vocab/regulates_process_to_process",
-      "mappings": [
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
         "RO:0002211"
       ],
-      "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "regulates",
       "domain": "Occurrent",
       "range": "Occurrent",
@@ -1757,10 +2252,10 @@
     {
       "name": "positively_regulates_process_to_process",
       "definition_uri": "https://w3id.org/biolink/vocab/positively_regulates_process_to_process",
-      "mappings": [
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
         "RO:0002213"
       ],
-      "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "regulates_process_to_process",
       "mixins": [
         "positively_regulates"
@@ -1776,10 +2271,10 @@
     {
       "name": "negatively_regulates_process_to_process",
       "definition_uri": "https://w3id.org/biolink/vocab/negatively_regulates_process_to_process",
-      "mappings": [
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
         "RO:0002212"
       ],
-      "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "regulates_process_to_process",
       "mixins": [
         "negatively_regulates"
@@ -1810,13 +2305,16 @@
           "type": "LocalName"
         }
       ],
-      "mappings": [
-        "RO:0002448"
-      ],
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "RO:0002448"
+      ],
+      "narrow_mappings": [
+        "WIKIDATA:P128"
+      ],
       "is_a": "regulates",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -1844,17 +2342,22 @@
           "type": "LocalName"
         }
       ],
-      "mappings": [
-        "RO:0002450",
-        "SEMMEDDB:STIMULATES",
-        "hetio:UPREGULATES_AuG",
-        "hetio:UPREGULATES_DuG",
-        "RO:0004034"
-      ],
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "RO:0002450"
+      ],
+      "narrow_mappings": [
+        "SEMMEDDB:STIMULATES",
+        "SEMMEDDB:stimulates",
+        "hetio:UPREGULATES_AuG",
+        "hetio:UPREGULATES_DuG"
+      ],
+      "broad_mappings": [
+        "RO:0004034"
+      ],
       "is_a": "regulates_entity_to_entity",
       "mixins": [
         "positively_regulates"
@@ -1885,16 +2388,19 @@
           "type": "LocalName"
         }
       ],
-      "mappings": [
-        "RO:0002449",
-        "SEMMEDDB:INHIBITS",
-        "hetio:DOWNREGULATES_AdG",
-        "hetio:DOWNREGULATES_DdG"
-      ],
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "RO:0002449"
+      ],
+      "narrow_mappings": [
+        "SEMMEDDB:INHIBITS",
+        "SEMMEDDB:inhibits",
+        "hetio:DOWNREGULATES_AdG",
+        "hetio:DOWNREGULATES_DdG"
+      ],
       "is_a": "regulates_entity_to_entity",
       "mixins": [
         "negatively_regulates"
@@ -1910,14 +2416,21 @@
     {
       "name": "disrupts",
       "definition_uri": "https://w3id.org/biolink/vocab/disrupts",
-      "mappings": [
-        "SEMMEDDB:DISRUPTS"
-      ],
       "description": "describes a relationship where one entity degrades or interferes with the structure, function, or occurrence of another.",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "SEMMEDDB:DISRUPTS",
+        "SEMMEDDB:disrupts",
+        "CHEMBL.MECHANISM:disrupting_agent"
+      ],
+      "narrow_mappings": [
+        "RO:0004024",
+        "RO:0004025",
+        "RTXKG1:disease_causes_disruption_of"
+      ],
       "is_a": "affects",
       "domain": "NamedThing",
       "range": "NamedThing",
@@ -1930,15 +2443,22 @@
     {
       "name": "has_gene_product",
       "definition_uri": "https://w3id.org/biolink/vocab/has_gene_product",
-      "mappings": [
-        "RO:0002205",
-        "WIKIDATA:P688"
-      ],
       "description": "holds between a gene and a transcribed and/or translated product generated from it",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "RO:0002205",
+        "WIKIDATA:P688",
+        "NCIT:gene_encodes_gene_product"
+      ],
+      "close_mappings": [
+        "PR:has_gene_template"
+      ],
+      "narrow_mappings": [
+        "NCIT:gene_mutant_encodes_gene_product_sequence_variation"
+      ],
       "is_a": "related_to",
       "domain": "Gene",
       "range": "GeneProduct",
@@ -1954,11 +2474,6 @@
       "aliases": [
         "in homology relationship with"
       ],
-      "mappings": [
-        "RO:HOM0000001",
-        "SIO:010302",
-        "UBERON_CORE:sexually_homologous_to"
-      ],
       "description": "holds between two biological entities that have common evolutionary origin",
       "comments": [
         "typically used to describe homology relationships between genes or gene products"
@@ -1967,7 +2482,14 @@
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
-      "is_a": "related_to",
+      "exact_mappings": [
+        "RO:HOM0000001",
+        "SIO:010302"
+      ],
+      "narrow_mappings": [
+        "UBERON_CORE:sexually_homologous_to"
+      ],
+      "is_a": "similar_to",
       "domain": "NamedThing",
       "range": "NamedThing",
       "slot_uri": "https://w3id.org/biolink/vocab/homologous_to",
@@ -1979,14 +2501,14 @@
     {
       "name": "paralogous_to",
       "definition_uri": "https://w3id.org/biolink/vocab/paralogous_to",
-      "mappings": [
-        "RO:HOM0000011"
-      ],
       "description": "a homology relationship that holds between entities (typically genes) that diverged after a duplication event.",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "RO:HOM0000011"
+      ],
       "is_a": "homologous_to",
       "domain": "NamedThing",
       "range": "NamedThing",
@@ -1999,15 +2521,15 @@
     {
       "name": "orthologous_to",
       "definition_uri": "https://w3id.org/biolink/vocab/orthologous_to",
-      "mappings": [
-        "RO:HOM0000017",
-        "WIKIDATA:P684"
-      ],
       "description": "a homology relationship between entities (typically genes) that diverged after a speciation event.",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "RO:HOM0000017",
+        "WIKIDATA:P684"
+      ],
       "is_a": "homologous_to",
       "domain": "NamedThing",
       "range": "NamedThing",
@@ -2020,14 +2542,14 @@
     {
       "name": "xenologous_to",
       "definition_uri": "https://w3id.org/biolink/vocab/xenologous_to",
-      "mappings": [
-        "RO:HOM0000018"
-      ],
       "description": "a homology relationship characterized by an interspecies (horizontal) transfer since the common ancestor.",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "RO:HOM0000018"
+      ],
       "is_a": "homologous_to",
       "domain": "NamedThing",
       "range": "NamedThing",
@@ -2040,8 +2562,16 @@
     {
       "name": "coexists_with",
       "definition_uri": "https://w3id.org/biolink/vocab/coexists_with",
-      "mappings": [
+      "description": "holds between two entities that are co-located in the same aggregate object, process, or spatio-temporal region",
+      "in_subset": [
+        "translator_minimal"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
         "SEMMEDDB:COEXISTS_WITH",
+        "SEMMEDDB:coexists_with"
+      ],
+      "narrow_mappings": [
         "BSPO:0000096",
         "BSPO:0000097",
         "BSPO:0000098",
@@ -2049,13 +2579,19 @@
         "BSPO:0000100",
         "BSPO:0000102",
         "BSPO:0000104",
+        "BSPO:0000110",
+        "BSPO:0000113",
         "BSPO:0015001",
         "BSPO:0015002",
         "BSPO:0015003",
         "BSPO:0015005",
+        "BSPO:0015006",
         "BSPO:0015007",
         "BSPO:0015008",
+        "BSPO:0015009",
+        "BSPO:0015012",
         "BSPO:0015014",
+        "BSPO:parallel_to",
         "UBERON_CORE:anastomoses_with",
         "UBERON_CORE:anteriorly_connected_to",
         "UBERON_CORE:posteriorly_connected_to",
@@ -2073,15 +2609,136 @@
         "UBERON_CORE:transitively_connected_to",
         "UBERON_CORE:transitively_distally_connected_to",
         "UBERON_CORE:transitively_proximally_connected_to",
-        "BSPO:0015009",
-        "BSPO:0015012",
-        "BSPO:parallel_to"
+        "ENVO:01001307",
+        "FMA:adjacent_to",
+        "FMA:afferent_to",
+        "FMA:anterior_to",
+        "FMA:anteroinferior_to",
+        "FMA:anterolateral_to",
+        "FMA:anteromedial_to",
+        "FMA:anterosuperior_to",
+        "FMA:arterial_supply_of",
+        "FMA:has_arterial_supply",
+        "FMA:articulates_with",
+        "FMA:attaches_to",
+        "FMA:bounded_by",
+        "FMA:bounds",
+        "FMA:branch_of",
+        "FMA:connection_type_of",
+        "FMA:continuation_branch_of",
+        "FMA:continuous_distally_with",
+        "FMA:continuous_proximally_with",
+        "FMA:corresponds_to",
+        "FMA:development_type_of",
+        "FMA:developmental_stage_of",
+        "FMA:direct_cell_shape_of",
+        "FMA:direct_left_of",
+        "FMA:direct_right_of",
+        "FMA:distal_to",
+        "FMA:drains_into",
+        "FMA:efferent_to",
+        "FMA:external_to",
+        "FMA:formed_by",
+        "FMA:forms",
+        "FMA:full_grown_phenotype_of",
+        "FMA:has_full_grown_phenotype",
+        "FMA:fuses_with",
+        "FMA:fusion_of",
+        "FMA:has_fusion",
+        "FMA:germ_origin_of",
+        "FMA:has_germ_origin",
+        "FMA:has_adherent",
+        "FMA:has_branch",
+        "FMA:has_connection_type",
+        "FMA:has_continuation_branch",
+        "FMA:has_development_type",
+        "FMA:has_developmental_stage",
+        "FMA:has_direct_cell_shape",
+        "FMA:has_inherent_3d_shape",
+        "FMA:has_insertion",
+        "FMA:has_lymphatic_drainage",
+        "FMA:has_nerve_supply",
+        "FMA:has_observed_anatomical_entity",
+        "FMA:has_origin",
+        "FMA:has_primary_segmental_supply",
+        "FMA:has_projection",
+        "FMA:has_regional_part",
+        "FMA:has_related_developmental_entity",
+        "FMA:has_secondary_segmental_supply",
+        "FMA:has_segmental_composition",
+        "FMA:has_segmental_supply",
+        "FMA:has_tributary",
+        "FMA:has_venous_drainage",
+        "FMA:inferior_to",
+        "FMA:inferolateral_to",
+        "FMA:inferomedial_to",
+        "FMA:inherent_3d_shape_of",
+        "FMA:insertion_of",
+        "FMA:internal_to",
+        "FMA:lateral_to",
+        "FMA:left_lateral_to",
+        "FMA:left_medial_to",
+        "FMA:lymphatic_drainage_of",
+        "FMA:matures_from",
+        "FMA:matures_into",
+        "FMA:medial_to",
+        "FMA:merges_with",
+        "FMA:nerve_supply_of",
+        "FMA:origin_of",
+        "FMA:posterior_to",
+        "FMA:posteroinferior_to",
+        "FMA:posterolateral_to",
+        "FMA:posteromedial_to",
+        "FMA:posterosuperior_to",
+        "FMA:primary_segmental_supply_of",
+        "FMA:projects_from",
+        "FMA:projects_to",
+        "FMA:proximal_to",
+        "FMA:receives_attachment_from",
+        "FMA:receives_drainage_from",
+        "FMA:receives_input_from",
+        "FMA:receives_projection",
+        "FMA:related_part",
+        "FMA:right_lateral_to",
+        "FMA:right_medial_to",
+        "FMA:secondary_segmental_supply_of",
+        "FMA:segmental_composition_of",
+        "FMA:segmental_supply_of",
+        "FMA:sends_output_to",
+        "FMA:superior_to",
+        "FMA:superolateral_to",
+        "FMA:superomedial_to",
+        "FMA:surrounded_by",
+        "FMA:surrounds",
+        "FMA:tributary_of",
+        "FMA:venous_drainage_of",
+        "LOINC:has_lateral_anatomic_location",
+        "LOINC:has_lateral_location_presence",
+        "OBO:core#distally_connected_to",
+        "OBO:core#subdivision_of",
+        "RO:0002219",
+        "RO:0002220",
+        "RO:0002221",
+        "SO:has_origin",
+        "UBERON:anastomoses_with",
+        "UBERON:anteriorly_connected_to",
+        "UBERON:channel_for",
+        "UBERON:channels_from",
+        "UBERON:channels_into",
+        "UBERON:conduit_for",
+        "UBERON:distally_connected_to",
+        "UBERON:existence_starts_and_ends_during",
+        "UBERON:extends_fibers_into",
+        "UBERON:filtered_through",
+        "UBERON:in_central_side_of",
+        "UBERON:in_innermost_side_of",
+        "UBERON:in_outermost_side_of",
+        "UBERON:indirectly_supplies",
+        "UBERON:posteriorly_connected_to",
+        "UBERON:protects",
+        "UBERON:proximally_connected_to",
+        "UBERON:sexually_homologous_to"
       ],
-      "description": "holds between two entities that are co-located in the same aggregate object, process, or spatio-temporal region",
-      "in_subset": [
-        "translator_minimal"
-      ],
-      "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "NamedThing",
@@ -2099,6 +2756,9 @@
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "related_mappings": [
+        "SIO:010532"
+      ],
       "is_a": "coexists_with",
       "domain": "GeneOrGeneProduct",
       "range": "GeneOrGeneProduct",
@@ -2116,6 +2776,12 @@
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "related_mappings": [
+        "SIO:010497"
+      ],
+      "broad_mappings": [
+        "SIO:010285"
+      ],
       "is_a": "coexists_with",
       "domain": "GeneOrGeneProduct",
       "range": "GeneOrGeneProduct",
@@ -2145,14 +2811,15 @@
     {
       "name": "colocalizes_with",
       "definition_uri": "https://w3id.org/biolink/vocab/colocalizes_with",
-      "mappings": [
-        "RO:00002325"
-      ],
       "description": "holds between two entities that are observed to be located in the same place.",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "RO:00002325",
+        "GO:colocalizes_with"
+      ],
       "is_a": "coexists_with",
       "domain": "NamedThing",
       "range": "NamedThing",
@@ -2165,18 +2832,29 @@
     {
       "name": "gene_associated_with_condition",
       "definition_uri": "https://w3id.org/biolink/vocab/gene_associated_with_condition",
-      "mappings": [
-        "WD:P2293",
-        "GENO:0000840",
-        "GENO:0000841",
-        "NCIT:R176",
-        "hetio:ASSOCIATES_DaG"
-      ],
       "description": "holds between a gene and a disease or phenotypic feature that the gene or its alleles/products may influence, contribute to, or correlate with",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "NCIT:R176",
+        "hetio:ASSOCIATES_DaG",
+        "GENO:0000840",
+        "RTXKG1:gene_associated_with_condition"
+      ],
+      "close_mappings": [
+        "WD:P2293",
+        "GENO:0000841"
+      ],
+      "narrow_mappings": [
+        "NCIT:gene_associated_with_disease",
+        "NCIT:gene_involved_in_pathogenesis_of_disease",
+        "NCIT:gene_product_malfunction_associated_with_disease"
+      ],
+      "broad_mappings": [
+        "GENO:0000841"
+      ],
       "is_a": "related_to",
       "domain": "Gene",
       "range": "DiseaseOrPhenotypicFeature",
@@ -2184,6 +2862,31 @@
       "multivalued": true,
       "inherited": true,
       "owner": "gene_associated_with_condition",
+      "inverse": "condition_associated_with_gene",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "condition_associated_with_gene",
+      "definition_uri": "https://w3id.org/biolink/vocab/condition_associated_with_gene",
+      "aliases": [
+        "genetic association"
+      ],
+      "description": "holds between a gene and a disease or phenotypic feature that may be influenced, contribute to, or be correlated with the gene or its alleles/products",
+      "in_subset": [
+        "translator_minimal"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "WD:P2293"
+      ],
+      "is_a": "related_to",
+      "domain": "DiseaseOrPhenotypicFeature",
+      "range": "Gene",
+      "slot_uri": "https://w3id.org/biolink/vocab/condition_associated_with_gene",
+      "multivalued": true,
+      "inherited": true,
+      "owner": "condition_associated_with_gene",
+      "inverse": "gene_associated_with_condition",
       "type": "SlotDefinition"
     },
     {
@@ -2206,14 +2909,15 @@
     {
       "name": "predisposes",
       "definition_uri": "https://w3id.org/biolink/vocab/predisposes",
-      "mappings": [
-        "SEMMEDDB:PREDISPOSES"
-      ],
       "description": "holds between two entities where exposure to one entity increases the chance of developing the other",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "SEMMEDDB:PREDISPOSES",
+        "SEMMEDDB:predisposes"
+      ],
       "is_a": "affects_risk_for",
       "domain": "NamedThing",
       "range": "NamedThing",
@@ -2226,16 +2930,24 @@
     {
       "name": "contributes_to",
       "definition_uri": "https://w3id.org/biolink/vocab/contributes_to",
-      "mappings": [
-        "RO:0002326",
-        "CTD:marker_mechanism",
-        "CTD:positivecorrelation"
-      ],
       "description": "holds between two entities where the occurrence, existence, or activity of one causes or contributes to the occurrence or generation of the other",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "RO:0002326",
+        "GO:contributes_to"
+      ],
+      "close_mappings": [
+        "IDO:0000664"
+      ],
+      "narrow_mappings": [
+        "CTD:marker_mechanism",
+        "MONDO:predisposes_towards",
+        "RO:0002255",
+        "RO:0003304"
+      ],
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "NamedThing",
@@ -2248,17 +2960,49 @@
     {
       "name": "causes",
       "definition_uri": "https://w3id.org/biolink/vocab/causes",
-      "mappings": [
-        "RO:0002410",
-        "SEMMEDDB:CAUSES",
-        "WIKIDATA:P1542",
-        "MONDO:disease_triggers"
-      ],
-      "description": "holds between two entities where the occurrence, existence, or activity of one causes the occurrence or  generation of the other",
+      "description": "holds between two entities where the occurrence, existence, or activity of one causes the occurrence or generation of the other",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "RO:0002506",
+        "SEMMEDDB:CAUSES",
+        "SEMMEDDB:causes",
+        "WIKIDATA:P1542",
+        "SNOMED:cause_of"
+      ],
+      "narrow_mappings": [
+        "MONDO:disease_triggers",
+        "GOREL:0000040",
+        "MONDO:disease_causes_feature",
+        "MONDO:disease_triggers",
+        "NCIT:allele_has_abnormality",
+        "NCIT:biological_process_has_result_biological_process",
+        "NCIT:chemical_or_drug_has_physiologic_effect",
+        "NCIT:chemical_or_drug_initiates_biological_process",
+        "NCIT:process_initiates_biological_process",
+        "NCIT:chromosome_mapped_to_disease",
+        "NCIT:disease_has_normal_tissue_origin",
+        "OBO:nbo#in_response_to",
+        "ORPHANET:317343",
+        "ORPHANET:317344",
+        "ORPHANET:317346",
+        "ORPHANET:410295",
+        "ORPHANET:410296",
+        "RO:0002256",
+        "RO:0002315",
+        "RO:0002507",
+        "RO:0002509",
+        "RO:0004001",
+        "RTXKG1:capable_of_part_of",
+        "SNOMED:causative_agent_of",
+        "SNOMED:has_realization",
+        "UMLS:has_physiologic_effect"
+      ],
+      "broad_mappings": [
+        "RO:0002410"
+      ],
       "is_a": "contributes_to",
       "domain": "NamedThing",
       "range": "NamedThing",
@@ -2272,14 +3016,26 @@
     {
       "name": "caused_by",
       "definition_uri": "https://w3id.org/biolink/vocab/caused_by",
-      "mappings": [
-        "WIKIDATA:P828"
-      ],
       "description": "holds between two entities where the occurrence, existence, or activity of one is caused by the occurrence or  generation of the other",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "WIKIDATA:P828"
+      ],
+      "narrow_mappings": [
+        "RO:0001022",
+        "RO:0002608",
+        "RO:0004019",
+        "RO:0004020",
+        "RO:0004028",
+        "RO:0009501",
+        "RTXKG1:disease_caused_by_disruption_of",
+        "RTXKG1:disease_has_basis_in_dysfunction_of",
+        "RTXKG1:realized_in_response_to",
+        "RTXKG1:realized_in_response_to_stimulus"
+      ],
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "NamedThing",
@@ -2296,20 +3052,48 @@
       "aliases": [
         "is substance that treats"
       ],
-      "mappings": [
-        "RO:0002606",
-        "RO:0003307",
-        "SEMMEDDB:TREATS",
-        "WIKIDATA:P2175",
-        "CTD:therapeutic",
-        "CTD:negativecorrelation",
-        "MONDO:disease_responds_to"
-      ],
       "description": "holds between a therapeutic procedure or chemical substance and a disease or phenotypic feature that it is used to treat",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "SEMMEDDB:TREATS",
+        "SEMMEDDB:treats",
+        "WIKIDATA:P2175",
+        "CTD:therapeutic"
+      ],
+      "related_mappings": [
+        "MONDO:disease_responds_to"
+      ],
+      "narrow_mappings": [
+        "RO:0002606",
+        "NCIT:regimen_has_accepted_use_for_disease",
+        "REPODB:clinically_tested_approved_unknown_phase",
+        "REPODB:clinically_tested_suspended_phase_0",
+        "REPODB:clinically_tested_suspended_phase_1",
+        "REPODB:clinically_tested_suspended_phase_1_or_phase_2",
+        "REPODB:clinically_tested_suspended_phase_2",
+        "REPODB:clinically_tested_suspended_phase_2_or_phase_3",
+        "REPODB:clinically_tested_suspended_phase_3",
+        "REPODB:clinically_tested_terminated_phase_0",
+        "REPODB:clinically_tested_terminated_phase_1",
+        "REPODB:clinically_tested_terminated_phase_1_or_phase_2",
+        "REPODB:clinically_tested_terminated_phase_2",
+        "REPODB:clinically_tested_terminated_phase_2_or_phase_3",
+        "REPODB:clinically_tested_terminated_phase_3",
+        "REPODB:clinically_tested_withdrawn_phase_0",
+        "REPODB:clinically_tested_withdrawn_phase_1",
+        "REPODB:clinically_tested_withdrawn_phase_1_or_phase_2",
+        "REPODB:clinically_tested_withdrawn_phase_2",
+        "REPODB:clinically_tested_withdrawn_phase_2_or_phase_3",
+        "REPODB:clinically_tested_withdrawn_phase_3",
+        "RTXKG1:indicated_for",
+        "SNOMED:plays_role"
+      ],
+      "broad_mappings": [
+        "RO:0003307"
+      ],
       "is_a": "affects",
       "domain": "Treatment",
       "range": "DiseaseOrPhenotypicFeature",
@@ -2324,15 +3108,18 @@
     {
       "name": "prevents",
       "definition_uri": "https://w3id.org/biolink/vocab/prevents",
-      "mappings": [
-        "RO:0002599",
-        "SEMMEDDB:PREVENTS"
-      ],
       "description": "holds between an entity whose application or use reduces the likelihood of a potential outcome. Typically used to associate a chemical substance, exposure, activity, or medical intervention that can prevent the onset a disease or phenotypic feature.",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "SEMMEDDB:PREVENTS",
+        "SEMMEDDB:prevents"
+      ],
+      "narrow_mappings": [
+        "RO:0002599"
+      ],
       "is_a": "affects_risk_for",
       "domain": "NamedThing",
       "range": "NamedThing",
@@ -2345,14 +3132,26 @@
     {
       "name": "correlated_with",
       "definition_uri": "https://w3id.org/biolink/vocab/correlated_with",
-      "mappings": [
-        "RO:0002610"
-      ],
       "description": "holds between any two named thing entities. For example, correlated_with holds between a disease or phenotypic feature and a measurable molecular entity that is used as an indicator of the presence or state of the disease or feature.",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "RO:0002610",
+        "PATO:correlates_with"
+      ],
+      "narrow_mappings": [
+        "LOINC:associated_with",
+        "NCIT:is_associated_disease_of",
+        "NCIT:is_cytogenetic_abnormality_of_disease",
+        "ORPHANET:317345",
+        "PDQ:associated_disease",
+        "RO:0004029",
+        "RTXKG1:associated_with_disease",
+        "SNOMED:associated_with",
+        "SNOMED:has_associated_finding"
+      ],
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "NamedThing",
@@ -2363,6 +3162,46 @@
       "type": "SlotDefinition"
     },
     {
+      "name": "positively_correlated_with",
+      "definition_uri": "https://w3id.org/biolink/vocab/positively_correlated_with",
+      "description": "holds between any two named thing entities \"correlated with\" one another in a positive manner.",
+      "in_subset": [
+        "translator_minimal"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:positivecorrelation"
+      ],
+      "is_a": "correlated_with",
+      "domain": "NamedThing",
+      "range": "NamedThing",
+      "slot_uri": "https://w3id.org/biolink/vocab/positively_correlated_with",
+      "multivalued": true,
+      "inherited": true,
+      "owner": "positively_correlated_with",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "negatively_correlated_with",
+      "definition_uri": "https://w3id.org/biolink/vocab/negatively_correlated_with",
+      "description": "holds between any two named thing entities \"correlated with\" one another in a negative manner.",
+      "in_subset": [
+        "translator_minimal"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:negativecorrelation"
+      ],
+      "is_a": "correlated_with",
+      "domain": "NamedThing",
+      "range": "NamedThing",
+      "slot_uri": "https://w3id.org/biolink/vocab/negatively_correlated_with",
+      "multivalued": true,
+      "inherited": true,
+      "owner": "negatively_correlated_with",
+      "type": "SlotDefinition"
+    },
+    {
       "name": "has_biomarker",
       "definition_uri": "https://w3id.org/biolink/vocab/has_biomarker",
       "description": "holds between a disease or phenotypic feature and a measurable molecular entity that is used as an indicator of the presence or state of the disease or feature.",
@@ -2370,6 +3209,11 @@
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "narrow_mappings": [
+        "NCIT:disease_has_finding",
+        "NCIT:disease_has_molecular_abnormality",
+        "NCIT:disease_is_marked_by_gene"
+      ],
       "is_a": "correlated_with",
       "domain": "DiseaseOrPhenotypicFeature",
       "range": "MolecularEntity",
@@ -2383,14 +3227,24 @@
     {
       "name": "biomarker_for",
       "definition_uri": "https://w3id.org/biolink/vocab/biomarker_for",
-      "mappings": [
-        "RO:0002607"
-      ],
       "description": "holds between a measurable molecular entity and a disease or phenotypic feature, where the entity is used as an indicator of the presence or state of the disease or feature.",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "NCIT:gene_is_biomarker_of"
+      ],
+      "narrow_mappings": [
+        "NCIT:gene_product_is_biomarker_of",
+        "NCIT:genetic_biomarker_related_to",
+        "NCIT:is_molecular_abnormality_of_disease",
+        "ORPHANET:465410",
+        "SEMMEDDB:diagnoses"
+      ],
+      "broad_mappings": [
+        "RO:0002607"
+      ],
       "is_a": "correlated_with",
       "domain": "MolecularEntity",
       "range": "DiseaseOrPhenotypicFeature",
@@ -2404,15 +3258,18 @@
     {
       "name": "treated_by",
       "definition_uri": "https://w3id.org/biolink/vocab/treated_by",
-      "mappings": [
-        "RO:0002302",
-        "WIKIDATA:P2176"
-      ],
       "description": "holds between a disease or phenotypic feature and a therapeutic process or chemical substance that is used to treat the condition",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "WIKIDATA:P2176",
+        "MONDO:disease_responds_to"
+      ],
+      "narrow_mappings": [
+        "RO:0002302"
+      ],
       "is_a": "related_to",
       "domain": "DiseaseOrPhenotypicFeature",
       "range": "NamedThing",
@@ -2426,14 +3283,19 @@
     {
       "name": "expressed_in",
       "definition_uri": "https://w3id.org/biolink/vocab/expressed_in",
-      "mappings": [
-        "RO:0002206"
-      ],
       "description": "holds between a gene or gene product and an anatomical entity in which it is expressed",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "RO:0002206"
+      ],
+      "narrow_mappings": [
+        "NCIT:gene_product_expressed_in_tissue",
+        "NCIT:gene_product_has_associated_anatomy",
+        "RTXKG1:expressed_in"
+      ],
       "is_a": "related_to",
       "domain": "GeneOrGeneProduct",
       "range": "AnatomicalEntity",
@@ -2447,15 +3309,15 @@
     {
       "name": "expresses",
       "definition_uri": "https://w3id.org/biolink/vocab/expresses",
-      "mappings": [
-        "RO:0002292",
-        "hetio:EXPRESSES_AeG"
-      ],
       "description": "holds between an anatomical entity and gene or gene product that is expressed there",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "RO:0002292",
+        "hetio:EXPRESSES_AeG"
+      ],
       "is_a": "related_to",
       "domain": "AnatomicalEntity",
       "range": "GeneOrGeneProduct",
@@ -2469,10 +3331,6 @@
     {
       "name": "has_phenotype",
       "definition_uri": "https://w3id.org/biolink/vocab/has_phenotype",
-      "mappings": [
-        "RO:0002200",
-        "hetio:PRESENTS_DpS"
-      ],
       "description": "holds between a biological entity and a phenotype, where a phenotype is construed broadly as any kind of quality of an organism part, a collection of these qualities, or a change in quality or qualities (e.g. abnormally increased temperature).",
       "notes": [
         "check the range"
@@ -2481,6 +3339,24 @@
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "RO:0002200",
+        "RTXKG1:has_phenotype",
+        "SNOMED:characterized_by"
+      ],
+      "close_mappings": [
+        "OMIM:phenotype_of"
+      ],
+      "narrow_mappings": [
+        "NCIT:disease_may_have_molecular_abnormality",
+        "OBO:doid#has_symptom",
+        "RO:0004022"
+      ],
+      "broad_mappings": [
+        "hetio:PRESENTS_DpS",
+        "NCIT:disease_may_have_finding",
+        "OMIM:has_phenotype"
+      ],
       "is_a": "related_to",
       "domain": "BiologicalEntity",
       "range": "PhenotypicFeature",
@@ -2493,17 +3369,36 @@
     {
       "name": "occurs_in",
       "definition_uri": "https://w3id.org/biolink/vocab/occurs_in",
-      "mappings": [
-        "BFO:0000066",
-        "SEMMEDDB:OCCURS_IN",
-        "SEMMEDDB:PROCESS_OF",
-        "UBERON_CORE:site_of"
-      ],
       "description": "holds between a process and a material entity or site within which the process occurs",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "BFO:0000066",
+        "GO:occurs_in",
+        "PathWhiz:has_location",
+        "SNOMED:occurs_in"
+      ],
+      "close_mappings": [
+        "BFO:0000067",
+        "SNOMED:has_occurrence",
+        "UBERON:site_of"
+      ],
+      "narrow_mappings": [
+        "SEMMEDDB:OCCURS_IN",
+        "SEMMEDDB:occurs_in",
+        "SEMMEDDB:PROCESS_OF",
+        "SEMMEDDB:process_of",
+        "UBERON_CORE:site_of",
+        "LOINC:has_imaged_location",
+        "PathWhiz:in_species",
+        "RO:0002231",
+        "RO:0002232",
+        "SNOMED:has_direct_procedure_site",
+        "SNOMED:has_direct_site",
+        "SNOMED:has_procedure_site"
+      ],
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "NamedThing",
@@ -2516,8 +3411,16 @@
     {
       "name": "located_in",
       "definition_uri": "https://w3id.org/biolink/vocab/located_in",
-      "mappings": [
+      "description": "holds between a material entity and a material entity or site within which it is located (but of which it is not considered a part)",
+      "in_subset": [
+        "translator_minimal"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
         "RO:0001025",
+        "FMA:has_location"
+      ],
+      "narrow_mappings": [
         "GOREL:0001004",
         "BSPO:0000107",
         "BSPO:0000108",
@@ -2538,13 +3441,30 @@
         "UBERON_CORE:in_innermost_side_of",
         "UBERON_CORE:in_outermost_side_of",
         "NCIT:R100",
-        "EFO:0000784"
+        "EFO:0000784",
+        "FMA:has_location",
+        "HMDB:at_cellular_location",
+        "HMDB:at_tissue",
+        "HMDB:in_biospecimen",
+        "LOINC:has_imaging_focus",
+        "NCIT:allele_absent_from_wild-type_chromosomal_location",
+        "NCIT:allele_in_chromosomal_location",
+        "NCIT:gene_has_physical_location",
+        "NCIT:gene_in_chromosomal_location",
+        "NCIT:is_location_of_anatomic_structure",
+        "NCIT:procedure_has_completely_excised_anatomy",
+        "NCIT:procedure_has_excised_anatomy",
+        "NCIT:procedure_has_imaged_anatomy",
+        "NCIT:procedure_has_partially_excised_anatomy",
+        "NCIT:procedure_may_have_completely_excised_anatomy",
+        "NCIT:procedure_may_have_excised_anatomy",
+        "NCIT:procedure_may_have_partially_excised_anatomy",
+        "RO:0002303",
+        "RTXKG1:disease_has_location",
+        "SNOMED:has_finding_site",
+        "SNOMED:has_indirect_procedure_site",
+        "SNOMED:has_inherent_location"
       ],
-      "description": "holds between a material entity and a material entity or site within which it is located (but of which it is not considered a part)",
-      "in_subset": [
-        "translator_minimal"
-      ],
-      "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "NamedThing",
@@ -2558,16 +3478,22 @@
     {
       "name": "location_of",
       "definition_uri": "https://w3id.org/biolink/vocab/location_of",
-      "mappings": [
-        "RO:0001015",
-        "SEMMEDDB:LOCATION_OF",
-        "WIKIDATA:276"
-      ],
       "description": "holds between material entity or site and a material entity that is located within it (but not considered a part of it)",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "RO:0001015",
+        "SEMMEDDB:LOCATION_OF",
+        "SEMMEDDB:location_of",
+        "WIKIDATA:276",
+        "FMA:location_of",
+        "RTXKG1:site_of"
+      ],
+      "narrow_mappings": [
+        "SNOMED:inherent_location_of"
+      ],
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "NamedThing",
@@ -2579,17 +3505,85 @@
       "type": "SlotDefinition"
     },
     {
+      "name": "similar_to",
+      "definition_uri": "https://w3id.org/biolink/vocab/similar_to",
+      "description": "holds between an entity and some other entity with similar features.",
+      "in_subset": [
+        "translator_minimal"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "RO:HOM0000000",
+        "SO:similar_to"
+      ],
+      "is_a": "related_to",
+      "domain": "NamedThing",
+      "range": "NamedThing",
+      "slot_uri": "https://w3id.org/biolink/vocab/similar_to",
+      "multivalued": true,
+      "inherited": true,
+      "owner": "similar_to",
+      "symmetric": true,
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "chemically_similar_to",
+      "definition_uri": "https://w3id.org/biolink/vocab/chemically_similar_to",
+      "description": "holds between one chemical substances and another that it approximates for purposes of scientific study, in virtue of its exhibiting similar features of the studied entity.",
+      "in_subset": [
+        "translator_minimal"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "narrow_mappings": [
+        "CHEBI:has_parent_hydride",
+        "CHEBI:has_functional_parent",
+        "CHEBI:is_conjugate_acid_of",
+        "CHEBI:is_conjugate_base_of",
+        "CHEBI:is_enantiomer_of",
+        "CHEBI:is_tautomer_of",
+        "NCIT:has_salt_form"
+      ],
+      "is_a": "similar_to",
+      "domain": "NamedThing",
+      "range": "NamedThing",
+      "slot_uri": "https://w3id.org/biolink/vocab/chemically_similar_to",
+      "multivalued": true,
+      "inherited": true,
+      "owner": "chemically_similar_to",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "has_sequence_location",
+      "definition_uri": "https://w3id.org/biolink/vocab/has_sequence_location",
+      "description": "holds between two genomic entities when the subject can be localized in sequence coordinates on the object. For example, between an exon and a chromosome/contig.",
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "faldo:location"
+      ],
+      "is_a": "related_to",
+      "domain": "GenomicEntity",
+      "range": "GenomicEntity",
+      "slot_uri": "https://w3id.org/biolink/vocab/has_sequence_location",
+      "multivalued": true,
+      "inherited": true,
+      "owner": "has_sequence_location",
+      "type": "SlotDefinition"
+    },
+    {
       "name": "model_of",
       "definition_uri": "https://w3id.org/biolink/vocab/model_of",
-      "mappings": [
-        "RO:0003301"
-      ],
       "description": "holds between an entity and some other entity it approximates for purposes of scientific study, in virtue of its exhibiting similar features of the studied entity.",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
-      "is_a": "related_to",
+      "exact_mappings": [
+        "RO:0003301"
+      ],
+      "narrow_mappings": [
+        "FOODON:00001301"
+      ],
+      "is_a": "similar_to",
       "domain": "NamedThing",
       "range": "NamedThing",
       "slot_uri": "https://w3id.org/biolink/vocab/model_of",
@@ -2601,15 +3595,21 @@
     {
       "name": "overlaps",
       "definition_uri": "https://w3id.org/biolink/vocab/overlaps",
-      "mappings": [
-        "RO:0002131",
-        "BSPO:0005001"
-      ],
-      "description": "holds between entties that overlap in their extents (materials or processes)",
+      "description": "holds between entities that overlap in their extents (materials or processes)",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "RO:0002131"
+      ],
+      "narrow_mappings": [
+        "BSPO:0005001",
+        "CHEMBL.MECHANISM:overlaps_with",
+        "RO:0002100",
+        "RO:0002102",
+        "RO:0002433"
+      ],
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "NamedThing",
@@ -2622,15 +3622,56 @@
     {
       "name": "has_part",
       "definition_uri": "https://w3id.org/biolink/vocab/has_part",
-      "mappings": [
-        "BFO:0000051",
-        "WIKIDATA:P527"
-      ],
       "description": "holds between wholes and their parts (material entities or processes)",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "BFO:0000051",
+        "BFO:0000055",
+        "WIKIDATA:P527",
+        "GO:has_part",
+        "RO:0001019",
+        "RTXKG1:has_part",
+        "RXNORM:consists_of",
+        "RXNORM:has_part"
+      ],
+      "narrow_mappings": [
+        "BFO:0000117",
+        "FMA:has_constitutional_part",
+        "FMA:has_part",
+        "FMA:has_member",
+        "FOODON:00001563",
+        "FOODON:00002420",
+        "LOINC:has_component",
+        "LOINC:has_member",
+        "MEDDRA:has_member",
+        "MONDO:disease_has_major_feature",
+        "NCIT:complex_has_physical_part",
+        "NDDF:has_ingredient",
+        "PathWhiz:has_element_in_bound",
+        "NCIT:gene_product_has_structural_domain_or_motif",
+        "PDQ:has_component",
+        "PathWhiz:has_protein_in_complex",
+        "RO:0002104",
+        "RO:0002180",
+        "RO:0002351",
+        "RO:0002473",
+        "RO:0002524",
+        "RO:0002551",
+        "RTXKG1:composed_primarily_of",
+        "RTXKG1:contains_process",
+        "RTXKG1:has_plasma_membrane_part",
+        "RXNORM:has_ingredient",
+        "SNOMED:has_component",
+        "UMLS:has_component"
+      ],
+      "broad_mappings": [
+        "RO:0001019",
+        "FMA:contains",
+        "RXNORM:contains"
+      ],
       "is_a": "overlaps",
       "domain": "NamedThing",
       "range": "NamedThing",
@@ -2644,23 +3685,77 @@
     {
       "name": "part_of",
       "definition_uri": "https://w3id.org/biolink/vocab/part_of",
-      "mappings": [
+      "description": "holds between parts and wholes (material entities or processes)",
+      "in_subset": [
+        "translator_minimal"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
         "BFO:0000050",
         "SEMMEDDB:PART_OF",
+        "SEMMEDDB:part_of",
         "WIKIDATA:P361",
+        "FMA:part_of",
+        "GO:part_of",
+        "RXNORM:constitutes",
+        "RXNORM:part_of"
+      ],
+      "narrow_mappings": [
         "BSPO:0001106",
         "BSPO:0001108",
         "BSPO:0001113",
         "BSPO:0001115",
         "UBERON_CORE:layer_part_of",
         "UBERON_CORE:subdivision_of",
-        "UBERON_CORE:trunk_part_of"
+        "UBERON_CORE:trunk_part_of",
+        "CHEBI:is_substituent_group_from",
+        "CPT:panel_element_of",
+        "CPT:panel_element_of_possibly_included",
+        "FMA:constitutional_part_of",
+        "FMA:member_of",
+        "FMA:regional_part_of",
+        "FMA:related_developmental_entity_of",
+        "LOINC:component_of",
+        "LOINC:has_supersystem",
+        "LOINC:member_of",
+        "LOINC:multipart_of",
+        "MEDDRA:member_of",
+        "MONDO:part_of_progression_of_disease",
+        "NCIT:anatomic_structure_is_physical_part_of",
+        "NCIT:conceptual_part_of",
+        "NCIT:is_component_of_chemotherapy_regimen",
+        "NDDF:ingredient_of",
+        "PDQ:component_of",
+        "RO:0002007",
+        "RO:0002350",
+        "RO:0002376",
+        "RO:0002380",
+        "RO:0002571",
+        "RO:0002572",
+        "RO:0002576",
+        "RXNORM:ingredient_of",
+        "RXNORM:ingredients_of",
+        "RXNORM:precise_ingredient_of",
+        "SNOMED:active_ingredient_of",
+        "SNOMED:basis_of_strength_substance_of",
+        "SNOMED:component_of",
+        "SNOMED:direct_substance_of",
+        "SNOMED:during",
+        "SNOMED:focus_of",
+        "SNOMED:has_dependent",
+        "SNOMED:part_anatomy_structure_of",
+        "SNOMED:precise_active_ingredient_of",
+        "UBERON:subdivision_of",
+        "UMLS:component_of",
+        "UMLS:has_owning_affiliate",
+        "UMLS:owning_subsection_of",
+        "VANDF:ingredient_of"
       ],
-      "description": "holds between parts and wholes (material entities or processes)",
-      "in_subset": [
-        "translator_minimal"
+      "broad_mappings": [
+        "RO:0001018",
+        "FMA:contained_in",
+        "RXNORM:contained_in"
       ],
-      "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "overlaps",
       "domain": "NamedThing",
       "range": "NamedThing",
@@ -2672,41 +3767,36 @@
       "type": "SlotDefinition"
     },
     {
-      "name": "has_participant",
-      "definition_uri": "https://w3id.org/biolink/vocab/has_participant",
-      "mappings": [
-        "RO:0000057",
-        "WIKIDATA:P2283",
-        "GOREL:0001007",
-        "GOREL:0002008"
-      ],
-      "description": "holds between a process and a continuant, where the continuant is somehow involved in the process",
-      "in_subset": [
-        "translator_minimal"
-      ],
-      "from_schema": "https://w3id.org/biolink/biolink-model",
-      "is_a": "related_to",
-      "domain": "Occurrent",
-      "range": "NamedThing",
-      "slot_uri": "https://w3id.org/biolink/vocab/has_participant",
-      "multivalued": true,
-      "inherited": true,
-      "owner": "has_participant",
-      "inverse": "participates_in",
-      "type": "SlotDefinition"
-    },
-    {
       "name": "has_input",
       "definition_uri": "https://w3id.org/biolink/vocab/has_input",
-      "mappings": [
-        "RO:0002233",
-        "SEMMEDDB:USES"
-      ],
       "description": "holds between a process and a continuant, where the continuant is an input into the process",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "RO:0002233",
+        "SEMMEDDB:USES",
+        "SEMMEDDB:uses"
+      ],
+      "close_mappings": [
+        "RO:0002352"
+      ],
+      "narrow_mappings": [
+        "LOINC:has_fragments_for_synonyms",
+        "LOINC:has_system",
+        "PathWhiz:has_left_element",
+        "RO:0002590",
+        "RO:0004009",
+        "SNOMED:has_finding_method",
+        "SNOMED:has_precondition",
+        "SNOMED:has_specimen_source_identity",
+        "SNOMED:has_specimen_substance",
+        "SNOMED:uses_access_device",
+        "SNOMED:uses_device",
+        "SNOMED:uses_energy",
+        "SNOMED:uses_substance"
+      ],
       "is_a": "has_participant",
       "domain": "Occurrent",
       "range": "NamedThing",
@@ -2722,14 +3812,30 @@
     {
       "name": "has_output",
       "definition_uri": "https://w3id.org/biolink/vocab/has_output",
-      "mappings": [
-        "RO:0002234"
-      ],
       "description": "holds between a process and a continuant, where the continuant is an output of the process",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "RO:0002234"
+      ],
+      "close_mappings": [
+        "RO:0002353",
+        "RO:0002354",
+        "RTXKG1:output_of"
+      ],
+      "narrow_mappings": [
+        "NCIT:biological_process_has_result_anatomy",
+        "OBI:0000299",
+        "PathWhiz:has_right_element",
+        "RO:0002296",
+        "RO:0002297",
+        "RO:0002298",
+        "RO:0002299",
+        "RO:0002588",
+        "RO:0004008"
+      ],
       "is_a": "has_participant",
       "domain": "Occurrent",
       "range": "NamedThing",
@@ -2743,17 +3849,82 @@
       "type": "SlotDefinition"
     },
     {
+      "name": "has_participant",
+      "definition_uri": "https://w3id.org/biolink/vocab/has_participant",
+      "description": "holds between a process and a continuant, where the continuant is somehow involved in the process",
+      "in_subset": [
+        "translator_minimal"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "RO:0000057",
+        "RO:has_participant"
+      ],
+      "close_mappings": [
+        "WIKIDATA:P2283"
+      ],
+      "narrow_mappings": [
+        "BFO:0000167",
+        "LOINC:has_subject",
+        "NCIT:pathway_has_gene_element",
+        "NCIT:process_involves_gene",
+        "OBO:nbo#has_participant",
+        "PathWhiz:has_bound",
+        "PathWhiz:has_compound",
+        "PathWhiz:has_element_collection",
+        "PathWhiz:has_enzyme",
+        "NCIT:process_includes_biological_process",
+        "OBI:0000293",
+        "PathWhiz:has_nucleic_acid",
+        "PathWhiz:has_protein",
+        "PathWhiz:has_reaction",
+        "RO:0004007",
+        "RO:0004020",
+        "RO:0004021",
+        "SNOMED:has_indirect_device",
+        "SNOMED:has_procedure_device",
+        "SNOMED:has_recipient_category"
+      ],
+      "is_a": "related_to",
+      "domain": "Occurrent",
+      "range": "NamedThing",
+      "slot_uri": "https://w3id.org/biolink/vocab/has_participant",
+      "multivalued": true,
+      "inherited": true,
+      "owner": "has_participant",
+      "inverse": "participates_in",
+      "type": "SlotDefinition"
+    },
+    {
       "name": "participates_in",
       "definition_uri": "https://w3id.org/biolink/vocab/participates_in",
-      "mappings": [
-        "RO:0000056",
-        "BFO:0000056"
-      ],
       "description": "holds between a continuant and a process, where the continuant is somehow involved in the process",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "RO:0000056",
+        "BFO:0000056",
+        "GO:involved_in",
+        "RO:participates_in",
+        "RTXKG1:participates_in"
+      ],
+      "narrow_mappings": [
+        "DRUGBANK:pathway",
+        "HMDB:in_pathway",
+        "LOINC:is_given_pharmaceutical_substance_for",
+        "NCIT:gene_is_element_in_pathway",
+        "NCIT:gene_plays_role_in_process",
+        "NCIT:gene_product_is_element_in_pathway",
+        "NCIT:gene_product_is_physical_part_of",
+        "NCIT:gene_product_plays_role_in_biological_process",
+        "OBI:0000295",
+        "RO:0002216",
+        "RO:0002505",
+        "RO:0002565",
+        "SNOMED:has_direct_device"
+      ],
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "Occurrent",
@@ -2767,14 +3938,29 @@
     {
       "name": "actively_involved_in",
       "definition_uri": "https://w3id.org/biolink/vocab/actively_involved_in",
-      "mappings": [
-        "RO:0002331"
-      ],
       "description": "holds between a continuant and a process or function, where the continuant actively contributes to part or all of the process or function it realizes",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "RO:0002331",
+        "GO:is_active_in"
+      ],
+      "close_mappings": [
+        "NCIT:biological_process_involves_chemical_or_drug"
+      ],
+      "narrow_mappings": [
+        "NCIT:gene_involved_in_molecular_abnormality",
+        "OBO:nbo#by_means",
+        "ORPHANET:317348",
+        "ORPHANET:317349",
+        "ORPHANET:327767",
+        "PATO:towards"
+      ],
+      "broad_mappings": [
+        "RTXKG1:involved_in"
+      ],
       "is_a": "participates_in",
       "domain": "NamedThing",
       "range": "Occurrent",
@@ -2787,14 +3973,20 @@
     {
       "name": "capable_of",
       "definition_uri": "https://w3id.org/biolink/vocab/capable_of",
-      "mappings": [
-        "RO:0002215"
-      ],
       "description": "holds between a physical entity and process or function, where the continuant alone has the ability to carry out the process or function.",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "RO:0002215",
+        "RTXKG1:capable_of"
+      ],
+      "narrow_mappings": [
+        "GO:has_occurrence",
+        "NCIT:gene_product_has_biochemical_function",
+        "RO:0002500"
+      ],
       "is_a": "actively_involved_in",
       "domain": "NamedThing",
       "range": "Occurrent",
@@ -2807,14 +3999,15 @@
     {
       "name": "enables",
       "definition_uri": "https://w3id.org/biolink/vocab/enables",
-      "mappings": [
-        "RO:0002327"
-      ],
       "description": "holds between a physical entity and a process, where the physical entity executes the process",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "RO:0002327",
+        "GO:enables"
+      ],
       "is_a": "has_participant",
       "domain": "Occurrent",
       "range": "BiologicalProcessOrActivity",
@@ -2828,14 +4021,14 @@
     {
       "name": "enabled_by",
       "definition_uri": "https://w3id.org/biolink/vocab/enabled_by",
-      "mappings": [
-        "RO:0002333"
-      ],
       "description": "holds between a process and a physical entity, where the physical entity executes the process",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "RO:0002333"
+      ],
       "is_a": "has_participant",
       "domain": "BiologicalProcessOrActivity",
       "range": "NamedThing",
@@ -2852,15 +4045,19 @@
     {
       "name": "derives_into",
       "definition_uri": "https://w3id.org/biolink/vocab/derives_into",
-      "mappings": [
-        "RO:0001001",
-        "SEMMEDDB:CONVERTS_TO"
-      ],
       "description": "holds between two distinct material entities, the old entity and the new entity, in which the new entity begins to exist when the old entity ceases to exist, and the new entity inherits the significant portion of the matter of the old entity",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "RO:0001001",
+        "SEMMEDDB:CONVERTS_TO",
+        "SEMMEDDB:converts_to",
+        "FMA:derives",
+        "NCIT:is_normal_cell_origin_of_disease",
+        "NCIT:may_be_normal_cell_origin_of_disease"
+      ],
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "NamedThing",
@@ -2874,15 +4071,22 @@
     {
       "name": "derives_from",
       "definition_uri": "https://w3id.org/biolink/vocab/derives_from",
-      "mappings": [
-        "RO:0001000"
-      ],
       "description": "holds between two distinct material entities, the new entity and the old entity, in which the new entity begins to exist when the old entity ceases to exist, and the new entity inherits the significant portion of the matter of the old entity",
       "in_subset": [
         "translator_minimal",
         "samples"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "RO:0001000",
+        "FMA:derives_from",
+        "OBO:doid#derives_from",
+        "RO:derives_from"
+      ],
+      "narrow_mappings": [
+        "CHEBI:has_functional_parent",
+        "SNOMED:has_specimen_source_topography"
+      ],
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "NamedThing",
@@ -2896,15 +4100,22 @@
     {
       "name": "manifestation_of",
       "definition_uri": "https://w3id.org/biolink/vocab/manifestation_of",
-      "mappings": [
-        "SEMMEDDB:MANIFESTATION_OF",
-        "WIKIDATA:P1557"
-      ],
-      "description": "used in SemMedDB for linking things like dysfunctions and processes to some disease or syndrome",
+      "description": "that part of a phenomenon which is directly observable or visibly expressed, or which gives evidence to the underlying process; used in SemMedDB for linking things like dysfunctions and processes to some disease or syndrome",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "SEMMEDDB:MANIFESTATION_OF",
+        "SEMMEDDB:manifestation_of",
+        "OMIM:manifestation_of"
+      ],
+      "narrow_mappings": [
+        "SNOMED:has_definitional_manifestation"
+      ],
+      "broad_mappings": [
+        "WIKIDATA:P1557"
+      ],
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "Disease",
@@ -2917,17 +4128,25 @@
     {
       "name": "produces",
       "definition_uri": "https://w3id.org/biolink/vocab/produces",
-      "mappings": [
-        "RO:0003000",
-        "WIKIDATA:P1056",
-        "SEMMEDDB:PRODUCES",
-        "GOREL:0001010"
-      ],
       "description": "holds between a material entity and a product that is generated through the intentional actions or functioning of the material entity",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "RO:0003000",
+        "WIKIDATA:P1056",
+        "SEMMEDDB:PRODUCES",
+        "SEMMEDDB:produces"
+      ],
+      "related_mappings": [
+        "GOREL:0001010"
+      ],
+      "narrow_mappings": [
+        "NCIT:biological_process_has_result_chemical_or_drug",
+        "SNOMED:has_process_output",
+        "SNOMED:specimen_procedure_of"
+      ],
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "NamedThing",
@@ -2939,108 +4158,160 @@
       "type": "SlotDefinition"
     },
     {
+      "name": "produced_by",
+      "definition_uri": "https://w3id.org/biolink/vocab/produced_by",
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "RO:0003001"
+      ],
+      "is_a": "related_to",
+      "domain": "NamedThing",
+      "range": "NamedThing",
+      "slot_uri": "https://w3id.org/biolink/vocab/produced_by",
+      "multivalued": true,
+      "inherited": true,
+      "owner": "produced_by",
+      "inverse": "produces",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "temporally_related_to",
+      "definition_uri": "https://w3id.org/biolink/vocab/temporally_related_to",
+      "description": "holds between two entities with a temporal relationship",
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "SNOMED:temporally_related_to"
+      ],
+      "narrow_mappings": [
+        "RO:0002082",
+        "RO:0002083",
+        "RO:0002092",
+        "RO:0002093",
+        "RO:0002223",
+        "RO:0002224",
+        "RO:0002229",
+        "RO:0002230",
+        "RO:0002488",
+        "RO:0002489",
+        "RO:0002492",
+        "RO:0002493",
+        "RO:0002496",
+        "RO:0002497"
+      ],
+      "is_a": "related_to",
+      "domain": "Occurrent",
+      "range": "Occurrent",
+      "slot_uri": "https://w3id.org/biolink/vocab/temporally_related_to",
+      "multivalued": true,
+      "inherited": true,
+      "owner": "temporally_related_to",
+      "type": "SlotDefinition"
+    },
+    {
       "name": "precedes",
       "definition_uri": "https://w3id.org/biolink/vocab/precedes",
-      "mappings": [
-        "BFO:0000063",
-        "SEMMEDDB:PRECEDES",
-        "WIKIDATA:P156",
-        "RO:0002263",
-        "RO:0002264"
-      ],
       "description": "holds between two processes, where one completes before the other begins",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
-      "is_a": "related_to",
+      "exact_mappings": [
+        "BFO:0000063",
+        "SEMMEDDB:PRECEDES",
+        "SEMMEDDB:precedes",
+        "SNOMED:occurs_before"
+      ],
+      "close_mappings": [
+        "RO:0002263",
+        "RO:0002264"
+      ],
+      "narrow_mappings": [
+        "FMA:transforms_into",
+        "RO:0002090",
+        "RO:0002411",
+        "RO:0002412"
+      ],
+      "broad_mappings": [
+        "WIKIDATA:P156"
+      ],
+      "is_a": "temporally_related_to",
       "domain": "Occurrent",
       "range": "Occurrent",
       "slot_uri": "https://w3id.org/biolink/vocab/precedes",
       "multivalued": true,
       "inherited": true,
       "owner": "precedes",
+      "inverse": "preceded_by",
       "type": "SlotDefinition"
     },
     {
-      "name": "same_as",
-      "definition_uri": "https://w3id.org/biolink/vocab/same_as",
-      "mappings": [
-        "owl:equivalentClass",
-        "owl:sameAs",
-        "skos:exactMatch",
-        "WIKIDATA:P2888"
-      ],
-      "description": "holds between two entities that are considered equivalent to each other",
+      "name": "preceded_by",
+      "definition_uri": "https://w3id.org/biolink/vocab/preceded_by",
+      "description": "holds between two processes, where the other is completed before the one begins",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
-      "is_a": "related_to",
-      "domain": "NamedThing",
-      "range": "NamedThing",
-      "slot_uri": "https://w3id.org/biolink/vocab/same_as",
+      "exact_mappings": [
+        "BFO:0000062"
+      ],
+      "narrow_mappings": [
+        "FMA:transforms_from",
+        "RO:0002087",
+        "RO:0002285"
+      ],
+      "broad_mappings": [
+        "GENEPIO:0001739"
+      ],
+      "is_a": "temporally_related_to",
+      "domain": "Occurrent",
+      "range": "Occurrent",
+      "slot_uri": "https://w3id.org/biolink/vocab/preceded_by",
       "multivalued": true,
       "inherited": true,
-      "owner": "same_as",
-      "type": "SlotDefinition"
-    },
-    {
-      "name": "subclass_of",
-      "definition_uri": "https://w3id.org/biolink/vocab/subclass_of",
-      "mappings": [
-        "rdfs:subClassOf",
-        "rdfs:subClassOf",
-        "SEMMEDDB:IS_A",
-        "WIKIDATA:P279"
-      ],
-      "description": "holds between two classes where the domain class is a specialization of the range class",
-      "in_subset": [
-        "translator_minimal"
-      ],
-      "from_schema": "https://w3id.org/biolink/biolink-model",
-      "is_a": "related_to",
-      "domain": "OntologyClass",
-      "range": "OntologyClass",
-      "slot_uri": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
-      "multivalued": true,
-      "inherited": true,
-      "owner": "subclass_of",
-      "inverse": "superclass_of",
+      "owner": "preceded_by",
+      "inverse": "precedes",
       "type": "SlotDefinition"
     },
     {
       "name": "directly_interacts_with",
       "definition_uri": "https://w3id.org/biolink/vocab/directly_interacts_with",
-      "mappings": [
-        "SIO:000203",
+      "description": "Holds between molecular entities that physically and directly interact with each other",
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
         "chembio:interacts",
         "CTD:interacts_with",
-        "CTD:affects_binding",
-        "PHAROS:drug_targets",
-        "GAMMA:interacts_with",
-        "GAMMA:antibody_binding",
-        "GAMMA:other",
-        "GAMMA:other_unknown",
-        "GAMMA:pharmacological_chaperone",
-        "GAMMA:releasing_agent",
+        "GAMMA:interacts_with"
+      ],
+      "related_mappings": [
         "GAMMA:kd",
         "GAMMA:kb",
+        "GAMMA:potency"
+      ],
+      "narrow_mappings": [
+        "PHAROS:drug_targets",
+        "DRUGBANK:chelator",
+        "GAMMA:antibody_binding",
+        "GAMMA:pharmacological_chaperone",
+        "GAMMA:releasing_agent",
+        "GAMMA:pharmacological_chaperone",
+        "GAMMA:releasing_agent",
         "GAMMA:binder",
         "GAMMA:binding",
         "GAMMA:ligand",
         "GAMMA:cofactor",
-        "GAMMA:potency",
-        "GAMMA:none",
         "GAMMA:multitarget",
         "GAMMA:chaperone",
         "GAMMA:component",
         "GAMMA:adduct",
         "GAMMA:antibody",
-        "DRUGBANK:chelator"
+        "CTD:affects_binding",
+        "DGIdb:binder",
+        "DGIdb:cofactor"
       ],
-      "description": "Holds between molecular entities that phyically and directly interact with each other",
-      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "broad_mappings": [
+        "SIO:000203"
+      ],
       "is_a": "interacts_with",
       "domain": "NamedThing",
       "range": "NamedThing",
@@ -3053,11 +4324,11 @@
     {
       "name": "affects_expression_in",
       "definition_uri": "https://w3id.org/biolink/vocab/affects_expression_in",
-      "mappings": [
-        "GTEx:affects_expression_in"
-      ],
       "description": "Holds between a variant and an anatomical entity where the expression of the variant is located in.",
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "GTEx:affects_expression_in"
+      ],
       "is_a": "affects",
       "domain": "NamedThing",
       "range": "NamedThing",
@@ -3068,19 +4339,73 @@
       "type": "SlotDefinition"
     },
     {
-      "name": "is_missense_variant_of",
-      "definition_uri": "https://w3id.org/biolink/vocab/is_missense_variant_of",
-      "mappings": [
-        "SO:0001583",
-        "SNPEFF:missense_variant",
-        "SNPEFF:initiator_codon_variant",
-        "SNPEFF:structural_interaction_variant"
-      ],
-      "description": "holds between a sequence variant and a gene, such the sequence variant results in a different amino acid sequence but where the length is preserved.",
+      "name": "has_variant_part",
+      "definition_uri": "https://w3id.org/biolink/vocab/has_variant_part",
+      "description": "holds between a genomic entity and a genotypic entity that is a sub-component of it",
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "GENO:0000382"
+      ],
+      "is_a": "has_part",
+      "domain": "NamedThing",
+      "range": "NamedThing",
+      "slot_uri": "https://w3id.org/biolink/vocab/has_variant_part",
+      "multivalued": true,
+      "inherited": true,
+      "owner": "has_variant_part",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "related_condition",
+      "definition_uri": "https://w3id.org/biolink/vocab/related_condition",
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "GENO:0000790"
+      ],
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "NamedThing",
+      "slot_uri": "https://w3id.org/biolink/vocab/related_condition",
+      "multivalued": true,
+      "inherited": true,
+      "owner": "related_condition",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "is_sequence_variant_of",
+      "definition_uri": "https://w3id.org/biolink/vocab/is_sequence_variant_of",
+      "description": "holds between a sequence variant and a genomic entity",
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "narrow_mappings": [
+        "NCIT:gene_product_sequence_variation_encoded_by_gene_mutant",
+        "NCIT:gene_product_variant_of_gene_product",
+        "OMIM:allelic_variant_of"
+      ],
+      "is_a": "related_to",
+      "domain": "SequenceVariant",
+      "range": "GenomicEntity",
+      "slot_uri": "https://w3id.org/biolink/vocab/is_sequence_variant_of",
+      "multivalued": true,
+      "inherited": true,
+      "owner": "is_sequence_variant_of",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "is_missense_variant_of",
+      "definition_uri": "https://w3id.org/biolink/vocab/is_missense_variant_of",
+      "description": "holds between a gene  and a sequence variant, such the sequence variant results in a different amino acid sequence but where the length is preserved.",
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "SO:0001583",
+        "SNPEFF:missense_variant"
+      ],
+      "narrow_mappings": [
+        "SNPEFF:initiator_codon_variant",
+        "SNPEFF:structural_interaction_variant"
+      ],
+      "is_a": "is_sequence_variant_of",
+      "domain": "SequenceVariant",
+      "range": "Gene",
       "slot_uri": "https://w3id.org/biolink/vocab/is_missense_variant_of",
       "multivalued": true,
       "inherited": true,
@@ -3090,17 +4415,19 @@
     {
       "name": "is_synonymous_variant_of",
       "definition_uri": "https://w3id.org/biolink/vocab/is_synonymous_variant_of",
-      "mappings": [
+      "description": "holds between a sequence variant and a gene, such the sequence variant is in the coding sequence of the gene, but results in the same amino acid sequence",
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
         "SO:0001819",
-        "SNPEFF:synonymous_variant",
+        "SNPEFF:synonymous_variant"
+      ],
+      "narrow_mappings": [
         "SNPEFF:start_retained",
         "SNPEFF:stop_retained_variant"
       ],
-      "description": "holds between a sequence variant and a gene, such the sequence variant is in the coding sequence of the gene, but results in the same amino acid sequence",
-      "from_schema": "https://w3id.org/biolink/biolink-model",
-      "is_a": "related_to",
-      "domain": "NamedThing",
-      "range": "NamedThing",
+      "is_a": "is_sequence_variant_of",
+      "domain": "SequenceVariant",
+      "range": "Gene",
       "slot_uri": "https://w3id.org/biolink/vocab/is_synonymous_variant_of",
       "multivalued": true,
       "inherited": true,
@@ -3110,18 +4437,17 @@
     {
       "name": "is_nonsense_variant_of",
       "definition_uri": "https://w3id.org/biolink/vocab/is_nonsense_variant_of",
-      "mappings": [
-        "SO:0002054",
-        "SNPEFF:stop_gained",
-        "SNPEFF:start_lost",
-        "SNPEFF:stop_lost",
-        "SNPEFF:frameshift_variant"
-      ],
       "description": "holds between a sequence variant and a gene, such the sequence variant results in a premature stop codon",
       "from_schema": "https://w3id.org/biolink/biolink-model",
-      "is_a": "related_to",
-      "domain": "NamedThing",
-      "range": "NamedThing",
+      "exact_mappings": [
+        "SNPEFF:stop_gained"
+      ],
+      "broad_mappings": [
+        "SO:0002054"
+      ],
+      "is_a": "is_sequence_variant_of",
+      "domain": "SequenceVariant",
+      "range": "Gene",
       "slot_uri": "https://w3id.org/biolink/vocab/is_nonsense_variant_of",
       "multivalued": true,
       "inherited": true,
@@ -3129,19 +4455,43 @@
       "type": "SlotDefinition"
     },
     {
+      "name": "is_frameshift_variant_of",
+      "definition_uri": "https://w3id.org/biolink/vocab/is_frameshift_variant_of",
+      "description": "holds between a sequence variant and a gene, such the sequence variant causes a disruption of the translational reading frame, because the number of nucleotides inserted or deleted is not a multiple of three.",
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "SO:0001589",
+        "SNPEFF:frameshift_variant"
+      ],
+      "narrow_mappings": [
+        "SNPEFF:start_lost",
+        "SNPEFF:stop_lost"
+      ],
+      "is_a": "is_sequence_variant_of",
+      "domain": "SequenceVariant",
+      "range": "Gene",
+      "slot_uri": "https://w3id.org/biolink/vocab/is_frameshift_variant_of",
+      "multivalued": true,
+      "inherited": true,
+      "owner": "is_frameshift_variant_of",
+      "type": "SlotDefinition"
+    },
+    {
       "name": "is_splice_site_variant_of",
       "definition_uri": "https://w3id.org/biolink/vocab/is_splice_site_variant_of",
-      "mappings": [
-        "SO:0001629",
+      "description": "holds between a sequence variant and a gene, such the sequence variant is in the canonical splice site of one of the gene's exons.",
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "SO:0001629"
+      ],
+      "narrow_mappings": [
         "SNPEFF:splice_region_variant",
         "SNPEFF:splice_acceptor_variant",
         "SNPEFF:splice_donor_variant"
       ],
-      "description": "holds between a sequence variant and a gene, such the sequence variant is in the canonical splice site of one of the gene's exons.",
-      "from_schema": "https://w3id.org/biolink/biolink-model",
-      "is_a": "related_to",
-      "domain": "NamedThing",
-      "range": "NamedThing",
+      "is_a": "is_sequence_variant_of",
+      "domain": "SequenceVariant",
+      "range": "Gene",
       "slot_uri": "https://w3id.org/biolink/vocab/is_splice_site_variant_of",
       "multivalued": true,
       "inherited": true,
@@ -3151,16 +4501,18 @@
     {
       "name": "is_nearby_variant_of",
       "definition_uri": "https://w3id.org/biolink/vocab/is_nearby_variant_of",
-      "mappings": [
-        "GAMMA:0000102",
+      "description": "holds between a sequence variant and a gene sequence that the variant is genomically close to.",
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "GAMMA:0000102"
+      ],
+      "narrow_mappings": [
         "SNPEFF:downstream_gene_variant",
         "SNPEFF:upstream_gene_variant"
       ],
-      "description": "holds between a sequence variant and a gene sequence that the variant is genomically close to.",
-      "from_schema": "https://w3id.org/biolink/biolink-model",
-      "is_a": "related_to",
-      "domain": "NamedThing",
-      "range": "NamedThing",
+      "is_a": "is_sequence_variant_of",
+      "domain": "SequenceVariant",
+      "range": "Gene",
       "slot_uri": "https://w3id.org/biolink/vocab/is_nearby_variant_of",
       "multivalued": true,
       "inherited": true,
@@ -3171,18 +4523,20 @@
       "name": "is_non_coding_variant_of",
       "definition_uri": "https://w3id.org/biolink/vocab/is_non_coding_variant_of",
       "mappings": [
-        "GAMMA:0000103",
+        "GAMMA:0000103"
+      ],
+      "description": "holds between a sequence variant and a gene, where the variant does not affect the coding sequence",
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "narrow_mappings": [
         "SNPEFF:3_prime_UTR_variant",
         "SNPEFF:5_prime_UTR_variant",
         "SNPEFF:5_prime_UTR_premature_start_codon_gain_variant",
         "SNPEFF:non_coding_transcript_exon_variant",
         "SNPEFF:intron_variant"
       ],
-      "description": "holds between a sequence variant and a gene, where the variant does not affect the coding sequence",
-      "from_schema": "https://w3id.org/biolink/biolink-model",
-      "is_a": "related_to",
-      "domain": "NamedThing",
-      "range": "NamedThing",
+      "is_a": "is_sequence_variant_of",
+      "domain": "SequenceVariant",
+      "range": "Gene",
       "slot_uri": "https://w3id.org/biolink/vocab/is_non_coding_variant_of",
       "multivalued": true,
       "inherited": true,
@@ -3192,12 +4546,12 @@
     {
       "name": "disease_has_basis_in",
       "definition_uri": "https://w3id.org/biolink/vocab/disease_has_basis_in",
-      "mappings": [
+      "description": "A relation that holds between a disease and an entity where the state of the entity has contribution to the disease.",
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "narrow_mappings": [
         "MONDO:disease_has_basis_in_development_of",
         "MONDO:disease_has_basis_in_accumulation_of"
       ],
-      "description": "A relation that holds between a disease and an entity where the state of the entity has contribution to the disease.",
-      "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "NamedThing",
@@ -3210,14 +4564,14 @@
     {
       "name": "causes_adverse_event",
       "definition_uri": "https://w3id.org/biolink/vocab/causes_adverse_event",
-      "mappings": [
-        "Aeolus:0000001"
-      ],
       "description": "holds between a drug and a disease or phenotype that can be caused by the drug",
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "Aeolus:0000001"
+      ],
       "is_a": "causes",
-      "domain": "NamedThing",
-      "range": "NamedThing",
+      "domain": "Drug",
+      "range": "DiseaseOrPhenotypicFeature",
       "slot_uri": "https://w3id.org/biolink/vocab/causes_adverse_event",
       "multivalued": true,
       "inherited": true,
@@ -3227,14 +4581,15 @@
     {
       "name": "contraindicated_for",
       "definition_uri": "https://w3id.org/biolink/vocab/contraindicated_for",
-      "mappings": [
-        "DrugCentral:0000001"
-      ],
       "description": "Holds between a drug and a disease or phenotype, such that a person with that disease should not be treated with the drug.",
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "DrugCentral:0000001",
+        "RTXKG1:contraindicated_for"
+      ],
       "is_a": "related_to",
-      "domain": "NamedThing",
-      "range": "NamedThing",
+      "domain": "Drug",
+      "range": "DiseaseOrPhenotypicFeature",
       "slot_uri": "https://w3id.org/biolink/vocab/contraindicated_for",
       "multivalued": true,
       "inherited": true,
@@ -3244,11 +4599,11 @@
     {
       "name": "has_not_completed",
       "definition_uri": "https://w3id.org/biolink/vocab/has_not_completed",
-      "mappings": [
-        "CL:has_not_completed"
-      ],
       "description": "holds between an entity and a process that the entity is capable of, but has not completed",
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CL:has_not_completed"
+      ],
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "NamedThing",
@@ -3261,11 +4616,12 @@
     {
       "name": "has_completed",
       "definition_uri": "https://w3id.org/biolink/vocab/has_completed",
-      "mappings": [
-        "CL:has_completed"
-      ],
       "description": "holds between an entity and a process that the entity is capable of and has completed",
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CL:has_completed",
+        "RTXKG1:has_completed"
+      ],
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "NamedThing",
@@ -3278,11 +4634,11 @@
     {
       "name": "decreases_molecular_interaction",
       "definition_uri": "https://w3id.org/biolink/vocab/decreases_molecular_interaction",
-      "mappings": [
-        "CTD:decreases_molecular_interaction_with"
-      ],
       "description": "indicates that the source decreases the molecular interaction between the target and some other molecular entity",
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:decreases_molecular_interaction_with"
+      ],
       "is_a": "molecularly_interacts_with",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -3295,11 +4651,11 @@
     {
       "name": "increases_molecular_interaction",
       "definition_uri": "https://w3id.org/biolink/vocab/increases_molecular_interaction",
-      "mappings": [
-        "CTD:increases_molecular_interaction_with"
-      ],
       "description": "indicates that the source increases the molecular interaction between the target and some other molecular entity",
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "CTD:increases_molecular_interaction_with"
+      ],
       "is_a": "molecularly_interacts_with",
       "domain": "MolecularEntity",
       "range": "MolecularEntity",
@@ -3310,27 +4666,13 @@
       "type": "SlotDefinition"
     },
     {
-      "name": "produced_by",
-      "definition_uri": "https://w3id.org/biolink/vocab/produced_by",
-      "from_schema": "https://w3id.org/biolink/biolink-model",
-      "is_a": "related_to",
-      "domain": "NamedThing",
-      "range": "NamedThing",
-      "slot_uri": "https://w3id.org/biolink/vocab/produced_by",
-      "multivalued": true,
-      "inherited": true,
-      "owner": "produced_by",
-      "inverse": "produces",
-      "type": "SlotDefinition"
-    },
-    {
       "name": "in_linkage_disequilibrium_with",
       "definition_uri": "https://w3id.org/biolink/vocab/in_linkage_disequilibrium_with",
-      "mappings": [
-        "NCIT:C16798"
-      ],
       "description": "holds between two sequence variants, the presence of which are correlated in a population",
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "NCIT:C16798"
+      ],
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "NamedThing",
@@ -3343,10 +4685,10 @@
     {
       "name": "has_increased_amount",
       "definition_uri": "https://w3id.org/biolink/vocab/has_increased_amount",
-      "mappings": [
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "narrow_mappings": [
         "CL:has_high_plasma_membrane_amount"
       ],
-      "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "NamedThing",
@@ -3359,10 +4701,10 @@
     {
       "name": "has_decreased_amount",
       "definition_uri": "https://w3id.org/biolink/vocab/has_decreased_amount",
-      "mappings": [
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "narrow_mappings": [
         "CL:has_low_plasma_membrane_amount"
       ],
-      "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "NamedThing",
@@ -3375,11 +4717,15 @@
     {
       "name": "lacks_part",
       "definition_uri": "https://w3id.org/biolink/vocab/lacks_part",
-      "mappings": [
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
         "CL:lacks_part",
+        "PR:lacks_part",
+        "RTXKG1:lacks_part"
+      ],
+      "narrow_mappings": [
         "CL:lacks_plasma_membrane_part"
       ],
-      "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "NamedThing",
@@ -3390,24 +4736,31 @@
       "type": "SlotDefinition"
     },
     {
-      "name": "superclass_of",
-      "definition_uri": "https://w3id.org/biolink/vocab/superclass_of",
-      "mappings": [
-        "WD:Q66088480"
-      ],
-      "description": "holds between two classes where the domain class is a super class of the range class",
-      "in_subset": [
-        "translator_minimal"
-      ],
+      "name": "develops_from",
+      "definition_uri": "https://w3id.org/biolink/vocab/develops_from",
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "BTO:develops_from",
+        "DDANAT:develops_from",
+        "FMA:develops_from",
+        "RO:0002202"
+      ],
+      "close_mappings": [
+        "RO:0002203",
+        "FMA:develops_into"
+      ],
+      "narrow_mappings": [
+        "RO:0002207",
+        "RO:0002225",
+        "RO:0002226"
+      ],
       "is_a": "related_to",
-      "domain": "OntologyClass",
-      "range": "iri_type",
-      "slot_uri": "https://w3id.org/biolink/vocab/superclass_of",
+      "domain": "NamedThing",
+      "range": "NamedThing",
+      "slot_uri": "https://w3id.org/biolink/vocab/develops_from",
       "multivalued": true,
       "inherited": true,
-      "owner": "superclass_of",
-      "inverse": "subclass_of",
+      "owner": "develops_from",
       "type": "SlotDefinition"
     },
     {
@@ -3702,17 +5055,20 @@
       "aliases": [
         "alias"
       ],
-      "mappings": [
-        "oboInOwl:hasExactSynonym",
-        "oboInOwl:hasNarrowSynonym",
-        "oboInOwl:hasBroadSynonym",
-        "oboInOwl:hasRelatedSynonym"
-      ],
       "description": "Alternate human-readable names for a thing",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "narrow_mappings": [
+        "oboInOwl:hasExactSynonym",
+        "oboInOwl:hasNarrowSynonym",
+        "oboInOwl:hasBroadSynonym",
+        "oboInOwl:hasRelatedSynonym",
+        "HANCESTRO:0330",
+        "IAO:0000136",
+        "RXNORM:has_tradename"
+      ],
       "is_a": "node_property",
       "domain": "NamedThing",
       "range": "label_type",
@@ -4108,6 +5464,11 @@
       ],
       "description": "the process that results in the stressor coming into direct contact with the receptor",
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "narrow_mappings": [
+        "LOINC:has_pharmaceutical_route",
+        "SNOMED:has_dose_form_intended_site",
+        "SNOMED:has_route_of_administration"
+      ],
       "is_a": "node_property",
       "domain": "ExposureEvent",
       "range": "string",
@@ -4130,15 +5491,26 @@
     {
       "name": "in_taxon",
       "definition_uri": "https://w3id.org/biolink/vocab/in_taxon",
-      "mappings": [
-        "RO:0002162",
-        "WIKIDATA:P703"
-      ],
       "description": "connects a thing to a class representing a taxon",
       "in_subset": [
         "translator_minimal"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "WIKIDATA:P703"
+      ],
+      "close_mappings": [
+        "NCIT:is_organism_source_of_gene_product",
+        "NCIT:organism_has_gene"
+      ],
+      "related_mappings": [
+        "RO:0002162"
+      ],
+      "narrow_mappings": [
+        "NCIT:gene_found_in_organism",
+        "NCIT:gene_product_has_organism_source",
+        "RO:0002160"
+      ],
       "is_a": "related_to",
       "domain": "ThingWithTaxon",
       "range": "OrganismTaxon",
@@ -4219,6 +5591,9 @@
       "definition_uri": "https://w3id.org/biolink/vocab/has_count",
       "description": "number of things with a particular property",
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "LOINC:has_count"
+      ],
       "is_a": "aggregate_statistic",
       "domain": "NamedThing",
       "range": "integer",
@@ -4308,6 +5683,13 @@
       "definition_uri": "https://w3id.org/biolink/vocab/quantifier_qualifier",
       "description": "A measurable quantity for the object of the association",
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "narrow_mappings": [
+        "LOINC:analyzes",
+        "LOINC:measured_by",
+        "LOINC:property_of",
+        "SEMMEDDB:measures",
+        "UMLS:measures"
+      ],
       "is_a": "association_slot",
       "domain": "Association",
       "range": "OntologyClass",
@@ -4482,6 +5864,9 @@
       "definition_uri": "https://w3id.org/biolink/vocab/has_molecular_consequence",
       "description": "connects a sequence variant to a class describing the molecular consequence. E.g.  SO:0001583",
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "narrow_mappings": [
+        "NCIT:allele_has_activity"
+      ],
       "is_a": "related_to",
       "domain": "NamedThing",
       "range": "OntologyClass",
@@ -4545,43 +5930,25 @@
       "type": "SlotDefinition"
     },
     {
-      "name": "phase",
-      "definition_uri": "https://w3id.org/biolink/vocab/phase",
-      "description": "TODO",
+      "name": "sequence_localization_attribute",
+      "definition_uri": "https://w3id.org/biolink/vocab/sequence_localization_attribute",
+      "description": "An attribute that can be applied to a genome sequence localization edge. These edges connect a genomic entity such as an exon to an entity such as a chromosome. Edge properties are used to ascribe specific positional information and other metadata to the localization. In pragmatic terms this can be thought of as columns in a GFF3 line.",
       "from_schema": "https://w3id.org/biolink/biolink-model",
-      "is_a": "node_property",
-      "domain": "NamedThing",
+      "is_a": "association_slot",
+      "domain": "GenomicSequenceLocalization",
       "range": "string",
-      "slot_uri": "https://w3id.org/biolink/vocab/phase",
-      "owner": "GenomicSequenceLocalization",
-      "domain_of": [
-        "GenomicSequenceLocalization"
-      ],
-      "type": "SlotDefinition"
-    },
-    {
-      "name": "genome_build",
-      "definition_uri": "https://w3id.org/biolink/vocab/genome_build",
-      "description": "TODO",
-      "from_schema": "https://w3id.org/biolink/biolink-model",
-      "is_a": "node_property",
-      "domain": "NamedThing",
-      "range": "string",
-      "slot_uri": "https://w3id.org/biolink/vocab/genome_build",
-      "owner": "GenomicSequenceLocalization",
-      "domain_of": [
-        "GenomicSequenceLocalization"
-      ],
+      "slot_uri": "https://w3id.org/biolink/vocab/sequence_localization_attribute",
+      "owner": "sequence_localization_attribute",
       "type": "SlotDefinition"
     },
     {
       "name": "interbase_coordinate",
       "definition_uri": "https://w3id.org/biolink/vocab/interbase_coordinate",
-      "description": "TODO",
+      "description": "A position in interbase coordinates. This is applied to a sequence localization edge.",
       "from_schema": "https://w3id.org/biolink/biolink-model",
-      "is_a": "node_property",
-      "domain": "NamedThing",
-      "range": "string",
+      "is_a": "sequence_localization_attribute",
+      "domain": "GenomicSequenceLocalization",
+      "range": "integer",
       "slot_uri": "https://w3id.org/biolink/vocab/interbase_coordinate",
       "owner": "interbase_coordinate",
       "type": "SlotDefinition"
@@ -4589,10 +5956,11 @@
     {
       "name": "start_interbase_coordinate",
       "definition_uri": "https://w3id.org/biolink/vocab/start_interbase_coordinate",
+      "description": "The position at which the subject genomic entity starts on the chromosome or other entity to which it is located on.",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "interbase_coordinate",
-      "domain": "NamedThing",
-      "range": "string",
+      "domain": "GenomicSequenceLocalization",
+      "range": "integer",
       "slot_uri": "https://w3id.org/biolink/vocab/start_interbase_coordinate",
       "owner": "GenomicSequenceLocalization",
       "domain_of": [
@@ -4603,10 +5971,11 @@
     {
       "name": "end_interbase_coordinate",
       "definition_uri": "https://w3id.org/biolink/vocab/end_interbase_coordinate",
+      "description": "The position at which the subject genomic entity ends on the chromosome or other entity to which it is located on.",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "interbase_coordinate",
-      "domain": "NamedThing",
-      "range": "string",
+      "domain": "GenomicSequenceLocalization",
+      "range": "integer",
       "slot_uri": "https://w3id.org/biolink/vocab/end_interbase_coordinate",
       "owner": "GenomicSequenceLocalization",
       "domain_of": [
@@ -4615,17 +5984,139 @@
       "type": "SlotDefinition"
     },
     {
+      "name": "genome_build",
+      "definition_uri": "https://w3id.org/biolink/vocab/genome_build",
+      "description": "The version of the genome on which a feature is located. For example, GRCh38 for Homo sapiens.",
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "is_a": "sequence_localization_attribute",
+      "domain": "GenomicSequenceLocalization",
+      "range": "string",
+      "slot_uri": "https://w3id.org/biolink/vocab/genome_build",
+      "owner": "GenomicSequenceLocalization",
+      "domain_of": [
+        "GenomicSequenceLocalization"
+      ],
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "strand",
+      "definition_uri": "https://w3id.org/biolink/vocab/strand",
+      "description": "The strand on which a feature is located. Has a value of '+' (sense strand or forward strand) or '-' (anti-sense strand or reverse strand).",
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "is_a": "sequence_localization_attribute",
+      "domain": "GenomicSequenceLocalization",
+      "range": "string",
+      "slot_uri": "https://w3id.org/biolink/vocab/strand",
+      "owner": "GenomicSequenceLocalization",
+      "domain_of": [
+        "GenomicSequenceLocalization"
+      ],
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "phase",
+      "definition_uri": "https://w3id.org/biolink/vocab/phase",
+      "description": "The phase for a coding sequence entity. For example, phase of a CDS as represented in a GFF3 with a value of 0, 1 or 2.",
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "is_a": "sequence_localization_attribute",
+      "domain": "CodingSequence",
+      "range": "string",
+      "slot_uri": "https://w3id.org/biolink/vocab/phase",
+      "owner": "phase",
+      "domain_of": [
+        "GenomicSequenceLocalization"
+      ],
+      "type": "SlotDefinition"
+    },
+    {
       "name": "has_attribute",
       "definition_uri": "https://w3id.org/biolink/vocab/has_attribute",
-      "mappings": [
-        "SIO:000008",
-        "RO:0000053"
-      ],
       "description": "connects any named thing to an attribute",
       "in_subset": [
         "samples"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "SIO:000008"
+      ],
+      "close_mappings": [
+        "OBI:0001927"
+      ],
+      "narrow_mappings": [
+        "CPT:has_possibly_included_panel_element",
+        "DRUGBANK:category",
+        "EFO:is_executed_in",
+        "HANCESTRO:0301",
+        "LOINC:has_action_guidance",
+        "LOINC:has_adjustment",
+        "LOINC:has_aggregation_view",
+        "LOINC:has_approach_guidance",
+        "LOINC:has_divisor",
+        "LOINC:has_exam",
+        "LOINC:has_method",
+        "LOINC:has_modality_subtype",
+        "LOINC:has_object_guidance",
+        "LOINC:has_scale",
+        "LOINC:has_suffix",
+        "LOINC:has_time_aspect",
+        "LOINC:has_time_modifier",
+        "LOINC:has_timing_of",
+        "NCIT:disease_is_grade",
+        "NCIT:disease_is_stage",
+        "NCIT:eo_disease_has_property_or_attribute",
+        "NCIT:has_data_element",
+        "NCIT:has_pharmaceutical_administration_method",
+        "NCIT:has_pharmaceutical_basic_dose_form",
+        "NCIT:has_pharmaceutical_intended_site",
+        "NCIT:has_pharmaceutical_release_characteristics",
+        "NCIT:has_pharmaceutical_state_of_matter",
+        "NCIT:has_pharmaceutical_transformation",
+        "NCIT:is_qualified_by",
+        "NCIT:qualifier_applies_to",
+        "NCIT:role_has_domain",
+        "NCIT:role_has_range",
+        "OBO:INO_0000154",
+        "OBO:hancestro_0308",
+        "OMIM:has_inheritance_type",
+        "ORPHANET:C016",
+        "ORPHANET:C017",
+        "RO:0000053",
+        "RO:0000086",
+        "RO:0000087",
+        "SNOMED:has_access",
+        "SNOMED:has_clinical_course",
+        "SNOMED:has_count_of_base_of_active_ingredient",
+        "SNOMED:has_dose_form_administration_method",
+        "SNOMED:has_dose_form_release_characteristic",
+        "SNOMED:has_dose_form_transformation",
+        "SNOMED:has_finding_context",
+        "SNOMED:has_finding_informer",
+        "SNOMED:has_inherent_attribute",
+        "SNOMED:has_intent",
+        "SNOMED:has_interpretation",
+        "SNOMED:has_laterality",
+        "SNOMED:has_measurement_method",
+        "SNOMED:has_method",
+        "SNOMED:has_priority",
+        "SNOMED:has_procedure_context",
+        "SNOMED:has_process_duration",
+        "SNOMED:has_property",
+        "SNOMED:has_revision_status",
+        "SNOMED:has_scale_type",
+        "SNOMED:has_severity",
+        "SNOMED:has_specimen",
+        "SNOMED:has_state_of_matter",
+        "SNOMED:has_subject_relationship_context",
+        "SNOMED:has_surgical_approach",
+        "SNOMED:has_technique",
+        "SNOMED:has_temporal_context",
+        "SNOMED:has_time_aspect",
+        "SNOMED:has_units",
+        "UMLS:has_structural_class",
+        "UMLS:has_supported_concept_property",
+        "UMLS:has_supported_concept_relationship",
+        "UMLS:may_be_qualified_by"
+      ],
       "range": "Attribute",
       "slot_uri": "https://w3id.org/biolink/vocab/has_attribute",
       "multivalued": true,
@@ -4643,6 +6134,10 @@
         "samples"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "narrow_mappings": [
+        "LOINC:has_modality_type",
+        "LOINC:has_view_type"
+      ],
       "domain": "Attribute",
       "range": "OntologyClass",
       "slot_uri": "https://w3id.org/biolink/vocab/has_attribute_type",
@@ -4680,6 +6175,11 @@
         "samples"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "narrow_mappings": [
+        "SNOMED:has_concentration_strength_numerator_value",
+        "SNOMED:has_presentation_strength_denominator_value",
+        "SNOMED:has_presentation_strength_numerator_value"
+      ],
       "domain": "Attribute",
       "range": "QuantityValue",
       "slot_uri": "https://w3id.org/biolink/vocab/has_quantitative_value",
@@ -4714,14 +6214,26 @@
     {
       "name": "has_unit",
       "definition_uri": "https://w3id.org/biolink/vocab/has_unit",
-      "mappings": [
-        "qud:unit"
-      ],
       "description": "connects a quantity value to a unit",
       "in_subset": [
         "samples"
       ],
       "from_schema": "https://w3id.org/biolink/biolink-model",
+      "exact_mappings": [
+        "qud:unit",
+        "IAO:0000039"
+      ],
+      "close_mappings": [
+        "EFO:0001697",
+        "OBO:uo#is_unit_of"
+      ],
+      "narrow_mappings": [
+        "SNOMED:has_concentration_strength_denominator_unit",
+        "SNOMED:has_concentration_strength_numerator_unit",
+        "SNOMED:has_presentation_strength_denominator_unit",
+        "SNOMED:has_presentation_strength_numerator_unit",
+        "SNOMED:has_unit_of_presentation"
+      ],
       "domain": "QuantityValue",
       "range": "unit",
       "slot_uri": "https://w3id.org/biolink/vocab/has_unit",
@@ -4729,39 +6241,6 @@
       "domain_of": [
         "QuantityValue"
       ],
-      "type": "SlotDefinition"
-    },
-    {
-      "name": "has_variant_part",
-      "definition_uri": "https://w3id.org/biolink/vocab/has_variant_part",
-      "notes": [
-        "TBD define this property"
-      ],
-      "from_schema": "https://w3id.org/biolink/biolink-model",
-      "range": "string",
-      "slot_uri": "https://w3id.org/biolink/vocab/has_variant_part",
-      "type": "SlotDefinition"
-    },
-    {
-      "name": "develops_from",
-      "definition_uri": "https://w3id.org/biolink/vocab/develops_from",
-      "notes": [
-        "TBD define this property"
-      ],
-      "from_schema": "https://w3id.org/biolink/biolink-model",
-      "range": "string",
-      "slot_uri": "https://w3id.org/biolink/vocab/develops_from",
-      "type": "SlotDefinition"
-    },
-    {
-      "name": "related_condition",
-      "definition_uri": "https://w3id.org/biolink/vocab/related_condition",
-      "notes": [
-        "TBD define this property"
-      ],
-      "from_schema": "https://w3id.org/biolink/biolink-model",
-      "range": "string",
-      "slot_uri": "https://w3id.org/biolink/vocab/related_condition",
       "type": "SlotDefinition"
     },
     {
@@ -5644,7 +7123,7 @@
         "upheno",
         "hp",
         "mp",
-        "wbphenotypic_feature"
+        "wbphenotype"
       ],
       "domain": "EntityToPhenotypicFeatureAssociation",
       "range": "PhenotypicFeature",
@@ -6716,6 +8195,24 @@
       ],
       "is_usage_slot": true,
       "usage_slot_name": "object",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "genomic_sequence_localization_relation",
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "is_a": "relation",
+      "domain": "GenomicSequenceLocalization",
+      "range": "uriorcurie",
+      "slot_uri": "https://w3id.org/biolink/vocab/relation",
+      "required": true,
+      "alias": "relation",
+      "owner": "GenomicSequenceLocalization",
+      "domain_of": [
+        "GenomicSequenceLocalization"
+      ],
+      "subproperty_of": "has_sequence_location",
+      "is_usage_slot": true,
+      "usage_slot_name": "relation",
       "type": "SlotDefinition"
     },
     {
@@ -8075,9 +9572,6 @@
         "PMID"
       ],
       "definition_uri": "https://w3id.org/biolink/vocab/Publication",
-      "aliases": [
-        "reference"
-      ],
       "mappings": [
         "IAO:0000311",
         "IAO:0000013",
@@ -8964,7 +10458,7 @@
         "GENO:0000536",
         "SIO:001079"
       ],
-      "description": "An information content entity that describes a genome by specifying the total variation in genomic sequence and/or gene expression, relative to some extablished background",
+      "description": "An information content entity that describes a genome by specifying the total variation in genomic sequence and/or gene expression, relative to some established background",
       "comments": [
         "Consider renaming as genotypic entity"
       ],
@@ -10728,16 +12222,32 @@
       "type": "ClassDefinition"
     },
     {
-      "name": "GenomicSequenceLocalization",
-      "definition_uri": "https://w3id.org/biolink/vocab/GenomicSequenceLocalization",
-      "mappings": [
-        "faldo:location"
-      ],
-      "description": "A relationship between a sequence feature and an entity it is localized to. The reference entity may be a chromosome, chromosome region or information entity such as a contig",
+      "name": "SequenceAssociation",
+      "definition_uri": "https://w3id.org/biolink/vocab/SequenceAssociation",
+      "description": "An association between a sequence feature and a genomic entity it is localized to.",
       "from_schema": "https://w3id.org/biolink/biolink-model",
       "is_a": "Association",
       "slots": [
+        "subject",
         "relation",
+        "object",
+        "association_id",
+        "negated",
+        "association_type",
+        "qualifiers",
+        "publications",
+        "provided_by"
+      ],
+      "class_uri": "https://w3id.org/biolink/vocab/SequenceAssociation",
+      "type": "ClassDefinition"
+    },
+    {
+      "name": "GenomicSequenceLocalization",
+      "definition_uri": "https://w3id.org/biolink/vocab/GenomicSequenceLocalization",
+      "description": "A relationship between a sequence feature and a genomic entity it is localized to. The reference entity may be a chromosome, chromosome region or information entity such as a contig",
+      "from_schema": "https://w3id.org/biolink/biolink-model",
+      "is_a": "SequenceAssociation",
+      "slots": [
         "association_id",
         "negated",
         "association_type",
@@ -10747,9 +12257,11 @@
         "start_interbase_coordinate",
         "end_interbase_coordinate",
         "genome_build",
+        "strand",
         "phase",
         "genomic_sequence_localization_subject",
-        "genomic_sequence_localization_object"
+        "genomic_sequence_localization_object",
+        "genomic_sequence_localization_relation"
       ],
       "class_uri": "https://w3id.org/biolink/vocab/GenomicSequenceLocalization",
       "type": "ClassDefinition"
@@ -11352,9 +12864,9 @@
   ],
   "metamodel_version": "1.5.3",
   "source_file": "biolink-model.yaml",
-  "source_file_date": "Mon Aug 31 22:49:11 2020",
-  "source_file_size": 144028,
-  "generation_date": "2020-08-31 22:50",
+  "source_file_date": "Thu Oct  1 22:05:56 2020",
+  "source_file_size": 194554,
+  "generation_date": "2020-10-01 22:06",
   "type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/biolink/biolinkml/context.jsonld",

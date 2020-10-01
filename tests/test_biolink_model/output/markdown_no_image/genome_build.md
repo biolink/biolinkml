@@ -2,18 +2,18 @@
 # Type: genome build
 
 
-TODO
+The version of the genome on which a feature is located. For example, GRCh38 for Homo sapiens.
 
 URI: [biolink:genome_build](https://w3id.org/biolink/vocab/genome_build)
 
 
 ## Domain and Range
 
-[NamedThing](NamedThing.md) ->  <sub>OPT</sub> [String](types/String.md)
+[GenomicSequenceLocalization](GenomicSequenceLocalization.md) ->  <sub>OPT</sub> [String](types/String.md)
 
 ## Parents
 
- *  is_a: [node property](node_property.md)
+ *  is_a: [sequence localization attribute](sequence_localization_attribute.md)
 
 ## Children
 
