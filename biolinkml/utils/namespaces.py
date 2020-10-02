@@ -229,6 +229,7 @@ class Namespaces(OrderedDict):
             elif k not in self:
                 if is_ncname(k):
                     self[k] = v
+                    logging.getLogger('Namespaces').info(f"---> {k} = {v} from {map_name}")
                 else:
                     logging.getLogger('Namespaces').info(f"biocontext map {map_name} has illegal prefix: {k}")
                     pass
