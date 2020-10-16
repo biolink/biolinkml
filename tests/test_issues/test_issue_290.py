@@ -27,7 +27,7 @@ class IssueSymmetryInverseOWLTestCase(TestEnvironmentTestCase):
         g = self._test_owl('issue_290')
         s = URIRef('http://example.org/s')
         t = URIRef('http://example.org/t')
-        self.assertIn((s, RDF.type, OWL.Symmetric®Property), g)
+        self.assertIn((s, RDF.type, OWL.SymmetricProperty), g)
         self.assertIn((s, OWL.inverseOf, t), g)
 
 
