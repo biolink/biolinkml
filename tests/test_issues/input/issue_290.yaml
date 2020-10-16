@@ -1,0 +1,13 @@
+id: http://example.org/tests/issue290
+
+classes:
+  c:
+
+slots:
+  s:
+    inverse: t
+    symmetric: true
+    range: c
+
+  t:
+    range: c
