@@ -6,6 +6,8 @@ from prefixcommons import curie_util
 from rdflib import Namespace, URIRef, Graph, BNode
 from rdflib.namespace import is_ncname
 
+from biolinkml.utils.yamlutils import TypedNode
+
 META_NS = "meta"
 META_URI = "https://w3id.org/biolink/biolinkml/meta"
 
@@ -153,20 +155,20 @@ class Namespaces(OrderedDict):
         :param uri_or_curie: "NCNAME ':' suffix" or plain URI
         :return: Corresponding URI
         """
-        uri_or_curie = str(uri_or_curie)
-        if '://' in uri_or_curie:
-            return URIRef(uri_or_curie)
-        if ':' in uri_or_curie:
-            prefix, local = str(uri_or_curie).split(':', 1)
+        uri_or_curie_str = str(uri_or_curie)
+        if '://' in uri_or_curie_str:
+            return URIRef(uri_or_curie_str)
+        if ':' in uri_or_curie_str:
+            prefix, local = str(uri_or_curie_str).split(':', 1)
             if not prefix:
                 prefix = self._default_key
             elif not is_ncname(prefix):
-                raise ValueError(f"Not a valid CURIE: {uri_or_curie}")
+                raise ValueError(f"{TypedNode.yaml_loc(uri_or_curie)}Not a valid CURIE: {uri_or_curie_str}")
         else:
-            prefix, local = self._base_key, uri_or_curie
+            prefix, local = self._base_key, uri_or_curie_str
 
         if prefix not in self:
-            raise ValueError(f"Unknown CURIE prefix: {prefix}")
+            raise ValueError(f"{TypedNode.yaml_loc(uri_or_curie)}Unknown CURIE prefix: {prefix}")
         return URIRef(self.join(self[prefix], local))
 
     def uri_or_curie_for(self, prefix: Union[str, URIRef], suffix: str) -> str:

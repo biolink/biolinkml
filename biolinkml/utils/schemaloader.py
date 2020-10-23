@@ -8,7 +8,7 @@ from urllib.parse import urlparse
 from biolinkml.meta import SchemaDefinition, SlotDefinition, SlotDefinitionName, ClassDefinition, \
     ClassDefinitionName, TypeDefinitionName, TypeDefinition, ElementName
 from biolinkml.utils.context_utils import parse_import_map
-from biolinkml.utils.formatutils import underscore, camelcase, sfx, lcamelcase
+from biolinkml.utils.formatutils import underscore, camelcase, sfx, lcamelcase, mangled_attribute_name
 from biolinkml.utils.mergeutils import merge_schemas, merge_slots, merge_classes, slot_usage_name
 from biolinkml.utils.metamodelcore import Bool
 from biolinkml.utils.namespaces import Namespaces
@@ -125,12 +125,13 @@ class SchemaLoader:
         # Promote embedded attribute definitions to first class slots.
         for cls in self.schema.classes.values():
             for attribute in cls.attributes.values():
-                mangled_slot_name = lcamelcase(cls.name) + '__' + underscore(attribute.name)
+                mangled_slot_name = mangled_attribute_name(cls.name, attribute.name)
                 if mangled_slot_name in self.schema.slots:
                     self.raise_value_error(f'Class: "{cls.name}" attribute "{attribute.name}" - '
                                            f'mangled name: {mangled_slot_name} already exists', attribute.name)
                 new_slot = SlotDefinition(**attribute.__dict__)
                 new_slot.domain_of.append(cls.name)
+                new_slot.imported_from = cls.imported_from
                 if not new_slot.alias:
                     new_slot.alias = attribute.name
                 new_slot.name = mangled_slot_name
@@ -295,7 +296,8 @@ class SchemaLoader:
             # Inline any class definitions that don't have identifiers.  Note that keys ARE inlined
             if slot.range in self.schema.classes:
                 range_class = self.schema.classes[cast(ClassDefinitionName, slot.range)]
-                if not any([self.schema.slots[s].identifier for s in range_class.slots]):
+                if slot.inlined_as_list or not any([self.schema.slots[s].identifier or
+                                                    self.schema.slots[s].key for s in range_class.slots]):
                     slot.inlined = True
 
             if slot.slot_uri is not None:
@@ -486,6 +488,26 @@ class SchemaLoader:
         definitions that are introduced strictly as usages and add them to the slots component
         """
         visited: Set[ClassDefinitionName] = set()
+        visited_usages: Set[SlotDefinitionName] = set()        # Slots that are or will be mangled
+
+        def located_aliased_parent_slot(owning_class: ClassDefinition, usage_slot:SlotDefinition) -> bool:
+            """ Determine whether we are overriding an attributes style slot in the parent class
+                Preconditions: usage_slot is NOT in schema.slots
+            """
+            usage_attribute_name = mangled_attribute_name(owning_class.name, usage_slot.name)
+            if owning_class.is_a:
+                parent_slot_name = mangled_attribute_name(owning_class.is_a, usage_slot.name)
+                if parent_slot_name in self.schema.slots or parent_slot_name in visited_usages:
+                    usage_slot.is_a = parent_slot_name
+                    visited_usages.add(usage_attribute_name)
+                    return True
+            for mixin in owning_class.mixins:
+                mixin_slot_name = mangled_attribute_name(mixin, usage_slot.name)
+                if mixin_slot_name in self.schema.slots or mixin_slot_name in visited_usages:
+                    usage_slot.is_a = mixin_slot_name
+                    visited_usages.add(usage_attribute_name)
+                    return True
+            return False
 
         def visit(classname: ClassDefinitionName) -> None:
             cls = self.schema.classes.get(classname)
@@ -498,11 +520,16 @@ class SchemaLoader:
                     if slot_usage.alias:
                         self.raise_value_error(f'Class: "{cls.name}" - alias not permitted in slot_usage slot:'
                                                f' {slot_usage.alias}')
-                    if slot_usage.name not in self.schema.slots:
-                        self.logger.info(f'class "{cls.name}" slot "{slot_usage.name}" does not reference an existing slot.  '
-                                         f'New slot was created.')
-                        self.schema.slots[slot_usage.name] = slot_usage
-            visited.add(classname)
+                    if not located_aliased_parent_slot(cls, slot_usage):
+                        if slot_usage.name not in self.schema.slots:
+                            self.logger.info(f'class "{cls.name}" slot "{slot_usage.name}" '
+                                             f'does not reference an existing slot.  New slot was created.')
+                            # TODO: Consider tightening this up and only allowing usages on defined slots
+                            self.schema.slots[slot_usage.name] = slot_usage
+                        else:
+                            # TODO Make sure that the slot_usage.name is legal (occurs in an ancestor of the class
+                            pass
+                visited.add(classname)
 
         for classname in self.schema.classes.keys():
             visit(classname)
@@ -519,8 +546,12 @@ class SchemaLoader:
                 self.raise_value_error(f'Class: "{cls.name}" - alias not permitted in slot_usage slot:'
                                        f' {slot_usage.alias}')
             # Construct a new slot
+            # If we've already assigned a parent, use it
+
+            parent_slot = self.schema.slots.get(slot_usage.is_a)
             # Follow the ancestry of the class to get the most proximal parent
-            parent_slot = self.slot_definition_for(slotname, cls)
+            if not parent_slot:
+                parent_slot = self.slot_definition_for(slotname, cls)
             if not parent_slot and slotname in self.schema.slots:
                 parent_slot = self.schema.slots[slotname]
 
@@ -575,12 +606,16 @@ class SchemaLoader:
     def slot_definition_for(self, slotname: SlotDefinitionName, cls: ClassDefinition) -> Optional[SlotDefinition]:
         """ Find the most proximal definition for slotname in the context of cls"""
         if cls.is_a:
+            if cls.is_a not in self.schema.classes:
+                self.raise_value_error(f"Unknown parent class: {cls.is_a}", cls.is_a)
             for sn in self.schema.classes[cls.is_a].slots:
                 slot = self.schema.slots[sn]
                 if (slot.usage_slot_name and slotname == slot.usage_slot_name) or\
                    (not slot.usage_slot_name and slotname == slot.name):
                     return slot
         for mixin in cls.mixins:
+            if mixin not in self.schema.classes:
+                self.raise_value_error(f"Unknown mixin class: {mixin}", cls.is_a)
             for sn in self.schema.classes[mixin].slots:
                 slot = self.schema.slots[sn]
                 if slot.alias and slotname == slot.alias or slotname == slot.name:
@@ -624,20 +659,15 @@ class SchemaLoader:
     def check_prefix(self, prefix: str) -> None:
         prefix = self.namespaces.prefix_for(prefix)
         if prefix and prefix not in self.namespaces:
-            self.logger.warning(f"{self.yaml_loc(prefix)}Unrecognized prefix: {prefix}")
+            self.logger.warning(f"{TypedNode.yaml_loc(prefix)}Unrecognized prefix: {prefix}")
             self.namespaces[prefix] = f"http://example.org/UNKNOWN/{prefix}/"
 
     @staticmethod
     def slot_name_for(slot: SlotDefinition) -> str:
         return underscore(slot.alias if slot.alias else slot.name)
 
-    @staticmethod
-    def yaml_loc(loc_str: Optional[Union[TypedNode, str]] = None) -> str:
-        """ Return the yaml file and location of loc_str if it exists """
-        return '' if loc_str is None or not getattr(loc_str, "loc", None) else (loc_str.loc() + ": ")
-
     def raise_value_error(self, error: str, loc_str: Optional[Union[TypedNode, str]] = None) -> None:
-        raise ValueError(f'{self.yaml_loc(loc_str)} {error}')
+        raise ValueError(f'{TypedNode.yaml_loc(loc_str)} {error}')
 
     def _get_base_dir(self, stated_base: str) -> Optional[str]:
         if stated_base:

@@ -243,23 +243,6 @@
         "Extension"
       ],
       "type": "SlotDefinition"
-    },
-    {
-      "name": "annotation_extension_value",
-      "from_schema": "https://w3id.org/biolink/biolinkml/annotations",
-      "is_a": "extension_value",
-      "domain": "Annotation",
-      "range": "boolean",
-      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/value",
-      "required": true,
-      "alias": "value",
-      "owner": "Annotation",
-      "domain_of": [
-        "Annotation"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "extension_value",
-      "type": "SlotDefinition"
     }
   ],
   "classes": [
@@ -269,11 +252,14 @@
       "description": "a tag/value pair with the semantics of OWL Annotation",
       "from_schema": "https://w3id.org/biolink/biolinkml/annotations",
       "is_a": "Extension",
+      "mixins": [
+        "Annotatable"
+      ],
       "slots": [
         "extension_tag",
+        "extension_value",
         "extensions",
-        "annotations",
-        "annotation_extension_value"
+        "annotations"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/Annotation",
       "type": "ClassDefinition"
@@ -318,11 +304,11 @@
       "type": "ClassDefinition"
     }
   ],
-  "metamodel_version": "1.5.3",
+  "metamodel_version": "1.6.0",
   "source_file": "annotations.yaml",
-  "source_file_date": "Tue Aug 25 16:38:08 2020",
-  "source_file_size": 928,
-  "generation_date": "2020-08-25 16:38",
+  "source_file_date": "Mon Sep 14 11:48:56 2020",
+  "source_file_size": 918,
+  "generation_date": "2020-09-14 12:47",
   "type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/biolink/biolinkml/context.jsonld",

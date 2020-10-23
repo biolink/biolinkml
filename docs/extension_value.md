@@ -20,5 +20,4 @@ URI: [meta:extension_value](https://w3id.org/biolink/biolinkml/meta/extension_va
 
 ## Used by
 
- * [Annotation](Annotation.md)
  * [Extension](Extension.md)

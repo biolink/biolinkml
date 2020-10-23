@@ -1,17 +1,76 @@
 CHANGES
 =======
 
+* Automated adding outputs from tests
+* Checkpoint on pattern branch
+
+v1.5.9
+------
+
+* Automated adding outputs from tests
+* Changed the type of subproperty\_of to SlotDefinition
+* Add a more informative error message when you feed the loader an empty file. Change the syntax of the yaml error message so that JetBrains IDE's can find the file and line
+* Correct a couple of errors on generating the new slot
+* Attributes introduced to metamodel
+* Automated adding outputs from tests
+* Add new output directory
+* Add the test case input
+* Fix for issue #260
+* Automated adding outputs from tests
+* adding users
+* Automated adding outputs from tests
+
+v1.5.8
+------
+
+* Partial fix for issue #258.  Set model version to 1.5.8, next PyPi addition
+* Automated update to docs with GitHub Actions
+* Automated adding outputs from tests
+* Final fix for issue #168
+* Automated update to docs with GitHub Actions
+* Fix issue #213
+* Add test for issue #213 (fixed elsewhere)
+* Automated adding outputs from tests
+* Multiple fixes -- will add issue numbers to pull request
+* Centralize header metadata function.  Note: This should eliminate the need for a lot of the test filters. Add a list of known generators to \_\_init\_\_.py to allow iteration Add a "directory\_output" to generators that emit directories (dotgen, golrgen, markdowngen) Change default output type of context generator from "json" to "context" to prevent clashes with jsonldcontextgen.py Couple of small tweaks in the test\_environment to keep output of multi-test Add minimal model test to tccm\_issues tests and a batch generator to make sure that the minimal model works in all generators
+* Automated adding outputs from tests
+* Import any identifier / key slots that are defined in another module
+* Fixes issue in merge where mappings aren't always correctly inherited
+* Automated adding outputs from tests
+* Update yamlgen.py
+* Update README.md
+* Added gen-yaml command line tool for validating and emitting complete YAML
+* Added gen-yaml command line tool for validating and emitting complete YAML
+* Tighten up URI and CURIE instance testing
+* Automated update to docs with GitHub Actions
+* Automated adding outputs from tests
+* Update test\_gen\_jsonld.py
+* Automated adding outputs from tests
+
+v1.5.7
+------
+
+* Automated adding outputs from tests
+* Fix problem where slot\_usage slots used as inline definitions don't emit actual slots
+* Add a tccm test case for addressing issues found in tccm development
+* Comment out an integrity test that is failing under certain conditions
+* Change the default default\_range message to a logger info to clean up the output
+* Correct typo in API
 * Add an command line/runtime option to control import merges
+* Update to reflect the latest greatest biolink model
 * Fix issue #222
 * #223 remove temp and \_\_pycache\_\_ directories in tests
 * Automated adding outputs from tests
 * #223 fix the issue that git add --force added too many files in tests
+* Update README.md
 * Automated adding outputs from tests
 * Fix an annoying issue where the genrdf test\_scripts output keeps getting replaced
 * Fix an annoying issue w/ the examples.txt output where it keeps getting updated
 * Additional input for issue #101
+* link to pipenv (for neophytes)
 * Automated adding outputs from tests
 * tiny typo
+* adding more mappings slots to parallel skos
 
 v1.5.4
 ------

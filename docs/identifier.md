@@ -2,7 +2,7 @@
 # Type: identifier
 
 
-true means that this slot is the subject of a set of assertions.  Identifiers do not appear as predicates in the model
+True means that the key slot(s) uniquely identify the container. There can be at most one identifier or key per container
 
 URI: [meta:identifier](https://w3id.org/biolink/biolinkml/meta/identifier)
 
@@ -30,7 +30,8 @@ URI: [meta:identifier](https://w3id.org/biolink/biolinkml/meta/identifier)
 |  | | UID |
 |  | | code |
 | **Comments:** | | identifier is inherited |
-|  | | identifier slots are always required |
+|  | | a key slot is automatically required.  Identifiers cannot be optional |
 |  | | a given domain can have at most one identifier |
+|  | | identifiers and keys are mutually exclusive.  A given domain cannot have both |
 | **See also:** | | https://en.wikipedia.org/wiki/Identifier |
 

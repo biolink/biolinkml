@@ -13,9 +13,10 @@ import yaml
 from biolinkml.meta import SchemaDefinition, metamodel_version
 from biolinkml.utils.mergeutils import merge_schemas, set_from_schema
 from biolinkml.utils.namespaces import Namespaces
-from biolinkml.utils.yamlutils import DupCheckYamlLoader, YAMLMark
+from biolinkml.utils.yamlutils import DupCheckYamlLoader, YAMLMark, TypedNode
 
 yaml.error.Mark = YAMLMark
+
 
 def load_raw_schema(data: Union[str, dict, TextIO],
                     source_file: Optional[str] = None,
@@ -136,6 +137,8 @@ def load_raw_schema(data: Union[str, dict, TextIO],
                 if cls is None:
                     cls = {}
                     body['classes'][cname] = cls
+                elif not isinstance(cls, dict):
+                    raise ValueError(f"{TypedNode.yaml_loc(cname)}: class definition is not a structure")
                 for uname, usage in cls.get('slot usage', {}).items():
                     if usage is None:
                         usage = {}

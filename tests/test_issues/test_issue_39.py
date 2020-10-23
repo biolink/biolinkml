@@ -10,7 +10,7 @@ class Issue39UnitTest(unittest.TestCase):
         """ Import generates for biolink-model """
         python = PythonGenerator(env.input_path('issue_38.yaml'),
                                  importmap=env.input_path('biolink-model-importmap.json')).serialize()
-        msg = validate_python(python)
+        msg = validate_python(python, expected_path=env.expected_path('foo.py'))
         if msg:
             self.fail(msg)
 

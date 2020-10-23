@@ -21,6 +21,4 @@ URI: [meta:apply_to](https://w3id.org/biolink/biolinkml/meta/apply_to)
 
 ## Used by
 
- * [ClassDefinition](ClassDefinition.md)
  * [Definition](Definition.md)
- * [SlotDefinition](SlotDefinition.md)

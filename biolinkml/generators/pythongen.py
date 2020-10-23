@@ -1,7 +1,6 @@
 import os
 import re
-import sys
-from typing import Optional, Tuple, List, Union, TextIO, Callable, Dict, Iterator, cast, Set
+from typing import Optional, Tuple, List, Union, TextIO, Callable, Dict, Iterator, Set
 
 import click
 from rdflib import URIRef
@@ -15,7 +14,6 @@ from biolinkml.utils.generator import Generator, shared_arguments
 from biolinkml.utils.ifabsent_functions import ifabsent_value_declaration, ifabsent_postinit_declaration, \
     default_curie_or_uri
 from biolinkml.utils.metamodelcore import builtinnames
-from includes import types
 
 
 class PythonGenerator(Generator):
@@ -101,6 +99,7 @@ class PythonGenerator(Generator):
 
 import dataclasses
 import sys
+import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
@@ -170,10 +169,10 @@ class slots:
                     raise ValueError(f"Cannot map {path} into a python import statement")
                 elif '/' in path:
                     innerself.v.setdefault(path.replace('./', '.').replace('/', '.'), set()).add(name)
-                else:
-                    # The '.' causes failures in a number of the test cases
-                    # innerself.v.setdefault('.' + path, set()).add(name)
+                elif '.' in path:
                     innerself.v.setdefault(path, set()).add(name)
+                else:
+                    innerself.v.setdefault('. ' + path, set()).add(name)
 
             def values(self) -> Dict[str, List[str]]:
                 return {k: sorted(self.v[k]) for k in sorted(self.v.keys())}
@@ -195,10 +194,10 @@ class slots:
                 else:
                     cls = self.schema.classes[slot.range]
                     if cls.imported_from:
-                        if self.class_identifier(cls, keys_count=True):
+                        if self.class_identifier(cls):
                             identifier_range = self.class_identifier_path(cls, False)[-1]
                             if identifier_range in self.schema.types:
-                                add_type_ref(identifier_range)
+                                add_type_ref(TypeDefinition(identifier_range))
                             else:
                                 rval.add_entry(cls.imported_from, identifier_range)
                         if slot.inlined:
@@ -226,12 +225,12 @@ class slots:
                     parent = self.schema.classes[cls.is_a]
                     if parent.imported_from:
                         rval.add_element(self.schema.classes[cls.is_a])
-                        if self.class_identifier(parent, keys_count=True):
+                        if self.class_identifier(parent):
                             rval.add_entry(parent.imported_from, self.class_identifier_path(parent, False)[-1])
                 for slotname in cls.slots:
                     add_slot_range(self.schema.slots[slotname])
-                for slotname in cls.slot_usage:
-                    add_slot_range(self.schema.slots[slotname])
+                # for slotname in cls.slot_usage:
+                #     add_slot_range(self.schema.slots[slotname])
 
         return rval.values()
 
@@ -257,13 +256,13 @@ class slots:
                         # If we've got a parent slot and the range of the parent is the range of the child, the
                         # child slot is a subclass of the parent.  Otherwise, the child range has been overridden,
                         # so the inheritence chain has been broken
-                        parent_pk = self.class_identifier(cls.is_a, keys_count=True) if cls.is_a else None
+                        parent_pk = self.class_identifier(cls.is_a) if cls.is_a else None
                         parent_pk_slot = self.schema.slots[parent_pk] if parent_pk else None
                         pk_slot = self.schema.slots[pk]
                         if parent_pk_slot and (parent_pk_slot.name == pk or pk_slot.range == parent_pk_slot.range):
                             parents = self.class_identifier_path(cls.is_a, False)
                         else:
-                            parents = self.slot_type_path(pk_slot)
+                            parents = self.slot_range_path(pk_slot)
                         parent_cls = 'extended_' + parents[-1] if parents[-1] in ['str', 'float', 'int'] else parents[-1]
                         rval.append(f'class {classname}({parent_cls}):\n\tpass')
                         break       # We only do the first primary key
@@ -375,12 +374,6 @@ class slots:
         :param cls: class containing variables to be rendered in inheritence hierarchy
         :return: variable declarations for target class and its ancestors
         """
-        def overridden_slot(slotname: SlotDefinitionName) -> bool:
-            """ Determine whether slotname is overridden in any of the descendant classes """
-            return False
-            # return bool(set(ancestor_path)
-            #             .intersection(set(self.synopsis.slotusages.get(self.aliased_slot_name(slotname), []))))
-
         initializers = []
 
         is_root = not cls.is_a
@@ -400,24 +393,27 @@ class slots:
         # Required or key slots with default values
         slot_variables = self._slot_iter(cls,
                                          lambda slot: slot.ifabsent and slot.required)
-        initializers += [self.gen_class_variable(cls, slot, not is_root) for slot in slot_variables]
+        initializers += [self.gen_class_variable(cls, slot, False) for slot in slot_variables]
 
         # Followed by everything else
-        slot_variables = self._slot_iter(cls, lambda slot: not slot.required and not overridden_slot(slot.name)
-                                                           and slot in domain_slots)
-        initializers += [self.gen_class_variable(cls, slot, True) for slot in slot_variables]
+        slot_variables = self._slot_iter(cls, lambda slot: not slot.required and slot in domain_slots)
+        initializers += [self.gen_class_variable(cls, slot, False) for slot in slot_variables]
 
         return '\n\t'.join(initializers)
 
     def gen_class_variable(self, cls: ClassDefinition, slot: SlotDefinition, can_be_positional: bool) -> str:
         """
-        Generate a class variable declaration for the supplied slot
+        Generate a class variable declaration for the supplied slot.  Note: the can_be_positional attribute works,
+        but it makes tag/value lists unduly complex, as you can't load them with tag=..., value=... -- you HAVE
+        to load positionally. We currently ignore this parameter, meaning that we have a tag/value option for
+        any BiolinkML element
 
         :param cls: Owning class
         :param slot: slot definition
-        :param can_be_positional: True means that positional parameters are allowed
+        :param can_be_positional: True means that positional parameters are allowed.
         :return: Initializer string
         """
+        can_be_positional = False               # Force everything to be tag values
         slotname = self.slot_name(slot.name)
         slot_range, default_val = self.range_cardinality(slot, cls, can_be_positional)
         ifabsent_text = ifabsent_value_declaration(slot.ifabsent, self, cls, slot) if slot.ifabsent is not None else None
@@ -431,25 +427,44 @@ class slots:
             -> Tuple[str, Optional[str]]:
         """
         Return the range type including initializers, etc.
+        Generate a class variable declaration for the supplied slot.  Note: the positional_allowed attribute works,
+        but it makes tag/value lists unduly complex, as you can't load them with tag=..., value=... -- you HAVE
+        to load positionally. We currently ignore this parameter, meaning that we have a tag/value option for
+        any BiolinkML element
 
         :param slot: slot to generate type for
         :param cls: containing class -- used to render key slots correctly.  If absent, slot is an add-in
-        :param positional_allowed: True Means that we are in the positional space
+        :param positional_allowed: True Means that we are in the positional space and defaults are not supplied
         :return: python property name and initializer (if any)
         """
-        range_type, parent_type, _ = self.class_reference_type(slot, cls)
+        positional_allowed = False              # Force everything to be tag values
 
-        if slot.multivalued:
-            pkey = self.class_identifier(slot.range, keys_count=True)
-            if self.is_key_value_class(cast(DefinitionName, slot.range)):
-                return range_type, 'empty_dict()'
-            elif slot.inlined and pkey:
-                base_key = self.gen_class_reference(self.class_identifier_path(slot.range, False))
-                return f'Dict[{base_key}, {range_type}]', 'empty_dict()'
+        range_type, parent_type, _ = self.class_reference_type(slot, cls)
+        pkey = self.class_identifier(slot.range)
+        # Special case, inlined, identified range
+        if pkey and slot.inlined and slot.multivalued:
+            base_key = self.gen_class_reference(self.class_identifier_path(slot.range, False))
+            num_elements = len(self.schema.classes[slot.range].slots)
+            dflt = None if slot.required and positional_allowed else 'empty_dict()'
+            if num_elements == 1:
+                if slot.required:
+                    return f'Union[List[{base_key}], Dict[{base_key}, {range_type}]]', dflt
+                else:
+                    return f'Optional[Union[List[{base_key}], Dict[{base_key}, {range_type}]]]', dflt
             else:
-                return f'List[{range_type}]', 'empty_list()'
+                if slot.required:
+                    return f'Union[Dict[{base_key}, {range_type}], List[{range_type}]]', dflt
+                else:
+                    return f'Optional[Union[Dict[{base_key}, {range_type}], List[{range_type}]]]', dflt
+
+        # All other cases
+        if slot.multivalued:
+            if slot.required:
+                return f'Union[{range_type}, List[{range_type}]]', (None if positional_allowed else 'None')
+            else:
+                return f'Optional[Union[{range_type}, List[{range_type}]]]', 'empty_list()'
         elif slot.required:
-            return range_type, ('None' if positional_allowed else None)
+            return range_type, (None if positional_allowed else 'None')
         else:
             return f'Optional[{range_type}]', 'None'
 
@@ -462,15 +477,14 @@ class slots:
         :param cls: owning class.  Used for generating key references
         :return: Python class reference type, most proximal type, most proximal type name
         """
-        assert not (slot.key or slot.identifier) or cls, "Key slots must have a domain"
-        rangelist = self.class_identifier_path(cls, False) if slot.key or slot.identifier else self.slot_type_path(slot)
-        prox_type = self.slot_type_path(slot)[-1].rsplit('.')[-1]
+        rangelist = self.class_identifier_path(cls, False) if slot.key or slot.identifier else self.slot_range_path(slot)
+        prox_type = self.slot_range_path(slot)[-1].rsplit('.')[-1]
         prox_type_name = rangelist[-1]
 
-        # Python version < 3.7 requires quoting forward references
+        # Quote forward references
         if cls and slot.inlined and slot.range in self.schema.classes and self.forward_reference(slot.range, cls.name):
             rangelist[-1] = f'"{rangelist[-1]}"'
-        return f"{self.gen_class_reference(rangelist)}", prox_type, prox_type_name
+        return str(self.gen_class_reference(rangelist)), prox_type, prox_type_name
 
     @staticmethod
     def gen_class_reference(rangelist: List[str]) -> str:
@@ -505,9 +519,15 @@ class slots:
         else:
             pkeys = []
         for slot in self.domain_slots(cls):
-            # TODO: Remove the bypass whenever we get default_range fixed
-            if slot.name not in pkeys and (not slot.ifabsent or True):
-                post_inits.append(self.gen_postinit(cls, slot))
+            if slot.required:
+                # TODO: Remove the bypass whenever we get default_range fixed
+                if slot.name not in pkeys and (not slot.ifabsent or True):
+                    post_inits.append(self.gen_postinit(cls, slot))
+        for slot in self.domain_slots(cls):
+            if not slot.required:
+                # TODO: Remove the bypass whenever we get default_range fixed
+                if slot.name not in pkeys and (not slot.ifabsent or True):
+                    post_inits.append(self.gen_postinit(cls, slot))
 
         post_inits_pre_super_line = '\n\t\t'.join([p for p in post_inits_pre_super if p]) + \
                                     ('\n\t\t' if post_inits_pre_super else '')
@@ -556,69 +576,86 @@ class slots:
         """ Generate python post init rules for slot in class
         """
         rlines: List[str] = []
-        slotname = self.slot_name(slot.name)
-        range_type_name, base_type, base_type_name = self.class_reference_type(slot, cls)
-        complex_range = range_type_name != base_type
 
-        # Generate existence check for required slots.  Note that inherited classes have to check post-init because
-        # named variables can't be mixed in the class signature
+        aliased_slot_name = self.slot_name(slot.name)           # Mangled name by which the slot is known in python
+        range_type, base_type, base_type_name = self.class_reference_type(slot, cls)
+        slot_identifier = self.class_identifier(slot.range)
+
+        # Generate existence check for required slots.  Note that inherited classes have to do post init checks because
+        # You can't have required elements after optional elements in the parent class
         if slot.required:
-            # If we have a root class, the required part is set by the type.  If it is inherited, we have to add
-            # the following
-            if not slot.multivalued:
-                rlines.append(f'if self.{slotname} is None:')
-                rlines.append(f'\traise ValueError(f"{slotname} must be supplied")')
+            rlines.append(f'if self.{aliased_slot_name} is None:')
+            rlines.append(f'\traise ValueError("{aliased_slot_name} must be supplied")')
+            if slot.multivalued:
+                if slot.inlined and slot_identifier:
+                    # Identified type multivalued slots can either be lists or dictionaries
+                    rlines.append(f'elif not isinstance(self.{aliased_slot_name}, (list, dict)):')
+                    rlines.append(f'\tself.{aliased_slot_name} = [self.{aliased_slot_name}]')
+                    rlines.append(f'if len(self.{aliased_slot_name}) == 0:')
+                    rlines.append(f'\traise ValueError(f"{aliased_slot_name} '
+                                  f'must be a non-empty list, dictionary, or class")')
+                else:
+                    rlines.append(f'elif not isinstance(self.{aliased_slot_name}, list):')
+                    rlines.append(f'\tself.{aliased_slot_name} = [self.{aliased_slot_name}]')
+                    rlines.append(f'elif len(self.{aliased_slot_name}) == 0:')
+                    rlines.append(f'\traise ValueError(f"{aliased_slot_name} must be a non-empty list")')
+        elif slot.multivalued:
+            rlines.append(f'if self.{aliased_slot_name} is None:')
+            rlines.append(f'\tself.{aliased_slot_name} = []')
+            if slot.inlined and slot_identifier:
+                # Identified type multivalued slots can either be lists or dictionaries
+                rlines.append(f'if not isinstance(self.{aliased_slot_name}, (list, dict)):')
+                rlines.append(f'\tself.{aliased_slot_name} = [self.{aliased_slot_name}]')
             else:
-                rlines.append(f'if not isinstance(self.{slotname}, list) or len(self.{slotname}) == 0:')
-                rlines.append(f'\traise ValueError(f"{slotname} must be a non-empty list")')
-        range_element = self.schema.classes.get(slot.range) or self.schema.types.get(slot.range)
-        if range_element:
-            indent = len(f'self.{slotname} = [') * ' '
-            if not slot.multivalued:
-                if complex_range:
-                    if slot.required:
-                        rlines.append(f'if not isinstance(self.{slotname}, {base_type_name}):')
-                    else:
-                        rlines.append(f'if self.{slotname} is not None and '
-                                      f'not isinstance(self.{slotname}, {base_type_name}):')
-                    # Another really wierd case -- a class that has no properties
-                    if slot.range in self.schema.classes and not self.schema.classes[slot.range].slots:
-                        rlines.append(f'\tself.{slotname} = {base_type_name}()')
-                    else:
-                        if self.class_identifier(slot.range, keys_count=True) or slot.range in self.schema.types:
-                            rlines.append(f'\tself.{slotname} = {base_type_name}(self.{slotname})')
-                        else:
-                            rlines.append(f'\tself.{slotname} = {base_type_name}(**self.{slotname})')
-            elif slot.inlined:
-                slot_range_cls = self.schema.classes[slot.range]
-                pkeys = self.primary_keys_for(slot_range_cls)
-                if pkeys:
-                    # Special situation -- if there are only two values: primary key and value,
-                    # we load it is a list, not a dictionary
-                    if self.is_key_value_class(cast(DefinitionName, slot.range)):
-                        class_init = '(k, v)'
-                    else:
-                        pkey_name = self.formatted_element_name(pkeys[0])
-                        class_init = f'({pkey_name}=k, **({{}} if v is None else v))'
-                    rlines.append(f'for k, v in self.{slotname}.items():')
-                    rlines.append(f'\tif not isinstance(v, {base_type_name}):')
-                    rlines.append(f'\t\tself.{slotname}[k] = {base_type_name}{class_init}')
-                elif complex_range:
-                    sn = f'self.{slotname}'
-                    # We've got a range that is a structure with no keys.  There are two ways to fill this sort of range
-                    # 1)  - i1v1: v1
-                    #       i1v2: v2
-                    # 2)  v1: v2
-                    #
-                    # Option 1 creates an inner class as C(i1v1=v1, i1v2=v2), while
-                    # Option 2 creates an inner class as C(v1, v2)
-                    rlines.append(f'{sn} = [{base_type_name}(*e) for e in {sn}.items()] if isinstance({sn}, dict) \\')
-                    rlines.append(f'{indent}else [v if isinstance(v, {base_type_name}) else {base_type_name}(**v)')
-                    rlines.append(f'{indent}      for v in ([{sn}] if isinstance({sn}, str) else {sn})]')
-            elif complex_range:
-                rlines.append(f'self.{slotname} = [v if isinstance(v, {base_type_name})')
-                rlines.append(f'{indent}else {base_type_name}(v) for v in ([self.{slotname}] '
-                              f'if isinstance(self.{slotname}, str) else self.{slotname})]')
+                rlines.append(f'if not isinstance(self.{aliased_slot_name}, list):')
+                rlines.append(f'\tself.{aliased_slot_name} = [self.{aliased_slot_name}]')
+
+        # Generate the type co-orcion for the various types.
+        indent = len(f'self.{aliased_slot_name} = [') * ' '
+        # NOTE: if you set this to true, we will cast all types.   This may be what we really want
+        if not slot.multivalued:
+            if slot.required:
+                rlines.append(f'if not isinstance(self.{aliased_slot_name}, {base_type_name}):')
+            else:
+                rlines.append(f'if self.{aliased_slot_name} is not None and '
+                              f'not isinstance(self.{aliased_slot_name}, {base_type_name}):')
+            # A really wierd case -- a class that has no properties
+            if slot.range in self.schema.classes and not self.schema.classes[slot.range].slots:
+                rlines.append(f'\tself.{aliased_slot_name} = {base_type_name}()')
+            else:
+                if self.class_identifier(slot.range) or slot.range in self.schema.types:
+                    rlines.append(f'\tself.{aliased_slot_name} = {base_type_name}(self.{aliased_slot_name})')
+                else:
+                    rlines.append(f'\tself.{aliased_slot_name} = {base_type_name}(**self.{aliased_slot_name})')
+        elif slot.inlined:
+            slot_range_cls = self.schema.classes[slot.range]
+            identifier = self.class_identifier(slot_range_cls)
+            # If we don't have an identifier, we will switch to the first required field in the target class
+            if not identifier:
+                for range_slot_name in slot_range_cls.slots:
+                    range_slot = self.schema.slots[range_slot_name]
+                    if range_slot.required:
+                        inlined_as_list = True
+                        keyed = False
+                        identifier = range_slot.name
+                        break
+            else:
+                inlined_as_list = slot.inlined_as_list
+                keyed = True
+            if identifier:
+                # TODO: match inlined_as_list to the inlined setting
+                rlines.append(f'self._normalize_inlined_slot(slot_name="{aliased_slot_name}", slot_type={base_type_name}, '
+                              f'key_name="{self.aliased_slot_name(identifier)}", '
+                              f'inlined_as_list={inlined_as_list}, '
+                              f'keyed={keyed})')
+            else:
+                sn = f'self.{aliased_slot_name}'
+                rlines.append(f'{sn} = [v if isinstance(v, {base_type_name}) else {base_type_name}(**v) for v in {sn}]')
+        else:
+            rlines.append(f'self.{aliased_slot_name} = [v if isinstance(v, {base_type_name}) '
+                          f'else {base_type_name}(v) for v in self.{aliased_slot_name}]')
+        if rlines:
+            rlines.append('')
         return '\n\t\t'.join(rlines)
 
 
@@ -638,10 +675,13 @@ class slots:
                     break
 
     def primary_keys_for(self, cls: ClassDefinition) -> List[SlotDefinitionName]:
-        """ Return the primary key for cls
+        """ Return the primary key for cls.
+
+        Note: At the moment we return at most one entry.  At some point, keys will be expanded to support
+              composite keys.
 
         @param cls: class to get keys for
-        @return: List of primary keys
+        @return: List of primary keys or identifiers
         """
         return [slot_name for slot_name in cls.slots
                 if self.schema.slots[slot_name].key or self.schema.slots[slot_name].identifier]
@@ -653,7 +693,7 @@ class slots:
 
     def range_type_name(self, slot: SlotDefinition) -> str:
         """ Generate the type name for the slot """
-        cidpath = self.slot_type_path(slot)
+        cidpath = self.slot_range_path(slot)
         if len(cidpath) < 2:
             return cidpath[0]
         else:
@@ -706,8 +746,9 @@ class slots:
             mappings = ', mappings = [' + ', '.join(map_texts)+ ']'
         else:
             mappings = ''
+        pattern = f",\n                   pattern=re.compile(r'{slot.pattern}')" if slot.pattern else ""
         return f"""slots.{python_slot_name} = Slot(uri={slot_uri}, name="{slot.name}", curie={slot_curie},
-                      model_uri={slot_model_uri}, domain={domain}, range={rnge}{mappings})"""
+                   model_uri={slot_model_uri}, domain={domain}, range={rnge}{mappings}{pattern})"""
 
 
 @shared_arguments(PythonGenerator)
