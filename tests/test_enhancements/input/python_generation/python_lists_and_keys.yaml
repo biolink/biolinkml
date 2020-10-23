@@ -354,7 +354,7 @@ classes:
 
 
   RequiredMultivaluedInlinedKeyedThreeElementRange:
-    description: 2.3(r) Range is a required keyed three element class that is represented as an inlined dictionary
+    description: 2.4(r) Range is a required keyed three element class that is represented as an inlined dictionary
     attributes:
       v1:
         range: KeyedThreeElementClass

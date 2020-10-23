@@ -1086,7 +1086,7 @@ class RequiredMultivaluedIdentifiedThreeElementRange(YAMLRoot):
         super().__post_init__(**kwargs)
 ```
 
-Case 2.3 (Inlined as list) follows a familiar pattern:
+Case 2.3 (Inlined as list) shows a new pattern:
 ```yaml
   OptionalMultivaluedInlinedListIdentifiedThreeElementRange:
     description: 2.3(o) Range is an optional identified three element class that is represented as an inlined list
@@ -1107,7 +1107,7 @@ Case 2.3 (Inlined as list) follows a familiar pattern:
         required: true
 ```
 
-The Python that is generated from the above entries will require some more information:
+The Python that is generated from the above entries will require some more description:
 
 ```python
 
@@ -1130,7 +1130,7 @@ class OptionalMultivaluedInlinedListIdentifiedThreeElementRange(YAMLRoot):
 
 ```
 
-Start with the signature:
+Starting with the signature:
 
 `v1: Optional[Union[Dict[Union[str, IdentifiedThreeElementClassName], Union[dict, IdentifiedThreeElementClass]], List[Union[dict, IdentifiedThreeElementClass]]]] = empty_list()`
 
@@ -1218,39 +1218,37 @@ ktec_examples = OptionalMultivaluedInlinedListIdentifiedThreeElementRange(
     ]  
 )  
 ```
-
-
-
-
-
+We then move on to the generated code:
 ```python
-@dataclass
-class RequiredMultivaluedInlinedListKeyedThreeElementRangeList(YAMLRoot):
-    """
-    2.3(r) Range is a required keyed three element class that is represented as an inlined list
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = LISTS_AND_KEYS.RequiredMultivaluedInlinedListKeyedThreeElementRangeList
-    class_class_curie: ClassVar[str] = "lists_and_keys:RequiredMultivaluedInlinedListKeyedThreeElementRangeList"
-    class_name: ClassVar[str] = "RequiredMultivaluedInlinedListKeyedThreeElementRangeList"
-    class_model_uri: ClassVar[URIRef] = LISTS_AND_KEYS.RequiredMultivaluedInlinedListKeyedThreeElementRangeList
-
-    v1: Union[Dict[Union[str, KeyedThreeElementClassName], Union[dict, KeyedThreeElementClass]], List[Union[dict, KeyedThreeElementClass]]] = empty_dict()
-
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.v1 is None:
-            raise ValueError("v1 must be supplied")
-        elif not isinstance(self.v1, (list, dict)):
+            self.v1 = []
+        if not isinstance(self.v1, (list, dict)):
             self.v1 = [self.v1]
-        if len(self.v1) == 0:
-            raise ValueError(f"v1 must be a non-empty list dictionary or class")
-        self._normalize_inlined_slot(slot_name="v1", slot_type=KeyedThreeElementClass, key_name="name", inlined_as_list=True, keyed=True)
-
-        super().__post_init__(**kwargs)
 ```
+The first two tests are pretty close to what we saw earlier, with the exception that you can't pass an isolated
+dictionary.  You can construct a list of integers with a single value:
 
-The last two cases, however, are where things get entertaining.  
+```python
+    my_entries = ListOfIntegers(17)
+```
+Which would, if the class `ListOfIntegers`'s first variable was a multivalued slot with a range of intgers, result in
+`my_entries.v == [17]`.  When dealing with classes, however, the following:
+```python
+    my_entries = ListOfClasses(dict(name='element1', value=17))
+```
+would fail, as it would try to convert this into a list with two `IdentifiedThreeElementClass` entries.
+
+The final line in the `__post_init__` section:
+```python
+    self._normalize_inlined_slot(slot_name="v1", slot_type=IdentifiedThreeElementClass, key_name="name", inlined_as_list=True, keyed=True)
+```
+passes the remainder of the post initilization normalization to a function defined in `YAMLRoot`.  
+
+
+The final case, Case 2.4 (Inlined as dictionary) is essentially the same, with the exception that the target type is
+a dictionary rather than a list.  
+  
 ```yaml
 OptionalMultivaluedInlinedIdentifiedThreeElementRangeList:
     description: 2.4(o) Range is an optional identified three element class that is represented as an inlined dictionary
@@ -1262,7 +1260,7 @@ OptionalMultivaluedInlinedIdentifiedThreeElementRangeList:
 
 
   RequiredMultivaluedInlinedKeyedThreeElementRange:
-    description: 2.3(r) Range is a required keyed three element class that is represented as an inlined dictionary
+    description: 2.4(r) Range is a required keyed three element class that is represented as an inlined dictionary
     attributes:
       v1:
         range: KeyedThreeElementClass
@@ -1270,3 +1268,85 @@ OptionalMultivaluedInlinedIdentifiedThreeElementRangeList:
         inlined: true
         required: true
 ```
+```python
+@dataclass
+class OptionalMultivaluedInlinedIdentifiedThreeElementRangeList(YAMLRoot):
+    """
+    2.4(o) Range is an optional identified three element class that is represented as an inlined dictionary
+    """
+    ...
+    v1: Optional[Union[Dict[Union[str, IdentifiedThreeElementClassName], Union[dict, IdentifiedThreeElementClass]], List[Union[dict, IdentifiedThreeElementClass]]]] = empty_dict()
+
+    def __post_init__(self, **kwargs: Dict[str, Any]):
+        if self.v1 is None:
+            self.v1 = []
+        if not isinstance(self.v1, (list, dict)):
+            self.v1 = [self.v1]
+        self._normalize_inlined_slot(slot_name="v1", slot_type=IdentifiedThreeElementClass, key_name="name", inlined_as_list=None, keyed=True)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class RequiredMultivaluedInlinedKeyedThreeElementRange(YAMLRoot):
+    """
+    2.4(r) Range is a required keyed three element class that is represented as an inlined dictionary
+    """
+    ...
+    v1: Union[Dict[Union[str, KeyedThreeElementClassName], Union[dict, KeyedThreeElementClass]], List[Union[dict, KeyedThreeElementClass]]] = empty_dict()
+
+    def __post_init__(self, **kwargs: Dict[str, Any]):
+        if self.v1 is None:
+            raise ValueError("v1 must be supplied")
+        elif not isinstance(self.v1, (list, dict)):
+            self.v1 = [self.v1]
+        if len(self.v1) == 0:
+            raise ValueError(f"v1 must be a non-empty list, dictionary, or class")
+        self._normalize_inlined_slot(slot_name="v1", slot_type=KeyedThreeElementClass, key_name="name", inlined_as_list=None, keyed=True)
+
+        super().__post_init__(**kwargs)
+```
+The generated code is identical to the previous case (2.3) with the exception that the default initializer is `empty_dict()` instead
+of `empty_list()`, and the `_normalized_inlined_slot` function is passed a false `inlined_as_list` value (well, 'None' but...).
+
+As a final note on the `inlined_as_list` vs. just plain `inlined`, while the internal storage structure is different, the
+initialization code is exactly the same -- YAML emitted from a list structure can be loaded as a dictionary and visa-versa.
+
+### Slots
+One bit that we haven't touched on here is the `slots` section of the emitted Python.
+
+At the moment, the following code is emitted:
+```python
+
+# Slots
+class slots:
+    pass
+    
+    ...
+
+slots.RequiredInlinedKeyedTwoElementRange_v1 = Slot(uri=LISTS_AND_KEYS.v1, name="RequiredInlinedKeyedTwoElementRange_v1", curie=LISTS_AND_KEYS.curie('v1'),
+                   model_uri=LISTS_AND_KEYS.RequiredInlinedKeyedTwoElementRange_v1, domain=RequiredInlinedKeyedTwoElementRange, range=Union[dict, KeyedTwoElementClass])
+
+slots.RequiredInlinedKeyedTwoElementRangeList_v1 = Slot(uri=LISTS_AND_KEYS.v1, name="RequiredInlinedKeyedTwoElementRangeList_v1", curie=LISTS_AND_KEYS.curie('v1'),
+                   model_uri=LISTS_AND_KEYS.RequiredInlinedKeyedTwoElementRangeList_v1, domain=RequiredInlinedKeyedTwoElementRangeList, range=Union[Dict[Union[str, KeyedTwoElementClassName], Union[dict, KeyedTwoElementClass]], List[Union[dict, KeyedTwoElementClass]]])
+
+slots.RequiredInlinedKeyedThreeElementRange_v1 = Slot(uri=LISTS_AND_KEYS.v1, name="RequiredInlinedKeyedThreeElementRange_v1", curie=LISTS_AND_KEYS.curie('v1'),
+                   model_uri=LISTS_AND_KEYS.RequiredInlinedKeyedThreeElementRange_v1, domain=RequiredInlinedKeyedThreeElementRange, range=Union[dict, KeyedThreeElementClass])
+
+slots.RequiredInlinedKeyedThreeElementRangeList_v1 = Slot(uri=LISTS_AND_KEYS.v1, name="RequiredInlinedKeyedThreeElementRangeList_v1", curie=LISTS_AND_KEYS.curie('v1'),
+                   model_uri=LISTS_AND_KEYS.RequiredInlinedKeyedThreeElementRangeList_v1, domain=RequiredInlinedKeyedThreeElementRangeList, range=Union[Dict[Union[str, KeyedThreeElementClassName], Union[dict, KeyedThreeElementClass]], List[Union[dict, KeyedThreeElementClass]]])
+```
+
+The `slots` class is here to keep the module namespace from getting too confusing, the idea that, if you want to reference
+a slot, you use `slots.RequiredInlinedTwoElementRange_v1` (which is the mangling of the owner class name and the actual slot)
+
+At the _moment_, you have the following elements:
+
+* uri - the SLOT URI
+* name - the mangled name 
+* curie - the SLOT CURIE
+* model_uri - the slot URI where the base is the Model URI vs. one assigned via `slot_uri`
+* domain - the slot domain
+* range - the range _signature_
+
+Note, however, that the slots area is still being enhanced, so keep an eye on entries like [Issue #272](https://github.com/biolink/biolinkml/issues/272)
