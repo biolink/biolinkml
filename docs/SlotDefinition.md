@@ -50,7 +50,7 @@ implicitly asserts that X is an instance of C1
     * Description: the class(es) that reference the slot in a "slots" or "slot_usage" context
     * range: [ClassDefinition](ClassDefinition.md)
  * [identifier](identifier.md)  <sub>OPT</sub>
-    * Description: true means that this slot is the subject of a set of assertions.  Identifiers do not appear as predicates in the model
+    * Description: True means that the key slot(s) uniquely identify the container. There can be at most one identifier or key per container
     * range: [Boolean](types/Boolean.md)
  * [ifabsent](ifabsent.md)  <sub>OPT</sub>
     * Description: function that provides a default value for the slot.  Possible values for this slot are defined in biolink.utils.ifabsent_functions.default_library:
@@ -68,7 +68,10 @@ implicitly asserts that X is an instance of C1
     * Description: true means that the *value* of a slot is inherited by subclasses
     * range: [Boolean](types/Boolean.md)
  * [inlined](inlined.md)  <sub>OPT</sub>
-    * Description: an inlined definition a list of actual values rather than references.  Only applies to slots whose range is a class.
+    * Description: True means that keyed or identified slot appears in an outer structure by value.  False means that only the key or identifier for the slot appears within the domain, referencing a structure that appears elsewhere.
+    * range: [Boolean](types/Boolean.md)
+ * [inlined_as_list](inlined_as_list.md)  <sub>OPT</sub>
+    * Description: True means that an inlined slot is represented as a list of range instances.  False means that an inlined slot is represented as a dictionary, whose key is the slot key or identifier and whose value is the range instance.
     * range: [Boolean](types/Boolean.md)
  * [inverse](inverse.md)  <sub>OPT</sub>
     * Description: indicates that any instance of d s r implies that there is also an instance of r s' d
@@ -80,7 +83,7 @@ implicitly asserts that X is an instance of C1
     * Description: True means that this slot was defined in a slot_usage situation
     * range: [Boolean](types/Boolean.md)
  * [key](key.md)  <sub>OPT</sub>
-    * Description: true means that the slot uniquely identifies the element within the context of its container.  Key slots are NOT identifiers - they do not serve as subjects
+    * Description: True means that the key slot(s) uniquely identify the container. In future releases, it will be possible for there to be compound keys, where several slots combine to produce a unique identifier
     * range: [Boolean](types/Boolean.md)
  * [maximum_value](maximum_value.md)  <sub>OPT</sub>
     * Description: for slots with ranges of type number, the value must be equal to or lowe than this

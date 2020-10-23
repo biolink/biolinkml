@@ -163,12 +163,12 @@ class Namespaces(OrderedDict):
             if not prefix:
                 prefix = self._default_key
             elif not is_ncname(prefix):
-                raise ValueError(f"{TypedNode.yaml_loc(uri_or_curie)}: Not a valid CURIE: {uri_or_curie_str}")
+                raise ValueError(f"{TypedNode.yaml_loc(uri_or_curie)}Not a valid CURIE: {uri_or_curie_str}")
         else:
             prefix, local = self._base_key, uri_or_curie_str
 
         if prefix not in self:
-            raise ValueError(f"{TypedNode.yaml_loc(uri_or_curie)}: Unknown CURIE prefix: {prefix}")
+            raise ValueError(f"{TypedNode.yaml_loc(uri_or_curie)}Unknown CURIE prefix: {prefix}")
         return URIRef(self.join(self[prefix], local))
 
     def uri_or_curie_for(self, prefix: Union[str, URIRef], suffix: str) -> str:

@@ -317,7 +317,7 @@
       "type": "ClassDefinition"
     }
   ],
-  "metamodel_version": "1.5.3",
+  "metamodel_version": "1.5.9",
   "source_file": "annotations.yaml",
   "source_file_date": "Friday Sep 27 12:00:00 2003",
   "source_file_size": 927,

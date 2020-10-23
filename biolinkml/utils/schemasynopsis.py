@@ -7,6 +7,7 @@ from biolinkml.meta import SchemaDefinition, Element, Definition, ClassDefinitio
     SubsetDefinitionName
 from biolinkml.utils.metamodelcore import empty_dict
 from biolinkml.utils.typereferences import RefType, ClassType, TypeType, SlotType, References, SubsetType
+from biolinkml.utils.yamlutils import TypedNode
 
 
 def empty_references() -> field:
@@ -119,8 +120,8 @@ class SchemaSynopsis:
             self.add_ref(ClassType, k, SlotType, slotname)
         for slotname, usage in v.slot_usage.items():
             self.slotusages.setdefault(slotname, set()).add(k)
-            self.add_ref(ClassType, k, SlotType, slotname)
-            slot_alias = self.schema.slots[slotname].alias
+            # self.add_ref(ClassType, k, SlotType, slotname)
+            # slot_alias = self.schema.slots[slotname].alias
             # if slot_alias:
             #     self.add_ref(SlotType, slotname, SlotType, cast(SlotDefinitionName, slot_alias))
             #     self.add_ref(ClassType, k, SlotType, cast(SlotDefinitionName, slot_alias))
@@ -191,26 +192,32 @@ class SchemaSynopsis:
         return bool(slot.is_a) and (slot.is_a in self.owners or self._ancestor_is_owned(self.schema.slots[slot.is_a]))
 
     def errors(self) -> List[str]:
+        def format_undefineds(refs: Set[Union[str, TypedNode]]) -> List[str]:
+            return [f'{TypedNode.yaml_loc(ref)}: {ref}' for ref in refs]
 
         rval = []
         undefined_classes = set(self.classrefs.keys()) - set(self.schema.classes.keys())
         if undefined_classes:
-            rval += [f"\tUndefined class references: {', '.join(undefined_classes)}"]
+            rval += [f"\tUndefined class references: "
+                     f"{', '.join(format_undefineds(undefined_classes))}"]
         undefined_slots = set(self.slotrefs.keys()) - set(self.schema.slots.keys())
         if undefined_slots:
-            rval += [f"\tUndefined slot references: {', '.join(undefined_slots)}"]
+            rval += [f"\tUndefined slot references: "
+                     f"{', '.join(format_undefineds(undefined_slots))}"]
         undefined_types = set(self.typerefs.keys()) - set(self.schema.types.keys())
         if undefined_types:
-            rval += [f"\tUndefined type references: {', '.join(undefined_types)}"]
+            rval += [f"\tUndefined type references: "
+                     f"{', '.join(format_undefineds(undefined_types))}"]
         undefined_subsets = set(self.subsetrefs.keys()) - set(self.schema.subsets.keys())
         if undefined_subsets:
-            rval += [f"\tUndefined subset references: {', '.join(undefined_subsets)}"]
+            rval += [f"\tUndefined subset references: "
+                     f"{', '.join(format_undefineds(undefined_subsets))}"]
 
         # Inlined slots must be multivalued (not a inviolable rule, but we make assumptions about this elsewhere in
         # the python generator
         for slot in self.schema.slots.values():
             if slot.inlined and not slot.multivalued and slot.identifier:
-                rval += [f'\tSlot {slot.name} is declared inline but single valued']
+                rval += [f'\t{TypedNode.yaml_loc(slot.name)} Slot {slot.name} is declared inline but single valued']
         return rval
 
     def summary(self) -> str:

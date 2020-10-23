@@ -21,6 +21,4 @@ URI: [meta:mixins](https://w3id.org/biolink/biolinkml/meta/mixins)
 
 ## Used by
 
- * [ClassDefinition](ClassDefinition.md)
  * [Definition](Definition.md)
- * [SlotDefinition](SlotDefinition.md)

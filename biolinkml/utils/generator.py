@@ -364,14 +364,12 @@ class Generator(metaclass=abc.ABCMeta):
         else:
             return [formatted_typ_name]
 
-    def class_identifier(self, def_or_name: Union[str, ClassDefinition, TypeDefinition], keys_count: bool = False) \
-            -> Optional[SlotDefinitionName]:
+    def class_identifier(self, def_or_name: Union[str, ClassDefinition, TypeDefinition]) -> Optional[SlotDefinitionName]:
         """
         Return the class identifier if any
 
         :param def_or_name: class name or definition
-        :param keys_count: True means treat keys AND identifiers as identifiers
-        :return: name of class identifier (or key) if one exists
+        :return: name of class key (or identifier) if one exists
         """
         if isinstance(def_or_name, ClassDefinition):
             cls = def_or_name
@@ -381,7 +379,7 @@ class Generator(metaclass=abc.ABCMeta):
             return None
         for slotname in cls.slots:
             slot = self.schema.slots[slotname]
-            if slot.identifier or (keys_count and slot.key):
+            if slot.identifier or slot.key:
                 return slotname
         return None
 
@@ -400,7 +398,7 @@ class Generator(metaclass=abc.ABCMeta):
         # Determine whether the class has a key
         identifier_slot = None
         if not force_non_key:
-            identifier_slot = self.class_identifier(cls, keys_count=True)
+            identifier_slot = self.class_identifier(cls)
 
         # No key or inlined, its closure is a dictionary
         if identifier_slot is None:
@@ -409,14 +407,14 @@ class Generator(metaclass=abc.ABCMeta):
         # We're dealing with a reference
         pathname = camelcase(cls.name + ' ' + self.aliased_slot_name(identifier_slot))
         if cls.is_a:
-            parent_identifier_slot = self.class_identifier(cls.is_a, keys_count=True)
+            parent_identifier_slot = self.class_identifier(cls.is_a)
             if parent_identifier_slot:
                 return self.class_identifier_path(cls.is_a, False) + [pathname]
-        return self.slot_type_path(identifier_slot) + [pathname]
+        return self.slot_range_path(identifier_slot) + [pathname]
 
-    def slot_type_path(self, slot_or_name: Union[str, SlotDefinition]) -> List[str]:
+    def slot_range_path(self, slot_or_name: Union[str, SlotDefinition]) -> List[str]:
         """
-        Return a ordered list of types starting with the base type and ending with the most proximal type
+        Return a ordered list of slot ranges from distal to proximal
 
         :param slot_or_name: slot whose range is being typed
         :return: ordered list of types from base type forward
