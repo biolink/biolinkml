@@ -207,6 +207,10 @@ class OwlSchemaGenerator(Generator):
         self.graph.add((slot_uri, RDFS.range, self._range_uri(slot)))
         if slot.domain:
             self.graph.add((slot_uri, RDFS.domain, self._class_uri(slot.domain)))
+        if slot.inverse:
+            self.graph.add((slot_uri, OWL.inverseOf, self._prop_uri(slot.inverse)))
+        if slot.symmetric:
+            self.graph.add((slot_uri, RDF.type, OWL.SymmetricProperty))
 
         # Parent slots
         if slot.is_a:

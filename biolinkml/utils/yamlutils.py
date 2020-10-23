@@ -210,6 +210,7 @@ class DupCheckYamlLoader(yaml.loader.SafeLoader):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.add_constructor(yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, DupCheckYamlLoader.map_constructor)
+        self.add_constructor(yaml.resolver.BaseResolver.DEFAULT_SEQUENCE_TAG, DupCheckYamlLoader.seq_constructor)
         self.add_constructor('tag:yaml.org,2002:str', DupCheckYamlLoader.construct_yaml_str)
         self.add_constructor('tag:yaml.org,2002:int', DupCheckYamlLoader.construct_yaml_int)
         self.add_constructor('tag:yaml.org,2002:float', DupCheckYamlLoader.construct_yaml_float)
@@ -251,6 +252,18 @@ class DupCheckYamlLoader(yaml.loader.SafeLoader):
                 raise ValueError(f"Duplicate key: \"{key}\"")
             mapping[key] = value
         return mapping
+
+    @staticmethod
+    def seq_constructor(loader, node, deep=False):
+        if not isinstance(node, yaml.SequenceNode):
+            raise ConstructorError(None, None,
+                                   "expected a sequence node, but found %s" % node.id,
+                                   node.start_mark)
+        for child in node.value:
+            if not child.value:
+                raise ConstructorError(None, None, "Empty list elements are not allowed", node.start_mark)
+        return [loader.construct_object(child, deep=deep)
+                for child in node.value]
 
 
 yaml.SafeDumper.add_multi_representer(YAMLRoot, root_representer)

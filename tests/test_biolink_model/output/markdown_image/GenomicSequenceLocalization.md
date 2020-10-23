@@ -2,7 +2,7 @@
 # Type: genomic sequence localization
 
 
-A relationship between a sequence feature and an entity it is localized to. The reference entity may be a chromosome, chromosome region or information entity such as a contig
+A relationship between a sequence feature and a genomic entity it is localized to. The reference entity may be a chromosome, chromosome region or information entity such as a contig
 
 URI: [biolink:GenomicSequenceLocalization](https://w3id.org/biolink/vocab/GenomicSequenceLocalization)
 
@@ -11,7 +11,7 @@ URI: [biolink:GenomicSequenceLocalization](https://w3id.org/biolink/vocab/Genomi
 
 ## Parents
 
- *  is_a: [Association](Association.md) - A typed association between two entities, supported by evidence
+ *  is_a: [SequenceAssociation](SequenceAssociation.md) - An association between a sequence feature and a genomic entity it is localized to.
 
 ## Referenced by class
 
@@ -22,21 +22,28 @@ URI: [biolink:GenomicSequenceLocalization](https://w3id.org/biolink/vocab/Genomi
 ### Own
 
  * [end interbase coordinate](end_interbase_coordinate.md)  <sub>OPT</sub>
-    * range: [String](types/String.md)
+    * Description: The position at which the subject genomic entity ends on the chromosome or other entity to which it is located on.
+    * range: [Integer](types/Integer.md)
  * [genome build](genome_build.md)  <sub>OPT</sub>
-    * Description: TODO
+    * Description: The version of the genome on which a feature is located. For example, GRCh38 for Homo sapiens.
     * range: [String](types/String.md)
  * [genomic sequence localization➞object](genomic_sequence_localization_object.md)  <sub>REQ</sub>
     * range: [GenomicEntity](GenomicEntity.md)
+ * [genomic sequence localization➞relation](genomic_sequence_localization_relation.md)  <sub>REQ</sub>
+    * range: [Uriorcurie](types/Uriorcurie.md)
  * [genomic sequence localization➞subject](genomic_sequence_localization_subject.md)  <sub>REQ</sub>
     * range: [GenomicEntity](GenomicEntity.md)
  * [phase](phase.md)  <sub>OPT</sub>
-    * Description: TODO
+    * Description: The phase for a coding sequence entity. For example, phase of a CDS as represented in a GFF3 with a value of 0, 1 or 2.
     * range: [String](types/String.md)
  * [start interbase coordinate](start_interbase_coordinate.md)  <sub>OPT</sub>
+    * Description: The position at which the subject genomic entity starts on the chromosome or other entity to which it is located on.
+    * range: [Integer](types/Integer.md)
+ * [strand](strand.md)  <sub>OPT</sub>
+    * Description: The strand on which a feature is located. Has a value of '+' (sense strand or forward strand) or '-' (anti-sense strand or reverse strand).
     * range: [String](types/String.md)
 
-### Inherited from association:
+### Inherited from sequence association:
 
  * [association type](association_type.md)  <sub>OPT</sub>
     * Description: connects an association to the type of association (e.g. gene to phenotype)
@@ -57,13 +64,3 @@ URI: [biolink:GenomicSequenceLocalization](https://w3id.org/biolink/vocab/Genomi
  * [qualifiers](qualifiers.md)  <sub>0..*</sub>
     * Description: connects an association to qualifiers that modify or qualify the meaning of that association
     * range: [OntologyClass](OntologyClass.md)
- * [relation](relation.md)  <sub>REQ</sub>
-    * Description: The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.
-    * range: [Uriorcurie](types/Uriorcurie.md)
-
-## Other properties
-
-|  |  |  |
-| --- | --- | --- |
-| **Mappings:** | | faldo:location |
-

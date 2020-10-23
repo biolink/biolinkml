@@ -185,7 +185,6 @@ class MarkdownGenerator(Generator):
                     print(f"| Representation | | {typ.repr} |")
                 self.element_properties(typ)
 
-    # def visit_class_slot(self, cls: ClassDefinition, aliased_slot_name: str, slot: SlotDefinition) -> None:
     def visit_slot(self, aliased_slot_name: str, slot: SlotDefinition) -> None:
         with open(self.dir_path(slot), 'w') as slotfile:
             with redirect_stdout(slotfile):

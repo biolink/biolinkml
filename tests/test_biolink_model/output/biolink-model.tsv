@@ -93,8 +93,8 @@ gene_to_phenotypic_feature_association
 gene_to_thing_association		
 genome		A genome is the sum of genetic material within a cell or virion.
 genomic_entity		an entity that can either be directly located on a genome (gene, transcript, exon, regulatory region) or is encoded in a genome (protein)
-genomic_sequence_localization		A relationship between a sequence feature and an entity it is localized to. The reference entity may be a chromosome, chromosome region or information entity such as a contig
-genotype		An information content entity that describes a genome by specifying the total variation in genomic sequence and/or gene expression, relative to some extablished background
+genomic_sequence_localization		A relationship between a sequence feature and a genomic entity it is localized to. The reference entity may be a chromosome, chromosome region or information entity such as a contig
+genotype		An information content entity that describes a genome by specifying the total variation in genomic sequence and/or gene expression, relative to some established background
 genotype_as_a_model_of_disease_association		
 genotype_to_disease_association		
 genotype_to_gene_association		Any association between a genotype and a gene. The genotype have have multiple variants in that gene or a single one. There is no assumption of cardinality
@@ -157,6 +157,7 @@ relationship_type		An OWL property used as an edge label
 RNA_product		
 RNA_product_isoform		Represents a protein that is a specific isoform of the canonical or reference RNA
 sensitivity_quantifier		
+sequence_association		An association between a sequence feature and a genomic entity it is localized to.
 sequence_feature_relationship		For example, a particular exon is part of a particular transcript or gene
 sequence_variant		An allele that varies in its sequence from what is considered the reference allele at that locus.
 sequence_variant_modulates_treatment_association		An association between a sequence variant and a treatment or health intervention. The treatment object itself encompasses both the disease and the drug used.

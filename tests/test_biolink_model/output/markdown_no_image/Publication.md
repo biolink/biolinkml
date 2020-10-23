@@ -39,7 +39,6 @@ URI: [biolink:Publication](https://w3id.org/biolink/vocab/Publication)
 
 |  |  |  |
 | --- | --- | --- |
-| **Aliases:** | | reference |
 | **Mappings:** | | IAO:0000311 |
 |  | | IAO:0000013 |
 |  | | UMLSSC:T170 |

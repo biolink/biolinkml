@@ -3299,17 +3299,18 @@
       },
       "GenomicSequenceLocalization": {
          "additionalProperties": false,
-         "description": "A relationship between a sequence feature and an entity it is localized to. The reference entity may be a chromosome, chromosome region or information entity such as a contig",
+         "description": "A relationship between a sequence feature and a genomic entity it is localized to. The reference entity may be a chromosome, chromosome region or information entity such as a contig",
          "properties": {
             "association_type": {
                "description": "connects an association to the type of association (e.g. gene to phenotype)",
                "type": "string"
             },
             "end_interbase_coordinate": {
-               "type": "string"
+               "description": "The position at which the subject genomic entity ends on the chromosome or other entity to which it is located on.",
+               "type": "integer"
             },
             "genome_build": {
-               "description": "TODO",
+               "description": "The version of the genome on which a feature is located. For example, GRCh38 for Homo sapiens.",
                "type": "string"
             },
             "id": {
@@ -3324,7 +3325,7 @@
                "type": "string"
             },
             "phase": {
-               "description": "TODO",
+               "description": "The phase for a coding sequence entity. For example, phase of a CDS as represented in a GFF3 with a value of 0, 1 or 2.",
                "type": "string"
             },
             "provided_by": {
@@ -3349,10 +3350,14 @@
                "type": "array"
             },
             "relation": {
-               "description": "The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.",
                "type": "string"
             },
             "start_interbase_coordinate": {
+               "description": "The position at which the subject genomic entity starts on the chromosome or other entity to which it is located on.",
+               "type": "integer"
+            },
+            "strand": {
+               "description": "The strand on which a feature is located. Has a value of '+' (sense strand or forward strand) or '-' (anti-sense strand or reverse strand).",
                "type": "string"
             },
             "subject": {
@@ -3360,17 +3365,17 @@
             }
          },
          "required": [
-            "relation",
             "id",
             "subject",
-            "object"
+            "object",
+            "relation"
          ],
          "title": "GenomicSequenceLocalization",
          "type": "object"
       },
       "Genotype": {
          "additionalProperties": false,
-         "description": "An information content entity that describes a genome by specifying the total variation in genomic sequence and/or gene expression, relative to some extablished background",
+         "description": "An information content entity that describes a genome by specifying the total variation in genomic sequence and/or gene expression, relative to some established background",
          "properties": {
             "category": {
                "description": "Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag",
@@ -5694,6 +5699,65 @@
          "properties": {},
          "required": [],
          "title": "SensitivityQuantifier",
+         "type": "object"
+      },
+      "SequenceAssociation": {
+         "additionalProperties": false,
+         "description": "An association between a sequence feature and a genomic entity it is localized to.",
+         "properties": {
+            "association_type": {
+               "description": "connects an association to the type of association (e.g. gene to phenotype)",
+               "type": "string"
+            },
+            "id": {
+               "description": "A unique identifier for an association",
+               "type": "string"
+            },
+            "negated": {
+               "description": "if set to true, then the association is negated i.e. is not true",
+               "type": "boolean"
+            },
+            "object": {
+               "description": "connects an association to the object of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.",
+               "type": "string"
+            },
+            "provided_by": {
+               "description": "connects an association to the agent (person, organization or group) that provided it",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "publications": {
+               "description": "connects an association to publications supporting the association",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "qualifiers": {
+               "description": "connects an association to qualifiers that modify or qualify the meaning of that association",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "relation": {
+               "description": "The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.",
+               "type": "string"
+            },
+            "subject": {
+               "description": "connects an association to the subject of the association. For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.",
+               "type": "string"
+            }
+         },
+         "required": [
+            "subject",
+            "relation",
+            "object",
+            "id"
+         ],
+         "title": "SequenceAssociation",
          "type": "object"
       },
       "SequenceFeatureRelationship": {
