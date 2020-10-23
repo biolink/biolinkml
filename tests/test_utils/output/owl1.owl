@@ -6,9 +6,11 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://example.org/owl1> a owl:Ontology ;
-    rdfs:label "owl1" ;meta:generation_date "Fri Jan 25 14:22:29 2019" ;
-    meta:metamodel_version "1.5.3" ;
-    meta:source_file "owl1.yaml" ;meta:source_file_date "Fri Jan 25 14:22:29 2019" ;
+    rdfs:label "owl1" ;
+    meta:generation_date "2020-10-23 17:02" ;
+    meta:metamodel_version "1.6.0" ;
+    meta:source_file "owl1.yaml" ;
+    meta:source_file_date "Fri Oct 23 16:59:17 2020" ;
     meta:source_file_size 639 .
 
 <http://example.org/owl1/String> a owl:Class,
@@ -62,6 +64,10 @@ meta:ClassDefinition a owl:Class ;
         meta:ClassDefinition ;
     rdfs:label "c1" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://example.org/owl1/C2> ;
+            owl:onProperty <http://example.org/owl1/slotopt> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom <http://example.org/owl1/C2> ;
             owl:onProperty <http://example.org/owl1/slotzeromany> ],
         [ a owl:Class ;
@@ -70,10 +76,6 @@ meta:ClassDefinition a owl:Class ;
                         owl:onProperty <http://example.org/owl1/slotonemany> ] [ a owl:Restriction ;
                         owl:onProperty <http://example.org/owl1/slotonemany> ;
                         owl:someValuesFrom <http://example.org/owl1/C2> ] ) ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://example.org/owl1/C2> ;
-            owl:onProperty <http://example.org/owl1/slotopt> ],
         [ a owl:Restriction ;
             owl:onClass <http://example.org/owl1/C2> ;
             owl:onProperty <http://example.org/owl1/slotreq> ;

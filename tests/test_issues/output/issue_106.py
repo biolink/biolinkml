@@ -1,5 +1,5 @@
-# Auto generated from issue_106.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-25 16:45
+# Auto generated from issue_106.yaml by pythongen.py version: 0.9.0
+# Generation date: 2020-10-23 17:01
 # Schema: test_106
 #
 # id: https://issue_test/106/schema
@@ -8,6 +8,7 @@
 
 import dataclasses
 import sys
+import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
@@ -22,7 +23,7 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 
 
-metamodel_version = "1.5.3"
+metamodel_version = "1.6.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -57,6 +58,16 @@ class C1(YAMLRoot):
     s1: Optional[str] = None
     s2: Optional[str] = None
 
+    def __post_init__(self, **kwargs: Dict[str, Any]):
+        if self.s1 is not None and not isinstance(self.s1, str):
+            self.s1 = str(self.s1)
+
+        if self.s2 is not None and not isinstance(self.s2, str):
+            self.s2 = str(self.s2)
+
+        super().__post_init__(**kwargs)
+
+
 @dataclass
 class C2(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
@@ -68,13 +79,20 @@ class C2(YAMLRoot):
 
     s1: Optional[str] = None
 
+    def __post_init__(self, **kwargs: Dict[str, Any]):
+        if self.s1 is not None and not isinstance(self.s1, str):
+            self.s1 = str(self.s1)
+
+        super().__post_init__(**kwargs)
+
+
 
 # Slots
 class slots:
     pass
 
 slots.s1 = Slot(uri=DEFAULT_.s1, name="s1", curie=DEFAULT_.curie('s1'),
-                      model_uri=DEFAULT_.s1, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.s1, domain=None, range=Optional[str])
 
 slots.s2 = Slot(uri=DEFAULT_.s2, name="s2", curie=DEFAULT_.curie('s2'),
-                      model_uri=DEFAULT_.s2, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.s2, domain=None, range=Optional[str])

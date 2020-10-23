@@ -1,5 +1,5 @@
-# Auto generated from importee.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-25 16:45
+# Auto generated from importee.yaml by pythongen.py version: 0.9.0
+# Generation date: 2020-10-23 17:01
 # Schema: importee
 #
 # id: https://example.org/importee
@@ -8,6 +8,7 @@
 
 import dataclasses
 import sys
+import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
@@ -22,7 +23,7 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 
 
-metamodel_version = "1.5.3"
+metamodel_version = "1.6.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -56,16 +57,20 @@ class Base(YAMLRoot):
     class_name: ClassVar[str] = "base"
     class_model_uri: ClassVar[URIRef] = EX.Base
 
-    id: Union[str, BaseId]
-    value: str
+    id: Union[str, BaseId] = None
+    value: str = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
-            raise ValueError(f"id must be supplied")
+            raise ValueError("id must be supplied")
         if not isinstance(self.id, BaseId):
             self.id = BaseId(self.id)
+
         if self.value is None:
-            raise ValueError(f"value must be supplied")
+            raise ValueError("value must be supplied")
+        if not isinstance(self.value, str):
+            self.value = str(self.value)
+
         super().__post_init__(**kwargs)
 
 
@@ -75,7 +80,7 @@ class slots:
     pass
 
 slots.id = Slot(uri=EX.id, name="id", curie=EX.curie('id'),
-                      model_uri=EX.id, domain=None, range=URIRef)
+                   model_uri=EX.id, domain=None, range=URIRef)
 
 slots.value = Slot(uri=EX.value, name="value", curie=EX.curie('value'),
-                      model_uri=EX.value, domain=None, range=str)
+                   model_uri=EX.value, domain=None, range=str)

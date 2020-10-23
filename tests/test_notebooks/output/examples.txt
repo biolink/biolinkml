@@ -1,4 +1,4 @@
-# Auto generated from None by pythongen.py version: 0.4.0
+# Auto generated from None by pythongen.py version: 0.9.0
 # Generation date:
 # Schema: synopsis2
 #
@@ -8,6 +8,7 @@
 
 import dataclasses
 import sys
+import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
@@ -22,7 +23,7 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import Bool
 
-metamodel_version = "1.5.3"
+metamodel_version = "1.6.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -77,22 +78,42 @@ class Person(YAMLRoot):
     class_name: ClassVar[str] = "person"
     class_model_uri: ClassVar[URIRef] = EX.Person
 
-    id: Union[str, PersonId]
-    last_name: str
-    first_name: List[str] = empty_list()
+    id: Union[str, PersonId] = None
+    last_name: str = None
+    first_name: Optional[Union[str, List[str]]] = empty_list()
     age: Optional[int] = None
     living: Optional[Bool] = None
-    knows: List[Union[str, PersonId]] = empty_list()
+    knows: Optional[Union[Union[str, PersonId], List[Union[str, PersonId]]]] = empty_list()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
-            raise ValueError(f"id must be supplied")
+            raise ValueError("id must be supplied")
         if not isinstance(self.id, PersonId):
             self.id = PersonId(self.id)
+
         if self.last_name is None:
-            raise ValueError(f"last_name must be supplied")
-        self.knows = [v if isinstance(v, PersonId)
-                      else PersonId(v) for v in ([self.knows] if isinstance(self.knows, str) else self.knows)]
+            raise ValueError("last_name must be supplied")
+        if not isinstance(self.last_name, str):
+            self.last_name = str(self.last_name)
+
+        if self.first_name is None:
+            self.first_name = []
+        if not isinstance(self.first_name, list):
+            self.first_name = [self.first_name]
+        self.first_name = [v if isinstance(v, str) else str(v) for v in self.first_name]
+
+        if self.age is not None and not isinstance(self.age, int):
+            self.age = int(self.age)
+
+        if self.living is not None and not isinstance(self.living, Bool):
+            self.living = Bool(self.living)
+
+        if self.knows is None:
+            self.knows = []
+        if not isinstance(self.knows, list):
+            self.knows = [self.knows]
+        self.knows = [v if isinstance(v, PersonId) else PersonId(v) for v in self.knows]
+
         super().__post_init__(**kwargs)
 
 
@@ -110,17 +131,22 @@ class FriendlyPerson(Person):
 
     id: Union[str, FriendlyPersonId] = None
     last_name: str = None
-    knows: List[Union[str, PersonId]] = empty_list()
+    knows: Union[Union[str, PersonId], List[Union[str, PersonId]]] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
-            raise ValueError(f"id must be supplied")
+            raise ValueError("id must be supplied")
         if not isinstance(self.id, FriendlyPersonId):
             self.id = FriendlyPersonId(self.id)
-        if not isinstance(self.knows, list) or len(self.knows) == 0:
+
+        if self.knows is None:
+            raise ValueError("knows must be supplied")
+        elif not isinstance(self.knows, list):
+            self.knows = [self.knows]
+        elif len(self.knows) == 0:
             raise ValueError(f"knows must be a non-empty list")
-        self.knows = [v if isinstance(v, PersonId)
-                      else PersonId(v) for v in ([self.knows] if isinstance(self.knows, str) else self.knows)]
+        self.knows = [v if isinstance(v, PersonId) else PersonId(v) for v in self.knows]
+
         super().__post_init__(**kwargs)
 
 
@@ -130,25 +156,25 @@ class slots:
     pass
 
 slots.id = Slot(uri=EX.id, name="id", curie=EX.curie('id'),
-                      model_uri=EX.id, domain=None, range=URIRef)
+                   model_uri=EX.id, domain=None, range=URIRef)
 
 slots.first_name = Slot(uri=FOAF.firstName, name="first name", curie=FOAF.curie('firstName'),
-                      model_uri=EX.first_name, domain=None, range=List[str])
+                   model_uri=EX.first_name, domain=None, range=Optional[Union[str, List[str]]])
 
 slots.last_name = Slot(uri=FOAF.lastName, name="last name", curie=FOAF.curie('lastName'),
-                      model_uri=EX.last_name, domain=None, range=str)
+                   model_uri=EX.last_name, domain=None, range=str)
 
 slots.living = Slot(uri=EX.living, name="living", curie=EX.curie('living'),
-                      model_uri=EX.living, domain=None, range=Optional[Bool])
+                   model_uri=EX.living, domain=None, range=Optional[Bool])
 
 slots.age = Slot(uri=FOAF.age, name="age", curie=FOAF.curie('age'),
-                      model_uri=EX.age, domain=None, range=Optional[int])
+                   model_uri=EX.age, domain=None, range=Optional[int])
 
 slots.knows = Slot(uri=FOAF.knows, name="knows", curie=FOAF.curie('knows'),
-                      model_uri=EX.knows, domain=None, range=List[Union[str, PersonId]])
+                   model_uri=EX.knows, domain=None, range=Optional[Union[Union[str, PersonId], List[Union[str, PersonId]]]])
 
 slots.friendly_person_knows = Slot(uri=EX.knows, name="friendly_person_knows", curie=EX.curie('knows'),
-                      model_uri=EX.friendly_person_knows, domain=FriendlyPerson, range=List[Union[str, PersonId]])
+                   model_uri=EX.friendly_person_knows, domain=FriendlyPerson, range=Union[Union[str, PersonId], List[Union[str, PersonId]]])
 <img src="http://yuml.me/diagram/nofunky;dir:TB/class/[Person]<knows 0..*- [Person|id:string;first_name:string *;last_name:string;age:int %3F;living:boolean %3F],[FriendlyPerson|id(i):string;first_name(i):string *;last_name(i):string;age(i):int %3F;living(i):boolean %3F]- knows 1..*>[Person],[Person]^-[FriendlyPerson],[FriendlyPerson]"/>
 
 -----

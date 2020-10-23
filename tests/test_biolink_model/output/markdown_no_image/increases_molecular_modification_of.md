@@ -25,9 +25,8 @@ URI: [biolink:increases_molecular_modification_of](https://w3id.org/biolink/voca
 
 |  |  |  |
 | --- | --- | --- |
-| **In Subsets:** | | translator_minimal |
-| **Exact Mappings:** | | CTD:increases_molecular_modification_of |
-| **Narrow Mappings:** | | CTD:increases_acetylation |
+| **Mappings:** | | CTD:increases_molecular_modification_of |
+|  | | CTD:increases_acetylation |
 |  | | CTD:increases_acylation |
 |  | | CTD:increases_alkylation |
 |  | | CTD:increases_amination |
@@ -60,4 +59,5 @@ URI: [biolink:increases_molecular_modification_of](https://w3id.org/biolink/voca
 |  | | CTD:increases_carboxylation |
 |  | | GAMMA:acetylation |
 |  | | GAMMA:oxidizer |
+| **In Subsets:** | | translator_minimal |
 

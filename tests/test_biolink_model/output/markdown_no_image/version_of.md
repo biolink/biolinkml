@@ -1,10 +1,10 @@
 
-# Type: versionOf
+# Type: version of
 
 
 
 
-URI: [biolink:versionOf](https://w3id.org/biolink/vocab/versionOf)
+URI: [biolink:version_of](https://w3id.org/biolink/vocab/version_of)
 
 
 ## Domain and Range

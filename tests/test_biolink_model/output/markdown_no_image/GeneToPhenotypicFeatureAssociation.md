@@ -75,5 +75,5 @@ URI: [biolink:GeneToPhenotypicFeatureAssociation](https://w3id.org/biolink/vocab
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | http://bio2rdf.org/wormbase_vocabulary:Gene-Phenotype-Association |
+| **Mappings:** | | WBVocab:Gene-Phenotype-Association |
 

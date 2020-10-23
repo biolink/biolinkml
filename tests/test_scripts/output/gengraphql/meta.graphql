@@ -262,6 +262,7 @@ type SlotDefinition
     ifabsent: String
     required: Boolean
     inlined: Boolean
+    inlinedAsList: Boolean
     key: Boolean
     identifier: Boolean
     alias: String

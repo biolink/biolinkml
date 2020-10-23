@@ -23,7 +23,6 @@ URI: [meta:name](https://w3id.org/biolink/biolinkml/meta/name)
  * class_definition
  * definition
  * [Element](Element.md)
- * schema_definition
  * slot_definition
  * subset_definition
  * type_definition

@@ -1,5 +1,5 @@
-# Auto generated from uriandcurie.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-25 16:46
+# Auto generated from uriandcurie.yaml by pythongen.py version: 0.9.0
+# Generation date: 2020-10-23 17:02
 # Schema: uriandcurie
 #
 # id: http://example.org/test/uriandcurie
@@ -8,6 +8,7 @@
 
 import dataclasses
 import sys
+import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
@@ -22,7 +23,7 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import Curie, ElementIdentifier, NCName, NodeIdentifier, URI, URIorCURIE
 
-metamodel_version = "1.5.3"
+metamodel_version = "1.6.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -105,7 +106,7 @@ class C1(YAMLRoot):
     class_name: ClassVar[str] = "c1"
     class_model_uri: ClassVar[URIRef] = M.C1
 
-    id: Union[str, C1Id]
+    id: Union[str, C1Id] = None
     hasCurie: Optional[Union[str, Curie]] = None
     hasURI: Optional[Union[str, URI]] = None
     hasNcName: Optional[Union[str, NCName]] = None
@@ -113,17 +114,22 @@ class C1(YAMLRoot):
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
-            raise ValueError(f"id must be supplied")
+            raise ValueError("id must be supplied")
         if not isinstance(self.id, C1Id):
             self.id = C1Id(self.id)
+
         if self.hasCurie is not None and not isinstance(self.hasCurie, Curie):
             self.hasCurie = Curie(self.hasCurie)
+
         if self.hasURI is not None and not isinstance(self.hasURI, URI):
             self.hasURI = URI(self.hasURI)
+
         if self.hasNcName is not None and not isinstance(self.hasNcName, NCName):
             self.hasNcName = NCName(self.hasNcName)
+
         if self.id2 is not None and not isinstance(self.id2, NodeIdentifier):
             self.id2 = NodeIdentifier(self.id2)
+
         super().__post_init__(**kwargs)
 
 
@@ -133,16 +139,16 @@ class slots:
     pass
 
 slots.id = Slot(uri=M.id, name="id", curie=M.curie('id'),
-                      model_uri=M.id, domain=None, range=URIRef)
+                   model_uri=M.id, domain=None, range=URIRef)
 
 slots.hasCurie = Slot(uri=M.hasCurie, name="hasCurie", curie=M.curie('hasCurie'),
-                      model_uri=M.hasCurie, domain=None, range=Optional[Union[str, Curie]])
+                   model_uri=M.hasCurie, domain=None, range=Optional[Union[str, Curie]])
 
 slots.hasURI = Slot(uri=M.hasURI, name="hasURI", curie=M.curie('hasURI'),
-                      model_uri=M.hasURI, domain=None, range=Optional[Union[str, URI]])
+                   model_uri=M.hasURI, domain=None, range=Optional[Union[str, URI]])
 
 slots.hasNcName = Slot(uri=M.hasNcName, name="hasNcName", curie=M.curie('hasNcName'),
-                      model_uri=M.hasNcName, domain=None, range=Optional[Union[str, NCName]])
+                   model_uri=M.hasNcName, domain=None, range=Optional[Union[str, NCName]])
 
 slots.id2 = Slot(uri=M.id2, name="id2", curie=M.curie('id2'),
-                      model_uri=M.id2, domain=None, range=Optional[Union[str, NodeIdentifier]])
+                   model_uri=M.id2, domain=None, range=Optional[Union[str, NodeIdentifier]])

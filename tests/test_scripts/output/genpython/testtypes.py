@@ -5,6 +5,7 @@
 
 import dataclasses
 import sys
+import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
@@ -19,7 +20,7 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import Bool
 
-metamodel_version = "1.5.3"
+metamodel_version = "1.6.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs

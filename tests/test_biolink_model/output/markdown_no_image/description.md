@@ -21,7 +21,16 @@ URI: [biolink:description](https://w3id.org/biolink/vocab/description)
 
 ## Used by
 
- * [EntityToPhenotypicFeatureAssociation](EntityToPhenotypicFeatureAssociation.md)
+ * [RNAProduct](RNAProduct.md)
+ * [RNAProductIsoform](RNAProductIsoform.md)
+ * [Gene](Gene.md)
+ * [GeneProduct](GeneProduct.md)
+ * [GeneProductIsoform](GeneProductIsoform.md)
+ * [MicroRNA](MicroRNA.md)
+ * [NoncodingRNAProduct](NoncodingRNAProduct.md)
+ * [Protein](Protein.md)
+ * [ProteinIsoform](ProteinIsoform.md)
+ * [Transcript](Transcript.md)
 
 ## Other properties
 
@@ -31,5 +40,6 @@ URI: [biolink:description](https://w3id.org/biolink/vocab/description)
 | **Mappings:** | | dcterms:description |
 |  | | IAO:0000115 |
 |  | | skos:definitions |
+|  | | gff3:Description |
 | **In Subsets:** | | translator_minimal |
 

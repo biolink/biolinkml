@@ -25,5 +25,5 @@ URI: [biolink:has_sequence_location](https://w3id.org/biolink/vocab/has_sequence
 
 |  |  |  |
 | --- | --- | --- |
-| **Exact Mappings:** | | faldo:location |
+| **Mappings:** | | faldo:location |
 

@@ -1,5 +1,5 @@
-# Auto generated from issue_14.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-25 16:45
+# Auto generated from issue_14.yaml by pythongen.py version: 0.9.0
+# Generation date: 2020-10-23 17:01
 # Schema: test14
 #
 # id: https://example.com/test14
@@ -8,6 +8,7 @@
 
 import dataclasses
 import sys
+import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
@@ -22,7 +23,7 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 from includes.types import String
 
-metamodel_version = "1.5.3"
+metamodel_version = "1.6.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -60,26 +61,32 @@ class NamedThing(YAMLRoot):
     class_name: ClassVar[str] = "named thing"
     class_model_uri: ClassVar[URIRef] = URIRef("https://example.com/test14/NamedThing")
 
-    id: Union[str, NamedThingId]
-    name: str
-    subject: Union[str, NamedThingId]
-    object: Union[str, NamedThingId]
+    id: Union[str, NamedThingId] = None
+    name: str = None
+    subject: Union[str, NamedThingId] = None
+    object: Union[str, NamedThingId] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
-            raise ValueError(f"id must be supplied")
+            raise ValueError("id must be supplied")
         if not isinstance(self.id, NamedThingId):
             self.id = NamedThingId(self.id)
+
         if self.name is None:
-            raise ValueError(f"name must be supplied")
+            raise ValueError("name must be supplied")
+        if not isinstance(self.name, str):
+            self.name = str(self.name)
+
         if self.subject is None:
-            raise ValueError(f"subject must be supplied")
+            raise ValueError("subject must be supplied")
         if not isinstance(self.subject, NamedThingId):
             self.subject = NamedThingId(self.subject)
+
         if self.object is None:
-            raise ValueError(f"object must be supplied")
+            raise ValueError("object must be supplied")
         if not isinstance(self.object, NamedThingId):
             self.object = NamedThingId(self.object)
+
         super().__post_init__(**kwargs)
 
 
@@ -100,15 +107,18 @@ class MixinOwner(NamedThing):
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
-            raise ValueError(f"id must be supplied")
+            raise ValueError("id must be supplied")
         if not isinstance(self.id, MixinOwnerId):
             self.id = MixinOwnerId(self.id)
+
         if self.subject is None:
-            raise ValueError(f"subject must be supplied")
+            raise ValueError("subject must be supplied")
         if not isinstance(self.subject, SubjectRange1Id):
             self.subject = SubjectRange1Id(self.subject)
+
         if self.sex_qualifier is not None and not isinstance(self.sex_qualifier, NamedThingId):
             self.sex_qualifier = NamedThingId(self.sex_qualifier)
+
         super().__post_init__(**kwargs)
 
 
@@ -128,9 +138,10 @@ class SubjectRange1(NamedThing):
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
-            raise ValueError(f"id must be supplied")
+            raise ValueError("id must be supplied")
         if not isinstance(self.id, SubjectRange1Id):
             self.id = SubjectRange1Id(self.id)
+
         super().__post_init__(**kwargs)
 
 
@@ -150,9 +161,10 @@ class ObjectRange1(NamedThing):
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
-            raise ValueError(f"id must be supplied")
+            raise ValueError("id must be supplied")
         if not isinstance(self.id, ObjectRange1Id):
             self.id = ObjectRange1Id(self.id)
+
         super().__post_init__(**kwargs)
 
 
@@ -165,16 +177,18 @@ class MixinClass(YAMLRoot):
     class_name: ClassVar[str] = "mixin_class"
     class_model_uri: ClassVar[URIRef] = URIRef("https://example.com/test14/MixinClass")
 
-    object: Union[str, ObjectRange1Id]
+    object: Union[str, ObjectRange1Id] = None
     sex_qualifier: Optional[Union[str, NamedThingId]] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
-        if self.sex_qualifier is not None and not isinstance(self.sex_qualifier, NamedThingId):
-            self.sex_qualifier = NamedThingId(self.sex_qualifier)
         if self.object is None:
-            raise ValueError(f"object must be supplied")
+            raise ValueError("object must be supplied")
         if not isinstance(self.object, ObjectRange1Id):
             self.object = ObjectRange1Id(self.object)
+
+        if self.sex_qualifier is not None and not isinstance(self.sex_qualifier, NamedThingId):
+            self.sex_qualifier = NamedThingId(self.sex_qualifier)
+
         super().__post_init__(**kwargs)
 
 
@@ -184,22 +198,22 @@ class slots:
     pass
 
 slots.id = Slot(uri=DEFAULT_.id, name="id", curie=DEFAULT_.curie('id'),
-                      model_uri=DEFAULT_.id, domain=NamedThing, range=Union[str, NamedThingId])
+                   model_uri=DEFAULT_.id, domain=NamedThing, range=Union[str, NamedThingId])
 
 slots.name = Slot(uri=DEFAULT_.name, name="name", curie=DEFAULT_.curie('name'),
-                      model_uri=DEFAULT_.name, domain=NamedThing, range=str)
+                   model_uri=DEFAULT_.name, domain=NamedThing, range=str)
 
 slots.subject = Slot(uri=DEFAULT_.subject, name="subject", curie=DEFAULT_.curie('subject'),
-                      model_uri=DEFAULT_.subject, domain=None, range=Union[str, NamedThingId])
+                   model_uri=DEFAULT_.subject, domain=None, range=Union[str, NamedThingId])
 
 slots.object = Slot(uri=DEFAULT_.object, name="object", curie=DEFAULT_.curie('object'),
-                      model_uri=DEFAULT_.object, domain=None, range=Union[str, NamedThingId])
+                   model_uri=DEFAULT_.object, domain=None, range=Union[str, NamedThingId])
 
 slots.sex_qualifier = Slot(uri=DEFAULT_.sex_qualifier, name="sex qualifier", curie=DEFAULT_.curie('sex_qualifier'),
-                      model_uri=DEFAULT_.sex_qualifier, domain=None, range=Optional[Union[str, NamedThingId]])
+                   model_uri=DEFAULT_.sex_qualifier, domain=None, range=Optional[Union[str, NamedThingId]])
 
 slots.mixin_owner_subject = Slot(uri=DEFAULT_.subject, name="mixin_owner_subject", curie=DEFAULT_.curie('subject'),
-                      model_uri=DEFAULT_.mixin_owner_subject, domain=MixinOwner, range=Union[str, SubjectRange1Id])
+                   model_uri=DEFAULT_.mixin_owner_subject, domain=MixinOwner, range=Union[str, SubjectRange1Id])
 
 slots.mixin_class_object = Slot(uri=DEFAULT_.object, name="mixin_class_object", curie=DEFAULT_.curie('object'),
-                      model_uri=DEFAULT_.mixin_class_object, domain=MixinClass, range=Union[str, ObjectRange1Id])
+                   model_uri=DEFAULT_.mixin_class_object, domain=MixinClass, range=Union[str, ObjectRange1Id])

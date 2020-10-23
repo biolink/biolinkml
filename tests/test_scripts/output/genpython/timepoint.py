@@ -5,6 +5,7 @@
 
 import dataclasses
 import sys
+import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
@@ -20,7 +21,7 @@ from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import XSDTime
 from includes.types import String, Time
 
-metamodel_version = "1.5.3"
+metamodel_version = "1.6.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -58,13 +59,14 @@ class GeographicLocation(YAMLRoot):
     class_name: ClassVar[str] = "geographic location"
     class_model_uri: ClassVar[URIRef] = URIRef("http://example.org/tests/timepoint/GeographicLocation")
 
-    k: Union[str, GeographicLocationK]
+    k: Union[str, GeographicLocationK] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.k is None:
-            raise ValueError(f"k must be supplied")
+            raise ValueError("k must be supplied")
         if not isinstance(self.k, GeographicLocationK):
             self.k = GeographicLocationK(self.k)
+
         super().__post_init__(**kwargs)
 
 
@@ -82,11 +84,13 @@ class GeographicLocationAtTime(GeographicLocation):
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.k is None:
-            raise ValueError(f"k must be supplied")
+            raise ValueError("k must be supplied")
         if not isinstance(self.k, GeographicLocationAtTimeK):
             self.k = GeographicLocationAtTimeK(self.k)
+
         if self.timepoint is not None and not isinstance(self.timepoint, TimeType):
             self.timepoint = TimeType(self.timepoint)
+
         super().__post_init__(**kwargs)
 
 
@@ -96,7 +100,7 @@ class slots:
     pass
 
 slots.k = Slot(uri=DEFAULT_.k, name="k", curie=DEFAULT_.curie('k'),
-                      model_uri=DEFAULT_.k, domain=GeographicLocation, range=Union[str, GeographicLocationK])
+                   model_uri=DEFAULT_.k, domain=GeographicLocation, range=Union[str, GeographicLocationK])
 
 slots.timepoint = Slot(uri=DEFAULT_.timepoint, name="timepoint", curie=DEFAULT_.curie('timepoint'),
-                      model_uri=DEFAULT_.timepoint, domain=GeographicLocationAtTime, range=Optional[Union[str, TimeType]])
+                   model_uri=DEFAULT_.timepoint, domain=GeographicLocationAtTime, range=Optional[Union[str, TimeType]])

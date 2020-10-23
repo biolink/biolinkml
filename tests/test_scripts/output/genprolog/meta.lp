@@ -216,6 +216,10 @@ slot(inlined).
 domain(inlined, slot_definition).
 range(inlined, boolean).
 has_uri(inlined, 'http://w3id.org/biolink/vocab/inlined').
+slot(inlined_as_list).
+domain(inlined_as_list, slot_definition).
+range(inlined_as_list, boolean).
+has_uri(inlined_as_list, 'http://w3id.org/biolink/vocab/inlined_as_list').
 slot(inverse).
 domain(inverse, slot_definition).
 range(inverse, slot_definition).
@@ -1509,6 +1513,10 @@ class_slot(slot_definition, inlined).
 required(inlined).
 slotrange(boolean).
 range_in(inlined, boolean, slot_definition).
+class_slot(slot_definition, inlined_as_list).
+required(inlined_as_list).
+slotrange(boolean).
+range_in(inlined_as_list, boolean, slot_definition).
 class_slot(slot_definition, key).
 required(key).
 slotrange(boolean).

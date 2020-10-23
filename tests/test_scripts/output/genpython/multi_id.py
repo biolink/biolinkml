@@ -5,6 +5,7 @@
 
 import dataclasses
 import sys
+import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
@@ -19,7 +20,7 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import URIorCURIE
 
-metamodel_version = "1.5.3"
+metamodel_version = "1.6.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -62,19 +63,22 @@ class NamedThing(YAMLRoot):
     class_name: ClassVar[str] = "named thing"
     class_model_uri: ClassVar[URIRef] = URIRef("http://example.org/example/multi_id/NamedThing")
 
-    id: Union[URIorCURIE, NamedThingId]
+    id: Union[URIorCURIE, NamedThingId] = None
     node_property: Optional[Union[URIorCURIE, IdentifierType]] = None
     not_overridden: Optional[Union[URIorCURIE, IdentifierType]] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
-            raise ValueError(f"id must be supplied")
+            raise ValueError("id must be supplied")
         if not isinstance(self.id, NamedThingId):
             self.id = NamedThingId(self.id)
+
         if self.node_property is not None and not isinstance(self.node_property, IdentifierType):
             self.node_property = IdentifierType(self.node_property)
+
         if self.not_overridden is not None and not isinstance(self.not_overridden, IdentifierType):
             self.not_overridden = IdentifierType(self.not_overridden)
+
         super().__post_init__(**kwargs)
 
 
@@ -92,11 +96,13 @@ class SequenceVariant(NamedThing):
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
-            raise ValueError(f"id must be supplied")
+            raise ValueError("id must be supplied")
         if not isinstance(self.id, SequenceVariantId):
             self.id = SequenceVariantId(self.id)
+
         if self.node_property is not None and not isinstance(self.node_property, IdentifierType):
             self.node_property = IdentifierType(self.node_property)
+
         super().__post_init__(**kwargs)
 
 
@@ -106,16 +112,16 @@ class slots:
     pass
 
 slots.node_property = Slot(uri=DEFAULT_.node_property, name="node property", curie=DEFAULT_.curie('node_property'),
-                      model_uri=DEFAULT_.node_property, domain=NamedThing, range=Optional[Union[URIorCURIE, IdentifierType]])
+                   model_uri=DEFAULT_.node_property, domain=NamedThing, range=Optional[Union[URIorCURIE, IdentifierType]])
 
 slots.not_overridden = Slot(uri=DEFAULT_.not_overridden, name="not overridden", curie=DEFAULT_.curie('not_overridden'),
-                      model_uri=DEFAULT_.not_overridden, domain=NamedThing, range=Optional[Union[URIorCURIE, IdentifierType]])
+                   model_uri=DEFAULT_.not_overridden, domain=NamedThing, range=Optional[Union[URIorCURIE, IdentifierType]])
 
 slots.id = Slot(uri=DEFAULT_.id, name="id", curie=DEFAULT_.curie('id'),
-                      model_uri=DEFAULT_.id, domain=NamedThing, range=Union[URIorCURIE, NamedThingId])
+                   model_uri=DEFAULT_.id, domain=NamedThing, range=Union[URIorCURIE, NamedThingId])
 
 slots.sequence_variant_id = Slot(uri=DEFAULT_.id, name="sequence variant_id", curie=DEFAULT_.curie('id'),
-                      model_uri=DEFAULT_.sequence_variant_id, domain=SequenceVariant, range=Union[URIorCURIE, SequenceVariantId])
+                   model_uri=DEFAULT_.sequence_variant_id, domain=SequenceVariant, range=Union[URIorCURIE, SequenceVariantId])
 
 slots.sequence_variant_node_property = Slot(uri=DEFAULT_.node_property, name="sequence variant_node property", curie=DEFAULT_.curie('node_property'),
-                      model_uri=DEFAULT_.sequence_variant_node_property, domain=SequenceVariant, range=Optional[Union[URIorCURIE, IdentifierType]])
+                   model_uri=DEFAULT_.sequence_variant_node_property, domain=SequenceVariant, range=Optional[Union[URIorCURIE, IdentifierType]])

@@ -9,7 +9,7 @@ URI: [biolink:contraindicated_for](https://w3id.org/biolink/vocab/contraindicate
 
 ## Domain and Range
 
-[Drug](Drug.md) ->  <sub>0..*</sub> [DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md)
+[NamedThing](NamedThing.md) ->  <sub>0..*</sub> [NamedThing](NamedThing.md)
 
 ## Parents
 
@@ -25,6 +25,5 @@ URI: [biolink:contraindicated_for](https://w3id.org/biolink/vocab/contraindicate
 
 |  |  |  |
 | --- | --- | --- |
-| **Exact Mappings:** | | DrugCentral:0000001 |
-|  | | RTXKG1:contraindicated_for |
+| **Mappings:** | | DrugCentral:0000001 |
 

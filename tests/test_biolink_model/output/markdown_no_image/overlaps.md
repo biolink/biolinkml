@@ -2,7 +2,7 @@
 # Type: overlaps
 
 
-holds between entities that overlap in their extents (materials or processes)
+holds between entties that overlap in their extents (materials or processes)
 
 URI: [biolink:overlaps](https://w3id.org/biolink/vocab/overlaps)
 
@@ -27,11 +27,7 @@ URI: [biolink:overlaps](https://w3id.org/biolink/vocab/overlaps)
 
 |  |  |  |
 | --- | --- | --- |
+| **Mappings:** | | RO:0002131 |
+|  | | BSPO:0005001 |
 | **In Subsets:** | | translator_minimal |
-| **Exact Mappings:** | | RO:0002131 |
-| **Narrow Mappings:** | | BSPO:0005001 |
-|  | | CHEMBL.MECHANISM:overlaps_with |
-|  | | RO:0002100 |
-|  | | RO:0002102 |
-|  | | RO:0002433 |
 

@@ -905,7 +905,7 @@
                            {
                               "type": "TripleConstraint",
                               "predicate": "https://w3id.org/biolink/vocab/enabled_by",
-                              "valueExpr": "https://w3id.org/biolink/vocab/NamedThing",
+                              "valueExpr": "https://w3id.org/biolink/vocab/PhysicalEntity",
                               "min": 0,
                               "max": -1
                            }
@@ -2446,7 +2446,7 @@
                            },
                            {
                               "type": "TripleConstraint",
-                              "predicate": "https://w3id.org/biolink/vocab/versionOf",
+                              "predicate": "https://w3id.org/biolink/vocab/version_of",
                               "valueExpr": "https://w3id.org/biolink/vocab/DataSet",
                               "min": 0,
                               "max": 1
@@ -2954,7 +2954,7 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/downloadURL",
+                        "predicate": "https://w3id.org/biolink/vocab/download_url",
                         "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
                         "min": 0,
                         "max": 1
@@ -3843,6 +3843,41 @@
                            ]
                         },
                         "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/name",
+                        "valueExpr": "https://w3id.org/biolink/vocab/LabelType",
+                        "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/symbol",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/description",
+                        "valueExpr": "https://w3id.org/biolink/vocab/NarrativeText",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/synonym",
+                        "valueExpr": "https://w3id.org/biolink/vocab/LabelType",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/vocab/xref",
+                        "valueExpr": "https://w3id.org/biolink/vocab/IriType",
+                        "min": 0,
+                        "max": -1
                      }
                   ]
                },
@@ -4172,6 +4207,34 @@
                                  ]
                               },
                               "min": 0
+                           },
+                           {
+                              "type": "TripleConstraint",
+                              "predicate": "https://w3id.org/biolink/vocab/name",
+                              "valueExpr": "https://w3id.org/biolink/vocab/LabelType",
+                              "min": 1,
+                              "max": 1
+                           },
+                           {
+                              "type": "TripleConstraint",
+                              "predicate": "https://w3id.org/biolink/vocab/description",
+                              "valueExpr": "https://w3id.org/biolink/vocab/NarrativeText",
+                              "min": 0,
+                              "max": 1
+                           },
+                           {
+                              "type": "TripleConstraint",
+                              "predicate": "https://w3id.org/biolink/vocab/synonym",
+                              "valueExpr": "https://w3id.org/biolink/vocab/LabelType",
+                              "min": 0,
+                              "max": -1
+                           },
+                           {
+                              "type": "TripleConstraint",
+                              "predicate": "https://w3id.org/biolink/vocab/xref",
+                              "valueExpr": "https://w3id.org/biolink/vocab/IriType",
+                              "min": 0,
+                              "max": -1
                            }
                         ]
                      },
@@ -4191,7 +4254,8 @@
             },
             "https://w3id.org/biolink/vocab/RNAProduct",
             "https://w3id.org/biolink/vocab/GeneProductIsoform",
-            "https://w3id.org/biolink/vocab/Protein"
+            "https://w3id.org/biolink/vocab/Protein",
+            "https://w3id.org/biolink/vocab/Transcript"
          ]
       },
       {
@@ -4931,8 +4995,7 @@
             "https://w3id.org/biolink/vocab/Haplotype",
             "https://w3id.org/biolink/vocab/MacromolecularMachine",
             "https://w3id.org/biolink/vocab/ReagentTargetedGene",
-            "https://w3id.org/biolink/vocab/SequenceVariant",
-            "https://w3id.org/biolink/vocab/Transcript"
+            "https://w3id.org/biolink/vocab/SequenceVariant"
          ]
       },
       {
@@ -8595,7 +8658,7 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/vocab/retrievedOn",
+                        "predicate": "https://w3id.org/biolink/vocab/retrieved_on",
                         "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Date",
                         "min": 0,
                         "max": 1
@@ -8775,14 +8838,14 @@
                   "type": "EachOf",
                   "id": "https://w3id.org/biolink/vocab/Transcript_tes",
                   "expressions": [
-                     "https://w3id.org/biolink/vocab/GenomicEntity_tes",
+                     "https://w3id.org/biolink/vocab/GeneProduct_tes",
                      {
                         "type": "TripleConstraint",
                         "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
                         "valueExpr": {
                            "type": "NodeConstraint",
                            "values": [
-                              "https://w3id.org/biolink/vocab/GenomicEntity"
+                              "https://w3id.org/biolink/vocab/GeneProduct"
                            ]
                         },
                         "min": 0

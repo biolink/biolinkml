@@ -25,7 +25,6 @@ URI: [biolink:predisposes](https://w3id.org/biolink/vocab/predisposes)
 
 |  |  |  |
 | --- | --- | --- |
+| **Mappings:** | | SEMMEDDB:PREDISPOSES |
 | **In Subsets:** | | translator_minimal |
-| **Exact Mappings:** | | SEMMEDDB:PREDISPOSES |
-|  | | SEMMEDDB:predisposes |
 

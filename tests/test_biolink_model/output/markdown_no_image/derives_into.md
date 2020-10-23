@@ -25,11 +25,7 @@ URI: [biolink:derives_into](https://w3id.org/biolink/vocab/derives_into)
 
 |  |  |  |
 | --- | --- | --- |
-| **In Subsets:** | | translator_minimal |
-| **Exact Mappings:** | | RO:0001001 |
+| **Mappings:** | | RO:0001001 |
 |  | | SEMMEDDB:CONVERTS_TO |
-|  | | SEMMEDDB:converts_to |
-|  | | FMA:derives |
-|  | | NCIT:is_normal_cell_origin_of_disease |
-|  | | NCIT:may_be_normal_cell_origin_of_disease |
+| **In Subsets:** | | translator_minimal |
 

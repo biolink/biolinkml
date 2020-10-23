@@ -20,10 +20,3 @@ URI: [biolink:produced_by](https://w3id.org/biolink/vocab/produced_by)
 
 ## Used by
 
-
-## Other properties
-
-|  |  |  |
-| --- | --- | --- |
-| **Exact Mappings:** | | RO:0003001 |
-

@@ -21,6 +21,8 @@ URI: [biolink:name](https://w3id.org/biolink/vocab/name)
 
 ## Used by
 
+ * [RNAProduct](RNAProduct.md)
+ * [RNAProductIsoform](RNAProductIsoform.md)
  * [ActivityAndBehavior](ActivityAndBehavior.md)
  * [AdministrativeEntity](AdministrativeEntity.md)
  * [AnatomicalEntity](AnatomicalEntity.md)
@@ -59,8 +61,11 @@ URI: [biolink:name](https://w3id.org/biolink/vocab/name)
  * [Exon](Exon.md)
  * [ExposureEvent](ExposureEvent.md)
  * [FrequencyValue](FrequencyValue.md)
+ * [Gene](Gene.md)
  * [GeneFamily](GeneFamily.md)
  * [GeneOntologyClass](GeneOntologyClass.md)
+ * [GeneProduct](GeneProduct.md)
+ * [GeneProductIsoform](GeneProductIsoform.md)
  * [Genome](Genome.md)
  * [GenomicEntity](GenomicEntity.md)
  * [Genotype](Genotype.md)
@@ -73,12 +78,13 @@ URI: [biolink:name](https://w3id.org/biolink/vocab/name)
  * [InformationContentEntity](InformationContentEntity.md)
  * [Inheritance](Inheritance.md)
  * [LifeStage](LifeStage.md)
- * [MacromolecularMachine](MacromolecularMachine.md)
  * [MaterialSample](MaterialSample.md)
  * [Metabolite](Metabolite.md)
+ * [MicroRNA](MicroRNA.md)
  * [MolecularActivity](MolecularActivity.md)
  * [MolecularEntity](MolecularEntity.md)
  * [NamedThing](NamedThing.md)
+ * [NoncodingRNAProduct](NoncodingRNAProduct.md)
  * [Occurrent](Occurrent.md)
  * [Onset](Onset.md)
  * [OntologyClass](OntologyClass.md)
@@ -93,6 +99,8 @@ URI: [biolink:name](https://w3id.org/biolink/vocab/name)
  * [PlanetaryEntity](PlanetaryEntity.md)
  * [PopulationOfIndividualOrganisms](PopulationOfIndividualOrganisms.md)
  * [Procedure](Procedure.md)
+ * [Protein](Protein.md)
+ * [ProteinIsoform](ProteinIsoform.md)
  * [Provider](Provider.md)
  * [Publication](Publication.md)
  * [ReagentTargetedGene](ReagentTargetedGene.md)
@@ -112,5 +120,7 @@ URI: [biolink:name](https://w3id.org/biolink/vocab/name)
 | **Aliases:** | | label |
 |  | | display name |
 | **Mappings:** | | rdfs:label |
+|  | | gff3:Name |
+|  | | gpi:DB_Object_Name |
 | **In Subsets:** | | translator_minimal |
 

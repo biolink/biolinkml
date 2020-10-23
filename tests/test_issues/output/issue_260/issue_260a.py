@@ -1,5 +1,5 @@
-# Auto generated from issue_260a.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-25 14:35
+# Auto generated from issue_260a.yaml by pythongen.py version: 0.9.0
+# Generation date: 2020-10-23 17:01
 # Schema: issue_260a
 #
 # id: http://example.org/tests/issue_260a
@@ -8,6 +8,7 @@
 
 import dataclasses
 import sys
+import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
@@ -22,7 +23,7 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 
 
-metamodel_version = "1.5.3"
+metamodel_version = "1.6.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -56,10 +57,17 @@ class C260a(YAMLRoot):
 
     id: Optional[str] = None
 
+    def __post_init__(self, **kwargs: Dict[str, Any]):
+        if self.id is not None and not isinstance(self.id, str):
+            self.id = str(self.id)
+
+        super().__post_init__(**kwargs)
+
+
 
 # Slots
 class slots:
     pass
 
 slots.id = Slot(uri=DEFAULT_.id, name="id", curie=DEFAULT_.curie('id'),
-                      model_uri=DEFAULT_.id, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.id, domain=None, range=Optional[str])

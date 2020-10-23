@@ -28,7 +28,7 @@ URI: [biolink:similar_to](https://w3id.org/biolink/vocab/similar_to)
 
 |  |  |  |
 | --- | --- | --- |
-| **In Subsets:** | | translator_minimal |
-| **Exact Mappings:** | | RO:HOM0000000 |
+| **Mappings:** | | RO:HOM0000000 |
 |  | | SO:similar_to |
+| **In Subsets:** | | translator_minimal |
 

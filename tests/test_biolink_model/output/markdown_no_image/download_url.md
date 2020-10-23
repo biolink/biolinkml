@@ -1,10 +1,10 @@
 
-# Type: downloadURL
+# Type: download url
 
 
 
 
-URI: [biolink:downloadURL](https://w3id.org/biolink/vocab/downloadURL)
+URI: [biolink:download_url](https://w3id.org/biolink/vocab/download_url)
 
 
 ## Domain and Range

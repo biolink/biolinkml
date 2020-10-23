@@ -9,11 +9,11 @@ URI: [biolink:is_nearby_variant_of](https://w3id.org/biolink/vocab/is_nearby_var
 
 ## Domain and Range
 
-[SequenceVariant](SequenceVariant.md) ->  <sub>0..*</sub> [Gene](Gene.md)
+[NamedThing](NamedThing.md) ->  <sub>0..*</sub> [NamedThing](NamedThing.md)
 
 ## Parents
 
- *  is_a: [is sequence variant of](is_sequence_variant_of.md)
+ *  is_a: [related to](related_to.md)
 
 ## Children
 
@@ -25,7 +25,7 @@ URI: [biolink:is_nearby_variant_of](https://w3id.org/biolink/vocab/is_nearby_var
 
 |  |  |  |
 | --- | --- | --- |
-| **Exact Mappings:** | | GAMMA:0000102 |
-| **Narrow Mappings:** | | SNPEFF:downstream_gene_variant |
+| **Mappings:** | | GAMMA:0000102 |
+|  | | SNPEFF:downstream_gene_variant |
 |  | | SNPEFF:upstream_gene_variant |
 

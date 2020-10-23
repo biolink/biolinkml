@@ -182,25 +182,26 @@ message SlotDefinition
   optional ifabsent String = 42
   optional required Boolean = 43
   optional inlined Boolean = 44
-  optional key Boolean = 45
-  optional identifier Boolean = 46
-  optional alias String = 47
-  optional owner Definition = 48
-  repeated domainOf ClassDefinition = 49
-  optional subpropertyOf SlotDefinition = 50
-  optional symmetric Boolean = 51
-  optional inverse SlotDefinition = 52
-  optional isClassField Boolean = 53
-  optional role String = 54
-  optional isUsageSlot Boolean = 55
-  optional usageSlotName String = 56
-  optional minimumValue Integer = 57
-  optional maximumValue Integer = 58
-  optional pattern String = 59
-  optional stringSerialization String = 60
-  optional isA SlotDefinition = 61
-  repeated mixins SlotDefinition = 62
-  repeated applyTo SlotDefinition = 63
+  optional inlinedAsList Boolean = 45
+  optional key Boolean = 46
+  optional identifier Boolean = 47
+  optional alias String = 48
+  optional owner Definition = 49
+  repeated domainOf ClassDefinition = 50
+  optional subpropertyOf SlotDefinition = 51
+  optional symmetric Boolean = 52
+  optional inverse SlotDefinition = 53
+  optional isClassField Boolean = 54
+  optional role String = 55
+  optional isUsageSlot Boolean = 56
+  optional usageSlotName String = 57
+  optional minimumValue Integer = 58
+  optional maximumValue Integer = 59
+  optional pattern String = 60
+  optional stringSerialization String = 61
+  optional isA SlotDefinition = 62
+  repeated mixins SlotDefinition = 63
+  repeated applyTo SlotDefinition = 64
  }
 // the name and description of a subset
 message SubsetDefinition

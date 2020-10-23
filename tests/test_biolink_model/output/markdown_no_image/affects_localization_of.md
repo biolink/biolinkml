@@ -27,8 +27,8 @@ URI: [biolink:affects_localization_of](https://w3id.org/biolink/vocab/affects_lo
 
 |  |  |  |
 | --- | --- | --- |
-| **In Subsets:** | | translator_minimal |
-| **Exact Mappings:** | | CTD:affects_localization_of |
+| **Mappings:** | | CTD:affects_localization_of |
+|  | | GAMMA:storage |
 |  | | GOREL:0002003 |
-| **Related Mappings:** | | GAMMA:storage |
+| **In Subsets:** | | translator_minimal |
 

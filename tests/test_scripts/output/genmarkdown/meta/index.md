@@ -66,20 +66,21 @@ A metamodel for defining biolink related schemas
  * [generation_date](generation_date.md) - date and time that the schema was loaded/generated
  * [id](id.md) - The official schema URI
  * [id_prefixes](id_prefixes.md) - the identifier of this class or slot must begin with one of the URIs referenced by this prefix
- * [identifier](identifier.md) - true means that this slot is the subject of a set of assertions.  Identifiers do not appear as predicates in the model
+ * [identifier](identifier.md) - True means that the key slot(s) uniquely identify the container. There can be at most one identifier or key per container
  * [ifabsent](ifabsent.md) - function that provides a default value for the slot.  Possible values for this slot are defined in biolink.utils.ifabsent_functions.default_library:
  * [imported_from](imported_from.md) - the imports entry that this element was derived from.  Empty means primary source
  * [imports](imports.md) - other schemas that are included in this schema
  * [in_subset](in_subset.md) - used to indicate membership of a term in a defined subset of biolink terms used for a particular domain or application (e.g. the translator_minimal subset holding the minimal set of predicates used in a translator knowledge graph)
  * [inherited](inherited.md) - true means that the *value* of a slot is inherited by subclasses
- * [inlined](inlined.md) - an inlined definition a list of actual values rather than references.  Only applies to slots whose range is a class.
+ * [inlined](inlined.md) - True means that keyed or identified slot appears in an outer structure by value.  False means that only the key or identifier for the slot appears within the domain, referencing a structure that appears elsewhere.
+ * [inlined_as_list](inlined_as_list.md) - True means that an inlined slot is represented as a list of range instances.  False means that an inlined slot is represented as a dictionary, whose key is the slot key or identifier and whose value is the range instance.
  * [inverse](inverse.md) - indicates that any instance of d s r implies that there is also an instance of r s' d
  * [is_a](is_a.md) - specifies single-inheritance between classes or slots. While multiple inheritance is not allowed, mixins can be provided effectively providing the same thing. The semantics are the same when translated to formalisms that allow MI (e.g. RDFS/OWL). When translating to a SI framework (e.g. java classes, python classes) then is a is used. When translating a framework without polymorphism (e.g. json-schema, solr document schema) then is a and mixins are recursively unfolded
     * [class_definition➞is_a](class_definition_is_a.md)
     * [slot_definition➞is_a](slot_definition_is_a.md)
  * [is_class_field](is_class_field.md) - indicates that any instance, i,  the domain of this slot will include an assert of i s range
  * [is_usage_slot](is_usage_slot.md) - True means that this slot was defined in a slot_usage situation
- * [key](key.md) - true means that the slot uniquely identifies the element within the context of its container.  Key slots are NOT identifiers - they do not serve as subjects
+ * [key](key.md) - True means that the key slot(s) uniquely identify the container. In future releases, it will be possible for there to be compound keys, where several slots combine to produce a unique identifier
  * [last_updated_on](last_updated_on.md) - time at which the element was last updated
  * [license](license.md) - license for the schema
  * [local_name_source](local_name_source.md) - the ncname of the source of the name

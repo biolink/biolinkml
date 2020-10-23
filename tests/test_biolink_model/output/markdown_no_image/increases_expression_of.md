@@ -25,7 +25,6 @@ URI: [biolink:increases_expression_of](https://w3id.org/biolink/vocab/increases_
 
 |  |  |  |
 | --- | --- | --- |
+| **Mappings:** | | CTD:increases_expression_of |
 | **In Subsets:** | | translator_minimal |
-| **Exact Mappings:** | | CTD:increases_expression_of |
-| **Close Mappings:** | | CHEMBL.MECHANISM:releasing_agent |
 

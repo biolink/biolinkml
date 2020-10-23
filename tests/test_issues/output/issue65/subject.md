@@ -20,5 +20,4 @@ URI: [https://example.com/test65/subject](https://example.com/test65/subject)
 
 ## Used by
 
- * [ChildOfNamedThing](ChildOfNamedThing.md)
  * [NamedThing](NamedThing.md)

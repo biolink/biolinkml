@@ -1,5 +1,5 @@
-# Auto generated from issue_56_bad.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-25 16:45
+# Auto generated from issue_56_bad.yaml by pythongen.py version: 0.9.0
+# Generation date: 2020-10-23 17:01
 # Schema:
 #
 # id: http://example.com
@@ -8,6 +8,7 @@
 
 import dataclasses
 import sys
+import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
@@ -22,7 +23,7 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 
 
-metamodel_version = "1.5.3"
+metamodel_version = "1.6.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -62,13 +63,14 @@ class C1(YAMLRoot):
     class_name: ClassVar[str] = "c1"
     class_model_uri: ClassVar[URIRef] = URIRef("http://example.com/C1")
 
-    id: Union[str, C1Id]
+    id: Union[str, C1Id] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
-            raise ValueError(f"id must be supplied")
+            raise ValueError("id must be supplied")
         if not isinstance(self.id, C1Id):
             self.id = C1Id(self.id)
+
         super().__post_init__(**kwargs)
 
 
@@ -86,9 +88,13 @@ class C2(C1):
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
-            raise ValueError(f"id must be supplied")
+            raise ValueError("id must be supplied")
         if not isinstance(self.id, C2Id):
             self.id = C2Id(self.id)
+
+        if self.s1 is not None and not isinstance(self.s1, str):
+            self.s1 = str(self.s1)
+
         super().__post_init__(**kwargs)
 
 
@@ -106,9 +112,13 @@ class C3(C1):
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
-            raise ValueError(f"id must be supplied")
+            raise ValueError("id must be supplied")
         if not isinstance(self.id, C3Id):
             self.id = C3Id(self.id)
+
+        if self.s2 is not None and not isinstance(self.s2, str):
+            self.s2 = str(self.s2)
+
         super().__post_init__(**kwargs)
 
 
@@ -118,10 +128,10 @@ class slots:
     pass
 
 slots.id = Slot(uri=DEFAULT_.id, name="id", curie=DEFAULT_.curie('id'),
-                      model_uri=DEFAULT_.id, domain=None, range=URIRef)
+                   model_uri=DEFAULT_.id, domain=None, range=URIRef)
 
 slots.s1 = Slot(uri=DEFAULT_.s1, name="s1", curie=DEFAULT_.curie('s1'),
-                      model_uri=DEFAULT_.s1, domain=C1, range=Optional[str])
+                   model_uri=DEFAULT_.s1, domain=C1, range=Optional[str])
 
 slots.s2 = Slot(uri=DEFAULT_.s2, name="s2", curie=DEFAULT_.curie('s2'),
-                      model_uri=DEFAULT_.s2, domain=C2, range=Optional[str])
+                   model_uri=DEFAULT_.s2, domain=C2, range=Optional[str])

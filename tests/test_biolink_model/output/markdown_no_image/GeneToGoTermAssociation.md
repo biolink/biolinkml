@@ -60,5 +60,5 @@ URI: [biolink:GeneToGoTermAssociation](https://w3id.org/biolink/vocab/GeneToGoTe
 |  |  |  |
 | --- | --- | --- |
 | **Aliases:** | | functional association |
-| **Mappings:** | | http://bio2rdf.org/wormbase_vocabulary:Gene-GO-Association |
+| **Mappings:** | | WBVocab:Gene-GO-Association |
 

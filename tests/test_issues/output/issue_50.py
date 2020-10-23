@@ -1,5 +1,5 @@
-# Auto generated from issue_50.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-25 16:45
+# Auto generated from issue_50.yaml by pythongen.py version: 0.9.0
+# Generation date: 2020-10-23 17:01
 # Schema:
 #
 # id: http://example.com
@@ -8,6 +8,7 @@
 
 import dataclasses
 import sys
+import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
@@ -22,7 +23,7 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 
 
-metamodel_version = "1.5.3"
+metamodel_version = "1.6.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -62,17 +63,24 @@ class TestClass1(YAMLRoot):
     class_name: ClassVar[str] = "test class 1"
     class_model_uri: ClassVar[URIRef] = URIRef("http://example.com/TestClass1")
 
-    id: Union[str, TestClass1Id]
-    required_mixin_slot: str
+    id: Union[str, TestClass1Id] = None
+    required_mixin_slot: str = None
     optional_mixin_slot: Optional[str] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
-            raise ValueError(f"id must be supplied")
+            raise ValueError("id must be supplied")
         if not isinstance(self.id, TestClass1Id):
             self.id = TestClass1Id(self.id)
+
         if self.required_mixin_slot is None:
-            raise ValueError(f"required_mixin_slot must be supplied")
+            raise ValueError("required_mixin_slot must be supplied")
+        if not isinstance(self.required_mixin_slot, str):
+            self.required_mixin_slot = str(self.required_mixin_slot)
+
+        if self.optional_mixin_slot is not None and not isinstance(self.optional_mixin_slot, str):
+            self.optional_mixin_slot = str(self.optional_mixin_slot)
+
         super().__post_init__(**kwargs)
 
 
@@ -85,17 +93,24 @@ class TestClass2(YAMLRoot):
     class_name: ClassVar[str] = "test class 2"
     class_model_uri: ClassVar[URIRef] = URIRef("http://example.com/TestClass2")
 
-    id: Union[str, TestClass2Id]
-    required_mixin_slot: str
+    id: Union[str, TestClass2Id] = None
+    required_mixin_slot: str = None
     optional_mixin_slot: Optional[str] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
-            raise ValueError(f"id must be supplied")
+            raise ValueError("id must be supplied")
         if not isinstance(self.id, TestClass2Id):
             self.id = TestClass2Id(self.id)
+
         if self.required_mixin_slot is None:
-            raise ValueError(f"required_mixin_slot must be supplied")
+            raise ValueError("required_mixin_slot must be supplied")
+        if not isinstance(self.required_mixin_slot, str):
+            self.required_mixin_slot = str(self.required_mixin_slot)
+
+        if self.optional_mixin_slot is not None and not isinstance(self.optional_mixin_slot, str):
+            self.optional_mixin_slot = str(self.optional_mixin_slot)
+
         super().__post_init__(**kwargs)
 
 
@@ -108,13 +123,14 @@ class TestClass3(YAMLRoot):
     class_name: ClassVar[str] = "test class 3"
     class_model_uri: ClassVar[URIRef] = URIRef("http://example.com/TestClass3")
 
-    id: Union[str, TestClass3Id]
+    id: Union[str, TestClass3Id] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
-            raise ValueError(f"id must be supplied")
+            raise ValueError("id must be supplied")
         if not isinstance(self.id, TestClass3Id):
             self.id = TestClass3Id(self.id)
+
         super().__post_init__(**kwargs)
 
 
@@ -124,16 +140,16 @@ class slots:
     pass
 
 slots.id = Slot(uri=DEFAULT_.id, name="id", curie=DEFAULT_.curie('id'),
-                      model_uri=DEFAULT_.id, domain=None, range=URIRef)
+                   model_uri=DEFAULT_.id, domain=None, range=URIRef)
 
 slots.optional_mixin_slot = Slot(uri=DEFAULT_.optional_mixin_slot, name="optional_mixin_slot", curie=DEFAULT_.curie('optional_mixin_slot'),
-                      model_uri=DEFAULT_.optional_mixin_slot, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.optional_mixin_slot, domain=None, range=Optional[str])
 
 slots.required_mixin_slot = Slot(uri=DEFAULT_.required_mixin_slot, name="required_mixin_slot", curie=DEFAULT_.curie('required_mixin_slot'),
-                      model_uri=DEFAULT_.required_mixin_slot, domain=None, range=str)
+                   model_uri=DEFAULT_.required_mixin_slot, domain=None, range=str)
 
 slots.optional_domain_slot = Slot(uri=DEFAULT_.optional_domain_slot, name="optional_domain_slot", curie=DEFAULT_.curie('optional_domain_slot'),
-                      model_uri=DEFAULT_.optional_domain_slot, domain=TestClass3, range=Optional[str])
+                   model_uri=DEFAULT_.optional_domain_slot, domain=TestClass3, range=Optional[str])
 
 slots.required_domain_slot = Slot(uri=DEFAULT_.required_domain_slot, name="required_domain_slot", curie=DEFAULT_.curie('required_domain_slot'),
-                      model_uri=DEFAULT_.required_domain_slot, domain=TestClass3, range=str)
+                   model_uri=DEFAULT_.required_domain_slot, domain=TestClass3, range=str)

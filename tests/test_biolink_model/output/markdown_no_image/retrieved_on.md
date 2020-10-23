@@ -1,10 +1,10 @@
 
-# Type: retrievedOn
+# Type: retrieved on
 
 
 
 
-URI: [biolink:retrievedOn](https://w3id.org/biolink/vocab/retrievedOn)
+URI: [biolink:retrieved_on](https://w3id.org/biolink/vocab/retrieved_on)
 
 
 ## Domain and Range

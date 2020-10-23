@@ -1,5 +1,5 @@
-# Auto generated from issue_120.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-25 16:45
+# Auto generated from issue_120.yaml by pythongen.py version: 0.9.0
+# Generation date: 2020-10-23 17:01
 # Schema: example1
 #
 # id: http://example.org/sample/example1
@@ -8,6 +8,7 @@
 
 import dataclasses
 import sys
+import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
@@ -22,7 +23,7 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 
 
-metamodel_version = "1.5.3"
+metamodel_version = "1.6.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -59,8 +60,12 @@ class Student(YAMLRoot):
     courses: Optional[Union[dict, "Course"]] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
+        if self.name is not None and not isinstance(self.name, str):
+            self.name = str(self.name)
+
         if self.courses is not None and not isinstance(self.courses, Course):
             self.courses = Course(**self.courses)
+
         super().__post_init__(**kwargs)
 
 
@@ -75,13 +80,20 @@ class Course(YAMLRoot):
 
     name: Optional[str] = None
 
+    def __post_init__(self, **kwargs: Dict[str, Any]):
+        if self.name is not None and not isinstance(self.name, str):
+            self.name = str(self.name)
+
+        super().__post_init__(**kwargs)
+
+
 
 # Slots
 class slots:
     pass
 
 slots.name = Slot(uri=SAMP.name, name="name", curie=SAMP.curie('name'),
-                      model_uri=SAMP.name, domain=None, range=Optional[str])
+                   model_uri=SAMP.name, domain=None, range=Optional[str])
 
 slots.courses = Slot(uri=SAMP.courses, name="courses", curie=SAMP.curie('courses'),
-                      model_uri=SAMP.courses, domain=None, range=Optional[Union[dict, Course]])
+                   model_uri=SAMP.courses, domain=None, range=Optional[Union[dict, Course]])

@@ -1,5 +1,5 @@
-# Auto generated from issue_260c.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-10-16 00:39
+# Auto generated from issue_260c.yaml by pythongen.py version: 0.9.0
+# Generation date: 2020-10-23 17:01
 # Schema: issue_260c
 #
 # id: http://example.org/tests/issue_260c
@@ -8,6 +8,7 @@
 
 import dataclasses
 import sys
+import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
@@ -20,10 +21,10 @@ else:
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
-from issue_260a import String
-from issue_260b import C260b
+from . issue_260a import String
+from . issue_260b import C260b
 
-metamodel_version = "1.5.3"
+metamodel_version = "1.6.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs

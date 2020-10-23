@@ -25,5 +25,5 @@ URI: [biolink:has_not_completed](https://w3id.org/biolink/vocab/has_not_complete
 
 |  |  |  |
 | --- | --- | --- |
-| **Exact Mappings:** | | CL:has_not_completed |
+| **Mappings:** | | CL:has_not_completed |
 

@@ -2,7 +2,7 @@
 # Type: inlined
 
 
-an inlined definition a list of actual values rather than references.  Only applies to slots whose range is a class.
+True means that keyed or identified slot appears in an outer structure by value.  False means that only the key or identifier for the slot appears within the domain, referencing a structure that appears elsewhere.
 
 URI: [meta:inlined](https://w3id.org/biolink/biolinkml/meta/inlined)
 
@@ -20,3 +20,10 @@ URI: [meta:inlined](https://w3id.org/biolink/biolinkml/meta/inlined)
 ## Used by
 
  * [SlotDefinition](SlotDefinition.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Comments:** | | classes without keys or identifiers are necessarily inlined as lists |
+

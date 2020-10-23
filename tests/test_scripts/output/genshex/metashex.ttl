@@ -263,6 +263,10 @@
                 shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/types/Boolean> ] [ a shex:TripleConstraint ;
                 shex:max 1 ;
                 shex:min 0 ;
+                shex:predicate <https://w3id.org/biolink/biolinkml/meta/inlined_as_list> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/types/Boolean> ] [ a shex:TripleConstraint ;
+                shex:max 1 ;
+                shex:min 0 ;
                 shex:predicate <https://w3id.org/biolink/biolinkml/meta/key> ;
                 shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/types/Boolean> ] [ a shex:TripleConstraint ;
                 shex:max 1 ;
@@ -417,7 +421,7 @@
     shex:closed true ;
     shex:expression [ a shex:EachOf ;
             shex:expressions ( <https://w3id.org/biolink/biolinkml/meta/AltDescription_tes> [ a shex:TripleConstraint ;
-                        shex:min 0 ;
+                        shex:min 1 ;
                         shex:predicate rdf:type ;
                         shex:valueExpr [ a shex:NodeConstraint ;
                                 shex:values ( <https://w3id.org/biolink/biolinkml/meta/AltDescription> ) ] ] ) ] .
@@ -500,7 +504,7 @@
     shex:closed true ;
     shex:expression [ a shex:EachOf ;
             shex:expressions ( <https://w3id.org/biolink/biolinkml/meta/LocalName_tes> [ a shex:TripleConstraint ;
-                        shex:min 0 ;
+                        shex:min 1 ;
                         shex:predicate rdf:type ;
                         shex:valueExpr [ a shex:NodeConstraint ;
                                 shex:values ( <https://w3id.org/biolink/biolinkml/meta/LocalName> ) ] ] ) ] .
@@ -509,7 +513,7 @@
     shex:closed true ;
     shex:expression [ a shex:EachOf ;
             shex:expressions ( <https://w3id.org/biolink/biolinkml/meta/Prefix_tes> [ a shex:TripleConstraint ;
-                        shex:min 0 ;
+                        shex:min 1 ;
                         shex:predicate rdf:type ;
                         shex:valueExpr [ a shex:NodeConstraint ;
                                 shex:values ( <https://w3id.org/biolink/biolinkml/meta/Prefix> ) ] ] ) ] .

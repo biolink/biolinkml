@@ -109,7 +109,7 @@ Entity and association taxonomy and datamodel for life-sciences data
              * [CodingSequence](CodingSequence.md)
              * [Exon](Exon.md) - A region of the transcript sequence within a gene which is not removed from the primary RNA transcript by RNA splicing
              * [Genome](Genome.md) - A genome is the sum of genetic material within a cell or virion.
-             * [Genotype](Genotype.md) - An information content entity that describes a genome by specifying the total variation in genomic sequence and/or gene expression, relative to some established background
+             * [Genotype](Genotype.md) - An information content entity that describes a genome by specifying the total variation in genomic sequence and/or gene expression, relative to some extablished background
              * [Haplotype](Haplotype.md) - A set of zero or more Alleles on a single instance of a Sequence[VMC]
              * [MacromolecularMachine](MacromolecularMachine.md) - A union of gene, gene product, and macromolecular complex. These are the basic units of function in a cell. They either carry out individual biological activities, or they encode molecules which do this.
                 * [GeneOrGeneProduct](GeneOrGeneProduct.md) - a union of genes or gene products. Frequently an identifier for one will be used as proxy for another
@@ -122,11 +122,11 @@ Entity and association taxonomy and datamodel for life-sciences data
                       * [GeneProductIsoform](GeneProductIsoform.md) - This is an abstract class that can be mixed in with different kinds of gene products to indicate that the gene product is intended to represent a specific isoform rather than a canonical or reference or generic product. The designation of canonical or reference may be arbitrary, or it may represent the superclass of all isoforms.
                       * [Protein](Protein.md) - A gene product that is composed of a chain of amino acid sequences and is produced by ribosome-mediated translation of mRNA
                          * [ProteinIsoform](ProteinIsoform.md) - Represents a protein that is a specific isoform of the canonical or reference protein. See https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4114032/
+                      * [Transcript](Transcript.md) - An RNA synthesized on a DNA or RNA template by an RNA polymerase
                 * [MacromolecularComplex](MacromolecularComplex.md)
              * [ReagentTargetedGene](ReagentTargetedGene.md) - A gene altered in its expression level in the context of some experiment as a result of being targeted by gene-knockdown reagent(s) such as a morpholino or RNAi
              * [SequenceVariant](SequenceVariant.md) - An allele that varies in its sequence from what is considered the reference allele at that locus.
                 * [Snv](Snv.md) - SNVs are single nucleotide positions in genomic DNA at which different sequence alternatives exist
-             * [Transcript](Transcript.md) - An RNA synthesized on a DNA or RNA template by an RNA polymerase
        * [OrganismalEntity](OrganismalEntity.md) - A named entity that is either a part of an organism, a whole organism, population or clade of organisms, excluding molecular entities
           * [AnatomicalEntity](AnatomicalEntity.md) - A subcellular location, cell type or gross anatomical part
              * [Cell](Cell.md)
@@ -354,7 +354,7 @@ Entity and association taxonomy and datamodel for life-sciences data
     * [description](description.md) - a human-readable description of a thing
        * [entity to phenotypic feature association➞description](entity_to_phenotypic_feature_association_description.md) - A description of specific aspects of this phenotype, not otherwise covered by the phenotype ontology class
     * [distribution](distribution.md)
-    * [downloadURL](downloadURL.md)
+    * [download url](download_url.md)
     * [filler](filler.md) - The value in a property-value tuple
     * [format](format.md)
     * [full name](full_name.md) - a long-form human readable name for a thing
@@ -368,6 +368,7 @@ Entity and association taxonomy and datamodel for life-sciences data
     * [has receptor](has_receptor.md) - the organism or organism part being exposed
     * [has route](has_route.md) - the process that results in the stressor coming into direct contact with the receptor
     * [has stressor](has_stressor.md) - the process or entity that the receptor is being exposed to
+    * [has topic](has_topic.md) - Connects a node to a vocabulary term or ontology class that describes some aspect of the entity. In general specific characterization is preferred. See https://github.com/biolink/biolink-model/issues/238
     * [has zygosity](has_zygosity.md)
     * [id](id.md) - A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
        * [pairwise interaction association➞id](pairwise_interaction_association_id.md) - identifier for the interaction. This may come from an interaction database such as IMEX.
@@ -378,19 +379,21 @@ Entity and association taxonomy and datamodel for life-sciences data
     * [longitude](longitude.md) - longitude
     * [name](name.md) - A human-readable name for a thing
        * [macromolecular machine➞name](macromolecular_machine_name.md) - genes are typically designated by a short symbol and a full name. We map the symbol to the default display name and use an additional slot for full name
-    * [retrievedOn](retrievedOn.md)
+    * [retrieved on](retrieved_on.md)
     * [rights](rights.md)
     * [source data file](source_data_file.md)
     * [source version](source_version.md)
     * [source web page](source_web_page.md)
+    * [symbol](symbol.md) - Symbol for a particular thing
     * [synonym](synonym.md) - Alternate human-readable names for a thing
     * [systematic synonym](systematic_synonym.md) - more commonly used for gene symbols in yeast
     * [timepoint](timepoint.md) - a point in time
     * [title](title.md)
     * [type](type.md)
-       * [category](category.md) - Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
+       * [category](category.md) - Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
     * [update date](update_date.md) - date on which thing was updated. This can be applied to nodes or edges
-    * [versionOf](versionOf.md)
+    * [version of](version_of.md)
+    * [xref](xref.md) - Alternate CURIEs for a thing
  * [related to](related_to.md) - A relationship that is asserted between two named things
     * [affects](affects.md) - describes an entity that has a direct affect on the state or quality of another existing entity. Use of the 'affects' predicate implies that the affected entity already exists, unlike predicates such as 'affects risk for' and 'prevents, where the outcome is something that may or may not come to be.
        * [affects abundance of](affects_abundance_of.md) - holds between two molecular entities where the action or effect of one changes the amount of the other within a system of interest
@@ -399,7 +402,7 @@ Entity and association taxonomy and datamodel for life-sciences data
        * [affects activity of](affects_activity_of.md) - holds between two molecular entities where the action or effect of one changes the activity of the other within a system of interest
           * [decreases activity of](decreases_activity_of.md) - holds between two molecular entities where the action or effect of one decreases the activity of the other within a system of interest
           * [increases activity of](increases_activity_of.md) - holds between two molecular entities where the action or effect of one increases the activity of the other within a system of interest
-       * [affects degradation of](affects_degradation_of.md) - holds between two molecular entities where the action or effect of one impacts the rate of degradation of the other within a system of interest, where chemical degradation is defined act or process of simplifying or breaking down a molecule into smaller parts, either naturally or artificially (Oxford English Dictionary, UK, 1995)
+       * [affects degradation of](affects_degradation_of.md) - holds between two molecular entities where the action or effect of one impacts the rate of degradation of the other within a system of interest
           * [decreases degradation of](decreases_degradation_of.md) - holds between two molecular entities where the action or effect of one decreases the rate of degradation of the other within a system of interest
           * [increases degradation of](increases_degradation_of.md) - holds between two molecular entities where the action or effect of one increases the rate of degradation of the other within a system of interest
        * [affects expression in](affects_expression_in.md) - Holds between a variant and an anatomical entity where the expression of the variant is located in.
@@ -457,22 +460,21 @@ Entity and association taxonomy and datamodel for life-sciences data
        * [predisposes](predisposes.md) - holds between two entities where exposure to one entity increases the chance of developing the other
        * [prevents](prevents.md) - holds between an entity whose application or use reduces the likelihood of a potential outcome. Typically used to associate a chemical substance, exposure, activity, or medical intervention that can prevent the onset a disease or phenotypic feature.
     * [caused by](caused_by.md) - holds between two entities where the occurrence, existence, or activity of one is caused by the occurrence or  generation of the other
-    * [close match](close_match.md) - holds between two entities that are considered a skos:closeMatch to one another
+    * [close match](close_match.md) - holds between two entities that are similar to each other
+       * [exact match](exact_match.md) - holds between two entities that are identical to each other, with a high degree of confidence
+          * [same as](same_as.md) - holds between two entities that are considered equivalent to each other
     * [coexists with](coexists_with.md) - holds between two entities that are co-located in the same aggregate object, process, or spatio-temporal region
        * [colocalizes with](colocalizes_with.md) - holds between two entities that are observed to be located in the same place.
        * [in cell population with](in_cell_population_with.md) - holds between two genes or gene products that are expressed in the same cell type or population
        * [in complex with](in_complex_with.md) - holds between two genes or gene products that are part of (or code for products that are part of) in the same macromolecular complex
        * [in pathway with](in_pathway_with.md) - holds between two genes or gene products that are part of in the same biological pathway
-    * [condition associated with gene](condition_associated_with_gene.md) - holds between a gene and a disease or phenotypic feature that may be influenced, contribute to, or be correlated with the gene or its alleles/products
     * [contraindicated for](contraindicated_for.md) - Holds between a drug and a disease or phenotype, such that a person with that disease should not be treated with the drug.
     * [contributes to](contributes_to.md) - holds between two entities where the occurrence, existence, or activity of one causes or contributes to the occurrence or generation of the other
-       * [causes](causes.md) - holds between two entities where the occurrence, existence, or activity of one causes the occurrence or generation of the other
+       * [causes](causes.md) - holds between two entities where the occurrence, existence, or activity of one causes the occurrence or  generation of the other
           * [causes adverse event](causes_adverse_event.md) - holds between a drug and a disease or phenotype that can be caused by the drug
     * [correlated with](correlated_with.md) - holds between any two named thing entities. For example, correlated_with holds between a disease or phenotypic feature and a measurable molecular entity that is used as an indicator of the presence or state of the disease or feature.
        * [biomarker for](biomarker_for.md) - holds between a measurable molecular entity and a disease or phenotypic feature, where the entity is used as an indicator of the presence or state of the disease or feature.
        * [has biomarker](has_biomarker.md) - holds between a disease or phenotypic feature and a measurable molecular entity that is used as an indicator of the presence or state of the disease or feature.
-       * [negatively correlated with](negatively_correlated_with.md) - holds between any two named thing entities "correlated with" one another in a negative manner.
-       * [positively correlated with](positively_correlated_with.md) - holds between any two named thing entities "correlated with" one another in a positive manner.
     * [derives from](derives_from.md) - holds between two distinct material entities, the new entity and the old entity, in which the new entity begins to exist when the old entity ceases to exist, and the new entity inherits the significant portion of the matter of the old entity
     * [derives into](derives_into.md) - holds between two distinct material entities, the old entity and the new entity, in which the new entity begins to exist when the old entity ceases to exist, and the new entity inherits the significant portion of the matter of the old entity
     * [develops from](develops_from.md)
@@ -499,37 +501,35 @@ Entity and association taxonomy and datamodel for life-sciences data
     * [in linkage disequilibrium with](in_linkage_disequilibrium_with.md) - holds between two sequence variants, the presence of which are correlated in a population
     * [in taxon](in_taxon.md) - connects a thing to a class representing a taxon
     * [interacts with](interacts_with.md) - holds between any two entities that directly or indirectly interact with each other
-       * [directly interacts with](directly_interacts_with.md) - Holds between molecular entities that physically and directly interact with each other
+       * [directly interacts with](directly_interacts_with.md) - Holds between molecular entities that phyically and directly interact with each other
        * [genetically interacts with](genetically_interacts_with.md) - holds between two genes whose phenotypic effects are dependent on each other in some way - such that their combined phenotypic effects are the result of some interaction between the activity of their gene products. Examples include epistasis and synthetic lethality.
        * [physically interacts with](physically_interacts_with.md) - holds between two entities that make physical contact as part of some interaction
           * [molecularly interacts with](molecularly_interacts_with.md)
              * [decreases molecular interaction](decreases_molecular_interaction.md) - indicates that the source decreases the molecular interaction between the target and some other molecular entity
              * [increases molecular interaction](increases_molecular_interaction.md) - indicates that the source increases the molecular interaction between the target and some other molecular entity
-    * [is sequence variant of](is_sequence_variant_of.md) - holds between a sequence variant and a genomic entity
-       * [is frameshift variant of](is_frameshift_variant_of.md) - holds between a sequence variant and a gene, such the sequence variant causes a disruption of the translational reading frame, because the number of nucleotides inserted or deleted is not a multiple of three.
-       * [is missense variant of](is_missense_variant_of.md) - holds between a gene  and a sequence variant, such the sequence variant results in a different amino acid sequence but where the length is preserved.
-       * [is nearby variant of](is_nearby_variant_of.md) - holds between a sequence variant and a gene sequence that the variant is genomically close to.
-       * [is non coding variant of](is_non_coding_variant_of.md) - holds between a sequence variant and a gene, where the variant does not affect the coding sequence
-       * [is nonsense variant of](is_nonsense_variant_of.md) - holds between a sequence variant and a gene, such the sequence variant results in a premature stop codon
-       * [is splice site variant of](is_splice_site_variant_of.md) - holds between a sequence variant and a gene, such the sequence variant is in the canonical splice site of one of the gene's exons.
-       * [is synonymous variant of](is_synonymous_variant_of.md) - holds between a sequence variant and a gene, such the sequence variant is in the coding sequence of the gene, but results in the same amino acid sequence
+    * [is missense variant of](is_missense_variant_of.md) - holds between a sequence variant and a gene, such the sequence variant results in a different amino acid sequence but where the length is preserved.
+    * [is nearby variant of](is_nearby_variant_of.md) - holds between a sequence variant and a gene sequence that the variant is genomically close to.
+    * [is non coding variant of](is_non_coding_variant_of.md) - holds between a sequence variant and a gene, where the variant does not affect the coding sequence
+    * [is nonsense variant of](is_nonsense_variant_of.md) - holds between a sequence variant and a gene, such the sequence variant results in a premature stop codon
+    * [is splice site variant of](is_splice_site_variant_of.md) - holds between a sequence variant and a gene, such the sequence variant is in the canonical splice site of one of the gene's exons.
+    * [is synonymous variant of](is_synonymous_variant_of.md) - holds between a sequence variant and a gene, such the sequence variant is in the coding sequence of the gene, but results in the same amino acid sequence
     * [lacks part](lacks_part.md)
     * [located in](located_in.md) - holds between a material entity and a material entity or site within which it is located (but of which it is not considered a part)
     * [location of](location_of.md) - holds between material entity or site and a material entity that is located within it (but not considered a part of it)
-    * [manifestation of](manifestation_of.md) - that part of a phenomenon which is directly observable or visibly expressed, or which gives evidence to the underlying process; used in SemMedDB for linking things like dysfunctions and processes to some disease or syndrome
+    * [manifestation of](manifestation_of.md) - used in SemMedDB for linking things like dysfunctions and processes to some disease or syndrome
     * [occurs in](occurs_in.md) - holds between a process and a material entity or site within which the process occurs
-    * [overlaps](overlaps.md) - holds between entities that overlap in their extents (materials or processes)
+    * [overlaps](overlaps.md) - holds between entties that overlap in their extents (materials or processes)
        * [has part](has_part.md) - holds between wholes and their parts (material entities or processes)
-          * [has variant part](has_variant_part.md) - holds between a genomic entity and a genotypic entity that is a sub-component of it
+          * [has variant part](has_variant_part.md) - Holds between a genotype and a genotypic entity
           * [treatment➞has part](treatment_has_part.md)
        * [part of](part_of.md) - holds between parts and wholes (material entities or processes)
     * [participates in](participates_in.md) - holds between a continuant and a process, where the continuant is somehow involved in the process
        * [actively involved in](actively_involved_in.md) - holds between a continuant and a process or function, where the continuant actively contributes to part or all of the process or function it realizes
           * [capable of](capable_of.md) - holds between a physical entity and process or function, where the continuant alone has the ability to carry out the process or function.
+    * [precedes](precedes.md) - holds between two processes, where one completes before the other begins
     * [produced by](produced_by.md)
     * [produces](produces.md) - holds between a material entity and a product that is generated through the intentional actions or functioning of the material entity
     * [related condition](related_condition.md)
-    * [same as](same_as.md) - holds between two entities that are considered equivalent to each other
     * [similar to](similar_to.md) - holds between an entity and some other entity with similar features.
        * [chemically similar to](chemically_similar_to.md) - holds between one chemical substances and another that it approximates for purposes of scientific study, in virtue of its exhibiting similar features of the studied entity.
        * [homologous to](homologous_to.md) - holds between two biological entities that have common evolutionary origin
@@ -539,9 +539,6 @@ Entity and association taxonomy and datamodel for life-sciences data
        * [model of](model_of.md) - holds between an entity and some other entity it approximates for purposes of scientific study, in virtue of its exhibiting similar features of the studied entity.
     * [subclass of](subclass_of.md) - holds between two classes where the domain class is a specialization of the range class
     * [superclass of](superclass_of.md) - holds between two classes where the domain class is a super class of the range class
-    * [temporally related to](temporally_related_to.md) - holds between two entities with a temporal relationship
-       * [preceded by](preceded_by.md) - holds between two processes, where the other is completed before the one begins
-       * [precedes](precedes.md) - holds between two processes, where one completes before the other begins
     * [treated by](treated_by.md) - holds between a disease or phenotypic feature and a therapeutic process or chemical substance that is used to treat the condition
 
 ### Types

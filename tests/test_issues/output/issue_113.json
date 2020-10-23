@@ -1,5 +1,5 @@
-# Auto generated from issue_113.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-25 16:45
+# Auto generated from issue_113.yaml by pythongen.py version: 0.9.0
+# Generation date: 2020-10-23 17:01
 # Schema: schema
 #
 # id: https://microbiomedata/schema
@@ -8,6 +8,7 @@
 
 import dataclasses
 import sys
+import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
@@ -22,7 +23,7 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 from includes.types import String
 
-metamodel_version = "1.5.3"
+metamodel_version = "1.6.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -59,16 +60,26 @@ class TestClass(YAMLRoot):
     test_attribute_1: Optional[str] = None
     test_attribute_2: Optional[str] = None
 
+    def __post_init__(self, **kwargs: Dict[str, Any]):
+        if self.test_attribute_1 is not None and not isinstance(self.test_attribute_1, str):
+            self.test_attribute_1 = str(self.test_attribute_1)
+
+        if self.test_attribute_2 is not None and not isinstance(self.test_attribute_2, str):
+            self.test_attribute_2 = str(self.test_attribute_2)
+
+        super().__post_init__(**kwargs)
+
+
 
 # Slots
 class slots:
     pass
 
 slots.attribute = Slot(uri=DEFAULT_.attribute, name="attribute", curie=DEFAULT_.curie('attribute'),
-                      model_uri=DEFAULT_.attribute, domain=NamedThing, range=Optional[str])
+                   model_uri=DEFAULT_.attribute, domain=NamedThing, range=Optional[str])
 
 slots.test_attribute_1 = Slot(uri=DEFAULT_.test_attribute_1, name="test attribute 1", curie=DEFAULT_.curie('test_attribute_1'),
-                      model_uri=DEFAULT_.test_attribute_1, domain=NamedThing, range=Optional[str])
+                   model_uri=DEFAULT_.test_attribute_1, domain=NamedThing, range=Optional[str])
 
 slots.test_attribute_2 = Slot(uri=DEFAULT_.test_attribute_2, name="test attribute 2", curie=DEFAULT_.curie('test_attribute_2'),
-                      model_uri=DEFAULT_.test_attribute_2, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.test_attribute_2, domain=None, range=Optional[str])

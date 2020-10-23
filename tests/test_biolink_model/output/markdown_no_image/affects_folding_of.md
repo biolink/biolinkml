@@ -27,6 +27,6 @@ URI: [biolink:affects_folding_of](https://w3id.org/biolink/vocab/affects_folding
 
 |  |  |  |
 | --- | --- | --- |
+| **Mappings:** | | CTD:affects_folding_of |
 | **In Subsets:** | | translator_minimal |
-| **Exact Mappings:** | | CTD:affects_folding_of |
 

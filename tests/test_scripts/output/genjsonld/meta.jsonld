@@ -3,7 +3,7 @@
   "description": "A metamodel for defining biolink related schemas",
   "id": "https://w3id.org/biolink/biolinkml/meta",
   "title": "Biolink Schema Metamodel",
-  "version": "1.5.9",
+  "version": "1.6.0",
   "imports": [
     "biolinkml:types",
     "biolinkml:mappings",
@@ -1226,7 +1226,10 @@
     {
       "name": "inlined",
       "definition_uri": "https://w3id.org/biolink/biolinkml/meta/inlined",
-      "description": "an inlined definition a list of actual values rather than references.  Only applies to slots whose range is a class.",
+      "description": "True means that keyed or identified slot appears in an outer structure by value.  False means that only the key or identifier for the slot appears within the domain, referencing a structure that appears elsewhere.",
+      "comments": [
+        "classes without keys or identifiers are necessarily inlined as lists"
+      ],
       "from_schema": "https://w3id.org/biolink/biolinkml/meta",
       "domain": "SlotDefinition",
       "range": "boolean",
@@ -1239,13 +1242,33 @@
       "type": "SlotDefinition"
     },
     {
+      "name": "inlined_as_list",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/inlined_as_list",
+      "description": "True means that an inlined slot is represented as a list of range instances.  False means that an inlined slot is represented as a dictionary, whose key is the slot key or identifier and whose value is the range instance.",
+      "comments": [
+        "The default loader will accept either list or dictionary form as input.  This parameter controls internal\nrepresentation and output.",
+        "A keyed or identified class with one additional slot can be input in a third form, a dictionary whose key\nis the key or identifier and whose value is the one additional element.  This form is still stored according\nto the inlined_as_list setting."
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SlotDefinition",
+      "range": "boolean",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/inlined_as_list",
+      "inherited": true,
+      "owner": "SlotDefinition",
+      "domain_of": [
+        "SlotDefinition"
+      ],
+      "type": "SlotDefinition"
+    },
+    {
       "name": "key",
       "definition_uri": "https://w3id.org/biolink/biolinkml/meta/key",
-      "description": "true means that the slot uniquely identifies the element within the context of its container.  Key slots are NOT identifiers - they do not serve as subjects",
-      "notes": [
+      "description": "True means that the key slot(s) uniquely identify the container. In future releases, it will be possible for there to be compound keys, where several slots combine to produce a unique identifier",
+      "comments": [
         "key is inherited",
-        "a given domain can have at most one key",
-        "key slots are always required"
+        "a given domain can have at most one key slot (restriction to be removed in the future)",
+        "identifiers and keys are mutually exclusive.  A given domain cannot have bot",
+        "a key slot is automatically required.  Keys cannot be optional"
       ],
       "from_schema": "https://w3id.org/biolink/biolinkml/meta",
       "domain": "SlotDefinition",
@@ -1267,11 +1290,12 @@
         "UID",
         "code"
       ],
-      "description": "true means that this slot is the subject of a set of assertions.  Identifiers do not appear as predicates in the model",
+      "description": "True means that the key slot(s) uniquely identify the container. There can be at most one identifier or key per container",
       "comments": [
         "identifier is inherited",
-        "identifier slots are always required",
-        "a given domain can have at most one identifier"
+        "a key slot is automatically required.  Identifiers cannot be optional",
+        "a given domain can have at most one identifier",
+        "identifiers and keys are mutually exclusive.  A given domain cannot have both"
       ],
       "from_schema": "https://w3id.org/biolink/biolinkml/meta",
       "see_also": [
@@ -2420,6 +2444,7 @@
         "ifabsent",
         "required",
         "inlined",
+        "inlined_as_list",
         "key",
         "identifier",
         "alias",
@@ -2609,11 +2634,11 @@
       "type": "ClassDefinition"
     }
   ],
-  "metamodel_version": "1.5.3",
+  "metamodel_version": "1.6.0",
   "source_file": "meta.yaml",
-  "source_file_date": "Wed Sep  2 21:35:29 2020",
-  "source_file_size": 27696,
-  "generation_date": "2020-09-02 21:38",
+  "source_file_date": "Fri Oct 23 16:59:17 2020",
+  "source_file_size": 28904,
+  "generation_date": "2020-10-23 17:01",
   "type": "SchemaDefinition",
   "@context": [
     "file:./output/gencontext/meta.jsonld",

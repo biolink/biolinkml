@@ -25,13 +25,9 @@ URI: [biolink:produces](https://w3id.org/biolink/vocab/produces)
 
 |  |  |  |
 | --- | --- | --- |
-| **In Subsets:** | | translator_minimal |
-| **Exact Mappings:** | | RO:0003000 |
-|  | | WIKIDATA:P1056 |
+| **Mappings:** | | RO:0003000 |
+|  | | WIKIDATA_PROPERTY:P1056 |
 |  | | SEMMEDDB:PRODUCES |
-|  | | SEMMEDDB:produces |
-| **Narrow Mappings:** | | NCIT:biological_process_has_result_chemical_or_drug |
-|  | | SNOMED:has_process_output |
-|  | | SNOMED:specimen_procedure_of |
-| **Related Mappings:** | | GOREL:0001010 |
+|  | | GOREL:0001010 |
+| **In Subsets:** | | translator_minimal |
 

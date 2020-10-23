@@ -42,7 +42,7 @@ metatype:Nodeidentifier NONLITERAL
     (  $<AltDescription_tes> (  <source> @metatype:Ncname ;
           <description> @metatype:String
        ) ;
-       rdf:type [ <AltDescription> ] ?
+       rdf:type [ <AltDescription> ]
     )
 }
 
@@ -171,7 +171,7 @@ metatype:Nodeidentifier NONLITERAL
     (  $<LocalName_tes> (  <local_name_source> @metatype:Ncname ;
           skos:altLabel @metatype:String
        ) ;
-       rdf:type [ <LocalName> ] ?
+       rdf:type [ <LocalName> ]
     )
 }
 
@@ -179,7 +179,7 @@ metatype:Nodeidentifier NONLITERAL
     (  $<Prefix_tes> (  <prefix_prefix> @metatype:Ncname ;
           <prefix_reference> @metatype:Uri
        ) ;
-       rdf:type [ <Prefix> ] ?
+       rdf:type [ <Prefix> ]
     )
 }
 
@@ -223,6 +223,7 @@ metatype:Nodeidentifier NONLITERAL
           <ifabsent> @metatype:String ? ;
           <required> @metatype:Boolean ? ;
           <inlined> @metatype:Boolean ? ;
+          <inlined_as_list> @metatype:Boolean ? ;
           <key> @metatype:Boolean ? ;
           <identifier> @metatype:Boolean ? ;
           <alias> @metatype:String ? ;

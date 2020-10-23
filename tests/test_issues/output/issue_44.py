@@ -5,6 +5,7 @@
 
 import dataclasses
 import sys
+import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
@@ -20,7 +21,7 @@ from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import URIorCURIE
 from includes.types import Uriorcurie
 
-metamodel_version = "1.5.3"
+metamodel_version = "1.6.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -54,13 +55,17 @@ class NamedThing(YAMLRoot):
     class_name: ClassVar[str] = "named thing"
     class_model_uri: ClassVar[URIRef] = URIRef("https://example.com/test44/NamedThing")
 
-    category: List[Union[str, IriType]] = empty_list()
+    category: Union[Union[str, IriType], List[Union[str, IriType]]] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
-        if not isinstance(self.category, list) or len(self.category) == 0:
+        if self.category is None:
+            raise ValueError("category must be supplied")
+        elif not isinstance(self.category, list):
+            self.category = [self.category]
+        elif len(self.category) == 0:
             raise ValueError(f"category must be a non-empty list")
-        self.category = [v if isinstance(v, IriType)
-                         else IriType(v) for v in ([self.category] if isinstance(self.category, str) else self.category)]
+        self.category = [v if isinstance(v, IriType) else IriType(v) for v in self.category]
+
         super().__post_init__(**kwargs)
 
 
@@ -70,4 +75,4 @@ class slots:
     pass
 
 slots.category = Slot(uri=RDFS.subClassOf, name="category", curie=RDFS.curie('subClassOf'),
-                      model_uri=DEFAULT_.category, domain=NamedThing, range=List[Union[str, IriType]])
+                   model_uri=DEFAULT_.category, domain=NamedThing, range=Union[Union[str, IriType], List[Union[str, IriType]]])

@@ -21,6 +21,4 @@ URI: [meta:is_a](https://w3id.org/biolink/biolinkml/meta/is_a)
 
 ## Used by
 
- * [ClassDefinition](ClassDefinition.md)
  * [Definition](Definition.md)
- * [SlotDefinition](SlotDefinition.md)

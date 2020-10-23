@@ -7,7 +7,7 @@ An entity that has physical properties such as mass, volume, or charge
 URI: [biolink:PhysicalEntity](https://w3id.org/biolink/vocab/PhysicalEntity)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[MolecularEntity]uses%20-.->[PhysicalEntity&#124;id(i):string;name(i):label_type;category(i):category_type%20%2B],[MaterialSample]uses%20-.->[PhysicalEntity],[AnatomicalEntity]uses%20-.->[PhysicalEntity],[NamedThing]^-[PhysicalEntity],[NamedThing],[MolecularEntity],[MaterialSample],[AnatomicalEntity])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[BiologicalProcessOrActivity]-%20enabled%20by%200..*>[PhysicalEntity&#124;id(i):string;name(i):label_type;category(i):category_type%20%2B],[MolecularEntity]uses%20-.->[PhysicalEntity],[MaterialSample]uses%20-.->[PhysicalEntity],[AnatomicalEntity]uses%20-.->[PhysicalEntity],[NamedThing]^-[PhysicalEntity],[NamedThing],[MolecularEntity],[MaterialSample],[BiologicalProcessOrActivity],[AnatomicalEntity])
 
 ## Parents
 
@@ -21,6 +21,7 @@ URI: [biolink:PhysicalEntity](https://w3id.org/biolink/vocab/PhysicalEntity)
 
 ## Referenced by class
 
+ *  **[BiologicalProcessOrActivity](BiologicalProcessOrActivity.md)** *[enabled by](enabled_by.md)*  <sub>0..*</sub>  **[PhysicalEntity](PhysicalEntity.md)**
 
 ## Attributes
 
@@ -28,7 +29,11 @@ URI: [biolink:PhysicalEntity](https://w3id.org/biolink/vocab/PhysicalEntity)
 ### Inherited from named thing:
 
  * [category](category.md)  <sub>1..*</sub>
-    * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
+    * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
+ * In a neo4j database this MAY correspond to the neo4j label tag.
+ * In an RDF database it should be a biolink model class URI.
+This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `bl:Protein`, `bl:GeneProduct`, `bl:MolecularEntity`, ...
+In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {bl:GenomicEntity, bl:MolecularEntity, bl:NamedThing}
     * range: [CategoryType](types/CategoryType.md)
     * in subsets: (translator_minimal)
  * [id](id.md)  <sub>REQ</sub>

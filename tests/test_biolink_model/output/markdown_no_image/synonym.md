@@ -20,18 +20,29 @@ URI: [biolink:synonym](https://w3id.org/biolink/vocab/synonym)
 
 ## Used by
 
+ * [RNAProduct](RNAProduct.md)
+ * [RNAProductIsoform](RNAProductIsoform.md)
+ * [Gene](Gene.md)
+ * [GeneProduct](GeneProduct.md)
+ * [GeneProductIsoform](GeneProductIsoform.md)
+ * [MicroRNA](MicroRNA.md)
+ * [NoncodingRNAProduct](NoncodingRNAProduct.md)
+ * [Protein](Protein.md)
+ * [ProteinIsoform](ProteinIsoform.md)
+ * [Transcript](Transcript.md)
 
 ## Other properties
 
 |  |  |  |
 | --- | --- | --- |
 | **Aliases:** | | alias |
-| **In Subsets:** | | translator_minimal |
-| **Narrow Mappings:** | | oboInOwl:hasExactSynonym |
+| **Mappings:** | | skos:altLabel |
+|  | | gff3:Alias |
+|  | | alliancegenome:synonyms |
+|  | | gpi:DB_Object_Synonyms |
+|  | | oboInOwl:hasExactSynonym |
 |  | | oboInOwl:hasNarrowSynonym |
 |  | | oboInOwl:hasBroadSynonym |
 |  | | oboInOwl:hasRelatedSynonym |
-|  | | HANCESTRO:0330 |
-|  | | IAO:0000136 |
-|  | | RXNORM:has_tradename |
+| **In Subsets:** | | translator_minimal |
 

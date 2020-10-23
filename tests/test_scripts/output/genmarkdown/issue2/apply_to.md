@@ -21,6 +21,4 @@ definition ->  <sub>0..*</sub> definition
 
 ## Used by
 
- * class_definition
  * definition
- * slot_definition

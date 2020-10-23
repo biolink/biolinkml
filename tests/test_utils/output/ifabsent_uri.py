@@ -1,5 +1,5 @@
-# Auto generated from ifabsent_uri.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-25 16:46
+# Auto generated from ifabsent_uri.yaml by pythongen.py version: 0.9.0
+# Generation date: 2020-10-23 17:02
 # Schema: ifabsent
 #
 # id: http://example.org/tests/ifabsent
@@ -8,6 +8,7 @@
 
 import dataclasses
 import sys
+import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
@@ -22,7 +23,7 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 from includes.types import String
 
-metamodel_version = "1.5.3"
+metamodel_version = "1.6.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -52,13 +53,23 @@ class C1(YAMLRoot):
     s1: Optional[str] = SKOS.label
     s2: Optional[str] = SKOS.definition
 
+    def __post_init__(self, **kwargs: Dict[str, Any]):
+        if self.s1 is not None and not isinstance(self.s1, str):
+            self.s1 = str(self.s1)
+
+        if self.s2 is not None and not isinstance(self.s2, str):
+            self.s2 = str(self.s2)
+
+        super().__post_init__(**kwargs)
+
+
 
 # Slots
 class slots:
     pass
 
 slots.s1 = Slot(uri=TEST.s1, name="s1", curie=TEST.curie('s1'),
-                      model_uri=TEST.s1, domain=None, range=Optional[str])
+                   model_uri=TEST.s1, domain=None, range=Optional[str])
 
 slots.s2 = Slot(uri=TEST.s2, name="s2", curie=TEST.curie('s2'),
-                      model_uri=TEST.s2, domain=None, range=Optional[str])
+                   model_uri=TEST.s2, domain=None, range=Optional[str])

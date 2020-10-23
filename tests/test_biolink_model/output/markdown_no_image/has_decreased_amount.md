@@ -25,5 +25,5 @@ URI: [biolink:has_decreased_amount](https://w3id.org/biolink/vocab/has_decreased
 
 |  |  |  |
 | --- | --- | --- |
-| **Narrow Mappings:** | | CL:has_low_plasma_membrane_amount |
+| **Mappings:** | | CL:has_low_plasma_membrane_amount |
 

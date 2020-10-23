@@ -25,9 +25,6 @@ URI: [biolink:decreases_expression_of](https://w3id.org/biolink/vocab/decreases_
 
 |  |  |  |
 | --- | --- | --- |
+| **Mappings:** | | CTD:decreases_expression_of |
 | **In Subsets:** | | translator_minimal |
-| **Exact Mappings:** | | CTD:decreases_expression_of |
-| **Narrow Mappings:** | | CHEMBL.MECHANISM:antisense_inhibitor |
-| **Related Mappings:** | | DGIdb:antisense |
-|  | | DGIdb:antisense_oligonucleotide |
 

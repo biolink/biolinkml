@@ -20,5 +20,4 @@ extension ->  <sub>REQ</sub> [String](types/String.md)
 
 ## Used by
 
- * annotation
  * extension

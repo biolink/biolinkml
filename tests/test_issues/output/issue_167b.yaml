@@ -232,11 +232,12 @@ classes:
       rather just a string.
     from_schema: http://example.org/tests/issue167b
     annotations:
-    - tag: prefLabel
+    - tag: tag
+      value: prefLabel
+    - tag: value
       value: a preferred label
-      annotations:
-      - tag: source
-        value: PMID:12345
+    - tag: annotations
+      value: '{''source'': ''PMID:12345''}'
     class_uri: ex:MyClass2
   annotation:
     name: annotation
@@ -286,8 +287,8 @@ classes:
     slots:
     - extensions
     class_uri: meta:Extensible
-metamodel_version: 1.5.3
+metamodel_version: 1.6.0
 source_file: issue_167b.yaml
-source_file_date: Fri Aug 28 14:43:25 2020
+source_file_date: Fri Oct 23 16:59:17 2020
 source_file_size: 835
-generation_date: 2020-08-28 14:52
+generation_date: 2020-10-23 17:01

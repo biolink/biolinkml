@@ -7,7 +7,7 @@ the definition of a property or a slot
 URI: [meta:SlotDefinition](https://w3id.org/biolink/biolinkml/meta/SlotDefinition)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SubsetDefinition],[SlotDefinition]<apply_to%200..*-%20[SlotDefinition&#124;singular_name:string%20%3F;slot_uri:uriorcurie%20%3F;multivalued:boolean%20%3F;inherited:boolean%20%3F;readonly:string%20%3F;ifabsent:string%20%3F;required:boolean%20%3F;inlined:boolean%20%3F;key:boolean%20%3F;identifier:boolean%20%3F;alias:string%20%3F;symmetric:boolean%20%3F;is_class_field:boolean%20%3F;role:string%20%3F;is_usage_slot:boolean%20%3F;usage_slot_name:string%20%3F;minimum_value:integer%20%3F;maximum_value:integer%20%3F;pattern:string%20%3F;string_serialization:string%20%3F;abstract(i):boolean%20%3F;mixin(i):boolean%20%3F;values_from(i):uriorcurie%20*;created_by(i):uriorcurie%20%3F;created_on(i):datetime%20%3F;last_updated_on(i):datetime%20%3F;modified_by(i):uriorcurie%20%3F;status(i):uriorcurie%20%3F;id_prefixes(i):ncname%20*;name(i):string;definition_uri(i):uriorcurie%20%3F;aliases(i):string%20*;mappings(i):uriorcurie%20*;description(i):string%20%3F;deprecated(i):string%20%3F;todos(i):string%20*;notes(i):string%20*;comments(i):string%20*;from_schema(i):uri%20%3F;imported_from(i):string%20%3F;see_also(i):uriorcurie%20*;exact_mappings(i):uriorcurie%20*;close_mappings(i):uriorcurie%20*;related_mappings(i):uriorcurie%20*;narrow_mappings(i):uriorcurie%20*;broad_mappings(i):uriorcurie%20*;deprecated_element_has_exact_replacement(i):uriorcurie%20%3F;deprecated_element_has_possible_replacement(i):uriorcurie%20%3F],[SlotDefinition]<mixins%200..*-%20[SlotDefinition],[SlotDefinition]<is_a%200..1-%20[SlotDefinition],[SlotDefinition]<inverse%200..1-%20[SlotDefinition],[SlotDefinition]<subproperty_of%200..1-%20[SlotDefinition],[ClassDefinition]<domain_of%200..*-%20[SlotDefinition],[Definition]<owner%200..1-%20[SlotDefinition],[Element]<range%200..1-%20[SlotDefinition],[ClassDefinition]<domain%200..1-%20[SlotDefinition],[ClassDefinition]++-%20attributes%200..*>[SlotDefinition],[ClassDefinition]-%20defining_slots%200..*>[SlotDefinition],[SchemaDefinition]++-%20slots%200..*>[SlotDefinition],[ClassDefinition]++-%20slot_usage%200..*>[SlotDefinition],[ClassDefinition]-%20slots%200..*>[SlotDefinition],[Definition]^-[SlotDefinition],[SchemaDefinition],[LocalName],[Extension],[Example],[Element],[Definition],[ClassDefinition],[Annotation],[AltDescription])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SubsetDefinition],[SlotDefinition]<apply_to%200..*-%20[SlotDefinition&#124;singular_name:string%20%3F;slot_uri:uriorcurie%20%3F;multivalued:boolean%20%3F;inherited:boolean%20%3F;readonly:string%20%3F;ifabsent:string%20%3F;required:boolean%20%3F;inlined:boolean%20%3F;inlined_as_list:boolean%20%3F;key:boolean%20%3F;identifier:boolean%20%3F;alias:string%20%3F;symmetric:boolean%20%3F;is_class_field:boolean%20%3F;role:string%20%3F;is_usage_slot:boolean%20%3F;usage_slot_name:string%20%3F;minimum_value:integer%20%3F;maximum_value:integer%20%3F;pattern:string%20%3F;string_serialization:string%20%3F;abstract(i):boolean%20%3F;mixin(i):boolean%20%3F;values_from(i):uriorcurie%20*;created_by(i):uriorcurie%20%3F;created_on(i):datetime%20%3F;last_updated_on(i):datetime%20%3F;modified_by(i):uriorcurie%20%3F;status(i):uriorcurie%20%3F;id_prefixes(i):ncname%20*;name(i):string;definition_uri(i):uriorcurie%20%3F;aliases(i):string%20*;mappings(i):uriorcurie%20*;description(i):string%20%3F;deprecated(i):string%20%3F;todos(i):string%20*;notes(i):string%20*;comments(i):string%20*;from_schema(i):uri%20%3F;imported_from(i):string%20%3F;see_also(i):uriorcurie%20*;exact_mappings(i):uriorcurie%20*;close_mappings(i):uriorcurie%20*;related_mappings(i):uriorcurie%20*;narrow_mappings(i):uriorcurie%20*;broad_mappings(i):uriorcurie%20*;deprecated_element_has_exact_replacement(i):uriorcurie%20%3F;deprecated_element_has_possible_replacement(i):uriorcurie%20%3F],[SlotDefinition]<mixins%200..*-%20[SlotDefinition],[SlotDefinition]<is_a%200..1-%20[SlotDefinition],[SlotDefinition]<inverse%200..1-%20[SlotDefinition],[SlotDefinition]<subproperty_of%200..1-%20[SlotDefinition],[ClassDefinition]<domain_of%200..*-%20[SlotDefinition],[Definition]<owner%200..1-%20[SlotDefinition],[Element]<range%200..1-%20[SlotDefinition],[ClassDefinition]<domain%200..1-%20[SlotDefinition],[ClassDefinition]++-%20attributes%200..*>[SlotDefinition],[ClassDefinition]-%20defining_slots%200..*>[SlotDefinition],[SchemaDefinition]++-%20slots%200..*>[SlotDefinition],[ClassDefinition]++-%20slot_usage%200..*>[SlotDefinition],[ClassDefinition]-%20slots%200..*>[SlotDefinition],[Definition]^-[SlotDefinition],[SchemaDefinition],[LocalName],[Extension],[Example],[Element],[Definition],[ClassDefinition],[Annotation],[AltDescription])
 
 ## Parents
 
@@ -50,7 +50,7 @@ implicitly asserts that X is an instance of C1
     * Description: the class(es) that reference the slot in a "slots" or "slot_usage" context
     * range: [ClassDefinition](ClassDefinition.md)
  * [identifier](identifier.md)  <sub>OPT</sub>
-    * Description: true means that this slot is the subject of a set of assertions.  Identifiers do not appear as predicates in the model
+    * Description: True means that the key slot(s) uniquely identify the container. There can be at most one identifier or key per container
     * range: [Boolean](types/Boolean.md)
  * [ifabsent](ifabsent.md)  <sub>OPT</sub>
     * Description: function that provides a default value for the slot.  Possible values for this slot are defined in biolink.utils.ifabsent_functions.default_library:
@@ -68,7 +68,10 @@ implicitly asserts that X is an instance of C1
     * Description: true means that the *value* of a slot is inherited by subclasses
     * range: [Boolean](types/Boolean.md)
  * [inlined](inlined.md)  <sub>OPT</sub>
-    * Description: an inlined definition a list of actual values rather than references.  Only applies to slots whose range is a class.
+    * Description: True means that keyed or identified slot appears in an outer structure by value.  False means that only the key or identifier for the slot appears within the domain, referencing a structure that appears elsewhere.
+    * range: [Boolean](types/Boolean.md)
+ * [inlined_as_list](inlined_as_list.md)  <sub>OPT</sub>
+    * Description: True means that an inlined slot is represented as a list of range instances.  False means that an inlined slot is represented as a dictionary, whose key is the slot key or identifier and whose value is the range instance.
     * range: [Boolean](types/Boolean.md)
  * [inverse](inverse.md)  <sub>OPT</sub>
     * Description: indicates that any instance of d s r implies that there is also an instance of r s' d
@@ -80,7 +83,7 @@ implicitly asserts that X is an instance of C1
     * Description: True means that this slot was defined in a slot_usage situation
     * range: [Boolean](types/Boolean.md)
  * [key](key.md)  <sub>OPT</sub>
-    * Description: true means that the slot uniquely identifies the element within the context of its container.  Key slots are NOT identifiers - they do not serve as subjects
+    * Description: True means that the key slot(s) uniquely identify the container. In future releases, it will be possible for there to be compound keys, where several slots combine to produce a unique identifier
     * range: [Boolean](types/Boolean.md)
  * [maximum_value](maximum_value.md)  <sub>OPT</sub>
     * Description: for slots with ranges of type number, the value must be equal to or lowe than this

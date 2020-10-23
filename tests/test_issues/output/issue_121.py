@@ -1,5 +1,5 @@
-# Auto generated from issue_121.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-25 16:45
+# Auto generated from issue_121.yaml by pythongen.py version: 0.9.0
+# Generation date: 2020-10-23 17:01
 # Schema: schema
 #
 # id: https://microbiomedata/schema
@@ -8,6 +8,7 @@
 
 import dataclasses
 import sys
+import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
@@ -22,7 +23,7 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 from includes.types import String
 
-metamodel_version = "1.5.3"
+metamodel_version = "1.6.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -49,6 +50,13 @@ class Biosample(YAMLRoot):
 
     depth: Optional[str] = None
 
+    def __post_init__(self, **kwargs: Dict[str, Any]):
+        if self.depth is not None and not isinstance(self.depth, str):
+            self.depth = str(self.depth)
+
+        super().__post_init__(**kwargs)
+
+
 class ImportedClass(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -64,7 +72,7 @@ class slots:
     pass
 
 slots.depth = Slot(uri=DEFAULT_['mixs/depth'], name="depth", curie=DEFAULT_.curie('mixs/depth'),
-                      model_uri=DEFAULT_.depth, domain=None, range=Optional[str])
+                   model_uri=DEFAULT_.depth, domain=None, range=Optional[str])
 
 slots.biosample_depth = Slot(uri=DEFAULT_.depth, name="biosample_depth", curie=DEFAULT_.curie('depth'),
-                      model_uri=DEFAULT_.biosample_depth, domain=Biosample, range=Optional[str])
+                   model_uri=DEFAULT_.biosample_depth, domain=Biosample, range=Optional[str])

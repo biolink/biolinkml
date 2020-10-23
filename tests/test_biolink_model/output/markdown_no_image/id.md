@@ -94,7 +94,6 @@ URI: [biolink:id](https://w3id.org/biolink/vocab/id)
  * [OntologyClass](OntologyClass.md)
  * [OrganismTaxon](OrganismTaxon.md)
  * [OrganismalEntity](OrganismalEntity.md)
- * [PairwiseInteractionAssociation](PairwiseInteractionAssociation.md)
  * [Pathway](Pathway.md)
  * [Phenomenon](Phenomenon.md)
  * [PhenotypicFeature](PhenotypicFeature.md)
@@ -110,7 +109,6 @@ URI: [biolink:id](https://w3id.org/biolink/vocab/id)
  * [Publication](Publication.md)
  * [ReagentTargetedGene](ReagentTargetedGene.md)
  * [RelationshipType](RelationshipType.md)
- * [SequenceVariant](SequenceVariant.md)
  * [SeverityValue](SeverityValue.md)
  * [SourceFile](SourceFile.md)
  * [Transcript](Transcript.md)
@@ -121,5 +119,8 @@ URI: [biolink:id](https://w3id.org/biolink/vocab/id)
 
 |  |  |  |
 | --- | --- | --- |
+| **Mappings:** | | alliancegenome:primaryId |
+|  | | gff3:ID |
+|  | | gpi:DB_Object_ID |
 | **In Subsets:** | | translator_minimal |
 

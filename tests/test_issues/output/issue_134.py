@@ -1,5 +1,5 @@
-# Auto generated from issue_134.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-25 16:45
+# Auto generated from issue_134.yaml by pythongen.py version: 0.9.0
+# Generation date: 2020-10-23 17:01
 # Schema: example1
 #
 # id: http://example.org/sample/example1
@@ -8,6 +8,7 @@
 
 import dataclasses
 import sys
+import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
@@ -22,7 +23,7 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 
 
-metamodel_version = "1.5.3"
+metamodel_version = "1.6.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -74,13 +75,14 @@ class A(YAMLRoot):
     class_name: ClassVar[str] = "a"
     class_model_uri: ClassVar[URIRef] = URIRef("http://example.org/sample/example1/A")
 
-    id: Union[str, AId]
+    id: Union[str, AId] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
-            raise ValueError(f"id must be supplied")
+            raise ValueError("id must be supplied")
         if not isinstance(self.id, AId):
             self.id = AId(self.id)
+
         super().__post_init__(**kwargs)
 
 
@@ -98,11 +100,13 @@ class B(A):
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
-            raise ValueError(f"id must be supplied")
+            raise ValueError("id must be supplied")
         if not isinstance(self.id, BId):
             self.id = BId(self.id)
+
         if self.has_a is not None and not isinstance(self.has_a, AId):
             self.has_a = AId(self.has_a)
+
         super().__post_init__(**kwargs)
 
 
@@ -120,11 +124,13 @@ class C(B):
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
-            raise ValueError(f"id must be supplied")
+            raise ValueError("id must be supplied")
         if not isinstance(self.id, CId):
             self.id = CId(self.id)
+
         if self.has_b is not None and not isinstance(self.has_b, BId):
             self.has_b = BId(self.has_b)
+
         super().__post_init__(**kwargs)
 
 
@@ -142,11 +148,13 @@ class D1(C):
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
-            raise ValueError(f"id must be supplied")
+            raise ValueError("id must be supplied")
         if not isinstance(self.id, D1Id):
             self.id = D1Id(self.id)
+
         if self.has_c is not None and not isinstance(self.has_c, CId):
             self.has_c = CId(self.has_c)
+
         super().__post_init__(**kwargs)
 
 
@@ -163,9 +171,10 @@ class D2(C):
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
-            raise ValueError(f"id must be supplied")
+            raise ValueError("id must be supplied")
         if not isinstance(self.id, D2Id):
             self.id = D2Id(self.id)
+
         super().__post_init__(**kwargs)
 
 
@@ -182,9 +191,10 @@ class E(D1):
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
-            raise ValueError(f"id must be supplied")
+            raise ValueError("id must be supplied")
         if not isinstance(self.id, EId):
             self.id = EId(self.id)
+
         super().__post_init__(**kwargs)
 
 
@@ -194,13 +204,13 @@ class slots:
     pass
 
 slots.id = Slot(uri=DEFAULT_.id, name="id", curie=DEFAULT_.curie('id'),
-                      model_uri=DEFAULT_.id, domain=None, range=URIRef)
+                   model_uri=DEFAULT_.id, domain=None, range=URIRef)
 
 slots.has_a = Slot(uri=DEFAULT_.has_a, name="has a", curie=DEFAULT_.curie('has_a'),
-                      model_uri=DEFAULT_.has_a, domain=None, range=Optional[Union[str, AId]])
+                   model_uri=DEFAULT_.has_a, domain=None, range=Optional[Union[str, AId]])
 
 slots.has_b = Slot(uri=DEFAULT_.has_b, name="has b", curie=DEFAULT_.curie('has_b'),
-                      model_uri=DEFAULT_.has_b, domain=None, range=Optional[Union[str, BId]])
+                   model_uri=DEFAULT_.has_b, domain=None, range=Optional[Union[str, BId]])
 
 slots.has_c = Slot(uri=DEFAULT_.has_c, name="has c", curie=DEFAULT_.curie('has_c'),
-                      model_uri=DEFAULT_.has_c, domain=None, range=Optional[Union[str, CId]])
+                   model_uri=DEFAULT_.has_c, domain=None, range=Optional[Union[str, CId]])

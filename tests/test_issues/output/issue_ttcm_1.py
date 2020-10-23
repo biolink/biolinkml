@@ -1,5 +1,5 @@
-# Auto generated from resourcedescription.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-10-16 00:39
+# Auto generated from resourcedescription.yaml by pythongen.py version: 0.9.0
+# Generation date: 2020-10-23 17:01
 # Schema: resourcedescription
 #
 # id: https://hotecosystem.org/tccm/resourcedescription
@@ -11,6 +11,7 @@
 
 import dataclasses
 import sys
+import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
@@ -23,15 +24,15 @@ else:
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
+from . datatypes import DateAndTime, LocalIdentifier, URIorCurie
+from . references import CodeSystemReference, MapReference, NameAndMeaningReference, OntologyLanguageReference, OntologySyntaxReference, RoleReference
+from . uritypes import DocumentURI, ExternalURI, LocalURI, PersistentURI, RenderingURI
 from biolinkml.utils.metamodelcore import URIorCURIE, XSDDateTime
-from datatypes import DateAndTime, LocalIdentifier, URIorCurie
 from includes.annotations import Annotation
 from includes.extensions import Extension
 from includes.types import String
-from references import CodeSystemReference, MapReference, NameAndMeaningReference, OntologyLanguageReference, OntologySyntaxReference, RoleReference
-from uritypes import DocumentURI, ExternalURI, LocalURI, PersistentURI, RenderingURI
 
-metamodel_version = "1.5.3"
+metamodel_version = "1.6.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -62,34 +63,64 @@ class ResourceDescription(YAMLRoot):
     class_name: ClassVar[str] = "ResourceDescription"
     class_model_uri: ClassVar[URIRef] = TCCM.ResourceDescription
 
-    about: Union[str, ExternalURI]
-    resourceID: Union[str, LocalIdentifier]
+    about: Union[str, ExternalURI] = None
+    resourceID: Union[str, LocalIdentifier] = None
     formalName: Optional[str] = None
-    keyword: List[str] = empty_list()
+    keyword: Optional[Union[str, List[str]]] = empty_list()
     resourceSynopsis: Optional[str] = None
-    additionalDocumentation: List[Union[str, PersistentURI]] = empty_list()
+    additionalDocumentation: Optional[Union[Union[str, PersistentURI], List[Union[str, PersistentURI]]]] = empty_list()
     rights: Optional[str] = None
     alternateID: Optional[str] = None
-    extensions: List[Union[dict, Extension]] = empty_list()
-    annotations: List[Union[dict, Annotation]] = empty_list()
+    extensions: Optional[Union[Union[dict, Extension], List[Union[dict, Extension]]]] = empty_list()
+    annotations: Optional[Union[Union[dict, Annotation], List[Union[dict, Annotation]]]] = empty_list()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.about is None:
-            raise ValueError(f"about must be supplied")
+            raise ValueError("about must be supplied")
         if not isinstance(self.about, ExternalURI):
             self.about = ExternalURI(self.about)
+
         if self.resourceID is None:
-            raise ValueError(f"resourceID must be supplied")
+            raise ValueError("resourceID must be supplied")
         if not isinstance(self.resourceID, LocalIdentifier):
             self.resourceID = LocalIdentifier(self.resourceID)
-        self.additionalDocumentation = [v if isinstance(v, PersistentURI)
-                                        else PersistentURI(v) for v in ([self.additionalDocumentation] if isinstance(self.additionalDocumentation, str) else self.additionalDocumentation)]
-        self.extensions = [Extension(*e) for e in self.extensions.items()] if isinstance(self.extensions, dict) \
-                           else [v if isinstance(v, Extension) else Extension(**v)
-                                 for v in ([self.extensions] if isinstance(self.extensions, str) else self.extensions)]
-        self.annotations = [Annotation(*e) for e in self.annotations.items()] if isinstance(self.annotations, dict) \
-                            else [v if isinstance(v, Annotation) else Annotation(**v)
-                                  for v in ([self.annotations] if isinstance(self.annotations, str) else self.annotations)]
+
+        if self.formalName is not None and not isinstance(self.formalName, str):
+            self.formalName = str(self.formalName)
+
+        if self.keyword is None:
+            self.keyword = []
+        if not isinstance(self.keyword, list):
+            self.keyword = [self.keyword]
+        self.keyword = [v if isinstance(v, str) else str(v) for v in self.keyword]
+
+        if self.resourceSynopsis is not None and not isinstance(self.resourceSynopsis, str):
+            self.resourceSynopsis = str(self.resourceSynopsis)
+
+        if self.additionalDocumentation is None:
+            self.additionalDocumentation = []
+        if not isinstance(self.additionalDocumentation, list):
+            self.additionalDocumentation = [self.additionalDocumentation]
+        self.additionalDocumentation = [v if isinstance(v, PersistentURI) else PersistentURI(v) for v in self.additionalDocumentation]
+
+        if self.rights is not None and not isinstance(self.rights, str):
+            self.rights = str(self.rights)
+
+        if self.alternateID is not None and not isinstance(self.alternateID, str):
+            self.alternateID = str(self.alternateID)
+
+        if self.extensions is None:
+            self.extensions = []
+        if not isinstance(self.extensions, list):
+            self.extensions = [self.extensions]
+        self._normalize_inlined_slot(slot_name="extensions", slot_type=Extension, key_name="tag", inlined_as_list=True, keyed=False)
+
+        if self.annotations is None:
+            self.annotations = []
+        if not isinstance(self.annotations, list):
+            self.annotations = [self.annotations]
+        self._normalize_inlined_slot(slot_name="annotations", slot_type=Annotation, key_name="tag", inlined_as_list=True, keyed=False)
+
         super().__post_init__(**kwargs)
 
 
@@ -111,12 +142,18 @@ class SourceAndNotation(YAMLRoot):
     sourceDocumentSyntax: Optional[Union[dict, OntologySyntaxReference]] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
+        if self.sourceAndNotationDescription is not None and not isinstance(self.sourceAndNotationDescription, str):
+            self.sourceAndNotationDescription = str(self.sourceAndNotationDescription)
+
         if self.sourceDocument is not None and not isinstance(self.sourceDocument, PersistentURI):
             self.sourceDocument = PersistentURI(self.sourceDocument)
+
         if self.sourceLanguage is not None and not isinstance(self.sourceLanguage, OntologyLanguageReference):
             self.sourceLanguage = OntologyLanguageReference(**self.sourceLanguage)
+
         if self.sourceDocumentSyntax is not None and not isinstance(self.sourceDocumentSyntax, OntologySyntaxReference):
             self.sourceDocumentSyntax = OntologySyntaxReference(**self.sourceDocumentSyntax)
+
         super().__post_init__(**kwargs)
 
 
@@ -135,12 +172,18 @@ class AbstractResourceDescription(ResourceDescription):
     about: Union[str, ExternalURI] = None
     resourceID: Union[str, LocalIdentifier] = None
     releaseDocumentation: Optional[str] = None
-    releaseFormat: List[Union[dict, SourceAndNotation]] = empty_list()
+    releaseFormat: Optional[Union[Union[dict, SourceAndNotation], List[Union[dict, SourceAndNotation]]]] = empty_list()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
-        self.releaseFormat = [SourceAndNotation(*e) for e in self.releaseFormat.items()] if isinstance(self.releaseFormat, dict) \
-                              else [v if isinstance(v, SourceAndNotation) else SourceAndNotation(**v)
-                                    for v in ([self.releaseFormat] if isinstance(self.releaseFormat, str) else self.releaseFormat)]
+        if self.releaseDocumentation is not None and not isinstance(self.releaseDocumentation, str):
+            self.releaseDocumentation = str(self.releaseDocumentation)
+
+        if self.releaseFormat is None:
+            self.releaseFormat = []
+        if not isinstance(self.releaseFormat, list):
+            self.releaseFormat = [self.releaseFormat]
+        self.releaseFormat = [v if isinstance(v, SourceAndNotation) else SourceAndNotation(**v) for v in self.releaseFormat]
+
         super().__post_init__(**kwargs)
 
 
@@ -169,14 +212,22 @@ class ResourceVersionDescription(ResourceDescription):
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.documentURI is not None and not isinstance(self.documentURI, DocumentURI):
             self.documentURI = DocumentURI(self.documentURI)
+
         if self.sourceAndNotation is not None and not isinstance(self.sourceAndNotation, SourceAndNotation):
             self.sourceAndNotation = SourceAndNotation(**self.sourceAndNotation)
+
         if self.predecessor is not None and not isinstance(self.predecessor, NameAndMeaningReference):
             self.predecessor = NameAndMeaningReference(**self.predecessor)
+
+        if self.officialResourceVersionID is not None and not isinstance(self.officialResourceVersionID, str):
+            self.officialResourceVersionID = str(self.officialResourceVersionID)
+
         if self.officialReleaseDate is not None and not isinstance(self.officialReleaseDate, XSDDateTime):
             self.officialReleaseDate = XSDDateTime(self.officialReleaseDate)
+
         if self.officialActivationDate is not None and not isinstance(self.officialActivationDate, XSDDateTime):
             self.officialActivationDate = XSDDateTime(self.officialActivationDate)
+
         super().__post_init__(**kwargs)
 
 
@@ -186,142 +237,142 @@ class slots:
     pass
 
 slots.about = Slot(uri=TCCM.about, name="about", curie=TCCM.curie('about'),
-                      model_uri=TCCM.about, domain=None, range=Union[str, ExternalURI])
+                   model_uri=TCCM.about, domain=None, range=Union[str, ExternalURI])
 
 slots.resourceID = Slot(uri=TCCM.resourceID, name="resourceID", curie=TCCM.curie('resourceID'),
-                      model_uri=TCCM.resourceID, domain=None, range=Union[str, LocalIdentifier])
+                   model_uri=TCCM.resourceID, domain=None, range=Union[str, LocalIdentifier])
 
 slots.formalName = Slot(uri=TCCM.formalName, name="formalName", curie=TCCM.curie('formalName'),
-                      model_uri=TCCM.formalName, domain=None, range=Optional[str])
+                   model_uri=TCCM.formalName, domain=None, range=Optional[str])
 
 slots.keyword = Slot(uri=TCCM.keyword, name="keyword", curie=TCCM.curie('keyword'),
-                      model_uri=TCCM.keyword, domain=None, range=List[str])
+                   model_uri=TCCM.keyword, domain=None, range=Optional[Union[str, List[str]]])
 
 slots.resourceSynopsis = Slot(uri=TCCM.resourceSynopsis, name="resourceSynopsis", curie=TCCM.curie('resourceSynopsis'),
-                      model_uri=TCCM.resourceSynopsis, domain=None, range=Optional[str])
+                   model_uri=TCCM.resourceSynopsis, domain=None, range=Optional[str])
 
 slots.additionalDocumentation = Slot(uri=TCCM.additionalDocumentation, name="additionalDocumentation", curie=TCCM.curie('additionalDocumentation'),
-                      model_uri=TCCM.additionalDocumentation, domain=None, range=List[Union[str, PersistentURI]])
+                   model_uri=TCCM.additionalDocumentation, domain=None, range=Optional[Union[Union[str, PersistentURI], List[Union[str, PersistentURI]]]])
 
 slots.rights = Slot(uri=TCCM.rights, name="rights", curie=TCCM.curie('rights'),
-                      model_uri=TCCM.rights, domain=None, range=Optional[str])
+                   model_uri=TCCM.rights, domain=None, range=Optional[str])
 
 slots.alternateID = Slot(uri=TCCM.alternateID, name="alternateID", curie=TCCM.curie('alternateID'),
-                      model_uri=TCCM.alternateID, domain=None, range=Optional[str])
+                   model_uri=TCCM.alternateID, domain=None, range=Optional[str])
 
 slots.sourceAndNotationDescription = Slot(uri=TCCM.sourceAndNotationDescription, name="sourceAndNotationDescription", curie=TCCM.curie('sourceAndNotationDescription'),
-                      model_uri=TCCM.sourceAndNotationDescription, domain=None, range=Optional[str])
+                   model_uri=TCCM.sourceAndNotationDescription, domain=None, range=Optional[str])
 
 slots.sourceDocument = Slot(uri=TCCM.sourceDocument, name="sourceDocument", curie=TCCM.curie('sourceDocument'),
-                      model_uri=TCCM.sourceDocument, domain=None, range=Optional[Union[str, PersistentURI]])
+                   model_uri=TCCM.sourceDocument, domain=None, range=Optional[Union[str, PersistentURI]])
 
 slots.sourceLanguage = Slot(uri=TCCM.sourceLanguage, name="sourceLanguage", curie=TCCM.curie('sourceLanguage'),
-                      model_uri=TCCM.sourceLanguage, domain=None, range=Optional[Union[dict, OntologyLanguageReference]])
+                   model_uri=TCCM.sourceLanguage, domain=None, range=Optional[Union[dict, OntologyLanguageReference]])
 
 slots.sourceDocumentSyntax = Slot(uri=TCCM.sourceDocumentSyntax, name="sourceDocumentSyntax", curie=TCCM.curie('sourceDocumentSyntax'),
-                      model_uri=TCCM.sourceDocumentSyntax, domain=None, range=Optional[Union[dict, OntologySyntaxReference]])
+                   model_uri=TCCM.sourceDocumentSyntax, domain=None, range=Optional[Union[dict, OntologySyntaxReference]])
 
 slots.releaseDocumentation = Slot(uri=TCCM.releaseDocumentation, name="releaseDocumentation", curie=TCCM.curie('releaseDocumentation'),
-                      model_uri=TCCM.releaseDocumentation, domain=None, range=Optional[str])
+                   model_uri=TCCM.releaseDocumentation, domain=None, range=Optional[str])
 
 slots.releaseFormat = Slot(uri=TCCM.releaseFormat, name="releaseFormat", curie=TCCM.curie('releaseFormat'),
-                      model_uri=TCCM.releaseFormat, domain=None, range=List[Union[dict, SourceAndNotation]])
+                   model_uri=TCCM.releaseFormat, domain=None, range=Optional[Union[Union[dict, SourceAndNotation], List[Union[dict, SourceAndNotation]]]])
 
 slots.documentURI = Slot(uri=TCCM.documentURI, name="documentURI", curie=TCCM.curie('documentURI'),
-                      model_uri=TCCM.documentURI, domain=None, range=Optional[Union[str, DocumentURI]])
+                   model_uri=TCCM.documentURI, domain=None, range=Optional[Union[str, DocumentURI]])
 
 slots.sourceAndNotation = Slot(uri=TCCM.sourceAndNotation, name="sourceAndNotation", curie=TCCM.curie('sourceAndNotation'),
-                      model_uri=TCCM.sourceAndNotation, domain=None, range=Optional[Union[dict, SourceAndNotation]])
+                   model_uri=TCCM.sourceAndNotation, domain=None, range=Optional[Union[dict, SourceAndNotation]])
 
 slots.predecessor = Slot(uri=TCCM.predecessor, name="predecessor", curie=TCCM.curie('predecessor'),
-                      model_uri=TCCM.predecessor, domain=None, range=Optional[Union[dict, NameAndMeaningReference]])
+                   model_uri=TCCM.predecessor, domain=None, range=Optional[Union[dict, NameAndMeaningReference]])
 
 slots.officialResourceVersionID = Slot(uri=TCCM.officialResourceVersionID, name="officialResourceVersionID", curie=TCCM.curie('officialResourceVersionID'),
-                      model_uri=TCCM.officialResourceVersionID, domain=None, range=Optional[str])
+                   model_uri=TCCM.officialResourceVersionID, domain=None, range=Optional[str])
 
 slots.officialReleaseDate = Slot(uri=TCCM.officialReleaseDate, name="officialReleaseDate", curie=TCCM.curie('officialReleaseDate'),
-                      model_uri=TCCM.officialReleaseDate, domain=None, range=Optional[Union[str, XSDDateTime]])
+                   model_uri=TCCM.officialReleaseDate, domain=None, range=Optional[Union[str, XSDDateTime]])
 
 slots.officialActivationDate = Slot(uri=TCCM.officialActivationDate, name="officialActivationDate", curie=TCCM.curie('officialActivationDate'),
-                      model_uri=TCCM.officialActivationDate, domain=None, range=Optional[Union[str, XSDDateTime]])
+                   model_uri=TCCM.officialActivationDate, domain=None, range=Optional[Union[str, XSDDateTime]])
 
 slots.name = Slot(uri=TCCM.name, name="name", curie=TCCM.curie('name'),
-                      model_uri=TCCM.name, domain=None, range=Union[str, LocalIdentifier])
+                   model_uri=TCCM.name, domain=None, range=Union[str, LocalIdentifier])
 
 slots.uri = Slot(uri=TCCM.uri, name="uri", curie=TCCM.curie('uri'),
-                      model_uri=TCCM.uri, domain=None, range=Optional[Union[str, ExternalURI]])
+                   model_uri=TCCM.uri, domain=None, range=Optional[Union[str, ExternalURI]])
 
 slots.href = Slot(uri=TCCM.href, name="href", curie=TCCM.curie('href'),
-                      model_uri=TCCM.href, domain=None, range=Optional[Union[str, RenderingURI]])
+                   model_uri=TCCM.href, domain=None, range=Optional[Union[str, RenderingURI]])
 
 slots.codeSystem = Slot(uri=TCCM.codeSystem, name="codeSystem", curie=TCCM.curie('codeSystem'),
-                      model_uri=TCCM.codeSystem, domain=None, range=Optional[Union[dict, CodeSystemReference]])
+                   model_uri=TCCM.codeSystem, domain=None, range=Optional[Union[dict, CodeSystemReference]])
 
 slots.map = Slot(uri=TCCM.map, name="map", curie=TCCM.curie('map'),
-                      model_uri=TCCM.map, domain=None, range=Optional[Union[dict, MapReference]])
+                   model_uri=TCCM.map, domain=None, range=Optional[Union[dict, MapReference]])
 
 slots.designation = Slot(uri=TCCM.designation, name="designation", curie=TCCM.curie('designation'),
-                      model_uri=TCCM.designation, domain=None, range=Optional[str])
+                   model_uri=TCCM.designation, domain=None, range=Optional[str])
 
 slots.role = Slot(uri=TCCM.role, name="role", curie=TCCM.curie('role'),
-                      model_uri=TCCM.role, domain=None, range=Optional[Union[dict, RoleReference]])
+                   model_uri=TCCM.role, domain=None, range=Optional[Union[dict, RoleReference]])
 
 slots.ResourceDescription_about = Slot(uri=TCCM.about, name="ResourceDescription_about", curie=TCCM.curie('about'),
-                      model_uri=TCCM.ResourceDescription_about, domain=ResourceDescription, range=Union[str, ExternalURI])
+                   model_uri=TCCM.ResourceDescription_about, domain=ResourceDescription, range=Union[str, ExternalURI])
 
 slots.ResourceDescription_resourceID = Slot(uri=TCCM.resourceID, name="ResourceDescription_resourceID", curie=TCCM.curie('resourceID'),
-                      model_uri=TCCM.ResourceDescription_resourceID, domain=ResourceDescription, range=Union[str, LocalIdentifier])
+                   model_uri=TCCM.ResourceDescription_resourceID, domain=ResourceDescription, range=Union[str, LocalIdentifier])
 
 slots.ResourceDescription_formalName = Slot(uri=TCCM.formalName, name="ResourceDescription_formalName", curie=TCCM.curie('formalName'),
-                      model_uri=TCCM.ResourceDescription_formalName, domain=ResourceDescription, range=Optional[str])
+                   model_uri=TCCM.ResourceDescription_formalName, domain=ResourceDescription, range=Optional[str])
 
 slots.ResourceDescription_keyword = Slot(uri=TCCM.keyword, name="ResourceDescription_keyword", curie=TCCM.curie('keyword'),
-                      model_uri=TCCM.ResourceDescription_keyword, domain=ResourceDescription, range=List[str])
+                   model_uri=TCCM.ResourceDescription_keyword, domain=ResourceDescription, range=Optional[Union[str, List[str]]])
 
 slots.ResourceDescription_resourceSynopsis = Slot(uri=TCCM.resourceSynopsis, name="ResourceDescription_resourceSynopsis", curie=TCCM.curie('resourceSynopsis'),
-                      model_uri=TCCM.ResourceDescription_resourceSynopsis, domain=ResourceDescription, range=Optional[str])
+                   model_uri=TCCM.ResourceDescription_resourceSynopsis, domain=ResourceDescription, range=Optional[str])
 
 slots.ResourceDescription_additionalDocumentation = Slot(uri=TCCM.additionalDocumentation, name="ResourceDescription_additionalDocumentation", curie=TCCM.curie('additionalDocumentation'),
-                      model_uri=TCCM.ResourceDescription_additionalDocumentation, domain=ResourceDescription, range=List[Union[str, PersistentURI]])
+                   model_uri=TCCM.ResourceDescription_additionalDocumentation, domain=ResourceDescription, range=Optional[Union[Union[str, PersistentURI], List[Union[str, PersistentURI]]]])
 
 slots.ResourceDescription_rights = Slot(uri=TCCM.rights, name="ResourceDescription_rights", curie=TCCM.curie('rights'),
-                      model_uri=TCCM.ResourceDescription_rights, domain=ResourceDescription, range=Optional[str])
+                   model_uri=TCCM.ResourceDescription_rights, domain=ResourceDescription, range=Optional[str])
 
 slots.ResourceDescription_alternateID = Slot(uri=TCCM.alternateID, name="ResourceDescription_alternateID", curie=TCCM.curie('alternateID'),
-                      model_uri=TCCM.ResourceDescription_alternateID, domain=ResourceDescription, range=Optional[str])
+                   model_uri=TCCM.ResourceDescription_alternateID, domain=ResourceDescription, range=Optional[str])
 
 slots.SourceAndNotation_sourceAndNotationDescription = Slot(uri=TCCM.sourceAndNotationDescription, name="SourceAndNotation_sourceAndNotationDescription", curie=TCCM.curie('sourceAndNotationDescription'),
-                      model_uri=TCCM.SourceAndNotation_sourceAndNotationDescription, domain=SourceAndNotation, range=Optional[str])
+                   model_uri=TCCM.SourceAndNotation_sourceAndNotationDescription, domain=SourceAndNotation, range=Optional[str])
 
 slots.SourceAndNotation_sourceDocument = Slot(uri=TCCM.sourceDocument, name="SourceAndNotation_sourceDocument", curie=TCCM.curie('sourceDocument'),
-                      model_uri=TCCM.SourceAndNotation_sourceDocument, domain=SourceAndNotation, range=Optional[Union[str, PersistentURI]])
+                   model_uri=TCCM.SourceAndNotation_sourceDocument, domain=SourceAndNotation, range=Optional[Union[str, PersistentURI]])
 
 slots.SourceAndNotation_sourceLanguage = Slot(uri=TCCM.sourceLanguage, name="SourceAndNotation_sourceLanguage", curie=TCCM.curie('sourceLanguage'),
-                      model_uri=TCCM.SourceAndNotation_sourceLanguage, domain=SourceAndNotation, range=Optional[Union[dict, OntologyLanguageReference]])
+                   model_uri=TCCM.SourceAndNotation_sourceLanguage, domain=SourceAndNotation, range=Optional[Union[dict, OntologyLanguageReference]])
 
 slots.SourceAndNotation_sourceDocumentSyntax = Slot(uri=TCCM.sourceDocumentSyntax, name="SourceAndNotation_sourceDocumentSyntax", curie=TCCM.curie('sourceDocumentSyntax'),
-                      model_uri=TCCM.SourceAndNotation_sourceDocumentSyntax, domain=SourceAndNotation, range=Optional[Union[dict, OntologySyntaxReference]])
+                   model_uri=TCCM.SourceAndNotation_sourceDocumentSyntax, domain=SourceAndNotation, range=Optional[Union[dict, OntologySyntaxReference]])
 
 slots.AbstractResourceDescription_releaseDocumentation = Slot(uri=TCCM.releaseDocumentation, name="AbstractResourceDescription_releaseDocumentation", curie=TCCM.curie('releaseDocumentation'),
-                      model_uri=TCCM.AbstractResourceDescription_releaseDocumentation, domain=AbstractResourceDescription, range=Optional[str])
+                   model_uri=TCCM.AbstractResourceDescription_releaseDocumentation, domain=AbstractResourceDescription, range=Optional[str])
 
 slots.AbstractResourceDescription_releaseFormat = Slot(uri=TCCM.releaseFormat, name="AbstractResourceDescription_releaseFormat", curie=TCCM.curie('releaseFormat'),
-                      model_uri=TCCM.AbstractResourceDescription_releaseFormat, domain=AbstractResourceDescription, range=List[Union[dict, SourceAndNotation]])
+                   model_uri=TCCM.AbstractResourceDescription_releaseFormat, domain=AbstractResourceDescription, range=Optional[Union[Union[dict, SourceAndNotation], List[Union[dict, SourceAndNotation]]]])
 
 slots.ResourceVersionDescription_documentURI = Slot(uri=TCCM.documentURI, name="ResourceVersionDescription_documentURI", curie=TCCM.curie('documentURI'),
-                      model_uri=TCCM.ResourceVersionDescription_documentURI, domain=ResourceVersionDescription, range=Optional[Union[str, DocumentURI]])
+                   model_uri=TCCM.ResourceVersionDescription_documentURI, domain=ResourceVersionDescription, range=Optional[Union[str, DocumentURI]])
 
 slots.ResourceVersionDescription_sourceAndNotation = Slot(uri=TCCM.sourceAndNotation, name="ResourceVersionDescription_sourceAndNotation", curie=TCCM.curie('sourceAndNotation'),
-                      model_uri=TCCM.ResourceVersionDescription_sourceAndNotation, domain=ResourceVersionDescription, range=Optional[Union[dict, SourceAndNotation]])
+                   model_uri=TCCM.ResourceVersionDescription_sourceAndNotation, domain=ResourceVersionDescription, range=Optional[Union[dict, SourceAndNotation]])
 
 slots.ResourceVersionDescription_predecessor = Slot(uri=TCCM.predecessor, name="ResourceVersionDescription_predecessor", curie=TCCM.curie('predecessor'),
-                      model_uri=TCCM.ResourceVersionDescription_predecessor, domain=ResourceVersionDescription, range=Optional[Union[dict, NameAndMeaningReference]])
+                   model_uri=TCCM.ResourceVersionDescription_predecessor, domain=ResourceVersionDescription, range=Optional[Union[dict, NameAndMeaningReference]])
 
 slots.ResourceVersionDescription_officialResourceVersionID = Slot(uri=TCCM.officialResourceVersionID, name="ResourceVersionDescription_officialResourceVersionID", curie=TCCM.curie('officialResourceVersionID'),
-                      model_uri=TCCM.ResourceVersionDescription_officialResourceVersionID, domain=ResourceVersionDescription, range=Optional[str])
+                   model_uri=TCCM.ResourceVersionDescription_officialResourceVersionID, domain=ResourceVersionDescription, range=Optional[str])
 
 slots.ResourceVersionDescription_officialReleaseDate = Slot(uri=TCCM.officialReleaseDate, name="ResourceVersionDescription_officialReleaseDate", curie=TCCM.curie('officialReleaseDate'),
-                      model_uri=TCCM.ResourceVersionDescription_officialReleaseDate, domain=ResourceVersionDescription, range=Optional[Union[str, XSDDateTime]])
+                   model_uri=TCCM.ResourceVersionDescription_officialReleaseDate, domain=ResourceVersionDescription, range=Optional[Union[str, XSDDateTime]])
 
 slots.ResourceVersionDescription_officialActivationDate = Slot(uri=TCCM.officialActivationDate, name="ResourceVersionDescription_officialActivationDate", curie=TCCM.curie('officialActivationDate'),
-                      model_uri=TCCM.ResourceVersionDescription_officialActivationDate, domain=ResourceVersionDescription, range=Optional[Union[str, XSDDateTime]])
+                   model_uri=TCCM.ResourceVersionDescription_officialActivationDate, domain=ResourceVersionDescription, range=Optional[Union[str, XSDDateTime]])

@@ -7,7 +7,7 @@
 URI: [biolink:DistributionLevel](https://w3id.org/biolink/vocab/DistributionLevel)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[DataSetVersion]-%20distribution%200..1>[DistributionLevel&#124;downloadURL:string%20%3F;title(i):string%20%3F;type(i):string%20%3F;id(i):string;name(i):label_type;category(i):category_type%20%2B],[DataSetVersion]^-[DistributionLevel],[DataSetVersion],[DataSet],[DataFile])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[DataSetVersion]-%20distribution%200..1>[DistributionLevel&#124;download_url:string%20%3F;title(i):string%20%3F;type(i):string%20%3F;id(i):string;name(i):label_type;category(i):category_type%20%2B],[DataSetVersion]^-[DistributionLevel],[DataSetVersion],[DataSet],[DataFile])
 
 ## Parents
 
@@ -22,13 +22,17 @@ URI: [biolink:DistributionLevel](https://w3id.org/biolink/vocab/DistributionLeve
 
 ### Own
 
- * [downloadURL](downloadURL.md)  <sub>OPT</sub>
+ * [download url](download_url.md)  <sub>OPT</sub>
     * range: [String](types/String.md)
 
 ### Inherited from data set version:
 
  * [category](category.md)  <sub>1..*</sub>
-    * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
+    * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
+ * In a neo4j database this MAY correspond to the neo4j label tag.
+ * In an RDF database it should be a biolink model class URI.
+This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `bl:Protein`, `bl:GeneProduct`, `bl:MolecularEntity`, ...
+In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {bl:GenomicEntity, bl:MolecularEntity, bl:NamedThing}
     * range: [CategoryType](types/CategoryType.md)
     * in subsets: (translator_minimal)
  * [distribution](distribution.md)  <sub>OPT</sub>
@@ -47,7 +51,7 @@ URI: [biolink:DistributionLevel](https://w3id.org/biolink/vocab/DistributionLeve
     * range: [String](types/String.md)
  * [type](type.md)  <sub>OPT</sub>
     * range: [String](types/String.md)
- * [versionOf](versionOf.md)  <sub>OPT</sub>
+ * [version of](version_of.md)  <sub>OPT</sub>
     * range: [DataSet](DataSet.md)
 
 ## Other properties

@@ -21,6 +21,4 @@ definition ->  <sub>OPT</sub> definition
 
 ## Used by
 
- * class_definition
  * definition
- * slot_definition

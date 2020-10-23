@@ -13,7 +13,7 @@ URI: [biolink:same_as](https://w3id.org/biolink/vocab/same_as)
 
 ## Parents
 
- *  is_a: [related to](related_to.md)
+ *  is_a: [exact match](exact_match.md)
 
 ## Children
 
@@ -25,12 +25,7 @@ URI: [biolink:same_as](https://w3id.org/biolink/vocab/same_as)
 
 |  |  |  |
 | --- | --- | --- |
+| **Mappings:** | | owl:equivalentClass |
+|  | | owl:sameAs |
 | **In Subsets:** | | translator_minimal |
-| **Exact Mappings:** | | owl:sameAs |
-|  | | skos:exactMatch |
-|  | | WIKIDATA:P2888 |
-|  | | CHEMBL.MECHANISM:equivalent_to |
-|  | | MONDO:equivalentTo |
-| **Close Mappings:** | | owl:equivalentClass |
-| **Narrow Mappings:** | | DRUGBANK:external-identifier |
 

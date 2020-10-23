@@ -123,6 +123,9 @@
       "inlined": {
          "@type": "xsd:boolean"
       },
+      "inlined_as_list": {
+         "@type": "xsd:boolean"
+      },
       "inverse": {
          "@type": "@id",
          "@id": "owl:inverseOf"

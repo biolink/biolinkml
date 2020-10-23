@@ -25,15 +25,10 @@ URI: [biolink:gene_associated_with_condition](https://w3id.org/biolink/vocab/gen
 
 |  |  |  |
 | --- | --- | --- |
-| **In Subsets:** | | translator_minimal |
-| **Exact Mappings:** | | NCIT:R176 |
-|  | | hetio:ASSOCIATES_DaG |
+| **Mappings:** | | WIKIDATA_PROPERTY:P2293 |
 |  | | GENO:0000840 |
-|  | | RTXKG1:gene_associated_with_condition |
-| **Close Mappings:** | | WD:P2293 |
 |  | | GENO:0000841 |
-| **Narrow Mappings:** | | NCIT:gene_associated_with_disease |
-|  | | NCIT:gene_involved_in_pathogenesis_of_disease |
-|  | | NCIT:gene_product_malfunction_associated_with_disease |
-| **Broad Mappings:** | | GENO:0000841 |
+|  | | NCIT:R176 |
+|  | | hetio:ASSOCIATES_DaG |
+| **In Subsets:** | | translator_minimal |
 

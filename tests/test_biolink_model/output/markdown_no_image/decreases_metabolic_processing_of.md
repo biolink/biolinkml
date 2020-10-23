@@ -25,6 +25,6 @@ URI: [biolink:decreases_metabolic_processing_of](https://w3id.org/biolink/vocab/
 
 |  |  |  |
 | --- | --- | --- |
+| **Mappings:** | | CTD:decreases_metabolic_processing_of |
 | **In Subsets:** | | translator_minimal |
-| **Exact Mappings:** | | CTD:decreases_metabolic_processing_of |
 
