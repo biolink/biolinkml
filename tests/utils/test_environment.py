@@ -247,6 +247,9 @@ class TestEnvironment:
             msg = comparator(expected_text, filtr(actual_text))
         else:
             msg = f"New file {self.verb} created"
+            cmsg = comparator(actual_text, actual_text)
+            if cmsg:
+                msg = msg + '\n' + cmsg
         if msg:
             self.log(expected_file_path, msg)
         if msg and not self.fail_on_error:

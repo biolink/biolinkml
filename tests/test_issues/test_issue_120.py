@@ -14,7 +14,7 @@ class Issue120TestCase(TestEnvironmentTestCase):
         """ Courses not inlining """
         env.generate_single_file('issue_120.py',
                                  lambda: PythonGenerator(env.input_path('issue_120.yaml')).serialize(),
-                                 value_is_returned=True, comparator=compare_python)
+                                 value_is_returned=True, comparator=lambda exp, act: compare_python(exp, act, self.env.expected_path('issue_120.py')))
 
         env.generate_single_file('issue_120.json',
                                  lambda: JsonSchemaGenerator(env.input_path('issue_120.yaml')).serialize(),

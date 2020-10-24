@@ -17,7 +17,8 @@ class IfAbsentTestCase(GeneratorTestCase):
 
     def do_test(self):
         """ Test the metadata options"""
-        self.single_file_generator('py', PythonGenerator, comparator=compare_python)
+        self.single_file_generator('py', PythonGenerator,
+                                   comparator=lambda exp, act: compare_python(exp, act, self.env.expected_path('x.py')))
 
     def test_good_ifabsent(self):
         """ Test isabsent with no default_prefix """

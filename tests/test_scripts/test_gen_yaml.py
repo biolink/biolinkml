@@ -5,6 +5,7 @@ import click
 from biolinkml.generators import yamlgen
 from tests.test_scripts.environment import env
 from tests.utils.clicktestcase import ClickTestCase
+from tests.utils.filters import yaml_filter
 
 
 class GenYUMLTestCase(ClickTestCase):
@@ -19,7 +20,7 @@ class GenYUMLTestCase(ClickTestCase):
     def test_emit_yaml(self):
         """ Test emitting a YAML file """
         self.do_test([env.root_input_path('meta.yaml'),"--importmap", self.env.import_map, '-g'], 'meta.yaml',
-                     add_yaml=False)
+                     add_yaml=False, filtr=yaml_filter)
 
     def test_validate_yaml(self):
         """ Test YAML file validation """

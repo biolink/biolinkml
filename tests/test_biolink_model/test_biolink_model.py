@@ -45,7 +45,8 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
 
     def test_biolink_python(self):
         """ Test the python generator for the biolink model """
-        self.single_file_generator('py', PythonGenerator, filtr=metadata_filter, comparator=compare_python,
+        self.single_file_generator('py', PythonGenerator, filtr=metadata_filter,
+                                   comparator=lambda exp, act: compare_python(exp, act, self.env.expected_path('py')),
                                    output_name='model')
 
     @unittest.skipIf(SKIP_MARKDOWN_VALIDATION, SKIP_MARKDOWN_VALIDATION_REASON)
@@ -114,7 +115,9 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
         """ Test the python generator for the biolink model """
         self.output_name = 'namespaces'
         self.single_file_generator('py', NamespaceGenerator, generator_args={'emit_metadata': True},
-                                   filtr=metadata_filter, comparator=compare_python, output_name='namespaces')
+                                   filtr=metadata_filter,
+                                   comparator=lambda exp, act: compare_python(exp, act, self.env.expected_path('namespaces.py')),
+                                   output_name='namespaces')
 
 
     @staticmethod

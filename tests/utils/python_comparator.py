@@ -33,7 +33,8 @@ def compare_python(expected: str, actual: str, expected_path: Optional[str] = No
     exp_txt, exp_fn = to_text(expected)
     act_txt, _ = to_text(actual)
 
-    msg = validate_python(act_txt, True, expected_path) or ''
+    # We pass False through fail_on_error because it is too easy to let python compile errors slip through
+    msg = validate_python(act_txt, False, expected_path) or ''
 
     if exp_txt != act_txt:
         msg += "\nOutput mismatch" + (f"for file {exp_fn}" if exp_fn else '')
@@ -49,7 +50,7 @@ def validate_python(text: str, fail_on_error: bool = False, expected_path: str =
     relative imports
     :return: None if success, otherwise the error message
     """
-    if fail_on_error:
+    if fail_on_error and False:
         try:
             compile_python(text, expected_path)
         except Exception as e:

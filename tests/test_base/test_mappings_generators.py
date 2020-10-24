@@ -25,7 +25,7 @@ class MappingsGeneratorTestCase(GeneratorTestCase):
     def test_mappings_in_metamodel(self):
         """ Generate a copy of mappyings.py """
         self.single_file_generator('py', PythonGenerator, subdir='includes', filtr=metadata_filter,
-                                   comparator=compare_python)
+                                   comparator=lambda exp, act: compare_python(exp, act, self.env.expected_path('includes.py')))
 
     @unittest.skipIf(SKIP_MARKDOWN_VALIDATION, SKIP_MARKDOWN_VALIDATION_REASON)
     def test_mappings_markdown(self):

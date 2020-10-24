@@ -25,7 +25,8 @@ class PatternTestCase(TestEnvironmentTestCase):
         env.generate_single_file(f'{self.testdir}/{file}.py',
                                  lambda: PythonGenerator(env.input_path(self.testdir, f'{file}.yaml'),
                                                          importmap=env.import_map, mergeimports=False).serialize(),
-                                 comparator=compare_python, value_is_returned=True)
+                                 comparator=lambda exp, act: compare_python(exp, act, self.env.expected_path(f'{self.testdir}/{file}.py')),
+                                 value_is_returned=True)
         module = compile_python(env.expected_path(self.testdir, f"{file}.py"))
         d1 = yaml.load(StringIO(d1_test), yaml.loader.SafeLoader)
         dev1 = module.DiskDevice(**d1)

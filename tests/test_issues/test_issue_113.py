@@ -16,7 +16,8 @@ class Issue113TestCase(TestEnvironmentTestCase):
         """ Make sure that types are generated as part of the output """
         env.generate_single_file('issue_113.py',
                                  lambda: PythonGenerator(env.input_path('issue_113.yaml')).serialize(),
-                                 comparator=compare_python, value_is_returned=True)
+                                 comparator=lambda exp, act: compare_python(exp, act, 'issue_113.py'),
+                                 value_is_returned=True)
         module = compile_python(env.expected_path('issue_113.py'))
         example = module.TestClass(test_attribute_2="foo")
         assert hasattr(example, "test_attribute_2")
@@ -27,7 +28,8 @@ class Issue113TestCase(TestEnvironmentTestCase):
 
         env.generate_single_file('issue_113.json',
                                  lambda: PythonGenerator(env.input_path('issue_113.yaml')).serialize(),
-                                 comparator=compare_python, value_is_returned=True)
+                                 comparator=lambda exp, act: compare_python(exp, act, 'issue_113.py'),
+                                 value_is_returned=True)
 
         def output_generator(dirname) -> None:
             with open(os.path.join(dirname, 'issue_113.json'), 'w') as f:

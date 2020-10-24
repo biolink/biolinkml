@@ -20,14 +20,16 @@ class PythonTestCase(TestEnvironmentTestCase):
         """ Build includes/types.py """
         env.generate_single_file('includes/types.py',
                                  lambda: PythonGenerator(env.types_yaml, importmap=env.import_map).serialize(),
-                                 value_is_returned=True, filtr=metadata_filter, comparator=compare_python,
+                                 value_is_returned=True, filtr=metadata_filter,
+                                 comparator=lambda exp, act: compare_python(exp, act, self.env.expected_path('includes/types.py')),
                                  use_testing_root=True)
 
     def test_mapping_python(self):
         """ Build includes/mappings.py """
         env.generate_single_file('includes/mappings.py',
                                  lambda: PythonGenerator(env.mapping_yaml, importmap=env.import_map).serialize(),
-                                 value_is_returned=True, filtr=metadata_filter, comparator=compare_python,
+                                 value_is_returned=True, filtr=metadata_filter,
+                                 comparator=lambda exp, act: compare_python(exp, act, self.env.expected_path('includes/mappings.py')),
                                  use_testing_root=True)
 
     def test_extensions_python(self):
@@ -35,7 +37,8 @@ class PythonTestCase(TestEnvironmentTestCase):
         env.generate_single_file('includes/extensions.py',
                                  lambda: PythonGenerator(env.input_path('includes', 'extensions.yaml'),
                                                          importmap=env.import_map).serialize(),
-                                 value_is_returned=True, filtr=metadata_filter, comparator=compare_python,
+                                 value_is_returned=True, filtr=metadata_filter,
+                                 comparator=lambda exp, act: compare_python(exp, act, self.env.expected_path('includes/extensions.py')),
                                  use_testing_root=True)
 
     def test_annotations_python(self):
@@ -43,14 +46,16 @@ class PythonTestCase(TestEnvironmentTestCase):
         env.generate_single_file('includes/annotations.py',
                                  lambda: PythonGenerator(env.input_path('includes', 'annotations.yaml'),
                                                          importmap=env.import_map).serialize(),
-                                 value_is_returned=True, filtr=metadata_filter, comparator=compare_python,
+                                 value_is_returned=True, filtr=metadata_filter,
+                                 comparator=lambda exp, act: compare_python(exp, act, self.env.expected_path('includes/annotations.py')),
                                  use_testing_root=True)
 
     def test_metamodel_python(self):
         """ Build meta.py """
         env.generate_single_file('meta.py',
                                  lambda: PythonGenerator(env.meta_yaml, importmap=env.import_map).serialize(),
-                                 value_is_returned=True, filtr=metadata_filter, comparator=compare_python,
+                                 value_is_returned=True, filtr=metadata_filter,
+                                 comparator=lambda exp, act: compare_python(exp, act, self.env.expected_path('meta.py')),
                                  use_testing_root=True)
 
 

@@ -20,22 +20,22 @@ class Issue260TestCase(TestEnvironmentTestCase):
             with open(init_path, 'w'):
                 pass
 
-        env.generate_single_file(f'{test_dir}/issue_260a.py',
-                                 lambda: PythonGenerator(env.input_path(test_dir, 'issue_260a.yaml'),
+        fp = f'{test_dir}/issue_260a.py'
+        env.generate_single_file(fp, lambda: PythonGenerator(env.input_path(test_dir, 'issue_260a.yaml'),
                                                          importmap=env.import_map, mergeimports=False).serialize(),
-                                 comparator=compare_python, value_is_returned=True)
-        env.generate_single_file(f'{test_dir}/issue_260b.py',
-                                 lambda: PythonGenerator(env.input_path(test_dir, 'issue_260b.yaml'),
+                                 comparator=lambda expected, actual: compare_python(expected, actual, env.expected_path(fp)), value_is_returned=True)
+        fp = f'{test_dir}/issue_260b.py'
+        env.generate_single_file(fp, lambda: PythonGenerator(env.input_path(test_dir, 'issue_260b.yaml'),
                                                          importmap=env.import_map, mergeimports=False).serialize(),
-                                 comparator=compare_python, value_is_returned=True)
-        env.generate_single_file(f'{test_dir}/issue_260c.py',
-                                 lambda: PythonGenerator(env.input_path(test_dir, 'issue_260c.yaml'),
+                                 comparator=lambda expected, actual: compare_python(expected, actual, env.expected_path(fp)), value_is_returned=True)
+        fp = f'{test_dir}/issue_260c.py'
+        env.generate_single_file(fp, lambda: PythonGenerator(env.input_path(test_dir, 'issue_260c.yaml'),
                                                          importmap=env.import_map, mergeimports=False).serialize(),
-                                 comparator=compare_python, value_is_returned=True)
-        env.generate_single_file(f'{test_dir}/issue_260.py',
-                                 lambda: PythonGenerator(env.input_path(test_dir, 'issue_260.yaml'),
+                                 comparator=lambda expected, actual: compare_python(expected, actual, env.expected_path(fp)), value_is_returned=True)
+        fp = f'{test_dir}/issue_260.py'
+        env.generate_single_file(fp, lambda: PythonGenerator(env.input_path(test_dir, 'issue_260.yaml'),
                                                          importmap=env.import_map, mergeimports=False).serialize(),
-                                 comparator=compare_python, value_is_returned=True)
+                                 comparator=lambda expected, actual: compare_python(expected, actual, env.expected_path(fp)), value_is_returned=True)
 
 
 if __name__ == '__main__':

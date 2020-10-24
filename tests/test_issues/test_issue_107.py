@@ -11,7 +11,8 @@ class PrefixTestCase(TestEnvironmentTestCase):
     def test_prefix(self):
         env.generate_single_file('issue_107.py',
                                  lambda: PythonGenerator(env.input_path('issue_107.yaml')).serialize(),
-                                 comparator=compare_python, value_is_returned=True)
+                                 comparator=lambda exp, act: compare_python(exp, act, self.env.expected_path('issue_107.py')),
+                                 value_is_returned=True)
 
 
 if __name__ == '__main__':

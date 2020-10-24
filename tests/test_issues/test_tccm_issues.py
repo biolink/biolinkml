@@ -23,8 +23,9 @@ class TCCMTestCase(TestEnvironmentTestCase):
         """ Slot_usages without parents don't generate slots period. """
         env.generate_single_file('issue_ttcm_1.py',
                                  lambda: PythonGenerator(env.input_path('issue_tccm', 'resourcedescription.yaml'),
-                                                         importmap=env.import_map, mergeimports=False).serialize(),
-                                 comparator=compare_python, value_is_returned=True)
+                                                         importmap=env.import_map, mergeimports=True).serialize(),
+                                 comparator=lambda exp, act: compare_python(exp, act, env.expected_path('issue_ttcm_1.py')),
+                                 value_is_returned=True)
 
     def test_mapping_prefix(self):
         """ Prefix validation fails in  """
@@ -44,11 +45,13 @@ class TCCMTestCase(TestEnvironmentTestCase):
         env.generate_single_file('importee.py',
                                  lambda: PythonGenerator(env.input_path('issue_tccm', 'importee.yaml'),
                                                          importmap=env.import_map, mergeimports=False).serialize(),
-                                 comparator=compare_python, value_is_returned=True)
+                                 comparator=lambda exp, act: compare_python(exp, act, env.expected_path('importee.py')),
+                                 value_is_returned=True)
         env.generate_single_file('importer.py',
                                  lambda: PythonGenerator(env.input_path('issue_tccm', 'importer.yaml'),
                                                          importmap=env.import_map, mergeimports=False).serialize(),
-                                 comparator=compare_python, value_is_returned=True)
+                                 comparator=lambda exp, act: compare_python(exp, act, env.expected_path('importer.py')),
+                                 value_is_returned=True)
 
     def test_minimal_model(self):
         """ Test to make the absolute minimal model work """

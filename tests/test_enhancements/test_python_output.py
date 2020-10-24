@@ -82,7 +82,8 @@ class PythonOutputTestCase(TestEnvironmentTestCase):
         env.generate_single_file(f'{test_dir}/{test_name}.py',
                                  lambda: PythonGenerator(env.input_path(test_dir, f'{test_name}.yaml'),
                                                          importmap=env.import_map, mergeimports=False).serialize(),
-                                 comparator=compare_python, value_is_returned=True)
+                                 comparator=lambda exp, act: compare_python(exp, act, self.env.expected_path(f'{test_dir}/{test_name}.py')),
+                                 value_is_returned=True)
 
     def test_python_lists_and_keys(self):
         """ description """
