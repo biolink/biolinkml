@@ -61,7 +61,8 @@
                "type": "string"
             },
             "value": {
-               "type": "boolean"
+               "description": "the actual annotation",
+               "type": "string"
             }
          },
          "required": [

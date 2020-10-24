@@ -18,7 +18,7 @@
     meta:default_curi_maps "semweb_context" ;
     meta:default_prefix "ex" ;
     meta:default_range <http://example.org/string> ;
-    meta:generation_date "2020-10-23 17:01"^^xsd:dateTime ;
+    meta:generation_date "2020-10-24 16:01"^^xsd:dateTime ;
     meta:id <http://example.org/tests/issue167b> ;
     meta:imports biolinkml:annotations,
         biolinkml:extensions,
@@ -28,13 +28,12 @@
             meta:prefix_reference <http://example.org/> ],
         [ meta:prefix_prefix "biolinkml" ;
             meta:prefix_reference biolinkml: ] ;
-    meta:slots <http://example.org/annotation_extension_value>,
-        <http://example.org/annotations>,
+    meta:slots <http://example.org/annotations>,
         <http://example.org/extension_tag>,
         <http://example.org/extension_value>,
         <http://example.org/extensions> ;
     meta:source_file "issue_167b.yaml" ;
-    meta:source_file_date "Fri Oct 23 16:59:17 2020"^^xsd:dateTime ;
+    meta:source_file_date "Sat Oct 24 15:59:55 2020"^^xsd:dateTime ;
     meta:source_file_size 835 ;
     meta:types <http://example.org/boolean>,
         <http://example.org/date>,
@@ -49,6 +48,14 @@
         <http://example.org/time>,
         <http://example.org/uri>,
         <http://example.org/uriorcurie> .
+
+<http://example.org/boolean> a meta:TypeDefinition ;
+    skos:definition "A binary (true or false) value" ;
+    skos:inScheme biolinkml:types ;
+    meta:base "Bool" ;
+    meta:definition_uri metatype:Boolean ;
+    meta:imported_from "biolinkml:types" ;
+    meta:uri xsd:boolean .
 
 <http://example.org/date> a meta:TypeDefinition ;
     skos:definition "a date (year, month and day) in an idealized calendar" ;
@@ -140,28 +147,6 @@
     meta:repr "str" ;
     meta:uri xsd:anyURI .
 
-<http://example.org/annotation_extension_value> a meta:SlotDefinition ;
-    skos:inScheme <http://example.org/tests/issue167b> ;
-    meta:alias "value" ;
-    meta:domain <http://example.org/Annotation> ;
-    meta:domain_of <http://example.org/Annotation> ;
-    meta:imported_from "biolinkml:annotations" ;
-    meta:is_a <http://example.org/extension_value> ;
-    meta:is_usage_slot true ;
-    meta:owner <http://example.org/Annotation> ;
-    meta:range <http://example.org/boolean> ;
-    meta:required true ;
-    meta:slot_uri <http://example.org/value> ;
-    meta:usage_slot_name "extension_value" .
-
-<http://example.org/boolean> a meta:TypeDefinition ;
-    skos:definition "A binary (true or false) value" ;
-    skos:inScheme biolinkml:types ;
-    meta:base "Bool" ;
-    meta:definition_uri metatype:Boolean ;
-    meta:imported_from "biolinkml:types" ;
-    meta:uri xsd:boolean .
-
 <http://example.org/uriorcurie> a meta:TypeDefinition ;
     skos:definition "a URI or a CURIE" ;
     skos:inScheme biolinkml:types ;
@@ -170,6 +155,19 @@
     meta:imported_from "biolinkml:types" ;
     meta:repr "str" ;
     meta:uri xsd:anyURI .
+
+<http://example.org/Annotation> a meta:ClassDefinition ;
+    skos:definition "a tag/value pair with the semantics of OWL Annotation" ;
+    skos:inScheme biolinkml:annotations ;
+    meta:class_uri meta:Annotation ;
+    meta:definition_uri meta:Annotation ;
+    meta:imported_from "biolinkml:annotations" ;
+    meta:is_a <http://example.org/Extension> ;
+    meta:mixins <http://example.org/Annotatable> ;
+    meta:slots <http://example.org/annotations>,
+        <http://example.org/extension_tag>,
+        <http://example.org/extension_value>,
+        <http://example.org/extensions> .
 
 <http://example.org/MyClass> a meta:ClassDefinition ;
     skos:definition "Annotations as tag value pairs. Note that altLabel is defined in the default namespace, not in the SKOS namespace" ;
@@ -187,11 +185,11 @@
     skos:definition "-> This form of annotations is a tag/value format, which allows annotations to be annotated.  Note, however, that the annotation source is NOT a CURIE, rather just a string." ;
     skos:inScheme <http://example.org/tests/issue167b> ;
     meta:annotations [ a meta:Annotation ;
-            skos:example "prefLabel" ;
-            meta:tag <http://example.org/tag> ],
-        [ a meta:Annotation ;
             skos:example "a preferred label" ;
             meta:tag <http://example.org/value> ],
+        [ a meta:Annotation ;
+            skos:example "prefLabel" ;
+            meta:tag <http://example.org/tag> ],
         [ a meta:Annotation ;
             skos:example "{'source': 'PMID:12345'}" ;
             meta:tag <http://example.org/annotations> ] ;
@@ -232,15 +230,6 @@
     meta:imported_from "biolinkml:types" ;
     meta:uri xsd:string .
 
-<http://example.org/Annotatable> a meta:ClassDefinition ;
-    skos:definition "mixin for classes that support annotations" ;
-    skos:inScheme biolinkml:annotations ;
-    meta:class_uri meta:Annotatable ;
-    meta:definition_uri meta:Annotatable ;
-    meta:imported_from "biolinkml:annotations" ;
-    meta:mixin true ;
-    meta:slots <http://example.org/annotations> .
-
 <http://example.org/Extensible> a meta:ClassDefinition ;
     skos:definition "mixin for classes that support extension" ;
     skos:inScheme biolinkml:extensions ;
@@ -265,6 +254,15 @@
     meta:range <http://example.org/Annotation> ;
     meta:slot_uri meta:annotations .
 
+<http://example.org/Annotatable> a meta:ClassDefinition ;
+    skos:definition "mixin for classes that support annotations" ;
+    skos:inScheme biolinkml:annotations ;
+    meta:class_uri meta:Annotatable ;
+    meta:definition_uri meta:Annotatable ;
+    meta:imported_from "biolinkml:annotations" ;
+    meta:mixin true ;
+    meta:slots <http://example.org/annotations> .
+
 <http://example.org/extensions> a meta:SlotDefinition ;
     skos:definition "a tag/text tuple attached to an arbitrary element" ;
     skos:inScheme biolinkml:extensions ;
@@ -278,18 +276,6 @@
     meta:owner <http://example.org/Extensible> ;
     meta:range <http://example.org/Extension> ;
     meta:slot_uri meta:extensions .
-
-<http://example.org/Annotation> a meta:ClassDefinition ;
-    skos:definition "a tag/value pair with the semantics of OWL Annotation" ;
-    skos:inScheme biolinkml:annotations ;
-    meta:class_uri meta:Annotation ;
-    meta:definition_uri meta:Annotation ;
-    meta:imported_from "biolinkml:annotations" ;
-    meta:is_a <http://example.org/Extension> ;
-    meta:slots <http://example.org/annotation_extension_value>,
-        <http://example.org/annotations>,
-        <http://example.org/extension_tag>,
-        <http://example.org/extensions> .
 
 <http://example.org/Extension> a meta:ClassDefinition ;
     skos:definition "a tag/value pair used to add non-model information to an entry" ;

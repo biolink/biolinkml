@@ -8,6 +8,9 @@ fields:
 - id: tag
   description: a tag associated with an extension
   display_name: extension_tag
+- id: value
+  description: the actual annotation
+  display_name: extension_value
 - id: extensions
   description: a tag/text tuple attached to an arbitrary element
   display_name: extensions
@@ -16,5 +19,3 @@ fields:
   description: a collection of tag/text tuples with the semantics of OWL Annotation
   display_name: annotations
   cardinality: multi
-- id: value
-  display_name: annotation_extension_value

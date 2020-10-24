@@ -196,21 +196,6 @@ slots:
     owner: extension
     domain_of:
     - extension
-  annotation_extension_value:
-    name: annotation_extension_value
-    from_schema: http://example.org/tests/issue167b
-    imported_from: biolinkml:annotations
-    is_a: extension_value
-    domain: annotation
-    range: boolean
-    slot_uri: ex:value
-    required: true
-    alias: value
-    owner: annotation
-    domain_of:
-    - annotation
-    is_usage_slot: true
-    usage_slot_name: extension_value
 classes:
   my class:
     name: my class
@@ -246,15 +231,13 @@ classes:
     from_schema: https://w3id.org/biolink/biolinkml/annotations
     imported_from: biolinkml:annotations
     is_a: extension
+    mixins:
+    - annotatable
     slots:
     - extension_tag
+    - extension_value
     - extensions
     - annotations
-    - annotation_extension_value
-    slot_usage:
-      extension_value:
-        name: extension_value
-        range: boolean
     class_uri: meta:Annotation
   annotatable:
     name: annotatable
@@ -289,6 +272,6 @@ classes:
     class_uri: meta:Extensible
 metamodel_version: 1.6.0
 source_file: issue_167b.yaml
-source_file_date: Fri Oct 23 16:59:17 2020
+source_file_date: Sat Oct 24 15:59:55 2020
 source_file_size: 835
-generation_date: 2020-10-23 17:01
+generation_date: 2020-10-24 16:01

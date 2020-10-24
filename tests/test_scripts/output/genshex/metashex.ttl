@@ -20,15 +20,15 @@
                 shex:min 0 ;
                 shex:predicate rdf:type ;
                 shex:valueExpr [ a shex:NodeConstraint ;
-                        shex:values ( <https://w3id.org/biolink/biolinkml/meta/Extension> ) ] ] [ a shex:TripleConstraint ;
+                        shex:values ( <https://w3id.org/biolink/biolinkml/meta/Extension> ) ] ] <https://w3id.org/biolink/biolinkml/meta/Annotatable_tes> [ a shex:TripleConstraint ;
+                shex:min 0 ;
+                shex:predicate rdf:type ;
+                shex:valueExpr [ a shex:NodeConstraint ;
+                        shex:values ( <https://w3id.org/biolink/biolinkml/meta/Annotatable> ) ] ] [ a shex:TripleConstraint ;
                 shex:max -1 ;
                 shex:min 0 ;
                 shex:predicate <https://w3id.org/biolink/biolinkml/meta/annotations> ;
-                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/Annotation> ] [ a shex:TripleConstraint ;
-                shex:max 1 ;
-                shex:min 1 ;
-                shex:predicate <https://w3id.org/biolink/biolinkml/meta/value> ;
-                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/types/Boolean> ] ) .
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/Annotation> ] ) .
 
 <https://w3id.org/biolink/biolinkml/meta/ClassDefinition_tes> a shex:EachOf ;
     shex:expressions ( <https://w3id.org/biolink/biolinkml/meta/Definition_tes> [ a shex:TripleConstraint ;
@@ -390,12 +390,6 @@
 <https://w3id.org/biolink/biolinkml/meta/types/Time> a shex:NodeConstraint ;
     shex:datatype xsd:dateTime .
 
-<https://w3id.org/biolink/biolinkml/meta/Annotatable_tes> a shex:TripleConstraint ;
-    shex:max -1 ;
-    shex:min 0 ;
-    shex:predicate <https://w3id.org/biolink/biolinkml/meta/annotations> ;
-    shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/Annotation> .
-
 <https://w3id.org/biolink/biolinkml/meta/Extensible_tes> a shex:TripleConstraint ;
     shex:max -1 ;
     shex:min 0 ;
@@ -426,14 +420,11 @@
                         shex:valueExpr [ a shex:NodeConstraint ;
                                 shex:values ( <https://w3id.org/biolink/biolinkml/meta/AltDescription> ) ] ] ) ] .
 
-<https://w3id.org/biolink/biolinkml/meta/Annotatable> a shex:Shape ;
-    shex:closed false ;
-    shex:expression [ a shex:EachOf ;
-            shex:expressions ( <https://w3id.org/biolink/biolinkml/meta/Annotatable_tes> [ a shex:TripleConstraint ;
-                        shex:min 0 ;
-                        shex:predicate rdf:type ;
-                        shex:valueExpr [ a shex:NodeConstraint ;
-                                shex:values ( <https://w3id.org/biolink/biolinkml/meta/Annotatable> ) ] ] ) ] .
+<https://w3id.org/biolink/biolinkml/meta/Annotatable_tes> a shex:TripleConstraint ;
+    shex:max -1 ;
+    shex:min 0 ;
+    shex:predicate <https://w3id.org/biolink/biolinkml/meta/annotations> ;
+    shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/Annotation> .
 
 <https://w3id.org/biolink/biolinkml/meta/Definition_tes> a shex:EachOf ;
     shex:expressions ( <https://w3id.org/biolink/biolinkml/meta/Element_tes> [ a shex:TripleConstraint ;
@@ -526,6 +517,15 @@
                         shex:predicate rdf:type ;
                         shex:valueExpr [ a shex:NodeConstraint ;
                                 shex:values ( <https://w3id.org/biolink/biolinkml/meta/SchemaDefinition> ) ] ] ) ] .
+
+<https://w3id.org/biolink/biolinkml/meta/Annotatable> a shex:Shape ;
+    shex:closed false ;
+    shex:expression [ a shex:EachOf ;
+            shex:expressions ( <https://w3id.org/biolink/biolinkml/meta/Annotatable_tes> [ a shex:TripleConstraint ;
+                        shex:min 0 ;
+                        shex:predicate rdf:type ;
+                        shex:valueExpr [ a shex:NodeConstraint ;
+                                shex:values ( <https://w3id.org/biolink/biolinkml/meta/Annotatable> ) ] ] ) ] .
 
 <https://w3id.org/biolink/biolinkml/meta/types/Integer> a shex:NodeConstraint ;
     shex:datatype xsd:integer .

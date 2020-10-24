@@ -8,9 +8,9 @@ message AltDescription
 message Annotation
  {
   tag Uriorcurie = 1
-  repeated extensions Extension = 2
-  repeated annotations Annotation = 3
-  value Boolean = 4
+  value String = 2
+  repeated extensions Extension = 3
+  repeated annotations Annotation = 4
  }
 // the definition of a class or interface
 message ClassDefinition

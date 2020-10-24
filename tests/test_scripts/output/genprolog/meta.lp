@@ -26,11 +26,6 @@ domain(alt_descriptions, element).
 range(alt_descriptions, alt_description).
 has_uri(alt_descriptions, 'http://w3id.org/biolink/vocab/alt_descriptions').
 multivalued(alt_descriptions).
-slot(value).
-domain(value, annotation).
-range(value, boolean).
-has_uri(value, 'http://w3id.org/biolink/vocab/value').
-required(value).
 slot(annotations).
 domain(annotations, annotatable).
 range(annotations, annotation).
@@ -513,6 +508,7 @@ slotrange(annotation).
 multivalued_in(annotations, annotatable).
 range_in(annotations, annotation, annotatable).
 class(annotation).
+mixin(annotation, annotatable).
 is_a(annotation, extension).
 has_uri(annotation, 'http://w3id.org/biolink/vocab/Annotation').
 class_slot(annotation, tag).
@@ -520,6 +516,11 @@ required(tag).
 slotrange(uriorcurie).
 required_in(tag, annotation).
 range_in(tag, uriorcurie, annotation).
+class_slot(annotation, value).
+required(value).
+slotrange(string).
+required_in(value, annotation).
+range_in(value, string, annotation).
 class_slot(annotation, extensions).
 required(extensions).
 slotrange(extension).
@@ -530,11 +531,6 @@ required(annotations).
 slotrange(annotation).
 multivalued_in(annotations, annotation).
 range_in(annotations, annotation, annotation).
-class_slot(annotation, value).
-required(value).
-slotrange(boolean).
-required_in(value, annotation).
-range_in(value, boolean, annotation).
 class(class_definition).
 is_a(class_definition, definition).
 has_uri(class_definition, 'http://w3id.org/biolink/vocab/ClassDefinition').

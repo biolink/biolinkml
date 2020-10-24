@@ -16,8 +16,8 @@ URI: [meta:extension_value](https://w3id.org/biolink/biolinkml/meta/extension_va
 
 ## Children
 
- *  [annotation➞value](annotation_extension_value.md)
 
 ## Used by
 
+ * [Annotation](Annotation.md)
  * [Extension](Extension.md)

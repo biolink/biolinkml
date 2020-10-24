@@ -1,6 +1,6 @@
 
 Classes: 15
-	Referenced by: 8 classes, 105 slots, 0 types 
+	Referenced by: 8 classes, 104 slots, 0 types 
 	Root: 8
 	Leaf: 12
 	Standalone: 14
@@ -8,8 +8,8 @@ Classes: 15
 	Undeclared mixin: 0
 	Abstract: 2
 
-Slots: 113
-	Referenced by: 15 classes, 14 slots, 0 types 
+Slots: 112
+	Referenced by: 15 classes, 13 slots, 0 types 
 	Root: 99
 	Leaf: 106
 	Standalone: 114
@@ -27,7 +27,7 @@ Slots: 113
 	Domain unspecified: 8
 	Ranges:
 		Type:
-			boolean: 14
+			boolean: 13
 			datetime: 4
 			integer: 3
 			ncname: 6
@@ -49,7 +49,7 @@ Slots: 113
 			type_definition: 3
 
 Types: 13
-	Referenced by: 0 classes, 80 slots, 0 types 
+	Referenced by: 0 classes, 79 slots, 0 types 
 	Bases:
 		Bool:
 			boolean

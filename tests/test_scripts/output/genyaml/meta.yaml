@@ -1792,21 +1792,6 @@ slots:
     - class_definition
     is_usage_slot: true
     usage_slot_name: apply_to
-  annotation_extension_value:
-    name: annotation_extension_value
-    from_schema: https://w3id.org/biolink/biolinkml/meta
-    imported_from: biolinkml:annotations
-    is_a: extension_value
-    domain: annotation
-    range: boolean
-    slot_uri: meta:value
-    required: true
-    alias: value
-    owner: annotation
-    domain_of:
-    - annotation
-    is_usage_slot: true
-    usage_slot_name: extension_value
 classes:
   element:
     name: element
@@ -2246,15 +2231,13 @@ classes:
     from_schema: https://w3id.org/biolink/biolinkml/annotations
     imported_from: biolinkml:annotations
     is_a: extension
+    mixins:
+    - annotatable
     slots:
     - extension_tag
+    - extension_value
     - extensions
     - annotations
-    - annotation_extension_value
-    slot_usage:
-      extension_value:
-        name: extension_value
-        range: boolean
     class_uri: meta:Annotation
   annotatable:
     name: annotatable
@@ -2268,7 +2251,7 @@ classes:
     class_uri: meta:Annotatable
 metamodel_version: 1.6.0
 source_file: meta.yaml
-source_file_date: Fri Oct 23 16:59:17 2020
+source_file_date: Sat Oct 24 15:59:55 2020
 source_file_size: 28904
-generation_date: 2020-10-23 17:02
+generation_date: 2020-10-24 16:02
 

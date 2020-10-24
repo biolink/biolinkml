@@ -59,7 +59,6 @@ A metamodel for defining biolink related schemas
  * [examples](examples.md) - example usages of an element
  * [extension➞tag](extension_tag.md) - a tag associated with an extension
  * [extension➞value](extension_value.md) - the actual annotation
-    * [annotation➞value](annotation_extension_value.md)
  * [extensions](extensions.md) - a tag/text tuple attached to an arbitrary element
     * [annotations](annotations.md) - a collection of tag/text tuples with the semantics of OWL Annotation
  * [from_schema](from_schema.md) - id of the schema that defined the element

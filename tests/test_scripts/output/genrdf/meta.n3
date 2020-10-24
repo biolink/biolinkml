@@ -46,36 +46,35 @@ meta:metamodel a meta:SchemaDefinition ;
         "rdfs",
         "skos",
         "xsd" ;
-    meta:generation_date "2020-10-23 17:01"^^xsd:dateTime ;
+    meta:generation_date "2020-10-24 16:02"^^xsd:dateTime ;
     meta:id biolinkml:meta ;
     meta:imports biolinkml:annotations,
         biolinkml:extensions,
         biolinkml:mappings,
         biolinkml:types ;
     meta:metamodel_version "1.6.0" ;
-    meta:prefixes [ meta:prefix_prefix "skos" ;
-            meta:prefix_reference skos: ],
-        [ meta:prefix_prefix "OIO" ;
-            meta:prefix_reference OIO: ],
-        [ meta:prefix_prefix "pav" ;
-            meta:prefix_reference pav: ],
-        [ meta:prefix_prefix "bibo" ;
-            meta:prefix_reference bibo: ],
-        [ meta:prefix_prefix "schema" ;
+    meta:prefixes [ meta:prefix_prefix "schema" ;
             meta:prefix_reference schema: ],
         [ meta:prefix_prefix "meta" ;
             meta:prefix_reference meta: ],
+        [ meta:prefix_prefix "bibo" ;
+            meta:prefix_reference bibo: ],
+        [ meta:prefix_prefix "skos" ;
+            meta:prefix_reference skos: ],
         [ meta:prefix_prefix "biolinkml" ;
             meta:prefix_reference biolinkml: ],
         [ meta:prefix_prefix "oslc" ;
-            meta:prefix_reference oslc: ] ;
+            meta:prefix_reference oslc: ],
+        [ meta:prefix_prefix "pav" ;
+            meta:prefix_reference pav: ],
+        [ meta:prefix_prefix "OIO" ;
+            meta:prefix_reference OIO: ] ;
     meta:slots meta:abstract,
         meta:alias,
         meta:aliases,
         meta:alt_description_source,
         meta:alt_description_text,
         meta:alt_descriptions,
-        meta:annotation_extension_value,
         meta:annotations,
         meta:apply_to,
         meta:attributes,
@@ -183,7 +182,7 @@ meta:metamodel a meta:SchemaDefinition ;
         meta:values_from,
         meta:version ;
     meta:source_file "meta.yaml" ;
-    meta:source_file_date "Fri Oct 23 16:59:17 2020"^^xsd:dateTime ;
+    meta:source_file_date "Sat Oct 24 15:59:55 2020"^^xsd:dateTime ;
     meta:source_file_size 28904 ;
     meta:subsets meta:owl ;
     meta:types meta:boolean,
@@ -254,20 +253,6 @@ meta:time a meta:TypeDefinition ;
     meta:imported_from "biolinkml:types" ;
     meta:repr "str" ;
     meta:uri xsd:dateTime .
-
-meta:annotation_extension_value a meta:SlotDefinition ;
-    skos:inScheme biolinkml:meta ;
-    meta:alias "value" ;
-    meta:domain meta:Annotation ;
-    meta:domain_of meta:Annotation ;
-    meta:imported_from "biolinkml:annotations" ;
-    meta:is_a meta:extension_value ;
-    meta:is_usage_slot true ;
-    meta:owner meta:Annotation ;
-    meta:range meta:boolean ;
-    meta:required true ;
-    meta:slot_uri meta:value ;
-    meta:usage_slot_name "extension_value" .
 
 meta:class_definition_apply_to a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
@@ -1180,6 +1165,30 @@ meta:usage_slot_name a meta:SlotDefinition ;
     meta:readonly "filled in by the loader" ;
     meta:slot_uri meta:usage_slot_name .
 
+meta:value a meta:SlotDefinition ;
+    skos:definition "example value" ;
+    skos:inScheme biolinkml:meta ;
+    skos:mappingRelation skos:example ;
+    meta:definition_uri meta:value ;
+    meta:domain meta:Example ;
+    meta:domain_of meta:Example ;
+    meta:owner meta:Example ;
+    meta:range meta:string ;
+    meta:slot_uri skos:example .
+
+meta:Annotation a meta:ClassDefinition ;
+    skos:definition "a tag/value pair with the semantics of OWL Annotation" ;
+    skos:inScheme biolinkml:annotations ;
+    meta:class_uri meta:Annotation ;
+    meta:definition_uri meta:Annotation ;
+    meta:imported_from "biolinkml:annotations" ;
+    meta:is_a meta:Extension ;
+    meta:mixins meta:Annotatable ;
+    meta:slots meta:annotations,
+        meta:extension_tag,
+        meta:extension_value,
+        meta:extensions .
+
 meta:datetime a meta:TypeDefinition ;
     skos:definition "The combination of a date and time" ;
     skos:inScheme biolinkml:types ;
@@ -1209,17 +1218,6 @@ meta:uri a meta:TypeDefinition ;
     meta:imported_from "biolinkml:types" ;
     meta:repr "str" ;
     meta:uri xsd:anyURI .
-
-meta:value a meta:SlotDefinition ;
-    skos:definition "example value" ;
-    skos:inScheme biolinkml:meta ;
-    skos:mappingRelation skos:example ;
-    meta:definition_uri meta:value ;
-    meta:domain meta:Example ;
-    meta:domain_of meta:Example ;
-    meta:owner meta:Example ;
-    meta:range meta:string ;
-    meta:slot_uri skos:example .
 
 meta:SubsetDefinition a meta:ClassDefinition ;
     skos:definition "the name and description of a subset" ;
@@ -1342,15 +1340,6 @@ meta:values_from a meta:SlotDefinition ;
     meta:range meta:uriorcurie ;
     meta:slot_uri meta:values_from .
 
-meta:Annotatable a meta:ClassDefinition ;
-    skos:definition "mixin for classes that support annotations" ;
-    skos:inScheme biolinkml:annotations ;
-    meta:class_uri meta:Annotatable ;
-    meta:definition_uri meta:Annotatable ;
-    meta:imported_from "biolinkml:annotations" ;
-    meta:mixin true ;
-    meta:slots meta:annotations .
-
 meta:Extensible a meta:ClassDefinition ;
     skos:definition "mixin for classes that support extension" ;
     skos:inScheme biolinkml:extensions ;
@@ -1369,17 +1358,14 @@ meta:ncname a meta:TypeDefinition ;
     meta:repr "str" ;
     meta:uri xsd:string .
 
-meta:Annotation a meta:ClassDefinition ;
-    skos:definition "a tag/value pair with the semantics of OWL Annotation" ;
+meta:Annotatable a meta:ClassDefinition ;
+    skos:definition "mixin for classes that support annotations" ;
     skos:inScheme biolinkml:annotations ;
-    meta:class_uri meta:Annotation ;
-    meta:definition_uri meta:Annotation ;
+    meta:class_uri meta:Annotatable ;
+    meta:definition_uri meta:Annotatable ;
     meta:imported_from "biolinkml:annotations" ;
-    meta:is_a meta:Extension ;
-    meta:slots meta:annotation_extension_value,
-        meta:annotations,
-        meta:extension_tag,
-        meta:extensions .
+    meta:mixin true ;
+    meta:slots meta:annotations .
 
 meta:apply_to a meta:SlotDefinition ;
     skos:definition "Used to extend class or slot definitions. For example, if we have a core schema where a gene has two slots for identifier and symbol, and we have a specialized schema for my_organism where we wish to add a slot systematic_name, we can avoid subclassing by defining a class gene_my_organism, adding the slot to this class, and then adding an apply_to pointing to the gene class. The new slot will be 'injected into' the gene class." ;
@@ -1751,6 +1737,14 @@ meta:annotations a meta:SlotDefinition ;
     meta:range meta:Annotation ;
     meta:slot_uri meta:annotations .
 
+meta:boolean a meta:TypeDefinition ;
+    skos:definition "A binary (true or false) value" ;
+    skos:inScheme biolinkml:types ;
+    meta:base "Bool" ;
+    meta:definition_uri metatype:Boolean ;
+    meta:imported_from "biolinkml:types" ;
+    meta:uri xsd:boolean .
+
 meta:extensions a meta:SlotDefinition ;
     skos:definition "a tag/text tuple attached to an arbitrary element" ;
     skos:inScheme biolinkml:extensions ;
@@ -1781,14 +1775,6 @@ meta:owl a meta:SubsetDefinition ;
     skos:definition "Set of slots that appear in the OWL representation of a model" ;
     skos:inScheme biolinkml:meta ;
     meta:definition_uri meta:Owl .
-
-meta:boolean a meta:TypeDefinition ;
-    skos:definition "A binary (true or false) value" ;
-    skos:inScheme biolinkml:types ;
-    meta:base "Bool" ;
-    meta:definition_uri metatype:Boolean ;
-    meta:imported_from "biolinkml:types" ;
-    meta:uri xsd:boolean .
 
 meta:uriorcurie a meta:TypeDefinition ;
     skos:definition "a URI or a CURIE" ;

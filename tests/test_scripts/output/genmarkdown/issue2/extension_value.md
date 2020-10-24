@@ -16,8 +16,8 @@ extension ->  <sub>REQ</sub> [String](types/String.md)
 
 ## Children
 
- *  annotation_extension_value
 
 ## Used by
 
+ * annotation
  * extension

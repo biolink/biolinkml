@@ -7,10 +7,11 @@ mixin for classes that support annotations
 URI: [meta:Annotatable](https://w3id.org/biolink/biolinkml/meta/Annotatable)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Annotation],[Annotation]<annotations%200..*-++[Annotatable],[Element]uses%20-.->[Annotatable],[Element])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Annotation],[Annotation]<annotations%200..*-++[Annotatable],[Element]uses%20-.->[Annotatable],[Annotation]uses%20-.->[Annotatable],[Element])
 
 ## Mixin for
 
+ * [Annotation](Annotation.md) (mixin)  - a tag/value pair with the semantics of OWL Annotation
  * [Element](Element.md) (mixin)  - a named element in the model
 
 ## Referenced by class
