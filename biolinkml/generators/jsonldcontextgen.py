@@ -92,11 +92,11 @@ license: {be(self.schema.license)}
         class_def = {}
         cn = camelcase(cls.name)
         self.add_mappings(cls)
-        cls_prefix = self.namespaces.prefix_for(cls.class_uri)
-        if not self.default_ns or not cls_prefix or cls_prefix != self.default_ns:
-            class_def['@id'] = cls.class_uri
-            if cls_prefix:
-                self.add_prefix(cls_prefix)
+        cls_uri_prefix, cls_uri_suffix = self.namespaces.prefix_suffix(cls.class_uri)
+        if not self.default_ns or not cls_uri_prefix or cls_uri_prefix != self.default_ns:
+            class_def['@id'] = (cls_uri_prefix + ':' + cls_uri_suffix) if cls_uri_prefix else cls.class_uri
+            if cls_uri_prefix:
+                self.add_prefix(cls_uri_prefix)
         if class_def:
             self.slot_class_maps[cn] = class_def
 
@@ -136,7 +136,7 @@ license: {be(self.schema.license)}
         if ncname not in self.namespaces:
             self.logger.warning(f"Unrecognized prefix: {ncname}")
             self.namespaces[ncname] = f"http://example.org/UNKNOWN/{ncname}/"
-        self.emit_prefixes.add(ncname)
+        self.emit_prefixes.add(self.namespaces._cased_key(ncname))
 
     def add_mappings(self, defn: Definition) -> None:
         """
@@ -147,8 +147,8 @@ license: {be(self.schema.license)}
         for mapping in defn.mappings:
             if '://' in mapping:
                 mcurie = self.namespaces.curie_for(mapping)
-                self.logger.warning(f"No namespace defined for URI: {mapping}")
                 if mcurie is None:
+                    self.logger.warning(f"No namespace defined for URI: {mapping}")
                     return        # Absolute path - no prefix/name
                 else:
                     mapping = mcurie
