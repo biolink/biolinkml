@@ -21,9 +21,9 @@ class CuriePrefixTestCase(TestEnvironmentTestCase):
         env.generate_single_file(f'{tfn}.yaml',
                                  lambda: YAMLGenerator(env.input_path(f'{tfn}.yaml'), log_level=INFO).serialize(),
                                  filtr=yaml_filter, value_is_returned=True)
-        # env.generate_single_file(f'{tfn}.context.jsonld',
-        #                          lambda: ContextGenerator(env.input_path(f'{tfn}.yaml')).serialize(),
-        #                          filtr=ldcontext_metadata_filter, value_is_returned=True)
+        env.generate_single_file(f'{tfn}.context.jsonld',
+                                 lambda: ContextGenerator(env.input_path(f'{tfn}.yaml')).serialize(),
+                                 filtr=ldcontext_metadata_filter, value_is_returned=True)
 
 
 

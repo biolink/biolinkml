@@ -653,7 +653,8 @@ class SchemaLoader:
             self.check_prefix(cls.class_uri)
             # Class URI's are inserted into mappings -- see line ~#184
             for prefix in cls.mappings:
-                self.check_prefix(prefix)
+                if prefix != cls.class_uri:
+                    self.check_prefix(prefix)
             for prefix in cls.id_prefixes:
                 self.check_prefix(prefix)
 
