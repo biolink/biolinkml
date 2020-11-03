@@ -651,16 +651,25 @@ class SchemaLoader:
                 self.check_prefix(prefix)
         for cls in self.schema.classes.values():
             self.check_prefix(cls.class_uri)
+            # Class URI's are inserted into mappings -- see line ~#184
             for prefix in cls.mappings:
-                self.check_prefix(prefix)
+                if prefix != cls.class_uri:
+                    self.check_prefix(prefix)
             for prefix in cls.id_prefixes:
                 self.check_prefix(prefix)
 
-    def check_prefix(self, prefix: str) -> None:
-        prefix = self.namespaces.prefix_for(prefix)
-        if prefix and prefix not in self.namespaces:
-            self.logger.warning(f"{TypedNode.yaml_loc(prefix)}Unrecognized prefix: {prefix}")
-            self.namespaces[prefix] = f"http://example.org/UNKNOWN/{prefix}/"
+    def check_prefix(self, prefix_or_curie_or_uri: str) -> None:
+        prefix = self.namespaces.prefix_for(prefix_or_curie_or_uri, case_shift=False)
+        if prefix:
+            if prefix not in self.namespaces:
+                self.logger.warning(f"{TypedNode.yaml_loc(prefix_or_curie_or_uri)}Unrecognized prefix: {prefix}")
+                self.namespaces[prefix] = f"http://example.org/UNKNOWN/{prefix}/"
+            else:
+                case_adjusted_prefix = self.namespaces.prefix_for(prefix_or_curie_or_uri, case_shift=True)
+                if case_adjusted_prefix != prefix:
+                    self.logger.warning(f"{TypedNode.yaml_loc(prefix_or_curie_or_uri)}"
+                                        f"Prefix case mismatch - supplied: {prefix} "
+                                        f"expected: {case_adjusted_prefix}")
 
     @staticmethod
     def slot_name_for(slot: SlotDefinition) -> str:
