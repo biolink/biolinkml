@@ -1,0 +1,19 @@
+{
+   "_comments": "Auto generated from curie_prefix_matching.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2020-11-03 17:20\nSchema: curietest\n\nid: http://example.org/tests/curietest\ndescription: \nlicense: \n",
+   "@context": {
+      "type": "@type",
+      "p1": "http://example.org/prefixes/a/b/",
+      "p2": "http://example.org/prefixes/a/b/c/",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "@vocab": "http://example.org/tests/curietest/",
+      "C1": {
+         "@id": "p1:/c/c1"
+      },
+      "C2": {
+         "@id": "p2:/c2"
+      },
+      "C3": {
+         "@id": "p2:c3"
+      }
+   }
+}

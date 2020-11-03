@@ -1,0 +1,17 @@
+{
+   "_comments": "Auto generated from curie_case.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2020-11-03 17:20\nSchema: curiecase\n\nid: http://example.org/tests/curiecase\ndescription: \nlicense: \n",
+   "@context": {
+      "type": "@type",
+      "aBC": "http://example.org/abc#",
+      "@vocab": "http://example.org/tests/curiecase/",
+      "C1": {
+         "@id": "aBC:c1"
+      },
+      "C2": {
+         "@id": "aBC:t2"
+      },
+      "C3": {
+         "@id": "aBC:t3"
+      }
+   }
+}

@@ -1,5 +1,5 @@
 # Auto generated from biolink-model.yaml by namespacegen.py version: 0.9.0
-# Generation date: 2020-10-23 17:00
+# Generation date: 2020-11-03 17:19
 # Schema: Biolink-Model
 #
 # id: https://w3id.org/biolink/biolink-model
@@ -43,7 +43,7 @@ class BiolinkNameSpace:
         CurieNamespace('CL', 'http://purl.obolibrary.org/obo/CL_'),
         CurieNamespace('CLO', 'http://purl.obolibrary.org/obo/CLO_'),
         CurieNamespace('CTD', 'http://translator.ncats.nih.gov/CTD_'),
-        CurieNamespace('ClinVar', 'http://www.ncbi.nlm.nih.gov/clinvar/'),
+        CurieNamespace('ClinVar', 'http://identifiers.org/clinvar/'),
         CurieNamespace('ClinVarVariant', 'http://www.ncbi.nlm.nih.gov/clinvar/variation/'),
         CurieNamespace('DBSNP', 'http://identifiers.org/dbsnp/'),
         CurieNamespace('DOID', 'http://purl.obolibrary.org/obo/DOID_'),
@@ -88,7 +88,7 @@ class BiolinkNameSpace:
         CurieNamespace('MONDO', 'http://purl.obolibrary.org/obo/MONDO_'),
         CurieNamespace('MP', 'http://purl.obolibrary.org/obo/MP_'),
         CurieNamespace('MetaCyc', 'http://translator.ncats.nih.gov/MetaCyc_'),
-        CurieNamespace('NCBIGene', 'http://www.ncbi.nlm.nih.gov/gene/'),
+        CurieNamespace('NCBIGene', 'http://identifiers.org/ncbigene/'),
         CurieNamespace('NCBITaxon', 'http://purl.obolibrary.org/obo/NCBITaxon_'),
         CurieNamespace('NCIT', 'http://purl.obolibrary.org/obo/NCIT_'),
         CurieNamespace('OBAN', 'http://purl.org/oban/'),
@@ -108,7 +108,7 @@ class BiolinkNameSpace:
         CurieNamespace('PUBCHEM_COMPOUND', 'http://identifiers.org/pubchem.compound/'),
         CurieNamespace('PUBCHEM_SUBSTANCE', 'http://identifiers.org/pubchem.substance/'),
         CurieNamespace('PW', 'http://purl.obolibrary.org/obo/PW_'),
-        CurieNamespace('PomBase', 'https://www.pombase.org/spombe/result/'),
+        CurieNamespace('PomBase', 'http://identifiers.org/pombase/'),
         CurieNamespace('REACT', 'http://www.reactome.org/PathwayBrowser/#/'),
         CurieNamespace('RGD', 'http://identifiers.org/rgd/'),
         CurieNamespace('RHEA', 'http://identifiers.org/rhea/'),
@@ -149,7 +149,7 @@ class BiolinkNameSpace:
         CurieNamespace('biolink', 'https://w3id.org/biolink/vocab/'),
         CurieNamespace('biolinkml', 'https://w3id.org/biolink/biolinkml/'),
         CurieNamespace('chembio', 'http://translator.ncats.nih.gov/chembio_'),
-        CurieNamespace('dbSNP', 'http://www.ncbi.nlm.nih.gov/projects/SNP/snp_ref.cgi?rs='),
+        CurieNamespace('dbSNP', 'http://identifiers.org/dbsnp/'),
         CurieNamespace('dcat', 'http://www.w3.org/ns/dcat#'),
         CurieNamespace('dcterms', 'http://purl.org/dc/terms/'),
         CurieNamespace('dctypes', 'http://purl.org/dc/dcmitype/'),
