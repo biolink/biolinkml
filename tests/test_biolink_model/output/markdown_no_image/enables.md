@@ -13,7 +13,7 @@ URI: [biolink:enables](https://w3id.org/biolink/vocab/enables)
 
 ## Parents
 
- *  is_a: [has participant](has_participant.md)
+ *  is_a: [participates in](participates_in.md)
 
 ## Children
 
@@ -25,6 +25,7 @@ URI: [biolink:enables](https://w3id.org/biolink/vocab/enables)
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | RO:0002327 |
 | **In Subsets:** | | translator_minimal |
+| **Exact Mappings:** | | RO:0002327 |
+|  | | GO:enables |
 

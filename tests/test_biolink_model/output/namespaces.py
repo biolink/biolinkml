@@ -1,5 +1,5 @@
 # Auto generated from biolink-model.yaml by namespacegen.py version: 0.9.0
-# Generation date: 2020-11-03 17:19
+# Generation date: 2020-11-04 18:04
 # Schema: Biolink-Model
 #
 # id: https://w3id.org/biolink/biolink-model
@@ -33,7 +33,6 @@ class BiolinkNameSpace:
         CurieNamespace('BFO', 'http://purl.obolibrary.org/obo/BFO_'),
         CurieNamespace('BIOGRID', 'http://identifiers.org/biogrid/'),
         CurieNamespace('BIOSAMPLE', 'http://identifiers.org/biosample/'),
-        CurieNamespace('BSPO', 'http://purl.obolibrary.org/obo/BSPO_'),
         CurieNamespace('CAID', 'http://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/by_caid?caid='),
         CurieNamespace('CHEBI', 'http://purl.obolibrary.org/obo/CHEBI_'),
         CurieNamespace('CHEMBL_COMPOUND', 'http://identifiers.org/chembl.compound/'),
@@ -145,7 +144,7 @@ class BiolinkNameSpace:
         CurieNamespace('XCO', 'http://purl.obolibrary.org/obo/XCO_'),
         CurieNamespace('ZFIN', 'http://identifiers.org/zfin/'),
         CurieNamespace('ZP', 'http://purl.obolibrary.org/obo/ZP_'),
-        CurieNamespace('alliancegenome', 'http://example.org/UNKNOWN/alliancegenome/'),
+        CurieNamespace('alliancegenome', 'https://www.alliancegenome.org/'),
         CurieNamespace('biolink', 'https://w3id.org/biolink/vocab/'),
         CurieNamespace('biolinkml', 'https://w3id.org/biolink/biolinkml/'),
         CurieNamespace('chembio', 'http://translator.ncats.nih.gov/chembio_'),
@@ -154,14 +153,12 @@ class BiolinkNameSpace:
         CurieNamespace('dcterms', 'http://purl.org/dc/terms/'),
         CurieNamespace('dctypes', 'http://purl.org/dc/dcmitype/'),
         CurieNamespace('dictyBase', 'http://dictybase.org/gene/'),
-        CurieNamespace('faldo', 'http://biohackathon.org/resource/faldo#'),
         CurieNamespace('foaf', 'http://xmlns.com/foaf/0.1/'),
         CurieNamespace('gff3', 'https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md#'),
         CurieNamespace('gpi', 'https://github.com/geneontology/go-annotation/blob/master/specs/gpad-gpi-2-0.md#'),
         CurieNamespace('gtpo', 'https://rdf.guidetopharmacology.org/ns/gtpo#'),
         CurieNamespace('hetio', 'http://translator.ncats.nih.gov/hetio_'),
         CurieNamespace('medgen', 'https://www.ncbi.nlm.nih.gov/medgen/'),
-        CurieNamespace('oboInOwl', 'http://www.geneontology.org/formats/oboInOwl#'),
         CurieNamespace('owl', 'http://www.w3.org/2002/07/owl#'),
         CurieNamespace('pav', 'http://purl.org/pav/'),
         CurieNamespace('prov', 'http://www.w3.org/ns/prov#'),

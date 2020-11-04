@@ -25,5 +25,5 @@ URI: [biolink:decreases_molecular_interaction](https://w3id.org/biolink/vocab/de
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | CTD:decreases_molecular_interaction_with |
+| **Exact Mappings:** | | CTD:decreases_molecular_interaction_with |
 

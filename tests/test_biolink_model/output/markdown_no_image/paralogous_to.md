@@ -25,6 +25,6 @@ URI: [biolink:paralogous_to](https://w3id.org/biolink/vocab/paralogous_to)
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | RO:HOM0000011 |
 | **In Subsets:** | | translator_minimal |
+| **Exact Mappings:** | | RO:HOM0000011 |
 

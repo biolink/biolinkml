@@ -25,5 +25,5 @@ URI: [biolink:negatively_regulates_process_to_process](https://w3id.org/biolink/
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | RO:0002212 |
+| **Exact Mappings:** | | RO:0002212 |
 

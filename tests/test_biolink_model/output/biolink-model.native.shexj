@@ -29,7 +29,7 @@
       },
       {
          "type": "NodeConstraint",
-         "id": "https://w3id.org/biolink/vocab/EdgeLabelType",
+         "id": "https://w3id.org/biolink/vocab/PredicateType",
          "nodeKind": "iri"
       },
       {

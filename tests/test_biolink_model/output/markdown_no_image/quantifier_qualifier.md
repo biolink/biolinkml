@@ -21,3 +21,14 @@ URI: [biolink:quantifier_qualifier](https://w3id.org/biolink/vocab/quantifier_qu
 
 ## Used by
 
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Narrow Mappings:** | | LOINC:analyzes |
+|  | | LOINC:measured_by |
+|  | | LOINC:property_of |
+|  | | SEMMEDDB:measures |
+|  | | UMLS:measures |
+

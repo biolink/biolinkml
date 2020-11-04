@@ -26,4 +26,6 @@ URI: [biolink:in_complex_with](https://w3id.org/biolink/vocab/in_complex_with)
 |  |  |  |
 | --- | --- | --- |
 | **In Subsets:** | | translator_minimal |
+| **Broad Mappings:** | | SIO:010285 |
+| **Related Mappings:** | | SIO:010497 |
 

@@ -38,7 +38,7 @@ URI: [biolink:xref](https://w3id.org/biolink/vocab/xref)
 | **Aliases:** | | dbxref |
 |  | | Dbxref |
 |  | | DbXref |
-| **Mappings:** | | gff3:Dbxref |
-|  | | gpi:DB_Xrefs |
 | **In Subsets:** | | translator_minimal |
+| **Narrow Mappings:** | | gff3:Dbxref |
+|  | | gpi:DB_Xrefs |
 

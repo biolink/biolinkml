@@ -1,10 +1,10 @@
 
-# Type: edge label type
+# Type: predicate type
 
 
 A CURIE from the biolink related_to hierarchy. For example, biolink:related_to, biolink:causes, biolink:treats.
 
-URI: [biolink:EdgeLabelType](https://w3id.org/biolink/vocab/EdgeLabelType)
+URI: [biolink:PredicateType](https://w3id.org/biolink/vocab/PredicateType)
 
 |  |  |  |
 | --- | --- | --- |

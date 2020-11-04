@@ -2,7 +2,7 @@
 # Type: has variant part
 
 
-Holds between a genotype and a genotypic entity
+holds between a genomic entity and a genotypic entity that is a sub-component of it
 
 URI: [biolink:has_variant_part](https://w3id.org/biolink/vocab/has_variant_part)
 
@@ -25,5 +25,5 @@ URI: [biolink:has_variant_part](https://w3id.org/biolink/vocab/has_variant_part)
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | GENO:0000382 |
+| **Exact Mappings:** | | GENO:0000382 |
 
