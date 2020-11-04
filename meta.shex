@@ -55,8 +55,9 @@ metatype:Nodeidentifier NONLITERAL
 <Annotation> CLOSED {
     (  $<Annotation_tes> (  &<Extension_tes> ;
           rdf:type [ <Extension> ] ? ;
-          <annotations> @<Annotation> * ;
-          <value> @metatype:Boolean
+          &<Annotatable_tes> ;
+          rdf:type [ <Annotatable> ] ? ;
+          <annotations> @<Annotation> *
        ) ;
        rdf:type [ <Annotation> ] ?
     )
@@ -125,6 +126,7 @@ metatype:Nodeidentifier NONLITERAL
           skos:note @metatype:String * ;
           <examples> @<Example> * ;
           oboInOwl:inSubset @<SubsetDefinition> * ;
+          <string_template> @metatype:String ? ;
           skos:inScheme @metatype:Uri ? ;
           <imported_from> @metatype:String ? ;
           rdfs:seeAlso @metatype:Uriorcurie * ;

@@ -139,6 +139,9 @@ URI: [meta:Definition](https://w3id.org/biolink/biolinkml/meta/Definition)
     * Description: a reference
     * range: [Uriorcurie](types/Uriorcurie.md)
     * in subsets: (owl)
+ * [string_template](string_template.md)  <sub>OPT</sub>
+    * Description: A formatting string to represent the element.  If present, string_template is used whenever the string representation of the element and will also result in the addition of a `parse` method in the containing python class that will allow instances to be added through string parsing
+    * range: [String](types/String.md)
  * [todos](todos.md)  <sub>0..*</sub>
     * Description: Outstanding issue that needs resolution
     * range: [String](types/String.md)

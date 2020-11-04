@@ -304,11 +304,11 @@
       "type": "ClassDefinition"
     }
   ],
-  "metamodel_version": "1.6.0",
+  "metamodel_version": "1.6.1",
   "source_file": "annotations.yaml",
-  "source_file_date": "Mon Sep 14 11:48:56 2020",
+  "source_file_date": "Fri Oct 23 16:59:17 2020",
   "source_file_size": 918,
-  "generation_date": "2020-09-14 12:47",
+  "generation_date": "2020-10-23 16:59",
   "type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/biolink/biolinkml/context.jsonld",

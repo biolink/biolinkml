@@ -3,7 +3,7 @@
   "description": "A metamodel for defining biolink related schemas",
   "id": "https://w3id.org/biolink/biolinkml/meta",
   "title": "Biolink Schema Metamodel",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "imports": [
     "biolinkml:types",
     "biolinkml:mappings",
@@ -399,6 +399,20 @@
       "range": "SubsetDefinition",
       "slot_uri": "http://www.geneontology.org/formats/oboInOwl#inSubset",
       "multivalued": true,
+      "owner": "Element",
+      "domain_of": [
+        "Element"
+      ],
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "string_template",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/string_template",
+      "description": "A formatting string to represent the element.  If present, string_template is used whenever the string representation of the element and will also result in the addition of a `parse` method in the containing python class that will allow instances to be added through string parsing",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "Element",
+      "range": "string",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/string_template",
       "owner": "Element",
       "domain_of": [
         "Element"
@@ -2130,24 +2144,6 @@
       "is_usage_slot": true,
       "usage_slot_name": "apply_to",
       "type": "SlotDefinition"
-    },
-    {
-      "name": "annotation_extension_value",
-      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
-      "imported_from": "biolinkml:annotations",
-      "is_a": "extension_value",
-      "domain": "Annotation",
-      "range": "boolean",
-      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/value",
-      "required": true,
-      "alias": "value",
-      "owner": "Annotation",
-      "domain_of": [
-        "Annotation"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "extension_value",
-      "type": "SlotDefinition"
     }
   ],
   "classes": [
@@ -2179,6 +2175,7 @@
         "comments",
         "examples",
         "in_subset",
+        "string_template",
         "from_schema",
         "imported_from",
         "see_also",
@@ -2221,6 +2218,7 @@
         "comments",
         "examples",
         "in_subset",
+        "string_template",
         "from_schema",
         "imported_from",
         "see_also",
@@ -2278,6 +2276,7 @@
         "comments",
         "examples",
         "in_subset",
+        "string_template",
         "from_schema",
         "imported_from",
         "see_also",
@@ -2319,6 +2318,7 @@
         "comments",
         "examples",
         "in_subset",
+        "string_template",
         "from_schema",
         "imported_from",
         "see_also",
@@ -2360,6 +2360,7 @@
         "comments",
         "examples",
         "in_subset",
+        "string_template",
         "from_schema",
         "imported_from",
         "see_also",
@@ -2414,6 +2415,7 @@
         "comments",
         "examples",
         "in_subset",
+        "string_template",
         "from_schema",
         "imported_from",
         "see_also",
@@ -2494,6 +2496,7 @@
         "comments",
         "examples",
         "in_subset",
+        "string_template",
         "from_schema",
         "imported_from",
         "see_also",
@@ -2611,11 +2614,14 @@
       "from_schema": "https://w3id.org/biolink/biolinkml/annotations",
       "imported_from": "biolinkml:annotations",
       "is_a": "Extension",
+      "mixins": [
+        "Annotatable"
+      ],
       "slots": [
         "extension_tag",
+        "extension_value",
         "extensions",
-        "annotations",
-        "annotation_extension_value"
+        "annotations"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/Annotation",
       "type": "ClassDefinition"
@@ -2634,11 +2640,11 @@
       "type": "ClassDefinition"
     }
   ],
-  "metamodel_version": "1.6.0",
+  "metamodel_version": "1.6.1",
   "source_file": "meta.yaml",
-  "source_file_date": "Thu Oct 22 09:12:45 2020",
-  "source_file_size": 28904,
-  "generation_date": "2020-10-22 09:13",
+  "source_file_date": "Wed Nov  4 12:30:16 2020",
+  "source_file_size": 29306,
+  "generation_date": "2020-11-04 12:31",
   "type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/biolink/biolinkml/context.jsonld",

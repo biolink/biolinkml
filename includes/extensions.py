@@ -1,5 +1,5 @@
 # Auto generated from extensions.yaml by pythongen.py version: 0.9.0
-# Generation date: 2020-10-23 09:22
+# Generation date: 2020-10-23 16:59
 # Schema: extensions
 #
 # id: https://w3id.org/biolink/biolinkml/extensions
@@ -24,7 +24,7 @@ from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import URIorCURIE
 from includes.types import String, Uriorcurie
 
-metamodel_version = "1.6.0"
+metamodel_version = "1.6.1"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
