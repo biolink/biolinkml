@@ -373,10 +373,10 @@ class SchemaLoader:
             class_slots = []
             for sn in cls.slots:
                 slot = self.schema.slots[sn]
-                if slot.key:
-                    class_slots.append(slot.name)
+                if slot.key or slot.identifier:
+                    class_slots.append(sn)
             if len(class_slots) > 1:
-                self.raise_value_error(f'Class "{cls.name}" - multiple keys not allowed ({", ".join(class_slots)})', class_slots[1])
+                self.raise_value_error(f'Class "{cls.name}" - multiple keys/identifiers not allowed ({", ".join(class_slots)})', class_slots[1])
 
         # Check out all the namespaces
         self.check_prefixes()
