@@ -36,6 +36,9 @@ URI: [meta:SchemaDefinition](https://w3id.org/biolink/biolinkml/meta/SchemaDefin
  * [emit_prefixes](emit_prefixes.md)  <sub>0..*</sub>
     * Description: a list of Curie prefixes that are used in the representation of instances of the model.  All prefixes in this list are added to the prefix sections of the target models.
     * range: [Ncname](types/Ncname.md)
+ * [enums](enums.md)  <sub>0..*</sub>
+    * Description: enumerated ranges
+    * range: [EnumDefinition](EnumDefinition.md)
  * [generation_date](generation_date.md)  <sub>OPT</sub>
     * Description: date and time that the schema was loaded/generated
     * range: [Datetime](types/Datetime.md)

@@ -1,5 +1,5 @@
 {
-   "_comments": "Auto generated from meta.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2020-10-22 09:13\nSchema: metamodel\n\nid: https://w3id.org/biolink/biolinkml/meta\ndescription: A metamodel for defining biolink related schemas\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
+   "_comments": "Auto generated from meta.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2020-11-09 03:33\nSchema: metamodel\n\nid: https://w3id.org/biolink/biolinkml/meta\ndescription: A metamodel for defining biolink related schemas\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
    "@context": {
       "type": "@type",
       "IAO": "http://purl.obolibrary.org/obo/IAO_",
@@ -49,6 +49,9 @@
          "@type": "@id",
          "@id": "skos:closeMatch"
       },
+      "code_set": {
+         "@type": "@id"
+      },
       "comments": {
          "@id": "skos:note"
       },
@@ -82,6 +85,9 @@
          "@type": "@id"
       },
       "domain_of": {
+         "@type": "@id"
+      },
+      "enums": {
          "@type": "@id"
       },
       "exact_mappings": {
@@ -162,6 +168,9 @@
       "maximum_value": {
          "@type": "xsd:integer"
       },
+      "meaning": {
+         "@type": "@id"
+      },
       "minimum_value": {
          "@type": "xsd:integer"
       },
@@ -187,6 +196,9 @@
          "@id": "skos:editorialNote"
       },
       "owner": {
+         "@type": "@id"
+      },
+      "permissible_values": {
          "@type": "@id"
       },
       "prefix_reference": {
@@ -245,6 +257,7 @@
       "symmetric": {
          "@type": "xsd:boolean"
       },
+      "text": "@id",
       "title": {
          "@id": "dcterms:title"
       },

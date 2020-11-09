@@ -306,9 +306,9 @@
   ],
   "metamodel_version": "1.6.0",
   "source_file": "annotations.yaml",
-  "source_file_date": "Mon Sep 14 11:48:56 2020",
+  "source_file_date": "Fri Oct 23 12:07:08 2020",
   "source_file_size": 918,
-  "generation_date": "2020-09-14 12:47",
+  "generation_date": "2020-11-06 15:48",
   "type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/biolink/biolinkml/context.jsonld",

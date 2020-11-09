@@ -17,6 +17,7 @@ URI: [meta:Element](https://w3id.org/biolink/biolinkml/meta/Element)
 ## Children
 
  * [Definition](Definition.md) - base class for definitions
+ * [EnumDefinition](EnumDefinition.md) - List of values that constrain the range of a slot
  * [SchemaDefinition](SchemaDefinition.md) - a collection of subset, type, slot and class definitions
  * [SubsetDefinition](SubsetDefinition.md) - the name and description of a subset
  * [TypeDefinition](TypeDefinition.md) - A data type definition.

@@ -1,0 +1,92 @@
+id: http://example.org/test/evidence
+name: evidence
+
+prefixes:
+  biolinkml: https://w3id.org/biolink/biolinkml/
+  evidence: http://example.org/test/evidence/
+  CLUE: http://ontologies.r.us/clue/
+
+default_range: string
+default_prefix: evidence
+
+imports:
+  - biolinkml:types
+
+enums:
+  open_enum:
+    description: Strictly an enumeration
+    permissible_values:
+      a: top
+      b: middle
+      c: bottom
+
+  constrained_enum_2:
+    description: All codes from the "current" version of HPO
+    values_from: CS:HPO
+    rule: LABEL
+
+  constrained_enum_3:
+    description: All codes from the "production" version of HPO
+    # CS -- code system of code systems we need
+    values_from: CS:HPO
+    version_tag: production
+    rule: LABEL
+
+  constrained_enum_4:
+    description: All codes from version 1.17  of HPO
+    values_from: CS:HPO
+    version: 1.17
+    rule: LABEL
+
+  constrained_enum_5:
+    description: All codes from the "current" version of the CLUE "DOA" value set
+    values_from: CLUE:diseases_of_the_arteries
+    version: ">=1.17.3"
+    rule: LABEL
+
+  constrained_enum_6:
+    description: All codes from SNOMED CT INTL 2020-7-31 or greater
+    values_from: CLUE:diseases_of_the_arteries
+    version: ">=2020-7-31"
+    rule: LABEL
+
+  SNOMED CT:
+      pub_vid: 2020-7-31
+      vers: 20.1.0   (Semver assigned to pub_vid?)
+
+  constrained_evidence:
+    description: Permissible values for CLUE evidence fragments
+    values_from: clue_answers
+    permissible_values:
+      IEA Colonel Mustard in the Ballroom
+      ISS:
+        description: Mrs. Peacock with the Dagger
+        meaning: CLUE:1173
+
+
+  mapped_evidence:
+    description: Permissible values that draw directly from the code set
+    values_from: clue_answers
+    rule: URI
+
+  hpo_code:
+    description: Any valid code from HPO
+    values_from: CS:SNOMED
+    rule: CODE
+#    permissible_values:
+#      http:/:
+#      CLUE:1174:
+#      "CLUE:1173":   mrs p
+#      "http://ontologies.r.us/clue/1173": mrs p
+
+classes:
+  solution:
+    attributes:
+      player:
+        range: string
+      solution:
+        range: evidence
+
+codesets:
+  clue_answers:
+    uri: CLUE:fragment_id

@@ -1,5 +1,5 @@
 # Auto generated from annotations.yaml by pythongen.py version: 0.9.0
-# Generation date: 2020-10-23 09:22
+# Generation date: 2020-11-05 14:52
 # Schema: annotations
 #
 # id: https://w3id.org/biolink/biolinkml/annotations

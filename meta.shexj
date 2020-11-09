@@ -165,19 +165,24 @@
                         },
                         "min": 0
                      },
+                     "https://w3id.org/biolink/biolinkml/meta/Annotatable_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://w3id.org/biolink/biolinkml/meta/Annotatable"
+                           ]
+                        },
+                        "min": 0
+                     },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/annotations",
                         "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Annotation",
                         "min": 0,
                         "max": -1
-                     },
-                     {
-                        "type": "TripleConstraint",
-                        "predicate": "https://w3id.org/biolink/biolinkml/meta/value",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Boolean",
-                        "min": 1,
-                        "max": 1
                      }
                   ]
                },
@@ -433,6 +438,7 @@
          "id": "https://w3id.org/biolink/biolinkml/meta/Element",
          "shapeExprs": [
             "https://w3id.org/biolink/biolinkml/meta/Definition",
+            "https://w3id.org/biolink/biolinkml/meta/EnumDefinition",
             "https://w3id.org/biolink/biolinkml/meta/SchemaDefinition",
             "https://w3id.org/biolink/biolinkml/meta/SubsetDefinition",
             "https://w3id.org/biolink/biolinkml/meta/TypeDefinition"
@@ -666,6 +672,73 @@
       },
       {
          "type": "Shape",
+         "id": "https://w3id.org/biolink/biolinkml/meta/EnumDefinition",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://w3id.org/biolink/biolinkml/meta/EnumDefinition_tes",
+                  "expressions": [
+                     "https://w3id.org/biolink/biolinkml/meta/Element_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://w3id.org/biolink/biolinkml/meta/Element"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/biolinkml/meta/code_set",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/biolinkml/meta/code_set_tag",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/biolinkml/meta/code_set_version",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/biolinkml/meta/permissible_values",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/PermissibleValue",
+                        "min": 0,
+                        "max": -1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://w3id.org/biolink/biolinkml/meta/EnumDefinition"
+                     ]
+                  },
+                  "min": 1
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
          "id": "https://w3id.org/biolink/biolinkml/meta/Example",
          "closed": true,
          "expression": {
@@ -831,6 +904,183 @@
       },
       {
          "type": "Shape",
+         "id": "https://w3id.org/biolink/biolinkml/meta/PermissibleValue",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://w3id.org/biolink/biolinkml/meta/PermissibleValue_tes",
+                  "expressions": [
+                     "https://w3id.org/biolink/biolinkml/meta/Extensible_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://w3id.org/biolink/biolinkml/meta/Extensible"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     "https://w3id.org/biolink/biolinkml/meta/Annotatable_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://w3id.org/biolink/biolinkml/meta/Annotatable"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/2004/02/skos/core#definition",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/biolinkml/meta/meaning",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/biolinkml/meta/alt_descriptions",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/AltDescription",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/biolinkml/meta/deprecated",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/biolinkml/meta/todos",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/2004/02/skos/core#editorialNote",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/2004/02/skos/core#note",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/biolinkml/meta/examples",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Example",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.geneontology.org/formats/oboInOwl#inSubset",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/SubsetDefinition",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/2004/02/skos/core#inScheme",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uri",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/biolinkml/meta/imported_from",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/biolinkml/meta/deprecated_element_has_exact_replacement",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/biolinkml/meta/deprecated_element_has_possible_replacement",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/biolinkml/meta/is_a",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/PermissibleValue",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/biolinkml/meta/mixins",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/PermissibleValue",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/biolinkml/meta/extensions",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Extension",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/biolinkml/meta/annotations",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/Annotation",
+                        "min": 0,
+                        "max": -1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://w3id.org/biolink/biolinkml/meta/PermissibleValue"
+                     ]
+                  },
+                  "min": 1
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
          "id": "https://w3id.org/biolink/biolinkml/meta/Prefix",
          "closed": true,
          "expression": {
@@ -974,6 +1224,13 @@
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/types",
                         "valueExpr": "https://w3id.org/biolink/biolinkml/meta/TypeDefinition",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/biolinkml/meta/enums",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/EnumDefinition",
                         "min": 0,
                         "max": -1
                      },
