@@ -15,7 +15,7 @@ imports:
 enums:
   evidence:
     description: Permissible values for CLUE evidence fragments
-    values_from: CLUE:fragment_vd
+    code_set: CLUE:fragment_vd
     permissible_values:
       IEA: Colonel Mustard in the Ballroom
       ISS:

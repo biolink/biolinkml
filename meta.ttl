@@ -54,7 +54,7 @@ meta:metamodel a meta:SchemaDefinition ;
         biolinkml:extensions,
         biolinkml:mappings,
         biolinkml:types ;
-    meta:metamodel_version "1.6.0" ;
+    meta:metamodel_version "1.6.1" ;
     meta:prefixes [ meta:prefix_prefix "OIO" ;
             meta:prefix_reference OIO: ],
         [ meta:prefix_prefix "meta" ;

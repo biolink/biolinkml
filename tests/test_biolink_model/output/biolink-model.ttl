@@ -674,7 +674,7 @@
         "rdfs",
         "skos",
         "xsd" ;
-    metatype:metamodel_version "1.6.0" ;
+    metatype:metamodel_version "1.6.1" ;
     metatype:source_file "biolink-model.yaml" .
 
 <https://w3id.org/biolink/vocab/datetime> a metatype:TypeDefinition ;

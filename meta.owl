@@ -11,7 +11,7 @@
     dcterms:title "Biolink Schema Metamodel" ;
     skos:definition "A metamodel for defining biolink related schemas" ;
     meta:generation_date "2020-11-09 03:33" ;
-    meta:metamodel_version "1.6.0" ;
+    meta:metamodel_version "1.6.1" ;
     meta:source_file "meta.yaml" ;
     meta:source_file_date "Mon Nov  9 03:33:07 2020" ;
     meta:source_file_size 31478 .

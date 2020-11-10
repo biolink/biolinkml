@@ -8,7 +8,7 @@ from rdflib import URIRef
 import biolinkml
 from biolinkml.generators import PYTHON_GEN_VERSION
 from biolinkml.meta import SchemaDefinition, SlotDefinition, ClassDefinition, ClassDefinitionName, \
-    SlotDefinitionName, DefinitionName, Element, TypeDefinition, Definition
+    SlotDefinitionName, DefinitionName, Element, TypeDefinition, Definition, EnumDefinition
 from biolinkml.utils.formatutils import camelcase, underscore, be, wrapped_annotation, split_line, sfx
 from biolinkml.utils.generator import Generator, shared_arguments
 from biolinkml.utils.ifabsent_functions import ifabsent_value_declaration, ifabsent_postinit_declaration, \
@@ -102,6 +102,7 @@ import sys
 import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
+from biolinkml.meta import EnumDefinition, PermissibleValue
 from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
@@ -125,6 +126,8 @@ dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Types
 {self.gen_typedefs()}
+# Enumerations
+{self.gen_enumerations()}
 # Class references
 {self.gen_references()}
 
@@ -749,6 +752,25 @@ class slots:
         pattern = f",\n                   pattern=re.compile(r'{slot.pattern}')" if slot.pattern else ""
         return f"""slots.{python_slot_name} = Slot(uri={slot_uri}, name="{slot.name}", curie={slot_curie},
                    model_uri={slot_model_uri}, domain={domain}, range={rnge}{mappings}{pattern})"""
+
+
+    def gen_enumerations(self) -> str:
+        return '\n\n'.join([self.gen_enum(enum) for enum in self.schema.enums.values() if not enum.imported_from])
+
+
+    def gen_enum(self, enum: EnumDefinition) -> str:
+        enum_name = camelcase(enum.name)
+        desc = f'\tdescription="{enum.description}",\n' if enum.description else ''
+        cs = f'\tcode_set={enum.code_set},\n' if enum.code_set else ''
+        tag = f'\tcode_set_tag={enum.code_set_tag},\n' if enum.code_set_tag else ''
+        ver = f'\tcode_set_version={enum.code_set_version},\n' if enum.code_set_version else ''
+        # vf = f'\tuse={enum.use}\n' if enum.use else ''
+        vf = ''
+        return f'''{enum_name} = EnumDefinition(
+    name="{enum_name}",\n{desc}{cs}{tag}{ver}{vf}\tpermissible_values= {{"IEA": PermissibleValue("Colonel Mustard in the Ballroom"),
+                         "ISS": PermissibleValue("Mrs. Peacock with the Dagger",
+                                                 meaning=CLUE['1173']) }} )
+'''
 
 
 @shared_arguments(PythonGenerator)

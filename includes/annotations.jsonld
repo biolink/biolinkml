@@ -304,7 +304,7 @@
       "type": "ClassDefinition"
     }
   ],
-  "metamodel_version": "1.6.0",
+  "metamodel_version": "1.6.1",
   "source_file": "annotations.yaml",
   "source_file_date": "Fri Oct 23 12:07:08 2020",
   "source_file_size": 918,

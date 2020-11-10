@@ -53,7 +53,7 @@ classes:
     - http://example.org/prefixes/a/b/c/c3
     from_schema: http://example.org/tests/curietest
     class_uri: http://example.org/prefixes/a/b/c/c3
-metamodel_version: 1.6.0
+metamodel_version: 1.6.1
 source_file: curie_prefix_matching.yaml
 source_file_date: Tue Nov  3 17:18:55 2020
 source_file_size: 478

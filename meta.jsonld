@@ -2858,7 +2858,7 @@
       "type": "ClassDefinition"
     }
   ],
-  "metamodel_version": "1.6.0",
+  "metamodel_version": "1.6.1",
   "source_file": "meta.yaml",
   "source_file_date": "Mon Nov  9 03:33:07 2020",
   "source_file_size": 31478,

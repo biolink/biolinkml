@@ -26,7 +26,7 @@ from includes.annotations import Annotation
 from includes.extensions import Extension
 from includes.types import Boolean, Datetime, Integer, Ncname, String, Uri, Uriorcurie
 
-metamodel_version = "1.6.0"
+metamodel_version = "1.6.1"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
