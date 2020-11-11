@@ -54,6 +54,7 @@ class C(YAMLRoot):
 
     s: Optional[str] = None
     t: Optional[str] = None
+    as_str: Optional[str]
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.s is not None and not isinstance(self.s, str):
@@ -70,18 +71,21 @@ class C(YAMLRoot):
         return f"s:{self.s} t:{self.t}"
 
     @as_str.setter
-    def as_str(self, val: str) -> None:
-        v = parse("s:{s} t:{t}", val)
-        if not v:
-            raise ValueError(f"Cannot unpack as_str({val})")
-        self.s = v.named['s']
-        self.t = v.named['t']
+    def as_str(self, val: Optional[str]) -> None:
+        if not isinstance(val, property):
+            v = parse("s:{s} t:{t}", val)
+            if not v:
+                raise ValueError(f"Cannot unpack as_str({val})")
+            self.s = v.named['s']
+            self.t = v.named['t']
 
 
 x = C('Fred', 'Jones')
-print(x.as_str)
-x.as_str = "s:James t:{17}"
-print(x.as_str)
+print(str(x))
+x.as_str = "s:James t:17"
+print(str(x))
+x = C(as_str="s:ess t:tee")
+print(str(x))
 x.as_str = "a b c "
 
 # Slots
