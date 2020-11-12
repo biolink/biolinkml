@@ -24,6 +24,12 @@ The 3 core modeling elements in blml are *types*, *classes*, and *slots*:
  - **types** correspond to primitive datatypes, such as integers, strings, URIs
  - **classes** are categories for data instances
  - **slots** categorize the linkages instances can have to other instances, or to type instances
+
+The blml also defines basic mechanisms for model element inheritance: **is_a**, **mixin** and **abstract** 
+properties for both classes and slots, plus a **typeof** property for types. In addition, the 
+**subclass_of** property can anchor a class to the semantics of an ontology term in an external 
+3rd party (but model-designated) ontology. Semantic constraints to 'internal' model slot or class 
+hierarchies are similarly constrained by **domain**, **range** and  **subproperty_of** properties.
  
 blml is intended to be used in a variety of modeling contexts: JSON
 documents, RDF graphs, RDF* graphs and property graphs, as well as
@@ -188,7 +194,7 @@ Each slot _must_ have zero or one **is_a** parents, as defined by [biolinkml:is_
 
 In addition a slot _may_ have multiple **mixin** parents, as defined by [biolinkml:mixins](https://w3id.org/biolink/biolinkml/meta/mixin)
 
-We define function `ancestors*(c)` which is the transitive close of the union of *c*, the parents of *c* and defined by the union of `is_a` and `mixins`.
+We define function `ancestors*(s)` which is the transitive close of the union of slot *s*, the parents of slot *s* and defined by the union of `is_a` and `mixins`.
 
 ### Classes and Class Slots (Normative)
 
@@ -224,7 +230,7 @@ Each class _must_ have zero or one **is_a** parents, as defined by [biolinkml:is
 
 In addition a class _may_ have multiple **mixin** parents, as defined by [biolinkml:mixins](https://w3id.org/biolink/biolinkml/meta/mixin)
 
-We define function `ancestors*(c)` which is the transitive close of the union of *c*, the parents of *c* and defined by the union of `is_a` and `mixins`.
+We define function `ancestors*(c)` which is the transitive close of the union of class *c*, the parents of class *c* and defined by the union of `is_a` and `mixins`.
 
 ### Slot Usages
 
