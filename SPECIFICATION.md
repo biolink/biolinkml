@@ -109,8 +109,8 @@ subsets: ...
 
 # Main schema follows
 types: ...
-classes: ...
 slots: ...
+classes: ...
 
 ```
 
@@ -165,7 +165,7 @@ TODO:
 
 ### Slots (Normative)
 
-Slots are properties that can be assigned to individuals.
+Slots are properties that can be assigned to classes.
 
 The set of slots available in a model is defined in a slot dictionary, declared at the schema level
 
@@ -182,20 +182,41 @@ Each key in the dictionary is the slot [name](https://w3id.org/biolink/biolinkml
 
 The [SlotDefinition](https://w3id.org/biolink/biolinkml/meta/SlotDefinition) is described in the metamodel.
 
-### Class Slots (Normative)
+### Slot Hierarchies (Normative)
 
-A class _may_ have any number of slots declared
+Each slot _must_ have zero or one **is_a** parents, as defined by [biolinkml:is_a](https://w3id.org/biolink/biolinkml/meta/is_a)
+
+In addition a slot _may_ have multiple **mixin** parents, as defined by [biolinkml:mixins](https://w3id.org/biolink/biolinkml/meta/mixin)
+
+We define function `ancestors*(c)` which is the transitive close of the union of *c*, the parents of *c* and defined by the union of `is_a` and `mixins`.
+
+### Classes and Class Slots (Normative)
+
+In Biolink, as in the [Web Ontology Language OWL class](https://www.w3.org/TR/owl-guide/), is a classification of individuals into groups 
+which share common characteristics. If an individual is a member of a class, it tells a machine reader that it falls under the 
+semantic classification given by the class.
+
+The set of classes available in a model is defined in a class dictionary, declared at the schema level.  A class _may_ have any number of slots declared.
 
 ```yaml
-  CLASS:
+classes:
+
+  CLASS_NAME_1:
     slots:
-      - SLOT_1
-      - SLOT_2
+      - CLASS_1_SLOT_NAME_1
+      - CLASS_1_SLOT_NAME_2
       - ...
-      - SLOT_n
+      - CLASS_1_SLOT_NAME_n
+  ...
+    CLASS_NAME_p:
+    slots:
+      - CLASS_p_SLOT_NAME_1
+      - CLASS_p_SLOT_NAME_2
+      - ...
+      - CLASS_p_SLOT_NAME_q
 ```
 
-Each declared slot _must_ be defined in the slot dictionary.
+Each declared slot _must_ be defined in the slot dictionary. Note, however, that the use of declared slots in instances of a class are not mandatory unless `slot_usage.required` property of the slot is declared 'true' directly in that class or indirectly, by parental inheritance. 
 
 ### Class Hierarchies (Normative)
 
@@ -203,7 +224,7 @@ Each class _must_ have zero or one **is_a** parents, as defined by [biolinkml:is
 
 In addition a class _may_ have multiple **mixin** parents, as defined by [biolinkml:mixins](https://w3id.org/biolink/biolinkml/meta/mixin)
 
-We define function `ancestors*(c)` which is the transitive close of the union of *c*, the parents of *c* and defined by the union of is_a and mixins.
+We define function `ancestors*(c)` which is the transitive close of the union of *c*, the parents of *c* and defined by the union of `is_a` and `mixins`.
 
 ### Slot Usages
 
