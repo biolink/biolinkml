@@ -193,7 +193,7 @@ TODO
 
 ### Metadata elements (Normative)
 
-As nentioned in the [Introduction](#introduction-Informative), semantic inheritance within a model is specified by several BiolinkML reserved properties:
+As mentioned in the [Introduction](#introduction-Informative), semantic inheritance within a model is specified by several BiolinkML reserved properties:
 - **is_a:**
 - **mixin:**
 - **abstract:** 
