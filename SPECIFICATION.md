@@ -27,6 +27,12 @@ The 3 core modeling elements in blml are *types*, *classes*, and *slots*:
 
 A [schema](https://biolink.github.io/biolinkml/docs/SchemaDefinition) is a collection of these elements.
 
+The blml also defines basic mechanisms for model element inheritance: **is_a**, **mixin** and **abstract** 
+properties for both classes and slots, plus a **typeof** property for types. In addition, the 
+**subclass_of** property can anchor a class to the semantics of an ontology term in an external 
+3rd party (but model-designated) ontology. Semantic constraints to 'internal' model slot or class 
+hierarchies are similarly constrained by **domain**, **range** and  **subproperty_of** properties.
+ 
 blml is intended to be used in a variety of modeling contexts: JSON
 documents, RDF graphs, RDF* graphs and property graphs, as well as
 tabular data. Converters exist for these different representations.
@@ -86,8 +92,8 @@ The structure of the document
  * dictionary of prefixes
  * dictionary of subsets
  * dictionary of types
- * dictionary of classes
  * dictionary of slots
+ * dictionary of classes
  * additional schema-level declarations
     * the schema _must_ have an [id](https://w3id.org/biolink/biolinkml/meta/id)
     * the schema _may_ have other declarations as allowed by [SchemaDefinition](https://w3id.org/biolink/biolinkml/meta/SchemaDefinition)
@@ -126,8 +132,8 @@ subsets: ...
 
 # Main schema follows
 types: ...
-classes: ...
 slots: ...
+classes: ...
 
 ```
 
@@ -187,6 +193,22 @@ TODO
 
 ### Metadata elements (Normative)
 
+As nentioned in the [Introduction](#introduction-Informative), semantic inheritance within a model is specified by several BiolinkML reserved properties:
+- **is_a:**
+- **mixin:**
+- **abstract:** 
+- **typeof:** 
+- **subclass_of:** 
+- **domain:**
+- **range:**
+- **subproperty_of:**
+
+A few fundamental rules guiding the use of these properties include:
+
+- *range:* the **range** of the **mixins** property in a class SHOULD be a **mixin**
+- *homeomorphicity:* **is_a** SHOULD only connect either (1) two mixins (2) two classes (3) two slots
+- instances SHOULD NOT instantiate a **mixin** slot or class directly; rather, it should be designated as **abstract: true** then injected into a non-abstract class using the **mixins** property
+
 
 ## Core elements: Classes, Slots, and Types (Normative)
 
@@ -194,7 +216,7 @@ TODO
 
 See [SlotDefinition](https://w3id.org/biolink/biolinkml/meta/SlotDefinition).
 
-Slots are properties that can be assigned to individuals.
+Slots are properties that can be assigned to classes.
 
 The set of slots available in a model is defined in a slot dictionary, declared at the schema level
 
@@ -211,18 +233,43 @@ Each key in the dictionary is the slot [name](https://w3id.org/biolink/biolinkml
 
 ### Class Slots (Normative)
 
-A class _may_ have any number of slots declared
+The [SlotDefinition](https://w3id.org/biolink/biolinkml/meta/SlotDefinition) is described in the metamodel.
+
+### Slot Hierarchies (Normative)
+
+Each slot _must_ have zero or one **is_a** parents, as defined by [biolinkml:is_a](https://w3id.org/biolink/biolinkml/meta/is_a)
+
+In addition a slot _may_ have multiple **mixin** parents, as defined by [biolinkml:mixins](https://w3id.org/biolink/biolinkml/meta/mixin)
+
+We define function `ancestors*(s)` which is the transitive close of the union of slot *s*, the parents of slot *s* and defined by the union of `is_a` and `mixins`.
+
+### Classes and Class Slots (Normative)
+
+In Biolink, as in the [Web Ontology Language OWL class](https://www.w3.org/TR/owl-guide/), is a classification of individuals into groups 
+which share common characteristics. If an individual is a member of a class, it tells a machine reader that it falls under the 
+semantic classification given by the class.
+
+The set of classes available in a model is defined in a class dictionary, declared at the schema level.  A class _may_ have any number of slots declared.
 
 ```yaml
-  CLASS:
+classes:
+
+  CLASS_NAME_1:
     slots:
-      - SLOT_1
-      - SLOT_2
+      - CLASS_1_SLOT_NAME_1
+      - CLASS_1_SLOT_NAME_2
       - ...
-      - SLOT_n
+      - CLASS_1_SLOT_NAME_n
+  ...
+    CLASS_NAME_p:
+    slots:
+      - CLASS_p_SLOT_NAME_1
+      - CLASS_p_SLOT_NAME_2
+      - ...
+      - CLASS_p_SLOT_NAME_q
 ```
 
-Each declared slot _must_ be defined in the slot dictionary.
+Each declared slot _must_ be defined in the slot dictionary. Note, however, that the use of declared slots in instances of a class are not mandatory unless `slot_usage.required` property of the slot is declared 'true' directly in that class or indirectly, by parental inheritance. 
 
 ### Class Hierarchies (Normative)
 
@@ -230,7 +277,7 @@ Each class _must_ have zero or one **is_a** parents, as defined by [biolinkml:is
 
 In addition a class _may_ have multiple **mixin** parents, as defined by [biolinkml:mixins](https://w3id.org/biolink/biolinkml/meta/mixin)
 
-We define function `ancestors*(c)` which is the transitive close of the union of *c*, the parents of *c* and defined by the union of is_a and mixins.
+We define function `ancestors*(c)` which is the transitive close of the union of class *c*, the parents of class *c* and defined by the union of `is_a` and `mixins`.
 
 ### Slot Usages
 

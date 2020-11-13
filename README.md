@@ -21,6 +21,8 @@ Quickstart docs:
     * [type definition](https://biolink.github.io/biolinkml/docs/TypeDefinition) Data types
     * [schema definition](https://biolink.github.io/biolinkml/docs/SchemaDefinition) Schema definition
 
+Further details about the general design of BiolinkML are in the [Biolink Modeling Language Specification](SPECIFICATION.md).
+
 For an example, see the [Jupyter notebook example](https://nbviewer.jupyter.org/github/biolink/biolinkml/blob/master/notebooks/examples.ipynb)
 
 ## Installation
