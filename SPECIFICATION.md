@@ -150,10 +150,9 @@ TODO: define these rules.
 
 -->
 
-Values for schema element slots _may_ be IRIs, and these _may_ be specified as CURIEs. CURIEs are shortform representations of URIs, and _must_ be specified as `PREFIX:LocalID`, where the prefix has an associated URI base. The prefix _must_ be declared in either:
+Values for schema element slots _may_ be IRIs, and these _may_ be specified as CURIEs. CURIEs are shortform representations of URIs, and _must_ be specified as `PREFIX:LocalID`, where the prefix has an associated URI base. The prefix _must_ be declared in one of several ways:
 
  * a [prefixes](https://w3id.org/biolink/biolinkml/meta/prefixes) dictionary, where the keys are prefixes and the values are URI bases.
- * an external CURIE map specified via a [default_curi_maps](https://w3id.org/biolink/biolinkml/meta/default_curi_maps) section
 
 Example (Informative):
 
@@ -164,8 +163,36 @@ prefixes:
   qud: http://qudt.org/1.1/schema/qudt#
 ```
 
-The CURIE `wgs:lat` will exand to http://www.w3.org/2003/01/geo/wgs84_pos#lat
+The CURIE `wgs:lat` will exand to http://www.w3.org/2003/01/geo/wgs84_pos#lat.
 
+* an external CURIE map specified via a [default_curi_maps](https://w3id.org/biolink/biolinkml/meta/default_curi_maps) section.
+
+Example (Informative):
+
+```
+default_curi_maps:
+  - semweb_context
+```
+
+* prefixes from public standard global namespaces used in the model (e.g. rdf) are indicated under the [emit_prefixes](https://w3id.org/biolink/biolinkml/meta/emit_prefixes) section.
+
+Example (Informative):
+
+```
+emit_prefixes:
+  - rdf
+  - rdfs
+  - xsd
+  - skos
+```
+
+* a default prefix within a given schema is generally also declared by a value for the [default_prefix](https://w3id.org/biolink/biolinkml/meta/default_prefix) tag:
+
+Example (Informative):
+
+```
+default_prefix: ex
+```
 
 ## Schema Elements (Normative)
 
