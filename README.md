@@ -11,6 +11,7 @@ biolinkml is a general purpose modeling language following object-oriented and o
 
 biolinkml is used for development of the [BioLink Model](https://biolink.github.io/biolink-model), but the framework is general purpose and can be used for any kind of modeling.
 
+This documentation is best seen via the [biolinkml site](https://biolink.github.io/biolinkml/) but can also be viewed via the GitHub repository
 
 Quickstart docs:
 
@@ -121,6 +122,10 @@ slots:
 
 Note this schema does not illustrate the more advanced features of blml
 
+## Generators
+
+See [](biolinkml/generators/)
+
 ### JSON Schema
 
 [JSON Schema](https://json-schema.org/) is a schema language for JSON documents
@@ -163,20 +168,89 @@ class Organization(YAMLRoot):
 
 ```
 
+For more details see [PythonGenNotes](biolinkml/generators/)
+
 ### ShEx
 
  [ShEx](http://shex.io/shex-semantics/index.html) - Shape Expressions Langauge
 
 `pipenv run gen-shex examples/organization.yaml > examples/organization.shex`
 
-See [examples/organization.shex](examples/organization.shex)
+```
+BASE <http://example.org/sample/organization/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd1: <http://example.org/UNKNOWN/xsd/>
 
+
+<YearCount> xsd1:int
+
+<String> xsd1:string
+
+<Employee>  (
+    CLOSED {
+       (  $<Employee_tes> (  <first_name> @<String> ? ;
+             <last_name> @<String> ;
+             <aliases> @<String> * ;
+             <age_in_years> @<YearCount> ?
+          ) ;
+          rdf:type [ <Employee> ]
+       )
+    } OR @<Manager>
+)
+
+<Manager> CLOSED {
+    (  $<Manager_tes> (  &<Employee_tes> ;
+          rdf:type [ <Employee> ] ? ;
+          <has_employees> @<Employee> *
+       ) ;
+       rdf:type [ <Manager> ]
+    )
+}
+
+<Organization> CLOSED {
+    (  $<Organization_tes> (  <name> @<String> ? ;
+          <has_boss> @<Manager> ?
+       ) ;
+       rdf:type [ <Organization> ]
+    )
+}
+```
+
+See [examples/organization.shex](examples/organization.shex) for full output
+
+### OWL
+
+Web Ontology Language [OWL](https://www.w3.org/TR/2012/REC-owl2-overview-20121211/)
+
+`pipenv run gen-owl examples/organization.yaml > examples/organization.owl.ttl`
+
+```turtle
+...
+<http://example.org/sample/organization/Organization> a owl:Class,
+        meta:ClassDefinition ;
+    rdfs:label "organization" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass <http://example.org/sample/organization/String> ;
+            owl:onProperty <http://example.org/sample/organization/id> ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://example.org/sample/organization/String> ;
+            owl:onProperty <http://example.org/sample/organization/name> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://example.org/sample/organization/Manager> ;
+            owl:onProperty <http://example.org/sample/organization/has_boss> ] .
+```
+
+See [examples/organization.owl.ttl](examples/organization.owl.ttl) for full output
 
 ## Generating Markdown documentation
 
 `pipenv run gen-markdown examples/organization.yaml -d examples/organization-docs/`
 
-This will generate a markdown document for every class and slot in the model
+This will generate a markdown document for every class and slot in the
+model. These can be used in a static site, e.g. via GitHub pages.
 
 ### Others
 
@@ -186,13 +260,14 @@ This will generate a markdown document for every class and slot in the model
 * Protobuf
 * [JSON](https://json.org/) and [JSON-LD](https://json-ld.org/)
 * [Markdown](https://daringfireball.net/projects/markdown/) - markup language used by github and others
-* [OWL](https://www.w3.org/TR/2012/REC-owl2-overview-20121211/) - Web Ontology Language
 * [RDF](https://www.w3.org/2001/sw/wiki/RDF) - Resource Description Format
 
 
-## Formal Semantics
+## Specification
 
-These are specified using First Order Logic (FOL) axioms. See the [semantics](semantics) folder
+See the [specification](https://biolink.github.io/biolinkml/SPECIFICATION).
+
+Also see the [semantics](semantics) folder for an experimental specification in terms of FOL.
 
 ## FAQ
 
@@ -272,8 +347,8 @@ If the Pypi release failed, make fixes, [delete the GitHub release](https://help
 
 ## Example Projects
 
- * https://github.com/biolink/biolink-model -- this was the original biolinkml project
- * https://github.com/microbiomedata/nmdc-metadata
+ * [Biolink Model](https://github.com/biolink/biolink-model) -- this was the original biolinkml project
+ * [National Microbiome Data Collaborative](https://github.com/microbiomedata/nmdc-metadata)
  * https://github.com/cmungall/metadata_converter
  * https://sssom-py.readthedocs.io/
  * https://cmungall.github.io/ontology-change-language/

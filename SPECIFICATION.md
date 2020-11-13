@@ -2,13 +2,13 @@
 
 <!--
 
-Editors note: add comments using HTML syntax, such as this one
+Editors note: add comments using HTML syntax, such as this one.
 
 -->
 
 ## Introduction (Informative)
 
-This document defines the biolinkml syntax and language.
+This document defines the [biolinkml](https://biolink.github.io/biolinkml/) syntax and language.
 
 A Biolinkml (blml) schema is a formal computable description of how
 entities within a data model are inter-related. While blml arose in
@@ -17,20 +17,19 @@ Biolink Model, it is completely domain-neutral, and can be used to
 model pet stores, etc.
 
 The primary representation of a schema is via a YAML document. This
-document can be translated to other representations.
+YAML document can be translated to other representations.
 
 The 3 core modeling elements in blml are *types*, *classes*, and *slots*:
 
- - **types** correspond to primitive datatypes, such as integers, strings, URIs
- - **classes** are categories for data instances
- - **slots** categorize the linkages instances can have to other instances, or to type instances
- 
+ - **[types](https://biolink.github.io/biolinkml/docs/TypeDefinition)** correspond to primitive datatypes, such as integers, strings, URIs
+ - **[classes](https://biolink.github.io/biolinkml/docs/ClassDefinition)** are categories for data instances
+ - **[slots](https://biolink.github.io/biolinkml/docs/SlotDefinition)** categorize the linkages instances can have to other instances, or to type instances
+
+A [schema](https://biolink.github.io/biolinkml/docs/SchemaDefinition) is a collection of these elements.
+
 blml is intended to be used in a variety of modeling contexts: JSON
 documents, RDF graphs, RDF* graphs and property graphs, as well as
 tabular data. Converters exist for these different representations.
-
-blml also provides rich meta-modeling constructs. For examples,
-modeling have description fields, comments, mappings to other systems...
 
 This document contains a mixture of normative and informative
 sections. Normative sections may have informative examples
@@ -41,24 +40,42 @@ that is they are designed to help the reader understand the concepts
 presented in the normative elements.
 
 blml is also described by its [own schema](meta.yaml), which is also
-Normative. The documentation in this specification _must_ be
-consistent with the yaml representation.
+Normative. The schema can also be viewed on [this site](https://biolink.github.io/biolinkml/docs).
+
+The documentation in this specification _must_ be consistent with the
+yaml representation.
 
 The italicized keywords _must_, _must not_, _should_, _should not_,
-and _may_ are used to specify normative features of OWL 2 documents
+and _may_ are used to specify normative features blml documents
 and tools, and are interpreted as specified in RFC 211.
 
 ## Domain (Normative)
 
-RDF* graphs
+<!--
 
-Representations and JSON representation
+TODO
 
-YAML: JSON subset
+-->
+
+The domain of biolinkml is an RDF graph:
+
+```
+G = Triple*
+Triple = < Subject Predicate Object >
+Subject = IRI | BlankNode
+Predicate = IRI
+Subject = IRI | BlankNode | Literal
+```
+
+### Notes (informative)
+
+The primary domain of biolinkml is an RDF graph, but blml schemas may
+be used for JSON documents, Property Graphs, UML object graphs, and
+tabular/relational data.
 
 ## Schema Representation (Informative)
 
-The normative representation of a blml schema is as a YAML document.
+The normative representation of a blml [schema](https://w3id.org/biolink/biolinkml/meta/SchemaDefinition) is as a YAML document.
 
 The document includes dictionaries of schema **elements**. Each
 dictionary is indexed by the element **name**. Dictionaries _may_ be
@@ -121,7 +138,11 @@ All schema elements _must_ have a unique name and a unique IRI. Names _must_ be 
  * class elements use a CamelCase construction rule
  * slot, types, subset elements use a snake_case construction rule
 
+<!--
+
 TODO: define these rules.
+
+-->
 
 Values for schema element slots _may_ be IRIs, and these _may_ be specified as CURIEs. CURIEs are shortform representations of URIs, and _must_ be specified as `PREFIX:LocalID`, where the prefix has an associated URI base. The prefix _must_ be declared in either:
 
@@ -133,17 +154,20 @@ Example (Informative):
 ```yaml
 prefixes:
   biolinkml: https://w3id.org/biolink/biolinkml/
-  wgs: http://www.w3.org/2003/01/geo/wgs84_pos
+  wgs: http://www.w3.org/2003/01/geo/wgs84_pos#
   qud: http://qudt.org/1.1/schema/qudt#
 ```
 
-## Schema Metadata (Normative)
+The CURIE `wgs:lat` will exand to http://www.w3.org/2003/01/geo/wgs84_pos#lat
 
- * [ClassDefinition](https://w3id.org/biolink/biolinkml/meta/ClassDefinition)
+
+## Schema Elements (Normative)
+
+ * [SchemaDefinition](https://w3id.org/biolink/biolinkml/meta/SchemaDefinition)
 
 ### Imports (Normative)
 
-Imports are specified as an import list in the main schema object.
+Imports are specified as an import list in the main schema object. This specifies a set: the order of elements is not important.
 
 ```yaml
 imports:
@@ -153,17 +177,22 @@ imports:
   - <IMPORT_n>  
 ```
 
-TODO:
+<!--
+
+TODO
 
  * https://github.com/biolink/biolinkml/projects/1
 
-### Metadata elements (Normative)
+-->
 
+### Metadata elements (Normative)
 
 
 ## Core elements: Classes, Slots, and Types (Normative)
 
 ### Slots (Normative)
+
+See [SlotDefinition](https://w3id.org/biolink/biolinkml/meta/SlotDefinition).
 
 Slots are properties that can be assigned to individuals.
 
@@ -179,8 +208,6 @@ slots:
 
 Each key in the dictionary is the slot [name](https://w3id.org/biolink/biolinkml/meta/name). The slot name must be unique.
 
-
-The [SlotDefinition](https://w3id.org/biolink/biolinkml/meta/SlotDefinition) is described in the metamodel.
 
 ### Class Slots (Normative)
 
