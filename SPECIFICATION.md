@@ -75,8 +75,8 @@ The structure of the document
  * dictionary of prefixes
  * dictionary of subsets
  * dictionary of types
- * dictionary of classes
  * dictionary of slots
+ * dictionary of classes
  * additional schema-level declarations
     * the schema _must_ have an [id](https://w3id.org/biolink/biolinkml/meta/id)
     * the schema _may_ have other declarations as allowed by [SchemaDefinition](https://w3id.org/biolink/biolinkml/meta/SchemaDefinition)
@@ -165,6 +165,21 @@ TODO:
 
 ### Metadata elements (Normative)
 
+As nentioned in the [Introduction](#introduction-Informative), semantic inheritance within a model is specified by several BiolinkML reserved properties:
+- **is_a:**
+- **mixin:**
+- **abstract:** 
+- **typeof:** 
+- **subclass_of:** 
+- **domain:**
+- **range:**
+- **subproperty_of:**
+
+A few fundamental rules guiding the use of these properties include:
+
+- *range:* the **range** of the **mixins** property in a class SHOULD be a **mixin**
+- *homeomorphicity:* **is_a** SHOULD only connect either (1) two mixins (2) two classes (3) two slots
+- instances SHOULD NOT instantiate a **mixin** slot or class directly; rather, it should be designated as **abstract: true** then injected into a non-abstract class using the **mixins** property
 
 
 ## Core elements: Classes, Slots, and Types (Normative)
