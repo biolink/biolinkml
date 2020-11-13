@@ -40,7 +40,9 @@ imports:
 
 subsets:
   owl:
-    description: Set of slots that appear in the OWL representation of a model
+    description: Set of elements that appear in the OWL representation of a model
+  descriptive:
+    description: Elements in this set do not affect the semantics of a schema, but are provided for informative purposes
 
 
 #==================================
@@ -78,20 +80,30 @@ slots:
     multivalued: true
     range: ncname
     description: >-
-      the identifier of this class or slot must begin with one of the URIs referenced by this prefix
+      the identifier of this class or slot _should_ begin with one of the URIs referenced by this prefix
 
   description:
     domain: element
     description: a description of the element's purpose and use
     slot_uri: skos:definition
+    mappings:
+      - schema:description
+      - dcterms:description
     in_subset:
       - owl
+      - descriptive
 
   aliases:
     domain: element
     range: string
     multivalued: true
+    description: >-
+      alternate name for the element
     slot_uri: skos:altLabel
+    mappings:
+      - schema:alternateName
+    in_subset:
+      - descriptive
 
   deprecated:
     domain: element
@@ -103,6 +115,8 @@ slots:
     range: string
     description: Outstanding issue that needs resolution
     multivalued: true
+    in_subset:
+      - descriptive
 
   notes:
     domain: element
@@ -117,9 +131,11 @@ slots:
     multivalued: true
     description: notes and comments about an element intended for external consumption
     slot_uri: skos:note
+    mappings:
+      - rdfs:comment
+      - schema:comment
     in_subset:
       - owl
-
 
   in_subset:
     domain: element
@@ -129,7 +145,8 @@ slots:
       used to indicate membership of a term in a defined subset of biolink terms used for a particular domain
       or application (e.g. the translator_minimal subset holding the minimal set of predicates used in a
       translator knowledge graph)
-    slot_uri: OIO:inSubset
+    mappings:
+      - OIO:inSubset
 
   from_schema:
     domain: element
@@ -145,6 +162,8 @@ slots:
     range: string
     readonly: supplied by the schema loader
     description: the imports entry that this element was derived from.  Empty means primary source
+    mappings:
+      - rdfs:isDefinedBy
 
   see_also:
     domain: element
@@ -154,6 +173,8 @@ slots:
     slot_uri: rdfs:seeAlso
     in_subset:
       - owl
+    mappings:
+      - schema:relatedLink
 
   created_by:
     domain: element
@@ -193,14 +214,21 @@ slots:
   is_a:
     domain: definition
     range: definition
-    abstract: true
+    multivalued: false ## single-inheritance
+    required: false ## root classes or slots have no parent
     description: >-
-      specifies single-inheritance between classes or slots.
-      While multiple inheritance is not allowed, mixins can be provided effectively providing the same thing.
-      The semantics are the same when translated to formalisms that allow MI (e.g. RDFS/OWL). When translating to a SI
-      framework (e.g. java classes, python classes) then is a is used.
-      When translating a framework without polymorphism (e.g. json-schema, solr document schema) then is a and mixins
-      are recursively unfolded
+      specifies single-inheritance from a class to a class or a slot to a slot
+    comments:
+      - >-
+        While multiple inheritance is not allowed, mixins can be provided effectively providing the same thing.
+        The semantics are the same when translated to formalisms that allow MI (e.g. RDFS/OWL). When translating to a SI
+        framework (e.g. java classes, python classes) then is a is used.
+        When translating a framework without polymorphism (e.g. json-schema, solr document schema) then is a and mixins
+        are recursively unfolded
+      - "RULE: if the domain is a class, the range MUST be a class"
+      - "RULE: if the domain is a slot, the range MUST be a slot"
+      - "RULE: if the domain is a mixin, the range SHOULD be a mixin"
+      - "RULE: if the domain is NOT a mixin, the range SHOULD NOT be a mixin"
 
   abstract:
     domain: definition
@@ -208,17 +236,31 @@ slots:
     description: >-
       an abstract class is a high level class or slot that is typically used to group common slots together and cannot
       be directly instantiated.
+    comments:
+      - "RULE: instances SHOULD not directly instantiate an abstract class"
+      - "RULE: an abstract slot SHOULD not be used as predicate in a directly asserted triple"
 
   mixin:
+    aliases:
+      - "trait"
+      - "mix-in"
     domain: definition
     range: boolean
-    description: this slot or class can only be used as a mixin -- equivalent to abstract
+    description: If a class or slot has this property then it can contain properties that can be inherited via `mixins` declarations
+    comments:
+      - "Use of mixins allows circumventing the single inheritance constraint on is_a"
+    see_also:
+      - https://en.wikipedia.org/wiki/Mixin
+      - https://w3id.org/biolink/biolinkml/meta/mixins
 
   mixins:
     domain: definition
     multivalued: true
     range: definition
-    description: List of definitions to be mixed in. Targets may be any definition of the same type
+    description: List of definitions to be mixed in (inherited). Targets may be any definition of the same type
+    comments:
+      - "RULE: a class or slot MAY declare any number of mixins"
+      - "RULE: the range SHOULD be a class or slot that has the mixin property"
 
   apply_to:
     domain: definition
@@ -245,6 +287,8 @@ slots:
     range: uri
     description: The official schema URI
     required: true
+    mappings:
+      - schema:identifier
 
   emit_prefixes:
     domain: schema_definition
@@ -273,6 +317,8 @@ slots:
     range: uriorcurie
     multivalued: true
     description: other schemas that are included in this schema
+    mappings:
+      - owl:imports
 
   license:
     domain: schema_definition
@@ -280,6 +326,8 @@ slots:
     slot_uri: dcterms:license
     in_subset:
       - owl
+    mappings:
+      - schema:license
 
   default_curi_maps:
     domain: schema_definition
