@@ -32,5 +32,6 @@ URI: [meta:see_also](https://w3id.org/biolink/biolinkml/meta/see_also)
 |  |  |  |
 | --- | --- | --- |
 | **Mappings:** | | rdfs:seeAlso |
+|  | | schema:relatedLink |
 | **In Subsets:** | | owl |
 

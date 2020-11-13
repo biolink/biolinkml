@@ -2,7 +2,7 @@
 # Type: aliases
 
 
-
+alternate name for the element
 
 URI: [meta:aliases](https://w3id.org/biolink/biolinkml/meta/aliases)
 
@@ -32,4 +32,6 @@ URI: [meta:aliases](https://w3id.org/biolink/biolinkml/meta/aliases)
 |  |  |  |
 | --- | --- | --- |
 | **Mappings:** | | skos:altLabel |
+|  | | schema:alternateName |
+| **In Subsets:** | | descriptive |
 

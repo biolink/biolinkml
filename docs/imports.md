@@ -20,3 +20,10 @@ URI: [meta:imports](https://w3id.org/biolink/biolinkml/meta/imports)
 ## Used by
 
  * [SchemaDefinition](SchemaDefinition.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | owl:imports |
+

@@ -22,3 +22,11 @@ URI: [meta:abstract](https://w3id.org/biolink/biolinkml/meta/abstract)
  * [ClassDefinition](ClassDefinition.md)
  * [Definition](Definition.md)
  * [SlotDefinition](SlotDefinition.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Comments:** | | RULE: instances SHOULD not directly instantiate an abstract class |
+|  | | RULE: an abstract slot SHOULD not be used as predicate in a directly asserted triple |
+

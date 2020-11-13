@@ -2,7 +2,7 @@
 # Type: mixins
 
 
-List of definitions to be mixed in. Targets may be any definition of the same type
+List of definitions to be mixed in (inherited). Targets may be any definition of the same type
 
 URI: [meta:mixins](https://w3id.org/biolink/biolinkml/meta/mixins)
 
@@ -22,3 +22,11 @@ URI: [meta:mixins](https://w3id.org/biolink/biolinkml/meta/mixins)
 ## Used by
 
  * [Definition](Definition.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Comments:** | | RULE: a class or slot MAY declare any number of mixins |
+|  | | RULE: the range SHOULD be a class or slot that has the mixin property |
+

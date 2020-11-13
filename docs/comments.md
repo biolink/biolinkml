@@ -32,5 +32,7 @@ URI: [meta:comments](https://w3id.org/biolink/biolinkml/meta/comments)
 |  |  |  |
 | --- | --- | --- |
 | **Mappings:** | | skos:note |
+|  | | rdfs:comment |
+|  | | schema:comment |
 | **In Subsets:** | | owl |
 

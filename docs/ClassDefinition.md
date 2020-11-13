@@ -65,7 +65,9 @@ URI: [meta:ClassDefinition](https://w3id.org/biolink/biolinkml/meta/ClassDefinit
     * Description: an abstract class is a high level class or slot that is typically used to group common slots together and cannot be directly instantiated.
     * range: [Boolean](types/Boolean.md)
  * [aliases](aliases.md)  <sub>0..*</sub>
+    * Description: alternate name for the element
     * range: [String](types/String.md)
+    * in subsets: (descriptive)
  * [alt_descriptions](alt_descriptions.md)  <sub>0..*</sub>
     * range: [AltDescription](AltDescription.md)
  * [broad mappings](broad_mappings.md)  <sub>0..*</sub>
@@ -99,7 +101,7 @@ URI: [meta:ClassDefinition](https://w3id.org/biolink/biolinkml/meta/ClassDefinit
  * [description](description.md)  <sub>OPT</sub>
     * Description: a description of the element's purpose and use
     * range: [String](types/String.md)
-    * in subsets: (owl)
+    * in subsets: (owl,descriptive)
  * [exact mappings](exact_mappings.md)  <sub>0..*</sub>
     * Description: A list of terms from different schemas or terminology systems that have identical meaning.
     * range: [Uriorcurie](types/Uriorcurie.md)
@@ -111,7 +113,7 @@ URI: [meta:ClassDefinition](https://w3id.org/biolink/biolinkml/meta/ClassDefinit
     * Description: id of the schema that defined the element
     * range: [Uri](types/Uri.md)
  * [id_prefixes](id_prefixes.md)  <sub>0..*</sub>
-    * Description: the identifier of this class or slot must begin with one of the URIs referenced by this prefix
+    * Description: the identifier of this class or slot _should_ begin with one of the URIs referenced by this prefix
     * range: [Ncname](types/Ncname.md)
  * [imported_from](imported_from.md)  <sub>OPT</sub>
     * Description: the imports entry that this element was derived from.  Empty means primary source
@@ -128,7 +130,7 @@ URI: [meta:ClassDefinition](https://w3id.org/biolink/biolinkml/meta/ClassDefinit
     * Description: A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective.
     * range: [Uriorcurie](types/Uriorcurie.md)
  * [mixin](mixin.md)  <sub>OPT</sub>
-    * Description: this slot or class can only be used as a mixin -- equivalent to abstract
+    * Description: If a class or slot has this property then it can contain properties that can be inherited via `mixins` declarations
     * range: [Boolean](types/Boolean.md)
  * [modified_by](modified_by.md)  <sub>OPT</sub>
     * Description: agent that modified the element
@@ -158,6 +160,7 @@ URI: [meta:ClassDefinition](https://w3id.org/biolink/biolinkml/meta/ClassDefinit
  * [todos](todos.md)  <sub>0..*</sub>
     * Description: Outstanding issue that needs resolution
     * range: [String](types/String.md)
+    * in subsets: (descriptive)
  * [values_from](values_from.md)  <sub>0..*</sub>
     * Description: the identifier of a "value set" -- a set of identifiers that form the possible values for the range of a slot
     * range: [Uriorcurie](types/Uriorcurie.md)

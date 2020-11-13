@@ -32,5 +32,8 @@ URI: [meta:description](https://w3id.org/biolink/biolinkml/meta/description)
 |  |  |  |
 | --- | --- | --- |
 | **Mappings:** | | skos:definition |
+|  | | schema:description |
+|  | | dcterms:description |
 | **In Subsets:** | | owl |
+|  | | descriptive |
 

@@ -30,7 +30,7 @@ A metamodel for defining biolink related schemas
 
  * [abstract](abstract.md) - an abstract class is a high level class or slot that is typically used to group common slots together and cannot be directly instantiated.
  * [alias](alias.md) - the name used for a slot in the context of its owning class.  If present, this is used instead of the actual slot name.
- * [aliases](aliases.md)
+ * [aliases](aliases.md) - alternate name for the element
  * [alt_description➞source](alt_description_source.md) - the source of an attributed description
  * [alt_description➞description](alt_description_text.md) - text of an attributed description
  * [alt_descriptions](alt_descriptions.md)
@@ -64,7 +64,7 @@ A metamodel for defining biolink related schemas
  * [from_schema](from_schema.md) - id of the schema that defined the element
  * [generation_date](generation_date.md) - date and time that the schema was loaded/generated
  * [id](id.md) - The official schema URI
- * [id_prefixes](id_prefixes.md) - the identifier of this class or slot must begin with one of the URIs referenced by this prefix
+ * [id_prefixes](id_prefixes.md) - the identifier of this class or slot _should_ begin with one of the URIs referenced by this prefix
  * [identifier](identifier.md) - True means that the key slot(s) uniquely identify the container. There can be at most one identifier or key per container
  * [ifabsent](ifabsent.md) - function that provides a default value for the slot.  Possible values for this slot are defined in biolink.utils.ifabsent_functions.default_library:
  * [imported_from](imported_from.md) - the imports entry that this element was derived from.  Empty means primary source
@@ -74,7 +74,7 @@ A metamodel for defining biolink related schemas
  * [inlined](inlined.md) - True means that keyed or identified slot appears in an outer structure by value.  False means that only the key or identifier for the slot appears within the domain, referencing a structure that appears elsewhere.
  * [inlined_as_list](inlined_as_list.md) - True means that an inlined slot is represented as a list of range instances.  False means that an inlined slot is represented as a dictionary, whose key is the slot key or identifier and whose value is the range instance.
  * [inverse](inverse.md) - indicates that any instance of d s r implies that there is also an instance of r s' d
- * [is_a](is_a.md) - specifies single-inheritance between classes or slots. While multiple inheritance is not allowed, mixins can be provided effectively providing the same thing. The semantics are the same when translated to formalisms that allow MI (e.g. RDFS/OWL). When translating to a SI framework (e.g. java classes, python classes) then is a is used. When translating a framework without polymorphism (e.g. json-schema, solr document schema) then is a and mixins are recursively unfolded
+ * [is_a](is_a.md) - specifies single-inheritance from a class to a class or a slot to a slot
     * [class_definition➞is_a](class_definition_is_a.md)
     * [slot_definition➞is_a](slot_definition_is_a.md)
  * [is_class_field](is_class_field.md) - indicates that any instance, i,  the domain of this slot will include an assert of i s range
@@ -94,8 +94,8 @@ A metamodel for defining biolink related schemas
  * [maximum_value](maximum_value.md) - for slots with ranges of type number, the value must be equal to or lowe than this
  * [metamodel_version](metamodel_version.md) - Version of the metamodel used to load the schema
  * [minimum_value](minimum_value.md) - for slots with ranges of type number, the value must be equal to or higher than this
- * [mixin](mixin.md) - this slot or class can only be used as a mixin -- equivalent to abstract
- * [mixins](mixins.md) - List of definitions to be mixed in. Targets may be any definition of the same type
+ * [mixin](mixin.md) - If a class or slot has this property then it can contain properties that can be inherited via `mixins` declarations
+ * [mixins](mixins.md) - List of definitions to be mixed in (inherited). Targets may be any definition of the same type
     * [class_definition➞mixins](class_definition_mixins.md)
     * [slot_definition➞mixins](slot_definition_mixins.md)
  * [modified_by](modified_by.md) - agent that modified the element

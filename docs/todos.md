@@ -26,3 +26,10 @@ URI: [meta:todos](https://w3id.org/biolink/biolinkml/meta/todos)
  * [SlotDefinition](SlotDefinition.md)
  * [SubsetDefinition](SubsetDefinition.md)
  * [TypeDefinition](TypeDefinition.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **In Subsets:** | | descriptive |
+

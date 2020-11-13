@@ -26,3 +26,10 @@ URI: [meta:imported_from](https://w3id.org/biolink/biolinkml/meta/imported_from)
  * [SlotDefinition](SlotDefinition.md)
  * [SubsetDefinition](SubsetDefinition.md)
  * [TypeDefinition](TypeDefinition.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Mappings:** | | rdfs:isDefinedBy |
+

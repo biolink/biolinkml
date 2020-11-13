@@ -40,7 +40,9 @@ URI: [meta:TypeDefinition](https://w3id.org/biolink/biolinkml/meta/TypeDefinitio
 ### Inherited from element:
 
  * [aliases](aliases.md)  <sub>0..*</sub>
+    * Description: alternate name for the element
     * range: [String](types/String.md)
+    * in subsets: (descriptive)
  * [alt_descriptions](alt_descriptions.md)  <sub>0..*</sub>
     * range: [AltDescription](AltDescription.md)
  * [broad mappings](broad_mappings.md)  <sub>0..*</sub>
@@ -68,7 +70,7 @@ URI: [meta:TypeDefinition](https://w3id.org/biolink/biolinkml/meta/TypeDefinitio
  * [description](description.md)  <sub>OPT</sub>
     * Description: a description of the element's purpose and use
     * range: [String](types/String.md)
-    * in subsets: (owl)
+    * in subsets: (owl,descriptive)
  * [exact mappings](exact_mappings.md)  <sub>0..*</sub>
     * Description: A list of terms from different schemas or terminology systems that have identical meaning.
     * range: [Uriorcurie](types/Uriorcurie.md)
@@ -80,7 +82,7 @@ URI: [meta:TypeDefinition](https://w3id.org/biolink/biolinkml/meta/TypeDefinitio
     * Description: id of the schema that defined the element
     * range: [Uri](types/Uri.md)
  * [id_prefixes](id_prefixes.md)  <sub>0..*</sub>
-    * Description: the identifier of this class or slot must begin with one of the URIs referenced by this prefix
+    * Description: the identifier of this class or slot _should_ begin with one of the URIs referenced by this prefix
     * range: [Ncname](types/Ncname.md)
  * [imported_from](imported_from.md)  <sub>OPT</sub>
     * Description: the imports entry that this element was derived from.  Empty means primary source
@@ -114,3 +116,4 @@ URI: [meta:TypeDefinition](https://w3id.org/biolink/biolinkml/meta/TypeDefinitio
  * [todos](todos.md)  <sub>0..*</sub>
     * Description: Outstanding issue that needs resolution
     * range: [String](types/String.md)
+    * in subsets: (descriptive)
