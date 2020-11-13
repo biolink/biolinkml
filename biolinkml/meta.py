@@ -11,6 +11,8 @@ import sys
 import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
+
+from biolinkml.utils.enumeration import Enumerati
 from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
@@ -544,7 +546,7 @@ class Definition(Element):
 
 
 @dataclass
-class EnumDefinition(Element):
+class EnumDefinition(Element, Enumerati):
     """
     List of values that constrain the range of a slot
     """

@@ -21,3 +21,14 @@ enums:
       ISS:
         description: Mrs. Peacock with the Dagger
         meaning: CLUE:1173
+
+
+classes:
+  evidencer:
+    attributes:
+      name:
+        range: string
+        identifier: true
+      code:
+        range: evidence
+        required: true

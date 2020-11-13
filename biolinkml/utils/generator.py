@@ -9,7 +9,7 @@ from click import Command, Argument, Option
 
 from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, ClassDefinitionName, \
     TypeDefinition, Element, SlotDefinitionName, TypeDefinitionName, PrefixPrefixPrefix, ElementName, \
-    SubsetDefinition, SubsetDefinitionName
+    SubsetDefinition, SubsetDefinitionName, EnumDefinition, EnumDefinitionName
 from biolinkml.utils.formatutils import camelcase, underscore
 from biolinkml.utils.mergeutils import alias_root
 from biolinkml.utils.schemaloader import SchemaLoader
@@ -383,6 +383,11 @@ class Generator(metaclass=abc.ABCMeta):
                 return slotname
         return None
 
+    def enum_identifier_path(self, enum_or_enumname: Union[str, EnumDefinition]) -> List[str]:
+        """ Return an enum_identifier path """
+        return ['str',
+                camelcase(enum_or_enumname.name if isinstance(enum_or_enumname, EnumDefinition) else enum_or_enumname)]
+
     def class_identifier_path(self, cls_or_clsname: Union[str, ClassDefinition], force_non_key: bool) -> List[str]:
         """
         Return the path closure to a class identifier if the class has a key and force_non_key is false otherwise
@@ -393,7 +398,7 @@ class Generator(metaclass=abc.ABCMeta):
         :return: path
         """
         cls = cls_or_clsname if isinstance(cls_or_clsname, ClassDefinition) \
-            else self.schema.classes[cast(ClassDefinitionName, cls_or_clsname)]
+            else self.schema.classes[ClassDefinitionName(cls_or_clsname)]
 
         # Determine whether the class has a key
         identifier_slot = None
@@ -424,6 +429,10 @@ class Generator(metaclass=abc.ABCMeta):
         if slot.range in self.schema.types:
             # Type
             return self.range_type_path(self.schema.types[cast(TypeDefinitionName, slot.range)])
+        elif slot.range in self.schema.enums:
+            # TODO: figure out how to generate this
+            # TODO: Don't allow inlining on enumerations
+            return self.enum_identifier_path(slot.range)
         else:
             # Class
             return self.class_identifier_path(slot.range, bool(slot.inlined))

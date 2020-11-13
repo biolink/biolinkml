@@ -17,12 +17,12 @@ class LogicProgramGenerator(Generator):
 
     def __init__(self, schema: Union[str, TextIO, SchemaDefinition], **kwargs) -> None:
         super().__init__(schema, **kwargs)
-        self.P = TermGenerator() 
+        self.P = TermGenerator()
         self.R = PrologRenderer() if self.format == 'lp' else SExpressionRenderer()
 
     def visit_class(self, cls: ClassDefinition) -> bool:
         cn = underscore(cls.name)
-        
+
         self.emit('class', cn)
         for p in cls.mixins:
             self.emit('mixin', cn, underscore(p))
@@ -61,13 +61,13 @@ class LogicProgramGenerator(Generator):
             self.emit('multivalued', sn)
         if slot.required:
             self.emit('required', sn)
-    
+
     def visit_class_slot(self, cls: ClassDefinition, aliased_slot_name: str, slot: SlotDefinition) -> None:
         sn = underscore(aliased_slot_name)
         cn = underscore(cls.name)
         self.emit('class_slot', cn, sn)
         self.emit('required', sn)
-        self.emit('slotrange', underscore(slot.range)) if slot.range in self.schema.classes or slot.range in self.schema.types else "String"
+        self.emit('slotrange', underscore(slot.range)) if slot.range in self.schema.classes or slot.range in self.schema.types or slot.range in self.schema.enums else "String"
         if slot.multivalued:
             self.emit('multivalued_in', sn, cn)
         if slot.required:
@@ -80,7 +80,7 @@ class LogicProgramGenerator(Generator):
         t = Term(p, *args)
         print(f'{self.R.render(t)}.')
 
-        
+
 @shared_arguments(LogicProgramGenerator)
 @click.command()
 def cli(yamlfile, **args):

@@ -169,8 +169,8 @@ class SchemaLoader:
                 self.raise_value_error(f"slot: {slot.name} - unrecognized domain ({slot.domain})", slot.domain)
 
             # Validate the slot range
-            if slot.range is not None and  slot.range not in self.schema.types and \
-                    slot.range not in self.schema.classes:
+            if slot.range is not None and slot.range not in self.schema.types and \
+                    slot.range not in self.schema.classes and slot.range not in self.schema.enums:
                 self.raise_value_error(f"slot: {slot.name} - unrecognized range ({slot.range})", slot.range)
 
         # apply to --> mixins
@@ -273,7 +273,7 @@ class SchemaLoader:
 
             # Validate the slot range
             if slot.range is not None and  slot.range not in self.schema.types and \
-                    slot.range not in self.schema.classes:
+                    slot.range not in self.schema.classes and slot.range not in self.schema.enums:
                 self.raise_value_error(f"slot: {slot.name} - unrecognized range ({slot.range})", slot.range)
 
         # Massage classes, propagating class slots entries domain back to the target slots

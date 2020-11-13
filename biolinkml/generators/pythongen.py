@@ -8,7 +8,7 @@ from rdflib import URIRef
 import biolinkml
 from biolinkml.generators import PYTHON_GEN_VERSION
 from biolinkml.meta import SchemaDefinition, SlotDefinition, ClassDefinition, ClassDefinitionName, \
-    SlotDefinitionName, DefinitionName, Element, TypeDefinition, Definition, EnumDefinition
+    SlotDefinitionName, DefinitionName, Element, TypeDefinition, Definition, EnumDefinition, PermissibleValue
 from biolinkml.utils.formatutils import camelcase, underscore, be, wrapped_annotation, split_line, sfx
 from biolinkml.utils.generator import Generator, shared_arguments
 from biolinkml.utils.ifabsent_functions import ifabsent_value_declaration, ifabsent_postinit_declaration, \
@@ -194,6 +194,8 @@ class slots:
             if slot.range:
                 if slot.range in self.schema.types:
                     add_type_ref(self.schema.types[slot.range])
+                elif slot.range in self.schema.enums:
+                    pass
                 else:
                     cls = self.schema.classes[slot.range]
                     if cls.imported_from:
@@ -626,7 +628,9 @@ class slots:
             if slot.range in self.schema.classes and not self.schema.classes[slot.range].slots:
                 rlines.append(f'\tself.{aliased_slot_name} = {base_type_name}()')
             else:
-                if self.class_identifier(slot.range) or slot.range in self.schema.types:
+                if self.class_identifier(slot.range) or\
+                        slot.range in self.schema.types or\
+                        slot.range in self.schema.enums:
                     rlines.append(f'\tself.{aliased_slot_name} = {base_type_name}(self.{aliased_slot_name})')
                 else:
                     rlines.append(f'\tself.{aliased_slot_name} = {base_type_name}(**self.{aliased_slot_name})')
@@ -757,20 +761,37 @@ class slots:
     def gen_enumerations(self) -> str:
         return '\n\n'.join([self.gen_enum(enum) for enum in self.schema.enums.values() if not enum.imported_from])
 
-
     def gen_enum(self, enum: EnumDefinition) -> str:
         enum_name = camelcase(enum.name)
-        desc = f'\tdescription="{enum.description}",\n' if enum.description else ''
-        cs = f'\tcode_set={enum.code_set},\n' if enum.code_set else ''
-        tag = f'\tcode_set_tag={enum.code_set_tag},\n' if enum.code_set_tag else ''
-        ver = f'\tcode_set_version={enum.code_set_version},\n' if enum.code_set_version else ''
-        # vf = f'\tuse={enum.use}\n' if enum.use else ''
+        desc = f'\t\tdescription="{enum.description}",\n' if enum.description else ''
+        cs = f'\t\tcode_set={self.namespaces.curie_for(self.namespaces.uri_for(enum.code_set), default_ok=False, pythonform=True)},\n'\
+            if enum.code_set else ''
+        tag = f'\t\tcode_set_tag={enum.code_set_tag},\n' if enum.code_set_tag else ''
+        ver = f'\t\tcode_set_version={enum.code_set_version},\n' if enum.code_set_version else ''
+        # vf = f'\t\tuse={enum.use}\n' if enum.use else ''
         vf = ''
-        return f'''{enum_name} = EnumDefinition(
-    name="{enum_name}",\n{desc}{cs}{tag}{ver}{vf}\tpermissible_values= {{"IEA": PermissibleValue("Colonel Mustard in the Ballroom"),
-                         "ISS": PermissibleValue("Mrs. Peacock with the Dagger",
-                                                 meaning=CLUE['1173']) }} )
+        pvs = ',\n\t\t\t'.join([self.gen_pv(pv) for pv in enum.permissible_values.values()])
+        defn = f'EnumDefinition(\n\t\tname="{enum_name}",\n{desc}{cs}{tag}{ver}{vf}\t\tpermissible_values={{\n\t\t\t{pvs}}})\n'
+
+        return f'''@dataclass
+class {enum_name}(YAMLRoot):
+    defn: ClassVar[EnumDefinition] = {defn}
+    code: str
+
+    def __post_init__(self) -> None:
+        self.code = str(self.code)
+        if self.code not in Evidence.defn.permissible_values:
+            raise ValueError(f"Unknown {enum_name} value: {{self.code}}")
 '''
+
+    def gen_pv(self, pv: PermissibleValue) -> str:
+        if pv.meaning:
+            pv_meaning = self.namespaces.curie_for(self.namespaces.uri_for(pv.meaning), default_ok=False, pythonform=True)
+            meaning = f',\n\t\t\t\t\t\t\t\t\tmeaning={pv_meaning}'
+        else:
+            meaning = ''
+        description = pv.description or ""
+        return f'"{pv.text}": PermissibleValue("{description}"{meaning})'
 
 
 @shared_arguments(PythonGenerator)

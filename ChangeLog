@@ -1,6 +1,40 @@
 CHANGES
 =======
 
+* Checkpoint.   First cut at python code generation for enumeration
+* Initial model for enumerations
+* Correct an issue where classes with multiple identifiers aren't detected
+* Automated adding outputs from tests
+* Update to latest version of biolink-model for testing
+
+v1.6.0
+------
+
+* Automated adding outputs from tests
+* Add the context generator back to the unit test
+* Add proposed case insensitivity to prefix handling
+* Automated update to docs with GitHub Actions
+* Automated adding outputs from tests
+* Update the Python comparator to correctly test the generated code
+* Automated update to docs with GitHub Actions
+* Automated adding outputs from tests
+* Update resolver3.json
+* Update of the documentation
+* Major update to the generated Python
+* Sync with the latest biolink model for testing
+* Automated adding outputs from tests
+* Fixed #290
+* made test case for #290, fails as expected for now
+* added test for #290
+
+v1.5.10
+-------
+
+* Automated adding outputs from tests
+* Fixes for issues #281 and #282
+* Automated adding outputs from tests
+* Accidentally picked up some WIP from another branch.  Pared down to just this issue
+* Fixed issue #276.  Tightened up the YAML importer to fail on empty list elements
 * Automated adding outputs from tests
 * Checkpoint on pattern branch
 
