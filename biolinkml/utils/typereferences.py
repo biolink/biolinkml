@@ -1,7 +1,8 @@
 from dataclasses import dataclass
 from typing import Set, cast
 
-from biolinkml.meta import ClassDefinitionName, SlotDefinitionName, TypeDefinitionName, SubsetDefinitionName, ElementName
+from biolinkml.meta import ClassDefinitionName, SlotDefinitionName, TypeDefinitionName, SubsetDefinitionName, \
+    ElementName, EnumDefinitionName
 from biolinkml.utils.metamodelcore import empty_set
 
 
@@ -17,6 +18,7 @@ ClassType = RefType('Class')
 TypeType = RefType('Type')
 SlotType = RefType('Slot')
 SubsetType = RefType('Subset')
+EnumType = RefType('Enum')
 
 
 @dataclass
@@ -28,16 +30,19 @@ class References:
     slotrefs: Set[SlotDefinitionName] = empty_set()       # Refs of type slot
     typerefs: Set[TypeDefinitionName] = empty_set()       # Refs of type type
     subsetrefs: Set[SubsetDefinitionName] = empty_set()   # Refs of type subset
+    enumrefs: Set[EnumDefinitionName] = empty_set()       # Refs of type enum
 
     def addref(self, fromtype: RefType, fromname: ElementName) -> None:
         if fromtype is ClassType:
-            self.classrefs.add(cast(ClassDefinitionName, fromname))
+            self.classrefs.add(ClassDefinitionName(fromname))
         elif fromtype is TypeType:
-            self.typerefs.add(cast(TypeDefinitionName, fromname))
+            self.typerefs.add(TypeDefinitionName(fromname))
         elif fromtype is SlotType:
-            self.slotrefs.add(cast(SlotDefinitionName, fromname))
+            self.slotrefs.add(SlotDefinitionName(fromname))
         elif fromtype is SubsetType:
-            self.subsetrefs.add(cast(SubsetDefinitionName, fromname))
+            self.subsetrefs.add(SubsetDefinitionName(fromname))
+        elif fromtype is EnumType:
+            self.slotrefs.add(EnumDefinitionName(fromname))
         else:
             raise TypeError(f"Unknown typ: {fromtype}")
 
@@ -46,6 +51,8 @@ class References:
         self.slotrefs.update(other.slotrefs)
         self.typerefs.update(other.typerefs)
         self.subsetrefs.union(other.subsetrefs)
+        self.enumrefs.update(other.enumrefs)
 
     def __bool__(self):
-        return bool(self.classrefs) or bool(self.slotrefs) or bool(self.typerefs) or bool(self.subsetrefs)
+        return bool(self.classrefs) or bool(self.slotrefs) or bool(self.typerefs) or\
+               bool(self.subsetrefs) or bool(self.enumrefs)
