@@ -34,6 +34,9 @@ URI: [meta:EnumDefinition](https://w3id.org/biolink/biolinkml/meta/EnumDefinitio
  * [permissible_values](permissible_values.md)  <sub>0..*</sub>
     * Description: A list of possible values for a slot range
     * range: [PermissibleValue](PermissibleValue.md)
+ * [pv_formula](pv_formula.md)  <sub>OPT</sub>
+    * Description: Defines the specific formula to be used to generate the permissible values.
+    * range: 
 
 ### Inherited from element:
 

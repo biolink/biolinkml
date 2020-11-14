@@ -118,6 +118,7 @@ A metamodel for defining biolink related schemas
  * [prefix_prefix](prefix_prefix.md) - the nsname (sans ':' for a given prefix)
  * [prefix_reference](prefix_reference.md) - A URI associated with a given prefix
  * [prefixes](prefixes.md) - prefix / URI definitions to be added to the context beyond those fetched from prefixcommons in id prefixes
+ * [pv_formula](pv_formula.md) - Defines the specific formula to be used to generate the permissible values.
  * [range](range.md) - defines the type of the object of the slot.  Given the following slot definition
  * [readonly](readonly.md) - If present, slot is read only.  Text explains why
  * [repr](repr.md) - the name of the python object that implements this type definition

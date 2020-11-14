@@ -716,6 +716,13 @@
                      },
                      {
                         "type": "TripleConstraint",
+                        "predicate": "https://w3id.org/biolink/biolinkml/meta/pv_formula",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/PvFormulaOptions",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/permissible_values",
                         "valueExpr": "https://w3id.org/biolink/biolinkml/meta/PermissibleValue",
                         "min": 0,

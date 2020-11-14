@@ -10,11 +10,11 @@
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "Biolink Schema Metamodel" ;
     skos:definition "A metamodel for defining biolink related schemas" ;
-    meta:generation_date "2020-11-09 03:33" ;
+    meta:generation_date "2020-11-13 11:55" ;
     meta:metamodel_version "1.6.1" ;
     meta:source_file "meta.yaml" ;
-    meta:source_file_date "Mon Nov  9 03:33:07 2020" ;
-    meta:source_file_size 31478 .
+    meta:source_file_date "Fri Nov 13 05:08:10 2020" ;
+    meta:source_file_size 32547 .
 
 meta:alt_description_source a owl:ObjectProperty,
         meta:SlotDefinition ;
@@ -612,6 +612,15 @@ meta:prefixes a owl:ObjectProperty,
     rdfs:range meta:Prefix ;
     skos:definition "prefix / URI definitions to be added to the context beyond those fetched from prefixcommons in id prefixes" .
 
+meta:pv_formula a owl:ObjectProperty,
+        meta:SlotDefinition ;
+    rdfs:label "pv_formula" ;
+    rdfs:domain meta:EnumDefinition ;
+    rdfs:range <http://UNKNOWN.org/pv_formula_options> ;
+    skos:definition "Defines the specific formula to be used to generate the permissible values." ;
+    skos:note "code_set must be supplied for this to be valid",
+        "you cannot have BOTH the permissible_values and permissible_value_formula tag" .
+
 meta:range a owl:ObjectProperty,
         meta:SlotDefinition ;
     rdfs:label "range" ;
@@ -954,12 +963,12 @@ meta:LocalName a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "local_name" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Ncname> ;
-            owl:onProperty meta:local_name_source ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
             owl:onProperty meta:local_name_value ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Ncname> ;
+            owl:onProperty meta:local_name_source ;
             owl:qualifiedCardinality 1 ] ;
     skos:definition "an attributed label" .
 
@@ -967,12 +976,12 @@ meta:Prefix a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "prefix" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Ncname> ;
-            owl:onProperty meta:prefix_prefix ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Uri> ;
             owl:onProperty meta:prefix_reference ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Ncname> ;
+            owl:onProperty meta:prefix_prefix ;
             owl:qualifiedCardinality 1 ] ;
     skos:definition "prefix URI tuple" .
 
@@ -1047,27 +1056,6 @@ meta:extensions a owl:ObjectProperty,
     rdfs:range meta:Extension ;
     skos:definition "a tag/text tuple attached to an arbitrary element" .
 
-meta:EnumDefinition a owl:Class,
-        meta:ClassDefinition ;
-    rdfs:label "enum_definition" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom meta:PermissibleValue ;
-            owl:onProperty meta:permissible_values ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty meta:code_set_version ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
-            owl:onProperty meta:code_set ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty meta:code_set_tag ],
-        meta:Element ;
-    skos:definition "List of values that constrain the range of a slot" .
-
 meta:mappings a owl:ObjectProperty,
         meta:SlotDefinition ;
     rdfs:label "mappings" ;
@@ -1082,6 +1070,31 @@ meta:mappings a owl:ObjectProperty,
             owl:onProperty meta:topValue ;
             owl:qualifiedCardinality 1 ] ;
     skos:definition "An integer" .
+
+meta:EnumDefinition a owl:Class,
+        meta:ClassDefinition ;
+    rdfs:label "enum_definition" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty meta:code_set_version ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom meta:PermissibleValue ;
+            owl:onProperty meta:permissible_values ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/pv_formula_options> ;
+            owl:onProperty meta:pv_formula ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
+            owl:onProperty meta:code_set ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty meta:code_set_tag ],
+        meta:Element ;
+    skos:definition "List of values that constrain the range of a slot" .
 
 meta:is_a a owl:ObjectProperty,
         meta:SlotDefinition ;
@@ -1110,15 +1123,15 @@ meta:Extension a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "extension" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
-            owl:onProperty meta:tag ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:allValuesFrom meta:Extension ;
             owl:onProperty meta:extensions ],
         [ a owl:Restriction ;
             owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
             owl:onProperty meta:value ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
+            owl:onProperty meta:tag ;
             owl:qualifiedCardinality 1 ] ;
     skos:definition "a tag/value pair used to add non-model information to an entry" .
 
@@ -1135,71 +1148,71 @@ meta:PermissibleValue a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "permissible_value" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
+            owl:onProperty meta:deprecated_element_has_exact_replacement ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
+            owl:onProperty meta:see_also ],
+        [ a owl:Restriction ;
             owl:allValuesFrom meta:SubsetDefinition ;
             owl:onProperty meta:in_subset ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty meta:imported_from ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom meta:PermissibleValue ;
-            owl:onProperty meta:mixins ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
-            owl:onProperty meta:meaning ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty meta:deprecated ],
+            owl:onProperty meta:description ],
         [ a owl:Restriction ;
             owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
             owl:onProperty meta:text ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:allValuesFrom meta:Annotation ;
-            owl:onProperty meta:annotations ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty meta:imported_from ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty meta:todos ],
+            owl:onProperty meta:notes ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Uri> ;
-            owl:onProperty meta:from_schema ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
-            owl:onProperty meta:see_also ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
-            owl:onProperty meta:deprecated_element_has_possible_replacement ],
+            owl:allValuesFrom meta:Example ;
+            owl:onProperty meta:examples ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:PermissibleValue ;
             owl:onProperty meta:is_a ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom meta:Extension ;
+            owl:onProperty meta:extensions ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
+            owl:onProperty meta:meaning ],
         [ a owl:Restriction ;
             owl:allValuesFrom meta:AltDescription ;
             owl:onProperty meta:alt_descriptions ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
-            owl:onProperty meta:deprecated_element_has_exact_replacement ],
+            owl:onProperty meta:deprecated_element_has_possible_replacement ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty meta:description ],
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Uri> ;
+            owl:onProperty meta:from_schema ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty meta:notes ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom meta:Extension ;
-            owl:onProperty meta:extensions ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom meta:Example ;
-            owl:onProperty meta:examples ],
+            owl:allValuesFrom meta:Annotation ;
+            owl:onProperty meta:annotations ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://w3id.org/biolink/biolinkml/meta/types/String> ;
             owl:onProperty meta:comments ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom meta:PermissibleValue ;
+            owl:onProperty meta:mixins ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty meta:deprecated ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty meta:todos ],
         meta:Annotatable,
         meta:Extensible ;
     skos:definition "a permissible value, accompanied by intended text and an optional mapping to a concept URI" .
@@ -1222,45 +1235,45 @@ meta:Definition a owl:Class,
     rdfs:seeAlso "https://en.wikipedia.org/wiki/Data_element_definition" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom meta:Definition ;
-            owl:onProperty meta:mixins ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Boolean> ;
-            owl:onProperty meta:abstract ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
-            owl:onProperty meta:values_from ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
-            owl:onProperty meta:status ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Datetime> ;
-            owl:onProperty meta:last_updated_on ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Datetime> ;
-            owl:onProperty meta:created_on ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
-            owl:onProperty meta:modified_by ],
+            owl:onProperty meta:apply_to ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:Definition ;
             owl:onProperty meta:is_a ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Boolean> ;
-            owl:onProperty meta:mixin ],
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
+            owl:onProperty meta:created_by ],
         [ a owl:Restriction ;
-            owl:allValuesFrom meta:Definition ;
-            owl:onProperty meta:apply_to ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Datetime> ;
+            owl:onProperty meta:last_updated_on ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
-            owl:onProperty meta:created_by ],
+            owl:onProperty meta:modified_by ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
+            owl:onProperty meta:status ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
+            owl:onProperty meta:values_from ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Boolean> ;
+            owl:onProperty meta:mixin ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Datetime> ;
+            owl:onProperty meta:created_on ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Boolean> ;
+            owl:onProperty meta:abstract ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom meta:Definition ;
+            owl:onProperty meta:mixins ],
         meta:Element ;
     skos:definition "base class for definitions" .
 
@@ -1269,48 +1282,13 @@ meta:SchemaDefinition a owl:Class,
     rdfs:label "schema_definition" ;
     rdfs:seeAlso "https://en.wikipedia.org/wiki/Data_dictionary" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom meta:SlotDefinition ;
-            owl:onProperty meta:slots ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/biolink/biolinkml/meta/types/Ncname> ;
-            owl:onProperty meta:emit_prefixes ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Integer> ;
-            owl:onProperty meta:source_file_size ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty meta:default_curi_maps ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty meta:metamodel_version ],
-        [ a owl:Restriction ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Uri> ;
-            owl:onProperty meta:id ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom meta:Prefix ;
-            owl:onProperty meta:prefixes ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty meta:source_file ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Datetime> ;
             owl:onProperty meta:generation_date ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty meta:default_prefix ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom meta:EnumDefinition ;
-            owl:onProperty meta:enums ],
-        [ a owl:Restriction ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Ncname> ;
-            owl:onProperty meta:name ;
-            owl:qualifiedCardinality 1 ],
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Integer> ;
+            owl:onProperty meta:source_file_size ],
         [ a owl:Restriction ;
             owl:allValuesFrom meta:TypeDefinition ;
             owl:onProperty meta:types ],
@@ -1319,30 +1297,65 @@ meta:SchemaDefinition a owl:Class,
             owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
             owl:onProperty meta:version ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty meta:license ],
+            owl:allValuesFrom meta:Prefix ;
+            owl:onProperty meta:prefixes ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
-            owl:onProperty meta:imports ],
+            owl:allValuesFrom meta:SlotDefinition ;
+            owl:onProperty meta:slots ],
         [ a owl:Restriction ;
-            owl:allValuesFrom meta:ClassDefinition ;
-            owl:onProperty meta:classes ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:TypeDefinition ;
-            owl:onProperty meta:default_range ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty meta:title ],
+            owl:allValuesFrom <https://w3id.org/biolink/biolinkml/meta/types/Ncname> ;
+            owl:onProperty meta:emit_prefixes ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Datetime> ;
             owl:onProperty meta:source_file_date ],
         [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty meta:default_prefix ],
+        [ a owl:Restriction ;
             owl:allValuesFrom meta:SubsetDefinition ;
             owl:onProperty meta:subsets ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom meta:EnumDefinition ;
+            owl:onProperty meta:enums ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty meta:metamodel_version ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:TypeDefinition ;
+            owl:onProperty meta:default_range ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty meta:default_curi_maps ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
+            owl:onProperty meta:imports ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty meta:license ],
+        [ a owl:Restriction ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Ncname> ;
+            owl:onProperty meta:name ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Uri> ;
+            owl:onProperty meta:id ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty meta:source_file ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom meta:ClassDefinition ;
+            owl:onProperty meta:classes ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty meta:title ],
         meta:Element ;
     skos:altLabel "data dictionary" ;
     skos:definition "a collection of subset, type, slot and class definitions" .
@@ -1352,12 +1365,12 @@ meta:TypeDefinition a owl:Class,
     rdfs:label "type_definition" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
-            owl:onProperty meta:uri ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:TypeDefinition ;
             owl:onProperty meta:typeof ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
+            owl:onProperty meta:uri ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
@@ -1383,53 +1396,30 @@ meta:Element a owl:Class,
     rdfs:label "element" ;
     rdfs:seeAlso "https://en.wikipedia.org/wiki/Data_element" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
-            owl:onProperty meta:mappings ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom meta:AltDescription ;
-            owl:onProperty meta:alt_descriptions ],
-        [ a owl:Restriction ;
             owl:allValuesFrom meta:Annotation ;
             owl:onProperty meta:annotations ],
         [ a owl:Restriction ;
-            owl:allValuesFrom meta:SubsetDefinition ;
-            owl:onProperty meta:in_subset ],
+            owl:allValuesFrom <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
+            owl:onProperty meta:narrow_mappings ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
             owl:onProperty meta:broad_mappings ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Uri> ;
-            owl:onProperty meta:from_schema ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/biolink/biolinkml/meta/types/Ncname> ;
-            owl:onProperty meta:id_prefixes ],
-        [ a owl:Restriction ;
             owl:allValuesFrom <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty meta:notes ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
-            owl:onProperty meta:deprecated_element_has_exact_replacement ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom meta:LocalName ;
-            owl:onProperty meta:local_names ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
-            owl:onProperty meta:close_mappings ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty meta:comments ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
-            owl:onProperty meta:definition_uri ],
+            owl:onProperty meta:todos ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
             owl:onProperty meta:exact_mappings ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
-            owl:onProperty meta:narrow_mappings ],
+            owl:onProperty meta:related_mappings ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty meta:comments ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty meta:description ],
         [ a owl:Restriction ;
             owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
             owl:onProperty meta:name ;
@@ -1438,36 +1428,59 @@ meta:Element a owl:Class,
             owl:allValuesFrom <https://w3id.org/biolink/biolinkml/meta/types/String> ;
             owl:onProperty meta:aliases ],
         [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/biolink/biolinkml/meta/types/Ncname> ;
+            owl:onProperty meta:id_prefixes ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
+            owl:onProperty meta:close_mappings ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom meta:AltDescription ;
+            owl:onProperty meta:alt_descriptions ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
             owl:onProperty meta:imported_from ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty meta:notes ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom meta:LocalName ;
+            owl:onProperty meta:local_names ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
+            owl:onProperty meta:definition_uri ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
+            owl:onProperty meta:mappings ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty meta:deprecated ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
+            owl:onProperty meta:see_also ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
             owl:onProperty meta:deprecated_element_has_possible_replacement ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty meta:todos ],
-        [ a owl:Restriction ;
             owl:allValuesFrom meta:Extension ;
             owl:onProperty meta:extensions ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty meta:description ],
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Uri> ;
+            owl:onProperty meta:from_schema ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
-            owl:onProperty meta:see_also ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
+            owl:onProperty meta:deprecated_element_has_exact_replacement ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom meta:SubsetDefinition ;
+            owl:onProperty meta:in_subset ],
         [ a owl:Restriction ;
             owl:allValuesFrom meta:Example ;
             owl:onProperty meta:examples ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
-            owl:onProperty meta:related_mappings ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty meta:deprecated ],
         meta:Annotatable,
         meta:Extensible ;
     skos:definition "a named element in the model" .
@@ -1476,32 +1489,32 @@ meta:ClassDefinition a owl:Class,
         meta:ClassDefinition ;
     rdfs:label "class_definition" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom meta:ClassDefinition ;
+            owl:onProperty meta:apply_to ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom meta:ClassDefinition ;
+            owl:onProperty meta:union_of ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom meta:SlotDefinition ;
+            owl:onProperty meta:slots ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Boolean> ;
+            owl:onProperty meta:tree_root ],
+        [ a owl:Restriction ;
             owl:allValuesFrom meta:SlotDefinition ;
             owl:onProperty meta:attributes ],
         [ a owl:Restriction ;
-            owl:allValuesFrom meta:ClassDefinition ;
-            owl:onProperty meta:apply_to ],
+            owl:allValuesFrom meta:SlotDefinition ;
+            owl:onProperty meta:slot_usage ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:ClassDefinition ;
             owl:onProperty meta:is_a ],
         [ a owl:Restriction ;
-            owl:allValuesFrom meta:SlotDefinition ;
-            owl:onProperty meta:defining_slots ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
             owl:onProperty meta:class_uri ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom meta:SlotDefinition ;
-            owl:onProperty meta:slot_usage ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom meta:ClassDefinition ;
-            owl:onProperty meta:union_of ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Boolean> ;
-            owl:onProperty meta:tree_root ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
@@ -1511,7 +1524,7 @@ meta:ClassDefinition a owl:Class,
             owl:onProperty meta:mixins ],
         [ a owl:Restriction ;
             owl:allValuesFrom meta:SlotDefinition ;
-            owl:onProperty meta:slots ],
+            owl:onProperty meta:defining_slots ],
         meta:Definition ;
     skos:altLabel "record",
         "table",
@@ -1541,43 +1554,12 @@ meta:SlotDefinition a owl:Class,
     rdfs:label "slot_definition" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:Definition ;
-            owl:onProperty meta:owner ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty meta:usage_slot_name ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:Element ;
-            owl:onProperty meta:range ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Boolean> ;
-            owl:onProperty meta:inlined ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom meta:ClassDefinition ;
-            owl:onProperty meta:domain_of ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Boolean> ;
-            owl:onProperty meta:inherited ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Boolean> ;
-            owl:onProperty meta:is_usage_slot ],
+            owl:onClass meta:SlotDefinition ;
+            owl:onProperty meta:inverse ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass meta:SlotDefinition ;
             owl:onProperty meta:subproperty_of ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty meta:singular_name ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Boolean> ;
-            owl:onProperty meta:identifier ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ;
@@ -1585,21 +1567,15 @@ meta:SlotDefinition a owl:Class,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Integer> ;
+            owl:onProperty meta:minimum_value ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Integer> ;
             owl:onProperty meta:maximum_value ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom meta:SlotDefinition ;
-            owl:onProperty meta:mixins ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom meta:SlotDefinition ;
-            owl:onProperty meta:apply_to ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Boolean> ;
-            owl:onProperty meta:required ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:SlotDefinition ;
-            owl:onProperty meta:inverse ],
+            owl:onProperty meta:inherited ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Boolean> ;
@@ -1611,51 +1587,88 @@ meta:SlotDefinition a owl:Class,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Boolean> ;
-            owl:onProperty meta:is_class_field ],
+            owl:onProperty meta:multivalued ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty meta:readonly ],
+            owl:onProperty meta:singular_name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom meta:SlotDefinition ;
+            owl:onProperty meta:mixins ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
             owl:onProperty meta:alias ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty meta:ifabsent ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass meta:SlotDefinition ;
-            owl:onProperty meta:is_a ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty meta:role ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty meta:string_serialization ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Integer> ;
-            owl:onProperty meta:minimum_value ],
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Boolean> ;
+            owl:onProperty meta:required ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Boolean> ;
             owl:onProperty meta:inlined_as_list ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Boolean> ;
-            owl:onProperty meta:key ],
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty meta:ifabsent ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Boolean> ;
-            owl:onProperty meta:multivalued ],
+            owl:allValuesFrom meta:ClassDefinition ;
+            owl:onProperty meta:domain_of ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
             owl:onProperty meta:pattern ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty meta:readonly ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom meta:SlotDefinition ;
+            owl:onProperty meta:apply_to ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Boolean> ;
+            owl:onProperty meta:identifier ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Boolean> ;
+            owl:onProperty meta:is_usage_slot ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Boolean> ;
+            owl:onProperty meta:is_class_field ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty meta:role ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:Element ;
+            owl:onProperty meta:range ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:Definition ;
+            owl:onProperty meta:owner ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty meta:string_serialization ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty meta:usage_slot_name ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:SlotDefinition ;
+            owl:onProperty meta:is_a ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Boolean> ;
+            owl:onProperty meta:inlined ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Boolean> ;
+            owl:onProperty meta:key ],
         meta:Definition ;
     skos:altLabel "attribute",
         "field",

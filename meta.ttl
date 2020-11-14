@@ -48,7 +48,8 @@ meta:metamodel a meta:SchemaDefinition ;
         "rdfs",
         "skos",
         "xsd" ;
-    meta:generation_date "2020-11-09 03:33"^^xsd:dateTime ;
+    meta:enums meta:pv_formula_options ;
+    meta:generation_date "2020-11-13 11:59"^^xsd:dateTime ;
     meta:id biolinkml:meta ;
     meta:imports biolinkml:annotations,
         biolinkml:extensions,
@@ -59,18 +60,18 @@ meta:metamodel a meta:SchemaDefinition ;
             meta:prefix_reference OIO: ],
         [ meta:prefix_prefix "meta" ;
             meta:prefix_reference meta: ],
+        [ meta:prefix_prefix "biolinkml" ;
+            meta:prefix_reference biolinkml: ],
+        [ meta:prefix_prefix "skos" ;
+            meta:prefix_reference skos: ],
+        [ meta:prefix_prefix "bibo" ;
+            meta:prefix_reference bibo: ],
+        [ meta:prefix_prefix "schema" ;
+            meta:prefix_reference schema: ],
         [ meta:prefix_prefix "oslc" ;
             meta:prefix_reference oslc: ],
         [ meta:prefix_prefix "pav" ;
-            meta:prefix_reference pav: ],
-        [ meta:prefix_prefix "biolinkml" ;
-            meta:prefix_reference biolinkml: ],
-        [ meta:prefix_prefix "bibo" ;
-            meta:prefix_reference bibo: ],
-        [ meta:prefix_prefix "skos" ;
-            meta:prefix_reference skos: ],
-        [ meta:prefix_prefix "schema" ;
-            meta:prefix_reference schema: ] ;
+            meta:prefix_reference pav: ] ;
     meta:slots meta:abstract,
         meta:alias,
         meta:aliases,
@@ -154,6 +155,7 @@ meta:metamodel a meta:SchemaDefinition ;
         meta:prefix_prefix,
         meta:prefix_reference,
         meta:prefixes,
+        meta:pv_formula,
         meta:range,
         meta:readonly,
         meta:related_mappings,
@@ -193,8 +195,8 @@ meta:metamodel a meta:SchemaDefinition ;
         meta:values_from,
         meta:version ;
     meta:source_file "meta.yaml" ;
-    meta:source_file_date "Mon Nov  9 03:33:07 2020"^^xsd:dateTime ;
-    meta:source_file_size 31478 ;
+    meta:source_file_date "Fri Nov 13 05:08:10 2020"^^xsd:dateTime ;
+    meta:source_file_size 32547 ;
     meta:subsets meta:owl ;
     meta:types meta:boolean,
         meta:date,
@@ -209,6 +211,14 @@ meta:metamodel a meta:SchemaDefinition ;
         meta:time,
         meta:uri,
         meta:uriorcurie .
+
+meta:CODE skos:definition "The permissible values are the set of possible codes in the code set" .
+
+meta:CURIE skos:definition "The permissible values are the set of CURIES in the code set" .
+
+meta:FHIR_CODING skos:definition "The permissible values are the set of FHIR coding elements derived from the code set" .
+
+meta:URI skos:definition "The permissible values are the set of code URIs in the code set" .
 
 meta:date a meta:TypeDefinition ;
     skos:definition "a date (year, month and day) in an idealized calendar" ;
@@ -327,6 +337,16 @@ meta:permissible_value_mixins a meta:SlotDefinition ;
     meta:range meta:PermissibleValue ;
     meta:slot_uri meta:mixins ;
     meta:usage_slot_name "mixins" .
+
+meta:pv_formula_options skos:definition "The formula used to generate the set of permissible values from the code_set values" ;
+    skos:editorialNote "{'Q1': 'Do we need a CURIEorURIE entry?'}",
+        "{'Q2': 'Who defines the namespaces for the CURIE form?'}" ;
+    skos:inScheme biolinkml:meta ;
+    meta:definition_uri meta:PvFormulaOptions ;
+    meta:permissible_values meta:CODE,
+        meta:CURIE,
+        meta:FHIR_CODING,
+        meta:URI .
 
 meta:schema_definition_name a meta:SlotDefinition ;
     skos:inScheme biolinkml:meta ;
@@ -1049,6 +1069,18 @@ meta:prefixes a meta:SlotDefinition ;
     meta:owner meta:SchemaDefinition ;
     meta:range meta:Prefix ;
     meta:slot_uri meta:prefixes .
+
+meta:pv_formula a meta:SlotDefinition ;
+    skos:definition "Defines the specific formula to be used to generate the permissible values." ;
+    skos:inScheme biolinkml:meta ;
+    skos:note "code_set must be supplied for this to be valid",
+        "you cannot have BOTH the permissible_values and permissible_value_formula tag" ;
+    meta:definition_uri meta:pv_formula ;
+    meta:domain meta:EnumDefinition ;
+    meta:domain_of meta:EnumDefinition ;
+    meta:owner meta:EnumDefinition ;
+    meta:range meta:pv_formula_options ;
+    meta:slot_uri meta:pv_formula .
 
 meta:range a meta:SlotDefinition ;
     skos:definition """defines the type of the object of the slot.  Given the following slot definition
@@ -1891,6 +1923,20 @@ meta:mappings a meta:SlotDefinition ;
     meta:range meta:uriorcurie ;
     meta:slot_uri skos:mappingRelation .
 
+meta:extensions a meta:SlotDefinition ;
+    skos:definition "a tag/text tuple attached to an arbitrary element" ;
+    skos:inScheme biolinkml:extensions ;
+    meta:definition_uri meta:extensions ;
+    meta:domain meta:Extensible ;
+    meta:domain_of meta:Extensible,
+        meta:Extension ;
+    meta:imported_from "biolinkml:extensions" ;
+    meta:inlined true ;
+    meta:multivalued true ;
+    meta:owner meta:Extensible ;
+    meta:range meta:Extension ;
+    meta:slot_uri meta:extensions .
+
 meta:EnumDefinition a meta:ClassDefinition ;
     skos:definition "List of values that constrain the range of a slot" ;
     skos:inScheme biolinkml:meta ;
@@ -1924,23 +1970,10 @@ meta:EnumDefinition a meta:ClassDefinition ;
         meta:narrow_mappings,
         meta:notes,
         meta:permissible_values,
+        meta:pv_formula,
         meta:related_mappings,
         meta:see_also,
         meta:todos .
-
-meta:extensions a meta:SlotDefinition ;
-    skos:definition "a tag/text tuple attached to an arbitrary element" ;
-    skos:inScheme biolinkml:extensions ;
-    meta:definition_uri meta:extensions ;
-    meta:domain meta:Extensible ;
-    meta:domain_of meta:Extensible,
-        meta:Extension ;
-    meta:imported_from "biolinkml:extensions" ;
-    meta:inlined true ;
-    meta:multivalued true ;
-    meta:owner meta:Extensible ;
-    meta:range meta:Extension ;
-    meta:slot_uri meta:extensions .
 
 meta:uriorcurie a meta:TypeDefinition ;
     skos:definition "a URI or a CURIE" ;

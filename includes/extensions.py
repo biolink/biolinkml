@@ -1,5 +1,5 @@
 # Auto generated from extensions.yaml by pythongen.py version: 0.9.0
-# Generation date: 2020-11-05 14:52
+# Generation date: 2020-11-13 11:42
 # Schema: extensions
 #
 # id: https://w3id.org/biolink/biolinkml/extensions
@@ -11,6 +11,8 @@ import sys
 import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
+# from biolinkml.meta import EnumDefinition, PermissibleValue
+
 from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
@@ -75,6 +77,8 @@ class Extension(YAMLRoot):
         self._normalize_inlined_slot(slot_name="extensions", slot_type=Extension, key_name="tag", inlined_as_list=True, keyed=False)
 
         super().__post_init__(**kwargs)
+
+# Enumerations
 
 
 

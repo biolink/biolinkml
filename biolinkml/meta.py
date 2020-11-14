@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by pythongen.py version: 0.9.0
-# Generation date: 2020-11-09 03:33
+# Generation date: 2020-11-13 11:39
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta
@@ -12,7 +12,6 @@ import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 
-from biolinkml.utils.enumeration import Enumerati
 from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
@@ -546,7 +545,7 @@ class Definition(Element):
 
 
 @dataclass
-class EnumDefinition(Element, Enumerati):
+class EnumDefinition(Element):
     """
     List of values that constrain the range of a slot
     """
@@ -561,6 +560,7 @@ class EnumDefinition(Element, Enumerati):
     code_set: Optional[Union[str, URIorCURIE]] = None
     code_set_tag: Optional[str] = None
     code_set_version: Optional[str] = None
+    pv_formula: Optional[Union[str, "PvFormulaOptions"]] = None
     permissible_values: Optional[Union[Dict[Union[str, PermissibleValueText], Union[dict, "PermissibleValue"]], List[Union[dict, "PermissibleValue"]]]] = empty_dict()
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
@@ -577,6 +577,9 @@ class EnumDefinition(Element, Enumerati):
 
         if self.code_set_version is not None and not isinstance(self.code_set_version, str):
             self.code_set_version = str(self.code_set_version)
+
+        if self.pv_formula is not None and not isinstance(self.pv_formula, PvFormulaOptions):
+            self.pv_formula = PvFormulaOptions(self.pv_formula)
 
         if self.permissible_values is None:
             self.permissible_values = []
@@ -1063,6 +1066,25 @@ class PermissibleValue(YAMLRoot):
 
         super().__post_init__(**kwargs)
 
+# Enumerations
+@dataclass
+class PvFormulaOptions(YAMLRoot):
+    defn: ClassVar[EnumDefinition] = EnumDefinition(
+        name="PvFormulaOptions",
+        description="The formula used to generate the set of permissible values from the code_set values",
+        permissible_values={
+            "CODE": PermissibleValue("The permissible values are the set of possible codes in the code set"),
+            "CURIE": PermissibleValue("The permissible values are the set of CURIES in the code set"),
+            "URI": PermissibleValue("The permissible values are the set of code URIs in the code set"),
+            "FHIR_CODING": PermissibleValue("The permissible values are the set of FHIR coding elements derived from the code set")})
+
+    code: str
+
+    def __post_init__(self) -> None:
+        self.code = str(self.code)
+        if self.code not in PvFormulaOptions.defn.permissible_values:
+            raise ValueError(f"Unknown PvFormulaOptions value: {self.code}")
+
 
 
 # Slots
@@ -1149,6 +1171,9 @@ slots.code_set_version = Slot(uri=META.code_set_version, name="code_set_version"
 
 slots.code_set_tag = Slot(uri=META.code_set_tag, name="code_set_tag", curie=META.curie('code_set_tag'),
                    model_uri=META.code_set_tag, domain=EnumDefinition, range=Optional[str])
+
+slots.pv_formula = Slot(uri=META.pv_formula, name="pv_formula", curie=META.curie('pv_formula'),
+                   model_uri=META.pv_formula, domain=EnumDefinition, range=Optional[Union[str, "PvFormulaOptions"]])
 
 slots.permissible_values = Slot(uri=META.permissible_values, name="permissible_values", curie=META.curie('permissible_values'),
                    model_uri=META.permissible_values, domain=EnumDefinition, range=Optional[Union[Dict[Union[str, PermissibleValueText], Union[dict, "PermissibleValue"]], List[Union[dict, "PermissibleValue"]]]])

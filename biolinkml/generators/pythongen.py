@@ -86,6 +86,10 @@ class PythonGenerator(Generator):
         self.emit_prefixes.update(element.id_prefixes)
 
     def gen_schema(self) -> str:
+        # The metamodel uses Enumerations to define itself, so don't import if we are generating the metamodel
+        enumimports = '' if self.schema.id == biolinkml.METAMODEL_URI else \
+            'from biolinkml.meta import EnumDefinition, PermissibleValue\n'
+
         split_descripton = '\n#              '.join(split_line(be(self.schema.description), split_len=100))
         head = f'''# Auto generated from {self.schema.source_file} by {self.generatorname} version: {self.generatorversion}
 # Generation date: {self.schema.generation_date}
@@ -102,7 +106,7 @@ import sys
 import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
-from biolinkml.meta import EnumDefinition, PermissibleValue
+{enumimports}
 from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
@@ -126,12 +130,12 @@ dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Types
 {self.gen_typedefs()}
-# Enumerations
-{self.gen_enumerations()}
 # Class references
 {self.gen_references()}
 
 {self.gen_classdefs()}
+# Enumerations
+{self.gen_enumerations()}
 
 
 # Slots
@@ -486,8 +490,9 @@ class slots:
         prox_type = self.slot_range_path(slot)[-1].rsplit('.')[-1]
         prox_type_name = rangelist[-1]
 
-        # Quote forward references
-        if cls and slot.inlined and slot.range in self.schema.classes and self.forward_reference(slot.range, cls.name):
+        # Quote forward references - note that enums always gen at the end
+        if slot.range in self.schema.enums or \
+                (cls and slot.inlined and slot.range in self.schema.classes and self.forward_reference(slot.range, cls.name)):
             rangelist[-1] = f'"{rangelist[-1]}"'
         return str(self.gen_class_reference(rangelist)), prox_type, prox_type_name
 
@@ -708,8 +713,11 @@ class slots:
 
     def forward_reference(self, slot_range: str, owning_class: str) -> bool:
         """ Determine whether slot_range is a forward reference """
-        if slot_range in self.schema.classes and self.schema.classes[slot_range].imported_from:
+        if (slot_range in self.schema.classes and self.schema.classes[slot_range].imported_from) or \
+           (slot_range in self.schema.enums and self.schema.enums[slot_range].imported_from):
             return False
+        if slot_range in self.schema.enums:
+            return True
         for cname in self.schema.classes:
             if cname == owning_class:
                 return True             # Occurs on or after
@@ -780,7 +788,7 @@ class {enum_name}(YAMLRoot):
 
     def __post_init__(self) -> None:
         self.code = str(self.code)
-        if self.code not in Evidence.defn.permissible_values:
+        if self.code not in {enum_name}.defn.permissible_values:
             raise ValueError(f"Unknown {enum_name} value: {{self.code}}")
 '''
 

@@ -149,6 +149,7 @@ metatype:Nodeidentifier NONLITERAL
           <code_set> @metatype:Uriorcurie ? ;
           <code_set_tag> @metatype:String ? ;
           <code_set_version> @metatype:String ? ;
+          <pv_formula> @<PvFormulaOptions> ? ;
           <permissible_values> @<PermissibleValue> *
        ) ;
        rdf:type [ <EnumDefinition> ]

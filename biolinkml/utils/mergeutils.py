@@ -58,7 +58,7 @@ def merge_namespaces(target: SchemaDefinition, mergee: SchemaDefinition, namespa
 
 
 def set_from_schema(schema: SchemaDefinition) -> None:
-    for t in [schema.subsets, schema.classes, schema.slots, schema.types]:
+    for t in [schema.subsets, schema.classes, schema.slots, schema.types, schema.enums]:
         for k in t.keys():
             t[k].from_schema = schema.id
             if isinstance(t[k], SlotDefinition):

@@ -430,8 +430,6 @@ class Generator(metaclass=abc.ABCMeta):
             # Type
             return self.range_type_path(self.schema.types[cast(TypeDefinitionName, slot.range)])
         elif slot.range in self.schema.enums:
-            # TODO: figure out how to generate this
-            # TODO: Don't allow inlining on enumerations
             return self.enum_identifier_path(slot.range)
         else:
             # Class
@@ -452,9 +450,11 @@ class Generator(metaclass=abc.ABCMeta):
         Return the corresponding class or type for name
         """
         if name in self.schema.classes:
-            return self.schema.classes[name]
+            return self.schema.classes[ClassDefinitionName(name)]
         elif name in self.schema.types:
-            return self.schema.types[cast(TypeDefinitionName, name)]
+            return self.schema.types[TypeDefinitionName(name)]
+        elif name in self.schema.enums:
+            return self.schema.enums[EnumDefinitionName(name)]
         return None
 
     def class_or_type_name(self, name: str) -> str:

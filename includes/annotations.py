@@ -1,5 +1,5 @@
 # Auto generated from annotations.yaml by pythongen.py version: 0.9.0
-# Generation date: 2020-11-05 14:52
+# Generation date: 2020-11-13 11:42
 # Schema: annotations
 #
 # id: https://w3id.org/biolink/biolinkml/annotations
@@ -11,6 +11,8 @@ import sys
 import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
+# from biolinkml.meta import EnumDefinition, PermissibleValue
+
 from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
@@ -66,6 +68,8 @@ class Annotation(Extension):
         self._normalize_inlined_slot(slot_name="annotations", slot_type=Annotation, key_name="tag", inlined_as_list=True, keyed=False)
 
         super().__post_init__(**kwargs)
+
+# Enumerations
 
 
 

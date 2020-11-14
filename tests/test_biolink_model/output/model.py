@@ -1,5 +1,5 @@
 # Auto generated from biolink-model.yaml by pythongen.py version: 0.9.0
-# Generation date: 2020-11-04 18:05
+# Generation date: 2020-11-13 12:13
 # Schema: Biolink-Model
 #
 # id: https://w3id.org/biolink/biolink-model
@@ -11,6 +11,8 @@ import sys
 import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
+from biolinkml.meta import EnumDefinition, PermissibleValue
+
 from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
@@ -5535,6 +5537,8 @@ class GrossAnatomicalStructure(AnatomicalEntity):
             self.id = GrossAnatomicalStructureId(self.id)
 
         super().__post_init__(**kwargs)
+
+# Enumerations
 
 
 

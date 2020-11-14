@@ -219,6 +219,36 @@
       "type": "TypeDefinition"
     }
   ],
+  "enums": [
+    {
+      "name": "pv_formula_options",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/PvFormulaOptions",
+      "description": "The formula used to generate the set of permissible values from the code_set values",
+      "notes": [
+        "{'Q1': 'Do we need a CURIEorURIE entry?'}",
+        "{'Q2': 'Who defines the namespaces for the CURIE form?'}"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "permissible_values": [
+        {
+          "text": "CODE",
+          "description": "The permissible values are the set of possible codes in the code set"
+        },
+        {
+          "text": "CURIE",
+          "description": "The permissible values are the set of CURIES in the code set"
+        },
+        {
+          "text": "URI",
+          "description": "The permissible values are the set of code URIs in the code set"
+        },
+        {
+          "text": "FHIR_CODING",
+          "description": "The permissible values are the set of FHIR coding elements derived from the code set"
+        }
+      ]
+    }
+  ],
   "slots": [
     {
       "name": "name",
@@ -695,6 +725,24 @@
       "domain": "EnumDefinition",
       "range": "string",
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/code_set_tag",
+      "owner": "EnumDefinition",
+      "domain_of": [
+        "EnumDefinition"
+      ],
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "pv_formula",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/pv_formula",
+      "description": "Defines the specific formula to be used to generate the permissible values.",
+      "comments": [
+        "you cannot have BOTH the permissible_values and permissible_value_formula tag",
+        "code_set must be supplied for this to be valid"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "EnumDefinition",
+      "range": "pv_formula_options",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/pv_formula",
       "owner": "EnumDefinition",
       "domain_of": [
         "EnumDefinition"
@@ -2570,6 +2618,7 @@
         "code_set",
         "code_set_tag",
         "code_set_version",
+        "pv_formula",
         "permissible_values"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/EnumDefinition",
@@ -2860,9 +2909,9 @@
   ],
   "metamodel_version": "1.6.1",
   "source_file": "meta.yaml",
-  "source_file_date": "Mon Nov  9 03:33:07 2020",
-  "source_file_size": 31478,
-  "generation_date": "2020-11-09 03:33",
+  "source_file_date": "Fri Nov 13 05:08:10 2020",
+  "source_file_size": 32547,
+  "generation_date": "2020-11-13 11:59",
   "type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/biolink/biolinkml/context.jsonld",
