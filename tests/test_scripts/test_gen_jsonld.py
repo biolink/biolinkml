@@ -102,7 +102,7 @@ class GenJSONLDTestCase(ClickTestCase):
         new_g.parse(data=new_ttl, format="turtle")
 
         # Make sure that both match the expected size (classes, slots, types, and model name for error reporting)
-        self.check_size(g, new_g, URIRef(base), 15, 112, 13, "meta")
+        self.check_size(g, new_g, URIRef(base), 15, 113, 13, "meta")
 
 
 if __name__ == '__main__':

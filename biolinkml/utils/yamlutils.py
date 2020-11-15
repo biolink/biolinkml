@@ -137,6 +137,10 @@ def root_representer(dumper: yaml.Dumper, data: YAMLRoot):
     return dumper.represent_data(rval)
 
 
+def from_yaml(data: str, cls: YAMLRoot) -> YAMLRoot:
+    return cls(**yaml.load(data, DupCheckYamlLoader))
+
+
 def as_yaml(element: YAMLRoot) -> str:
     """
     Return element in a YAML representation

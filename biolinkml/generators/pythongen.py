@@ -100,6 +100,7 @@ class PythonGenerator(Generator):
 import dataclasses
 import sys
 import re
+import parse
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
@@ -298,6 +299,7 @@ class slots:
         parentref = f'({self.formatted_element_name(cls.is_a, True) if cls.is_a else "YAMLRoot"})'
         slotdefs = self.gen_class_variables(cls)
         postinits = self.gen_postinits(cls)
+        templatemethods = self.gen_parsers(cls) if cls.string_template else None
 
         wrapped_description = f'\n\t"""\n\t{wrapped_annotation(be(cls.description))}\n\t"""' if be(cls.description) else ''
 
@@ -306,7 +308,8 @@ class slots:
                f'\n\t{self.gen_inherited_slots(cls)}\n' + \
                f'\n\t{self.gen_class_meta(cls)}\n' + \
                (f'\n\t{slotdefs}' if slotdefs else '') + \
-               (f'\n{postinits}' if postinits else '')
+               (f'\n{postinits}' if postinits else '') + \
+               (f'\n{templatemethods}' if templatemethods else '')
 
     def gen_inherited_slots(self, cls: ClassDefinition) -> str:
         inherited_slots = []
@@ -339,6 +342,9 @@ class slots:
                 f'class_class_curie: ClassVar[str] = {class_class_curie}',
                 f'class_name: ClassVar[str] = "{cls.name}"',
                 f'class_model_uri: ClassVar[URIRef] = {class_model_uri}']
+        if cls.string_template:
+            vars.append('')
+            vars.append(f'string_template: ClassVar[str] = "{cls.string_template}"')
         return "\n\t".join(vars)
 
     def gen_type_meta(self, typ: TypeDefinition) -> str:
@@ -536,6 +542,20 @@ class slots:
     def __post_init__(self, **kwargs: Dict[str, Any]):
         {post_inits_pre_super_line}{post_inits_line}
         super().__post_init__(**kwargs)''' + '\n') if post_inits_line or post_inits_pre_super_line else ''
+
+    def gen_parsers(self, cls: ClassDefinition) -> str:
+        """
+        Generate the string template handlers
+        """
+        python_class_name = self.class_or_type_name(cls.name)
+        return f"""
+    def __str__(self):
+        return {python_class_name}.string_template.format(**{{k: '' if v is None else v for k, v in self.__dict__.items()}})
+
+    @classmethod
+    def parse(cls, text: str) -> "{python_class_name}":
+        v = parse.parse({python_class_name}.string_template, text)
+        return {python_class_name}(*v.fixed, **v.named)"""
 
     # sort classes such that if C is a child of P then C appears after P in the list
     def _sort_classes(self, clist: List[ClassDefinition]) -> List[ClassDefinition]:
