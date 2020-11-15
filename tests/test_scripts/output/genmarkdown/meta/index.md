@@ -124,6 +124,7 @@ A metamodel for defining biolink related schemas
  * [source_file_size](source_file_size.md) - size in bytes of the source of the schema
  * [status](status.md) - status of the element
  * [string_serialization](string_serialization.md) - Used on a slot that stores the string serialization of the containing object. The syntax follows python formatted strings, with slot names enclosed in {}s. These are expanded using the values of those slots.
+ * [string_template](string_template.md) - A formatting string to represent the element.  If present, string_template is used whenever the string representation of the element and will also result in the addition of a `parse` method in the containing python class that will allow instances to be added through string parsing
  * [subclass_of](subclass_of.md) - rdfs:subClassOf to be emitted in OWL generation
  * [subproperty_of](subproperty_of.md) - Ontology property which this slot is a subproperty of
  * [subsets](subsets.md) - list of subsets referenced in this model

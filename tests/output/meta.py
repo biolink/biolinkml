@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by pythongen.py version: 0.9.0
-# Generation date: 2020-10-23 16:59
+# Generation date: 2020-11-15 18:05
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta
@@ -9,6 +9,7 @@
 import dataclasses
 import sys
 import re
+import parse
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
@@ -26,7 +27,7 @@ from includes.annotations import Annotation
 from includes.extensions import Extension
 from includes.types import Boolean, Datetime, Integer, Ncname, String, Uri, Uriorcurie
 
-metamodel_version = "1.6.0"
+metamodel_version = "1.6.1"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -117,6 +118,7 @@ class Element(YAMLRoot):
     comments: Optional[Union[str, List[str]]] = empty_list()
     examples: Optional[Union[Union[dict, "Example"], List[Union[dict, "Example"]]]] = empty_list()
     in_subset: Optional[Union[Union[str, SubsetDefinitionName], List[Union[str, SubsetDefinitionName]]]] = empty_list()
+    string_template: Optional[str] = None
     from_schema: Optional[Union[str, URI]] = None
     imported_from: Optional[str] = None
     see_also: Optional[Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]]] = empty_list()
@@ -204,6 +206,9 @@ class Element(YAMLRoot):
         if not isinstance(self.in_subset, list):
             self.in_subset = [self.in_subset]
         self.in_subset = [v if isinstance(v, SubsetDefinitionName) else SubsetDefinitionName(v) for v in self.in_subset]
+
+        if self.string_template is not None and not isinstance(self.string_template, str):
+            self.string_template = str(self.string_template)
 
         if self.from_schema is not None and not isinstance(self.from_schema, URI):
             self.from_schema = URI(self.from_schema)
@@ -914,6 +919,9 @@ slots.comments = Slot(uri=SKOS.note, name="comments", curie=SKOS.curie('note'),
 
 slots.in_subset = Slot(uri=OIO.inSubset, name="in_subset", curie=OIO.curie('inSubset'),
                    model_uri=META.in_subset, domain=Element, range=Optional[Union[Union[str, SubsetDefinitionName], List[Union[str, SubsetDefinitionName]]]])
+
+slots.string_template = Slot(uri=META.string_template, name="string_template", curie=META.curie('string_template'),
+                   model_uri=META.string_template, domain=Element, range=Optional[str])
 
 slots.from_schema = Slot(uri=SKOS.inScheme, name="from_schema", curie=SKOS.curie('inScheme'),
                    model_uri=META.from_schema, domain=Element, range=Optional[Union[str, URI]])

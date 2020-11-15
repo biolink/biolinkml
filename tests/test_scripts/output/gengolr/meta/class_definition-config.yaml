@@ -62,6 +62,12 @@ fields:
     subset holding the minimal set of predicates used in a translator knowledge graph)
   display_name: in_subset
   cardinality: multi
+- id: string_template
+  description: A formatting string to represent the element.  If present, string_template
+    is used whenever the string representation of the element and will also result
+    in the addition of a `parse` method in the containing python class that will allow
+    instances to be added through string parsing
+  display_name: string_template
 - id: from_schema
   description: id of the schema that defined the element
   display_name: from_schema

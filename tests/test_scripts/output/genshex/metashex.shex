@@ -126,6 +126,7 @@ metatype:Nodeidentifier NONLITERAL
           skos:note @metatype:String * ;
           <examples> @<Example> * ;
           oboInOwl:inSubset @<SubsetDefinition> * ;
+          <string_template> @metatype:String ? ;
           skos:inScheme @metatype:Uri ? ;
           <imported_from> @metatype:String ? ;
           rdfs:seeAlso @metatype:Uriorcurie * ;

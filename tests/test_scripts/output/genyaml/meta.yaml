@@ -2,7 +2,7 @@ name: metamodel
 description: A metamodel for defining biolink related schemas
 id: https://w3id.org/biolink/biolinkml/meta
 title: Biolink Schema Metamodel
-version: 1.6.0
+version: 1.6.1
 imports:
 - biolinkml:types
 - biolinkml:mappings
@@ -321,6 +321,20 @@ slots:
     range: subset_definition
     slot_uri: OIO:inSubset
     multivalued: true
+    owner: element
+    domain_of:
+    - element
+  string_template:
+    name: string_template
+    definition_uri: https://w3id.org/biolink/biolinkml/meta/string_template
+    description: A formatting string to represent the element.  If present, string_template
+      is used whenever the string representation of the element and will also result
+      in the addition of a `parse` method in the containing python class that will
+      allow instances to be added through string parsing
+    from_schema: https://w3id.org/biolink/biolinkml/meta
+    domain: element
+    range: string
+    slot_uri: meta:string_template
     owner: element
     domain_of:
     - element
@@ -1819,6 +1833,7 @@ classes:
     - comments
     - examples
     - in_subset
+    - string_template
     - from_schema
     - imported_from
     - see_also
@@ -1856,6 +1871,7 @@ classes:
     - comments
     - examples
     - in_subset
+    - string_template
     - from_schema
     - imported_from
     - see_also
@@ -1914,6 +1930,7 @@ classes:
     - comments
     - examples
     - in_subset
+    - string_template
     - from_schema
     - imported_from
     - see_also
@@ -1952,6 +1969,7 @@ classes:
     - comments
     - examples
     - in_subset
+    - string_template
     - from_schema
     - imported_from
     - see_also
@@ -1989,6 +2007,7 @@ classes:
     - comments
     - examples
     - in_subset
+    - string_template
     - from_schema
     - imported_from
     - see_also
@@ -2039,6 +2058,7 @@ classes:
     - comments
     - examples
     - in_subset
+    - string_template
     - from_schema
     - imported_from
     - see_also
@@ -2125,6 +2145,7 @@ classes:
     - comments
     - examples
     - in_subset
+    - string_template
     - from_schema
     - imported_from
     - see_also
@@ -2249,9 +2270,9 @@ classes:
     slots:
     - annotations
     class_uri: meta:Annotatable
-metamodel_version: 1.6.0
+metamodel_version: 1.6.1
 source_file: meta.yaml
-source_file_date: Sat Oct 24 15:59:55 2020
-source_file_size: 28904
-generation_date: 2020-10-24 16:02
+source_file_date: Sun Nov 15 18:04:29 2020
+source_file_size: 29306
+generation_date: 2020-11-15 18:07
 

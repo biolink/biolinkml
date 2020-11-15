@@ -13136,11 +13136,11 @@
       "type": "ClassDefinition"
     }
   ],
-  "metamodel_version": "1.6.0",
+  "metamodel_version": "1.6.1",
   "source_file": "biolink-model.yaml",
-  "source_file_date": "Wed Nov  4 18:03:50 2020",
+  "source_file_date": "Sun Nov 15 18:04:29 2020",
   "source_file_size": 199351,
-  "generation_date": "2020-11-04 18:04",
+  "generation_date": "2020-11-15 18:05",
   "type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/biolink/biolinkml/context.jsonld",

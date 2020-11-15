@@ -7,10 +7,10 @@
 
 <http://example.org/owl1> a owl:Ontology ;
     rdfs:label "owl1" ;
-    meta:generation_date "2020-10-23 17:02" ;
-    meta:metamodel_version "1.6.0" ;
+    meta:generation_date "2020-11-15 18:07" ;
+    meta:metamodel_version "1.6.1" ;
     meta:source_file "owl1.yaml" ;
-    meta:source_file_date "Fri Oct 23 16:59:17 2020" ;
+    meta:source_file_date "Sun Nov 15 18:04:30 2020" ;
     meta:source_file_size 639 .
 
 <http://example.org/owl1/String> a owl:Class,
@@ -64,12 +64,13 @@ meta:ClassDefinition a owl:Class ;
         meta:ClassDefinition ;
     rdfs:label "c1" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass <http://example.org/owl1/C2> ;
+            owl:onProperty <http://example.org/owl1/slotreq> ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://example.org/owl1/C2> ;
             owl:onProperty <http://example.org/owl1/slotopt> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <http://example.org/owl1/C2> ;
-            owl:onProperty <http://example.org/owl1/slotzeromany> ],
         [ a owl:Class ;
             owl:intersectionOf ( [ a owl:Restriction ;
                         owl:allValuesFrom <http://example.org/owl1/C2> ;
@@ -77,9 +78,8 @@ meta:ClassDefinition a owl:Class ;
                         owl:onProperty <http://example.org/owl1/slotonemany> ;
                         owl:someValuesFrom <http://example.org/owl1/C2> ] ) ],
         [ a owl:Restriction ;
-            owl:onClass <http://example.org/owl1/C2> ;
-            owl:onProperty <http://example.org/owl1/slotreq> ;
-            owl:qualifiedCardinality 1 ] .
+            owl:allValuesFrom <http://example.org/owl1/C2> ;
+            owl:onProperty <http://example.org/owl1/slotzeromany> ] .
 
 meta:SlotDefinition a owl:Class ;
     rdfs:label "slot_definition" ;
