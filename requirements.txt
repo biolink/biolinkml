@@ -12,11 +12,11 @@
 
 argparse>=1.4.0
 click~=7.0
-env
 graphviz>=0.10.1
 isodate>=0.6.0
 jsonasobj~=1.2.1
 jsonschema>=3.0.1
+parse
 prefixcommons>=0.1.7
 prologterms>=0.0.6
 pyjsg>=0.9.1
