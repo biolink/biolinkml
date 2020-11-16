@@ -65,7 +65,7 @@ class YAMLRoot(JsonObj):
             return super()._default(obj)
 
     def _normalize_inlined_slot(self, slot_name: str, slot_type: Type, key_name: Optional[str],
-                                inlined_as_list: bool, keyed: bool) -> None:
+                                inlined_as_list: Optional[bool], keyed: bool) -> None:
         """
          __post_init__ function for a list of inlined keyed or identified classes.
         The input to this is either a list or dictionary of dictionaries.  In the list case, every key entry
@@ -74,7 +74,7 @@ class YAMLRoot(JsonObj):
         @param slot_name: Name of the slot being normalized
         @param slot_type: Slot range type
         @param key_name: Name of the key or identifier in the range
-        @param inlined_as_list: True means represent as a list, false as a dictionary
+        @param inlined_as_list: True means represent as a list, false or None as a dictionary
         @param keyed: True means each identifier must be unique
         """
         raw_slot: Union[list, dict] = self[slot_name]

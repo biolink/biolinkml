@@ -33,7 +33,7 @@ class SchemaLoaderTestCase(TestEnvironmentTestCase):
         logger.addHandler(logging.StreamHandler(logstream))
         logger.setLevel(logging.INFO)
         self.eval_loader('merge1', logger=logger)
-        self.assertIn("Shared slot and subset names: s1, s2", logstream.getvalue().strip())
+        self.assertIn("Overlapping subset and slot names: s1, s2", logstream.getvalue().strip())
 
     def test_mergeerror1(self):
         """ Test conflicting definitions path """

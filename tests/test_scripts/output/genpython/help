@@ -4,6 +4,7 @@ Usage: gen-python [OPTIONS] YAMLFILE
 
 Options:
   --head / --no-head              Emit metadata heading
+  --genmeta / --no-genmeta        Generating metamodel
   -f, --format [py]               Output format (default=py)
   --metadata / --no-metadata      Include metadata in output
                                   (default=--metadata)

@@ -22,11 +22,13 @@ class PythonGenerator(Generator):
     valid_formats = ['py']
     visit_all_class_slots = False
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], format: str = valid_formats[0], **kwargs) -> None:
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], format: str = valid_formats[0],
+                 genmeta: bool=False, **kwargs) -> None:
         self.sourcefile = schema
         self.emit_prefixes: Set[str] = set()
         if format is None:
             format = self.valid_formats[0]
+        self.genmeta = genmeta
         super().__init__(schema, format, **kwargs)
         if not self.schema.source_file and isinstance(self.sourcefile, str) and '\n' not in self.sourcefile:
             self.schema.source_file = os.path.basename(self.sourcefile)
@@ -87,8 +89,9 @@ class PythonGenerator(Generator):
 
     def gen_schema(self) -> str:
         # The metamodel uses Enumerations to define itself, so don't import if we are generating the metamodel
-        enumimports = '' if self.schema.id == biolinkml.METAMODEL_URI else \
+        enumimports = '' if self.genmeta else \
             'from biolinkml.meta import EnumDefinition, PermissibleValue, PvFormulaOptions\n'
+        handlerimport = 'from biolinkml.utils.enumerations import EnumerationHandler' if not self.genmeta else ''
 
         split_descripton = '\n#              '.join(split_line(be(self.schema.description), split_len=100))
         head = f'''# Auto generated from {self.schema.source_file} by {self.generatorname} version: {self.generatorversion}
@@ -115,6 +118,7 @@ if sys.version_info < (3, 7, 6):
 else:
     from biolinkml.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
+{handlerimport}
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 {self.gen_imports()}
@@ -780,16 +784,18 @@ class slots:
         vf = f'\t\tpv_formula={enum.pv_formula},\n' if enum.pv_formula else ''
         pvs = ',\n\t\t\t'.join([self.gen_pv(pv) for pv in enum.permissible_values.values()]) if enum.permissible_values else ''
         def_pvs = f'\t\tpermissible_values={{\n\t\t\t{pvs}}}\n' if enum.permissible_values else ''
-        defn = f'EnumDefinition(\n\t\tname="{enum_name}",\n{desc}{cs}{tag}{ver}{vf}{def_pvs}\t)'
+        defn = f'EnumerationHandler(\n\t\tname="{enum_name}",\n{desc}{cs}{tag}{ver}{vf}{def_pvs}\t)'
+        inline_import = 'from biolinkml.utils.enumerations import EnumerationHandler\n' if self.genmeta else ''
 
         return f'''@dataclass
 class {enum_name}(YAMLRoot):
-    defn: ClassVar[EnumDefinition] = {defn}
+    {inline_import}
+    defn: ClassVar[EnumerationHandler] = {defn}
     code: str
 
     def __post_init__(self) -> None:
         self.code = str(self.code)
-        if self.code not in {enum_name}.defn.permissible_values:
+        if self.code not in {enum_name}.defn:
             raise ValueError(f"Unknown {enum_name} value: {{self.code}}")
 '''
 
@@ -806,6 +812,7 @@ class {enum_name}(YAMLRoot):
 @shared_arguments(PythonGenerator)
 @click.command()
 @click.option("--head/--no-head", default=True, help="Emit metadata heading")
-def cli(yamlfile, head=True, **args):
+@click.option("--genmeta/--no-genmeta", default=False, help="Generating metamodel")
+def cli(yamlfile, head=True, genmeta=False, **args):
     """ Generate python classes to represent a biolink model """
-    print(PythonGenerator(yamlfile, emit_metadata=head, **args).serialize(emit_metadata=head, **args))
+    print(PythonGenerator(yamlfile, emit_metadata=head, gen_meta=genmeta, **args).serialize(emit_metadata=head, **args))

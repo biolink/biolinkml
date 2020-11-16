@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by pythongen.py version: 0.9.0
-# Generation date: 2020-11-13 11:39
+# Generation date: 2020-11-16 10:25
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta
@@ -20,6 +20,7 @@ if sys.version_info < (3, 7, 6):
 else:
     from biolinkml.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
+
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import Bool, NCName, URI, URIorCURIE, XSDDateTime
@@ -1069,20 +1070,22 @@ class PermissibleValue(YAMLRoot):
 # Enumerations
 @dataclass
 class PvFormulaOptions(YAMLRoot):
-    defn: ClassVar[EnumDefinition] = EnumDefinition(
+    from biolinkml.utils.enumerations import EnumerationHandler
+
+    defn: ClassVar[EnumerationHandler] = EnumerationHandler(
         name="PvFormulaOptions",
         description="The formula used to generate the set of permissible values from the code_set values",
         permissible_values={
             "CODE": PermissibleValue("The permissible values are the set of possible codes in the code set"),
             "CURIE": PermissibleValue("The permissible values are the set of CURIES in the code set"),
             "URI": PermissibleValue("The permissible values are the set of code URIs in the code set"),
-            "FHIR_CODING": PermissibleValue("The permissible values are the set of FHIR coding elements derived from the code set")})
-
+            "FHIR_CODING": PermissibleValue("The permissible values are the set of FHIR coding elements derived from the code set")}
+    )
     code: str
 
     def __post_init__(self) -> None:
         self.code = str(self.code)
-        if self.code not in PvFormulaOptions.defn.permissible_values:
+        if self.code not in PvFormulaOptions.defn:
             raise ValueError(f"Unknown PvFormulaOptions value: {self.code}")
 
 
