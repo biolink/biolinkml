@@ -88,7 +88,7 @@ class PythonGenerator(Generator):
     def gen_schema(self) -> str:
         # The metamodel uses Enumerations to define itself, so don't import if we are generating the metamodel
         enumimports = '' if self.schema.id == biolinkml.METAMODEL_URI else \
-            'from biolinkml.meta import EnumDefinition, PermissibleValue\n'
+            'from biolinkml.meta import EnumDefinition, PermissibleValue, PvFormulaOptions\n'
 
         split_descripton = '\n#              '.join(split_line(be(self.schema.description), split_len=100))
         head = f'''# Auto generated from {self.schema.source_file} by {self.generatorname} version: {self.generatorversion}
@@ -771,15 +771,16 @@ class slots:
 
     def gen_enum(self, enum: EnumDefinition) -> str:
         enum_name = camelcase(enum.name)
-        desc = f'\t\tdescription="{enum.description}",\n' if enum.description else ''
+        enum_desc = enum.description.replace('"', '\\"').replace(r'\n', r'\\n') if enum.description else None
+        desc = f'\t\tdescription="{enum_desc}",\n' if enum.description else ''
         cs = f'\t\tcode_set={self.namespaces.curie_for(self.namespaces.uri_for(enum.code_set), default_ok=False, pythonform=True)},\n'\
             if enum.code_set else ''
-        tag = f'\t\tcode_set_tag={enum.code_set_tag},\n' if enum.code_set_tag else ''
-        ver = f'\t\tcode_set_version={enum.code_set_version},\n' if enum.code_set_version else ''
-        # vf = f'\t\tuse={enum.use}\n' if enum.use else ''
-        vf = ''
-        pvs = ',\n\t\t\t'.join([self.gen_pv(pv) for pv in enum.permissible_values.values()])
-        defn = f'EnumDefinition(\n\t\tname="{enum_name}",\n{desc}{cs}{tag}{ver}{vf}\t\tpermissible_values={{\n\t\t\t{pvs}}})\n'
+        tag = f'\t\tcode_set_tag="{enum.code_set_tag}",\n' if enum.code_set_tag else ''
+        ver = f'\t\tcode_set_version="{enum.code_set_version}",\n' if enum.code_set_version else ''
+        vf = f'\t\tpv_formula={enum.pv_formula},\n' if enum.pv_formula else ''
+        pvs = ',\n\t\t\t'.join([self.gen_pv(pv) for pv in enum.permissible_values.values()]) if enum.permissible_values else ''
+        def_pvs = f'\t\tpermissible_values={{\n\t\t\t{pvs}}}\n' if enum.permissible_values else ''
+        defn = f'EnumDefinition(\n\t\tname="{enum_name}",\n{desc}{cs}{tag}{ver}{vf}{def_pvs}\t)'
 
         return f'''@dataclass
 class {enum_name}(YAMLRoot):

@@ -2,7 +2,7 @@ import logging
 import os
 import sys
 from collections import OrderedDict
-from typing import Union, TextIO, Optional, Set, List, cast, Dict, Mapping, Tuple
+from typing import Union, TextIO, Optional, Set, List, cast, Dict, Mapping, Tuple, Iterator
 from urllib.parse import urlparse
 
 from biolinkml.meta import SchemaDefinition, SlotDefinition, SlotDefinitionName, ClassDefinition, \
@@ -349,8 +349,20 @@ class SchemaLoader:
                                         f"does not line with the domain of its inverse ({inverse_slot.name})")
 
         # Check for duplicate class and type names
-        def check_dups(s1: Set[ElementName], s2: Set[ElementName]) -> str:
-            return ', '.join(sorted(s1.intersection(s2)))
+        def check_dups(s1: Set[ElementName], s2: Set[ElementName]) -> Tuple[List[ElementName], str]:
+            if s1.isdisjoint(s2):
+                return [], ''
+
+            # Return an ordered list of d1/d1 tuples
+            # For some curious reason, s1.intersection(s2) and s2.intersection(s1) BOTH yield s1 elements
+            dups = sorted(s1.intersection(s2))
+            dup_locs = list()
+            for dup in dups:
+                dup_locs += [s1e for s1e in s1 if s1e == dup]
+                dup_locs += [s2e for s2e in s2 if s2e == dup]
+
+            return dup_locs, ', '.join(dups)
+
 
         classes = set(self.schema.classes.keys())
         self.validate_item_names("class", classes)
@@ -360,6 +372,8 @@ class SchemaLoader:
         self.validate_item_names("type", types)
         subsets = set(self.schema.subsets.keys())
         self.validate_item_names("subset", subsets)
+        enums = set(self.schema.enums.keys())
+        self.validate_item_names('enum', enums)
 
         # Check that the default range is valid
         default_range_needed = any(slot.range == self.schema.default_range for slot in self.schema.slots.values())
@@ -382,25 +396,65 @@ class SchemaLoader:
         self.check_prefixes()
 
         # Cannot have duplicate class or type keys
-        dups = check_dups(classes, types)
-        if dups:
-            raise ValueError(f"Shared class and type names detected: {dups}")
+        dups, items = check_dups(types, classes)
+        if items:
+            self.raise_value_errors(f"Overlapping type and class names: {items}", dups)
+        dups, items = check_dups(enums, classes)
+        if items:
+            self.raise_value_errors(f"Overlapping enum and class names: {items}", dups)
+        dups, items = check_dups(types, enums)
+        if items:
+            self.raise_value_errors(f"Overlapping type and enum names: {items}", dups)
 
-        dups = check_dups(classes, slots)
-        if dups:
-            self.logger.warning(f"Shared class and slot names: {dups}")
-        dups = check_dups(classes, subsets)
-        if dups:
-            self.logger.warning(f"Shared class and subset names: {dups}")
-        dups = check_dups(slots, types)
-        if dups:
-            self.logger.warning(f"Shared type and slot names: {dups}")
-        dups = check_dups(slots, subsets)
-        if dups:
-            self.logger.warning(f"Shared slot and subset names: {dups}")
-        dups = check_dups(types, subsets)
-        if dups:
-            self.logger.warning(f"Shared type and subset names: {dups}")
+        dups, items = check_dups(slots, classes)
+        if items:
+            self.logger_warning(f"Overlapping slot and class names: {items}", dups)
+
+        dups, items = check_dups(subsets, classes)
+        if items:
+            self.logger_warning(f"Overlapping subset and class names: {items}", dups)
+
+        dups, items = check_dups(types, slots)
+        if items:
+            self.logger_warning(f"Overlapping type and slot names: {items}", dups)
+
+        dups, items = check_dups(subsets, slots)
+        if items:
+            self.logger_warning(f"Overlapping subset and slot names: {items}", dups)
+
+        dups, items = check_dups(subsets, types)
+        if items:
+            self.logger_warning(f"Overlapping subset and type names: {items}", dups)
+
+        dups, items = check_dups(enums, slots)
+        if items:
+            self.logger_warning(f"Overlapping enum and slot names: {items}", dups)
+
+        dups, items = check_dups(subsets, enums)
+        if items:
+            self.logger_warning(f"Overlapping subset and enum names: {items}", dups)
+
+        # Check over the various enumeration constraints
+        for enum in self.schema.enums.values():
+            if enum.code_set_version:
+                if enum.code_set_tag:
+                    self.raise_value_errors(f'Enum: "{enum.name}" cannot have both version and tag',
+                                            [enum.code_set_version, enum.code_set_tag])
+                if not enum.code_set:
+                    self.raise_value_error(f'Enum: "{enum.name}" needs a code set to have a version', enum.name)
+            if enum.code_set_tag:
+                if not enum.code_set:
+                    self.raise_value_error(f'Enum: "{enum.name}" needs a code set to have a tag', enum.name)
+            if enum.pv_formula:
+                if not enum.code_set:
+                    self.raise_value_error(f'Enum: "{enum.name}" needs a code set to have a formula', enum.name)
+                if enum.permissible_values:
+                    self.raise_value_error(f'Enum: "{enum.name}" can have a formula or permissible values but not both',
+                                           enum.name)
+        for slot in self.schema.slots.values():
+            if slot.range and slot.range in self.schema.enums:
+                if slot.inlined or slot.inlined_as_list:
+                    self.raise_value_error(f'Slot: "{slot.name}" enumerations cannot be inlined', slot.range)
 
         # Make the source file relative if it is locally generated
         self.schema_location = self.schema.source_file
@@ -433,7 +487,7 @@ class SchemaLoader:
         # TODO: add a more rigorous syntax check for item names
         for name in names:
             if ':' in name:
-                raise ValueError(f'{typ}: "{name}" - ":" not allowed in identifier')
+                raise self.raise_value_error(f'{typ}: "{name}" - ":" not allowed in identifier', name)
 
 
 
@@ -675,8 +729,28 @@ class SchemaLoader:
     def slot_name_for(slot: SlotDefinition) -> str:
         return underscore(slot.alias if slot.alias else slot.name)
 
-    def raise_value_error(self, error: str, loc_str: Optional[Union[TypedNode, str]] = None) -> None:
-        raise ValueError(f'{TypedNode.yaml_loc(loc_str)} {error}')
+    @staticmethod
+    def raise_value_error(error: str, loc_str: Optional[Union[TypedNode, str]] = None) -> None:
+        SchemaLoader.raise_value_errors(error, loc_str)
+
+    @staticmethod
+    def raise_value_errors(error: str, loc_str: Optional[Union[str, TypedNode, Iterator[TypedNode]]]) -> None:
+        if loc_str is None or not isinstance(loc_str, (TypedNode, list)):
+            raise ValueError(error)
+        elif isinstance(loc_str, TypedNode):
+            raise ValueError(f'{TypedNode.yaml_loc(loc_str)} {error}')
+        else:
+            locs = '\n'.join(TypedNode.loc(e) for e in loc_str)
+            raise ValueError(f'{locs} {error}')
+
+    def logger_warning(self, warning: str, loc_str: Optional[Union[str, TypedNode, Iterator[TypedNode]]]) -> None:
+        if loc_str is None or not isinstance(loc_str, (TypedNode, list)):
+            self.logger.warning(warning)
+        elif isinstance(loc_str, TypedNode):
+            self.logger.warning(f'{warning}\n\t{TypedNode.yaml_loc(loc_str)}')
+        else:
+            locs = '\n\t'.join(TypedNode.loc(e) for e in loc_str)
+            self.logger.warning(f'{warning}\n\t{locs}')
 
     def _get_base_dir(self, stated_base: str) -> Optional[str]:
         if stated_base:

@@ -1,6 +1,6 @@
 
 Classes: 0
-	Referenced by: 0 classes, 0 slots, 0 types 
+	Referenced by: 0 classes, 0 slots, 0 types, 0 enums 
 	Root: 0
 	Leaf: 0
 	Standalone: 0
@@ -9,7 +9,7 @@ Classes: 0
 	Abstract: 0
 
 Slots: 1
-	Referenced by: 0 classes, 0 slots, 0 types 
+	Referenced by: 0 classes, 0 slots, 0 types, 0 enums 
 	Root: 1
 	Leaf: 0
 	Standalone: 0
@@ -23,7 +23,7 @@ Slots: 1
 		Class:
 
 Types: 1
-	Referenced by: 0 classes, 1 slots, 0 types 
+	Referenced by: 0 classes, 1 slots, 0 types, 0 enums 
 	Bases:
 		str:
 			string

@@ -1,10 +1,12 @@
-id: http://example.org/test/evidence
-name: evidence
+id: http://example.org/test/alternatives
+name: alternatives
+description: Enumeration alternatives
 
 prefixes:
   biolinkml: https://w3id.org/biolink/biolinkml/
   evidence: http://example.org/test/evidence/
-  CLUE: http://ontologies.r.us/clue/
+  CLUE: http://ontologies-r.us/clue/
+  CS: http://ontologies-r.us/codesystems/
 
 default_range: string
 default_prefix: evidence
@@ -12,53 +14,57 @@ default_prefix: evidence
 imports:
   - biolinkml:types
 
+subsets:
+  hpo_options:
+    description: Subset of enumerations that include HPO references
+  test_subset:
+    description: Another subset
+
 enums:
   open_enum:
-    description: Strictly an enumeration
+    description: Baseline enumeration -- simple code/value pairs, where the value (description) is optional
     permissible_values:
       a: top
       b: middle
       c: bottom
+      d:
 
   constrained_enum_2:
-    description: All codes from the "current" version of HPO
-    values_from: CS:HPO
-    rule: LABEL
+    description: All codes from the version of HPO labeled "current" by the referenced service
+    code_set: CS:HPO
+    pv_formula: CODE
+    in_subset: hpo_options
 
   constrained_enum_3:
-    description: All codes from the "production" version of HPO
-    # CS -- code system of code systems we need
-    values_from: CS:HPO
-    version_tag: production
-    rule: LABEL
+    description: All uris from the version of HPO with the tag, "production"
+    code_set: CS:HPO
+    code_set_tag: production
+    pv_formula: URI
+    in_subset: hpo_options
 
   constrained_enum_4:
-    description: All codes from version 1.17  of HPO
-    values_from: CS:HPO
-    version: 1.17
-    rule: LABEL
+    description: All curies from version 1.17 of HPO
+    code_set: CS:HPO
+    code_set_version: 1.17
+    pv_formula: CURIE
+    in_subset: hpo_options
 
   constrained_enum_5:
-    description: All codes from the "current" version of the CLUE "DOA" value set
-    values_from: CLUE:diseases_of_the_arteries
-    version: ">=1.17.3"
-    rule: LABEL
+    description: All fhir codings from the "current" version of the CLUE "mustard options" value set
+    code_set: CLUE:mustard_options
+    pv_formula: FHIR_CODING
 
   constrained_enum_6:
     description: All codes from SNOMED CT INTL 2020-7-31 or greater
-    values_from: CLUE:diseases_of_the_arteries
-    version: ">=2020-7-31"
-    rule: LABEL
-
-  SNOMED CT:
-      pub_vid: 2020-7-31
-      vers: 20.1.0   (Semver assigned to pub_vid?)
+    code_set: CS:SCT
+    code_set_version: ">=2020-7-31"
+    pv_formula: CODE
 
   constrained_evidence:
     description: Permissible values for CLUE evidence fragments
-    values_from: clue_answers
+    code_set: clue_answers
     permissible_values:
-      IEA Colonel Mustard in the Ballroom
+      IEA: Colonel Mustard in the Ballroom
       ISS:
         description: Mrs. Peacock with the Dagger
         meaning: CLUE:1173
@@ -66,27 +72,34 @@ enums:
 
   mapped_evidence:
     description: Permissible values that draw directly from the code set
-    values_from: clue_answers
-    rule: URI
+    code_set: clue_answers
+    pv_formula: URI
+    in_subset: test_subset
 
-  hpo_code:
-    description: Any valid code from HPO
-    values_from: CS:SNOMED
-    rule: CODE
-#    permissible_values:
-#      http:/:
-#      CLUE:1174:
-#      "CLUE:1173":   mrs p
-#      "http://ontologies.r.us/clue/1173": mrs p
 
 classes:
-  solution:
+  all_enums:
+    description: A class that incorporates all of the enumeration examples above
     attributes:
-      player:
-        range: string
-      solution:
-        range: evidence
+      entry_name:
+        description: Name of the particular enum permutation
+        identifier: true
+      code_1:
+        range: open_enum
+        multivalued: true
+        required: true
+      code_2:
+        range: constrained_enum_2
+      code_3:
+        range: constrained_enum_3
+      code_4:
+        range: constrained_enum_4
+      code_5:
+        range: constrained_enum_4
+      code_6:
+        range: constrained_enum_4
+      code_7:
+        range: constrained_evidence
+      code_8:
+        range: mapped_evidence
 
-codesets:
-  clue_answers:
-    uri: CLUE:fragment_id
