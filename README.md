@@ -154,6 +154,21 @@ You can control this via [prefixes](https://w3id.org/biolink/biolinkml/meta/pref
 
 Any JSON that conforms to the derived JSON-Schema (see above) can be converted to RDF using this context. See the [Jupyter notebook example](https://nbviewer.jupyter.org/github/biolink/biolinkml/blob/master/notebooks/examples.ipynb) for an example.
 
+You can also combine a JSON instance file with a JSON-LD context using simple code or a tool like [jq](https://stackoverflow.com/questions/19529688/how-to-merge-2-json-objects-from-2-files-using-jq)
+
+```bash
+jq -s '.[0] * .[1]' examples/organization-data.json examples/organization.context.jsonld > examples/organization-data.jsonld
+```
+
+You can then use a standard JSON-LD conversion file to make other RDF syntaxes, e.g.
+
+```bash
+riot examples/organization-data.jsonld > examples/organization-data.nt
+```
+
+See [examples/organization-data.nt](examples/organization-data.nt)
+
+
 ### Python DataClasses
 
 `pipenv run gen-py-classes examples/organization.yaml > examples/organization.py`
