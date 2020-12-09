@@ -1,7 +1,8 @@
 {
-   "_comments": "Auto generated from organization.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2020-12-08 16:18\nSchema: organization\n\nid: http://example.org/sample/organization\ndescription: \nlicense: \n",
+   "_comments": "Auto generated from organization.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2020-12-08 16:50\nSchema: organization\n\nid: http://example.org/sample/organization\ndescription: \nlicense: \n",
    "@context": {
       "type": "@type",
+      "ORGDATA": "http://example.org/sample/organization/data/",
       "@vocab": "http://example.org/sample/organization/",
       "age_in_years": {
          "@type": "xsd:int",
