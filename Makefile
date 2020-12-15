@@ -32,6 +32,8 @@ examples/%.proto: examples/%.yaml
 	$(RUN) gen-proto $< > $@
 examples/%.owl: examples/%.yaml
 	$(RUN) gen-owl $< > $@
+examples/%.ttl: examples/%.yaml
+	$(RUN) gen-rdf $< > $@
 examples/%-docs: examples/%.yaml
 	$(RUN) gen-markdown $< -d $@
 
