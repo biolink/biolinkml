@@ -6,53 +6,97 @@ license: https://creativecommons.org/publicdomain/zero/1.0/
 # Version should be kept in sync with primary Git repository release tag
 version: 1.4.0
 
-# CURIE namespaces (prefixes/base URI's) mappings of prefixes used in the body of the Biolink Model specification are resolved using a specific precedence order,
-# for use in the generation of the Biolink Model context.jsonld mappings to namespaces. Any prefixes encountered in the Biolink Model but not resolved by the following 
-# precedence sources, are anonymously declared by biolinkml as http://example.org/UNKNOWN/ rooted base URI's which should ideally be repaired in one of the precedence lists.
+## ------------
+## PREFIXES
+## ------------
+
 #
-# 1. The following 'prefixes:' delimited list has first precedence in resolution. 
+# CURIE namespaces (prefixes/base URI's) mappings of prefixes used in the body of the Biolink Model specification
+# are resolved using a specific precedence order, for use in the generation of the Biolink Model context.jsonld
+# mappings to namespaces. Any prefixes encountered in the Biolink Model but not resolved by the following
+# precedence sources, are anonymously declared by biolinkml as http://example.org/UNKNOWN/ rooted base URI's
+# which should ideally be repaired in one of the precedence lists.
+#
+# 1. The following 'prefixes:' delimited list has first precedence in resolution.
+#
 prefixes:
   Aeolus: 'http://translator.ncats.nih.gov/Aeolus_'
   alliancegenome: 'https://www.alliancegenome.org/'
   biolink: 'https://w3id.org/biolink/vocab/'
   biolinkml: 'https://w3id.org/biolink/biolinkml/'
   CAID: 'http://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/by_caid?caid='
-  # Placeholder: not sure how 'chembio' really resolves
+  # Placeholders: not sure how 'chembio'and CHEMBL.MECHANISM really resolve
   chembio: 'http://translator.ncats.nih.gov/chembio_'
+  CHEMBL.MECHANISM: 'https://www.ebi.ac.uk/chembl/mechanism/inspect/'
   CID: 'http://pubchem.ncbi.nlm.nih.gov/compound/'
+  COAR_RESOURCE: 'http://purl.org/coar/resource_type/'
+  CPT: 'https://www.ama-assn.org/practice-management/cpt/'
   CTD: 'http://translator.ncats.nih.gov/CTD_'
+  DGIdb: 'https://www.dgidb.org/interaction_types'
+  doi: 'https://doi.org/'
   DrugCentral: 'http://translator.ncats.nih.gov/DrugCentral_'
   ECTO: 'http://purl.obolibrary.org/obo/ECTO_'
+  EDAM-DATA: 'http://edamontology.org/data_'
+  EDAM-FORMAT: 'http://edamontology.org/format_'
+  EDAM-OPERATION: 'http://edamontology.org/operation_'
+  EDAM-TOPIC: 'http://edamontology.org/topic_'
   ExO: 'http://purl.obolibrary.org/obo/ExO_'
+  fabio: 'http://purl.org/spar/fabio/'
   foaf: 'http://xmlns.com/foaf/0.1/'
+  foodb.compound: 'http://foodb.ca/compounds/'
   GAMMA: 'http://translator.renci.org/GAMMA_'
   gff3: 'https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md#'
   GOREL: 'http://purl.obolibrary.org/obo/GOREL_'
   # GOP: Gene Ontology Property (not really a GO term but an associated metadatum)
   GOP: 'http://purl.obolibrary.org/obo/go#'
   gpi: 'https://github.com/geneontology/go-annotation/blob/master/specs/gpad-gpi-2-0.md#'
+  GSID: 'https://scholar.google.com/citations?user='
   GTEx: 'https://www.gtexportal.org/home/gene/'
   gtpo: 'https://rdf.guidetopharmacology.org/ns/gtpo#'
   HANCESTRO: 'http://www.ebi.ac.uk/ancestro/ancestro_'
+  HCPCS: 'http://purl.bioontology.org/ontology/HCPCS/'
   hetio: 'http://translator.ncats.nih.gov/hetio_'
   ICD0: 'http://translator.ncats.nih.gov/ICD0_'
   ICD10: 'http://translator.ncats.nih.gov/ICD10_'
   ICD9: 'http://translator.ncats.nih.gov/ICD9_'
+  interpro: 'https://www.ebi.ac.uk/interpro/entry/'
+  isbn: 'https://www.isbn-international.org/identifier/' # note: a resolvable base URI not available from isbn-international
+  isni: 'https://isni.org/isni/'
+  issn: 'https://portal.issn.org/resource/ISSN/'
+  LOINC: 'http://loinc.org/rdf/'
   medgen: 'https://www.ncbi.nlm.nih.gov/medgen/'
   MetaCyc: 'http://translator.ncats.nih.gov/MetaCyc_'
+  MI: 'http://purl.obolibrary.org/obo/MI_'
+  MSigDB: 'https://www.gsea-msigdb.org/gsea/msigdb/'
+  NDDF: 'http://purl.bioontology.org/ontology/NDDF/'
+  NLMID: 'https://www.ncbi.nlm.nih.gov/nlmcatalog/?term='
   OBAN: 'http://purl.org/oban/'
+  oboformat: 'http://www.geneontology.org/formats/oboInOWL#'
+  OBOREL: 'http://purl.obolibrary.org/obo/RO_'
+  ORCID: 'https://orcid.org/'
   ORPHA: 'http://www.orpha.net/ORDO/Orphanet_'
+  PathWhiz: 'http://smpdb.ca/pathways/#'  # See also https://smpdb.ca/pathwhiz/
+  PATO-PROPERTY: 'http://purl.obolibrary.org/obo/pato#'  # Phenotypic Quality Ontology properties, not core terms
+  PDQ: 'https://www.cancer.gov/publications/pdq#'   # Physician Data Query
   PHAROS: 'http://pharos.nih.gov'
   qud: 'http://qudt.org/1.1/schema/qudt#'
+  REPODB: 'http://apps.chiragjpgroup.org/repoDB/'
+  ResearchID: 'https://publons.com/researcher/'
   RO: 'http://purl.obolibrary.org/obo/RO_'
+  RTXKG1: 'http://kg1endpoint.rtx.ai/'
+  RXNORM: 'http://purl.bioontology.org/ontology/RXNORM/'
+  ScopusID: 'https://www.scopus.com/authid/detail.uri?authorId='
   SEMMEDDB: 'https://skr3.nlm.nih.gov/SemMedDB'
   SIO: 'http://semanticscience.org/resource/SIO_'
   SNPEFF: 'http://translator.ncats.nih.gov/SNPEFF_'
   UBERGRAPH: 'http://translator.renci.org/ubergraph-axioms.ofn#'
   UBERON_CORE: 'http://purl.obolibrary.org/obo/uberon/core#'
-  UMLSSC: 'https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/TUI/'
-  UMLSSG: 'https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/GROUP/'
-  UMLSST: 'https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/STY/'
+  # The UMLS Semantic types and groups namespaces don't have a directly
+  # resolvable Base URI, but we point to a pair of sensible web documents
+  UMLSSC: 'https://metamap.nlm.nih.gov/Docs/SemanticTypes_2018AB.txt/code#'
+  UMLSSG: 'https://metamap.nlm.nih.gov/Docs/SemGroups_2018.txt/group#'
+  UMLSST: 'https://metamap.nlm.nih.gov/Docs/SemanticTypes_2018AB.txt/type#'
+  VANDF: 'https://www.nlm.nih.gov/research/umls/sourcereleasedocs/current/VANDF/'
   # The "Variation Modelling Collaboration" (VMC) is not (yet) a conventional namespace so we point to its Github repo
   # See also: https://www.ga4gh.org/work_stream/genomic-knowledge-standards/#existing-standards and
   # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7153148/
@@ -65,7 +109,7 @@ prefixes:
 default_prefix: biolink
 default_range: string
 
-# 2. The following prefix maps are retrieved from the 
+# 2. The following prefix maps are retrieved from the
 #    specified contexts defined at https://prefixcommons.org/
 default_curi_maps:
   - obo_context
@@ -82,7 +126,16 @@ emit_prefixes:
   - OIO
   - BIOGRID
 
+## ------------
+## SUBSETS
+## ------------
+
 subsets:
+
+  model_organism_database:
+    description: >-
+      Subset that is relevant for a typical Model Organism Database (MOD)
+
   translator_minimal:
     description: >-
       Minimum subset of translator work
@@ -94,6 +147,11 @@ subsets:
   testing:
     description: >-
       TBD
+
+
+## ------------
+## TYPES
+## ------------
 
 imports:
   - biolinkml:types
@@ -123,7 +181,7 @@ types:
   label type:
     typeof: string
     description: >-
-      A string that provides a human-readable name for a thing
+      A string that provides a human-readable name for an entity
 
   predicate type:
     typeof: uriorcurie
@@ -157,7 +215,7 @@ types:
     uri: UO:0000000
     id_prefixes:
       - UO
-    mappings:
+    exact_mappings:
       - qud:Unit
 
   time type:
@@ -166,9 +224,783 @@ types:
   biological sequence:
     typeof: string
 
+## ------------
+## SLOTS
+## ------------
+
 slots:
 
-## predicates/relations
+## --------------------
+## ATTRIBUTE SLOTS
+## --------------------
+
+  has attribute:
+    description: >-
+      connects any entity to an attribute
+    range: attribute
+    multivalued: true
+    in_subset:
+      - samples
+    close_mappings:
+      # RTX term meaning 'specifies value of' tagged as inverse of 'biolink:has attribute'
+      - OBI:0001927
+    exact_mappings:
+      - SIO:000008
+    narrow_mappings:
+      # if 'has attribute' annotates a NamedThing as subject or
+      # object of an association, these OBAN mappings may apply
+      - OBAN:association_has_subject_property
+      - OBAN:association_has_object_property
+      - CPT:has_possibly_included_panel_element
+      - DRUGBANK:category
+      # RTX contributed terms. Could perhaps review for more semantically precise mappings?
+      - EFO:is_executed_in
+      - HANCESTRO:0301
+      - LOINC:has_action_guidance
+      - LOINC:has_adjustment
+      - LOINC:has_aggregation_view
+      - LOINC:has_approach_guidance
+      - LOINC:has_divisor
+      - LOINC:has_exam
+      - LOINC:has_method
+      - LOINC:has_modality_subtype
+      - LOINC:has_object_guidance
+      - LOINC:has_scale
+      - LOINC:has_suffix
+      - LOINC:has_time_aspect
+      - LOINC:has_time_modifier
+      - LOINC:has_timing_of
+      - NCIT:disease_is_grade
+      - NCIT:disease_is_stage
+      - NCIT:eo_disease_has_property_or_attribute
+      - NCIT:has_data_element
+      - NCIT:has_pharmaceutical_administration_method
+      - NCIT:has_pharmaceutical_basic_dose_form
+      - NCIT:has_pharmaceutical_intended_site
+      - NCIT:has_pharmaceutical_release_characteristics
+      - NCIT:has_pharmaceutical_state_of_matter
+      - NCIT:has_pharmaceutical_transformation
+      - NCIT:is_qualified_by
+      - NCIT:qualifier_applies_to
+      - NCIT:role_has_domain
+      - NCIT:role_has_range
+      - OBO:INO_0000154
+      - OBO:hancestro_0308
+      - OMIM:has_inheritance_type
+      - ORPHA:C016
+      - ORPHA:C017
+      - RO:0000053
+      # RTX tagged a few RO terms as 'biolink:related_to' but semantics suggest a better mapping here
+      - RO:0000086
+      - RO:0000087
+      - SNOMED:has_access
+      - SNOMED:has_clinical_course
+      - SNOMED:has_count_of_base_of_active_ingredient
+      - SNOMED:has_dose_form_administration_method
+      - SNOMED:has_dose_form_release_characteristic
+      - SNOMED:has_dose_form_transformation
+      - SNOMED:has_finding_context
+      - SNOMED:has_finding_informer
+      - SNOMED:has_inherent_attribute
+      - SNOMED:has_intent
+      - SNOMED:has_interpretation
+      - SNOMED:has_laterality
+      - SNOMED:has_measurement_method
+      - SNOMED:has_method
+      - SNOMED:has_priority
+      - SNOMED:has_procedure_context
+      - SNOMED:has_process_duration
+      - SNOMED:has_property
+      - SNOMED:has_revision_status
+      - SNOMED:has_scale_type
+      - SNOMED:has_severity
+      - SNOMED:has_specimen
+      - SNOMED:has_state_of_matter
+      - SNOMED:has_subject_relationship_context
+      - SNOMED:has_surgical_approach
+      - SNOMED:has_technique
+      - SNOMED:has_temporal_context
+      - SNOMED:has_time_aspect
+      - SNOMED:has_units
+      - UMLS:has_structural_class
+      - UMLS:has_supported_concept_property
+      - UMLS:has_supported_concept_relationship
+      - UMLS:may_be_qualified_by
+
+  has attribute type:
+    description: >-
+      connects an attribute to a class that describes it
+    domain: attribute
+    range: ontology class
+    multivalued: false
+    required: true
+    in_subset:
+      - samples
+    narrow_mappings:
+      - LOINC:has_modality_type
+      - LOINC:has_view_type
+
+  # TRAPI Attribute schema alignment:
+  # value: NamedThing.name
+  # value_type: NamedThing.category
+  # value_type_name: quantity_value.NamedThing.name
+  has qualitative value:
+    description: >-
+      connects an attribute to a value
+    domain: attribute
+    range: named thing
+    multivalued: false
+    in_subset:
+      - samples
+
+  # TRAPI Attribute schema alignment:
+  # value: quantity_value.has_numeric_value[double] - may be a vector?
+  # value_type: quantity_value.has_unit.unit.uri
+  # value_type_name: quantity_value.has_unit.unit.name[string]
+  has quantitative value:
+    description: >-
+      connects an attribute to a value
+    domain: attribute
+    range: quantity value
+    multivalued: true
+    exact_mappings:
+      - qud:quantityValue
+    narrow_mappings:
+      - SNOMED:has_concentration_strength_numerator_value
+      - SNOMED:has_presentation_strength_denominator_value
+      - SNOMED:has_presentation_strength_numerator_value
+    in_subset:
+      - samples
+
+  has numeric value:
+    description: >-
+      connects a quantity value to a number
+    domain: quantity value
+    range: double
+    multivalued: false
+    exact_mappings:
+      - qud:quantityValue
+    in_subset:
+      - samples
+
+  has unit:
+    description: >-
+      connects a quantity value to a unit
+    domain: quantity value
+    range: unit
+    multivalued: false
+    close_mappings:
+      # These RTX contributed terms mean "is unit of" which is the semantic inverse of this biolink:has_unit term
+      - EFO:0001697
+      - OBO:uo#is_unit_of
+    exact_mappings:
+      - qud:unit
+      - IAO:0000039
+    narrow_mappings:
+      - SNOMED:has_concentration_strength_denominator_unit
+      - SNOMED:has_concentration_strength_numerator_unit
+      - SNOMED:has_presentation_strength_denominator_unit
+      - SNOMED:has_presentation_strength_numerator_unit
+      - SNOMED:has_unit_of_presentation
+    in_subset:
+      - samples
+
+
+## --------------------
+## NODE PROPERTY SLOTS
+## --------------------
+
+  node property:
+    description: >-
+      A grouping for any property that holds between a node and a value
+    domain: named thing
+
+  id:
+    identifier: true
+    description: >-
+      A unique identifier for an entity.
+      Must be either a CURIE shorthand for a URI or a complete URI
+    in_subset:
+      - translator_minimal
+    required: true
+    exact_mappings:
+      - alliancegenome:primaryId
+      - gff3:ID
+      - gpi:DB_Object_ID
+
+  iri:
+    description: >-
+      An IRI for an entity. This is determined by the id using expansion rules.
+    range: iri type
+    in_subset:
+      - translator_minimal
+      - samples
+    exact_mappings:
+      - WIKIDATA_PROPERTY:P854
+
+  type:
+    slot_uri: rdf:type
+    exact_mappings:
+      - alliancegenome:soTermId
+      - gff3:type
+      - gpi:DB_Object_Type
+
+  category:
+    is_a: type
+    domain: entity
+    range: category type
+    description: >-
+      Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
+       * In a neo4j database this MAY correspond to the neo4j label tag.
+       * In an RDF database it should be a biolink model class URI.
+      This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have
+      category values `bl:Protein`, `bl:GeneProduct`, `bl:MolecularEntity`, ...
+
+      In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class
+      more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site,
+      which is more specific than anything in biolink. Here we would have categories {bl:GenomicEntity, bl:MolecularEntity, bl:NamedThing}
+    is_class_field: true
+    multivalued: true
+    in_subset:
+      - translator_minimal
+    required: true
+
+  name:
+    aliases: [ 'label', 'display name', 'title' ]
+    description: >-
+      A human-readable name for an attribute or entity.
+    range: label type
+    in_subset:
+      - translator_minimal
+      - samples
+    #
+    # BiolinkML doesn't like this name slot to be "required: true".
+    # Besides, some entity nodes/attributes may not have names?
+    # required: true
+    slot_uri: rdfs:label
+    exact_mappings:
+      - gff3:Name
+      - gpi:DB_Object_Name
+    narrow_mappings:
+      - dcterms:title
+      - WIKIDATA_PROPERTY:P1476
+
+  source:
+    description: >-
+      a lightweight analog to the association class 'has provider' slot, which is the string name, or
+      the authoritative (i.e. database) namespace, designating the origin of the entity to which the slot belongs.
+    range: label type
+    in_subset:
+      - translator_minimal
+
+  filler:
+    is_a: node property
+    range: named thing
+    description: >-
+      The value in a property-value tuple
+
+  symbol:
+    is_a: node property
+    domain: named thing
+    description: >-
+      Symbol for a particular thing
+    exact_mappings:
+      - alliancegenome:symbol
+      - gpi:DB_Object_Symbol
+
+  synonym:
+    is_a: node property
+    aliases: ['alias']
+    domain: named thing
+    range: label type
+    description: >-
+      Alternate human-readable names for a thing
+    multivalued: true
+    in_subset:
+      - translator_minimal
+    narrow_mappings:
+      # there is an interesting debate here: are these terms "narrower" a.k.a. more specialized instances of
+      # 'biolink:synonym' or should they be binned into their respective namesake class of mappings?
+      # namely, is 'oboInOwl:hasExactSynonym' an instance 'exact_mappings', etc.
+      - skos:altLabel
+      - gff3:Alias
+      - alliancegenome:synonyms
+      - gpi:DB_Object_Synonyms
+      - oboInOwl:hasExactSynonym
+      - oboInOwl:hasNarrowSynonym
+      - oboInOwl:hasBroadSynonym
+      - oboInOwl:hasRelatedSynonym
+      # TODO: RTX contributed terms mapped here... May need review?
+      - HANCESTRO:0330
+      - IAO:0000136
+      - RXNORM:has_tradename
+
+  has topic:
+    aliases: ['topic', 'descriptors']
+    is_a: node property
+    range: ontology class
+    exact_mappings:
+      - foaf:topic
+    description: >-
+      Connects a node to a vocabulary term or ontology class that describes some aspect of the entity. In general specific characterization is preferred.
+      See https://github.com/biolink/biolink-model/issues/238
+
+  xref:
+    is_a: node property
+    aliases: ['dbxref', 'Dbxref', 'DbXref']
+    domain: named thing
+    range: iri type
+    description: >-
+      Alternate CURIEs for a thing
+    multivalued: true
+    in_subset:
+      - translator_minimal
+    narrow_mappings:
+      - gff3:Dbxref
+      - gpi:DB_Xrefs
+
+  full name:
+    is_a: node property
+    domain: named thing
+    range: label type
+    description: >-
+      a long-form human readable name for a thing
+
+  description:
+    aliases: ['definition']
+    range: narrative text
+    description: >-
+      a human-readable description of an entity
+    in_subset:
+      - translator_minimal
+    slot_uri: dcterms:description
+    exact_mappings:
+      - IAO:0000115
+      - skos:definitions
+    narrow_mappings:
+      - gff3:Description
+
+  systematic synonym:
+    is_a: node property
+    domain: named thing
+    range: label type
+    multivalued: true
+    slot_uri: GOP:systematic_synonym
+    description: >-
+      more commonly used for gene symbols in yeast
+
+  affiliation:
+    is_a: node property
+    description: >-
+      a professional relationship between one provider (often a person) within another provider (often an organization).
+      Target provider identity should be specified by a CURIE. Providers may have multiple affiliations.
+    domain: agent
+    range: uriorcurie
+    multivalued: true
+
+  address:
+    is_a: node property
+    description: >-
+      the particulars of the place where someone or an organization is situated.  For now, this slot is a
+      simple text "blob" containing all relevant details of the given location for fitness of purpose.
+      For the moment, this "address" can include other contact details such as email and phone number(?).
+
+  ## Space
+
+  latitude:
+    is_a: node property
+    range: float
+    description: >-
+      latitude
+    exact_mappings:
+      - wgs:lat
+
+  longitude:
+    is_a: node property
+    range: float
+    description: >-
+      longitude
+    exact_mappings:
+      - wgs:long
+
+  ## Time
+
+  timepoint:
+    is_a: node property
+    range: time type
+    description: >-
+      a point in time
+
+  creation date:
+    is_a: node property
+    aliases: ['publication date']
+    range: date
+    description: >-
+      date on which an entity was created. This can be applied to nodes or edges
+    exact_mappings:
+      - dcterms:createdOn
+      - WIKIDATA_PROPERTY:P577
+
+  update date:
+    is_a: node property
+    range: date
+    description: >-
+      date on which an entity was updated. This can be applied to nodes or edges
+
+  ## Statistics
+
+  aggregate statistic:
+    is_a: node property
+    abstract: true
+
+  has count:
+    description: >-
+      number of things with a particular property
+    is_a: aggregate statistic
+    range: integer
+    exact_mappings:
+      - LOINC:has_count
+
+  has total:
+    description: >-
+      total number of things in a particular reference set
+    is_a: aggregate statistic
+    range: integer
+
+  has quotient:
+    is_a: aggregate statistic
+    range: double
+
+  has percentage:
+    description: >-
+      equivalent to has quotient multiplied by 100
+    is_a: aggregate statistic
+    range: double
+
+  ## Properties for Information Content Entity and Publication Nodes
+
+  source data file:
+    is_a: node property
+    domain: data set version
+    range: data file
+    broad_mappings:
+      - dcterms:source
+
+  source web page:
+    is_a: node property
+    domain: data set summary
+    broad_mappings:
+      - dcterms:source
+
+  retrieved on:
+    is_a: node property
+    domain: source file
+    range: date
+    exact_mappings:
+      - pav:retrievedOn
+
+  version of:
+    is_a: node property
+    domain: data set version
+    range: data set
+    exact_mappings:
+      - dcterms:isVersionOf
+
+  source version:
+    is_a: node property
+    domain: source file
+    broad_mappings:
+      - pav:version
+      - owl:versionInfo
+
+  license:
+    is_a: node property
+    domain: information content entity
+    exact_mappings:
+      - dcterms:license
+    narrow_mappings:
+      - WIKIDATA_PROPERTY:P275
+
+  rights:
+    is_a: node property
+    domain: information content entity
+    exact_mappings:
+      - dcterms:rights
+
+  format:
+    is_a: node property
+    domain: information content entity
+    exact_mappings:
+      - dcterms:format
+      - WIKIDATA_PROPERTY:P2701
+
+  created_with:
+    is_a: node property
+    domain: source file
+    exact_mappings:
+      - pav:createdWith
+
+  download url:
+    is_a: node property
+    domain: distribution level
+    exact_mappings:
+      - dcterms:downloadURL
+
+  distribution:
+    aliases: ['dataset']
+    is_a: node property
+    domain: data set version
+    range: distribution level
+    exact_mappings:
+      - void:Dataset
+      - dctypes:Dataset
+
+  published in:
+    is_a: node property
+    description: >-
+      CURIE identifier of a broader publication context within which the publication may be placed,
+      e.g. a specified book or journal.
+    domain: publication
+    range: uriorcurie
+    values_from:
+      - NLMID
+      - issn
+      - isbn
+    exact_mappings:
+      - WIKIDATA_PROPERTY:P1433
+
+  iso abbreviation:
+    is_a: node property
+    description: >-
+      Standard abbreviation for periodicals in the International Organization for Standardization (ISO) 4 system
+      See https://www.issn.org/services/online-services/access-to-the-ltwa/. If the 'published in' property is set,
+      then the iso abbreviation pertains to the broader publication context (the journal) within which the given
+      publication node is embedded, not the publication itself.
+    domain: publication
+    exact_mappings:
+      - WIKIDATA_PROPERTY:P1160
+
+  authors:
+    is_a: node property
+    singular_name: author
+    description: >-
+      connects an publication to the list of authors who contributed to the publication.
+      This property should be a comma-delimited list of author names. It is recommended that an author's name
+      be formatted as "surname, firstname initial.".   Note that this property is a node annotation expressing
+      the citation list of authorship which might typically otherwise be more completely documented in
+      biolink:PublicationToProviderAssociation defined edges which point to full details about an author
+      and possibly, some qualifiers which clarify the specific status of a given author in the publication.
+    multivalued: true
+    domain: publication
+
+  volume:
+    is_a: node property
+    description: >-
+      volume of a book or music release in a collection/series or a published collection of journal issues in a serial publication
+    domain: publication
+    exact_mappings:
+      - WIKIDATA_PROPERTY:P478
+
+  chapter:
+    is_a: node property
+    description: >-
+      chapter of a book
+    domain: book chapter
+    exact_mappings:
+      - WIKIDATA:Q1980247
+
+  issue:
+    is_a: node property
+    description: >-
+      issue of a newspaper, a scientific journal or magazine for reference purpose
+    domain: publication
+    exact_mappings:
+      - WIKIDATA_PROPERTY:P433
+
+  pages:
+    is_a: node property
+    description: >-
+      page number of source referenced for statement or publication
+    domain: publication
+    multivalued: true
+    exact_mappings:
+      - WIKIDATA_PROPERTY:P304
+
+  summary:
+    is_a: node property
+    # since 'abstract' is a BiolinkML keyword denoting a non-instantiable class or slot,
+    # it is generally recommended that knowledge graphs use 'summary' instead to tag a Publication 'abstract'
+    aliases: ['abstract']
+    description: >-
+      executive  summary of a publication
+    domain: publication
+    exact_mappings:
+      - dcterms:abstract
+      - WIKIDATA:Q333291
+
+  keywords:
+    is_a: node property
+    description: >-
+      keywords tagging a publication
+    domain: publication
+    multivalued: true
+
+  mesh terms:
+    is_a: node property
+    description: >-
+      mesh terms tagging a publication
+    domain: publication
+    range: uriorcurie
+    values_from:
+      - MESH
+    multivalued: true
+
+  ## Biology
+
+  has biological sequence:
+    is_a: node property
+    description: >-
+      connects a genomic feature to its sequence
+    range: biological sequence
+
+  has gene or gene product:
+    is_a: node property
+    description: >-
+      connects an entity with one or more gene products
+    range: gene
+    multivalued: true
+
+  has gene:
+    is_a: has gene or gene product
+    description: >-
+      connects an entity associated with one or more genes
+    range: gene
+    multivalued: true
+
+  has zygosity:
+    is_a: node property
+    domain: genomic entity
+    range: zygosity
+
+  ## Chemistry, drugs and food
+
+  has chemical formula:
+    is_a: node property
+    range: chemical formula value
+    description: >-
+      description of chemical compound based on element symbols
+    exact_mappings:
+      - WIKIDATA_PROPERTY:P274
+
+  has constituent:
+    description: >-
+      one or more chemical substances within a mixture
+    is_a: node property
+    range: chemical substance
+    multivalued: true
+
+  has drug:
+    is_a: node property
+    description: >-
+      connects an entity to one or more drugs
+    range: drug
+    multivalued: true
+
+  has device:
+    is_a: node property
+    description: >-
+      connects an entity to one or more (medical) devices
+    range: device
+    multivalued: true
+
+  has procedure:
+    is_a: node property
+    description: >-
+      connects an entity to one or more (medical) procedures
+    range: procedure
+    multivalued: true
+
+  has active ingredient:
+    is_a: node property
+    domain: drug
+    range: chemical substance
+    multivalued: true
+    description: >-
+      one or more chemical substance which are the active ingredient(s) of a drug
+    exact_mappings:
+      - WIKIDATA:Q912807
+
+  has excipient:
+    is_a: node property
+    domain: drug
+    range: chemical substance
+    multivalued: true
+    description: >-
+      one or more (generally inert) chemical substances which are formulated alongside the active ingredient of a drug
+    exact_mappings:
+      - WIKIDATA:Q902638
+
+  has nutrient:
+    is_a: node property
+    domain: food
+    range: chemical substance
+    multivalued: true
+    description: >-
+      one or more chemical substance which are growth factors for a living organism
+    exact_mappings:
+      - WIKIDATA:Q181394
+
+  ## Clinical exposures
+
+  has receptor:
+    is_a: node property
+    domain: exposure event
+    range: organismal entity
+    description: >-
+      the organism or organism part being exposed
+    exact_mappings:
+      - ExO:0000001
+
+  has stressor:
+    is_a: node property
+    domain: exposure event
+    aliases: ['has stimulus']
+    description: >-
+      the process or entity that the receptor is being exposed to
+    exact_mappings:
+      - ExO:0000000
+
+  has route:
+    is_a: node property
+    domain: exposure event
+    description: >-
+      the process that results in the stressor coming into direct contact with the receptor
+    exact_mappings:
+      - ExO:0000055
+    narrow_mappings:
+      - LOINC:has_pharmaceutical_route
+      - SNOMED:has_dose_form_intended_site
+      - SNOMED:has_route_of_administration
+
+  has population context:
+    description: >-
+      a biological population (general, study, cohort, etc.) with a specific
+      set of characteristics to constrain an association.
+    is_a: association slot
+    range: population of individual organisms
+
+  has temporal context:
+    description: >-
+      a constraint of time placed upon the truth value of an association.
+    is_a: association slot
+    # this resolves to the 'time' datatype, but not sure
+    # if this also represents an interval of time.
+    range: time type
+
+
+## --------------------
+## PREDICATES/RELATIONS
+## --------------------
 
   related to:
     description: >-
@@ -233,7 +1065,7 @@ slots:
       - OBO:envo#has_increased_levels_of
       - OBO:has_role
       - OBO:nbo#is_about
-      - OBOREL:bearer_of
+      - OBOREL:0000053 # bearer_of
       - PATO:decreased_in_magnitude_relative_to
       - PATO:has_cross_section
       - PATO:has_relative_magnitude
@@ -343,8 +1175,6 @@ slots:
     inverse: superclass of
     slot_uri: rdfs:subClassOf
     close_mappings:
-      # RTX proposed term is actually 'biolink:superclass_of' which is inverse of 'biolink:subclass_of' relationship
-      - CHEMBL.MECHANISM:superset_of
       # RTX mapped terms, would this rather mean that a 'class A' class of an 'instance B'
       # and a an 'instance B' has class 'class A' (inverse term)
       - LOINC:class_of
@@ -420,7 +1250,7 @@ slots:
       - CHEBI:is_tautomer_of
       - MEDDRA:classified_as
       - OBO:xref
-      - oboFormat:xref
+      - oboformat:xref
       - RXNORM:has_quantified_form
       - UMLS:SY
 
@@ -433,6 +1263,59 @@ slots:
     exact_mappings:
       - skos:exactMatch
       - WIKIDATA:P2888
+
+  ## Publication related predicates
+
+  contributor:
+    is_a: related to
+    domain: information content entity
+    range: agent
+    comments:
+      - This is a grouping for predicates relating entities to their associated contributors realizing them
+    abstract: true
+    exact_mappings:
+      - dcterms:contributor
+
+  provider:
+    is_a: contributor
+    description: >-
+      person, group, organization or project that provides a piece of information (e.g. a knowledge association).
+
+  publisher:
+    is_a: contributor
+    domain: publication
+    description: >-
+      organization or person responsible for publishing books, periodicals, podcasts, games or software.
+      Note that in the case of publications which have a containing "published in" node property, the publisher
+      association may not be attached directly to the embedded child publication, but only made in between the
+      parent's publication node and the publisher agent of the encompassing publication
+      (e.g. only from the Journal referenced by the 'published_in' property of an journal article Publication node).
+    exact_mappings:
+      - dcterms:publisher
+      - WIKIDATA_PROPERTY:P123
+
+  editor:
+    is_a: contributor
+    domain: publication
+    description: >-
+      editor of a compiled work such as a book or a periodical (newspaper or an academic journal).
+      Note that in the case of publications which have a containing "published in" node property, the editor
+      association may not be attached directly to the embedded child publication, but only made in between the
+      parent's publication node and the editorial agent of the encompassing publication
+      (e.g. only from the Book referenced by the 'published_in' property of a book chapter Publication node).
+    exact_mappings:
+      - WIKIDATA_PROPERTY:P98
+
+  author:
+    is_a: contributor
+    domain: publication
+    description: >-
+      an instance of one (co-)creator primarily responsible for a written work
+    exact_mappings:
+      - dcterms:creator
+      - WIKIDATA_PROPERTY:P50
+
+  ## end of Publication related predicates
 
   interacts with:
     domain: named thing
@@ -508,8 +1391,11 @@ slots:
   affects:
     is_a: related to
     description: >-
-      describes an entity that has a direct affect on the state or quality of another existing entity.
-      Use of the 'affects' predicate implies that the affected entity already exists, unlike predicates such as 'affects risk for' and 'prevents, where the outcome is something that may or may not come to be.
+      describes an entity that has a direct affect on the state or quality
+      of another existing entity. Use of the 'affects' predicate implies that
+      the affected entity already exists, unlike predicates such as
+      'affects risk for' and 'prevents, where the outcome is something
+      that may or may not come to be.
     in_subset:
       - translator_minimal
     related_mappings:
@@ -528,7 +1414,7 @@ slots:
       - UPHENO:0000001
       - GO:acts_upstream_of
       - GO:acts_upstream_of_or_within
-      - CIT:allele_plays_altered_role_in_process
+      - NCIT:allele_plays_altered_role_in_process
       - NCIT:allele_plays_role_in_metabolism_of_chemical_or_drug
       - NCIT:biological_process_has_associated_location
       - NCIT:chemical_or_drug_affects_abnormal_cell
@@ -992,11 +1878,9 @@ slots:
       - translator_minimal
     domain: molecular entity
     range: molecular entity
-    mappings:
-    #  - CTD:decreases_synthesis_of
-      - GAMMA:inhibition_of_synthesis
     exact_mappings:
       - CTD:decreases_synthesis_of
+      - GAMMA:inhibition_of_synthesis
 
   affects degradation of:
     description: >-
@@ -1333,9 +2217,11 @@ slots:
       - CTD:decreases_import
 
   regulates:
-    is_a: affects
+    # direct is_a inheritance from a non-mixin class is not allowed
+    # we defer this inheritance to the classes which this mixin in its mixins
+    # is_a: affects
     comments:
-      - This is a grouping for process-process and entity-entity relations
+      - This is a grouping for process-process and entity-entity regulation.
     mixin: true
     abstract: true
     close_mappings:
@@ -1357,7 +2243,7 @@ slots:
 
   positively regulates:
     comments:
-      - This is a grouping for process-process and entity-entity relations
+      - This is a grouping for positive process-process and entity-entity regulation.
     is_a: regulates
     mixin: true
     abstract: true
@@ -1377,7 +2263,7 @@ slots:
 
   negatively regulates:
     comments:
-      - This is a grouping for process-process and entity-entity relations
+      - This is a grouping for negative process-process and entity-entity regulation.
     is_a: regulates
     mixin: true
     abstract: true
@@ -1401,7 +2287,9 @@ slots:
       - RO:0002630
 
   regulates, process to process:
-    is_a: regulates
+    is_a: affects
+    mixins:
+      - regulates
     domain: occurrent
     range: occurrent
     exact_mappings:
@@ -1423,7 +2311,9 @@ slots:
 
   regulates, entity to entity:
     aliases: ['activity directly regulates activity of']
-    is_a: regulates
+    is_a: affects
+    mixins:
+      - regulates
     domain: molecular entity
     range: molecular entity
     local_names:
@@ -1500,7 +2390,8 @@ slots:
   has gene product:
     is_a: related to
     description: >-
-      holds between a gene and a transcribed and/or translated product generated from it
+      holds between a gene and a transcribed and/or
+      translated product generated from it
     domain: gene
     range: gene product
     in_subset:
@@ -1745,8 +2636,6 @@ slots:
       - UBERON:proximally_connected_to
       - UBERON:sexually_homologous_to
 
-
-
   in pathway with:
     description: >-
       holds between two genes or gene products that are part of in the same biological pathway
@@ -1793,11 +2682,14 @@ slots:
       - RO:00002325
       - GO:colocalizes_with
 
+  # Despite the name, note that this particular entity is
+  # NOT a biolink:Association but rather, a biolink:predicate
   genetic association:
     is_a: related to
     symmetric: true
     description: >-
-      Co-occurrence of a certain allele of a genetic marker and the phenotype of interest in the same individuals at above-chance level
+      Co-occurrence of a certain allele of a genetic marker and the phenotype
+      of interest in the same individuals at above-chance level
     exact_mappings:
       - WIKIDATA_PROPERTY:P2293
 
@@ -1940,12 +2832,32 @@ slots:
       - RTXKG1:realized_in_response_to
       - RTXKG1:realized_in_response_to_stimulus
 
-  treats:
-    aliases: ['is substance that treats']
+  ameliorates:
     is_a: affects
     description: >-
+      A relationship between an entity (e.g. a genotype, genetic variation, chemical, or environmental exposure) and a condition (a phenotype or disease), where the presence of the entity reduces or eliminates some or all aspects of the condition.
+    # 'biological entity' currently includes 'exposure event' which covers alot of related ground
+    domain: biological entity
+    range: disease or phenotypic feature
+    exact_mappings:
+      - RO:0003307
+
+  exacerbates:
+    is_a: affects
+    description: >-
+      A relationship between an entity (e.g. a chemical, environmental exposure, or some form of genetic variation) and a condition (a phenotype or disease), where the presence of the entity worsens some or all aspects of the condition.
+    # 'biological entity' currently includes 'exposure event' which covers alot of related ground
+    domain: biological entity
+    range: disease or phenotypic feature
+    exact_mappings:
+      - RO:0003309
+      - CTD:therapeutic
+
+  treats:
+    aliases: ['is substance that treats']
+    is_a: ameliorates
+    description: >-
       holds between a therapeutic procedure or chemical substance and a disease or phenotypic feature that it is used to treat
-    required: true
     domain: treatment
     range: disease or phenotypic feature
     in_subset:
@@ -1957,7 +2869,6 @@ slots:
       - SEMMEDDB:TREATS
       - SEMMEDDB:treats
       - WIKIDATA_PROPERTY:P2175
-      - CTD:therapeutic
     broad_mappings:
       - RO:0003307
     narrow_mappings:
@@ -2022,7 +2933,9 @@ slots:
   correlated with:
     is_a: related to
     description: >-
-      holds between any two named thing entities. For example, correlated_with holds between a disease or phenotypic feature and a measurable molecular entity that is used as an indicator of the presence or state of the disease or feature.
+      holds between any two named thing entities. For example, correlated_with
+      holds between a disease or phenotypic feature and a measurable molecular
+      entity that is used as an indicator of the presence or state of the disease or feature.
     domain: named thing
     range: named thing
     in_subset:
@@ -2067,6 +2980,14 @@ slots:
       - translator_minimal
     exact_mappings:
       - CTD:negativecorrelation
+
+  coexpressed with:
+    is_a: correlated with
+    description: >-
+      holds between any two genes or gene products, in which both are
+      generally expressed within a single defined experimental context.
+    domain: gene or gene product
+    range: gene or gene product
 
   has biomarker:
     is_a: correlated with
@@ -2418,6 +3339,7 @@ slots:
       - CHEBI:is_substituent_group_from
       - CPT:panel_element_of
       - CPT:panel_element_of_possibly_included
+      - DRUGBANK:component_of
       - FMA:constitutional_part_of
       - FMA:member_of
       - FMA:regional_part_of
@@ -2829,8 +3751,6 @@ slots:
       - DGIdb:binder
       - DGIdb:cofactor
 
-  #The following are proposed new predicates
-
   affects expression in:
     is_a: affects
     description: Holds between a variant and an anatomical entity where the expression of the variant
@@ -2849,7 +3769,7 @@ slots:
     exact_mappings:
       - GENO:0000790
 
-  #Predicates relating variants to genes
+  ## Predicates relating variants to genes
 
   is sequence variant of:
     is_a: related to
@@ -2958,7 +3878,7 @@ slots:
       - SNPEFF:non_coding_transcript_exon_variant
       - SNPEFF:intron_variant
 
-  #relating disease to process
+  # relating disease to process
 
   disease has basis in:
     description: A relation that holds between a disease and an entity where the state
@@ -2969,7 +3889,7 @@ slots:
       - MONDO:disease_has_basis_in_development_of
       - MONDO:disease_has_basis_in_accumulation_of
 
-  #These may be pushable to causal relationships, but seem important for clarity
+  # These may be pushable to causal relationships, but seem important for clarity
   # Also because causes adverse event tends to be very noisy and it's useful to be able
   # to distinguish it.  maybe not the best way to do that though.
 
@@ -2992,8 +3912,8 @@ slots:
       - DrugCentral:0000001
       - RTXKG1:contraindicated_for
 
-  #The remaining new slots are here because we ran across them somewhere and they didn't seem
-  # to map well to anything else.
+  # The remaining new slots are here because we ran across them somewhere and
+  # they didn't seem to map well to anything else.
 
   has not completed:
     is_a: related to
@@ -3066,251 +3986,44 @@ slots:
       - RO:0002225 # x develops from part of y if and only if there exists some z such that x develops from z and z is part of y
       - RO:0002226 # x develops_in y if x is located in y whilst x is developing
 
-
-## property slots
-
-  node property:
+  in taxon:
+    aliases:
+      - instance of
+    is_a: related to
+    domain: thing with taxon
+    range: organism taxon
     description: >-
-      A grouping for any property that holds between a node and a value
-    domain: named thing
-
-  title:
-    is_a: node property
-    domain: data set version
-    mappings:
-      - dcterms:title
-
-  source data file:
-    is_a: node property
-    domain: data set version
-    range: data file
-    mappings:
-      - dcterms:source
-
-  source web page:
-    is_a: node property
-    domain: data set summary
-    mappings:
-      - dcterms:source
-
-  retrieved on:
-    is_a: node property
-    domain: source file
-    range: date
-    mappings:
-      - pav:retrievedOn
-
-  version of:
-    is_a: node property
-    domain: data set version
-    range: data set
-    mappings:
-      - dcterms:isVersionOf
-
-  source version:
-    is_a: node property
-    domain: source file
-    mappings:
-      - pav:version
-      - owl:versionInfo
-
-  license:
-    is_a: node property
-    domain: source file
-    mappings:
-      - dcterms:license
-
-  rights:
-    is_a: node property
-    domain: source file
-    mappings:
-      - dcterms:rights
-
-  format:
-    is_a: node property
-    domain: source file
-    mappings:
-      - dcterms:format
-
-  created_with:
-    is_a: node property
-    domain: source file
-    mappings:
-      - pav:createdWith
-
-  download url:
-    is_a: node property
-    domain: distribution level
-    mappings:
-      - dcterms:downloadURL
-
-  distribution:
-    aliases: ['dataset']
-    is_a: node property
-    domain: data set version
-    range: distribution level
-    mappings:
-      - void:Dataset
-      - dctypes:Dataset
-
-  type:
-    is_a: node property
-    slot_uri: rdf:type
-    mappings:
-      - alliancegenome:soTermId
-      - gff3:type
-      - gpi:DB_Object_Type
-
-  id:
-    is_a: node property
-    identifier: true
-    description: >-
-      A unique identifier for a thing.
-      Must be either a CURIE shorthand for a URI or a complete URI
+      connects an entity to its taxonomic classification. Only certain kinds
+      of entities can be taxonomically classified; see 'thing with taxon'
     in_subset:
       - translator_minimal
-    domain: named thing
-    required: true
-    mappings:
-      - alliancegenome:primaryId
-      - gff3:ID
-      - gpi:DB_Object_ID
-
-  iri:
-    is_a: node property
-    description: >-
-      An IRI for the node. This is determined by the id using expansion rules.
-    in_subset:
-      - translator_minimal
-    domain: named thing
-    range: iri type
-
-  name:
-    is_a: node property
-    aliases: ['label', 'display name']
-    domain: named thing
-    range: label type
-    description: >-
-      A human-readable name for a thing
-    in_subset:
-      - translator_minimal
-    required: true
-    slot_uri: rdfs:label
-    mappings:
-      - gff3:Name
-      - gpi:DB_Object_Name
-
-  symbol:
-    is_a: node property
-    domain: named thing
-    description: >-
-      Symbol for a particular thing
-    mappings:
-      - alliancegenome:symbol
-      - gpi:DB_Object_Symbol
-
-  synonym:
-    is_a: node property
-    aliases: ['alias']
-    domain: named thing
-    range: label type
-    description: >-
-      Alternate human-readable names for a thing
-    multivalued: true
-    in_subset:
-      - translator_minimal
+    related_mappings:
+      # RO term 'never in taxon' is a negation of this biolink term
+      - RO:0002162
+    close_mappings:
+      # RTX contributed term is an inverse mapping
+      - NCIT:is_organism_source_of_gene_product
+      - NCIT:organism_has_gene
+    exact_mappings:
+      - WIKIDATA_PROPERTY:P703
     narrow_mappings:
-      # there is an interesting debate here: are these terms "narrower" a.k.a. more specialized instances of
-      # 'biolink:synonym' or should they be binned into their respective namesake class of mappings?
-      # namely, is 'oboInOwl:hasExactSynonym' an instance 'exact_mappings', etc.
-      - skos:altLabel
-      - gff3:Alias
-      - alliancegenome:synonyms
-      - gpi:DB_Object_Synonyms
-      - oboInOwl:hasExactSynonym
-      - oboInOwl:hasNarrowSynonym
-      - oboInOwl:hasBroadSynonym
-      - oboInOwl:hasRelatedSynonym
-      # TODO: RTX contributed terms mapped here... May need review?
-      - HANCESTRO:0330
-      - IAO:0000136
-      - RXNORM:has_tradename
+      - NCIT:gene_found_in_organism
+      - NCIT:gene_product_has_organism_source
+      - RO:0002160
 
-  has topic:
-    aliases: ['topic', 'descriptors']
-    is_a: node property
+  has molecular consequence:
+    is_a: related to
+    description: >-
+      connects a sequence variant to a class describing the molecular
+      consequence. E.g.  SO:0001583
     range: ontology class
-    exact_mappings:
-      - foaf:topic
-    description: >-
-      Connects a node to a vocabulary term or ontology class that describes some aspect of the entity. In general specific characterization is preferred.
-      See https://github.com/biolink/biolink-model/issues/238
-
-  xref:
-    is_a: node property
-    aliases: ['dbxref', 'Dbxref', 'DbXref']
-    domain: named thing
-    range: iri type
-    description: >-
-      Alternate CURIEs for a thing
-    multivalued: true
-    in_subset:
-      - translator_minimal
     narrow_mappings:
-      - gff3:Dbxref
-      - gpi:DB_Xrefs
+      - NCIT:allele_has_activity
 
-  category:
-    is_a: type
-    domain: named thing
-    range: category type
-    description: >-
-      Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
-       * In a neo4j database this MAY correspond to the neo4j label tag.
-       * In an RDF database it should be a biolink model class URI.
-      This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have
-      category values `bl:Protein`, `bl:GeneProduct`, `bl:MolecularEntity`, ...
-      
-      In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class
-      more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site,
-      which is more specific than anything in biolink. Here we would have categories {bl:GenomicEntity, bl:MolecularEntity, bl:NamedThing}
-    is_class_field: true
-    multivalued: true
-    in_subset:
-      - translator_minimal
-    required: true
 
-  full name:
-    is_a: node property
-    domain: named thing
-    range: label type
-    description: >-
-      a long-form human readable name for a thing
-
-  description:
-    is_a: node property
-    aliases: ['definition']
-    domain: named thing
-    range: narrative text
-    description: >-
-      a human-readable description of a thing
-    in_subset:
-      - translator_minimal
-    slot_uri: dcterms:description
-    exact_mappings:
-      - IAO:0000115
-      - skos:definitions
-    narrow_mappings:
-      - gff3:Description
-
-  systematic synonym:
-    is_a: node property
-    domain: named thing
-    range: label type
-    multivalued: true
-    slot_uri: GOP:systematic_synonym
-    description: >-
-      more commonly used for gene symbols in yeast
+## --------------------
+## ASSOCIATION SLOTS
+## --------------------
 
   association slot:
     abstract: true
@@ -3322,6 +4035,9 @@ slots:
   association_id:
     is_a: association slot
     identifier: true
+    deprecated: >-
+      This slot is deprecated in favor of 'id' slot.
+    deprecated_element_has_exact_replacement: id
     description: >-
         A unique identifier for an association
     in_subset:
@@ -3400,6 +4116,10 @@ slots:
     domain: association
     range: uriorcurie
     required: true
+    id_prefixes:
+      - RO
+      - BSPO
+      - SIO
 
   negated:
     is_a: association slot
@@ -3423,167 +4143,52 @@ slots:
 
   provided by:
     is_a: association slot
-    range: provider
     description: >-
       connects an association to the agent (person, organization or group) that provided it
-    mappings:
-      - pav:providedBy
+    range: agent
     multivalued: true
+    exact_mappings:
+      - pav:providedBy
 
   association type:
     is_a: association slot
     range: ontology class
+    deprecated: >-
+      This slot is deprecated in favor of 'category' slot.
+    deprecated_element_has_exact_replacement: category
     description: >-
-      connects an association to the type of association (e.g. gene to phenotype)
-    mappings:
-      - rdf:type
+      connects an association to the category of association (e.g. gene to phenotype)
 
   chi squared statistic:
     is_a: association slot
     range: float
     description: >-
       represents the chi-squared statistic computed from observations
-    mappings:
+    exact_mappings:
       - STATO:0000030
 
   p value:
     is_a: association slot
     range: float
     description: >-
-      A quantitative confidence value that represents the probability of obtaining a result at least as extreme as that actually obtained, assuming that the actual value was the result of chance alone.
-    mappings:
+      A quantitative confidence value that represents the probability of
+      obtaining a result at least as extreme as that actually obtained,
+      assuming that the actual value was the result of chance alone.
+    exact_mappings:
       - OBI:0000175
+      - NCIT:C44185
+      - EDAM-DATA:1669
 
-  creation date:
-    is_a: node property
-    range: date
-    description: >-
-      date on which thing was created. This can be applied to nodes or edges
-    mappings:
-      - dcterms:createdOn
-
-  has receptor:
-    is_a: node property
-    domain: exposure event
-    range: organismal entity
-    description: >-
-      the organism or organism part being exposed
-    mappings:
-      - ExO:0000001
-
-  has stressor:
-    is_a: node property
-    domain: exposure event
-    aliases: ['has stimulus']
-    description: >-
-      the process or entity that the receptor is being exposed to
-    mappings:
-      - ExO:0000000
-
-  has route:
-    is_a: node property
-    domain: exposure event
-    description: >-
-      the process that results in the stressor coming into direct contact with the receptor
-    mappings:
-      - ExO:0000055
-    narrow_mappings:
-      - LOINC:has_pharmaceutical_route
-      - SNOMED:has_dose_form_intended_site
-      - SNOMED:has_route_of_administration
-
-  update date:
-    is_a: node property
-    range: date
-    description: >-
-      date on which thing was updated. This can be applied to nodes or edges
-
-  in taxon:
-    is_a: related to
-    domain: thing with taxon
-    range: organism taxon
-    description: >-
-      connects a thing to a class representing a taxon
-    in_subset:
-      - translator_minimal
-    related_mappings:
-      # RO term 'never in taxon' is a negation of this biolink term
-      - RO:0002162
-    close_mappings:
-      # RTX contributed term is an inverse mapping
-      - NCIT:is_organism_source_of_gene_product
-      - NCIT:organism_has_gene
-    exact_mappings:
-      - WIKIDATA_PROPERTY:P703
-    narrow_mappings:
-      - NCIT:gene_found_in_organism
-      - NCIT:gene_product_has_organism_source
-      - RO:0002160
-
-  latitude:
-    is_a: node property
-    range: float
-    description: >-
-      latitude
-    mappings:
-      - wgs:lat
-
-  longitude:
-    is_a: node property
-    range: float
-    description: >-
-      longitude
-    mappings:
-      - wgs:long
-
-  has chemical formula:
-    is_a: node property
-    range: chemical formula value
-    description: >-
-      description of chemical compound based on element symbols
-    mappings:
-      - WIKIDATA_PROPERTY:P274
-
-  aggregate statistic:
-    is_a: node property
-    abstract: true
-
-  has count:
-    description: >-
-      number of things with a particular property
-    is_a: aggregate statistic
-    range: integer
-    exact_mappings:
-      - LOINC:has_count
-
-  has total:
-    description: >-
-      total number of things in a particular reference set
-    is_a: aggregate statistic
-    range: integer
-
-  has quotient:
-    is_a: aggregate statistic
-    range: double
-
-  has percentage:
-    description: >-
-      equivalent to has quotient multiplied by 100
-    is_a: aggregate statistic
-    range: double
-
-  timepoint:
-    is_a: node property
-    range: time type
-    description: >-
-      a point in time
-
-  stage qualifier:
+  interacting molecules category:
     is_a: association slot
-    range: life stage
-#   path: "object/during"
-    description: >-
-      stage at which expression takes place
+    range: ontology class
+    exact_mappings:
+      - MI:1046
+    values_from:
+      - MI
+    examples:
+      - value: MI:1048
+        description: smallmolecule-protein
 
   quantifier qualifier:
     is_a: association slot
@@ -3598,10 +4203,49 @@ slots:
       - SEMMEDDB:measures
       - UMLS:measures
 
+  catalyst qualifier:
+    is_a: association slot
+    multivalued: true
+    range: macromolecular machine
+    description: >-
+      a qualifier that connects an association between two causally connected
+      entities (for example, two chemical entities, or a chemical entity in
+      that changes location) and the gene product, gene, or complex that
+      enables or catalyzes the change.
+
+  expression site:
+    description: >-
+      location in which gene or protein expression takes place.
+      May be cell, tissue, or organ.
+    is_a: association slot
+    range: anatomical entity
+    examples:
+      - value: UBERON:0002037
+        description: cerebellum
+
+  stage qualifier:
+    description: >-
+      stage during which gene or protein expression of takes place.
+    is_a: association slot
+    range: life stage
+    # path: "object/during"
+    examples:
+      - value: UBERON:0000069
+        description: larval stage
+
+  phenotypic state:
+    description: >-
+      in experiments (e.g. gene expression) assaying diseased or unhealthy
+      tissue, the phenotypic state can be put here, e.g. MONDO ID.
+      For healthy tissues, use XXX.
+    is_a: association slot
+    range: disease or phenotypic feature
+
   qualifiers:
     singular_name: qualifier
     description: >-
-      connects an association to qualifiers that modify or qualify the meaning of that association
+      connects an association to qualifiers that modify or
+      qualify the meaning of that association
     local_names:
       ga4gh: annotation qualifier
     is_a: association slot
@@ -3641,7 +4285,7 @@ slots:
 
   sequence variant qualifier:
     description: >-
-      a qualifier used in an association where the variant
+      a qualifier used in an association with the variant
     is_a: association slot
     range: sequence variant
 
@@ -3652,54 +4296,6 @@ slots:
     is_a: association slot
     multivalued: true
     range: publication
-
-  change is catalyzed by:
-    is_a: association slot
-    multivalued: true
-    range: macromolecular machine
-    description: >-
-      hyperedge connecting an association between two causally connected entities (for example, two chemical entities, or a chemical entity in
-      that changes location) and the gene product, gene, or complex that enables or catalyzes the change.
-      
-  has biological sequence:
-    is_a: node property
-    description: >-
-      connects a genomic feature to its sequence
-    range: biological sequence
-
-  has molecular consequence:
-    is_a: related to
-    description: >-
-      connects a sequence variant to a class describing the molecular
-      consequence. E.g.  SO:0001583
-    range: ontology class
-    narrow_mappings:
-      - NCIT:allele_has_activity
-
-  has drug:
-    is_a: node property
-    description: >-
-      connects an entity to a single drug
-    range: drug
-
-    ## genotypes
-
-  has gene:
-    is_a: node property
-    description: >-
-      connects an entity to a single gene
-    range: gene
-
-  has zygosity:
-    is_a: node property
-    domain: genomic entity
-    range: zygosity
-
-  filler:
-    is_a: node property
-    range: named thing
-    description: >-
-      The value in a property-value tuple
 
   sequence localization attribute:
     is_a: association slot
@@ -3742,272 +4338,113 @@ slots:
     description: >-
       The phase for a coding sequence entity. For example, phase of a CDS as represented in a GFF3 with a value of 0, 1 or 2.
 
-  has attribute:
-    description: >-
-      connects any named thing to an attribute
-    range: attribute
-    multivalued: true
-    in_subset:
-      - samples
-    close_mappings:
-      # RTX term meaning 'specifies value of' tagged as inverse of 'biolink:has attribute'
-      - OBI:0001927
-    exact_mappings:
-      - SIO:000008
-    narrow_mappings:
-      - CPT:has_possibly_included_panel_element
-      - DRUGBANK:category
-      # RTX contributed terms. Could perhaps review for more semantically precise mappings?
-      - EFO:is_executed_in
-      - HANCESTRO:0301
-      - LOINC:has_action_guidance
-      - LOINC:has_adjustment
-      - LOINC:has_aggregation_view
-      - LOINC:has_approach_guidance
-      - LOINC:has_divisor
-      - LOINC:has_exam
-      - LOINC:has_method
-      - LOINC:has_modality_subtype
-      - LOINC:has_object_guidance
-      - LOINC:has_scale
-      - LOINC:has_suffix
-      - LOINC:has_time_aspect
-      - LOINC:has_time_modifier
-      - LOINC:has_timing_of
-      - NCIT:disease_is_grade
-      - NCIT:disease_is_stage
-      - NCIT:eo_disease_has_property_or_attribute
-      - NCIT:has_data_element
-      - NCIT:has_pharmaceutical_administration_method
-      - NCIT:has_pharmaceutical_basic_dose_form
-      - NCIT:has_pharmaceutical_intended_site
-      - NCIT:has_pharmaceutical_release_characteristics
-      - NCIT:has_pharmaceutical_state_of_matter
-      - NCIT:has_pharmaceutical_transformation
-      - NCIT:is_qualified_by
-      - NCIT:qualifier_applies_to
-      - NCIT:role_has_domain
-      - NCIT:role_has_range
-      - OBO:INO_0000154
-      - OBO:hancestro_0308
-      - OMIM:has_inheritance_type
-      - ORPHA:C016
-      - ORPHA:C017
-      - RO:0000053
-      # RTX tagged a few RO terms as 'biolink:related_to' but semantics suggest a better mapping here
-      - RO:0000086
-      - RO:0000087
-      - SNOMED:has_access
-      - SNOMED:has_clinical_course
-      - SNOMED:has_count_of_base_of_active_ingredient
-      - SNOMED:has_dose_form_administration_method
-      - SNOMED:has_dose_form_release_characteristic
-      - SNOMED:has_dose_form_transformation
-      - SNOMED:has_finding_context
-      - SNOMED:has_finding_informer
-      - SNOMED:has_inherent_attribute
-      - SNOMED:has_intent
-      - SNOMED:has_interpretation
-      - SNOMED:has_laterality
-      - SNOMED:has_measurement_method
-      - SNOMED:has_method
-      - SNOMED:has_priority
-      - SNOMED:has_procedure_context
-      - SNOMED:has_process_duration
-      - SNOMED:has_property
-      - SNOMED:has_revision_status
-      - SNOMED:has_scale_type
-      - SNOMED:has_severity
-      - SNOMED:has_specimen
-      - SNOMED:has_state_of_matter
-      - SNOMED:has_subject_relationship_context
-      - SNOMED:has_surgical_approach
-      - SNOMED:has_technique
-      - SNOMED:has_temporal_context
-      - SNOMED:has_time_aspect
-      - SNOMED:has_units
-      - UMLS:has_structural_class
-      - UMLS:has_supported_concept_property
-      - UMLS:has_supported_concept_relationship
-      - UMLS:may_be_qualified_by
-
-  has attribute type:
-    description: >-
-      connects an attribute to a class that describes it
-    domain: attribute
-    range: ontology class
-    multivalued: false
-    in_subset:
-      - samples
-    narrow_mappings:
-      - LOINC:has_modality_type
-      - LOINC:has_view_type
-
-  has qualitative value:
-    description: >-
-      connects an attribute to a value
-    domain: attribute
-    range: named thing
-    multivalued: false
-    in_subset:
-      - samples
-
-  has quantitative value:
-    description: >-
-      connects an attribute to a value
-    domain: attribute
-    range: quantity value
-#    multivalued: false
-    multivalued: true
-    exact_mappings:
-      - qud:quantityValue
-    narrow_mappings:
-      - SNOMED:has_concentration_strength_numerator_value
-      - SNOMED:has_presentation_strength_denominator_value
-      - SNOMED:has_presentation_strength_numerator_value
-    in_subset:
-      - samples
-
-  has numeric value:
-    description: >-
-      connects a quantity value to a number
-    domain: quantity value
-    range: double
-    multivalued: false
-    mappings:
-      - qud:quantityValue
-    in_subset:
-      - samples
-
-  has unit:
-    description: >-
-      connects a quantity value to a unit
-    domain: quantity value
-    range: unit
-    multivalued: false
-    close_mappings:
-      # These RTX contributed terms mean "is unit of" which is the semantic inverse of this biolink:has_unit term
-      - EFO:0001697
-      - OBO:uo#is_unit_of
-    exact_mappings:
-      - qud:unit
-      - IAO:0000039
-    narrow_mappings:
-      - SNOMED:has_concentration_strength_denominator_unit
-      - SNOMED:has_concentration_strength_numerator_unit
-      - SNOMED:has_presentation_strength_denominator_unit
-      - SNOMED:has_presentation_strength_numerator_unit
-      - SNOMED:has_unit_of_presentation
-    in_subset:
-      - samples
-
 classes:
 
-  abstract entity:
+  ## ----------
+  ## ATTRIBUTES
+  ## ----------
+
+  annotation:
     description: >-
-      Any thing that is not a process or a physical mass-bearing entity
+      Biolink Model root class for entity annotations.
+    abstract: true
+
+  quantity value:
+    is_a: annotation
+    description: >-
+      A value of an attribute that is quantitative and measurable,
+      expressed as a combination of a unit and a numeric value
+    slots:
+      - has unit
+      - has numeric value
+
+  # Alignment attempted of the biolink:Attribute model
+  # to the proposed TRAPI Release 1.1 Attribute schema, i.e.
+  #
+  # attribute_name: "assertionAuthoredBy",
+  # attribute_type: SEPIO:0000130,
+  # value: "ORCID:12345",
+  # value_type: "wd:Q51044",
+  # value_type_name: "ORCID ID"
+  # url: https://orcid.org/12345
+  # source: ORCID
 
   attribute:
-    subclass_of: PATO:0000001
-    mappings:
-      - SIO:000614
-    is_a: abstract entity
-    mixins:
-      - ontology class
+    is_a: annotation
     description: >-
       A property or characteristic of an entity.
       For example, an apple may have properties such as color, shape, age, crispiness.
       An environmental sample may have attributes such as depth, lat, long, material.
     slots:
-      - has attribute type
+      - name                   # 'attribute_name'
+      - has attribute type     # 'attribute_type'
+      # 'value', 'value_type', 'value_type_name'
+      # extracted from either of the next two slots
       - has quantitative value
       - has qualitative value
+      - iri                    # 'url'
+      - source                 # 'source'
+    slot_usage:
+      name:
+        description: >-
+          The human-readable 'attribute name' can be set to a string which reflects its context of
+          interpretation, e.g. SEPIO evidence/provenance/confidence annotation or it can default
+          to the name associated with the 'has attribute type' slot ontology term.
+    id_prefixes:
+      - EDAM-DATA
+      - EDAM-FORMAT
+      - EDAM-OPERATION
+      - EDAM-TOPIC
+    exact_mappings:
+      - SIO:000614
+    narrow_mappings:
+      # Considered a 'narrow mapping' in that PATO mainly concerns itself with biological traits
+      - PATO:0000001
     in_subset:
       - samples
 
-  quantity value:
-    is_a: abstract entity
-    description: >-
-      A value of an attribute that is quantitative and measurable, expressed as a combination
-      of a unit and a numeric value
-    slots:
-      - has unit
-      - has numeric value
-      
-  ## ------
-  ## THINGS
-  ## ------
-
   biological sex:
-    subclass_of: "PATO:0000047"
     is_a: attribute
+    exact_mappings:
+     - PATO:0000047
 
   phenotypic sex:
+    is_a: biological sex
     description: >-
       An attribute corresponding to the phenotypic sex of the individual, based upon the reproductive organs present.
-    subclass_of: "PATO:0001894"
-    is_a: biological sex
+    exact_mappings:
+     - PATO:0001894
 
   genotypic sex:
+    is_a: biological sex
     description: >-
       An attribute corresponding to the genotypic sex of the individual, based upon genotypic composition of sex chromosomes.
-    subclass_of: "PATO:0020000"
-    is_a: biological sex
+    exact_mappings:
+     - PATO:0020000
 
   severity value:
+    is_a: attribute
     description: >-
       describes the severity of a phenotypic feature or disease
-    is_a: attribute
 
   frequency value:
+    is_a: attribute
     description: >-
       describes the frequency of occurrence of an event or condition
-    is_a: attribute
-
-  clinical modifier:
-    description: >-
-      Used to characterize and specify the phenotypic abnormalities defined in the Phenotypic abnormality subontology,
-      with respect to severity, laterality, and other aspects
-    mappings:
-      - HP:0012823
-    is_a: attribute
-
-  clinical course:
-    description: >-
-      The course a disease typically takes from its onset, progression in time, and eventual resolution or death of
-      the affected individual
-    mappings:
-      - HP:0031797
-    is_a: attribute
-
-  onset:
-    description: >-
-      The age group in which manifestations appear
-    mappings:
-      - HP:0003674
-    is_a: clinical course
-    
-  inheritance:
-    description: >-
-      The pattern in which a particular genetic trait or disorder is passed from one
-      generation to the next
-    mappings:
-      - HP:0000005
-      - GENO:0000141
-      - NCIT:C45827
-    is_a: attribute
 
   relationship quantifier:
-    abstract: true
     mixin: true
+    abstract: true
 
   sensitivity quantifier:
     is_a: relationship quantifier
     mixin: true
+    abstract: true
 
   specificity quantifier:
     is_a: relationship quantifier
     mixin: true
+    abstract: true
 
   pathognomonicity quantifier:
     is_a: specificity quantifier
@@ -4015,94 +4452,53 @@ classes:
       A relationship quantifier between a variant or symptom and a disease, which is
       high when the presence of the feature implies the existence of the disease
     mixin: true
+    abstract: true
 
   frequency quantifier:
     is_a: relationship quantifier
     mixin: true
+    abstract: true
     slots:
       - has count
       - has total
       - has quotient
       - has percentage
 
-  named thing:
-    description: "a databased entity or concept/class"
+  ## ------
+  ## THINGS
+  ## ------
+
+  entity:
+    description: >-
+      Root Biolink Model class for all things and informational relationships, real or imagined.
+    abstract: true
     slots:
       - id
-      - name
+      - iri
       - category
-    subclass_of: BFO:0000001
-    mappings:
+      - type   # rdf:type
+      - name
+      - description
+      - source
+      - provided by
+      - has attribute
+
+  named thing:
+    is_a: entity
+    description: "a databased entity or concept/class"
+    slot_usage:
+      category:
+        range: named thing
+    exact_mappings:
+      - BFO:0000001
       - WIKIDATA:Q35120
       # UMLS Semantic Group "Objects"
       - UMLSSG:OBJC
       # Entity
       - UMLSSC:T071
       - UMLSST:enty
-      # Physical Object
-      - UMLSSC:T072
-      - UMLSST:phob
-      # Manufactured Object
-      - UMLSSC:T073
-      - UMLSST:mnob
-      # Food
-      - UMLSSC:T168
-      - UMLSST:food
 
-  data file:
-    is_a: named thing
-    mappings:
-      - EFO:0004095
-
-  source file:
-    is_a: data file
-    slots:
-      - source version
-      - retrieved on
-
-#  data set descriptor:
-#    abstract: true
-#    mixin: true
-
-  data set:
-    is_a: named thing
-    mappings:
-      - IAO:0000100
-
-  data set version:
-    is_a: data set
-    slots:
-      - title
-#      - description
-      - source data file
-      - version of
-      - type
-      - distribution
-    mappings:
-      - dctypes:Dataset
-
-  distribution level:
-    is_a: data set version
-    mixin: true
-    slots:
-      - download url
-    mappings:
-      - dcat:Distribution
-
-  data set summary:
-    is_a: data set version
-    mixin: true
-    slots:
-      - source web page
-
-  biological entity:
-    is_a: named thing
-    abstract: true
-    mappings:
-      - WIKIDATA:Q28845870
-      # UMLS Semantic Type "Experimental Model of Disease"
-      - UMLSSC:T050
-      - UMLSST:emod
+  ## Ontology Classes
 
   ontology class:
     is_a: named thing
@@ -4120,62 +4516,58 @@ classes:
     in_subset:
       - testing
 
-  thing with taxon:
-    abstract: true
-    mixin: true
+  taxonomic rank:
     description: >-
-      A mixin that can be used on any entity with a taxon
-    slots:
-      - in taxon
+      A descriptor for the rank within a taxonomic classification.
+      Example instance: TAXRANK:0000017 (kingdom)
+    is_a: ontology class
+    id_prefixes:
+      - TAXRANK
+    mappings:
+      - WIKIDATA:Q427626
 
   organism taxon:
+    aliases:
+      - taxon
+      - taxonomic classification
     description: >-
-      A classification of a set of organisms. Examples: NCBITaxon:9606 (Homo sapiens), NCBITaxon:2 (Bacteria). Can also be used to represent strains or subspecies.
+      A classification of a set of organisms. Example instances:
+      NCBITaxon:9606 (Homo sapiens), NCBITaxon:2 (Bacteria).
+      Can also be used to represent strains or subspecies.
     is_a: ontology class
+    slot_usage:
+      has taxonomic rank:
+        range: taxonomic rank
+        multivalued: false
+        mappings:
+          - WIKIDATA:P105
+      subclass of:
+        description: >-
+          subclass of holds between two taxa, e.g. human subclass of mammal
+        range: organism taxon
     values_from:
       - NCBITaxon
-    mappings:
+    exact_mappings:
       - WIKIDATA:Q16521
-      - NCBITaxon:1
-    id_prefixes:
-      - NCBITaxon
-      - MESH
-
-  organismal entity:
-    description: >-
-      A named entity that is either a part of an organism, a whole organism, population or clade of organisms, excluding molecular entities
-    abstract: true
-    is_a: biological entity
-    mappings:
-      - WIKIDATA:Q7239
-
-  individual organism:
-    mixins:
-      - thing with taxon
-    is_a: organismal entity
-    subclass_of: "NCBITaxon:1"
-    mappings:
-      - SIO:010000
-      - WIKIDATA:Q795052
-      # UMLS Semantic Group "Living Beings"
-      # Several of the associated semantic types here are probably not
-      # that relevant to the Biolink world but we keep them here for now.
-      - UMLSSG:LIVB
-      # Organism
-      - UMLSSC:T001
-      - UMLSST:orgm
-      # Plant
-      - UMLSSC:T002
-      - UMLSST:plnt
-      # Fungus
-      - UMLSSC:T004
-      - UMLSST:fngs
+    narrow_mappings:
       # Virus
       - UMLSSC:T005
       - UMLSST:virs
       # Bacterium
       - UMLSSC:T007
       - UMLSST:bact
+      # Archaeon
+      - UMLSSC:T194
+      - UMLSST:arch
+      # Eukaryote
+      - UMLSSC:T204
+      - UMLSST:euka
+      # Plant
+      - UMLSSC:T002
+      - UMLSST:plnt
+      # Fungus
+      - UMLSSC:T004
+      - UMLSST:fngs
       # Animal
       - UMLSSC:T008
       - UMLSST:anim
@@ -4200,194 +4592,97 @@ classes:
       # Human
       - UMLSSC:T016
       - UMLSST:humn
+    id_prefixes:
+      - NCBITaxon
+      - MESH
+    in_subset:
+      - model_organism_database
+
+  ## Administrative Entities
+
+  administrative entity:
+    is_a: named thing
+    abstract: true
+
+  agent:
+    is_a: administrative entity
+    aliases: ['group']
+    description: >-
+      person, group, organization or project that provides a piece of information (i.e. a knowledge association)
+    slots:
+      - affiliation
+      - address
+    exact_mappings:
+      - prov:Agent
+      - dcterms:Agent
+    narrow_mappings:
+      # Organization
+      - UMLSSG:ORGA
+      - UMLSSC:T092
+      - UMLSST:orgt
+      # Health Care Related Organization
+      - UMLSSC:T093
+      - UMLSST:hcro
+      # Professional Society
+      - UMLSSC:T094
+      - UMLSST:pros
+      # Self-help or Relief Organization
+      - UMLSSC:T095
+      - UMLSST:shro
       # Group
       - UMLSSC:T096
       - UMLSST:grup
       # Professional or Occupational Group
       - UMLSSC:T097
       - UMLSST:prog
-      # Family Group
-      - UMLSSC:T099
-      - UMLSST:famg
-      # Age Group
-      - UMLSSC:T100
-      - UMLSST:aggp
-      # Patient or Disabled Group
-      - UMLSSC:T101
-      - UMLSST:podg
-      # Archaeon
-      - UMLSSC:T194
-      - UMLSST:arch
-      # Eukaryote
-      - UMLSSC:T204
-      - UMLSST:euka
-
-  case:
-    aliases: ['patient', 'proband']
-    is_a: individual organism
-    description: >-
-      An individual organism that has a patient role in some clinical context.
-    mappings:
-      - foaf:Person
-
-  population of individual organisms:
-    description: >-
-      A collection of individuals from the same taxonomic class distinguished by one or more characteristics.
-      Characteristics can include, but are not limited to, shared geographic location, genetics, phenotypes [Alliance for Genome Resources]
-    local_names:
-      ga4gh: population
-      agr: population
-    mixins:
-      - thing with taxon
-    is_a: organismal entity
-    subclass_of: PCO:0000001
-    mappings:
-      - SIO:001061
-      # UMLS Semantic Type "Population Group"
-      - UMLSSC:T098
-      - UMLSST:popg
-      - OBI:0000181
+    slot_usage:
+      id:
+        required: true
+        description: >-
+          Different classes of agents have distinct preferred identifiers.
+          For publishers, use the ISBN publisher code. See https://grp.isbn-international.org/ for publisher code lookups.
+          For editors, authors and  individual providers, use the individual's ORCID if available;
+          Otherwise, a ScopusID, ResearchID or Google Scholar ID ('GSID') may be used if the author ORCID is unknown.
+          Institutional agents could be identified by an International Standard Name Identifier ('ISNI') code.
+        values_from:
+          # CURIE space for publishers
+          - isbn
+          # CURIE space for authors
+          - ORCID
+          - ScopusID
+          - ResearchID
+          - GSID
+          # Institutional agents
+          - isni
+      name:
+        description: >-
+          it is recommended that an author's 'name' property be formatted as "surname, firstname initial."
     id_prefixes:
-      - HANCESTRO
+      - isbn
+      - ORCID
+      - ScopusID
+      - ResearchID
+      - GSID
+      - isni
 
-  subject of investigation:
-    abstract: true
-    mixin: true
-    description: >-
-      An entity that has the role of being studied in an investigation, study, or experiment
-      
-  material sample:
-    aliases: ['biospecimen', 'sample', 'biosample', 'physical sample']
-    is_a: named thing
-    mixins:
-      - subject of investigation
-      - physical entity
-    description: >-
-      A sample is a limited quantity of something (e.g. an individual or set of individuals from a population, or a portion of a substance) to be used for testing, analysis, inspection, investigation, demonstration, or trial use. [SIO]
-    mappings:
-      - OBI:0000747
-      - SIO:001050
-    slots:
-      - has attribute
-    id_prefixes:
-      - BIOSAMPLE
-      - GOLD.META
-
-  disease or phenotypic feature:
-    aliases: ['phenome']
-    is_a: biological entity
-    description: >-
-      Either one of a disease or an individual phenotypic feature. Some knowledge resources such as Monarch treat these as distinct, others such as MESH conflate.
-    mixins:
-      - thing with taxon
-    union_of:
-      - disease
-      - phenotypic feature
-    mappings:
-      # UMLS Semantic Type "Finding"
-      - UMLSSC:T033
-      - UMLSST:fndg
-
-  disease:
-    aliases: ['condition', 'disorder', 'medical condition']
-    is_a: disease or phenotypic feature
-    mappings:
-      - MONDO:0000001
-      - DOID:4
-      - WIKIDATA:Q12136
-      - SIO:010299
-      # UMLS Semantic Group "Disorders"
-      - UMLSSG:DISO
-      # Congenital Abnormality
-      - UMLSSC:T019
-      - UMLSST:cgab
-      # Acquired Abnormality
-      - UMLSSC:T020
-      - UMLSST:acab
-      # Injury or Poisoning
-      - UMLSSC:T037
-      - UMLSST:inpo
-      # Pathologic Function
-      - UMLSSC:T046
-      - UMLSST:patf
-      # Disease or Syndrome
-      - UMLSSC:T047
-      - UMLSST:dsyn
-      # Mental or Behavioral Dysfunction
-      - UMLSSC:T048
-      - UMLSST:mobd
-      # Cell or Molecular Dysfunction
-      - UMLSSC:T049
-      - UMLSST:comd
-      # Sign or Symptom
-      - UMLSSC:T184
-      - UMLSST:sosy
-      # Anatomical Abnormality
-      - UMLSSC:T190
-      - UMLSST:anab
-      # Neoplastic Process
-      - UMLSSC:T191
-      - UMLSST:neop
-    id_prefixes:
-      - MONDO
-      - DOID
-      - OMIM
-      - ORPHANET
-      # - ORPHA  # no idea what this prefix resolves to globally. Is is an abbrevation for ORPHANET? not used in model
-      - EFO
-      - UMLS
-      - MESH
-      - MEDDRA
-      - NCIT
-      - SNOMEDCT
-      - medgen
-      - ICD10
-      - ICD9
-      - ICD0
-      - HP
-      - MP
-
-  phenotypic feature:
-    aliases: ['sign', 'symptom', 'phenotype', 'trait', 'endophenotype']
-    is_a: disease or phenotypic feature
-    subclass_of: UPHENO:0001001
-    mappings:
-      - UPHENO:0001001
-      - SIO:010056
-      - WIKIDATA:Q169872
-      # - HP:0000118  needs to be a narrow mapping
-    id_prefixes:
-      - HP
-      - EFO
-      - NCIT
-      - UMLS
-      - MEDDRA
-      - MP
-      - ZP
-      - UPHENO
-      - APO
-      - FBcv
-      - WBPhenotype
-      - SNOMEDCT
-      - MESH
-
-  exposure event:
-    aliases: ['exposure', 'experimental condition']
-    is_a: biological entity
-    description: >-
-      A feature of the environment of an organism that influences one or more phenotypic features
-      of that organism, potentially mediated by genes
-    mappings:
-      - XCO:0000000
+  ## General Information Entities
 
   information content entity:
     aliases: ['information', 'information artefact', 'information entity']
     abstract: true
     is_a: named thing
     description: >-
-      a piece of information that typically describes some piece of biology or is used as support.
-    mappings:
+      a piece of information that typically describes some topic of discourse or is used as support.
+    slots:
+      - license
+      - rights
+      - format
+      - creation date
+    id_prefixes:
+      - doi
+    exact_mappings:
       - IAO:0000030
+    narrow_mappings:
       # UMLS Semantic Group "Concepts & Ideas"
       - UMLSSG:CONC
       # Conceptual Entity
@@ -4424,16 +4719,63 @@ classes:
       - UMLSSC:T185
       - UMLSST:clas
 
+  data file:
+    is_a: information content entity
+    exact_mappings:
+      - EFO:0004095
+
+  source file:
+    is_a: data file
+    slots:
+      - source version
+      - retrieved on
+
+#  data set descriptor:
+#    mixin: true
+#    abstract: true
+
+  data set:
+    is_a: information content entity
+    exact_mappings:
+      - IAO:0000100
+      - dctypes:Dataset
+
+  data set version:
+    is_a: data set
+    slots:
+      - source data file
+      - version of
+      - distribution
+
+  distribution level:
+    is_a: data set version
+    mixin: true
+    abstract: true
+    slots:
+      - download url
+    exact_mappings:
+      - dcat:Distribution
+
+  data set summary:
+    is_a: data set version
+    mixin: true
+    abstract: true
+    slots:
+      - source web page
+
   confidence level:
     is_a: information content entity
     description: >-
       Level of confidence in a statement
     values_from:
       - cio
-    mappings:
+    exact_mappings:
       - CIO:0000028
-      - SEPIO:0000167
+      # statement confidence
       - SEPIO:0000187
+    close_mappings:
+      # assertion confidence levels
+      - SEPIO:0000167
 
   evidence type:
     is_a: information content entity
@@ -4442,84 +4784,583 @@ classes:
       Class of evidence that supports an association
     values_from:
       - eco
-    mappings:
+    exact_mappings:
       - ECO:0000000
 
+  ## Publications
+
+  # TODO: to review additional ontology relating to Publications, such as http://www.sparontologies.net/ontologies
   publication:
     is_a: information content entity
     description: >-
-      Any published piece of information. Can refer to a whole publication,
-      or to a part of it (e.g. a figure, figure legend, or section highlighted by NLP).
-      The scope is intended to be general and include information published on the web as well as journals.
-    mappings:
+      Any published piece of information. Can refer to a whole publication, its encompassing publication (i.e. journal
+      or book) or to a part of a publication, if of significant knowledge scope (e.g. a figure, figure legend, or
+      section highlighted by NLP). The scope is intended to be general and include information published on the web,
+      as well as printed materials, either directly or in one of the Publication Biolink category subclasses.
+    slots:
+      - authors
+      - pages
+      - summary
+      - keywords
+      - mesh terms
+      - xref
+    # In addition to embedded slots, instances of 'contributor association'
+    # may be used to more extensively document publisher, editor and author details
+    slot_usage:
+      id:
+        description: >-
+          Different kinds of publication subtypes will have different preferred identifiers (curies when feasible).
+          Precedence of identifiers for scientific articles is as follows: PMID if available; DOI if not; actual
+          alternate CURIE otherwise. Enclosing publications (i.e. referenced by 'published in' node property) such as
+          books and journals, should have industry-standard identifier such as from ISBN and ISSN.
+      name:
+        description: >-
+          the 'title' of the publication is generally recorded in the 'name' property (inherited from NamedThing)
+          The field name 'title' is now also tagged as an acceptable alias for the node property 'name' (just in case).
+      type:
+        slot_uri: dcterms:type
+        required: true
+        description: >-
+          Ontology term for publication type may be drawn from
+          Dublin Core types (https://www.dublincore.org/specifications/dublin-core/dcmi-type-vocabulary/),
+          FRBR-aligned Bibliographic Ontology (https://sparontologies.github.io/fabio/current/fabio.html),
+          the MESH publication types (https://www.nlm.nih.gov/mesh/pubtypes.html),
+          the Confederation of Open Access Repositories (COAR) Controlled Vocabulary for Resource Type Genres
+          (http://vocabularies.coar-repositories.org/documentation/resource_types/),
+          Wikidata (https://www.wikidata.org/wiki/Wikidata:Publication_types), or equivalent publication type ontology.
+          When a given publication type ontology term is used within a given knowledge graph, then the CURIE
+          identified term must be documented in the graph as a concept node of biolink:category biolink:OntologyClass.
+        values_from:  # Not sure which takes precedence, if any...
+          - dctypes
+          - fabio
+          - MESH_PUB
+          - COAR_RESOURCE
+          - WIKIDATA
+      pages:
+        multivalued: true
+        description: >-
+          When a 2-tuple of page numbers are provided, they represent
+          the start and end page of the publication within its parent publication context.
+          For books, this may be set to the total number of pages of the book.
+    exact_mappings:
       - IAO:0000311
+    narrow_mappings:
       - IAO:0000013
       # UMLS Semantic Type "Intellectual Product"
       - UMLSSC:T170
       - UMLSST:inpr
     id_prefixes:
-      - PMID
+      - NLMID
+    in_subset:
+      - model_organism_database
 
-  administrative entity:
-    is_a: named thing
+  book:
+    is_a: publication
+    description: >-
+      This class may rarely be instantiated except if use cases of a given knowledge graph support its utility.
+    slot_usage:
+      id:
+        required: true
+        description: >-
+          Books should have industry-standard identifier such as from ISBN.
+      type:
+        description: >-
+          Should generally be set to an ontology class defined term for 'book'.
+    id_prefixes:
+      - isbn
+      - NLMID
+    in_subset:
+      - model_organism_database
+
+  book chapter:
+    is_a: publication
+    slots:
+      - published in
+      - volume
+      - chapter
+    slot_usage:
+      published in:
+        required: true
+        description: >-
+          The enclosing parent book containing the chapter should have industry-standard identifier from ISBN.
+    in_subset:
+      - model_organism_database
+
+  serial:
+    aliases: ['journal']
+    is_a: publication
+    description: >-
+      This class may rarely be instantiated except if use cases of a given knowledge graph support its utility.
+    slots:
+      - iso abbreviation
+      - volume
+      - issue
+    slot_usage:
+      id:
+        required: true
+        description: >-
+          Serials (journals) should have industry-standard identifier such as from ISSN.
+      type:
+        description: >-
+          Should generally be set to an ontology class defined term for 'serial' or 'journal'.
+    id_prefixes:
+      - issn
+      - NLMID
+    in_subset:
+      - model_organism_database
+
+  article:
+    is_a: publication
+    slots:
+      - published in
+      - iso abbreviation
+      - volume
+      - issue
+    slot_usage:
+      published in:
+        required: true
+        description: >-
+          The enclosing parent serial containing the article should have industry-standard identifier from ISSN.
+      iso abbreviation:
+        description: >-
+          Optional value, if used locally as a convenience, is set to the iso abbreviation of the 'published in' parent.
+    id_prefixes:
+      # By inheritance, a DOI may be used as a publication identifier; there may be other relevant namespaces
+      - PMID
+    in_subset:
+      - model_organism_database
+
+  ## Top Level Abstractions of Material & Process Entities
+
+  physical essence:
+    description: >-
+      Semantic mixin concept.  Pertains to entities that have physical properties such as mass, volume, or charge.
+    mixin: true
     abstract: true
 
-  provider:
-    is_a: administrative entity
-    aliases: ['agent', 'group']
+  physical entity:
+    is_a: named thing
+    mixins:
+      - physical essence
     description: >-
-      person, group, organization or project that provides a piece of information
-    mappings: # Organizations
-      - UMLSSG:ORGA
-      # Organization
-      - UMLSSC:T092
-      - UMLSST:orgt
-      # Health Care Related Organization
-      - UMLSSC:T093
-      - UMLSST:hcro
-      # Professional Society
-      - UMLSSC:T094
-      - UMLSST:pros
-      # Self-help or Relief Organization
-      - UMLSSC:T095
-      - UMLSST:shro
-      - prov:Agent
+      An entity that has material reality (a.k.a. physical essence).
+    exact_mappings:
+      # Physical Object
+      - UMLSSC:T072
+      - UMLSST:phob
+    narrow_mappings:
+      # Manufactured Object
+      - UMLSSC:T073
+      - UMLSST:mnob
+
+  occurrent:
+    description: >-
+      A processual entity
+    # biolink:Occurrent is most consistently used as a mixin thus it should
+    # be declared as such and cannot inherit from the non-mixin biolink:NamedThing
+    #is_a: named thing
+    mixin: true
+    abstract: true
+    exact_mappings:
+      - BFO:0000003
+
+  activity and behavior:
+    is_a: occurrent
+    mixin: true
+    abstract: true
+    description: >-
+      Activity or behavior of any independent integral living, organization or mechanical actor in the world
+    exact_mappings:
+      # Activities & Behaviors
+      - UMLSSG:ACTI
+    narrow_mappings:
+      # Activity
+      - UMLSSC:T052
+      - UMLSST:acty
+      # Daily or Recreational Activity
+      - UMLSSC:T056
+      - UMLSST:dora
+      # Occupational Activity
+      - UMLSSC:T057
+      - UMLSST:ocac
+      # Governmental or Regulatory Activity
+      - UMLSSC:T064
+      - UMLSST:gora
+      # Machine Activity
+      - UMLSSC:T066
+      - UMLSST:mcha
+      # Research Activity
+      - UMLSSC:T062
+      - UMLSST:resa
+      # Educational Activity
+      - UMLSSC:T065
+      - UMLSST:edac
+      # Health Care Activity
+      - UMLSSC:T058
+      - UMLSST:hlca
+
+  procedure:
+    is_a: named thing
+    mixins:
+      - activity and behavior
+    description: >-
+      A series of actions conducted in a certain order or manner
+    exact_mappings:
+      # Procedures
+      - UMLSSG:PROC
+    narrow_mappings:
+      # Laboratory Procedure
+      - UMLSSC:T059
+      - UMLSST:lbpr
+      # Diagnostic Procedure
+      - UMLSSC:T060
+      - UMLSST:diap
+      # Therapeutic or Preventive Procedure
+      - UMLSSC:T061
+      - UMLSST:topp
+      # Molecular Biology Research Technique
+      - UMLSSC:T063
+      - UMLSST:mbrt
+
+  phenomenon:
+    is_a: named thing
+    mixins:
+      - occurrent
+    description: >-
+      a fact or situation that is observed to exist or happen,
+      especially one whose cause or explanation is in question
+    broad_mappings:
+      # the inclusion of 'process' in the definition of these
+      # terms broadens them, relative to 'phenomenon'
+      # Phenomenon or Process
+      - UMLSSC:T067
+      - UMLSST:phpr
+      # Human-caused Phenomenon or Process
+      - UMLSSC:T068
+      - UMLSST:hcpp
+      # Natural Phenomenon or Process
+      - UMLSSC:T070
+      - UMLSST:npop
+    exact_mappings:
+      # Phenomena
+      - UMLSSG:PHEN
+    narrow_mappings:
+      # Laboratory or Test Result
+      - UMLSSC:T034
+      - UMLSST:lbtr
+      # Biologic Function
+      - UMLSSC:T038
+      - UMLSST:biof
+      # Environmental Effect of Humans
+      - UMLSSC:T069
+      - UMLSST:eehu
+
+  device:
+    is_a: named thing
+    description: >-
+      A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment
+    narrow_mappings:
+      # Devices
+      - UMLSSG:DEVI
+      # Medical Device
+      - UMLSSC:T074
+      - UMLSST:medd
+      # Research Device
+      - UMLSSC:T075
+      - UMLSST:resd
+      # Drug Delivery Device
+      - UMLSSC:T203
+      - UMLSST:drdd
+
+  ## Scientific Studies
+
+  study population:
+    is_a: population of individual organisms
+    description: >-
+      A group of people banded together or treated as a group as participants in a research study.
+    close_mappings:
+      - WIKIDATA:Q7229825
+
+  subject of investigation:
+    mixin: true
+    abstract: true
+    description: >-
+      An entity that has the role of being studied in an investigation, study, or experiment
+
+  material sample:
+    aliases: ['biospecimen', 'sample', 'biosample', 'physical sample']
+    is_a: physical entity
+    mixins:
+      - subject of investigation
+    description: >-
+      A sample is a limited quantity of something (e.g. an individual or set of individuals
+      from a population, or a portion of a substance) to be used for testing, analysis,
+      inspection, investigation, demonstration, or trial use. [SIO]
+    exact_mappings:
+      - OBI:0000747
+      - SIO:001050
+    id_prefixes:
+      - BIOSAMPLE
+      - GOLD.META
+
+  ## Earth Sciences
+
+  planetary entity:
+    is_a: named thing
+    description: >-
+      Any entity or process that exists at the level of the whole planet
+
+  environmental process:
+    is_a: planetary entity
+    mixins:
+      - occurrent
+    exact_mappings:
+      - ENVO:02500000
+
+  environmental feature:
+    is_a: planetary entity
+    exact_mappings:
+      - ENVO:01000254
+
+  geographic location:
+    is_a: planetary entity
+    description: >-
+      a location that can be described in lat/long coordinates
+    slots:
+      - latitude
+      - longitude
+    exact_mappings:
+      # Geographic Areas
+      - UMLSSG:GEOG
+      # Geographic Area
+      - UMLSST:geoa
+      - UMLSSC:T083
+
+  geographic location at time:
+    is_a: geographic location
+    description: >-
+      a location that can be described in lat/long coordinates, for a particular time
+    slots:
+      - timepoint
+
+  ## Biological Sciences
+
+  biological entity:
+    is_a: named thing
+    abstract: true
+    narrow_mappings:
+      - WIKIDATA:Q28845870
+      # UMLS Semantic Type "Experimental Model of Disease"
+      - UMLSSC:T050
+      - UMLSST:emod
+      # SIO term is 'biological entity' but less inclusive than the Biolink scope
+      - SIO:010046
+
+  thing with taxon:
+    mixin: true
+    abstract: true
+    description: >-
+      A mixin that can be used on any entity that can be taxonomically classified.
+      This includes individual organisms; genes, their products and other molecular
+      entities; body parts; biological processes
+    slots:
+      - in taxon
 
   molecular entity:
     is_a: biological entity
     mixins:
       - thing with taxon
-      - physical entity
+      - physical essence
     aliases: ['bioentity']
     description: "A gene, gene product, small molecule or macromolecule (including protein complex)"
     #notes:
     #  - "Check SIO mapping - also mapped to chemical substance.": Resolved by changing SIO:010004 to SIO:010341
-    mappings:
+    narrow_mappings:
       - SIO:010341
       - WIKIDATA:Q43460564
-      # UMLS Semantic Group "Genes & Molecular Sequences"
-      - UMLSSG:GENE
+      # UMLS Semantic Group "Chemicals & Drugs"
+      - UMLSSG:CHEM
       # Molecular Sequence
       - UMLSSC:T085
       - UMLSST:mosq
+      # Biologically Active Substance
+      - UMLSSC:T123
+      - UMLSST:bacs
+      # Hormone
+      - UMLSSC:T125
+      - UMLSST:horm
+      # Enzyme
+      - UMLSSC:T126
+      - UMLSST:enzy
+      # Immunologic Factor
+      - UMLSSC:T129
+      - UMLSST:imft
+      # Receptor
+      - UMLSSC:T192
+      - UMLSST:rcpt
+
+  biological process or activity:
+    is_a: biological entity
+    mixins:
+      - occurrent
+    description: >-
+      Either an individual molecular activity, or a collection of causally connected molecular activities
+#    union_of:
+#      - molecular activity
+#      - biological process
+    id_prefixes:
+      - GO
+      - REACT
+    slots:
+      - has input
+      - has output
+      - enabled by
+
+  molecular activity:
+    is_a: biological process or activity
+    aliases: ['molecular function', 'molecular event', 'reaction']
+    mixins:
+      - occurrent
+    description: >-
+      An execution of a molecular function carried out by a gene product or macromolecular complex.
+    slot_usage:
+      has input:
+        range: chemical substance
+        description: >-
+          A chemical entity that is the input for the reaction
+      has output:
+        range: chemical substance
+        description: >-
+          A chemical entity that is the output for the reaction
+      enabled by:
+        range: macromolecular machine
+        description: >-
+          The gene product, gene, or complex that catalyzes the reaction
+    exact_mappings:
+      - GO:0003674
+      # UMLS Semantic Type "Molecular Function"
+      - UMLSSC:T044
+      - UMLSST:moft
+    id_prefixes:
+      - GO
+      - REACT
+      - RHEA
+      - MetaCyc
+      - EC
+      - KEGG
+
+  biological process:
+    is_a: biological process or activity
+    mixins:
+      - occurrent
+    description: >-
+      One or more causally connected executions of molecular functions
+    exact_mappings:
+      - GO:0008150
+      - SIO:000006
+      - WIKIDATA:Q2996394
+    id_prefixes:
+      - GO
+      - REACT
+      - MetaCyc
+      - KEGG
+
+  pathway:
+    is_a: biological process
+    exact_mappings:
+      - PW:0000001
+      - WIKIDATA:Q4915012
+    narrow_mappings:
+      - SIO:010526
+      - GO:0007165
+    id_prefixes:
+      - GO
+      - REACT
+      - KEGG
+      - SMPDB
+      - MSigDB
+      - PHARMGKB.PATHWAYS
+      - WIKIPATHWAYS
+      - FlyBase ## FlyBase:FBgg
+
+  physiological process:
+    aliases: ['physiology']
+    is_a: biological process
+    close_mappings:
+      # Physiology
+      - UMLSSG:PHYS
+    exact_mappings:
+      # Physiologic Function
+      - UMLSSC:T039
+      - UMLSST:phsf
+      - WIKIDATA:Q30892994
+    narrow_mappings:
+      # Organism Function
+      - UMLSSC:T040
+      - UMLSST:orgf
+      # Organ or Tissue Function
+      - UMLSSC:T042
+      - UMLSST:ortf
+      # Cell Function
+      - UMLSSC:T043
+      - UMLSST:celf
+      # Genetic Function
+      - UMLSSC:T045
+      - UMLSST:genf
+    id_prefixes:
+      - GO
+      - REACT
+
+  behavior:
+    is_a: biological process
+    exact_mappings:
+      - GO:0007610
+      # Behavior
+      - UMLSSC:T053
+      - UMLSST:bhvr
+    narrow_mappings:
+      # Mental Process
+      - UMLSSC:T041
+      - UMLSST:menp
+      # Social Behavior
+      - UMLSSC:T054
+      - UMLSST:socb
+      # Individual Behavior
+      - UMLSSC:T055
+      - UMLSST:inbe
+
+  death:
+    is_a: biological process
+    exact_mappings:
+      - GO:0016265
+
+  ## (Bio)chemistry
+
+  mixture:
+    abstract: true
+    mixin: true
+    description: >-
+      The physical combination of two or more molecular entities in which the identities are retained and are mixed in the form of solutions, suspensions and colloids.
+    slots:
+      - has constituent
 
   chemical substance:
     is_a: molecular entity
     description: >-
       May be a chemical entity or a formulation with a chemical entity as active ingredient, or a complex
       material with multiple chemical entities as part
-    subclass_of: "CHEBI:24431"
-    mappings:
-      - SIO:010004
-      - WIKIDATA:Q79529
+    broad_mappings:
       # UMLS Semantic Type "Substance"
       - UMLSSC:T167
       - UMLSST:sbst
-      # UMLS Semantic Group "Chemicals & Drugs"
-      - UMLSSG:CHEM
+    exact_mappings:
+      - CHEBI:24431
+      - SIO:010004
+      - WIKIDATA:Q79529
       # Chemical
       - UMLSSC:T103
       - UMLSST:chem
+    narrow_mappings:
       # Chemical Viewed Structurally
       - UMLSSC:T104
       - UMLSST:chvs
@@ -4532,39 +5373,15 @@ classes:
       # Chemical Viewed Functionally
       - UMLSSC:T120
       - UMLSST:chvf
-      # Pharmacologic Substance
-      - UMLSSC:T121
-      - UMLSST:phsu
       # Biomedical or Dental Material
       - UMLSSC:T122
       - UMLSST:bodm
-      # Biologically Active Substance
-      - UMLSSC:T123
-      - UMLSST:bacs
-      # Hormone
-      - UMLSSC:T125
-      - UMLSST:horm
-      # Enzyme
-      - UMLSSC:T126
-      - UMLSST:enzy
-      # Vitamin
-      - UMLSSC:T127
-      - UMLSST:vita
-      # Immunologic Factor
-      - UMLSSC:T129
-      - UMLSST:imft
       # Indicator, Reagent, or Diagnostic Aid
       - UMLSSC:T130
       - UMLSST:irda
       # Hazardous or Poisonous Substance
       - UMLSSC:T131
       - UMLSST:hops
-      # Receptor
-      - UMLSSC:T192
-      - UMLSST:rcpt
-      # Antibiotic
-      - UMLSSC:T195
-      - UMLSST:antb
       # Element, Ion, or Isotope
       - UMLSSC:T196
       - UMLSST:elii
@@ -4583,30 +5400,74 @@ classes:
       - UNII
       - KEGG
       - gtpo
+    in_subset:
+      - model_organism_database
 
   carbohydrate:
     is_a: chemical substance
-    mappings:
+    exact_mappings:
       # UMLS Semantic Type "Carbohydrate Sequence"
       - UMLSSC:T088
       - UMLSST:crbs
     id_prefixes:
       - PUBCHEM.SUBSTANCE
 
-  drug:
+  processed material:
     is_a: chemical substance
+    mixins:
+      - mixture
+    description: >-
+      A chemical substance (often a mixture) processed for consumption for nutritional, medical or technical use.
+    exact_mappings:
+      - OBI:0000047
+
+  drug:
+    is_a: molecular entity
+    mixins:
+      - mixture
     description: >-
       A substance intended for use in the diagnosis, cure, mitigation, treatment, or prevention of disease
+    slots:
+      - has active ingredient
+      - has excipient
     comments:
       - The CHEBI ID represents a role rather than a substance
-    mappings:
+    broad_mappings:
+      # Pharmacologic Substance: Any natural, endogenously-derived,
+      # synthetic or semi-synthetic compound with pharmacologic activity.
+      - UMLSSC:T121
+      - UMLSST:phsu
+    exact_mappings:
       - WIKIDATA:Q12140
       - CHEBI:23888
       # UMLS Semantic Type "Clinical Drug"
       - UMLSSC:T200
       - UMLSST:clnd
+    narrow_mappings:
+      # Antibiotic
+      - UMLSSC:T195
+      - UMLSST:antb
     id_prefixes:
       - PHARMGKB.DRUG
+
+  food:
+    is_a: molecular entity
+    mixins:
+      - mixture
+    description: >-
+      A substance consumed by a living organism as a source of nutrition
+    slots:
+      - has nutrient
+    id_prefixes:
+      - foodb.compound
+    exact_mappings:
+      # Food
+      - UMLSSC:T168
+      - UMLSST:food
+    narrow_mappings:
+      # Vitamin
+      - UMLSSC:T127
+      - UMLSST:vita
 
   metabolite:
     is_a: chemical substance
@@ -4614,30 +5475,229 @@ classes:
       Any intermediate or product resulting from metabolism. Includes primary and secondary metabolites.
     comments:
       - The CHEBI ID represents a role rather than a substance
-    mappings:
+    exact_mappings:
       - CHEBI:25212
-#
-#    attribute:
-#    subclass_of: PATO:0000001
-#      mixins:
-#        - ontology class
-#      description: >-
-#        A property or characteristic of an entity
+
+  ## Biology and Biomedical Sciences
+
+  organism attribute:
+    is_a: attribute
+    description: >-
+      describes a characteristic of an organismal entity.
+    exact_mappings:
+      # Organism Attribute
+      - UMLSSC:T032
+      - UMLSST:orga
+
+  inheritance:
+    is_a: organism attribute
+    description: >-
+      The pattern or 'mode' in which a particular genetic trait or disorder is passed from one
+      generation to the next, e.g. autosomal dominant, autosomal recessive, etc.
+    exact_mappings:
+      - HP:0000005
+      - GENO:0000141
+      - NCIT:C45827
+
+  organismal entity:
+    description: >-
+      A named entity that is either a part of an organism, a whole organism, population or clade of organisms, excluding molecular entities
+    abstract: true
+    is_a: biological entity
+    slot_usage:
+      has attribute:
+        description: >-
+          may often be an organism attribute
+    exact_mappings:
+      - WIKIDATA:Q7239
+      # UMLS Semantic Group "Living Beings"
+      # Several of the associated semantic types here are probably not
+      # that relevant to the Biolink world but we keep them here for now.
+      - UMLSSG:LIVB
+
+  life stage:
+    is_a: organismal entity
+    mixins:
+      - thing with taxon
+    description: >-
+      A stage of development or growth of an organism, including post-natal adult stages
+    exact_mappings: UBERON:0000105
+    in_subset:
+      - model_organism_database
+
+  individual organism:
+    aliases:
+      - organism
+    description: >-
+      An instance of an organism. For example, Richard Nixon,
+      Charles Darwin, my pet cat. Example ID: ORCID:0000-0002-5355-2576
+    mixins:
+      - thing with taxon
+    is_a: organismal entity
+    exact_mappings:
+      - SIO:010000
+      # Organism
+      - UMLSSC:T001
+      - UMLSST:orgm
+    narrow_mappings:
+      # Wikidata considers its definition of 'individual' to be constrained to human persons?
+      - WIKIDATA:Q795052
+      - foaf:Person
+    id_prefixes:
+      - ORCID
+
+  population of individual organisms:
+    description: >-
+      A collection of individuals from the same taxonomic class distinguished by one or more characteristics.
+      Characteristics can include, but are not limited to, shared geographic location, genetics, phenotypes [Alliance for Genome Resources]
+    local_names:
+      ga4gh: population
+      agr: population
+    mixins:
+      - thing with taxon
+    is_a: organismal entity
+    exact_mappings:
+      - PCO:0000001
+      - SIO:001061
+      # UMLS Semantic Type "Population Group"
+      - UMLSSC:T098
+      - UMLSST:popg
+      - OBI:0000181
+    narrow_mappings:
+      # Family Group
+      - UMLSSC:T099
+      - UMLSST:famg
+      # Age Group
+      - UMLSSC:T100
+      - UMLSST:aggp
+      # Patient or Disabled Group
+      - UMLSSC:T101
+      - UMLSST:podg
+    id_prefixes:
+      - HANCESTRO
+    in_subset:
+      - model_organism_database
+
+  disease or phenotypic feature:
+    aliases: ['phenome']
+    is_a: biological entity
+    description: >-
+      Either one of a disease or an individual phenotypic feature. Some knowledge resources such as Monarch treat these as distinct, others such as MESH conflate.
+    mixins:
+      - thing with taxon
+    union_of:
+      - disease
+      - phenotypic feature
+    narrow_mappings:
+      # UMLS Semantic Type "Finding" - more specialized use of 'disease or phenotypic feature'
+      - UMLSSC:T033
+      - UMLSST:fndg
+
+  disease:
+    aliases: ['condition', 'disorder', 'medical condition']
+    is_a: disease or phenotypic feature
+    exact_mappings:
+      - MONDO:0000001
+      - DOID:4
+      - WIKIDATA:Q12136
+      - SIO:010299
+      # UMLS Semantic Group "Disorders"
+      - UMLSSG:DISO
+      # Disease or Syndrome
+      - UMLSSC:T047
+      - UMLSST:dsyn
+    narrow_mappings:
+      # Congenital Abnormality
+      - UMLSSC:T019
+      - UMLSST:cgab
+      # Acquired Abnormality
+      - UMLSSC:T020
+      - UMLSST:acab
+      # Injury or Poisoning
+      - UMLSSC:T037
+      - UMLSST:inpo
+      # Pathologic Function
+      - UMLSSC:T046
+      - UMLSST:patf
+      # Mental or Behavioral Dysfunction
+      - UMLSSC:T048
+      - UMLSST:mobd
+      # Cell or Molecular Dysfunction
+      - UMLSSC:T049
+      - UMLSST:comd
+      # Anatomical Abnormality
+      - UMLSSC:T190
+      - UMLSST:anab
+      # Neoplastic Process
+      - UMLSSC:T191
+      - UMLSST:neop
+    id_prefixes:
+      - MONDO
+      - DOID
+      - OMIM
+      - ORPHANET
+      - EFO
+      - UMLS
+      - MESH
+      - MEDDRA
+      - NCIT
+      - SNOMEDCT
+      - medgen
+      - ICD10
+      - ICD9
+      - ICD0
+      - HP
+      - MP
+    in_subset:
+      - model_organism_database
+
+  phenotypic feature:
+    aliases: ['sign', 'symptom', 'phenotype', 'trait', 'endophenotype']
+    is_a: disease or phenotypic feature
+    exact_mappings:
+      - UPHENO:0001001
+      - SIO:010056
+      - WIKIDATA:Q104053
+    narrow_mappings:
+      # Sign or Symptom
+      - UMLSSC:T184
+      - UMLSST:sosy
+      - WIKIDATA:Q169872
+      # presentation of a disease in clinical medicine
+      - WIKIDATA:Q25203551
+      # Phenotypic abnormality
+      - HP:0000118
+    id_prefixes:
+      - HP
+      - EFO
+      - NCIT
+      - UMLS
+      - MEDDRA
+      - MP
+      - ZP
+      - UPHENO
+      - APO
+      - FBcv
+      - WBPhenotype
+      - SNOMEDCT
+      - MESH
+    in_subset:
+      - model_organism_database
 
   anatomical entity:
     is_a: organismal entity
     mixins:
       - thing with taxon
-      - physical entity
-    subclass_of: UBERON:0001062
+      - physical essence
     description: >-
       A subcellular location, cell type or gross anatomical part
-    mappings:
-      - SIO:010046
+    exact_mappings:
+      - UBERON:0001062
       - UBERON:0001062
       - WIKIDATA:Q4936952
       # UMLS Semantic Group "Anatomy"
       - UMLSSG:ANAT
+    narrow_mappings:
       # Body System
       - UMLSSC:T022
       - UMLSST:bdsy
@@ -4657,59 +5717,81 @@ classes:
       - UMLS
       - MESH
       - NCIT
+    in_subset:
+      - model_organism_database
 
-  life stage:
+  cellular component:
+    is_a: anatomical entity
+    description: >-
+      A location in or around a cell
+    exact_mappings:
+      - GO:0005575
+      - SIO:001400
+      - WIKIDATA:Q5058355
+      # Cell Component
+      - UMLSSC:T026
+      - UMLSST:celc
+    id_prefixes:
+      - GO
+      - MESH
+      - UMLS
+      - NCIT
+      - SNOMEDCT
+      - CL
+      - UBERON
+
+  cell:
+    is_a: anatomical entity
+    exact_mappings:
+      - GO:0005623
+      - CL:0000000
+      - SIO:010001
+      - WIKIDATA:Q7868
+      # UMLS Semantic Type "Cell"
+      - UMLSSC:T025
+      - UMLSST:cell
+    id_prefixes:
+      - CL
+      - PO
+      - UMLS
+      - NCIT
+      - MESH
+      - UBERON
+      - SNOMEDCT
+
+  cell line:
     is_a: organismal entity
-    mixins:
-      - thing with taxon
-    subclass_of: UBERON:0000105
-    description: >-
-      A stage of development or growth of an organism, including post-natal adult stages
+    exact_mappings:
+      - CLO:0000031
+    id_prefixes:
+      - CLO
 
-  planetary entity:
-    is_a: named thing
-    description: >-
-      Any entity or process that exists at the level of the whole planet
-
-  environmental process:
-    is_a: planetary entity
-    mixins:
-      - occurrent
-    subclass_of: ENVO:02500000
-    mappings:
-      - ENVO:02500000
-
-  environmental feature:
-    is_a: planetary entity
-    mappings:
-      - ENVO:01000254
-
-  clinical entity:
-    is_a: named thing
-    description: >-
-      Any entity or process that exists in the clinical domain and outside the biological realm. Diseases are placed under biological entities
-
-  clinical trial:
-    is_a: clinical entity
-
-  clinical intervention:
-    is_a: clinical entity
-
-  device:
-    is_a: named thing
-    description: >-
-      A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment
-    mappings: # Devices
-      - UMLSSG:DEVI
-      # Medical Device
-      - UMLSSC:T074
-      - UMLSST:medd
-      # Research Device
-      - UMLSSC:T075
-      - UMLSST:resd
-      # Drug Delivery Device
-      - UMLSSC:T203
-      - UMLSST:drdd
+  gross anatomical structure:
+    aliases: ['tissue', 'organ']
+    is_a: anatomical entity
+    exact_mappings:
+      - UBERON:0010000
+      - WIKIDATA:Q4936952
+      # UMLS Semantic Type "Anatomical Structure"
+      - UMLSSC:T017
+      - UMLSST:anst
+      # UMLS Semantic Type "Fully Formed Anatomical Structure"
+      - UMLSSC:T021
+      - UMLSST:ffas
+    narrow_mappings:
+      # UMLS Semantic Type "Body Part, Organ, or Organ Component"
+      - UMLSSC:T023
+      - UMLSST:bpoc
+      # UMLS Semantic Type "Tissue"
+      - UMLSSC:T024
+      - UMLSST:tisu
+      # Embryonic Structure
+      - UMLSSC:T018
+      - UMLSST:emst
+    id_prefixes:
+      - UBERON
+      - PO
+      - FAO
 
   genomic entity:
     is_a: molecular entity
@@ -4718,45 +5800,59 @@ classes:
       an entity that can either be directly located on a genome (gene, transcript, exon, regulatory region) or is encoded in a genome (protein)
     slots:
       - has biological sequence
-    mappings:
+    exact_mappings:
+      # UMLS Semantic Group "Genes & Molecular Sequences"
+      - UMLSSG:GENE
       - SO:0000110
       - GENO:0000897
+    narrow_mappings:
       # Gene or Genome
       - UMLSSC:T028
       - UMLSST:gngm
       # Nucleotide Sequence
       - UMLSSC:T086
       - UMLSST:nusq
+    in_subset:
+      - model_organism_database
 
   genome:
     is_a: genomic entity
     description: >-
       A genome is the sum of genetic material within a cell or virion.
-    mappings:
+    exact_mappings:
       - SO:0001026
       - SIO:000984
       - WIKIDATA:Q7020
+    in_subset:
+      - model_organism_database
 
   transcript:
     is_a: gene product
     description: >-
       An RNA synthesized on a DNA or RNA template by an RNA polymerase
-    mappings:
+    exact_mappings:
       - SO:0000673
       - SIO:010450
+      - WIKIDATA:Q7243183
+    id_prefixes:
+      - ENSEMBL ## ENSEMBL:ENST for human
+      - FlyBase  ## FlyBase:FBtr
+    in_subset:
+      - model_organism_database
 
   exon:
     is_a: genomic entity
     description: >-
-      A region of the transcript sequence within a gene which is not removed from the primary RNA transcript by RNA splicing
-    mappings:
+      A region of the transcript sequence within a gene which is not
+      removed from the primary RNA transcript by RNA splicing
+    exact_mappings:
       - SO:0000147
       - SIO:010445
       - WIKIDATA:Q373027
 
   coding sequence:
     is_a: genomic entity
-    mappings:
+    exact_mappings:
       - SO:0000316
       - SIO:001390
 
@@ -4793,18 +5889,15 @@ classes:
     is_a: gene or gene product
     aliases: ['locus']
     slots:
-      - id
-      - name
       - symbol
-      - description
       - synonym
       - xref
-    mappings:
+    exact_mappings:
       - SO:0000704
       - SIO:010035
       - WIKIDATA:Q7187
     id_prefixes:
-      - NCBIGene
+      - NCBIGENE
       - ENSEMBL
       - HGNC
       - UniProtKB
@@ -4817,8 +5910,10 @@ classes:
       - FB
       - RGD
       - SGD
-      - PomBase
+      - POMBASE
       # - IUPHAR
+    in_subset:
+      - model_organism_database
 
   gene product:
     is_a: gene or gene product
@@ -4828,13 +5923,12 @@ classes:
       - protein
       - RNA product
     slots:
-      - id
-      - name
-      - description
       - synonym
       - xref
-    mappings:
+    exact_mappings:
       - WIKIDATA:Q424689
+      - GENO:0000907
+      - NCIT:C26548
     id_prefixes:
       - UniProtKB
       - gtpo
@@ -4845,7 +5939,11 @@ classes:
     aliases: ['polypeptide']
     description: >-
       A gene product that is composed of a chain of amino acid sequences and is produced by ribosome-mediated translation of mRNA
-    mappings:
+    broad_mappings:
+      # Amino Acid, Peptide, or Protein
+      - UMLSSC:T116
+      - UMLSST:aapp
+    exact_mappings:
       - PR:000000001
       - SIO:010043
       - WIKIDATA:Q8054
@@ -4853,21 +5951,23 @@ classes:
       # UMLS Semantic Type: "Amino Acid Sequence"
       - UMLSSC:T087
       - UMLSST:amas
-      # Amino Acid, Peptide, or Protein
-      - UMLSSC:T116
-      - UMLSST:aapp
     id_prefixes:
       - UniProtKB
       - PR
-      - ENSEMBL
+      - ENSEMBL ## ENSEMBL:ENSP*
+      - FlyBase ## FlyBase:FBpp*
+    in_subset:
+        - model_organism_database
 
   gene product isoform:
-    is_a: gene product
+    # biolink:GeneProductIsoform is most consistently used as a mixin thus it should
+    # be declared as such and cannot inherit from the non-mixin biolink:GeneProduct
+    #is_a: gene product
     description: >-
       This is an abstract class that can be mixed in with different kinds of gene products to indicate that the gene product is intended to
       represent a specific isoform rather than a canonical or reference or generic product. The designation of canonical or reference may be arbitrary,
       or it may represent the superclass of all isoforms.
-#    entity: true
+    mixin: true
     abstract: true
 
   protein isoform:
@@ -4878,15 +5978,18 @@ classes:
     mixins:
       - gene product isoform
     id_prefixes:
-      - UniProtKB
+      - UniProtKB ## UniProtKB:([A-Z0-9]+-\d+)
       - PR
       - ENSEMBL
 
   RNA product:
     is_a: gene product
-    mappings:
+    exact_mappings:
       - CHEBI:33697
-      - SIO:010450
+      # This SIO term here also mapped to 'biolink:Transcript'; however,
+      # since this 'biolink:RNAProduct' relates more to the biochemical
+      # essence of RNA, then map the SIO term instead to 'biolink:Transcript'
+      # - SIO:010450
       - WIKIDATA:Q11053
     id_prefixes:
       - RNACENTRAL
@@ -4904,71 +6007,93 @@ classes:
     is_a: RNA product
     id_prefixes:
       - RNACENTRAL
-      - NCBIGene
+      - NCBIGENE
       - ENSEMBL
-    subclass_of: SO:0000655
-    mappings:
+    exact_mappings:
+      - SO:0000655
       - SIO:001235
 
   microRNA:
     is_a: noncoding RNA product
-    subclass_of: SO:0000276
-    mappings:
+    exact_mappings:
+      - SO:0000276
       - SIO:001397
       - WIKIDATA:Q310899
     id_prefixes:
       - MIR
       - HGNC
       - WormBase
+    in_subset:
+      - model_organism_database
 
   macromolecular complex:
     is_a: macromolecular machine
-    subclass_of: "GO:0032991"
-    mappings:
-      - SIO:010046
+    exact_mappings:
+      - GO:0032991
       - WIKIDATA:Q22325163
     id_prefixes:
       - INTACT
       - GO
       - PR
       - REACT
+    in_subset:
+      - model_organism_database
 
-  gene grouping:
-    abstract: true
-    mixin: true
+  gene grouping mixin:
     description: >-
       any grouping of multiple genes or gene products
+    mixin: true
+    abstract: true
+    slots:
+      - has gene or gene product
 
   gene family:
     is_a: molecular entity
-    mappings:
+    exact_mappings:
+      - NCIT:C26004
+      - WIKIDATA:Q2278983
+    narrow_mappings:
+      # These term definitions focus only on proteins;
+      # the 'biolink:GeneFamily' term would be more inclusive
+      # to describe gene loci, non-coding RNA, etc.
       - SIO:001380
       - NCIT:C20130
       - WIKIDATA:Q417841
     mixins:
-      - gene grouping
+      - gene grouping mixin
     description: >-
       any grouping of multiple genes or gene products related by common descent
     id_prefixes:
       - PANTHER.FAMILY
       - HGNC.FAMILY
+      - FlyBase ## FlyBase:FBgg
+      - interpro # note: may be better to introduce a protein domain/family
+    in_subset:
+      - model_organism_database
 
   zygosity:
     is_a: attribute
-    mappings:
+    exact_mappings:
       - GENO:0000133
 
   genotype:
     is_a: genomic entity
     description: >-
-      An information content entity that describes a genome by specifying the total variation in genomic sequence and/or gene expression, relative to some established background
+      An information content entity that describes a genome by specifying the
+      total variation in genomic sequence and/or gene expression, relative to
+      some established background
     comments:
       - Consider renaming as genotypic entity
     slots:
       - has zygosity
-    mappings:
+    exact_mappings:
       - GENO:0000536
       - SIO:001079
+    id_prefixes:
+      - ZFIN
+      - FlyBase
+    in_subset:
+      - model_organism_database
 
   haplotype:
     is_a: genomic entity
@@ -4976,10 +6101,10 @@ classes:
       A set of zero or more Alleles on a single instance of a Sequence[VMC]
 #    slots:
 #      - completeness
-    mappings:
+    exact_mappings:
       - GENO:0000871
       - SO:0001024
-      # - VMC:Haplotype  needs IRI mapping
+      - VMC:Haplotype
 
   sequence variant:
     aliases: ['allele']
@@ -4988,36 +6113,38 @@ classes:
     is_a: genomic entity
     description: >-
       An allele that varies in its sequence from what is considered the reference allele at that locus.
-    comments:
-      - >-
-          This class is for modeling the specific state at a locus. A single dbSNP rs ID could correspond to more
-          than one sequence variants (e.g CIViC:1252 and CIViC:1253, two distinct BRCA2 alleles for rs28897743)
-    mappings:
+    comments: >-
+      This class is for modeling the specific state at a locus. A single DBSNP rs ID could correspond to more
+      than one sequence variants (e.g CIViC:1252 and CIViC:1253, two distinct BRCA2 alleles for rs28897743)
+    broad_mappings:
+      # slightly broader semantics than SO:0001059 - 'sequence alteration'
+      # describes a sequence feature that may have 1..* sequence alterations
+      - SO:0001060
+    exact_mappings:
       - GENO:0000002
       - WIKIDATA:Q15304597
       - SIO:010277
       - VMC:Allele
       - SO:0001059
-      - SO:0001060
     id_prefixes:
       - CAID # ClinGen Allele Registry
-      - ClinVar
+      - CLINVAR
       - ClinVarVariant
       - WIKIDATA
       # - CIViC needs IRI mapping
       - DBSNP
-      - dbSNP
+      - DBSNP
       # - MYVARIANT_HG19 needs IRI mapping
       # - MYVARIANT_HG38 needs IRI mapping
       # - HGVS needs IRI mapping
       - MGI
-      - ZFIN
-      - FlyBase
+      - ZFIN ## ZFIN:ZDB-ALT-*
+      - FlyBase ## FlyBase:FBal*
       - FB
       - WB
-      - WormBase
+      - WormBase ## WormBase:WBVar*
     alt_descriptions:
-      AGR: "An enitity that describes a single affected, endogenous allele.  These can be of any type that matches that definition"
+      AGR: "An entity that describes a single affected, endogenous allele.  These can be of any type that matches that definition"
       VMC: "A contiguous change at a Location"
     slots:
       - has gene
@@ -5034,112 +6161,433 @@ classes:
             description: ti282a allele from ZFIN
           - value: ClinVarVariant:17681
             description: NM_007294.3(BRCA1):c.2521C>T (p.Arg841Trp)
+    in_subset:
+      - model_organism_database
 
   snv:
-    aliases: ['single nucleotide variant']
+    aliases: ['single nucleotide variant','single nucleotide polymorphism', 'snp']
     is_a: sequence variant
     description: >-
       SNVs are single nucleotide positions in genomic DNA at which different sequence alternatives exist
-    mappings:
+    exact_mappings:
       - SO:0001483
 
   reagent targeted gene:
     is_a: genomic entity
     description: >-
-       A gene altered in its expression level in the context of some experiment as a result of being
-       targeted by gene-knockdown reagent(s) such as a morpholino or RNAi
-    mappings:
+      A gene altered in its expression level in the context of some
+      experiment as a result of being targeted by gene-knockdown
+      reagent(s) such as a morpholino or RNAi.
+    exact_mappings:
       - GENO:0000504
 
-  chemical exposure:
-#    aliases: ['drug intake', 'drug dose']
-    is_a: exposure event
+  ## --------------------
+  ## Clinical
+  ## Attributes, Cohort,
+  ## Exposures & Outcomes
+  ## --------------------
+
+  ## Clinical Attributes
+
+  clinical attribute:
+    is_a: attribute
     description: >-
-      A chemical exposure is an intake of a particular chemical substance
-#    slots:
-#      - has input
-#    slot_usage:
-#      chemical substance:
-#        range: chemical substance
-#        required: true
-#        multivalued: true
-    mappings:
+      Attributes relating to a clinical manifestation
+    exact_mappings:
+      # Clinical Attribute
+      - UMLSSC:T201
+      - UMLSST:clna
+
+  clinical measurement:
+    is_a: clinical attribute
+    description: >-
+      A clinical measurement is a special kind of attribute which results from a laboratory observation from
+      a subject individual or sample. Measurements can be connected to their subject by the 'has attribute' slot.
+    slot_usage:
+      has attribute type:
+        required: true
+        multivalued: false
+        values_from:
+          - EFO
+          - LOINC
+    exact_mappings:
+      - EFO:0001444
+
+  clinical modifier:
+    is_a: clinical attribute
+    description: >-
+      Used to characterize and specify the phenotypic abnormalities defined in the
+      phenotypic abnormality sub-ontology, with respect to severity, laterality, and other aspects
+    exact_mappings:
+      - HP:0012823
+
+  clinical course:
+    is_a: clinical attribute
+    description: >-
+      The course a disease typically takes from its onset, progression in time, and
+      eventual resolution or death of the affected individual
+    exact_mappings:
+      - HP:0031797
+
+  onset:
+    is_a: clinical course
+    description: >-
+      The age group in which (disease) symptom manifestations appear
+    exact_mappings:
+      - HP:0003674
+
+  clinical entity:
+    is_a: named thing
+    description: >-
+      Any entity or process that exists in the clinical domain and outside the
+      biological realm. Diseases are placed under biological entities
+
+  clinical trial:
+    is_a: clinical entity
+
+  clinical intervention:
+    is_a: clinical entity
+
+  clinical finding:
+    is_a: phenotypic feature
+    description: >-
+      this category is currently considered broad enough to tag clinical lab measurements and other biological
+      attributes taken as 'clinical traits' with some statistical score, for example, a p value in genetic associations.
+    slot_usage:
+      has attribute:
+        range: clinical attribute
+
+  hospitalization:
+    is_a: clinical intervention
+    exact_mappings:
+      - SNOMEDCT:32485007
+      - WIKIDATA:Q3140971
+
+  socioeconomic attribute:
+    is_a: attribute
+    description: >-
+      Attributes relating to a socioeconomic manifestation
+    #slot_usage:
+    # need a suitable qualifying socioeconomic ontology target here?
+    # Perhaps some subset of ECTO: https://github.com/EnvironmentOntology/environmental-exposure-ontology
+    #  has attribute type:
+    #     range: socioeconomic ontology
+    # exact_mappings:
+    #  - ??
+
+  ## Cohorts
+
+  case:
+    aliases: ['patient', 'proband']
+    is_a: individual organism
+    description: >-
+      An individual (human) organism that has a patient role in some clinical context.
+
+  cohort:
+    is_a: study population
+    description: >-
+      A group of people banded together or treated as a group who share common characteristics.
+      A cohort 'study' is a particular form of longitudinal study that samples a cohort,
+      performing a cross-section at intervals through time.
+    #
+    # As of this moment (Nov. 22), the jury is still out on what metadata of a cohort
+    # will be common to all cohort descriptions versus cohort-specific annotation.
+    # The former should be embedded as explicit slots in the cohort category. The latter
+    # ought to be documented as (ontology term constrained) extended node attributes.
+    #
+    #slots:
+    #  - general disease focus,
+    #  - specific inclusion/exclusion criteria,
+    #  - year(s) of cohort creation,
+    #  - institution.
+    exact_mappings:
+      - WIKIDATA:Q1303415
+    narrow_mappings:
+      # Professional or Occupational Group
+      - UMLSSC:T097
+      - UMLSST:prog
+      # Family Group
+      - UMLSSC:T099
+      - UMLSST:famg
+      # Age Group
+      - UMLSSC:T100
+      - UMLSST:aggp
+      # Patient or Disabled Group
+      - UMLSSC:T101
+      - UMLSST:podg
+
+  ## Exposures
+
+  exposure event:
+    aliases: ['exposure', 'experimental condition']
+    mixin: true
+    abstract: true
+    slots:
+      - timepoint
+    description: >-
+      A (possibly time bounded) incidence of a feature of the environment of an organism that
+      influences one or more phenotypic features of that organism, potentially mediated by genes
+    broad_mappings:
+      # Event
+      - UMLSSC:T051
+      - UMLSST:evnt
+    exact_mappings:
+      - XCO:0000000
+    in_subset:
+      - model_organism_database
+
+  genomic background exposure:
+    is_a: genomic entity
+    mixins:
+      - exposure event
+      - gene grouping mixin
+    description: >-
+      A genomic background exposure is where an individual's specific genomic background
+      of genes, sequence variants or other pre-existing genomic conditions constitute
+      a kind of 'exposure' to the organism, leading to or influencing an outcome.
+    #exact_mappings:
+    #  -
+
+  disease or phenotypic feature exposure:
+    is_a: disease or phenotypic feature
+    mixins:
+      - exposure event
+    description: >-
+      A disease or phenotypic feature exposure is where a disease state is
+      manifested which represents an precondition, leading to or influencing
+      an outcome, e.g. hypertension leading to a related disease outcome such
+      as cardiovascular disease.
+    #exact_mappings:
+    #  -
+
+  chemical exposure:
+    is_a: chemical substance
+    mixins:
+      - exposure event
+    description: >-
+      A chemical exposure is an intake of a particular chemical substance, other than a drug.
+    exact_mappings:
+      # this ECTO term is not visibly defined but
+      # the 9000000-series identifiers seems to be the
+      # numeric space of chemical exposure definitions
       - ECTO:9000000
       - SIO:001399
 
-  drug exposure:
-    aliases: ['drug intake', 'drug dose']
-    is_a: chemical exposure
+  complex chemical exposure:
     description: >-
-      A drug exposure is an intake of a particular chemical substance
-#    slots:
-#      - has input
-    slot_usage:
-      has drug:
-        range: chemical substance
-        required: true
-        multivalued: true
-    mappings:
-      - ECTO:0000509
+      A complex chemical exposure is an intake of a chemical mixture (e.g. gasoline), other than a drug.
+    is_a: chemical exposure
+    mixins:
+      - mixture
+    # exact_mappings:
+    #  -
+
+  drug exposure:
+    aliases: ['drug intake', 'drug dose', 'medication intake']
+    description: >-
+      A drug exposure is an intake of a particular drug.
+    is_a: drug
+    mixins:
+      - exposure event
+    broad_mappings:
+      # slightly broader than just drug effects on a biological system
       - SIO:001005
+    exact_mappings:
+      - ECTO:0000509
+
+  drug to gene interaction exposure:
+    description: >-
+      drug to gene interaction exposure is a drug exposure is where the
+      interactions of the drug with specific genes are known to constitute
+      an 'exposure' to the organism, leading to or influencing an outcome.
+    is_a: drug exposure
+    mixins:
+      - gene grouping mixin
+    # exact_mappings:
+    #  -
 
   treatment:
-    aliases: ['medical action']
-    is_a: exposure event
+    aliases: ['medical action', 'medical intervention']
+    # 'named thing' seems too generic here but not sure what applies better here
+    is_a: named thing
+    mixins:
+      - exposure event
     description: >-
-      A treatment is targeted at a disease or phenotype and may involve multiple drug 'exposures'
-    slot_usage:
-      has part:
-        multivalued: true
-        range: drug exposure
-        required: true
-    mappings:
+      A treatment is targeted at a disease or phenotype and may involve
+      multiple drug 'exposures', medical devices and/or procedures
+    slots:
+      - has drug
+      - has device
+      - has procedure
+    exact_mappings:
       - OGMS:0000090
       - SIO:001398
 
-  geographic location:
-    is_a: planetary entity
+  biotic exposure:
+    aliases: ['viral exposure','bacterial exposure']
+    is_a: organism taxon
+    mixins:
+      - exposure event
     description: >-
-      a location that can be described in lat/long coordinates
-    slots:
-      - latitude
-      - longitude
-    mappings: # Geographic Areas
-      - UMLSSG:GEOG
-      # Geographic Area
-      - UMLSST:geoa
-      - UMLSSC:T083
+      A biotic exposure is an intake of (sometimes pathological) biological organisms (including viruses)
+    # exact_mappings:
+    #  -
 
-  geographic location at time:
+  geographic exposure:
     is_a: geographic location
+    mixins:
+      - exposure event
     description: >-
-      a location that can be described in lat/long coordinates, for a particular time
-    slots:
-      - timepoint
+      A geographic exposure is a factor relating to geographic proximity to some impactful entity.
+    # exact_mappings:
+    #  -
 
-  ## ------
+  environmental exposure:
+    is_a: environmental process
+    mixins:
+      - exposure event
+    description: >-
+      A environmental exposure is a factor relating to abiotic processes in the environment
+      including atmospheric (heat, cold, general pollution) and water-born contaminants
+    # exact_mappings:
+    #  -
+
+  behavioral exposure:
+    is_a: behavior
+    mixins:
+      - exposure event
+    description: >-
+      A behavioral exposure is a factor relating to behavior impacting an individual.
+    # exact_mappings:
+    #  -
+
+  socioeconomic exposure:
+    is_a: behavior
+    mixins:
+      - exposure event
+    description: >-
+      A socioeconomic exposure is a factor relating to social and
+      financial status of an affected individual (e.g. poverty).
+    slot_usage:
+      has attribute:
+        range: socioeconomic attribute
+        required: true
+    # exact_mappings:
+    #  -
+
+  ## Outcomes
+
+  outcome:
+    mixin: true
+    abstract: true
+    description: >-
+      An entity that has the role of being the consequence of an exposure event.
+      This is an abstract mixin grouping of various categories of possible
+      biological or non-biological (e.g. clinical) outcomes.
+
+  disease or phenotypic feature outcome:
+    is_a: disease or phenotypic feature
+    mixins:
+      - outcome
+    description: >-
+      Physiological outcomes resulting from an exposure event which
+      is the manifestation of a disease or other characteristic phenotype.
+
+  behavioral outcome:
+    is_a: behavior
+    mixins:
+      - outcome
+    description: >-
+      An outcome resulting from an exposure event which is
+      the manifestation of human behavior.
+
+  hospitalization outcome:
+    is_a: hospitalization
+    mixins:
+      - outcome
+    description: >-
+      An outcome resulting from an exposure event which is
+      the increased manifestation of acute (e.g. emergency
+      room visit) or chronic (inpatient) hospitalization.
+
+  mortality outcome:
+    is_a: death
+    mixins:
+      - outcome
+    description: >-
+      An outcome of death from resulting from an exposure event.
+
+  epidemiological outcome:
+    is_a: biological entity
+    mixins:
+      - outcome
+    description: >-
+      An epidemiological outcome, such as societal disease
+      burden, resulting from an exposure event.
+    related_mappings:
+      - NCIT:C19291
+
+  socioeconomic outcome:
+    is_a: behavior
+    mixins:
+      - outcome
+    description: >-
+      An general social or economic outcome, such as
+      healthcare costs, utilization, etc., resulting from an exposure event
+
+  ## ------------
   ## ASSOCIATIONS
-  ## ------
+  ## ------------
 
   association:
+    is_a: entity
     description: >-
       A typed association between two entities, supported by evidence
     comments:
       - This is roughly the model used by biolink and ontobio at the moment
     slots:
       - subject
-      - relation
+      - predicate
       - object
-      - association_id
+      - relation
       - negated
-      - association type
       - qualifiers
       - publications
-      - provided by
-    mappings:
+    slot_usage:
+      type:
+        description: rdf:type of biolink:Association should be fixed at rdf:Statement
+      category:
+        range: association
+    exact_mappings:
       - OBAN:association
-      - "rdf:Statement"
-      - "owl:Axiom"
+      - rdf:Statement
+      - owl:Axiom
+
+  contributor association:
+    is_a: association
+    defining_slots:
+      - subject
+      - predicate
+      - object
+    description: >-
+      Any association between an entity (such as a publication) and various agents that contribute to its realisation
+    slot_usage:
+      subject:
+        range: information content entity
+        description: >-
+          information content entity which an agent has helped realise
+      predicate:
+        subproperty_of: contributor
+        description: >-
+          generally one of the predicate values 'provider', 'publisher', 'editor' or 'author'
+      object:
+        range: agent
+        description: >-
+          agent helping to realise the given entity (e.g. such as a publication)
+      qualifiers:
+        description: >-
+          this field can be used to annotate special characteristics of an agent relationship, such as the fact
+          that a given author agent of a publication is the 'corresponding author'
 
   genotype to genotype part association:
     is_a: association
@@ -5149,7 +6597,7 @@ classes:
     description: >-
       Any association between one genotype and a genotypic entity that is a sub-component of it
     slot_usage:
-      relation:
+      predicate:
         subproperty_of: has variant part
       subject:
         range: genotype
@@ -5161,15 +6609,16 @@ classes:
           child genotype
 
   genotype to gene association:
+    description: >-
+      Any association between a genotype and a gene.
+      The genotype have have multiple variants in that gene or a single one.
+      There is no assumption of cardinality
     is_a: association
     defining_slots:
       - subject
       - object
-    description: >-
-      Any association between a genotype and a gene.
-      The genotype have have multiple variants in that gene or a single one. There is no assumption of cardinality
     slot_usage:
-      relation:
+      predicate:
         description: >-
           the relationship type used to connect genotype to gene
       subject:
@@ -5182,14 +6631,15 @@ classes:
           gene implicated in genotype
 
   genotype to variant association:
+    description: >-
+      Any association between a genotype and a sequence variant.
     is_a: association
     defining_slots:
       - subject
       - object
-    description: >-
-      Any association between a genotype and a sequence variant.
     slot_usage:
-      relation:
+      predicate:
+        # subproperty_of: ???
         description: >-
           the relationship type used to connect genotype to gene
       subject:
@@ -5203,54 +6653,107 @@ classes:
 
   gene to gene association:
     aliases: ['molecular or genetic interaction']
+    description: >-
+      abstract parent class for different kinds of gene-gene or gene product
+      to gene product relationships. Includes homology and interaction.
     abstract: true
     is_a: association
     defining_slots:
       - subject
       - object
-    description: >-
-      abstract parent class for different kinds of gene-gene or gene product to gene product relationships.
-      Includes homology and interaction.
     slot_usage:
       subject:
         range: gene or gene product
         description: >-
-          the subject gene in the association. If the relation is symmetric, subject vs object is arbitrary.
-          We allow a gene product to stand as proxy for the gene or vice versa
+          the subject gene in the association. If the relation is symmetric,
+          subject vs object is arbitrary. We allow a gene product to stand
+          as a proxy for the gene or vice versa.
       object:
         range: gene or gene product
         description: >-
-          the object gene in the association. If the relation is symmetric, subject vs object is arbitrary.
-          We allow a gene product to stand as proxy for the gene or vice versa
-
+          the object gene in the association. If the relation is symmetric,
+          subject vs object is arbitrary. We allow a gene product to stand
+          as a proxy for the gene or vice versa.
 
   gene to gene homology association:
+    description: >-
+      A homology association between two genes. May be orthology (in which
+      case the species of subject and object should differ) or paralogy
+      (in which case the species may be the same)
     is_a: gene to gene association
     defining_slots:
       - subject
+      - predicate
       - object
-      - relation
-    description: >-
-      A homology association between two genes. May be orthology (in which case the species of subject and object
-      should differ) or paralogy (in which case the species may be the same)
     slot_usage:
-      relation:
+      predicate:
         subproperty_of: homologous to
         symmetric: true
         description: >-
           homology relationship type
 
-
-  pairwise interaction association:
-    is_a: association
-    mixin: true
-    abstract: true
+  gene expression mixin:
     description: >-
-      An interaction at the molecular level between two physical entities
+      Observed gene expression intensity, context (site, stage) and
+      associated phenotypic status within which the expression occurs.
+    slots:
+      - quantifier qualifier
+      - expression site
+      - stage qualifier
+      - phenotypic state
+    slot_usage:
+      quantifier qualifier:
+        description: >-
+          Optional quantitative value indicating degree of expression.
+
+  gene to gene coexpression association:
+    description: >-
+      Indicates that two genes are co-expressed,
+      generally under the same conditions.
+    is_a: gene to gene association
     defining_slots:
       - subject
+      - predicate
       - object
-      - relation
+    mixins:
+      - gene expression mixin
+    slot_usage:
+      predicate:
+        subproperty_of: coexpressed with
+        symmetric: true
+
+  pairwise gene to gene interaction:
+    description: >-
+      An interaction between two genes or two gene products.
+      May be physical (e.g. protein binding) or genetic (between genes).
+      May be symmetric (e.g. protein interaction) or directed (e.g. phosphorylation)
+    is_a: gene to gene association
+    defining_slots:
+      - subject
+      - predicate
+      - object
+    slot_usage:
+      predicate:
+        subproperty_of: interacts with
+        symmetric: true
+      relation:
+        values_from:
+          - ro
+          - mi
+        description: "interaction relationship type"
+
+  pairwise molecular interaction:
+    description: >-
+      An interaction at the molecular level between two physical entities
+    is_a: pairwise gene to gene interaction
+    slots:
+      # need to declare a slot before it is used,
+      # then list it in 'slots', not just a slot_usage
+      - interacting molecules category
+    defining_slots:
+      - subject
+      - predicate
+      - object
     slot_usage:
       subject:
         range: molecular entity
@@ -5262,9 +6765,9 @@ classes:
         values_from:
           - IMEX
           - BioGRID
-      relation:
+      predicate:
         subproperty_of: molecularly interacts with
-#        range: molecularly interacts with
+      relation:
         values_from:
           - ro
           - mi
@@ -5274,108 +6777,102 @@ classes:
             description: the subject molecular phosphorylates the object molecule
       object:
         range: molecular entity
-      interacting molecules category:
-        # TODO: Is this correct?
-        range: ontology class
-#        subclass_of: "MI:1046"
-        examples:
-          - value: MI:1048
-            description: smallmolecule-protein
 
-  pairwise gene to gene interaction:
-    is_a: gene to gene association
-    defining_slots:
-      - subject
-      - object
-      - relation
-    mixins:
-      - pairwise interaction association
-    description: >-
-      An interaction between two genes or two gene products.
-      May be physical (e.g. protein binding) or genetic (between genes).
-      May be symmetric (e.g. protein interaction) or directed (e.g. phosphorylation)
-    slot_usage:
-      relation:
-        subproperty_of: molecularly interacts with
-        symmetric: true
-        values_from:
-          - ro
-          - mi
-        description: "interaction relationship type"
-
-  cell line to thing association:
-    is_a: association
-    defining_slots:
-      - subject
-    abstract: true
+  cell line to entity association mixin:
     description: >-
       An relationship between a cell line and another entity
+    mixin: true
+    abstract: true
+    defining_slots:
+      - subject
     slot_usage:
       subject:
         range: cell line
 
-  # TODO: figure out what gives with subject ange
+  # TODO: figure out what gives with subject range
   cell line to disease or phenotypic feature association:
     is_a: association
     mixins:
-      - cell line to thing association
-      - thing to disease or phenotypic feature association
+      - cell line to entity association mixin
+      - entity to disease or phenotypic feature association mixin
     description: >-
-      An relationship between a cell line and a disease or a phenotype, where the cell line is derived from an individual with that disease or phenotype
+      An relationship between a cell line and a disease or a phenotype, where
+      the cell line is derived from an individual with that disease or phenotype.
     slot_usage:
       subject:
 #        - range: cell line
 #        - range: disease or phenotypic feature
         range: disease or phenotypic feature
 
-  chemical to thing association:
-    is_a: association
+  molecular entity to entity association mixin:
+    description: >-
+      An interaction between a molecular entity and another entity
+    mixin: true
+    abstract: true
     defining_slots:
       - subject
+    slot_usage:
+      subject:
+        range: molecular entity
+        description: "the molecular entity that is an interactor"
+
+  drug to entity association mixin:
+    description: >-
+      An interaction between a drug and another entity
+    is_a: molecular entity to entity association mixin
+    mixin: true
     abstract: true
+    defining_slots:
+      - subject
+    slot_usage:
+      subject:
+        range: drug
+        description: "the drug that is an interactor"
+
+  chemical to entity association mixin:
     description: >-
       An interaction between a chemical entity and another entity
+    is_a: molecular entity to entity association mixin
+    mixin: true
+    abstract: true
+    defining_slots:
+      - subject
     slot_usage:
       subject:
         range: chemical substance
         description: "the chemical substance or entity that is an interactor"
 
-  case to thing association:
-    is_a: association
-    defining_slots:
-      - subject
-    abstract: true
+  case to entity association mixin:
     description: >-
       An abstract association for use where the case is the subject
+    mixin: true
+    abstract: true
+    defining_slots:
+      - subject
     slot_usage:
       subject:
         range: case
         description: "the case (e.g. patient) that has the property"
 
   chemical to chemical association:
+    description: >-
+      A relationship between two chemical entities. This can encompass actual
+      interactions as well as temporal causal edges, e.g. one chemical converted to another.
     is_a: association
     defining_slots:
       - subject
       - object
     mixins:
-      - chemical to thing association
-    description: >-
-      A relationship between two chemical entities. This can encompass actual interactions as well as temporal causal edges, e.g. one chemical converted to another.
+      - chemical to entity association mixin
     slot_usage:
       object:
         range: chemical substance
         description: "the chemical element that is the target of the statement"
 
   chemical to chemical derivation association:
-    is_a: chemical to chemical association
-    defining_slots:
-      - subject
-      - object
-      - relation
-    slots:
-      - change is catalyzed by
     description: >-
-      A causal relationship between two chemical entities, where the subject represents the upstream entity and the object represents the downstream.
+      A causal relationship between two chemical entities, where the subject
+      represents the upstream entity and the object represents the downstream.
       For any such association there is an implicit reaction:
         IF
         R has-input C1 AND
@@ -5383,7 +6880,14 @@ classes:
         R enabled-by P AND
         R type Reaction
         THEN
-        C1 derives-into C2 <<change is catalyzed by P>>
+        C1 derives-into C2 <<catalyst qualifier P>>
+    is_a: chemical to chemical association
+    defining_slots:
+      - subject
+      - predicate
+      - object
+    slots:
+      - catalyst qualifier
     slot_usage:
       subject:
         range: chemical substance
@@ -5393,70 +6897,87 @@ classes:
         range: chemical substance
         description: >-
           the downstream chemical entity
-      relation:
+      predicate:
         subproperty_of: derives into
-      change is catalyzed by:
+      catalyst qualifier:
         description: >-
-          this connects the derivation edge to the molecular entity that catalyzes the reaction that causes the
-          subject chemical to transform into the object chemical
-        
+          this connects the derivation edge to the molecular entity that
+          catalyzes the reaction that causes the subject chemical to
+          transform into the object chemical.
+
   chemical to disease or phenotypic feature association:
+    description: >-
+      An interaction between a chemical entity and a phenotype or disease,
+      where the presence of the chemical gives rise to or exacerbates the phenotype.
     is_a: association
-    mappings:
+    narrow_mappings:
       - SIO:000993
     defining_slots:
       - subject
       - object
     mixins:
-      - chemical to thing association
-      - thing to disease or phenotypic feature association
-    description: >-
-      An interaction between a chemical entity and a phenotype or disease, where the presence of the chemical gives rise to
-      or exacerbates the phenotype
+      - chemical to entity association mixin
+      - entity to disease or phenotypic feature association mixin
     slot_usage:
       object:
         range: disease or phenotypic feature
         description: "the disease or phenotype that is affected by the chemical"
 
   chemical to pathway association:
+    description: >-
+      An interaction between a chemical entity and a biological process or pathway.
     is_a: association
-    mappings:
+    exact_mappings:
       - SIO:001250
     defining_slots:
       - subject
       - object
     mixins:
-      - chemical to thing association
-    description: >-
-      An interaction between a chemical entity and a biological process or pathway
+      - chemical to entity association mixin
     slot_usage:
       object:
         range: pathway
         description: "the pathway that is affected by the chemical"
 
   chemical to gene association:
+    description: >-
+      An interaction between a chemical entity and a gene or gene product.
     is_a: association
-    mappings:
+    exact_mappings:
       - SIO:001257
     defining_slots:
       - subject
       - object
     mixins:
-      - chemical to thing association
-    description: >-
-      An interaction between a chemical entity and a gene or gene product
+      - chemical to entity association mixin
     slot_usage:
       object:
         range: gene or gene product
         description: "the gene or gene product that is affected by the chemical"
 
-  material sample to thing association:
+  drug to gene association:
+    description: >-
+      An interaction between a drug and a gene or gene product.
     is_a: association
+    related_mappings:
+      - SIO:001257
     defining_slots:
       - subject
-    abstract: true
+      - object
+    mixins:
+      - drug to entity association mixin
+    slot_usage:
+      object:
+        range: gene or gene product
+        description: "the gene or gene product that is affected by the drug"
+
+  material sample to entity association mixin:
     description: >-
-      An association between a material sample and something
+      An association between a material sample and something.
+    mixin: true
+    abstract: true
+    defining_slots:
+      - subject
     slot_usage:
       subject:
         range: material sample
@@ -5464,12 +6985,13 @@ classes:
           the material sample being described
 
   material sample derivation association:
+    description: >-
+      An association between a material sample and
+      the material entity from which it is derived.
     is_a: association
     defining_slots:
       - subject
-      - relation
-    description: >-
-      An association between a material sample and the material entity it is derived from
+      - predicate
     slot_usage:
       subject:
         range: material sample
@@ -5477,28 +6999,28 @@ classes:
           the material sample being described
       object:
         description: >-
-          the material entity the sample was derived from. This may be another material sample, or
-          any other material entity, including for example an organism, a geographic feature, or some
-          environmental material.
-      relation:
+          the material entity the sample was derived from. This may be another
+          material sample, or any other material entity, including for example
+          an organism, a geographic feature, or some environmental material.
+      predicate:
         description: >-
           derivation relationship
         subproperty_of: derives from
 
   material sample to disease or phenotypic feature association:
+    description: >-
+      An association between a material sample and a disease or phenotype.
     is_a: association
+    mixins:
+      - material sample to entity association mixin
+      - entity to disease or phenotypic feature association mixin
     defining_slots:
       - subject
       - object
-    mixins:
-      - material sample to thing association
-      - thing to disease or phenotypic feature association
-    description: >-
-      An association between a material sample and a disease or phenotype
 
-  disease to thing association:
+  disease to entity association mixin:
+    mixin: true
     abstract: true
-    is_a: association
     defining_slots:
       - subject
     slot_usage:
@@ -5510,43 +7032,88 @@ classes:
           - value: MONDO:0017314
             description: "Ehlers-Danlos syndrome, vascular type"
 
-  disease to exposure association:
-    is_a: disease to thing association
-    defining_slots:
-      - subject
-      - object
+  entity to exposure event association mixin:
     description: >-
-      An association between an exposure event and a disease
+      An association between some entity and an exposure event.
+    mixin: true
+    abstract: true
+    defining_slots:
+      - object
     slot_usage:
-      subject:
-        range: disease
       object:
         range: exposure event
 
+  disease to exposure event association:
+    description: >-
+      An association between an exposure event and a disease.
+    is_a: association
+    mixins:
+      - disease to entity association mixin
+      - entity to exposure event association mixin
+    defining_slots:
+      - subject
+      - object
+
+  exposure event to entity association mixin:
+    description: >-
+      An association between some exposure event and some entity.
+    mixin: true
+    abstract: true
+    defining_slots:
+      - subject
+    slot_usage:
+      subject:
+        range: exposure event
+
+  entity to outcome association mixin:
+    description: >-
+      An association between some entity and an outcome
+    mixin: true
+    abstract: true
+    defining_slots:
+      - object
+    slot_usage:
+      object:
+        range: outcome
+
+  exposure event to outcome association:
+    description: >-
+      An association between an exposure event and an outcome.
+    is_a: association
+    mixins:
+      - exposure event to entity association mixin
+      - entity to outcome association mixin
+    slots:
+      - has population context
+      - has temporal context
+    defining_slots:
+      - subject
+      - object
+
   frequency qualifier mixin:
     mixin: true
+    abstract: true
     description: >-
       Qualifier for frequency type associations
     slots:
       - frequency qualifier
 
-  entity to feature or disease qualifiers:
-    abstract: true
-    mixin: true
-    is_a: frequency qualifier mixin
+  entity to feature or disease qualifiers mixin:
     description: >-
-      Qualifiers for entity to disease or phenotype associations
+      Qualifiers for entity to disease or phenotype associations.
+    mixin: true
+    abstract: true
+    is_a: frequency qualifier mixin
     slots:
       - severity qualifier
       - onset qualifier
 
-  entity to phenotypic feature association:
+  entity to phenotypic feature association mixin:
+    mixin: true
     abstract: true
+    is_a: entity to feature or disease qualifiers mixin
     defining_slots:
       - object
-    is_a: association
-    mixins:
-      - entity to feature or disease qualifiers
     slot_usage:
       description:
         description: >-
@@ -5566,12 +7133,12 @@ classes:
     slots:
       - sex qualifier
 
-  entity to disease association:
+  entity to disease association mixin:
     description: >-
       mixin class for any association whose object (target node) is a disease
-    abstract: true
     mixin: true
-    is_a: entity to feature or disease qualifiers
+    abstract: true
+    is_a: entity to feature or disease qualifiers mixin
     defining_slots:
       - object
     slot_usage:
@@ -5582,9 +7149,9 @@ classes:
           - value: MONDO:0020066
             description: "Ehlers-Danlos syndrome"
 
-  disease or phenotypic feature association to thing association:
+  disease or phenotypic feature to entity association mixin:
+    mixin: true
     abstract: true
-    is_a: association
     defining_slots:
       - subject
     slot_usage:
@@ -5598,21 +7165,35 @@ classes:
             description: "abnormal brain ventricle size"
 
   disease or phenotypic feature association to location association:
-    is_a: disease or phenotypic feature association to thing association
-    description: >-
-      An association between either a disease or a phenotypic feature and an anatomical entity,
-      where the disease/feature manifests in that site.
+    deprecated: >-
+      This association class name is deprecated in favor of the
+      'disease or phenotypic feature to location association' class.
+    is_a: association
+    mixins:
+      - disease or phenotypic feature to entity association mixin
     slot_usage:
       object:
         range: anatomical entity
-        description: "anatomical entity in which the disease or feature is found"
+
+  disease or phenotypic feature to location association:
+    description: >-
+      An association between either a disease or a phenotypic feature and
+      an anatomical entity, where the disease/feature manifests in that site.
+    is_a: association
+    mixins:
+      - disease or phenotypic feature to entity association mixin
+    slot_usage:
+      object:
+        range: anatomical entity
+        description: >-
+          anatomical entity in which the disease or feature is found.
         examples:
           - value: UBERON:0002048
             description: "lung"
 
-  thing to disease or phenotypic feature association:
+  entity to disease or phenotypic feature association mixin:
+    mixin: true
     abstract: true
-    is_a: association
     defining_slots:
       - object
     slot_usage:
@@ -5625,19 +7206,29 @@ classes:
           - value: MP:0013229
             description: "abnormal brain ventricle size"
 
+  genotype to entity association mixin:
+    mixin: true
+    abstract: true
+    defining_slots:
+      - subject
+    slot_usage:
+      subject:
+        range: genotype
+        description: "genotype that is the subject of the association"
+
   genotype to phenotypic feature association:
     is_a: association
     defining_slots:
       - subject
       - object
     description: >-
-      Any association between one genotype and a phenotypic feature, where having the genotype confers the phenotype,
-      either in isolation or through environment
+      Any association between one genotype and a phenotypic feature, where having
+      the genotype confers the phenotype, either in isolation or through environment
     mixins:
-      - entity to phenotypic feature association
-      - genotype to thing association
+      - entity to phenotypic feature association mixin
+      - genotype to entity association mixin
     slot_usage:
-      relation:
+      predicate:
         subproperty_of: has phenotype
       subject:
         range: genotype
@@ -5650,9 +7241,10 @@ classes:
       - subject
       - object
     description: >-
-      Any association between an environment and a phenotypic feature, where being in the environment influences the phenotype
+      Any association between an environment and a phenotypic feature,
+      where being in the environment influences the phenotype.
     mixins:
-      - entity to phenotypic feature association
+      - entity to phenotypic feature association mixin
     slot_usage:
       subject:
         range: exposure event
@@ -5662,39 +7254,42 @@ classes:
     defining_slots:
       - subject
       - object
-    description: "An association between a disease and a phenotypic feature in which the phenotypic feature is associated with the disease in some way"
+    description: >-
+      An association between a disease and a phenotypic feature in which the
+      phenotypic feature is associated with the disease in some way.
     mixins:
-      - entity to phenotypic feature association
-      - disease to thing association
+      - entity to phenotypic feature association mixin
+      - disease to entity association mixin
 
   case to phenotypic feature association:
+    description: >-
+      An association between a case (e.g. individual patient) and a phenotypic
+      feature in which the individual has or has had the phenotype.
     is_a: association
     defining_slots:
       - subject
       - object
-    description: "An association between a case (e.g. individual patient) and a phenotypic feature in which the individual has or has had the phenotype"
     mixins:
-      - entity to phenotypic feature association
-      - case to thing association
+      - entity to phenotypic feature association mixin
+      - case to entity association mixin
 
-  gene to thing association:
-    is_a: association
+  gene to entity association mixin:
+    mixin: true
+    abstract: true
     defining_slots:
       - subject
-    abstract: true
     slot_usage:
       subject:
         range: gene or gene product
         description: "gene that is the subject of the association"
 
-  variant to thing association:
-    is_a: association
+  variant to entity association mixin:
     local_names:
       ga4gh: variant annotation
+    mixin: true
+    abstract: true
     defining_slots:
       - subject
-    abstract: true
-    mixin: true
     slot_usage:
       subject:
         range: sequence variant
@@ -5708,14 +7303,14 @@ classes:
 
   gene to phenotypic feature association:
     is_a: association
-    mappings:
+    exact_mappings:
       - WBVocab:Gene-Phenotype-Association
     defining_slots:
       - subject
       - object
     mixins:
-      - entity to phenotypic feature association
-      - gene to thing association
+      - entity to phenotypic feature association mixin
+      - gene to entity association mixin
     slot_usage:
       subject:
         range: gene or gene product
@@ -5728,29 +7323,62 @@ classes:
     is_a: association
     comments:
       - NCIT:R176 refers to the inverse relationship
-    mappings:
+    exact_mappings:
       - SIO:000983
     defining_slots:
       - subject
       - object
     mixins:
-      - entity to disease association
-      - gene to thing association
+      - entity to disease association mixin
+      - gene to entity association mixin
     slot_usage:
       subject:
         range: gene or gene product
         description: >-
-          gene in which variation is correlated with the disease - may be protective or causative or associative, or as a model
+          gene in which variation is correlated with the disease,
+          may be protective or causative or associative, or as a model
+
+  variant to gene association:
+    description: >-
+      An association between a variant and a gene, where the variant has
+      a genetic association with the gene (i.e. is in linkage disequilibrium)
+    is_a: association
+    defining_slots:
+      - subject
+      - predicate
+      - object
+    mixins:
+      - variant to entity association mixin
+    slot_usage:
+      object:
+        range: gene
+      predicate:
+        subproperty_of: genetic association
+
+  variant to gene expression association:
+    description: >-
+      An association between a variant and expression of a gene (i.e. e-QTL)
+    is_a: variant to gene association
+    defining_slots:
+      - subject
+      - predicate
+      - object
+    mixins:
+      - gene expression mixin
+    slot_usage:
+      predicate:
+        subproperty_of: affects expression of
 
   variant to population association:
     description: >-
-      An association between a variant and a population, where the variant has particular frequency in the population
+      An association between a variant and a population, where the variant has
+      particular frequency in the population
     is_a: association
     defining_slots:
       - subject
       - object
     mixins:
-      - variant to thing association
+      - variant to entity association mixin
       - frequency quantifier
       - frequency qualifier mixin
     slot_usage:
@@ -5803,7 +7431,8 @@ classes:
         range: population of individual organisms
         description: >-
           the population that form the object of the association
-      relation:
+      predicate:
+        # subproperty_of: ???
         description: >-
           A relationship type that holds between the subject and object populations. Standard mereological
           relations can be used. E.g. subject part-of object, subject overlaps object. Derivation relationships
@@ -5815,8 +7444,8 @@ classes:
       - subject
       - object
     mixins:
-      - variant to thing association
-      - entity to phenotypic feature association
+      - variant to entity association mixin
+      - entity to phenotypic feature association mixin
     slot_usage:
       subject:
         range: sequence variant
@@ -5831,8 +7460,8 @@ classes:
       - subject
       - object
     mixins:
-      - variant to thing association
-      - entity to disease association
+      - variant to entity association mixin
+      - entity to disease association mixin
     slot_usage:
       subject:
         description: >-
@@ -5840,7 +7469,7 @@ classes:
         examples:
           - value: ClinVar:52241
             description: "NM_000059.3(BRCA2):c.7007G>C (p.Arg2336Pro)"
-      relation:
+      predicate:
         description: >-
           E.g. is pathogenic for
         subproperty_of: related condition
@@ -5851,7 +7480,6 @@ classes:
           - value: MONDO:0016419
             description: hereditary breast cancer
 
-
   genotype to disease association:
     is_a: association
     comments:
@@ -5860,13 +7488,13 @@ classes:
       - subject
       - object
     mixins:
-      - genotype to thing association
-      - entity to disease association
+      - genotype to entity association mixin
+      - entity to disease association mixin
     slot_usage:
       subject:
         description: >-
           a genotype that is associated in some way with a disease state
-      relation:
+      predicate:
         description: >-
           E.g. is pathogenic for
         subproperty_of: related condition
@@ -5877,7 +7505,7 @@ classes:
           - value: MONDO:0016419
             description: hereditary breast cancer
 
-  model to disease mixin:
+  model to disease association mixin:
     mixin: true
     abstract: true
     description: >-
@@ -5888,7 +7516,7 @@ classes:
         description: >-
           The entity that serves as the model of the disease. This may be an organism, a strain of organism, a genotype or variant that exhibits
           similar features, or a gene that when mutated exhibits features of the disease
-      relation:
+      predicate:
         subproperty_of: model of
         description: >-
           The relationship to the disease
@@ -5897,11 +7525,11 @@ classes:
     is_a: gene to disease association
     defining_slots:
       - subject
+      - predicate
       - object
-      - relation
     mixins:
-      - model to disease mixin
-      - entity to disease association
+      - model to disease association mixin
+      - entity to disease association mixin
     slot_usage:
       subject:
         range: gene or gene product
@@ -5913,11 +7541,11 @@ classes:
     is_a: variant to disease association
     defining_slots:
       - subject
+      - predicate
       - object
-      - relation
     mixins:
-      - model to disease mixin
-      - entity to disease association
+      - model to disease association mixin
+      - entity to disease association mixin
     slot_usage:
       subject:
         range: sequence variant
@@ -5928,11 +7556,11 @@ classes:
     is_a: genotype to disease association
     defining_slots:
       - subject
+      - predicate
       - object
-      - relation
     mixins:
-      - model to disease mixin
-      - entity to disease association
+      - model to disease association mixin
+      - entity to disease association mixin
     slot_usage:
       subject:
         range: genotype
@@ -5943,11 +7571,11 @@ classes:
     is_a: cell line to disease or phenotypic feature association
     defining_slots:
       - subject
+      - predicate
       - object
-      - relation
     mixins:
-      - model to disease mixin
-      - entity to disease association
+      - model to disease association mixin
+      - entity to disease association mixin
     slot_usage:
       subject:
         range: cell line
@@ -5959,11 +7587,11 @@ classes:
     is_a: association
     defining_slots:
       - subject
+      - predicate
       - object
-      - relation
     mixins:
-      - model to disease mixin
-      - entity to disease association
+      - model to disease association mixin
+      - entity to disease association mixin
     slot_usage:
       subject:
         range: organismal entity
@@ -5975,8 +7603,8 @@ classes:
     is_a: gene to disease association
     defining_slots:
       - subject
+      - predicate
       - object
-      - relation
     slots:
       - sequence variant qualifier
     slot_usage:
@@ -5986,22 +7614,12 @@ classes:
           A gene that has a role in modeling the disease. This may be a model organism ortholog of a known disease gene,
           or it may be a gene whose mutants recapitulate core features of the disease.
 
-  genotype to thing association:
-    is_a: association
-    defining_slots:
-      - subject
-    abstract: true
-    slot_usage:
-      subject:
-        range: genotype
-        description: "genotype that is the subject of the association"
-
   gene to expression site association:
     is_a: association
     defining_slots:
       - subject
+      - predicate
       - object
-      - relation
     description: >-
       An association between a gene and an expression site, possibly qualified by stage/timing info.
     notes:
@@ -6020,7 +7638,7 @@ classes:
         examples:
           - value: UBERON:0002037
             description: cerebellum
-      relation:
+      predicate:
         description: "expression relationship"
         subproperty_of: expressed in
       stage qualifier:
@@ -6114,7 +7732,7 @@ classes:
   gene to go term association:
     aliases: ['functional association']
     is_a: functional association
-    mappings:
+    exact_mappings:
       - WBVocab:Gene-GO-Association
     defining_slots:
       - subject
@@ -6141,9 +7759,9 @@ classes:
           - value: GO:0016301
             description: kinase activity
 
-  ## ------
+  ## -----------------
   ## SEQUENCE FEATURES
-  ## ------
+  ## -----------------
 
   sequence association:
     is_a: association
@@ -6162,7 +7780,7 @@ classes:
       object:
         aliases: ['reference']
         range: genomic entity ## typically a chromosome use monochrom
-      relation:
+      predicate:
         subproperty_of: has sequence location
     slots:
       - start interbase coordinate
@@ -6209,7 +7827,7 @@ classes:
         range: gene
       object:
         range: gene product
-      relation:
+      predicate:
         subproperty_of: has gene product
 
   exon to transcript relationship:
@@ -6230,7 +7848,8 @@ classes:
     description: >-
       A regulatory relationship between two genes
     slot_usage:
-      relation:
+      predicate:
+        # subproperty_of: ???
         description: >-
           the direction is always from regulator to regulated
       subject:
@@ -6241,7 +7860,7 @@ classes:
         role: regulated gene
 
   anatomical entity to anatomical entity association:
-#      schema: gocam
+    # schema: gocam
     is_a: association
     defining_slots:
       - subject
@@ -6260,7 +7879,7 @@ classes:
       the two entities are related by parthood. This includes relationships between cellular components
       and cells, between cells and tissues, tissues and whole organisms
     defining_slots:
-      - relation
+      - predicate
     slot_usage:
       subject:
         range: anatomical entity
@@ -6270,7 +7889,7 @@ classes:
         range: anatomical entity
         description: >-
           the whole
-      relation:
+      predicate:
         subproperty_of: part of
 
   anatomical entity to anatomical entity ontogenic association:
@@ -6280,7 +7899,7 @@ classes:
       the two entities are related by development. A number of different relationship types
       can be used to specify the precise nature of the relationship
     defining_slots:
-      - relation
+      - predicate
     slot_usage:
       subject:
         range: anatomical entity
@@ -6290,293 +7909,5 @@ classes:
         range: anatomical entity
         description: >-
           the structure at an earlier time
-      relation:
+      predicate:
          subproperty_of: develops from
-
-  occurrent:
-    description: >-
-      A processual entity
-    is_a: named thing
-    mappings:
-      - BFO:0000003
-
-  physical entity:
-    description: >-
-      An entity that has physical properties such as mass, volume, or charge
-    is_a: named thing
-
-  biological process or activity:
-    is_a: biological entity
-    mixins:
-      - occurrent
-    description: >-
-      Either an individual molecular activity, or a collection of causally connected molecular activities
-#    union_of:
-#      - molecular activity
-#      - biological process
-    id_prefixes:
-      - GO
-      - REACT
-    slots:
-      - has input
-      - has output
-      - enabled by
-
-  molecular activity:
-    is_a: biological process or activity
-    aliases: ['molecular function', 'molecular event', 'reaction']
-    mixins:
-      - occurrent
-    description: >-
-      An execution of a molecular function carried out by a gene product or macromolecular complex.
-    slot_usage:
-      has input:
-        range: chemical substance
-        description: >-
-          A chemical entity that is the input for the reaction
-      has output:
-        range: chemical substance
-        description: >-
-          A chemical entity that is the output for the reaction
-      enabled by:
-        range: macromolecular machine
-        description: >-
-          The gene product, gene, or complex that catalyzes the reaction
-    mappings:
-      - GO:0003674
-      # UMLS Semantic Type "Molecular Function"
-      - UMLSSC:T044
-      - UMLSST:moft
-    id_prefixes:
-      - GO
-      - REACT
-      - RHEA
-      - MetaCyc
-      - EC
-      - KEGG
-
-  activity and behavior:
-    is_a: occurrent
-    description: >-
-      Activity or behavior of any independent integral living, organization or mechanical actor in the world
-    mappings:
-      #Activities & Behaviors
-      - UMLSSG:ACTI
-      # Event
-      - UMLSSC:T051
-      - UMLSST:evnt
-      # Activity
-      - UMLSSC:T052
-      - UMLSST:acty
-      # Behavior
-      - UMLSSC:T053
-      - UMLSST:bhvr
-      # Social Behavior
-      - UMLSSC:T054
-      - UMLSST:socb
-      # Individual Behavior
-      - UMLSSC:T055
-      - UMLSST:inbe
-      # Daily or Recreational Activity
-      - UMLSSC:T056
-      - UMLSST:dora
-      # Occupational Activity
-      - UMLSSC:T057
-      - UMLSST:ocac
-      # Governmental or Regulatory Activity
-      - UMLSSC:T064
-      - UMLSST:gora
-      # Machine Activity
-      - UMLSSC:T066
-      - UMLSST:mcha
-
-  procedure:
-    is_a: occurrent
-    description: >-
-      A series of actions conducted in a certain order or manner
-    mappings: # Procedures
-      - UMLSSG:PROC
-      # Health Care Activity
-      - UMLSSC:T058
-      - UMLSST:hlca
-      # Laboratory Procedure
-      - UMLSSC:T059
-      - UMLSST:lbpr
-      # Diagnostic Procedure
-      - UMLSSC:T060
-      - UMLSST:diap
-      # Therapeutic or Preventive Procedure
-      - UMLSSC:T061
-      - UMLSST:topp
-      # Research Activity
-      - UMLSSC:T062
-      - UMLSST:resa
-      # Molecular Biology Research Technique
-      - UMLSSC:T063
-      - UMLSST:mbrt
-      # Educational Activity
-      - UMLSSC:T065
-      - UMLSST:edac
-
-  phenomenon:
-    is_a: occurrent
-    description: >-
-      a fact or situation that is observed to exist or happen, especially one whose cause or explanation is in question
-    mappings:
-      # Phenomena
-      - UMLSSG:PHEN
-      # Laboratory or Test Result
-      - UMLSSC:T034
-      - UMLSST:lbtr
-      # Biologic Function
-      - UMLSSC:T038
-      - UMLSST:biof
-      #  Phenomenon or Process
-      - UMLSSC:T067
-      - UMLSST:phpr
-      # Human-caused Phenomenon or Process
-      - UMLSSC:T068
-      - UMLSST:hcpp
-      # Environmental Effect of Humans
-      - UMLSSC:T069
-      - UMLSST:eehu
-      # Natural Phenomenon or Process
-      - UMLSSC:T070
-      - UMLSST:npop
-
-  biological process:
-    is_a: biological process or activity
-    mixins:
-      - occurrent
-    description: >-
-      One or more causally connected executions of molecular functions
-    mappings:
-      - GO:0008150
-      - SIO:000006
-      - WIKIDATA:Q2996394
-    id_prefixes:
-      - GO
-      - REACT
-      - MetaCyc
-      - KEGG
-
-  pathway:
-    is_a: biological process
-    mappings:
-      - GO:0007165
-      - SIO:010526
-      - PW:0000001
-      - WIKIDATA:Q4915012
-    id_prefixes:
-      - GO
-      - REACT
-      - KEGG
-      - SMPDB
-      - PHARMGKB.PATHWAYS
-      - WIKIPATHWAYS
-
-  physiological process:
-    aliases: ['physiology']
-    is_a: biological process
-    mappings: # Physiology
-      - UMLSSG:PHYS
-      # Organism Attribute
-      - UMLSSC:T032
-      - UMLSST:orga
-      # Physiologic Function
-      - UMLSSC:T039
-      - UMLSST:phsf
-      # Organism Function
-      - UMLSSC:T040
-      - UMLSST:orgf
-      # Mental Process
-      - UMLSSC:T041
-      - UMLSST:menp
-      # Organ or Tissue Function
-      - UMLSSC:T042
-      - UMLSST:ortf
-      # Cell Function
-      - UMLSSC:T043
-      - UMLSST:celf
-      # Genetic Function
-      - UMLSSC:T045
-      - UMLSST:genf
-      # Clinical Attribute
-      - UMLSSC:T201
-      - UMLSST:clna
-    id_prefixes:
-      - GO
-      - REACT
-
-  cellular component:
-    is_a: anatomical entity
-    description: >-
-      A location in or around a cell
-    mappings:
-      - GO:0005575
-      - SIO:001400
-      - WIKIDATA:Q5058355
-      # Cell Component
-      - UMLSSC:T026
-      - UMLSST:celc
-    id_prefixes:
-      - GO
-      - MESH
-      - UMLS
-      - NCIT
-      - SNOMEDCT
-      - CL
-      - UBERON
-
-  cell:
-    is_a: anatomical entity
-    mappings:
-      - GO:0005623
-      - CL:0000000
-      - SIO:010001
-      - WIKIDATA:Q7868
-      # UMLS Semantic Type "Cell"
-      - UMLSSC:T025
-      - UMLSST:cell
-    id_prefixes:
-      - CL
-      - PO
-      - UMLS
-      - NCIT
-      - MESH
-      - UBERON
-      - SNOMEDCT
-
-  cell line:
-    is_a: organismal entity
-    mappings:
-      - CLO:0000031
-    id_prefixes:
-      - CLO
-
-  gross anatomical structure:
-    aliases: ['tissue', 'organ']
-    is_a: anatomical entity
-    mappings:
-      - UBERON:0010000
-      - SIO:010046
-      - WIKIDATA:Q4936952
-      # UMLS Semantic Type "Anatomical Structure"
-      - UMLSSC:T017
-      - UMLSST:anst
-      # UMLS Semantic Type "Fully Formed Anatomical Structure"
-      - UMLSSC:T021
-      - UMLSST:ffas
-      # UMLS Semantic Type "Body Part, Organ, or Organ Component"
-      - UMLSSC:T023
-      - UMLSST:bpoc
-      # UMLS Semantic Type "Tissue"
-      - UMLSSC:T024
-      - UMLSST:tisu
-      # Embryonic Structure
-      - UMLSSC:T018
-      - UMLSST:emst
-    id_prefixes:
-      - UBERON
-      - PO
-      - FAO
