@@ -2185,7 +2185,7 @@ slots:
     comments:
       - This is a grouping for process-process and entity-entity regulation.
     mixin: true
-    abstract: true
+    #abstract: true
     close_mappings:
       # This RTX contributed term is tagged as a inverse of this Biolink predicate
       - GO:regulated_by
@@ -2208,7 +2208,7 @@ slots:
       - This is a grouping for positive process-process and entity-entity regulation.
     is_a: regulates
     mixin: true
-    abstract: true
+    #abstract: true
     close_mappings:
       # This RTX contributed term is tagged as a inverse of this Biolink predicate
       - GO:positively_regulated_by
@@ -2228,7 +2228,7 @@ slots:
       - This is a grouping for negative process-process and entity-entity regulation.
     is_a: regulates
     mixin: true
-    abstract: true
+    #abstract: true
     close_mappings:
       # This RTX contributed term is tagged as a inverse of this Biolink predicate
       - GO:negatively_regulated_by
@@ -4395,17 +4395,17 @@ classes:
 
   relationship quantifier:
     mixin: true
-    abstract: true
+    #abstract: true
 
   sensitivity quantifier:
     is_a: relationship quantifier
     mixin: true
-    abstract: true
+    #abstract: true
 
   specificity quantifier:
     is_a: relationship quantifier
     mixin: true
-    abstract: true
+    #abstract: true
 
   pathognomonicity quantifier:
     is_a: specificity quantifier
@@ -4413,12 +4413,12 @@ classes:
       A relationship quantifier between a variant or symptom and a disease, which is
       high when the presence of the feature implies the existence of the disease
     mixin: true
-    abstract: true
+    #abstract: true
 
   frequency quantifier:
     is_a: relationship quantifier
     mixin: true
-    abstract: true
+    #abstract: true
     slots:
       - has count
       - has total
@@ -4711,7 +4711,7 @@ classes:
   distribution level:
     is_a: data set version
     mixin: true
-    abstract: true
+    #abstract: true
     slots:
       - download url
     exact_mappings:
@@ -4720,7 +4720,7 @@ classes:
   data set summary:
     is_a: data set version
     mixin: true
-    abstract: true
+    #abstract: true
     slots:
       - source web page
 
@@ -4897,7 +4897,7 @@ classes:
     description: >-
       Semantic mixin concept.  Pertains to entities that have physical properties such as mass, volume, or charge.
     mixin: true
-    abstract: true
+    #abstract: true
 
   physical entity:
     is_a: named thing
@@ -4921,14 +4921,14 @@ classes:
     # be declared as such and cannot inherit from the non-mixin biolink:NamedThing
     #is_a: named thing
     mixin: true
-    abstract: true
+    #abstract: true
     exact_mappings:
       - BFO:0000003
 
   activity and behavior:
     is_a: occurrent
     mixin: true
-    abstract: true
+    #abstract: true
     description: >-
       Activity or behavior of any independent integral living, organization or mechanical actor in the world
     exact_mappings:
@@ -5037,7 +5037,7 @@ classes:
 
   subject of investigation:
     mixin: true
-    abstract: true
+    #abstract: true
     description: >-
       An entity that has the role of being studied in an investigation, study, or experiment
 
@@ -5112,7 +5112,7 @@ classes:
 
   thing with taxon:
     mixin: true
-    abstract: true
+    #abstract: true
     description: >-
       A mixin that can be used on any entity that can be taxonomically classified.
       This includes individual organisms; genes, their products and other molecular
@@ -5286,10 +5286,10 @@ classes:
   ## (Bio)chemistry
 
   mixture:
-    abstract: true
-    mixin: true
     description: >-
       The physical combination of two or more molecular entities in which the identities are retained and are mixed in the form of solutions, suspensions and colloids.
+    mixin: true
+    #abstract: true
     slots:
       - has constituent
 
@@ -5922,7 +5922,7 @@ classes:
       represent a specific isoform rather than a canonical or reference or generic product. The designation of canonical or reference may be arbitrary,
       or it may represent the superclass of all isoforms.
     mixin: true
-    abstract: true
+    #abstract: true
 
   protein isoform:
     aliases: ['proteoform']
@@ -5995,7 +5995,7 @@ classes:
 
   gene grouping:
     mixin: true
-    abstract: true
+    #abstract: true
     description: >-
       any grouping of multiple genes or gene products
 
@@ -6494,7 +6494,7 @@ classes:
     description: >-
       An relationship between a cell line and another entity
     mixin: true
-    abstract: true
+    #abstract: true
     defining_slots:
       - subject
     slot_usage:
@@ -6520,7 +6520,7 @@ classes:
     description: >-
       An interaction between a chemical entity and another entity
     mixin: true
-    abstract: true
+    #abstract: true
     defining_slots:
       - subject
     slot_usage:
@@ -6532,7 +6532,7 @@ classes:
     description: >-
       An abstract association for use where the case is the subject
     mixin: true
-    abstract: true
+    #abstract: true
     defining_slots:
       - subject
     slot_usage:
@@ -6645,7 +6645,7 @@ classes:
     description: >-
       An association between a material sample and something.
     mixin: true
-    abstract: true
+    #abstract: true
     defining_slots:
       - subject
     slot_usage:
@@ -6690,7 +6690,7 @@ classes:
 
   disease to entity association mixin:
     mixin: true
-    abstract: true
+    #abstract: true
     defining_slots:
       - subject
     slot_usage:
@@ -6719,7 +6719,7 @@ classes:
 
   frequency qualifier mixin:
     mixin: true
-    abstract: true
+    #abstract: true
     description: >-
       Qualifier for frequency type associations
     slots:
@@ -6729,7 +6729,7 @@ classes:
     description: >-
       Qualifiers for entity to disease or phenotype associations.
     mixin: true
-    abstract: true
+    #abstract: true
     is_a: frequency qualifier mixin
     slots:
       - severity qualifier
@@ -6737,7 +6737,7 @@ classes:
 
   entity to phenotypic feature association mixin:
     mixin: true
-    abstract: true
+    #abstract: true
     is_a: entity to feature or disease qualifiers mixin
     defining_slots:
       - object
@@ -6764,7 +6764,7 @@ classes:
     description: >-
       mixin class for any association whose object (target node) is a disease
     mixin: true
-    abstract: true
+    #abstract: true
     is_a: entity to feature or disease qualifiers mixin
     defining_slots:
       - object
@@ -6778,7 +6778,7 @@ classes:
 
   disease or phenotypic feature to entity association mixin:
     mixin: true
-    abstract: true
+    #abstract: true
     defining_slots:
       - subject
     slot_usage:
@@ -6820,7 +6820,7 @@ classes:
 
   entity to disease or phenotypic feature association mixin:
     mixin: true
-    abstract: true
+    #abstract: true
     defining_slots:
       - object
     slot_usage:
@@ -6835,7 +6835,7 @@ classes:
 
   genotype to entity association mixin:
     mixin: true
-    abstract: true
+    #abstract: true
     defining_slots:
       - subject
     slot_usage:
@@ -6902,7 +6902,7 @@ classes:
 
   gene to entity association mixin:
     mixin: true
-    abstract: true
+    #abstract: true
     defining_slots:
       - subject
     slot_usage:
@@ -6914,7 +6914,7 @@ classes:
     local_names:
       ga4gh: variant annotation
     mixin: true
-    abstract: true
+    #abstract: true
     defining_slots:
       - subject
     slot_usage:
@@ -7134,7 +7134,7 @@ classes:
 
   model to disease association mixin:
     mixin: true
-    abstract: true
+    #abstract: true
     description: >-
       This mixin is used for any association class for which the subject (source node) plays the role of a 'model', in that it recapitulates some
       features of the disease in a way that is useful for studying the disease outside a patient carrying the disease

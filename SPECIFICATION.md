@@ -222,8 +222,8 @@ TODO
 
 As mentioned in the [Introduction](#introduction-Informative), semantic inheritance within a model is specified by several BiolinkML reserved properties:
 - **is_a:**
+- **abstract:**
 - **mixin:**
-- **abstract:** 
 - **typeof:** 
 - **subclass_of:** 
 - **domain:**
@@ -234,7 +234,8 @@ A few fundamental rules guiding the use of these properties include:
 
 - *range:* the **range** of the **mixins** property in a class SHOULD be a **mixin**
 - *homeomorphicity:* **is_a** SHOULD only connect either (1) two mixins (2) two classes (3) two slots
-- instances SHOULD NOT instantiate a **mixin** slot or class directly; rather, it should be designated as **abstract: true** then injected into a non-abstract class using the **mixins** property
+- instances MUST NOT instantiate a **mixin** slot or class directly since it has default **abstract** character; 
+  rather, it should be injected into non-abstract classes using the **mixins** property
 
 
 ## Core elements: Classes, Slots, and Types (Normative)

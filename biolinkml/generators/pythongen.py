@@ -515,7 +515,7 @@ class slots:
                     post_inits_pre_super.append(f'\tself.{self.slot_name(slot.name)} = {dflt}')
 
         post_inits = []
-        if not cls.abstract:
+        if not (cls.mixin or cls.abstract):
             pkeys = self.primary_keys_for(cls)
             for pkey in pkeys:
                 slot = self.schema.slots[pkey]
