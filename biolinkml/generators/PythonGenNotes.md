@@ -10,7 +10,7 @@ The elements that control the python for slot generation include
     * Whether the class has a key (`key: <type>`), an identifier (`identifier: <type>`), or neither
     * _If_ the class has a `key` or `identifier`, whether the instances are inlined as a dictionary (`inlined: true`), 
     inlined as a list (`inlined_as_list: true`) or are referenced elsewhere in the model (Default).
-* Whether the slot is or concrete (`abstract: false`) or abstract (`abstract: true`) (Default: `false`)
+* Whether the slot is or concrete (`abstract: false`) or abstract (`abstract: true` or `mixin: true`) (Default: `false`)
 * Whether a slot is required (`required: true`) or optional (`required: false`) (Default: `false`)
 * Whether a slot is single-valued (`multivalued: false`) or multi-valued  (`multivalued: true`) (Default: `false`)
 * The `ifabsent` attribute  (not covered in this document)
