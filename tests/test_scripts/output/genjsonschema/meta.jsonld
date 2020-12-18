@@ -22,22 +22,6 @@
          "title": "AltDescription",
          "type": "object"
       },
-      "Annotatable": {
-         "additionalProperties": false,
-         "description": "mixin for classes that support annotations",
-         "properties": {
-            "annotations": {
-               "description": "a collection of tag/text tuples with the semantics of OWL Annotation",
-               "items": {
-                  "$ref": "#/definitions/Annotation"
-               },
-               "type": "array"
-            }
-         },
-         "required": [],
-         "title": "Annotatable",
-         "type": "object"
-      },
       "Annotation": {
          "additionalProperties": false,
          "description": "a tag/value pair with the semantics of OWL Annotation",
@@ -354,22 +338,6 @@
          },
          "required": [],
          "title": "Example",
-         "type": "object"
-      },
-      "Extensible": {
-         "additionalProperties": false,
-         "description": "mixin for classes that support extension",
-         "properties": {
-            "extensions": {
-               "description": "a tag/text tuple attached to an arbitrary element",
-               "items": {
-                  "$ref": "#/definitions/Extension"
-               },
-               "type": "array"
-            }
-         },
-         "required": [],
-         "title": "Extensible",
          "type": "object"
       },
       "Extension": {

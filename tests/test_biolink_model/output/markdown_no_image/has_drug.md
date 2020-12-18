@@ -2,14 +2,14 @@
 # Type: has drug
 
 
-connects an entity to a single drug
+connects an entity to one or more drugs
 
 URI: [biolink:has_drug](https://w3id.org/biolink/vocab/has_drug)
 
 
 ## Domain and Range
 
-[NamedThing](NamedThing.md) ->  <sub>OPT</sub> [Drug](Drug.md)
+[NamedThing](NamedThing.md) ->  <sub>0..*</sub> [Drug](Drug.md)
 
 ## Parents
 
@@ -17,7 +17,7 @@ URI: [biolink:has_drug](https://w3id.org/biolink/vocab/has_drug)
 
 ## Children
 
- *  [drug exposure➞has drug](drug_exposure_has_drug.md)
 
 ## Used by
 
+ * [Treatment](Treatment.md)

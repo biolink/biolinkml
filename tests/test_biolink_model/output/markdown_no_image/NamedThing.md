@@ -7,22 +7,25 @@ a databased entity or concept/class
 URI: [biolink:NamedThing](https://w3id.org/biolink/vocab/NamedThing)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[VariantToDiseaseAssociation],[PlanetaryEntity],[PhysicalEntity],[OntologyClass],[Occurrent],[GenotypeToDiseaseAssociation]-%20object%201..1>[NamedThing&#124;id:string;name:label_type;category:category_type%20%2B],[GenotypeToDiseaseAssociation]-%20subject%201..1>[NamedThing],[BiologicalProcessOrActivity]-%20has%20input%200..*>[NamedThing],[BiologicalProcessOrActivity]-%20has%20output%200..*>[NamedThing],[Attribute]-%20has%20qualitative%20value%200..1>[NamedThing],[MaterialSampleDerivationAssociation]-%20object%201..1>[NamedThing],[ModelToDiseaseMixin]-%20subject%201..1>[NamedThing],[Association]-%20object%201..1>[NamedThing],[Association]-%20subject%201..1>[NamedThing],[VariantToDiseaseAssociation]-%20object%201..1>[NamedThing],[VariantToDiseaseAssociation]-%20subject%201..1>[NamedThing],[NamedThing]^-[PlanetaryEntity],[NamedThing]^-[PhysicalEntity],[NamedThing]^-[OntologyClass],[NamedThing]^-[Occurrent],[NamedThing]^-[MaterialSample],[NamedThing]^-[InformationContentEntity],[NamedThing]^-[Device],[NamedThing]^-[DataSet],[NamedThing]^-[DataFile],[NamedThing]^-[ClinicalEntity],[NamedThing]^-[BiologicalEntity],[NamedThing]^-[AdministrativeEntity],[ModelToDiseaseMixin],[MaterialSampleDerivationAssociation],[MaterialSample],[InformationContentEntity],[GenotypeToDiseaseAssociation],[Device],[DataSet],[DataFile],[ClinicalEntity],[BiologicalProcessOrActivity],[BiologicalEntity],[Attribute],[Association],[AdministrativeEntity])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[VariantToDiseaseAssociation],[Treatment],[Procedure],[PlanetaryEntity],[PhysicalEntity],[Phenomenon],[OntologyClass],[Occurrent],[NamedThing]<category%201..*-%20[NamedThing&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[GenotypeToDiseaseAssociation]-%20object%201..1>[NamedThing],[GenotypeToDiseaseAssociation]-%20subject%201..1>[NamedThing],[BiologicalProcessOrActivity]-%20has%20input%200..*>[NamedThing],[BiologicalProcessOrActivity]-%20has%20output%200..*>[NamedThing],[Attribute]-%20has%20qualitative%20value%200..1>[NamedThing],[MaterialSampleDerivationAssociation]-%20object%201..1>[NamedThing],[ModelToDiseaseAssociationMixin]-%20subject%201..1>[NamedThing],[Association]-%20object%201..1>[NamedThing],[Association]-%20subject%201..1>[NamedThing],[VariantToDiseaseAssociation]-%20object%201..1>[NamedThing],[VariantToDiseaseAssociation]-%20subject%201..1>[NamedThing],[NamedThing]^-[Treatment],[NamedThing]^-[Procedure],[NamedThing]^-[PlanetaryEntity],[NamedThing]^-[PhysicalEntity],[NamedThing]^-[Phenomenon],[NamedThing]^-[OntologyClass],[NamedThing]^-[InformationContentEntity],[NamedThing]^-[Device],[NamedThing]^-[ClinicalEntity],[NamedThing]^-[BiologicalEntity],[NamedThing]^-[AdministrativeEntity],[Entity]^-[NamedThing],[ModelToDiseaseAssociationMixin],[MaterialSampleDerivationAssociation],[InformationContentEntity],[GenotypeToDiseaseAssociation],[Entity],[Device],[ClinicalEntity],[BiologicalProcessOrActivity],[BiologicalEntity],[Attribute],[Association],[Agent],[AdministrativeEntity])
+
+## Parents
+
+ *  is_a: [Entity](Entity.md) - Root Biolink Model class for all things and informational relationships, real or imagined.
 
 ## Children
 
  * [AdministrativeEntity](AdministrativeEntity.md)
  * [BiologicalEntity](BiologicalEntity.md)
  * [ClinicalEntity](ClinicalEntity.md) - Any entity or process that exists in the clinical domain and outside the biological realm. Diseases are placed under biological entities
- * [DataFile](DataFile.md)
- * [DataSet](DataSet.md)
  * [Device](Device.md) - A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment
- * [InformationContentEntity](InformationContentEntity.md) - a piece of information that typically describes some piece of biology or is used as support.
- * [MaterialSample](MaterialSample.md) - A sample is a limited quantity of something (e.g. an individual or set of individuals from a population, or a portion of a substance) to be used for testing, analysis, inspection, investigation, demonstration, or trial use. [SIO]
- * [Occurrent](Occurrent.md) - A processual entity
+ * [InformationContentEntity](InformationContentEntity.md) - a piece of information that typically describes some topic of discourse or is used as support.
  * [OntologyClass](OntologyClass.md) - a concept or class in an ontology, vocabulary or thesaurus
- * [PhysicalEntity](PhysicalEntity.md) - An entity that has physical properties such as mass, volume, or charge
+ * [Phenomenon](Phenomenon.md) - a fact or situation that is observed to exist or happen, especially one whose cause or explanation is in question
+ * [PhysicalEntity](PhysicalEntity.md) - An entity that has material reality (a.k.a. physical essence).
  * [PlanetaryEntity](PlanetaryEntity.md) - Any entity or process that exists at the level of the whole planet
+ * [Procedure](Procedure.md) - A series of actions conducted in a certain order or manner
+ * [Treatment](Treatment.md) - A treatment is targeted at a disease or phenotype and may involve multiple drug 'exposures', medical devices and/or procedures
 
 ## Referenced by class
 
@@ -66,9 +69,9 @@ URI: [biolink:NamedThing](https://w3id.org/biolink/vocab/NamedThing)
  *  **[NamedThing](NamedThing.md)** *[location of](location_of.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[MaterialSampleDerivationAssociation](MaterialSampleDerivationAssociation.md)** *[material sample derivation association➞object](material_sample_derivation_association_object.md)*  <sub>REQ</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[model of](model_of.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
- *  **[ModelToDiseaseMixin](ModelToDiseaseMixin.md)** *[model to disease mixin➞subject](model_to_disease_mixin_subject.md)*  <sub>REQ</sub>  **[NamedThing](NamedThing.md)**
+ *  **[ModelToDiseaseAssociationMixin](ModelToDiseaseAssociationMixin.md)** *[model to disease association mixin➞subject](model_to_disease_association_mixin_subject.md)*  <sub>REQ</sub>  **[NamedThing](NamedThing.md)**
+ *  **[NamedThing](NamedThing.md)** *[named thing➞category](named_thing_category.md)*  <sub>1..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[negatively correlated with](negatively_correlated_with.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
- *  **[NamedThing](NamedThing.md)** *[negatively regulates](negatively_regulates.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[Association](Association.md)** *[object](object.md)*  <sub>REQ</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[occurs in](occurs_in.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[orthologous to](orthologous_to.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
@@ -77,12 +80,10 @@ URI: [biolink:NamedThing](https://w3id.org/biolink/vocab/NamedThing)
  *  **[NamedThing](NamedThing.md)** *[part of](part_of.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[physically interacts with](physically_interacts_with.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[positively correlated with](positively_correlated_with.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
- *  **[NamedThing](NamedThing.md)** *[positively regulates](positively_regulates.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[predisposes](predisposes.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[prevents](prevents.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[produced by](produced_by.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[produces](produces.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
- *  **[NamedThing](NamedThing.md)** *[regulates](regulates.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[related condition](related_condition.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[related to](related_to.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[same as](same_as.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
@@ -97,35 +98,48 @@ URI: [biolink:NamedThing](https://w3id.org/biolink/vocab/NamedThing)
 
 ### Own
 
- * [category](category.md)  <sub>1..*</sub>
-    * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
- * In a neo4j database this MAY correspond to the neo4j label tag.
- * In an RDF database it should be a biolink model class URI.
-This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `bl:Protein`, `bl:GeneProduct`, `bl:MolecularEntity`, ...
-In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {bl:GenomicEntity, bl:MolecularEntity, bl:NamedThing}
-    * range: [CategoryType](types/CategoryType.md)
+ * [named thing➞category](named_thing_category.md)  <sub>1..*</sub>
+    * range: [NamedThing](NamedThing.md)
+
+### Inherited from entity:
+
+ * [description](description.md)  <sub>OPT</sub>
+    * Description: a human-readable description of an entity
+    * range: [NarrativeText](types/NarrativeText.md)
     * in subsets: (translator_minimal)
+ * [has attribute](has_attribute.md)  <sub>0..*</sub>
+    * Description: connects any entity to an attribute
+    * range: [Attribute](Attribute.md)
+    * in subsets: (samples)
  * [id](id.md)  <sub>REQ</sub>
-    * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
+    * Description: A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI
     * range: [String](types/String.md)
     * in subsets: (translator_minimal)
- * [name](name.md)  <sub>REQ</sub>
-    * Description: A human-readable name for a thing
+ * [iri](iri.md)  <sub>OPT</sub>
+    * Description: An IRI for an entity. This is determined by the id using expansion rules.
+    * range: [IriType](types/IriType.md)
+    * in subsets: (translator_minimal,samples)
+ * [name](name.md)  <sub>OPT</sub>
+    * Description: A human-readable name for an attribute or entity.
+    * range: [LabelType](types/LabelType.md)
+    * in subsets: (translator_minimal,samples)
+ * [provided by](provided_by.md)  <sub>0..*</sub>
+    * Description: connects an association to the agent (person, organization or group) that provided it
+    * range: [Agent](Agent.md)
+ * [source](source.md)  <sub>OPT</sub>
+    * Description: a lightweight analog to the association class 'has provider' slot, which is the string name, or the authoritative (i.e. database) namespace, designating the origin of the entity to which the slot belongs.
     * range: [LabelType](types/LabelType.md)
     * in subsets: (translator_minimal)
+ * [type](type.md)  <sub>OPT</sub>
+    * range: [String](types/String.md)
 
 ## Other properties
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | WIKIDATA:Q35120 |
+| **Exact Mappings:** | | BFO:0000001 |
+|  | | WIKIDATA:Q35120 |
 |  | | UMLSSG:OBJC |
 |  | | UMLSSC:T071 |
 |  | | UMLSST:enty |
-|  | | UMLSSC:T072 |
-|  | | UMLSST:phob |
-|  | | UMLSSC:T073 |
-|  | | UMLSST:mnob |
-|  | | UMLSSC:T168 |
-|  | | UMLSST:food |
 

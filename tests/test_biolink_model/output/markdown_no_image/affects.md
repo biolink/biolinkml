@@ -34,9 +34,11 @@ URI: [biolink:affects](https://w3id.org/biolink/vocab/affects)
  *  [affects synthesis of](affects_synthesis_of.md)
  *  [affects transport of](affects_transport_of.md)
  *  [affects uptake of](affects_uptake_of.md)
+ *  [ameliorates](ameliorates.md)
  *  [disrupts](disrupts.md)
- *  [regulates](regulates.md)
- *  [treats](treats.md)
+ *  [exacerbates](exacerbates.md)
+ *  [regulates, entity to entity](regulates_entity_to_entity.md)
+ *  [regulates, process to process](regulates_process_to_process.md)
 
 ## Used by
 
@@ -57,7 +59,7 @@ URI: [biolink:affects](https://w3id.org/biolink/vocab/affects)
 |  | | UPHENO:0000001 |
 |  | | GO:acts_upstream_of |
 |  | | GO:acts_upstream_of_or_within |
-|  | | CIT:allele_plays_altered_role_in_process |
+|  | | NCIT:allele_plays_altered_role_in_process |
 |  | | NCIT:allele_plays_role_in_metabolism_of_chemical_or_drug |
 |  | | NCIT:biological_process_has_associated_location |
 |  | | NCIT:chemical_or_drug_affects_abnormal_cell |
