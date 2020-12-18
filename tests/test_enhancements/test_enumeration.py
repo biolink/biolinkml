@@ -102,7 +102,15 @@ class EnumerationTestCase(TestEnvironmentTestCase):
                                  value_is_returned=True)
 
         module = compile_python(env.expected_path(python_name))
-        x = module.PositionalRecord("117493", module.OpenEnum.c)
+        c1 = module.PositionalRecord('my location', 'a')
+        print(str(c1))
+        print(str(c1.position))
+        print(repr(c1.position))
+        try:
+            c2 = module.PositionalRecord('your location', 'z')
+        except ValueError as e:
+            print(e)
+        x = module.PositionalRecord("117493", "c")
         self.assertEqual('c: bottom', str(x.position))
         self.assertEqual("PositionalRecord(id='117493', position=(text='c', description='bottom'))", repr(x))
         self.assertEqual("(text='c', description='bottom')", repr(x.position))
