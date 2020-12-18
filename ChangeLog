@@ -1,6 +1,66 @@
 CHANGES
 =======
 
+* Quick patch to try fixing domain/range error for mixins (not  sure  what  else  needs to be changed)
+* Remove all mixin  \`abstract: true\`  tags  (superfluous now?)
+* issue\_38.yaml clinical profile conflicts with latest Biolink Model
+* Use 'Exposures  & Outcomes' Biolink Model YAML file as  test input
+* Automated adding outputs from tests
+* delete \_\_pycache\_\_  artifacts
+* Automated adding outputs from tests
+* more rdf examples
+* Automated adding outputs from tests
+* Adding more docs about generating RDF and JSON-LD contexts
+* Automated adding outputs from tests
+* Automatically generated requirements.txt and requiremetns-dev.txt
+* Automated adding outputs from tests
+* clarify prefix registration
+* Automated adding outputs from tests
+* tiny typo
+* Automated update to docs with GitHub Actions
+* Automated adding outputs from tests
+* incremental documentation improvements
+* Automated adding outputs from tests
+* Elaborate  inheritance  metadata
+* Automated adding outputs from tests
+* Elaborated inheritance mechanisms
+* Automated adding outputs from tests
+* Clarify 'class' usage
+* Automated adding outputs from tests
+* Add link to SPECIFICATION.md
+* Add \`parse\` to the Pipfile
+* Proposed changes for issue #159
+* Automated adding outputs from tests
+* Update to latest version of biolink-model for testing
+
+v1.6.0
+------
+
+* Automated adding outputs from tests
+* Add the context generator back to the unit test
+* Add proposed case insensitivity to prefix handling
+* Automated update to docs with GitHub Actions
+* Automated adding outputs from tests
+* Update the Python comparator to correctly test the generated code
+* Automated update to docs with GitHub Actions
+* Automated adding outputs from tests
+* Update resolver3.json
+* Update of the documentation
+* Major update to the generated Python
+* Sync with the latest biolink model for testing
+* Automated adding outputs from tests
+* Fixed #290
+* made test case for #290, fails as expected for now
+* added test for #290
+
+v1.5.10
+-------
+
+* Automated adding outputs from tests
+* Fixes for issues #281 and #282
+* Automated adding outputs from tests
+* Accidentally picked up some WIP from another branch.  Pared down to just this issue
+* Fixed issue #276.  Tightened up the YAML importer to fail on empty list elements
 * Automated adding outputs from tests
 * Checkpoint on pattern branch
 

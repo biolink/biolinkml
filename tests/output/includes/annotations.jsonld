@@ -185,10 +185,10 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/annotations",
       "multivalued": true,
       "inlined": true,
-      "owner": "Annotatable",
+      "owner": "Annotation",
       "domain_of": [
-        "Annotation",
-        "Annotatable"
+        "Annotatable",
+        "Annotation"
       ],
       "type": "SlotDefinition"
     },
@@ -247,6 +247,18 @@
   ],
   "classes": [
     {
+      "name": "Annotatable",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/Annotatable",
+      "description": "mixin for classes that support annotations",
+      "from_schema": "https://w3id.org/biolink/biolinkml/annotations",
+      "mixin": true,
+      "slots": [
+        "annotations"
+      ],
+      "class_uri": "https://w3id.org/biolink/biolinkml/meta/Annotatable",
+      "type": "ClassDefinition"
+    },
+    {
       "name": "Annotation",
       "definition_uri": "https://w3id.org/biolink/biolinkml/meta/Annotation",
       "description": "a tag/value pair with the semantics of OWL Annotation",
@@ -262,18 +274,6 @@
         "annotations"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/Annotation",
-      "type": "ClassDefinition"
-    },
-    {
-      "name": "Annotatable",
-      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/Annotatable",
-      "description": "mixin for classes that support annotations",
-      "from_schema": "https://w3id.org/biolink/biolinkml/annotations",
-      "mixin": true,
-      "slots": [
-        "annotations"
-      ],
-      "class_uri": "https://w3id.org/biolink/biolinkml/meta/Annotatable",
       "type": "ClassDefinition"
     },
     {
@@ -306,9 +306,9 @@
   ],
   "metamodel_version": "1.6.1",
   "source_file": "annotations.yaml",
-  "source_file_date": "Sun Nov 15 18:04:29 2020",
-  "source_file_size": 918,
-  "generation_date": "2020-11-15 18:04",
+  "source_file_date": "Fri Dec 18 09:38:50 2020",
+  "source_file_size": 919,
+  "generation_date": "2020-12-18 09:40",
   "type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/biolink/biolinkml/context.jsonld",

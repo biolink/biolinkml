@@ -1,5 +1,5 @@
 # Auto generated from annotations.yaml by pythongen.py version: 0.9.0
-# Generation date: 2020-11-15 18:05
+# Generation date: 2020-12-18 09:39
 # Schema: annotations
 #
 # id: https://w3id.org/biolink/biolinkml/annotations
@@ -44,6 +44,30 @@ DEFAULT_ = META
 
 
 @dataclass
+class Annotatable(YAMLRoot):
+    """
+    mixin for classes that support annotations
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = META.Annotatable
+    class_class_curie: ClassVar[str] = "meta:Annotatable"
+    class_name: ClassVar[str] = "annotatable"
+    class_model_uri: ClassVar[URIRef] = META.Annotatable
+
+    annotations: Optional[Union[Union[dict, "Annotation"], List[Union[dict, "Annotation"]]]] = empty_list()
+
+    def __post_init__(self, **kwargs: Dict[str, Any]):
+        if self.annotations is None:
+            self.annotations = []
+        if not isinstance(self.annotations, list):
+            self.annotations = [self.annotations]
+        self._normalize_inlined_slot(slot_name="annotations", slot_type=Annotation, key_name="tag", inlined_as_list=True, keyed=False)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
 class Annotation(Extension):
     """
     a tag/value pair with the semantics of OWL Annotation
@@ -75,4 +99,4 @@ class slots:
     pass
 
 slots.annotations = Slot(uri=META.annotations, name="annotations", curie=META.curie('annotations'),
-                   model_uri=META.annotations, domain=None, range=Optional[Union[Union[dict, Annotation], List[Union[dict, Annotation]]]])
+                   model_uri=META.annotations, domain=None, range=Optional[Union[Union[dict, "Annotation"], List[Union[dict, "Annotation"]]]])
