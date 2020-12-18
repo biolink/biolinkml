@@ -291,7 +291,9 @@ class slots:
         """
         clist = self._sort_classes(self.schema.classes.values())
         return '\n'.join([self.gen_classdef(v) for v in clist
-                          if not v.mixin and not v.imported_from])
+                          if  # not v.mixin and   # we allow mixin's to become @dataclaasses
+                          not v.imported_from]
+                         )
 
     def gen_classdef(self, cls: ClassDefinition) -> str:
         """ Generate python definition for class cls """
@@ -515,7 +517,7 @@ class slots:
                     post_inits_pre_super.append(f'\tself.{self.slot_name(slot.name)} = {dflt}')
 
         post_inits = []
-        if not cls.abstract:
+        if not (cls.mixin or cls.abstract):
             pkeys = self.primary_keys_for(cls)
             for pkey in pkeys:
                 slot = self.schema.slots[pkey]
