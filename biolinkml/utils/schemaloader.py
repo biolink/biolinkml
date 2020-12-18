@@ -6,7 +6,7 @@ from typing import Union, TextIO, Optional, Set, List, cast, Dict, Mapping, Tupl
 from urllib.parse import urlparse
 
 from biolinkml.meta import SchemaDefinition, SlotDefinition, SlotDefinitionName, ClassDefinition, \
-    ClassDefinitionName, TypeDefinitionName, TypeDefinition, ElementName
+    ClassDefinitionName, TypeDefinitionName, TypeDefinition, ElementName, EnumDefinition, EnumDefinitionName
 from biolinkml.utils.context_utils import parse_import_map
 from biolinkml.utils.formatutils import underscore, camelcase, sfx, lcamelcase, mangled_attribute_name
 from biolinkml.utils.mergeutils import merge_schemas, merge_slots, merge_classes, slot_usage_name
@@ -212,6 +212,14 @@ class SchemaLoader:
                 # Inverses will be handled later on in the process
                 if not slot.inverse:
                     slot.range = self.schema.default_range
+
+        # Update enums
+        merged_enums: List[EnumDefinitionName] = []
+        for enum in self.schema.enums.values():
+            if not enum.from_schema:
+                enum.from_schema = self.schema.id
+            # TODO: Need to add "is_a" to enums
+            # self.merge_enum(enum, merged_enums)
 
         # Process the slot_usages
         for cls in self.schema.classes.values():
@@ -482,13 +490,27 @@ class SchemaLoader:
                 self.raise_value_error(f"Subset: {subset} is not defined", subset)
         return self.schema
 
-
     def validate_item_names(self, typ: str, names: List[str]) -> None:
         # TODO: add a more rigorous syntax check for item names
         for name in names:
             if ':' in name:
                 raise self.raise_value_error(f'{typ}: "{name}" - ":" not allowed in identifier', name)
 
+    def merge_enum(self, enum: EnumDefinition, merged_enums: List[EnumDefinitionName]) -> None:
+        """
+        Merge parent enumeration information into target enum
+
+        :param enum: target enumeration
+        :param merged_enums: list of enum names that have been merged. Used to do distal ancestor resolution
+        """
+        if enum.name not in merged_enums:
+            merged_enums.append(enum.name)
+            if enum.is_a:
+                if enum.is_a in self.schema.enums:
+                    self.merge_enum(self.schema.enums[enum.is_a], merged_enums)
+                    # merge_enums(self.schema, enum, self.schema.enums[enum.is_a], False)
+                else:
+                    self.raise_value_error(f'Enum: "{enum.name}" - unknown is_a reference: {enum.is_a}', enum.is_a)
 
 
     def merge_slot(self, slot: SlotDefinition, merged_slots: List[SlotDefinitionName]) -> None:

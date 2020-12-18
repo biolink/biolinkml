@@ -3,7 +3,7 @@ title: Biolink Schema Metamodel
 name: metamodel
 description: A metamodel for defining biolink related schemas
 license: https://creativecommons.org/publicdomain/zero/1.0/
-version: 1.6.1
+version: 1.7.0
 
 prefixes:
   meta: https://w3id.org/biolink/biolinkml/meta/

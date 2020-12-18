@@ -28,7 +28,7 @@ classes:
     - aBc:t3
     from_schema: http://example.org/tests/curiecase
     class_uri: aBc:t3
-metamodel_version: 1.6.1
+metamodel_version: 1.7.0
 source_file: curie_case.yaml
 source_file_date: Tue Nov  3 17:18:55 2020
 source_file_size: 196

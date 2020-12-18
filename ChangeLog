@@ -1,6 +1,17 @@
 CHANGES
 =======
 
+* Temporarily adding the first prototype for the OBO --> TCCM filter and its application to HPO
+* Add an automated update of the notebooks directory
+* Checkpoint -- all tests pass and code generation is complete
+* Temporary copy of alternative.py output until we get a full merge done
+* Python for all test cases generating
+* Enumerations are now a core part of the model.py
+* Checkpoint before moving enumerations to includes
+* Add enums to typreferences
+* First successful python generation for basic enumeration type
+* further refinement on string\_serialization
+* Add example of string\_serialization for basic discussion
 * Checkpoint.   First cut at python code generation for enumeration
 * Initial model for enumerations
 * Correct an issue where classes with multiple identifiers aren't detected

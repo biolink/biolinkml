@@ -1,0 +1,19 @@
+id: https://hotecosystem.org/tccm/valuesetresolution
+name: valuesetresolution
+title: Value Set Resolution
+
+prefixes:
+  tccm: https://hotecosystem.org/tccm/
+  biolinkml: https://w3id.org/biolink/biolinkml/
+
+default_prefix: tccm
+default_range: string
+
+imports:
+  - file1
+
+
+classes:
+  IterableResolvedValueSet:
+    mixins:
+      - Directory

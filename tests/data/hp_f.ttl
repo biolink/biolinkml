@@ -70311,7 +70311,11 @@ obo:HP_3000079 a owl:Class ;
     skos:notation "HP:3000079" ;
     skos:notation "300079" ;
     skos:prefLabel "Abnormality of mandibular symphysis" ;
-    skos:inScheme obo:hp.owl .
+    skos:inScheme obo:hp.owl ;
+    skos:seeAlso "http://www.human-phenotype-ontology.org#HP_3000079"^^xsd:anyURI ;
+
+ccdh:SpecimenType a skos:Collection ;
+    skos:member obo:HP3000079, ncit:C449 .
 
 obo:hp.owl a owl:Ontology ;
     obo:IAO_0000700 obo:HP_0000001 ;

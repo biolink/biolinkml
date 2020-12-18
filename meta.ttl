@@ -17,7 +17,7 @@
 meta:metamodel a meta:SchemaDefinition ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "Biolink Schema Metamodel" ;
-    pav:version "1.6.1" ;
+    pav:version "1.7.0" ;
     skos:definition "A metamodel for defining biolink related schemas" ;
     meta:classes meta:AltDescription,
         meta:Annotatable,
@@ -39,7 +39,9 @@ meta:metamodel a meta:SchemaDefinition ;
     meta:default_curi_maps "semweb_context" ;
     meta:default_prefix "meta" ;
     meta:default_range meta:string ;
-    meta:emit_prefixes "OIO",
+    meta:emit_prefixes "IAO",
+        "OIO",
+        "biolinkml",
         "dcterms",
         "meta",
         "owl",
@@ -49,29 +51,29 @@ meta:metamodel a meta:SchemaDefinition ;
         "skos",
         "xsd" ;
     meta:enums meta:pv_formula_options ;
-    meta:generation_date "2020-11-13 11:59"^^xsd:dateTime ;
+    meta:generation_date "2020-12-17 13:12"^^xsd:dateTime ;
     meta:id biolinkml:meta ;
     meta:imports biolinkml:annotations,
         biolinkml:extensions,
         biolinkml:mappings,
         biolinkml:types ;
-    meta:metamodel_version "1.6.1" ;
-    meta:prefixes [ meta:prefix_prefix "OIO" ;
-            meta:prefix_reference OIO: ],
-        [ meta:prefix_prefix "meta" ;
-            meta:prefix_reference meta: ],
-        [ meta:prefix_prefix "biolinkml" ;
-            meta:prefix_reference biolinkml: ],
-        [ meta:prefix_prefix "skos" ;
+    meta:metamodel_version "1.7.0" ;
+    meta:prefixes [ meta:prefix_prefix "skos" ;
             meta:prefix_reference skos: ],
-        [ meta:prefix_prefix "bibo" ;
-            meta:prefix_reference bibo: ],
-        [ meta:prefix_prefix "schema" ;
-            meta:prefix_reference schema: ],
         [ meta:prefix_prefix "oslc" ;
             meta:prefix_reference oslc: ],
+        [ meta:prefix_prefix "biolinkml" ;
+            meta:prefix_reference biolinkml: ],
         [ meta:prefix_prefix "pav" ;
-            meta:prefix_reference pav: ] ;
+            meta:prefix_reference pav: ],
+        [ meta:prefix_prefix "bibo" ;
+            meta:prefix_reference bibo: ],
+        [ meta:prefix_prefix "meta" ;
+            meta:prefix_reference meta: ],
+        [ meta:prefix_prefix "schema" ;
+            meta:prefix_reference schema: ],
+        [ meta:prefix_prefix "OIO" ;
+            meta:prefix_reference OIO: ] ;
     meta:slots meta:abstract,
         meta:alias,
         meta:aliases,
@@ -195,7 +197,7 @@ meta:metamodel a meta:SchemaDefinition ;
         meta:values_from,
         meta:version ;
     meta:source_file "meta.yaml" ;
-    meta:source_file_date "Fri Nov 13 05:08:10 2020"^^xsd:dateTime ;
+    meta:source_file_date "Thu Dec 17 13:11:46 2020"^^xsd:dateTime ;
     meta:source_file_size 32547 ;
     meta:subsets meta:owl ;
     meta:types meta:boolean,

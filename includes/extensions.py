@@ -1,5 +1,5 @@
 # Auto generated from extensions.yaml by pythongen.py version: 0.9.0
-# Generation date: 2020-11-16 10:25
+# Generation date: 2020-12-17 13:07
 # Schema: extensions
 #
 # id: https://w3id.org/biolink/biolinkml/extensions
@@ -20,13 +20,13 @@ if sys.version_info < (3, 7, 6):
 else:
     from biolinkml.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
-
+from biolinkml.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import URIorCURIE
 from includes.types import String, Uriorcurie
 
-metamodel_version = "1.6.1"
+metamodel_version = "1.7.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -59,7 +59,7 @@ class Extension(YAMLRoot):
     value: str = None
     extensions: Optional[Union[Union[dict, "Extension"], List[Union[dict, "Extension"]]]] = empty_list()
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.tag is None:
             raise ValueError("tag must be supplied")
         if not isinstance(self.tag, URIorCURIE):
@@ -78,8 +78,8 @@ class Extension(YAMLRoot):
 
         super().__post_init__(**kwargs)
 
-# Enumerations
 
+# Enumerations
 
 
 # Slots

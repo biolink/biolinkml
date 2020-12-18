@@ -1,3 +1,4 @@
+import keyword
 import os
 import re
 from typing import Optional, Tuple, List, Union, TextIO, Callable, Dict, Iterator, Set
@@ -23,12 +24,14 @@ class PythonGenerator(Generator):
     visit_all_class_slots = False
 
     def __init__(self, schema: Union[str, TextIO, SchemaDefinition], format: str = valid_formats[0],
-                 genmeta: bool=False, **kwargs) -> None:
+                 genmeta: bool=False, gen_classvars: bool=True, gen_slots: bool=True, **kwargs) -> None:
         self.sourcefile = schema
         self.emit_prefixes: Set[str] = set()
         if format is None:
             format = self.valid_formats[0]
         self.genmeta = genmeta
+        self.gen_classvars = gen_classvars
+        self.gen_slots = gen_slots
         super().__init__(schema, format, **kwargs)
         if not self.schema.source_file and isinstance(self.sourcefile, str) and '\n' not in self.sourcefile:
             self.schema.source_file = os.path.basename(self.sourcefile)
@@ -91,8 +94,7 @@ class PythonGenerator(Generator):
         # The metamodel uses Enumerations to define itself, so don't import if we are generating the metamodel
         enumimports = '' if self.genmeta else \
             'from biolinkml.meta import EnumDefinition, PermissibleValue, PvFormulaOptions\n'
-        handlerimport = 'from biolinkml.utils.enumerations import EnumerationHandler' if not self.genmeta else ''
-
+        handlerimport = 'from biolinkml.utils.enumerations import EnumDefinitionImpl'
         split_descripton = '\n#              '.join(split_line(be(self.schema.description), split_len=100))
         head = f'''# Auto generated from {self.schema.source_file} by {self.generatorname} version: {self.generatorversion}
 # Generation date: {self.schema.generation_date}
@@ -138,15 +140,12 @@ dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 {self.gen_references()}
 
 {self.gen_classdefs()}
+
 # Enumerations
 {self.gen_enumerations()}
 
-
 # Slots
-class slots:
-    pass
-
-{self.gen_slots()}'''
+{self.gen_slotdefs()}'''
 
     def end_schema(self, **_):
         print(re.sub(r' +\n', '\n', self.gen_schema().replace('\t', '    ')).strip(' '), end='')
@@ -316,21 +315,25 @@ class slots:
 
         return ('\n@dataclass' if slotdefs else '') + \
                f'\nclass {self.class_or_type_name(cls.name)}{parentref}:{wrapped_description}' + \
-               f'\n\t{self.gen_inherited_slots(cls)}\n' + \
-               f'\n\t{self.gen_class_meta(cls)}\n' + \
+               f'{self.gen_inherited_slots(cls)}' + \
+               f'{self.gen_class_meta(cls)}' + \
                (f'\n\t{slotdefs}' if slotdefs else '') + \
                (f'\n{postinits}' if postinits else '')
 
     def gen_inherited_slots(self, cls: ClassDefinition) -> str:
+        if not self.gen_classvars:
+            return ''
         inherited_slots = []
         for slotname in cls.slots:
             slot = self.schema.slots[slotname]
             if slot.inherited:
                 inherited_slots.append(slot.alias if slot.alias else slotname)
         inherited_slots_str = ", ".join([f'"{underscore(s)}"' for s in inherited_slots])
-        return f"_inherited_slots: ClassVar[List[str]] = [{inherited_slots_str}]"
+        return f"\n\t_inherited_slots: ClassVar[List[str]] = [{inherited_slots_str}]\n"
 
     def gen_class_meta(self, cls: ClassDefinition) -> str:
+        if not self.gen_classvars:
+            return ''
         class_class_uri = self.namespaces.uri_for(cls.class_uri)
         if class_class_uri:
             cls_python_uri = self.namespaces.curie_for(class_class_uri, default_ok=False, pythonform=True)
@@ -352,7 +355,7 @@ class slots:
                 f'class_class_curie: ClassVar[str] = {class_class_curie}',
                 f'class_name: ClassVar[str] = "{cls.name}"',
                 f'class_model_uri: ClassVar[URIRef] = {class_model_uri}']
-        return "\n\t".join(vars)
+        return "\n\t" + "\n\t".join(vars) + "\n"
 
     def gen_type_meta(self, typ: TypeDefinition) -> str:
         type_class_uri = self.namespaces.uri_for(typ.uri)
@@ -379,8 +382,7 @@ class slots:
         return "\n\t".join(vars)
 
 
-    def gen_class_variables(self,
-                            cls: ClassDefinition) -> str:
+    def gen_class_variables(self, cls: ClassDefinition) -> str:
         """
         Generate the variable declarations for a dataclass.
 
@@ -547,7 +549,7 @@ class slots:
                                     ('\n\t\t' if post_inits_pre_super else '')
         post_inits_line = '\n\t\t'.join([p for p in post_inits if p])
         return (f'''
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         {post_inits_pre_super_line}{post_inits_line}
         super().__post_init__(**kwargs)''' + '\n') if post_inits_line or post_inits_pre_super_line else ''
 
@@ -741,9 +743,12 @@ class slots:
             return f'"str(uriorcurie)"', None
         return ns.upper() + (f".{ln}" if ln.isidentifier() else f"['{ln}']"), ns.upper() + f".curie('{ln}')"
 
-
-    def gen_slots(self) -> str:
-        return '\n\n'.join([self.gen_slot(slot) for slot in self.schema.slots.values() if not slot.imported_from])
+    def gen_slotdefs(self) -> str:
+        if self.gen_slots:
+            return "class slots:\n\tpass\n\n" + \
+                   '\n\n'.join([self.gen_slot(slot) for slot in self.schema.slots.values() if not slot.imported_from])
+        else:
+            return ''
 
     def gen_slot(self, slot: SlotDefinition) -> str:
         python_slot_name = underscore(slot.name)
@@ -769,12 +774,44 @@ class slots:
         return f"""slots.{python_slot_name} = Slot(uri={slot_uri}, name="{slot.name}", curie={slot_curie},
                    model_uri={slot_model_uri}, domain={domain}, range={rnge}{mappings}{pattern})"""
 
-
     def gen_enumerations(self) -> str:
         return '\n\n'.join([self.gen_enum(enum) for enum in self.schema.enums.values() if not enum.imported_from])
 
     def gen_enum(self, enum: EnumDefinition) -> str:
         enum_name = camelcase(enum.name)
+        return f'''
+class {enum_name}(EnumDefinitionImpl):
+    {self.gen_enum_comment(enum)}
+    {self.gen_enum_description(enum, enum_name)}
+'''.strip()
+
+    def gen_enum_comment(self, enum: EnumDefinition) -> str:
+        return f'"""\n\t{wrapped_annotation(be(enum.description))}\n\t"""' if be(enum.description) else ''
+
+    def gen_enum_description(self, enum: EnumDefinition, enum_name: str) -> str:
+        return f'''
+    {self.gen_pvs(enum)}
+
+    {self.gen_enum_definition(enum, enum_name)}
+    {self.gen_pvs2(enum)}
+'''.strip()
+
+    def gen_pvs(self, enum: EnumDefinition) -> str:
+        """
+        Generate the python compliant permissible value initializers as a set of class variables
+        @param enum:
+        @return:
+        """
+        init_list = []
+        for pv in enum.permissible_values.values():
+            if str.isidentifier(pv.text) and not keyword.iskeyword(pv.text):
+                l1 = f'{pv.text} = '
+                l1len = len(l1)
+                l2ton = '\n' + l1len * ' '
+                init_list.append(l1 + (l2ton.join(self.gen_pv_constructor(pv, l1len))))
+        return '\n\t'.join(init_list).strip()
+
+    def gen_enum_definition(self, enum: EnumDefinition, enum_name: str) -> str:
         enum_desc = enum.description.replace('"', '\\"').replace(r'\n', r'\\n') if enum.description else None
         desc = f'\t\tdescription="{enum_desc}",\n' if enum.description else ''
         cs = f'\t\tcode_set={self.namespaces.curie_for(self.namespaces.uri_for(enum.code_set), default_ok=False, pythonform=True)},\n'\
@@ -782,37 +819,65 @@ class slots:
         tag = f'\t\tcode_set_tag="{enum.code_set_tag}",\n' if enum.code_set_tag else ''
         ver = f'\t\tcode_set_version="{enum.code_set_version}",\n' if enum.code_set_version else ''
         vf = f'\t\tpv_formula={enum.pv_formula},\n' if enum.pv_formula else ''
-        pvs = ',\n\t\t\t'.join([self.gen_pv(pv) for pv in enum.permissible_values.values()]) if enum.permissible_values else ''
-        def_pvs = f'\t\tpermissible_values={{\n\t\t\t{pvs}}}\n' if enum.permissible_values else ''
-        defn = f'EnumerationHandler(\n\t\tname="{enum_name}",\n{desc}{cs}{tag}{ver}{vf}{def_pvs}\t)'
-        inline_import = 'from biolinkml.utils.enumerations import EnumerationHandler\n' if self.genmeta else ''
 
-        return f'''@dataclass
-class {enum_name}(YAMLRoot):
-    {inline_import}
-    defn: ClassVar[EnumerationHandler] = {defn}
-    code: str
+        return f'''_defn = EnumDefinition(\n\t\tname="{enum_name}",\n{desc}{cs}{tag}{ver}{vf}\t)'''
 
-    def __post_init__(self) -> None:
-        self.code = str(self.code)
-        if self.code not in {enum_name}.defn:
-            raise ValueError(f"Unknown {enum_name} value: {{self.code}}")
-'''
-
-    def gen_pv(self, pv: PermissibleValue) -> str:
-        if pv.meaning:
-            pv_meaning = self.namespaces.curie_for(self.namespaces.uri_for(pv.meaning), default_ok=False, pythonform=True)
-            meaning = f',\n\t\t\t\t\t\t\t\t\tmeaning={pv_meaning}'
+    def gen_pvs2(self, enum: EnumDefinition) -> str:
+        """
+        Generate the non-python compliant permissible value initializers as a set of setattr instructions
+        @param enum:
+        @return:
+        """
+        if any(not str.isidentifier(pv.text) or keyword.iskeyword(pv.text) for pv in enum.permissible_values.values()):
+            return f'''
+    @classmethod
+    def _addvals(cls):
+        {self.gen_pvs2_initializers(enum)}'''
         else:
-            meaning = ''
-        description = pv.description or ""
-        return f'"{pv.text}": PermissibleValue("{description}"{meaning})'
+            return ''
 
+    def gen_pvs2_initializers(self, enum: EnumDefinition) -> str:
+        init_list = []
+        for pv in enum.permissible_values.values():
+            if not str.isidentifier(pv.text) or keyword.iskeyword(pv.text):
+                l1 = '        setattr('
+                l2ton = '\n' + len(l1) * ' '
+                init_list.append(l1 + ('\n'.join(self.gen_pv_constructor(pv, len(l1)))))
+        return '\n'.join(init_list).strip()
+
+    def gen_pv_constructor(self, pv: PermissibleValue, indent: int) -> List[str]:
+        """
+        Generate a permissible value constructor
+        @param pv: Value to be constructed
+        @param indent: number of additional spaces to add on successive lines
+        @return: Permissible value constructor
+        """
+        # PermissibleValue(text="CODE",
+        #                  description="...",
+        #                  meaning="...")
+        constructor = 'PermissibleValue('
+        indent = (len(constructor) + indent) * ' '
+        c1 = ',' if pv.description or pv.meaning else ')'
+        rval = [f'{constructor}text="{pv.text}"{c1}']
+        if pv.description:
+            c2 = ',' if pv.meaning else ')'
+            rval.append(f'{indent}description="{pv.description}"{c2}')
+        if pv.meaning:
+            pv_meaning = self.namespaces.curie_for(self.namespaces.uri_for(pv.meaning), default_ok=False,
+                                                   pythonform=True)
+            rval.append(f'{indent}meaning={pv_meaning})')
+        return rval
 
 @shared_arguments(PythonGenerator)
 @click.command()
 @click.option("--head/--no-head", default=True, help="Emit metadata heading")
 @click.option("--genmeta/--no-genmeta", default=False, help="Generating metamodel")
-def cli(yamlfile, head=True, genmeta=False, **args):
+@click.option("--classvars/--no-classvars", default=True, help="Generate CLASSVAR info")
+@click.option("--slots/--no-slots", default=True, help="Generate Slot information")
+def cli(yamlfile, head=True, genmeta=False, classvars=True, slots=True, **args):
     """ Generate python classes to represent a biolink model """
-    print(PythonGenerator(yamlfile, emit_metadata=head, gen_meta=genmeta, **args).serialize(emit_metadata=head, **args))
+    print(PythonGenerator(yamlfile, emit_metadata=head, gen_meta=genmeta, gen_classvars=classvars, gen_slots=slots,  **args).serialize(emit_metadata=head, **args))
+
+
+if __name__ == '__main__':
+    cli()

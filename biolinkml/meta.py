@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by pythongen.py version: 0.9.0
-# Generation date: 2020-11-16 10:25
+# Generation date: 2020-12-17 13:12
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta
@@ -20,7 +20,7 @@ if sys.version_info < (3, 7, 6):
 else:
     from biolinkml.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
-
+from biolinkml.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import Bool, NCName, URI, URIorCURIE, XSDDateTime
@@ -28,12 +28,13 @@ from includes.annotations import Annotation
 from includes.extensions import Extension
 from includes.types import Boolean, Datetime, Integer, Ncname, String, Uri, Uriorcurie
 
-metamodel_version = "1.6.1"
+metamodel_version = "1.7.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
+IAO = CurieNamespace('IAO', 'http://purl.obolibrary.org/obo/IAO_')
 OIO = CurieNamespace('OIO', 'http://www.geneontology.org/formats/oboInOwl#')
 BIBO = CurieNamespace('bibo', 'http://purl.org/ontology/bibo/')
 BIOLINKML = CurieNamespace('biolinkml', 'https://w3id.org/biolink/biolinkml/')
@@ -140,7 +141,7 @@ class Element(YAMLRoot):
     extensions: Optional[Union[Union[dict, Extension], List[Union[dict, Extension]]]] = empty_list()
     annotations: Optional[Union[Union[dict, Annotation], List[Union[dict, Annotation]]]] = empty_list()
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.name is None:
             raise ValueError("name must be supplied")
         if not isinstance(self.name, ElementName):
@@ -312,7 +313,7 @@ class SchemaDefinition(Element):
     source_file_size: Optional[int] = None
     generation_date: Optional[Union[str, XSDDateTime]] = None
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.default_prefix is None:
             self.default_prefix = sfx(str(self.id))
         if self.name is None:
@@ -430,7 +431,7 @@ class TypeDefinition(Element):
     uri: Optional[Union[str, URIorCURIE]] = None
     repr: Optional[str] = None
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.name is None:
             raise ValueError("name must be supplied")
         if not isinstance(self.name, TypeDefinitionName):
@@ -465,7 +466,7 @@ class SubsetDefinition(Element):
 
     name: Union[str, SubsetDefinitionName] = None
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.name is None:
             raise ValueError("name must be supplied")
         if not isinstance(self.name, SubsetDefinitionName):
@@ -499,7 +500,7 @@ class Definition(Element):
     modified_by: Optional[Union[str, URIorCURIE]] = None
     status: Optional[Union[str, URIorCURIE]] = None
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.is_a is not None and not isinstance(self.is_a, DefinitionName):
             self.is_a = DefinitionName(self.is_a)
 
@@ -564,7 +565,7 @@ class EnumDefinition(Element):
     pv_formula: Optional[Union[str, "PvFormulaOptions"]] = None
     permissible_values: Optional[Union[Dict[Union[str, PermissibleValueText], Union[dict, "PermissibleValue"]], List[Union[dict, "PermissibleValue"]]]] = empty_dict()
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.name is None:
             raise ValueError("name must be supplied")
         if not isinstance(self.name, EnumDefinitionName):
@@ -635,7 +636,7 @@ class SlotDefinition(Definition):
     mixins: Optional[Union[Union[str, SlotDefinitionName], List[Union[str, SlotDefinitionName]]]] = empty_list()
     apply_to: Optional[Union[Union[str, SlotDefinitionName], List[Union[str, SlotDefinitionName]]]] = empty_list()
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.name is None:
             raise ValueError("name must be supplied")
         if not isinstance(self.name, SlotDefinitionName):
@@ -768,7 +769,7 @@ class ClassDefinition(Definition):
     mixins: Optional[Union[Union[str, ClassDefinitionName], List[Union[str, ClassDefinitionName]]]] = empty_list()
     apply_to: Optional[Union[Union[str, ClassDefinitionName], List[Union[str, ClassDefinitionName]]]] = empty_list()
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.name is None:
             raise ValueError("name must be supplied")
         if not isinstance(self.name, ClassDefinitionName):
@@ -846,7 +847,7 @@ class Prefix(YAMLRoot):
     prefix_prefix: Union[str, PrefixPrefixPrefix] = None
     prefix_reference: Union[str, URI] = None
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.prefix_prefix is None:
             raise ValueError("prefix_prefix must be supplied")
         if not isinstance(self.prefix_prefix, PrefixPrefixPrefix):
@@ -875,7 +876,7 @@ class LocalName(YAMLRoot):
     local_name_source: Union[str, LocalNameLocalNameSource] = None
     local_name_value: str = None
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.local_name_source is None:
             raise ValueError("local_name_source must be supplied")
         if not isinstance(self.local_name_source, LocalNameLocalNameSource):
@@ -904,7 +905,7 @@ class Example(YAMLRoot):
     value: Optional[str] = None
     description: Optional[str] = None
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.value is not None and not isinstance(self.value, str):
             self.value = str(self.value)
 
@@ -929,7 +930,7 @@ class AltDescription(YAMLRoot):
     source: Union[str, AltDescriptionSource] = None
     description: str = None
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.source is None:
             raise ValueError("source must be supplied")
         if not isinstance(self.source, AltDescriptionSource):
@@ -975,7 +976,7 @@ class PermissibleValue(YAMLRoot):
     extensions: Optional[Union[Union[dict, Extension], List[Union[dict, Extension]]]] = empty_list()
     annotations: Optional[Union[Union[dict, Annotation], List[Union[dict, Annotation]]]] = empty_list()
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.text is None:
             raise ValueError("text must be supplied")
         if not isinstance(self.text, PermissibleValueText):
@@ -1067,26 +1068,21 @@ class PermissibleValue(YAMLRoot):
 
         super().__post_init__(**kwargs)
 
-# Enumerations
-@dataclass
-class PvFormulaOptions(YAMLRoot):
-    from biolinkml.utils.enumerations import EnumerationHandler
 
-    defn: ClassVar[EnumerationHandler] = EnumerationHandler(
+# Enumerations
+class PvFormulaOptions(EnumDefinitionImpl):
+    CODE = PermissibleValue(text="CODE",
+                            description="The permissible values are the set of possible codes in the code set")
+    CURIE = PermissibleValue(text="CURIE",
+                             description="The permissible values are the set of CURIES in the code set")
+    URI = PermissibleValue(text="URI",
+                           description="The permissible values are the set of code URIs in the code set")
+    FHIR_CODING = PermissibleValue(text="FHIR_CODING",
+                                   description="The permissible values are the set of FHIR coding elements derived from the code set")
+    _defn = EnumDefinition(
         name="PvFormulaOptions",
         description="The formula used to generate the set of permissible values from the code_set values",
-        permissible_values={
-            "CODE": PermissibleValue("The permissible values are the set of possible codes in the code set"),
-            "CURIE": PermissibleValue("The permissible values are the set of CURIES in the code set"),
-            "URI": PermissibleValue("The permissible values are the set of code URIs in the code set"),
-            "FHIR_CODING": PermissibleValue("The permissible values are the set of FHIR coding elements derived from the code set")}
     )
-    code: str
-
-    def __post_init__(self) -> None:
-        self.code = str(self.code)
-        if self.code not in PvFormulaOptions.defn:
-            raise ValueError(f"Unknown PvFormulaOptions value: {self.code}")
 
 
 

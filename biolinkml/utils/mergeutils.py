@@ -5,7 +5,7 @@ from typing import Dict, Optional, Union, cast, List
 from rdflib import URIRef
 
 from biolinkml.meta import SchemaDefinition, Element, SlotDefinition, ClassDefinition, TypeDefinition, \
-    SlotDefinitionName, TypeDefinitionName
+    SlotDefinitionName, TypeDefinitionName, EnumDefinition
 from biolinkml.utils.formatutils import camelcase, underscore
 from biolinkml.utils.namespaces import Namespaces
 from biolinkml.utils.yamlutils import extended_str
@@ -24,6 +24,11 @@ def merge_schemas(target: SchemaDefinition, mergee: SchemaDefinition, imported_f
     if namespaces:
         merge_namespaces(target, mergee, namespaces)
 
+    if merge_imports:
+        for prefix in mergee.emit_prefixes:
+            if prefix not in target.emit_prefixes:
+                target.emit_prefixes.append(prefix)
+
     if imported_from is None:
         imported_from_uri = None
     else:
@@ -35,6 +40,7 @@ def merge_schemas(target: SchemaDefinition, mergee: SchemaDefinition, imported_f
     merge_dicts(target.slots, mergee.slots, imported_from, imported_from_uri, merge_imports)
     merge_dicts(target.types, mergee.types, imported_from, imported_from_uri, merge_imports)
     merge_dicts(target.subsets, mergee.subsets, imported_from, imported_from_uri, merge_imports)
+    merge_dicts(target.enums, mergee.enums, imported_from, imported_from_uri, merge_imports)
 
 
 def merge_namespaces(target: SchemaDefinition, mergee: SchemaDefinition, namespaces) -> None:
@@ -146,3 +152,16 @@ def merge_classes(schema: SchemaDefinition, target: ClassDefinition, source: Cla
         if slotbase not in target_base_slots:
             target.slots.append(slotname) if at_end else target.slots.insert(0, slotname)
             target_base_slots.add(slotbase)
+
+
+def merge_enums(schema: SchemaDefinition, target: EnumDefinition, source: EnumDefinition,
+                  at_end: bool = False) -> None:
+    """ Merge the slots in source into target
+
+    :param schema: Containing schema
+    :param target: mergee
+    :param source: enum to merge
+    :param at_end: True means add mergee to the end.  False to the front
+    """
+    # TODO: Finish enumeration merge code
+    pass

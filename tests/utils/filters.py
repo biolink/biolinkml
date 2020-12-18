@@ -28,7 +28,7 @@ def json_metadata_context_filter(s: str) -> str:
 
 def metadata_filter(s: str) -> str:
     return re.sub(r'(# Auto generated from ).*(\.yaml by pythongen\.py version:) .*', r'\1\2',
-                  re.sub(r'(# Generation date:) [^"]*', r'\1', re.sub(r'\r\n', '\n', s)))
+                  re.sub(r'(# Generation date:) .*', r'\1', re.sub(r'\r\n', '\n', s)))
 
 
 def yaml_filter(s: str) -> str:

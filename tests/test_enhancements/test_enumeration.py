@@ -91,5 +91,34 @@ class EnumerationTestCase(TestEnvironmentTestCase):
 
         module = compile_python(env.expected_path(python_name))
 
+    def test_notebook_model_1(self):
+        file = 'notebook_model_1'
+        python_name = f'{self.testdir}/{file}.py'
+        env.generate_single_file(python_name,
+                                 lambda: PythonGenerator(env.input_path(self.testdir, f'{file}.yaml'),
+                                                         importmap=env.import_map, mergeimports=False,
+                                                         gen_classvars=False, gen_slots=False).serialize(),
+                                 comparator=lambda exp, act: compare_python(exp, act, self.env.expected_path(python_name)),
+                                 value_is_returned=True)
+
+        module = compile_python(env.expected_path(python_name))
+        x = module.PositionalRecord("117493", module.OpenEnum.c)
+        self.assertEqual('c: bottom', str(x.position))
+        self.assertEqual("PositionalRecord(id='117493', position=(text='c', description='bottom'))", repr(x))
+        self.assertEqual("(text='c', description='bottom')", repr(x.position))
+
+    def test_notebook_model_2(self):
+        file = 'notebook_model_2'
+        python_name = f'{self.testdir}/{file}.py'
+        env.generate_single_file(python_name,
+                                 lambda: PythonGenerator(env.input_path(self.testdir, f'{file}.yaml'),
+                                                         importmap=env.import_map, mergeimports=False,
+                                                         gen_classvars=False, gen_slots=False).serialize(),
+                                 comparator=lambda exp, act: compare_python(exp, act, self.env.expected_path(python_name)),
+                                 value_is_returned=True)
+
+        module = compile_python(env.expected_path(python_name))
+
+
 if __name__ == '__main__':
     unittest.main()

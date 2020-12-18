@@ -157,7 +157,7 @@
       "type": "TypeDefinition"
     }
   ],
-  "metamodel_version": "1.6.1",
+  "metamodel_version": "1.7.0",
   "source_file": "types.yaml",
   "source_file_date": "Fri Oct 23 12:07:08 2020",
   "source_file_size": 2546,
