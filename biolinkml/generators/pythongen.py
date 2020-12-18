@@ -291,7 +291,9 @@ class slots:
         """
         clist = self._sort_classes(self.schema.classes.values())
         return '\n'.join([self.gen_classdef(v) for v in clist
-                          if not v.mixin and not v.imported_from])
+                          if  # not v.mixin and   # we allow mixin's to become @dataclaasses
+                          not v.imported_from]
+                         )
 
     def gen_classdef(self, cls: ClassDefinition) -> str:
         """ Generate python definition for class cls """
