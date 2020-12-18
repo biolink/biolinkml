@@ -140,6 +140,9 @@ invalid(I) :- range_induced_instance_of(I,C),\+ instance_of(I,C).
 % a slot must be explicitly declared for a class to be used (with OO inference)
 invalid(I) :- direct_fact(I,P,_), \+ ((instance_of(I,IC), subrelation_of(P, PA), class_slot(IC, PA) )).
 
+% cardinality of is_a is zero or one
+invalid(C) :- is_a(C,P1),is_a(C,P2),P1\=P2.
+
 % infer a more specific type relationship.
 % note we do not do anything with this yet.
 definition_induced_instance_of(I,C) :-

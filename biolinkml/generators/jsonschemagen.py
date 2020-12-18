@@ -43,7 +43,7 @@ class JsonSchemaGenerator(Generator):
         print(as_json(self.schemaobj, sort_keys=True))
 
     def visit_class(self, cls: ClassDefinition) -> bool:
-        if cls.abstract:
+        if cls.mixin or cls.abstract:
             return False
         self.clsobj = JsonObj(title=camelcase(cls.name),
                               type='object',

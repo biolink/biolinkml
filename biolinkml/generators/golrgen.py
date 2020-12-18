@@ -58,7 +58,7 @@ class GolrSchemaGenerator(Generator):
         # write_golr_yaml_to_dir(schema, dir)
 
     def visit_class(self, cls: ClassDefinition) -> bool:
-        if not cls.abstract:
+        if not (cls.mixin or cls.abstract):
             self.class_obj = GOLRClass(id=underscore(cls.name),
                                        schema_generating=True,
                                        description=cls.description,

@@ -91,7 +91,7 @@ class ShExGenerator(Generator):
             childrenExprs = []
             for child_classname in sorted(list(self.synopsis.isarefs[cls.name].classrefs)):
                 childrenExprs.append(self._class_or_type_uri(child_classname))
-            if not cls.abstract or len(childrenExprs) == 1:
+            if not (cls.mixin or cls.abstract) or len(childrenExprs) == 1:
                 childrenExprs.insert(0, self.shape)
                 self.shapes.append(ShapeOr(id=self._class_or_type_uri(cls), shapeExprs=childrenExprs))
             else:
@@ -104,7 +104,7 @@ class ShExGenerator(Generator):
 
     def visit_class_slot(self, cls: ClassDefinition, aliased_slot_name: SlotDefinitionName, slot: SlotDefinition) \
             -> None:
-        if not (slot.identifier or slot.abstract):
+        if not (slot.identifier or slot.abstract or slot.mixin):
             constraint = TripleConstraint()
             self._add_constraint(constraint)
             constraint.predicate = self.namespaces.uri_for(slot.slot_uri)

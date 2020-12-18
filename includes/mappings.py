@@ -1,5 +1,5 @@
 # Auto generated from mappings.yaml by pythongen.py version: 0.9.0
-# Generation date: 2020-12-17 13:07
+# Generation date: 2020-12-18 12:45
 # Schema: mappings
 #
 # id: https://w3id.org/biolink/biolinkml/mappings

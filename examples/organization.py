@@ -1,5 +1,5 @@
 # Auto generated from organization.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-06-07 14:59
+# Generation date: 2020-12-08 16:49
 # Schema: organization
 #
 # id: http://example.org/sample/organization
@@ -22,12 +22,13 @@ from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 
 
-metamodel_version = "1.4.4"
+metamodel_version = "1.4.3"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
+ORGDATA = CurieNamespace('ORGDATA', 'http://example.org/sample/organization/data/')
 XSD = CurieNamespace('xsd', 'http://example.org/UNKNOWN/xsd/')
 DEFAULT_ = CurieNamespace('', 'http://example.org/sample/organization/')
 

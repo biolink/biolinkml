@@ -11,6 +11,7 @@ biolinkml is a general purpose modeling language following object-oriented and o
 
 biolinkml is used for development of the [BioLink Model](https://biolink.github.io/biolink-model), but the framework is general purpose and can be used for any kind of modeling.
 
+This documentation is best seen via the [biolinkml site](https://biolink.github.io/biolinkml/) but can also be viewed via the GitHub repository
 
 Quickstart docs:
 
@@ -19,6 +20,8 @@ Quickstart docs:
     * [slot definition](https://biolink.github.io/biolinkml/docs/SlotDefinition) Class properties
     * [type definition](https://biolink.github.io/biolinkml/docs/TypeDefinition) Data types
     * [schema definition](https://biolink.github.io/biolinkml/docs/SchemaDefinition) Schema definition
+
+Further details about the general design of BiolinkML are in the [Biolink Modeling Language Specification](SPECIFICATION.md).
 
 For an example, see the [Jupyter notebook example](https://nbviewer.jupyter.org/github/biolink/biolinkml/blob/master/notebooks/examples.ipynb)
 
@@ -121,13 +124,49 @@ slots:
 
 Note this schema does not illustrate the more advanced features of blml
 
+## Generators
+
+See [](biolinkml/generators/)
+
 ### JSON Schema
 
 [JSON Schema](https://json-schema.org/) is a schema language for JSON documents
 
+JSON schema can be derived from a biolinkml schema, for example:
+
 `pipenv run gen-json-schema examples/organization.yaml`
 
-See [examples/organization.schema.json](examples/organization.schema.json)
+Output: [examples/organization.schema.json](examples/organization.schema.json)
+
+Note that any JSON that conforms to the derived JSON-Schema can be converted to RDF using the derived JSON-LD context.
+
+### JSON-LD Context
+
+[JSON-LD contexts](https://www.w3.org/TR/json-ld/#the-context) provide a mapping from JSON to RDF
+
+A JSON-LD context can be derived from a biolinkml schema, for example:
+
+`pipenv run gen-jsonld-context examples/organization.yaml`
+
+Output: [examples/organization.context.jsonld](examples/organization.context.jsonld)
+
+You can control this via [prefixes](https://w3id.org/biolink/biolinkml/meta/prefixes) declarations and [default_curi_maps](https://w3id.org/biolink/biolinkml/meta/default_curi_maps).
+
+Any JSON that conforms to the derived JSON-Schema (see above) can be converted to RDF using this context. See the [Jupyter notebook example](https://nbviewer.jupyter.org/github/biolink/biolinkml/blob/master/notebooks/examples.ipynb) for an example.
+
+You can also combine a JSON instance file with a JSON-LD context using simple code or a tool like [jq](https://stackoverflow.com/questions/19529688/how-to-merge-2-json-objects-from-2-files-using-jq)
+
+```bash
+jq -s '.[0] * .[1]' examples/organization-data.json examples/organization.context.jsonld > examples/organization-data.jsonld
+```
+
+You can then use a standard JSON-LD conversion file to make other RDF syntaxes, e.g.
+
+```bash
+riot examples/organization-data.jsonld > examples/organization-data.nt
+```
+
+See [examples/organization-data.nt](examples/organization-data.nt)
 
 
 ### Python DataClasses
@@ -163,20 +202,92 @@ class Organization(YAMLRoot):
 
 ```
 
+For more details see [PythonGenNotes](biolinkml/generators/)
+
+The python object can be direcly serialized as RDF. See the [Jupyter notebook example](https://nbviewer.jupyter.org/github/biolink/biolinkml/blob/master/notebooks/examples.ipynb) for an example.
+
+
 ### ShEx
 
  [ShEx](http://shex.io/shex-semantics/index.html) - Shape Expressions Langauge
 
 `pipenv run gen-shex examples/organization.yaml > examples/organization.shex`
 
-See [examples/organization.shex](examples/organization.shex)
+```
+BASE <http://example.org/sample/organization/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd1: <http://example.org/UNKNOWN/xsd/>
 
+
+<YearCount> xsd1:int
+
+<String> xsd1:string
+
+<Employee>  (
+    CLOSED {
+       (  $<Employee_tes> (  <first_name> @<String> ? ;
+             <last_name> @<String> ;
+             <aliases> @<String> * ;
+             <age_in_years> @<YearCount> ?
+          ) ;
+          rdf:type [ <Employee> ]
+       )
+    } OR @<Manager>
+)
+
+<Manager> CLOSED {
+    (  $<Manager_tes> (  &<Employee_tes> ;
+          rdf:type [ <Employee> ] ? ;
+          <has_employees> @<Employee> *
+       ) ;
+       rdf:type [ <Manager> ]
+    )
+}
+
+<Organization> CLOSED {
+    (  $<Organization_tes> (  <name> @<String> ? ;
+          <has_boss> @<Manager> ?
+       ) ;
+       rdf:type [ <Organization> ]
+    )
+}
+```
+
+See [examples/organization.shex](examples/organization.shex) for full output
+
+### OWL
+
+Web Ontology Language [OWL](https://www.w3.org/TR/2012/REC-owl2-overview-20121211/)
+
+`pipenv run gen-owl examples/organization.yaml > examples/organization.owl.ttl`
+
+```turtle
+...
+<http://example.org/sample/organization/Organization> a owl:Class,
+        meta:ClassDefinition ;
+    rdfs:label "organization" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass <http://example.org/sample/organization/String> ;
+            owl:onProperty <http://example.org/sample/organization/id> ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://example.org/sample/organization/String> ;
+            owl:onProperty <http://example.org/sample/organization/name> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://example.org/sample/organization/Manager> ;
+            owl:onProperty <http://example.org/sample/organization/has_boss> ] .
+```
+
+See [examples/organization.owl.ttl](examples/organization.owl.ttl) for full output
 
 ## Generating Markdown documentation
 
 `pipenv run gen-markdown examples/organization.yaml -d examples/organization-docs/`
 
-This will generate a markdown document for every class and slot in the model
+This will generate a markdown document for every class and slot in the
+model. These can be used in a static site, e.g. via GitHub pages.
 
 ### Others
 
@@ -186,13 +297,14 @@ This will generate a markdown document for every class and slot in the model
 * Protobuf
 * [JSON](https://json.org/) and [JSON-LD](https://json-ld.org/)
 * [Markdown](https://daringfireball.net/projects/markdown/) - markup language used by github and others
-* [OWL](https://www.w3.org/TR/2012/REC-owl2-overview-20121211/) - Web Ontology Language
 * [RDF](https://www.w3.org/2001/sw/wiki/RDF) - Resource Description Format
 
 
-## Formal Semantics
+## Specification
 
-These are specified using First Order Logic (FOL) axioms. See the [semantics](semantics) folder
+See the [specification](https://biolink.github.io/biolinkml/SPECIFICATION).
+
+Also see the [semantics](semantics) folder for an experimental specification in terms of FOL.
 
 ## FAQ
 
@@ -272,11 +384,11 @@ If the Pypi release failed, make fixes, [delete the GitHub release](https://help
 
 ## Example Projects
 
- * https://github.com/biolink/biolink-model -- this was the original biolinkml project
- * https://github.com/microbiomedata/nmdc-metadata
- * https://github.com/cmungall/metadata_converter
- * https://sssom-py.readthedocs.io/
- * https://cmungall.github.io/ontology-change-language/
+ * [Biolink Model](https://github.com/biolink/biolink-model) -- this was the original biolinkml project
+ * [National Microbiome Data Collaborative](https://github.com/microbiomedata/nmdc-metadata)
+ * [Sequencing Metadata Alignment Project](https://github.com/microbiomedata/metadata_converter)
+ * [SSSOM Schema](https://sssom-py.readthedocs.io/)
+ * [Knowledge Graph Change Language](https://cmungall.github.io/ontology-change-language/)
  * https://github.com/diatomsRcool/collections-attribution-model
  * https://github.com/cmungall/dasher/tree/master/src/schema
  * CCDH (todo: add link)

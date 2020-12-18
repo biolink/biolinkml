@@ -8,6 +8,9 @@ types:
   string:
     base: str
     uri: xsd:string
+
+prefixes:
+  ORGDATA: http://example.org/sample/organization/data/
     
 classes:
 
@@ -55,7 +58,6 @@ slots:
     description: The first name of a person
     examples:
       - value: fred
-      
     
   last name:
     is_a: name

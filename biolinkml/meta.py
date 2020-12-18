@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by pythongen.py version: 0.9.0
-# Generation date: 2020-12-17 13:12
+# Generation date: 2020-12-18 12:45
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta
@@ -1071,20 +1071,22 @@ class PermissibleValue(YAMLRoot):
 
 # Enumerations
 class PvFormulaOptions(EnumDefinitionImpl):
+    """
+    The formula used to generate the set of permissible values from the code_set values
+    """
     CODE = PermissibleValue(text="CODE",
-                            description="The permissible values are the set of possible codes in the code set")
+                               description="The permissible values are the set of possible codes in the code set")
     CURIE = PermissibleValue(text="CURIE",
-                             description="The permissible values are the set of CURIES in the code set")
+                                 description="The permissible values are the set of CURIES in the code set")
     URI = PermissibleValue(text="URI",
-                           description="The permissible values are the set of code URIs in the code set")
+                             description="The permissible values are the set of code URIs in the code set")
     FHIR_CODING = PermissibleValue(text="FHIR_CODING",
-                                   description="The permissible values are the set of FHIR coding elements derived from the code set")
+                                             description="The permissible values are the set of FHIR coding elements derived from the code set")
+
     _defn = EnumDefinition(
         name="PvFormulaOptions",
         description="The formula used to generate the set of permissible values from the code_set values",
     )
-
-
 
 # Slots
 class slots:
