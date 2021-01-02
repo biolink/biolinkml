@@ -126,6 +126,44 @@ class EnumerationTestCase(TestEnvironmentTestCase):
                                  value_is_returned=True)
 
         module = compile_python(env.expected_path(python_name))
+        t = module.Sample("Something", [module.UnusualEnumPatterns.M, module.UnusualEnumPatterns['% ! -- whoo']])
+        print(str(t))
+
+    def test_notebook_model_3(self):
+        file = 'notebook_model_3'
+        python_name = f'{self.testdir}/{file}.py'
+        env.generate_single_file(python_name,
+                                 lambda: PythonGenerator(env.input_path(self.testdir, f'{file}.yaml'),
+                                                         importmap=env.import_map, mergeimports=False,
+                                                         gen_classvars=False, gen_slots=False).serialize(),
+                                 comparator=lambda exp, act: compare_python(exp, act, self.env.expected_path(python_name)),
+                                 value_is_returned=True)
+
+        module = compile_python(env.expected_path(python_name))
+        colorrec = module.FavoriteColor("Harold", module.Colors['2'])
+        print(colorrec)
+        print(str(colorrec.position))
+        print(colorrec.position.meaning)
+        cr2 = module.FavoriteColor("Donald", module.Colors['4'])
+        print(cr2.position.meaning)
+
+    def test_notebook_model_4(self):
+        file = 'notebook_model_4'
+        python_name = f'{self.testdir}/{file}.py'
+        env.generate_single_file(python_name,
+                                 lambda: PythonGenerator(env.input_path(self.testdir, f'{file}.yaml'),
+                                                         importmap=env.import_map, mergeimports=False,
+                                                         gen_classvars=False, gen_slots=False).serialize(),
+                                 comparator=lambda exp, act: compare_python(exp, act, self.env.expected_path(python_name)),
+                                 value_is_returned=True)
+
+        module = compile_python(env.expected_path(python_name))
+        colorrec = module.FavoriteColor("Harold", module.Colors['2'])
+        print(colorrec)
+        print(str(colorrec.position))
+        print(colorrec.position.meaning)
+        cr2 = module.FavoriteColor("Donald", module.Colors['4'])
+        print(cr2.position.meaning)
 
 
 if __name__ == '__main__':

@@ -1,5 +1,5 @@
 from dataclasses import fields
-from typing import Union
+from typing import Union, Optional
 
 from biolinkml.utils.metamodelcore import Curie
 
@@ -17,32 +17,75 @@ class EnumDefinitionMeta(type):
             raise ValueError(f"{cls.__name__} - {key} already assigned")
         cls.__dict__[key] = value
 
+    def __setattr__(self, key, value):
+        from biolinkml.meta import PermissibleValue
+        if self._defn.code_set and isinstance(value, PermissibleValue) and value.meaning:
+            print(f"Validating {value.meaning} against {self._defn.code_set}")
+        super().__setattr__(key, value)
+
     def __contains__(cls, item) -> bool:
         return item in cls.__dict__
 
 
 class EnumDefinitionImpl(metaclass=EnumDefinitionMeta):
+    _defn: "EnumDefinition" = None         # Overridden by implementation
+
     def __init__(self, code: Union[str, Curie, "PermissibleValue"]) -> None:
         from biolinkml.meta import PermissibleValue
         if isinstance(code, PermissibleValue):
             key = code.text
         elif isinstance(code, Curie):
-            key = '.'.join(str(self.code).split(':', 1))
+            key = str(code)
         else:
             key = code
 
-        if key not in self.__class__:
-            # TODO: This is where we create a new PermissibleValue if the definition includes a code_set
+        if key not in self.__class__ and self._defn.code_set:
+            code = self._lookup(key)
+            if code:
+                self.__class__[key] = code
+                self._code = code
+        elif key not in self.__class__:
             raise ValueError(f"Unknown {self.__class__.__name__} enumeration code: {key}")
-        if isinstance(code, PermissibleValue):
+        elif isinstance(code, PermissibleValue):
             if getattr(self, 'code', None):
-                if self.code != code:
+                if self._code != code:
                     raise ValueError(f"Enumeration: {self.__class__.__name__} - "
                                      f"Cannot change an existing permissible value entry for {code}")
             else:
-                self.code = code
+                self._code = code
         else:
-            self.code = self.__class__[key]
+            self._code = self.__class__[key]
+
+    def _lookup(self, key: str) -> Optional["PermissibleValue"]:
+        """
+        Hook to look up key in the appropriate code system
+        @param key: URI or string in Curie form (TBD)
+        @return: Permissible value rendering if key is valid
+        """
+        return None
+
+    # WARNING: any non "_" prefix pollutes the EnumDefinition namespace.  These CAN be overridden, but be aware that
+    # the value "code", "meaning" "uri", or "curie" as actual codes will mean that one will need to use "_code" and
+    # direct access to get at the real values
+    @property
+    def code(self):
+        return self._code
+
+    @code.setter
+    def code(self, val):
+        self._code = val
+
+    @property
+    def meaning(self):
+        return self._code.meaning
+
+    @property
+    def uri(self):
+        return self._code.meaning
+
+    @property
+    def curie(self):
+        return "Curie for: " + self._code.meaning
 
     @classmethod
     def _addvals(cls):
@@ -50,8 +93,8 @@ class EnumDefinitionImpl(metaclass=EnumDefinitionMeta):
         pass
 
     def __str__(self) -> str:
-        return f'{self.code.text}: {self.code.description or ""}'
+        return f'{self._code.text}: {self._code.description or ""}'
 
     def __repr__(self) -> str:
-        rlist = [(f.name, getattr(self.code, f.name)) for f in fields(self.code)]
+        rlist = [(f.name, getattr(self._code, f.name)) for f in fields(self._code)]
         return '(' + ', '.join([f"{f[0]}={repr(f[1])}" for f in rlist if f[1]]) + ')'

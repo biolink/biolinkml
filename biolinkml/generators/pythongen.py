@@ -841,8 +841,10 @@ class {enum_name}(EnumDefinitionImpl):
         for pv in enum.permissible_values.values():
             if not str.isidentifier(pv.text) or keyword.iskeyword(pv.text):
                 l1 = '        setattr('
-                l2ton = '\n' + len(l1) * ' '
-                init_list.append(l1 + ('\n'.join(self.gen_pv_constructor(pv, len(l1)))))
+                l2ton = len(l1) * ' '
+                pv_cons = ('\n'.join(self.gen_pv_constructor(pv, len(l1))))
+                pv_text = pv.text.replace('"', '\\"').replace(r'\n', r'\\n')
+                init_list.append(f'{l1}cls, "{pv_text}",\n{l2ton}{pv_cons} )')
         return '\n'.join(init_list).strip()
 
     def gen_pv_constructor(self, pv: PermissibleValue, indent: int) -> List[str]:
