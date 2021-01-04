@@ -99,6 +99,33 @@
                         shex:valueExpr [ a shex:NodeConstraint ;
                                 shex:values ( <https://w3id.org/biolink/biolinkml/meta/Element> ) ] ] ) ] .
 
+<https://w3id.org/biolink/biolinkml/meta/EnumDefinition_tes> a shex:EachOf ;
+    shex:expressions ( <https://w3id.org/biolink/biolinkml/meta/Element_tes> [ a shex:TripleConstraint ;
+                shex:min 0 ;
+                shex:predicate rdf:type ;
+                shex:valueExpr [ a shex:NodeConstraint ;
+                        shex:values ( <https://w3id.org/biolink/biolinkml/meta/Element> ) ] ] [ a shex:TripleConstraint ;
+                shex:max 1 ;
+                shex:min 0 ;
+                shex:predicate <https://w3id.org/biolink/biolinkml/meta/code_set> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ] [ a shex:TripleConstraint ;
+                shex:max 1 ;
+                shex:min 0 ;
+                shex:predicate <https://w3id.org/biolink/biolinkml/meta/code_set_tag> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/types/String> ] [ a shex:TripleConstraint ;
+                shex:max 1 ;
+                shex:min 0 ;
+                shex:predicate <https://w3id.org/biolink/biolinkml/meta/code_set_version> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/types/String> ] [ a shex:TripleConstraint ;
+                shex:max 1 ;
+                shex:min 0 ;
+                shex:predicate <https://w3id.org/biolink/biolinkml/meta/pv_formula> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/PvFormulaOptions> ] [ a shex:TripleConstraint ;
+                shex:max -1 ;
+                shex:min 0 ;
+                shex:predicate <https://w3id.org/biolink/biolinkml/meta/permissible_values> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/PermissibleValue> ] ) .
+
 <https://w3id.org/biolink/biolinkml/meta/Example_tes> a shex:EachOf ;
     shex:expressions ( [ a shex:TripleConstraint ;
                 shex:max 1 ;
@@ -120,6 +147,89 @@
                 shex:min 1 ;
                 shex:predicate <http://www.w3.org/2004/02/skos/core#altLabel> ;
                 shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/types/String> ] ) .
+
+<https://w3id.org/biolink/biolinkml/meta/PermissibleValue_tes> a shex:EachOf ;
+    shex:expressions ( <https://w3id.org/biolink/biolinkml/meta/Extensible_tes> [ a shex:TripleConstraint ;
+                shex:min 0 ;
+                shex:predicate rdf:type ;
+                shex:valueExpr [ a shex:NodeConstraint ;
+                        shex:values ( <https://w3id.org/biolink/biolinkml/meta/Extensible> ) ] ] <https://w3id.org/biolink/biolinkml/meta/Annotatable_tes> [ a shex:TripleConstraint ;
+                shex:min 0 ;
+                shex:predicate rdf:type ;
+                shex:valueExpr [ a shex:NodeConstraint ;
+                        shex:values ( <https://w3id.org/biolink/biolinkml/meta/Annotatable> ) ] ] [ a shex:TripleConstraint ;
+                shex:max 1 ;
+                shex:min 0 ;
+                shex:predicate <http://www.w3.org/2004/02/skos/core#definition> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/types/String> ] [ a shex:TripleConstraint ;
+                shex:max 1 ;
+                shex:min 0 ;
+                shex:predicate <https://w3id.org/biolink/biolinkml/meta/meaning> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ] [ a shex:TripleConstraint ;
+                shex:max -1 ;
+                shex:min 0 ;
+                shex:predicate <https://w3id.org/biolink/biolinkml/meta/alt_descriptions> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/AltDescription> ] [ a shex:TripleConstraint ;
+                shex:max 1 ;
+                shex:min 0 ;
+                shex:predicate <https://w3id.org/biolink/biolinkml/meta/deprecated> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/types/String> ] [ a shex:TripleConstraint ;
+                shex:max -1 ;
+                shex:min 0 ;
+                shex:predicate <https://w3id.org/biolink/biolinkml/meta/todos> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/types/String> ] [ a shex:TripleConstraint ;
+                shex:max -1 ;
+                shex:min 0 ;
+                shex:predicate <http://www.w3.org/2004/02/skos/core#editorialNote> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/types/String> ] [ a shex:TripleConstraint ;
+                shex:max -1 ;
+                shex:min 0 ;
+                shex:predicate <http://www.w3.org/2004/02/skos/core#note> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/types/String> ] [ a shex:TripleConstraint ;
+                shex:max -1 ;
+                shex:min 0 ;
+                shex:predicate <https://w3id.org/biolink/biolinkml/meta/examples> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/Example> ] [ a shex:TripleConstraint ;
+                shex:max -1 ;
+                shex:min 0 ;
+                shex:predicate <http://www.geneontology.org/formats/oboInOwl#inSubset> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/SubsetDefinition> ] [ a shex:TripleConstraint ;
+                shex:max 1 ;
+                shex:min 0 ;
+                shex:predicate <http://www.w3.org/2004/02/skos/core#inScheme> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/types/Uri> ] [ a shex:TripleConstraint ;
+                shex:max 1 ;
+                shex:min 0 ;
+                shex:predicate <https://w3id.org/biolink/biolinkml/meta/imported_from> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/types/String> ] [ a shex:TripleConstraint ;
+                shex:max -1 ;
+                shex:min 0 ;
+                shex:predicate rdfs:seeAlso ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ] [ a shex:TripleConstraint ;
+                shex:max 1 ;
+                shex:min 0 ;
+                shex:predicate <https://w3id.org/biolink/biolinkml/meta/deprecated_element_has_exact_replacement> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ] [ a shex:TripleConstraint ;
+                shex:max 1 ;
+                shex:min 0 ;
+                shex:predicate <https://w3id.org/biolink/biolinkml/meta/deprecated_element_has_possible_replacement> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ] [ a shex:TripleConstraint ;
+                shex:max 1 ;
+                shex:min 0 ;
+                shex:predicate <https://w3id.org/biolink/biolinkml/meta/is_a> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/PermissibleValue> ] [ a shex:TripleConstraint ;
+                shex:max -1 ;
+                shex:min 0 ;
+                shex:predicate <https://w3id.org/biolink/biolinkml/meta/mixins> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/PermissibleValue> ] [ a shex:TripleConstraint ;
+                shex:max -1 ;
+                shex:min 0 ;
+                shex:predicate <https://w3id.org/biolink/biolinkml/meta/extensions> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/Extension> ] [ a shex:TripleConstraint ;
+                shex:max -1 ;
+                shex:min 0 ;
+                shex:predicate <https://w3id.org/biolink/biolinkml/meta/annotations> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/Annotation> ] ) .
 
 <https://w3id.org/biolink/biolinkml/meta/Prefix_tes> a shex:EachOf ;
     shex:expressions ( [ a shex:TripleConstraint ;
@@ -186,6 +296,10 @@
                 shex:min 0 ;
                 shex:predicate <https://w3id.org/biolink/biolinkml/meta/types> ;
                 shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/TypeDefinition> ] [ a shex:TripleConstraint ;
+                shex:max -1 ;
+                shex:min 0 ;
+                shex:predicate <https://w3id.org/biolink/biolinkml/meta/enums> ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/EnumDefinition> ] [ a shex:TripleConstraint ;
                 shex:max -1 ;
                 shex:min 0 ;
                 shex:predicate <https://w3id.org/biolink/biolinkml/meta/slots> ;
@@ -390,12 +504,6 @@
 <https://w3id.org/biolink/biolinkml/meta/types/Time> a shex:NodeConstraint ;
     shex:datatype xsd:dateTime .
 
-<https://w3id.org/biolink/biolinkml/meta/Extensible_tes> a shex:TripleConstraint ;
-    shex:max -1 ;
-    shex:min 0 ;
-    shex:predicate <https://w3id.org/biolink/biolinkml/meta/extensions> ;
-    shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/Extension> .
-
 <https://w3id.org/biolink/biolinkml/meta/Extension_tes> a shex:EachOf ;
     shex:expressions ( [ a shex:TripleConstraint ;
                 shex:max 1 ;
@@ -410,21 +518,6 @@
                 shex:min 0 ;
                 shex:predicate <https://w3id.org/biolink/biolinkml/meta/extensions> ;
                 shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/Extension> ] ) .
-
-<https://w3id.org/biolink/biolinkml/meta/AltDescription> a shex:Shape ;
-    shex:closed true ;
-    shex:expression [ a shex:EachOf ;
-            shex:expressions ( <https://w3id.org/biolink/biolinkml/meta/AltDescription_tes> [ a shex:TripleConstraint ;
-                        shex:min 1 ;
-                        shex:predicate rdf:type ;
-                        shex:valueExpr [ a shex:NodeConstraint ;
-                                shex:values ( <https://w3id.org/biolink/biolinkml/meta/AltDescription> ) ] ] ) ] .
-
-<https://w3id.org/biolink/biolinkml/meta/Annotatable_tes> a shex:TripleConstraint ;
-    shex:max -1 ;
-    shex:min 0 ;
-    shex:predicate <https://w3id.org/biolink/biolinkml/meta/annotations> ;
-    shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/Annotation> .
 
 <https://w3id.org/biolink/biolinkml/meta/Definition_tes> a shex:EachOf ;
     shex:expressions ( <https://w3id.org/biolink/biolinkml/meta/Element_tes> [ a shex:TripleConstraint ;
@@ -473,23 +566,11 @@
                 shex:predicate <http://purl.org/ontology/bibo/status> ;
                 shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie> ] ) .
 
-<https://w3id.org/biolink/biolinkml/meta/Example> a shex:Shape ;
-    shex:closed true ;
-    shex:expression [ a shex:EachOf ;
-            shex:expressions ( <https://w3id.org/biolink/biolinkml/meta/Example_tes> [ a shex:TripleConstraint ;
-                        shex:min 0 ;
-                        shex:predicate rdf:type ;
-                        shex:valueExpr [ a shex:NodeConstraint ;
-                                shex:values ( <https://w3id.org/biolink/biolinkml/meta/Example> ) ] ] ) ] .
-
-<https://w3id.org/biolink/biolinkml/meta/Extensible> a shex:Shape ;
-    shex:closed false ;
-    shex:expression [ a shex:EachOf ;
-            shex:expressions ( <https://w3id.org/biolink/biolinkml/meta/Extensible_tes> [ a shex:TripleConstraint ;
-                        shex:min 0 ;
-                        shex:predicate rdf:type ;
-                        shex:valueExpr [ a shex:NodeConstraint ;
-                                shex:values ( <https://w3id.org/biolink/biolinkml/meta/Extensible> ) ] ] ) ] .
+<https://w3id.org/biolink/biolinkml/meta/Extensible_tes> a shex:TripleConstraint ;
+    shex:max -1 ;
+    shex:min 0 ;
+    shex:predicate <https://w3id.org/biolink/biolinkml/meta/extensions> ;
+    shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/Extension> .
 
 <https://w3id.org/biolink/biolinkml/meta/LocalName> a shex:Shape ;
     shex:closed true ;
@@ -518,6 +599,51 @@
                         shex:valueExpr [ a shex:NodeConstraint ;
                                 shex:values ( <https://w3id.org/biolink/biolinkml/meta/SchemaDefinition> ) ] ] ) ] .
 
+<https://w3id.org/biolink/biolinkml/meta/AltDescription> a shex:Shape ;
+    shex:closed true ;
+    shex:expression [ a shex:EachOf ;
+            shex:expressions ( <https://w3id.org/biolink/biolinkml/meta/AltDescription_tes> [ a shex:TripleConstraint ;
+                        shex:min 1 ;
+                        shex:predicate rdf:type ;
+                        shex:valueExpr [ a shex:NodeConstraint ;
+                                shex:values ( <https://w3id.org/biolink/biolinkml/meta/AltDescription> ) ] ] ) ] .
+
+<https://w3id.org/biolink/biolinkml/meta/Annotatable_tes> a shex:TripleConstraint ;
+    shex:max -1 ;
+    shex:min 0 ;
+    shex:predicate <https://w3id.org/biolink/biolinkml/meta/annotations> ;
+    shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/Annotation> .
+
+<https://w3id.org/biolink/biolinkml/meta/EnumDefinition> a shex:Shape ;
+    shex:closed true ;
+    shex:expression [ a shex:EachOf ;
+            shex:expressions ( <https://w3id.org/biolink/biolinkml/meta/EnumDefinition_tes> [ a shex:TripleConstraint ;
+                        shex:min 1 ;
+                        shex:predicate rdf:type ;
+                        shex:valueExpr [ a shex:NodeConstraint ;
+                                shex:values ( <https://w3id.org/biolink/biolinkml/meta/EnumDefinition> ) ] ] ) ] .
+
+<https://w3id.org/biolink/biolinkml/meta/Example> a shex:Shape ;
+    shex:closed true ;
+    shex:expression [ a shex:EachOf ;
+            shex:expressions ( <https://w3id.org/biolink/biolinkml/meta/Example_tes> [ a shex:TripleConstraint ;
+                        shex:min 0 ;
+                        shex:predicate rdf:type ;
+                        shex:valueExpr [ a shex:NodeConstraint ;
+                                shex:values ( <https://w3id.org/biolink/biolinkml/meta/Example> ) ] ] ) ] .
+
+<https://w3id.org/biolink/biolinkml/meta/Extensible> a shex:Shape ;
+    shex:closed false ;
+    shex:expression [ a shex:EachOf ;
+            shex:expressions ( <https://w3id.org/biolink/biolinkml/meta/Extensible_tes> [ a shex:TripleConstraint ;
+                        shex:min 0 ;
+                        shex:predicate rdf:type ;
+                        shex:valueExpr [ a shex:NodeConstraint ;
+                                shex:values ( <https://w3id.org/biolink/biolinkml/meta/Extensible> ) ] ] ) ] .
+
+<https://w3id.org/biolink/biolinkml/meta/types/Integer> a shex:NodeConstraint ;
+    shex:datatype xsd:integer .
+
 <https://w3id.org/biolink/biolinkml/meta/Annotatable> a shex:Shape ;
     shex:closed false ;
     shex:expression [ a shex:EachOf ;
@@ -527,8 +653,17 @@
                         shex:valueExpr [ a shex:NodeConstraint ;
                                 shex:values ( <https://w3id.org/biolink/biolinkml/meta/Annotatable> ) ] ] ) ] .
 
-<https://w3id.org/biolink/biolinkml/meta/types/Integer> a shex:NodeConstraint ;
-    shex:datatype xsd:integer .
+<https://w3id.org/biolink/biolinkml/meta/PermissibleValue> a shex:Shape ;
+    shex:closed true ;
+    shex:expression [ a shex:EachOf ;
+            shex:expressions ( <https://w3id.org/biolink/biolinkml/meta/PermissibleValue_tes> [ a shex:TripleConstraint ;
+                        shex:min 1 ;
+                        shex:predicate rdf:type ;
+                        shex:valueExpr [ a shex:NodeConstraint ;
+                                shex:values ( <https://w3id.org/biolink/biolinkml/meta/PermissibleValue> ) ] ] ) ] .
+
+<https://w3id.org/biolink/biolinkml/meta/types/Datetime> a shex:NodeConstraint ;
+    shex:datatype xsd:dateTime .
 
 <https://w3id.org/biolink/biolinkml/meta/types/Uri> a shex:NodeConstraint ;
     shex:nodeKind shex:iri .
@@ -653,8 +788,17 @@
                         shex:valueExpr [ a shex:NodeConstraint ;
                                 shex:values ( <https://w3id.org/biolink/biolinkml/meta/SubsetDefinition> ) ] ] ) ] .
 
-<https://w3id.org/biolink/biolinkml/meta/types/Datetime> a shex:NodeConstraint ;
-    shex:datatype xsd:dateTime .
+<https://w3id.org/biolink/biolinkml/meta/TypeDefinition> a shex:Shape ;
+    shex:closed true ;
+    shex:expression [ a shex:EachOf ;
+            shex:expressions ( <https://w3id.org/biolink/biolinkml/meta/TypeDefinition_tes> [ a shex:TripleConstraint ;
+                        shex:min 1 ;
+                        shex:predicate rdf:type ;
+                        shex:valueExpr [ a shex:NodeConstraint ;
+                                shex:values ( <https://w3id.org/biolink/biolinkml/meta/TypeDefinition> ) ] ] ) ] .
+
+<https://w3id.org/biolink/biolinkml/meta/types/Ncname> a shex:NodeConstraint ;
+    shex:datatype xsd:string .
 
 <https://w3id.org/biolink/biolinkml/meta/Annotation> a shex:Shape ;
     shex:closed true ;
@@ -675,23 +819,11 @@
                                     shex:valueExpr [ a shex:NodeConstraint ;
                                             shex:values ( <https://w3id.org/biolink/biolinkml/meta/Extension> ) ] ] ) ] ] <https://w3id.org/biolink/biolinkml/meta/Annotation> ) .
 
-<https://w3id.org/biolink/biolinkml/meta/TypeDefinition> a shex:Shape ;
-    shex:closed true ;
-    shex:expression [ a shex:EachOf ;
-            shex:expressions ( <https://w3id.org/biolink/biolinkml/meta/TypeDefinition_tes> [ a shex:TripleConstraint ;
-                        shex:min 1 ;
-                        shex:predicate rdf:type ;
-                        shex:valueExpr [ a shex:NodeConstraint ;
-                                shex:values ( <https://w3id.org/biolink/biolinkml/meta/TypeDefinition> ) ] ] ) ] .
-
-<https://w3id.org/biolink/biolinkml/meta/types/Ncname> a shex:NodeConstraint ;
-    shex:datatype xsd:string .
-
-<https://w3id.org/biolink/biolinkml/meta/Element> a shex:ShapeOr ;
-    shex:shapeExprs ( <https://w3id.org/biolink/biolinkml/meta/Definition> <https://w3id.org/biolink/biolinkml/meta/SchemaDefinition> <https://w3id.org/biolink/biolinkml/meta/SubsetDefinition> <https://w3id.org/biolink/biolinkml/meta/TypeDefinition> ) .
-
 <https://w3id.org/biolink/biolinkml/meta/Definition> a shex:ShapeOr ;
     shex:shapeExprs ( <https://w3id.org/biolink/biolinkml/meta/ClassDefinition> <https://w3id.org/biolink/biolinkml/meta/SlotDefinition> ) .
+
+<https://w3id.org/biolink/biolinkml/meta/Element> a shex:ShapeOr ;
+    shex:shapeExprs ( <https://w3id.org/biolink/biolinkml/meta/Definition> <https://w3id.org/biolink/biolinkml/meta/EnumDefinition> <https://w3id.org/biolink/biolinkml/meta/SchemaDefinition> <https://w3id.org/biolink/biolinkml/meta/SubsetDefinition> <https://w3id.org/biolink/biolinkml/meta/TypeDefinition> ) .
 
 <https://w3id.org/biolink/biolinkml/meta/ClassDefinition> a shex:Shape ;
     shex:closed true ;
@@ -729,10 +861,12 @@
         <https://w3id.org/biolink/biolinkml/meta/Definition_struct>,
         <https://w3id.org/biolink/biolinkml/meta/Element>,
         <https://w3id.org/biolink/biolinkml/meta/Element_struct>,
+        <https://w3id.org/biolink/biolinkml/meta/EnumDefinition>,
         <https://w3id.org/biolink/biolinkml/meta/Example>,
         <https://w3id.org/biolink/biolinkml/meta/Extensible>,
         <https://w3id.org/biolink/biolinkml/meta/Extension>,
         <https://w3id.org/biolink/biolinkml/meta/LocalName>,
+        <https://w3id.org/biolink/biolinkml/meta/PermissibleValue>,
         <https://w3id.org/biolink/biolinkml/meta/Prefix>,
         <https://w3id.org/biolink/biolinkml/meta/SchemaDefinition>,
         <https://w3id.org/biolink/biolinkml/meta/SlotDefinition>,

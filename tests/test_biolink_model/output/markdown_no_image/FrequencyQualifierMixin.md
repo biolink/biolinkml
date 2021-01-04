@@ -7,11 +7,11 @@ Qualifier for frequency type associations
 URI: [biolink:FrequencyQualifierMixin](https://w3id.org/biolink/vocab/FrequencyQualifierMixin)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[FrequencyValue],[FrequencyValue]<frequency%20qualifier%200..1-%20[FrequencyQualifierMixin],[VariantToPopulationAssociation]uses%20-.->[FrequencyQualifierMixin],[FrequencyQualifierMixin]^-[EntityToFeatureOrDiseaseQualifiers],[VariantToPopulationAssociation],[EntityToFeatureOrDiseaseQualifiers])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[FrequencyValue],[FrequencyValue]<frequency%20qualifier%200..1-++[FrequencyQualifierMixin],[VariantToPopulationAssociation]uses%20-.->[FrequencyQualifierMixin],[FrequencyQualifierMixin]^-[EntityToFeatureOrDiseaseQualifiersMixin],[VariantToPopulationAssociation],[EntityToFeatureOrDiseaseQualifiersMixin])
 
 ## Children
 
- * [EntityToFeatureOrDiseaseQualifiers](EntityToFeatureOrDiseaseQualifiers.md) - Qualifiers for entity to disease or phenotype associations
+ * [EntityToFeatureOrDiseaseQualifiersMixin](EntityToFeatureOrDiseaseQualifiersMixin.md) - Qualifiers for entity to disease or phenotype associations.
 
 ## Mixin for
 

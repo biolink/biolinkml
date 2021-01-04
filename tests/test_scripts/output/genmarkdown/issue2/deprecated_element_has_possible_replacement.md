@@ -22,6 +22,8 @@ None ->  <sub>OPT</sub> uriorcurie
  * class_definition
  * definition
  * [Element](Element.md)
+ * enum_definition
+ * permissible_value
  * schema_definition
  * slot_definition
  * subset_definition

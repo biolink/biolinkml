@@ -6,10 +6,10 @@
 
 <http://example.org> a owl:Ontology ;
     rdfs:label "" ;
-    meta:generation_date "2020-10-23 17:01" ;
-    meta:metamodel_version "1.6.0" ;
+    meta:generation_date "2021-01-04 21:53" ;
+    meta:metamodel_version "1.7.0" ;
     meta:source_file "issue_290.yaml" ;
-    meta:source_file_date "Fri Oct 23 16:59:17 2020" ;
+    meta:source_file_date "Mon Jan  4 21:51:20 2021" ;
     meta:source_file_size 118 .
 
 meta:SubsetDefinition a owl:Class ;

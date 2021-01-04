@@ -22,6 +22,7 @@ URI: [meta:aliases](https://w3id.org/biolink/biolinkml/meta/aliases)
  * class_definition
  * definition
  * [Element](Element.md)
+ * enum_definition
  * schema_definition
  * slot_definition
  * subset_definition

@@ -97,7 +97,7 @@ metatype:Nodeidentifier NONLITERAL
 }
 
 <Element>  (
-    @<Definition> OR @<SchemaDefinition> OR @<SubsetDefinition> OR @<TypeDefinition>
+    @<Definition> OR @<EnumDefinition> OR @<SchemaDefinition> OR @<SubsetDefinition> OR @<TypeDefinition>
 )
 
 <Element_struct> {
@@ -135,6 +135,19 @@ metatype:Nodeidentifier NONLITERAL
     )
 }
 
+<EnumDefinition> CLOSED {
+    (  $<EnumDefinition_tes> (  &<Element_tes> ;
+          rdf:type [ <Element> ] ? ;
+          <code_set> @metatype:Uriorcurie ? ;
+          <code_set_tag> @metatype:String ? ;
+          <code_set_version> @metatype:String ? ;
+          <pv_formula> @<PvFormulaOptions> ? ;
+          <permissible_values> @<PermissibleValue> *
+       ) ;
+       rdf:type [ <EnumDefinition> ]
+    )
+}
+
 <Example> CLOSED {
     (  $<Example_tes> (  <value> @metatype:String ? ;
           <description> @metatype:String ?
@@ -168,6 +181,34 @@ metatype:Nodeidentifier NONLITERAL
     )
 }
 
+<PermissibleValue> CLOSED {
+    (  $<PermissibleValue_tes> (  &<Extensible_tes> ;
+          rdf:type [ <Extensible> ] ? ;
+          &<Annotatable_tes> ;
+          rdf:type [ <Annotatable> ] ? ;
+          <description> @metatype:String ? ;
+          <meaning> @metatype:Uriorcurie ? ;
+          <alt_descriptions> @<AltDescription> * ;
+          <deprecated> @metatype:String ? ;
+          <todos> @metatype:String * ;
+          <notes> @metatype:String * ;
+          <comments> @metatype:String * ;
+          <examples> @<Example> * ;
+          <in_subset> @<SubsetDefinition> * ;
+          <from_schema> @metatype:Uri ? ;
+          <imported_from> @metatype:String ? ;
+          <see_also> @metatype:Uriorcurie * ;
+          <deprecated_element_has_exact_replacement> @metatype:Uriorcurie ? ;
+          <deprecated_element_has_possible_replacement> @metatype:Uriorcurie ? ;
+          <is_a> @<PermissibleValue> ? ;
+          <mixins> @<PermissibleValue> * ;
+          <extensions> @<Extension> * ;
+          <annotations> @<Annotation> *
+       ) ;
+       rdf:type [ <PermissibleValue> ]
+    )
+}
+
 <Prefix> CLOSED {
     (  $<Prefix_tes> (  <prefix_prefix> @metatype:Ncname ;
           <prefix_reference> @metatype:Uri
@@ -191,6 +232,7 @@ metatype:Nodeidentifier NONLITERAL
           <default_range> @<TypeDefinition> ? ;
           <subsets> @<SubsetDefinition> * ;
           <types> @<TypeDefinition> * ;
+          <enums> @<EnumDefinition> * ;
           <slots> @<SlotDefinition> * ;
           <classes> @<ClassDefinition> * ;
           <metamodel_version> @metatype:String ? ;

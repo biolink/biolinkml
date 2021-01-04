@@ -15,8 +15,8 @@ message Annotation
 // the definition of a class or interface
 message ClassDefinition
  {
-  repeated idPrefixes Ncname = 1
-  name String = 2
+  name String = 1
+  repeated idPrefixes Ncname = 2
   optional definitionUri Uriorcurie = 3
   repeated aliases String = 4
   repeated localNames LocalName = 5
@@ -61,6 +61,41 @@ message ClassDefinition
   repeated mixins ClassDefinition = 44
   repeated applyTo ClassDefinition = 45
  }
+// List of values that constrain the range of a slot
+message EnumDefinition
+ {
+  name String = 1
+  repeated idPrefixes Ncname = 2
+  optional definitionUri Uriorcurie = 3
+  repeated aliases String = 4
+  repeated localNames LocalName = 5
+  repeated mappings Uriorcurie = 6
+  optional description String = 7
+  repeated altDescriptions AltDescription = 8
+  optional deprecated String = 9
+  repeated todos String = 10
+  repeated notes String = 11
+  repeated comments String = 12
+  repeated examples Example = 13
+  repeated inSubset SubsetDefinition = 14
+  optional fromSchema Uri = 15
+  optional importedFrom String = 16
+  repeated seeAlso Uriorcurie = 17
+  repeated exactMappings Uriorcurie = 18
+  repeated closeMappings Uriorcurie = 19
+  repeated relatedMappings Uriorcurie = 20
+  repeated narrowMappings Uriorcurie = 21
+  repeated broadMappings Uriorcurie = 22
+  optional deprecatedElementHasExactReplacement Uriorcurie = 23
+  optional deprecatedElementHasPossibleReplacement Uriorcurie = 24
+  repeated extensions Extension = 25
+  repeated annotations Annotation = 26
+  optional codeSet Uriorcurie = 27
+  optional codeSetTag String = 28
+  optional codeSetVersion String = 29
+  optional pvFormula PvFormulaOptions = 30
+  repeated permissibleValues PermissibleValue = 31
+ }
 // usage example and description
 message Example
  {
@@ -79,6 +114,29 @@ message LocalName
  {
   optional localNameSource Ncname = 1
   localNameValue String = 2
+ }
+// a permissible value, accompanied by intended text and an optional mapping to a concept URI
+message PermissibleValue
+ {
+  text String = 1
+  optional description String = 2
+  optional meaning Uriorcurie = 3
+  repeated altDescriptions AltDescription = 4
+  optional deprecated String = 5
+  repeated todos String = 6
+  repeated notes String = 7
+  repeated comments String = 8
+  repeated examples Example = 9
+  repeated inSubset SubsetDefinition = 10
+  optional fromSchema Uri = 11
+  optional importedFrom String = 12
+  repeated seeAlso Uriorcurie = 13
+  optional deprecatedElementHasExactReplacement Uriorcurie = 14
+  optional deprecatedElementHasPossibleReplacement Uriorcurie = 15
+  optional isA PermissibleValue = 16
+  repeated mixins PermissibleValue = 17
+  repeated extensions Extension = 18
+  repeated annotations Annotation = 19
  }
 // prefix URI tuple
 message Prefix
@@ -126,20 +184,21 @@ message SchemaDefinition
   optional defaultRange TypeDefinition = 35
   repeated subsets SubsetDefinition = 36
   repeated types TypeDefinition = 37
-  repeated slots SlotDefinition = 38
-  repeated classes ClassDefinition = 39
-  optional metamodelVersion String = 40
-  optional sourceFile String = 41
-  optional sourceFileDate Datetime = 42
-  optional sourceFileSize Integer = 43
-  optional generationDate Datetime = 44
-  name Ncname = 45
+  repeated enums EnumDefinition = 38
+  repeated slots SlotDefinition = 39
+  repeated classes ClassDefinition = 40
+  optional metamodelVersion String = 41
+  optional sourceFile String = 42
+  optional sourceFileDate Datetime = 43
+  optional sourceFileSize Integer = 44
+  optional generationDate Datetime = 45
+  name Ncname = 46
  }
 // the definition of a property or a slot
 message SlotDefinition
  {
-  repeated idPrefixes Ncname = 1
-  name String = 2
+  name String = 1
+  repeated idPrefixes Ncname = 2
   optional definitionUri Uriorcurie = 3
   repeated aliases String = 4
   repeated localNames LocalName = 5
@@ -206,8 +265,8 @@ message SlotDefinition
 // the name and description of a subset
 message SubsetDefinition
  {
-  repeated idPrefixes Ncname = 1
-  name String = 2
+  name String = 1
+  repeated idPrefixes Ncname = 2
   optional definitionUri Uriorcurie = 3
   repeated aliases String = 4
   repeated localNames LocalName = 5
@@ -236,8 +295,8 @@ message SubsetDefinition
 // A data type definition.
 message TypeDefinition
  {
-  repeated idPrefixes Ncname = 1
-  name String = 2
+  name String = 1
+  repeated idPrefixes Ncname = 2
   optional definitionUri Uriorcurie = 3
   repeated aliases String = 4
   repeated localNames LocalName = 5

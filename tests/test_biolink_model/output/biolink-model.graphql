@@ -1,38 +1,65 @@
-type AbstractEntity
+interface ActivityAndBehavior
   {
   }
 
-type ActivityAndBehavior
+type AdministrativeEntity
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
   }
 
-interface AdministrativeEntity
+type Agent
   {
+    iri: IriType
+    type: String
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    affiliation: [Uriorcurie]
+    address: String
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    name: LabelType
   }
 
-type AnatomicalEntity implements ThingWithTaxon, PhysicalEntity
+type AnatomicalEntity implements ThingWithTaxon, PhysicalEssence
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    category: [NamedThing]!
+    hasAttribute: [Attribute]
     inTaxon: [OrganismTaxon]
   }
 
 type AnatomicalEntityToAnatomicalEntityAssociation
   {
-    relation: Uriorcurie!
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    predicate: PredicateType!
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
     subject: AnatomicalEntity!
     object: AnatomicalEntity!
   }
@@ -40,64 +67,177 @@ type AnatomicalEntityToAnatomicalEntityAssociation
 type AnatomicalEntityToAnatomicalEntityOntogenicAssociation
   {
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
     subject: AnatomicalEntity!
     object: AnatomicalEntity!
-    relation: Uriorcurie!
+    predicate: PredicateType!
   }
 
 type AnatomicalEntityToAnatomicalEntityPartOfAssociation
   {
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
     subject: AnatomicalEntity!
     object: AnatomicalEntity!
-    relation: Uriorcurie!
+    predicate: PredicateType!
+  }
+
+interface Annotation
+  {
+  }
+
+type Article
+  {
+    iri: IriType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    license: String
+    rights: String
+    format: String
+    creationDate: Date
+    authors: [String]
+    pages: [String]
+    summary: String
+    keywords: [String]
+    meshTerms: [Uriorcurie]
+    xref: [IriType]
+    id: String!
+    name: LabelType
+    type: String!
+    publishedIn: Uriorcurie!
+    isoAbbreviation: String
+    volume: String
+    issue: String
   }
 
 type Association
   {
-    subject: NamedThing!
-    relation: Uriorcurie!
-    object: NamedThing!
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    subject: NamedThing!
+    predicate: PredicateType!
+    object: NamedThing!
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
   }
 
-type Attribute implements OntologyClass
+type Attribute
   {
-    hasAttributeType: OntologyClass
+    name: LabelType
+    hasAttributeType: OntologyClass!
     hasQuantitativeValue: [QuantityValue]
     hasQualitativeValue: NamedThing
+    iri: IriType
+    source: LabelType
+  }
+
+type Behavior
+  {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    hasInput: [NamedThing]
+    hasOutput: [NamedThing]
+    enabledBy: [PhysicalEntity]
+  }
+
+type BehavioralExposure implements ExposureEvent
+  {
+    id: String!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    hasInput: [NamedThing]
+    hasOutput: [NamedThing]
+    enabledBy: [PhysicalEntity]
+    timepoint: TimeType
+  }
+
+type BehavioralOutcome implements Outcome
+  {
+    id: String!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    hasInput: [NamedThing]
+    hasOutput: [NamedThing]
+    enabledBy: [PhysicalEntity]
   }
 
 interface BiologicalEntity
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
   }
 
 type BiologicalProcess implements Occurrent
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     hasInput: [NamedThing]
     hasOutput: [NamedThing]
     enabledBy: [PhysicalEntity]
@@ -106,8 +246,14 @@ type BiologicalProcess implements Occurrent
 type BiologicalProcessOrActivity implements Occurrent
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     hasInput: [NamedThing]
     hasOutput: [NamedThing]
     enabledBy: [PhysicalEntity]
@@ -115,300 +261,586 @@ type BiologicalProcessOrActivity implements Occurrent
 
 type BiologicalSex
   {
-    hasAttributeType: OntologyClass
+    name: LabelType
+    hasAttributeType: OntologyClass!
     hasQuantitativeValue: [QuantityValue]
     hasQualitativeValue: NamedThing
+    iri: IriType
+    source: LabelType
+  }
+
+type BioticExposure implements ExposureEvent
+  {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    hasTaxonomicRank: TaxonomicRank
+    subclassOf: [OrganismTaxon]
+    timepoint: TimeType
+  }
+
+type Book
+  {
+    iri: IriType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    license: String
+    rights: String
+    format: String
+    creationDate: Date
+    authors: [String]
+    pages: [String]
+    summary: String
+    keywords: [String]
+    meshTerms: [Uriorcurie]
+    xref: [IriType]
+    name: LabelType
+    id: String!
+    type: String!
+  }
+
+type BookChapter
+  {
+    iri: IriType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    license: String
+    rights: String
+    format: String
+    creationDate: Date
+    authors: [String]
+    pages: [String]
+    summary: String
+    keywords: [String]
+    meshTerms: [Uriorcurie]
+    xref: [IriType]
+    id: String!
+    name: LabelType
+    type: String!
+    publishedIn: Uriorcurie!
+    volume: String
+    chapter: String
   }
 
 type Carbohydrate
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     inTaxon: [OrganismTaxon]
   }
 
 type Case
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    category: [NamedThing]!
+    hasAttribute: [Attribute]
     inTaxon: [OrganismTaxon]
   }
 
-type CaseToPhenotypicFeatureAssociation implements EntityToPhenotypicFeatureAssociation, CaseToThingAssociation
+interface CaseToEntityAssociationMixin
   {
-    subject: NamedThing!
-    relation: Uriorcurie!
-    object: NamedThing!
+    subject: Case!
+  }
+
+type CaseToPhenotypicFeatureAssociation implements EntityToPhenotypicFeatureAssociationMixin, CaseToEntityAssociationMixin
+  {
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    subject: NamedThing!
+    predicate: PredicateType!
+    object: NamedThing!
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
-    sexQualifier: BiologicalSex
-    description: NarrativeText
+    type: String
+    category: [Association]!
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
     onsetQualifier: Onset
-  }
-
-interface CaseToThingAssociation
-  {
-    relation: Uriorcurie!
-    object: NamedThing!
-    id: String!
-    negated: Boolean
-    associationType: OntologyClass
-    qualifiers: [OntologyClass]
-    publications: [Publication]
-    providedBy: [Provider]
-    subject: Case!
+    sexQualifier: BiologicalSex
   }
 
 type Cell
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    category: [NamedThing]!
+    hasAttribute: [Attribute]
     inTaxon: [OrganismTaxon]
   }
 
 type CellLine
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    category: [NamedThing]!
+    hasAttribute: [Attribute]
   }
 
-type CellLineAsAModelOfDiseaseAssociation implements ModelToDiseaseMixin, EntityToDiseaseAssociation
+type CellLineAsAModelOfDiseaseAssociation implements ModelToDiseaseAssociationMixin, EntityToDiseaseAssociationMixin
   {
-    relation: Uriorcurie!
-    object: NamedThing!
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    predicate: PredicateType!
+    object: NamedThing!
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
     subject: CellLine!
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
     onsetQualifier: Onset
   }
 
-type CellLineToDiseaseOrPhenotypicFeatureAssociation implements CellLineToThingAssociation, ThingToDiseaseOrPhenotypicFeatureAssociation
+type CellLineToDiseaseOrPhenotypicFeatureAssociation implements CellLineToEntityAssociationMixin, EntityToDiseaseOrPhenotypicFeatureAssociationMixin
   {
-    relation: Uriorcurie!
-    object: NamedThing!
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    predicate: PredicateType!
+    object: NamedThing!
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
     subject: DiseaseOrPhenotypicFeature!
   }
 
-interface CellLineToThingAssociation
+interface CellLineToEntityAssociationMixin
   {
-    relation: Uriorcurie!
-    object: NamedThing!
-    id: String!
-    negated: Boolean
-    associationType: OntologyClass
-    qualifiers: [OntologyClass]
-    publications: [Publication]
-    providedBy: [Provider]
     subject: CellLine!
   }
 
 type CellularComponent
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    category: [NamedThing]!
+    hasAttribute: [Attribute]
     inTaxon: [OrganismTaxon]
   }
 
-type ChemicalExposure
+type ChemicalExposure implements ExposureEvent
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    inTaxon: [OrganismTaxon]
+    timepoint: TimeType
   }
 
 type ChemicalSubstance
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     inTaxon: [OrganismTaxon]
   }
 
-type ChemicalToChemicalAssociation implements ChemicalToThingAssociation
+type ChemicalToChemicalAssociation implements ChemicalToEntityAssociationMixin
   {
-    subject: NamedThing!
-    relation: Uriorcurie!
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    subject: NamedThing!
+    predicate: PredicateType!
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
     object: ChemicalSubstance!
   }
 
 type ChemicalToChemicalDerivationAssociation
   {
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
-    changeIsCatalyzedBy: [MacromolecularMachine]
+    type: String
+    category: [Association]!
+    catalystQualifier: [MacromolecularMachine]
     subject: ChemicalSubstance!
     object: ChemicalSubstance!
-    relation: Uriorcurie!
+    predicate: PredicateType!
   }
 
-type ChemicalToDiseaseOrPhenotypicFeatureAssociation implements ChemicalToThingAssociation, ThingToDiseaseOrPhenotypicFeatureAssociation
+type ChemicalToDiseaseOrPhenotypicFeatureAssociation implements ChemicalToEntityAssociationMixin, EntityToDiseaseOrPhenotypicFeatureAssociationMixin
   {
-    subject: NamedThing!
-    relation: Uriorcurie!
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    subject: NamedThing!
+    predicate: PredicateType!
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
     object: DiseaseOrPhenotypicFeature!
   }
 
-type ChemicalToGeneAssociation implements ChemicalToThingAssociation
+interface ChemicalToEntityAssociationMixin
   {
-    subject: NamedThing!
-    relation: Uriorcurie!
+    subject: ChemicalSubstance!
+  }
+
+type ChemicalToGeneAssociation implements ChemicalToEntityAssociationMixin
+  {
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    subject: NamedThing!
+    predicate: PredicateType!
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
     object: GeneOrGeneProduct!
   }
 
-type ChemicalToPathwayAssociation implements ChemicalToThingAssociation
+type ChemicalToPathwayAssociation implements ChemicalToEntityAssociationMixin
   {
-    subject: NamedThing!
-    relation: Uriorcurie!
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    subject: NamedThing!
+    predicate: PredicateType!
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
     object: Pathway!
   }
 
-interface ChemicalToThingAssociation
+type ClinicalAttribute
   {
-    relation: Uriorcurie!
-    object: NamedThing!
-    id: String!
-    negated: Boolean
-    associationType: OntologyClass
-    qualifiers: [OntologyClass]
-    publications: [Publication]
-    providedBy: [Provider]
-    subject: ChemicalSubstance!
+    name: LabelType
+    hasAttributeType: OntologyClass!
+    hasQuantitativeValue: [QuantityValue]
+    hasQualitativeValue: NamedThing
+    iri: IriType
+    source: LabelType
   }
 
 type ClinicalCourse
   {
-    hasAttributeType: OntologyClass
+    name: LabelType
+    hasAttributeType: OntologyClass!
     hasQuantitativeValue: [QuantityValue]
     hasQualitativeValue: NamedThing
-    id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    source: LabelType
   }
 
 type ClinicalEntity
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+  }
+
+type ClinicalFinding
+  {
+    id: String!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    category: [NamedThing]!
+    inTaxon: [OrganismTaxon]
+    hasAttribute: [ClinicalAttribute]
   }
 
 type ClinicalIntervention
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+  }
+
+type ClinicalMeasurement
+  {
+    name: LabelType
+    hasQuantitativeValue: [QuantityValue]
+    hasQualitativeValue: NamedThing
+    iri: IriType
+    source: LabelType
+    hasAttributeType: OntologyClass!
   }
 
 type ClinicalModifier
   {
-    hasAttributeType: OntologyClass
+    name: LabelType
+    hasAttributeType: OntologyClass!
     hasQuantitativeValue: [QuantityValue]
     hasQualitativeValue: NamedThing
-    id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    source: LabelType
   }
 
 type ClinicalTrial
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
   }
 
 type CodingSequence
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
+  }
+
+type Cohort
+  {
+    id: String!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    category: [NamedThing]!
+    hasAttribute: [Attribute]
+    inTaxon: [OrganismTaxon]
+  }
+
+type ComplexChemicalExposure implements Mixture
+  {
+    id: String!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    inTaxon: [OrganismTaxon]
+    timepoint: TimeType
+    hasConstituent: [ChemicalSubstance]
   }
 
 type ConfidenceLevel
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    license: String
+    rights: String
+    format: String
+    creationDate: Date
+  }
+
+type ContributorAssociation
+  {
+    id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    relation: Uriorcurie!
+    negated: Boolean
+    publications: [Publication]
+    type: String
+    category: [Association]!
+    subject: InformationContentEntity!
+    predicate: PredicateType!
+    object: Agent!
+    qualifiers: [OntologyClass]
   }
 
 type DataFile
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    license: String
+    rights: String
+    format: String
+    creationDate: Date
   }
 
 type DataSet
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    license: String
+    rights: String
+    format: String
+    creationDate: Date
   }
 
 interface DataSetSummary
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
-    title: String
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    license: String
+    rights: String
+    format: String
+    creationDate: Date
     sourceDataFile: DataFile
     versionOf: DataSet
-    type: String
     distribution: DistributionLevel
     sourceWebPage: String
   }
@@ -416,138 +848,317 @@ interface DataSetSummary
 type DataSetVersion
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
-    title: String
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    license: String
+    rights: String
+    format: String
+    creationDate: Date
     sourceDataFile: DataFile
     versionOf: DataSet
-    type: String
     distribution: DistributionLevel
+  }
+
+type Death
+  {
+    id: String!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    hasInput: [NamedThing]
+    hasOutput: [NamedThing]
+    enabledBy: [PhysicalEntity]
   }
 
 type Device
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
   }
 
 type Disease
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     inTaxon: [OrganismTaxon]
   }
 
 type DiseaseOrPhenotypicFeature implements ThingWithTaxon
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     inTaxon: [OrganismTaxon]
   }
 
-type DiseaseOrPhenotypicFeatureAssociationToLocationAssociation
+type DiseaseOrPhenotypicFeatureAssociationToLocationAssociation implements DiseaseOrPhenotypicFeatureToEntityAssociationMixin
   {
-    relation: Uriorcurie!
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    subject: NamedThing!
+    predicate: PredicateType!
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
-    subject: DiseaseOrPhenotypicFeature!
+    type: String
+    category: [Association]!
     object: AnatomicalEntity!
   }
 
-interface DiseaseOrPhenotypicFeatureAssociationToThingAssociation
+type DiseaseOrPhenotypicFeatureExposure implements ExposureEvent
   {
-    relation: Uriorcurie!
-    object: NamedThing!
     id: String!
-    negated: Boolean
-    associationType: OntologyClass
-    qualifiers: [OntologyClass]
-    publications: [Publication]
-    providedBy: [Provider]
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    inTaxon: [OrganismTaxon]
+    timepoint: TimeType
+  }
+
+type DiseaseOrPhenotypicFeatureOutcome implements Outcome
+  {
+    id: String!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    inTaxon: [OrganismTaxon]
+  }
+
+interface DiseaseOrPhenotypicFeatureToEntityAssociationMixin
+  {
     subject: DiseaseOrPhenotypicFeature!
   }
 
-type DiseaseToExposureAssociation
+type DiseaseOrPhenotypicFeatureToLocationAssociation implements DiseaseOrPhenotypicFeatureToEntityAssociationMixin
   {
-    relation: Uriorcurie!
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    subject: NamedThing!
+    predicate: PredicateType!
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
-    subject: Disease!
-    object: ExposureEvent!
+    type: String
+    category: [Association]!
+    object: AnatomicalEntity!
   }
 
-type DiseaseToPhenotypicFeatureAssociation implements EntityToPhenotypicFeatureAssociation, DiseaseToThingAssociation
+interface DiseaseToEntityAssociationMixin
   {
-    subject: NamedThing!
-    relation: Uriorcurie!
-    object: NamedThing!
+    subject: Disease!
+  }
+
+type DiseaseToExposureEventAssociation implements DiseaseToEntityAssociationMixin, EntityToExposureEventAssociationMixin
+  {
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    subject: NamedThing!
+    predicate: PredicateType!
+    object: NamedThing!
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
-    sexQualifier: BiologicalSex
+    type: String
+    category: [Association]!
+  }
+
+type DiseaseToPhenotypicFeatureAssociation implements EntityToPhenotypicFeatureAssociationMixin, DiseaseToEntityAssociationMixin
+  {
+    id: String!
+    iri: IriType
+    name: LabelType
     description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    subject: NamedThing!
+    predicate: PredicateType!
+    object: NamedThing!
+    relation: Uriorcurie!
+    negated: Boolean
+    qualifiers: [OntologyClass]
+    publications: [Publication]
+    type: String
+    category: [Association]!
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
     onsetQualifier: Onset
-  }
-
-interface DiseaseToThingAssociation
-  {
-    relation: Uriorcurie!
-    object: NamedThing!
-    id: String!
-    negated: Boolean
-    associationType: OntologyClass
-    qualifiers: [OntologyClass]
-    publications: [Publication]
-    providedBy: [Provider]
-    subject: Disease!
+    sexQualifier: BiologicalSex
   }
 
 interface DistributionLevel
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
-    title: String
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    license: String
+    rights: String
+    format: String
+    creationDate: Date
     sourceDataFile: DataFile
     versionOf: DataSet
-    type: String
     distribution: DistributionLevel
     downloadUrl: String
   }
 
-type Drug
+type Drug implements Mixture
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     inTaxon: [OrganismTaxon]
+    hasActiveIngredient: [ChemicalSubstance]
+    hasExcipient: [ChemicalSubstance]
+    hasConstituent: [ChemicalSubstance]
   }
 
-type DrugExposure
+type DrugExposure implements ExposureEvent
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
-    hasDrug: [ChemicalSubstance]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    inTaxon: [OrganismTaxon]
+    hasActiveIngredient: [ChemicalSubstance]
+    hasExcipient: [ChemicalSubstance]
+    hasConstituent: [ChemicalSubstance]
+    timepoint: TimeType
   }
 
-interface EntityToDiseaseAssociation
+interface DrugToEntityAssociationMixin
+  {
+    subject: Drug!
+  }
+
+type DrugToGeneAssociation implements DrugToEntityAssociationMixin
+  {
+    id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    subject: NamedThing!
+    predicate: PredicateType!
+    relation: Uriorcurie!
+    negated: Boolean
+    qualifiers: [OntologyClass]
+    publications: [Publication]
+    type: String
+    category: [Association]!
+    object: GeneOrGeneProduct!
+  }
+
+type DrugToGeneInteractionExposure implements GeneGroupingMixin
+  {
+    id: String!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    inTaxon: [OrganismTaxon]
+    hasActiveIngredient: [ChemicalSubstance]
+    hasExcipient: [ChemicalSubstance]
+    hasConstituent: [ChemicalSubstance]
+    timepoint: TimeType
+    hasGeneOrGeneProduct: [Gene]
+  }
+
+interface Entity
+  {
+    id: String!
+    iri: IriType
+    category: [CategoryType]!
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+  }
+
+interface EntityToDiseaseAssociationMixin
   {
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
@@ -555,97 +1166,213 @@ interface EntityToDiseaseAssociation
     object: Disease!
   }
 
-interface EntityToFeatureOrDiseaseQualifiers
+interface EntityToDiseaseOrPhenotypicFeatureAssociationMixin
+  {
+    object: DiseaseOrPhenotypicFeature!
+  }
+
+interface EntityToExposureEventAssociationMixin
+  {
+    object: ExposureEvent!
+  }
+
+interface EntityToFeatureOrDiseaseQualifiersMixin
   {
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
     onsetQualifier: Onset
   }
 
-type EntityToPhenotypicFeatureAssociation implements EntityToFeatureOrDiseaseQualifiers
+interface EntityToOutcomeAssociationMixin
   {
-    subject: NamedThing!
-    relation: Uriorcurie!
-    id: String!
-    negated: Boolean
-    associationType: OntologyClass
-    qualifiers: [OntologyClass]
-    publications: [Publication]
-    providedBy: [Provider]
-    sexQualifier: BiologicalSex
-    description: NarrativeText
-    object: PhenotypicFeature!
+    object: Outcome!
+  }
+
+interface EntityToPhenotypicFeatureAssociationMixin
+  {
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
     onsetQualifier: Onset
+    sexQualifier: BiologicalSex
+    description: NarrativeText
+    object: PhenotypicFeature!
+  }
+
+type EnvironmentalExposure implements ExposureEvent
+  {
+    id: String!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    timepoint: TimeType
   }
 
 type EnvironmentalFeature
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
   }
 
 type EnvironmentalProcess implements Occurrent
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+  }
+
+type EpidemiologicalOutcome implements Outcome
+  {
+    id: String!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
   }
 
 type EvidenceType
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    license: String
+    rights: String
+    format: String
+    creationDate: Date
   }
 
 type Exon
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
   }
 
 type ExonToTranscriptRelationship
   {
-    relation: Uriorcurie!
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    predicate: PredicateType!
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
     subject: Exon!
     object: Transcript!
   }
 
-type ExposureEvent
+interface ExposureEvent
   {
-    id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    timepoint: TimeType
   }
 
-type ExposureEventToPhenotypicFeatureAssociation implements EntityToPhenotypicFeatureAssociation
+interface ExposureEventToEntityAssociationMixin
   {
-    relation: Uriorcurie!
-    object: NamedThing!
+    subject: ExposureEvent!
+  }
+
+type ExposureEventToOutcomeAssociation implements ExposureEventToEntityAssociationMixin, EntityToOutcomeAssociationMixin
+  {
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    subject: NamedThing!
+    predicate: PredicateType!
+    object: NamedThing!
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
-    subject: ExposureEvent!
-    sexQualifier: BiologicalSex
+    type: String
+    category: [Association]!
+    hasPopulationContext: PopulationOfIndividualOrganisms
+    hasTemporalContext: TimeType
+  }
+
+type ExposureEventToPhenotypicFeatureAssociation implements EntityToPhenotypicFeatureAssociationMixin
+  {
+    id: String!
+    iri: IriType
+    name: LabelType
     description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    predicate: PredicateType!
+    object: NamedThing!
+    relation: Uriorcurie!
+    negated: Boolean
+    qualifiers: [OntologyClass]
+    publications: [Publication]
+    type: String
+    category: [Association]!
+    subject: ExposureEvent!
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
     onsetQualifier: Onset
+    sexQualifier: BiologicalSex
+  }
+
+type Food implements Mixture
+  {
+    id: String!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    inTaxon: [OrganismTaxon]
+    hasNutrient: [ChemicalSubstance]
+    hasConstituent: [ChemicalSubstance]
   }
 
 interface FrequencyQualifierMixin
@@ -663,78 +1390,120 @@ interface FrequencyQuantifier
 
 type FrequencyValue
   {
-    hasAttributeType: OntologyClass
+    name: LabelType
+    hasAttributeType: OntologyClass!
     hasQuantitativeValue: [QuantityValue]
     hasQualitativeValue: NamedThing
-    id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    source: LabelType
   }
 
 type FunctionalAssociation
   {
-    relation: Uriorcurie!
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    predicate: PredicateType!
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
     subject: MacromolecularMachine!
     object: GeneOntologyClass!
   }
 
 type Gene
   {
-    category: [CategoryType]!
+    id: String!
+    iri: IriType
+    type: String
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
-    id: String!
-    name: LabelType!
+    name: SymbolType
     symbol: String
-    description: NarrativeText
     synonym: [LabelType]
     xref: [IriType]
   }
 
-type GeneAsAModelOfDiseaseAssociation implements ModelToDiseaseMixin, EntityToDiseaseAssociation
+type GeneAsAModelOfDiseaseAssociation implements ModelToDiseaseAssociationMixin, EntityToDiseaseAssociationMixin
   {
-    relation: Uriorcurie!
-    object: NamedThing!
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    predicate: PredicateType!
+    object: NamedThing!
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
     onsetQualifier: Onset
     subject: GeneOrGeneProduct!
   }
 
-type GeneFamily implements GeneGrouping
+type GeneExpressionMixin
   {
-    id: String!
-    name: LabelType!
-    category: [CategoryType]!
-    inTaxon: [OrganismTaxon]
+    quantifierQualifier: OntologyClass
+    expressionSite: AnatomicalEntity
+    stageQualifier: LifeStage
+    phenotypicState: DiseaseOrPhenotypicFeature
   }
 
-interface GeneGrouping
+type GeneFamily implements GeneGroupingMixin
   {
+    id: String!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    inTaxon: [OrganismTaxon]
+    hasGeneOrGeneProduct: [Gene]
+  }
+
+interface GeneGroupingMixin
+  {
+    hasGeneOrGeneProduct: [Gene]
   }
 
 type GeneHasVariantThatContributesToDiseaseAssociation
   {
-    relation: Uriorcurie!
-    object: NamedThing!
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    predicate: PredicateType!
+    object: NamedThing!
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
     onsetQualifier: Onset
@@ -745,184 +1514,293 @@ type GeneHasVariantThatContributesToDiseaseAssociation
 type GeneOntologyClass
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
   }
 
 type GeneOrGeneProduct
   {
     id: String!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
-    name: SymbolType!
+    name: SymbolType
   }
 
 type GeneProduct
   {
-    category: [CategoryType]!
+    id: String!
+    iri: IriType
+    type: String
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
-    id: String!
-    name: LabelType!
-    description: NarrativeText
+    name: SymbolType
     synonym: [LabelType]
     xref: [IriType]
   }
 
 interface GeneProductIsoform
   {
-    category: [CategoryType]!
-    inTaxon: [OrganismTaxon]
-    hasBiologicalSequence: BiologicalSequence
-    id: String!
-    name: LabelType!
-    description: NarrativeText
-    synonym: [LabelType]
-    xref: [IriType]
   }
 
 type GeneRegulatoryRelationship
   {
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
-    relation: Uriorcurie!
+    type: String
+    category: [Association]!
+    predicate: PredicateType!
     subject: GeneOrGeneProduct!
     object: GeneOrGeneProduct!
   }
 
-type GeneToDiseaseAssociation implements EntityToDiseaseAssociation, GeneToThingAssociation
+type GeneToDiseaseAssociation implements EntityToDiseaseAssociationMixin, GeneToEntityAssociationMixin
   {
-    relation: Uriorcurie!
-    object: NamedThing!
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    predicate: PredicateType!
+    object: NamedThing!
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
     subject: GeneOrGeneProduct!
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
     onsetQualifier: Onset
+  }
+
+interface GeneToEntityAssociationMixin
+  {
+    subject: GeneOrGeneProduct!
   }
 
 type GeneToExpressionSiteAssociation
   {
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
     stageQualifier: LifeStage
     quantifierQualifier: OntologyClass
     subject: GeneOrGeneProduct!
     object: AnatomicalEntity!
-    relation: Uriorcurie!
+    predicate: PredicateType!
   }
 
-interface GeneToGeneAssociation
+type GeneToGeneAssociation
   {
-    relation: Uriorcurie!
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    predicate: PredicateType!
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
     subject: GeneOrGeneProduct!
     object: GeneOrGeneProduct!
+  }
+
+type GeneToGeneCoexpressionAssociation implements GeneExpressionMixin
+  {
+    id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    relation: Uriorcurie!
+    negated: Boolean
+    qualifiers: [OntologyClass]
+    publications: [Publication]
+    type: String
+    category: [Association]!
+    subject: GeneOrGeneProduct!
+    object: GeneOrGeneProduct!
+    predicate: PredicateType!
+    quantifierQualifier: OntologyClass
+    expressionSite: AnatomicalEntity
+    stageQualifier: LifeStage
+    phenotypicState: DiseaseOrPhenotypicFeature
   }
 
 type GeneToGeneHomologyAssociation
   {
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
     subject: GeneOrGeneProduct!
     object: GeneOrGeneProduct!
-    relation: Uriorcurie!
+    predicate: PredicateType!
   }
 
 type GeneToGeneProductRelationship
   {
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
     subject: Gene!
     object: GeneProduct!
-    relation: Uriorcurie!
+    predicate: PredicateType!
   }
 
 type GeneToGoTermAssociation
   {
-    relation: Uriorcurie!
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    predicate: PredicateType!
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
     subject: MolecularEntity!
     object: GeneOntologyClass!
   }
 
-type GeneToPhenotypicFeatureAssociation implements EntityToPhenotypicFeatureAssociation, GeneToThingAssociation
+type GeneToPhenotypicFeatureAssociation implements EntityToPhenotypicFeatureAssociationMixin, GeneToEntityAssociationMixin
   {
-    relation: Uriorcurie!
-    object: NamedThing!
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    predicate: PredicateType!
+    object: NamedThing!
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
     subject: GeneOrGeneProduct!
-    sexQualifier: BiologicalSex
-    description: NarrativeText
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
     onsetQualifier: Onset
-  }
-
-interface GeneToThingAssociation
-  {
-    relation: Uriorcurie!
-    object: NamedThing!
-    id: String!
-    negated: Boolean
-    associationType: OntologyClass
-    qualifiers: [OntologyClass]
-    publications: [Publication]
-    providedBy: [Provider]
-    subject: GeneOrGeneProduct!
+    sexQualifier: BiologicalSex
   }
 
 type Genome
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
+  }
+
+type GenomicBackgroundExposure implements ExposureEvent, GeneGroupingMixin
+  {
+    id: String!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    inTaxon: [OrganismTaxon]
+    hasBiologicalSequence: BiologicalSequence
+    timepoint: TimeType
+    hasGeneOrGeneProduct: [Gene]
   }
 
 type GenomicEntity
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
   }
@@ -930,11 +1808,18 @@ type GenomicEntity
 type GenomicSequenceLocalization
   {
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
     startInterbaseCoordinate: Integer
     endInterbaseCoordinate: Integer
     genomeBuild: String
@@ -942,28 +1827,41 @@ type GenomicSequenceLocalization
     phase: String
     subject: GenomicEntity!
     object: GenomicEntity!
-    relation: Uriorcurie!
+    predicate: PredicateType!
   }
 
 type Genotype
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
     hasZygosity: Zygosity
   }
 
-type GenotypeAsAModelOfDiseaseAssociation implements ModelToDiseaseMixin, EntityToDiseaseAssociation
+type GenotypeAsAModelOfDiseaseAssociation implements ModelToDiseaseAssociationMixin, EntityToDiseaseAssociationMixin
   {
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
-    relation: Uriorcurie!
+    type: String
+    category: [Association]!
+    predicate: PredicateType!
     object: NamedThing!
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
@@ -971,31 +1869,50 @@ type GenotypeAsAModelOfDiseaseAssociation implements ModelToDiseaseMixin, Entity
     subject: Genotype!
   }
 
-type GenotypeToDiseaseAssociation implements GenotypeToThingAssociation, EntityToDiseaseAssociation
+type GenotypeToDiseaseAssociation implements GenotypeToEntityAssociationMixin, EntityToDiseaseAssociationMixin
   {
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
     subject: NamedThing!
-    relation: Uriorcurie!
+    predicate: PredicateType!
     object: NamedThing!
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
     onsetQualifier: Onset
   }
 
+interface GenotypeToEntityAssociationMixin
+  {
+    subject: Genotype!
+  }
+
 type GenotypeToGeneAssociation
   {
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
-    relation: Uriorcurie!
+    type: String
+    category: [Association]!
+    predicate: PredicateType!
     subject: Genotype!
     object: Gene!
   }
@@ -1003,75 +1920,104 @@ type GenotypeToGeneAssociation
 type GenotypeToGenotypePartAssociation
   {
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
-    relation: Uriorcurie!
+    type: String
+    category: [Association]!
+    predicate: PredicateType!
     subject: Genotype!
     object: Genotype!
   }
 
-type GenotypeToPhenotypicFeatureAssociation implements EntityToPhenotypicFeatureAssociation, GenotypeToThingAssociation
+type GenotypeToPhenotypicFeatureAssociation implements EntityToPhenotypicFeatureAssociationMixin, GenotypeToEntityAssociationMixin
   {
-    object: NamedThing!
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    object: NamedThing!
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
-    relation: Uriorcurie!
+    type: String
+    category: [Association]!
+    predicate: PredicateType!
     subject: Genotype!
-    sexQualifier: BiologicalSex
-    description: NarrativeText
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
     onsetQualifier: Onset
-  }
-
-interface GenotypeToThingAssociation
-  {
-    relation: Uriorcurie!
-    object: NamedThing!
-    id: String!
-    negated: Boolean
-    associationType: OntologyClass
-    qualifiers: [OntologyClass]
-    publications: [Publication]
-    providedBy: [Provider]
-    subject: Genotype!
+    sexQualifier: BiologicalSex
   }
 
 type GenotypeToVariantAssociation
   {
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
-    relation: Uriorcurie!
+    type: String
+    category: [Association]!
+    predicate: PredicateType!
     subject: Genotype!
     object: SequenceVariant!
   }
 
 type GenotypicSex
   {
-    hasAttributeType: OntologyClass
+    name: LabelType
+    hasAttributeType: OntologyClass!
     hasQuantitativeValue: [QuantityValue]
     hasQualitativeValue: NamedThing
+    iri: IriType
+    source: LabelType
+  }
+
+type GeographicExposure implements ExposureEvent
+  {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    latitude: Float
+    longitude: Float
+    timepoint: TimeType
   }
 
 type GeographicLocation
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     latitude: Float
     longitude: Float
   }
@@ -1079,8 +2025,14 @@ type GeographicLocation
 type GeographicLocationAtTime
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     latitude: Float
     longitude: Float
     timepoint: TimeType
@@ -1089,353 +2041,618 @@ type GeographicLocationAtTime
 type GrossAnatomicalStructure
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    category: [NamedThing]!
+    hasAttribute: [Attribute]
     inTaxon: [OrganismTaxon]
   }
 
 type Haplotype
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
+  }
+
+type Hospitalization
+  {
+    id: String!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+  }
+
+type HospitalizationOutcome implements Outcome
+  {
+    id: String!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
   }
 
 type IndividualOrganism implements ThingWithTaxon
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    category: [NamedThing]!
+    hasAttribute: [Attribute]
     inTaxon: [OrganismTaxon]
   }
 
 interface InformationContentEntity
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    license: String
+    rights: String
+    format: String
+    creationDate: Date
   }
 
 type Inheritance
   {
-    hasAttributeType: OntologyClass
+    name: LabelType
+    hasAttributeType: OntologyClass!
     hasQuantitativeValue: [QuantityValue]
     hasQualitativeValue: NamedThing
-    id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    source: LabelType
   }
 
 type LifeStage implements ThingWithTaxon
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    category: [NamedThing]!
+    hasAttribute: [Attribute]
     inTaxon: [OrganismTaxon]
   }
 
 type MacromolecularComplex
   {
     id: String!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
-    name: SymbolType!
+    name: SymbolType
   }
 
 type MacromolecularMachine
   {
     id: String!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
-    name: SymbolType!
+    name: SymbolType
   }
 
 type MacromolecularMachineToBiologicalProcessAssociation
   {
-    relation: Uriorcurie!
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    predicate: PredicateType!
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
     subject: MacromolecularMachine!
     object: BiologicalProcess!
   }
 
 type MacromolecularMachineToCellularComponentAssociation
   {
-    relation: Uriorcurie!
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    predicate: PredicateType!
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
     subject: MacromolecularMachine!
     object: CellularComponent!
   }
 
 type MacromolecularMachineToMolecularActivityAssociation
   {
-    relation: Uriorcurie!
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    predicate: PredicateType!
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
     subject: MacromolecularMachine!
     object: MolecularActivity!
   }
 
-type MaterialSample implements SubjectOfInvestigation, PhysicalEntity
+type MaterialSample implements SubjectOfInvestigation
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
     hasAttribute: [Attribute]
+    category: [NamedThing]!
   }
 
 type MaterialSampleDerivationAssociation
   {
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
     subject: MaterialSample!
     object: NamedThing!
-    relation: Uriorcurie!
+    predicate: PredicateType!
   }
 
-type MaterialSampleToDiseaseOrPhenotypicFeatureAssociation implements MaterialSampleToThingAssociation, ThingToDiseaseOrPhenotypicFeatureAssociation
+type MaterialSampleToDiseaseOrPhenotypicFeatureAssociation implements MaterialSampleToEntityAssociationMixin, EntityToDiseaseOrPhenotypicFeatureAssociationMixin
   {
+    id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
     subject: NamedThing!
-    relation: Uriorcurie!
+    predicate: PredicateType!
     object: NamedThing!
-    id: String!
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
   }
 
-interface MaterialSampleToThingAssociation
+interface MaterialSampleToEntityAssociationMixin
   {
-    relation: Uriorcurie!
-    object: NamedThing!
-    id: String!
-    negated: Boolean
-    associationType: OntologyClass
-    qualifiers: [OntologyClass]
-    publications: [Publication]
-    providedBy: [Provider]
     subject: MaterialSample!
   }
 
 type Metabolite
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     inTaxon: [OrganismTaxon]
   }
 
 type MicroRNA
   {
-    category: [CategoryType]!
+    id: String!
+    iri: IriType
+    type: String
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
-    id: String!
-    name: LabelType!
-    description: NarrativeText
+    name: SymbolType
     synonym: [LabelType]
     xref: [IriType]
   }
 
-interface ModelToDiseaseMixin
+interface Mixture
+  {
+    hasConstituent: [ChemicalSubstance]
+  }
+
+interface ModelToDiseaseAssociationMixin
   {
     subject: NamedThing!
-    relation: Uriorcurie!
+    predicate: PredicateType!
   }
 
 type MolecularActivity implements Occurrent
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     hasInput: [ChemicalSubstance]
     hasOutput: [ChemicalSubstance]
     enabledBy: [MacromolecularMachine]
   }
 
-type MolecularEntity implements ThingWithTaxon, PhysicalEntity
+type MolecularEntity implements ThingWithTaxon, PhysicalEssence
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     inTaxon: [OrganismTaxon]
+  }
+
+interface MolecularEntityToEntityAssociationMixin
+  {
+    subject: MolecularEntity!
+  }
+
+type MortalityOutcome implements Outcome
+  {
+    id: String!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    hasInput: [NamedThing]
+    hasOutput: [NamedThing]
+    enabledBy: [PhysicalEntity]
   }
 
 type NamedThing
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
   }
 
 type NoncodingRNAProduct
   {
-    category: [CategoryType]!
+    id: String!
+    iri: IriType
+    type: String
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
-    id: String!
-    name: LabelType!
-    description: NarrativeText
+    name: SymbolType
     synonym: [LabelType]
     xref: [IriType]
   }
 
-type Occurrent
+interface Occurrent
   {
-    id: String!
-    name: LabelType!
-    category: [CategoryType]!
   }
 
 type Onset
   {
-    hasAttributeType: OntologyClass
+    name: LabelType
+    hasAttributeType: OntologyClass!
     hasQuantitativeValue: [QuantityValue]
     hasQualitativeValue: NamedThing
-    id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    source: LabelType
   }
 
 type OntologyClass
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+  }
+
+type OrganismAttribute
+  {
+    name: LabelType
+    hasAttributeType: OntologyClass!
+    hasQuantitativeValue: [QuantityValue]
+    hasQualitativeValue: NamedThing
+    iri: IriType
+    source: LabelType
   }
 
 type OrganismTaxon
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    hasTaxonomicRank: TaxonomicRank
+    subclassOf: [OrganismTaxon]
   }
 
 interface OrganismalEntity
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    category: [NamedThing]!
+    hasAttribute: [Attribute]
   }
 
-type OrganismalEntityAsAModelOfDiseaseAssociation implements ModelToDiseaseMixin, EntityToDiseaseAssociation
+type OrganismalEntityAsAModelOfDiseaseAssociation implements ModelToDiseaseAssociationMixin, EntityToDiseaseAssociationMixin
   {
-    relation: Uriorcurie!
-    object: NamedThing!
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    predicate: PredicateType!
+    object: NamedThing!
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
     subject: OrganismalEntity!
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
     onsetQualifier: Onset
   }
 
-type PairwiseGeneToGeneInteraction implements PairwiseInteractionAssociation
+interface Outcome
   {
-    id: String!
-    negated: Boolean
-    associationType: OntologyClass
-    qualifiers: [OntologyClass]
-    publications: [Publication]
-    providedBy: [Provider]
-    subject: GeneOrGeneProduct!
-    object: GeneOrGeneProduct!
-    relation: Uriorcurie!
-    interactingMoleculesCategory: OntologyClass
   }
 
-interface PairwiseInteractionAssociation
+type PairwiseGeneToGeneInteraction
   {
+    id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
+    subject: GeneOrGeneProduct!
+    object: GeneOrGeneProduct!
+    predicate: PredicateType!
+    relation: Uriorcurie!
+  }
+
+type PairwiseMolecularInteraction
+  {
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    negated: Boolean
+    qualifiers: [OntologyClass]
+    publications: [Publication]
+    type: String
+    category: [Association]!
+    interactingMoleculesCategory: OntologyClass
     subject: MolecularEntity!
     id: String!
+    predicate: PredicateType!
     relation: Uriorcurie!
     object: MolecularEntity!
-    interactingMoleculesCategory: OntologyClass
   }
 
 interface PathognomonicityQuantifier
   {
   }
 
-type Pathway
+type PathologicalProcess
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     hasInput: [NamedThing]
     hasOutput: [NamedThing]
     enabledBy: [PhysicalEntity]
   }
 
-type Phenomenon
+type Pathway
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    hasInput: [NamedThing]
+    hasOutput: [NamedThing]
+    enabledBy: [PhysicalEntity]
+  }
+
+type Phenomenon implements Occurrent
+  {
+    id: String!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
   }
 
 type PhenotypicFeature
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     inTaxon: [OrganismTaxon]
   }
 
 type PhenotypicSex
   {
-    hasAttributeType: OntologyClass
+    name: LabelType
+    hasAttributeType: OntologyClass!
     hasQuantitativeValue: [QuantityValue]
     hasQualitativeValue: NamedThing
-    id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    source: LabelType
   }
 
-type PhysicalEntity
+type PhysicalEntity implements PhysicalEssence
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+  }
+
+interface PhysicalEssence
+  {
   }
 
 type PhysiologicalProcess
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     hasInput: [NamedThing]
     hasOutput: [NamedThing]
     enabledBy: [PhysicalEntity]
@@ -1444,74 +2661,133 @@ type PhysiologicalProcess
 type PlanetaryEntity
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
   }
 
 type PopulationOfIndividualOrganisms implements ThingWithTaxon
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    category: [NamedThing]!
+    hasAttribute: [Attribute]
     inTaxon: [OrganismTaxon]
   }
 
 type PopulationToPopulationAssociation
   {
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
     subject: PopulationOfIndividualOrganisms!
     object: PopulationOfIndividualOrganisms!
-    relation: Uriorcurie!
+    predicate: PredicateType!
   }
 
-type Procedure
+type Procedure implements ActivityAndBehavior
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+  }
+
+type ProcessedMaterial implements Mixture
+  {
+    id: String!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    inTaxon: [OrganismTaxon]
+    hasConstituent: [ChemicalSubstance]
   }
 
 type Protein
   {
-    category: [CategoryType]!
+    id: String!
+    iri: IriType
+    type: String
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
-    id: String!
-    name: LabelType!
-    description: NarrativeText
+    name: SymbolType
     synonym: [LabelType]
     xref: [IriType]
   }
 
 type ProteinIsoform implements GeneProductIsoform
   {
-    category: [CategoryType]!
+    id: String!
+    iri: IriType
+    type: String
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
-    id: String!
-    name: LabelType!
-    description: NarrativeText
+    name: SymbolType
     synonym: [LabelType]
     xref: [IriType]
   }
 
-type Provider
-  {
-    id: String!
-    name: LabelType!
-    category: [CategoryType]!
-  }
-
 type Publication
   {
+    iri: IriType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    license: String
+    rights: String
+    format: String
+    creationDate: Date
+    authors: [String]
+    pages: [String]
+    summary: String
+    keywords: [String]
+    meshTerms: [Uriorcurie]
+    xref: [IriType]
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    name: LabelType
+    type: String!
   }
 
 type QuantityValue
@@ -1523,8 +2799,14 @@ type QuantityValue
 type ReagentTargetedGene
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
   }
@@ -1536,30 +2818,46 @@ interface RelationshipQuantifier
 type RelationshipType
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
   }
 
 type RNAProduct
   {
-    category: [CategoryType]!
+    id: String!
+    iri: IriType
+    type: String
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
-    id: String!
-    name: LabelType!
-    description: NarrativeText
+    name: SymbolType
     synonym: [LabelType]
     xref: [IriType]
   }
 
 type RNAProductIsoform implements GeneProductIsoform
   {
-    category: [CategoryType]!
+    id: String!
+    iri: IriType
+    type: String
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
-    id: String!
-    name: LabelType!
-    description: NarrativeText
+    name: SymbolType
     synonym: [LabelType]
     xref: [IriType]
   }
@@ -1570,34 +2868,54 @@ interface SensitivityQuantifier
 
 type SequenceAssociation
   {
-    subject: NamedThing!
-    relation: Uriorcurie!
-    object: NamedThing!
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    subject: NamedThing!
+    predicate: PredicateType!
+    object: NamedThing!
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
   }
 
 type SequenceFeatureRelationship
   {
-    relation: Uriorcurie!
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    predicate: PredicateType!
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
     subject: GenomicEntity!
     object: GenomicEntity!
   }
 
 type SequenceVariant
   {
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     inTaxon: [OrganismTaxon]
     hasGene: [Gene]
     hasBiologicalSequence: BiologicalSequence
@@ -1606,42 +2924,151 @@ type SequenceVariant
 
 interface SequenceVariantModulatesTreatmentAssociation
   {
-    relation: Uriorcurie!
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    predicate: PredicateType!
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
     subject: SequenceVariant!
     object: Treatment!
   }
 
+type Serial
+  {
+    iri: IriType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    license: String
+    rights: String
+    format: String
+    creationDate: Date
+    authors: [String]
+    pages: [String]
+    summary: String
+    keywords: [String]
+    meshTerms: [Uriorcurie]
+    xref: [IriType]
+    name: LabelType
+    isoAbbreviation: String
+    volume: String
+    issue: String
+    id: String!
+    type: String!
+  }
+
 type SeverityValue
   {
-    hasAttributeType: OntologyClass
+    name: LabelType
+    hasAttributeType: OntologyClass!
     hasQuantitativeValue: [QuantityValue]
     hasQualitativeValue: NamedThing
+    iri: IriType
+    source: LabelType
+  }
+
+type SiRNA
+  {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    inTaxon: [OrganismTaxon]
+    hasBiologicalSequence: BiologicalSequence
+    name: SymbolType
+    synonym: [LabelType]
+    xref: [IriType]
   }
 
 type Snv
   {
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     inTaxon: [OrganismTaxon]
     hasGene: [Gene]
     hasBiologicalSequence: BiologicalSequence
     id: String!
   }
 
+type SocioeconomicAttribute
+  {
+    name: LabelType
+    hasAttributeType: OntologyClass!
+    hasQuantitativeValue: [QuantityValue]
+    hasQualitativeValue: NamedThing
+    iri: IriType
+    source: LabelType
+  }
+
+type SocioeconomicExposure implements ExposureEvent
+  {
+    id: String!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    category: [NamedThing]!
+    hasInput: [NamedThing]
+    hasOutput: [NamedThing]
+    enabledBy: [PhysicalEntity]
+    hasAttribute: [SocioeconomicAttribute]!
+    timepoint: TimeType
+  }
+
+type SocioeconomicOutcome implements Outcome
+  {
+    id: String!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    hasInput: [NamedThing]
+    hasOutput: [NamedThing]
+    enabledBy: [PhysicalEntity]
+  }
+
 type SourceFile
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    license: String
+    rights: String
+    format: String
+    creationDate: Date
     sourceVersion: String
     retrievedOn: Date
   }
@@ -1650,21 +3077,35 @@ interface SpecificityQuantifier
   {
   }
 
+type StudyPopulation
+  {
+    id: String!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    category: [NamedThing]!
+    hasAttribute: [Attribute]
+    inTaxon: [OrganismTaxon]
+  }
+
 interface SubjectOfInvestigation
   {
   }
 
-interface ThingToDiseaseOrPhenotypicFeatureAssociation
+type TaxonomicRank
   {
-    subject: NamedThing!
-    relation: Uriorcurie!
     id: String!
-    negated: Boolean
-    associationType: OntologyClass
-    qualifiers: [OntologyClass]
-    publications: [Publication]
-    providedBy: [Provider]
-    object: DiseaseOrPhenotypicFeature!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
   }
 
 interface ThingWithTaxon
@@ -1674,46 +3115,74 @@ interface ThingWithTaxon
 
 type Transcript
   {
-    category: [CategoryType]!
+    id: String!
+    iri: IriType
+    type: String
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
     inTaxon: [OrganismTaxon]
     hasBiologicalSequence: BiologicalSequence
-    id: String!
-    name: LabelType!
-    description: NarrativeText
+    name: SymbolType
     synonym: [LabelType]
     xref: [IriType]
   }
 
 type TranscriptToGeneRelationship
   {
-    relation: Uriorcurie!
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    predicate: PredicateType!
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
     subject: Transcript!
     object: Gene!
   }
 
-type Treatment
+type Treatment implements ExposureEvent
   {
     id: String!
-    name: LabelType!
-    category: [CategoryType]!
-    hasPart: [DrugExposure]!
+    iri: IriType
+    type: String
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    category: [NamedThing]!
+    hasDrug: [Drug]
+    hasDevice: [Device]
+    hasProcedure: [Procedure]
+    timepoint: TimeType
   }
 
-type VariantAsAModelOfDiseaseAssociation implements ModelToDiseaseMixin, EntityToDiseaseAssociation
+type VariantAsAModelOfDiseaseAssociation implements ModelToDiseaseAssociationMixin, EntityToDiseaseAssociationMixin
   {
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
-    relation: Uriorcurie!
+    type: String
+    category: [Association]!
+    predicate: PredicateType!
     object: NamedThing!
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
@@ -1721,49 +3190,118 @@ type VariantAsAModelOfDiseaseAssociation implements ModelToDiseaseMixin, EntityT
     subject: SequenceVariant!
   }
 
-type VariantToDiseaseAssociation implements VariantToThingAssociation, EntityToDiseaseAssociation
+type VariantToDiseaseAssociation implements VariantToEntityAssociationMixin, EntityToDiseaseAssociationMixin
   {
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
+    subject: NamedThing!
+    predicate: PredicateType!
+    object: NamedThing!
+    frequencyQualifier: FrequencyValue
+    severityQualifier: SeverityValue
+    onsetQualifier: Onset
+  }
+
+interface VariantToEntityAssociationMixin
+  {
+    subject: SequenceVariant!
+  }
+
+type VariantToGeneAssociation implements VariantToEntityAssociationMixin
+  {
+    id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
     subject: NamedThing!
     relation: Uriorcurie!
-    object: NamedThing!
-    frequencyQualifier: FrequencyValue
-    severityQualifier: SeverityValue
-    onsetQualifier: Onset
-  }
-
-type VariantToPhenotypicFeatureAssociation implements VariantToThingAssociation, EntityToPhenotypicFeatureAssociation
-  {
-    relation: Uriorcurie!
-    object: NamedThing!
-    id: String!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
-    subject: SequenceVariant!
-    sexQualifier: BiologicalSex
+    type: String
+    category: [Association]!
+    object: Gene!
+    predicate: PredicateType!
+  }
+
+type VariantToGeneExpressionAssociation implements GeneExpressionMixin
+  {
+    id: String!
+    iri: IriType
+    name: LabelType
     description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    subject: NamedThing!
+    relation: Uriorcurie!
+    negated: Boolean
+    qualifiers: [OntologyClass]
+    publications: [Publication]
+    type: String
+    category: [Association]!
+    object: Gene!
+    predicate: PredicateType!
+    quantifierQualifier: OntologyClass
+    expressionSite: AnatomicalEntity
+    stageQualifier: LifeStage
+    phenotypicState: DiseaseOrPhenotypicFeature
+  }
+
+type VariantToPhenotypicFeatureAssociation implements VariantToEntityAssociationMixin, EntityToPhenotypicFeatureAssociationMixin
+  {
+    id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    predicate: PredicateType!
+    object: NamedThing!
+    relation: Uriorcurie!
+    negated: Boolean
+    qualifiers: [OntologyClass]
+    publications: [Publication]
+    type: String
+    category: [Association]!
+    subject: SequenceVariant!
     frequencyQualifier: FrequencyValue
     severityQualifier: SeverityValue
     onsetQualifier: Onset
+    sexQualifier: BiologicalSex
   }
 
-type VariantToPopulationAssociation implements VariantToThingAssociation, FrequencyQuantifier, FrequencyQualifierMixin
+type VariantToPopulationAssociation implements VariantToEntityAssociationMixin, FrequencyQuantifier, FrequencyQualifierMixin
   {
-    relation: Uriorcurie!
     id: String!
+    iri: IriType
+    name: LabelType
+    description: NarrativeText
+    source: LabelType
+    providedBy: [Agent]
+    hasAttribute: [Attribute]
+    predicate: PredicateType!
+    relation: Uriorcurie!
     negated: Boolean
-    associationType: OntologyClass
     qualifiers: [OntologyClass]
     publications: [Publication]
-    providedBy: [Provider]
+    type: String
+    category: [Association]!
     subject: SequenceVariant!
     object: PopulationOfIndividualOrganisms!
     hasQuotient: Double
@@ -1773,26 +3311,13 @@ type VariantToPopulationAssociation implements VariantToThingAssociation, Freque
     frequencyQualifier: FrequencyValue
   }
 
-interface VariantToThingAssociation
-  {
-    relation: Uriorcurie!
-    object: NamedThing!
-    id: String!
-    negated: Boolean
-    associationType: OntologyClass
-    qualifiers: [OntologyClass]
-    publications: [Publication]
-    providedBy: [Provider]
-    subject: SequenceVariant!
-  }
-
 type Zygosity
   {
-    hasAttributeType: OntologyClass
+    name: LabelType
+    hasAttributeType: OntologyClass!
     hasQuantitativeValue: [QuantityValue]
     hasQualitativeValue: NamedThing
-    id: String!
-    name: LabelType!
-    category: [CategoryType]!
+    iri: IriType
+    source: LabelType
   }
 

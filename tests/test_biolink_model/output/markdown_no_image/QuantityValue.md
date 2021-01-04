@@ -7,11 +7,11 @@ A value of an attribute that is quantitative and measurable, expressed as a comb
 URI: [biolink:QuantityValue](https://w3id.org/biolink/vocab/QuantityValue)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Attribute]++-%20has%20quantitative%20value%200..*>[QuantityValue&#124;has_unit:unit%20%3F;has_numeric_value:double%20%3F],[AbstractEntity]^-[QuantityValue],[Attribute],[AbstractEntity])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Attribute]++-%20has%20quantitative%20value%200..*>[QuantityValue&#124;has_unit:unit%20%3F;has_numeric_value:double%20%3F],[Annotation]^-[QuantityValue],[Attribute],[Annotation])
 
 ## Parents
 
- *  is_a: [AbstractEntity](AbstractEntity.md) - Any thing that is not a process or a physical mass-bearing entity
+ *  is_a: [Annotation](Annotation.md) - Biolink Model root class for entity annotations.
 
 ## Referenced by class
 

@@ -22,6 +22,7 @@ URI: [meta:definition_uri](https://w3id.org/biolink/biolinkml/meta/definition_ur
  * class_definition
  * definition
  * [Element](Element.md)
+ * enum_definition
  * schema_definition
  * slot_definition
  * subset_definition

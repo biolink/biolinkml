@@ -1,5 +1,5 @@
 # Auto generated from issue_80.yaml by pythongen.py version: 0.9.0
-# Generation date: 2020-10-23 17:01
+# Generation date: 2021-01-04 21:53
 # Schema: Issue_80_test_case
 #
 # id: http://example.org/issues/80
@@ -11,6 +11,8 @@ import sys
 import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
+from biolinkml.meta import EnumDefinition, PermissibleValue, PvFormulaOptions
+
 from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
@@ -19,12 +21,13 @@ if sys.version_info < (3, 7, 6):
 else:
     from biolinkml.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
+from biolinkml.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import ElementIdentifier
 from includes.types import Integer, Objectidentifier, String
 
-metamodel_version = "1.6.0"
+metamodel_version = "1.7.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -60,7 +63,7 @@ class Person(YAMLRoot):
     name: str = None
     age: Optional[int] = None
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.id is None:
             raise ValueError("id must be supplied")
         if not isinstance(self.id, PersonId):
@@ -76,6 +79,8 @@ class Person(YAMLRoot):
 
         super().__post_init__(**kwargs)
 
+
+# Enumerations
 
 
 # Slots

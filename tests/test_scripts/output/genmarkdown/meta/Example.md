@@ -7,7 +7,7 @@ usage example and description
 URI: [meta:Example](https://w3id.org/biolink/biolinkml/meta/Example)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Element]++-%20examples%200..*>[Example&#124;value:string%20%3F;description:string%20%3F],[Element])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Element]++-%20examples%200..*>[Example&#124;value:string%20%3F;description:string%20%3F],[PermissibleValue]++-%20examples%200..*>[Example],[PermissibleValue],[Element])
 
 ## Referenced by class
 

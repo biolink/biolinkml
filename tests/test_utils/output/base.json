@@ -173,9 +173,9 @@
          "repr": "str"
       }
    ],
-   "metamodel_version": "1.6.0",
+   "metamodel_version": "1.7.0",
    "source_file": "base.yaml",
-   "source_file_date": "Fri Oct 23 16:59:17 2020",
+   "source_file_date": "Mon Jan  4 21:51:21 2021",
    "source_file_size": 487,
-   "generation_date": "2020-10-23 17:02"
+   "generation_date": "2021-01-04 21:54"
 }

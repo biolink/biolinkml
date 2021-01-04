@@ -17,6 +17,7 @@ URI: [biolink:quantifier_qualifier](https://w3id.org/biolink/vocab/quantifier_qu
 
 ## Children
 
+ *  [gene expression mixin➞quantifier qualifier](gene_expression_mixin_quantifier_qualifier.md)
  *  [gene to expression site association➞quantifier qualifier](gene_to_expression_site_association_quantifier_qualifier.md)
 
 ## Used by

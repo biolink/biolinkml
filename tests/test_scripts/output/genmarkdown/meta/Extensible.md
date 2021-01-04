@@ -7,11 +7,12 @@ mixin for classes that support extension
 URI: [meta:Extensible](https://w3id.org/biolink/biolinkml/meta/Extensible)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Extension],[Extension]<extensions%200..*-++[Extensible],[Element]uses%20-.->[Extensible],[Element])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Extension],[Extension]<extensions%200..*-++[Extensible],[PermissibleValue]uses%20-.->[Extensible],[Element]uses%20-.->[Extensible],[PermissibleValue],[Element])
 
 ## Mixin for
 
  * [Element](Element.md) (mixin)  - a named element in the model
+ * [PermissibleValue](PermissibleValue.md) (mixin)  - a permissible value, accompanied by intended text and an optional mapping to a concept URI
 
 ## Referenced by class
 

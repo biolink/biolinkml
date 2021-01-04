@@ -22,6 +22,7 @@ URI: [meta:local_names](https://w3id.org/biolink/biolinkml/meta/local_names)
  * class_definition
  * definition
  * [Element](Element.md)
+ * enum_definition
  * schema_definition
  * slot_definition
  * subset_definition

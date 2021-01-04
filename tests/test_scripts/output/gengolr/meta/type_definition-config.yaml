@@ -5,16 +5,16 @@ display_name: type_definition
 document_category: type_definition
 weight: 20
 fields:
-- id: id_prefixes
-  description: the identifier of this class or slot must begin with one of the URIs
-    referenced by this prefix
-  display_name: id_prefixes
-  cardinality: multi
 - id: name
   description: the unique name of the element within the context of the schema.  Name
     is combined with the default prefix to form the globally unique subject of the
     target class.
   display_name: name
+- id: id_prefixes
+  description: the identifier of this class or slot must begin with one of the URIs
+    referenced by this prefix
+  display_name: id_prefixes
+  cardinality: multi
 - id: definition_uri
   description: the "native" URI of the element
   display_name: definition_uri

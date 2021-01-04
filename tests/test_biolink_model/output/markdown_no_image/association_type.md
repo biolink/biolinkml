@@ -1,19 +1,19 @@
 
-# Type: association type
+# Type: association_type
 
 
-connects an association to the type of association (e.g. gene to phenotype)
+rdf:type of biolink:Association should be fixed at rdf:Statement
 
 URI: [biolink:association_type](https://w3id.org/biolink/vocab/association_type)
 
 
 ## Domain and Range
 
-[Association](Association.md) ->  <sub>OPT</sub> [OntologyClass](OntologyClass.md)
+[Association](Association.md) ->  <sub>OPT</sub> [String](types/String.md)
 
 ## Parents
 
- *  is_a: [association slot](association_slot.md)
+ *  is_a: [type](type.md)
 
 ## Children
 
@@ -25,23 +25,21 @@ URI: [biolink:association_type](https://w3id.org/biolink/vocab/association_type)
  * [AnatomicalEntityToAnatomicalEntityPartOfAssociation](AnatomicalEntityToAnatomicalEntityPartOfAssociation.md)
  * [Association](Association.md)
  * [CaseToPhenotypicFeatureAssociation](CaseToPhenotypicFeatureAssociation.md)
- * [CaseToThingAssociation](CaseToThingAssociation.md)
  * [CellLineAsAModelOfDiseaseAssociation](CellLineAsAModelOfDiseaseAssociation.md)
  * [CellLineToDiseaseOrPhenotypicFeatureAssociation](CellLineToDiseaseOrPhenotypicFeatureAssociation.md)
- * [CellLineToThingAssociation](CellLineToThingAssociation.md)
  * [ChemicalToChemicalAssociation](ChemicalToChemicalAssociation.md)
  * [ChemicalToChemicalDerivationAssociation](ChemicalToChemicalDerivationAssociation.md)
  * [ChemicalToDiseaseOrPhenotypicFeatureAssociation](ChemicalToDiseaseOrPhenotypicFeatureAssociation.md)
  * [ChemicalToGeneAssociation](ChemicalToGeneAssociation.md)
  * [ChemicalToPathwayAssociation](ChemicalToPathwayAssociation.md)
- * [ChemicalToThingAssociation](ChemicalToThingAssociation.md)
+ * [ContributorAssociation](ContributorAssociation.md)
  * [DiseaseOrPhenotypicFeatureAssociationToLocationAssociation](DiseaseOrPhenotypicFeatureAssociationToLocationAssociation.md)
- * [DiseaseOrPhenotypicFeatureAssociationToThingAssociation](DiseaseOrPhenotypicFeatureAssociationToThingAssociation.md)
- * [DiseaseToExposureAssociation](DiseaseToExposureAssociation.md)
+ * [DiseaseOrPhenotypicFeatureToLocationAssociation](DiseaseOrPhenotypicFeatureToLocationAssociation.md)
+ * [DiseaseToExposureEventAssociation](DiseaseToExposureEventAssociation.md)
  * [DiseaseToPhenotypicFeatureAssociation](DiseaseToPhenotypicFeatureAssociation.md)
- * [DiseaseToThingAssociation](DiseaseToThingAssociation.md)
- * [EntityToPhenotypicFeatureAssociation](EntityToPhenotypicFeatureAssociation.md)
+ * [DrugToGeneAssociation](DrugToGeneAssociation.md)
  * [ExonToTranscriptRelationship](ExonToTranscriptRelationship.md)
+ * [ExposureEventToOutcomeAssociation](ExposureEventToOutcomeAssociation.md)
  * [ExposureEventToPhenotypicFeatureAssociation](ExposureEventToPhenotypicFeatureAssociation.md)
  * [FunctionalAssociation](FunctionalAssociation.md)
  * [GeneAsAModelOfDiseaseAssociation](GeneAsAModelOfDiseaseAssociation.md)
@@ -50,43 +48,34 @@ URI: [biolink:association_type](https://w3id.org/biolink/vocab/association_type)
  * [GeneToDiseaseAssociation](GeneToDiseaseAssociation.md)
  * [GeneToExpressionSiteAssociation](GeneToExpressionSiteAssociation.md)
  * [GeneToGeneAssociation](GeneToGeneAssociation.md)
+ * [GeneToGeneCoexpressionAssociation](GeneToGeneCoexpressionAssociation.md)
  * [GeneToGeneHomologyAssociation](GeneToGeneHomologyAssociation.md)
  * [GeneToGeneProductRelationship](GeneToGeneProductRelationship.md)
  * [GeneToGoTermAssociation](GeneToGoTermAssociation.md)
  * [GeneToPhenotypicFeatureAssociation](GeneToPhenotypicFeatureAssociation.md)
- * [GeneToThingAssociation](GeneToThingAssociation.md)
  * [GenomicSequenceLocalization](GenomicSequenceLocalization.md)
  * [GenotypeAsAModelOfDiseaseAssociation](GenotypeAsAModelOfDiseaseAssociation.md)
  * [GenotypeToDiseaseAssociation](GenotypeToDiseaseAssociation.md)
  * [GenotypeToGeneAssociation](GenotypeToGeneAssociation.md)
  * [GenotypeToGenotypePartAssociation](GenotypeToGenotypePartAssociation.md)
  * [GenotypeToPhenotypicFeatureAssociation](GenotypeToPhenotypicFeatureAssociation.md)
- * [GenotypeToThingAssociation](GenotypeToThingAssociation.md)
  * [GenotypeToVariantAssociation](GenotypeToVariantAssociation.md)
  * [MacromolecularMachineToBiologicalProcessAssociation](MacromolecularMachineToBiologicalProcessAssociation.md)
  * [MacromolecularMachineToCellularComponentAssociation](MacromolecularMachineToCellularComponentAssociation.md)
  * [MacromolecularMachineToMolecularActivityAssociation](MacromolecularMachineToMolecularActivityAssociation.md)
  * [MaterialSampleDerivationAssociation](MaterialSampleDerivationAssociation.md)
  * [MaterialSampleToDiseaseOrPhenotypicFeatureAssociation](MaterialSampleToDiseaseOrPhenotypicFeatureAssociation.md)
- * [MaterialSampleToThingAssociation](MaterialSampleToThingAssociation.md)
  * [OrganismalEntityAsAModelOfDiseaseAssociation](OrganismalEntityAsAModelOfDiseaseAssociation.md)
  * [PairwiseGeneToGeneInteraction](PairwiseGeneToGeneInteraction.md)
- * [PairwiseInteractionAssociation](PairwiseInteractionAssociation.md)
+ * [PairwiseMolecularInteraction](PairwiseMolecularInteraction.md)
  * [PopulationToPopulationAssociation](PopulationToPopulationAssociation.md)
  * [SequenceAssociation](SequenceAssociation.md)
  * [SequenceFeatureRelationship](SequenceFeatureRelationship.md)
  * [SequenceVariantModulatesTreatmentAssociation](SequenceVariantModulatesTreatmentAssociation.md)
- * [ThingToDiseaseOrPhenotypicFeatureAssociation](ThingToDiseaseOrPhenotypicFeatureAssociation.md)
  * [TranscriptToGeneRelationship](TranscriptToGeneRelationship.md)
  * [VariantAsAModelOfDiseaseAssociation](VariantAsAModelOfDiseaseAssociation.md)
  * [VariantToDiseaseAssociation](VariantToDiseaseAssociation.md)
+ * [VariantToGeneAssociation](VariantToGeneAssociation.md)
+ * [VariantToGeneExpressionAssociation](VariantToGeneExpressionAssociation.md)
  * [VariantToPhenotypicFeatureAssociation](VariantToPhenotypicFeatureAssociation.md)
  * [VariantToPopulationAssociation](VariantToPopulationAssociation.md)
- * [VariantToThingAssociation](VariantToThingAssociation.md)
-
-## Other properties
-
-|  |  |  |
-| --- | --- | --- |
-| **Mappings:** | | rdf:type |
-

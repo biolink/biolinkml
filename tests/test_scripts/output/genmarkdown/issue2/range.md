@@ -28,3 +28,10 @@ slot_definition ->  <sub>OPT</sub> [Element](Element.md)
 ## Used by
 
  * slot_definition
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Comments:** | | range is underspecified, as not all elements can appear as the range of a slot. |
+

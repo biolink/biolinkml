@@ -21,14 +21,18 @@ URI: [biolink:has_quantitative_value](https://w3id.org/biolink/vocab/has_quantit
 
  * [Attribute](Attribute.md)
  * [BiologicalSex](BiologicalSex.md)
+ * [ClinicalAttribute](ClinicalAttribute.md)
  * [ClinicalCourse](ClinicalCourse.md)
+ * [ClinicalMeasurement](ClinicalMeasurement.md)
  * [ClinicalModifier](ClinicalModifier.md)
  * [FrequencyValue](FrequencyValue.md)
  * [GenotypicSex](GenotypicSex.md)
  * [Inheritance](Inheritance.md)
  * [Onset](Onset.md)
+ * [OrganismAttribute](OrganismAttribute.md)
  * [PhenotypicSex](PhenotypicSex.md)
  * [SeverityValue](SeverityValue.md)
+ * [SocioeconomicAttribute](SocioeconomicAttribute.md)
  * [Zygosity](Zygosity.md)
 
 ## Other properties

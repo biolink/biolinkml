@@ -7,45 +7,88 @@ A substance intended for use in the diagnosis, cure, mitigation, treatment, or p
 URI: [biolink:Drug](https://w3id.org/biolink/vocab/Drug)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon],[NamedThing],[ChemicalSubstance]^-[Drug&#124;id(i):string;name(i):label_type;category(i):category_type%20%2B],[ChemicalSubstance])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon],[NamedThing],[MolecularEntity],[Mixture],[DrugToEntityAssociationMixin],[DrugExposure],[ChemicalSubstance]<has%20excipient%200..*-%20[Drug&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[ChemicalSubstance]<has%20active%20ingredient%200..*-%20[Drug],[DrugToEntityAssociationMixin]-%20subject%201..1>[Drug],[Treatment]-%20has%20drug%200..*>[Drug],[Drug]uses%20-.->[Mixture],[Drug]^-[DrugExposure],[MolecularEntity]^-[Drug],[Treatment],[ChemicalSubstance],[Attribute],[Agent])
 
 ## Parents
 
- *  is_a: [ChemicalSubstance](ChemicalSubstance.md) - May be a chemical entity or a formulation with a chemical entity as active ingredient, or a complex material with multiple chemical entities as part
+ *  is_a: [MolecularEntity](MolecularEntity.md) - A gene, gene product, small molecule or macromolecule (including protein complex)
+
+## Uses Mixins
+
+ *  mixin: [Mixture](Mixture.md) - The physical combination of two or more molecular entities in which the identities are retained and are mixed in the form of solutions, suspensions and colloids.
+
+## Children
+
+ * [DrugExposure](DrugExposure.md) - A drug exposure is an intake of a particular drug.
 
 ## Referenced by class
 
- *  **[NamedThing](NamedThing.md)** *[has drug](has_drug.md)*  <sub>OPT</sub>  **[Drug](Drug.md)**
+ *  **[DrugToEntityAssociationMixin](DrugToEntityAssociationMixin.md)** *[drug to entity association mixin➞subject](drug_to_entity_association_mixin_subject.md)*  <sub>REQ</sub>  **[Drug](Drug.md)**
+ *  **[NamedThing](NamedThing.md)** *[has drug](has_drug.md)*  <sub>0..*</sub>  **[Drug](Drug.md)**
 
 ## Attributes
 
 
-### Inherited from chemical substance:
+### Own
 
- * [category](category.md)  <sub>1..*</sub>
-    * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
- * In a neo4j database this MAY correspond to the neo4j label tag.
- * In an RDF database it should be a biolink model class URI.
-This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `bl:Protein`, `bl:GeneProduct`, `bl:MolecularEntity`, ...
-In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {bl:GenomicEntity, bl:MolecularEntity, bl:NamedThing}
-    * range: [CategoryType](types/CategoryType.md)
+ * [has active ingredient](has_active_ingredient.md)  <sub>0..*</sub>
+    * Description: one or more chemical substance which are the active ingredient(s) of a drug
+    * range: [ChemicalSubstance](ChemicalSubstance.md)
+ * [has excipient](has_excipient.md)  <sub>0..*</sub>
+    * Description: one or more (generally inert) chemical substances which are formulated alongside the active ingredient of a drug
+    * range: [ChemicalSubstance](ChemicalSubstance.md)
+
+### Inherited from molecular entity:
+
+ * [description](description.md)  <sub>OPT</sub>
+    * Description: a human-readable description of an entity
+    * range: [NarrativeText](types/NarrativeText.md)
     * in subsets: (translator_minimal)
+ * [has attribute](has_attribute.md)  <sub>0..*</sub>
+    * Description: connects any entity to an attribute
+    * range: [Attribute](Attribute.md)
+    * in subsets: (samples)
  * [id](id.md)  <sub>REQ</sub>
-    * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
+    * Description: A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI
     * range: [String](types/String.md)
     * in subsets: (translator_minimal)
- * [name](name.md)  <sub>REQ</sub>
-    * Description: A human-readable name for a thing
+ * [iri](iri.md)  <sub>OPT</sub>
+    * Description: An IRI for an entity. This is determined by the id using expansion rules.
+    * range: [IriType](types/IriType.md)
+    * in subsets: (translator_minimal,samples)
+ * [name](name.md)  <sub>OPT</sub>
+    * Description: A human-readable name for an attribute or entity.
+    * range: [LabelType](types/LabelType.md)
+    * in subsets: (translator_minimal,samples)
+ * [named thing➞category](named_thing_category.md)  <sub>1..*</sub>
+    * range: [NamedThing](NamedThing.md)
+ * [provided by](provided_by.md)  <sub>0..*</sub>
+    * Description: connects an association to the agent (person, organization or group) that provided it
+    * range: [Agent](Agent.md)
+ * [source](source.md)  <sub>OPT</sub>
+    * Description: a lightweight analog to the association class 'has provider' slot, which is the string name, or the authoritative (i.e. database) namespace, designating the origin of the entity to which the slot belongs.
     * range: [LabelType](types/LabelType.md)
     * in subsets: (translator_minimal)
+ * [type](type.md)  <sub>OPT</sub>
+    * range: [String](types/String.md)
+
+### Mixed in from mixture:
+
+ * [has constituent](has_constituent.md)  <sub>0..*</sub>
+    * Description: one or more chemical substances within a mixture
+    * range: [ChemicalSubstance](ChemicalSubstance.md)
 
 ## Other properties
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | WIKIDATA:Q12140 |
+| **Comments:** | | The CHEBI ID represents a role rather than a substance |
+| **Exact Mappings:** | | WIKIDATA:Q12140 |
 |  | | CHEBI:23888 |
 |  | | UMLSSC:T200 |
 |  | | UMLSST:clnd |
-| **Comments:** | | The CHEBI ID represents a role rather than a substance |
+| **Narrow Mappings:** | | UMLSSC:T195 |
+|  | | UMLSST:antb |
+| **Broad Mappings:** | | UMLSSC:T121 |
+|  | | UMLSST:phsu |
 

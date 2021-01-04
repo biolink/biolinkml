@@ -19,8 +19,8 @@ type Annotation implements Annotatable
 
 type ClassDefinition
   {
-    idPrefixes: [Ncname]
     name: String!
+    idPrefixes: [Ncname]
     definitionUri: Uriorcurie
     aliases: [String]
     localNames: [LocalName]
@@ -68,8 +68,8 @@ type ClassDefinition
 
 interface Definition
   {
-    idPrefixes: [Ncname]
     name: String!
+    idPrefixes: [Ncname]
     definitionUri: Uriorcurie
     aliases: [String]
     localNames: [LocalName]
@@ -109,8 +109,8 @@ interface Definition
 
 type Element implements Extensible, Annotatable
   {
-    idPrefixes: [Ncname]
     name: String!
+    idPrefixes: [Ncname]
     definitionUri: Uriorcurie
     aliases: [String]
     localNames: [LocalName]
@@ -137,6 +137,41 @@ type Element implements Extensible, Annotatable
     annotations: [Annotation]
   }
 
+type EnumDefinition
+  {
+    name: String!
+    idPrefixes: [Ncname]
+    definitionUri: Uriorcurie
+    aliases: [String]
+    localNames: [LocalName]
+    mappings: [Uriorcurie]
+    description: String
+    altDescriptions: [AltDescription]
+    deprecated: String
+    todos: [String]
+    notes: [String]
+    comments: [String]
+    examples: [Example]
+    inSubset: [SubsetDefinition]
+    fromSchema: Uri
+    importedFrom: String
+    seeAlso: [Uriorcurie]
+    exactMappings: [Uriorcurie]
+    closeMappings: [Uriorcurie]
+    relatedMappings: [Uriorcurie]
+    narrowMappings: [Uriorcurie]
+    broadMappings: [Uriorcurie]
+    deprecatedElementHasExactReplacement: Uriorcurie
+    deprecatedElementHasPossibleReplacement: Uriorcurie
+    extensions: [Extension]
+    annotations: [Annotation]
+    codeSet: Uriorcurie
+    codeSetTag: String
+    codeSetVersion: String
+    pvFormula: PvFormulaOptions
+    permissibleValues: [PermissibleValue]
+  }
+
 type Example
   {
     value: String
@@ -159,6 +194,29 @@ type LocalName
   {
     localNameSource: Ncname!
     localNameValue: String!
+  }
+
+type PermissibleValue implements Extensible, Annotatable
+  {
+    text: String!
+    description: String
+    meaning: Uriorcurie
+    altDescriptions: [AltDescription]
+    deprecated: String
+    todos: [String]
+    notes: [String]
+    comments: [String]
+    examples: [Example]
+    inSubset: [SubsetDefinition]
+    fromSchema: Uri
+    importedFrom: String
+    seeAlso: [Uriorcurie]
+    deprecatedElementHasExactReplacement: Uriorcurie
+    deprecatedElementHasPossibleReplacement: Uriorcurie
+    isA: PermissibleValue
+    mixins: [PermissibleValue]
+    extensions: [Extension]
+    annotations: [Annotation]
   }
 
 type Prefix
@@ -206,6 +264,7 @@ type SchemaDefinition
     defaultRange: TypeDefinition
     subsets: [SubsetDefinition]
     types: [TypeDefinition]
+    enums: [EnumDefinition]
     slots: [SlotDefinition]
     classes: [ClassDefinition]
     metamodelVersion: String
@@ -218,8 +277,8 @@ type SchemaDefinition
 
 type SlotDefinition
   {
-    idPrefixes: [Ncname]
     name: String!
+    idPrefixes: [Ncname]
     definitionUri: Uriorcurie
     aliases: [String]
     localNames: [LocalName]
@@ -286,8 +345,8 @@ type SlotDefinition
 
 type SubsetDefinition
   {
-    idPrefixes: [Ncname]
     name: String!
+    idPrefixes: [Ncname]
     definitionUri: Uriorcurie
     aliases: [String]
     localNames: [LocalName]
@@ -316,8 +375,8 @@ type SubsetDefinition
 
 type TypeDefinition
   {
-    idPrefixes: [Ncname]
     name: String!
+    idPrefixes: [Ncname]
     definitionUri: Uriorcurie
     aliases: [String]
     localNames: [LocalName]

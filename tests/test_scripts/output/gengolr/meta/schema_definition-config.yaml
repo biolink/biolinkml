@@ -156,6 +156,10 @@ fields:
   description: data types used in the model
   display_name: types
   cardinality: multi
+- id: enums
+  description: enumerated ranges
+  display_name: enums
+  cardinality: multi
 - id: slots
   description: slot definitions
   display_name: slot_definitions

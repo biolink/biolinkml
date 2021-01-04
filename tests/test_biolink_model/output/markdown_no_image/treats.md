@@ -9,11 +9,11 @@ URI: [biolink:treats](https://w3id.org/biolink/vocab/treats)
 
 ## Domain and Range
 
-[Treatment](Treatment.md) ->  <sub>1..*</sub> [DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md)
+[Treatment](Treatment.md) ->  <sub>0..*</sub> [DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md)
 
 ## Parents
 
- *  is_a: [affects](affects.md)
+ *  is_a: [ameliorates](ameliorates.md)
 
 ## Children
 
@@ -30,7 +30,6 @@ URI: [biolink:treats](https://w3id.org/biolink/vocab/treats)
 | **Exact Mappings:** | | SEMMEDDB:TREATS |
 |  | | SEMMEDDB:treats |
 |  | | WIKIDATA_PROPERTY:P2175 |
-|  | | CTD:therapeutic |
 | **Narrow Mappings:** | | RO:0002606 |
 |  | | NCIT:regimen_has_accepted_use_for_disease |
 |  | | REPODB:clinically_tested_approved_unknown_phase |

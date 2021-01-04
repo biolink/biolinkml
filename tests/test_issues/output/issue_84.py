@@ -1,5 +1,5 @@
 # Auto generated from issue_84.yaml by pythongen.py version: 0.9.0
-# Generation date: 2020-10-23 17:01
+# Generation date: 2021-01-04 21:53
 # Schema: nmdc_schema
 #
 # id: https://microbiomedata/schema
@@ -11,6 +11,8 @@ import sys
 import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
+from biolinkml.meta import EnumDefinition, PermissibleValue, PvFormulaOptions
+
 from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
@@ -19,12 +21,13 @@ if sys.version_info < (3, 7, 6):
 else:
     from biolinkml.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
+from biolinkml.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import ElementIdentifier
 from includes.types import Double, Float, String
 
-metamodel_version = "1.6.0"
+metamodel_version = "1.7.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -82,7 +85,7 @@ class Biosample(YAMLRoot):
     annotations: Optional[Union[Union[dict, "Annotation"], List[Union[dict, "Annotation"]]]] = empty_list()
     alternate_identifiers: Optional[Union[ElementIdentifier, List[ElementIdentifier]]] = empty_list()
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.id is None:
             raise ValueError("id must be supplied")
         if not isinstance(self.id, BiosampleId):
@@ -121,7 +124,7 @@ class BiosampleProcessing(YAMLRoot):
     input: Optional[Union[Union[ElementIdentifier, BiosampleId], List[Union[ElementIdentifier, BiosampleId]]]] = empty_list()
     output: Optional[Union[Union[ElementIdentifier, BiosampleId], List[Union[ElementIdentifier, BiosampleId]]]] = empty_list()
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.input is None:
             self.input = []
         if not isinstance(self.input, list):
@@ -153,7 +156,7 @@ class Annotation(YAMLRoot):
     has_characteristic: Optional[Union[ElementIdentifier, CharacteristicId]] = None
     has_normalized_value: Optional[Union[dict, "NormalizedValue"]] = None
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.has_raw_value is None:
             raise ValueError("has_raw_value must be supplied")
         if not isinstance(self.has_raw_value, str):
@@ -186,7 +189,7 @@ class Characteristic(YAMLRoot):
     description: Optional[str] = None
     alternate_identifiers: Optional[Union[ElementIdentifier, List[ElementIdentifier]]] = empty_list()
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.id is None:
             raise ValueError("id must be supplied")
         if not isinstance(self.id, CharacteristicId):
@@ -234,7 +237,7 @@ class QuantityValue(NormalizedValue):
     has_unit: Optional[Union[dict, "Unit"]] = None
     has_numeric_value: Optional[float] = None
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.has_unit is not None and not isinstance(self.has_unit, Unit):
             self.has_unit = Unit()
 
@@ -258,7 +261,7 @@ class ControlledTermValue(NormalizedValue):
 
     instance_of: Optional[Union[ElementIdentifier, OntologyClassId]] = None
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.instance_of is not None and not isinstance(self.instance_of, OntologyClassId):
             self.instance_of = OntologyClassId(self.instance_of)
 
@@ -280,7 +283,7 @@ class GeolocationValue(NormalizedValue):
     latitude: Optional[float] = None
     longitude: Optional[float] = None
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.latitude is not None and not isinstance(self.latitude, float):
             self.latitude = float(self.latitude)
 
@@ -311,7 +314,7 @@ class OntologyClass(YAMLRoot):
     id: Union[ElementIdentifier, OntologyClassId] = None
     name: Optional[str] = None
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.id is None:
             raise ValueError("id must be supplied")
         if not isinstance(self.id, OntologyClassId):
@@ -322,6 +325,8 @@ class OntologyClass(YAMLRoot):
 
         super().__post_init__(**kwargs)
 
+
+# Enumerations
 
 
 # Slots

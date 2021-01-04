@@ -9,21 +9,23 @@ URI: [biolink:interacting_molecules_category](https://w3id.org/biolink/vocab/int
 
 ## Domain and Range
 
-None ->  <sub>OPT</sub> [OntologyClass](OntologyClass.md)
+[Association](Association.md) ->  <sub>OPT</sub> [OntologyClass](OntologyClass.md)
 
 ## Parents
 
+ *  is_a: [association slot](association_slot.md)
 
 ## Children
 
- *  [pairwise interaction association➞interacting molecules category](pairwise_interaction_association_interacting_molecules_category.md)
 
 ## Used by
 
+ * [PairwiseMolecularInteraction](PairwiseMolecularInteraction.md)
 
 ## Other properties
 
 |  |  |  |
 | --- | --- | --- |
 | **Examples:** | | Example(value='MI:1048', description='smallmolecule-protein') |
+| **Exact Mappings:** | | MI:1046 |
 

@@ -5,7 +5,7 @@
     meta:default_prefix "https://hotecosystem.org/tccm/prefixes/" ;
     meta:default_range <https://hotecosystem.org/tccm/prefixes/string> ;
     meta:id <https://hotecosystem.org/tccm/prefixes> ;
-    meta:metamodel_version "1.6.0" ;
+    meta:metamodel_version "1.7.0" ;
     meta:source_file "minimalmodel.yaml" .
 
 

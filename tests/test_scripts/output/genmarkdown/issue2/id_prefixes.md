@@ -22,6 +22,7 @@ URI: [meta:id_prefixes](https://w3id.org/biolink/biolinkml/meta/id_prefixes)
  * class_definition
  * definition
  * [Element](Element.md)
+ * enum_definition
  * schema_definition
  * slot_definition
  * subset_definition
