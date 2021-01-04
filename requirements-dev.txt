@@ -10,6 +10,9 @@
 # `Pipfile.lock` and then regenerate `requirements*.txt`.
 ################################################################################
 
+ipykernel
+nbconvert
+nbformat
 pipenv-to-requirements
 tox
 tox-pipenv
