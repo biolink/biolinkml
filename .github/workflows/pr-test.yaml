@@ -23,7 +23,7 @@ jobs:
     - name: Install pipenv
       uses: dschep/install-pipenv-action@v1
     - name: Install dependencies
-      run: pipenv install
+      run: pipenv install -d
 
     - name: Test with unittest
       run: pipenv run python -m unittest discover -p 'test_*.py'
