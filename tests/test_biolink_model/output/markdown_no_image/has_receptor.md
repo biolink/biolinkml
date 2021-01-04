@@ -25,5 +25,5 @@ URI: [biolink:has_receptor](https://w3id.org/biolink/vocab/has_receptor)
 
 |  |  |  |
 | --- | --- | --- |
-| **Exact Mappings:** | | ExO:0000001 |
+| **Mappings:** | | ExO:0000001 |
 

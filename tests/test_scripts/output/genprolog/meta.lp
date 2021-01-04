@@ -419,10 +419,6 @@ slot(string_serialization).
 domain(string_serialization, slot_definition).
 range(string_serialization, string).
 has_uri(string_serialization, 'http://w3id.org/biolink/vocab/string_serialization').
-slot(string_template).
-domain(string_template, element).
-range(string_template, string).
-has_uri(string_template, 'http://w3id.org/biolink/vocab/string_template').
 slot(subclass_of).
 domain(subclass_of, class_definition).
 range(subclass_of, uriorcurie).
@@ -605,10 +601,6 @@ required(in_subset).
 slotrange(subset_definition).
 multivalued_in(in_subset, class_definition).
 range_in(in_subset, subset_definition, class_definition).
-class_slot(class_definition, string_template).
-required(string_template).
-slotrange(string).
-range_in(string_template, string, class_definition).
 class_slot(class_definition, from_schema).
 required(from_schema).
 slotrange(uri).
@@ -819,10 +811,6 @@ required(in_subset).
 slotrange(subset_definition).
 multivalued_in(in_subset, definition).
 range_in(in_subset, subset_definition, definition).
-class_slot(definition, string_template).
-required(string_template).
-slotrange(string).
-range_in(string_template, string, definition).
 class_slot(definition, from_schema).
 required(from_schema).
 slotrange(uri).
@@ -997,10 +985,6 @@ required(in_subset).
 slotrange(subset_definition).
 multivalued_in(in_subset, element).
 range_in(in_subset, subset_definition, element).
-class_slot(element, string_template).
-required(string_template).
-slotrange(string).
-range_in(string_template, string, element).
 class_slot(element, from_schema).
 required(from_schema).
 slotrange(uri).
@@ -1180,10 +1164,6 @@ required(in_subset).
 slotrange(subset_definition).
 multivalued_in(in_subset, schema_definition).
 range_in(in_subset, subset_definition, schema_definition).
-class_slot(schema_definition, string_template).
-required(string_template).
-slotrange(string).
-range_in(string_template, string, schema_definition).
 class_slot(schema_definition, from_schema).
 required(from_schema).
 slotrange(uri).
@@ -1400,10 +1380,6 @@ required(in_subset).
 slotrange(subset_definition).
 multivalued_in(in_subset, slot_definition).
 range_in(in_subset, subset_definition, slot_definition).
-class_slot(slot_definition, string_template).
-required(string_template).
-slotrange(string).
-range_in(string_template, string, slot_definition).
 class_slot(slot_definition, from_schema).
 required(from_schema).
 slotrange(uri).
@@ -1686,10 +1662,6 @@ required(in_subset).
 slotrange(subset_definition).
 multivalued_in(in_subset, subset_definition).
 range_in(in_subset, subset_definition, subset_definition).
-class_slot(subset_definition, string_template).
-required(string_template).
-slotrange(string).
-range_in(string_template, string, subset_definition).
 class_slot(subset_definition, from_schema).
 required(from_schema).
 slotrange(uri).
@@ -1816,10 +1788,6 @@ required(in_subset).
 slotrange(subset_definition).
 multivalued_in(in_subset, type_definition).
 range_in(in_subset, subset_definition, type_definition).
-class_slot(type_definition, string_template).
-required(string_template).
-slotrange(string).
-range_in(string_template, string, type_definition).
 class_slot(type_definition, from_schema).
 required(from_schema).
 slotrange(uri).

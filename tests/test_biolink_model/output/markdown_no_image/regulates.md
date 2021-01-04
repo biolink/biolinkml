@@ -9,15 +9,18 @@ URI: [biolink:regulates](https://w3id.org/biolink/vocab/regulates)
 
 ## Domain and Range
 
-None ->  <sub>OPT</sub> [String](types/String.md)
+[NamedThing](NamedThing.md) ->  <sub>0..*</sub> [NamedThing](NamedThing.md)
 
 ## Parents
 
+ *  is_a: [affects](affects.md)
 
 ## Children
 
  *  [negatively regulates](negatively_regulates.md)
  *  [positively regulates](positively_regulates.md)
+ *  [regulates, entity to entity](regulates_entity_to_entity.md)
+ *  [regulates, process to process](regulates_process_to_process.md)
 
 ## Used by
 
@@ -26,7 +29,7 @@ None ->  <sub>OPT</sub> [String](types/String.md)
 
 |  |  |  |
 | --- | --- | --- |
-| **Comments:** | | This is a grouping for process-process and entity-entity regulation. |
+| **Comments:** | | This is a grouping for process-process and entity-entity relations |
 | **Exact Mappings:** | | GO:regulates |
 | **Close Mappings:** | | GO:regulated_by |
 |  | | RO:0002334 |

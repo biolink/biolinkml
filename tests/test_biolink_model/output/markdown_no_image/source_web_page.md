@@ -26,5 +26,5 @@ URI: [biolink:source_web_page](https://w3id.org/biolink/vocab/source_web_page)
 
 |  |  |  |
 | --- | --- | --- |
-| **Broad Mappings:** | | dcterms:source |
+| **Mappings:** | | dcterms:source |
 

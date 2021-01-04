@@ -28,5 +28,5 @@ URI: [biolink:source_data_file](https://w3id.org/biolink/vocab/source_data_file)
 
 |  |  |  |
 | --- | --- | --- |
-| **Broad Mappings:** | | dcterms:source |
+| **Mappings:** | | dcterms:source |
 

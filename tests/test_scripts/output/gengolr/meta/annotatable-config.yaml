@@ -1,0 +1,11 @@
+id: annotatable
+schema_generating: true
+description: mixin for classes that support annotations
+display_name: annotatable
+document_category: annotatable
+weight: 20
+fields:
+- id: annotations
+  description: a collection of tag/text tuples with the semantics of OWL Annotation
+  display_name: annotations
+  cardinality: multi

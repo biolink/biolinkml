@@ -155,9 +155,7 @@ For example, a Measurement class may have 3 fields: unit, value, and string_valu
     * Description: an abstract class is a high level class or slot that is typically used to group common slots together and cannot be directly instantiated.
     * range: [Boolean](types/Boolean.md)
  * [aliases](aliases.md)  <sub>0..*</sub>
-    * Description: alternate name for the element
     * range: [String](types/String.md)
-    * in subsets: (descriptive)
  * [alt_descriptions](alt_descriptions.md)  <sub>0..*</sub>
     * range: [AltDescription](AltDescription.md)
  * [broad mappings](broad_mappings.md)  <sub>0..*</sub>
@@ -191,7 +189,7 @@ For example, a Measurement class may have 3 fields: unit, value, and string_valu
  * [description](description.md)  <sub>OPT</sub>
     * Description: a description of the element's purpose and use
     * range: [String](types/String.md)
-    * in subsets: (owl,descriptive)
+    * in subsets: (owl)
  * [exact mappings](exact_mappings.md)  <sub>0..*</sub>
     * Description: A list of terms from different schemas or terminology systems that have identical meaning.
     * range: [Uriorcurie](types/Uriorcurie.md)
@@ -203,7 +201,7 @@ For example, a Measurement class may have 3 fields: unit, value, and string_valu
     * Description: id of the schema that defined the element
     * range: [Uri](types/Uri.md)
  * [id_prefixes](id_prefixes.md)  <sub>0..*</sub>
-    * Description: the identifier of this class or slot _should_ begin with one of the URIs referenced by this prefix
+    * Description: the identifier of this class or slot must begin with one of the URIs referenced by this prefix
     * range: [Ncname](types/Ncname.md)
  * [imported_from](imported_from.md)  <sub>OPT</sub>
     * Description: the imports entry that this element was derived from.  Empty means primary source
@@ -220,7 +218,7 @@ For example, a Measurement class may have 3 fields: unit, value, and string_valu
     * Description: A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective.
     * range: [Uriorcurie](types/Uriorcurie.md)
  * [mixin](mixin.md)  <sub>OPT</sub>
-    * Description: If a class or slot has this property then it can contain properties that can be inherited via `mixins` declarations
+    * Description: this slot or class can only be used as a mixin -- equivalent to abstract
     * range: [Boolean](types/Boolean.md)
  * [modified_by](modified_by.md)  <sub>OPT</sub>
     * Description: agent that modified the element
@@ -247,13 +245,9 @@ For example, a Measurement class may have 3 fields: unit, value, and string_valu
     * Description: status of the element
     * range: [Uriorcurie](types/Uriorcurie.md)
     * Example: bibo:draft None
- * [string_template](string_template.md)  <sub>OPT</sub>
-    * Description: A formatting string to represent the element.  If present, string_template is used whenever the string representation of the element and will also result in the addition of a `parse` method in the containing python class that will allow instances to be added through string parsing
-    * range: [String](types/String.md)
  * [todos](todos.md)  <sub>0..*</sub>
     * Description: Outstanding issue that needs resolution
     * range: [String](types/String.md)
-    * in subsets: (descriptive)
  * [values_from](values_from.md)  <sub>0..*</sub>
     * Description: the identifier of a "value set" -- a set of identifiers that form the possible values for the range of a slot
     * range: [Uriorcurie](types/Uriorcurie.md)

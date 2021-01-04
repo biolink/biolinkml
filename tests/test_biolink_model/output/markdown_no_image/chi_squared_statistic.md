@@ -25,5 +25,5 @@ URI: [biolink:chi_squared_statistic](https://w3id.org/biolink/vocab/chi_squared_
 
 |  |  |  |
 | --- | --- | --- |
-| **Exact Mappings:** | | STATO:0000030 |
+| **Mappings:** | | STATO:0000030 |
 

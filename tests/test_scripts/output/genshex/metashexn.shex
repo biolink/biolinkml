@@ -118,7 +118,6 @@ metatype:Nodeidentifier NONLITERAL
           <comments> @metatype:String * ;
           <examples> @<Example> * ;
           <in_subset> @<SubsetDefinition> * ;
-          <string_template> @metatype:String ? ;
           <from_schema> @metatype:Uri ? ;
           <imported_from> @metatype:String ? ;
           <see_also> @metatype:Uriorcurie * ;

@@ -243,8 +243,8 @@ classes:
           is_a 'child_class_2_s1'
         multivalued: false
     class_uri: http://example.org/multi_usages_2/ChildClass3
-metamodel_version: 1.6.1
+metamodel_version: 1.6.0
 source_file: multi_usages_2.yaml
-source_file_date: Sun Nov 15 18:04:30 2020
+source_file_date: Fri Oct 23 16:59:17 2020
 source_file_size: 1006
-generation_date: 2020-11-15 18:07
+generation_date: 2020-10-23 17:02

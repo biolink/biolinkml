@@ -5,7 +5,7 @@
 
 <https://hotecosystem.org/tccm/prefixes> a owl:Ontology ;
     rdfs:label "prefixes" ;
-    meta:metamodel_version "1.6.1" ;
+    meta:metamodel_version "1.6.0" ;
     meta:source_file "minimalmodel.yaml" .
 
 meta:ClassDefinition a owl:Class ;

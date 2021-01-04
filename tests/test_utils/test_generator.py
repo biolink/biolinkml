@@ -435,12 +435,11 @@ classes:
     class c1:
 """
         gen = GeneratorTest(model)
+        gentext = gen.logstream.getvalue().strip()
 
-        self.assertEqual("""Shared type and slot names: dup name
-Shared slot and subset names: dup name
-Shared type and subset names: dup name""", gen.logstream.getvalue().strip())
-        gen.logstream.truncate(0)
-        gen.logstream.seek(0)
+        self.assertIn("Overlapping type and slot names: dup name", gentext)
+        self.assertIn("Overlapping subset and slot names: dup name", gentext)
+        self.assertIn("Overlapping subset and type names: dup name", gentext)
 
         self.assertEqual('dup_name', gen.formatted_element_name(cast(ElementName, 'dup name'), False))
         self.assertEqual('int', gen.formatted_element_name(cast(ElementName, 'dup name'), True))
@@ -570,7 +569,7 @@ classes:
 """
 
         gen = GeneratorTest(model)
-        self.assertEqual("Shared class and slot names: slot s1", gen.logstream.getvalue().strip())
+        self.assertIn("Overlapping slot and class names: slot s1", gen.logstream.getvalue().strip())
         gen.logstream.truncate(0)
         gen.logstream.seek(0)
 

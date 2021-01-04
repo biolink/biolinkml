@@ -14,7 +14,7 @@ from rdflib.plugin import plugins as rdflib_plugins, Parser as rdflib_Parser
 
 from biolinkml import LOCAL_METAMODEL_YAML_FILE, METAMODEL_NAMESPACE_NAME, METAMODEL_NAMESPACE, METAMODEL_YAML_URI, META_BASE_URI
 from biolinkml.meta import ClassDefinitionName, SchemaDefinition, ClassDefinition, SlotDefinitionName, \
-    TypeDefinitionName, SlotDefinition, TypeDefinition, Element
+    TypeDefinitionName, SlotDefinition, TypeDefinition, Element, EnumDefinitionName
 from biolinkml.utils.formatutils import camelcase, underscore
 from biolinkml.utils.generator import Generator, shared_arguments
 from biolinkml.utils.schemaloader import SchemaLoader
@@ -260,13 +260,21 @@ class OwlSchemaGenerator(Generator):
 
     def _range_uri(self, slot: SlotDefinition) -> URIRef:
         if slot.range in self.schema.types:
-            return self._type_uri(cast(TypeDefinitionName, slot.range))
+            return self._type_uri(TypeDefinitionName(slot.range))
+        elif slot.range in self.schema.enums:
+            # TODO: enums fill this in
+            return self._enum_uri(EnumDefinitionName(slot.range))
         else:
-            return self._class_uri(cast(ClassDefinitionName, slot.range))
+            return self._class_uri(ClassDefinitionName(slot.range))
 
     def _class_uri(self, cn: ClassDefinitionName) -> URIRef:
         c = self.schema.classes[cn]
         return URIRef(c.definition_uri)
+
+    def _enum_uri(self, en: EnumDefinitionName) -> URIRef:
+        # TODO: enums
+        e = self.schema.enums[en]
+        return URIRef(f"http://UNKNOWN.org/{en}")
 
     def _prop_uri(self, pn: SlotDefinitionName) -> URIRef:
         p = self.schema.slots.get(pn, None)

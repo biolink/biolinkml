@@ -20,7 +20,6 @@ URI: [biolink:latitude](https://w3id.org/biolink/vocab/latitude)
 
 ## Used by
 
- * [GeographicExposure](GeographicExposure.md)
  * [GeographicLocation](GeographicLocation.md)
  * [GeographicLocationAtTime](GeographicLocationAtTime.md)
 
@@ -28,5 +27,5 @@ URI: [biolink:latitude](https://w3id.org/biolink/vocab/latitude)
 
 |  |  |  |
 | --- | --- | --- |
-| **Exact Mappings:** | | wgs:lat |
+| **Mappings:** | | wgs:lat |
 

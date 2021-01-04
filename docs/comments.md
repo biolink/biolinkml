@@ -22,6 +22,8 @@ URI: [meta:comments](https://w3id.org/biolink/biolinkml/meta/comments)
  * [ClassDefinition](ClassDefinition.md)
  * [Definition](Definition.md)
  * [Element](Element.md)
+ * [EnumDefinition](EnumDefinition.md)
+ * [PermissibleValue](PermissibleValue.md)
  * [SchemaDefinition](SchemaDefinition.md)
  * [SlotDefinition](SlotDefinition.md)
  * [SubsetDefinition](SubsetDefinition.md)
@@ -32,7 +34,5 @@ URI: [meta:comments](https://w3id.org/biolink/biolinkml/meta/comments)
 |  |  |  |
 | --- | --- | --- |
 | **Mappings:** | | skos:note |
-|  | | rdfs:comment |
-|  | | schema:comment |
 | **In Subsets:** | | owl |
 

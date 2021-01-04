@@ -9,7 +9,7 @@ URI: [biolink:negatively_regulates](https://w3id.org/biolink/vocab/negatively_re
 
 ## Domain and Range
 
-None ->  <sub>OPT</sub> [String](types/String.md)
+[NamedThing](NamedThing.md) ->  <sub>0..*</sub> [NamedThing](NamedThing.md)
 
 ## Parents
 
@@ -25,7 +25,7 @@ None ->  <sub>OPT</sub> [String](types/String.md)
 
 |  |  |  |
 | --- | --- | --- |
-| **Comments:** | | This is a grouping for negative process-process and entity-entity regulation. |
+| **Comments:** | | This is a grouping for process-process and entity-entity relations |
 | **Exact Mappings:** | | RO:0004035 |
 |  | | GO:negatively_regulates |
 | **Close Mappings:** | | GO:negatively_regulated_by |

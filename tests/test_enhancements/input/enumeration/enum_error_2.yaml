@@ -1,0 +1,20 @@
+id: http://example.org/test/enumeration/error2
+name: error2
+
+prefixes:
+  biolinkml: https://w3id.org/biolink/biolinkml/
+  evidence: http://example.org/test/evidence/
+  CLUE: http://example.org/clue/
+
+default_range: string
+default_prefix: evidence
+
+imports:
+  - biolinkml:types
+
+enums:
+  error2:
+    description: Error - cannot have both a version and a tag
+    code_set: HPO:mustard
+    code_set_tag: production
+    code_set_version: 0.17.3

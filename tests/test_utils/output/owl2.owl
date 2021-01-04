@@ -6,10 +6,10 @@
 
 <http://example.org/owl2> a owl:Ontology ;
     rdfs:label "owl2" ;
-    meta:generation_date "2020-11-15 18:08" ;
-    meta:metamodel_version "1.6.1" ;
+    meta:generation_date "2020-10-23 17:02" ;
+    meta:metamodel_version "1.6.0" ;
     meta:source_file "owl2.yaml" ;
-    meta:source_file_date "Sun Nov 15 18:04:30 2020" ;
+    meta:source_file_date "Fri Oct 23 16:59:17 2020" ;
     meta:source_file_size 519 .
 
 meta:SubsetDefinition a owl:Class ;
@@ -57,11 +57,7 @@ meta:ClassDefinition a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://example.org/owl2/String> ;
-            owl:onProperty <http://example.org/owl2/dataslot> ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://example.org/owl2/C2> ;
-            owl:onProperty <http://example.org/owl2/objslot> ],
+            owl:onProperty <http://example.org/owl2/annotslot2> ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://example.org/owl2/C2> ;
@@ -69,7 +65,11 @@ meta:ClassDefinition a owl:Class ;
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://example.org/owl2/String> ;
-            owl:onProperty <http://example.org/owl2/annotslot2> ] .
+            owl:onProperty <http://example.org/owl2/dataslot> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://example.org/owl2/C2> ;
+            owl:onProperty <http://example.org/owl2/objslot> ] .
 
 <http://example.org/owl2/C2> a owl:Class,
         meta:ClassDefinition ;

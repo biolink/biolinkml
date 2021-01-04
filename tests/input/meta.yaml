@@ -3,7 +3,7 @@ title: Biolink Schema Metamodel
 name: metamodel
 description: A metamodel for defining biolink related schemas
 license: https://creativecommons.org/publicdomain/zero/1.0/
-version: 1.6.1
+version: 1.7.0
 
 prefixes:
   meta: https://w3id.org/biolink/biolinkml/meta/
@@ -120,7 +120,6 @@ slots:
     in_subset:
       - owl
 
-
   in_subset:
     domain: element
     multivalued: true
@@ -130,14 +129,6 @@ slots:
       or application (e.g. the translator_minimal subset holding the minimal set of predicates used in a
       translator knowledge graph)
     slot_uri: OIO:inSubset
-
-  string_template:
-    domain: element
-    range: string
-    description: >-
-      A formatting string to represent the element.  If present, string_template is used whenever the string
-      representation of the element and will also result in the addition of a `parse` method in the containing python
-      class that will allow instances to be added through string parsing
 
   from_schema:
     domain: element
@@ -246,6 +237,66 @@ slots:
       the identifier of a "value set" -- a set of identifiers that form the possible values for the range of a slot
 
   # -----------------------------------
+  # Enum definition slots
+  # -----------------------------------
+  code_set:
+    domain: enum_definition
+    range: uriorcurie
+    description: >-
+      the identifier of an enumeration code set.
+    todos:
+      - this should be able to connect to an existing code set from TCCM
+
+  code_set_version:
+    domain: enum_definition
+    range: string
+    description: >-
+      the version identifier of the enumeration code set
+    comments:
+      - we assume that version identifiers lexically sort in temporal order. Recommend semver when possible
+
+  code_set_tag:
+    domain: enum_definition
+    range: string
+    description: >-
+      the version tag of the enumeration code set
+    comments:
+      - enum_definition cannot have both a code_set_tag and a code_set_version
+
+  pv_formula:
+    domain: enum_definition
+    range: pv_formula_options
+    description: >-
+      Defines the specific formula to be used to generate the permissible values.
+    comments:
+      - you cannot have BOTH the permissible_values and permissible_value_formula tag
+      - code_set must be supplied for this to be valid
+
+  permissible_values:
+    domain: enum_definition
+    range: permissible_value
+    multivalued: true
+    inlined: true
+    description: >-
+      A list of possible values for a slot range
+
+  # -----------------------------------
+  # Slots for permissible_value
+  # -----------------------------------
+  text:
+    domain: permissible_value
+    range: string
+    identifier: true
+
+  meaning:
+    domain: permissible_value
+    range: uriorcurie
+    description: >-
+      the value meaning (in the 11179 sense) of a permissible value
+    notes:
+      - we may want to change the range of this (and other) elements in the model to an entitydescription type construct
+
+  # -----------------------------------
   # Schema definition slots
   # -----------------------------------
   id:
@@ -320,6 +371,13 @@ slots:
     multivalued: true
     inlined: true
     description: data types used in the model
+
+  enums:
+    domain: schema_definition
+    range: enum_definition
+    multivalued: true
+    inlined: true
+    description: enumerated ranges
 
   slot_definitions:
     domain: schema_definition
@@ -472,6 +530,8 @@ slots:
     range: element
     ifabsent: default_range
     inherited: true
+    comments:
+      - range is underspecified, as not all elements can appear as the range of a slot.
     description: |
       defines the type of the object of the slot.  Given the following slot definition
         S1:
@@ -839,8 +899,8 @@ classes:
       - extensible
       - annotatable
     slots:
-      - id_prefixes
       - name
+      - id_prefixes
       - definition_uri
       - aliases
       - local_names
@@ -853,7 +913,6 @@ classes:
       - comments
       - examples
       - in_subset
-      - string_template
       - from_schema
       - imported_from
       - see_also
@@ -885,6 +944,7 @@ classes:
       - default_range
       - subsets
       - types
+      - enums
       - slot_definitions
       - classes
       - metamodel_version
@@ -932,6 +992,16 @@ classes:
       - status
     see_also:
       - https://en.wikipedia.org/wiki/Data_element_definition
+
+  enum_definition:
+    description: List of values that constrain the range of a slot
+    is_a: element
+    slots:
+      - code_set
+      - code_set_tag
+      - code_set_version
+      - pv_formula
+      - permissible_values
 
   slot_definition:
     description: the definition of a property or a slot
@@ -1025,3 +1095,47 @@ classes:
     slots:
       - alt_description_source
       - alt_description_text
+
+  permissible_value:
+    description: a permissible value, accompanied by intended text and an optional mapping to a concept URI
+    mixins:
+      - extensible
+      - annotatable
+    slot_usage:
+      is_a:
+        range: permissible_value
+      mixins:
+        range: permissible_value
+    slots:
+      - text
+      - description
+      - meaning
+      - alt_descriptions
+      - deprecated
+      - todos
+      - notes
+      - comments
+      - examples
+      - in_subset
+      - from_schema
+      - imported_from
+      - see_also
+      - deprecated element has exact replacement
+      - deprecated element has possible replacement
+
+
+#==================================
+# Enumerations                    #
+#==================================
+enums:
+  pv_formula_options:
+    description: >-
+      The formula used to generate the set of permissible values from the code_set values
+    permissible_values:
+      CODE: The permissible values are the set of possible codes in the code set
+      CURIE: The permissible values are the set of CURIES in the code set
+      URI: The permissible values are the set of code URIs in the code set
+      FHIR_CODING: The permissible values are the set of FHIR coding elements derived from the code set
+    notes:
+      - Q1: Do we need a CURIEorURIE entry?
+      - Q2: Who defines the namespaces for the CURIE form?

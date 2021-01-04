@@ -2,7 +2,7 @@
 # Type: stage qualifier
 
 
-stage during which gene or protein expression of takes place.
+stage at which expression takes place
 
 URI: [biolink:stage_qualifier](https://w3id.org/biolink/vocab/stage_qualifier)
 
@@ -20,14 +20,4 @@ URI: [biolink:stage_qualifier](https://w3id.org/biolink/vocab/stage_qualifier)
  *  [gene to expression site association➞stage qualifier](gene_to_expression_site_association_stage_qualifier.md)
 
 ## Used by
-
- * [GeneExpressionMixin](GeneExpressionMixin.md)
- * [GeneToGeneCoexpressionAssociation](GeneToGeneCoexpressionAssociation.md)
- * [VariantToGeneExpressionAssociation](VariantToGeneExpressionAssociation.md)
-
-## Other properties
-
-|  |  |  |
-| --- | --- | --- |
-| **Examples:** | | Example(value='UBERON:0000069', description='larval stage') |
 

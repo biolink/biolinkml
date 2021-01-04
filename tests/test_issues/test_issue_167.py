@@ -36,6 +36,11 @@ class Issue167TestCase(TestEnvironmentTestCase):
                                                          importmap=env.import_map).serialize(),
                                  comparator=lambda exp, act: compare_python(exp, act, self.env.expected_path('issue_167b.py')),
                                  value_is_returned=True)
+        env.generate_single_file('issue_167b.py',
+                                 lambda: PythonGenerator(env.input_path('issue_167b.yaml'),
+                                                         importmap=env.import_map, mergeimports=False).serialize(),
+                                 comparator=lambda exp, act: compare_python(exp, act, self.env.expected_path('issue_167b_nomerged.py')),
+                                 value_is_returned=True)
 
     def test_issue_167b_json(self):
         env.generate_single_file('issue_167b.json',

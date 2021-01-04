@@ -13,7 +13,7 @@ from rdflib import Graph, OWL, RDF, Namespace, XSD
 
 from biolinkml import METAMODEL_NAMESPACE_NAME, METAMODEL_NAMESPACE
 from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, SlotDefinitionName, ElementName, \
-    TypeDefinition
+    TypeDefinition, EnumDefinition
 from includes.types import SHEX
 from biolinkml.utils.formatutils import camelcase, sfx
 from biolinkml.utils.generator import Generator, shared_arguments
@@ -132,7 +132,8 @@ class ShExGenerator(Generator):
 
     def _class_or_type_uri(self, item: Union[TypeDefinition, ClassDefinition, ElementName],
                            suffix: Optional[str] = '') -> URIorCURIE:
-        if isinstance(item, (TypeDefinition, ClassDefinition)):
+        # TODO: enums - figure this out
+        if isinstance(item, (TypeDefinition, ClassDefinition, EnumDefinition)):
             cls_or_type = item
         else:
             cls_or_type = self.class_or_type_for(item)

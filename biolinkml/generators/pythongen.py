@@ -1,3 +1,4 @@
+import keyword
 import os
 import re
 from typing import Optional, Tuple, List, Union, TextIO, Callable, Dict, Iterator, Set
@@ -8,7 +9,7 @@ from rdflib import URIRef
 import biolinkml
 from biolinkml.generators import PYTHON_GEN_VERSION
 from biolinkml.meta import SchemaDefinition, SlotDefinition, ClassDefinition, ClassDefinitionName, \
-    SlotDefinitionName, DefinitionName, Element, TypeDefinition, Definition
+    SlotDefinitionName, DefinitionName, Element, TypeDefinition, Definition, EnumDefinition, PermissibleValue
 from biolinkml.utils.formatutils import camelcase, underscore, be, wrapped_annotation, split_line, sfx
 from biolinkml.utils.generator import Generator, shared_arguments
 from biolinkml.utils.ifabsent_functions import ifabsent_value_declaration, ifabsent_postinit_declaration, \
@@ -22,11 +23,15 @@ class PythonGenerator(Generator):
     valid_formats = ['py']
     visit_all_class_slots = False
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], format: str = valid_formats[0], **kwargs) -> None:
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], format: str = valid_formats[0],
+                 genmeta: bool=False, gen_classvars: bool=True, gen_slots: bool=True, **kwargs) -> None:
         self.sourcefile = schema
         self.emit_prefixes: Set[str] = set()
         if format is None:
             format = self.valid_formats[0]
+        self.genmeta = genmeta
+        self.gen_classvars = gen_classvars
+        self.gen_slots = gen_slots
         super().__init__(schema, format, **kwargs)
         if not self.schema.source_file and isinstance(self.sourcefile, str) and '\n' not in self.sourcefile:
             self.schema.source_file = os.path.basename(self.sourcefile)
@@ -86,6 +91,10 @@ class PythonGenerator(Generator):
         self.emit_prefixes.update(element.id_prefixes)
 
     def gen_schema(self) -> str:
+        # The metamodel uses Enumerations to define itself, so don't import if we are generating the metamodel
+        enumimports = '' if self.genmeta else \
+            'from biolinkml.meta import EnumDefinition, PermissibleValue, PvFormulaOptions\n'
+        handlerimport = 'from biolinkml.utils.enumerations import EnumDefinitionImpl'
         split_descripton = '\n#              '.join(split_line(be(self.schema.description), split_len=100))
         head = f'''# Auto generated from {self.schema.source_file} by {self.generatorname} version: {self.generatorversion}
 # Generation date: {self.schema.generation_date}
@@ -100,9 +109,9 @@ class PythonGenerator(Generator):
 import dataclasses
 import sys
 import re
-import parse
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
+{enumimports}
 from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
@@ -111,6 +120,7 @@ if sys.version_info < (3, 7, 6):
 else:
     from biolinkml.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
+{handlerimport}
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 {self.gen_imports()}
@@ -131,12 +141,11 @@ dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 {self.gen_classdefs()}
 
+# Enumerations
+{self.gen_enumerations()}
 
 # Slots
-class slots:
-    pass
-
-{self.gen_slots()}'''
+{self.gen_slotdefs()}'''
 
     def end_schema(self, **_):
         print(re.sub(r' +\n', '\n', self.gen_schema().replace('\t', '    ')).strip(' '), end='')
@@ -192,6 +201,8 @@ class slots:
             if slot.range:
                 if slot.range in self.schema.types:
                     add_type_ref(self.schema.types[slot.range])
+                elif slot.range in self.schema.enums:
+                    pass
                 else:
                     cls = self.schema.classes[slot.range]
                     if cls.imported_from:
@@ -291,9 +302,7 @@ class slots:
         """
         clist = self._sort_classes(self.schema.classes.values())
         return '\n'.join([self.gen_classdef(v) for v in clist
-                          if  # not v.mixin and   # we allow mixin's to become @dataclaasses
-                          not v.imported_from]
-                         )
+                          if not v.imported_from])
 
     def gen_classdef(self, cls: ClassDefinition) -> str:
         """ Generate python definition for class cls """
@@ -301,28 +310,30 @@ class slots:
         parentref = f'({self.formatted_element_name(cls.is_a, True) if cls.is_a else "YAMLRoot"})'
         slotdefs = self.gen_class_variables(cls)
         postinits = self.gen_postinits(cls)
-        templatemethods = self.gen_parsers(cls) if cls.string_template else None
 
         wrapped_description = f'\n\t"""\n\t{wrapped_annotation(be(cls.description))}\n\t"""' if be(cls.description) else ''
 
         return ('\n@dataclass' if slotdefs else '') + \
                f'\nclass {self.class_or_type_name(cls.name)}{parentref}:{wrapped_description}' + \
-               f'\n\t{self.gen_inherited_slots(cls)}\n' + \
-               f'\n\t{self.gen_class_meta(cls)}\n' + \
+               f'{self.gen_inherited_slots(cls)}' + \
+               f'{self.gen_class_meta(cls)}' + \
                (f'\n\t{slotdefs}' if slotdefs else '') + \
-               (f'\n{postinits}' if postinits else '') + \
-               (f'\n{templatemethods}' if templatemethods else '')
+               (f'\n{postinits}' if postinits else '')
 
     def gen_inherited_slots(self, cls: ClassDefinition) -> str:
+        if not self.gen_classvars:
+            return ''
         inherited_slots = []
         for slotname in cls.slots:
             slot = self.schema.slots[slotname]
             if slot.inherited:
                 inherited_slots.append(slot.alias if slot.alias else slotname)
         inherited_slots_str = ", ".join([f'"{underscore(s)}"' for s in inherited_slots])
-        return f"_inherited_slots: ClassVar[List[str]] = [{inherited_slots_str}]"
+        return f"\n\t_inherited_slots: ClassVar[List[str]] = [{inherited_slots_str}]\n"
 
     def gen_class_meta(self, cls: ClassDefinition) -> str:
+        if not self.gen_classvars:
+            return ''
         class_class_uri = self.namespaces.uri_for(cls.class_uri)
         if class_class_uri:
             cls_python_uri = self.namespaces.curie_for(class_class_uri, default_ok=False, pythonform=True)
@@ -344,10 +355,7 @@ class slots:
                 f'class_class_curie: ClassVar[str] = {class_class_curie}',
                 f'class_name: ClassVar[str] = "{cls.name}"',
                 f'class_model_uri: ClassVar[URIRef] = {class_model_uri}']
-        if cls.string_template:
-            vars.append('')
-            vars.append(f'string_template: ClassVar[str] = "{cls.string_template}"')
-        return "\n\t".join(vars)
+        return "\n\t" + "\n\t".join(vars) + "\n"
 
     def gen_type_meta(self, typ: TypeDefinition) -> str:
         type_class_uri = self.namespaces.uri_for(typ.uri)
@@ -374,8 +382,7 @@ class slots:
         return "\n\t".join(vars)
 
 
-    def gen_class_variables(self,
-                            cls: ClassDefinition) -> str:
+    def gen_class_variables(self, cls: ClassDefinition) -> str:
         """
         Generate the variable declarations for a dataclass.
 
@@ -489,8 +496,9 @@ class slots:
         prox_type = self.slot_range_path(slot)[-1].rsplit('.')[-1]
         prox_type_name = rangelist[-1]
 
-        # Quote forward references
-        if cls and slot.inlined and slot.range in self.schema.classes and self.forward_reference(slot.range, cls.name):
+        # Quote forward references - note that enums always gen at the end
+        if slot.range in self.schema.enums or \
+                (cls and slot.inlined and slot.range in self.schema.classes and self.forward_reference(slot.range, cls.name)):
             rangelist[-1] = f'"{rangelist[-1]}"'
         return str(self.gen_class_reference(rangelist)), prox_type, prox_type_name
 
@@ -541,23 +549,9 @@ class slots:
                                     ('\n\t\t' if post_inits_pre_super else '')
         post_inits_line = '\n\t\t'.join([p for p in post_inits if p])
         return (f'''
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         {post_inits_pre_super_line}{post_inits_line}
         super().__post_init__(**kwargs)''' + '\n') if post_inits_line or post_inits_pre_super_line else ''
-
-    def gen_parsers(self, cls: ClassDefinition) -> str:
-        """
-        Generate the string template handlers
-        """
-        python_class_name = self.class_or_type_name(cls.name)
-        return f"""
-    def __str__(self):
-        return {python_class_name}.string_template.format(**{{k: '' if v is None else v for k, v in self.__dict__.items()}})
-
-    @classmethod
-    def parse(cls, text: str) -> "{python_class_name}":
-        v = parse.parse({python_class_name}.string_template, text)
-        return {python_class_name}(*v.fixed, **v.named)"""
 
     # sort classes such that if C is a child of P then C appears after P in the list
     def _sort_classes(self, clist: List[ClassDefinition]) -> List[ClassDefinition]:
@@ -645,7 +639,9 @@ class slots:
             if slot.range in self.schema.classes and not self.schema.classes[slot.range].slots:
                 rlines.append(f'\tself.{aliased_slot_name} = {base_type_name}()')
             else:
-                if self.class_identifier(slot.range) or slot.range in self.schema.types:
+                if self.class_identifier(slot.range) or\
+                        slot.range in self.schema.types or\
+                        slot.range in self.schema.enums:
                     rlines.append(f'\tself.{aliased_slot_name} = {base_type_name}(self.{aliased_slot_name})')
                 else:
                     rlines.append(f'\tself.{aliased_slot_name} = {base_type_name}(**self.{aliased_slot_name})')
@@ -723,8 +719,11 @@ class slots:
 
     def forward_reference(self, slot_range: str, owning_class: str) -> bool:
         """ Determine whether slot_range is a forward reference """
-        if slot_range in self.schema.classes and self.schema.classes[slot_range].imported_from:
+        if (slot_range in self.schema.classes and self.schema.classes[slot_range].imported_from) or \
+           (slot_range in self.schema.enums and self.schema.enums[slot_range].imported_from):
             return False
+        if slot_range in self.schema.enums:
+            return True
         for cname in self.schema.classes:
             if cname == owning_class:
                 return True             # Occurs on or after
@@ -744,9 +743,12 @@ class slots:
             return f'"str(uriorcurie)"', None
         return ns.upper() + (f".{ln}" if ln.isidentifier() else f"['{ln}']"), ns.upper() + f".curie('{ln}')"
 
-
-    def gen_slots(self) -> str:
-        return '\n\n'.join([self.gen_slot(slot) for slot in self.schema.slots.values() if not slot.imported_from])
+    def gen_slotdefs(self) -> str:
+        if self.gen_slots:
+            return "class slots:\n\tpass\n\n" + \
+                   '\n\n'.join([self.gen_slot(slot) for slot in self.schema.slots.values() if not slot.imported_from])
+        else:
+            return ''
 
     def gen_slot(self, slot: SlotDefinition) -> str:
         python_slot_name = underscore(slot.name)
@@ -772,10 +774,112 @@ class slots:
         return f"""slots.{python_slot_name} = Slot(uri={slot_uri}, name="{slot.name}", curie={slot_curie},
                    model_uri={slot_model_uri}, domain={domain}, range={rnge}{mappings}{pattern})"""
 
+    def gen_enumerations(self) -> str:
+        return '\n\n'.join([self.gen_enum(enum) for enum in self.schema.enums.values() if not enum.imported_from])
+
+    def gen_enum(self, enum: EnumDefinition) -> str:
+        enum_name = camelcase(enum.name)
+        return f'''
+class {enum_name}(EnumDefinitionImpl):
+    {self.gen_enum_comment(enum)}
+    {self.gen_enum_description(enum, enum_name)}
+'''.strip()
+
+    def gen_enum_comment(self, enum: EnumDefinition) -> str:
+        return f'"""\n\t{wrapped_annotation(be(enum.description))}\n\t"""' if be(enum.description) else ''
+
+    def gen_enum_description(self, enum: EnumDefinition, enum_name: str) -> str:
+        return f'''
+    {self.gen_pvs(enum)}
+
+    {self.gen_enum_definition(enum, enum_name)}
+    {self.gen_pvs2(enum)}
+'''.strip()
+
+    def gen_pvs(self, enum: EnumDefinition) -> str:
+        """
+        Generate the python compliant permissible value initializers as a set of class variables
+        @param enum:
+        @return:
+        """
+        init_list = []
+        for pv in enum.permissible_values.values():
+            if str.isidentifier(pv.text) and not keyword.iskeyword(pv.text):
+                l1 = f'{pv.text} = '
+                l1len = len(l1)
+                l2ton = '\n' + l1len * ' '
+                init_list.append(l1 + (l2ton.join(self.gen_pv_constructor(pv, l1len))))
+        return '\n\t'.join(init_list).strip()
+
+    def gen_enum_definition(self, enum: EnumDefinition, enum_name: str) -> str:
+        enum_desc = enum.description.replace('"', '\\"').replace(r'\n', r'\\n') if enum.description else None
+        desc = f'\t\tdescription="{enum_desc}",\n' if enum.description else ''
+        cs = f'\t\tcode_set={self.namespaces.curie_for(self.namespaces.uri_for(enum.code_set), default_ok=False, pythonform=True)},\n'\
+            if enum.code_set else ''
+        tag = f'\t\tcode_set_tag="{enum.code_set_tag}",\n' if enum.code_set_tag else ''
+        ver = f'\t\tcode_set_version="{enum.code_set_version}",\n' if enum.code_set_version else ''
+        vf = f'\t\tpv_formula={enum.pv_formula},\n' if enum.pv_formula else ''
+
+        return f'''_defn = EnumDefinition(\n\t\tname="{enum_name}",\n{desc}{cs}{tag}{ver}{vf}\t)'''
+
+    def gen_pvs2(self, enum: EnumDefinition) -> str:
+        """
+        Generate the non-python compliant permissible value initializers as a set of setattr instructions
+        @param enum:
+        @return:
+        """
+        if any(not str.isidentifier(pv.text) or keyword.iskeyword(pv.text) for pv in enum.permissible_values.values()):
+            return f'''
+    @classmethod
+    def _addvals(cls):
+        {self.gen_pvs2_initializers(enum)}'''
+        else:
+            return ''
+
+    def gen_pvs2_initializers(self, enum: EnumDefinition) -> str:
+        init_list = []
+        for pv in enum.permissible_values.values():
+            if not str.isidentifier(pv.text) or keyword.iskeyword(pv.text):
+                l1 = '        setattr('
+                l2ton = len(l1) * ' '
+                pv_cons = ('\n'.join(self.gen_pv_constructor(pv, len(l1))))
+                pv_text = pv.text.replace('"', '\\"').replace(r'\n', r'\\n')
+                init_list.append(f'{l1}cls, "{pv_text}",\n{l2ton}{pv_cons} )')
+        return '\n'.join(init_list).strip()
+
+    def gen_pv_constructor(self, pv: PermissibleValue, indent: int) -> List[str]:
+        """
+        Generate a permissible value constructor
+        @param pv: Value to be constructed
+        @param indent: number of additional spaces to add on successive lines
+        @return: Permissible value constructor
+        """
+        # PermissibleValue(text="CODE",
+        #                  description="...",
+        #                  meaning="...")
+        constructor = 'PermissibleValue('
+        indent = (len(constructor) + indent) * ' '
+        c1 = ',' if pv.description or pv.meaning else ')'
+        rval = [f'{constructor}text="{pv.text}"{c1}']
+        if pv.description:
+            c2 = ',' if pv.meaning else ')'
+            rval.append(f'{indent}description="{pv.description}"{c2}')
+        if pv.meaning:
+            pv_meaning = self.namespaces.curie_for(self.namespaces.uri_for(pv.meaning), default_ok=False,
+                                                   pythonform=True)
+            rval.append(f'{indent}meaning={pv_meaning})')
+        return rval
 
 @shared_arguments(PythonGenerator)
 @click.command()
 @click.option("--head/--no-head", default=True, help="Emit metadata heading")
-def cli(yamlfile, head=True, **args):
+@click.option("--genmeta/--no-genmeta", default=False, help="Generating metamodel")
+@click.option("--classvars/--no-classvars", default=True, help="Generate CLASSVAR info")
+@click.option("--slots/--no-slots", default=True, help="Generate Slot information")
+def cli(yamlfile, head=True, genmeta=False, classvars=True, slots=True, **args):
     """ Generate python classes to represent a biolink model """
-    print(PythonGenerator(yamlfile, emit_metadata=head, **args).serialize(emit_metadata=head, **args))
+    print(PythonGenerator(yamlfile, emit_metadata=head, gen_meta=genmeta, gen_classvars=classvars, gen_slots=slots,  **args).serialize(emit_metadata=head, **args))
+
+
+if __name__ == '__main__':
+    cli()

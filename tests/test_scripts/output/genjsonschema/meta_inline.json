@@ -22,6 +22,22 @@
          "title": "AltDescription",
          "type": "object"
       },
+      "Annotatable": {
+         "additionalProperties": false,
+         "description": "mixin for classes that support annotations",
+         "properties": {
+            "annotations": {
+               "description": "a collection of tag/text tuples with the semantics of OWL Annotation",
+               "items": {
+                  "$ref": "#/definitions/Annotation"
+               },
+               "type": "array"
+            }
+         },
+         "required": [],
+         "title": "Annotatable",
+         "type": "object"
+      },
       "Annotation": {
          "additionalProperties": false,
          "description": "a tag/value pair with the semantics of OWL Annotation",
@@ -283,10 +299,6 @@
                "description": "status of the element",
                "type": "string"
             },
-            "string_template": {
-               "description": "A formatting string to represent the element.  If present, string_template is used whenever the string representation of the element and will also result in the addition of a `parse` method in the containing python class that will allow instances to be added through string parsing",
-               "type": "string"
-            },
             "subclass_of": {
                "description": "rdfs:subClassOf to be emitted in OWL generation",
                "type": "string"
@@ -338,6 +350,22 @@
          },
          "required": [],
          "title": "Example",
+         "type": "object"
+      },
+      "Extensible": {
+         "additionalProperties": false,
+         "description": "mixin for classes that support extension",
+         "properties": {
+            "extensions": {
+               "description": "a tag/text tuple attached to an arbitrary element",
+               "items": {
+                  "$ref": "#/definitions/Extension"
+               },
+               "type": "array"
+            }
+         },
+         "required": [],
+         "title": "Extensible",
          "type": "object"
       },
       "Extension": {
@@ -635,10 +663,6 @@
             "source_file_size": {
                "description": "size in bytes of the source of the schema",
                "type": "integer"
-            },
-            "string_template": {
-               "description": "A formatting string to represent the element.  If present, string_template is used whenever the string representation of the element and will also result in the addition of a `parse` method in the containing python class that will allow instances to be added through string parsing",
-               "type": "string"
             },
             "subsets": {
                "description": "list of subsets referenced in this model",
@@ -971,10 +995,6 @@
                "description": "Used on a slot that stores the string serialization of the containing object. The syntax follows python formatted strings, with slot names enclosed in {}s. These are expanded using the values of those slots.\nWe call the slot with the serialization the s-slot, the slots used in the {}s are v-slots. If both s-slots and v-slots are populated on an object then the value of the s-slot should correspond to the expansion.\nImplementations of frameworks may choose to use this property to either (a) PARSE: implement automated normalizations by parsing denormalized strings into complex objects (b) GENERARE: implement automated to_string labeling of complex objects\nFor example, a Measurement class may have 3 fields: unit, value, and string_value. The string_value slot may have a string_serialization of {value}{unit} such that if unit=cm and value=2, the value of string_value shouldd be 2cm",
                "type": "string"
             },
-            "string_template": {
-               "description": "A formatting string to represent the element.  If present, string_template is used whenever the string representation of the element and will also result in the addition of a `parse` method in the containing python class that will allow instances to be added through string parsing",
-               "type": "string"
-            },
             "subproperty_of": {
                "description": "Ontology property which this slot is a subproperty of",
                "type": "string"
@@ -1160,10 +1180,6 @@
                },
                "type": "array"
             },
-            "string_template": {
-               "description": "A formatting string to represent the element.  If present, string_template is used whenever the string representation of the element and will also result in the addition of a `parse` method in the containing python class that will allow instances to be added through string parsing",
-               "type": "string"
-            },
             "todos": {
                "description": "Outstanding issue that needs resolution",
                "items": {
@@ -1337,10 +1353,6 @@
                   "type": "string"
                },
                "type": "array"
-            },
-            "string_template": {
-               "description": "A formatting string to represent the element.  If present, string_template is used whenever the string representation of the element and will also result in the addition of a `parse` method in the containing python class that will allow instances to be added through string parsing",
-               "type": "string"
             },
             "todos": {
                "description": "Outstanding issue that needs resolution",

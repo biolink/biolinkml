@@ -28,5 +28,5 @@ URI: [biolink:version_of](https://w3id.org/biolink/vocab/version_of)
 
 |  |  |  |
 | --- | --- | --- |
-| **Exact Mappings:** | | dcterms:isVersionOf |
+| **Mappings:** | | dcterms:isVersionOf |
 

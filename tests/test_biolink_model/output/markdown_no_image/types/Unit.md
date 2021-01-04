@@ -15,5 +15,5 @@ URI: [biolink:Unit](https://w3id.org/biolink/vocab/Unit)
 
 |  |  |  |
 | --- | --- | --- |
-| **Exact Mappings:** | | qud:Unit |
+| **Mappings:** | | qud:Unit |
 

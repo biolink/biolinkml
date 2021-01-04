@@ -20,10 +20,3 @@ URI: [meta:id](https://w3id.org/biolink/biolinkml/meta/id)
 ## Used by
 
  * [SchemaDefinition](SchemaDefinition.md)
-
-## Other properties
-
-|  |  |  |
-| --- | --- | --- |
-| **Mappings:** | | schema:identifier |
-

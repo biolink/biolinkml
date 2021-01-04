@@ -2,7 +2,7 @@
 # Type: label type
 
 
-A string that provides a human-readable name for an entity
+A string that provides a human-readable name for a thing
 
 URI: [biolink:LabelType](https://w3id.org/biolink/vocab/LabelType)
 

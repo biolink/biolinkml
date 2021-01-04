@@ -8,10 +8,10 @@
 <http://example.org/sample/example1> a owl:Ontology ;
     rdfs:label "example1" ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
-    meta:generation_date "2020-11-15 18:06" ;
-    meta:metamodel_version "1.6.1" ;
+    meta:generation_date "2020-10-23 17:01" ;
+    meta:metamodel_version "1.6.0" ;
     meta:source_file "issue_163b.yaml" ;
-    meta:source_file_date "Sun Nov 15 18:04:30 2020" ;
+    meta:source_file_date "Fri Oct 23 16:59:17 2020" ;
     meta:source_file_size 690 .
 
 <http://example.org/sample/example1/D2> a owl:Class,

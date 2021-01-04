@@ -20,7 +20,6 @@ URI: [biolink:longitude](https://w3id.org/biolink/vocab/longitude)
 
 ## Used by
 
- * [GeographicExposure](GeographicExposure.md)
  * [GeographicLocation](GeographicLocation.md)
  * [GeographicLocationAtTime](GeographicLocationAtTime.md)
 
@@ -28,5 +27,5 @@ URI: [biolink:longitude](https://w3id.org/biolink/vocab/longitude)
 
 |  |  |  |
 | --- | --- | --- |
-| **Exact Mappings:** | | wgs:long |
+| **Mappings:** | | wgs:long |
 

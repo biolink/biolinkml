@@ -3,7 +3,7 @@
   "description": "A metamodel for defining biolink related schemas",
   "id": "https://w3id.org/biolink/biolinkml/meta",
   "title": "Biolink Schema Metamodel",
-  "version": "1.6.1",
+  "version": "1.6.0",
   "imports": [
     "biolinkml:types",
     "biolinkml:mappings",
@@ -399,20 +399,6 @@
       "range": "SubsetDefinition",
       "slot_uri": "http://www.geneontology.org/formats/oboInOwl#inSubset",
       "multivalued": true,
-      "owner": "Element",
-      "domain_of": [
-        "Element"
-      ],
-      "type": "SlotDefinition"
-    },
-    {
-      "name": "string_template",
-      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/string_template",
-      "description": "A formatting string to represent the element.  If present, string_template is used whenever the string representation of the element and will also result in the addition of a `parse` method in the containing python class that will allow instances to be added through string parsing",
-      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
-      "domain": "Element",
-      "range": "string",
-      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/string_template",
       "owner": "Element",
       "domain_of": [
         "Element"
@@ -2175,7 +2161,6 @@
         "comments",
         "examples",
         "in_subset",
-        "string_template",
         "from_schema",
         "imported_from",
         "see_also",
@@ -2218,7 +2203,6 @@
         "comments",
         "examples",
         "in_subset",
-        "string_template",
         "from_schema",
         "imported_from",
         "see_also",
@@ -2276,7 +2260,6 @@
         "comments",
         "examples",
         "in_subset",
-        "string_template",
         "from_schema",
         "imported_from",
         "see_also",
@@ -2318,7 +2301,6 @@
         "comments",
         "examples",
         "in_subset",
-        "string_template",
         "from_schema",
         "imported_from",
         "see_also",
@@ -2360,7 +2342,6 @@
         "comments",
         "examples",
         "in_subset",
-        "string_template",
         "from_schema",
         "imported_from",
         "see_also",
@@ -2415,7 +2396,6 @@
         "comments",
         "examples",
         "in_subset",
-        "string_template",
         "from_schema",
         "imported_from",
         "see_also",
@@ -2496,7 +2476,6 @@
         "comments",
         "examples",
         "in_subset",
-        "string_template",
         "from_schema",
         "imported_from",
         "see_also",
@@ -2640,11 +2619,11 @@
       "type": "ClassDefinition"
     }
   ],
-  "metamodel_version": "1.6.1",
+  "metamodel_version": "1.6.0",
   "source_file": "meta.yaml",
-  "source_file_date": "Sun Nov 15 18:04:29 2020",
-  "source_file_size": 29306,
-  "generation_date": "2020-11-15 18:05",
+  "source_file_date": "Sat Oct 24 15:59:55 2020",
+  "source_file_size": 28904,
+  "generation_date": "2020-10-24 16:00",
   "type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/biolink/biolinkml/context.jsonld",

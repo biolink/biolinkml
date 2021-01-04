@@ -1,25 +1,55 @@
 CHANGES
 =======
 
+* Include debug elements in pipenv
+* Remove pyc files
+* First cut at Enumerations
+* Checkpoint
+* Automated adding outputs from tests
+* Sync w/ master branch
+* Tweaks to jupyter notebook
+* Checkpoint -- all tests pass and code generation is complete
+
+v1.6.1
+------
+
+* Automated adding outputs from tests
+* Automatically generated requirements.txt and requiremetns-dev.txt
+* Reversed the order of Annotation and Annotatable in annotations.yaml
+* Checkpoint Refactored code generation, ready to start adding the code set hooks once we kick the tires a bit
 * Quick patch to try fixing domain/range error for mixins (not  sure  what  else  needs to be changed)
 * Remove all mixin  \`abstract: true\`  tags  (superfluous now?)
 * issue\_38.yaml clinical profile conflicts with latest Biolink Model
 * Use 'Exposures  & Outcomes' Biolink Model YAML file as  test input
 * Automated adding outputs from tests
 * delete \_\_pycache\_\_  artifacts
+* adding new check
+* docs
+* wrapper
+* Adding SPARQL queries and checks that can be used to query and validate both schemas and instances. See #229
+* ttl target
 * Automated adding outputs from tests
 * more rdf examples
 * Automated adding outputs from tests
 * Adding more docs about generating RDF and JSON-LD contexts
+* Temporarily adding the first prototype for the OBO --> TCCM filter and its application to HPO
+* Add an automated update of the notebooks directory
+* Checkpoint -- all tests pass and code generation is complete
+* Temporary copy of alternative.py output until we get a full merge done
+* Python for all test cases generating
 * Automated adding outputs from tests
 * Automatically generated requirements.txt and requiremetns-dev.txt
+* Enumerations are now a core part of the model.py
 * Automated adding outputs from tests
 * clarify prefix registration
 * Automated adding outputs from tests
 * tiny typo
+* Checkpoint before moving enumerations to includes
+* Add enums to typreferences
 * Automated update to docs with GitHub Actions
 * Automated adding outputs from tests
 * incremental documentation improvements
+* First successful python generation for basic enumeration type
 * Automated adding outputs from tests
 * Elaborate  inheritance  metadata
 * Automated adding outputs from tests
@@ -28,6 +58,11 @@ CHANGES
 * Clarify 'class' usage
 * Automated adding outputs from tests
 * Add link to SPECIFICATION.md
+* further refinement on string\_serialization
+* Add example of string\_serialization for basic discussion
+* Checkpoint.   First cut at python code generation for enumeration
+* Initial model for enumerations
+* Correct an issue where classes with multiple identifiers aren't detected
 * Add \`parse\` to the Pipfile
 * Proposed changes for issue #159
 * Automated adding outputs from tests

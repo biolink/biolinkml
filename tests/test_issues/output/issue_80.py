@@ -1,5 +1,5 @@
 # Auto generated from issue_80.yaml by pythongen.py version: 0.9.0
-# Generation date: 2020-11-15 18:06
+# Generation date: 2020-10-23 17:01
 # Schema: Issue_80_test_case
 #
 # id: http://example.org/issues/80
@@ -9,7 +9,6 @@
 import dataclasses
 import sys
 import re
-import parse
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from biolinkml.utils.slot import Slot
@@ -25,7 +24,7 @@ from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import ElementIdentifier
 from includes.types import Integer, Objectidentifier, String
 
-metamodel_version = "1.6.1"
+metamodel_version = "1.6.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs

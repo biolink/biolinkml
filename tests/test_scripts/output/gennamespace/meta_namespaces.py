@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by namespacegen.py version: 0.9.0
-# Generation date: 2020-10-23 17:01
+# Generation date: 2020-12-16 15:09
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta
@@ -28,6 +28,7 @@ class BiolinkNameSpace:
     """
 
     _namespaces = [
+        CurieNamespace('IAO', 'http://purl.obolibrary.org/obo/IAO_'),
         CurieNamespace('OIO', 'http://www.geneontology.org/formats/oboInOwl#'),
         CurieNamespace('bibo', 'http://purl.org/ontology/bibo/'),
         CurieNamespace('biolinkml', 'https://w3id.org/biolink/biolinkml/'),
