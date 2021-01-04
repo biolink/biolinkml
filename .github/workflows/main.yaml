@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.7]
+        python-version: [3.7, 3.8, 3.9]
 
     steps:
     - uses: actions/checkout@v2
@@ -24,7 +24,8 @@ jobs:
         python -m pip install --upgrade pip
         pip install pipenv-to-requirements
         pipenv_to_requirements
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        pip install -r requirements.txt
+        pip install -r requirements-dev.txt
 
     - name: Test with unittest
       run: |
@@ -37,7 +38,7 @@ jobs:
         then
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git commit -m 'Automatically generated requirements.txt and requiremetns-dev.txt' requirements*.txt
+          git commit -m 'Automatically generated requirements.txt and requirements-dev.txt' requirements*.txt
           git push
         fi
 
@@ -49,6 +50,16 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -m 'Automated adding outputs from tests' tests
+          git push
+        fi
+
+    - name: Check in updated notebooks
+      run: |
+        if [[ ! -z $(git status -s notebooks) ]]
+        then
+        git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -m 'Automated adding updated notebooks' notebooks
           git push
         fi
 

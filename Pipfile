@@ -9,6 +9,7 @@ tox = "*"
 tox-pipenv = "*"
 unittest2 = "*"
 nbconvert = "*"
+nbformat = "*"
 ipykernel = "*"
 
 [packages]
@@ -29,4 +30,3 @@ prologterms = ">=0.0.6"
 watchdog = ">=0.9.0"
 isodate = ">=0.6.0"
 parse = "*"
-jupyter = "*"

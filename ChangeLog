@@ -1,7 +1,11 @@
 CHANGES
 =======
 
+* Include debug elements in pipenv
+* Remove pyc files
+* First cut at Enumerations
 * Checkpoint
+* Automated adding outputs from tests
 * Sync w/ master branch
 * Tweaks to jupyter notebook
 * Checkpoint -- all tests pass and code generation is complete
@@ -19,6 +23,11 @@ v1.6.1
 * Use 'Exposures  & Outcomes' Biolink Model YAML file as  test input
 * Automated adding outputs from tests
 * delete \_\_pycache\_\_  artifacts
+* adding new check
+* docs
+* wrapper
+* Adding SPARQL queries and checks that can be used to query and validate both schemas and instances. See #229
+* ttl target
 * Automated adding outputs from tests
 * more rdf examples
 * Automated adding outputs from tests
