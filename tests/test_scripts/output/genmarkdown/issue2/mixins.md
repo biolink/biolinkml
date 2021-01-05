@@ -17,6 +17,7 @@ definition ->  <sub>0..*</sub> definition
 ## Children
 
  *  class_definition_mixins
+ *  permissible_value_mixins
  *  slot_definition_mixins
 
 ## Used by

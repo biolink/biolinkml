@@ -25,6 +25,8 @@ annotatable ->  <sub>0..*</sub> annotation
  * class_definition
  * definition
  * [Element](Element.md)
+ * enum_definition
+ * permissible_value
  * schema_definition
  * slot_definition
  * subset_definition

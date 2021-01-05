@@ -3,7 +3,7 @@
   "description": "A metamodel for defining biolink related schemas",
   "id": "https://w3id.org/biolink/biolinkml/meta",
   "title": "Biolink Schema Metamodel",
-  "version": "1.6.1",
+  "version": "1.7.0",
   "imports": [
     "biolinkml:types",
     "biolinkml:mappings",
@@ -54,7 +54,9 @@
     "dcterms",
     "OIO",
     "owl",
-    "pav"
+    "pav",
+    "IAO",
+    "biolinkml"
   ],
   "default_curi_maps": [
     "semweb_context"
@@ -219,6 +221,36 @@
       "type": "TypeDefinition"
     }
   ],
+  "enums": [
+    {
+      "name": "pv_formula_options",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/PvFormulaOptions",
+      "description": "The formula used to generate the set of permissible values from the code_set values",
+      "notes": [
+        "{'Q1': 'Do we need a CURIEorURIE entry?'}",
+        "{'Q2': 'Who defines the namespaces for the CURIE form?'}"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "permissible_values": [
+        {
+          "text": "CODE",
+          "description": "The permissible values are the set of possible codes in the code set"
+        },
+        {
+          "text": "CURIE",
+          "description": "The permissible values are the set of CURIES in the code set"
+        },
+        {
+          "text": "URI",
+          "description": "The permissible values are the set of code URIs in the code set"
+        },
+        {
+          "text": "FHIR_CODING",
+          "description": "The permissible values are the set of FHIR coding elements derived from the code set"
+        }
+      ]
+    }
+  ],
   "slots": [
     {
       "name": "name",
@@ -293,9 +325,10 @@
       "domain": "Element",
       "range": "string",
       "slot_uri": "http://www.w3.org/2004/02/skos/core#definition",
-      "owner": "Element",
+      "owner": "PermissibleValue",
       "domain_of": [
-        "Element"
+        "Element",
+        "PermissibleValue"
       ],
       "type": "SlotDefinition"
     },
@@ -324,9 +357,10 @@
       "domain": "Element",
       "range": "string",
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/deprecated",
-      "owner": "Element",
+      "owner": "PermissibleValue",
       "domain_of": [
-        "Element"
+        "Element",
+        "PermissibleValue"
       ],
       "type": "SlotDefinition"
     },
@@ -339,9 +373,10 @@
       "range": "string",
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/todos",
       "multivalued": true,
-      "owner": "Element",
+      "owner": "PermissibleValue",
       "domain_of": [
-        "Element"
+        "Element",
+        "PermissibleValue"
       ],
       "type": "SlotDefinition"
     },
@@ -360,9 +395,10 @@
       "range": "string",
       "slot_uri": "http://www.w3.org/2004/02/skos/core#editorialNote",
       "multivalued": true,
-      "owner": "Element",
+      "owner": "PermissibleValue",
       "domain_of": [
-        "Element"
+        "Element",
+        "PermissibleValue"
       ],
       "type": "SlotDefinition"
     },
@@ -381,9 +417,10 @@
       "range": "string",
       "slot_uri": "http://www.w3.org/2004/02/skos/core#note",
       "multivalued": true,
-      "owner": "Element",
+      "owner": "PermissibleValue",
       "domain_of": [
-        "Element"
+        "Element",
+        "PermissibleValue"
       ],
       "type": "SlotDefinition"
     },
@@ -399,23 +436,10 @@
       "range": "SubsetDefinition",
       "slot_uri": "http://www.geneontology.org/formats/oboInOwl#inSubset",
       "multivalued": true,
-      "owner": "Element",
+      "owner": "PermissibleValue",
       "domain_of": [
-        "Element"
-      ],
-      "type": "SlotDefinition"
-    },
-    {
-      "name": "string_template",
-      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/string_template",
-      "description": "A formatting string to represent the element.  If present, string_template is used whenever the string representation of the element and will also result in the addition of a `parse` method in the containing python class that will allow instances to be added through string parsing",
-      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
-      "domain": "Element",
-      "range": "string",
-      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/string_template",
-      "owner": "Element",
-      "domain_of": [
-        "Element"
+        "Element",
+        "PermissibleValue"
       ],
       "type": "SlotDefinition"
     },
@@ -434,9 +458,10 @@
       "range": "uri",
       "slot_uri": "http://www.w3.org/2004/02/skos/core#inScheme",
       "readonly": "supplied by the schema loader",
-      "owner": "Element",
+      "owner": "PermissibleValue",
       "domain_of": [
-        "Element"
+        "Element",
+        "PermissibleValue"
       ],
       "type": "SlotDefinition"
     },
@@ -449,9 +474,10 @@
       "range": "string",
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/imported_from",
       "readonly": "supplied by the schema loader",
-      "owner": "Element",
+      "owner": "PermissibleValue",
       "domain_of": [
-        "Element"
+        "Element",
+        "PermissibleValue"
       ],
       "type": "SlotDefinition"
     },
@@ -470,9 +496,10 @@
       "range": "uriorcurie",
       "slot_uri": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
       "multivalued": true,
-      "owner": "Element",
+      "owner": "PermissibleValue",
       "domain_of": [
-        "Element"
+        "Element",
+        "PermissibleValue"
       ],
       "type": "SlotDefinition"
     },
@@ -656,6 +683,123 @@
       "type": "SlotDefinition"
     },
     {
+      "name": "code_set",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/code_set",
+      "description": "the identifier of an enumeration code set.",
+      "todos": [
+        "this should be able to connect to an existing code set from TCCM"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "EnumDefinition",
+      "range": "uriorcurie",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/code_set",
+      "owner": "EnumDefinition",
+      "domain_of": [
+        "EnumDefinition"
+      ],
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "code_set_version",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/code_set_version",
+      "description": "the version identifier of the enumeration code set",
+      "comments": [
+        "we assume that version identifiers lexically sort in temporal order. Recommend semver when possible"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "EnumDefinition",
+      "range": "string",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/code_set_version",
+      "owner": "EnumDefinition",
+      "domain_of": [
+        "EnumDefinition"
+      ],
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "code_set_tag",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/code_set_tag",
+      "description": "the version tag of the enumeration code set",
+      "comments": [
+        "enum_definition cannot have both a code_set_tag and a code_set_version"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "EnumDefinition",
+      "range": "string",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/code_set_tag",
+      "owner": "EnumDefinition",
+      "domain_of": [
+        "EnumDefinition"
+      ],
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "pv_formula",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/pv_formula",
+      "description": "Defines the specific formula to be used to generate the permissible values.",
+      "comments": [
+        "you cannot have BOTH the permissible_values and permissible_value_formula tag",
+        "code_set must be supplied for this to be valid"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "EnumDefinition",
+      "range": "pv_formula_options",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/pv_formula",
+      "owner": "EnumDefinition",
+      "domain_of": [
+        "EnumDefinition"
+      ],
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "permissible_values",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/permissible_values",
+      "description": "A list of possible values for a slot range",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "EnumDefinition",
+      "range": "PermissibleValue",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/permissible_values",
+      "multivalued": true,
+      "inlined": true,
+      "owner": "EnumDefinition",
+      "domain_of": [
+        "EnumDefinition"
+      ],
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "text",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/text",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "PermissibleValue",
+      "range": "string",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/text",
+      "required": true,
+      "identifier": true,
+      "owner": "PermissibleValue",
+      "domain_of": [
+        "PermissibleValue"
+      ],
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "meaning",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/meaning",
+      "description": "the value meaning (in the 11179 sense) of a permissible value",
+      "notes": [
+        "we may want to change the range of this (and other) elements in the model to an entitydescription type construct"
+      ],
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "PermissibleValue",
+      "range": "uriorcurie",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/meaning",
+      "owner": "PermissibleValue",
+      "domain_of": [
+        "PermissibleValue"
+      ],
+      "type": "SlotDefinition"
+    },
+    {
       "name": "id",
       "definition_uri": "https://w3id.org/biolink/biolinkml/meta/id",
       "description": "The official schema URI",
@@ -829,6 +973,22 @@
       "domain": "SchemaDefinition",
       "range": "TypeDefinition",
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/types",
+      "multivalued": true,
+      "inlined": true,
+      "owner": "SchemaDefinition",
+      "domain_of": [
+        "SchemaDefinition"
+      ],
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "enums",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/enums",
+      "description": "enumerated ranges",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "domain": "SchemaDefinition",
+      "range": "EnumDefinition",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/enums",
       "multivalued": true,
       "inlined": true,
       "owner": "SchemaDefinition",
@@ -1115,6 +1275,9 @@
       "name": "range",
       "definition_uri": "https://w3id.org/biolink/biolinkml/meta/range",
       "description": "defines the type of the object of the slot.  Given the following slot definition\n  S1:\n    domain: C1\n    range:  C2\nthe declaration\n  X:\n    S1: Y\n\nimplicitly asserts Y is an instance of C2\n",
+      "comments": [
+        "range is underspecified, as not all elements can appear as the range of a slot."
+      ],
       "from_schema": "https://w3id.org/biolink/biolinkml/meta",
       "domain": "SlotDefinition",
       "range": "Element",
@@ -1656,9 +1819,10 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/alt_descriptions",
       "multivalued": true,
       "inlined": true,
-      "owner": "Element",
+      "owner": "PermissibleValue",
       "domain_of": [
-        "Element"
+        "Element",
+        "PermissibleValue"
       ],
       "type": "SlotDefinition"
     },
@@ -1707,9 +1871,10 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/examples",
       "multivalued": true,
       "inlined": true,
-      "owner": "Element",
+      "owner": "PermissibleValue",
       "domain_of": [
-        "Element"
+        "Element",
+        "PermissibleValue"
       ],
       "type": "SlotDefinition"
     },
@@ -1933,9 +2098,10 @@
       "imported_from": "biolinkml:mappings",
       "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/deprecated_element_has_exact_replacement",
-      "owner": "Element",
+      "owner": "PermissibleValue",
       "domain_of": [
-        "Element"
+        "Element",
+        "PermissibleValue"
       ],
       "type": "SlotDefinition"
     },
@@ -1950,9 +2116,10 @@
       "imported_from": "biolinkml:mappings",
       "range": "uriorcurie",
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/deprecated_element_has_possible_replacement",
-      "owner": "Element",
+      "owner": "PermissibleValue",
       "domain_of": [
-        "Element"
+        "Element",
+        "PermissibleValue"
       ],
       "type": "SlotDefinition"
     },
@@ -2144,6 +2311,39 @@
       "is_usage_slot": true,
       "usage_slot_name": "apply_to",
       "type": "SlotDefinition"
+    },
+    {
+      "name": "permissible_value_is_a",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "is_a": "is_a",
+      "domain": "PermissibleValue",
+      "range": "PermissibleValue",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/is_a",
+      "alias": "is_a",
+      "owner": "PermissibleValue",
+      "domain_of": [
+        "PermissibleValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "is_a",
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "permissible_value_mixins",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "is_a": "mixins",
+      "domain": "PermissibleValue",
+      "range": "PermissibleValue",
+      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/mixins",
+      "multivalued": true,
+      "alias": "mixins",
+      "owner": "PermissibleValue",
+      "domain_of": [
+        "PermissibleValue"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "mixins",
+      "type": "SlotDefinition"
     }
   ],
   "classes": [
@@ -2161,8 +2361,8 @@
         "Annotatable"
       ],
       "slots": [
-        "id_prefixes",
         "name",
+        "id_prefixes",
         "definition_uri",
         "aliases",
         "local_names",
@@ -2175,7 +2375,6 @@
         "comments",
         "examples",
         "in_subset",
-        "string_template",
         "from_schema",
         "imported_from",
         "see_also",
@@ -2218,7 +2417,6 @@
         "comments",
         "examples",
         "in_subset",
-        "string_template",
         "from_schema",
         "imported_from",
         "see_also",
@@ -2243,6 +2441,7 @@
         "default_range",
         "subsets",
         "types",
+        "enums",
         "slot_definitions",
         "classes",
         "metamodel_version",
@@ -2262,8 +2461,8 @@
       "from_schema": "https://w3id.org/biolink/biolinkml/meta",
       "is_a": "Element",
       "slots": [
-        "id_prefixes",
         "name",
+        "id_prefixes",
         "definition_uri",
         "aliases",
         "local_names",
@@ -2276,7 +2475,6 @@
         "comments",
         "examples",
         "in_subset",
-        "string_template",
         "from_schema",
         "imported_from",
         "see_also",
@@ -2304,8 +2502,8 @@
       "from_schema": "https://w3id.org/biolink/biolinkml/meta",
       "is_a": "Element",
       "slots": [
-        "id_prefixes",
         "name",
+        "id_prefixes",
         "definition_uri",
         "aliases",
         "local_names",
@@ -2318,7 +2516,6 @@
         "comments",
         "examples",
         "in_subset",
-        "string_template",
         "from_schema",
         "imported_from",
         "see_also",
@@ -2346,8 +2543,8 @@
       "is_a": "Element",
       "abstract": true,
       "slots": [
-        "id_prefixes",
         "name",
+        "id_prefixes",
         "definition_uri",
         "aliases",
         "local_names",
@@ -2360,7 +2557,6 @@
         "comments",
         "examples",
         "in_subset",
-        "string_template",
         "from_schema",
         "imported_from",
         "see_also",
@@ -2389,20 +2585,14 @@
       "type": "ClassDefinition"
     },
     {
-      "name": "SlotDefinition",
-      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/SlotDefinition",
-      "aliases": [
-        "slot",
-        "field",
-        "property",
-        "attribute"
-      ],
-      "description": "the definition of a property or a slot",
+      "name": "EnumDefinition",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/EnumDefinition",
+      "description": "List of values that constrain the range of a slot",
       "from_schema": "https://w3id.org/biolink/biolinkml/meta",
-      "is_a": "Definition",
+      "is_a": "Element",
       "slots": [
-        "id_prefixes",
         "name",
+        "id_prefixes",
         "definition_uri",
         "aliases",
         "local_names",
@@ -2415,7 +2605,54 @@
         "comments",
         "examples",
         "in_subset",
-        "string_template",
+        "from_schema",
+        "imported_from",
+        "see_also",
+        "exact_mappings",
+        "close_mappings",
+        "related_mappings",
+        "narrow_mappings",
+        "broad_mappings",
+        "deprecated_element_has_exact_replacement",
+        "deprecated_element_has_possible_replacement",
+        "extensions",
+        "annotations",
+        "code_set",
+        "code_set_tag",
+        "code_set_version",
+        "pv_formula",
+        "permissible_values"
+      ],
+      "class_uri": "https://w3id.org/biolink/biolinkml/meta/EnumDefinition",
+      "type": "ClassDefinition"
+    },
+    {
+      "name": "SlotDefinition",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/SlotDefinition",
+      "aliases": [
+        "slot",
+        "field",
+        "property",
+        "attribute"
+      ],
+      "description": "the definition of a property or a slot",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "is_a": "Definition",
+      "slots": [
+        "name",
+        "id_prefixes",
+        "definition_uri",
+        "aliases",
+        "local_names",
+        "mappings",
+        "description",
+        "alt_descriptions",
+        "deprecated",
+        "todos",
+        "notes",
+        "comments",
+        "examples",
+        "in_subset",
         "from_schema",
         "imported_from",
         "see_also",
@@ -2482,8 +2719,8 @@
       "from_schema": "https://w3id.org/biolink/biolinkml/meta",
       "is_a": "Definition",
       "slots": [
-        "id_prefixes",
         "name",
+        "id_prefixes",
         "definition_uri",
         "aliases",
         "local_names",
@@ -2496,7 +2733,6 @@
         "comments",
         "examples",
         "in_subset",
-        "string_template",
         "from_schema",
         "imported_from",
         "see_also",
@@ -2581,6 +2817,39 @@
       "type": "ClassDefinition"
     },
     {
+      "name": "PermissibleValue",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/PermissibleValue",
+      "description": "a permissible value, accompanied by intended text and an optional mapping to a concept URI",
+      "from_schema": "https://w3id.org/biolink/biolinkml/meta",
+      "mixins": [
+        "Extensible",
+        "Annotatable"
+      ],
+      "slots": [
+        "text",
+        "description",
+        "meaning",
+        "alt_descriptions",
+        "deprecated",
+        "todos",
+        "notes",
+        "comments",
+        "examples",
+        "in_subset",
+        "from_schema",
+        "imported_from",
+        "see_also",
+        "deprecated_element_has_exact_replacement",
+        "deprecated_element_has_possible_replacement",
+        "permissible_value_is_a",
+        "permissible_value_mixins",
+        "extensions",
+        "annotations"
+      ],
+      "class_uri": "https://w3id.org/biolink/biolinkml/meta/PermissibleValue",
+      "type": "ClassDefinition"
+    },
+    {
       "name": "Extension",
       "definition_uri": "https://w3id.org/biolink/biolinkml/meta/Extension",
       "description": "a tag/value pair used to add non-model information to an entry",
@@ -2640,11 +2909,11 @@
       "type": "ClassDefinition"
     }
   ],
-  "metamodel_version": "1.6.1",
+  "metamodel_version": "1.7.0",
   "source_file": "meta.yaml",
-  "source_file_date": "Sun Nov 15 18:04:29 2020",
-  "source_file_size": 29306,
-  "generation_date": "2020-11-15 18:06",
+  "source_file_date": "Mon Jan  4 21:51:20 2021",
+  "source_file_size": 32547,
+  "generation_date": "2021-01-04 21:53",
   "type": "SchemaDefinition",
   "@context": [
     "file:./output/gencontext/meta.jsonld",

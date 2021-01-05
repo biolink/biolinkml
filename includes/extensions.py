@@ -1,5 +1,5 @@
 # Auto generated from extensions.yaml by pythongen.py version: 0.9.0
-# Generation date: 2020-10-23 16:59
+# Generation date: 2020-12-18 12:45
 # Schema: extensions
 #
 # id: https://w3id.org/biolink/biolinkml/extensions
@@ -11,6 +11,7 @@ import sys
 import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
+
 from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
@@ -19,12 +20,13 @@ if sys.version_info < (3, 7, 6):
 else:
     from biolinkml.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
+from biolinkml.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import URIorCURIE
 from includes.types import String, Uriorcurie
 
-metamodel_version = "1.6.1"
+metamodel_version = "1.7.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -57,7 +59,7 @@ class Extension(YAMLRoot):
     value: str = None
     extensions: Optional[Union[Union[dict, "Extension"], List[Union[dict, "Extension"]]]] = empty_list()
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.tag is None:
             raise ValueError("tag must be supplied")
         if not isinstance(self.tag, URIorCURIE):
@@ -76,6 +78,32 @@ class Extension(YAMLRoot):
 
         super().__post_init__(**kwargs)
 
+
+@dataclass
+class Extensible(YAMLRoot):
+    """
+    mixin for classes that support extension
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = META.Extensible
+    class_class_curie: ClassVar[str] = "meta:Extensible"
+    class_name: ClassVar[str] = "extensible"
+    class_model_uri: ClassVar[URIRef] = META.Extensible
+
+    extensions: Optional[Union[Union[dict, Extension], List[Union[dict, Extension]]]] = empty_list()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.extensions is None:
+            self.extensions = []
+        if not isinstance(self.extensions, list):
+            self.extensions = [self.extensions]
+        self._normalize_inlined_slot(slot_name="extensions", slot_type=Extension, key_name="tag", inlined_as_list=True, keyed=False)
+
+        super().__post_init__(**kwargs)
+
+
+# Enumerations
 
 
 # Slots

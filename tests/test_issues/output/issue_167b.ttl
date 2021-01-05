@@ -18,22 +18,24 @@
     meta:default_curi_maps "semweb_context" ;
     meta:default_prefix "ex" ;
     meta:default_range <http://example.org/string> ;
-    meta:generation_date "2020-11-15 18:06"^^xsd:dateTime ;
+    meta:emit_prefixes "biolinkml",
+        "meta" ;
+    meta:generation_date "2021-01-04 21:53"^^xsd:dateTime ;
     meta:id <http://example.org/tests/issue167b> ;
     meta:imports biolinkml:annotations,
         biolinkml:extensions,
         biolinkml:types ;
-    meta:metamodel_version "1.6.1" ;
-    meta:prefixes [ meta:prefix_prefix "biolinkml" ;
-            meta:prefix_reference biolinkml: ],
-        [ meta:prefix_prefix "ex" ;
-            meta:prefix_reference <http://example.org/> ] ;
+    meta:metamodel_version "1.7.0" ;
+    meta:prefixes [ meta:prefix_prefix "ex" ;
+            meta:prefix_reference <http://example.org/> ],
+        [ meta:prefix_prefix "biolinkml" ;
+            meta:prefix_reference biolinkml: ] ;
     meta:slots <http://example.org/annotations>,
         <http://example.org/extension_tag>,
         <http://example.org/extension_value>,
         <http://example.org/extensions> ;
     meta:source_file "issue_167b.yaml" ;
-    meta:source_file_date "Sun Nov 15 18:04:30 2020"^^xsd:dateTime ;
+    meta:source_file_date "Mon Jan  4 21:51:20 2021"^^xsd:dateTime ;
     meta:source_file_size 835 ;
     meta:types <http://example.org/boolean>,
         <http://example.org/date>,
@@ -185,14 +187,14 @@
     skos:definition "-> This form of annotations is a tag/value format, which allows annotations to be annotated.  Note, however, that the annotation source is NOT a CURIE, rather just a string." ;
     skos:inScheme <http://example.org/tests/issue167b> ;
     meta:annotations [ a meta:Annotation ;
+            skos:example "{'source': 'PMID:12345'}" ;
+            meta:tag <http://example.org/annotations> ],
+        [ a meta:Annotation ;
             skos:example "prefLabel" ;
             meta:tag <http://example.org/tag> ],
         [ a meta:Annotation ;
             skos:example "a preferred label" ;
-            meta:tag <http://example.org/value> ],
-        [ a meta:Annotation ;
-            skos:example "{'source': 'PMID:12345'}" ;
-            meta:tag <http://example.org/annotations> ] ;
+            meta:tag <http://example.org/value> ] ;
     meta:class_uri <http://example.org/MyClass2> ;
     meta:definition_uri <http://example.org/MyClass2> .
 

@@ -1,5 +1,5 @@
 # Auto generated from mappings.yaml by pythongen.py version: 0.9.0
-# Generation date: 2020-11-15 18:05
+# Generation date: 2021-01-04 21:52
 # Schema: mappings
 #
 # id: https://w3id.org/biolink/biolinkml/mappings
@@ -9,9 +9,9 @@
 import dataclasses
 import sys
 import re
-import parse
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
+
 from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
@@ -20,12 +20,13 @@ if sys.version_info < (3, 7, 6):
 else:
     from biolinkml.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
+from biolinkml.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import URIorCURIE
 from includes.types import Uriorcurie
 
-metamodel_version = "1.6.1"
+metamodel_version = "1.7.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -49,6 +50,8 @@ DEFAULT_ = META
 
 
 
+
+# Enumerations
 
 
 # Slots

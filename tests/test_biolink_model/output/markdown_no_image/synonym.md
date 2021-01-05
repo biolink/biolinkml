@@ -24,11 +24,11 @@ URI: [biolink:synonym](https://w3id.org/biolink/vocab/synonym)
  * [RNAProductIsoform](RNAProductIsoform.md)
  * [Gene](Gene.md)
  * [GeneProduct](GeneProduct.md)
- * [GeneProductIsoform](GeneProductIsoform.md)
  * [MicroRNA](MicroRNA.md)
  * [NoncodingRNAProduct](NoncodingRNAProduct.md)
  * [Protein](Protein.md)
  * [ProteinIsoform](ProteinIsoform.md)
+ * [SiRNA](SiRNA.md)
  * [Transcript](Transcript.md)
 
 ## Other properties

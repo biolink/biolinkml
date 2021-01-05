@@ -28,3 +28,10 @@ URI: [meta:range](https://w3id.org/biolink/biolinkml/meta/range)
 ## Used by
 
  * [SlotDefinition](SlotDefinition.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Comments:** | | range is underspecified, as not all elements can appear as the range of a slot. |
+

@@ -22,14 +22,9 @@ URI: [meta:imported_from](https://w3id.org/biolink/biolinkml/meta/imported_from)
  * [ClassDefinition](ClassDefinition.md)
  * [Definition](Definition.md)
  * [Element](Element.md)
+ * [EnumDefinition](EnumDefinition.md)
+ * [PermissibleValue](PermissibleValue.md)
  * [SchemaDefinition](SchemaDefinition.md)
  * [SlotDefinition](SlotDefinition.md)
  * [SubsetDefinition](SubsetDefinition.md)
  * [TypeDefinition](TypeDefinition.md)
-
-## Other properties
-
-|  |  |  |
-| --- | --- | --- |
-| **Mappings:** | | rdfs:isDefinedBy |
-

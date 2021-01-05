@@ -6,6 +6,8 @@ from tests.utils.python_comparator import validate_python
 
 
 class Issue39UnitTest(unittest.TestCase):
+
+    @unittest.skip("issue_38.yaml clinical profile conflicts with latest Biolink Model")
     def test_python_import(self):
         """ Import generates for biolink-model """
         python = PythonGenerator(env.input_path('issue_38.yaml'),

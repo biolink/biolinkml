@@ -24,8 +24,10 @@ extensible ->  <sub>0..*</sub> extension
  * class_definition
  * definition
  * [Element](Element.md)
+ * enum_definition
  * extensible
  * extension
+ * permissible_value
  * schema_definition
  * slot_definition
  * subset_definition

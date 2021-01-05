@@ -8,10 +8,10 @@
 <http://example.org/sample/example1> a owl:Ontology ;
     rdfs:label "example1" ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
-    meta:generation_date "2020-11-15 18:06" ;
-    meta:metamodel_version "1.6.1" ;
+    meta:generation_date "2021-01-04 21:53" ;
+    meta:metamodel_version "1.7.0" ;
     meta:source_file "issue_163b.yaml" ;
-    meta:source_file_date "Sun Nov 15 18:04:30 2020" ;
+    meta:source_file_date "Mon Jan  4 21:51:20 2021" ;
     meta:source_file_size 690 .
 
 <http://example.org/sample/example1/D2> a owl:Class,
@@ -196,16 +196,16 @@ meta:SubsetDefinition a owl:Class ;
     rdfs:label "a" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
-            owl:onProperty <http://example.org/sample/example1/name> ],
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Integer> ;
+            owl:onProperty <http://example.org/sample/example1/len> ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://example.org/sample/example1/Unitcode> ;
             owl:onProperty <http://example.org/sample/example1/unit> ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/Integer> ;
-            owl:onProperty <http://example.org/sample/example1/len> ],
+            owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
+            owl:onProperty <http://example.org/sample/example1/name> ],
         [ a owl:Restriction ;
             owl:onClass <https://w3id.org/biolink/biolinkml/meta/types/String> ;
             owl:onProperty <http://example.org/sample/example1/id> ;

@@ -65,7 +65,7 @@ class YAMLRoot(JsonObj):
             return super()._default(obj)
 
     def _normalize_inlined_slot(self, slot_name: str, slot_type: Type, key_name: Optional[str],
-                                inlined_as_list: bool, keyed: bool) -> None:
+                                inlined_as_list: Optional[bool], keyed: bool) -> None:
         """
          __post_init__ function for a list of inlined keyed or identified classes.
         The input to this is either a list or dictionary of dictionaries.  In the list case, every key entry
@@ -74,7 +74,7 @@ class YAMLRoot(JsonObj):
         @param slot_name: Name of the slot being normalized
         @param slot_type: Slot range type
         @param key_name: Name of the key or identifier in the range
-        @param inlined_as_list: True means represent as a list, false as a dictionary
+        @param inlined_as_list: True means represent as a list, false or None as a dictionary
         @param keyed: True means each identifier must be unique
         """
         raw_slot: Union[list, dict] = self[slot_name]
@@ -95,7 +95,7 @@ class YAMLRoot(JsonObj):
             # A list of dictionaries
             #   [ {key_name: v11, slot_2: v12, ..., slot_n:v1n}, {key_name: v21, slot_2: v22, ..., slot_n:v2n}, ...]
             for raw_slot_entry in raw_slot:
-                if not isinstance(raw_slot_entry, dict):
+                if not isinstance(raw_slot_entry, (dict, YAMLRoot)):
                     raise ValueError(f"Slot: {slot_name} - unrecognized element: {raw_slot_entry}")
                 for k, v in raw_slot_entry.items():
                     cook_a_slot(slot_type(k, v))
@@ -105,8 +105,15 @@ class YAMLRoot(JsonObj):
             #    {key_1: {[key_name: v11], slot_2: v12, ... slot_n: v1n}, key_2: {...}}   or
             #    {v11: v12, v21: v22, ...}
             for key, value in raw_slot.items():
-                if not isinstance(value, dict):
+                if not isinstance(value, (dict, YAMLRoot)):
                     cook_a_slot(slot_type(key, value))
+                elif isinstance(value, YAMLRoot):
+                    vk = getattr(value, key_name, None)
+                    if vk is None or vk == key:
+                        setattr(value, key_name, key)
+                        cook_a_slot(value)
+                    else:
+                        raise ValueError(f"Slot: {slot_name} - value ({vk}) does not match key ({key})")
                 else:
                     # Inject a key if not there otherwise make sure it matches
                     vk = value.get(key_name, None)

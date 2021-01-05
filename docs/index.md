@@ -12,6 +12,7 @@ A metamodel for defining biolink related schemas
     * [Definition](Definition.md) - base class for definitions
        * [ClassDefinition](ClassDefinition.md) - the definition of a class or interface
        * [SlotDefinition](SlotDefinition.md) - the definition of a property or a slot
+    * [EnumDefinition](EnumDefinition.md) - List of values that constrain the range of a slot
     * [SchemaDefinition](SchemaDefinition.md) - a collection of subset, type, slot and class definitions
     * [SubsetDefinition](SubsetDefinition.md) - the name and description of a subset
     * [TypeDefinition](TypeDefinition.md) - A data type definition.
@@ -19,6 +20,7 @@ A metamodel for defining biolink related schemas
  * [Extension](Extension.md) - a tag/value pair used to add non-model information to an entry
     * [Annotation](Annotation.md) - a tag/value pair with the semantics of OWL Annotation
  * [LocalName](LocalName.md) - an attributed label
+ * [PermissibleValue](PermissibleValue.md) - a permissible value, accompanied by intended text and an optional mapping to a concept URI
  * [Prefix](Prefix.md) - prefix URI tuple
 
 ### Mixins
@@ -30,7 +32,7 @@ A metamodel for defining biolink related schemas
 
  * [abstract](abstract.md) - an abstract class is a high level class or slot that is typically used to group common slots together and cannot be directly instantiated.
  * [alias](alias.md) - the name used for a slot in the context of its owning class.  If present, this is used instead of the actual slot name.
- * [aliases](aliases.md) - alternate name for the element
+ * [aliases](aliases.md)
  * [alt_description➞source](alt_description_source.md) - the source of an attributed description
  * [alt_description➞description](alt_description_text.md) - text of an attributed description
  * [alt_descriptions](alt_descriptions.md)
@@ -41,6 +43,9 @@ A metamodel for defining biolink related schemas
  * [base](base.md) - python base type that implements this type definition
  * [class_uri](class_uri.md) - URI of the class in an RDF environment
  * [classes](classes.md) - class definitions
+ * [code_set](code_set.md) - the identifier of an enumeration code set.
+ * [code_set_tag](code_set_tag.md) - the version tag of the enumeration code set
+ * [code_set_version](code_set_version.md) - the version identifier of the enumeration code set
  * [comments](comments.md) - notes and comments about an element intended for external consumption
  * [created_by](created_by.md) - agent that created the element
  * [created_on](created_on.md) - time at which the element was created
@@ -56,6 +61,7 @@ A metamodel for defining biolink related schemas
  * [domain](domain.md) - defines the type of the subject of the slot.  Given the following slot definition
  * [domain_of](domain_of.md) - the class(es) that reference the slot in a "slots" or "slot_usage" context
  * [emit_prefixes](emit_prefixes.md) - a list of Curie prefixes that are used in the representation of instances of the model.  All prefixes in this list are added to the prefix sections of the target models.
+ * [enums](enums.md) - enumerated ranges
  * [examples](examples.md) - example usages of an element
  * [extension➞tag](extension_tag.md) - a tag associated with an extension
  * [extension➞value](extension_value.md) - the actual annotation
@@ -64,7 +70,7 @@ A metamodel for defining biolink related schemas
  * [from_schema](from_schema.md) - id of the schema that defined the element
  * [generation_date](generation_date.md) - date and time that the schema was loaded/generated
  * [id](id.md) - The official schema URI
- * [id_prefixes](id_prefixes.md) - the identifier of this class or slot _should_ begin with one of the URIs referenced by this prefix
+ * [id_prefixes](id_prefixes.md) - the identifier of this class or slot must begin with one of the URIs referenced by this prefix
  * [identifier](identifier.md) - True means that the key slot(s) uniquely identify the container. There can be at most one identifier or key per container
  * [ifabsent](ifabsent.md) - function that provides a default value for the slot.  Possible values for this slot are defined in biolink.utils.ifabsent_functions.default_library:
  * [imported_from](imported_from.md) - the imports entry that this element was derived from.  Empty means primary source
@@ -74,8 +80,9 @@ A metamodel for defining biolink related schemas
  * [inlined](inlined.md) - True means that keyed or identified slot appears in an outer structure by value.  False means that only the key or identifier for the slot appears within the domain, referencing a structure that appears elsewhere.
  * [inlined_as_list](inlined_as_list.md) - True means that an inlined slot is represented as a list of range instances.  False means that an inlined slot is represented as a dictionary, whose key is the slot key or identifier and whose value is the range instance.
  * [inverse](inverse.md) - indicates that any instance of d s r implies that there is also an instance of r s' d
- * [is_a](is_a.md) - specifies single-inheritance from a class to a class or a slot to a slot
+ * [is_a](is_a.md) - specifies single-inheritance between classes or slots. While multiple inheritance is not allowed, mixins can be provided effectively providing the same thing. The semantics are the same when translated to formalisms that allow MI (e.g. RDFS/OWL). When translating to a SI framework (e.g. java classes, python classes) then is a is used. When translating a framework without polymorphism (e.g. json-schema, solr document schema) then is a and mixins are recursively unfolded
     * [class_definition➞is_a](class_definition_is_a.md)
+    * [permissible_value➞is_a](permissible_value_is_a.md)
     * [slot_definition➞is_a](slot_definition_is_a.md)
  * [is_class_field](is_class_field.md) - indicates that any instance, i,  the domain of this slot will include an assert of i s range
  * [is_usage_slot](is_usage_slot.md) - True means that this slot was defined in a slot_usage situation
@@ -92,11 +99,13 @@ A metamodel for defining biolink related schemas
     * [narrow mappings](narrow_mappings.md) - A list of terms from different schemas or terminology systems that have narrower meaning.
     * [related mappings](related_mappings.md) - A list of terms from different schemas or terminology systems that have related meaning.
  * [maximum_value](maximum_value.md) - for slots with ranges of type number, the value must be equal to or lowe than this
+ * [meaning](meaning.md) - the value meaning (in the 11179 sense) of a permissible value
  * [metamodel_version](metamodel_version.md) - Version of the metamodel used to load the schema
  * [minimum_value](minimum_value.md) - for slots with ranges of type number, the value must be equal to or higher than this
- * [mixin](mixin.md) - If a class or slot has this property then it can contain properties that can be inherited via `mixins` declarations
- * [mixins](mixins.md) - List of definitions to be mixed in (inherited). Targets may be any definition of the same type
+ * [mixin](mixin.md) - this slot or class can only be used as a mixin -- equivalent to abstract
+ * [mixins](mixins.md) - List of definitions to be mixed in. Targets may be any definition of the same type
     * [class_definition➞mixins](class_definition_mixins.md)
+    * [permissible_value➞mixins](permissible_value_mixins.md)
     * [slot_definition➞mixins](slot_definition_mixins.md)
  * [modified_by](modified_by.md) - agent that modified the element
  * [multivalued](multivalued.md) - true means that slot can have more than one value
@@ -105,9 +114,11 @@ A metamodel for defining biolink related schemas
  * [notes](notes.md) - editorial notes about an element intended for internal consumption
  * [owner](owner.md) - the "owner" of the slot. It is the class if it appears in the slots list, otherwise the declaring slot
  * [pattern](pattern.md) - the string value of the slot must conform to this regular expression
+ * [permissible_values](permissible_values.md) - A list of possible values for a slot range
  * [prefix_prefix](prefix_prefix.md) - the nsname (sans ':' for a given prefix)
  * [prefix_reference](prefix_reference.md) - A URI associated with a given prefix
  * [prefixes](prefixes.md) - prefix / URI definitions to be added to the context beyond those fetched from prefixcommons in id prefixes
+ * [pv_formula](pv_formula.md) - Defines the specific formula to be used to generate the permissible values.
  * [range](range.md) - defines the type of the object of the slot.  Given the following slot definition
  * [readonly](readonly.md) - If present, slot is read only.  Text explains why
  * [repr](repr.md) - the name of the python object that implements this type definition
@@ -124,11 +135,11 @@ A metamodel for defining biolink related schemas
  * [source_file_size](source_file_size.md) - size in bytes of the source of the schema
  * [status](status.md) - status of the element
  * [string_serialization](string_serialization.md) - Used on a slot that stores the string serialization of the containing object. The syntax follows python formatted strings, with slot names enclosed in {}s. These are expanded using the values of those slots.
- * [string_template](string_template.md) - A formatting string to represent the element.  If present, string_template is used whenever the string representation of the element and will also result in the addition of a `parse` method in the containing python class that will allow instances to be added through string parsing
  * [subclass_of](subclass_of.md) - rdfs:subClassOf to be emitted in OWL generation
  * [subproperty_of](subproperty_of.md) - Ontology property which this slot is a subproperty of
  * [subsets](subsets.md) - list of subsets referenced in this model
  * [symmetric](symmetric.md) - True means that any instance of  d s r implies that there is also an instance of r s d
+ * [text](text.md)
  * [title](title.md) - the official title of the schema
  * [todos](todos.md) - Outstanding issue that needs resolution
  * [tree_root](tree_root.md) - indicator that this is the root class in tree structures

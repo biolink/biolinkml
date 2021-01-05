@@ -2,21 +2,20 @@
    "$id": "http://example.org/sample/organization",
    "$schema": "http://json-schema.org/draft-07/schema#",
    "definitions": {
-      "age_in_years": {
-          "description": "The age of a person if living or age of death if not",
-          "type": "string"
-      },
       "Employee": {
          "additionalProperties": false,
          "description": "A person",
          "properties": {
             "age_in_years": {
                "description": "The age of a person if living or age of death if not",
-               "type": "number"
+               "type": "integer"
             },
             "aliases": {
                "description": "An alternative name",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "first_name": {
                "description": "The first name of a person",
@@ -43,11 +42,14 @@
          "properties": {
             "age_in_years": {
                "description": "The age of a person if living or age of death if not",
-               "type": "number"
+               "type": "integer"
             },
             "aliases": {
                "description": "An alternative name",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "first_name": {
                "description": "The first name of a person",

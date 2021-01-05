@@ -2,11 +2,13 @@ from dataclasses import dataclass, field
 from typing import Dict, Set, List, Union, cast
 import logging
 
+from rdflib import URIRef
+
 from biolinkml.meta import SchemaDefinition, Element, Definition, ClassDefinition, SlotDefinitionName, \
     ClassDefinitionName, TypeDefinitionName, DefinitionName, SlotDefinition, ElementName, TypeDefinition, \
-    SubsetDefinitionName
+    SubsetDefinitionName, EnumDefinitionName, EnumDefinition
 from biolinkml.utils.metamodelcore import empty_dict
-from biolinkml.utils.typereferences import RefType, ClassType, TypeType, SlotType, References, SubsetType
+from biolinkml.utils.typereferences import RefType, ClassType, TypeType, SlotType, References, SubsetType, EnumType
 from biolinkml.utils.yamlutils import TypedNode
 
 
@@ -25,7 +27,8 @@ class SchemaSynopsis:
     typerefs: Dict[TypeDefinitionName, References] = empty_dict()       # Type name to all references
     slotrefs: Dict[SlotDefinitionName, References] = empty_dict()       # Slot name to all references
     classrefs: Dict[ClassDefinitionName, References] = empty_dict()     # Class name to all references
-    subsetrefs: Dict[SubsetDefinitionName, References] = empty_dict()            # Subset name to references
+    subsetrefs: Dict[SubsetDefinitionName, References] = empty_dict()   # Subset name to references
+    enumrefs: Dict[EnumDefinitionName, References] = empty_dict()       # Enum name to references
 
     # Type specific
     typebases: Dict[str, Set[TypeDefinitionName]] = empty_dict()          # Base referencing types (direct and indirect)
@@ -40,6 +43,9 @@ class SchemaSynopsis:
 
     # Class specific
     ownslots: Dict[ClassDefinitionName, Set[SlotDefinitionName]] = empty_dict() # Slots directly owned by class
+
+    # Enum specific
+    codesets: Dict[URIRef, Set[EnumDefinitionName]] = empty_dict()  # Code set URI to enumeration definition
 
     # Class to slot domains == class.slots
 
@@ -65,6 +71,8 @@ class SchemaSynopsis:
             self.summarize_type_definition(k, v)
         for k, v in self.schema.classes.items():
             self.summarize_class_definition(k, v)
+        for k, v in self.schema.enums.items():
+            self.summarize_enum_definition(k, v)
 
         # Generate a list of slots owned exclusively by cls
         for cls in self.schema.classes.values():
@@ -90,7 +98,9 @@ class SchemaSynopsis:
         if v.domain:
             self.add_ref(SlotType, k, ClassType, v.domain)
         self.rangerefs.setdefault(v.range, set()).add(k)
-        self.add_ref(SlotType, k, ClassType if v.range in self.schema.classes else TypeType, v.range)
+        self.add_ref(SlotType, k, ClassType if v.range in self.schema.classes else
+                                  EnumType if v.range in self.schema.enums else
+                                  TypeType if v.range in self.schema.types else None, v.range)
 
     def summarize_type_definition(self, k: TypeDefinitionName, v: TypeDefinition):
         """
@@ -125,6 +135,17 @@ class SchemaSynopsis:
             # if slot_alias:
             #     self.add_ref(SlotType, slotname, SlotType, cast(SlotDefinitionName, slot_alias))
             #     self.add_ref(ClassType, k, SlotType, cast(SlotDefinitionName, slot_alias))
+
+    def summarize_enum_definition(self, k: EnumDefinitionName, v: EnumDefinition):
+        """
+        Summarize enum definition
+
+        :param k: Enum name
+        :param v: Enum definition
+        :return:
+        """
+        self.summarize_element(EnumType, k, v)
+
 
     def summarize_definition(self, typ: RefType, k: DefinitionName, v: Definition) -> None:
         """
@@ -185,6 +206,8 @@ class SchemaSynopsis:
             self.typerefs.setdefault(TypeDefinitionName(toname), References()).addref(fromtype, fromname)
         elif totype is SubsetType:
             self.subsetrefs.setdefault(SubsetDefinitionName(toname), References()).addref(fromtype, fromname)
+        elif totype is EnumType:
+            self.enumrefs.setdefault(SlotDefinitionName(toname), References()).addref(fromtype, fromname)
         else:
             raise TypeError("Unknown typ: {typ}")
 
@@ -212,6 +235,10 @@ class SchemaSynopsis:
         if undefined_subsets:
             rval += [f"\tUndefined subset references: "
                      f"{', '.join(format_undefineds(undefined_subsets))}"]
+        undefined_enums = set(self.enumrefs.keys()) - set(self.schema.enums.keys())
+        if undefined_enums:
+            rval += [f"\tUndefined enun references: "
+                     f"{', '.join(format_undefineds(undefined_enums))}"]
 
         # Inlined slots must be multivalued (not a inviolable rule, but we make assumptions about this elsewhere in
         # the python generator
@@ -223,13 +250,15 @@ class SchemaSynopsis:
     def summary(self) -> str:
 
         def summarize_refs(refs: Dict[ElementName, References]) -> str:
-            clsrefs, slotrefs, typerefs = set(), set(), set()
+            clsrefs, slotrefs, typerefs, enumrefs = set(), set(), set(), set()
             if refs is not None:
                 for cr in refs.values():
                     clsrefs.update(cr.classrefs)
                     slotrefs.update(cr.slotrefs)
                     typerefs.update(cr.typerefs)
-            return f"\tReferenced by: {len(clsrefs)} classes, {len(slotrefs)} slots, {len(typerefs)} types "
+                    enumrefs.update(cr.enumrefs)
+            return f"\tReferenced by: {len(clsrefs)} classes, {len(slotrefs)} slots, " \
+                   f"{len(typerefs)} types, {len(enumrefs)} enums "
 
         def recurse_types(typ: TypeDefinitionName, indent: str='\t\t\t') -> List[str]:
             rval = [f"{indent}{typ}" + (':' if typ in self.typeofs else '')]

@@ -1,5 +1,5 @@
 # Auto generated from resourcedescription.yaml by pythongen.py version: 0.9.0
-# Generation date: 2020-11-15 18:06
+# Generation date: 2021-01-04 21:53
 # Schema: resourcedescription
 #
 # id: https://hotecosystem.org/tccm/resourcedescription
@@ -12,9 +12,10 @@
 import dataclasses
 import sys
 import re
-import parse
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
+from biolinkml.meta import EnumDefinition, PermissibleValue, PvFormulaOptions
+
 from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
@@ -23,6 +24,7 @@ if sys.version_info < (3, 7, 6):
 else:
     from biolinkml.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
+from biolinkml.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import Curie, NCName, URI, URIorCURIE, XSDDateTime
@@ -30,13 +32,14 @@ from includes.annotations import Annotation
 from includes.extensions import Extension
 from includes.types import String
 
-metamodel_version = "1.6.1"
+metamodel_version = "1.7.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
 BIOLINKML = CurieNamespace('biolinkml', 'https://w3id.org/biolink/biolinkml/')
+META = CurieNamespace('meta', 'https://w3id.org/biolink/biolinkml/meta/')
 TCCM = CurieNamespace('tccm', 'https://hotecosystem.org/tccm/')
 XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = TCCM
@@ -488,7 +491,7 @@ class ResourceDescription(YAMLRoot):
     extensions: Optional[Union[Union[dict, Extension], List[Union[dict, Extension]]]] = empty_list()
     annotations: Optional[Union[Union[dict, Annotation], List[Union[dict, Annotation]]]] = empty_list()
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.about is None:
             raise ValueError("about must be supplied")
         if not isinstance(self.about, ExternalURI):
@@ -555,7 +558,7 @@ class SourceAndNotation(YAMLRoot):
     sourceLanguage: Optional[Union[dict, "OntologyLanguageReference"]] = None
     sourceDocumentSyntax: Optional[Union[dict, "OntologySyntaxReference"]] = None
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.sourceAndNotationDescription is not None and not isinstance(self.sourceAndNotationDescription, str):
             self.sourceAndNotationDescription = str(self.sourceAndNotationDescription)
 
@@ -588,7 +591,7 @@ class AbstractResourceDescription(ResourceDescription):
     releaseDocumentation: Optional[str] = None
     releaseFormat: Optional[Union[Union[dict, SourceAndNotation], List[Union[dict, SourceAndNotation]]]] = empty_list()
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.releaseDocumentation is not None and not isinstance(self.releaseDocumentation, str):
             self.releaseDocumentation = str(self.releaseDocumentation)
 
@@ -623,7 +626,7 @@ class ResourceVersionDescription(ResourceDescription):
     officialReleaseDate: Optional[Union[str, XSDDateTime]] = None
     officialActivationDate: Optional[Union[str, XSDDateTime]] = None
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.documentURI is not None and not isinstance(self.documentURI, DocumentURI):
             self.documentURI = DocumentURI(self.documentURI)
 
@@ -663,7 +666,7 @@ class NameAndMeaningReference(YAMLRoot):
     uri: Optional[Union[str, ExternalURI]] = None
     href: Optional[Union[str, RenderingURI]] = None
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.name is None:
             raise ValueError("name must be supplied")
         if not isinstance(self.name, LocalIdentifier):
@@ -766,7 +769,7 @@ class CodeSystemVersionReference(NameAndMeaningReference):
     name: Union[str, LocalIdentifier] = None
     codeSystem: Optional[Union[dict, CodeSystemReference]] = None
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.codeSystem is not None and not isinstance(self.codeSystem, CodeSystemReference):
             self.codeSystem = CodeSystemReference(**self.codeSystem)
 
@@ -914,7 +917,7 @@ class MapVersionReference(NameAndMeaningReference):
     name: Union[str, LocalIdentifier] = None
     map: Optional[Union[dict, MapReference]] = None
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.map is not None and not isinstance(self.map, MapReference):
             self.map = MapReference(**self.map)
 
@@ -1081,7 +1084,7 @@ class PredicateReference(YAMLRoot):
     href: Optional[Union[str, RenderingURI]] = None
     designation: Optional[str] = None
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.uri is None:
             raise ValueError("uri must be supplied")
         if not isinstance(self.uri, ExternalURI):
@@ -1146,7 +1149,7 @@ class SourceAndRoleReference(NameAndMeaningReference):
     name: Union[str, LocalIdentifier] = None
     role: Optional[Union[dict, RoleReference]] = None
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.role is not None and not isinstance(self.role, RoleReference):
             self.role = RoleReference(**self.role)
 
@@ -1222,6 +1225,8 @@ class VersionTagReference(NameAndMeaningReference):
     class_model_uri: ClassVar[URIRef] = TCCM.VersionTagReference
 
     name: Union[str, LocalIdentifier] = None
+
+# Enumerations
 
 
 # Slots

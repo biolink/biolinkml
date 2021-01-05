@@ -1,0 +1,17 @@
+id: http://example.org/test/enumeration/name_error
+name: name_error
+
+prefixes:
+  biolinkml: https://w3id.org/biolink/biolinkml/
+  evidence: http://example.org/test/evidence/
+  CLUE: http://example.org/clue/
+
+default_range: string
+default_prefix: evidence
+
+imports:
+  - biolinkml:types
+
+enums:
+  test:1:
+    description: Illegal enum name

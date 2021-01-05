@@ -2,7 +2,7 @@
 # Type: creation date
 
 
-date on which thing was created. This can be applied to nodes or edges
+date on which an entity was created. This can be applied to nodes or edges
 
 URI: [biolink:creation_date](https://w3id.org/biolink/vocab/creation_date)
 
@@ -20,10 +20,26 @@ URI: [biolink:creation_date](https://w3id.org/biolink/vocab/creation_date)
 
 ## Used by
 
+ * [Article](Article.md)
+ * [Book](Book.md)
+ * [BookChapter](BookChapter.md)
+ * [ConfidenceLevel](ConfidenceLevel.md)
+ * [DataFile](DataFile.md)
+ * [DataSet](DataSet.md)
+ * [DataSetSummary](DataSetSummary.md)
+ * [DataSetVersion](DataSetVersion.md)
+ * [DistributionLevel](DistributionLevel.md)
+ * [EvidenceType](EvidenceType.md)
+ * [InformationContentEntity](InformationContentEntity.md)
+ * [Publication](Publication.md)
+ * [Serial](Serial.md)
+ * [SourceFile](SourceFile.md)
 
 ## Other properties
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | dcterms:createdOn |
+| **Aliases:** | | publication date |
+| **Exact Mappings:** | | dcterms:createdOn |
+|  | | WIKIDATA_PROPERTY:P577 |
 

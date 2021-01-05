@@ -4,6 +4,9 @@ Usage: gen-python [OPTIONS] YAMLFILE
 
 Options:
   --head / --no-head              Emit metadata heading
+  --genmeta / --no-genmeta        Generating metamodel
+  --classvars / --no-classvars    Generate CLASSVAR info
+  --slots / --no-slots            Generate Slot information
   -f, --format [py]               Output format (default=py)
   --metadata / --no-metadata      Include metadata in output
                                   (default=--metadata)

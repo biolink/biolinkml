@@ -132,9 +132,41 @@ See [](biolinkml/generators/)
 
 [JSON Schema](https://json-schema.org/) is a schema language for JSON documents
 
+JSON schema can be derived from a biolinkml schema, for example:
+
 `pipenv run gen-json-schema examples/organization.yaml`
 
-See [examples/organization.schema.json](examples/organization.schema.json)
+Output: [examples/organization.schema.json](examples/organization.schema.json)
+
+Note that any JSON that conforms to the derived JSON-Schema can be converted to RDF using the derived JSON-LD context.
+
+### JSON-LD Context
+
+[JSON-LD contexts](https://www.w3.org/TR/json-ld/#the-context) provide a mapping from JSON to RDF
+
+A JSON-LD context can be derived from a biolinkml schema, for example:
+
+`pipenv run gen-jsonld-context examples/organization.yaml`
+
+Output: [examples/organization.context.jsonld](examples/organization.context.jsonld)
+
+You can control this via [prefixes](https://w3id.org/biolink/biolinkml/meta/prefixes) declarations and [default_curi_maps](https://w3id.org/biolink/biolinkml/meta/default_curi_maps).
+
+Any JSON that conforms to the derived JSON-Schema (see above) can be converted to RDF using this context. See the [Jupyter notebook example](https://nbviewer.jupyter.org/github/biolink/biolinkml/blob/master/notebooks/examples.ipynb) for an example.
+
+You can also combine a JSON instance file with a JSON-LD context using simple code or a tool like [jq](https://stackoverflow.com/questions/19529688/how-to-merge-2-json-objects-from-2-files-using-jq)
+
+```bash
+jq -s '.[0] * .[1]' examples/organization-data.json examples/organization.context.jsonld > examples/organization-data.jsonld
+```
+
+You can then use a standard JSON-LD conversion file to make other RDF syntaxes, e.g.
+
+```bash
+riot examples/organization-data.jsonld > examples/organization-data.nt
+```
+
+See [examples/organization-data.nt](examples/organization-data.nt)
 
 
 ### Python DataClasses
@@ -171,6 +203,9 @@ class Organization(YAMLRoot):
 ```
 
 For more details see [PythonGenNotes](biolinkml/generators/)
+
+The python object can be direcly serialized as RDF. See the [Jupyter notebook example](https://nbviewer.jupyter.org/github/biolink/biolinkml/blob/master/notebooks/examples.ipynb) for an example.
+
 
 ### ShEx
 
@@ -351,9 +386,9 @@ If the Pypi release failed, make fixes, [delete the GitHub release](https://help
 
  * [Biolink Model](https://github.com/biolink/biolink-model) -- this was the original biolinkml project
  * [National Microbiome Data Collaborative](https://github.com/microbiomedata/nmdc-metadata)
- * https://github.com/cmungall/metadata_converter
- * https://sssom-py.readthedocs.io/
- * https://cmungall.github.io/ontology-change-language/
+ * [Sequencing Metadata Alignment Project](https://github.com/microbiomedata/metadata_converter)
+ * [SSSOM Schema](https://sssom-py.readthedocs.io/)
+ * [Knowledge Graph Change Language](https://cmungall.github.io/ontology-change-language/)
  * https://github.com/diatomsRcool/collections-attribution-model
  * https://github.com/cmungall/dasher/tree/master/src/schema
  * CCDH (todo: add link)

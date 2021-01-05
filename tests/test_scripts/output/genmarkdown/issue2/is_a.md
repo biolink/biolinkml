@@ -17,6 +17,7 @@ definition ->  <sub>OPT</sub> definition
 ## Children
 
  *  class_definition_is_a
+ *  permissible_value_is_a
  *  slot_definition_is_a
 
 ## Used by

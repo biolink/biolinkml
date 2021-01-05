@@ -27,6 +27,7 @@ None ->  <sub>0..*</sub> uriorcurie
  * class_definition
  * definition
  * [Element](Element.md)
+ * enum_definition
  * schema_definition
  * slot_definition
  * subset_definition

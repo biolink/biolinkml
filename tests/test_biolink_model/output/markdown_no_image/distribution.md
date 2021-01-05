@@ -29,6 +29,6 @@ URI: [biolink:distribution](https://w3id.org/biolink/vocab/distribution)
 |  |  |  |
 | --- | --- | --- |
 | **Aliases:** | | dataset |
-| **Mappings:** | | void:Dataset |
+| **Exact Mappings:** | | void:Dataset |
 |  | | dctypes:Dataset |
 

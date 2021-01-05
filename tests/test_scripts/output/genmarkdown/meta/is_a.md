@@ -17,6 +17,7 @@ URI: [meta:is_a](https://w3id.org/biolink/biolinkml/meta/is_a)
 ## Children
 
  *  [class_definition➞is_a](class_definition_is_a.md)
+ *  [permissible_value➞is_a](permissible_value_is_a.md)
  *  [slot_definition➞is_a](slot_definition_is_a.md)
 
 ## Used by

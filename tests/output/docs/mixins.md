@@ -17,6 +17,7 @@ URI: [meta:mixins](https://w3id.org/biolink/biolinkml/meta/mixins)
 ## Children
 
  *  [class_definition➞mixins](class_definition_mixins.md)
+ *  [permissible_value➞mixins](permissible_value_mixins.md)
  *  [slot_definition➞mixins](slot_definition_mixins.md)
 
 ## Used by

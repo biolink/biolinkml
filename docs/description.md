@@ -22,6 +22,8 @@ URI: [meta:description](https://w3id.org/biolink/biolinkml/meta/description)
  * [ClassDefinition](ClassDefinition.md)
  * [Definition](Definition.md)
  * [Element](Element.md)
+ * [EnumDefinition](EnumDefinition.md)
+ * [PermissibleValue](PermissibleValue.md)
  * [SchemaDefinition](SchemaDefinition.md)
  * [SlotDefinition](SlotDefinition.md)
  * [SubsetDefinition](SubsetDefinition.md)
@@ -32,8 +34,5 @@ URI: [meta:description](https://w3id.org/biolink/biolinkml/meta/description)
 |  |  |  |
 | --- | --- | --- |
 | **Mappings:** | | skos:definition |
-|  | | schema:description |
-|  | | dcterms:description |
 | **In Subsets:** | | owl |
-|  | | descriptive |
 

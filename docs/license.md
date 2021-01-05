@@ -26,6 +26,5 @@ URI: [meta:license](https://w3id.org/biolink/biolinkml/meta/license)
 |  |  |  |
 | --- | --- | --- |
 | **Mappings:** | | dcterms:license |
-|  | | schema:license |
 | **In Subsets:** | | owl |
 

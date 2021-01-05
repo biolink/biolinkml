@@ -3,7 +3,7 @@ title: Biolink Schema Metamodel
 name: metamodel
 description: A metamodel for defining biolink related schemas
 license: https://creativecommons.org/publicdomain/zero/1.0/
-version: 1.6.1
+version: 1.7.0
 
 prefixes:
   meta: https://w3id.org/biolink/biolinkml/meta/
@@ -40,9 +40,7 @@ imports:
 
 subsets:
   owl:
-    description: Set of elements that appear in the OWL representation of a model
-  descriptive:
-    description: Elements in this set do not affect the semantics of a schema, but are provided for informative purposes
+    description: Set of slots that appear in the OWL representation of a model
 
 
 #==================================
@@ -80,30 +78,20 @@ slots:
     multivalued: true
     range: ncname
     description: >-
-      the identifier of this class or slot _should_ begin with one of the URIs referenced by this prefix
+      the identifier of this class or slot must begin with one of the URIs referenced by this prefix
 
   description:
     domain: element
     description: a description of the element's purpose and use
     slot_uri: skos:definition
-    mappings:
-      - schema:description
-      - dcterms:description
     in_subset:
       - owl
-      - descriptive
 
   aliases:
     domain: element
     range: string
     multivalued: true
-    description: >-
-      alternate name for the element
     slot_uri: skos:altLabel
-    mappings:
-      - schema:alternateName
-    in_subset:
-      - descriptive
 
   deprecated:
     domain: element
@@ -115,8 +103,6 @@ slots:
     range: string
     description: Outstanding issue that needs resolution
     multivalued: true
-    in_subset:
-      - descriptive
 
   notes:
     domain: element
@@ -131,9 +117,6 @@ slots:
     multivalued: true
     description: notes and comments about an element intended for external consumption
     slot_uri: skos:note
-    mappings:
-      - rdfs:comment
-      - schema:comment
     in_subset:
       - owl
 
@@ -145,16 +128,7 @@ slots:
       used to indicate membership of a term in a defined subset of biolink terms used for a particular domain
       or application (e.g. the translator_minimal subset holding the minimal set of predicates used in a
       translator knowledge graph)
-    mappings:
-      - OIO:inSubset
-
-  string_template:
-    domain: element
-    range: string
-    description: >-
-      A formatting string to represent the element.  If present, string_template is used whenever the string
-      representation of the element and will also result in the addition of a `parse` method in the containing python
-      class that will allow instances to be added through string parsing
+    slot_uri: OIO:inSubset
 
   from_schema:
     domain: element
@@ -170,8 +144,6 @@ slots:
     range: string
     readonly: supplied by the schema loader
     description: the imports entry that this element was derived from.  Empty means primary source
-    mappings:
-      - rdfs:isDefinedBy
 
   see_also:
     domain: element
@@ -181,8 +153,6 @@ slots:
     slot_uri: rdfs:seeAlso
     in_subset:
       - owl
-    mappings:
-      - schema:relatedLink
 
   created_by:
     domain: element
@@ -222,21 +192,14 @@ slots:
   is_a:
     domain: definition
     range: definition
-    multivalued: false ## single-inheritance
-    required: false ## root classes or slots have no parent
+    abstract: true
     description: >-
-      specifies single-inheritance from a class to a class or a slot to a slot
-    comments:
-      - >-
-        While multiple inheritance is not allowed, mixins can be provided effectively providing the same thing.
-        The semantics are the same when translated to formalisms that allow MI (e.g. RDFS/OWL). When translating to a SI
-        framework (e.g. java classes, python classes) then is a is used.
-        When translating a framework without polymorphism (e.g. json-schema, solr document schema) then is a and mixins
-        are recursively unfolded
-      - "RULE: if the domain is a class, the range MUST be a class"
-      - "RULE: if the domain is a slot, the range MUST be a slot"
-      - "RULE: if the domain is a mixin, the range SHOULD be a mixin"
-      - "RULE: if the domain is NOT a mixin, the range SHOULD NOT be a mixin"
+      specifies single-inheritance between classes or slots.
+      While multiple inheritance is not allowed, mixins can be provided effectively providing the same thing.
+      The semantics are the same when translated to formalisms that allow MI (e.g. RDFS/OWL). When translating to a SI
+      framework (e.g. java classes, python classes) then is a is used.
+      When translating a framework without polymorphism (e.g. json-schema, solr document schema) then is a and mixins
+      are recursively unfolded
 
   abstract:
     domain: definition
@@ -244,31 +207,17 @@ slots:
     description: >-
       an abstract class is a high level class or slot that is typically used to group common slots together and cannot
       be directly instantiated.
-    comments:
-      - "RULE: instances SHOULD not directly instantiate an abstract class"
-      - "RULE: an abstract slot SHOULD not be used as predicate in a directly asserted triple"
 
   mixin:
-    aliases:
-      - "trait"
-      - "mix-in"
     domain: definition
     range: boolean
-    description: If a class or slot has this property then it can contain properties that can be inherited via `mixins` declarations
-    comments:
-      - "Use of mixins allows circumventing the single inheritance constraint on is_a"
-    see_also:
-      - https://en.wikipedia.org/wiki/Mixin
-      - https://w3id.org/biolink/biolinkml/meta/mixins
+    description: this slot or class can only be used as a mixin -- equivalent to abstract
 
   mixins:
     domain: definition
     multivalued: true
     range: definition
-    description: List of definitions to be mixed in (inherited). Targets may be any definition of the same type
-    comments:
-      - "RULE: a class or slot MAY declare any number of mixins"
-      - "RULE: the range SHOULD be a class or slot that has the mixin property"
+    description: List of definitions to be mixed in. Targets may be any definition of the same type
 
   apply_to:
     domain: definition
@@ -288,6 +237,66 @@ slots:
       the identifier of a "value set" -- a set of identifiers that form the possible values for the range of a slot
 
   # -----------------------------------
+  # Enum definition slots
+  # -----------------------------------
+  code_set:
+    domain: enum_definition
+    range: uriorcurie
+    description: >-
+      the identifier of an enumeration code set.
+    todos:
+      - this should be able to connect to an existing code set from TCCM
+
+  code_set_version:
+    domain: enum_definition
+    range: string
+    description: >-
+      the version identifier of the enumeration code set
+    comments:
+      - we assume that version identifiers lexically sort in temporal order. Recommend semver when possible
+
+  code_set_tag:
+    domain: enum_definition
+    range: string
+    description: >-
+      the version tag of the enumeration code set
+    comments:
+      - enum_definition cannot have both a code_set_tag and a code_set_version
+
+  pv_formula:
+    domain: enum_definition
+    range: pv_formula_options
+    description: >-
+      Defines the specific formula to be used to generate the permissible values.
+    comments:
+      - you cannot have BOTH the permissible_values and permissible_value_formula tag
+      - code_set must be supplied for this to be valid
+
+  permissible_values:
+    domain: enum_definition
+    range: permissible_value
+    multivalued: true
+    inlined: true
+    description: >-
+      A list of possible values for a slot range
+
+  # -----------------------------------
+  # Slots for permissible_value
+  # -----------------------------------
+  text:
+    domain: permissible_value
+    range: string
+    identifier: true
+
+  meaning:
+    domain: permissible_value
+    range: uriorcurie
+    description: >-
+      the value meaning (in the 11179 sense) of a permissible value
+    notes:
+      - we may want to change the range of this (and other) elements in the model to an entitydescription type construct
+
+  # -----------------------------------
   # Schema definition slots
   # -----------------------------------
   id:
@@ -295,8 +304,6 @@ slots:
     range: uri
     description: The official schema URI
     required: true
-    mappings:
-      - schema:identifier
 
   emit_prefixes:
     domain: schema_definition
@@ -325,8 +332,6 @@ slots:
     range: uriorcurie
     multivalued: true
     description: other schemas that are included in this schema
-    mappings:
-      - owl:imports
 
   license:
     domain: schema_definition
@@ -334,8 +339,6 @@ slots:
     slot_uri: dcterms:license
     in_subset:
       - owl
-    mappings:
-      - schema:license
 
   default_curi_maps:
     domain: schema_definition
@@ -368,6 +371,13 @@ slots:
     multivalued: true
     inlined: true
     description: data types used in the model
+
+  enums:
+    domain: schema_definition
+    range: enum_definition
+    multivalued: true
+    inlined: true
+    description: enumerated ranges
 
   slot_definitions:
     domain: schema_definition
@@ -520,6 +530,8 @@ slots:
     range: element
     ifabsent: default_range
     inherited: true
+    comments:
+      - range is underspecified, as not all elements can appear as the range of a slot.
     description: |
       defines the type of the object of the slot.  Given the following slot definition
         S1:
@@ -887,8 +899,8 @@ classes:
       - extensible
       - annotatable
     slots:
-      - id_prefixes
       - name
+      - id_prefixes
       - definition_uri
       - aliases
       - local_names
@@ -901,7 +913,6 @@ classes:
       - comments
       - examples
       - in_subset
-      - string_template
       - from_schema
       - imported_from
       - see_also
@@ -933,6 +944,7 @@ classes:
       - default_range
       - subsets
       - types
+      - enums
       - slot_definitions
       - classes
       - metamodel_version
@@ -980,6 +992,16 @@ classes:
       - status
     see_also:
       - https://en.wikipedia.org/wiki/Data_element_definition
+
+  enum_definition:
+    description: List of values that constrain the range of a slot
+    is_a: element
+    slots:
+      - code_set
+      - code_set_tag
+      - code_set_version
+      - pv_formula
+      - permissible_values
 
   slot_definition:
     description: the definition of a property or a slot
@@ -1073,3 +1095,47 @@ classes:
     slots:
       - alt_description_source
       - alt_description_text
+
+  permissible_value:
+    description: a permissible value, accompanied by intended text and an optional mapping to a concept URI
+    mixins:
+      - extensible
+      - annotatable
+    slot_usage:
+      is_a:
+        range: permissible_value
+      mixins:
+        range: permissible_value
+    slots:
+      - text
+      - description
+      - meaning
+      - alt_descriptions
+      - deprecated
+      - todos
+      - notes
+      - comments
+      - examples
+      - in_subset
+      - from_schema
+      - imported_from
+      - see_also
+      - deprecated element has exact replacement
+      - deprecated element has possible replacement
+
+
+#==================================
+# Enumerations                    #
+#==================================
+enums:
+  pv_formula_options:
+    description: >-
+      The formula used to generate the set of permissible values from the code_set values
+    permissible_values:
+      CODE: The permissible values are the set of possible codes in the code set
+      CURIE: The permissible values are the set of CURIES in the code set
+      URI: The permissible values are the set of code URIs in the code set
+      FHIR_CODING: The permissible values are the set of FHIR coding elements derived from the code set
+    notes:
+      - Q1: Do we need a CURIEorURIE entry?
+      - Q2: Who defines the namespaces for the CURIE form?

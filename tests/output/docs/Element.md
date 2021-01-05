@@ -17,6 +17,7 @@ URI: [meta:Element](https://w3id.org/biolink/biolinkml/meta/Element)
 ## Children
 
  * [Definition](Definition.md) - base class for definitions
+ * [EnumDefinition](EnumDefinition.md) - List of values that constrain the range of a slot
  * [SchemaDefinition](SchemaDefinition.md) - a collection of subset, type, slot and class definitions
  * [SubsetDefinition](SubsetDefinition.md) - the name and description of a subset
  * [TypeDefinition](TypeDefinition.md) - A data type definition.
@@ -102,9 +103,6 @@ URI: [meta:Element](https://w3id.org/biolink/biolinkml/meta/Element)
     * Description: a reference
     * range: [Uriorcurie](types/Uriorcurie.md)
     * in subsets: (owl)
- * [string_template](string_template.md)  <sub>OPT</sub>
-    * Description: A formatting string to represent the element.  If present, string_template is used whenever the string representation of the element and will also result in the addition of a `parse` method in the containing python class that will allow instances to be added through string parsing
-    * range: [String](types/String.md)
  * [todos](todos.md)  <sub>0..*</sub>
     * Description: Outstanding issue that needs resolution
     * range: [String](types/String.md)

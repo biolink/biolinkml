@@ -111,6 +111,9 @@ license: {be(self.schema.license)}
             if not slot.usage_slot_name:
                 if slot.range in self.schema.classes:
                     slot_def['@type'] = '@id'
+                elif slot.range in self.schema.enums:
+                    # TODO: enums - fill this in
+                    pass
                 else:
                     range_type = self.schema.types[slot.range]
                     if self.namespaces.uri_for(range_type.uri) == XSD.string:

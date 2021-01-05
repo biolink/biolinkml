@@ -103,8 +103,8 @@ classes:
     definition_uri: http://example.org/tests/issue18/C4
     from_schema: http://example.org/tests/issue18
     class_uri: http://example.org/tests/issue18/C4
-metamodel_version: 1.6.1
+metamodel_version: 1.7.0
 source_file: issue_18.yaml
-source_file_date: Sun Nov 15 18:04:30 2020
+source_file_date: Mon Jan  4 21:51:20 2021
 source_file_size: 671
-generation_date: 2020-11-15 18:06
+generation_date: 2021-01-04 21:53
