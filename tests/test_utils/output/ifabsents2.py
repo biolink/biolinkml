@@ -1,5 +1,5 @@
 # Auto generated from ifabsents2.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-01-04 21:54
+# Generation date: 2021-01-05 17:39
 # Schema: ifabsent
 #
 # id: http://example.org/tests/ifabsent
@@ -24,7 +24,7 @@ from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from biolinkml.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
-from biolinkml.utils.metamodelcore import Bool, ElementIdentifier, NCName, NodeIdentifier, URI, URIorCURIE, XSDDate, XSDDateTime, XSDTime
+from biolinkml.utils.metamodelcore import Bool, Decimal, ElementIdentifier, NCName, NodeIdentifier, URI, URIorCURIE, XSDDate, XSDDateTime, XSDTime
 
 metamodel_version = "1.7.0"
 
@@ -78,6 +78,14 @@ class Double(float):
     type_class_curie = "xsd:double"
     type_name = "double"
     type_model_uri = TEST.Double
+
+
+class Decimal(Decimal):
+    """ A real number with arbitrary precision that conforms to the xsd:decimal specification """
+    type_class_uri = XSD.decimal
+    type_class_curie = "xsd:decimal"
+    type_name = "decimal"
+    type_model_uri = TEST.Decimal
 
 
 class Time(XSDTime):
