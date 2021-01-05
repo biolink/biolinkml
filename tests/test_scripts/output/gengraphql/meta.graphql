@@ -1,6 +1,6 @@
 type AltDescription
   {
-    source: Ncname!
+    source: String!
     description: String!
   }
 

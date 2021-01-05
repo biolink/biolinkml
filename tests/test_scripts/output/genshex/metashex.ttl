@@ -9,7 +9,7 @@
                 shex:max 1 ;
                 shex:min 1 ;
                 shex:predicate <https://w3id.org/biolink/biolinkml/meta/source> ;
-                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/types/Ncname> ] [ a shex:TripleConstraint ;
+                shex:valueExpr <https://w3id.org/biolink/biolinkml/meta/types/String> ] [ a shex:TripleConstraint ;
                 shex:max 1 ;
                 shex:min 1 ;
                 shex:predicate <https://w3id.org/biolink/biolinkml/meta/description> ;
@@ -489,6 +489,9 @@
 <https://w3id.org/biolink/biolinkml/meta/types/Date> a shex:NodeConstraint ;
     shex:datatype xsd:date .
 
+<https://w3id.org/biolink/biolinkml/meta/types/Decimal> a shex:NodeConstraint ;
+    shex:datatype xsd:decimal .
+
 <https://w3id.org/biolink/biolinkml/meta/types/Double> a shex:NodeConstraint ;
     shex:datatype xsd:double .
 
@@ -665,6 +668,9 @@
 <https://w3id.org/biolink/biolinkml/meta/types/Datetime> a shex:NodeConstraint ;
     shex:datatype xsd:dateTime .
 
+<https://w3id.org/biolink/biolinkml/meta/types/Ncname> a shex:NodeConstraint ;
+    shex:datatype xsd:string .
+
 <https://w3id.org/biolink/biolinkml/meta/types/Uri> a shex:NodeConstraint ;
     shex:nodeKind shex:iri .
 
@@ -797,9 +803,6 @@
                         shex:valueExpr [ a shex:NodeConstraint ;
                                 shex:values ( <https://w3id.org/biolink/biolinkml/meta/TypeDefinition> ) ] ] ) ] .
 
-<https://w3id.org/biolink/biolinkml/meta/types/Ncname> a shex:NodeConstraint ;
-    shex:datatype xsd:string .
-
 <https://w3id.org/biolink/biolinkml/meta/Annotation> a shex:Shape ;
     shex:closed true ;
     shex:expression [ a shex:EachOf ;
@@ -875,6 +878,7 @@
         <https://w3id.org/biolink/biolinkml/meta/types/Boolean>,
         <https://w3id.org/biolink/biolinkml/meta/types/Date>,
         <https://w3id.org/biolink/biolinkml/meta/types/Datetime>,
+        <https://w3id.org/biolink/biolinkml/meta/types/Decimal>,
         <https://w3id.org/biolink/biolinkml/meta/types/Double>,
         <https://w3id.org/biolink/biolinkml/meta/types/Float>,
         <https://w3id.org/biolink/biolinkml/meta/types/Integer>,

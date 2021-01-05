@@ -13,7 +13,7 @@ has_uri(aliases, 'http://w3id.org/biolink/vocab/aliases').
 multivalued(aliases).
 slot(source).
 domain(source, alt_description).
-range(source, ncname).
+range(source, string).
 has_uri(source, 'http://w3id.org/biolink/vocab/source').
 required(source).
 slot(description).
@@ -536,9 +536,9 @@ class(alt_description).
 has_uri(alt_description, 'http://w3id.org/biolink/vocab/AltDescription').
 class_slot(alt_description, source).
 required(source).
-slotrange(ncname).
+slotrange(string).
 required_in(source, alt_description).
-range_in(source, ncname, alt_description).
+range_in(source, string, alt_description).
 class_slot(alt_description, description).
 required(description).
 slotrange(string).

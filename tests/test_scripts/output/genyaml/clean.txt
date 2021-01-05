@@ -22,11 +22,13 @@ Slots: 2
 			time type: 1
 		Class:
 
-Types: 14
+Types: 15
 	Referenced by: 0 classes, 2 slots, 1 types, 0 enums 
 	Bases:
 		Bool:
 			boolean
+		Decimal:
+			decimal
 		ElementIdentifier:
 			objectidentifier
 		NCName:

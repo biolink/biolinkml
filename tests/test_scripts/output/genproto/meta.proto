@@ -1,7 +1,7 @@
 // an attributed description
 message AltDescription
  {
-  optional source Ncname = 1
+  optional source String = 1
   description String = 2
  }
 // a tag/value pair with the semantics of OWL Annotation

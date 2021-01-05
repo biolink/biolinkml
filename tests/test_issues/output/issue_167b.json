@@ -78,6 +78,16 @@
       "type": "TypeDefinition"
     },
     {
+      "name": "decimal",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/types/Decimal",
+      "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "from_schema": "https://w3id.org/biolink/biolinkml/types",
+      "imported_from": "biolinkml:types",
+      "base": "Decimal",
+      "uri": "http://www.w3.org/2001/XMLSchema#decimal",
+      "type": "TypeDefinition"
+    },
+    {
       "name": "time",
       "definition_uri": "https://w3id.org/biolink/biolinkml/meta/types/Time",
       "description": "A time object represents a (local) time of day, independent of any particular day",
@@ -356,9 +366,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "issue_167b.yaml",
-  "source_file_date": "Tue Jan  5 17:35:32 2021",
+  "source_file_date": "Tue Jan  5 21:34:30 2021",
   "source_file_size": 835,
-  "generation_date": "2021-01-05 17:37",
+  "generation_date": "2021-01-05 21:36",
   "type": "SchemaDefinition",
   "@context": [
     "https://w3id.org/biolink/biolinkml/context.jsonld",

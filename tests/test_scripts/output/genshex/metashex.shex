@@ -22,6 +22,8 @@ metatype:Float xsd:float
 
 metatype:Double xsd:double
 
+metatype:Decimal xsd:decimal
+
 metatype:Time xsd:dateTime
 
 metatype:Date xsd:date
@@ -39,7 +41,7 @@ metatype:Objectidentifier IRI
 metatype:Nodeidentifier NONLITERAL
 
 <AltDescription> CLOSED {
-    (  $<AltDescription_tes> (  <source> @metatype:Ncname ;
+    (  $<AltDescription_tes> (  <source> @metatype:String ;
           <description> @metatype:String
        ) ;
        rdf:type [ <AltDescription> ]

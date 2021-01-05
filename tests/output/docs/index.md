@@ -159,6 +159,7 @@ A metamodel for defining biolink related schemas
 #### Built in
 
  * **Bool**
+ * **Decimal**
  * **ElementIdentifier**
  * **NCName**
  * **NodeIdentifier**
@@ -176,6 +177,7 @@ A metamodel for defining biolink related schemas
  * [Boolean](types/Boolean.md)  (**Bool**)  - A binary (true or false) value
  * [Date](types/Date.md)  (**XSDDate**)  - a date (year, month and day) in an idealized calendar
  * [Datetime](types/Datetime.md)  (**XSDDateTime**)  - The combination of a date and time
+ * [Decimal](types/Decimal.md)  (**Decimal**)  - A real number with arbitrary precision that conforms to the xsd:decimal specification
  * [Double](types/Double.md)  (**float**)  - A real number that conforms to the xsd:double specification
  * [Float](types/Float.md)  (**float**)  - A real number that conforms to the xsd:float specification
  * [Integer](types/Integer.md)  (**int**)  - An integer

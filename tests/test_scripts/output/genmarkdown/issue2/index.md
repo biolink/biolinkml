@@ -30,6 +30,7 @@ A metamodel for defining biolink related schemas
 #### Built in
 
  * **Bool**
+ * **Decimal**
  * **ElementIdentifier**
  * **NCName**
  * **NodeIdentifier**

@@ -30,8 +30,8 @@ Slots: 122
 			boolean: 13
 			datetime: 4
 			integer: 3
-			ncname: 6
-			string: 33
+			ncname: 5
+			string: 34
 			uri: 3
 			uriorcurie: 22
 		Class:
@@ -52,11 +52,13 @@ Slots: 122
 		Unknown:
 			pv_formula_options: 1
 
-Types: 13
+Types: 14
 	Referenced by: 0 classes, 84 slots, 0 types, 0 enums 
 	Bases:
 		Bool:
 			boolean
+		Decimal:
+			decimal
 		ElementIdentifier:
 			objectidentifier
 		NCName:

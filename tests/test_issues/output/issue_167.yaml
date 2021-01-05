@@ -1,5 +1,9 @@
 name: extensions_test
 id: http://example.org/tests/issue167
+prefixes:
+  xsd:
+    prefix_prefix: xsd
+    prefix_reference: http://www.w3.org/2001/XMLSchema#
 default_prefix: http://example.org/tests/issue167/
 default_range: string
 subsets:
@@ -90,6 +94,6 @@ classes:
     class_uri: http://example.org/tests/issue167/C2
 metamodel_version: 1.7.0
 source_file: issue_167.yaml
-source_file_date: Mon Jan  4 21:51:20 2021
-source_file_size: 800
-generation_date: 2021-01-04 21:53
+source_file_date: Tue Jan  5 21:34:30 2021
+source_file_size: 852
+generation_date: 2021-01-05 21:36
