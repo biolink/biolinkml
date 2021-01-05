@@ -51,29 +51,29 @@ meta:metamodel a meta:SchemaDefinition ;
         "skos",
         "xsd" ;
     meta:enums meta:pv_formula_options ;
-    meta:generation_date "2021-01-05 11:13"^^xsd:dateTime ;
+    meta:generation_date "2021-01-05 14:25"^^xsd:dateTime ;
     meta:id biolinkml:meta ;
     meta:imports biolinkml:annotations,
         biolinkml:extensions,
         biolinkml:mappings,
         biolinkml:types ;
     meta:metamodel_version "1.7.0" ;
-    meta:prefixes [ meta:prefix_prefix "biolinkml" ;
-            meta:prefix_reference biolinkml: ],
-        [ meta:prefix_prefix "meta" ;
-            meta:prefix_reference meta: ],
-        [ meta:prefix_prefix "schema" ;
-            meta:prefix_reference schema: ],
-        [ meta:prefix_prefix "oslc" ;
-            meta:prefix_reference oslc: ],
-        [ meta:prefix_prefix "OIO" ;
-            meta:prefix_reference OIO: ],
+    meta:prefixes [ meta:prefix_prefix "pav" ;
+            meta:prefix_reference pav: ],
         [ meta:prefix_prefix "bibo" ;
             meta:prefix_reference bibo: ],
+        [ meta:prefix_prefix "meta" ;
+            meta:prefix_reference meta: ],
+        [ meta:prefix_prefix "oslc" ;
+            meta:prefix_reference oslc: ],
+        [ meta:prefix_prefix "biolinkml" ;
+            meta:prefix_reference biolinkml: ],
+        [ meta:prefix_prefix "schema" ;
+            meta:prefix_reference schema: ],
         [ meta:prefix_prefix "skos" ;
             meta:prefix_reference skos: ],
-        [ meta:prefix_prefix "pav" ;
-            meta:prefix_reference pav: ] ;
+        [ meta:prefix_prefix "OIO" ;
+            meta:prefix_reference OIO: ] ;
     meta:slots meta:abstract,
         meta:alias,
         meta:aliases,
@@ -197,12 +197,13 @@ meta:metamodel a meta:SchemaDefinition ;
         meta:values_from,
         meta:version ;
     meta:source_file "meta.yaml" ;
-    meta:source_file_date "Tue Jan  5 11:01:07 2021"^^xsd:dateTime ;
+    meta:source_file_date "Tue Jan  5 14:25:08 2021"^^xsd:dateTime ;
     meta:source_file_size 32547 ;
     meta:subsets meta:owl ;
     meta:types meta:boolean,
         meta:date,
         meta:datetime,
+        meta:decimal,
         meta:double,
         meta:float,
         meta:integer,
@@ -231,6 +232,14 @@ meta:date a meta:TypeDefinition ;
     meta:imported_from "biolinkml:types" ;
     meta:repr "str" ;
     meta:uri xsd:date .
+
+meta:decimal a meta:TypeDefinition ;
+    skos:definition "A real number with arbitrary precision that conforms to the xsd:decimal specification" ;
+    skos:inScheme biolinkml:types ;
+    meta:base "Decimal" ;
+    meta:definition_uri metatype:Decimal ;
+    meta:imported_from "biolinkml:types" ;
+    meta:uri xsd:decimal .
 
 meta:double a meta:TypeDefinition ;
     skos:definition "A real number that conforms to the xsd:double specification" ;
@@ -411,7 +420,7 @@ meta:alt_description_source a meta:SlotDefinition ;
     meta:domain_of meta:AltDescription ;
     meta:key true ;
     meta:owner meta:AltDescription ;
-    meta:range meta:ncname ;
+    meta:range meta:string ;
     meta:required true ;
     meta:slot_uri meta:source .
 
@@ -1466,6 +1475,15 @@ meta:modified_by a meta:SlotDefinition ;
     meta:range meta:uriorcurie ;
     meta:slot_uri oslc:modifiedBy .
 
+meta:ncname a meta:TypeDefinition ;
+    skos:definition "Prefix part of CURIE" ;
+    skos:inScheme biolinkml:types ;
+    meta:base "NCName" ;
+    meta:definition_uri metatype:Ncname ;
+    meta:imported_from "biolinkml:types" ;
+    meta:repr "str" ;
+    meta:uri xsd:string .
+
 meta:status a meta:SlotDefinition ;
     skos:definition "status of the element" ;
     skos:inScheme biolinkml:meta ;
@@ -1489,15 +1507,6 @@ meta:values_from a meta:SlotDefinition ;
     meta:owner meta:Definition ;
     meta:range meta:uriorcurie ;
     meta:slot_uri meta:values_from .
-
-meta:ncname a meta:TypeDefinition ;
-    skos:definition "Prefix part of CURIE" ;
-    skos:inScheme biolinkml:types ;
-    meta:base "NCName" ;
-    meta:definition_uri metatype:Ncname ;
-    meta:imported_from "biolinkml:types" ;
-    meta:repr "str" ;
-    meta:uri xsd:string .
 
 meta:Annotatable a meta:ClassDefinition ;
     skos:definition "mixin for classes that support annotations" ;
@@ -1986,43 +1995,6 @@ meta:uriorcurie a meta:TypeDefinition ;
     meta:repr "str" ;
     meta:uri xsd:anyURI .
 
-meta:TypeDefinition a meta:ClassDefinition ;
-    skos:definition "A data type definition." ;
-    skos:inScheme biolinkml:meta ;
-    meta:class_uri meta:TypeDefinition ;
-    meta:definition_uri meta:TypeDefinition ;
-    meta:is_a meta:Element ;
-    meta:slots meta:aliases,
-        meta:alt_descriptions,
-        meta:annotations,
-        meta:base,
-        meta:broad_mappings,
-        meta:close_mappings,
-        meta:comments,
-        meta:definition_uri,
-        meta:deprecated,
-        meta:deprecated_element_has_exact_replacement,
-        meta:deprecated_element_has_possible_replacement,
-        meta:description,
-        meta:exact_mappings,
-        meta:examples,
-        meta:extensions,
-        meta:from_schema,
-        meta:id_prefixes,
-        meta:imported_from,
-        meta:in_subset,
-        meta:local_names,
-        meta:mappings,
-        meta:name,
-        meta:narrow_mappings,
-        meta:notes,
-        meta:related_mappings,
-        meta:repr,
-        meta:see_also,
-        meta:todos,
-        meta:type_uri,
-        meta:typeof .
-
 meta:Definition a meta:ClassDefinition ;
     rdfs:seeAlso <https://en.wikipedia.org/wiki/Data_element_definition> ;
     skos:definition "base class for definitions" ;
@@ -2068,6 +2040,43 @@ meta:Definition a meta:ClassDefinition ;
         meta:status,
         meta:todos,
         meta:values_from .
+
+meta:TypeDefinition a meta:ClassDefinition ;
+    skos:definition "A data type definition." ;
+    skos:inScheme biolinkml:meta ;
+    meta:class_uri meta:TypeDefinition ;
+    meta:definition_uri meta:TypeDefinition ;
+    meta:is_a meta:Element ;
+    meta:slots meta:aliases,
+        meta:alt_descriptions,
+        meta:annotations,
+        meta:base,
+        meta:broad_mappings,
+        meta:close_mappings,
+        meta:comments,
+        meta:definition_uri,
+        meta:deprecated,
+        meta:deprecated_element_has_exact_replacement,
+        meta:deprecated_element_has_possible_replacement,
+        meta:description,
+        meta:exact_mappings,
+        meta:examples,
+        meta:extensions,
+        meta:from_schema,
+        meta:id_prefixes,
+        meta:imported_from,
+        meta:in_subset,
+        meta:local_names,
+        meta:mappings,
+        meta:name,
+        meta:narrow_mappings,
+        meta:notes,
+        meta:related_mappings,
+        meta:repr,
+        meta:see_also,
+        meta:todos,
+        meta:type_uri,
+        meta:typeof .
 
 meta:string a meta:TypeDefinition ;
     skos:definition "A character string" ;

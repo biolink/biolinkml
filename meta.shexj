@@ -34,6 +34,11 @@
       },
       {
          "type": "NodeConstraint",
+         "id": "https://w3id.org/biolink/biolinkml/meta/types/Decimal",
+         "datatype": "http://www.w3.org/2001/XMLSchema#decimal"
+      },
+      {
+         "type": "NodeConstraint",
          "id": "https://w3id.org/biolink/biolinkml/meta/types/Time",
          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime"
       },
@@ -86,7 +91,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://w3id.org/biolink/biolinkml/meta/source",
-                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/Ncname",
+                        "valueExpr": "https://w3id.org/biolink/biolinkml/meta/types/String",
                         "min": 1,
                         "max": 1
                      },

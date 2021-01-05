@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by pythongen.py version: 0.9.0
-# Generation date: 2020-12-18 12:45
+# Generation date: 2021-01-05 14:25
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta
@@ -94,7 +94,7 @@ class LocalNameLocalNameSource(NCName):
     pass
 
 
-class AltDescriptionSource(NCName):
+class AltDescriptionSource(extended_str):
     pass
 
 

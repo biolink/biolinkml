@@ -810,7 +810,7 @@ slots:
 
   alt_description_source:
       domain: alt_description
-      range: ncname
+      range: string
       key: true
       alias: source
       description: the source of an attributed description

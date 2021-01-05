@@ -1,5 +1,5 @@
 # Auto generated from extensions.yaml by pythongen.py version: 0.9.0
-# Generation date: 2020-12-18 12:45
+# Generation date: 2021-01-04 21:52
 # Schema: extensions
 #
 # id: https://w3id.org/biolink/biolinkml/extensions

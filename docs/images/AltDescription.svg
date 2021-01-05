@@ -33,10 +33,10 @@
 <polygon fill='white' points='0,-229 0,-265 74,-265 74,-229 0,-229' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='37' y='-243.3'>Element</text>
 </g><g class='node' id='node2'><title>AltDescription</title>
-<polygon fill='white' points='29.5,-0.5 29.5,-45.5 162.5,-45.5 162.5,-0.5 29.5,-0.5' stroke='black'/>
+<polygon fill='white' points='34.5,-0.5 34.5,-45.5 157.5,-45.5 157.5,-0.5 34.5,-0.5' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='96' y='-34.3'>AltDescription</text>
-<polyline fill='none' points='29.5,-30.5 162.5,-30.5 ' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='96' y='-19.3'>source(pk):ncname</text>
+<polyline fill='none' points='34.5,-30.5 157.5,-30.5 ' stroke='black'/>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='96' y='-19.3'>source(pk):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='96' y='-4.3'>description:string</text>
 </g><g class='edge' id='edge1'><title>Element-&gt;AltDescription</title>
 <path d='M44.6735,-217.127C55.776,-175.351 76.2401,-98.3507 87.689,-55.272' fill='none' stroke='black'/>
