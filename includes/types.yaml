@@ -51,6 +51,11 @@ types:
     base: float
     description: A real number that conforms to the xsd:double specification
 
+  decimal:
+    uri: xsd:decimal
+    base: Decimal
+    description: A real number with arbitrary precision that conforms to the xsd:decimal specification
+
   time:
     uri: xsd:dateTime
     base: XSDTime

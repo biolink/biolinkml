@@ -1,18 +1,16 @@
 # Making changes to the underlying model
 
 ## Steps
-1) Edit [tests/input/meta.yaml](), [tests/input/includes/types.yaml]() and/or [tests/input/includes/mappings.yaml]().
+1. Edit [tests/input/meta.yaml](), [tests/input/includes/types.yaml]() and/or [tests/input/includes/mappings.yaml]().
   Be sure to update the version # if the changes are significant using SemVer rules.
-    1) Run [tests/test-base/test_python.py]().  Verify that the generated python in [tests/output/meta.py](),
-     [tests/output/includes/types.py]() and/or [tests/output/includes/mappings.py]()reflects the changes.
-    2) Run *all* unit tests in `tests/test_base`. Make sure that all output file changes are what is expected.
-2) Copy [tests/input/meta.py]() to the [biolinkml]() directory. Copy any other changes to the root directory, including
-   changes in [includes](). 
-   ```shell script
-    > cd tests
-    > ./newmodel.sh
-   ```
-   NOTE: Double check that [tests/__init__.py]()  `SKIP_MARKDOWN_VALIDATION` is `False`
-   2) Edit [biolinkml/meta.py]() and set the version number to the same as in the yaml file
-3) Run ALL unit tests.  
-   Note that an unexpected source of testing errors is [tests/test_scripts/test_gen_jsonld/GenGSONLDTestCase.#67]()
+2. Run [tests/newmodel.sh]().  This copies ALL changes in the test directory up to the base directory.
+3. Run *all* unit tests in `tests/test_base`.  Make sure that all changes are as expected.
+4. Run [tests/newmodel.sh]() a second time.
+5. Run ALL unit tests and verify that everything passes and all changes are expected.
+
+## Notes
+* The testing philosophy in this package is `"If there isn't a test for it, it doesn't exist".`  If, for instance,
+a new type is introduced in types.yaml, tests need to be added in the appropriate spot (either test_issues or a basic
+test package).  It is the developer's responsibility to assure that if, at a later date, a developer says "What is this for?
+What happens if I remove it?" the removal or other change in behavior will result in a testing failure.  If not, the
+change can be considered accidental and can be changed or removed w/o concern.
