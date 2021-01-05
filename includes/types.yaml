@@ -54,7 +54,6 @@ types:
   decimal:
     uri: xsd:decimal
     base: Decimal
-    repr: Decimal
     description: A real number with arbitrary precision that conforms to the xsd:decimal specification
 
   time:

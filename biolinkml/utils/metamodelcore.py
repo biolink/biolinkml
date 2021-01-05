@@ -2,6 +2,7 @@ import builtins
 import datetime
 import re
 from dataclasses import field
+from decimal import Decimal
 from typing import Union, Optional, Tuple
 from urllib.parse import urlparse
 
@@ -13,6 +14,9 @@ from rdflib.term import Identifier as rdflib_Identifier
 from biolinkml.utils.namespaces import Namespaces
 from biolinkml.utils.strictness import is_strict
 
+
+# Reference Decimal to make sure it stays in the imports
+_z = Decimal(1)
 
 # ===========================
 # Fields for use in dataclass
