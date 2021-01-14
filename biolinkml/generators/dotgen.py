@@ -102,3 +102,7 @@ class DotGenerator(Generator):
 def cli(yamlfile, out, **args):
     """ Generate graphviz representations of the biolink model """
     DotGenerator(yamlfile, **args).serialize(filename=out, **args)
+
+
+if __name__ == '__main__':
+    cli()

@@ -87,3 +87,7 @@ class GolrSchemaGenerator(Generator):
 def cli(yamlfile, dir=None, **args):
     """ Generate GOLR representation of a biolink model """
     print(GolrSchemaGenerator(yamlfile, directory=dir, **args).serialize(directory=dir, **args))
+
+
+if __name__ == '__main__':
+    cli()

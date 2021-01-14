@@ -494,3 +494,7 @@ class MarkdownGenerator(Generator):
 def cli(yamlfile, dir, img, **kwargs):
     """ Generate markdown documentation of a biolink model """
     MarkdownGenerator(yamlfile, **kwargs).serialize(directory=dir, image_dir=img, **kwargs)
+
+
+if __name__ == '__main__':
+    cli()
