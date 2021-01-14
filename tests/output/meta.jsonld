@@ -2921,16 +2921,18 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "meta.yaml",
-  "source_file_date": "Tue Jan  5 21:34:29 2021",
+  "source_file_date": "Thu Jan 14 22:56:47 2021",
   "source_file_size": 32547,
-  "generation_date": "2021-01-05 21:35",
+  "generation_date": "2021-01-14 22:57",
   "type": "SchemaDefinition",
   "@context": [
-    "https://w3id.org/biolink/biolinkml/context.jsonld",
-    "https://w3id.org/biolink/biolinkml/types.context.jsonld",
-    "https://w3id.org/biolink/biolinkml/mappings.context.jsonld",
-    "https://w3id.org/biolink/biolinkml/extensions.context.jsonld",
-    "https://w3id.org/biolink/biolinkml/annotations.context.jsonld",
+    [
+      "https://w3id.org/biolink/biolinkml/context.jsonld",
+      "https://w3id.org/biolink/biolinkml/types.context.jsonld",
+      "https://w3id.org/biolink/biolinkml/mappings.context.jsonld",
+      "https://w3id.org/biolink/biolinkml/extensions.context.jsonld",
+      "https://w3id.org/biolink/biolinkml/annotations.context.jsonld"
+    ],
     {
       "@base": "https://w3id.org/biolink/biolinkml/meta/"
     }

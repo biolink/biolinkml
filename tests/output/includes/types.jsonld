@@ -168,12 +168,14 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "types.yaml",
-  "source_file_date": "Tue Jan  5 17:35:31 2021",
+  "source_file_date": "Thu Jan 14 22:56:47 2021",
   "source_file_size": 2700,
-  "generation_date": "2021-01-05 17:36",
+  "generation_date": "2021-01-14 22:57",
   "type": "SchemaDefinition",
   "@context": [
-    "https://w3id.org/biolink/biolinkml/context.jsonld",
+    [
+      "https://w3id.org/biolink/biolinkml/context.jsonld"
+    ],
     {
       "@base": "https://w3id.org/biolink/biolinkml/meta/types/"
     }

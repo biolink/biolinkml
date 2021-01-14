@@ -7,7 +7,9 @@
   "source_file": "minimalmodel.yaml",
   "type": "SchemaDefinition",
   "@context": [
-    "https://w3id.org/biolink/biolinkml/context.jsonld",
+    [
+      "https://w3id.org/biolink/biolinkml/context.jsonld"
+    ],
     {
       "@base": "https://hotecosystem.org/tccm/prefixes/"
     }
