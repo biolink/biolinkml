@@ -1,6 +1,17 @@
 CHANGES
 =======
 
+* Automated update to docs with GitHub Actions
+* Automated adding outputs from tests
+* Fix for issue #326
+* Automated adding outputs from tests
+* Add Decimal type as import to metamodelcore.py
+* Automated update to docs with GitHub Actions
+* Automated adding outputs from tests
+* Automatically generated requirements.txt and requirements-dev.txt
+* Remove notebook tests temporarily
+* Remove 3.9 from tests - doesn't seem to exist yet
+* Update generate notebooks code
 * Include debug elements in pipenv
 * Remove pyc files
 * First cut at Enumerations
@@ -33,6 +44,7 @@ v1.6.1
 * Automated adding outputs from tests
 * Adding more docs about generating RDF and JSON-LD contexts
 * Temporarily adding the first prototype for the OBO --> TCCM filter and its application to HPO
+* Add decimal to types.yaml
 * Add an automated update of the notebooks directory
 * Checkpoint -- all tests pass and code generation is complete
 * Temporary copy of alternative.py output until we get a full merge done

@@ -11,7 +11,7 @@ from biolinkml.utils.generator import Generator, shared_arguments
 class ProtoGenerator(Generator):
     """
     A `Generator` for creating Protobuf schemas from a biolinkml schema.
-    
+
     """
     generatorname = os.path.basename(__file__)
     generatorversion = "0.1.1"
@@ -49,3 +49,7 @@ class ProtoGenerator(Generator):
 def cli(yamlfile, **args):
     """ Generate proto representation of biolink model """
     print(ProtoGenerator(yamlfile, **args).serialize(**args))
+
+
+if __name__ == '__main__':
+    cli()

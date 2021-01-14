@@ -171,3 +171,7 @@ license: {be(self.schema.license)}
 def cli(yamlfile, **args):
     """ Generate jsonld @context definition from biolink model """
     print(ContextGenerator(yamlfile, **args).serialize(**args))
+
+
+if __name__ == '__main__':
+    cli()

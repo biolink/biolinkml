@@ -61,3 +61,7 @@ class SummaryGenerator(Generator):
 def cli(yamlfile, **args):
     """ Generate TSV summary files for viewing in Excel and the like """
     print(SummaryGenerator(yamlfile, **args).serialize(**args))
+
+
+if __name__ == '__main__':
+    cli()

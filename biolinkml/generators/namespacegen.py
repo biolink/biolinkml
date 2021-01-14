@@ -189,3 +189,7 @@ def curie(identifier) -> str:
 def cli(yamlfile, **args):
     """ Generate a namespace manager for all of the prefixes represented in a biolink model """
     print(NamespaceGenerator(yamlfile,**args).serialize(**args))
+
+
+if __name__ == '__main__':
+    cli()

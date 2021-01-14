@@ -169,3 +169,7 @@ class ShExGenerator(Generator):
 def cli(yamlfile, **args):
     """ Generate a ShEx Schema for a  biolink model """
     print(ShExGenerator(yamlfile, **args).serialize(**args))
+
+
+if __name__ == '__main__':
+    cli()

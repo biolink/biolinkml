@@ -114,3 +114,7 @@ Top level class; slots of this class will become top level properties in the jso
 def cli(yamlfile, **kwargs):
     """ Generate JSON Schema representation of a biolink model """
     print(JsonSchemaGenerator(yamlfile, **kwargs).serialize(**kwargs))
+
+
+if __name__ == '__main__':
+    cli()

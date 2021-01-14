@@ -34,3 +34,7 @@ class YAMLGenerator(Generator):
 def cli(yamlfile, **args):
     """ Validate input and produce fully resolved yaml equivalent """
     print(YAMLGenerator(yamlfile, **args).serialize(**args))
+
+
+if __name__ == '__main__':
+    cli()

@@ -304,3 +304,7 @@ class OwlSchemaGenerator(Generator):
 def cli(yamlfile, **kwargs):
     """ Generate an OWL representation of a biolink model """
     print(OwlSchemaGenerator(yamlfile, **kwargs).serialize(**kwargs))
+
+
+if __name__ == '__main__':
+    cli()

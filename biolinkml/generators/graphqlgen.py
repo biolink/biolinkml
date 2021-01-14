@@ -43,3 +43,7 @@ class GraphqlGenerator(Generator):
 def cli(yamlfile, **args):
     """ Generate graphql representation of a biolink model """
     print(GraphqlGenerator(yamlfile, **args).serialize(**args))
+
+
+if __name__ == '__main__':
+    cli()
