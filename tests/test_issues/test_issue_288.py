@@ -4,6 +4,7 @@ import unittest
 from rdflib import URIRef, Graph
 from rdflib.namespace import OWL, RDFS, RDF
 
+from biolinkml.generators.flattener import Flattener
 from biolinkml.generators.sqlddlgen import SQLDDLGenerator
 from biolinkml.generators.yamlgen import YAMLGenerator
 from biolinkml.generators.jsonschemagen import JsonSchemaGenerator
@@ -16,6 +17,11 @@ from tests.test_issues.environment import env
 
 class IssueSQLGenTestCase(TestEnvironmentTestCase):
     env = env
+
+    def test_flattener(self):
+        fgen = Flattener(env.input_path('issue_288.yaml'))
+        fgen.serialize(validateonly=True)
+        print(SQLDDLGenerator(fgen).serialize())
 
     def test_transform(self):
         """
