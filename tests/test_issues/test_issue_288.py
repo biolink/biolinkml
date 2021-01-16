@@ -4,43 +4,51 @@ import unittest
 from rdflib import URIRef, Graph
 from rdflib.namespace import OWL, RDFS, RDF
 
-from biolinkml.generators.owlgen import OwlSchemaGenerator
+from biolinkml.generators.sqlddlgen import SQLDDLGenerator
+from biolinkml.generators.yamlgen import YAMLGenerator
+from biolinkml.generators.jsonschemagen import JsonSchemaGenerator
+from biolinkml.utils.sqlutils import SqlTransformer
 from tests.utils.compare_rdf import compare_rdf
 from tests.utils.test_environment import TestEnvironmentTestCase
+from biolinkml.utils.yamlutils import as_yaml
 from tests.test_issues.environment import env
 
 
-class IssueOWLNamespaceTestCase(TestEnvironmentTestCase):
+class IssueSQLGenTestCase(TestEnvironmentTestCase):
     env = env
 
-    def _test_owl(self, name: str) -> Graph:
-        self.env.generate_single_file(f'{name}.owl',
-                                      lambda: OwlSchemaGenerator(env.input_path(f'{name}.yaml'),
-                                                                 importmap=env.import_map).serialize(),
-                                      value_is_returned=True, comparator=compare_rdf)
-        g = Graph()
-        g.parse(env.expected_path(f'{name}.owl'), format="turtle")
-        return g
+    def test_transform(self):
+        """
+        tests a schema->schema transform
 
-    def test_issue_owl_namespace(self):
-        """ Make sure that types are generated as part of the output """
-        g = self._test_owl('issue_163')
-        A = URIRef('http://example.org/A')
-        self.assertIn((A, RDF.type, OWL.Class), g)
-        NAME = URIRef('http://example.org/name')
-        self.assertIn((NAME, RDF.type, OWL.ObjectProperty), g)
+        this does not output SQL - instead it outputs a 'sql-ready' transformed
+        version of the schema, with multivalued keys transformed and inheritance
+        flattened
 
-    def test_issue_no_default(self):
-        """ Make sure that types are generated as part of the output """
-        g = self._test_owl('issue_163b')
-        A = URIRef('http://example.org/sample/example1/A')
-        self.assertIn((A, RDF.type, OWL.Class), g)
-        NAME = URIRef('http://example.org/sample/example1/name')
-        self.assertIn((NAME, RDF.type, OWL.ObjectProperty), g)
+        :return:
+        """
+        yaml_fname = env.input_path('issue_288.yaml')
+        gen = YAMLGenerator(yaml_fname, mergeimports=False)
+        tr = SqlTransformer()
+        tr.transform_schema(gen.schema)
+        gen2 = YAMLGenerator(tr.target_schema)
+        s = gen2.serialize()
+        print(s)
 
-    def test_aliases(self):
-        """ Make sure aliases work """
-        g = self._test_owl('issue_163c')
+    def test_transform_and_generate(self):
+        """
+        tests full cycle of transformation and sql ddl gen
+        :return:
+        """
+        yaml_fname = env.input_path('issue_288.yaml')
+        gen = YAMLGenerator(yaml_fname, mergeimports=False)
+        #print(jsgen.serialize())
+        tr = SqlTransformer()
+        tr.transform_schema(gen.schema)
+        ddlgen = SQLDDLGenerator(tr.target_schema)
+        #gen2 = YAMLGenerator(tr.target_schema)
+        s = ddlgen.serialize()
+        print(s)
 
 
 if __name__ == '__main__':
