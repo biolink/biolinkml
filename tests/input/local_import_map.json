@@ -1,4 +1,3 @@
 {
-  "biolinkml:extensions": "includes/extensions",
-  "biolinkml:annotations": "includes/annotations"
+  "biolinkml:types": "includes/types"
 }
