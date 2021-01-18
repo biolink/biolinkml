@@ -41,7 +41,8 @@
          "from_schema": "http://example.org/base",
          "typeof": "boolean",
          "base": "Bool",
-         "uri": "xsd:boolean"
+         "uri": "xsd:boolean",
+         "repr": "bool"
       },
       {
          "name": "double_extended",
@@ -49,7 +50,8 @@
          "from_schema": "http://example.org/base",
          "typeof": "extended",
          "base": "Bool",
-         "uri": "xsd:boolean"
+         "uri": "xsd:boolean",
+         "repr": "bool"
       },
       {
          "name": "string",
@@ -73,7 +75,8 @@
          "description": "A binary (true or false) value",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "Bool",
-         "uri": "xsd:boolean"
+         "uri": "xsd:boolean",
+         "repr": "bool"
       },
       {
          "name": "float",
@@ -183,7 +186,7 @@
    ],
    "metamodel_version": "1.7.0",
    "source_file": "base.yaml",
-   "source_file_date": "Tue Jan  5 17:35:32 2021",
+   "source_file_date": "Mon Jan 18 21:38:17 2021",
    "source_file_size": 487,
-   "generation_date": "2021-01-05 17:39"
+   "generation_date": "2021-01-18 21:41"
 }

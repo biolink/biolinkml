@@ -47,6 +47,7 @@
       "from_schema": "https://w3id.org/biolink/biolinkml/types",
       "base": "Bool",
       "uri": "http://www.w3.org/2001/XMLSchema#boolean",
+      "repr": "bool",
       "type": "TypeDefinition"
     },
     {
@@ -168,9 +169,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "types.yaml",
-  "source_file_date": "Thu Jan 14 22:56:47 2021",
-  "source_file_size": 2700,
-  "generation_date": "2021-01-14 22:57",
+  "source_file_date": "Mon Jan 18 21:38:17 2021",
+  "source_file_size": 2715,
+  "generation_date": "2021-01-18 21:38",
   "type": "SchemaDefinition",
   "@context": [
     [
