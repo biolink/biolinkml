@@ -655,7 +655,7 @@ class SchemaLoader:
                     if child_name in cls.slots:
                         del cls.slots[cls.slots.index(child_name)]
                     cls.slots[cls.slots.index(parent_slot.name)] = child_name
-                else:
+                elif child_name not in cls.slots:
                     cls.slots.append(child_name)
             elif not new_slot.range:
                 new_slot.range = self.schema.default_range
