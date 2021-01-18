@@ -39,6 +39,7 @@ types:
   boolean:
     uri: xsd:boolean
     base: Bool
+    repr: bool
     description: A binary (true or false) value
 
   float:
