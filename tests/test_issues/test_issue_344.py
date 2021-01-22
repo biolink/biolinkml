@@ -2,12 +2,7 @@ import json
 import os
 import unittest
 
-from biolinkml.utils.schemaloader import SchemaLoader
-
-from biolinkml.utils.yamlutils import as_yaml
-
 from biolinkml.generators.jsonldcontextgen import ContextGenerator
-from tests.utils.filters import yaml_filter
 from tests.utils.test_environment import TestEnvironmentTestCase
 from tests.test_issues.environment import env
 
