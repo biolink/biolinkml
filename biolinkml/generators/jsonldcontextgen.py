@@ -147,7 +147,9 @@ license: {be(self.schema.license)}
         :param defn: Class or Slot Definition
         """
         self.add_id_prefixes(defn)
-        for mapping in defn.mappings:
+        mappings = defn.mappings + defn.related_mappings + defn.close_mappings + \
+                   defn.narrow_mappings + defn.broad_mappings + defn.exact_mappings
+        for mapping in mappings:
             if '://' in mapping:
                 mcurie = self.namespaces.curie_for(mapping)
                 if mcurie is None:
