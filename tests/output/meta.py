@@ -1,5 +1,5 @@
 # Auto generated from meta.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-01-05 21:35
+# Generation date: 2021-01-26 20:25
 # Schema: metamodel
 #
 # id: https://w3id.org/biolink/biolinkml/meta
@@ -489,8 +489,8 @@ class Definition(Element):
 
     name: Union[str, DefinitionName] = None
     is_a: Optional[Union[str, DefinitionName]] = None
-    abstract: Optional[Bool] = None
-    mixin: Optional[Bool] = None
+    abstract: Optional[Union[bool, Bool]] = None
+    mixin: Optional[Union[bool, Bool]] = None
     mixins: Optional[Union[Union[str, DefinitionName], List[Union[str, DefinitionName]]]] = empty_list()
     apply_to: Optional[Union[Union[str, DefinitionName], List[Union[str, DefinitionName]]]] = empty_list()
     values_from: Optional[Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]]] = empty_list()
@@ -609,24 +609,24 @@ class SlotDefinition(Definition):
     domain: Optional[Union[str, ClassDefinitionName]] = None
     range: Optional[Union[str, ElementName]] = None
     slot_uri: Optional[Union[str, URIorCURIE]] = None
-    multivalued: Optional[Bool] = None
-    inherited: Optional[Bool] = None
+    multivalued: Optional[Union[bool, Bool]] = None
+    inherited: Optional[Union[bool, Bool]] = None
     readonly: Optional[str] = None
     ifabsent: Optional[str] = None
-    required: Optional[Bool] = None
-    inlined: Optional[Bool] = None
-    inlined_as_list: Optional[Bool] = None
-    key: Optional[Bool] = None
-    identifier: Optional[Bool] = None
+    required: Optional[Union[bool, Bool]] = None
+    inlined: Optional[Union[bool, Bool]] = None
+    inlined_as_list: Optional[Union[bool, Bool]] = None
+    key: Optional[Union[bool, Bool]] = None
+    identifier: Optional[Union[bool, Bool]] = None
     alias: Optional[str] = None
     owner: Optional[Union[str, DefinitionName]] = None
     domain_of: Optional[Union[Union[str, ClassDefinitionName], List[Union[str, ClassDefinitionName]]]] = empty_list()
     subproperty_of: Optional[Union[str, SlotDefinitionName]] = None
-    symmetric: Optional[Bool] = None
+    symmetric: Optional[Union[bool, Bool]] = None
     inverse: Optional[Union[str, SlotDefinitionName]] = None
-    is_class_field: Optional[Bool] = None
+    is_class_field: Optional[Union[bool, Bool]] = None
     role: Optional[str] = None
-    is_usage_slot: Optional[Bool] = None
+    is_usage_slot: Optional[Union[bool, Bool]] = None
     usage_slot_name: Optional[str] = None
     minimum_value: Optional[int] = None
     maximum_value: Optional[int] = None
@@ -764,7 +764,7 @@ class ClassDefinition(Definition):
     subclass_of: Optional[Union[str, URIorCURIE]] = None
     union_of: Optional[Union[Union[str, ClassDefinitionName], List[Union[str, ClassDefinitionName]]]] = empty_list()
     defining_slots: Optional[Union[Union[str, SlotDefinitionName], List[Union[str, SlotDefinitionName]]]] = empty_list()
-    tree_root: Optional[Bool] = None
+    tree_root: Optional[Union[bool, Bool]] = None
     is_a: Optional[Union[str, ClassDefinitionName]] = None
     mixins: Optional[Union[Union[str, ClassDefinitionName], List[Union[str, ClassDefinitionName]]]] = empty_list()
     apply_to: Optional[Union[Union[str, ClassDefinitionName], List[Union[str, ClassDefinitionName]]]] = empty_list()
@@ -1150,10 +1150,10 @@ slots.is_a = Slot(uri=META.is_a, name="is_a", curie=META.curie('is_a'),
                    model_uri=META.is_a, domain=Definition, range=Optional[Union[str, DefinitionName]])
 
 slots.abstract = Slot(uri=META.abstract, name="abstract", curie=META.curie('abstract'),
-                   model_uri=META.abstract, domain=Definition, range=Optional[Bool])
+                   model_uri=META.abstract, domain=Definition, range=Optional[Union[bool, Bool]])
 
 slots.mixin = Slot(uri=META.mixin, name="mixin", curie=META.curie('mixin'),
-                   model_uri=META.mixin, domain=Definition, range=Optional[Bool])
+                   model_uri=META.mixin, domain=Definition, range=Optional[Union[bool, Bool]])
 
 slots.mixins = Slot(uri=META.mixins, name="mixins", curie=META.curie('mixins'),
                    model_uri=META.mixins, domain=Definition, range=Optional[Union[Union[str, DefinitionName], List[Union[str, DefinitionName]]]])
@@ -1264,7 +1264,7 @@ slots.union_of = Slot(uri=META.union_of, name="union_of", curie=META.curie('unio
                    model_uri=META.union_of, domain=ClassDefinition, range=Optional[Union[Union[str, ClassDefinitionName], List[Union[str, ClassDefinitionName]]]])
 
 slots.tree_root = Slot(uri=META.tree_root, name="tree_root", curie=META.curie('tree_root'),
-                   model_uri=META.tree_root, domain=ClassDefinition, range=Optional[Bool])
+                   model_uri=META.tree_root, domain=ClassDefinition, range=Optional[Union[bool, Bool]])
 
 slots.domain = Slot(uri=META.domain, name="domain", curie=META.curie('domain'),
                    model_uri=META.domain, domain=SlotDefinition, range=Optional[Union[str, ClassDefinitionName]])
@@ -1276,10 +1276,10 @@ slots.slot_uri = Slot(uri=META.slot_uri, name="slot_uri", curie=META.curie('slot
                    model_uri=META.slot_uri, domain=SlotDefinition, range=Optional[Union[str, URIorCURIE]])
 
 slots.multivalued = Slot(uri=META.multivalued, name="multivalued", curie=META.curie('multivalued'),
-                   model_uri=META.multivalued, domain=SlotDefinition, range=Optional[Bool])
+                   model_uri=META.multivalued, domain=SlotDefinition, range=Optional[Union[bool, Bool]])
 
 slots.inherited = Slot(uri=META.inherited, name="inherited", curie=META.curie('inherited'),
-                   model_uri=META.inherited, domain=SlotDefinition, range=Optional[Bool])
+                   model_uri=META.inherited, domain=SlotDefinition, range=Optional[Union[bool, Bool]])
 
 slots.readonly = Slot(uri=META.readonly, name="readonly", curie=META.curie('readonly'),
                    model_uri=META.readonly, domain=SlotDefinition, range=Optional[str])
@@ -1291,19 +1291,19 @@ slots.singular_name = Slot(uri=SKOS.altLabel, name="singular_name", curie=SKOS.c
                    model_uri=META.singular_name, domain=SlotDefinition, range=Optional[str])
 
 slots.required = Slot(uri=META.required, name="required", curie=META.curie('required'),
-                   model_uri=META.required, domain=SlotDefinition, range=Optional[Bool])
+                   model_uri=META.required, domain=SlotDefinition, range=Optional[Union[bool, Bool]])
 
 slots.inlined = Slot(uri=META.inlined, name="inlined", curie=META.curie('inlined'),
-                   model_uri=META.inlined, domain=SlotDefinition, range=Optional[Bool])
+                   model_uri=META.inlined, domain=SlotDefinition, range=Optional[Union[bool, Bool]])
 
 slots.inlined_as_list = Slot(uri=META.inlined_as_list, name="inlined_as_list", curie=META.curie('inlined_as_list'),
-                   model_uri=META.inlined_as_list, domain=SlotDefinition, range=Optional[Bool])
+                   model_uri=META.inlined_as_list, domain=SlotDefinition, range=Optional[Union[bool, Bool]])
 
 slots.key = Slot(uri=META.key, name="key", curie=META.curie('key'),
-                   model_uri=META.key, domain=SlotDefinition, range=Optional[Bool])
+                   model_uri=META.key, domain=SlotDefinition, range=Optional[Union[bool, Bool]])
 
 slots.identifier = Slot(uri=META.identifier, name="identifier", curie=META.curie('identifier'),
-                   model_uri=META.identifier, domain=SlotDefinition, range=Optional[Bool])
+                   model_uri=META.identifier, domain=SlotDefinition, range=Optional[Union[bool, Bool]])
 
 slots.alias = Slot(uri=META.alias, name="alias", curie=META.curie('alias'),
                    model_uri=META.alias, domain=SlotDefinition, range=Optional[str])
@@ -1315,7 +1315,7 @@ slots.domain_of = Slot(uri=META.domain_of, name="domain_of", curie=META.curie('d
                    model_uri=META.domain_of, domain=SlotDefinition, range=Optional[Union[Union[str, ClassDefinitionName], List[Union[str, ClassDefinitionName]]]])
 
 slots.is_usage_slot = Slot(uri=META.is_usage_slot, name="is_usage_slot", curie=META.curie('is_usage_slot'),
-                   model_uri=META.is_usage_slot, domain=SlotDefinition, range=Optional[Bool])
+                   model_uri=META.is_usage_slot, domain=SlotDefinition, range=Optional[Union[bool, Bool]])
 
 slots.usage_slot_name = Slot(uri=META.usage_slot_name, name="usage_slot_name", curie=META.curie('usage_slot_name'),
                    model_uri=META.usage_slot_name, domain=SlotDefinition, range=Optional[str])
@@ -1324,13 +1324,13 @@ slots.subproperty_of = Slot(uri=RDFS.subPropertyOf, name="subproperty_of", curie
                    model_uri=META.subproperty_of, domain=SlotDefinition, range=Optional[Union[str, SlotDefinitionName]])
 
 slots.symmetric = Slot(uri=META.symmetric, name="symmetric", curie=META.curie('symmetric'),
-                   model_uri=META.symmetric, domain=SlotDefinition, range=Optional[Bool])
+                   model_uri=META.symmetric, domain=SlotDefinition, range=Optional[Union[bool, Bool]])
 
 slots.inverse = Slot(uri=OWL.inverseOf, name="inverse", curie=OWL.curie('inverseOf'),
                    model_uri=META.inverse, domain=SlotDefinition, range=Optional[Union[str, SlotDefinitionName]])
 
 slots.is_class_field = Slot(uri=META.is_class_field, name="is_class_field", curie=META.curie('is_class_field'),
-                   model_uri=META.is_class_field, domain=SlotDefinition, range=Optional[Bool])
+                   model_uri=META.is_class_field, domain=SlotDefinition, range=Optional[Union[bool, Bool]])
 
 slots.role = Slot(uri=META.role, name="role", curie=META.curie('role'),
                    model_uri=META.role, domain=SlotDefinition, range=Optional[str])

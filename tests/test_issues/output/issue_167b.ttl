@@ -20,22 +20,22 @@
     meta:default_range <http://example.org/string> ;
     meta:emit_prefixes "biolinkml",
         "meta" ;
-    meta:generation_date "2021-01-05 21:36"^^xsd:dateTime ;
+    meta:generation_date "2021-01-26 20:26"^^xsd:dateTime ;
     meta:id <http://example.org/tests/issue167b> ;
     meta:imports biolinkml:annotations,
         biolinkml:extensions,
         biolinkml:types ;
     meta:metamodel_version "1.7.0" ;
-    meta:prefixes [ meta:prefix_prefix "ex" ;
-            meta:prefix_reference <http://example.org/> ],
-        [ meta:prefix_prefix "biolinkml" ;
-            meta:prefix_reference biolinkml: ] ;
+    meta:prefixes [ meta:prefix_prefix "biolinkml" ;
+            meta:prefix_reference biolinkml: ],
+        [ meta:prefix_prefix "ex" ;
+            meta:prefix_reference <http://example.org/> ] ;
     meta:slots <http://example.org/annotations>,
         <http://example.org/extension_tag>,
         <http://example.org/extension_value>,
         <http://example.org/extensions> ;
     meta:source_file "issue_167b.yaml" ;
-    meta:source_file_date "Tue Jan  5 21:34:30 2021"^^xsd:dateTime ;
+    meta:source_file_date "Tue Jan 26 20:23:51 2021"^^xsd:dateTime ;
     meta:source_file_size 835 ;
     meta:types <http://example.org/boolean>,
         <http://example.org/date>,
@@ -58,6 +58,7 @@
     meta:base "Bool" ;
     meta:definition_uri metatype:Boolean ;
     meta:imported_from "biolinkml:types" ;
+    meta:repr "bool" ;
     meta:uri xsd:boolean .
 
 <http://example.org/date> a meta:TypeDefinition ;
@@ -171,11 +172,11 @@
     skos:definition "Annotations as tag value pairs. Note that altLabel is defined in the default namespace, not in the SKOS namespace" ;
     skos:inScheme <http://example.org/tests/issue167b> ;
     meta:annotations [ a meta:Annotation ;
-            skos:example "some other label" ;
-            meta:tag <http://example.org/altLabel> ],
-        [ a meta:Annotation ;
             skos:example "a label" ;
-            meta:tag skos:prefLabel ] ;
+            meta:tag skos:prefLabel ],
+        [ a meta:Annotation ;
+            skos:example "some other label" ;
+            meta:tag <http://example.org/altLabel> ] ;
     meta:class_uri <http://example.org/MyClass> ;
     meta:definition_uri <http://example.org/MyClass> .
 
@@ -183,11 +184,11 @@
     skos:definition "-> This form of annotations is a tag/value format, which allows annotations to be annotated.  Note, however, that the annotation source is NOT a CURIE, rather just a string." ;
     skos:inScheme <http://example.org/tests/issue167b> ;
     meta:annotations [ a meta:Annotation ;
-            skos:example "prefLabel" ;
-            meta:tag <http://example.org/tag> ],
-        [ a meta:Annotation ;
             skos:example "{'source': 'PMID:12345'}" ;
             meta:tag <http://example.org/annotations> ],
+        [ a meta:Annotation ;
+            skos:example "prefLabel" ;
+            meta:tag <http://example.org/tag> ],
         [ a meta:Annotation ;
             skos:example "a preferred label" ;
             meta:tag <http://example.org/value> ] ;

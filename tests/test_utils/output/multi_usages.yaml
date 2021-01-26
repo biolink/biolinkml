@@ -37,6 +37,7 @@ types:
     imported_from: biolinkml:types
     base: Bool
     uri: xsd:boolean
+    repr: bool
   float:
     name: float
     definition_uri: https://w3id.org/biolink/biolinkml/meta/types/Float
@@ -251,6 +252,6 @@ classes:
     class_uri: http://example.org/multi_usages/ChildClass3
 metamodel_version: 1.7.0
 source_file: multi_usages.yaml
-source_file_date: Tue Jan  5 21:34:30 2021
+source_file_date: Tue Jan 26 20:23:51 2021
 source_file_size: 969
-generation_date: 2021-01-05 21:37
+generation_date: 2021-01-26 20:28

@@ -1,5 +1,5 @@
 # Auto generated from biolink-model.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-01-04 21:53
+# Generation date: 2021-01-26 20:25
 # Schema: Biolink-Model
 #
 # id: https://w3id.org/biolink/biolink-model
@@ -4602,7 +4602,7 @@ class Association(Entity):
     object: Union[str, NamedThingId] = None
     relation: Union[str, URIorCURIE] = None
     category: Union[Union[str, AssociationId], List[Union[str, AssociationId]]] = None
-    negated: Optional[Bool] = None
+    negated: Optional[Union[bool, Bool]] = None
     qualifiers: Optional[Union[Union[str, OntologyClassId], List[Union[str, OntologyClassId]]]] = empty_list()
     publications: Optional[Union[Union[str, PublicationId], List[Union[str, PublicationId]]]] = empty_list()
     type: Optional[str] = None
@@ -8097,7 +8097,7 @@ slots.relation = Slot(uri=BIOLINK.relation, name="relation", curie=BIOLINK.curie
                    model_uri=BIOLINK.relation, domain=Association, range=Union[str, URIorCURIE])
 
 slots.negated = Slot(uri=BIOLINK.negated, name="negated", curie=BIOLINK.curie('negated'),
-                   model_uri=BIOLINK.negated, domain=Association, range=Optional[Bool])
+                   model_uri=BIOLINK.negated, domain=Association, range=Optional[Union[bool, Bool]])
 
 slots.has_confidence_level = Slot(uri=BIOLINK.has_confidence_level, name="has confidence level", curie=BIOLINK.curie('has_confidence_level'),
                    model_uri=BIOLINK.has_confidence_level, domain=Association, range=Optional[Union[str, ConfidenceLevelId]])

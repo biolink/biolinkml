@@ -51,29 +51,29 @@ meta:metamodel a meta:SchemaDefinition ;
         "skos",
         "xsd" ;
     meta:enums meta:pv_formula_options ;
-    meta:generation_date "2021-01-05 21:37"^^xsd:dateTime ;
+    meta:generation_date "2021-01-26 20:27"^^xsd:dateTime ;
     meta:id biolinkml:meta ;
     meta:imports biolinkml:annotations,
         biolinkml:extensions,
         biolinkml:mappings,
         biolinkml:types ;
     meta:metamodel_version "1.7.0" ;
-    meta:prefixes [ meta:prefix_prefix "bibo" ;
-            meta:prefix_reference bibo: ],
-        [ meta:prefix_prefix "pav" ;
-            meta:prefix_reference pav: ],
+    meta:prefixes [ meta:prefix_prefix "schema" ;
+            meta:prefix_reference schema: ],
+        [ meta:prefix_prefix "oslc" ;
+            meta:prefix_reference oslc: ],
         [ meta:prefix_prefix "biolinkml" ;
             meta:prefix_reference biolinkml: ],
-        [ meta:prefix_prefix "schema" ;
-            meta:prefix_reference schema: ],
-        [ meta:prefix_prefix "meta" ;
-            meta:prefix_reference meta: ],
         [ meta:prefix_prefix "skos" ;
             meta:prefix_reference skos: ],
+        [ meta:prefix_prefix "pav" ;
+            meta:prefix_reference pav: ],
+        [ meta:prefix_prefix "bibo" ;
+            meta:prefix_reference bibo: ],
         [ meta:prefix_prefix "OIO" ;
             meta:prefix_reference OIO: ],
-        [ meta:prefix_prefix "oslc" ;
-            meta:prefix_reference oslc: ] ;
+        [ meta:prefix_prefix "meta" ;
+            meta:prefix_reference meta: ] ;
     meta:slots meta:abstract,
         meta:alias,
         meta:aliases,
@@ -197,7 +197,7 @@ meta:metamodel a meta:SchemaDefinition ;
         meta:values_from,
         meta:version ;
     meta:source_file "meta.yaml" ;
-    meta:source_file_date "Tue Jan  5 21:34:29 2021"^^xsd:dateTime ;
+    meta:source_file_date "Tue Jan 26 20:23:51 2021"^^xsd:dateTime ;
     meta:source_file_size 32547 ;
     meta:subsets meta:owl ;
     meta:types meta:boolean,
@@ -1915,6 +1915,7 @@ meta:boolean a meta:TypeDefinition ;
     meta:base "Bool" ;
     meta:definition_uri metatype:Boolean ;
     meta:imported_from "biolinkml:types" ;
+    meta:repr "bool" ;
     meta:uri xsd:boolean .
 
 meta:owl a meta:SubsetDefinition ;
