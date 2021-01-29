@@ -1,5 +1,5 @@
 # Auto generated from issue_167b.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-01-26 20:26
+# Generation date: 2021-01-29 17:24
 # Schema: annotations_test
 #
 # id: http://example.org/tests/issue167b
