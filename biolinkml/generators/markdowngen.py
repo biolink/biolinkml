@@ -221,7 +221,16 @@ class MarkdownGenerator(Generator):
                 self.element_properties(slot)
 
     def element_header(self, obj: Element, name: str, curie: str, uri: str) -> None:
-        self.frontmatter(f"Type: {obj.name}" + (f" _(deprecated)_" if obj.deprecated else ""))
+        simple_name = curie.split(':', 1)[1]
+        if isinstance(obj, TypeDefinition):
+            obj_type = 'Type'
+        elif isinstance(obj, ClassDefinition):
+            obj_type = 'Class'
+        elif isinstance(obj, SlotDefinition):
+            obj_type = 'Slot'
+        else:
+            obj_type = 'Class'
+        self.header(1, f"{obj_type}: {simple_name}" + (f" _(deprecated)_" if obj.deprecated else ""))
         self.para(be(obj.description))
         print(f'URI: [{curie}]({uri})')
         print()
