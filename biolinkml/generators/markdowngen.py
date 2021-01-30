@@ -107,6 +107,11 @@ class MarkdownGenerator(Generator):
                 print(f'![img]({img_url})')
                 self.mappings(cls)
 
+                if cls.id_prefixes:
+                    self.header(2, 'Identifier prefixes')
+                    for p in cls.id_prefixes:
+                        self.bullet(f'{p}')
+
                 if cls.is_a is not None:
                     self.header(2, 'Parents')
                     self.bullet(f' is_a: {self.class_link(cls.is_a, use_desc=True)}')
