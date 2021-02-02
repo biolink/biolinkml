@@ -1,5 +1,5 @@
 
-# Type: deprecated element has possible replacement
+# Slot: deprecated_element_has_possible_replacement
 
 
 When an element is deprecated, it can be potentially replaced by this uri or curie

@@ -1,5 +1,5 @@
 
-# Type: string_serialization
+# Slot: string_serialization
 
 
 Used on a slot that stores the string serialization of the containing object. The syntax follows python formatted strings, with slot names enclosed in {}s. These are expanded using the values of those slots.

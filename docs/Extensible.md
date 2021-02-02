@@ -1,5 +1,5 @@
 
-# Type: extensible
+# Class: Extensible
 
 
 mixin for classes that support extension

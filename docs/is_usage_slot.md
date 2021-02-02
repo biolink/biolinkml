@@ -1,5 +1,5 @@
 
-# Type: is_usage_slot _(deprecated)_
+# Slot: is_usage_slot _(deprecated)_
 
 
 True means that this slot was defined in a slot_usage situation

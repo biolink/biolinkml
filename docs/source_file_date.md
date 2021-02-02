@@ -1,5 +1,5 @@
 
-# Type: source_file_date
+# Slot: source_file_date
 
 
 modification date of the source of the schema

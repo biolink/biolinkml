@@ -1,5 +1,5 @@
 
-# Type: range
+# Slot: range
 
 
 defines the type of the object of the slot.  Given the following slot definition

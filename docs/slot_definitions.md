@@ -1,5 +1,5 @@
 
-# Type: slot_definitions
+# Slot: slot_definitions
 
 
 slot definitions

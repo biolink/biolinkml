@@ -1,5 +1,5 @@
 
-# Type: is_class_field
+# Slot: is_class_field
 
 
 indicates that any instance, i,  the domain of this slot will include an assert of i s range

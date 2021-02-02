@@ -1,5 +1,5 @@
 
-# Type: generation_date
+# Slot: generation_date
 
 
 date and time that the schema was loaded/generated

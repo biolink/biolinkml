@@ -1,5 +1,5 @@
 
-# Type: pattern
+# Slot: pattern
 
 
 the string value of the slot must conform to this regular expression

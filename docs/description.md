@@ -1,5 +1,5 @@
 
-# Type: description
+# Slot: description
 
 
 a description of the element's purpose and use

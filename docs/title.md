@@ -1,5 +1,5 @@
 
-# Type: title
+# Slot: title
 
 
 the official title of the schema

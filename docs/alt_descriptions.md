@@ -1,5 +1,5 @@
 
-# Type: alt_descriptions
+# Slot: alt_descriptions
 
 
 

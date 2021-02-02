@@ -1,5 +1,5 @@
 
-# Type: mixins
+# Slot: mixins
 
 
 List of definitions to be mixed in. Targets may be any definition of the same type

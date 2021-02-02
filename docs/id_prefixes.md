@@ -1,5 +1,5 @@
 
-# Type: id_prefixes
+# Slot: id_prefixes
 
 
 the identifier of this class or slot must begin with one of the URIs referenced by this prefix
