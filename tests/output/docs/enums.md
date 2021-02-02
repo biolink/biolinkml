@@ -1,5 +1,5 @@
 
-# Type: enums
+# Slot: enums
 
 
 enumerated ranges

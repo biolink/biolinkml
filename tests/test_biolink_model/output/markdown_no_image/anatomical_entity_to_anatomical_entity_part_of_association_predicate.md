@@ -1,5 +1,5 @@
 
-# Type: anatomical entity to anatomical entity part of association_predicate
+# Slot: anatomical_entity_to_anatomical_entity_part_of_association_predicate
 
 
 

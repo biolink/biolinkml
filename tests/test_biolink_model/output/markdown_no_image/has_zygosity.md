@@ -1,5 +1,5 @@
 
-# Type: has zygosity
+# Slot: has_zygosity
 
 
 

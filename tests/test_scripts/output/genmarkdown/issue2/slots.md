@@ -1,5 +1,5 @@
 
-# Type: slots
+# Slot: slots
 
 
 list of slot names that are applicable to a class

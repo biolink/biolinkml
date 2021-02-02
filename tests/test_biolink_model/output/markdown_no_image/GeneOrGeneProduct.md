@@ -1,5 +1,5 @@
 
-# Type: gene or gene product
+# Class: GeneOrGeneProduct
 
 
 a union of genes or gene products. Frequently an identifier for one will be used as proxy for another
@@ -8,6 +8,11 @@ URI: [biolink:GeneOrGeneProduct](https://w3id.org/biolink/vocab/GeneOrGeneProduc
 
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon],[NamedThing],[MacromolecularMachine],[GeneToPhenotypicFeatureAssociation],[GeneToGeneAssociation],[GeneToExpressionSiteAssociation],[GeneToEntityAssociationMixin],[GeneToDiseaseAssociation],[GeneRegulatoryRelationship],[GeneProduct],[ChemicalToGeneAssociation]-%20object%201..1>[GeneOrGeneProduct&#124;name(i):symbol_type%20%3F;has_biological_sequence(i):biological_sequence%20%3F;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[DrugToGeneAssociation]-%20object%201..1>[GeneOrGeneProduct],[GeneAsAModelOfDiseaseAssociation]-%20subject%201..1>[GeneOrGeneProduct],[GeneHasVariantThatContributesToDiseaseAssociation]-%20subject%201..1>[GeneOrGeneProduct],[GeneRegulatoryRelationship]-%20object%201..1>[GeneOrGeneProduct],[GeneRegulatoryRelationship]-%20subject%201..1>[GeneOrGeneProduct],[GeneToDiseaseAssociation]-%20subject%201..1>[GeneOrGeneProduct],[GeneToEntityAssociationMixin]-%20subject%201..1>[GeneOrGeneProduct],[GeneToExpressionSiteAssociation]-%20subject%201..1>[GeneOrGeneProduct],[GeneToGeneAssociation]-%20object%201..1>[GeneOrGeneProduct],[GeneToGeneAssociation]-%20subject%201..1>[GeneOrGeneProduct],[GeneToPhenotypicFeatureAssociation]-%20subject%201..1>[GeneOrGeneProduct],[GeneOrGeneProduct]^-[GeneProduct],[GeneOrGeneProduct]^-[Gene],[MacromolecularMachine]^-[GeneOrGeneProduct],[GeneHasVariantThatContributesToDiseaseAssociation],[GeneAsAModelOfDiseaseAssociation],[Gene],[DrugToGeneAssociation],[ChemicalToGeneAssociation],[Attribute],[AnatomicalEntity],[Agent])
+
+## Identifier prefixes
+
+ * CHEMBL.TARGET
+ * IUPHAR.FAMILY
 
 ## Parents
 

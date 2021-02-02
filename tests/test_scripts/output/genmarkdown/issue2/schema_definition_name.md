@@ -1,5 +1,5 @@
 
-# Type: schema_definition_name
+# Slot: schema_definition_name
 
 
 

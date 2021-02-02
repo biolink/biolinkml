@@ -1,5 +1,5 @@
 
-# Type: anatomical entity to anatomical entity part of association
+# Class: AnatomicalEntityToAnatomicalEntityPartOfAssociation
 
 
 A relationship between two anatomical entities where the relationship is mereological, i.e the two entities are related by parthood. This includes relationships between cellular components and cells, between cells and tissues, tissues and whole organisms

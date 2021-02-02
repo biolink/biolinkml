@@ -1,5 +1,5 @@
 
-# Type: readonly
+# Slot: readonly
 
 
 If present, slot is read only.  Text explains why

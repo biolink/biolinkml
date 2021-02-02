@@ -1,5 +1,5 @@
 
-# Type: negatively regulates, process to process
+# Slot: negatively_regulates_process_to_process
 
 
 

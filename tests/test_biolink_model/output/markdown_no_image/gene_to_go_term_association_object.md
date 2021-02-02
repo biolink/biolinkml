@@ -1,5 +1,5 @@
 
-# Type: gene to go term association_object
+# Slot: gene_to_go_term_association_object
 
 
 class describing the activity, process or localization of the gene product

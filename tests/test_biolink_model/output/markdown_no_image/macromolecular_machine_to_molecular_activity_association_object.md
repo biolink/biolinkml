@@ -1,5 +1,5 @@
 
-# Type: macromolecular machine to molecular activity association_object
+# Slot: macromolecular_machine_to_molecular_activity_association_object
 
 
 

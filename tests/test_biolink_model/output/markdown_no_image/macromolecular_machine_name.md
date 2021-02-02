@@ -1,5 +1,5 @@
 
-# Type: macromolecular machine_name
+# Slot: macromolecular_machine_name
 
 
 genes are typically designated by a short symbol and a full name. We map the symbol to the default display name and use an additional slot for full name

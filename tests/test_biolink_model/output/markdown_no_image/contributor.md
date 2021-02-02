@@ -1,5 +1,5 @@
 
-# Type: contributor
+# Slot: contributor
 
 
 

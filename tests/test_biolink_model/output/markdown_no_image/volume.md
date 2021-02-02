@@ -1,5 +1,5 @@
 
-# Type: volume
+# Slot: volume
 
 
 volume of a book or music release in a collection/series or a published collection of journal issues in a serial publication

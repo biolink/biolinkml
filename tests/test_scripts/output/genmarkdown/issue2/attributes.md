@@ -1,5 +1,5 @@
 
-# Type: attributes
+# Slot: attributes
 
 
 Inline definition of slots

@@ -1,5 +1,5 @@
 
-# Type: abstract
+# Slot: abstract
 
 
 an abstract class is a high level class or slot that is typically used to group common slots together and cannot be directly instantiated.

@@ -1,5 +1,5 @@
 
-# Type: coding sequence
+# Class: CodingSequence
 
 
 

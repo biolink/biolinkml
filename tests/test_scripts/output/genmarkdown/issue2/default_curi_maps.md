@@ -1,5 +1,5 @@
 
-# Type: default_curi_maps
+# Slot: default_curi_maps
 
 
 ordered list of prefixcommon biocontexts to be fetched to resolve id prefixes and inline prefix variables

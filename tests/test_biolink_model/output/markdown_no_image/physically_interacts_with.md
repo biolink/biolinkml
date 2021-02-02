@@ -1,5 +1,5 @@
 
-# Type: physically interacts with
+# Slot: physically_interacts_with
 
 
 holds between two entities that make physical contact as part of some interaction

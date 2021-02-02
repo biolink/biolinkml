@@ -1,5 +1,5 @@
 
-# Type: metabolite
+# Class: Metabolite
 
 
 Any intermediate or product resulting from metabolism. Includes primary and secondary metabolites.

@@ -1,5 +1,5 @@
 
-# Type: coexpressed with
+# Slot: coexpressed_with
 
 
 holds between any two genes or gene products, in which both are generally expressed within a single defined experimental context.

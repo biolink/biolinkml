@@ -1,5 +1,5 @@
 
-# Type: minimum_value
+# Slot: minimum_value
 
 
 for slots with ranges of type number, the value must be equal to or higher than this

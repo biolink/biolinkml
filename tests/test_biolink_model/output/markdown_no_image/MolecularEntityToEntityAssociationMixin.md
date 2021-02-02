@@ -1,5 +1,5 @@
 
-# Type: molecular entity to entity association mixin
+# Class: MolecularEntityToEntityAssociationMixin
 
 
 An interaction between a molecular entity and another entity

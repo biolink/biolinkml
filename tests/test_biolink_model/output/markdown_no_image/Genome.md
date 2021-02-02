@@ -1,5 +1,5 @@
 
-# Type: genome
+# Class: Genome
 
 
 A genome is the sum of genetic material within a cell or virion.

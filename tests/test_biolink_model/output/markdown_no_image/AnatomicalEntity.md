@@ -1,5 +1,5 @@
 
-# Type: anatomical entity
+# Class: AnatomicalEntity
 
 
 A subcellular location, cell type or gross anatomical part
@@ -8,6 +8,15 @@ URI: [biolink:AnatomicalEntity](https://w3id.org/biolink/vocab/AnatomicalEntity)
 
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/[ThingWithTaxon],[PhysicalEssence],[OrganismalEntity],[OrganismTaxon],[NamedThing],[GrossAnatomicalStructure],[GeneToExpressionSiteAssociation],[GeneOrGeneProduct],[DiseaseOrPhenotypicFeatureToLocationAssociation],[DiseaseOrPhenotypicFeatureAssociationToLocationAssociation],[CellularComponent],[Cell],[Attribute],[Association],[AnatomicalEntityToAnatomicalEntityPartOfAssociation],[AnatomicalEntityToAnatomicalEntityOntogenicAssociation],[AnatomicalEntityToAnatomicalEntityAssociation],[AnatomicalEntityToAnatomicalEntityAssociation]-%20object%201..1>[AnatomicalEntity&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[AnatomicalEntityToAnatomicalEntityAssociation]-%20subject%201..1>[AnatomicalEntity],[AnatomicalEntityToAnatomicalEntityOntogenicAssociation]-%20object%201..1>[AnatomicalEntity],[AnatomicalEntityToAnatomicalEntityOntogenicAssociation]-%20subject%201..1>[AnatomicalEntity],[AnatomicalEntityToAnatomicalEntityPartOfAssociation]-%20object%201..1>[AnatomicalEntity],[AnatomicalEntityToAnatomicalEntityPartOfAssociation]-%20subject%201..1>[AnatomicalEntity],[DiseaseOrPhenotypicFeatureAssociationToLocationAssociation]-%20object%201..1>[AnatomicalEntity],[DiseaseOrPhenotypicFeatureToLocationAssociation]-%20object%201..1>[AnatomicalEntity],[GeneExpressionMixin]-%20expression%20site%200..1>[AnatomicalEntity],[GeneToExpressionSiteAssociation]-%20object%201..1>[AnatomicalEntity],[AnatomicalEntity]uses%20-.->[ThingWithTaxon],[AnatomicalEntity]uses%20-.->[PhysicalEssence],[AnatomicalEntity]^-[GrossAnatomicalStructure],[AnatomicalEntity]^-[CellularComponent],[AnatomicalEntity]^-[Cell],[OrganismalEntity]^-[AnatomicalEntity],[GeneExpressionMixin],[Agent])
+
+## Identifier prefixes
+
+ * UBERON
+ * GO
+ * CL
+ * UMLS
+ * MESH
+ * NCIT
 
 ## Parents
 

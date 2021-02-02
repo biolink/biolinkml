@@ -1,5 +1,5 @@
 
-# Type: gene to gene association_subject
+# Slot: gene_to_gene_association_subject
 
 
 the subject gene in the association. If the relation is symmetric, subject vs object is arbitrary. We allow a gene product to stand as a proxy for the gene or vice versa.

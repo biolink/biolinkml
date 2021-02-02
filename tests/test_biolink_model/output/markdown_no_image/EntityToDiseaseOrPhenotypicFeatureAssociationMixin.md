@@ -1,5 +1,5 @@
 
-# Type: entity to disease or phenotypic feature association mixin
+# Class: EntityToDiseaseOrPhenotypicFeatureAssociationMixin
 
 
 

@@ -1,5 +1,5 @@
 
-# Type: molecularly interacts with
+# Slot: molecularly_interacts_with
 
 
 

@@ -1,5 +1,5 @@
 
-# Type: genotype
+# Class: Genotype
 
 
 An information content entity that describes a genome by specifying the total variation in genomic sequence and/or gene expression, relative to some established background
@@ -8,6 +8,11 @@ URI: [biolink:Genotype](https://w3id.org/biolink/vocab/Genotype)
 
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Zygosity],[OrganismTaxon],[NamedThing],[GenotypeToVariantAssociation],[GenotypeToPhenotypicFeatureAssociation],[GenotypeToGenotypePartAssociation],[GenotypeToGeneAssociation],[GenotypeToEntityAssociationMixin],[GenotypeAsAModelOfDiseaseAssociation],[Zygosity]<has%20zygosity%200..1-++[Genotype&#124;has_biological_sequence(i):biological_sequence%20%3F;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[GenotypeAsAModelOfDiseaseAssociation]-%20subject%201..1>[Genotype],[GenotypeToEntityAssociationMixin]-%20subject%201..1>[Genotype],[GenotypeToGeneAssociation]-%20subject%201..1>[Genotype],[GenotypeToGenotypePartAssociation]-%20object%201..1>[Genotype],[GenotypeToGenotypePartAssociation]-%20subject%201..1>[Genotype],[GenotypeToPhenotypicFeatureAssociation]-%20subject%201..1>[Genotype],[GenotypeToVariantAssociation]-%20subject%201..1>[Genotype],[GenomicEntity]^-[Genotype],[GenomicEntity],[Attribute],[Agent])
+
+## Identifier prefixes
+
+ * ZFIN
+ * FlyBase
 
 ## Parents
 

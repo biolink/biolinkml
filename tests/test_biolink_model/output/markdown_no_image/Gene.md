@@ -1,5 +1,5 @@
 
-# Type: gene
+# Class: Gene
 
 
 
@@ -8,6 +8,23 @@ URI: [biolink:Gene](https://w3id.org/biolink/vocab/Gene)
 
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/[VariantToGeneAssociation],[TranscriptToGeneRelationship],[SequenceVariant],[OrganismTaxon],[NamedThing],[GenotypeToGeneAssociation],[GeneToGeneProductRelationship],[GeneOrGeneProduct],[GeneToGeneProductRelationship]-%20subject%201..1>[Gene&#124;symbol:string%20%3F;synonym:label_type%20*;xref:iri_type%20*;name(i):symbol_type%20%3F;has_biological_sequence(i):biological_sequence%20%3F;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[GenotypeToGeneAssociation]-%20object%201..1>[Gene],[SequenceVariant]-%20has%20gene(i)%200..*>[Gene],[GeneGroupingMixin]-%20has%20gene%20or%20gene%20product%200..*>[Gene],[SequenceVariant]-%20has%20gene%200..*>[Gene],[TranscriptToGeneRelationship]-%20object%201..1>[Gene],[VariantToGeneAssociation]-%20object%201..1>[Gene],[GeneOrGeneProduct]^-[Gene],[GeneGroupingMixin],[DiseaseOrPhenotypicFeature],[Attribute],[Agent])
+
+## Identifier prefixes
+
+ * NCBIGENE
+ * ENSEMBL
+ * HGNC
+ * UniProtKB
+ * MGI
+ * ZFIN
+ * dictyBase
+ * WB
+ * WormBase
+ * FlyBase
+ * FB
+ * RGD
+ * SGD
+ * POMBASE
 
 ## Parents
 

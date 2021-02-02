@@ -1,5 +1,5 @@
 
-# Type: reagent targeted gene
+# Class: ReagentTargetedGene
 
 
 A gene altered in its expression level in the context of some experiment as a result of being targeted by gene-knockdown reagent(s) such as a morpholino or RNAi.

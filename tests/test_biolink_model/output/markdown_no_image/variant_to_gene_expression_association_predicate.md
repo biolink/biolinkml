@@ -1,5 +1,5 @@
 
-# Type: variant to gene expression association_predicate
+# Slot: variant_to_gene_expression_association_predicate
 
 
 

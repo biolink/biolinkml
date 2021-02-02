@@ -1,5 +1,5 @@
 
-# Type: summary
+# Slot: summary
 
 
 executive  summary of a publication

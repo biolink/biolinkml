@@ -1,5 +1,5 @@
 
-# Type: quantifier qualifier
+# Slot: quantifier_qualifier
 
 
 A measurable quantity for the object of the association

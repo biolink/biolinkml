@@ -1,5 +1,5 @@
 
-# Type: class_definition
+# Class: ClassDefinition
 
 
 the definition of a class or interface

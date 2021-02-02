@@ -1,5 +1,5 @@
 
-# Type: pages
+# Slot: pages
 
 
 page number of source referenced for statement or publication

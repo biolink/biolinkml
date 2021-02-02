@@ -1,5 +1,5 @@
 
-# Type: edge label _(deprecated)_
+# Slot: edge_label _(deprecated)_
 
 
 

@@ -1,5 +1,5 @@
 
-# Type: timepoint
+# Slot: timepoint
 
 
 a point in time

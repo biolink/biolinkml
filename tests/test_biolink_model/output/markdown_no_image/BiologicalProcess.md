@@ -1,5 +1,5 @@
 
-# Type: biological process
+# Class: BiologicalProcess
 
 
 One or more causally connected executions of molecular functions
@@ -8,6 +8,13 @@ URI: [biolink:BiologicalProcess](https://w3id.org/biolink/vocab/BiologicalProces
 
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/[PhysiologicalProcess],[PhysicalEntity],[Pathway],[PathologicalProcess],[Occurrent],[NamedThing],[MacromolecularMachineToBiologicalProcessAssociation],[Death],[BiologicalProcessOrActivity],[MacromolecularMachineToBiologicalProcessAssociation]-%20object%201..1>[BiologicalProcess&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[BiologicalProcess]uses%20-.->[Occurrent],[BiologicalProcess]^-[PhysiologicalProcess],[BiologicalProcess]^-[Pathway],[BiologicalProcess]^-[PathologicalProcess],[BiologicalProcess]^-[Death],[BiologicalProcess]^-[Behavior],[BiologicalProcessOrActivity]^-[BiologicalProcess],[Behavior],[Attribute],[Agent])
+
+## Identifier prefixes
+
+ * GO
+ * REACT
+ * MetaCyc
+ * KEGG
 
 ## Parents
 

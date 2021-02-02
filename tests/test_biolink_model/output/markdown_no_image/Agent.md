@@ -1,5 +1,5 @@
 
-# Type: agent
+# Class: Agent
 
 
 person, group, organization or project that provides a piece of information (i.e. a knowledge association)
@@ -8,6 +8,15 @@ URI: [biolink:Agent](https://w3id.org/biolink/vocab/Agent)
 
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[NamedThing],[InformationContentEntity],[ContributorAssociation],[Attribute],[Association],[ContributorAssociation]-%20object%201..1>[Agent&#124;affiliation:uriorcurie%20*;address:string%20%3F;id:string;name:label_type%20%3F;iri(i):iri_type%20%3F;type(i):string%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[Entity]-%20provided%20by%200..*>[Agent],[AdministrativeEntity]^-[Agent],[Entity],[AdministrativeEntity])
+
+## Identifier prefixes
+
+ * isbn
+ * ORCID
+ * ScopusID
+ * ResearchID
+ * GSID
+ * isni
 
 ## Parents
 

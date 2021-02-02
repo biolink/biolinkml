@@ -1,5 +1,5 @@
 
-# Type: environmental exposure
+# Class: EnvironmentalExposure
 
 
 A environmental exposure is a factor relating to abiotic processes in the environment including atmospheric (heat, cold, general pollution) and water-born contaminants

@@ -1,5 +1,5 @@
 
-# Type: subsets
+# Slot: subsets
 
 
 list of subsets referenced in this model

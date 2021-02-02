@@ -1,5 +1,5 @@
 
-# Type: child of named thing_subject
+# Slot: //example.com/test65/child_of_named_thing_subject
 
 
 

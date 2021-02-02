@@ -1,5 +1,5 @@
 
-# Type: regulates, process to process
+# Slot: regulates_process_to_process
 
 
 

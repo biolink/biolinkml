@@ -1,5 +1,5 @@
 
-# Type: is non coding variant of
+# Slot: is_non_coding_variant_of
 
 
 holds between a sequence variant and a gene, where the variant does not affect the coding sequence

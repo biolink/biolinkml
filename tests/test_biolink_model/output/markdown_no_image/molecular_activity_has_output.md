@@ -1,5 +1,5 @@
 
-# Type: molecular activity_has output
+# Slot: molecular_activity_has_output
 
 
 A chemical entity that is the output for the reaction

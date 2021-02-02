@@ -1,5 +1,5 @@
 
-# Type: distribution
+# Slot: distribution
 
 
 

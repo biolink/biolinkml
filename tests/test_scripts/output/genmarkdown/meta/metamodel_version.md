@@ -1,5 +1,5 @@
 
-# Type: metamodel_version
+# Slot: metamodel_version
 
 
 Version of the metamodel used to load the schema

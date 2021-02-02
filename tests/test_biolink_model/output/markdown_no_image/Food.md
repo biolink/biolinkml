@@ -1,5 +1,5 @@
 
-# Type: food
+# Class: Food
 
 
 A substance consumed by a living organism as a source of nutrition
@@ -8,6 +8,10 @@ URI: [biolink:Food](https://w3id.org/biolink/vocab/Food)
 
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon],[NamedThing],[MolecularEntity],[Mixture],[ChemicalSubstance]<has%20nutrient%200..*-%20[Food&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[Food]uses%20-.->[Mixture],[MolecularEntity]^-[Food],[ChemicalSubstance],[Attribute],[Agent])
+
+## Identifier prefixes
+
+ * foodb.compound
 
 ## Parents
 

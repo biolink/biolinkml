@@ -1,5 +1,5 @@
 
-# Type: chi squared statistic
+# Slot: chi_squared_statistic
 
 
 represents the chi-squared statistic computed from observations

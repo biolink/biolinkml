@@ -1,5 +1,5 @@
 
-# Type: administrative entity
+# Class: AdministrativeEntity
 
 
 

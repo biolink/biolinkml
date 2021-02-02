@@ -1,5 +1,5 @@
 
-# Type: article
+# Class: Article
 
 
 
@@ -8,6 +8,10 @@ URI: [biolink:Article](https://w3id.org/biolink/vocab/Article)
 
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[NamedThing],[Attribute],[Publication]^-[Article&#124;published_in:uriorcurie;iso_abbreviation:string%20%3F;volume:string%20%3F;issue:string%20%3F;authors(i):string%20*;pages(i):string%20*;summary(i):string%20%3F;keywords(i):string%20*;mesh_terms(i):uriorcurie%20*;xref(i):iri_type%20*;id(i):string;name(i):label_type%20%3F;type(i):string;license(i):string%20%3F;rights(i):string%20%3F;format(i):string%20%3F;creation_date(i):date%20%3F;iri(i):iri_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[Agent])
+
+## Identifier prefixes
+
+ * PMID
 
 ## Parents
 

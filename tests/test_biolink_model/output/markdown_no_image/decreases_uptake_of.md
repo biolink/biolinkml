@@ -1,5 +1,5 @@
 
-# Type: decreases uptake of
+# Slot: decreases_uptake_of
 
 
 holds between two molecular entities where the action or effect of one decreases the rate of uptake of the other into of a cell, gland, or organ

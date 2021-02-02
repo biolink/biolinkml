@@ -1,5 +1,5 @@
 
-# Type: has confidence level
+# Slot: has_confidence_level
 
 
 connects an association to a qualitative term denoting the level of confidence

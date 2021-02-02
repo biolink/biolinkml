@@ -1,5 +1,5 @@
 
-# Type: clinical intervention
+# Class: ClinicalIntervention
 
 
 

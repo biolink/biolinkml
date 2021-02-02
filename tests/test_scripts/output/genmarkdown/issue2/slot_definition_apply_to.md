@@ -1,5 +1,5 @@
 
-# Type: slot_definition_apply_to
+# Slot: slot_definition_apply_to
 
 
 

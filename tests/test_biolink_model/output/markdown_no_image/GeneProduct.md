@@ -1,5 +1,5 @@
 
-# Type: gene product
+# Class: GeneProduct
 
 
 The functional molecular product of a single gene. Gene products are either proteins or functional RNA molecules
@@ -8,6 +8,12 @@ URI: [biolink:GeneProduct](https://w3id.org/biolink/vocab/GeneProduct)
 
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Transcript],[Protein],[OrganismTaxon],[NamedThing],[GeneToGeneProductRelationship],[GeneToGeneProductRelationship]-%20object%201..1>[GeneProduct&#124;synonym:label_type%20*;xref:iri_type%20*;name(i):symbol_type%20%3F;has_biological_sequence(i):biological_sequence%20%3F;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[GeneProduct]^-[Transcript],[GeneProduct]^-[Protein],[GeneProduct]^-[RNAProduct],[GeneOrGeneProduct]^-[GeneProduct],[GeneOrGeneProduct],[Gene],[Attribute],[Agent],[RNAProduct])
+
+## Identifier prefixes
+
+ * UniProtKB
+ * gtpo
+ * PR
 
 ## Parents
 

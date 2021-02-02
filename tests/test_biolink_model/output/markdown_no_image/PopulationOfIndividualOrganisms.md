@@ -1,5 +1,5 @@
 
-# Type: population of individual organisms
+# Class: PopulationOfIndividualOrganisms
 
 
 A collection of individuals from the same taxonomic class distinguished by one or more characteristics. Characteristics can include, but are not limited to, shared geographic location, genetics, phenotypes [Alliance for Genome Resources]
@@ -8,6 +8,10 @@ URI: [biolink:PopulationOfIndividualOrganisms](https://w3id.org/biolink/vocab/Po
 
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/[VariantToPopulationAssociation],[ThingWithTaxon],[StudyPopulation],[PopulationToPopulationAssociation],[ExposureEventToOutcomeAssociation]-%20has%20population%20context%200..1>[PopulationOfIndividualOrganisms&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[PopulationToPopulationAssociation]-%20object%201..1>[PopulationOfIndividualOrganisms],[PopulationToPopulationAssociation]-%20subject%201..1>[PopulationOfIndividualOrganisms],[VariantToPopulationAssociation]-%20object%201..1>[PopulationOfIndividualOrganisms],[PopulationOfIndividualOrganisms]uses%20-.->[ThingWithTaxon],[PopulationOfIndividualOrganisms]^-[StudyPopulation],[OrganismalEntity]^-[PopulationOfIndividualOrganisms],[OrganismalEntity],[OrganismTaxon],[NamedThing],[ExposureEventToOutcomeAssociation],[Attribute],[Association],[Agent])
+
+## Identifier prefixes
+
+ * HANCESTRO
 
 ## Parents
 

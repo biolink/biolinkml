@@ -1,5 +1,5 @@
 
-# Type: has constituent
+# Slot: has_constituent
 
 
 one or more chemical substances within a mixture

@@ -1,5 +1,5 @@
 
-# Type: variant to population association_object
+# Slot: variant_to_population_association_object
 
 
 the population that is observed to have the frequency

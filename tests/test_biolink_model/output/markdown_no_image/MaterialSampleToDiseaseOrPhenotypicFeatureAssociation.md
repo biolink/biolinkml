@@ -1,5 +1,5 @@
 
-# Type: material sample to disease or phenotypic feature association
+# Class: MaterialSampleToDiseaseOrPhenotypicFeatureAssociation
 
 
 An association between a material sample and a disease or phenotype.

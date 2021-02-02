@@ -1,5 +1,5 @@
 
-# Type: publications
+# Slot: publications
 
 
 connects an association to publications supporting the association

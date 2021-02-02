@@ -1,5 +1,5 @@
 
-# Type: predicate
+# Slot: predicate
 
 
 A high-level grouping for the relationship type. AKA minimal predicate. This is analogous to category for nodes.

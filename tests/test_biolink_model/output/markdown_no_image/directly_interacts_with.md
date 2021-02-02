@@ -1,5 +1,5 @@
 
-# Type: directly interacts with
+# Slot: directly_interacts_with
 
 
 Holds between molecular entities that physically and directly interact with each other

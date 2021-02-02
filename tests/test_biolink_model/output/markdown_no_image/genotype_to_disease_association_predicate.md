@@ -1,5 +1,5 @@
 
-# Type: genotype to disease association_predicate
+# Slot: genotype_to_disease_association_predicate
 
 
 E.g. is pathogenic for

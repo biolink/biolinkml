@@ -1,5 +1,5 @@
 
-# Type: annotatable
+# Class: Annotatable
 
 
 mixin for classes that support annotations

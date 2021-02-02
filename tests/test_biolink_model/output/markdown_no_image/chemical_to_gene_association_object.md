@@ -1,5 +1,5 @@
 
-# Type: chemical to gene association_object
+# Slot: chemical_to_gene_association_object
 
 
 the gene or gene product that is affected by the chemical

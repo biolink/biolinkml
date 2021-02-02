@@ -1,5 +1,5 @@
 
-# Type: prefix_reference
+# Slot: prefix_reference
 
 
 A URI associated with a given prefix

@@ -1,5 +1,5 @@
 
-# Type: systematic synonym
+# Slot: systematic_synonym
 
 
 more commonly used for gene symbols in yeast

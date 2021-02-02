@@ -1,5 +1,5 @@
 
-# Type: annotations
+# Slot: annotations
 
 
 a collection of tag/text tuples with the semantics of OWL Annotation

@@ -1,5 +1,5 @@
 
-# Type: local_name_source
+# Slot: local_name_source
 
 
 the ncname of the source of the name

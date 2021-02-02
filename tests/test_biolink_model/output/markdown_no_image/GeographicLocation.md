@@ -1,5 +1,5 @@
 
-# Type: geographic location
+# Class: GeographicLocation
 
 
 a location that can be described in lat/long coordinates

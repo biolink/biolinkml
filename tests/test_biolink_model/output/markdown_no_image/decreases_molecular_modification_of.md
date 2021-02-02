@@ -1,5 +1,5 @@
 
-# Type: decreases molecular modification of
+# Slot: decreases_molecular_modification_of
 
 
 holds between two molecular entities where the action or effect of one leads to decreased molecular modification(s) of the other (e.g. via post-translational modifications of proteins such as the addition of phosphoryl group, or via redox reaction that adds or subtracts electrons)

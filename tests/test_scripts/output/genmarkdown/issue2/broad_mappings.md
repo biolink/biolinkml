@@ -1,5 +1,5 @@
 
-# Type: broad mappings
+# Slot: broad_mappings
 
 
 A list of terms from different schemas or terminology systems that have broader meaning.

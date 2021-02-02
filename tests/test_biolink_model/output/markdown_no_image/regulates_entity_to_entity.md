@@ -1,5 +1,5 @@
 
-# Type: regulates, entity to entity
+# Slot: regulates_entity_to_entity
 
 
 

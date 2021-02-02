@@ -1,5 +1,5 @@
 
-# Type: disease or phenotypic feature to location association_object
+# Slot: disease_or_phenotypic_feature_to_location_association_object
 
 
 anatomical entity in which the disease or feature is found.

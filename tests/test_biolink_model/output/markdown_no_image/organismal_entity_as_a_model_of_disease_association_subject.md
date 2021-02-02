@@ -1,5 +1,5 @@
 
-# Type: organismal entity as a model of disease association_subject
+# Slot: organismal_entity_as_a_model_of_disease_association_subject
 
 
 A organismal entity (strain, breed) with a predisposition to a disease, or bred/created specifically to model a disease.

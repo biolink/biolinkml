@@ -1,5 +1,5 @@
 
-# Type: cellular component
+# Class: CellularComponent
 
 
 A location in or around a cell
@@ -8,6 +8,16 @@ URI: [biolink:CellularComponent](https://w3id.org/biolink/vocab/CellularComponen
 
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon],[NamedThing],[MacromolecularMachineToCellularComponentAssociation],[MacromolecularMachineToCellularComponentAssociation]-%20object%201..1>[CellularComponent&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[AnatomicalEntity]^-[CellularComponent],[Attribute],[AnatomicalEntity],[Agent])
+
+## Identifier prefixes
+
+ * GO
+ * MESH
+ * UMLS
+ * NCIT
+ * SNOMEDCT
+ * CL
+ * UBERON
 
 ## Parents
 

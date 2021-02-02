@@ -1,5 +1,5 @@
 
-# Type: clinical measurement_has attribute type
+# Slot: clinical_measurement_has_attribute_type
 
 
 

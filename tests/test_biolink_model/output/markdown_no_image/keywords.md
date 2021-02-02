@@ -1,5 +1,5 @@
 
-# Type: keywords
+# Slot: keywords
 
 
 keywords tagging a publication

@@ -1,5 +1,5 @@
 
-# Type: created_on
+# Slot: created_on
 
 
 time at which the element was created

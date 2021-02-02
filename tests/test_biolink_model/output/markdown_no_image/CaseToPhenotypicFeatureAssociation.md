@@ -1,5 +1,5 @@
 
-# Type: case to phenotypic feature association
+# Class: CaseToPhenotypicFeatureAssociation
 
 
 An association between a case (e.g. individual patient) and a phenotypic feature in which the individual has or has had the phenotype.

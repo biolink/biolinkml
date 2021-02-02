@@ -1,5 +1,5 @@
 
-# Type: attribute
+# Class: Attribute
 
 
 A property or characteristic of an entity. For example, an apple may have properties such as color, shape, age, crispiness. An environmental sample may have attributes such as depth, lat, long, material.
@@ -8,6 +8,13 @@ URI: [biolink:Attribute](https://w3id.org/biolink/vocab/Attribute)
 
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Zygosity],[SocioeconomicAttribute],[SeverityValue],[QuantityValue],[OrganismalEntity],[OrganismAttribute],[OntologyClass],[NamedThing],[FrequencyValue],[ClinicalAttribute],[BiologicalSex],[NamedThing]<has%20qualitative%20value%200..1-%20[Attribute&#124;name:label_type%20%3F;iri:iri_type%20%3F;source:label_type%20%3F],[QuantityValue]<has%20quantitative%20value%200..*-++[Attribute],[OntologyClass]<has%20attribute%20type%201..1-%20[Attribute],[Entity]++-%20has%20attribute%200..*>[Attribute],[OrganismalEntity]++-%20has%20attribute%200..*>[Attribute],[Attribute]^-[Zygosity],[Attribute]^-[SocioeconomicAttribute],[Attribute]^-[SeverityValue],[Attribute]^-[OrganismAttribute],[Attribute]^-[FrequencyValue],[Attribute]^-[ClinicalAttribute],[Attribute]^-[BiologicalSex],[Annotation]^-[Attribute],[Entity],[Annotation])
+
+## Identifier prefixes
+
+ * EDAM-DATA
+ * EDAM-FORMAT
+ * EDAM-OPERATION
+ * EDAM-TOPIC
 
 ## Parents
 

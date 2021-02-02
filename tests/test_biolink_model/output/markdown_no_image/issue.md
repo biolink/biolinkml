@@ -1,5 +1,5 @@
 
-# Type: issue
+# Slot: issue
 
 
 issue of a newspaper, a scientific journal or magazine for reference purpose

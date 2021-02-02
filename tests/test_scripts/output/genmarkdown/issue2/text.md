@@ -1,5 +1,5 @@
 
-# Type: text
+# Slot: text
 
 
 

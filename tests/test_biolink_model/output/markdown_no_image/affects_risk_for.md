@@ -1,5 +1,5 @@
 
-# Type: affects risk for
+# Slot: affects_risk_for
 
 
 holds between two entities where exposure to one entity alters the chance of developing the other

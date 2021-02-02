@@ -1,5 +1,5 @@
 
-# Type: last_updated_on
+# Slot: last_updated_on
 
 
 time at which the element was last updated

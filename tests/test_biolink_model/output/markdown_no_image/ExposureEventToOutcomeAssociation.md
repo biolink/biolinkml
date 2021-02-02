@@ -1,5 +1,5 @@
 
-# Type: exposure event to outcome association
+# Class: ExposureEventToOutcomeAssociation
 
 
 An association between an exposure event and an outcome.

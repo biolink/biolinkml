@@ -1,5 +1,5 @@
 
-# Type: variant to entity association mixin
+# Class: VariantToEntityAssociationMixin
 
 
 

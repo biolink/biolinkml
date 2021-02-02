@@ -1,5 +1,5 @@
 
-# Type: prefixes
+# Slot: prefixes
 
 
 prefix / URI definitions to be added to the context beyond those fetched from prefixcommons in id prefixes

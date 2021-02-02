@@ -1,5 +1,5 @@
 
-# Type: similar to
+# Slot: similar_to
 
 
 holds between an entity and some other entity with similar features.

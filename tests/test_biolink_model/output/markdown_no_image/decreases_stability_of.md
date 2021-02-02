@@ -1,5 +1,5 @@
 
-# Type: decreases stability of
+# Slot: decreases_stability_of
 
 
 holds between two molecular entities where the action or effect of one decreases the stability of the other within a system of interest

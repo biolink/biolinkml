@@ -1,5 +1,5 @@
 
-# Type: gene to disease association
+# Class: GeneToDiseaseAssociation
 
 
 

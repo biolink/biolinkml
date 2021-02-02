@@ -1,5 +1,5 @@
 
-# Type: source file
+# Class: SourceFile
 
 
 

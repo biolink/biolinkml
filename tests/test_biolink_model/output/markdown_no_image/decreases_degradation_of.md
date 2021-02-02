@@ -1,5 +1,5 @@
 
-# Type: decreases degradation of
+# Slot: decreases_degradation_of
 
 
 holds between two molecular entities where the action or effect of one decreases the rate of degradation of the other within a system of interest

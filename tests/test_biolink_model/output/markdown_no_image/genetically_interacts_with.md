@@ -1,5 +1,5 @@
 
-# Type: genetically interacts with
+# Slot: genetically_interacts_with
 
 
 holds between two genes whose phenotypic effects are dependent on each other in some way - such that their combined phenotypic effects are the result of some interaction between the activity of their gene products. Examples include epistasis and synthetic lethality.

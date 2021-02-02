@@ -1,5 +1,5 @@
 
-# Type: individual organism
+# Class: IndividualOrganism
 
 
 An instance of an organism. For example, Richard Nixon, Charles Darwin, my pet cat. Example ID: ORCID:0000-0002-5355-2576
@@ -8,6 +8,10 @@ URI: [biolink:IndividualOrganism](https://w3id.org/biolink/vocab/IndividualOrgan
 
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/[ThingWithTaxon],[OrganismalEntity],[OrganismTaxon],[NamedThing],[IndividualOrganism&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F]uses%20-.->[ThingWithTaxon],[IndividualOrganism]^-[Case],[OrganismalEntity]^-[IndividualOrganism],[Case],[Attribute],[Agent])
+
+## Identifier prefixes
+
+ * ORCID
 
 ## Parents
 

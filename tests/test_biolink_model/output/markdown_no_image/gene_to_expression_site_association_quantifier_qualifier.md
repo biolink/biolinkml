@@ -1,5 +1,5 @@
 
-# Type: gene to expression site association_quantifier qualifier
+# Slot: gene_to_expression_site_association_quantifier_qualifier
 
 
 can be used to indicate magnitude, or also ranking

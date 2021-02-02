@@ -1,5 +1,5 @@
 
-# Type: data file
+# Class: DataFile
 
 
 

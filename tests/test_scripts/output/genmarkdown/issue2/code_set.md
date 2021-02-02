@@ -1,5 +1,5 @@
 
-# Type: code_set
+# Slot: code_set
 
 
 the identifier of an enumeration code set.

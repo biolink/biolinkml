@@ -1,5 +1,5 @@
 
-# Type: type
+# Slot: type
 
 
 

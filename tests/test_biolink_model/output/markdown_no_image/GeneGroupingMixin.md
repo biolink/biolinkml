@@ -1,5 +1,5 @@
 
-# Type: gene grouping mixin
+# Class: GeneGroupingMixin
 
 
 any grouping of multiple genes or gene products

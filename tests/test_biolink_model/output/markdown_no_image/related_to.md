@@ -1,5 +1,5 @@
 
-# Type: related to
+# Slot: related_to
 
 
 A relationship that is asserted between two named things

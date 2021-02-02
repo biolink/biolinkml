@@ -1,5 +1,5 @@
 
-# Type: frequency qualifier mixin
+# Class: FrequencyQualifierMixin
 
 
 Qualifier for frequency type associations

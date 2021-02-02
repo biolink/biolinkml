@@ -1,5 +1,5 @@
 
-# Type: ontology class
+# Class: OntologyClass
 
 
 a concept or class in an ontology, vocabulary or thesaurus

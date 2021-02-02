@@ -1,5 +1,5 @@
 
-# Type: is sequence variant of
+# Slot: is_sequence_variant_of
 
 
 holds between a sequence variant and a genomic entity

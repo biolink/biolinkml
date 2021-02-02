@@ -1,5 +1,5 @@
 
-# Type: RNA product isoform
+# Class: RNAProductIsoform
 
 
 Represents a protein that is a specific isoform of the canonical or reference RNA
@@ -8,6 +8,10 @@ URI: [biolink:RNAProductIsoform](https://w3id.org/biolink/vocab/RNAProductIsofor
 
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon],[NamedThing],[GeneProductIsoform],[Attribute],[Agent],[RNAProductIsoform&#124;synonym(i):label_type%20*;xref(i):iri_type%20*;name(i):symbol_type%20%3F;has_biological_sequence(i):biological_sequence%20%3F;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F]uses%20-.->[GeneProductIsoform],[RNAProduct]^-[RNAProductIsoform],[RNAProduct])
+
+## Identifier prefixes
+
+ * RNACENTRAL
 
 ## Parents
 

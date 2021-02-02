@@ -1,5 +1,5 @@
 
-# Type: role
+# Slot: role
 
 
 the role played by the slot range

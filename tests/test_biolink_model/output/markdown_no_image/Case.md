@@ -1,5 +1,5 @@
 
-# Type: case
+# Class: Case
 
 
 An individual (human) organism that has a patient role in some clinical context.

@@ -1,5 +1,5 @@
 
-# Type: quotient
+# Type: Quotient
 
 
 

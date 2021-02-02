@@ -1,5 +1,5 @@
 
-# Type: chemical to chemical derivation association_predicate
+# Slot: chemical_to_chemical_derivation_association_predicate
 
 
 

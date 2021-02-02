@@ -1,5 +1,5 @@
 
-# Type: disrupts
+# Slot: disrupts
 
 
 describes a relationship where one entity degrades or interferes with the structure, function, or occurrence of another.

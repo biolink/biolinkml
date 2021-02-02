@@ -1,5 +1,5 @@
 
-# Type: has increased amount
+# Slot: has_increased_amount
 
 
 

@@ -1,5 +1,5 @@
 
-# Type: functional association_object
+# Slot: functional_association_object
 
 
 class describing the activity, process or localization of the gene product

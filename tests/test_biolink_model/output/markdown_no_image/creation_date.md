@@ -1,5 +1,5 @@
 
-# Type: creation date
+# Slot: creation_date
 
 
 date on which an entity was created. This can be applied to nodes or edges

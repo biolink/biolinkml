@@ -1,5 +1,5 @@
 
-# Type: produces
+# Slot: produces
 
 
 holds between a material entity and a product that is generated through the intentional actions or functioning of the material entity

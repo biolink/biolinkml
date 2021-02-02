@@ -1,5 +1,5 @@
 
-# Type: regulates
+# Slot: regulates
 
 
 

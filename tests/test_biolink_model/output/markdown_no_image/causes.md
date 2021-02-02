@@ -1,5 +1,5 @@
 
-# Type: causes
+# Slot: causes
 
 
 holds between two entities where the occurrence, existence, or activity of one causes the occurrence or generation of the other

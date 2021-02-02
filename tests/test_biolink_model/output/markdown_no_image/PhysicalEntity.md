@@ -1,5 +1,5 @@
 
-# Type: physical entity
+# Class: PhysicalEntity
 
 
 An entity that has material reality (a.k.a. physical essence).

@@ -1,5 +1,5 @@
 
-# Type: clinical modifier
+# Class: ClinicalModifier
 
 
 Used to characterize and specify the phenotypic abnormalities defined in the phenotypic abnormality sub-ontology, with respect to severity, laterality, and other aspects

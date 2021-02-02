@@ -1,5 +1,5 @@
 
-# Type: types
+# Slot: types
 
 
 data types used in the model

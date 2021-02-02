@@ -1,5 +1,5 @@
 
-# Type: decreases folding of
+# Slot: decreases_folding_of
 
 
 holds between two molecular entities where the action or effect of one decreases the rate or quality of folding of the other

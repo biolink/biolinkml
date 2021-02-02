@@ -1,5 +1,5 @@
 
-# Type: transcript
+# Class: Transcript
 
 
 An RNA synthesized on a DNA or RNA template by an RNA polymerase
@@ -8,6 +8,11 @@ URI: [biolink:Transcript](https://w3id.org/biolink/vocab/Transcript)
 
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/[TranscriptToGeneRelationship],[ExonToTranscriptRelationship]-%20object%201..1>[Transcript&#124;synonym(i):label_type%20*;xref(i):iri_type%20*;name(i):symbol_type%20%3F;has_biological_sequence(i):biological_sequence%20%3F;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[TranscriptToGeneRelationship]-%20subject%201..1>[Transcript],[GeneProduct]^-[Transcript],[OrganismTaxon],[NamedThing],[MolecularEntity],[GeneProduct],[ExonToTranscriptRelationship],[Attribute],[Agent])
+
+## Identifier prefixes
+
+ * ENSEMBL
+ * FlyBase
 
 ## Parents
 

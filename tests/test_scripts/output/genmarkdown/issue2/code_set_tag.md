@@ -1,5 +1,5 @@
 
-# Type: code_set_tag
+# Slot: code_set_tag
 
 
 the version tag of the enumeration code set

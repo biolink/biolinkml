@@ -1,5 +1,5 @@
 
-# Type: entity to outcome association mixin_object
+# Slot: entity_to_outcome_association_mixin_object
 
 
 

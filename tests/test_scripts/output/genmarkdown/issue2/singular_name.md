@@ -1,5 +1,5 @@
 
-# Type: singular_name
+# Slot: singular_name
 
 
 a name that is used in the singular form

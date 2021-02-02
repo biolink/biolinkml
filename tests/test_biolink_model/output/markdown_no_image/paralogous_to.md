@@ -1,5 +1,5 @@
 
-# Type: paralogous to
+# Slot: paralogous_to
 
 
 a homology relationship that holds between entities (typically genes) that diverged after a duplication event.

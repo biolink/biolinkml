@@ -1,5 +1,5 @@
 
-# Type: description
+# Slot: description
 
 
 a human-readable description of an entity

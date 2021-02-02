@@ -1,5 +1,5 @@
 
-# Type: comments
+# Slot: comments
 
 
 notes and comments about an element intended for external consumption

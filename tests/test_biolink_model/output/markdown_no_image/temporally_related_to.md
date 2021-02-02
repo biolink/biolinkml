@@ -1,5 +1,5 @@
 
-# Type: temporally related to
+# Slot: temporally_related_to
 
 
 holds between two entities with a temporal relationship

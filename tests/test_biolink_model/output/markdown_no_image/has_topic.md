@@ -1,5 +1,5 @@
 
-# Type: has topic
+# Slot: has_topic
 
 
 Connects a node to a vocabulary term or ontology class that describes some aspect of the entity. In general specific characterization is preferred. See https://github.com/biolink/biolink-model/issues/238

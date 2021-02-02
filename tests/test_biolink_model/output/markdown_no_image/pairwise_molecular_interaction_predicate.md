@@ -1,5 +1,5 @@
 
-# Type: pairwise molecular interaction_predicate
+# Slot: pairwise_molecular_interaction_predicate
 
 
 

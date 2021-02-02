@@ -1,5 +1,5 @@
 
-# Type: close match
+# Slot: close_match
 
 
 holds between two entities that are considered a skos:closeMatch to one another

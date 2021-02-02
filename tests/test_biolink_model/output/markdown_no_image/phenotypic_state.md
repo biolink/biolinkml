@@ -1,5 +1,5 @@
 
-# Type: phenotypic state
+# Slot: phenotypic_state
 
 
 in experiments (e.g. gene expression) assaying diseased or unhealthy tissue, the phenotypic state can be put here, e.g. MONDO ID. For healthy tissues, use XXX.

@@ -1,5 +1,5 @@
 
-# Type: source web page
+# Slot: source_web_page
 
 
 

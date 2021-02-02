@@ -1,5 +1,5 @@
 
-# Type: local_name_value
+# Slot: local_name_value
 
 
 a name assigned to an element in a given ontology

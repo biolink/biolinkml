@@ -1,5 +1,5 @@
 
-# Type: pairwise molecular interaction_id
+# Slot: pairwise_molecular_interaction_id
 
 
 identifier for the interaction. This may come from an interaction database such as IMEX.

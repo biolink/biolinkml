@@ -1,5 +1,5 @@
 
-# Type: source
+# Slot: source
 
 
 a lightweight analog to the association class 'has provider' slot, which is the string name, or the authoritative (i.e. database) namespace, designating the origin of the entity to which the slot belongs.

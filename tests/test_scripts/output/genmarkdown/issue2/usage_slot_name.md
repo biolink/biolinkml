@@ -1,5 +1,5 @@
 
-# Type: usage_slot_name
+# Slot: usage_slot_name
 
 
 The name of the slot referenced in the slot_usage

@@ -1,5 +1,5 @@
 
-# Type: exon to transcript relationship
+# Class: ExonToTranscriptRelationship
 
 
 A transcript is formed from multiple exons

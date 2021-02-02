@@ -1,5 +1,5 @@
 
-# Type: has excipient
+# Slot: has_excipient
 
 
 one or more (generally inert) chemical substances which are formulated alongside the active ingredient of a drug

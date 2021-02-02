@@ -1,5 +1,5 @@
 
-# Type: subclass_of
+# Slot: subclass_of
 
 
 rdfs:subClassOf to be emitted in OWL generation

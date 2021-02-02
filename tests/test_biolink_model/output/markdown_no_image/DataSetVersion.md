@@ -1,5 +1,5 @@
 
-# Type: data set version
+# Class: DataSetVersion
 
 
 

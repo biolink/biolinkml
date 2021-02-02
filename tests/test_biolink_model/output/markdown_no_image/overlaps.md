@@ -1,5 +1,5 @@
 
-# Type: overlaps
+# Slot: overlaps
 
 
 holds between entities that overlap in their extents (materials or processes)

@@ -1,5 +1,5 @@
 
-# Type: symbol
+# Slot: symbol
 
 
 Symbol for a particular thing

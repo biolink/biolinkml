@@ -1,5 +1,5 @@
 
-# Type: permissible_value_is_a
+# Slot: permissible_value_is_a
 
 
 

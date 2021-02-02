@@ -1,5 +1,5 @@
 
-# Type: has output
+# Slot: has_output
 
 
 holds between a process and a continuant, where the continuant is an output of the process

@@ -1,5 +1,5 @@
 
-# Type: has sequence location
+# Slot: has_sequence_location
 
 
 holds between two genomic entities when the subject can be localized in sequence coordinates on the object. For example, between an exon and a chromosome/contig.

@@ -1,5 +1,5 @@
 
-# Type: gene to phenotypic feature association
+# Class: GeneToPhenotypicFeatureAssociation
 
 
 

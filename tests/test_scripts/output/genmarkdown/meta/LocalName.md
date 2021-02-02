@@ -1,5 +1,5 @@
 
-# Type: local_name
+# Class: LocalName
 
 
 an attributed label

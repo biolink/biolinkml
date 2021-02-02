@@ -1,5 +1,5 @@
 
-# Type: genotype to gene association_predicate
+# Slot: genotype_to_gene_association_predicate
 
 
 the relationship type used to connect genotype to gene

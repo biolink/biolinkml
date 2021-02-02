@@ -1,5 +1,5 @@
 
-# Type: tree_root
+# Slot: tree_root
 
 
 indicator that this is the root class in tree structures

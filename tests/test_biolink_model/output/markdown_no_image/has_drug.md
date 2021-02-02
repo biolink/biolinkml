@@ -1,5 +1,5 @@
 
-# Type: has drug
+# Slot: has_drug
 
 
 connects an entity to one or more drugs

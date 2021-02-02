@@ -1,5 +1,5 @@
 
-# Type: local_names
+# Slot: local_names
 
 
 

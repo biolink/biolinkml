@@ -1,5 +1,5 @@
 
-# Type: key
+# Slot: key
 
 
 True means that the key slot(s) uniquely identify the container. In future releases, it will be possible for there to be compound keys, where several slots combine to produce a unique identifier

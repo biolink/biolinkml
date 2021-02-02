@@ -1,5 +1,5 @@
 
-# Type: affects expression of
+# Slot: affects_expression_of
 
 
 holds between two molecular entities where the action or effect of one changes the level of expression of the other within a system of interest

@@ -1,5 +1,5 @@
 
-# Type: default_prefix
+# Slot: default_prefix
 
 
 default and base prefix -- used for ':' identifiers, @base and @vocab

@@ -1,5 +1,5 @@
 
-# Type: is nonsense variant of
+# Slot: is_nonsense_variant_of
 
 
 holds between a sequence variant and a gene, such the sequence variant results in a premature stop codon

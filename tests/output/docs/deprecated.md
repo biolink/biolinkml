@@ -1,5 +1,5 @@
 
-# Type: deprecated
+# Slot: deprecated
 
 
 Description of why and when this element will no longer be used

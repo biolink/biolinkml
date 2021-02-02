@@ -1,5 +1,5 @@
 
-# Type: named thing_category
+# Slot: named_thing_category
 
 
 

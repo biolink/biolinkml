@@ -1,5 +1,5 @@
 
-# Type: sensitivity quantifier
+# Class: SensitivityQuantifier
 
 
 

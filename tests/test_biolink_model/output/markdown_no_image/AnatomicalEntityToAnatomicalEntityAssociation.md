@@ -1,5 +1,5 @@
 
-# Type: anatomical entity to anatomical entity association
+# Class: AnatomicalEntityToAnatomicalEntityAssociation
 
 
 

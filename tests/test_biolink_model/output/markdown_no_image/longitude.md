@@ -1,5 +1,5 @@
 
-# Type: longitude
+# Slot: longitude
 
 
 longitude

@@ -1,5 +1,5 @@
 
-# Type: pathological process
+# Class: PathologicalProcess
 
 
 A biologic function or a process having an abnormal or deleterious effect at the subcellular, cellular, multicellular, or organismal level.

@@ -1,5 +1,5 @@
 
-# Type: in pathway with
+# Slot: in_pathway_with
 
 
 holds between two genes or gene products that are part of in the same biological pathway

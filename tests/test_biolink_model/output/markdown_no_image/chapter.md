@@ -1,5 +1,5 @@
 
-# Type: chapter
+# Slot: chapter
 
 
 chapter of a book

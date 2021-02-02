@@ -1,5 +1,5 @@
 
-# Type: anatomical entity to anatomical entity association_object
+# Slot: anatomical_entity_to_anatomical_entity_association_object
 
 
 

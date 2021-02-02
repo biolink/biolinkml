@@ -1,5 +1,5 @@
 
-# Type: source data file
+# Slot: source_data_file
 
 
 

@@ -1,5 +1,5 @@
 
-# Type: hospitalization outcome
+# Class: HospitalizationOutcome
 
 
 An outcome resulting from an exposure event which is the increased manifestation of acute (e.g. emergency room visit) or chronic (inpatient) hospitalization.

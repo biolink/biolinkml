@@ -1,5 +1,5 @@
 
-# Type: entity to disease or phenotypic feature association mixin_object
+# Slot: entity_to_disease_or_phenotypic_feature_association_mixin_object
 
 
 disease or phenotype

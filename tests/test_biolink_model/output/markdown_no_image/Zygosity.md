@@ -1,5 +1,5 @@
 
-# Type: zygosity
+# Class: Zygosity
 
 
 

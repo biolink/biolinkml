@@ -1,5 +1,5 @@
 
-# Type: article_published in
+# Slot: article_published_in
 
 
 The enclosing parent serial containing the article should have industry-standard identifier from ISSN.

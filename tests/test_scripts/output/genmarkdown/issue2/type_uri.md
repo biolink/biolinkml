@@ -1,5 +1,5 @@
 
-# Type: type_uri
+# Slot: type_uri
 
 
 The uri that defines the possible values for the type definition

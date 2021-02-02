@@ -1,5 +1,5 @@
 
-# Type: has source
+# Slot: //example.org/sample/example1/has_source
 
 
 

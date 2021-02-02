@@ -1,5 +1,5 @@
 
-# Type: increases splicing of
+# Slot: increases_splicing_of
 
 
 holds between a molecular entity and an mRNA where the action or effect of the molecular entity increases the proper splicing of the mRNA

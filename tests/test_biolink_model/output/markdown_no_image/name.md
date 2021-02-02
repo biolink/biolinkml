@@ -1,5 +1,5 @@
 
-# Type: name
+# Slot: name
 
 
 A human-readable name for an attribute or entity.

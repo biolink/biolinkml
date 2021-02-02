@@ -1,5 +1,5 @@
 
-# Type: contributor association_predicate
+# Slot: contributor_association_predicate
 
 
 generally one of the predicate values 'provider', 'publisher', 'editor' or 'author'

@@ -1,5 +1,5 @@
 
-# Type: biotic exposure
+# Class: BioticExposure
 
 
 A biotic exposure is an intake of (sometimes pathological) biological organisms (including viruses)

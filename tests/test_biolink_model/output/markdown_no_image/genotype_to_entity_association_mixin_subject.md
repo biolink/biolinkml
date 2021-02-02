@@ -1,5 +1,5 @@
 
-# Type: genotype to entity association mixin_subject
+# Slot: genotype_to_entity_association_mixin_subject
 
 
 genotype that is the subject of the association

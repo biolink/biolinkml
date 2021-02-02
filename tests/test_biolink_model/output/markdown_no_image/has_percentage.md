@@ -1,5 +1,5 @@
 
-# Type: has percentage
+# Slot: has_percentage
 
 
 equivalent to has quotient multiplied by 100

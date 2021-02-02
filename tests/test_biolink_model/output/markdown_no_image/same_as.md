@@ -1,5 +1,5 @@
 
-# Type: same as
+# Slot: same_as
 
 
 holds between two entities that are considered equivalent to each other

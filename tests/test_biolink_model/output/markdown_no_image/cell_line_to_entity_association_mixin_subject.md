@@ -1,5 +1,5 @@
 
-# Type: cell line to entity association mixin_subject
+# Slot: cell_line_to_entity_association_mixin_subject
 
 
 

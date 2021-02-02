@@ -1,5 +1,5 @@
 
-# Type: interacting molecules category
+# Slot: interacting_molecules_category
 
 
 

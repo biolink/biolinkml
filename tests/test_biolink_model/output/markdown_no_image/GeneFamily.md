@@ -1,5 +1,5 @@
 
-# Type: gene family
+# Class: GeneFamily
 
 
 any grouping of multiple genes or gene products related by common descent
@@ -8,6 +8,13 @@ URI: [biolink:GeneFamily](https://w3id.org/biolink/vocab/GeneFamily)
 
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon],[NamedThing],[MolecularEntity],[GeneGroupingMixin],[GeneFamily&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F]uses%20-.->[GeneGroupingMixin],[MolecularEntity]^-[GeneFamily],[Gene],[Attribute],[Agent])
+
+## Identifier prefixes
+
+ * PANTHER.FAMILY
+ * HGNC.FAMILY
+ * FlyBase
+ * interpro
 
 ## Parents
 

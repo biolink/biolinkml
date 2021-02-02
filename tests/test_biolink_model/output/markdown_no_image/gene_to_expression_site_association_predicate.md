@@ -1,5 +1,5 @@
 
-# Type: gene to expression site association_predicate
+# Slot: gene_to_expression_site_association_predicate
 
 
 expression relationship

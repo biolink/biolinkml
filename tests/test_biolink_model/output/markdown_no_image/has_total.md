@@ -1,5 +1,5 @@
 
-# Type: has total
+# Slot: has_total
 
 
 total number of things in a particular reference set

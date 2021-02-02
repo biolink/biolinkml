@@ -1,5 +1,5 @@
 
-# Type: permissible_values
+# Slot: permissible_values
 
 
 A list of possible values for a slot range

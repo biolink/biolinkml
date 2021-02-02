@@ -1,5 +1,5 @@
 
-# Type: domain_of
+# Slot: domain_of
 
 
 the class(es) that reference the slot in a "slots" or "slot_usage" context

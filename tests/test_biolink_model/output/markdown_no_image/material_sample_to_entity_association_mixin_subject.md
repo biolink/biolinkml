@@ -1,5 +1,5 @@
 
-# Type: material sample to entity association mixin_subject
+# Slot: material_sample_to_entity_association_mixin_subject
 
 
 the material sample being described

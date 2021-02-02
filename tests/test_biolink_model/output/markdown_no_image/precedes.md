@@ -1,5 +1,5 @@
 
-# Type: precedes
+# Slot: precedes
 
 
 holds between two processes, where one completes before the other begins

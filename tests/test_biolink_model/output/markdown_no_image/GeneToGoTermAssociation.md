@@ -1,5 +1,5 @@
 
-# Type: gene to go term association
+# Class: GeneToGoTermAssociation
 
 
 

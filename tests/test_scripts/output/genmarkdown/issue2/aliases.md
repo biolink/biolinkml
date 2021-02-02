@@ -1,5 +1,5 @@
 
-# Type: aliases
+# Slot: aliases
 
 
 

@@ -1,5 +1,5 @@
 
-# Type: license
+# Slot: license
 
 
 license for the schema

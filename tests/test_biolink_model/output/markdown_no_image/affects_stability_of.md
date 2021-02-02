@@ -1,5 +1,5 @@
 
-# Type: affects stability of
+# Slot: affects_stability_of
 
 
 holds between two molecular entities where the action or effect of one impacts the stability of the other within a system of interest

@@ -1,5 +1,5 @@
 
-# Type: organism taxon
+# Class: OrganismTaxon
 
 
 A classification of a set of organisms. Example instances: NCBITaxon:9606 (Homo sapiens), NCBITaxon:2 (Bacteria). Can also be used to represent strains or subspecies.
@@ -8,6 +8,11 @@ URI: [biolink:OrganismTaxon](https://w3id.org/biolink/vocab/OrganismTaxon)
 
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/[ThingWithTaxon],[TaxonomicRank],[OrganismTaxon]<subclass%20of%200..*-%20[OrganismTaxon&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[TaxonomicRank]<has%20taxonomic%20rank%200..1-%20[OrganismTaxon],[ThingWithTaxon]-%20in%20taxon%200..*>[OrganismTaxon],[OrganismTaxon]^-[BioticExposure],[OntologyClass]^-[OrganismTaxon],[OntologyClass],[NamedThing],[BioticExposure],[Attribute],[Agent])
+
+## Identifier prefixes
+
+ * NCBITaxon
+ * MESH
 
 ## Parents
 

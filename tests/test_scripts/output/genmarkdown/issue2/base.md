@@ -1,5 +1,5 @@
 
-# Type: base
+# Slot: base
 
 
 python base type that implements this type definition

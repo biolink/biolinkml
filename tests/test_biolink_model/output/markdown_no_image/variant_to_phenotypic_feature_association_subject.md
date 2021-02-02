@@ -1,5 +1,5 @@
 
-# Type: variant to phenotypic feature association_subject
+# Slot: variant_to_phenotypic_feature_association_subject
 
 
 a sequence variant in which the allele state is associated in some way with the phenotype state

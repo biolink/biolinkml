@@ -1,5 +1,5 @@
 
-# Type: model of
+# Slot: model_of
 
 
 holds between an entity and some other entity it approximates for purposes of scientific study, in virtue of its exhibiting similar features of the studied entity.

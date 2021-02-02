@@ -1,5 +1,5 @@
 
-# Type: predisposes
+# Slot: predisposes
 
 
 holds between two entities where exposure to one entity increases the chance of developing the other

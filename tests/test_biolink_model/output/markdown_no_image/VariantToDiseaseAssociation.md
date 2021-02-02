@@ -1,5 +1,5 @@
 
-# Type: variant to disease association
+# Class: VariantToDiseaseAssociation
 
 
 

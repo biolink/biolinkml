@@ -1,5 +1,5 @@
 
-# Type: exact mappings
+# Slot: exact_mappings
 
 
 A list of terms from different schemas or terminology systems that have identical meaning.

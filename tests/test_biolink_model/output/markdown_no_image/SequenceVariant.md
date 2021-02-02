@@ -1,5 +1,5 @@
 
-# Type: sequence variant
+# Class: SequenceVariant
 
 
 An allele that varies in its sequence from what is considered the reference allele at that locus.
@@ -8,6 +8,21 @@ URI: [biolink:SequenceVariant](https://w3id.org/biolink/vocab/SequenceVariant)
 
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/[VariantToPopulationAssociation],[VariantToPhenotypicFeatureAssociation],[VariantToEntityAssociationMixin],[VariantAsAModelOfDiseaseAssociation],[Snv],[SequenceVariantModulatesTreatmentAssociation],[Gene]<has%20gene%200..*-%20[SequenceVariant&#124;has_biological_sequence:biological_sequence%20%3F;id:string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[GenotypeToVariantAssociation]-%20object%201..1>[SequenceVariant],[SequenceVariantModulatesTreatmentAssociation]-%20subject%201..1>[SequenceVariant],[GeneHasVariantThatContributesToDiseaseAssociation]-%20sequence%20variant%20qualifier%200..1>[SequenceVariant],[VariantAsAModelOfDiseaseAssociation]-%20subject%201..1>[SequenceVariant],[VariantToEntityAssociationMixin]-%20subject%201..1>[SequenceVariant],[VariantToPhenotypicFeatureAssociation]-%20subject%201..1>[SequenceVariant],[VariantToPopulationAssociation]-%20subject%201..1>[SequenceVariant],[SequenceVariant]^-[Snv],[GenomicEntity]^-[SequenceVariant],[OrganismTaxon],[NamedThing],[GenotypeToVariantAssociation],[GenomicEntity],[GeneHasVariantThatContributesToDiseaseAssociation],[Gene],[Attribute],[Association],[Agent])
+
+## Identifier prefixes
+
+ * CAID
+ * CLINVAR
+ * ClinVarVariant
+ * WIKIDATA
+ * DBSNP
+ * DBSNP
+ * MGI
+ * ZFIN
+ * FlyBase
+ * FB
+ * WB
+ * WormBase
 
 ## Parents
 

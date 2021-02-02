@@ -1,5 +1,5 @@
 
-# Type: pairwise molecular interaction_subject
+# Slot: pairwise_molecular_interaction_subject
 
 
 

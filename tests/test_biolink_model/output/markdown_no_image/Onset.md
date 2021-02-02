@@ -1,5 +1,5 @@
 
-# Type: onset
+# Class: Onset
 
 
 The age group in which (disease) symptom manifestations appear

@@ -1,5 +1,5 @@
 
-# Type: siRNA
+# Class: SiRNA
 
 
 A small RNA molecule that is the product of a longer exogenous or endogenous dsRNA, which is either a bimolecular duplex or very long hairpin, processed (via the Dicer pathway) such that numerous siRNAs accumulate from both strands of the dsRNA. SRNAs trigger the cleavage of their target molecules.
@@ -8,6 +8,12 @@ URI: [biolink:SiRNA](https://w3id.org/biolink/vocab/SiRNA)
 
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/[NoncodingRNAProduct]^-[SiRNA&#124;synonym(i):label_type%20*;xref(i):iri_type%20*;name(i):symbol_type%20%3F;has_biological_sequence(i):biological_sequence%20%3F;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[OrganismTaxon],[NoncodingRNAProduct],[NamedThing],[Attribute],[Agent])
+
+## Identifier prefixes
+
+ * MIR
+ * HGNC
+ * WormBase
 
 ## Parents
 

@@ -1,5 +1,5 @@
 
-# Type: id
+# Slot: id
 
 
 The official schema URI

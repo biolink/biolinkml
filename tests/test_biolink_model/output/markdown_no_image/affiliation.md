@@ -1,5 +1,5 @@
 
-# Type: affiliation
+# Slot: affiliation
 
 
 a professional relationship between one provider (often a person) within another provider (often an organization). Target provider identity should be specified by a CURIE. Providers may have multiple affiliations.

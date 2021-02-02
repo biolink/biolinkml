@@ -1,5 +1,5 @@
 
-# Type: definition_uri
+# Slot: definition_uri
 
 
 the "native" URI of the element

@@ -1,5 +1,5 @@
 
-# Type: functional association_subject
+# Slot: functional_association_subject
 
 
 gene, product or macromolecular complex that has the function associated with the GO term

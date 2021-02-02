@@ -1,5 +1,5 @@
 
-# Type: association
+# Class: Association
 
 
 A typed association between two entities, supported by evidence

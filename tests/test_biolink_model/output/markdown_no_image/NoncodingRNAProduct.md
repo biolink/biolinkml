@@ -1,5 +1,5 @@
 
-# Type: noncoding RNA product
+# Class: NoncodingRNAProduct
 
 
 
@@ -8,6 +8,12 @@ URI: [biolink:NoncodingRNAProduct](https://w3id.org/biolink/vocab/NoncodingRNAPr
 
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SiRNA],[OrganismTaxon],[NoncodingRNAProduct&#124;synonym(i):label_type%20*;xref(i):iri_type%20*;name(i):symbol_type%20%3F;has_biological_sequence(i):biological_sequence%20%3F;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F]^-[SiRNA],[NoncodingRNAProduct]^-[MicroRNA],[RNAProduct]^-[NoncodingRNAProduct],[NamedThing],[MicroRNA],[Attribute],[Agent],[RNAProduct])
+
+## Identifier prefixes
+
+ * RNACENTRAL
+ * NCBIGENE
+ * ENSEMBL
 
 ## Parents
 

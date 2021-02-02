@@ -1,5 +1,5 @@
 
-# Type: enables
+# Slot: enables
 
 
 holds between a physical entity and a process, where the physical entity executes the process

@@ -1,5 +1,5 @@
 
-# Type: imported_from
+# Slot: imported_from
 
 
 the imports entry that this element was derived from.  Empty means primary source

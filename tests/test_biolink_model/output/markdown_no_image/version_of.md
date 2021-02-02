@@ -1,5 +1,5 @@
 
-# Type: version of
+# Slot: version_of
 
 
 

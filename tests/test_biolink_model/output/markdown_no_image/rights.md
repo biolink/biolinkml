@@ -1,5 +1,5 @@
 
-# Type: rights
+# Slot: rights
 
 
 

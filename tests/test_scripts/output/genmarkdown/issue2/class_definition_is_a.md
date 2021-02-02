@@ -1,5 +1,5 @@
 
-# Type: class_definition_is_a
+# Slot: class_definition_is_a
 
 
 

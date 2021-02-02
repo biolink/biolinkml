@@ -1,5 +1,5 @@
 
-# Type: inlined
+# Slot: inlined
 
 
 True means that keyed or identified slot appears in an outer structure by value.  False means that only the key or identifier for the slot appears within the domain, referencing a structure that appears elsewhere.

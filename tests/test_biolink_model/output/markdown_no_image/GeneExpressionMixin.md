@@ -1,5 +1,5 @@
 
-# Type: gene expression mixin
+# Class: GeneExpressionMixin
 
 
 Observed gene expression intensity, context (site, stage) and associated phenotypic status within which the expression occurs.

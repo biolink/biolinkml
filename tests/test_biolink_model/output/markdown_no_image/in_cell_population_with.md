@@ -1,5 +1,5 @@
 
-# Type: in cell population with
+# Slot: in_cell_population_with
 
 
 holds between two genes or gene products that are expressed in the same cell type or population

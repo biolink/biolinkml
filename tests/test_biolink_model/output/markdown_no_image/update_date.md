@@ -1,5 +1,5 @@
 
-# Type: update date
+# Slot: update_date
 
 
 date on which an entity was updated. This can be applied to nodes or edges

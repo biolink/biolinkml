@@ -1,5 +1,5 @@
 
-# Type: decreases activity of
+# Slot: decreases_activity_of
 
 
 holds between two molecular entities where the action or effect of one decreases the activity of the other within a system of interest

@@ -1,5 +1,5 @@
 
-# Type: molecular entity to entity association mixin_subject
+# Slot: molecular_entity_to_entity_association_mixin_subject
 
 
 the molecular entity that is an interactor

@@ -1,5 +1,5 @@
 
-# Type: has not completed
+# Slot: has_not_completed
 
 
 holds between an entity and a process that the entity is capable of, but has not completed

@@ -1,5 +1,5 @@
 
-# Type: examples
+# Slot: examples
 
 
 example usages of an element

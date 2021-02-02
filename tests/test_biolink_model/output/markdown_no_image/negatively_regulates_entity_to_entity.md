@@ -1,5 +1,5 @@
 
-# Type: negatively regulates, entity to entity
+# Slot: negatively_regulates_entity_to_entity
 
 
 

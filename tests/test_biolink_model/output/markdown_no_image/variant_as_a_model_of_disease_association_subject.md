@@ -1,5 +1,5 @@
 
-# Type: variant as a model of disease association_subject
+# Slot: variant_as_a_model_of_disease_association_subject
 
 
 A variant that has a role in modeling the disease.

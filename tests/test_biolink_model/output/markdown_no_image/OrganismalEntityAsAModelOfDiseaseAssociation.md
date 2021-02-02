@@ -1,5 +1,5 @@
 
-# Type: organismal entity as a model of disease association
+# Class: OrganismalEntityAsAModelOfDiseaseAssociation
 
 
 

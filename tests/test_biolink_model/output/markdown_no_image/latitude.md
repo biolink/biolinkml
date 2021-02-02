@@ -1,5 +1,5 @@
 
-# Type: latitude
+# Slot: latitude
 
 
 latitude

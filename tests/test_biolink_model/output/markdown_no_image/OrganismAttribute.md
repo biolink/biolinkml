@@ -1,5 +1,5 @@
 
-# Type: organism attribute
+# Class: OrganismAttribute
 
 
 describes a characteristic of an organismal entity.

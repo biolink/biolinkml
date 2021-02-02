@@ -1,5 +1,5 @@
 
-# Type: prefix
+# Class: Prefix
 
 
 prefix URI tuple

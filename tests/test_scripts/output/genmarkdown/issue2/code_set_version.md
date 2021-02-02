@@ -1,5 +1,5 @@
 
-# Type: code_set_version
+# Slot: code_set_version
 
 
 the version identifier of the enumeration code set

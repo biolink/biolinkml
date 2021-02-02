@@ -1,5 +1,5 @@
 
-# Type: from_schema
+# Slot: from_schema
 
 
 id of the schema that defined the element

@@ -1,5 +1,5 @@
 
-# Type: sequence variant qualifier
+# Slot: sequence_variant_qualifier
 
 
 a qualifier used in an association with the variant

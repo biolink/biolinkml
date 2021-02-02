@@ -1,5 +1,5 @@
 
-# Type: variant to gene association
+# Class: VariantToGeneAssociation
 
 
 An association between a variant and a gene, where the variant has a genetic association with the gene (i.e. is in linkage disequilibrium)

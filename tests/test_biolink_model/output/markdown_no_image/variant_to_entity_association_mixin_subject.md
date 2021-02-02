@@ -1,5 +1,5 @@
 
-# Type: variant to entity association mixin_subject
+# Slot: variant_to_entity_association_mixin_subject
 
 
 a sequence variant in which the allele state is associated with some other entity

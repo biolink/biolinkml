@@ -1,5 +1,5 @@
 
-# Type: drug to entity association mixin_subject
+# Slot: drug_to_entity_association_mixin_subject
 
 
 the drug that is an interactor

@@ -1,5 +1,5 @@
 
-# Type: identifier
+# Slot: identifier
 
 
 True means that the key slot(s) uniquely identify the container. There can be at most one identifier or key per container

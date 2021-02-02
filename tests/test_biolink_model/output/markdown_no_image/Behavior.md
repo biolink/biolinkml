@@ -1,5 +1,5 @@
 
-# Type: behavior
+# Class: Behavior
 
 
 

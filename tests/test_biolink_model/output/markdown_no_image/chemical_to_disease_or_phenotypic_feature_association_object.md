@@ -1,5 +1,5 @@
 
-# Type: chemical to disease or phenotypic feature association_object
+# Slot: chemical_to_disease_or_phenotypic_feature_association_object
 
 
 the disease or phenotype that is affected by the chemical

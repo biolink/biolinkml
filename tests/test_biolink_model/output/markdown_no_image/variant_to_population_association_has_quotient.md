@@ -1,5 +1,5 @@
 
-# Type: variant to population association_has quotient
+# Slot: variant_to_population_association_has_quotient
 
 
 frequency of allele in population, expressed as a number with allele divided by number in reference population, aka allele frequency

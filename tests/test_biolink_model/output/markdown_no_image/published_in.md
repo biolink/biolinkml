@@ -1,5 +1,5 @@
 
-# Type: published in
+# Slot: published_in
 
 
 CURIE identifier of a broader publication context within which the publication may be placed, e.g. a specified book or journal.

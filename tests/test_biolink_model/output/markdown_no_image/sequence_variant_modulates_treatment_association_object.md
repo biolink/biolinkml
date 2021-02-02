@@ -1,5 +1,5 @@
 
-# Type: sequence variant modulates treatment association_object
+# Slot: sequence_variant_modulates_treatment_association_object
 
 
 treatment whose efficacy is modulated by the subject variant

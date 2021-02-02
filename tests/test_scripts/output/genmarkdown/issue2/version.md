@@ -1,5 +1,5 @@
 
-# Type: version
+# Slot: version
 
 
 particular version of schema

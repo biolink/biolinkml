@@ -1,5 +1,5 @@
 
-# Type: has quotient
+# Slot: has_quotient
 
 
 

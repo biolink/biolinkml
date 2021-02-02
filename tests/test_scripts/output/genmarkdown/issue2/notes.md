@@ -1,5 +1,5 @@
 
-# Type: notes
+# Slot: notes
 
 
 editorial notes about an element intended for internal consumption

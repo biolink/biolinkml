@@ -1,5 +1,5 @@
 
-# Type: has molecular consequence
+# Slot: has_molecular_consequence
 
 
 connects a sequence variant to a class describing the molecular consequence. E.g.  SO:0001583

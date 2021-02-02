@@ -1,5 +1,5 @@
 
-# Type: confidence level
+# Class: ConfidenceLevel
 
 
 Level of confidence in a statement

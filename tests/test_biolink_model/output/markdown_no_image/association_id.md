@@ -1,5 +1,5 @@
 
-# Type: association_id _(deprecated)_
+# Slot: association_id _(deprecated)_
 
 
 A unique identifier for an association

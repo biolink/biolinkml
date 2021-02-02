@@ -1,5 +1,5 @@
 
-# Type: case to entity association mixin_subject
+# Slot: case_to_entity_association_mixin_subject
 
 
 the case (e.g. patient) that has the property

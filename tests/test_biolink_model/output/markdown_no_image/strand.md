@@ -1,5 +1,5 @@
 
-# Type: strand
+# Slot: strand
 
 
 The strand on which a feature is located. Has a value of '+' (sense strand or forward strand) or '-' (anti-sense strand or reverse strand).

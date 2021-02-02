@@ -1,5 +1,5 @@
 
-# Type: see_also
+# Slot: see_also
 
 
 a reference

@@ -1,5 +1,5 @@
 
-# Type: positively regulates
+# Slot: positively_regulates
 
 
 

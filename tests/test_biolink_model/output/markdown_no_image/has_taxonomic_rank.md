@@ -1,5 +1,5 @@
 
-# Type: has taxonomic rank
+# Slot: has_taxonomic_rank
 
 
 

@@ -1,5 +1,5 @@
 
-# Type: provider
+# Slot: provider
 
 
 person, group, organization or project that provides a piece of information (e.g. a knowledge association).

@@ -1,5 +1,5 @@
 
-# Type: cell line to disease or phenotypic feature association_subject
+# Slot: cell_line_to_disease_or_phenotypic_feature_association_subject
 
 
 

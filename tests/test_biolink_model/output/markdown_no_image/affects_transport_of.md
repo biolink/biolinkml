@@ -1,5 +1,5 @@
 
-# Type: affects transport of
+# Slot: affects_transport_of
 
 
 holds between two molecular entities where the action or effect of one impacts the rate of transport of the other across some boundary in a system of interest

@@ -1,5 +1,5 @@
 
-# Type: snv
+# Class: Snv
 
 
 SNVs are single nucleotide positions in genomic DNA at which different sequence alternatives exist

@@ -1,5 +1,5 @@
 
-# Type: exposure event to entity association mixin_subject
+# Slot: exposure_event_to_entity_association_mixin_subject
 
 
 

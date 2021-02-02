@@ -1,5 +1,5 @@
 
-# Type: expression site
+# Slot: expression_site
 
 
 location in which gene or protein expression takes place. May be cell, tissue, or organ.

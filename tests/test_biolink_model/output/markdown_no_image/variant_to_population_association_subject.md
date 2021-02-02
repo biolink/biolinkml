@@ -1,5 +1,5 @@
 
-# Type: variant to population association_subject
+# Slot: variant_to_population_association_subject
 
 
 an allele that has a certain frequency in a given population

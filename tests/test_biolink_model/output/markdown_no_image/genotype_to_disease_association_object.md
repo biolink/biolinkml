@@ -1,5 +1,5 @@
 
-# Type: genotype to disease association_object
+# Slot: genotype_to_disease_association_object
 
 
 a disease that is associated with that genotype

@@ -1,5 +1,5 @@
 
-# Type: variant to disease association_subject
+# Slot: variant_to_disease_association_subject
 
 
 a sequence variant in which the allele state is associated in some way with the disease state

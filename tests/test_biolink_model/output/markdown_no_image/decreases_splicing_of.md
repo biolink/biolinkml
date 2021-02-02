@@ -1,5 +1,5 @@
 
-# Type: decreases splicing of
+# Slot: decreases_splicing_of
 
 
 holds between a molecular entity and an mRNA where the action or effect of the molecular entity decreases the proper splicing of the mRNA

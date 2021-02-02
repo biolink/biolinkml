@@ -1,5 +1,5 @@
 
-# Type: participates in
+# Slot: participates_in
 
 
 holds between a continuant and a process, where the continuant is somehow involved in the process

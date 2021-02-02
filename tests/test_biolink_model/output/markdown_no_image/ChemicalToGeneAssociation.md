@@ -1,5 +1,5 @@
 
-# Type: chemical to gene association
+# Class: ChemicalToGeneAssociation
 
 
 An interaction between a chemical entity and a gene or gene product.

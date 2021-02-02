@@ -1,5 +1,5 @@
 
-# Type: biological entity
+# Class: BiologicalEntity
 
 
 

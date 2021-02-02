@@ -1,5 +1,5 @@
 
-# Type: affects metabolic processing of
+# Slot: affects_metabolic_processing_of
 
 
 holds between two molecular entities where the action or effect of one impacts the metabolic processing of the other within a system of interest

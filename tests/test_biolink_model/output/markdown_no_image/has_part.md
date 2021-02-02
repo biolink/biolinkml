@@ -1,5 +1,5 @@
 
-# Type: has part
+# Slot: has_part
 
 
 holds between wholes and their parts (material entities or processes)

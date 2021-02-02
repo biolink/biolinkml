@@ -1,5 +1,5 @@
 
-# Type: affects abundance of
+# Slot: affects_abundance_of
 
 
 holds between two molecular entities where the action or effect of one changes the amount of the other within a system of interest

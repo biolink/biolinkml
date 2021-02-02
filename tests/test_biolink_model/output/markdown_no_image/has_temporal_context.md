@@ -1,5 +1,5 @@
 
-# Type: has temporal context
+# Slot: has_temporal_context
 
 
 a constraint of time placed upon the truth value of an association.

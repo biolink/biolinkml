@@ -1,5 +1,5 @@
 
-# Type: mixin
+# Slot: mixin
 
 
 this slot or class can only be used as a mixin -- equivalent to abstract

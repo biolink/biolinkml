@@ -1,5 +1,5 @@
 
-# Type: in taxon
+# Slot: in_taxon
 
 
 connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'

@@ -1,5 +1,5 @@
 
-# Type: affects folding of
+# Slot: affects_folding_of
 
 
 holds between two molecular entities where the action or effect of one changes the rate or quality of folding of the other

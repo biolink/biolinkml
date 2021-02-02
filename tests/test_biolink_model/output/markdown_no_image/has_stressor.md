@@ -1,5 +1,5 @@
 
-# Type: has stressor
+# Slot: has_stressor
 
 
 the process or entity that the receptor is being exposed to

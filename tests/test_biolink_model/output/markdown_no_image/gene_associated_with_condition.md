@@ -1,5 +1,5 @@
 
-# Type: gene associated with condition
+# Slot: gene_associated_with_condition
 
 
 holds between a gene and a disease or phenotypic feature that the gene or its alleles/products may influence, contribute to, or correlate with

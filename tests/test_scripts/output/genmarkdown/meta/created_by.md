@@ -1,5 +1,5 @@
 
-# Type: created_by
+# Slot: created_by
 
 
 agent that created the element

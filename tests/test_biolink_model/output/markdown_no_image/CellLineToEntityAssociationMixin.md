@@ -1,5 +1,5 @@
 
-# Type: cell line to entity association mixin
+# Class: CellLineToEntityAssociationMixin
 
 
 An relationship between a cell line and another entity

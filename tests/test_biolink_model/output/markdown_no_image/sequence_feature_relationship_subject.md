@@ -1,5 +1,5 @@
 
-# Type: sequence feature relationship_subject
+# Slot: sequence_feature_relationship_subject
 
 
 

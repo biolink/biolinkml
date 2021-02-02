@@ -1,5 +1,5 @@
 
-# Type: ifabsent
+# Slot: ifabsent
 
 
 function that provides a default value for the slot.  Possible values for this slot are defined in biolink.utils.ifabsent_functions.default_library:

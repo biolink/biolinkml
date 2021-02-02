@@ -1,5 +1,5 @@
 
-# Type: population to population association_predicate
+# Slot: population_to_population_association_predicate
 
 
 A relationship type that holds between the subject and object populations. Standard mereological relations can be used. E.g. subject part-of object, subject overlaps object. Derivation relationships can also be used

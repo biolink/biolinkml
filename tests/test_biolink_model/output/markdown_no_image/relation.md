@@ -1,5 +1,5 @@
 
-# Type: relation
+# Slot: relation
 
 
 The relation which describes an association between a subject and an object in a more granular manner. Usually this is a term from Relation Ontology, but it can be any edge CURIE.

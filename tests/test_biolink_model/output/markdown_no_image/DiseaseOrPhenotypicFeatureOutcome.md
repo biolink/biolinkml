@@ -1,5 +1,5 @@
 
-# Type: disease or phenotypic feature outcome
+# Class: DiseaseOrPhenotypicFeatureOutcome
 
 
 Physiological outcomes resulting from an exposure event which is the manifestation of a disease or other characteristic phenotype.

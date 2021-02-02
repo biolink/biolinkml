@@ -1,5 +1,5 @@
 
-# Type: slot_uri
+# Slot: slot_uri
 
 
 predicate of this slot for semantic web application

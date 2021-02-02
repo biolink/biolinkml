@@ -1,5 +1,5 @@
 
-# Type: child of named thing
+# Class: //example.com/test65/ChildOfNamedThing
 
 
 

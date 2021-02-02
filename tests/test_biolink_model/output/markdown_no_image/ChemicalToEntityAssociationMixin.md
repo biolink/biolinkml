@@ -1,5 +1,5 @@
 
-# Type: chemical to entity association mixin
+# Class: ChemicalToEntityAssociationMixin
 
 
 An interaction between a chemical entity and another entity

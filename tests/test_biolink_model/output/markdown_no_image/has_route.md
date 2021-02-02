@@ -1,5 +1,5 @@
 
-# Type: has route
+# Slot: has_route
 
 
 the process that results in the stressor coming into direct contact with the receptor

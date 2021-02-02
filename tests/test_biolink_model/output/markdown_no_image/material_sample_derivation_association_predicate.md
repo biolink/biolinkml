@@ -1,5 +1,5 @@
 
-# Type: material sample derivation association_predicate
+# Slot: material_sample_derivation_association_predicate
 
 
 derivation relationship

@@ -1,5 +1,5 @@
 
-# Type: part of
+# Slot: part_of
 
 
 holds between parts and wholes (material entities or processes)

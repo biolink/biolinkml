@@ -1,5 +1,5 @@
 
-# Type: default_range
+# Slot: default_range
 
 
 default slot range to be used if range element is omitted from a slot definition

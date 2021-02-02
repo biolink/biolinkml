@@ -1,5 +1,5 @@
 
-# Type: publication
+# Class: Publication
 
 
 Any published piece of information. Can refer to a whole publication, its encompassing publication (i.e. journal or book) or to a part of a publication, if of significant knowledge scope (e.g. a figure, figure legend, or section highlighted by NLP). The scope is intended to be general and include information published on the web, as well as printed materials, either directly or in one of the Publication Biolink category subclasses.
@@ -8,6 +8,10 @@ URI: [biolink:Publication](https://w3id.org/biolink/vocab/Publication)
 
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Serial],[Association]-%20publications%200..*>[Publication&#124;authors:string%20*;pages:string%20*;summary:string%20%3F;keywords:string%20*;mesh_terms:uriorcurie%20*;xref:iri_type%20*;id:string;name:label_type%20%3F;type:string;license(i):string%20%3F;rights(i):string%20%3F;format(i):string%20%3F;creation_date(i):date%20%3F;iri(i):iri_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[Publication]^-[Serial],[Publication]^-[BookChapter],[Publication]^-[Book],[Publication]^-[Article],[InformationContentEntity]^-[Publication],[NamedThing],[InformationContentEntity],[BookChapter],[Book],[Attribute],[Association],[Article],[Agent])
+
+## Identifier prefixes
+
+ * NLMID
 
 ## Parents
 

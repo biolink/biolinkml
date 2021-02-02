@@ -1,5 +1,5 @@
 
-# Type: gene to gene coexpression association_predicate
+# Slot: gene_to_gene_coexpression_association_predicate
 
 
 

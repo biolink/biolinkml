@@ -1,5 +1,5 @@
 
-# Type: book
+# Class: Book
 
 
 This class may rarely be instantiated except if use cases of a given knowledge graph support its utility.
@@ -8,6 +8,11 @@ URI: [biolink:Book](https://w3id.org/biolink/vocab/Book)
 
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[NamedThing],[Publication]^-[Book&#124;id:string;type:string;authors(i):string%20*;pages(i):string%20*;summary(i):string%20%3F;keywords(i):string%20*;mesh_terms(i):uriorcurie%20*;xref(i):iri_type%20*;name(i):label_type%20%3F;license(i):string%20%3F;rights(i):string%20%3F;format(i):string%20%3F;creation_date(i):date%20%3F;iri(i):iri_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[Attribute],[Agent])
+
+## Identifier prefixes
+
+ * isbn
+ * NLMID
 
 ## Parents
 

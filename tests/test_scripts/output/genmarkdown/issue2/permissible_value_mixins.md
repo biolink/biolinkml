@@ -1,5 +1,5 @@
 
-# Type: permissible_value_mixins
+# Slot: permissible_value_mixins
 
 
 

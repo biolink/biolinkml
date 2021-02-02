@@ -1,5 +1,5 @@
 
-# Type: id
+# Slot: id
 
 
 A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI

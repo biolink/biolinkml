@@ -1,5 +1,5 @@
 
-# Type: has active ingredient
+# Slot: has_active_ingredient
 
 
 one or more chemical substance which are the active ingredient(s) of a drug

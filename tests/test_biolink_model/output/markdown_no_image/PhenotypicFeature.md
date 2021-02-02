@@ -1,5 +1,5 @@
 
-# Type: phenotypic feature
+# Class: PhenotypicFeature
 
 
 
@@ -8,6 +8,22 @@ URI: [biolink:PhenotypicFeature](https://w3id.org/biolink/vocab/PhenotypicFeatur
 
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/[EntityToPhenotypicFeatureAssociationMixin]-%20object%201..1>[PhenotypicFeature&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[PhenotypicFeature]^-[ClinicalFinding],[DiseaseOrPhenotypicFeature]^-[PhenotypicFeature],[OrganismTaxon],[NamedThing],[EntityToPhenotypicFeatureAssociationMixin],[DiseaseOrPhenotypicFeature],[ClinicalFinding],[BiologicalEntity],[Attribute],[Agent])
+
+## Identifier prefixes
+
+ * HP
+ * EFO
+ * NCIT
+ * UMLS
+ * MEDDRA
+ * MP
+ * ZP
+ * UPHENO
+ * APO
+ * FBcv
+ * WBPhenotype
+ * SNOMEDCT
+ * MESH
 
 ## Parents
 

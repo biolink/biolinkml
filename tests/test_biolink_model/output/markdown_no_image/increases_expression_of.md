@@ -1,5 +1,5 @@
 
-# Type: increases expression of
+# Slot: increases_expression_of
 
 
 holds between two molecular entities where the action or effect of one increases the level of expression of the other within a system of interest

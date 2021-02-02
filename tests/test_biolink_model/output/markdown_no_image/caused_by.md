@@ -1,5 +1,5 @@
 
-# Type: caused by
+# Slot: caused_by
 
 
 holds between two entities where the occurrence, existence, or activity of one is caused by the occurrence or  generation of the other

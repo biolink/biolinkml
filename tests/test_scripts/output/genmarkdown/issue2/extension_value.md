@@ -1,5 +1,5 @@
 
-# Type: extension_value
+# Slot: extension_value
 
 
 the actual annotation

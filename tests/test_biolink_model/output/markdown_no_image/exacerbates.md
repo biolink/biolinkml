@@ -1,5 +1,5 @@
 
-# Type: exacerbates
+# Slot: exacerbates
 
 
 A relationship between an entity (e.g. a chemical, environmental exposure, or some form of genetic variation) and a condition (a phenotype or disease), where the presence of the entity worsens some or all aspects of the condition.

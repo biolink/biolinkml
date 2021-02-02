@@ -1,5 +1,5 @@
 
-# Type: serial_type
+# Slot: serial_type
 
 
 Should generally be set to an ontology class defined term for 'serial' or 'journal'.

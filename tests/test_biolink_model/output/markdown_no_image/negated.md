@@ -1,5 +1,5 @@
 
-# Type: negated
+# Slot: negated
 
 
 if set to true, then the association is negated i.e. is not true

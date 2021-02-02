@@ -1,5 +1,5 @@
 
-# Type: book_id
+# Slot: book_id
 
 
 Books should have industry-standard identifier such as from ISBN.

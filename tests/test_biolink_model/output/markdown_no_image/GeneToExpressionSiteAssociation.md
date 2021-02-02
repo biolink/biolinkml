@@ -1,5 +1,5 @@
 
-# Type: gene to expression site association
+# Class: GeneToExpressionSiteAssociation
 
 
 An association between a gene and an expression site, possibly qualified by stage/timing info.

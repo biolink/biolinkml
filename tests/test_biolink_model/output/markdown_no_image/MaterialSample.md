@@ -1,5 +1,5 @@
 
-# Type: material sample
+# Class: MaterialSample
 
 
 A sample is a limited quantity of something (e.g. an individual or set of individuals from a population, or a portion of a substance) to be used for testing, analysis, inspection, investigation, demonstration, or trial use. [SIO]
@@ -8,6 +8,11 @@ URI: [biolink:MaterialSample](https://w3id.org/biolink/vocab/MaterialSample)
 
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SubjectOfInvestigation],[PhysicalEntity],[NamedThing],[MaterialSampleToEntityAssociationMixin],[MaterialSampleDerivationAssociation],[MaterialSampleDerivationAssociation]-%20subject%201..1>[MaterialSample&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[MaterialSampleToEntityAssociationMixin]-%20subject%201..1>[MaterialSample],[MaterialSample]uses%20-.->[SubjectOfInvestigation],[PhysicalEntity]^-[MaterialSample],[Attribute],[Agent])
+
+## Identifier prefixes
+
+ * BIOSAMPLE
+ * GOLD.META
 
 ## Parents
 

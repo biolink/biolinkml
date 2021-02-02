@@ -1,5 +1,5 @@
 
-# Type: increases molecular interaction
+# Slot: increases_molecular_interaction
 
 
 indicates that the source increases the molecular interaction between the target and some other molecular entity

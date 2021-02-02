@@ -1,5 +1,5 @@
 
-# Type: preceded by
+# Slot: preceded_by
 
 
 holds between two processes, where the other is completed before the one begins

@@ -1,5 +1,5 @@
 
-# Type: chemical substance
+# Class: ChemicalSubstance
 
 
 May be a chemical entity or a formulation with a chemical entity as active ingredient, or a complex material with multiple chemical entities as part
@@ -8,6 +8,20 @@ URI: [biolink:ChemicalSubstance](https://w3id.org/biolink/vocab/ChemicalSubstanc
 
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/[ProcessedMaterial],[OrganismTaxon],[NamedThing],[MolecularEntity],[MolecularActivity],[Metabolite],[Food],[Drug],[ChemicalToEntityAssociationMixin],[ChemicalToChemicalDerivationAssociation],[ChemicalToChemicalAssociation],[ChemicalToChemicalAssociation]-%20object%201..1>[ChemicalSubstance&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[ChemicalToChemicalDerivationAssociation]-%20object%201..1>[ChemicalSubstance],[ChemicalToChemicalDerivationAssociation]-%20subject%201..1>[ChemicalSubstance],[ChemicalToEntityAssociationMixin]-%20subject%201..1>[ChemicalSubstance],[Drug]-%20has%20active%20ingredient%200..*>[ChemicalSubstance],[Mixture]-%20has%20constituent%200..*>[ChemicalSubstance],[Drug]-%20has%20excipient%200..*>[ChemicalSubstance],[Food]-%20has%20nutrient%200..*>[ChemicalSubstance],[MolecularActivity]-%20has%20input%200..*>[ChemicalSubstance],[MolecularActivity]-%20has%20output%200..*>[ChemicalSubstance],[ChemicalSubstance]^-[ProcessedMaterial],[ChemicalSubstance]^-[Metabolite],[ChemicalSubstance]^-[ChemicalExposure],[ChemicalSubstance]^-[Carbohydrate],[MolecularEntity]^-[ChemicalSubstance],[Mixture],[ChemicalExposure],[Carbohydrate],[Attribute],[Agent])
+
+## Identifier prefixes
+
+ * CHEBI
+ * CHEMBL.COMPOUND
+ * DRUGBANK
+ * PUBCHEM.COMPOUND
+ * MESH
+ * HMDB
+ * INCHI
+ * INCHIKEY
+ * UNII
+ * KEGG
+ * gtpo
 
 ## Parents
 

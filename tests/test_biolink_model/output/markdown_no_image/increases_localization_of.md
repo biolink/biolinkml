@@ -1,5 +1,5 @@
 
-# Type: increases localization of
+# Slot: increases_localization_of
 
 
 holds between two molecular entities where the action or effect of one increases the proper localization of the other within a system of interest

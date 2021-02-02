@@ -1,5 +1,5 @@
 
-# Type: capable of
+# Slot: capable_of
 
 
 holds between a physical entity and process or function, where the continuant alone has the ability to carry out the process or function.

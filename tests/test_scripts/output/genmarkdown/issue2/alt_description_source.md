@@ -1,5 +1,5 @@
 
-# Type: alt_description_source
+# Slot: alt_description_source
 
 
 the source of an attributed description

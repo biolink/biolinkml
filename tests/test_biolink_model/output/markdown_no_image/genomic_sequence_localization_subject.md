@@ -1,5 +1,5 @@
 
-# Type: genomic sequence localization_subject
+# Slot: genomic_sequence_localization_subject
 
 
 

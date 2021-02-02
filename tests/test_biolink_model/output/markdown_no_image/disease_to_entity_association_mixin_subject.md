@@ -1,5 +1,5 @@
 
-# Type: disease to entity association mixin_subject
+# Slot: disease_to_entity_association_mixin_subject
 
 
 disease class

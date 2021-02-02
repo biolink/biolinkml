@@ -1,5 +1,5 @@
 
-# Type: related condition
+# Slot: related_condition
 
 
 

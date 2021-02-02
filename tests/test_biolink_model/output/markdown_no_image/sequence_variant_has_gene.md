@@ -1,5 +1,5 @@
 
-# Type: sequence variant_has gene
+# Slot: sequence_variant_has_gene
 
 
 Each allele can be associated with any number of genes

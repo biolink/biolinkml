@@ -1,5 +1,5 @@
 
-# Type: entity to phenotypic feature association mixin_object
+# Slot: entity_to_phenotypic_feature_association_mixin_object
 
 
 phenotypic class

@@ -1,5 +1,5 @@
 
-# Type: clinical entity
+# Class: ClinicalEntity
 
 
 Any entity or process that exists in the clinical domain and outside the biological realm. Diseases are placed under biological entities

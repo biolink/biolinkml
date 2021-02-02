@@ -1,5 +1,5 @@
 
-# Type: disease has basis in
+# Slot: disease_has_basis_in
 
 
 A relation that holds between a disease and an entity where the state of the entity has contribution to the disease.

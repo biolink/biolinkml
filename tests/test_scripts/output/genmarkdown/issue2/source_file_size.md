@@ -1,5 +1,5 @@
 
-# Type: source_file_size
+# Slot: source_file_size
 
 
 size in bytes of the source of the schema

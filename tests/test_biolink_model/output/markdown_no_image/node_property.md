@@ -1,5 +1,5 @@
 
-# Type: node property
+# Slot: node_property
 
 
 A grouping for any property that holds between a node and a value

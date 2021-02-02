@@ -1,5 +1,5 @@
 
-# Type: defining_slots
+# Slot: defining_slots
 
 
 The combination of is a plus defining slots form a genus-differentia definition, or the set of necessary and sufficient conditions that can be transformed into an OWL equivalence axiom

@@ -1,5 +1,5 @@
 
-# Type: schema_definition
+# Class: SchemaDefinition
 
 
 a collection of subset, type, slot and class definitions

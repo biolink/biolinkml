@@ -1,5 +1,5 @@
 
-# Type: gene to expression site association_subject
+# Slot: gene_to_expression_site_association_subject
 
 
 gene in which variation is correlated with the phenotypic feature

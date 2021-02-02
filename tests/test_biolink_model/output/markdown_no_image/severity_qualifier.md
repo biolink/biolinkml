@@ -1,5 +1,5 @@
 
-# Type: severity qualifier
+# Slot: severity_qualifier
 
 
 a qualifier used in a phenotypic association to state how severe the phenotype is in the subject

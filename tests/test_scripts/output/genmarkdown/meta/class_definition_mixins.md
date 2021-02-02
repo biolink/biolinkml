@@ -1,5 +1,5 @@
 
-# Type: class_definition_mixins
+# Slot: class_definition_mixins
 
 
 

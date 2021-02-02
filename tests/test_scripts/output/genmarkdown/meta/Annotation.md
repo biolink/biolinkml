@@ -1,5 +1,5 @@
 
-# Type: annotation
+# Class: Annotation
 
 
 a tag/value pair with the semantics of OWL Annotation

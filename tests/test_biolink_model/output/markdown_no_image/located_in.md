@@ -1,5 +1,5 @@
 
-# Type: located in
+# Slot: located_in
 
 
 holds between a material entity and a material entity or site within which it is located (but of which it is not considered a part)

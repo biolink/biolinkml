@@ -1,5 +1,5 @@
 
-# Type: expresses
+# Slot: expresses
 
 
 holds between an anatomical entity and gene or gene product that is expressed there

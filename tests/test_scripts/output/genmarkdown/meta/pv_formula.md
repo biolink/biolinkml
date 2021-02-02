@@ -1,5 +1,5 @@
 
-# Type: pv_formula
+# Slot: pv_formula
 
 
 Defines the specific formula to be used to generate the permissible values.

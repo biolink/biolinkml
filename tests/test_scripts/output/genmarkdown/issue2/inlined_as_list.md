@@ -1,5 +1,5 @@
 
-# Type: inlined_as_list
+# Slot: inlined_as_list
 
 
 True means that an inlined slot is represented as a list of range instances.  False means that an inlined slot is represented as a dictionary, whose key is the slot key or identifier and whose value is the range instance.

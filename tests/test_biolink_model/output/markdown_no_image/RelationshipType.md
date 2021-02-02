@@ -1,5 +1,5 @@
 
-# Type: relationship type
+# Class: RelationshipType
 
 
 An OWL property used as an edge label

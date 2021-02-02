@@ -1,5 +1,5 @@
 
-# Type: colocalizes with
+# Slot: colocalizes_with
 
 
 holds between two entities that are observed to be located in the same place.

@@ -1,5 +1,5 @@
 
-# Type: orthologous to
+# Slot: orthologous_to
 
 
 a homology relationship between entities (typically genes) that diverged after a speciation event.

@@ -1,5 +1,5 @@
 
-# Type: model to disease association mixin_predicate
+# Slot: model_to_disease_association_mixin_predicate
 
 
 The relationship to the disease

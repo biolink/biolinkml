@@ -1,5 +1,5 @@
 
-# Type: drug
+# Class: Drug
 
 
 A substance intended for use in the diagnosis, cure, mitigation, treatment, or prevention of disease
@@ -8,6 +8,10 @@ URI: [biolink:Drug](https://w3id.org/biolink/vocab/Drug)
 
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon],[NamedThing],[MolecularEntity],[Mixture],[DrugToEntityAssociationMixin],[DrugExposure],[ChemicalSubstance]<has%20excipient%200..*-%20[Drug&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[ChemicalSubstance]<has%20active%20ingredient%200..*-%20[Drug],[DrugToEntityAssociationMixin]-%20subject%201..1>[Drug],[Treatment]-%20has%20drug%200..*>[Drug],[Drug]uses%20-.->[Mixture],[Drug]^-[DrugExposure],[MolecularEntity]^-[Drug],[Treatment],[ChemicalSubstance],[Attribute],[Agent])
+
+## Identifier prefixes
+
+ * PHARMGKB.DRUG
 
 ## Parents
 

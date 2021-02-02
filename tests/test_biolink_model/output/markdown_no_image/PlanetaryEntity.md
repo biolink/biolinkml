@@ -1,5 +1,5 @@
 
-# Type: planetary entity
+# Class: PlanetaryEntity
 
 
 Any entity or process that exists at the level of the whole planet

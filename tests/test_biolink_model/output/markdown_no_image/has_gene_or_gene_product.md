@@ -1,5 +1,5 @@
 
-# Type: has gene or gene product
+# Slot: has_gene_or_gene_product
 
 
 connects an entity with one or more gene products

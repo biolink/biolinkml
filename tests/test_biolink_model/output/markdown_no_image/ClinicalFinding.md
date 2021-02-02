@@ -1,5 +1,5 @@
 
-# Type: clinical finding
+# Class: ClinicalFinding
 
 
 this category is currently considered broad enough to tag clinical lab measurements and other biological attributes taken as 'clinical traits' with some statistical score, for example, a p value in genetic associations.

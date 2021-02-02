@@ -1,5 +1,5 @@
 
-# Type: iri
+# Slot: iri
 
 
 An IRI for an entity. This is determined by the id using expansion rules.

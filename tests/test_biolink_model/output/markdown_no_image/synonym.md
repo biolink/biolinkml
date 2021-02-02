@@ -1,5 +1,5 @@
 
-# Type: synonym
+# Slot: synonym
 
 
 Alternate human-readable names for a thing

@@ -1,5 +1,5 @@
 
-# Type: xref
+# Slot: xref
 
 
 Alternate CURIEs for a thing

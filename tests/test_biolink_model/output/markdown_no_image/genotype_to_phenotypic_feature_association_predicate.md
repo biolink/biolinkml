@@ -1,5 +1,5 @@
 
-# Type: genotype to phenotypic feature association_predicate
+# Slot: genotype_to_phenotypic_feature_association_predicate
 
 
 

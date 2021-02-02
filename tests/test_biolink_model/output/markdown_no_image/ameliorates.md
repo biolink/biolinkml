@@ -1,5 +1,5 @@
 
-# Type: ameliorates
+# Slot: ameliorates
 
 
 A relationship between an entity (e.g. a genotype, genetic variation, chemical, or environmental exposure) and a condition (a phenotype or disease), where the presence of the entity reduces or eliminates some or all aspects of the condition.

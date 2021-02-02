@@ -1,5 +1,5 @@
 
-# Type: sequence variant modulates treatment association_subject
+# Slot: sequence_variant_modulates_treatment_association_subject
 
 
 variant that modulates the treatment of some disease

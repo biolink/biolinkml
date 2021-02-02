@@ -1,5 +1,5 @@
 
-# Type: repr
+# Slot: repr
 
 
 the name of the python object that implements this type definition

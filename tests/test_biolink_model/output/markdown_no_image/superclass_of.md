@@ -1,5 +1,5 @@
 
-# Type: superclass of
+# Slot: superclass_of
 
 
 holds between two classes where the domain class is a super class of the range class

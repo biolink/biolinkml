@@ -1,5 +1,5 @@
 
-# Type: exposure event to entity association mixin
+# Class: ExposureEventToEntityAssociationMixin
 
 
 An association between some exposure event and some entity.

@@ -1,5 +1,5 @@
 
-# Type: gene regulatory relationship
+# Class: GeneRegulatoryRelationship
 
 
 A regulatory relationship between two genes

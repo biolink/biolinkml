@@ -1,5 +1,5 @@
 
-# Type: chemical to chemical association_object
+# Slot: chemical_to_chemical_association_object
 
 
 the chemical element that is the target of the statement

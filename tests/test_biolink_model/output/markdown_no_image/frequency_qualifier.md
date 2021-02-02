@@ -1,5 +1,5 @@
 
-# Type: frequency qualifier
+# Slot: frequency_qualifier
 
 
 a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject

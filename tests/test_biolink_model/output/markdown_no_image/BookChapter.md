@@ -1,5 +1,5 @@
 
-# Type: book chapter
+# Class: BookChapter
 
 
 

@@ -1,5 +1,5 @@
 
-# Type: increases secretion of
+# Slot: increases_secretion_of
 
 
 holds between two molecular entities where the action or effect of one increases the rate of secretion of the other out of a cell, gland, or organ

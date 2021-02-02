@@ -1,5 +1,5 @@
 
-# Type: affects mutation rate of
+# Slot: affects_mutation_rate_of
 
 
 holds between a molecular entity and a genomic entity where the action or effect of the molecular entity impacts the rate of mutation of the genomic entity within a system of interest

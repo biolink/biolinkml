@@ -1,5 +1,5 @@
 
-# Type: enum_definition
+# Class: EnumDefinition
 
 
 List of values that constrain the range of a slot

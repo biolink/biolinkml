@@ -1,5 +1,5 @@
 
-# Type: distribution level
+# Class: DistributionLevel
 
 
 

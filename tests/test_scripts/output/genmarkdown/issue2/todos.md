@@ -1,5 +1,5 @@
 
-# Type: todos
+# Slot: todos
 
 
 Outstanding issue that needs resolution

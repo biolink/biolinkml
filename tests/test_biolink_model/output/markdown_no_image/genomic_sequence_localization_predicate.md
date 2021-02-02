@@ -1,5 +1,5 @@
 
-# Type: genomic sequence localization_predicate
+# Slot: genomic_sequence_localization_predicate
 
 
 

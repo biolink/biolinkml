@@ -1,5 +1,5 @@
 
-# Type: organismal entity_has attribute
+# Slot: organismal_entity_has_attribute
 
 
 may often be an organism attribute

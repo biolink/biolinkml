@@ -1,5 +1,5 @@
 
-# Type: affects synthesis of
+# Slot: affects_synthesis_of
 
 
 holds between two molecular entities where the action or effect of one impacts the rate of chemical synthesis of the other

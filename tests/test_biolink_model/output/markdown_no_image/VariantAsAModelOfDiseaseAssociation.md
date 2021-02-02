@@ -1,5 +1,5 @@
 
-# Type: variant as a model of disease association
+# Class: VariantAsAModelOfDiseaseAssociation
 
 
 

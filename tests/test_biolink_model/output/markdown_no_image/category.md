@@ -1,5 +1,5 @@
 
-# Type: category
+# Slot: category
 
 
 Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.

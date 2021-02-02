@@ -1,5 +1,5 @@
 
-# Type: genotype to genotype part association
+# Class: GenotypeToGenotypePartAssociation
 
 
 Any association between one genotype and a genotypic entity that is a sub-component of it

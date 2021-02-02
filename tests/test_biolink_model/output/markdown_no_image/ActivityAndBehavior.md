@@ -1,5 +1,5 @@
 
-# Type: activity and behavior
+# Class: ActivityAndBehavior
 
 
 Activity or behavior of any independent integral living, organization or mechanical actor in the world

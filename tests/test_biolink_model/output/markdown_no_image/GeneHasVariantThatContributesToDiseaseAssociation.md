@@ -1,5 +1,5 @@
 
-# Type: gene has variant that contributes to disease association
+# Class: GeneHasVariantThatContributesToDiseaseAssociation
 
 
 

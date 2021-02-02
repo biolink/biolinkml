@@ -1,5 +1,5 @@
 
-# Type: gene to gene product relationship_predicate
+# Slot: gene_to_gene_product_relationship_predicate
 
 
 

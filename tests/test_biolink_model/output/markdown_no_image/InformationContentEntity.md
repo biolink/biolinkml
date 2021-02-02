@@ -1,5 +1,5 @@
 
-# Type: information content entity
+# Class: InformationContentEntity
 
 
 a piece of information that typically describes some topic of discourse or is used as support.
@@ -8,6 +8,10 @@ URI: [biolink:InformationContentEntity](https://w3id.org/biolink/vocab/Informati
 
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[NamedThing],[ContributorAssociation]-%20subject%201..1>[InformationContentEntity&#124;license:string%20%3F;rights:string%20%3F;format:string%20%3F;creation_date:date%20%3F;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[InformationContentEntity]^-[Publication],[InformationContentEntity]^-[EvidenceType],[InformationContentEntity]^-[DataSet],[InformationContentEntity]^-[DataFile],[InformationContentEntity]^-[ConfidenceLevel],[NamedThing]^-[InformationContentEntity],[EvidenceType],[DataSet],[DataFile],[ContributorAssociation],[ConfidenceLevel],[Attribute],[Agent])
+
+## Identifier prefixes
+
+ * doi
 
 ## Parents
 

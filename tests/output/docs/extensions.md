@@ -1,5 +1,5 @@
 
-# Type: extensions
+# Slot: extensions
 
 
 a tag/text tuple attached to an arbitrary element

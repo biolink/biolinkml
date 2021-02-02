@@ -1,5 +1,5 @@
 
-# Type: mortality outcome
+# Class: MortalityOutcome
 
 
 An outcome of death from resulting from an exposure event.

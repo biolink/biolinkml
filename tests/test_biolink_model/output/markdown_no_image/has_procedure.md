@@ -1,5 +1,5 @@
 
-# Type: has procedure
+# Slot: has_procedure
 
 
 connects an entity to one or more (medical) procedures

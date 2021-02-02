@@ -1,5 +1,5 @@
 
-# Type: disease or phenotypic feature to location association
+# Class: DiseaseOrPhenotypicFeatureToLocationAssociation
 
 
 An association between either a disease or a phenotypic feature and an anatomical entity, where the disease/feature manifests in that site.

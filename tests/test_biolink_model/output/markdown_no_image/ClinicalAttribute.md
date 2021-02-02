@@ -1,5 +1,5 @@
 
-# Type: clinical attribute
+# Class: ClinicalAttribute
 
 
 Attributes relating to a clinical manifestation

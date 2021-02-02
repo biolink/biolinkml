@@ -1,5 +1,5 @@
 
-# Type: severity value
+# Class: SeverityValue
 
 
 describes the severity of a phenotypic feature or disease

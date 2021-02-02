@@ -1,5 +1,5 @@
 
-# Type: gene ontology class
+# Class: GeneOntologyClass
 
 
 an ontology class that describes a functional aspect of a gene, gene prodoct or complex

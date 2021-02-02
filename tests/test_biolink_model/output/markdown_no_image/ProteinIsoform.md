@@ -1,5 +1,5 @@
 
-# Type: protein isoform
+# Class: ProteinIsoform
 
 
 Represents a protein that is a specific isoform of the canonical or reference protein. See https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4114032/
@@ -8,6 +8,12 @@ URI: [biolink:ProteinIsoform](https://w3id.org/biolink/vocab/ProteinIsoform)
 
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/[ProteinIsoform&#124;synonym(i):label_type%20*;xref(i):iri_type%20*;name(i):symbol_type%20%3F;has_biological_sequence(i):biological_sequence%20%3F;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F]uses%20-.->[GeneProductIsoform],[Protein]^-[ProteinIsoform],[Protein],[OrganismTaxon],[NamedThing],[GeneProductIsoform],[Attribute],[Agent])
+
+## Identifier prefixes
+
+ * UniProtKB
+ * PR
+ * ENSEMBL
 
 ## Parents
 

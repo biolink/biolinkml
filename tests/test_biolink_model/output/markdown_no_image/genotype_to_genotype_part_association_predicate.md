@@ -1,5 +1,5 @@
 
-# Type: genotype to genotype part association_predicate
+# Slot: genotype_to_genotype_part_association_predicate
 
 
 

@@ -1,5 +1,5 @@
 
-# Type: download url
+# Slot: download_url
 
 
 

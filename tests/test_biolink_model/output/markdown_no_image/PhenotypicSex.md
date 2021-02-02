@@ -1,5 +1,5 @@
 
-# Type: phenotypic sex
+# Class: PhenotypicSex
 
 
 An attribute corresponding to the phenotypic sex of the individual, based upon the reproductive organs present.

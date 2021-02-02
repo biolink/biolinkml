@@ -1,5 +1,5 @@
 
-# Type: evidence type
+# Class: EvidenceType
 
 
 Class of evidence that supports an association

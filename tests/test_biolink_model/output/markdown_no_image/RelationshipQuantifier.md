@@ -1,5 +1,5 @@
 
-# Type: relationship quantifier
+# Class: RelationshipQuantifier
 
 
 

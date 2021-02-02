@@ -1,5 +1,5 @@
 
-# Type: imports
+# Slot: imports
 
 
 other schemas that are included in this schema

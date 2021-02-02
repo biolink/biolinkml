@@ -1,5 +1,5 @@
 
-# Type: interbase coordinate
+# Slot: interbase_coordinate
 
 
 A position in interbase coordinates. This is applied to a sequence localization edge.

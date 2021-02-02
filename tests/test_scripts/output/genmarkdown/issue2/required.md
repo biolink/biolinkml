@@ -1,5 +1,5 @@
 
-# Type: required
+# Slot: required
 
 
 true means that the slot must be present in the loaded definition

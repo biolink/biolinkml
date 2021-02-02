@@ -1,5 +1,5 @@
 
-# Type: genotype to gene association_object
+# Slot: genotype_to_gene_association_object
 
 
 gene implicated in genotype

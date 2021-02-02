@@ -1,5 +1,5 @@
 
-# Type: author
+# Slot: author
 
 
 an instance of one (co-)creator primarily responsible for a written work

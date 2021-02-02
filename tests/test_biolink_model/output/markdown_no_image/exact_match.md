@@ -1,5 +1,5 @@
 
-# Type: exact match
+# Slot: exact_match
 
 
 holds between two entities that are identical to each other, with a high degree of confidence

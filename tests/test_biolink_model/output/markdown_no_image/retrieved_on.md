@@ -1,5 +1,5 @@
 
-# Type: retrieved on
+# Slot: retrieved_on
 
 
 

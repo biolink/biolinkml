@@ -1,5 +1,5 @@
 
-# Type: source_file
+# Slot: source_file
 
 
 name, uri or description of the source of the schema

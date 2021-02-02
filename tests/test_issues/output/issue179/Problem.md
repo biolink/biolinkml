@@ -1,5 +1,5 @@
 
-# Type: problem
+# Class: //example.org/sample/example1/Problem
 
 
 An object representing an error or problem encountered

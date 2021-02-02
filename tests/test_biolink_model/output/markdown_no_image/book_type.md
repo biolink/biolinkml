@@ -1,5 +1,5 @@
 
-# Type: book_type
+# Slot: book_type
 
 
 Should generally be set to an ontology class defined term for 'book'.

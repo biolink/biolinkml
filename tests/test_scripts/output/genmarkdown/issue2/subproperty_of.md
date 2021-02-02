@@ -1,5 +1,5 @@
 
-# Type: subproperty_of
+# Slot: subproperty_of
 
 
 Ontology property which this slot is a subproperty of

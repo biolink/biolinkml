@@ -1,5 +1,5 @@
 
-# Type: increases abundance of
+# Slot: increases_abundance_of
 
 
 holds between two molecular entities where the action or effect of one increases the amount of the other within a system of interest

@@ -1,5 +1,5 @@
 
-# Type: genotypic sex
+# Class: GenotypicSex
 
 
 An attribute corresponding to the genotypic sex of the individual, based upon genotypic composition of sex chromosomes.

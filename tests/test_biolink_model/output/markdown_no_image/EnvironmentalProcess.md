@@ -1,5 +1,5 @@
 
-# Type: environmental process
+# Class: EnvironmentalProcess
 
 
 

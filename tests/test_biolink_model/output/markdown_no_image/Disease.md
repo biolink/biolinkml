@@ -1,5 +1,5 @@
 
-# Type: disease
+# Class: Disease
 
 
 
@@ -8,6 +8,25 @@ URI: [biolink:Disease](https://w3id.org/biolink/vocab/Disease)
 
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon],[NamedThing],[EntityToDiseaseAssociationMixin],[DiseaseToEntityAssociationMixin],[DiseaseOrPhenotypicFeature],[DiseaseToEntityAssociationMixin]-%20subject%201..1>[Disease&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[EntityToDiseaseAssociationMixin]-%20object%201..1>[Disease],[DiseaseOrPhenotypicFeature]^-[Disease],[Attribute],[Agent])
+
+## Identifier prefixes
+
+ * MONDO
+ * DOID
+ * OMIM
+ * ORPHANET
+ * EFO
+ * UMLS
+ * MESH
+ * MEDDRA
+ * NCIT
+ * SNOMEDCT
+ * medgen
+ * ICD10
+ * ICD9
+ * ICD0
+ * HP
+ * MP
 
 ## Parents
 

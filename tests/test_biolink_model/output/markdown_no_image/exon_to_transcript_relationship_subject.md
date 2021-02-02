@@ -1,5 +1,5 @@
 
-# Type: exon to transcript relationship_subject
+# Slot: exon_to_transcript_relationship_subject
 
 
 

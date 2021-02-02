@@ -1,5 +1,5 @@
 
-# Type: functional association
+# Class: FunctionalAssociation
 
 
 An association between a macromolecular machine (gene, gene product or complex of gene products) and either a molecular activity, a biological process or a cellular location in which a function is executed

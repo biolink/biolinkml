@@ -1,5 +1,5 @@
 
-# Type: start interbase coordinate
+# Slot: start_interbase_coordinate
 
 
 The position at which the subject genomic entity starts on the chromosome or other entity to which it is located on.

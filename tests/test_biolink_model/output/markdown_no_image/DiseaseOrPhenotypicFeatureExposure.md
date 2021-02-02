@@ -1,5 +1,5 @@
 
-# Type: disease or phenotypic feature exposure
+# Class: DiseaseOrPhenotypicFeatureExposure
 
 
 A disease or phenotypic feature exposure is where a disease state is manifested which represents an precondition, leading to or influencing an outcome, e.g. hypertension leading to a related disease outcome such as cardiovascular disease.

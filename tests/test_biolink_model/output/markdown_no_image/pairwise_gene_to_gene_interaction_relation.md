@@ -1,5 +1,5 @@
 
-# Type: pairwise gene to gene interaction_relation
+# Slot: pairwise_gene_to_gene_interaction_relation
 
 
 interaction relationship type

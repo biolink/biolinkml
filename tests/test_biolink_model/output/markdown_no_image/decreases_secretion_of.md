@@ -1,5 +1,5 @@
 
-# Type: decreases secretion of
+# Slot: decreases_secretion_of
 
 
 holds between two molecular entities where the action or effect of one decreases the rate of secretion of the other out of a cell, gland, or organ

@@ -1,5 +1,5 @@
 
-# Type: clinical finding_has attribute
+# Slot: clinical_finding_has_attribute
 
 
 

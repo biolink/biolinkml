@@ -1,5 +1,5 @@
 
-# Type: sex qualifier
+# Slot: sex_qualifier
 
 
 a qualifier used in a phenotypic association to state whether the association is specific to a particular sex.

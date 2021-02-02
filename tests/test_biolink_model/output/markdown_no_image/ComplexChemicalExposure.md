@@ -1,5 +1,5 @@
 
-# Type: complex chemical exposure
+# Class: ComplexChemicalExposure
 
 
 A complex chemical exposure is an intake of a chemical mixture (e.g. gasoline), other than a drug.

@@ -1,5 +1,5 @@
 
-# Type: organismal entity
+# Class: OrganismalEntity
 
 
 A named entity that is either a part of an organism, a whole organism, population or clade of organisms, excluding molecular entities

@@ -1,5 +1,5 @@
 
-# Type: material sample derivation association
+# Class: MaterialSampleDerivationAssociation
 
 
 An association between a material sample and the material entity from which it is derived.

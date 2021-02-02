@@ -1,5 +1,5 @@
 
-# Type: decreases molecular interaction
+# Slot: decreases_molecular_interaction
 
 
 indicates that the source decreases the molecular interaction between the target and some other molecular entity

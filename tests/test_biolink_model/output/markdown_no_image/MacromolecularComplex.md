@@ -1,5 +1,5 @@
 
-# Type: macromolecular complex
+# Class: MacromolecularComplex
 
 
 
@@ -8,6 +8,13 @@ URI: [biolink:MacromolecularComplex](https://w3id.org/biolink/vocab/Macromolecul
 
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon],[NamedThing],[MacromolecularMachine],[MacromolecularMachine]^-[MacromolecularComplex&#124;name(i):symbol_type%20%3F;has_biological_sequence(i):biological_sequence%20%3F;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[Attribute],[Agent])
+
+## Identifier prefixes
+
+ * INTACT
+ * GO
+ * PR
+ * REACT
 
 ## Parents
 

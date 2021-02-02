@@ -1,5 +1,5 @@
 
-# Type: values_from
+# Slot: values_from
 
 
 the identifier of a "value set" -- a set of identifiers that form the possible values for the range of a slot

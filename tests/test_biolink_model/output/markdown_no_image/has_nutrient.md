@@ -1,5 +1,5 @@
 
-# Type: has nutrient
+# Slot: has_nutrient
 
 
 one or more chemical substance which are growth factors for a living organism

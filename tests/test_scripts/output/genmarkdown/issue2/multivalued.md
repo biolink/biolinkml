@@ -1,5 +1,5 @@
 
-# Type: multivalued
+# Slot: multivalued
 
 
 true means that slot can have more than one value

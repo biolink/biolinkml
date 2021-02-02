@@ -1,5 +1,5 @@
 
-# Type: entity to phenotypic feature association mixin_description
+# Slot: entity_to_phenotypic_feature_association_mixin_description
 
 
 A description of specific aspects of this phenotype, not otherwise covered by the phenotype ontology class

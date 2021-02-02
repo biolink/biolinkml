@@ -1,5 +1,5 @@
 
-# Type: frequency value
+# Class: FrequencyValue
 
 
 describes the frequency of occurrence of an event or condition

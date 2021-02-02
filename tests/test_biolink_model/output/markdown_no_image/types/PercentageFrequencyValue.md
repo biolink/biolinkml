@@ -1,5 +1,5 @@
 
-# Type: percentage frequency value
+# Type: PercentageFrequencyValue
 
 
 

@@ -1,5 +1,5 @@
 
-# Type: filler
+# Slot: filler
 
 
 The value in a property-value tuple

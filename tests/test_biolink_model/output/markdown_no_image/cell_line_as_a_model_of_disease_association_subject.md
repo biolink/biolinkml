@@ -1,5 +1,5 @@
 
-# Type: cell line as a model of disease association_subject
+# Slot: cell_line_as_a_model_of_disease_association_subject
 
 
 A cell line derived from an organismal entity with a disease state that is used as a model of that disease.

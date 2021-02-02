@@ -1,5 +1,5 @@
 
-# Type: sequence variant modulates treatment association
+# Class: SequenceVariantModulatesTreatmentAssociation
 
 
 An association between a sequence variant and a treatment or health intervention. The treatment object itself encompasses both the disease and the drug used.

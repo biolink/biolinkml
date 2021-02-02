@@ -1,5 +1,5 @@
 
-# Type: exposure event to phenotypic feature association
+# Class: ExposureEventToPhenotypicFeatureAssociation
 
 
 Any association between an environment and a phenotypic feature, where being in the environment influences the phenotype.

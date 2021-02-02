@@ -1,5 +1,5 @@
 
-# Type: increases metabolic processing of
+# Slot: increases_metabolic_processing_of
 
 
 holds between two molecular entities where the action or effect of one increases the rate of metabolic processing of the other within a system of interest

@@ -1,5 +1,5 @@
 
-# Type: element
+# Class: Element
 
 
 a named element in the model

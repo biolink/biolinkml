@@ -1,5 +1,5 @@
 
-# Type: contraindicated for
+# Slot: contraindicated_for
 
 
 Holds between a drug and a disease or phenotype, such that a person with that disease should not be treated with the drug.

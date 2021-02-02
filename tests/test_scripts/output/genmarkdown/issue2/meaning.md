@@ -1,5 +1,5 @@
 
-# Type: meaning
+# Slot: meaning
 
 
 the value meaning (in the 11179 sense) of a permissible value
