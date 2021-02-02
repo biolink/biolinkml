@@ -107,6 +107,11 @@ class MarkdownGenerator(Generator):
                 print(f'![img]({img_url})')
                 self.mappings(cls)
 
+                if cls.id_prefixes:
+                    self.header(2, 'Identifier prefixes')
+                    for p in cls.id_prefixes:
+                        self.bullet(f'{p}')
+
                 if cls.is_a is not None:
                     self.header(2, 'Parents')
                     self.bullet(f' is_a: {self.class_link(cls.is_a, use_desc=True)}')
@@ -216,7 +221,16 @@ class MarkdownGenerator(Generator):
                 self.element_properties(slot)
 
     def element_header(self, obj: Element, name: str, curie: str, uri: str) -> None:
-        self.frontmatter(f"Type: {obj.name}" + (f" _(deprecated)_" if obj.deprecated else ""))
+        simple_name = curie.split(':', 1)[1]
+        if isinstance(obj, TypeDefinition):
+            obj_type = 'Type'
+        elif isinstance(obj, ClassDefinition):
+            obj_type = 'Class'
+        elif isinstance(obj, SlotDefinition):
+            obj_type = 'Slot'
+        else:
+            obj_type = 'Class'
+        self.header(1, f"{obj_type}: {simple_name}" + (f" _(deprecated)_" if obj.deprecated else ""))
         self.para(be(obj.description))
         print(f'URI: [{curie}]({uri})')
         print()
