@@ -98,7 +98,9 @@ class YAMLRoot(JsonObj):
                 if not isinstance(raw_slot_entry, (dict, YAMLRoot)):
                     raise ValueError(f"Slot: {slot_name} - unrecognized element: {raw_slot_entry}")
                 if keyed and key_name in raw_slot_entry:
-                        value = slot_type(**raw_slot_entry)
+                        value = raw_slot_entry if isinstance(raw_slot_entry, slot_type) else \
+                                slot_type(**raw_slot_entry) if isinstance(raw_slot_entry, dict) else\
+                                slot_type(**raw_slot_entry.__dict__)
                         key = getattr(value, key_name)
                         cook_a_slot(value)
                 else:
