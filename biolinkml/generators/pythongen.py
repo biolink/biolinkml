@@ -197,12 +197,15 @@ dataclasses._init_fn = dataclasses_init_fn_with_kwargs
                 add_type_ref(self.schema.types[typ.typeof])
             rval.add_element(typ)
 
+        def add_enum_ref(e: EnumDefinition) -> None:
+            rval.add_element(e)
+
         def add_slot_range(slot: SlotDefinition) -> None:
             if slot.range:
                 if slot.range in self.schema.types:
                     add_type_ref(self.schema.types[slot.range])
                 elif slot.range in self.schema.enums:
-                    pass
+                    add_enum_ref(self.schema.enums[slot.range])
                 else:
                     cls = self.schema.classes[slot.range]
                     if cls.imported_from:
