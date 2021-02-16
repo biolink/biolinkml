@@ -1,10 +1,10 @@
-# Auto generated from issue_167b.yaml by pythongen.py version: 0.9.0
+# Auto generated from issues_368_imports.yaml by pythongen.py version: 0.9.0
 # Generation date: 2021-02-16 19:05
-# Schema: annotations_test
+# Schema: mixs
 #
-# id: http://example.org/tests/issue167b
+# id: https://microbiomedata/schema/mixs
 # description:
-# license: https://creativecommons.org/publicdomain/zero/1.0/
+# license:
 
 import dataclasses
 import sys
@@ -32,9 +32,7 @@ metamodel_version = "1.7.0"
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
-BIOLINKML = CurieNamespace('biolinkml', 'https://w3id.org/biolink/biolinkml/')
-EX = CurieNamespace('ex', 'http://example.org/')
-DEFAULT_ = EX
+DEFAULT_ = CurieNamespace('', 'https://microbiomedata/schema/mixs/')
 
 
 # Types
@@ -43,33 +41,26 @@ DEFAULT_ = EX
 
 
 
-class MyClass(YAMLRoot):
-    """
-    Annotations as tag value pairs. Note that altLabel is defined in the default namespace, not in the SKOS namespace
-    """
+class ParentClass(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = EX.MyClass
-    class_class_curie: ClassVar[str] = "ex:MyClass"
-    class_name: ClassVar[str] = "my class"
-    class_model_uri: ClassVar[URIRef] = EX.MyClass
-
-
-class MyClass2(YAMLRoot):
-    """
-    -> This form of annotations is a tag/value format, which allows annotations to be annotated. Note, however, that
-    the annotation source is NOT a CURIE, rather just a string.
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = EX.MyClass2
-    class_class_curie: ClassVar[str] = "ex:MyClass2"
-    class_name: ClassVar[str] = "my class 2"
-    class_model_uri: ClassVar[URIRef] = EX.MyClass2
+    class_class_uri: ClassVar[URIRef] = URIRef("https://microbiomedata/schema/mixs/ParentClass")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "parent_class"
+    class_model_uri: ClassVar[URIRef] = URIRef("https://microbiomedata/schema/mixs/ParentClass")
 
 
 # Enumerations
+class E(EnumDefinitionImpl):
 
+    a = PermissibleValue(text="a",
+                         description="A")
+    b = PermissibleValue(text="b",
+                         description="B")
+
+    _defn = EnumDefinition(
+        name="E",
+    )
 
 # Slots
 class slots:
