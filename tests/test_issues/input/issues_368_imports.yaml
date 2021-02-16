@@ -1,0 +1,10 @@
+id: https://microbiomedata/schema/mixs
+
+classes:
+  parent_class: {}
+
+enums:
+  e:
+    permissible_values:
+      a: A
+      b: B
