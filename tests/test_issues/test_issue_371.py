@@ -17,7 +17,7 @@ class Issue371TestCase(TestEnvironmentTestCase):
         """ Infer a model from a CSV """
         CLS = 'my_class'
         obj = infer_model(env.input_path('issue_371.csv'), sep=',', class_name=CLS)
-        print(yaml.dump(obj))
+        print(yaml.dump(obj, default_flow_style=False, sort_keys=False))
         assert len(obj['classes'][CLS]['slots']) == 4
         assert obj['slots']['age']['range'] == 'integer'
         assert obj['slots']['name']['range'] == 'string'
