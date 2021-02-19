@@ -56,7 +56,7 @@ def parse_import_map(map: Optional[Union[str, Dict[str, str], TextIOWrapper]], b
     Process the import map
     :param map: A map location, the JSON for a map, YAML for a map or an existing dictionary
     :param base: Base location to turn relative locations into absolute
-    :return: Import mapp
+    :return: Import map
     """
     if map is None:
         rval = dict()

@@ -47,9 +47,9 @@ class ClickTestCase(TestEnvironmentTestCase):
         return compare_rdf(expected_data, actual_data, "n3")
 
     @staticmethod
-    def rdf_comparator(expected_data: str, actual_data: str) -> str:
+    def rdf_comparator(expected_data: str, actual_data: str, fmt: Optional[str]='turtle') -> str:
         """ compare expected_data to actual_data using basic RDF comparator method """
-        return compare_rdf(expected_data, actual_data)
+        return compare_rdf(expected_data, actual_data, fmt=fmt)
 
     @staticmethod
     def always_pass_comparator(self, expected_data: str, new_data: str) -> Optional[str]:
