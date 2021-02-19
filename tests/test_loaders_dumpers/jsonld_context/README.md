@@ -17,12 +17,38 @@ This directory contains a variety of contexts for use with the JSON-LD module
 ```bash
 > cd tests/test_loaders/dumpers/jsonld-context
 > docker image build . -t context_server
-> docker run -it --rm -d -p 8000:80 -p 8443:443 --name context_server -v `pwd`/html:/usr/share/nginx/html context_server 
+> docker run -it --rm -d -p 8000:80 -p 8443:443 --name context_server -v `pwd`/:/usr/share/nginx/html context_server 
+```
+To test that the server is running:
+```bash
+> curl -k https://localhost:8443/jsonld_11/termci_schema.frame.jsonld
+{
+  "@context": "Package.context.json",
+  "@omitGraph": true,
+  "@type": "termci:Package",
+  "system": {
+    "@embed": "always",
+    "contents": {
+      "defined_in": {
+        "@embed": "never"
+      },
+      "narrower_than": {
+        "@embed": "never"
+      }
+    }
+  }
+}
+> curl http://localhost:8000/jsonld_10/termci_schema.context.jsonld
+{
+   "_comments": "Auto generated from termci_schema.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2021-02-12 11:24\nSchema: termci_schema\n\nid: https://w3id.org/termci_schema\ndescription: Terminology Code Index model\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
+   "@context": {
+    ...
+>
 ```
 The ports that you select for `http:` and `https:` can be assigned however you wish, but if you pick something the
 ones above, you will need to edit [tests/test_loaders/__init__.py]() and change the lines:
 ```python
-HTTP_TEST_PORT = '8000'
-HTTPS_TEST_PORT = '8443'
+HTTP_TEST_PORT = 8000
+HTTPS_TEST_PORT = 8443
 ```
 

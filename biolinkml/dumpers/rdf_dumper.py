@@ -1,17 +1,15 @@
 import json
-import os
 from typing import Optional
 
 from hbreader import hbread
-
-from biolinkml.utils.context_utils import CONTEXTS_PARAM_TYPE, CONTEXT_TYPE
-from biolinkml.utils.yamlutils import YAMLRoot
 from jsonasobj import as_dict
 from pyld.jsonld import expand
 from rdflib import Graph
 from rdflib_pyld_compat import rdflib_graph_from_pyld_jsonld
 
-from biolinkml.dumpers import json_dumper
+from biolinkml.utils.context_utils import CONTEXTS_PARAM_TYPE, CONTEXT_TYPE
+from biolinkml.utils.yamlutils import YAMLRoot
+from biolinkml.loaders.requests_ssl_patch import no_ssl_verification
 
 
 def as_rdf_graph(element: YAMLRoot, contexts: CONTEXTS_PARAM_TYPE, namespaces: CONTEXT_TYPE = None) -> Graph:

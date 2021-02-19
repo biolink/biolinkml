@@ -2,19 +2,21 @@ import os
 
 from rdflib import Namespace
 
-HTTP_TEST_PORT = '8000'
-HTTPS_TEST_PORT = '8443'
+HTTP_TEST_PORT = 8000
+HTTPS_TEST_PORT = 8443
 
 TESTING_DIR = os.path.abspath(os.path.dirname(__file__))
 INPUT_DIR = os.path.join(TESTING_DIR, 'input')
 OUTPUT_DIR = os.path.join(TESTING_DIR, 'output')
 
-LD_10_DIR = os.path.join(TESTING_DIR, 'jsonld_context/jsonld_10')
-LD_11_DIR = os.path.join(TESTING_DIR, 'jsonld_context/jsonld_11')
+LD_10_DIR = os.path.join(TESTING_DIR, 'jsonld_context/jsonld_10/')
+LD_11_DIR = os.path.join(TESTING_DIR, 'jsonld_context/jsonld_11/')
 
 
 GITHUB_DIR = 'https://raw.githubusercontent.com/HOT-Ecosystem/TermCI-model/main/'
 GITHUB_INPUT_DIR = GITHUB_DIR + os.path.relpath(INPUT_DIR, os.path.dirname(TESTING_DIR))
+GITHUB_LD10_CONTEXT = GITHUB_DIR + os.path.relpath(LD_10_DIR, os.path.dirname(TESTING_DIR)) + '/'
+GITHUB_LD11_CONTEXT = GITHUB_DIR + os.path.relpath(LD_11_DIR, os.path.dirname(TESTING_DIR)) + '/'
 
 SCT = Namespace("http://snomed.info/id/")
 OBO = Namespace("http://purl.obolibrary.org/obo/")
