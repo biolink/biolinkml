@@ -39,12 +39,12 @@
 <polygon fill='white' points='-0.5,-281 -0.5,-317 128.5,-317 128.5,-281 -0.5,-281' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='64' y='-295.3'>MolecularActivity</text>
 </g><g class='node' id='node4'><title>Occurrent</title>
-<polygon fill='white' points='335,-129 335,-189 481,-189 481,-129 335,-129' stroke='black'/>
+<polygon fill='white' points='318,-129 318,-189 498,-189 498,-129 318,-129' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='408' y='-177.8'>Occurrent</text>
-<polyline fill='none' points='335,-174 481,-174 ' stroke='black'/>
+<polyline fill='none' points='318,-174 498,-174 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='408' y='-162.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='408' y='-147.8'>name(i):label_type</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='408' y='-132.8'>category(i):iri_type +</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='408' y='-132.8'>category(i):category_type +</text>
 </g><g class='edge' id='edge1'><title>MolecularActivity-&gt;Occurrent</title>
 <path d='M106.526,-280.94C161.122,-259.038 257.028,-220.564 326.024,-192.886' fill='none' stroke='black' stroke-dasharray='5,2'/>
 <polygon fill='black' points='335.573,-189.055 327.968,-196.955 330.933,-190.916 326.292,-192.778 326.292,-192.778 326.292,-192.778 330.933,-190.916 324.617,-188.602 335.573,-189.055 335.573,-189.055' stroke='black'/>

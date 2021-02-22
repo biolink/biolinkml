@@ -1,5 +1,5 @@
 
-# Type: class_uri
+# Slot: class_uri
 
 
 URI of the class in an RDF environment

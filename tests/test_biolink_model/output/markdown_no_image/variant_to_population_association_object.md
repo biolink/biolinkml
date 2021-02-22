@@ -1,5 +1,5 @@
 
-# Type: variant to population association_object
+# Slot: variant_to_population_association_object
 
 
 the population that is observed to have the frequency
@@ -21,3 +21,10 @@ URI: [biolink:variant_to_population_association_object](https://w3id.org/biolink
 ## Used by
 
  * [VariantToPopulationAssociation](VariantToPopulationAssociation.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Examples:** | | {'value': 'HANCESTRO:0010', 'description': 'African'} |
+

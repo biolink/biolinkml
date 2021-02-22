@@ -21,9 +21,11 @@ URI: [biolink:has_quantitative_value](https://w3id.org/biolink/vocab/has_quantit
 
  * [Attribute](Attribute.md)
  * [BiologicalSex](BiologicalSex.md)
+ * [ClinicalCourse](ClinicalCourse.md)
  * [ClinicalModifier](ClinicalModifier.md)
  * [FrequencyValue](FrequencyValue.md)
  * [GenotypicSex](GenotypicSex.md)
+ * [Inheritance](Inheritance.md)
  * [Onset](Onset.md)
  * [PhenotypicSex](PhenotypicSex.md)
  * [SeverityValue](SeverityValue.md)
@@ -35,4 +37,7 @@ URI: [biolink:has_quantitative_value](https://w3id.org/biolink/vocab/has_quantit
 | --- | --- | --- |
 | **Mappings:** | | qud:quantityValue |
 | **In Subsets:** | | samples |
+| **Narrow Mappings:** | | SNOMED:has_concentration_strength_numerator_value |
+|  | | SNOMED:has_presentation_strength_denominator_value |
+|  | | SNOMED:has_presentation_strength_numerator_value |
 

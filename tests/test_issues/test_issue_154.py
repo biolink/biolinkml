@@ -15,7 +15,8 @@ class IssueYamlSerializerTestCase(TestEnvironmentTestCase):
         """ Test as_yaml emitter """
         # env.generate_single_file('issue_154.py',
         #                          lambda: PythonGenerator(env.input_path('issue_134.yaml')).serialize(),
-        #                          comparator=compare_python, value_is_returned=True)
+        #                          comparator=lambda exp, act: compare_python(exp, act, self.env.expected_path('issue_154.py')),
+        #                          value_is_returned=True)
         # yaml_fname = env.input_path('issue_134.yaml')
 
         # We use the PythonGenerator as a generic generator instance.  We don't actually serialize

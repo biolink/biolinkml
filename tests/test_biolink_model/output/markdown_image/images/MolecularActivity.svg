@@ -36,12 +36,12 @@
 <polygon fill='white' points='-0.5,-281 -0.5,-317 166.5,-317 166.5,-281 -0.5,-281' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='83' y='-295.3'>MacromolecularMachine</text>
 </g><g class='node' id='node3'><title>MolecularActivity</title>
-<polygon fill='white' points='180,-129 180,-189 326,-189 326,-129 180,-129' stroke='black'/>
+<polygon fill='white' points='163,-129 163,-189 343,-189 343,-129 163,-129' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='253' y='-177.8'>MolecularActivity</text>
-<polyline fill='none' points='180,-174 326,-174 ' stroke='black'/>
+<polyline fill='none' points='163,-174 343,-174 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='253' y='-162.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='253' y='-147.8'>name(i):label_type</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='253' y='-132.8'>category(i):iri_type +</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='253' y='-132.8'>category(i):category_type +</text>
 </g><g class='edge' id='edge1'><title>MacromolecularMachine-&gt;MolecularActivity</title>
 <path d='M112.299,-274.216C141.314,-250.662 185.8,-214.55 216.963,-189.254' fill='none' stroke='black'/>
 <polygon fill='black' points='104.187,-280.801 109.115,-271.005 108.069,-277.65 111.951,-274.499 111.951,-274.499 111.951,-274.499 108.069,-277.65 114.787,-277.992 104.187,-280.801 104.187,-280.801' stroke='black'/>
@@ -75,7 +75,7 @@
 <polygon fill='white' points='704.5,-281 704.5,-317 889.5,-317 889.5,-281 704.5,-281' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='797' y='-295.3'>BiologicalProcessOrActivity</text>
 </g><g class='edge' id='edge6'><title>BiologicalProcessOrActivity-&gt;MolecularActivity</title>
-<path d='M719.864,-278.432C615.031,-251.839 428.895,-204.621 326.164,-178.56' fill='none' stroke='black'/>
+<path d='M719.782,-278.412C620.482,-253.222 448.332,-209.551 343.143,-182.867' fill='none' stroke='black'/>
 <polygon fill='none' points='719.196,-281.874 729.749,-280.94 720.917,-275.089 719.196,-281.874' stroke='black'/>
 </g></g>
 <text style='fill: lightslategray; font-size: 6pt; font-family: Verdana' x='800' y='346'>CREATED WITH YUML</text></svg>

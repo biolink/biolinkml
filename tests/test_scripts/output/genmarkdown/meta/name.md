@@ -1,5 +1,5 @@
 
-# Type: name
+# Slot: name
 
 
 the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class.
@@ -23,7 +23,7 @@ URI: [meta:name](https://w3id.org/biolink/biolinkml/meta/name)
  * [ClassDefinition](ClassDefinition.md)
  * [Definition](Definition.md)
  * [Element](Element.md)
- * [SchemaDefinition](SchemaDefinition.md)
+ * [EnumDefinition](EnumDefinition.md)
  * [SlotDefinition](SlotDefinition.md)
  * [SubsetDefinition](SubsetDefinition.md)
  * [TypeDefinition](TypeDefinition.md)
@@ -35,4 +35,5 @@ URI: [meta:name](https://w3id.org/biolink/biolinkml/meta/name)
 | **Mappings:** | | rdfs:label |
 |  | | schema:name |
 | **In Subsets:** | | owl |
+| **See also:** | | https://en.wikipedia.org/wiki/Data_element_name |
 

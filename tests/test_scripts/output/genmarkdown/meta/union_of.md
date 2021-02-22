@@ -1,5 +1,5 @@
 
-# Type: union_of
+# Slot: union_of
 
 
 indicates that the domain class consists exactly of the members of the classes in the range

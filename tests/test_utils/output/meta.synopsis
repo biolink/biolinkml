@@ -1,18 +1,18 @@
 
-Classes: 15
-	Referenced by: 8 classes, 103 slots, 0 types 
-	Root: 8
-	Leaf: 12
-	Standalone: 14
+Classes: 17
+	Referenced by: 10 classes, 114 slots, 0 types, 0 enums 
+	Root: 9
+	Leaf: 14
+	Standalone: 16
 	Declared mixin: 2
 	Undeclared mixin: 0
 	Abstract: 2
 
-Slots: 109
-	Referenced by: 15 classes, 12 slots, 0 types 
-	Root: 97
-	Leaf: 102
-	Standalone: 110
+Slots: 122
+	Referenced by: 17 classes, 15 slots, 0 types, 0 enums 
+	Root: 107
+	Leaf: 116
+	Standalone: 125
 	Declared mixin: 0
 	Undeclared mixin: 0
 	Abstract: 1
@@ -24,35 +24,41 @@ Slots: 109
 		"last_updated_on": "element"
 		"modified_by": "element"
 		"status": "element"
-	Domain unspecified: 6
+	Domain unspecified: 8
 	Ranges:
 		Type:
 			boolean: 13
 			datetime: 4
 			integer: 3
-			ncname: 6
-			string: 30
+			ncname: 5
+			string: 34
 			uri: 3
-			uriorcurie: 19
+			uriorcurie: 22
 		Class:
 			alt_description: 1
 			annotation: 1
 			class_definition: 7
 			definition: 4
 			element: 1
+			enum_definition: 1
 			example: 1
 			extension: 1
 			local_name: 1
+			permissible_value: 3
 			prefix: 1
-			slot_definition: 8
+			slot_definition: 10
 			subset_definition: 2
 			type_definition: 3
+		Unknown:
+			pv_formula_options: 1
 
-Types: 13
-	Referenced by: 0 classes, 78 slots, 0 types 
+Types: 14
+	Referenced by: 0 classes, 84 slots, 0 types, 0 enums 
 	Bases:
 		Bool:
 			boolean
+		Decimal:
+			decimal
 		ElementIdentifier:
 			objectidentifier
 		NCName:

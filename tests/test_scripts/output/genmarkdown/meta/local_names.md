@@ -1,5 +1,5 @@
 
-# Type: local_names
+# Slot: local_names
 
 
 
@@ -22,6 +22,7 @@ URI: [meta:local_names](https://w3id.org/biolink/biolinkml/meta/local_names)
  * [ClassDefinition](ClassDefinition.md)
  * [Definition](Definition.md)
  * [Element](Element.md)
+ * [EnumDefinition](EnumDefinition.md)
  * [SchemaDefinition](SchemaDefinition.md)
  * [SlotDefinition](SlotDefinition.md)
  * [SubsetDefinition](SubsetDefinition.md)

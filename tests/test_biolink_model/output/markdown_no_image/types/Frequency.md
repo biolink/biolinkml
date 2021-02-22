@@ -1,5 +1,5 @@
 
-# Type: frequency
+# Type: Frequency
 
 
 

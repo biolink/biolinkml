@@ -1,5 +1,5 @@
 
-# Type: inherited
+# Slot: inherited
 
 
 true means that the *value* of a slot is inherited by subclasses

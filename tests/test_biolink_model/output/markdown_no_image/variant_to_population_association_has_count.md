@@ -1,5 +1,5 @@
 
-# Type: variant to population association_has count
+# Slot: variant_to_population_association_has_count
 
 
 number in object population that carry a particular allele, aka allele count
@@ -21,3 +21,10 @@ URI: [biolink:variant_to_population_association_has_count](https://w3id.org/biol
 ## Used by
 
  * [VariantToPopulationAssociation](VariantToPopulationAssociation.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Examples:** | | {'value': '4', 'description': '4 individuals in gnomad set'} |
+

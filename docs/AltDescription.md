@@ -1,5 +1,5 @@
 
-# Type: alt_description
+# Class: AltDescription
 
 
 an attributed description
@@ -20,7 +20,7 @@ URI: [meta:AltDescription](https://w3id.org/biolink/biolinkml/meta/AltDescriptio
 
  * [alt_description➞source](alt_description_source.md)  <sub>REQ</sub>
     * Description: the source of an attributed description
-    * range: [Ncname](types/Ncname.md)
+    * range: [String](types/String.md)
  * [alt_description➞description](alt_description_text.md)  <sub>REQ</sub>
     * Description: text of an attributed description
     * range: [String](types/String.md)

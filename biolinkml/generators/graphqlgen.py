@@ -29,7 +29,8 @@ class GraphqlGenerator(Generator):
         print()
 
     def visit_class_slot(self, cls: ClassDefinition, aliased_slot_name: str, slot: SlotDefinition) -> None:
-        slotrange = camelcase(slot.range) if slot.range in self.schema.classes or slot.range in self.schema.types else "String"
+        slotrange = camelcase(slot.range) if slot.range in self.schema.classes or slot.range in self.schema.types or \
+                                             slot.range in self.schema.enums else "String"
         if slot.multivalued:
             slotrange = f"[{slotrange}]"
         if slot.required:
@@ -42,3 +43,7 @@ class GraphqlGenerator(Generator):
 def cli(yamlfile, **args):
     """ Generate graphql representation of a biolink model """
     print(GraphqlGenerator(yamlfile, **args).serialize(**args))
+
+
+if __name__ == '__main__':
+    cli()

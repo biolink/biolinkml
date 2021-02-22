@@ -1,5 +1,5 @@
 
-# Type: anatomical entity to anatomical entity ontogenic association_subject
+# Slot: anatomical_entity_to_anatomical_entity_ontogenic_association_subject
 
 
 the structure at a later time

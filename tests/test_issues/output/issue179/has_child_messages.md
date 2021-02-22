@@ -1,5 +1,5 @@
 
-# Type: has child messages
+# Slot: //example.org/sample/example1/has_child_messages
 
 
 

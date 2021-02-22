@@ -1,0 +1,19 @@
+id: https://microbiomedata/schema
+
+prefixes:
+  biolinkml: https://w3id.org/biolink/biolinkml/
+
+imports:
+  - biolinkml:types
+  - issues_368_imports
+
+classes:
+
+  c:
+    is_a: parent_class
+    slots:
+      - s
+
+slots:
+  s:
+    range: e

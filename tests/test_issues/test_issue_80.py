@@ -21,7 +21,8 @@ class Issue80TestCase(TestEnvironmentTestCase):
         """ Make sure that types are generated as part of the output """
         env.generate_single_file('issue_80.py',
                                  lambda: PythonGenerator(env.input_path('issue_80.yaml')).serialize(),
-                                 comparator=compare_python, value_is_returned=True)
+                                 comparator=lambda exp, act: compare_python(exp, act, self.env.expected_path('issue_80.py')),
+                                 value_is_returned=True)
         module = compile_python(env.expected_path('issue_80.py'))
         example = module.Person("http://example.org/person/17", "Fred Jones", 43)
 

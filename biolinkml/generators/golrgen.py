@@ -42,6 +42,7 @@ class GOLRClass(YAMLRoot):
 class GolrSchemaGenerator(Generator):
     generatorname = os.path.basename(__file__)
     generatorversion = "0.1.1"
+    directory_output = True
     valid_formats = ["golr"]
     visit_all_class_slots = True
 
@@ -57,7 +58,7 @@ class GolrSchemaGenerator(Generator):
         # write_golr_yaml_to_dir(schema, dir)
 
     def visit_class(self, cls: ClassDefinition) -> bool:
-        if not cls.abstract:
+        if not (cls.mixin or cls.abstract):
             self.class_obj = GOLRClass(id=underscore(cls.name),
                                        schema_generating=True,
                                        description=cls.description,
@@ -86,3 +87,7 @@ class GolrSchemaGenerator(Generator):
 def cli(yamlfile, dir=None, **args):
     """ Generate GOLR representation of a biolink model """
     print(GolrSchemaGenerator(yamlfile, directory=dir, **args).serialize(directory=dir, **args))
+
+
+if __name__ == '__main__':
+    cli()

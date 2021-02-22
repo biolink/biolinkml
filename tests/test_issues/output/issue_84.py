@@ -1,5 +1,5 @@
-# Auto generated from issue_84.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-04 09:38
+# Auto generated from issue_84.yaml by pythongen.py version: 0.9.0
+# Generation date: 2021-01-04 21:53
 # Schema: nmdc_schema
 #
 # id: https://microbiomedata/schema
@@ -8,8 +8,11 @@
 
 import dataclasses
 import sys
+import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
+from biolinkml.meta import EnumDefinition, PermissibleValue, PvFormulaOptions
+
 from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
@@ -18,12 +21,13 @@ if sys.version_info < (3, 7, 6):
 else:
     from biolinkml.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
+from biolinkml.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import ElementIdentifier
 from includes.types import Double, Float, String
 
-metamodel_version = "1.5.3"
+metamodel_version = "1.7.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -76,19 +80,32 @@ class Biosample(YAMLRoot):
     class_name: ClassVar[str] = "biosample"
     class_model_uri: ClassVar[URIRef] = NMDC.Biosample
 
-    id: Union[ElementIdentifier, BiosampleId]
+    id: Union[ElementIdentifier, BiosampleId] = None
     name: Optional[str] = None
-    annotations: List[Union[dict, "Annotation"]] = empty_list()
-    alternate_identifiers: List[ElementIdentifier] = empty_list()
+    annotations: Optional[Union[Union[dict, "Annotation"], List[Union[dict, "Annotation"]]]] = empty_list()
+    alternate_identifiers: Optional[Union[ElementIdentifier, List[ElementIdentifier]]] = empty_list()
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.id is None:
-            raise ValueError(f"id must be supplied")
+            raise ValueError("id must be supplied")
         if not isinstance(self.id, BiosampleId):
             self.id = BiosampleId(self.id)
-        self.annotations = [Annotation(*e) for e in self.annotations.items()] if isinstance(self.annotations, dict) \
-                            else [v if isinstance(v, Annotation) else Annotation(**v)
-                                  for v in ([self.annotations] if isinstance(self.annotations, str) else self.annotations)]
+
+        if self.name is not None and not isinstance(self.name, str):
+            self.name = str(self.name)
+
+        if self.annotations is None:
+            self.annotations = []
+        if not isinstance(self.annotations, list):
+            self.annotations = [self.annotations]
+        self._normalize_inlined_slot(slot_name="annotations", slot_type=Annotation, key_name="has raw value", inlined_as_list=True, keyed=False)
+
+        if self.alternate_identifiers is None:
+            self.alternate_identifiers = []
+        if not isinstance(self.alternate_identifiers, list):
+            self.alternate_identifiers = [self.alternate_identifiers]
+        self.alternate_identifiers = [v if isinstance(v, ElementIdentifier) else ElementIdentifier(v) for v in self.alternate_identifiers]
+
         super().__post_init__(**kwargs)
 
 
@@ -104,14 +121,22 @@ class BiosampleProcessing(YAMLRoot):
     class_name: ClassVar[str] = "biosample processing"
     class_model_uri: ClassVar[URIRef] = NMDC.BiosampleProcessing
 
-    input: List[Union[ElementIdentifier, BiosampleId]] = empty_list()
-    output: List[Union[ElementIdentifier, BiosampleId]] = empty_list()
+    input: Optional[Union[Union[ElementIdentifier, BiosampleId], List[Union[ElementIdentifier, BiosampleId]]]] = empty_list()
+    output: Optional[Union[Union[ElementIdentifier, BiosampleId], List[Union[ElementIdentifier, BiosampleId]]]] = empty_list()
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
-        self.input = [v if isinstance(v, BiosampleId)
-                      else BiosampleId(v) for v in ([self.input] if isinstance(self.input, str) else self.input)]
-        self.output = [v if isinstance(v, BiosampleId)
-                       else BiosampleId(v) for v in ([self.output] if isinstance(self.output, str) else self.output)]
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.input is None:
+            self.input = []
+        if not isinstance(self.input, list):
+            self.input = [self.input]
+        self.input = [v if isinstance(v, BiosampleId) else BiosampleId(v) for v in self.input]
+
+        if self.output is None:
+            self.output = []
+        if not isinstance(self.output, list):
+            self.output = [self.output]
+        self.output = [v if isinstance(v, BiosampleId) else BiosampleId(v) for v in self.output]
+
         super().__post_init__(**kwargs)
 
 
@@ -127,17 +152,22 @@ class Annotation(YAMLRoot):
     class_name: ClassVar[str] = "annotation"
     class_model_uri: ClassVar[URIRef] = NMDC.Annotation
 
-    has_raw_value: str
+    has_raw_value: str = None
     has_characteristic: Optional[Union[ElementIdentifier, CharacteristicId]] = None
     has_normalized_value: Optional[Union[dict, "NormalizedValue"]] = None
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.has_raw_value is None:
+            raise ValueError("has_raw_value must be supplied")
+        if not isinstance(self.has_raw_value, str):
+            self.has_raw_value = str(self.has_raw_value)
+
         if self.has_characteristic is not None and not isinstance(self.has_characteristic, CharacteristicId):
             self.has_characteristic = CharacteristicId(self.has_characteristic)
-        if self.has_raw_value is None:
-            raise ValueError(f"has_raw_value must be supplied")
+
         if self.has_normalized_value is not None and not isinstance(self.has_normalized_value, NormalizedValue):
             self.has_normalized_value = NormalizedValue()
+
         super().__post_init__(**kwargs)
 
 
@@ -154,16 +184,29 @@ class Characteristic(YAMLRoot):
     class_name: ClassVar[str] = "characteristic"
     class_model_uri: ClassVar[URIRef] = NMDC.Characteristic
 
-    id: Union[ElementIdentifier, CharacteristicId]
+    id: Union[ElementIdentifier, CharacteristicId] = None
     name: Optional[str] = None
     description: Optional[str] = None
-    alternate_identifiers: List[ElementIdentifier] = empty_list()
+    alternate_identifiers: Optional[Union[ElementIdentifier, List[ElementIdentifier]]] = empty_list()
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.id is None:
-            raise ValueError(f"id must be supplied")
+            raise ValueError("id must be supplied")
         if not isinstance(self.id, CharacteristicId):
             self.id = CharacteristicId(self.id)
+
+        if self.name is not None and not isinstance(self.name, str):
+            self.name = str(self.name)
+
+        if self.description is not None and not isinstance(self.description, str):
+            self.description = str(self.description)
+
+        if self.alternate_identifiers is None:
+            self.alternate_identifiers = []
+        if not isinstance(self.alternate_identifiers, list):
+            self.alternate_identifiers = [self.alternate_identifiers]
+        self.alternate_identifiers = [v if isinstance(v, ElementIdentifier) else ElementIdentifier(v) for v in self.alternate_identifiers]
+
         super().__post_init__(**kwargs)
 
 
@@ -194,9 +237,13 @@ class QuantityValue(NormalizedValue):
     has_unit: Optional[Union[dict, "Unit"]] = None
     has_numeric_value: Optional[float] = None
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.has_unit is not None and not isinstance(self.has_unit, Unit):
             self.has_unit = Unit()
+
+        if self.has_numeric_value is not None and not isinstance(self.has_numeric_value, float):
+            self.has_numeric_value = float(self.has_numeric_value)
+
         super().__post_init__(**kwargs)
 
 
@@ -214,9 +261,10 @@ class ControlledTermValue(NormalizedValue):
 
     instance_of: Optional[Union[ElementIdentifier, OntologyClassId]] = None
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.instance_of is not None and not isinstance(self.instance_of, OntologyClassId):
             self.instance_of = OntologyClassId(self.instance_of)
+
         super().__post_init__(**kwargs)
 
 
@@ -234,6 +282,16 @@ class GeolocationValue(NormalizedValue):
 
     latitude: Optional[float] = None
     longitude: Optional[float] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.latitude is not None and not isinstance(self.latitude, float):
+            self.latitude = float(self.latitude)
+
+        if self.longitude is not None and not isinstance(self.longitude, float):
+            self.longitude = float(self.longitude)
+
+        super().__post_init__(**kwargs)
+
 
 class Unit(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
@@ -253,16 +311,22 @@ class OntologyClass(YAMLRoot):
     class_name: ClassVar[str] = "ontology class"
     class_model_uri: ClassVar[URIRef] = NMDC.OntologyClass
 
-    id: Union[ElementIdentifier, OntologyClassId]
+    id: Union[ElementIdentifier, OntologyClassId] = None
     name: Optional[str] = None
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.id is None:
-            raise ValueError(f"id must be supplied")
+            raise ValueError("id must be supplied")
         if not isinstance(self.id, OntologyClassId):
             self.id = OntologyClassId(self.id)
+
+        if self.name is not None and not isinstance(self.name, str):
+            self.name = str(self.name)
+
         super().__post_init__(**kwargs)
 
+
+# Enumerations
 
 
 # Slots
@@ -270,55 +334,55 @@ class slots:
     pass
 
 slots.id = Slot(uri=NMDC.id, name="id", curie=NMDC.curie('id'),
-                      model_uri=NMDC.id, domain=None, range=URIRef)
+                   model_uri=NMDC.id, domain=None, range=URIRef)
 
 slots.name = Slot(uri=NMDC.name, name="name", curie=NMDC.curie('name'),
-                      model_uri=NMDC.name, domain=None, range=Optional[str])
+                   model_uri=NMDC.name, domain=None, range=Optional[str])
 
 slots.description = Slot(uri=DCTERMS.description, name="description", curie=DCTERMS.curie('description'),
-                      model_uri=NMDC.description, domain=None, range=Optional[str])
+                   model_uri=NMDC.description, domain=None, range=Optional[str])
 
 slots.has_characteristic = Slot(uri=NMDC.has_characteristic, name="has characteristic", curie=NMDC.curie('has_characteristic'),
-                      model_uri=NMDC.has_characteristic, domain=Annotation, range=Optional[Union[ElementIdentifier, CharacteristicId]])
+                   model_uri=NMDC.has_characteristic, domain=Annotation, range=Optional[Union[ElementIdentifier, CharacteristicId]])
 
 slots.instance_of = Slot(uri=NMDC.instance_of, name="instance of", curie=NMDC.curie('instance_of'),
-                      model_uri=NMDC.instance_of, domain=None, range=Optional[Union[ElementIdentifier, OntologyClassId]])
+                   model_uri=NMDC.instance_of, domain=None, range=Optional[Union[ElementIdentifier, OntologyClassId]])
 
 slots.has_raw_value = Slot(uri=NMDC.has_raw_value, name="has raw value", curie=NMDC.curie('has_raw_value'),
-                      model_uri=NMDC.has_raw_value, domain=Annotation, range=str)
+                   model_uri=NMDC.has_raw_value, domain=Annotation, range=str)
 
 slots.has_normalized_value = Slot(uri=NMDC.has_normalized_value, name="has normalized value", curie=NMDC.curie('has_normalized_value'),
-                      model_uri=NMDC.has_normalized_value, domain=Annotation, range=Optional[Union[dict, "NormalizedValue"]])
+                   model_uri=NMDC.has_normalized_value, domain=Annotation, range=Optional[Union[dict, "NormalizedValue"]])
 
 slots.has_unit = Slot(uri=NMDC.has_unit, name="has unit", curie=NMDC.curie('has_unit'),
-                      model_uri=NMDC.has_unit, domain=None, range=Optional[Union[dict, Unit]], mappings = [QUD.unit])
+                   model_uri=NMDC.has_unit, domain=None, range=Optional[Union[dict, Unit]], mappings = [QUD.unit])
 
 slots.has_numeric_value = Slot(uri=NMDC.has_numeric_value, name="has numeric value", curie=NMDC.curie('has_numeric_value'),
-                      model_uri=NMDC.has_numeric_value, domain=None, range=Optional[float], mappings = [QUD.quantityValue])
+                   model_uri=NMDC.has_numeric_value, domain=None, range=Optional[float], mappings = [QUD.quantityValue])
 
 slots.alternate_identifiers = Slot(uri=NMDC.alternate_identifiers, name="alternate identifiers", curie=NMDC.curie('alternate_identifiers'),
-                      model_uri=NMDC.alternate_identifiers, domain=None, range=List[ElementIdentifier])
+                   model_uri=NMDC.alternate_identifiers, domain=None, range=Optional[Union[ElementIdentifier, List[ElementIdentifier]]])
 
 slots.annotations = Slot(uri=NMDC.annotations, name="annotations", curie=NMDC.curie('annotations'),
-                      model_uri=NMDC.annotations, domain=Biosample, range=List[Union[dict, "Annotation"]])
+                   model_uri=NMDC.annotations, domain=Biosample, range=Optional[Union[Union[dict, "Annotation"], List[Union[dict, "Annotation"]]]])
 
 slots.latitude = Slot(uri=WGS.lat, name="latitude", curie=WGS.curie('lat'),
-                      model_uri=NMDC.latitude, domain=None, range=Optional[float])
+                   model_uri=NMDC.latitude, domain=None, range=Optional[float])
 
 slots.longitude = Slot(uri=WGS.long, name="longitude", curie=WGS.curie('long'),
-                      model_uri=NMDC.longitude, domain=None, range=Optional[float])
+                   model_uri=NMDC.longitude, domain=None, range=Optional[float])
 
 slots.input = Slot(uri=NMDC.input, name="input", curie=NMDC.curie('input'),
-                      model_uri=NMDC.input, domain=None, range=List[Union[ElementIdentifier, BiosampleId]])
+                   model_uri=NMDC.input, domain=None, range=Optional[Union[Union[ElementIdentifier, BiosampleId], List[Union[ElementIdentifier, BiosampleId]]]])
 
 slots.output = Slot(uri=NMDC.output, name="output", curie=NMDC.curie('output'),
-                      model_uri=NMDC.output, domain=None, range=List[Union[ElementIdentifier, BiosampleId]])
+                   model_uri=NMDC.output, domain=None, range=Optional[Union[Union[ElementIdentifier, BiosampleId], List[Union[ElementIdentifier, BiosampleId]]]])
 
 slots.biosample_id = Slot(uri=NMDC.id, name="biosample_id", curie=NMDC.curie('id'),
-                      model_uri=NMDC.biosample_id, domain=Biosample, range=Union[ElementIdentifier, BiosampleId])
+                   model_uri=NMDC.biosample_id, domain=Biosample, range=Union[ElementIdentifier, BiosampleId])
 
 slots.biosample_name = Slot(uri=NMDC.name, name="biosample_name", curie=NMDC.curie('name'),
-                      model_uri=NMDC.biosample_name, domain=Biosample, range=Optional[str])
+                   model_uri=NMDC.biosample_name, domain=Biosample, range=Optional[str])
 
 slots.biosample_alternate_identifiers = Slot(uri=NMDC.alternate_identifiers, name="biosample_alternate identifiers", curie=NMDC.curie('alternate_identifiers'),
-                      model_uri=NMDC.biosample_alternate_identifiers, domain=Biosample, range=List[ElementIdentifier])
+                   model_uri=NMDC.biosample_alternate_identifiers, domain=Biosample, range=Optional[Union[ElementIdentifier, List[ElementIdentifier]]])

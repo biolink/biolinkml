@@ -103,7 +103,7 @@ class TestEnvironment:
     def actual_path(self, *path: str, is_dir: bool = False) -> str:
         """ Return the full path to the path fragments in path """
         dir_path = [p for p in (path if is_dir else path[:-1]) if p]
-        self.make_temp_dir(*dir_path)
+        self.make_temp_dir(*dir_path, clear=False)
         return os.path.join(self.tempdir, *[p for p in path if p])
 
     def temp_file_path(self, *path: str, is_dir:bool = False) -> str:
@@ -131,14 +131,14 @@ class TestEnvironment:
         """ Return the current state of the log file """
         return '\n\n'.join([str(e) for e in self._log.entries])
 
-    def make_temp_dir(self, *paths: str) -> str:
+    def make_temp_dir(self, *paths: str, clear: bool=True) -> str:
         """ Create and initialize a list of paths """
         full_path = self.tempdir
         TestEnvironment.make_testing_directory(full_path)
         if len(paths):
             for i in range(len(paths)):
                 full_path = os.path.join(full_path, paths[i])
-                TestEnvironment.make_testing_directory(full_path, clear=i == len(paths) - 1)
+                TestEnvironment.make_testing_directory(full_path, clear=clear and i == len(paths) - 1)
         return full_path
 
     def string_comparator(self, expected: str, actual: str) -> Optional[str]:
@@ -216,7 +216,7 @@ class TestEnvironment:
         expected_file = self.root_expected_path(*filename) if use_testing_root else self.expected_path(*filename)
 
         if value_is_returned:
-            actual = filtr(generator())
+            actual = generator()
         else:
             outf = StringIO()
             from tests import CLIExitException
@@ -225,15 +225,16 @@ class TestEnvironment:
                     generator()
                 except CLIExitException:
                     pass
-            actual = filtr(outf.getvalue())
+            actual = outf.getvalue()
 
-        if not self.eval_single_file(expected_file, actual, filtr, comparator if comparator else self.string_comparator):
+        if not self.eval_single_file(expected_file, actual, filtr, comparator):
             if self.fail_on_error:
+                self.make_temp_dir(os.path.dirname(actual_file), clear=False)
                 with open(actual_file, 'w') as actualf:
                     actualf.write(actual)
         return actual
 
-    def eval_single_file(self, expected_file_path: str, actual_text: str,  filtr: Callable[[str], str],
+    def eval_single_file(self, expected_file_path: str, actual_text: str, filtr: Callable[[str], str],
                          comparator: Callable[[str, str], str] = None) -> bool:
         """ Compare actual_text to the contents of the expected file.  Log a message if there is a mismatch and
             overwrite the expected file if we're not in the fail on error mode
@@ -246,9 +247,13 @@ class TestEnvironment:
             msg = comparator(expected_text, filtr(actual_text))
         else:
             msg = f"New file {self.verb} created"
+            cmsg = comparator(actual_text, actual_text)
+            if cmsg:
+                msg = msg + '\n' + cmsg
         if msg:
             self.log(expected_file_path, msg)
         if msg and not self.fail_on_error:
+            self.make_temp_dir(os.path.dirname(expected_file_path), clear=False)
             with open(expected_file_path, 'w') as outf:
                 outf.write(actual_text)
         return not msg

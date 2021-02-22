@@ -1,5 +1,5 @@
 
-# Type: gene to expression site association_object
+# Slot: gene_to_expression_site_association_object
 
 
 location in which the gene is expressed
@@ -21,3 +21,10 @@ URI: [biolink:gene_to_expression_site_association_object](https://w3id.org/bioli
 ## Used by
 
  * [GeneToExpressionSiteAssociation](GeneToExpressionSiteAssociation.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Examples:** | | {'value': 'UBERON:0002037', 'description': 'cerebellum'} |
+

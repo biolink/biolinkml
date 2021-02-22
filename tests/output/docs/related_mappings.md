@@ -1,5 +1,5 @@
 
-# Type: related mappings
+# Slot: related_mappings
 
 
 A list of terms from different schemas or terminology systems that have related meaning.
@@ -23,6 +23,7 @@ None ->  <sub>0..*</sub> [Uriorcurie](types/Uriorcurie.md)
  * [ClassDefinition](ClassDefinition.md)
  * [Definition](Definition.md)
  * [Element](Element.md)
+ * [EnumDefinition](EnumDefinition.md)
  * [SchemaDefinition](SchemaDefinition.md)
  * [SlotDefinition](SlotDefinition.md)
  * [SubsetDefinition](SubsetDefinition.md)

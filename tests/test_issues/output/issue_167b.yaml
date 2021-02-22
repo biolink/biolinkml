@@ -12,6 +12,9 @@ prefixes:
   biolinkml:
     prefix_prefix: biolinkml
     prefix_reference: https://w3id.org/biolink/biolinkml/
+emit_prefixes:
+- meta
+- biolinkml
 default_curi_maps:
 - semweb_context
 default_prefix: ex
@@ -41,6 +44,7 @@ types:
     imported_from: biolinkml:types
     base: Bool
     uri: xsd:boolean
+    repr: bool
   float:
     name: float
     definition_uri: https://w3id.org/biolink/biolinkml/meta/types/Float
@@ -57,6 +61,15 @@ types:
     imported_from: biolinkml:types
     base: float
     uri: xsd:double
+  decimal:
+    name: decimal
+    definition_uri: https://w3id.org/biolink/biolinkml/meta/types/Decimal
+    description: A real number with arbitrary precision that conforms to the xsd:decimal
+      specification
+    from_schema: https://w3id.org/biolink/biolinkml/types
+    imported_from: biolinkml:types
+    base: Decimal
+    uri: xsd:decimal
   time:
     name: time
     definition_uri: https://w3id.org/biolink/biolinkml/meta/types/Time
@@ -149,10 +162,10 @@ slots:
     slot_uri: meta:annotations
     multivalued: true
     inlined: true
-    owner: annotatable
+    owner: annotation
     domain_of:
-    - annotation
     - annotatable
+    - annotation
   extensions:
     name: extensions
     definition_uri: https://w3id.org/biolink/biolinkml/meta/extensions
@@ -196,20 +209,6 @@ slots:
     owner: extension
     domain_of:
     - extension
-  annotation_extension_value:
-    name: annotation_extension_value
-    from_schema: http://example.org/tests/issue167b
-    is_a: extension_value
-    domain: annotation
-    range: boolean
-    slot_uri: ex:value
-    required: true
-    alias: value
-    owner: annotation
-    domain_of:
-    - annotation
-    is_usage_slot: true
-    usage_slot_name: extension_value
 classes:
   my class:
     name: my class
@@ -231,29 +230,13 @@ classes:
       rather just a string.
     from_schema: http://example.org/tests/issue167b
     annotations:
-    - tag: prefLabel
+    - tag: tag
+      value: prefLabel
+    - tag: value
       value: a preferred label
-      annotations:
-      - tag: source
-        value: PMID:12345
+    - tag: annotations
+      value: '{''source'': ''PMID:12345''}'
     class_uri: ex:MyClass2
-  annotation:
-    name: annotation
-    definition_uri: https://w3id.org/biolink/biolinkml/meta/Annotation
-    description: a tag/value pair with the semantics of OWL Annotation
-    from_schema: https://w3id.org/biolink/biolinkml/annotations
-    imported_from: biolinkml:annotations
-    is_a: extension
-    slots:
-    - extension_tag
-    - extensions
-    - annotations
-    - annotation_extension_value
-    slot_usage:
-      extension_value:
-        name: extension_value
-        range: boolean
-    class_uri: meta:Annotation
   annotatable:
     name: annotatable
     definition_uri: https://w3id.org/biolink/biolinkml/meta/Annotatable
@@ -264,6 +247,21 @@ classes:
     slots:
     - annotations
     class_uri: meta:Annotatable
+  annotation:
+    name: annotation
+    definition_uri: https://w3id.org/biolink/biolinkml/meta/Annotation
+    description: a tag/value pair with the semantics of OWL Annotation
+    from_schema: https://w3id.org/biolink/biolinkml/annotations
+    imported_from: biolinkml:annotations
+    is_a: extension
+    mixins:
+    - annotatable
+    slots:
+    - extension_tag
+    - extension_value
+    - extensions
+    - annotations
+    class_uri: meta:Annotation
   extension:
     name: extension
     definition_uri: https://w3id.org/biolink/biolinkml/meta/Extension
@@ -285,8 +283,8 @@ classes:
     slots:
     - extensions
     class_uri: meta:Extensible
-metamodel_version: 1.5.3
+metamodel_version: 1.7.0
 source_file: issue_167b.yaml
-source_file_date: Friday Sep 27 12:00:00 2003
-source_file_size:  23600
-generation_date: Friday Sep 27 12:00:00 2003
+source_file_date: Tue Jan 26 20:23:51 2021
+source_file_size: 835
+generation_date: 2021-01-26 20:26

@@ -1,12 +1,12 @@
 import os
-from typing import Union, TextIO, Optional
+from typing import Union, TextIO
 
 import click
 from prologterms import Term, TermGenerator, PrologRenderer, SExpressionRenderer
 
 from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition
 from biolinkml.utils.formatutils import camelcase, underscore
-from biolinkml.utils.generator import Generator
+from biolinkml.utils.generator import Generator, shared_arguments
 
 
 class LogicProgramGenerator(Generator):
@@ -15,14 +15,14 @@ class LogicProgramGenerator(Generator):
     valid_formats = ['lp', 'sexpr']
     visit_all_class_slots = True
 
-    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], fmt: Optional[str] = None) -> None:
-        super().__init__(schema, fmt)
-        self.P = TermGenerator() 
-        self.R = PrologRenderer() if fmt == 'lp' else SExpressionRenderer()
+    def __init__(self, schema: Union[str, TextIO, SchemaDefinition], **kwargs) -> None:
+        super().__init__(schema, **kwargs)
+        self.P = TermGenerator()
+        self.R = PrologRenderer() if self.format == 'lp' else SExpressionRenderer()
 
     def visit_class(self, cls: ClassDefinition) -> bool:
         cn = underscore(cls.name)
-        
+
         self.emit('class', cn)
         for p in cls.mixins:
             self.emit('mixin', cn, underscore(p))
@@ -61,15 +61,13 @@ class LogicProgramGenerator(Generator):
             self.emit('multivalued', sn)
         if slot.required:
             self.emit('required', sn)
-            
-        
-    
+
     def visit_class_slot(self, cls: ClassDefinition, aliased_slot_name: str, slot: SlotDefinition) -> None:
         sn = underscore(aliased_slot_name)
         cn = underscore(cls.name)
         self.emit('class_slot', cn, sn)
         self.emit('required', sn)
-        self.emit('slotrange', underscore(slot.range)) if slot.range in self.schema.classes or slot.range in self.schema.types else "String"
+        self.emit('slotrange', underscore(slot.range)) if slot.range in self.schema.classes or slot.range in self.schema.types or slot.range in self.schema.enums else "String"
         if slot.multivalued:
             self.emit('multivalued_in', sn, cn)
         if slot.required:
@@ -82,14 +80,13 @@ class LogicProgramGenerator(Generator):
         t = Term(p, *args)
         print(f'{self.R.render(t)}.')
 
-        
 
+@shared_arguments(LogicProgramGenerator)
 @click.command()
-@click.argument("yamlfile", type=click.Path(exists=True, dir_okay=False))
-@click.option("--format", "-f", default='lp', type=click.Choice(['lp', 'sexpr']), help="Output format")
-def cli(yamlfile, format):
+def cli(yamlfile, **args):
     """ Generate logic program representation of a biolink model """
-    print(LogicProgramGenerator(yamlfile, format).serialize())
+    print(LogicProgramGenerator(yamlfile, **args).serialize(**args))
+
 
 if __name__ == "__main__":
     cli()

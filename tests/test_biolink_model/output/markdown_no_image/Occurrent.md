@@ -1,5 +1,5 @@
 
-# Type: occurrent
+# Class: Occurrent
 
 
 A processual entity
@@ -7,17 +7,11 @@ A processual entity
 URI: [biolink:Occurrent](https://w3id.org/biolink/vocab/Occurrent)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Procedure],[Phenomenon],[MolecularActivity]uses%20-.->[Occurrent&#124;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[EnvironmentalProcess]uses%20-.->[Occurrent],[BiologicalProcessOrActivity]uses%20-.->[Occurrent],[BiologicalProcess]uses%20-.->[Occurrent],[Occurrent]^-[Procedure],[Occurrent]^-[Phenomenon],[Occurrent]^-[ActivityAndBehavior],[NamedThing]^-[Occurrent],[NamedThing],[MolecularActivity],[EnvironmentalProcess],[BiologicalProcessOrActivity],[BiologicalProcess],[ActivityAndBehavior])
-
-## Parents
-
- *  is_a: [NamedThing](NamedThing.md) - a databased entity or concept/class
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Phenomenon]uses%20-.->[Occurrent],[MolecularActivity]uses%20-.->[Occurrent],[EnvironmentalProcess]uses%20-.->[Occurrent],[BiologicalProcessOrActivity]uses%20-.->[Occurrent],[BiologicalProcess]uses%20-.->[Occurrent],[Occurrent]^-[ActivityAndBehavior],[Phenomenon],[NamedThing],[MolecularActivity],[EnvironmentalProcess],[BiologicalProcessOrActivity],[BiologicalProcess],[ActivityAndBehavior])
 
 ## Children
 
  * [ActivityAndBehavior](ActivityAndBehavior.md) - Activity or behavior of any independent integral living, organization or mechanical actor in the world
- * [Phenomenon](Phenomenon.md) - a fact or situation that is observed to exist or happen, especially one whose cause or explanation is in question
- * [Procedure](Procedure.md) - A series of actions conducted in a certain order or manner
 
 ## Mixin for
 
@@ -25,6 +19,7 @@ URI: [biolink:Occurrent](https://w3id.org/biolink/vocab/Occurrent)
  * [BiologicalProcessOrActivity](BiologicalProcessOrActivity.md) (mixin)  - Either an individual molecular activity, or a collection of causally connected molecular activities
  * [EnvironmentalProcess](EnvironmentalProcess.md) (mixin) 
  * [MolecularActivity](MolecularActivity.md) (mixin)  - An execution of a molecular function carried out by a gene product or macromolecular complex.
+ * [Phenomenon](Phenomenon.md) (mixin)  - a fact or situation that is observed to exist or happen, especially one whose cause or explanation is in question
 
 ## Referenced by class
 
@@ -33,30 +28,17 @@ URI: [biolink:Occurrent](https://w3id.org/biolink/vocab/Occurrent)
  *  **[Occurrent](Occurrent.md)** *[negatively regulates, process to process](negatively_regulates_process_to_process.md)*  <sub>0..*</sub>  **[Occurrent](Occurrent.md)**
  *  **[NamedThing](NamedThing.md)** *[participates in](participates_in.md)*  <sub>0..*</sub>  **[Occurrent](Occurrent.md)**
  *  **[Occurrent](Occurrent.md)** *[positively regulates, process to process](positively_regulates_process_to_process.md)*  <sub>0..*</sub>  **[Occurrent](Occurrent.md)**
+ *  **[Occurrent](Occurrent.md)** *[preceded by](preceded_by.md)*  <sub>0..*</sub>  **[Occurrent](Occurrent.md)**
  *  **[Occurrent](Occurrent.md)** *[precedes](precedes.md)*  <sub>0..*</sub>  **[Occurrent](Occurrent.md)**
  *  **[Occurrent](Occurrent.md)** *[regulates, process to process](regulates_process_to_process.md)*  <sub>0..*</sub>  **[Occurrent](Occurrent.md)**
+ *  **[Occurrent](Occurrent.md)** *[temporally related to](temporally_related_to.md)*  <sub>0..*</sub>  **[Occurrent](Occurrent.md)**
 
 ## Attributes
 
-
-### Inherited from named thing:
-
- * [category](category.md)  <sub>1..*</sub>
-    * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
-    * range: [IriType](types/IriType.md)
-    * in subsets: (translator_minimal)
- * [id](id.md)  <sub>REQ</sub>
-    * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
-    * range: [String](types/String.md)
-    * in subsets: (translator_minimal)
- * [name](name.md)  <sub>REQ</sub>
-    * Description: A human-readable name for a thing
-    * range: [LabelType](types/LabelType.md)
-    * in subsets: (translator_minimal)
 
 ## Other properties
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | BFO:0000003 |
+| **Exact Mappings:** | | BFO:0000003 |
 

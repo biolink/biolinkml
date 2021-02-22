@@ -1,5 +1,5 @@
 
-# Type: gene regulatory relationship_object
+# Slot: gene_regulatory_relationship_object
 
 
 

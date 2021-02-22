@@ -1,5 +1,5 @@
 
-# Type: element
+# Class: Element
 
 
 a named element in the model
@@ -7,7 +7,7 @@ a named element in the model
 URI: [meta:Element](https://w3id.org/biolink/biolinkml/meta/Element)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[TypeDefinition],[SubsetDefinition],[SlotDefinition],[SchemaDefinition],[LocalName],[Extension],[Extensible],[Example],[SubsetDefinition]<in_subset%200..*-%20[Element&#124;id_prefixes:ncname%20*;name:string;definition_uri:uriorcurie%20%3F;aliases:string%20*;mappings:uriorcurie%20*;description:string%20%3F;deprecated:string%20%3F;todos:string%20*;notes:string%20*;comments:string%20*;from_schema:uri%20%3F;imported_from:string%20%3F;see_also:uriorcurie%20*;exact_mappings:uriorcurie%20*;close_mappings:uriorcurie%20*;related_mappings:uriorcurie%20*;deprecated_element_has_exact_replacement:uriorcurie%20%3F;deprecated_element_has_possible_replacement:uriorcurie%20%3F],[Example]<examples%200..*-++[Element],[AltDescription]<alt_descriptions%200..*-++[Element],[LocalName]<local_names%200..*-++[Element],[SlotDefinition]-%20range%200..1>[Element],[Element]uses%20-.->[Extensible],[Element]uses%20-.->[Annotatable],[Element]^-[TypeDefinition],[Element]^-[SubsetDefinition],[Element]^-[SchemaDefinition],[Element]^-[Definition],[Definition],[Annotation],[Annotatable],[AltDescription])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[TypeDefinition],[SubsetDefinition],[SlotDefinition],[SchemaDefinition],[LocalName],[Extension],[Extensible],[Example],[EnumDefinition],[SubsetDefinition]<in_subset%200..*-%20[Element&#124;name:string;id_prefixes:ncname%20*;definition_uri:uriorcurie%20%3F;aliases:string%20*;mappings:uriorcurie%20*;description:string%20%3F;deprecated:string%20%3F;todos:string%20*;notes:string%20*;comments:string%20*;from_schema:uri%20%3F;imported_from:string%20%3F;see_also:uriorcurie%20*;exact_mappings:uriorcurie%20*;close_mappings:uriorcurie%20*;related_mappings:uriorcurie%20*;narrow_mappings:uriorcurie%20*;broad_mappings:uriorcurie%20*;deprecated_element_has_exact_replacement:uriorcurie%20%3F;deprecated_element_has_possible_replacement:uriorcurie%20%3F],[Example]<examples%200..*-++[Element],[AltDescription]<alt_descriptions%200..*-++[Element],[LocalName]<local_names%200..*-++[Element],[SlotDefinition]-%20range%200..1>[Element],[Element]uses%20-.->[Extensible],[Element]uses%20-.->[Annotatable],[Element]^-[TypeDefinition],[Element]^-[SubsetDefinition],[Element]^-[SchemaDefinition],[Element]^-[EnumDefinition],[Element]^-[Definition],[Definition],[Annotation],[Annotatable],[AltDescription])
 
 ## Uses Mixins
 
@@ -17,6 +17,7 @@ URI: [meta:Element](https://w3id.org/biolink/biolinkml/meta/Element)
 ## Children
 
  * [Definition](Definition.md) - base class for definitions
+ * [EnumDefinition](EnumDefinition.md) - List of values that constrain the range of a slot
  * [SchemaDefinition](SchemaDefinition.md) - a collection of subset, type, slot and class definitions
  * [SubsetDefinition](SubsetDefinition.md) - the name and description of a subset
  * [TypeDefinition](TypeDefinition.md) - A data type definition.
@@ -34,6 +35,9 @@ URI: [meta:Element](https://w3id.org/biolink/biolinkml/meta/Element)
     * range: [String](types/String.md)
  * [alt_descriptions](alt_descriptions.md)  <sub>0..*</sub>
     * range: [AltDescription](AltDescription.md)
+ * [broad mappings](broad_mappings.md)  <sub>0..*</sub>
+    * Description: A list of terms from different schemas or terminology systems that have broader meaning.
+    * range: [Uriorcurie](types/Uriorcurie.md)
  * [close mappings](close_mappings.md)  <sub>0..*</sub>
     * Description: A list of terms from different schemas or terminology systems that have close meaning.
     * range: [Uriorcurie](types/Uriorcurie.md)
@@ -85,6 +89,9 @@ URI: [meta:Element](https://w3id.org/biolink/biolinkml/meta/Element)
     * Description: the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class.
     * range: [String](types/String.md)
     * in subsets: (owl)
+ * [narrow mappings](narrow_mappings.md)  <sub>0..*</sub>
+    * Description: A list of terms from different schemas or terminology systems that have narrower meaning.
+    * range: [Uriorcurie](types/Uriorcurie.md)
  * [notes](notes.md)  <sub>0..*</sub>
     * Description: editorial notes about an element intended for internal consumption
     * range: [String](types/String.md)
@@ -111,3 +118,10 @@ URI: [meta:Element](https://w3id.org/biolink/biolinkml/meta/Element)
  * [extensions](extensions.md)  <sub>0..*</sub>
     * Description: a tag/text tuple attached to an arbitrary element
     * range: [Extension](Extension.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **See also:** | | https://en.wikipedia.org/wiki/Data_element |
+

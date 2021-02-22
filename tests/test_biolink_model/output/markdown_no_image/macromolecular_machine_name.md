@@ -1,5 +1,5 @@
 
-# Type: macromolecular machine_name
+# Slot: macromolecular_machine_name
 
 
 genes are typically designated by a short symbol and a full name. We map the symbol to the default display name and use an additional slot for full name
@@ -9,7 +9,7 @@ URI: [biolink:macromolecular_machine_name](https://w3id.org/biolink/vocab/macrom
 
 ## Domain and Range
 
-[MacromolecularMachine](MacromolecularMachine.md) ->  <sub>REQ</sub> [SymbolType](types/SymbolType.md)
+[MacromolecularMachine](MacromolecularMachine.md) ->  <sub>OPT</sub> [SymbolType](types/SymbolType.md)
 
 ## Parents
 
@@ -25,10 +25,11 @@ URI: [biolink:macromolecular_machine_name](https://w3id.org/biolink/vocab/macrom
  * [Gene](Gene.md)
  * [GeneOrGeneProduct](GeneOrGeneProduct.md)
  * [GeneProduct](GeneProduct.md)
- * [GeneProductIsoform](GeneProductIsoform.md)
  * [MacromolecularComplex](MacromolecularComplex.md)
  * [MacromolecularMachine](MacromolecularMachine.md)
  * [MicroRNA](MicroRNA.md)
  * [NoncodingRNAProduct](NoncodingRNAProduct.md)
  * [Protein](Protein.md)
  * [ProteinIsoform](ProteinIsoform.md)
+ * [SiRNA](SiRNA.md)
+ * [Transcript](Transcript.md)

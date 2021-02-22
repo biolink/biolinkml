@@ -1,5 +1,5 @@
 
-# Type: has messages class
+# Class: //example.org/sample/example1/HasMessagesClass
 
 
 

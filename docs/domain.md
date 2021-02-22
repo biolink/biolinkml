@@ -1,5 +1,5 @@
 
-# Type: domain
+# Slot: domain
 
 
 defines the type of the subject of the slot.  Given the following slot definition

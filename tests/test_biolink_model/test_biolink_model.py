@@ -46,14 +46,15 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
 
     def test_biolink_python(self):
         """ Test the python generator for the biolink model """
-        self.single_file_generator('py', PythonGenerator, filtr=metadata_filter, comparator=compare_python,
+        self.single_file_generator('py', PythonGenerator, filtr=metadata_filter,
+                                   comparator=lambda exp, act: compare_python(exp, act, self.env.expected_path('py')),
                                    output_name='model')
 
     @unittest.skipIf(SKIP_MARKDOWN_VALIDATION, SKIP_MARKDOWN_VALIDATION_REASON)
     def test_biolink_markdown(self):
         """ Test the markdown generator for the biolink model """
         self.directory_generator('markdown_no_image', MarkdownGenerator, serialize_args=dict(image_dir=False))
-        self.directory_generator('markdown_image', MarkdownGenerator, serialize_args=dict(image_dir=True))
+        # self.directory_generator('markdown_image', MarkdownGenerator, serialize_args=dict(image_dir=True))
 
     def test_biolink_tsv(self):
         """ Test the tsv generator for the biolink model """
@@ -115,7 +116,9 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
         """ Test the python generator for the biolink model """
         self.output_name = 'namespaces'
         self.single_file_generator('py', NamespaceGenerator, generator_args={'emit_metadata': True},
-                                   filtr=metadata_filter, comparator=compare_python, output_name='namespaces')
+                                   filtr=metadata_filter,
+                                   comparator=lambda exp, act: compare_python(exp, act, self.env.expected_path('namespaces.py')),
+                                   output_name='namespaces')
 
 
     @staticmethod
@@ -135,7 +138,7 @@ class CurrentBiolinkModelTestCase(GeneratorTestCase):
     def test_biolink_rdf(self):
         """ Test the rdf generator for the biolink model """
         self.single_file_generator('ttl', RDFGenerator, serialize_args=dict(
-            context=["https://w3id.org/biolink/biolink-model/context.jsonld"]), comparator=compare_rdf)
+            context=["https://w3id.org/biolink/biolinkml/context.jsonld"]), comparator=compare_rdf)
 
         # Validate the RDF against the Biolink ShEx
         if SKIP_SHEX_VALIDATION:

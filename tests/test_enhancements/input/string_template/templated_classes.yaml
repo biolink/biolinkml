@@ -1,0 +1,25 @@
+id: http://examples.org/biolinkml/test/string_templates
+name: string_templates
+description: Test cases for the string_template model
+license: https://creativecommons.org/publicdomain/zero/1.0/
+
+prefixes:
+  biolinkml: https://w3id.org/biolink/biolinkml/
+
+default_prefix: biolinkml
+default_range: string
+
+imports:
+  - biolinkml:types
+
+classes:
+  first class:
+    attributes:
+      name:
+        range: string
+        required: true
+      age:
+        range: integer
+      gender:
+        range: string
+    string_template: "{name} - a {age} year old {gender}"

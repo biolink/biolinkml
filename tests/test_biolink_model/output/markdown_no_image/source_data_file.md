@@ -1,5 +1,5 @@
 
-# Type: source data file
+# Slot: source_data_file
 
 
 
@@ -28,5 +28,5 @@ URI: [biolink:source_data_file](https://w3id.org/biolink/vocab/source_data_file)
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | dcterms:source |
+| **Broad Mappings:** | | dcterms:source |
 

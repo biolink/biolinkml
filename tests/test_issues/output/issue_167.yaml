@@ -1,5 +1,9 @@
 name: extensions_test
 id: http://example.org/tests/issue167
+prefixes:
+  xsd:
+    prefix_prefix: xsd
+    prefix_reference: http://www.w3.org/2001/XMLSchema#
 default_prefix: http://example.org/tests/issue167/
 default_range: string
 subsets:
@@ -19,9 +23,13 @@ types:
     definition_uri: http://example.org/tests/issue167/String
     from_schema: http://example.org/tests/issue167
     extensions:
-    - tag: http://example.org/c1
+    - tag: tag
+      value: http://example.org/c1
+    - tag: value
       value: test1
-    - tag: EX:foo1
+    - tag: tag
+      value: EX:foo1
+    - tag: value
       value: bar1
     base: str
     uri: xsd:string
@@ -46,11 +54,12 @@ slots:
     definition_uri: http://example.org/tests/issue167/sb
     from_schema: http://example.org/tests/issue167
     extensions:
-    - tag: http://example.org/c4
+    - tag: tag
+      value: http://example.org/c4
+    - tag: value
       value: test4
-      extensions:
-      - tag: http://semantics.r.us/c1
-        value: 143
+    - tag: extensions
+      value: '[{''tag'': ''http://semantics.r.us/c1'', ''value'': 143}]'
     range: integer
     slot_uri: http://example.org/tests/issue167/sb
     owner: c2
@@ -63,9 +72,13 @@ classes:
     definition_uri: http://example.org/tests/issue167/C1
     from_schema: http://example.org/tests/issue167
     extensions:
-    - tag: http://example.org/c3
+    - tag: tag
+      value: http://example.org/c3
+    - tag: value
       value: test3
-    - tag: EX:foo3
+    - tag: tag
+      value: EX:foo3
+    - tag: value
       value: bar3
     slots:
     - sa
@@ -79,8 +92,8 @@ classes:
     slots:
     - sb
     class_uri: http://example.org/tests/issue167/C2
-metamodel_version: 1.5.3
+metamodel_version: 1.7.0
 source_file: issue_167.yaml
-source_file_date: Friday Sep 27 12:00:00 2003
-source_file_size:  23600
-generation_date: Friday Sep 27 12:00:00 2003
+source_file_date: Tue Jan  5 21:34:30 2021
+source_file_size: 852
+generation_date: 2021-01-05 21:36

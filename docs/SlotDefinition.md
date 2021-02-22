@@ -1,5 +1,5 @@
 
-# Type: slot_definition
+# Class: SlotDefinition
 
 
 the definition of a property or a slot
@@ -15,6 +15,7 @@ URI: [meta:SlotDefinition](https://w3id.org/biolink/biolinkml/meta/SlotDefinitio
 
 ## Referenced by class
 
+ *  **[ClassDefinition](ClassDefinition.md)** *[attributes](attributes.md)*  <sub>0..*</sub>  **[SlotDefinition](SlotDefinition.md)**
  *  **[ClassDefinition](ClassDefinition.md)** *[defining_slots](defining_slots.md)*  <sub>0..*</sub>  **[SlotDefinition](SlotDefinition.md)**
  *  **[SlotDefinition](SlotDefinition.md)** *[inverse](inverse.md)*  <sub>OPT</sub>  **[SlotDefinition](SlotDefinition.md)**
  *  **[SlotDefinition](SlotDefinition.md)** *[slot_definition➞apply_to](slot_definition_apply_to.md)*  <sub>0..*</sub>  **[SlotDefinition](SlotDefinition.md)**
@@ -23,6 +24,7 @@ URI: [meta:SlotDefinition](https://w3id.org/biolink/biolinkml/meta/SlotDefinitio
  *  **[SchemaDefinition](SchemaDefinition.md)** *[schema_definition➞slots](slot_definitions.md)*  <sub>0..*</sub>  **[SlotDefinition](SlotDefinition.md)**
  *  **[ClassDefinition](ClassDefinition.md)** *[slot_usage](slot_usage.md)*  <sub>0..*</sub>  **[SlotDefinition](SlotDefinition.md)**
  *  **[ClassDefinition](ClassDefinition.md)** *[slots](slots.md)*  <sub>0..*</sub>  **[SlotDefinition](SlotDefinition.md)**
+ *  **[SlotDefinition](SlotDefinition.md)** *[subproperty_of](subproperty_of.md)*  <sub>OPT</sub>  **[SlotDefinition](SlotDefinition.md)**
 
 ## Attributes
 
@@ -48,7 +50,7 @@ implicitly asserts that X is an instance of C1
     * Description: the class(es) that reference the slot in a "slots" or "slot_usage" context
     * range: [ClassDefinition](ClassDefinition.md)
  * [identifier](identifier.md)  <sub>OPT</sub>
-    * Description: true means that this slot is the subject of a set of assertions.  Identifiers do not appear as predicates in the model
+    * Description: True means that the key slot(s) uniquely identify the container. There can be at most one identifier or key per container
     * range: [Boolean](types/Boolean.md)
  * [ifabsent](ifabsent.md)  <sub>OPT</sub>
     * Description: function that provides a default value for the slot.  Possible values for this slot are defined in biolink.utils.ifabsent_functions.default_library:
@@ -66,7 +68,10 @@ implicitly asserts that X is an instance of C1
     * Description: true means that the *value* of a slot is inherited by subclasses
     * range: [Boolean](types/Boolean.md)
  * [inlined](inlined.md)  <sub>OPT</sub>
-    * Description: an inlined definition a list of actual values rather than references.  Only applies to slots whose range is a class.
+    * Description: True means that keyed or identified slot appears in an outer structure by value.  False means that only the key or identifier for the slot appears within the domain, referencing a structure that appears elsewhere.
+    * range: [Boolean](types/Boolean.md)
+ * [inlined_as_list](inlined_as_list.md)  <sub>OPT</sub>
+    * Description: True means that an inlined slot is represented as a list of range instances.  False means that an inlined slot is represented as a dictionary, whose key is the slot key or identifier and whose value is the range instance.
     * range: [Boolean](types/Boolean.md)
  * [inverse](inverse.md)  <sub>OPT</sub>
     * Description: indicates that any instance of d s r implies that there is also an instance of r s' d
@@ -78,7 +83,7 @@ implicitly asserts that X is an instance of C1
     * Description: True means that this slot was defined in a slot_usage situation
     * range: [Boolean](types/Boolean.md)
  * [key](key.md)  <sub>OPT</sub>
-    * Description: true means that the slot uniquely identifies the element within the context of its container.  Key slots are NOT identifiers - they do not serve as subjects
+    * Description: True means that the key slot(s) uniquely identify the container. In future releases, it will be possible for there to be compound keys, where several slots combine to produce a unique identifier
     * range: [Boolean](types/Boolean.md)
  * [maximum_value](maximum_value.md)  <sub>OPT</sub>
     * Description: for slots with ranges of type number, the value must be equal to or lowe than this
@@ -136,7 +141,7 @@ For example, a Measurement class may have 3 fields: unit, value, and string_valu
     * range: [String](types/String.md)
  * [subproperty_of](subproperty_of.md)  <sub>OPT</sub>
     * Description: Ontology property which this slot is a subproperty of
-    * range: [Uriorcurie](types/Uriorcurie.md)
+    * range: [SlotDefinition](SlotDefinition.md)
  * [symmetric](symmetric.md)  <sub>OPT</sub>
     * Description: True means that any instance of  d s r implies that there is also an instance of r s d
     * range: [Boolean](types/Boolean.md)
@@ -153,6 +158,9 @@ For example, a Measurement class may have 3 fields: unit, value, and string_valu
     * range: [String](types/String.md)
  * [alt_descriptions](alt_descriptions.md)  <sub>0..*</sub>
     * range: [AltDescription](AltDescription.md)
+ * [broad mappings](broad_mappings.md)  <sub>0..*</sub>
+    * Description: A list of terms from different schemas or terminology systems that have broader meaning.
+    * range: [Uriorcurie](types/Uriorcurie.md)
  * [close mappings](close_mappings.md)  <sub>0..*</sub>
     * Description: A list of terms from different schemas or terminology systems that have close meaning.
     * range: [Uriorcurie](types/Uriorcurie.md)
@@ -219,6 +227,9 @@ For example, a Measurement class may have 3 fields: unit, value, and string_valu
     * Description: the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class.
     * range: [String](types/String.md)
     * in subsets: (owl)
+ * [narrow mappings](narrow_mappings.md)  <sub>0..*</sub>
+    * Description: A list of terms from different schemas or terminology systems that have narrower meaning.
+    * range: [Uriorcurie](types/Uriorcurie.md)
  * [notes](notes.md)  <sub>0..*</sub>
     * Description: editorial notes about an element intended for internal consumption
     * range: [String](types/String.md)
@@ -240,3 +251,13 @@ For example, a Measurement class may have 3 fields: unit, value, and string_valu
  * [values_from](values_from.md)  <sub>0..*</sub>
     * Description: the identifier of a "value set" -- a set of identifiers that form the possible values for the range of a slot
     * range: [Uriorcurie](types/Uriorcurie.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Aliases:** | | slot |
+|  | | field |
+|  | | property |
+|  | | attribute |
+

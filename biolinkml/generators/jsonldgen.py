@@ -104,7 +104,7 @@ class JSONLDGenerator(Generator):
         for imp in list(self.loaded.values())[1:]:
             context.append(imp[0] + ".context.jsonld")
 
-        json_obj["@context"] = [context[0]] if len(context) == 1 and not base_prefix else context
+        json_obj["@context"] = [context[0] if len(context) == 1 and not base_prefix else context]
         if base_prefix:
             json_obj["@context"].append({'@base': base_prefix})
         # json_obj["@id"] = self.schema.id
@@ -113,8 +113,12 @@ class JSONLDGenerator(Generator):
 
 @shared_arguments(JSONLDGenerator)
 @click.command()
-@click.option("--context", default=METAMODEL_CONTEXT_URI, multiple=True,
+@click.option("--context", default=[METAMODEL_CONTEXT_URI], multiple=True,
               help=f"JSONLD context file (default: {METAMODEL_CONTEXT_URI})")
 def cli(yamlfile, **kwargs):
     """ Generate JSONLD file from biolink schema """
     print(JSONLDGenerator(yamlfile, **kwargs).serialize(**kwargs))
+
+
+if __name__ == '__main__':
+    cli()

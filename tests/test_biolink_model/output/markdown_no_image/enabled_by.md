@@ -1,5 +1,5 @@
 
-# Type: enabled by
+# Slot: enabled_by
 
 
 holds between a process and a physical entity, where the physical entity executes the process
@@ -9,7 +9,7 @@ URI: [biolink:enabled_by](https://w3id.org/biolink/vocab/enabled_by)
 
 ## Domain and Range
 
-[Occurrent](Occurrent.md) ->  <sub>0..*</sub> [BiologicalProcessOrActivity](BiologicalProcessOrActivity.md)
+[BiologicalProcessOrActivity](BiologicalProcessOrActivity.md) ->  <sub>0..*</sub> [PhysicalEntity](PhysicalEntity.md)
 
 ## Parents
 
@@ -21,16 +21,23 @@ URI: [biolink:enabled_by](https://w3id.org/biolink/vocab/enabled_by)
 
 ## Used by
 
+ * [Behavior](Behavior.md)
+ * [BehavioralExposure](BehavioralExposure.md)
+ * [BehavioralOutcome](BehavioralOutcome.md)
  * [BiologicalProcess](BiologicalProcess.md)
  * [BiologicalProcessOrActivity](BiologicalProcessOrActivity.md)
- * [MolecularActivity](MolecularActivity.md)
+ * [Death](Death.md)
+ * [MortalityOutcome](MortalityOutcome.md)
+ * [PathologicalProcess](PathologicalProcess.md)
  * [Pathway](Pathway.md)
  * [PhysiologicalProcess](PhysiologicalProcess.md)
+ * [SocioeconomicExposure](SocioeconomicExposure.md)
+ * [SocioeconomicOutcome](SocioeconomicOutcome.md)
 
 ## Other properties
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | RO:0002333 |
 | **In Subsets:** | | translator_minimal |
+| **Exact Mappings:** | | RO:0002333 |
 

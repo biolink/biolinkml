@@ -17,6 +17,7 @@ valid_formats = sorted(list(FORMATS))
 class DotGenerator(Generator):
     generatorname = os.path.basename(__file__)
     generatorversion = "0.1.1"
+    directory_output = True
     valid_formats: List[str] = ['png'] + valid_formats
     visit_all_class_slots = True
 
@@ -101,3 +102,7 @@ class DotGenerator(Generator):
 def cli(yamlfile, out, **args):
     """ Generate graphviz representations of the biolink model """
     DotGenerator(yamlfile, **args).serialize(filename=out, **args)
+
+
+if __name__ == '__main__':
+    cli()

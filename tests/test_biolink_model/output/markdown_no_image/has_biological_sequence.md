@@ -1,5 +1,5 @@
 
-# Type: has biological sequence
+# Slot: has_biological_sequence
 
 
 connects a genomic feature to its sequence
@@ -28,8 +28,8 @@ URI: [biolink:has_biological_sequence](https://w3id.org/biolink/vocab/has_biolog
  * [Gene](Gene.md)
  * [GeneOrGeneProduct](GeneOrGeneProduct.md)
  * [GeneProduct](GeneProduct.md)
- * [GeneProductIsoform](GeneProductIsoform.md)
  * [Genome](Genome.md)
+ * [GenomicBackgroundExposure](GenomicBackgroundExposure.md)
  * [GenomicEntity](GenomicEntity.md)
  * [Genotype](Genotype.md)
  * [Haplotype](Haplotype.md)
@@ -39,5 +39,6 @@ URI: [biolink:has_biological_sequence](https://w3id.org/biolink/vocab/has_biolog
  * [NoncodingRNAProduct](NoncodingRNAProduct.md)
  * [Protein](Protein.md)
  * [ProteinIsoform](ProteinIsoform.md)
- * [SequenceVariant](SequenceVariant.md)
+ * [ReagentTargetedGene](ReagentTargetedGene.md)
+ * [SiRNA](SiRNA.md)
  * [Transcript](Transcript.md)

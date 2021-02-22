@@ -1,5 +1,5 @@
 
-# Type: frequency quantifier
+# Class: FrequencyQuantifier
 
 
 

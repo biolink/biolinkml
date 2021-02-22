@@ -1,5 +1,5 @@
 
-# Type: download problem
+# Class: //example.org/sample/example1/DownloadProblem
 
 
 A problem in downloading a knowledge source

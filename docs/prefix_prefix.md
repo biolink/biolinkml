@@ -1,5 +1,5 @@
 
-# Type: prefix_prefix
+# Slot: prefix_prefix
 
 
 the nsname (sans ':' for a given prefix)

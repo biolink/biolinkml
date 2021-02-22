@@ -21,7 +21,7 @@ URI_RANGES = (XSD.anyURI, SHEX.nonliteral, SHEX.bnode, SHEX.iri)
 class ContextGenerator(Generator):
     generatorname = os.path.basename(__file__)
     generatorversion = "0.1.1"
-    valid_formats = ['json']
+    valid_formats = ['context', 'json']
     visit_all_class_slots = False
 
     def __init__(self, schema: Union[str, TextIO, SchemaDefinition], **kwargs) -> None:
@@ -47,16 +47,22 @@ class ContextGenerator(Generator):
             dflt = self.namespaces.prefix_for(self.schema.default_prefix)
             if dflt:
                 self.default_ns = dflt
-            default_uri = self.namespaces[self.default_ns]
-            self.emit_prefixes.add(self.default_ns)
+            if self.default_ns:
+                default_uri = self.namespaces[self.default_ns]
+                self.emit_prefixes.add(self.default_ns)
+            else:
+                default_uri=self.schema.default_prefix
             self.context_body['@vocab'] = default_uri
             # self.context_body['@base'] = self.base_dir
 
     def end_schema(self, base: Optional[str] = None, output: Optional[str] = None, **_) -> None:
-        comments = f'''Auto generated from {self.schema.source_file} by {self.generatorname} version: {self.generatorversion}
+        comments = f'''Auto generated from {self.schema.source_file} by {self.generatorname} version: {self.generatorversion}'''
+        if self.schema.generation_date:
+            comments += f'''
 Generation date: {self.schema.generation_date}
 Schema: {self.schema.name}
-
+'''
+        comments += f'''
 id: {self.schema.id}
 description: {be(self.schema.description)}
 license: {be(self.schema.license)}
@@ -93,11 +99,11 @@ license: {be(self.schema.license)}
         class_def = {}
         cn = camelcase(cls.name)
         self.add_mappings(cls)
-        cls_prefix = self.namespaces.prefix_for(cls.class_uri)
-        if not self.default_ns or not cls_prefix or cls_prefix != self.default_ns:
-            class_def['@id'] = cls.class_uri
-            if cls_prefix:
-                self.add_prefix(cls_prefix)
+        cls_uri_prefix, cls_uri_suffix = self.namespaces.prefix_suffix(cls.class_uri)
+        if not self.default_ns or not cls_uri_prefix or cls_uri_prefix != self.default_ns:
+            class_def['@id'] = (cls_uri_prefix + ':' + cls_uri_suffix) if cls_uri_prefix else cls.class_uri
+            if cls_uri_prefix:
+                self.add_prefix(cls_uri_prefix)
         if class_def:
             self.slot_class_maps[cn] = class_def
 
@@ -112,6 +118,9 @@ license: {be(self.schema.license)}
             if not slot.usage_slot_name:
                 if slot.range in self.schema.classes:
                     slot_def['@type'] = '@id'
+                elif slot.range in self.schema.enums:
+                    # TODO: enums - fill this in
+                    pass
                 else:
                     range_type = self.schema.types[slot.range]
                     if self.namespaces.uri_for(range_type.uri) == XSD.string:
@@ -137,7 +146,7 @@ license: {be(self.schema.license)}
         if ncname not in self.namespaces:
             self.logger.warning(f"Unrecognized prefix: {ncname}")
             self.namespaces[ncname] = f"http://example.org/UNKNOWN/{ncname}/"
-        self.emit_prefixes.add(ncname)
+        self.emit_prefixes.add(self.namespaces._cased_key(ncname))
 
     def add_mappings(self, defn: Definition) -> None:
         """
@@ -145,11 +154,13 @@ license: {be(self.schema.license)}
         :param defn: Class or Slot Definition
         """
         self.add_id_prefixes(defn)
-        for mapping in defn.mappings:
+        mappings = defn.mappings + defn.related_mappings + defn.close_mappings + \
+                   defn.narrow_mappings + defn.broad_mappings + defn.exact_mappings
+        for mapping in mappings:
             if '://' in mapping:
                 mcurie = self.namespaces.curie_for(mapping)
-                self.logger.warning(f"No namespace defined for URI: {mapping}")
                 if mcurie is None:
+                    self.logger.warning(f"No namespace defined for URI: {mapping}")
                     return        # Absolute path - no prefix/name
                 else:
                     mapping = mcurie
@@ -169,3 +180,7 @@ license: {be(self.schema.license)}
 def cli(yamlfile, **args):
     """ Generate jsonld @context definition from biolink model """
     print(ContextGenerator(yamlfile, **args).serialize(**args))
+
+
+if __name__ == '__main__':
+    cli()

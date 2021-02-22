@@ -1,5 +1,5 @@
 
-# Type: deprecated element has exact replacement
+# Slot: deprecated_element_has_exact_replacement
 
 
 When an element is deprecated, it can be automatically replaced by this uri or curie
@@ -22,6 +22,8 @@ None ->  <sub>OPT</sub> [Uriorcurie](types/Uriorcurie.md)
  * [ClassDefinition](ClassDefinition.md)
  * [Definition](Definition.md)
  * [Element](Element.md)
+ * [EnumDefinition](EnumDefinition.md)
+ * [PermissibleValue](PermissibleValue.md)
  * [SchemaDefinition](SchemaDefinition.md)
  * [SlotDefinition](SlotDefinition.md)
  * [SubsetDefinition](SubsetDefinition.md)

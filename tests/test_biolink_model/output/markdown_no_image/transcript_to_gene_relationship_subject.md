@@ -1,5 +1,5 @@
 
-# Type: transcript to gene relationship_subject
+# Slot: transcript_to_gene_relationship_subject
 
 
 

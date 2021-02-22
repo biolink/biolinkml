@@ -1,5 +1,5 @@
 
-# Type: genotype to genotype part association_subject
+# Slot: genotype_to_genotype_part_association_subject
 
 
 parent genotype

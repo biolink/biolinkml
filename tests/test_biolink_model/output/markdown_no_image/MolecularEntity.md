@@ -1,5 +1,5 @@
 
-# Type: molecular entity
+# Class: MolecularEntity
 
 
 A gene, gene product, small molecule or macromolecule (including protein complex)
@@ -7,7 +7,7 @@ A gene, gene product, small molecule or macromolecule (including protein complex
 URI: [biolink:MolecularEntity](https://w3id.org/biolink/vocab/MolecularEntity)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[ThingWithTaxon],[PhysicalEntity],[PairwiseInteractionAssociation],[OrganismTaxon],[GeneToGoTermAssociation]-%20subject%201..1>[MolecularEntity&#124;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[PairwiseInteractionAssociation]-%20object%201..1>[MolecularEntity],[PairwiseInteractionAssociation]-%20subject%201..1>[MolecularEntity],[MolecularEntity]uses%20-.->[ThingWithTaxon],[MolecularEntity]uses%20-.->[PhysicalEntity],[MolecularEntity]^-[GenomicEntity],[MolecularEntity]^-[GeneFamily],[MolecularEntity]^-[ChemicalSubstance],[BiologicalEntity]^-[MolecularEntity],[GenomicEntity],[GeneToGoTermAssociation],[GeneFamily],[DiseaseOrPhenotypicFeature],[ChemicalSubstance],[BiologicalEntity])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[ThingWithTaxon],[PhysicalEssence],[PairwiseMolecularInteraction],[OrganismTaxon],[NamedThing],[MolecularEntityToEntityAssociationMixin],[GeneToGoTermAssociation]-%20subject%201..1>[MolecularEntity&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[MolecularEntityToEntityAssociationMixin]-%20subject%201..1>[MolecularEntity],[PairwiseMolecularInteraction]-%20object%201..1>[MolecularEntity],[PairwiseMolecularInteraction]-%20subject%201..1>[MolecularEntity],[MolecularEntity]uses%20-.->[ThingWithTaxon],[MolecularEntity]uses%20-.->[PhysicalEssence],[MolecularEntity]^-[GenomicEntity],[MolecularEntity]^-[GeneFamily],[MolecularEntity]^-[Food],[MolecularEntity]^-[Drug],[MolecularEntity]^-[ChemicalSubstance],[BiologicalEntity]^-[MolecularEntity],[GenomicEntity],[GeneToGoTermAssociation],[GeneFamily],[Food],[Drug],[DiseaseOrPhenotypicFeature],[ChemicalSubstance],[BiologicalEntity],[Attribute],[Agent])
 
 ## Parents
 
@@ -15,12 +15,14 @@ URI: [biolink:MolecularEntity](https://w3id.org/biolink/vocab/MolecularEntity)
 
 ## Uses Mixins
 
- *  mixin: [ThingWithTaxon](ThingWithTaxon.md) - A mixin that can be used on any entity with a taxon
- *  mixin: [PhysicalEntity](PhysicalEntity.md) - An entity that has physical properties such as mass, volume, or charge
+ *  mixin: [ThingWithTaxon](ThingWithTaxon.md) - A mixin that can be used on any entity that can be taxonomically classified. This includes individual organisms; genes, their products and other molecular entities; body parts; biological processes
+ *  mixin: [PhysicalEssence](PhysicalEssence.md) - Semantic mixin concept.  Pertains to entities that have physical properties such as mass, volume, or charge.
 
 ## Children
 
  * [ChemicalSubstance](ChemicalSubstance.md) - May be a chemical entity or a formulation with a chemical entity as active ingredient, or a complex material with multiple chemical entities as part
+ * [Drug](Drug.md) - A substance intended for use in the diagnosis, cure, mitigation, treatment, or prevention of disease
+ * [Food](Food.md) - A substance consumed by a living organism as a source of nutrition
  * [GeneFamily](GeneFamily.md) - any grouping of multiple genes or gene products related by common descent
  * [GenomicEntity](GenomicEntity.md) - an entity that can either be directly located on a genome (gene, transcript, exon, regulatory region) or is encoded in a genome (protein)
 
@@ -45,6 +47,7 @@ URI: [biolink:MolecularEntity](https://w3id.org/biolink/vocab/MolecularEntity)
  *  **[MolecularEntity](MolecularEntity.md)** *[decreases folding of](decreases_folding_of.md)*  <sub>0..*</sub>  **[MolecularEntity](MolecularEntity.md)**
  *  **[MolecularEntity](MolecularEntity.md)** *[decreases localization of](decreases_localization_of.md)*  <sub>0..*</sub>  **[MolecularEntity](MolecularEntity.md)**
  *  **[MolecularEntity](MolecularEntity.md)** *[decreases metabolic processing of](decreases_metabolic_processing_of.md)*  <sub>0..*</sub>  **[MolecularEntity](MolecularEntity.md)**
+ *  **[MolecularEntity](MolecularEntity.md)** *[decreases molecular interaction](decreases_molecular_interaction.md)*  <sub>0..*</sub>  **[MolecularEntity](MolecularEntity.md)**
  *  **[MolecularEntity](MolecularEntity.md)** *[decreases molecular modification of](decreases_molecular_modification_of.md)*  <sub>0..*</sub>  **[MolecularEntity](MolecularEntity.md)**
  *  **[MolecularEntity](MolecularEntity.md)** *[decreases response to](decreases_response_to.md)*  <sub>0..*</sub>  **[MolecularEntity](MolecularEntity.md)**
  *  **[MolecularEntity](MolecularEntity.md)** *[decreases secretion of](decreases_secretion_of.md)*  <sub>0..*</sub>  **[MolecularEntity](MolecularEntity.md)**
@@ -60,6 +63,7 @@ URI: [biolink:MolecularEntity](https://w3id.org/biolink/vocab/MolecularEntity)
  *  **[MolecularEntity](MolecularEntity.md)** *[increases folding of](increases_folding_of.md)*  <sub>0..*</sub>  **[MolecularEntity](MolecularEntity.md)**
  *  **[MolecularEntity](MolecularEntity.md)** *[increases localization of](increases_localization_of.md)*  <sub>0..*</sub>  **[MolecularEntity](MolecularEntity.md)**
  *  **[MolecularEntity](MolecularEntity.md)** *[increases metabolic processing of](increases_metabolic_processing_of.md)*  <sub>0..*</sub>  **[MolecularEntity](MolecularEntity.md)**
+ *  **[MolecularEntity](MolecularEntity.md)** *[increases molecular interaction](increases_molecular_interaction.md)*  <sub>0..*</sub>  **[MolecularEntity](MolecularEntity.md)**
  *  **[MolecularEntity](MolecularEntity.md)** *[increases molecular modification of](increases_molecular_modification_of.md)*  <sub>0..*</sub>  **[MolecularEntity](MolecularEntity.md)**
  *  **[MolecularEntity](MolecularEntity.md)** *[increases response to](increases_response_to.md)*  <sub>0..*</sub>  **[MolecularEntity](MolecularEntity.md)**
  *  **[MolecularEntity](MolecularEntity.md)** *[increases secretion of](increases_secretion_of.md)*  <sub>0..*</sub>  **[MolecularEntity](MolecularEntity.md)**
@@ -67,10 +71,11 @@ URI: [biolink:MolecularEntity](https://w3id.org/biolink/vocab/MolecularEntity)
  *  **[MolecularEntity](MolecularEntity.md)** *[increases synthesis of](increases_synthesis_of.md)*  <sub>0..*</sub>  **[MolecularEntity](MolecularEntity.md)**
  *  **[MolecularEntity](MolecularEntity.md)** *[increases transport of](increases_transport_of.md)*  <sub>0..*</sub>  **[MolecularEntity](MolecularEntity.md)**
  *  **[MolecularEntity](MolecularEntity.md)** *[increases uptake of](increases_uptake_of.md)*  <sub>0..*</sub>  **[MolecularEntity](MolecularEntity.md)**
+ *  **[MolecularEntityToEntityAssociationMixin](MolecularEntityToEntityAssociationMixin.md)** *[molecular entity to entity association mixin➞subject](molecular_entity_to_entity_association_mixin_subject.md)*  <sub>REQ</sub>  **[MolecularEntity](MolecularEntity.md)**
  *  **[MolecularEntity](MolecularEntity.md)** *[molecularly interacts with](molecularly_interacts_with.md)*  <sub>0..*</sub>  **[MolecularEntity](MolecularEntity.md)**
  *  **[MolecularEntity](MolecularEntity.md)** *[negatively regulates, entity to entity](negatively_regulates_entity_to_entity.md)*  <sub>0..*</sub>  **[MolecularEntity](MolecularEntity.md)**
- *  **[PairwiseInteractionAssociation](PairwiseInteractionAssociation.md)** *[pairwise interaction association➞object](pairwise_interaction_association_object.md)*  <sub>REQ</sub>  **[MolecularEntity](MolecularEntity.md)**
- *  **[PairwiseInteractionAssociation](PairwiseInteractionAssociation.md)** *[pairwise interaction association➞subject](pairwise_interaction_association_subject.md)*  <sub>REQ</sub>  **[MolecularEntity](MolecularEntity.md)**
+ *  **[PairwiseMolecularInteraction](PairwiseMolecularInteraction.md)** *[pairwise molecular interaction➞object](pairwise_molecular_interaction_object.md)*  <sub>REQ</sub>  **[MolecularEntity](MolecularEntity.md)**
+ *  **[PairwiseMolecularInteraction](PairwiseMolecularInteraction.md)** *[pairwise molecular interaction➞subject](pairwise_molecular_interaction_subject.md)*  <sub>REQ</sub>  **[MolecularEntity](MolecularEntity.md)**
  *  **[MolecularEntity](MolecularEntity.md)** *[positively regulates, entity to entity](positively_regulates_entity_to_entity.md)*  <sub>0..*</sub>  **[MolecularEntity](MolecularEntity.md)**
  *  **[MolecularEntity](MolecularEntity.md)** *[regulates, entity to entity](regulates_entity_to_entity.md)*  <sub>0..*</sub>  **[MolecularEntity](MolecularEntity.md)**
 
@@ -79,23 +84,42 @@ URI: [biolink:MolecularEntity](https://w3id.org/biolink/vocab/MolecularEntity)
 
 ### Inherited from biological entity:
 
- * [category](category.md)  <sub>1..*</sub>
-    * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
-    * range: [IriType](types/IriType.md)
+ * [description](description.md)  <sub>OPT</sub>
+    * Description: a human-readable description of an entity
+    * range: [NarrativeText](types/NarrativeText.md)
     * in subsets: (translator_minimal)
+ * [has attribute](has_attribute.md)  <sub>0..*</sub>
+    * Description: connects any entity to an attribute
+    * range: [Attribute](Attribute.md)
+    * in subsets: (samples)
  * [id](id.md)  <sub>REQ</sub>
-    * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
+    * Description: A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI
     * range: [String](types/String.md)
     * in subsets: (translator_minimal)
- * [name](name.md)  <sub>REQ</sub>
-    * Description: A human-readable name for a thing
+ * [iri](iri.md)  <sub>OPT</sub>
+    * Description: An IRI for an entity. This is determined by the id using expansion rules.
+    * range: [IriType](types/IriType.md)
+    * in subsets: (translator_minimal,samples)
+ * [name](name.md)  <sub>OPT</sub>
+    * Description: A human-readable name for an attribute or entity.
+    * range: [LabelType](types/LabelType.md)
+    * in subsets: (translator_minimal,samples)
+ * [named thing➞category](named_thing_category.md)  <sub>1..*</sub>
+    * range: [NamedThing](NamedThing.md)
+ * [provided by](provided_by.md)  <sub>0..*</sub>
+    * Description: connects an association to the agent (person, organization or group) that provided it
+    * range: [Agent](Agent.md)
+ * [source](source.md)  <sub>OPT</sub>
+    * Description: a lightweight analog to the association class 'has provider' slot, which is the string name, or the authoritative (i.e. database) namespace, designating the origin of the entity to which the slot belongs.
     * range: [LabelType](types/LabelType.md)
     * in subsets: (translator_minimal)
+ * [type](type.md)  <sub>OPT</sub>
+    * range: [String](types/String.md)
 
 ### Mixed in from thing with taxon:
 
  * [in taxon](in_taxon.md)  <sub>0..*</sub>
-    * Description: connects a thing to a class representing a taxon
+    * Description: connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'
     * range: [OrganismTaxon](OrganismTaxon.md)
     * in subsets: (translator_minimal)
 
@@ -104,9 +128,19 @@ URI: [biolink:MolecularEntity](https://w3id.org/biolink/vocab/MolecularEntity)
 |  |  |  |
 | --- | --- | --- |
 | **Aliases:** | | bioentity |
-| **Mappings:** | | SIO:010341 |
-|  | | WD:Q43460564 |
-|  | | UMLSSG:GENE |
+| **Narrow Mappings:** | | SIO:010341 |
+|  | | WIKIDATA:Q43460564 |
+|  | | UMLSSG:CHEM |
 |  | | UMLSSC:T085 |
 |  | | UMLSST:mosq |
+|  | | UMLSSC:T123 |
+|  | | UMLSST:bacs |
+|  | | UMLSSC:T125 |
+|  | | UMLSST:horm |
+|  | | UMLSSC:T126 |
+|  | | UMLSST:enzy |
+|  | | UMLSSC:T129 |
+|  | | UMLSST:imft |
+|  | | UMLSSC:T192 |
+|  | | UMLSST:rcpt |
 

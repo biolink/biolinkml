@@ -8,11 +8,14 @@
          "properties": {
             "age_in_years": {
                "description": "The age of a person if living or age of death if not",
-               "type": "string"
+               "type": "integer"
             },
             "aliases": {
                "description": "An alternative name",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "first_name": {
                "description": "The first name of a person",
@@ -39,11 +42,14 @@
          "properties": {
             "age_in_years": {
                "description": "The age of a person if living or age of death if not",
-               "type": "string"
+               "type": "integer"
             },
             "aliases": {
                "description": "An alternative name",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "first_name": {
                "description": "The first name of a person",

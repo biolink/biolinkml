@@ -77,6 +77,7 @@
       "imported_from": "biolinkml:types",
       "base": "Bool",
       "uri": "http://www.w3.org/2001/XMLSchema#boolean",
+      "repr": "bool",
       "type": "TypeDefinition"
     },
     {
@@ -97,6 +98,16 @@
       "imported_from": "biolinkml:types",
       "base": "float",
       "uri": "http://www.w3.org/2001/XMLSchema#double",
+      "type": "TypeDefinition"
+    },
+    {
+      "name": "decimal",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/types/Decimal",
+      "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "from_schema": "https://w3id.org/biolink/biolinkml/types",
+      "imported_from": "biolinkml:types",
+      "base": "Decimal",
+      "uri": "http://www.w3.org/2001/XMLSchema#decimal",
       "type": "TypeDefinition"
     },
     {
@@ -254,6 +265,34 @@
       "type": "SlotDefinition"
     },
     {
+      "name": "narrow_mappings",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/narrow_mappings",
+      "mappings": [
+        "skos:narrowMatch"
+      ],
+      "description": "A list of terms from different schemas or terminology systems that have narrower meaning.",
+      "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
+      "is_a": "mappings",
+      "range": "uriorcurie",
+      "slot_uri": "http://www.w3.org/2004/02/skos/core#narrowMatch",
+      "multivalued": true,
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "broad_mappings",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/broad_mappings",
+      "mappings": [
+        "skos:broadMatch"
+      ],
+      "description": "A list of terms from different schemas or terminology systems that have broader meaning.",
+      "from_schema": "https://w3id.org/biolink/biolinkml/mappings",
+      "is_a": "mappings",
+      "range": "uriorcurie",
+      "slot_uri": "http://www.w3.org/2004/02/skos/core#broadMatch",
+      "multivalued": true,
+      "type": "SlotDefinition"
+    },
+    {
       "name": "deprecated_element_has_exact_replacement",
       "definition_uri": "https://w3id.org/biolink/biolinkml/meta/deprecated_element_has_exact_replacement",
       "mappings": [
@@ -278,15 +317,17 @@
       "type": "SlotDefinition"
     }
   ],
-  "metamodel_version": "1.5.3",
+  "metamodel_version": "1.7.0",
   "source_file": "mappings.yaml",
-  "source_file_date": "Friday Sep 27 12:00:00 2003",
-  "source_file_size": 2291,
-  "generation_date": "Friday Sep 27 12:00:00 2003",
+  "source_file_date": "Tue Jan  5 15:40:35 2021",
+  "source_file_size": 2790,
+  "generation_date": "2021-01-18 15:18",
   "type": "SchemaDefinition",
   "@context": [
-    "https://w3id.org/biolink/biolinkml/context.jsonld",
-    "https://w3id.org/biolink/biolinkml/types.context.jsonld",
+    [
+      "https://w3id.org/biolink/biolinkml/context.jsonld",
+      "/Users/hsolbrig/git/biolink/biolinkml/tests/input/includes/types.context.jsonld"
+    ],
     {
       "@base": "https://w3id.org/biolink/biolinkml/meta/"
     }

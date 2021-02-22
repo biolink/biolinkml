@@ -1,5 +1,5 @@
 
-# Type: examples
+# Slot: examples
 
 
 example usages of an element
@@ -22,6 +22,8 @@ URI: [meta:examples](https://w3id.org/biolink/biolinkml/meta/examples)
  * [ClassDefinition](ClassDefinition.md)
  * [Definition](Definition.md)
  * [Element](Element.md)
+ * [EnumDefinition](EnumDefinition.md)
+ * [PermissibleValue](PermissibleValue.md)
  * [SchemaDefinition](SchemaDefinition.md)
  * [SlotDefinition](SlotDefinition.md)
  * [SubsetDefinition](SubsetDefinition.md)

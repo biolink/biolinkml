@@ -1,43 +1,111 @@
 
-# Type: organism taxon
+# Class: OrganismTaxon
 
 
-
+A classification of a set of organisms. Example instances: NCBITaxon:9606 (Homo sapiens), NCBITaxon:2 (Bacteria). Can also be used to represent strains or subspecies.
 
 URI: [biolink:OrganismTaxon](https://w3id.org/biolink/vocab/OrganismTaxon)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[ThingWithTaxon],[ThingWithTaxon]-%20in%20taxon%200..*>[OrganismTaxon&#124;id(i):string;name(i):label_type;category(i):iri_type%20%2B],[OntologyClass]^-[OrganismTaxon],[OntologyClass])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[ThingWithTaxon],[TaxonomicRank],[OrganismTaxon]<subclass%20of%200..*-%20[OrganismTaxon&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[TaxonomicRank]<has%20taxonomic%20rank%200..1-%20[OrganismTaxon],[ThingWithTaxon]-%20in%20taxon%200..*>[OrganismTaxon],[OrganismTaxon]^-[BioticExposure],[OntologyClass]^-[OrganismTaxon],[OntologyClass],[NamedThing],[BioticExposure],[Attribute],[Agent])
+
+## Identifier prefixes
+
+ * NCBITaxon
+ * MESH
 
 ## Parents
 
  *  is_a: [OntologyClass](OntologyClass.md) - a concept or class in an ontology, vocabulary or thesaurus
 
+## Children
+
+ * [BioticExposure](BioticExposure.md) - A biotic exposure is an intake of (sometimes pathological) biological organisms (including viruses)
+
 ## Referenced by class
 
  *  **[ThingWithTaxon](ThingWithTaxon.md)** *[in taxon](in_taxon.md)*  <sub>0..*</sub>  **[OrganismTaxon](OrganismTaxon.md)**
+ *  **[OrganismTaxon](OrganismTaxon.md)** *[organism taxon➞subclass of](organism_taxon_subclass_of.md)*  <sub>0..*</sub>  **[OrganismTaxon](OrganismTaxon.md)**
 
 ## Attributes
 
 
+### Own
+
+ * [organism taxon➞has taxonomic rank](organism_taxon_has_taxonomic_rank.md)  <sub>OPT</sub>
+    * range: [TaxonomicRank](TaxonomicRank.md)
+ * [organism taxon➞subclass of](organism_taxon_subclass_of.md)  <sub>0..*</sub>
+    * Description: subclass of holds between two taxa, e.g. human subclass of mammal
+    * range: [OrganismTaxon](OrganismTaxon.md)
+
 ### Inherited from ontology class:
 
- * [category](category.md)  <sub>1..*</sub>
-    * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
-    * range: [IriType](types/IriType.md)
+ * [description](description.md)  <sub>OPT</sub>
+    * Description: a human-readable description of an entity
+    * range: [NarrativeText](types/NarrativeText.md)
     * in subsets: (translator_minimal)
+ * [has attribute](has_attribute.md)  <sub>0..*</sub>
+    * Description: connects any entity to an attribute
+    * range: [Attribute](Attribute.md)
+    * in subsets: (samples)
  * [id](id.md)  <sub>REQ</sub>
-    * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
+    * Description: A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI
     * range: [String](types/String.md)
     * in subsets: (translator_minimal)
- * [name](name.md)  <sub>REQ</sub>
-    * Description: A human-readable name for a thing
+ * [iri](iri.md)  <sub>OPT</sub>
+    * Description: An IRI for an entity. This is determined by the id using expansion rules.
+    * range: [IriType](types/IriType.md)
+    * in subsets: (translator_minimal,samples)
+ * [name](name.md)  <sub>OPT</sub>
+    * Description: A human-readable name for an attribute or entity.
+    * range: [LabelType](types/LabelType.md)
+    * in subsets: (translator_minimal,samples)
+ * [named thing➞category](named_thing_category.md)  <sub>1..*</sub>
+    * range: [NamedThing](NamedThing.md)
+ * [provided by](provided_by.md)  <sub>0..*</sub>
+    * Description: connects an association to the agent (person, organization or group) that provided it
+    * range: [Agent](Agent.md)
+ * [source](source.md)  <sub>OPT</sub>
+    * Description: a lightweight analog to the association class 'has provider' slot, which is the string name, or the authoritative (i.e. database) namespace, designating the origin of the entity to which the slot belongs.
     * range: [LabelType](types/LabelType.md)
     * in subsets: (translator_minimal)
+ * [type](type.md)  <sub>OPT</sub>
+    * range: [String](types/String.md)
 
 ## Other properties
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | WD:Q16521 |
+| **Aliases:** | | taxon |
+|  | | taxonomic classification |
+| **In Subsets:** | | model_organism_database |
+| **Exact Mappings:** | | WIKIDATA:Q16521 |
+| **Narrow Mappings:** | | UMLSSC:T005 |
+|  | | UMLSST:virs |
+|  | | UMLSSC:T007 |
+|  | | UMLSST:bact |
+|  | | UMLSSC:T194 |
+|  | | UMLSST:arch |
+|  | | UMLSSC:T204 |
+|  | | UMLSST:euka |
+|  | | UMLSSC:T002 |
+|  | | UMLSST:plnt |
+|  | | UMLSSC:T004 |
+|  | | UMLSST:fngs |
+|  | | UMLSSC:T008 |
+|  | | UMLSST:anim |
+|  | | UMLSSC:T010 |
+|  | | UMLSST:vtbt |
+|  | | UMLSSC:T011 |
+|  | | UMLSST:amph |
+|  | | UMLSSC:T012 |
+|  | | UMLSST:bird |
+|  | | UMLSSC:T013 |
+|  | | UMLSST:fish |
+|  | | UMLSSC:T014 |
+|  | | UMLSST:rept |
+|  | | UMLSSC:T015 |
+|  | | UMLSST:mamm |
+|  | | UMLSSC:T016 |
+|  | | UMLSST:humn |
 

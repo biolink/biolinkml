@@ -39,7 +39,7 @@
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='149' y='-177.3'>name(i):symbol_type</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='149' y='-162.3'>has_biological_sequence(i):biological_sequence ?</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='149' y='-147.3'>id(i):string</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='149' y='-132.3'>category(i):iri_type +</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='149' y='-132.3'>category(i):category_type +</text>
 </g><g class='edge' id='edge1'><title>Protein-&gt;ProteinIsoform</title>
 <path d='M149,-118.128C149,-90.4656 149,-57.09 149,-37.2566' fill='none' stroke='black'/>
 <polygon fill='none' points='145.5,-118.41 149,-128.41 152.5,-118.41 145.5,-118.41' stroke='black'/>

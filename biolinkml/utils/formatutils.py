@@ -28,6 +28,11 @@ def be(entry: object) -> str:
     return str(entry).strip() if entry else ''
 
 
+def mangled_attribute_name(clsname: str, attributename: str) -> str:
+    """ Return the mangling we use for attributes definitions """
+    return lcamelcase(clsname) + '__' + underscore(attributename)
+
+
 split_col = 115
 
 

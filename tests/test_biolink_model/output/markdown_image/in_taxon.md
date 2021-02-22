@@ -55,7 +55,9 @@ URI: [biolink:in_taxon](https://w3id.org/biolink/vocab/in_taxon)
  * [PopulationOfIndividualOrganisms](PopulationOfIndividualOrganisms.md)
  * [Protein](Protein.md)
  * [ProteinIsoform](ProteinIsoform.md)
+ * [ReagentTargetedGene](ReagentTargetedGene.md)
  * [SequenceVariant](SequenceVariant.md)
+ * [Snv](Snv.md)
  * [ThingWithTaxon](ThingWithTaxon.md)
  * [Transcript](Transcript.md)
 
@@ -63,7 +65,12 @@ URI: [biolink:in_taxon](https://w3id.org/biolink/vocab/in_taxon)
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | RO:0002162 |
-|  | | WD:P703 |
 | **In Subsets:** | | translator_minimal |
+| **Exact Mappings:** | | WIKIDATA:P703 |
+| **Close Mappings:** | | NCIT:is_organism_source_of_gene_product |
+|  | | NCIT:organism_has_gene |
+| **Narrow Mappings:** | | NCIT:gene_found_in_organism |
+|  | | NCIT:gene_product_has_organism_source |
+|  | | RO:0002160 |
+| **Related Mappings:** | | RO:0002162 |
 

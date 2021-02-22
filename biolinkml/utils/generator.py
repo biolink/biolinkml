@@ -2,14 +2,14 @@ import abc
 import logging
 from contextlib import redirect_stdout
 from io import StringIO
-from typing import List, Set, Union, TextIO, Optional, cast, Callable
+from typing import List, Set, Union, TextIO, Optional, cast, Callable, Type
 
 import click
 from click import Command, Argument, Option
 
 from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, ClassDefinitionName, \
     TypeDefinition, Element, SlotDefinitionName, TypeDefinitionName, PrefixPrefixPrefix, ElementName, \
-    SubsetDefinition, SubsetDefinitionName
+    SubsetDefinition, SubsetDefinitionName, EnumDefinition, EnumDefinitionName
 from biolinkml.utils.formatutils import camelcase, underscore
 from biolinkml.utils.mergeutils import alias_root
 from biolinkml.utils.schemaloader import SchemaLoader
@@ -22,7 +22,8 @@ DEFAULT_LOG_LEVEL_INT: int = logging.WARNING
 class Generator(metaclass=abc.ABCMeta):
     generatorname: str = None                   # Set to os.path.basename(__file__)
     generatorversion: str = None                # Generator version identifier
-    valid_formats: List[str] = []               # Allowed formats
+    valid_formats: List[str] = []               # Allowed formats - first format is default
+    directory_output: bool = False              # True means output is to a directory, False is to stdout
     base_dir: str = None                        # Base directory of schema
 
     visit_all_class_slots: bool = False         # False means only visit own slots, True means visit all slots
@@ -32,10 +33,14 @@ class Generator(metaclass=abc.ABCMeta):
     def __init__(self,
                  schema: Union[str, TextIO, SchemaDefinition, "Generator"],
                  format: Optional[str] = None,
-                 emit_metadata: bool = False,
+                 emit_metadata: bool = True,
                  useuris: Optional[bool] = None,
                  importmap: Optional[str] = None,
                  log_level: int = DEFAULT_LOG_LEVEL_INT,
+                 mergeimports: Optional[bool] = True,
+                 source_file_date: Optional[str] = None,
+                 source_file_size: Optional[int] = None,
+                 logger: Optional[logging.Logger] = None,
                  **kwargs) -> None:
         """
         Constructor
@@ -47,10 +52,13 @@ class Generator(metaclass=abc.ABCMeta):
         :param useuris: True means declared class slot uri's are used.  False means use model uris
         :param importmap: File name of import mapping file -- maps import name/uri to target
         :param log_level: Logging level
-        :param logger: pre-set logger (hidden in kwargs)
+        :param mergeimports: True means merge non-biolinkml sources into importing package.  False means separate packages.
+        :param source_file_date: Modification date of input source file
+        :param source_file_size: Source file size
+        :param logger: pre-set logger
         """
-        if 'logger' in kwargs:
-            self.logger = kwargs.pop('logger')
+        if logger:
+            self.logger = logger
         else:
             logging.basicConfig()
             self.logger = logging.getLogger(self.__class__.__name__)
@@ -61,6 +69,9 @@ class Generator(metaclass=abc.ABCMeta):
         assert format in self.valid_formats, f"Unrecognized format: {format}"
         self.format = format
         self.emit_metadata = emit_metadata
+        self.merge_imports = mergeimports
+        self.source_file_date = source_file_date if emit_metadata else None
+        self.source_file_size = source_file_size if emit_metadata else None
         if isinstance(schema, Generator):
             gen = schema
             self.schema = gen.schema
@@ -69,11 +80,15 @@ class Generator(metaclass=abc.ABCMeta):
             self.namespaces = gen.namespaces
             self.base_dir = gen.base_dir
             self.importmap = gen.importmap
+            self.source_file_data = gen.source_file_date
+            self.source_file_size = gen.source_file_size
             self.schema_location = gen.schema_location
             self.schema_defaults = gen.schema_defaults
             self.logger = gen.logger
         else:
-            loader = SchemaLoader(schema, self.base_dir, useuris=useuris, importmap=importmap, logger=self.logger)
+            loader = SchemaLoader(schema, self.base_dir, useuris=useuris, importmap=importmap, logger=self.logger,
+                                  mergeimports=mergeimports, emit_metadata=emit_metadata,
+                                  source_file_date=self.source_file_date, source_file_size=self.source_file_size)
             loader.resolve()
             self.schema = loader.schema
             self.synopsis = loader.synopsis
@@ -81,6 +96,8 @@ class Generator(metaclass=abc.ABCMeta):
             self.namespaces = loader.namespaces
             self.base_dir = loader.base_dir
             self.importmap = loader.importmap
+            self.source_file_data = loader.source_file_date
+            self.source_file_size = loader.source_file_size
             self.schema_location = loader.schema_location
             self.schema_defaults = loader.schema_defaults
 
@@ -347,14 +364,12 @@ class Generator(metaclass=abc.ABCMeta):
         else:
             return [formatted_typ_name]
 
-    def class_identifier(self, def_or_name: Union[str, ClassDefinition, TypeDefinition], keys_count: bool = False) \
-            -> Optional[SlotDefinitionName]:
+    def class_identifier(self, def_or_name: Union[str, ClassDefinition, TypeDefinition]) -> Optional[SlotDefinitionName]:
         """
         Return the class identifier if any
 
         :param def_or_name: class name or definition
-        :param keys_count: True means treat keys AND identifiers as identifiers
-        :return: name of class identifier (or key) if one exists
+        :return: name of class key (or identifier) if one exists
         """
         if isinstance(def_or_name, ClassDefinition):
             cls = def_or_name
@@ -364,9 +379,14 @@ class Generator(metaclass=abc.ABCMeta):
             return None
         for slotname in cls.slots:
             slot = self.schema.slots[slotname]
-            if slot.identifier or (keys_count and slot.key):
+            if slot.identifier or slot.key:
                 return slotname
         return None
+
+    def enum_identifier_path(self, enum_or_enumname: Union[str, EnumDefinition]) -> List[str]:
+        """ Return an enum_identifier path """
+        return ['str',
+                camelcase(enum_or_enumname.name if isinstance(enum_or_enumname, EnumDefinition) else enum_or_enumname)]
 
     def class_identifier_path(self, cls_or_clsname: Union[str, ClassDefinition], force_non_key: bool) -> List[str]:
         """
@@ -378,12 +398,12 @@ class Generator(metaclass=abc.ABCMeta):
         :return: path
         """
         cls = cls_or_clsname if isinstance(cls_or_clsname, ClassDefinition) \
-            else self.schema.classes[cast(ClassDefinitionName, cls_or_clsname)]
+            else self.schema.classes[ClassDefinitionName(cls_or_clsname)]
 
         # Determine whether the class has a key
         identifier_slot = None
         if not force_non_key:
-            identifier_slot = self.class_identifier(cls, keys_count=True)
+            identifier_slot = self.class_identifier(cls)
 
         # No key or inlined, its closure is a dictionary
         if identifier_slot is None:
@@ -392,14 +412,14 @@ class Generator(metaclass=abc.ABCMeta):
         # We're dealing with a reference
         pathname = camelcase(cls.name + ' ' + self.aliased_slot_name(identifier_slot))
         if cls.is_a:
-            parent_identifier_slot = self.class_identifier(cls.is_a, keys_count=True)
+            parent_identifier_slot = self.class_identifier(cls.is_a)
             if parent_identifier_slot:
                 return self.class_identifier_path(cls.is_a, False) + [pathname]
-        return self.slot_type_path(identifier_slot) + [pathname]
+        return self.slot_range_path(identifier_slot) + [pathname]
 
-    def slot_type_path(self, slot_or_name: Union[str, SlotDefinition]) -> List[str]:
+    def slot_range_path(self, slot_or_name: Union[str, SlotDefinition]) -> List[str]:
         """
-        Return a ordered list of types starting with the base type and ending with the most proximal type
+        Return a ordered list of slot ranges from distal to proximal
 
         :param slot_or_name: slot whose range is being typed
         :return: ordered list of types from base type forward
@@ -409,6 +429,8 @@ class Generator(metaclass=abc.ABCMeta):
         if slot.range in self.schema.types:
             # Type
             return self.range_type_path(self.schema.types[cast(TypeDefinitionName, slot.range)])
+        elif slot.range in self.schema.enums:
+            return self.enum_identifier_path(slot.range)
         else:
             # Class
             return self.class_identifier_path(slot.range, bool(slot.inlined))
@@ -428,9 +450,11 @@ class Generator(metaclass=abc.ABCMeta):
         Return the corresponding class or type for name
         """
         if name in self.schema.classes:
-            return self.schema.classes[name]
+            return self.schema.classes[ClassDefinitionName(name)]
         elif name in self.schema.types:
-            return self.schema.types[cast(TypeDefinitionName, name)]
+            return self.schema.types[TypeDefinitionName(name)]
+        elif name in self.schema.enums:
+            return self.schema.enums[EnumDefinitionName(name)]
         return None
 
     def class_or_type_name(self, name: str) -> str:
@@ -528,7 +552,7 @@ class Generator(metaclass=abc.ABCMeta):
                 (set(cls.mixins).intersection(slot.domain_of))]
 
 
-def shared_arguments(g: Generator) -> Callable[[Command], Command]:
+def shared_arguments(g: Type[Generator]) -> Callable[[Command], Command]:
     _LOG_LEVEL_STRINGS = ['CRITICAL', 'ERROR', 'WARNING', 'INFO', 'DEBUG']
 
     def _log_level_string_to_int(log_level_string: str) -> int:
@@ -544,12 +568,13 @@ def shared_arguments(g: Generator) -> Callable[[Command], Command]:
         f.params.append(
             Argument(("yamlfile", ), type=click.Path(exists=True, dir_okay=False)))
         f.params.append(
-            Option(("--format", "-f"), type=click.Choice(g.valid_formats), help="Output format",
+            Option(("--format", "-f"), type=click.Choice(g.valid_formats),
+                   help=f"Output format (default={g.valid_formats[0]})",
                    default=g.valid_formats[0]))
         f.params.append(
-            Option(("--metadata/--no-metadata", ), default=True, help="Include metadata in output"))
+            Option(("--metadata/--no-metadata", ), default=True, help="Include metadata in output (default=--metadata)"))
         f.params.append(
-            Option(("--useuris/--metauris", ), default=True, help="Include metadata in output"))
+            Option(("--useuris/--metauris", ), default=True, help="Include metadata in output (default=--useuris)"))
         f.params.append(
             Option(("--importmap", "-im"), type=click.File(), help="Import mapping file")
         )
@@ -558,6 +583,9 @@ def shared_arguments(g: Generator) -> Callable[[Command], Command]:
                    help=f"Logging level (default={DEFAULT_LOG_LEVEL})",
                    default=DEFAULT_LOG_LEVEL)
         )
+        f.params.append(
+            Option(("--mergeimports/--no-mergeimports", ), default=True,
+                   help="Merge imports into source file (default=mergeimports)"))
         return f
     return decorator
 

@@ -1,8 +1,16 @@
-{"id": "org1",
+{"id": "ORGDATA:001",
+ "name": "ACME big company limited",
  "has_boss" : {
-     "foo": 1,
-     "id" : "EMP:001",
-     "first_name" : "big",
-     "last_name": "cheese"
+     "id" : "ORGDATA:002",
+     "first_name" : "Mark",
+     "last_name": "Zuckerberg",
+     "age_in_years": 35,
+     "has_employees": [
+         {
+             "id": "ORGDATA:003",
+             "first_name": "Sean",
+             "last_name": "Connery"
+         }
+     ]
  }
 }

@@ -1,5 +1,5 @@
 
-# Type: todos
+# Slot: todos
 
 
 Outstanding issue that needs resolution
@@ -22,6 +22,8 @@ URI: [meta:todos](https://w3id.org/biolink/biolinkml/meta/todos)
  * [ClassDefinition](ClassDefinition.md)
  * [Definition](Definition.md)
  * [Element](Element.md)
+ * [EnumDefinition](EnumDefinition.md)
+ * [PermissibleValue](PermissibleValue.md)
  * [SchemaDefinition](SchemaDefinition.md)
  * [SlotDefinition](SlotDefinition.md)
  * [SubsetDefinition](SubsetDefinition.md)

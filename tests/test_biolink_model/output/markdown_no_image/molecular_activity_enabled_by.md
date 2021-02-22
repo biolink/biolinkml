@@ -1,5 +1,5 @@
 
-# Type: molecular activity_enabled by
+# Slot: molecular_activity_enabled_by
 
 
 The gene product, gene, or complex that catalyzes the reaction

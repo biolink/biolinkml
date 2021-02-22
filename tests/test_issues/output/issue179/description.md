@@ -1,5 +1,5 @@
 
-# Type: description
+# Slot: //example.org/sample/example1/description
 
 
 

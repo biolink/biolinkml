@@ -22,22 +22,6 @@
          "title": "AltDescription",
          "type": "object"
       },
-      "Annotatable": {
-         "additionalProperties": false,
-         "description": "mixin for classes that support annotations",
-         "properties": {
-            "annotations": {
-               "description": "a collection of tag/text tuples with the semantics of OWL Annotation",
-               "items": {
-                  "$ref": "#/definitions/Annotation"
-               },
-               "type": "array"
-            }
-         },
-         "required": [],
-         "title": "Annotatable",
-         "type": "object"
-      },
       "Annotation": {
          "additionalProperties": false,
          "description": "a tag/value pair with the semantics of OWL Annotation",
@@ -61,7 +45,8 @@
                "type": "string"
             },
             "value": {
-               "type": "boolean"
+               "description": "the actual annotation",
+               "type": "string"
             }
          },
          "required": [
@@ -99,6 +84,20 @@
                "type": "array"
             },
             "apply_to": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "attributes": {
+               "description": "Inline definition of slots",
+               "items": {
+                  "$ref": "#/definitions/SlotDefinition"
+               },
+               "type": "array"
+            },
+            "broad_mappings": {
+               "description": "A list of terms from different schemas or terminology systems that have broader meaning.",
                "items": {
                   "type": "string"
                },
@@ -238,6 +237,13 @@
                "description": "the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class.",
                "type": "string"
             },
+            "narrow_mappings": {
+               "description": "A list of terms from different schemas or terminology systems that have narrower meaning.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
             "notes": {
                "description": "editorial notes about an element intended for internal consumption",
                "items": {
@@ -313,6 +319,195 @@
          "title": "ClassDefinition",
          "type": "object"
       },
+      "EnumDefinition": {
+         "additionalProperties": false,
+         "description": "List of values that constrain the range of a slot",
+         "properties": {
+            "aliases": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "alt_descriptions": {
+               "items": {
+                  "$ref": "#/definitions/AltDescription"
+               },
+               "type": "array"
+            },
+            "annotations": {
+               "description": "a collection of tag/text tuples with the semantics of OWL Annotation",
+               "items": {
+                  "$ref": "#/definitions/Annotation"
+               },
+               "type": "array"
+            },
+            "broad_mappings": {
+               "description": "A list of terms from different schemas or terminology systems that have broader meaning.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "close_mappings": {
+               "description": "A list of terms from different schemas or terminology systems that have close meaning.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "code_set": {
+               "description": "the identifier of an enumeration code set.",
+               "type": "string"
+            },
+            "code_set_tag": {
+               "description": "the version tag of the enumeration code set",
+               "type": "string"
+            },
+            "code_set_version": {
+               "description": "the version identifier of the enumeration code set",
+               "type": "string"
+            },
+            "comments": {
+               "description": "notes and comments about an element intended for external consumption",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "definition_uri": {
+               "description": "the \"native\" URI of the element",
+               "type": "string"
+            },
+            "deprecated": {
+               "description": "Description of why and when this element will no longer be used",
+               "type": "string"
+            },
+            "deprecated_element_has_exact_replacement": {
+               "description": "When an element is deprecated, it can be automatically replaced by this uri or curie",
+               "type": "string"
+            },
+            "deprecated_element_has_possible_replacement": {
+               "description": "When an element is deprecated, it can be potentially replaced by this uri or curie",
+               "type": "string"
+            },
+            "description": {
+               "description": "a description of the element's purpose and use",
+               "type": "string"
+            },
+            "exact_mappings": {
+               "description": "A list of terms from different schemas or terminology systems that have identical meaning.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "examples": {
+               "description": "example usages of an element",
+               "items": {
+                  "$ref": "#/definitions/Example"
+               },
+               "type": "array"
+            },
+            "extensions": {
+               "description": "a tag/text tuple attached to an arbitrary element",
+               "items": {
+                  "$ref": "#/definitions/Extension"
+               },
+               "type": "array"
+            },
+            "from_schema": {
+               "description": "id of the schema that defined the element",
+               "type": "string"
+            },
+            "id_prefixes": {
+               "description": "the identifier of this class or slot must begin with one of the URIs referenced by this prefix",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "imported_from": {
+               "description": "the imports entry that this element was derived from.  Empty means primary source",
+               "type": "string"
+            },
+            "in_subset": {
+               "description": "used to indicate membership of a term in a defined subset of biolink terms used for a particular domain or application (e.g. the translator_minimal subset holding the minimal set of predicates used in a translator knowledge graph)",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "local_names": {
+               "items": {
+                  "$ref": "#/definitions/LocalName"
+               },
+               "type": "array"
+            },
+            "mappings": {
+               "description": "A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "name": {
+               "description": "the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class.",
+               "type": "string"
+            },
+            "narrow_mappings": {
+               "description": "A list of terms from different schemas or terminology systems that have narrower meaning.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "notes": {
+               "description": "editorial notes about an element intended for internal consumption",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "permissible_values": {
+               "description": "A list of possible values for a slot range",
+               "items": {
+                  "$ref": "#/definitions/PermissibleValue"
+               },
+               "type": "array"
+            },
+            "pv_formula": {
+               "description": "Defines the specific formula to be used to generate the permissible values.",
+               "type": "string"
+            },
+            "related_mappings": {
+               "description": "A list of terms from different schemas or terminology systems that have related meaning.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "see_also": {
+               "description": "a reference",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "todos": {
+               "description": "Outstanding issue that needs resolution",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            }
+         },
+         "required": [
+            "name"
+         ],
+         "title": "EnumDefinition",
+         "type": "object"
+      },
       "Example": {
          "additionalProperties": false,
          "description": "usage example and description",
@@ -328,22 +523,6 @@
          },
          "required": [],
          "title": "Example",
-         "type": "object"
-      },
-      "Extensible": {
-         "additionalProperties": false,
-         "description": "mixin for classes that support extension",
-         "properties": {
-            "extensions": {
-               "description": "a tag/text tuple attached to an arbitrary element",
-               "items": {
-                  "$ref": "#/definitions/Extension"
-               },
-               "type": "array"
-            }
-         },
-         "required": [],
-         "title": "Extensible",
          "type": "object"
       },
       "Extension": {
@@ -393,6 +572,119 @@
          "title": "LocalName",
          "type": "object"
       },
+      "PermissibleValue": {
+         "additionalProperties": false,
+         "description": "a permissible value, accompanied by intended text and an optional mapping to a concept URI",
+         "properties": {
+            "alt_descriptions": {
+               "items": {
+                  "$ref": "#/definitions/AltDescription"
+               },
+               "type": "array"
+            },
+            "annotations": {
+               "description": "a collection of tag/text tuples with the semantics of OWL Annotation",
+               "items": {
+                  "$ref": "#/definitions/Annotation"
+               },
+               "type": "array"
+            },
+            "comments": {
+               "description": "notes and comments about an element intended for external consumption",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "deprecated": {
+               "description": "Description of why and when this element will no longer be used",
+               "type": "string"
+            },
+            "deprecated_element_has_exact_replacement": {
+               "description": "When an element is deprecated, it can be automatically replaced by this uri or curie",
+               "type": "string"
+            },
+            "deprecated_element_has_possible_replacement": {
+               "description": "When an element is deprecated, it can be potentially replaced by this uri or curie",
+               "type": "string"
+            },
+            "description": {
+               "description": "a description of the element's purpose and use",
+               "type": "string"
+            },
+            "examples": {
+               "description": "example usages of an element",
+               "items": {
+                  "$ref": "#/definitions/Example"
+               },
+               "type": "array"
+            },
+            "extensions": {
+               "description": "a tag/text tuple attached to an arbitrary element",
+               "items": {
+                  "$ref": "#/definitions/Extension"
+               },
+               "type": "array"
+            },
+            "from_schema": {
+               "description": "id of the schema that defined the element",
+               "type": "string"
+            },
+            "imported_from": {
+               "description": "the imports entry that this element was derived from.  Empty means primary source",
+               "type": "string"
+            },
+            "in_subset": {
+               "description": "used to indicate membership of a term in a defined subset of biolink terms used for a particular domain or application (e.g. the translator_minimal subset holding the minimal set of predicates used in a translator knowledge graph)",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "is_a": {
+               "type": "string"
+            },
+            "meaning": {
+               "description": "the value meaning (in the 11179 sense) of a permissible value",
+               "type": "string"
+            },
+            "mixins": {
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "notes": {
+               "description": "editorial notes about an element intended for internal consumption",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "see_also": {
+               "description": "a reference",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "text": {
+               "type": "string"
+            },
+            "todos": {
+               "description": "Outstanding issue that needs resolution",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            }
+         },
+         "required": [
+            "text"
+         ],
+         "title": "PermissibleValue",
+         "type": "object"
+      },
       "Prefix": {
          "additionalProperties": false,
          "description": "prefix URI tuple",
@@ -433,6 +725,13 @@
                "description": "a collection of tag/text tuples with the semantics of OWL Annotation",
                "items": {
                   "$ref": "#/definitions/Annotation"
+               },
+               "type": "array"
+            },
+            "broad_mappings": {
+               "description": "A list of terms from different schemas or terminology systems that have broader meaning.",
+               "items": {
+                  "type": "string"
                },
                "type": "array"
             },
@@ -496,6 +795,13 @@
                "description": "a list of Curie prefixes that are used in the representation of instances of the model.  All prefixes in this list are added to the prefix sections of the target models.",
                "items": {
                   "type": "string"
+               },
+               "type": "array"
+            },
+            "enums": {
+               "description": "enumerated ranges",
+               "items": {
+                  "$ref": "#/definitions/EnumDefinition"
                },
                "type": "array"
             },
@@ -580,6 +886,13 @@
             },
             "name": {
                "type": "string"
+            },
+            "narrow_mappings": {
+               "description": "A list of terms from different schemas or terminology systems that have narrower meaning.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "notes": {
                "description": "editorial notes about an element intended for internal consumption",
@@ -702,6 +1015,13 @@
                },
                "type": "array"
             },
+            "broad_mappings": {
+               "description": "A list of terms from different schemas or terminology systems that have broader meaning.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
             "close_mappings": {
                "description": "A list of terms from different schemas or terminology systems that have close meaning.",
                "items": {
@@ -788,7 +1108,7 @@
                "type": "array"
             },
             "identifier": {
-               "description": "true means that this slot is the subject of a set of assertions.  Identifiers do not appear as predicates in the model",
+               "description": "True means that the key slot(s) uniquely identify the container. There can be at most one identifier or key per container",
                "type": "boolean"
             },
             "ifabsent": {
@@ -811,7 +1131,11 @@
                "type": "boolean"
             },
             "inlined": {
-               "description": "an inlined definition a list of actual values rather than references.  Only applies to slots whose range is a class.",
+               "description": "True means that keyed or identified slot appears in an outer structure by value.  False means that only the key or identifier for the slot appears within the domain, referencing a structure that appears elsewhere.",
+               "type": "boolean"
+            },
+            "inlined_as_list": {
+               "description": "True means that an inlined slot is represented as a list of range instances.  False means that an inlined slot is represented as a dictionary, whose key is the slot key or identifier and whose value is the range instance.",
                "type": "boolean"
             },
             "inverse": {
@@ -830,7 +1154,7 @@
                "type": "boolean"
             },
             "key": {
-               "description": "true means that the slot uniquely identifies the element within the context of its container.  Key slots are NOT identifiers - they do not serve as subjects",
+               "description": "True means that the key slot(s) uniquely identify the container. In future releases, it will be possible for there to be compound keys, where several slots combine to produce a unique identifier",
                "type": "boolean"
             },
             "last_updated_on": {
@@ -879,6 +1203,13 @@
             "name": {
                "description": "the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class.",
                "type": "string"
+            },
+            "narrow_mappings": {
+               "description": "A list of terms from different schemas or terminology systems that have narrower meaning.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "notes": {
                "description": "editorial notes about an element intended for internal consumption",
@@ -997,6 +1328,13 @@
                },
                "type": "array"
             },
+            "broad_mappings": {
+               "description": "A list of terms from different schemas or terminology systems that have broader meaning.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
             "close_mappings": {
                "description": "A list of terms from different schemas or terminology systems that have close meaning.",
                "items": {
@@ -1090,6 +1428,13 @@
             "name": {
                "description": "the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class.",
                "type": "string"
+            },
+            "narrow_mappings": {
+               "description": "A list of terms from different schemas or terminology systems that have narrower meaning.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "notes": {
                "description": "editorial notes about an element intended for internal consumption",
@@ -1153,6 +1498,13 @@
                "description": "python base type that implements this type definition",
                "type": "string"
             },
+            "broad_mappings": {
+               "description": "A list of terms from different schemas or terminology systems that have broader meaning.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
             "close_mappings": {
                "description": "A list of terms from different schemas or terminology systems that have close meaning.",
                "items": {
@@ -1246,6 +1598,13 @@
             "name": {
                "description": "the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class.",
                "type": "string"
+            },
+            "narrow_mappings": {
+               "description": "A list of terms from different schemas or terminology systems that have narrower meaning.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "notes": {
                "description": "editorial notes about an element intended for internal consumption",

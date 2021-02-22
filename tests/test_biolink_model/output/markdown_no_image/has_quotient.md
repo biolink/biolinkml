@@ -1,5 +1,5 @@
 
-# Type: has quotient
+# Slot: has_quotient
 
 
 
@@ -22,4 +22,3 @@ URI: [biolink:has_quotient](https://w3id.org/biolink/vocab/has_quotient)
 ## Used by
 
  * [FrequencyQuantifier](FrequencyQuantifier.md)
- * [VariantToPopulationAssociation](VariantToPopulationAssociation.md)

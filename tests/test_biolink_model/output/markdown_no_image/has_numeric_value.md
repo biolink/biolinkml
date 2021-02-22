@@ -1,5 +1,5 @@
 
-# Type: has numeric value
+# Slot: has_numeric_value
 
 
 connects a quantity value to a number
@@ -25,6 +25,6 @@ URI: [biolink:has_numeric_value](https://w3id.org/biolink/vocab/has_numeric_valu
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | qud:quantityValue |
 | **In Subsets:** | | samples |
+| **Exact Mappings:** | | qud:quantityValue |
 

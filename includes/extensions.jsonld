@@ -52,6 +52,7 @@
       "imported_from": "biolinkml:types",
       "base": "Bool",
       "uri": "http://www.w3.org/2001/XMLSchema#boolean",
+      "repr": "bool",
       "type": "TypeDefinition"
     },
     {
@@ -72,6 +73,16 @@
       "imported_from": "biolinkml:types",
       "base": "float",
       "uri": "http://www.w3.org/2001/XMLSchema#double",
+      "type": "TypeDefinition"
+    },
+    {
+      "name": "decimal",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/types/Decimal",
+      "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "from_schema": "https://w3id.org/biolink/biolinkml/types",
+      "imported_from": "biolinkml:types",
+      "base": "Decimal",
+      "uri": "http://www.w3.org/2001/XMLSchema#decimal",
       "type": "TypeDefinition"
     },
     {
@@ -250,15 +261,17 @@
       "type": "ClassDefinition"
     }
   ],
-  "metamodel_version": "1.5.3",
+  "metamodel_version": "1.7.0",
   "source_file": "extensions.yaml",
-  "source_file_date": "Friday Sep 27 12:00:00 2003",
+  "source_file_date": "Tue Jan  5 15:40:35 2021",
   "source_file_size": 1127,
-  "generation_date": "Friday Sep 27 12:00:00 2003",
+  "generation_date": "2021-01-18 15:18",
   "type": "SchemaDefinition",
   "@context": [
-    "https://w3id.org/biolink/biolinkml/context.jsonld",
-    "https://w3id.org/biolink/biolinkml/types.context.jsonld",
+    [
+      "https://w3id.org/biolink/biolinkml/context.jsonld",
+      "/Users/hsolbrig/git/biolink/biolinkml/tests/input/includes/types.context.jsonld"
+    ],
     {
       "@base": "https://w3id.org/biolink/biolinkml/meta/"
     }

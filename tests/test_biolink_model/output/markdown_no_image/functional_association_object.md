@@ -1,5 +1,5 @@
 
-# Type: functional association_object
+# Slot: functional_association_object
 
 
 class describing the activity, process or localization of the gene product
@@ -25,3 +25,11 @@ URI: [biolink:functional_association_object](https://w3id.org/biolink/vocab/func
 ## Used by
 
  * [FunctionalAssociation](FunctionalAssociation.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Examples:** | | {'value': 'GO:0016301', 'description': 'kinase activity'} |
+|  | | {'value': 'GO:0045211', 'description': 'postsynaptic membrane'} |
+

@@ -1,8 +1,8 @@
 
-# Type: in taxon
+# Slot: in_taxon
 
 
-connects a thing to a class representing a taxon
+connects an entity to its taxonomic classification. Only certain kinds of entities can be taxonomically classified; see 'thing with taxon'
 
 URI: [biolink:in_taxon](https://w3id.org/biolink/vocab/in_taxon)
 
@@ -27,18 +27,27 @@ URI: [biolink:in_taxon](https://w3id.org/biolink/vocab/in_taxon)
  * [Case](Case.md)
  * [Cell](Cell.md)
  * [CellularComponent](CellularComponent.md)
+ * [ChemicalExposure](ChemicalExposure.md)
  * [ChemicalSubstance](ChemicalSubstance.md)
+ * [ClinicalFinding](ClinicalFinding.md)
  * [CodingSequence](CodingSequence.md)
+ * [Cohort](Cohort.md)
+ * [ComplexChemicalExposure](ComplexChemicalExposure.md)
  * [Disease](Disease.md)
  * [DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md)
+ * [DiseaseOrPhenotypicFeatureExposure](DiseaseOrPhenotypicFeatureExposure.md)
+ * [DiseaseOrPhenotypicFeatureOutcome](DiseaseOrPhenotypicFeatureOutcome.md)
  * [Drug](Drug.md)
+ * [DrugExposure](DrugExposure.md)
+ * [DrugToGeneInteractionExposure](DrugToGeneInteractionExposure.md)
  * [Exon](Exon.md)
+ * [Food](Food.md)
  * [Gene](Gene.md)
  * [GeneFamily](GeneFamily.md)
  * [GeneOrGeneProduct](GeneOrGeneProduct.md)
  * [GeneProduct](GeneProduct.md)
- * [GeneProductIsoform](GeneProductIsoform.md)
  * [Genome](Genome.md)
+ * [GenomicBackgroundExposure](GenomicBackgroundExposure.md)
  * [GenomicEntity](GenomicEntity.md)
  * [Genotype](Genotype.md)
  * [GrossAnatomicalStructure](GrossAnatomicalStructure.md)
@@ -53,9 +62,14 @@ URI: [biolink:in_taxon](https://w3id.org/biolink/vocab/in_taxon)
  * [NoncodingRNAProduct](NoncodingRNAProduct.md)
  * [PhenotypicFeature](PhenotypicFeature.md)
  * [PopulationOfIndividualOrganisms](PopulationOfIndividualOrganisms.md)
+ * [ProcessedMaterial](ProcessedMaterial.md)
  * [Protein](Protein.md)
  * [ProteinIsoform](ProteinIsoform.md)
+ * [ReagentTargetedGene](ReagentTargetedGene.md)
  * [SequenceVariant](SequenceVariant.md)
+ * [SiRNA](SiRNA.md)
+ * [Snv](Snv.md)
+ * [StudyPopulation](StudyPopulation.md)
  * [ThingWithTaxon](ThingWithTaxon.md)
  * [Transcript](Transcript.md)
 
@@ -63,7 +77,13 @@ URI: [biolink:in_taxon](https://w3id.org/biolink/vocab/in_taxon)
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | RO:0002162 |
-|  | | WD:P703 |
+| **Aliases:** | | instance of |
 | **In Subsets:** | | translator_minimal |
+| **Exact Mappings:** | | WIKIDATA_PROPERTY:P703 |
+| **Close Mappings:** | | NCIT:is_organism_source_of_gene_product |
+|  | | NCIT:organism_has_gene |
+| **Narrow Mappings:** | | NCIT:gene_found_in_organism |
+|  | | NCIT:gene_product_has_organism_source |
+|  | | RO:0002160 |
+| **Related Mappings:** | | RO:0002162 |
 

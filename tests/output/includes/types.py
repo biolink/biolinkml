@@ -1,5 +1,5 @@
-# Auto generated from .yaml by pythongen.py version:
-# Generation date:
+# Auto generated from types.yaml by pythongen.py version: 0.9.0
+# Generation date: 2021-01-05 17:36
 # Schema: types
 #
 # id: https://w3id.org/biolink/biolinkml/types
@@ -8,8 +8,10 @@
 
 import dataclasses
 import sys
+import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
+
 from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
@@ -18,11 +20,12 @@ if sys.version_info < (3, 7, 6):
 else:
     from biolinkml.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
+from biolinkml.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
-from biolinkml.utils.metamodelcore import Bool, ElementIdentifier, NCName, NodeIdentifier, URI, URIorCURIE, XSDDate, XSDDateTime, XSDTime
+from biolinkml.utils.metamodelcore import Bool, Decimal, ElementIdentifier, NCName, NodeIdentifier, URI, URIorCURIE, XSDDate, XSDDateTime, XSDTime
 
-metamodel_version = "1.5.3"
+metamodel_version = "1.7.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -73,6 +76,14 @@ class Double(float):
     type_class_curie = "xsd:double"
     type_name = "double"
     type_model_uri = METATYPE.Double
+
+
+class Decimal(Decimal):
+    """ A real number with arbitrary precision that conforms to the xsd:decimal specification """
+    type_class_uri = XSD.decimal
+    type_class_curie = "xsd:decimal"
+    type_name = "decimal"
+    type_model_uri = METATYPE.Decimal
 
 
 class Time(XSDTime):
@@ -143,6 +154,8 @@ class Nodeidentifier(NodeIdentifier):
 
 
 
+
+# Enumerations
 
 
 # Slots

@@ -1,0 +1,24 @@
+id: http://example.org/test/simple
+name: simple
+description: Enumeration with some non-std values
+
+prefixes:
+  biolinkml: https://w3id.org/biolink/biolinkml/
+  play: http://example.org/test/play/
+
+default_range: string
+default_prefix: play
+
+imports:
+  - biolinkml:types
+
+
+enums:
+  Unusual enum patterns:
+    description: Very odd enumeration
+    permissible_values:
+      M: Normal selection
+      1: Numeric selection
+      def: Python reserved word
+      "embedded space": Embedded space
+      "% ! -- whoo": Really weird stuff

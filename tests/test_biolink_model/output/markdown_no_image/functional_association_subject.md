@@ -1,5 +1,5 @@
 
-# Type: functional association_subject
+# Slot: functional_association_subject
 
 
 gene, product or macromolecular complex that has the function associated with the GO term
@@ -25,3 +25,10 @@ URI: [biolink:functional_association_subject](https://w3id.org/biolink/vocab/fun
  * [MacromolecularMachineToBiologicalProcessAssociation](MacromolecularMachineToBiologicalProcessAssociation.md)
  * [MacromolecularMachineToCellularComponentAssociation](MacromolecularMachineToCellularComponentAssociation.md)
  * [MacromolecularMachineToMolecularActivityAssociation](MacromolecularMachineToMolecularActivityAssociation.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Examples:** | | {'value': 'ZFIN:ZDB-GENE-050417-357', 'description': 'twist1b'} |
+

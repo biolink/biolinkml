@@ -1,8 +1,8 @@
 
-# Type: gene to disease association_subject
+# Slot: gene_to_disease_association_subject
 
 
-gene in which variation is correlated with the disease - may be protective or causative or associative, or as a model
+gene in which variation is correlated with the disease, may be protective or causative or associative, or as a model
 
 URI: [biolink:gene_to_disease_association_subject](https://w3id.org/biolink/vocab/gene_to_disease_association_subject)
 

@@ -17,6 +17,10 @@
       "prefix_reference": "https://w3id.org/biolink/biolinkml/"
     }
   ],
+  "emit_prefixes": [
+    "meta",
+    "biolinkml"
+  ],
   "default_curi_maps": [
     "semweb_context"
   ],
@@ -51,6 +55,7 @@
       "imported_from": "biolinkml:types",
       "base": "Bool",
       "uri": "http://www.w3.org/2001/XMLSchema#boolean",
+      "repr": "bool",
       "type": "TypeDefinition"
     },
     {
@@ -71,6 +76,16 @@
       "imported_from": "biolinkml:types",
       "base": "float",
       "uri": "http://www.w3.org/2001/XMLSchema#double",
+      "type": "TypeDefinition"
+    },
+    {
+      "name": "decimal",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/types/Decimal",
+      "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "from_schema": "https://w3id.org/biolink/biolinkml/types",
+      "imported_from": "biolinkml:types",
+      "base": "Decimal",
+      "uri": "http://www.w3.org/2001/XMLSchema#decimal",
       "type": "TypeDefinition"
     },
     {
@@ -184,10 +199,10 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/annotations",
       "multivalued": true,
       "inlined": true,
-      "owner": "Annotatable",
+      "owner": "Annotation",
       "domain_of": [
-        "Annotation",
-        "Annotatable"
+        "Annotatable",
+        "Annotation"
       ],
       "type": "SlotDefinition"
     },
@@ -242,23 +257,6 @@
         "Extension"
       ],
       "type": "SlotDefinition"
-    },
-    {
-      "name": "annotation_extension_value",
-      "from_schema": "http://example.org/tests/issue167b",
-      "is_a": "extension_value",
-      "domain": "Annotation",
-      "range": "boolean",
-      "slot_uri": "http://example.org/value",
-      "required": true,
-      "alias": "value",
-      "owner": "Annotation",
-      "domain_of": [
-        "Annotation"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "extension_value",
-      "type": "SlotDefinition"
     }
   ],
   "classes": [
@@ -289,35 +287,22 @@
       "from_schema": "http://example.org/tests/issue167b",
       "annotations": [
         {
-          "tag": "prefLabel",
+          "tag": "tag",
+          "value": "prefLabel",
+          "type": "Annotation"
+        },
+        {
+          "tag": "value",
           "value": "a preferred label",
-          "annotations": [
-            {
-              "tag": "source",
-              "value": "PMID:12345",
-              "type": "Annotation"
-            }
-          ],
+          "type": "Annotation"
+        },
+        {
+          "tag": "annotations",
+          "value": "{'source': 'PMID:12345'}",
           "type": "Annotation"
         }
       ],
       "class_uri": "http://example.org/MyClass2",
-      "type": "ClassDefinition"
-    },
-    {
-      "name": "Annotation",
-      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/Annotation",
-      "description": "a tag/value pair with the semantics of OWL Annotation",
-      "from_schema": "https://w3id.org/biolink/biolinkml/annotations",
-      "imported_from": "biolinkml:annotations",
-      "is_a": "Extension",
-      "slots": [
-        "extension_tag",
-        "extensions",
-        "annotations",
-        "annotation_extension_value"
-      ],
-      "class_uri": "https://w3id.org/biolink/biolinkml/meta/Annotation",
       "type": "ClassDefinition"
     },
     {
@@ -331,6 +316,25 @@
         "annotations"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/Annotatable",
+      "type": "ClassDefinition"
+    },
+    {
+      "name": "Annotation",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/Annotation",
+      "description": "a tag/value pair with the semantics of OWL Annotation",
+      "from_schema": "https://w3id.org/biolink/biolinkml/annotations",
+      "imported_from": "biolinkml:annotations",
+      "is_a": "Extension",
+      "mixins": [
+        "Annotatable"
+      ],
+      "slots": [
+        "extension_tag",
+        "extension_value",
+        "extensions",
+        "annotations"
+      ],
+      "class_uri": "https://w3id.org/biolink/biolinkml/meta/Annotation",
       "type": "ClassDefinition"
     },
     {
@@ -361,17 +365,19 @@
       "type": "ClassDefinition"
     }
   ],
-  "metamodel_version": "1.5.3",
+  "metamodel_version": "1.7.0",
   "source_file": "issue_167b.yaml",
-  "source_file_date": "Friday Sep 27 12:00:00 2003",
+  "source_file_date": "Tue Jan 26 20:23:51 2021",
   "source_file_size": 835,
-  "generation_date": "Friday Sep 27 12:00:00 2003",
+  "generation_date": "2021-01-26 20:26",
   "type": "SchemaDefinition",
   "@context": [
-    "https://w3id.org/biolink/biolinkml/context.jsonld",
-    "https://w3id.org/biolink/biolinkml/annotations.context.jsonld",
-    "https://w3id.org/biolink/biolinkml/types.context.jsonld",
-    "https://w3id.org/biolink/biolinkml/extensions.context.jsonld",
+    [
+      "https://w3id.org/biolink/biolinkml/context.jsonld",
+      "https://w3id.org/biolink/biolinkml/annotations.context.jsonld",
+      "https://w3id.org/biolink/biolinkml/types.context.jsonld",
+      "https://w3id.org/biolink/biolinkml/extensions.context.jsonld"
+    ],
     {
       "@base": "http://example.org/"
     }

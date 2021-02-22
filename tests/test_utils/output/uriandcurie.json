@@ -171,14 +171,16 @@
       "type": "ClassDefinition"
     }
   ],
-  "metamodel_version": "1.5.3",
+  "metamodel_version": "1.7.0",
   "source_file": "uriandcurie.yaml",
-  "source_file_date": "Friday Sep 27 12:00:00 2003",
+  "source_file_date": "Thu Jan 14 22:56:47 2021",
   "source_file_size": 1427,
-  "generation_date": "Friday Sep 27 12:00:00 2003",
+  "generation_date": "2021-01-14 23:00",
   "type": "SchemaDefinition",
   "@context": [
-    "https://w3id.org/biolink/biolinkml/context.jsonld",
+    [
+      "https://w3id.org/biolink/biolinkml/context.jsonld"
+    ],
     {
       "@base": "http://example.org/test/uriandcurie"
     }

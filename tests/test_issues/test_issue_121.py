@@ -19,7 +19,8 @@ class Issue121TestCase(TestEnvironmentTestCase):
         """ Make sure that types are generated as part of the output """
         env.generate_single_file('issue_121.py',
                                  lambda: PythonGenerator(env.input_path('issue_121.yaml')).serialize(),
-                                 comparator=compare_python, value_is_returned=True)
+                                 comparator=lambda exp, act: compare_python(exp, act, self.env.expected_path('issue_121.py')),
+                                 value_is_returned=True)
         with open(env.expected_path('issue_121.py')) as f:
             python= f.read()
 

@@ -1,5 +1,5 @@
 
-# Type: subset_definition
+# Class: SubsetDefinition
 
 
 the name and description of a subset
@@ -7,7 +7,7 @@ the name and description of a subset
 URI: [meta:SubsetDefinition](https://w3id.org/biolink/biolinkml/meta/SubsetDefinition)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Element]-%20in_subset%200..*>[SubsetDefinition&#124;id_prefixes(i):ncname%20*;name(i):string;definition_uri(i):uriorcurie%20%3F;aliases(i):string%20*;mappings(i):uriorcurie%20*;description(i):string%20%3F;deprecated(i):string%20%3F;todos(i):string%20*;notes(i):string%20*;comments(i):string%20*;from_schema(i):uri%20%3F;imported_from(i):string%20%3F;see_also(i):uriorcurie%20*;exact_mappings(i):uriorcurie%20*;close_mappings(i):uriorcurie%20*;related_mappings(i):uriorcurie%20*;deprecated_element_has_exact_replacement(i):uriorcurie%20%3F;deprecated_element_has_possible_replacement(i):uriorcurie%20%3F],[SchemaDefinition]++-%20subsets%200..*>[SubsetDefinition],[Element]^-[SubsetDefinition],[SchemaDefinition],[LocalName],[Extension],[Example],[Element],[Annotation],[AltDescription])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Element]-%20in_subset%200..*>[SubsetDefinition&#124;name(i):string;id_prefixes(i):ncname%20*;definition_uri(i):uriorcurie%20%3F;aliases(i):string%20*;mappings(i):uriorcurie%20*;description(i):string%20%3F;deprecated(i):string%20%3F;todos(i):string%20*;notes(i):string%20*;comments(i):string%20*;from_schema(i):uri%20%3F;imported_from(i):string%20%3F;see_also(i):uriorcurie%20*;exact_mappings(i):uriorcurie%20*;close_mappings(i):uriorcurie%20*;related_mappings(i):uriorcurie%20*;narrow_mappings(i):uriorcurie%20*;broad_mappings(i):uriorcurie%20*;deprecated_element_has_exact_replacement(i):uriorcurie%20%3F;deprecated_element_has_possible_replacement(i):uriorcurie%20%3F],[PermissibleValue]-%20in_subset%200..*>[SubsetDefinition],[SchemaDefinition]++-%20subsets%200..*>[SubsetDefinition],[Element]^-[SubsetDefinition],[SchemaDefinition],[PermissibleValue],[LocalName],[Extension],[Example],[Element],[Annotation],[AltDescription])
 
 ## Parents
 
@@ -27,6 +27,9 @@ URI: [meta:SubsetDefinition](https://w3id.org/biolink/biolinkml/meta/SubsetDefin
     * range: [String](types/String.md)
  * [alt_descriptions](alt_descriptions.md)  <sub>0..*</sub>
     * range: [AltDescription](AltDescription.md)
+ * [broad mappings](broad_mappings.md)  <sub>0..*</sub>
+    * Description: A list of terms from different schemas or terminology systems that have broader meaning.
+    * range: [Uriorcurie](types/Uriorcurie.md)
  * [close mappings](close_mappings.md)  <sub>0..*</sub>
     * Description: A list of terms from different schemas or terminology systems that have close meaning.
     * range: [Uriorcurie](types/Uriorcurie.md)
@@ -78,6 +81,9 @@ URI: [meta:SubsetDefinition](https://w3id.org/biolink/biolinkml/meta/SubsetDefin
     * Description: the unique name of the element within the context of the schema.  Name is combined with the default prefix to form the globally unique subject of the target class.
     * range: [String](types/String.md)
     * in subsets: (owl)
+ * [narrow mappings](narrow_mappings.md)  <sub>0..*</sub>
+    * Description: A list of terms from different schemas or terminology systems that have narrower meaning.
+    * range: [Uriorcurie](types/Uriorcurie.md)
  * [notes](notes.md)  <sub>0..*</sub>
     * Description: editorial notes about an element intended for internal consumption
     * range: [String](types/String.md)

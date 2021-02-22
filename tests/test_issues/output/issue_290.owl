@@ -1,0 +1,53 @@
+@prefix meta: <https://w3id.org/biolink/biolinkml/meta/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org> a owl:Ontology ;
+    rdfs:label "" ;
+    meta:generation_date "2021-01-04 21:53" ;
+    meta:metamodel_version "1.7.0" ;
+    meta:source_file "issue_290.yaml" ;
+    meta:source_file_date "Mon Jan  4 21:51:20 2021" ;
+    meta:source_file_size 118 .
+
+meta:SubsetDefinition a owl:Class ;
+    rdfs:label "subset_definition" ;
+    skos:definition "the name and description of a subset" .
+
+meta:TypeDefinition a owl:Class ;
+    rdfs:label "type_definition" ;
+    skos:definition "A data type definition." .
+
+meta:topValue a owl:DatatypeProperty ;
+    rdfs:label "value" .
+
+<http://example.org/s> a owl:ObjectProperty,
+        owl:SymmetricProperty,
+        meta:SlotDefinition ;
+    rdfs:label "s" ;
+    rdfs:domain <http://example.org/C> ;
+    rdfs:range <http://example.org/C> ;
+    owl:inverseOf <http://example.org/t> .
+
+<http://example.org/t> a owl:ObjectProperty,
+        meta:SlotDefinition ;
+    rdfs:label "t" ;
+    rdfs:domain <http://example.org/C> ;
+    rdfs:range <http://example.org/C> ;
+    owl:inverseOf <http://example.org/s> .
+
+meta:ClassDefinition a owl:Class ;
+    rdfs:label "class_definition" ;
+    skos:definition "the definition of a class or interface" .
+
+meta:SlotDefinition a owl:Class ;
+    rdfs:label "slot_definition" ;
+    skos:definition "the definition of a property or a slot" .
+
+<http://example.org/C> a owl:Class,
+        meta:ClassDefinition ;
+    rdfs:label "c" .
+
+

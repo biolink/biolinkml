@@ -1,5 +1,5 @@
 {
-   "_comments": "Auto generated from ... by jsonldcontextgen.py version: 0.1.1\nGeneration date: \nSchema: metamodel\n\nid: https://w3id.org/biolink/biolinkml/meta\ndescription: A metamodel for defining biolink related schemas\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
+   "_comments": "Auto generated from meta.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2021-01-04 21:53\nSchema: metamodel\n\nid: https://w3id.org/biolink/biolinkml/meta\ndescription: A metamodel for defining biolink related schemas\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
    "@context": {
       "type": "@type",
       "IAO": "http://purl.obolibrary.org/obo/IAO_",
@@ -29,6 +29,12 @@
       "apply_to": {
          "@type": "@id"
       },
+      "attributes": {
+         "@type": "@id"
+      },
+      "broad_mappings": {
+         "@type": "@id"
+      },
       "class_uri": {
          "@type": "@id"
       },
@@ -36,6 +42,9 @@
          "@type": "@id"
       },
       "close_mappings": {
+         "@type": "@id"
+      },
+      "code_set": {
          "@type": "@id"
       },
       "created_by": {
@@ -63,6 +72,9 @@
          "@type": "@id"
       },
       "domain_of": {
+         "@type": "@id"
+      },
+      "enums": {
          "@type": "@id"
       },
       "exact_mappings": {
@@ -101,6 +113,9 @@
       "inlined": {
          "@type": "xsd:boolean"
       },
+      "inlined_as_list": {
+         "@type": "xsd:boolean"
+      },
       "inverse": {
          "@type": "@id"
       },
@@ -128,6 +143,9 @@
       "maximum_value": {
          "@type": "xsd:integer"
       },
+      "meaning": {
+         "@type": "@id"
+      },
       "minimum_value": {
          "@type": "xsd:integer"
       },
@@ -144,7 +162,13 @@
          "@type": "xsd:boolean"
       },
       "name": "@id",
+      "narrow_mappings": {
+         "@type": "@id"
+      },
       "owner": {
+         "@type": "@id"
+      },
+      "permissible_values": {
          "@type": "@id"
       },
       "prefix_reference": {
@@ -195,6 +219,7 @@
       "symmetric": {
          "@type": "xsd:boolean"
       },
+      "text": "@id",
       "tree_root": {
          "@type": "xsd:boolean"
       },

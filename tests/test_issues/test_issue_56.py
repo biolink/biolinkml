@@ -14,12 +14,14 @@ class SlotSubclassTestCase(TestEnvironmentTestCase):
         """ Test slot domain as superclass of parent """
         env.generate_single_file('issue_56_good.py',
                                  lambda: PythonGenerator(env.input_path('issue_56_good.yaml')).serialize(),
-                                 comparator=compare_python, value_is_returned=True)
+                                 comparator=lambda exp, act: compare_python(exp, act, self.env.expected_path('issue_56_good.py')),
+                                 value_is_returned=True)
 
         with self.assertRaises(Exception) as e:
             env.generate_single_file('issue_56_bad.py',
                                      lambda: PythonGenerator(env.input_path('issue_56_bad.yaml')).serialize(),
-                                     comparator=compare_python, value_is_returned=True)
+                                     comparator=lambda exp, act: compare_python(exp, act, self.env.expected_path('issue_56.py')),
+                                     value_is_returned=True)
 
 
 if __name__ == '__main__':

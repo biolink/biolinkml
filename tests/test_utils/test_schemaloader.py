@@ -33,7 +33,7 @@ class SchemaLoaderTestCase(TestEnvironmentTestCase):
         logger.addHandler(logging.StreamHandler(logstream))
         logger.setLevel(logging.INFO)
         self.eval_loader('merge1', logger=logger)
-        self.assertIn("Shared slot and subset names: s1, s2", logstream.getvalue().strip())
+        self.assertIn("Overlapping subset and slot names: s1, s2", logstream.getvalue().strip())
 
     def test_mergeerror1(self):
         """ Test conflicting definitions path """
@@ -83,14 +83,14 @@ class SchemaLoaderTestCase(TestEnvironmentTestCase):
     def test_multi_key(self):
         """ Multiple keys are not supported """
         fn = env.input_path('loadererror6.yaml')
-        with self.assertRaises(ValueError, msg="Two or more keys are not allowed") as e:
+        with self.assertRaises(ValueError, msg='Multiple keys/identifiers not allowed') as e:
             _ = SchemaLoader(fn).resolve()
-        self.assertIn('loadererror6.yaml", line 16, col 3', str(e.exception))
+        self.assertIn('multiple keys/identifiers not allowed', str(e.exception))
 
         fn = env.input_path('loadererror7.yaml')
         with self.assertRaises(ValueError, msg="Two or more keys are not allowed") as e:
             _ = SchemaLoader(fn).resolve()
-        self.assertIn('loadererror7.yaml", line 16, col 3', str(e.exception))
+        self.assertIn('multiple keys/identifiers not allowed', str(e.exception))
 
     def test_key_and_id(self):
         """ A slot cannot be both a key and an identifier """

@@ -2,31 +2,45 @@
 SPECIFICATION.pdf: SPECIFICATION.md
 	pandoc $< -o $@
 
+# for now we only have one example
 all-examples: all-examples-organization
 
-all-examples-%: examples/%.py examples/%.schema.json  examples/%.shex  examples/%.graphql  examples/%.graphql  examples/%.shex examples/%.proto  examples/%.shex
+# for each example schema, make all derived schema products, and derived serializations for the example data file
+all-examples-%:  examples/%.py examples/%.schema.json  examples/%.shex  examples/%.graphql  examples/%.graphql  examples/%.shex examples/%.proto  examples/%.shex examples/%.valid examples/%-data.nt
+	echo done
 
+RUN=pipenv run
+
+## Example schema products
 examples/%.py: examples/%.yaml
-	pipenv run gen-py-classes $< > $@ && pipenv run python -m examples.$*
+	$(RUN) gen-py-classes $< > $@ && $(RUN) python -m examples.$*
 examples/%.shex: examples/%.yaml
-	pipenv run gen-shex $< > $@
+	$(RUN) gen-shex $< > $@
 examples/%.schema.json: examples/%.yaml
-	pipenv run gen-json-schema -t $* $< > $@
+	$(RUN) gen-json-schema -t $* $< > $@
 examples/%.context.jsonld: examples/%.yaml
-	pipenv run gen-jsonld-context -t $* $< > $@
+	$(RUN) gen-jsonld-context -t $* $< > $@
 examples/%.graphql: examples/%.yaml
-	pipenv run gen-graphql $< > $@
+	$(RUN) gen-graphql $< > $@
 examples/%.context.jsonld: examples/%.yaml
-	pipenv run gen-jsonld-context $< > $@
+	$(RUN) gen-jsonld-context $< > $@
 examples/%.jsonld: examples/%.yaml
-	pipenv run gen-jsonld $< > $@
+	$(RUN) gen-jsonld $< > $@
 examples/%.shex: examples/%.yaml
-	pipenv run gen-shex $< > $@
+	$(RUN) gen-shex $< > $@
 examples/%.proto: examples/%.yaml
-	pipenv run gen-proto $< > $@
+	$(RUN) gen-proto $< > $@
 examples/%.owl: examples/%.yaml
-	pipenv run gen-owl $< > $@
+	$(RUN) gen-owl $< > $@
+examples/%.ttl: examples/%.yaml
+	$(RUN) gen-rdf $< > $@
 examples/%-docs: examples/%.yaml
-	pipenv run gen-markdown $< -d $@
+	$(RUN) gen-markdown $< -d $@
+
+## Example instance data products
 examples/%.valid: examples/%-data.json examples/%.schema.json
 	jsonschema -i $^
+examples/%-data.jsonld: examples/%-data.json examples/%.context.jsonld
+	jq -s '.[0] * .[1]' $^ > $@
+examples/%-data.nt: examples/%-data.jsonld
+	riot $< > $@

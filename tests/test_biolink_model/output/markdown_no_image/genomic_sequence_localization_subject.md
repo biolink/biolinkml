@@ -1,5 +1,5 @@
 
-# Type: genomic sequence localization_subject
+# Slot: genomic_sequence_localization_subject
 
 
 
@@ -21,3 +21,10 @@ URI: [biolink:genomic_sequence_localization_subject](https://w3id.org/biolink/vo
 ## Used by
 
  * [GenomicSequenceLocalization](GenomicSequenceLocalization.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Aliases:** | | sequence feature |
+

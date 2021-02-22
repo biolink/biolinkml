@@ -1,5 +1,6 @@
 import unittest
 from types import ModuleType
+from typing import List, Optional
 
 import click
 
@@ -17,14 +18,16 @@ class GenPythonTestCase(ClickTestCase):
     prog_name = "gen-python"
     env = env
 
-    def gen_and_comp_python(self, base: str) -> None:
+    def gen_and_comp_python(self, base: str, addl_args: Optional[List[str]] = None,
+                            python_base: Optional[str] = None) -> None:
         """ Generate yaml_file into python_file and compare it against master_file  """
         yaml_file = base + '.yaml'
-        python_file = base + '.py'
+        python_file = (python_base or base) + '.py'
         yaml_path = self.source_file_path(yaml_file)
         target_path = self.expected_file_path(python_file)
+        arglist = [yaml_path, '--no-head'] + (addl_args if addl_args else [])
 
-        self.do_test([yaml_path, '--no-head'], python_file, add_yaml=False)
+        self.do_test(arglist, python_file, add_yaml=False)
 
         # Make sure the python is valid
         with open(target_path) as pyf:
@@ -38,8 +41,10 @@ class GenPythonTestCase(ClickTestCase):
 
     def test_meta(self):
         self.maxDiff = None
-        self.do_test([], 'meta.py', filtr=metadata_filter, comparator=compare_python)
-        self.do_test('-f py', 'meta.py', filtr=metadata_filter, comparator=compare_python)
+        self.do_test([], 'meta.py', filtr=metadata_filter,
+                     comparator=lambda exp, act: compare_python(exp, act, self.env.expected_path('meta.py')))
+        self.do_test('-f py', 'meta.py', filtr=metadata_filter,
+                     comparator=lambda exp, act: compare_python(exp, act, self.env.expected_path('meta.py')))
         self.do_test('-f xsv', 'meta_error', expected_error=click.exceptions.BadParameter)
 
     def test_head(self):
@@ -55,7 +60,7 @@ types:
    string:
       base: str
       uri: xsd:string'''
-        output = pythongen.PythonGenerator(yaml, "py", emit_metadata=True).serialize()
+        output = pythongen.PythonGenerator(yaml, "py", emit_metadata=True, source_file_date="August 10, 2020", source_file_size=173).serialize()
         self.assertTrue(output.startswith(f'# Auto generated from None by pythongen.py version: '
                                           f'{pythongen.PythonGenerator.generatorversion}'))
         output = pythongen.PythonGenerator(yaml, "py", emit_metadata=False).serialize()
@@ -85,6 +90,8 @@ types:
         """ Test that curie_for replaces '@default' with a blank """
         self.gen_and_comp_python('default_namespace')
 
+    def test_gen_classvars_slots(self):
+        self.gen_and_comp_python('inheritedid', ['--no-classvars', '--no-slots'], 'inheritedid_ncvs')
 
 if __name__ == '__main__':
     unittest.main()

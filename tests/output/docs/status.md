@@ -1,5 +1,5 @@
 
-# Type: status
+# Slot: status
 
 
 status of the element

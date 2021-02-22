@@ -32,6 +32,13 @@
       "apply_to": {
          "@type": "@id"
       },
+      "attributes": {
+         "@type": "@id"
+      },
+      "broad_mappings": {
+         "@type": "@id",
+         "@id": "skos:broadMatch"
+      },
       "class_uri": {
          "@type": "@id"
       },
@@ -41,6 +48,9 @@
       "close_mappings": {
          "@type": "@id",
          "@id": "skos:closeMatch"
+      },
+      "code_set": {
+         "@type": "@id"
       },
       "comments": {
          "@id": "skos:note"
@@ -75,6 +85,9 @@
          "@type": "@id"
       },
       "domain_of": {
+         "@type": "@id"
+      },
+      "enums": {
          "@type": "@id"
       },
       "exact_mappings": {
@@ -116,6 +129,9 @@
       "inlined": {
          "@type": "xsd:boolean"
       },
+      "inlined_as_list": {
+         "@type": "xsd:boolean"
+      },
       "inverse": {
          "@type": "@id",
          "@id": "owl:inverseOf"
@@ -152,6 +168,9 @@
       "maximum_value": {
          "@type": "xsd:integer"
       },
+      "meaning": {
+         "@type": "@id"
+      },
       "minimum_value": {
          "@type": "xsd:integer"
       },
@@ -169,10 +188,17 @@
          "@type": "xsd:boolean"
       },
       "name": "@id",
+      "narrow_mappings": {
+         "@type": "@id",
+         "@id": "skos:narrowMatch"
+      },
       "notes": {
          "@id": "skos:editorialNote"
       },
       "owner": {
+         "@type": "@id"
+      },
+      "permissible_values": {
          "@type": "@id"
       },
       "prefix_reference": {
@@ -231,6 +257,7 @@
       "symmetric": {
          "@type": "xsd:boolean"
       },
+      "text": "@id",
       "title": {
          "@id": "dcterms:title"
       },

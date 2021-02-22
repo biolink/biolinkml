@@ -1,5 +1,5 @@
 
-# Type: attribute
+# Class: Attribute
 
 
 A property or characteristic of an entity. For example, an apple may have properties such as color, shape, age, crispiness. An environmental sample may have attributes such as depth, lat, long, material.
@@ -7,35 +7,43 @@ A property or characteristic of an entity. For example, an apple may have proper
 URI: [biolink:Attribute](https://w3id.org/biolink/vocab/Attribute)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Zygosity],[SeverityValue],[QuantityValue],[OntologyClass],[Onset],[NamedThing],[FrequencyValue],[ClinicalModifier],[BiologicalSex],[NamedThing]<has%20qualitative%20value%200..1-%20[Attribute&#124;id:string;name:label_type;category:iri_type%20%2B],[QuantityValue]<has%20quantitative%20value%200..*-++[Attribute],[OntologyClass]<has%20attribute%20type%200..1-%20[Attribute],[MaterialSample]-%20has%20attribute%200..*>[Attribute],[Attribute]uses%20-.->[OntologyClass],[Attribute]^-[Zygosity],[Attribute]^-[SeverityValue],[Attribute]^-[Onset],[Attribute]^-[FrequencyValue],[Attribute]^-[ClinicalModifier],[Attribute]^-[BiologicalSex],[AbstractEntity]^-[Attribute],[MaterialSample],[AbstractEntity])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Zygosity],[SocioeconomicAttribute],[SeverityValue],[QuantityValue],[OrganismalEntity],[OrganismAttribute],[OntologyClass],[NamedThing],[FrequencyValue],[ClinicalAttribute],[BiologicalSex],[NamedThing]<has%20qualitative%20value%200..1-%20[Attribute&#124;name:label_type%20%3F;iri:iri_type%20%3F;source:label_type%20%3F],[QuantityValue]<has%20quantitative%20value%200..*-++[Attribute],[OntologyClass]<has%20attribute%20type%201..1-%20[Attribute],[Entity]++-%20has%20attribute%200..*>[Attribute],[OrganismalEntity]++-%20has%20attribute%200..*>[Attribute],[Attribute]^-[Zygosity],[Attribute]^-[SocioeconomicAttribute],[Attribute]^-[SeverityValue],[Attribute]^-[OrganismAttribute],[Attribute]^-[FrequencyValue],[Attribute]^-[ClinicalAttribute],[Attribute]^-[BiologicalSex],[Annotation]^-[Attribute],[Entity],[Annotation])
+
+## Identifier prefixes
+
+ * EDAM-DATA
+ * EDAM-FORMAT
+ * EDAM-OPERATION
+ * EDAM-TOPIC
 
 ## Parents
 
- *  is_a: [AbstractEntity](AbstractEntity.md) - Any thing that is not a process or a physical mass-bearing entity
-
-## Uses Mixins
-
- *  mixin: [OntologyClass](OntologyClass.md) - a concept or class in an ontology, vocabulary or thesaurus
+ *  is_a: [Annotation](Annotation.md) - Biolink Model root class for entity annotations.
 
 ## Children
 
  * [BiologicalSex](BiologicalSex.md)
- * [ClinicalModifier](ClinicalModifier.md) - Used to characterize and specify the phenotypic abnormalities defined in the Phenotypic abnormality subontology, with respect to severity, laterality, age of onset, and other aspects
+ * [ClinicalAttribute](ClinicalAttribute.md) - Attributes relating to a clinical manifestation
  * [FrequencyValue](FrequencyValue.md) - describes the frequency of occurrence of an event or condition
- * [Onset](Onset.md) - The age group in which manifestations appear
+ * [OrganismAttribute](OrganismAttribute.md) - describes a characteristic of an organismal entity.
  * [SeverityValue](SeverityValue.md) - describes the severity of a phenotypic feature or disease
+ * [SocioeconomicAttribute](SocioeconomicAttribute.md) - Attributes relating to a socioeconomic manifestation
  * [Zygosity](Zygosity.md)
 
 ## Referenced by class
 
  *  **None** *[has attribute](has_attribute.md)*  <sub>0..*</sub>  **[Attribute](Attribute.md)**
+ *  **[OrganismalEntity](OrganismalEntity.md)** *[organismal entity➞has attribute](organismal_entity_has_attribute.md)*  <sub>0..*</sub>  **[Attribute](Attribute.md)**
 
 ## Attributes
 
 
 ### Own
 
- * [has attribute type](has_attribute_type.md)  <sub>OPT</sub>
+ * [attribute➞name](attribute_name.md)  <sub>OPT</sub>
+    * Description: The human-readable 'attribute name' can be set to a string which reflects its context of interpretation, e.g. SEPIO evidence/provenance/confidence annotation or it can default to the name associated with the 'has attribute type' slot ontology term.
+    * range: [LabelType](types/LabelType.md)
+ * [has attribute type](has_attribute_type.md)  <sub>REQ</sub>
     * Description: connects an attribute to a class that describes it
     * range: [OntologyClass](OntologyClass.md)
     * in subsets: (samples)
@@ -47,25 +55,12 @@ URI: [biolink:Attribute](https://w3id.org/biolink/vocab/Attribute)
     * Description: connects an attribute to a value
     * range: [QuantityValue](QuantityValue.md)
     * in subsets: (samples)
-
-### Mixed in from named thing:
-
- * [category](category.md)  <sub>1..*</sub>
-    * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class. In a neo4j database this MAY correspond to the neo4j label tag
+ * [iri](iri.md)  <sub>OPT</sub>
+    * Description: An IRI for an entity. This is determined by the id using expansion rules.
     * range: [IriType](types/IriType.md)
-    * in subsets: (translator_minimal)
-
-### Mixed in from named thing:
-
- * [id](id.md)  <sub>REQ</sub>
-    * Description: A unique identifier for a thing. Must be either a CURIE shorthand for a URI or a complete URI
-    * range: [String](types/String.md)
-    * in subsets: (translator_minimal)
-
-### Mixed in from named thing:
-
- * [name](name.md)  <sub>REQ</sub>
-    * Description: A human-readable name for a thing
+    * in subsets: (translator_minimal,samples)
+ * [source](source.md)  <sub>OPT</sub>
+    * Description: a lightweight analog to the association class 'has provider' slot, which is the string name, or the authoritative (i.e. database) namespace, designating the origin of the entity to which the slot belongs.
     * range: [LabelType](types/LabelType.md)
     * in subsets: (translator_minimal)
 
@@ -73,6 +68,7 @@ URI: [biolink:Attribute](https://w3id.org/biolink/vocab/Attribute)
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | SIO:000614 |
 | **In Subsets:** | | samples |
+| **Exact Mappings:** | | SIO:000614 |
+| **Narrow Mappings:** | | PATO:0000001 |
 

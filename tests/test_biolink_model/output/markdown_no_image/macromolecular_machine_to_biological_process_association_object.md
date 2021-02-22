@@ -1,5 +1,5 @@
 
-# Type: macromolecular machine to biological process association_object
+# Slot: macromolecular_machine_to_biological_process_association_object
 
 
 

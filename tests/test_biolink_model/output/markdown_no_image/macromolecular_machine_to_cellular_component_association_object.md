@@ -1,5 +1,5 @@
 
-# Type: macromolecular machine to cellular component association_object
+# Slot: macromolecular_machine_to_cellular_component_association_object
 
 
 

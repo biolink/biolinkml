@@ -1,6 +1,9 @@
 id: http://example.org/tests/issue167
 name: extensions_test
 
+prefixes:
+  xsd: http://www.w3.org/2001/XMLSchema#
+
 types:
   string:
     base: str

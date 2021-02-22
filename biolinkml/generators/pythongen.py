@@ -1,7 +1,7 @@
+import keyword
 import os
 import re
-import sys
-from typing import Optional, Tuple, List, Union, TextIO, Callable, Dict, Iterator, cast, Set
+from typing import Optional, Tuple, List, Union, TextIO, Callable, Dict, Iterator, Set
 
 import click
 from rdflib import URIRef
@@ -9,13 +9,12 @@ from rdflib import URIRef
 import biolinkml
 from biolinkml.generators import PYTHON_GEN_VERSION
 from biolinkml.meta import SchemaDefinition, SlotDefinition, ClassDefinition, ClassDefinitionName, \
-    SlotDefinitionName, DefinitionName, Element, TypeDefinition, Definition
+    SlotDefinitionName, DefinitionName, Element, TypeDefinition, Definition, EnumDefinition, PermissibleValue
 from biolinkml.utils.formatutils import camelcase, underscore, be, wrapped_annotation, split_line, sfx
 from biolinkml.utils.generator import Generator, shared_arguments
 from biolinkml.utils.ifabsent_functions import ifabsent_value_declaration, ifabsent_postinit_declaration, \
     default_curie_or_uri
 from biolinkml.utils.metamodelcore import builtinnames
-from includes import types
 
 
 class PythonGenerator(Generator):
@@ -25,12 +24,15 @@ class PythonGenerator(Generator):
     visit_all_class_slots = False
 
     def __init__(self, schema: Union[str, TextIO, SchemaDefinition], format: str = valid_formats[0],
-                 emit_metadata: bool = True, **kwargs) -> None:
+                 genmeta: bool=False, gen_classvars: bool=True, gen_slots: bool=True, **kwargs) -> None:
         self.sourcefile = schema
         self.emit_prefixes: Set[str] = set()
         if format is None:
             format = self.valid_formats[0]
-        super().__init__(schema, format, emit_metadata=emit_metadata, **kwargs)
+        self.genmeta = genmeta
+        self.gen_classvars = gen_classvars
+        self.gen_slots = gen_slots
+        super().__init__(schema, format, **kwargs)
         if not self.schema.source_file and isinstance(self.sourcefile, str) and '\n' not in self.sourcefile:
             self.schema.source_file = os.path.basename(self.sourcefile)
 
@@ -89,11 +91,15 @@ class PythonGenerator(Generator):
         self.emit_prefixes.update(element.id_prefixes)
 
     def gen_schema(self) -> str:
+        # The metamodel uses Enumerations to define itself, so don't import if we are generating the metamodel
+        enumimports = '' if self.genmeta else \
+            'from biolinkml.meta import EnumDefinition, PermissibleValue, PvFormulaOptions\n'
+        handlerimport = 'from biolinkml.utils.enumerations import EnumDefinitionImpl'
         split_descripton = '\n#              '.join(split_line(be(self.schema.description), split_len=100))
         head = f'''# Auto generated from {self.schema.source_file} by {self.generatorname} version: {self.generatorversion}
 # Generation date: {self.schema.generation_date}
 # Schema: {self.schema.name}
-#''' if self.emit_metadata else ''
+#''' if self.schema.generation_date else ''
 
         return f'''{head}
 # id: {self.schema.id}
@@ -102,8 +108,10 @@ class PythonGenerator(Generator):
 
 import dataclasses
 import sys
+import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
+{enumimports}
 from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
@@ -112,6 +120,7 @@ if sys.version_info < (3, 7, 6):
 else:
     from biolinkml.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
+{handlerimport}
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 {self.gen_imports()}
@@ -132,12 +141,11 @@ dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 {self.gen_classdefs()}
 
+# Enumerations
+{self.gen_enumerations()}
 
 # Slots
-class slots:
-    pass
-
-{self.gen_slots()}'''
+{self.gen_slotdefs()}'''
 
     def end_schema(self, **_):
         print(re.sub(r' +\n', '\n', self.gen_schema().replace('\t', '    ')).strip(' '), end='')
@@ -167,10 +175,14 @@ class slots:
                     innerself.v.setdefault('includes.' + path[len(biolinkml.META_BASE_URI):], set()).add(name)
                 elif path == biolinkml.BIOLINK_MODEL_URI:
                     innerself.v.setdefault(biolinkml.BIOLINK_MODEL_PYTHON_LOC, set()).add(name)
-                elif path.__contains__('://'):
+                elif '://' in path:
                     raise ValueError(f"Cannot map {path} into a python import statement")
+                elif '/' in path:
+                    innerself.v.setdefault(path.replace('./', '.').replace('/', '.'), set()).add(name)
+                elif '.' in path:
+                    innerself.v.setdefault(path, set()).add(name)
                 else:
-                    innerself.v.setdefault(path.replace('/', '.'), set()).add(name)
+                    innerself.v.setdefault('. ' + path, set()).add(name)
 
             def values(self) -> Dict[str, List[str]]:
                 return {k: sorted(self.v[k]) for k in sorted(self.v.keys())}
@@ -185,15 +197,24 @@ class slots:
                 add_type_ref(self.schema.types[typ.typeof])
             rval.add_element(typ)
 
+        def add_enum_ref(e: EnumDefinition) -> None:
+            rval.add_element(e)
+
         def add_slot_range(slot: SlotDefinition) -> None:
             if slot.range:
                 if slot.range in self.schema.types:
                     add_type_ref(self.schema.types[slot.range])
+                elif slot.range in self.schema.enums:
+                    add_enum_ref(self.schema.enums[slot.range])
                 else:
                     cls = self.schema.classes[slot.range]
                     if cls.imported_from:
                         if self.class_identifier(cls):
-                            rval.add_entry(cls.imported_from, self.class_identifier_path(cls, False)[-1])
+                            identifier_range = self.class_identifier_path(cls, False)[-1]
+                            if identifier_range in self.schema.types:
+                                add_type_ref(TypeDefinition(identifier_range))
+                            else:
+                                rval.add_entry(cls.imported_from, identifier_range)
                         if slot.inlined:
                             rval.add_element(cls)
 
@@ -205,13 +226,14 @@ class slots:
             if not slot.imported_from:
                 if slot.is_a:
                     parent = self.schema.slots[slot.is_a]
-                    if parent.key and parent.imported_from:
+                    if (parent.key or parent.identifier) and parent.imported_from:
                         rval.add_element(self.schema.slots[slot.is_a])
                 if slot.domain:
                     domain = self.schema.classes[slot.domain]
                     if domain.imported_from:
                         rval.add_element(self.schema.classes[slot.domain])
                 add_slot_range(slot)
+
         for cls in self.schema.classes.values():
             if not cls.imported_from:
                 if cls.is_a:
@@ -222,6 +244,8 @@ class slots:
                             rval.add_entry(parent.imported_from, self.class_identifier_path(parent, False)[-1])
                 for slotname in cls.slots:
                     add_slot_range(self.schema.slots[slotname])
+                # for slotname in cls.slot_usage:
+                #     add_slot_range(self.schema.slots[slotname])
 
         return rval.values()
 
@@ -247,13 +271,13 @@ class slots:
                         # If we've got a parent slot and the range of the parent is the range of the child, the
                         # child slot is a subclass of the parent.  Otherwise, the child range has been overridden,
                         # so the inheritence chain has been broken
-                        parent_pk = self.class_identifier(cls.is_a, False) if cls.is_a else None
+                        parent_pk = self.class_identifier(cls.is_a) if cls.is_a else None
                         parent_pk_slot = self.schema.slots[parent_pk] if parent_pk else None
                         pk_slot = self.schema.slots[pk]
                         if parent_pk_slot and (parent_pk_slot.name == pk or pk_slot.range == parent_pk_slot.range):
                             parents = self.class_identifier_path(cls.is_a, False)
                         else:
-                            parents = self.slot_type_path(pk_slot)
+                            parents = self.slot_range_path(pk_slot)
                         parent_cls = 'extended_' + parents[-1] if parents[-1] in ['str', 'float', 'int'] else parents[-1]
                         rval.append(f'class {classname}({parent_cls}):\n\tpass')
                         break       # We only do the first primary key
@@ -281,7 +305,7 @@ class slots:
         """
         clist = self._sort_classes(self.schema.classes.values())
         return '\n'.join([self.gen_classdef(v) for v in clist
-                          if not v.mixin and not v.imported_from])
+                          if not v.imported_from])
 
     def gen_classdef(self, cls: ClassDefinition) -> str:
         """ Generate python definition for class cls """
@@ -294,21 +318,25 @@ class slots:
 
         return ('\n@dataclass' if slotdefs else '') + \
                f'\nclass {self.class_or_type_name(cls.name)}{parentref}:{wrapped_description}' + \
-               f'\n\t{self.gen_inherited_slots(cls)}\n' + \
-               f'\n\t{self.gen_class_meta(cls)}\n' + \
+               f'{self.gen_inherited_slots(cls)}' + \
+               f'{self.gen_class_meta(cls)}' + \
                (f'\n\t{slotdefs}' if slotdefs else '') + \
                (f'\n{postinits}' if postinits else '')
 
     def gen_inherited_slots(self, cls: ClassDefinition) -> str:
+        if not self.gen_classvars:
+            return ''
         inherited_slots = []
         for slotname in cls.slots:
             slot = self.schema.slots[slotname]
             if slot.inherited:
                 inherited_slots.append(slot.alias if slot.alias else slotname)
         inherited_slots_str = ", ".join([f'"{underscore(s)}"' for s in inherited_slots])
-        return f"_inherited_slots: ClassVar[List[str]] = [{inherited_slots_str}]"
+        return f"\n\t_inherited_slots: ClassVar[List[str]] = [{inherited_slots_str}]\n"
 
     def gen_class_meta(self, cls: ClassDefinition) -> str:
+        if not self.gen_classvars:
+            return ''
         class_class_uri = self.namespaces.uri_for(cls.class_uri)
         if class_class_uri:
             cls_python_uri = self.namespaces.curie_for(class_class_uri, default_ok=False, pythonform=True)
@@ -330,7 +358,7 @@ class slots:
                 f'class_class_curie: ClassVar[str] = {class_class_curie}',
                 f'class_name: ClassVar[str] = "{cls.name}"',
                 f'class_model_uri: ClassVar[URIRef] = {class_model_uri}']
-        return "\n\t".join(vars)
+        return "\n\t" + "\n\t".join(vars) + "\n"
 
     def gen_type_meta(self, typ: TypeDefinition) -> str:
         type_class_uri = self.namespaces.uri_for(typ.uri)
@@ -357,20 +385,13 @@ class slots:
         return "\n\t".join(vars)
 
 
-    def gen_class_variables(self,
-                            cls: ClassDefinition) -> str:
+    def gen_class_variables(self, cls: ClassDefinition) -> str:
         """
         Generate the variable declarations for a dataclass.
 
         :param cls: class containing variables to be rendered in inheritence hierarchy
         :return: variable declarations for target class and its ancestors
         """
-        def overridden_slot(slotname: SlotDefinitionName) -> bool:
-            """ Determine whether slotname is overridden in any of the descendant classes """
-            return False
-            # return bool(set(ancestor_path)
-            #             .intersection(set(self.synopsis.slotusages.get(self.aliased_slot_name(slotname), []))))
-
         initializers = []
 
         is_root = not cls.is_a
@@ -390,24 +411,27 @@ class slots:
         # Required or key slots with default values
         slot_variables = self._slot_iter(cls,
                                          lambda slot: slot.ifabsent and slot.required)
-        initializers += [self.gen_class_variable(cls, slot, not is_root) for slot in slot_variables]
+        initializers += [self.gen_class_variable(cls, slot, False) for slot in slot_variables]
 
         # Followed by everything else
-        slot_variables = self._slot_iter(cls, lambda slot: not slot.required and not overridden_slot(slot.name)
-                                                           and slot in domain_slots)
-        initializers += [self.gen_class_variable(cls, slot, True) for slot in slot_variables]
+        slot_variables = self._slot_iter(cls, lambda slot: not slot.required and slot in domain_slots)
+        initializers += [self.gen_class_variable(cls, slot, False) for slot in slot_variables]
 
         return '\n\t'.join(initializers)
 
     def gen_class_variable(self, cls: ClassDefinition, slot: SlotDefinition, can_be_positional: bool) -> str:
         """
-        Generate a class variable declaration for the supplied slot
+        Generate a class variable declaration for the supplied slot.  Note: the can_be_positional attribute works,
+        but it makes tag/value lists unduly complex, as you can't load them with tag=..., value=... -- you HAVE
+        to load positionally. We currently ignore this parameter, meaning that we have a tag/value option for
+        any BiolinkML element
 
         :param cls: Owning class
         :param slot: slot definition
-        :param can_be_positional: True means that positional parameters are allowed
+        :param can_be_positional: True means that positional parameters are allowed.
         :return: Initializer string
         """
+        can_be_positional = False               # Force everything to be tag values
         slotname = self.slot_name(slot.name)
         slot_range, default_val = self.range_cardinality(slot, cls, can_be_positional)
         ifabsent_text = ifabsent_value_declaration(slot.ifabsent, self, cls, slot) if slot.ifabsent is not None else None
@@ -421,25 +445,44 @@ class slots:
             -> Tuple[str, Optional[str]]:
         """
         Return the range type including initializers, etc.
+        Generate a class variable declaration for the supplied slot.  Note: the positional_allowed attribute works,
+        but it makes tag/value lists unduly complex, as you can't load them with tag=..., value=... -- you HAVE
+        to load positionally. We currently ignore this parameter, meaning that we have a tag/value option for
+        any BiolinkML element
 
         :param slot: slot to generate type for
         :param cls: containing class -- used to render key slots correctly.  If absent, slot is an add-in
-        :param positional_allowed: True Means that we are in the positional space
+        :param positional_allowed: True Means that we are in the positional space and defaults are not supplied
         :return: python property name and initializer (if any)
         """
-        range_type, parent_type, _ = self.class_reference_type(slot, cls)
+        positional_allowed = False              # Force everything to be tag values
 
-        if slot.multivalued:
-            pkey = self.class_identifier(slot.range, keys_count=True)
-            if self.is_key_value_class(cast(DefinitionName, slot.range)):
-                return range_type, 'empty_dict()'
-            elif slot.inlined and pkey:
-                base_key = self.gen_class_reference(self.class_identifier_path(slot.range, False))
-                return f'Dict[{base_key}, {range_type}]', 'empty_dict()'
+        range_type, parent_type, _ = self.class_reference_type(slot, cls)
+        pkey = self.class_identifier(slot.range)
+        # Special case, inlined, identified range
+        if pkey and slot.inlined and slot.multivalued:
+            base_key = self.gen_class_reference(self.class_identifier_path(slot.range, False))
+            num_elements = len(self.schema.classes[slot.range].slots)
+            dflt = None if slot.required and positional_allowed else 'empty_dict()'
+            if num_elements == 1:
+                if slot.required:
+                    return f'Union[List[{base_key}], Dict[{base_key}, {range_type}]]', dflt
+                else:
+                    return f'Optional[Union[List[{base_key}], Dict[{base_key}, {range_type}]]]', dflt
             else:
-                return f'List[{range_type}]', 'empty_list()'
+                if slot.required:
+                    return f'Union[Dict[{base_key}, {range_type}], List[{range_type}]]', dflt
+                else:
+                    return f'Optional[Union[Dict[{base_key}, {range_type}], List[{range_type}]]]', dflt
+
+        # All other cases
+        if slot.multivalued:
+            if slot.required:
+                return f'Union[{range_type}, List[{range_type}]]', (None if positional_allowed else 'None')
+            else:
+                return f'Optional[Union[{range_type}, List[{range_type}]]]', 'empty_list()'
         elif slot.required:
-            return range_type, ('None' if positional_allowed else None)
+            return range_type, (None if positional_allowed else 'None')
         else:
             return f'Optional[{range_type}]', 'None'
 
@@ -452,15 +495,15 @@ class slots:
         :param cls: owning class.  Used for generating key references
         :return: Python class reference type, most proximal type, most proximal type name
         """
-        assert not (slot.key or slot.identifier) or cls, "Key slots must have a domain"
-        rangelist = self.class_identifier_path(cls, False) if slot.key or slot.identifier else self.slot_type_path(slot)
-        prox_type = self.slot_type_path(slot)[-1].rsplit('.')[-1]
+        rangelist = self.class_identifier_path(cls, False) if slot.key or slot.identifier else self.slot_range_path(slot)
+        prox_type = self.slot_range_path(slot)[-1].rsplit('.')[-1]
         prox_type_name = rangelist[-1]
 
-        # Python version < 3.7 requires quoting forward references
-        if cls and slot.inlined and slot.range in self.schema.classes and self.forward_reference(slot.range, cls.name):
+        # Quote forward references - note that enums always gen at the end
+        if slot.range in self.schema.enums or \
+                (cls and slot.inlined and slot.range in self.schema.classes and self.forward_reference(slot.range, cls.name)):
             rangelist[-1] = f'"{rangelist[-1]}"'
-        return f"{self.gen_class_reference(rangelist)}", prox_type, prox_type_name
+        return str(self.gen_class_reference(rangelist)), prox_type, prox_type_name
 
     @staticmethod
     def gen_class_reference(rangelist: List[str]) -> str:
@@ -485,7 +528,7 @@ class slots:
                     post_inits_pre_super.append(f'\tself.{self.slot_name(slot.name)} = {dflt}')
 
         post_inits = []
-        if not cls.abstract:
+        if not (cls.mixin or cls.abstract):
             pkeys = self.primary_keys_for(cls)
             for pkey in pkeys:
                 slot = self.schema.slots[pkey]
@@ -495,15 +538,21 @@ class slots:
         else:
             pkeys = []
         for slot in self.domain_slots(cls):
-            # TODO: Remove the bypass whenever we get default_range fixed
-            if slot.name not in pkeys and (not slot.ifabsent or True):
-                post_inits.append(self.gen_postinit(cls, slot))
+            if slot.required:
+                # TODO: Remove the bypass whenever we get default_range fixed
+                if slot.name not in pkeys and (not slot.ifabsent or True):
+                    post_inits.append(self.gen_postinit(cls, slot))
+        for slot in self.domain_slots(cls):
+            if not slot.required:
+                # TODO: Remove the bypass whenever we get default_range fixed
+                if slot.name not in pkeys and (not slot.ifabsent or True):
+                    post_inits.append(self.gen_postinit(cls, slot))
 
         post_inits_pre_super_line = '\n\t\t'.join([p for p in post_inits_pre_super if p]) + \
                                     ('\n\t\t' if post_inits_pre_super else '')
         post_inits_line = '\n\t\t'.join([p for p in post_inits if p])
         return (f'''
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         {post_inits_pre_super_line}{post_inits_line}
         super().__post_init__(**kwargs)''' + '\n') if post_inits_line or post_inits_pre_super_line else ''
 
@@ -546,69 +595,88 @@ class slots:
         """ Generate python post init rules for slot in class
         """
         rlines: List[str] = []
-        slotname = self.slot_name(slot.name)
-        range_type_name, base_type, base_type_name = self.class_reference_type(slot, cls)
-        complex_range = range_type_name != base_type
 
-        # Generate existence check for required slots.  Note that inherited classes have to check post-init because
-        # named variables can't be mixed in the class signature
+        aliased_slot_name = self.slot_name(slot.name)           # Mangled name by which the slot is known in python
+        range_type, base_type, base_type_name = self.class_reference_type(slot, cls)
+        slot_identifier = self.class_identifier(slot.range)
+
+        # Generate existence check for required slots.  Note that inherited classes have to do post init checks because
+        # You can't have required elements after optional elements in the parent class
         if slot.required:
-            # If we have a root class, the required part is set by the type.  If it is inherited, we have to add
-            # the following
-            if not slot.multivalued:
-                rlines.append(f'if self.{slotname} is None:')
-                rlines.append(f'\traise ValueError(f"{slotname} must be supplied")')
+            rlines.append(f'if self.{aliased_slot_name} is None:')
+            rlines.append(f'\traise ValueError("{aliased_slot_name} must be supplied")')
+            if slot.multivalued:
+                if slot.inlined and slot_identifier:
+                    # Identified type multivalued slots can either be lists or dictionaries
+                    rlines.append(f'elif not isinstance(self.{aliased_slot_name}, (list, dict)):')
+                    rlines.append(f'\tself.{aliased_slot_name} = [self.{aliased_slot_name}]')
+                    rlines.append(f'if len(self.{aliased_slot_name}) == 0:')
+                    rlines.append(f'\traise ValueError(f"{aliased_slot_name} '
+                                  f'must be a non-empty list, dictionary, or class")')
+                else:
+                    rlines.append(f'elif not isinstance(self.{aliased_slot_name}, list):')
+                    rlines.append(f'\tself.{aliased_slot_name} = [self.{aliased_slot_name}]')
+                    rlines.append(f'elif len(self.{aliased_slot_name}) == 0:')
+                    rlines.append(f'\traise ValueError(f"{aliased_slot_name} must be a non-empty list")')
+        elif slot.multivalued:
+            rlines.append(f'if self.{aliased_slot_name} is None:')
+            rlines.append(f'\tself.{aliased_slot_name} = []')
+            if slot.inlined and slot_identifier:
+                # Identified type multivalued slots can either be lists or dictionaries
+                rlines.append(f'if not isinstance(self.{aliased_slot_name}, (list, dict)):')
+                rlines.append(f'\tself.{aliased_slot_name} = [self.{aliased_slot_name}]')
             else:
-                rlines.append(f'if not isinstance(self.{slotname}, list) or len(self.{slotname}) == 0:')
-                rlines.append(f'\traise ValueError(f"{slotname} must be a non-empty list")')
-        range_element = self.schema.classes.get(slot.range) or self.schema.types.get(slot.range)
-        if range_element:
-            indent = len(f'self.{slotname} = [') * ' '
-            if not slot.multivalued:
-                if complex_range:
-                    if slot.required:
-                        rlines.append(f'if not isinstance(self.{slotname}, {base_type_name}):')
-                    else:
-                        rlines.append(f'if self.{slotname} is not None and '
-                                      f'not isinstance(self.{slotname}, {base_type_name}):')
-                    # Another really wierd case -- a class that has no properties
-                    if slot.range in self.schema.classes and not self.schema.classes[slot.range].slots:
-                        rlines.append(f'\tself.{slotname} = {base_type_name}()')
-                    else:
-                        if self.class_identifier(slot.range) or slot.range in self.schema.types:
-                            rlines.append(f'\tself.{slotname} = {base_type_name}(self.{slotname})')
-                        else:
-                            rlines.append(f'\tself.{slotname} = {base_type_name}(**self.{slotname})')
-            elif slot.inlined:
-                slot_range_cls = self.schema.classes[slot.range]
-                pkeys = self.primary_keys_for(slot_range_cls)
-                if pkeys:
-                    # Special situation -- if there are only two values: primary key and value,
-                    # we load it is a list, not a dictionary
-                    if self.is_key_value_class(cast(DefinitionName, slot.range)):
-                        class_init = '(k, v)'
-                    else:
-                        pkey_name = self.formatted_element_name(pkeys[0])
-                        class_init = f'({pkey_name}=k, **({{}} if v is None else v))'
-                    rlines.append(f'for k, v in self.{slotname}.items():')
-                    rlines.append(f'\tif not isinstance(v, {base_type_name}):')
-                    rlines.append(f'\t\tself.{slotname}[k] = {base_type_name}{class_init}')
-                elif complex_range:
-                    sn = f'self.{slotname}'
-                    # We've got a range that is a structure with no keys.  There are two ways to fill this sort of range
-                    # 1)  - i1v1: v1
-                    #       i1v2: v2
-                    # 2)  v1: v2
-                    #
-                    # Option 1 creates an inner class as C(i1v1=v1, i1v2=v2), while
-                    # Option 2 creates an inner class as C(v1, v2)
-                    rlines.append(f'{sn} = [{base_type_name}(*e) for e in {sn}.items()] if isinstance({sn}, dict) \\')
-                    rlines.append(f'{indent}else [v if isinstance(v, {base_type_name}) else {base_type_name}(**v)')
-                    rlines.append(f'{indent}      for v in ([{sn}] if isinstance({sn}, str) else {sn})]')
-            elif complex_range:
-                rlines.append(f'self.{slotname} = [v if isinstance(v, {base_type_name})')
-                rlines.append(f'{indent}else {base_type_name}(v) for v in ([self.{slotname}] '
-                              f'if isinstance(self.{slotname}, str) else self.{slotname})]')
+                rlines.append(f'if not isinstance(self.{aliased_slot_name}, list):')
+                rlines.append(f'\tself.{aliased_slot_name} = [self.{aliased_slot_name}]')
+
+        # Generate the type co-orcion for the various types.
+        indent = len(f'self.{aliased_slot_name} = [') * ' '
+        # NOTE: if you set this to true, we will cast all types.   This may be what we really want
+        if not slot.multivalued:
+            if slot.required:
+                rlines.append(f'if not isinstance(self.{aliased_slot_name}, {base_type_name}):')
+            else:
+                rlines.append(f'if self.{aliased_slot_name} is not None and '
+                              f'not isinstance(self.{aliased_slot_name}, {base_type_name}):')
+            # A really wierd case -- a class that has no properties
+            if slot.range in self.schema.classes and not self.schema.classes[slot.range].slots:
+                rlines.append(f'\tself.{aliased_slot_name} = {base_type_name}()')
+            else:
+                if self.class_identifier(slot.range) or\
+                        slot.range in self.schema.types or\
+                        slot.range in self.schema.enums:
+                    rlines.append(f'\tself.{aliased_slot_name} = {base_type_name}(self.{aliased_slot_name})')
+                else:
+                    rlines.append(f'\tself.{aliased_slot_name} = {base_type_name}(**self.{aliased_slot_name})')
+        elif slot.inlined:
+            slot_range_cls = self.schema.classes[slot.range]
+            identifier = self.class_identifier(slot_range_cls)
+            # If we don't have an identifier, we will switch to the first required field in the target class
+            if not identifier:
+                for range_slot_name in slot_range_cls.slots:
+                    range_slot = self.schema.slots[range_slot_name]
+                    if range_slot.required:
+                        inlined_as_list = True
+                        keyed = False
+                        identifier = range_slot.name
+                        break
+            else:
+                inlined_as_list = slot.inlined_as_list
+                keyed = True
+            if identifier:
+                # TODO: match inlined_as_list to the inlined setting
+                rlines.append(f'self._normalize_inlined_slot(slot_name="{aliased_slot_name}", slot_type={base_type_name}, '
+                              f'key_name="{self.aliased_slot_name(identifier)}", '
+                              f'inlined_as_list={inlined_as_list}, '
+                              f'keyed={keyed})')
+            else:
+                sn = f'self.{aliased_slot_name}'
+                rlines.append(f'{sn} = [v if isinstance(v, {base_type_name}) else {base_type_name}(**v) for v in {sn}]')
+        else:
+            rlines.append(f'self.{aliased_slot_name} = [v if isinstance(v, {base_type_name}) '
+                          f'else {base_type_name}(v) for v in self.{aliased_slot_name}]')
+        if rlines:
+            rlines.append('')
         return '\n\t\t'.join(rlines)
 
 
@@ -628,10 +696,13 @@ class slots:
                     break
 
     def primary_keys_for(self, cls: ClassDefinition) -> List[SlotDefinitionName]:
-        """ Return the primary key for cls
+        """ Return the primary key for cls.
+
+        Note: At the moment we return at most one entry.  At some point, keys will be expanded to support
+              composite keys.
 
         @param cls: class to get keys for
-        @return: List of primary keys
+        @return: List of primary keys or identifiers
         """
         return [slot_name for slot_name in cls.slots
                 if self.schema.slots[slot_name].key or self.schema.slots[slot_name].identifier]
@@ -643,7 +714,7 @@ class slots:
 
     def range_type_name(self, slot: SlotDefinition) -> str:
         """ Generate the type name for the slot """
-        cidpath = self.slot_type_path(slot)
+        cidpath = self.slot_range_path(slot)
         if len(cidpath) < 2:
             return cidpath[0]
         else:
@@ -651,8 +722,11 @@ class slots:
 
     def forward_reference(self, slot_range: str, owning_class: str) -> bool:
         """ Determine whether slot_range is a forward reference """
-        if slot_range in self.schema.classes and self.schema.classes[slot_range].imported_from:
+        if (slot_range in self.schema.classes and self.schema.classes[slot_range].imported_from) or \
+           (slot_range in self.schema.enums and self.schema.enums[slot_range].imported_from):
             return False
+        if slot_range in self.schema.enums:
+            return True
         for cname in self.schema.classes:
             if cname == owning_class:
                 return True             # Occurs on or after
@@ -672,9 +746,12 @@ class slots:
             return f'"str(uriorcurie)"', None
         return ns.upper() + (f".{ln}" if ln.isidentifier() else f"['{ln}']"), ns.upper() + f".curie('{ln}')"
 
-
-    def gen_slots(self) -> str:
-        return '\n\n'.join([self.gen_slot(slot) for slot in self.schema.slots.values() if not slot.imported_from])
+    def gen_slotdefs(self) -> str:
+        if self.gen_slots:
+            return "class slots:\n\tpass\n\n" + \
+                   '\n\n'.join([self.gen_slot(slot) for slot in self.schema.slots.values() if not slot.imported_from])
+        else:
+            return ''
 
     def gen_slot(self, slot: SlotDefinition) -> str:
         python_slot_name = underscore(slot.name)
@@ -696,13 +773,116 @@ class slots:
             mappings = ', mappings = [' + ', '.join(map_texts)+ ']'
         else:
             mappings = ''
+        pattern = f",\n                   pattern=re.compile(r'{slot.pattern}')" if slot.pattern else ""
         return f"""slots.{python_slot_name} = Slot(uri={slot_uri}, name="{slot.name}", curie={slot_curie},
-                      model_uri={slot_model_uri}, domain={domain}, range={rnge}{mappings})"""
+                   model_uri={slot_model_uri}, domain={domain}, range={rnge}{mappings}{pattern})"""
 
+    def gen_enumerations(self) -> str:
+        return '\n\n'.join([self.gen_enum(enum) for enum in self.schema.enums.values() if not enum.imported_from])
+
+    def gen_enum(self, enum: EnumDefinition) -> str:
+        enum_name = camelcase(enum.name)
+        return f'''
+class {enum_name}(EnumDefinitionImpl):
+    {self.gen_enum_comment(enum)}
+    {self.gen_enum_description(enum, enum_name)}
+'''.strip()
+
+    def gen_enum_comment(self, enum: EnumDefinition) -> str:
+        return f'"""\n\t{wrapped_annotation(be(enum.description))}\n\t"""' if be(enum.description) else ''
+
+    def gen_enum_description(self, enum: EnumDefinition, enum_name: str) -> str:
+        return f'''
+    {self.gen_pvs(enum)}
+
+    {self.gen_enum_definition(enum, enum_name)}
+    {self.gen_pvs2(enum)}
+'''.strip()
+
+    def gen_pvs(self, enum: EnumDefinition) -> str:
+        """
+        Generate the python compliant permissible value initializers as a set of class variables
+        @param enum:
+        @return:
+        """
+        init_list = []
+        for pv in enum.permissible_values.values():
+            if str.isidentifier(pv.text) and not keyword.iskeyword(pv.text):
+                l1 = f'{pv.text} = '
+                l1len = len(l1)
+                l2ton = '\n' + l1len * ' '
+                init_list.append(l1 + (l2ton.join(self.gen_pv_constructor(pv, l1len))))
+        return '\n\t'.join(init_list).strip()
+
+    def gen_enum_definition(self, enum: EnumDefinition, enum_name: str) -> str:
+        enum_desc = enum.description.replace('"', '\\"').replace(r'\n', r'\\n') if enum.description else None
+        desc = f'\t\tdescription="{enum_desc}",\n' if enum.description else ''
+        cs = f'\t\tcode_set={self.namespaces.curie_for(self.namespaces.uri_for(enum.code_set), default_ok=False, pythonform=True)},\n'\
+            if enum.code_set else ''
+        tag = f'\t\tcode_set_tag="{enum.code_set_tag}",\n' if enum.code_set_tag else ''
+        ver = f'\t\tcode_set_version="{enum.code_set_version}",\n' if enum.code_set_version else ''
+        vf = f'\t\tpv_formula={enum.pv_formula},\n' if enum.pv_formula else ''
+
+        return f'''_defn = EnumDefinition(\n\t\tname="{enum_name}",\n{desc}{cs}{tag}{ver}{vf}\t)'''
+
+    def gen_pvs2(self, enum: EnumDefinition) -> str:
+        """
+        Generate the non-python compliant permissible value initializers as a set of setattr instructions
+        @param enum:
+        @return:
+        """
+        if any(not str.isidentifier(pv.text) or keyword.iskeyword(pv.text) for pv in enum.permissible_values.values()):
+            return f'''
+    @classmethod
+    def _addvals(cls):
+        {self.gen_pvs2_initializers(enum)}'''
+        else:
+            return ''
+
+    def gen_pvs2_initializers(self, enum: EnumDefinition) -> str:
+        init_list = []
+        for pv in enum.permissible_values.values():
+            if not str.isidentifier(pv.text) or keyword.iskeyword(pv.text):
+                l1 = '        setattr('
+                l2ton = len(l1) * ' '
+                pv_cons = ('\n'.join(self.gen_pv_constructor(pv, len(l1))))
+                pv_text = pv.text.replace('"', '\\"').replace(r'\n', r'\\n')
+                init_list.append(f'{l1}cls, "{pv_text}",\n{l2ton}{pv_cons} )')
+        return '\n'.join(init_list).strip()
+
+    def gen_pv_constructor(self, pv: PermissibleValue, indent: int) -> List[str]:
+        """
+        Generate a permissible value constructor
+        @param pv: Value to be constructed
+        @param indent: number of additional spaces to add on successive lines
+        @return: Permissible value constructor
+        """
+        # PermissibleValue(text="CODE",
+        #                  description="...",
+        #                  meaning="...")
+        constructor = 'PermissibleValue('
+        indent = (len(constructor) + indent) * ' '
+        c1 = ',' if pv.description or pv.meaning else ')'
+        rval = [f'{constructor}text="{pv.text}"{c1}']
+        if pv.description:
+            c2 = ',' if pv.meaning else ')'
+            rval.append(f'{indent}description="{pv.description}"{c2}')
+        if pv.meaning:
+            pv_meaning = self.namespaces.curie_for(self.namespaces.uri_for(pv.meaning), default_ok=False,
+                                                   pythonform=True)
+            rval.append(f'{indent}meaning={pv_meaning})')
+        return rval
 
 @shared_arguments(PythonGenerator)
 @click.command()
 @click.option("--head/--no-head", default=True, help="Emit metadata heading")
-def cli(yamlfile, head=True, **args):
+@click.option("--genmeta/--no-genmeta", default=False, help="Generating metamodel")
+@click.option("--classvars/--no-classvars", default=True, help="Generate CLASSVAR info")
+@click.option("--slots/--no-slots", default=True, help="Generate Slot information")
+def cli(yamlfile, head=True, genmeta=False, classvars=True, slots=True, **args):
     """ Generate python classes to represent a biolink model """
-    print(PythonGenerator(yamlfile, emit_metadata=head, **args).serialize(emit_metadata=head, **args))
+    print(PythonGenerator(yamlfile, emit_metadata=head, gen_meta=genmeta, gen_classvars=classvars, gen_slots=slots,  **args).serialize(emit_metadata=head, **args))
+
+
+if __name__ == '__main__':
+    cli()

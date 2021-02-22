@@ -1,5 +1,5 @@
 
-# Type: time type
+# Type: TimeType
 
 
 

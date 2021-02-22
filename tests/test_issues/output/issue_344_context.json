@@ -1,0 +1,12 @@
+{
+   "_comments": "Auto generated from issue_344.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2021-02-16 19:05\nSchema: annotations_test\n\nid: http://example.org/tests/issue344\ndescription: \nlicense: \n",
+   "@context": {
+      "type": "@type",
+      "GO": "http://purl.obolibrary.org/obo/GO_",
+      "PATO": "http://purl.obolibrary.org/obo/PATO_",
+      "PCO": "http://purl.obolibrary.org/obo/PCO_",
+      "biolinkml": "https://w3id.org/biolink/biolinkml/",
+      "ex": "http://example.org/",
+      "@vocab": "http://example.org/"
+   }
+}

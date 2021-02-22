@@ -13,7 +13,7 @@ from rdflib import Graph, OWL, RDF, Namespace, XSD
 
 from biolinkml import METAMODEL_NAMESPACE_NAME, METAMODEL_NAMESPACE
 from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, SlotDefinitionName, ElementName, \
-    TypeDefinition
+    TypeDefinition, EnumDefinition
 from includes.types import SHEX
 from biolinkml.utils.formatutils import camelcase, sfx
 from biolinkml.utils.generator import Generator, shared_arguments
@@ -91,7 +91,7 @@ class ShExGenerator(Generator):
             childrenExprs = []
             for child_classname in sorted(list(self.synopsis.isarefs[cls.name].classrefs)):
                 childrenExprs.append(self._class_or_type_uri(child_classname))
-            if not cls.abstract or len(childrenExprs) == 1:
+            if not (cls.mixin or cls.abstract) or len(childrenExprs) == 1:
                 childrenExprs.insert(0, self.shape)
                 self.shapes.append(ShapeOr(id=self._class_or_type_uri(cls), shapeExprs=childrenExprs))
             else:
@@ -104,7 +104,7 @@ class ShExGenerator(Generator):
 
     def visit_class_slot(self, cls: ClassDefinition, aliased_slot_name: SlotDefinitionName, slot: SlotDefinition) \
             -> None:
-        if not (slot.identifier or slot.abstract):
+        if not (slot.identifier or slot.abstract or slot.mixin):
             constraint = TripleConstraint()
             self._add_constraint(constraint)
             constraint.predicate = self.namespaces.uri_for(slot.slot_uri)
@@ -113,7 +113,7 @@ class ShExGenerator(Generator):
             constraint.valueExpr = self._class_or_type_uri(slot.range)
 
     def end_schema(self, output: Optional[str] = None, **_) -> None:
-        self.shex.shapes = self.shapes
+        self.shex.shapes = self.shapes if self.shapes else [Shape()]
         shex = as_json(self.shex)
         if self.format == 'rdf':
             g = Graph()
@@ -132,7 +132,8 @@ class ShExGenerator(Generator):
 
     def _class_or_type_uri(self, item: Union[TypeDefinition, ClassDefinition, ElementName],
                            suffix: Optional[str] = '') -> URIorCURIE:
-        if isinstance(item, (TypeDefinition, ClassDefinition)):
+        # TODO: enums - figure this out
+        if isinstance(item, (TypeDefinition, ClassDefinition, EnumDefinition)):
             cls_or_type = item
         else:
             cls_or_type = self.class_or_type_for(item)
@@ -168,3 +169,7 @@ class ShExGenerator(Generator):
 def cli(yamlfile, **args):
     """ Generate a ShEx Schema for a  biolink model """
     print(ShExGenerator(yamlfile, **args).serialize(**args))
+
+
+if __name__ == '__main__':
+    cli()

@@ -1,5 +1,5 @@
 
-# Type: metric result child
+# Class: //example.org/sample/example1/MetricResultChild
 
 
 

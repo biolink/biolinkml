@@ -5,8 +5,11 @@
 
 import dataclasses
 import sys
+import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
+from biolinkml.meta import EnumDefinition, PermissibleValue, PvFormulaOptions
+
 from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
@@ -15,11 +18,12 @@ if sys.version_info < (3, 7, 6):
 else:
     from biolinkml.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
+from biolinkml.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 from biolinkml.utils.metamodelcore import URI
 
-metamodel_version = "1.5.3"
+metamodel_version = "1.7.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -91,16 +95,18 @@ class NamedThing(YAMLRoot):
     class_name: ClassVar[str] = "named thing"
     class_model_uri: ClassVar[URIRef] = BIOLINKML.NamedThing
 
-    id: Union[str, NamedThingId]
+    id: Union[str, NamedThingId] = None
     name: Optional[Union[str, LabelType]] = None
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.id is None:
-            raise ValueError(f"id must be supplied")
+            raise ValueError("id must be supplied")
         if not isinstance(self.id, NamedThingId):
             self.id = NamedThingId(self.id)
+
         if self.name is not None and not isinstance(self.name, LabelType):
             self.name = LabelType(self.name)
+
         super().__post_init__(**kwargs)
 
 
@@ -116,13 +122,14 @@ class Attribute(YAMLRoot):
     class_name: ClassVar[str] = "attribute"
     class_model_uri: ClassVar[URIRef] = BIOLINKML.Attribute
 
-    id: Union[str, AttributeId]
+    id: Union[str, AttributeId] = None
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.id is None:
-            raise ValueError(f"id must be supplied")
+            raise ValueError("id must be supplied")
         if not isinstance(self.id, AttributeId):
             self.id = AttributeId(self.id)
+
         super().__post_init__(**kwargs)
 
 
@@ -137,11 +144,12 @@ class BiologicalSex(Attribute):
 
     id: Union[str, BiologicalSexId] = None
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.id is None:
-            raise ValueError(f"id must be supplied")
+            raise ValueError("id must be supplied")
         if not isinstance(self.id, BiologicalSexId):
             self.id = BiologicalSexId(self.id)
+
         super().__post_init__(**kwargs)
 
 
@@ -159,13 +167,16 @@ class OntologyClass(NamedThing):
 
     id: Union[str, OntologyClassId] = None
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.id is None:
-            raise ValueError(f"id must be supplied")
+            raise ValueError("id must be supplied")
         if not isinstance(self.id, OntologyClassId):
             self.id = OntologyClassId(self.id)
+
         super().__post_init__(**kwargs)
 
+
+# Enumerations
 
 
 # Slots
@@ -173,7 +184,7 @@ class slots:
     pass
 
 slots.id = Slot(uri=BIOLINKML.id, name="id", curie=BIOLINKML.curie('id'),
-                      model_uri=BIOLINKML.id, domain=NamedThing, range=Union[str, NamedThingId])
+                   model_uri=BIOLINKML.id, domain=NamedThing, range=Union[str, NamedThingId])
 
 slots.name = Slot(uri=BIOLINKML.name, name="name", curie=BIOLINKML.curie('name'),
-                      model_uri=BIOLINKML.name, domain=NamedThing, range=Optional[Union[str, LabelType]])
+                   model_uri=BIOLINKML.name, domain=NamedThing, range=Optional[Union[str, LabelType]])

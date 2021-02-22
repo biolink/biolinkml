@@ -1,5 +1,5 @@
 
-# Type: alt_description_text
+# Slot: alt_description_text
 
 
 text of an attributed description

@@ -1,5 +1,5 @@
 
-# Type: value_description
+# Slot: value_description
 
 
 description of what the value is doing

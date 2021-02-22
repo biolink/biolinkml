@@ -1,5 +1,5 @@
 
-# Type: sequence variant_has biological sequence
+# Slot: sequence_variant_has_biological_sequence
 
 
 The state of the sequence w.r.t a reference sequence
@@ -21,3 +21,4 @@ URI: [biolink:sequence_variant_has_biological_sequence](https://w3id.org/biolink
 ## Used by
 
  * [SequenceVariant](SequenceVariant.md)
+ * [Snv](Snv.md)

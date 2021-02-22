@@ -1,5 +1,5 @@
 
-# Type: slot_definition_mixins
+# Slot: slot_definition_mixins
 
 
 

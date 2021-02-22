@@ -3083,6 +3083,7 @@ class PairwiseGeneToGeneInteraction(GeneToGeneAssociation):
     subject: Union[str, GeneOrGeneProductId] = None
     object: Union[str, GeneOrGeneProductId] = None
     relation: Union[str, URIorCURIE] = None
+    interacting_molecules_category: Optional[Union[str, OntologyClassId]] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -3093,6 +3094,8 @@ class PairwiseGeneToGeneInteraction(GeneToGeneAssociation):
             raise ValueError(f"relation must be supplied")
         if not isinstance(self.relation, URIorCURIE):
             self.relation = URIorCURIE(self.relation)
+        if self.interacting_molecules_category is not None and not isinstance(self.interacting_molecules_category, OntologyClassId):
+            self.interacting_molecules_category = OntologyClassId(self.interacting_molecules_category)
         super().__post_init__(**kwargs)
 
 
@@ -5526,8 +5529,8 @@ slots.downloadURL = Slot(uri=BIOLINK.downloadURL, name="downloadURL", curie=BIOL
 slots.distribution = Slot(uri=BIOLINK.distribution, name="distribution", curie=BIOLINK.curie('distribution'),
                       model_uri=DIST.distribution, domain=DataSetVersion, range=Optional[Union[str, DistributionLevelId]], mappings = [VOID.Dataset, DCTYPES.Dataset])
 
-slots.type = Slot(uri=BIOLINK.type, name="type", curie=BIOLINK.curie('type'),
-                      model_uri=DIST.type, domain=NamedThing, range=Optional[str], mappings = [RDF.type])
+slots.type = Slot(uri=RDF.type, name="type", curie=RDF.curie('type'),
+                      model_uri=DIST.type, domain=NamedThing, range=Optional[str])
 
 slots.id = Slot(uri=BIOLINK.id, name="id", curie=BIOLINK.curie('id'),
                       model_uri=DIST.id, domain=NamedThing, range=Union[str, NamedThingId])
@@ -5541,7 +5544,7 @@ slots.name = Slot(uri=RDFS.label, name="name", curie=RDFS.curie('label'),
 slots.synonym = Slot(uri=BIOLINK.synonym, name="synonym", curie=BIOLINK.curie('synonym'),
                       model_uri=DIST.synonym, domain=NamedThing, range=List[Union[str, LabelType]], mappings = [OBOINOWL.hasExactSynonym, OBOINOWL.hasNarrowSynonym, OBOINOWL.hasBroadSynonym, OBOINOWL.hasRelatedSynonym])
 
-slots.category = Slot(uri=RDF.type, name="category", curie=RDF.curie('type'),
+slots.category = Slot(uri=BIOLINK.category, name="category", curie=BIOLINK.curie('category'),
                       model_uri=DIST.category, domain=NamedThing, range=List[Union[str, CategoryType]])
 
 slots.full_name = Slot(uri=BIOLINK.full_name, name="full name", curie=BIOLINK.curie('full_name'),
@@ -5721,6 +5724,9 @@ slots.has_numeric_value = Slot(uri=BIOLINK.has_numeric_value, name="has numeric 
 slots.has_unit = Slot(uri=BIOLINK.has_unit, name="has unit", curie=BIOLINK.curie('has_unit'),
                       model_uri=DIST.has_unit, domain=QuantityValue, range=Optional[Union[str, Unit]], mappings = [QUD.unit])
 
+slots.interacting_molecules_category = Slot(uri=DIST.interacting_molecules_category, name="interacting molecules category", curie=DIST.curie('interacting_molecules_category'),
+                      model_uri=DIST.interacting_molecules_category, domain=None, range=Optional[Union[str, OntologyClassId]])
+
 slots.macromolecular_machine_name = Slot(uri=DIST.name, name="macromolecular machine_name", curie=DIST.curie('name'),
                       model_uri=DIST.macromolecular_machine_name, domain=MacromolecularMachine, range=Union[str, SymbolType])
 
@@ -5787,8 +5793,8 @@ slots.pairwise_interaction_association_relation = Slot(uri=DIST.relation, name="
 slots.pairwise_interaction_association_object = Slot(uri=DIST.object, name="pairwise interaction association_object", curie=DIST.curie('object'),
                       model_uri=DIST.pairwise_interaction_association_object, domain=None, range=Union[str, MolecularEntityId])
 
-slots.interacting_molecules_category = Slot(uri=DIST.interacting_molecules_category, name="interacting molecules category", curie=DIST.curie('interacting_molecules_category'),
-                      model_uri=DIST.interacting_molecules_category, domain=None, range=Optional[Union[str, OntologyClassId]])
+slots.pairwise_interaction_association_interacting_molecules_category = Slot(uri=DIST.interacting_molecules_category, name="pairwise interaction association_interacting molecules category", curie=DIST.curie('interacting_molecules_category'),
+                      model_uri=DIST.pairwise_interaction_association_interacting_molecules_category, domain=None, range=Optional[Union[str, OntologyClassId]])
 
 slots.pairwise_gene_to_gene_interaction_relation = Slot(uri=DIST.relation, name="pairwise gene to gene interaction_relation", curie=DIST.curie('relation'),
                       model_uri=DIST.pairwise_gene_to_gene_interaction_relation, domain=PairwiseGeneToGeneInteraction, range=Union[str, URIorCURIE])
@@ -5798,9 +5804,6 @@ slots.cell_line_to_thing_association_subject = Slot(uri=DIST.subject, name="cell
 
 slots.cell_line_to_disease_or_phenotypic_feature_association_subject = Slot(uri=DIST.subject, name="cell line to disease or phenotypic feature association_subject", curie=DIST.curie('subject'),
                       model_uri=DIST.cell_line_to_disease_or_phenotypic_feature_association_subject, domain=CellLineToDiseaseOrPhenotypicFeatureAssociation, range=Union[str, DiseaseOrPhenotypicFeatureId])
-
-slots.thing_to_disease_or_phenotypic_feature_association_object = Slot(uri=DIST.object, name="thing to disease or phenotypic feature association_object", curie=DIST.curie('object'),
-                      model_uri=DIST.thing_to_disease_or_phenotypic_feature_association_object, domain=ThingToDiseaseOrPhenotypicFeatureAssociation, range=Union[str, DiseaseOrPhenotypicFeatureId])
 
 slots.chemical_to_thing_association_subject = Slot(uri=DIST.subject, name="chemical to thing association_subject", curie=DIST.curie('subject'),
                       model_uri=DIST.chemical_to_thing_association_subject, domain=ChemicalToThingAssociation, range=Union[str, ChemicalSubstanceId])
@@ -5868,14 +5871,14 @@ slots.disease_or_phenotypic_feature_association_to_thing_association_subject = S
 slots.disease_or_phenotypic_feature_association_to_location_association_object = Slot(uri=DIST.object, name="disease or phenotypic feature association to location association_object", curie=DIST.curie('object'),
                       model_uri=DIST.disease_or_phenotypic_feature_association_to_location_association_object, domain=DiseaseOrPhenotypicFeatureAssociationToLocationAssociation, range=Union[str, AnatomicalEntityId])
 
+slots.thing_to_disease_or_phenotypic_feature_association_object = Slot(uri=DIST.object, name="thing to disease or phenotypic feature association_object", curie=DIST.curie('object'),
+                      model_uri=DIST.thing_to_disease_or_phenotypic_feature_association_object, domain=ThingToDiseaseOrPhenotypicFeatureAssociation, range=Union[str, DiseaseOrPhenotypicFeatureId])
+
 slots.genotype_to_phenotypic_feature_association_relation = Slot(uri=DIST.relation, name="genotype to phenotypic feature association_relation", curie=DIST.curie('relation'),
                       model_uri=DIST.genotype_to_phenotypic_feature_association_relation, domain=GenotypeToPhenotypicFeatureAssociation, range=Union[str, URIorCURIE])
 
 slots.genotype_to_phenotypic_feature_association_subject = Slot(uri=DIST.subject, name="genotype to phenotypic feature association_subject", curie=DIST.curie('subject'),
                       model_uri=DIST.genotype_to_phenotypic_feature_association_subject, domain=GenotypeToPhenotypicFeatureAssociation, range=Union[str, GenotypeId])
-
-slots.genotype_to_thing_association_subject = Slot(uri=DIST.subject, name="genotype to thing association_subject", curie=DIST.curie('subject'),
-                      model_uri=DIST.genotype_to_thing_association_subject, domain=GenotypeToThingAssociation, range=Union[str, GenotypeId])
 
 slots.exposure_event_to_phenotypic_feature_association_subject = Slot(uri=DIST.subject, name="exposure event to phenotypic feature association_subject", curie=DIST.curie('subject'),
                       model_uri=DIST.exposure_event_to_phenotypic_feature_association_subject, domain=ExposureEventToPhenotypicFeatureAssociation, range=Union[str, ExposureEventId])
@@ -5960,6 +5963,9 @@ slots.organismal_entity_as_a_model_of_disease_association_subject = Slot(uri=DIS
 
 slots.gene_has_variant_that_contributes_to_disease_association_subject = Slot(uri=DIST.subject, name="gene has variant that contributes to disease association_subject", curie=DIST.curie('subject'),
                       model_uri=DIST.gene_has_variant_that_contributes_to_disease_association_subject, domain=GeneHasVariantThatContributesToDiseaseAssociation, range=Union[str, GeneOrGeneProductId])
+
+slots.genotype_to_thing_association_subject = Slot(uri=DIST.subject, name="genotype to thing association_subject", curie=DIST.curie('subject'),
+                      model_uri=DIST.genotype_to_thing_association_subject, domain=GenotypeToThingAssociation, range=Union[str, GenotypeId])
 
 slots.gene_to_expression_site_association_subject = Slot(uri=DIST.subject, name="gene to expression site association_subject", curie=DIST.curie('subject'),
                       model_uri=DIST.gene_to_expression_site_association_subject, domain=GeneToExpressionSiteAssociation, range=Union[str, GeneOrGeneProductId])

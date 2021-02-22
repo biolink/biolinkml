@@ -1,5 +1,5 @@
 
-# Type: maximum_value
+# Slot: maximum_value
 
 
 for slots with ranges of type number, the value must be equal to or lowe than this

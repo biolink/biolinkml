@@ -53,6 +53,7 @@
       "imported_from": "biolinkml:types",
       "base": "Bool",
       "uri": "http://www.w3.org/2001/XMLSchema#boolean",
+      "repr": "bool",
       "type": "TypeDefinition"
     },
     {
@@ -73,6 +74,16 @@
       "imported_from": "biolinkml:types",
       "base": "float",
       "uri": "http://www.w3.org/2001/XMLSchema#double",
+      "type": "TypeDefinition"
+    },
+    {
+      "name": "decimal",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/types/Decimal",
+      "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "from_schema": "https://w3id.org/biolink/biolinkml/types",
+      "imported_from": "biolinkml:types",
+      "base": "Decimal",
+      "uri": "http://www.w3.org/2001/XMLSchema#decimal",
       "type": "TypeDefinition"
     },
     {
@@ -185,10 +196,10 @@
       "slot_uri": "https://w3id.org/biolink/biolinkml/meta/annotations",
       "multivalued": true,
       "inlined": true,
-      "owner": "Annotatable",
+      "owner": "Annotation",
       "domain_of": [
-        "Annotation",
-        "Annotatable"
+        "Annotatable",
+        "Annotation"
       ],
       "type": "SlotDefinition"
     },
@@ -243,41 +254,9 @@
         "Extension"
       ],
       "type": "SlotDefinition"
-    },
-    {
-      "name": "annotation_extension_value",
-      "from_schema": "https://w3id.org/biolink/biolinkml/annotations",
-      "is_a": "extension_value",
-      "domain": "Annotation",
-      "range": "boolean",
-      "slot_uri": "https://w3id.org/biolink/biolinkml/meta/value",
-      "required": true,
-      "alias": "value",
-      "owner": "Annotation",
-      "domain_of": [
-        "Annotation"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "extension_value",
-      "type": "SlotDefinition"
     }
   ],
   "classes": [
-    {
-      "name": "Annotation",
-      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/Annotation",
-      "description": "a tag/value pair with the semantics of OWL Annotation",
-      "from_schema": "https://w3id.org/biolink/biolinkml/annotations",
-      "is_a": "Extension",
-      "slots": [
-        "extension_tag",
-        "extensions",
-        "annotations",
-        "annotation_extension_value"
-      ],
-      "class_uri": "https://w3id.org/biolink/biolinkml/meta/Annotation",
-      "type": "ClassDefinition"
-    },
     {
       "name": "Annotatable",
       "definition_uri": "https://w3id.org/biolink/biolinkml/meta/Annotatable",
@@ -288,6 +267,24 @@
         "annotations"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/Annotatable",
+      "type": "ClassDefinition"
+    },
+    {
+      "name": "Annotation",
+      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/Annotation",
+      "description": "a tag/value pair with the semantics of OWL Annotation",
+      "from_schema": "https://w3id.org/biolink/biolinkml/annotations",
+      "is_a": "Extension",
+      "mixins": [
+        "Annotatable"
+      ],
+      "slots": [
+        "extension_tag",
+        "extension_value",
+        "extensions",
+        "annotations"
+      ],
+      "class_uri": "https://w3id.org/biolink/biolinkml/meta/Annotation",
       "type": "ClassDefinition"
     },
     {
@@ -318,16 +315,18 @@
       "type": "ClassDefinition"
     }
   ],
-  "metamodel_version": "1.5.3",
+  "metamodel_version": "1.7.0",
   "source_file": "annotations.yaml",
-  "source_file_date": "Friday Sep 27 12:00:00 2003",
-  "source_file_size": 928,
-  "generation_date": "Friday Sep 27 12:00:00 2003",
+  "source_file_date": "Tue Jan 26 20:23:51 2021",
+  "source_file_size": 919,
+  "generation_date": "2021-01-26 20:24",
   "type": "SchemaDefinition",
   "@context": [
-    "https://w3id.org/biolink/biolinkml/context.jsonld",
-    "https://w3id.org/biolink/biolinkml/types.context.jsonld",
-    "https://w3id.org/biolink/biolinkml/extensions.context.jsonld",
+    [
+      "https://w3id.org/biolink/biolinkml/context.jsonld",
+      "https://w3id.org/biolink/biolinkml/types.context.jsonld",
+      "https://w3id.org/biolink/biolinkml/extensions.context.jsonld"
+    ],
     {
       "@base": "https://w3id.org/biolink/biolinkml/meta/"
     }

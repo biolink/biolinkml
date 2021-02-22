@@ -41,7 +41,8 @@
          "from_schema": "http://example.org/base",
          "typeof": "boolean",
          "base": "Bool",
-         "uri": "xsd:boolean"
+         "uri": "xsd:boolean",
+         "repr": "bool"
       },
       {
          "name": "double_extended",
@@ -49,7 +50,8 @@
          "from_schema": "http://example.org/base",
          "typeof": "extended",
          "base": "Bool",
-         "uri": "xsd:boolean"
+         "uri": "xsd:boolean",
+         "repr": "bool"
       },
       {
          "name": "string",
@@ -73,7 +75,8 @@
          "description": "A binary (true or false) value",
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "Bool",
-         "uri": "xsd:boolean"
+         "uri": "xsd:boolean",
+         "repr": "bool"
       },
       {
          "name": "float",
@@ -90,6 +93,14 @@
          "from_schema": "https://w3id.org/biolink/biolinkml/types",
          "base": "float",
          "uri": "xsd:double"
+      },
+      {
+         "name": "decimal",
+         "definition_uri": "https://w3id.org/biolink/biolinkml/meta/types/Decimal",
+         "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+         "from_schema": "https://w3id.org/biolink/biolinkml/types",
+         "base": "Decimal",
+         "uri": "xsd:decimal"
       },
       {
          "name": "time",
@@ -173,9 +184,9 @@
          "repr": "str"
       }
    ],
-   "metamodel_version": "1.5.3",
+   "metamodel_version": "1.7.0",
    "source_file": "base.yaml",
-   "source_file_date": "Friday Sep 27 12:00:00 2003",
+   "source_file_date": "Mon Jan 18 21:38:17 2021",
    "source_file_size": 487,
-   "generation_date": "Friday Sep 27 12:00:00 2003"
+   "generation_date": "2021-01-18 21:41"
 }

@@ -16,6 +16,7 @@ from biolinkml.utils.typereferences import References
 class MarkdownGenerator(Generator):
     generatorname = os.path.basename(__file__)
     generatorversion = "0.1.1"
+    directory_output = True
     valid_formats = ["md"]
     visit_all_class_slots = False
 
@@ -106,6 +107,11 @@ class MarkdownGenerator(Generator):
                 print(f'![img]({img_url})')
                 self.mappings(cls)
 
+                if cls.id_prefixes:
+                    self.header(2, 'Identifier prefixes')
+                    for p in cls.id_prefixes:
+                        self.bullet(f'{p}')
+
                 if cls.is_a is not None:
                     self.header(2, 'Parents')
                     self.bullet(f' is_a: {self.class_link(cls.is_a, use_desc=True)}')
@@ -166,7 +172,7 @@ class MarkdownGenerator(Generator):
 
                 self.element_properties(cls)
 
-        return True
+        return False
 
     def visit_type(self, typ: TypeDefinition) -> None:
         with open(self.dir_path(typ), 'w') as typefile:
@@ -184,7 +190,7 @@ class MarkdownGenerator(Generator):
                     print(f"| Representation | | {typ.repr} |")
                 self.element_properties(typ)
 
-    def visit_class_slot(self, cls: ClassDefinition, aliased_slot_name: str, slot: SlotDefinition) -> None:
+    def visit_slot(self, aliased_slot_name: str, slot: SlotDefinition) -> None:
         with open(self.dir_path(slot), 'w') as slotfile:
             with redirect_stdout(slotfile):
                 slot_curie = self.namespaces.uri_or_curie_for(self.namespaces._base, underscore(slot.name))
@@ -215,7 +221,16 @@ class MarkdownGenerator(Generator):
                 self.element_properties(slot)
 
     def element_header(self, obj: Element, name: str, curie: str, uri: str) -> None:
-        self.frontmatter(f"Type: {obj.name}" + (f" _(deprecated)_" if obj.deprecated else ""))
+        simple_name = curie.split(':', 1)[1]
+        if isinstance(obj, TypeDefinition):
+            obj_type = 'Type'
+        elif isinstance(obj, ClassDefinition):
+            obj_type = 'Class'
+        elif isinstance(obj, SlotDefinition):
+            obj_type = 'Slot'
+        else:
+            obj_type = 'Class'
+        self.header(1, f"{obj_type}: {simple_name}" + (f" _(deprecated)_" if obj.deprecated else ""))
         self.para(be(obj.description))
         print(f'URI: [{curie}]({uri})')
         print()
@@ -249,6 +264,11 @@ class MarkdownGenerator(Generator):
             # from_schema
             # imported_from
             prop_list('See also', obj.see_also)
+            prop_list('Exact Mappings', obj.exact_mappings)
+            prop_list('Close Mappings', obj.close_mappings)
+            prop_list('Narrow Mappings', obj.narrow_mappings)
+            prop_list('Broad Mappings', obj.broad_mappings)
+            prop_list('Related Mappings', obj.related_mappings)
             #       - exact mappings
             #       - close mappings
             #       - related mappings
@@ -265,7 +285,7 @@ class MarkdownGenerator(Generator):
         if cls.name in sorted(self.synopsis.isarefs):
             for child in sorted(self.synopsis.isarefs[cls.name].classrefs):
                 self.class_hier(self.schema.classes[child], level+1)
-        
+
     def pred_hier(self, slot: SlotDefinition, level=0) -> None:
         self.bullet(self.slot_link(slot, use_desc=True), level)
         if slot.name in sorted(self.synopsis.isarefs):
@@ -314,7 +334,7 @@ class MarkdownGenerator(Generator):
         # if slot.subproperty_of:
         #     self.bullet(f'edge label: {self.slot_link(slot.subproperty_of)}', level=1)
         for example in slot.examples:
-            self.bullet(f'Example: {example.value} {example.description}', level=1)
+            self.bullet(f'Example: {getattr(example, "value", " ")} {getattr(example, "description", " ")}', level=1)
         # if slot.name not in self.own_slot_names(cls):
         #     self.bullet(f'inherited from: {self.class_link(slot.domain)}', level=1)
         if slot.in_subset:
@@ -453,6 +473,9 @@ class MarkdownGenerator(Generator):
             return self.type_link(ref, after_link=after_link, use_desc=use_desc, add_subset=add_subset)
         elif ref in self.schema.classes:
             return self.class_link(ref, after_link=after_link, use_desc=use_desc, add_subset=add_subset)
+        elif ref in self.schema.enums:
+            # TODO: enums - fill this in
+            return ''
         else:
             return self.type_link(ref, after_link=after_link, use_desc=use_desc, add_subset=add_subset)
 
@@ -485,3 +508,7 @@ class MarkdownGenerator(Generator):
 def cli(yamlfile, dir, img, **kwargs):
     """ Generate markdown documentation of a biolink model """
     MarkdownGenerator(yamlfile, **kwargs).serialize(directory=dir, image_dir=img, **kwargs)
+
+
+if __name__ == '__main__':
+    cli()

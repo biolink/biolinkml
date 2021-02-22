@@ -1,5 +1,5 @@
 
-# Type: has status
+# Slot: //example.org/sample/example1/has_status
 
 
 

@@ -1,5 +1,5 @@
 
-# Type: population to population association_subject
+# Slot: population_to_population_association_subject
 
 
 the population that form the subject of the association

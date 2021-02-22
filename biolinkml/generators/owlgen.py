@@ -9,12 +9,12 @@ import logging
 import click
 from rdflib import Graph, URIRef, RDF, OWL, Literal, BNode
 from rdflib.collection import Collection
-from rdflib.namespace import RDFS
+from rdflib.namespace import RDFS, SKOS
 from rdflib.plugin import plugins as rdflib_plugins, Parser as rdflib_Parser
 
 from biolinkml import LOCAL_METAMODEL_YAML_FILE, METAMODEL_NAMESPACE_NAME, METAMODEL_NAMESPACE, METAMODEL_YAML_URI, META_BASE_URI
 from biolinkml.meta import ClassDefinitionName, SchemaDefinition, ClassDefinition, SlotDefinitionName, \
-    TypeDefinitionName, SlotDefinition, TypeDefinition, Element
+    TypeDefinitionName, SlotDefinition, TypeDefinition, Element, EnumDefinitionName
 from biolinkml.utils.formatutils import camelcase, underscore
 from biolinkml.utils.generator import Generator, shared_arguments
 from biolinkml.utils.schemaloader import SchemaLoader
@@ -27,15 +27,17 @@ class ElementDefinition(object):
 class OwlSchemaGenerator(Generator):
     generatorname = os.path.basename(__file__)
     generatorversion = "0.1.1"
-    valid_formats = ['ttl'] + [x.name for x in rdflib_plugins(None, rdflib_Parser) if '/' not in str(x.name)]
+    valid_formats = ['owl', 'ttl'] + [x.name for x in rdflib_plugins(None, rdflib_Parser) if '/' not in str(x.name)]
     visits_are_sorted = True
 
     def __init__(self, schema: Union[str, TextIO, SchemaDefinition], **kwargs) -> None:
         super().__init__(schema, **kwargs)
         self.graph: Optional[Graph] = None
-        self.metamodel = SchemaLoader(LOCAL_METAMODEL_YAML_FILE, importmap=kwargs.get('importmap', None)) \
+        self.metamodel = SchemaLoader(LOCAL_METAMODEL_YAML_FILE, importmap=kwargs.get('importmap', None),
+                                      mergeimports=self.merge_imports) \
             if os.path.exists(LOCAL_METAMODEL_YAML_FILE) else\
-            SchemaLoader(METAMODEL_YAML_URI, base_dir=META_BASE_URI, importmap=kwargs.get('importmap', None))
+            SchemaLoader(METAMODEL_YAML_URI, base_dir=META_BASE_URI, importmap=kwargs.get('importmap', None),
+                         mergeimports=self.merge_imports)
         self.metamodel.resolve()
         self.top_value_uri: Optional[URIRef] = None
 
@@ -58,15 +60,28 @@ class OwlSchemaGenerator(Generator):
         self.graph.add((self.top_value_uri, RDFS.label, Literal("value")))
 
     def end_schema(self, output: Optional[str] = None, **_) -> None:
-        data = self.graph.serialize(format='turtle' if self.format == 'ttl' else self.format).decode()
+        data = self.graph.serialize(format='turtle' if self.format in ['owl', 'ttl'] else self.format).decode()
         if output:
             with open(output, 'w') as outf:
                 outf.write(data)
         else:
             print(data)
 
+    def add_metadata(self, e: SchemaDefinition, uri: URIRef) -> None:
+        if e.aliases is not None:
+            for s in e.aliases:
+                self.graph.add((uri, SKOS.altLabel, Literal(s)))
+        if e.mappings is not None:
+            for m in e.mappings:
+                m_uri = self.namespaces.uri_for(m)
+                if m_uri is not None:
+                    self.graph.add((uri, SKOS.exactMatch, m_uri))
+                else:
+                    logging.warning(f'No URI for {m}')
+
     def visit_class(self, cls: ClassDefinition) -> bool:
         cls_uri = self._class_uri(cls.name)
+        self.add_metadata(cls, cls_uri)
         self.graph.add((cls_uri, RDF.type, OWL.Class))
         self.graph.add((cls_uri, RDF.type,
                         self.metamodel.namespaces[METAMODEL_NAMESPACE_NAME][camelcase('class definition')]))
@@ -192,6 +207,10 @@ class OwlSchemaGenerator(Generator):
         self.graph.add((slot_uri, RDFS.range, self._range_uri(slot)))
         if slot.domain:
             self.graph.add((slot_uri, RDFS.domain, self._class_uri(slot.domain)))
+        if slot.inverse:
+            self.graph.add((slot_uri, OWL.inverseOf, self._prop_uri(slot.inverse)))
+        if slot.symmetric:
+            self.graph.add((slot_uri, RDF.type, OWL.SymmetricProperty))
 
         # Parent slots
         if slot.is_a:
@@ -241,13 +260,21 @@ class OwlSchemaGenerator(Generator):
 
     def _range_uri(self, slot: SlotDefinition) -> URIRef:
         if slot.range in self.schema.types:
-            return self._type_uri(cast(TypeDefinitionName, slot.range))
+            return self._type_uri(TypeDefinitionName(slot.range))
+        elif slot.range in self.schema.enums:
+            # TODO: enums fill this in
+            return self._enum_uri(EnumDefinitionName(slot.range))
         else:
-            return self._class_uri(cast(ClassDefinitionName, slot.range))
+            return self._class_uri(ClassDefinitionName(slot.range))
 
     def _class_uri(self, cn: ClassDefinitionName) -> URIRef:
         c = self.schema.classes[cn]
         return URIRef(c.definition_uri)
+
+    def _enum_uri(self, en: EnumDefinitionName) -> URIRef:
+        # TODO: enums
+        e = self.schema.enums[en]
+        return URIRef(f"http://UNKNOWN.org/{en}")
 
     def _prop_uri(self, pn: SlotDefinitionName) -> URIRef:
         p = self.schema.slots.get(pn, None)
@@ -277,3 +304,7 @@ class OwlSchemaGenerator(Generator):
 def cli(yamlfile, **kwargs):
     """ Generate an OWL representation of a biolink model """
     print(OwlSchemaGenerator(yamlfile, **kwargs).serialize(**kwargs))
+
+
+if __name__ == '__main__':
+    cli()

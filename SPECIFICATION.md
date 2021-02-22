@@ -2,13 +2,13 @@
 
 <!--
 
-Editors note: add comments using HTML syntax, such as this one
+Editors note: add comments using HTML syntax, such as this one.
 
 -->
 
 ## Introduction (Informative)
 
-This document defines the biolinkml syntax and language.
+This document defines the [biolinkml](https://biolink.github.io/biolinkml/) syntax and language.
 
 A Biolinkml (blml) schema is a formal computable description of how
 entities within a data model are inter-related. While blml arose in
@@ -17,20 +17,25 @@ Biolink Model, it is completely domain-neutral, and can be used to
 model pet stores, etc.
 
 The primary representation of a schema is via a YAML document. This
-document can be translated to other representations.
+YAML document can be translated to other representations.
 
 The 3 core modeling elements in blml are *types*, *classes*, and *slots*:
 
- - **types** correspond to primitive datatypes, such as integers, strings, URIs
- - **classes** are categories for data instances
- - **slots** categorize the linkages instances can have to other instances, or to type instances
+ - **[types](https://biolink.github.io/biolinkml/docs/TypeDefinition)** correspond to primitive datatypes, such as integers, strings, URIs
+ - **[classes](https://biolink.github.io/biolinkml/docs/ClassDefinition)** are categories for data instances
+ - **[slots](https://biolink.github.io/biolinkml/docs/SlotDefinition)** categorize the linkages instances can have to other instances, or to type instances
+
+A [schema](https://biolink.github.io/biolinkml/docs/SchemaDefinition) is a collection of these elements.
+
+The blml also defines basic mechanisms for model element inheritance: **is_a**, **mixin** and **abstract** 
+properties for both classes and slots, plus a **typeof** property for types. In addition, the 
+**subclass_of** property can anchor a class to the semantics of an ontology term in an external 
+3rd party (but model-designated) ontology. Semantic constraints to 'internal' model slot or class 
+hierarchies are similarly constrained by **domain**, **range** and  **subproperty_of** properties.
  
 blml is intended to be used in a variety of modeling contexts: JSON
 documents, RDF graphs, RDF* graphs and property graphs, as well as
 tabular data. Converters exist for these different representations.
-
-blml also provides rich meta-modeling constructs. For examples,
-modeling have description fields, comments, mappings to other systems...
 
 This document contains a mixture of normative and informative
 sections. Normative sections may have informative examples
@@ -41,24 +46,42 @@ that is they are designed to help the reader understand the concepts
 presented in the normative elements.
 
 blml is also described by its [own schema](meta.yaml), which is also
-Normative. The documentation in this specification _must_ be
-consistent with the yaml representation.
+Normative. The schema can also be viewed on [this site](https://biolink.github.io/biolinkml/docs).
+
+The documentation in this specification _must_ be consistent with the
+yaml representation.
 
 The italicized keywords _must_, _must not_, _should_, _should not_,
-and _may_ are used to specify normative features of OWL 2 documents
+and _may_ are used to specify normative features blml documents
 and tools, and are interpreted as specified in RFC 211.
 
 ## Domain (Normative)
 
-RDF* graphs
+<!--
 
-Representations and JSON representation
+TODO
 
-YAML: JSON subset
+-->
+
+The domain of biolinkml is an RDF graph:
+
+```
+G = Triple*
+Triple = < Subject Predicate Object >
+Subject = IRI | BlankNode
+Predicate = IRI
+Subject = IRI | BlankNode | Literal
+```
+
+### Notes (informative)
+
+The primary domain of biolinkml is an RDF graph, but blml schemas may
+be used for JSON documents, Property Graphs, UML object graphs, and
+tabular/relational data.
 
 ## Schema Representation (Informative)
 
-The normative representation of a blml schema is as a YAML document.
+The normative representation of a blml [schema](https://w3id.org/biolink/biolinkml/meta/SchemaDefinition) is as a YAML document.
 
 The document includes dictionaries of schema **elements**. Each
 dictionary is indexed by the element **name**. Dictionaries _may_ be
@@ -69,8 +92,8 @@ The structure of the document
  * dictionary of prefixes
  * dictionary of subsets
  * dictionary of types
- * dictionary of classes
  * dictionary of slots
+ * dictionary of classes
  * additional schema-level declarations
     * the schema _must_ have an [id](https://w3id.org/biolink/biolinkml/meta/id)
     * the schema _may_ have other declarations as allowed by [SchemaDefinition](https://w3id.org/biolink/biolinkml/meta/SchemaDefinition)
@@ -109,8 +132,8 @@ subsets: ...
 
 # Main schema follows
 types: ...
-classes: ...
 slots: ...
+classes: ...
 
 ```
 
@@ -121,29 +144,63 @@ All schema elements _must_ have a unique name and a unique IRI. Names _must_ be 
  * class elements use a CamelCase construction rule
  * slot, types, subset elements use a snake_case construction rule
 
+<!--
+
 TODO: define these rules.
 
-Values for schema element slots _may_ be IRIs, and these _may_ be specified as CURIEs. CURIEs are shortform representations of URIs, and _must_ be specified as `PREFIX:LocalID`, where the prefix has an associated URI base. The prefix _must_ be declared in either:
+-->
+
+Values for schema element slots _may_ be IRIs, and these _may_ be specified as CURIEs. CURIEs are shortform representations of URIs, and _must_ be specified as `PREFIX:LocalID`, where the prefix has an associated URI base. The prefix _must_ be declared in one of several ways:
 
  * a [prefixes](https://w3id.org/biolink/biolinkml/meta/prefixes) dictionary, where the keys are prefixes and the values are URI bases.
- * an external CURIE map specified via a [default_curi_maps](https://w3id.org/biolink/biolinkml/meta/default_curi_maps) section
 
 Example (Informative):
 
 ```yaml
 prefixes:
   biolinkml: https://w3id.org/biolink/biolinkml/
-  wgs: http://www.w3.org/2003/01/geo/wgs84_pos
+  wgs: http://www.w3.org/2003/01/geo/wgs84_pos#
   qud: http://qudt.org/1.1/schema/qudt#
 ```
 
-## Schema Metadata (Normative)
+The CURIE `wgs:lat` will exand to http://www.w3.org/2003/01/geo/wgs84_pos#lat.
 
- * [ClassDefinition](https://w3id.org/biolink/biolinkml/meta/ClassDefinition)
+* an external CURIE map specified via a [default_curi_maps](https://w3id.org/biolink/biolinkml/meta/default_curi_maps) section.
+
+Example (Informative):
+
+```
+default_curi_maps:
+  - semweb_context
+```
+
+* prefixes from public standard global namespaces used in the model (e.g. rdf) are indicated under the [emit_prefixes](https://w3id.org/biolink/biolinkml/meta/emit_prefixes) section.
+
+Example (Informative):
+
+```
+emit_prefixes:
+  - rdf
+  - rdfs
+  - xsd
+  - skos
+```
+
+* a default prefix within a given schema is generally also declared by a value for the [default_prefix](https://w3id.org/biolink/biolinkml/meta/default_prefix) tag:
+
+Example (Informative):
+
+```
+default_prefix: ex
+```
+
+## Schema Elements (Normative)
+
+ * [SchemaDefinition](https://w3id.org/biolink/biolinkml/meta/SchemaDefinition)
 
 ### Imports (Normative)
 
-Imports are specified as an import list in the main schema object.
+Imports are specified as an import list in the main schema object. This specifies a set: the order of elements is not important.
 
 ```yaml
 imports:
@@ -153,19 +210,41 @@ imports:
   - <IMPORT_n>  
 ```
 
-TODO:
+<!--
+
+TODO
 
  * https://github.com/biolink/biolinkml/projects/1
 
+-->
+
 ### Metadata elements (Normative)
 
+As mentioned in the [Introduction](#introduction-Informative), semantic inheritance within a model is specified by several BiolinkML reserved properties:
+- **is_a:**
+- **abstract:**
+- **mixin:**
+- **typeof:** 
+- **subclass_of:** 
+- **domain:**
+- **range:**
+- **subproperty_of:**
+
+A few fundamental rules guiding the use of these properties include:
+
+- *range:* the **range** of the **mixins** property in a class SHOULD be a **mixin**
+- *homeomorphicity:* **is_a** SHOULD only connect either (1) two mixins (2) two classes (3) two slots
+- instances MUST NOT instantiate a **mixin** slot or class directly since it has default **abstract** character; 
+  rather, it should be injected into non-abstract classes using the **mixins** property
 
 
 ## Core elements: Classes, Slots, and Types (Normative)
 
 ### Slots (Normative)
 
-Slots are properties that can be assigned to individuals.
+See [SlotDefinition](https://w3id.org/biolink/biolinkml/meta/SlotDefinition).
+
+Slots are properties that can be assigned to classes.
 
 The set of slots available in a model is defined in a slot dictionary, declared at the schema level
 
@@ -180,22 +259,45 @@ slots:
 Each key in the dictionary is the slot [name](https://w3id.org/biolink/biolinkml/meta/name). The slot name must be unique.
 
 
-The [SlotDefinition](https://w3id.org/biolink/biolinkml/meta/SlotDefinition) is described in the metamodel.
-
 ### Class Slots (Normative)
 
-A class _may_ have any number of slots declared
+The [SlotDefinition](https://w3id.org/biolink/biolinkml/meta/SlotDefinition) is described in the metamodel.
+
+### Slot Hierarchies (Normative)
+
+Each slot _must_ have zero or one **is_a** parents, as defined by [biolinkml:is_a](https://w3id.org/biolink/biolinkml/meta/is_a)
+
+In addition a slot _may_ have multiple **mixin** parents, as defined by [biolinkml:mixins](https://w3id.org/biolink/biolinkml/meta/mixin)
+
+We define function `ancestors*(s)` which is the transitive close of the union of slot *s*, the parents of slot *s* and defined by the union of `is_a` and `mixins`.
+
+### Classes and Class Slots (Normative)
+
+In Biolink, as in the [Web Ontology Language OWL class](https://www.w3.org/TR/owl-guide/), is a classification of individuals into groups 
+which share common characteristics. If an individual is a member of a class, it tells a machine reader that it falls under the 
+semantic classification given by the class.
+
+The set of classes available in a model is defined in a class dictionary, declared at the schema level.  A class _may_ have any number of slots declared.
 
 ```yaml
-  CLASS:
+classes:
+
+  CLASS_NAME_1:
     slots:
-      - SLOT_1
-      - SLOT_2
+      - CLASS_1_SLOT_NAME_1
+      - CLASS_1_SLOT_NAME_2
       - ...
-      - SLOT_n
+      - CLASS_1_SLOT_NAME_n
+  ...
+    CLASS_NAME_p:
+    slots:
+      - CLASS_p_SLOT_NAME_1
+      - CLASS_p_SLOT_NAME_2
+      - ...
+      - CLASS_p_SLOT_NAME_q
 ```
 
-Each declared slot _must_ be defined in the slot dictionary.
+Each declared slot _must_ be defined in the slot dictionary. Note, however, that the use of declared slots in instances of a class are not mandatory unless `slot_usage.required` property of the slot is declared 'true' directly in that class or indirectly, by parental inheritance. 
 
 ### Class Hierarchies (Normative)
 
@@ -203,7 +305,7 @@ Each class _must_ have zero or one **is_a** parents, as defined by [biolinkml:is
 
 In addition a class _may_ have multiple **mixin** parents, as defined by [biolinkml:mixins](https://w3id.org/biolink/biolinkml/meta/mixin)
 
-We define function `ancestors*(c)` which is the transitive close of the union of *c*, the parents of *c* and defined by the union of is_a and mixins.
+We define function `ancestors*(c)` which is the transitive close of the union of class *c*, the parents of class *c* and defined by the union of `is_a` and `mixins`.
 
 ### Slot Usages
 

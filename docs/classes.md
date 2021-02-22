@@ -1,5 +1,5 @@
 
-# Type: classes
+# Slot: classes
 
 
 class definitions

@@ -1,5 +1,5 @@
 
-# Type: symmetric
+# Slot: symmetric
 
 
 True means that any instance of  d s r implies that there is also an instance of r s d

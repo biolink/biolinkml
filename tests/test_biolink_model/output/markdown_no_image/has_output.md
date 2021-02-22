@@ -1,5 +1,5 @@
 
-# Type: has output
+# Slot: has_output
 
 
 holds between a process and a continuant, where the continuant is an output of the process
@@ -21,16 +21,35 @@ URI: [biolink:has_output](https://w3id.org/biolink/vocab/has_output)
 
 ## Used by
 
+ * [Behavior](Behavior.md)
+ * [BehavioralExposure](BehavioralExposure.md)
+ * [BehavioralOutcome](BehavioralOutcome.md)
  * [BiologicalProcess](BiologicalProcess.md)
  * [BiologicalProcessOrActivity](BiologicalProcessOrActivity.md)
- * [MolecularActivity](MolecularActivity.md)
+ * [Death](Death.md)
+ * [MortalityOutcome](MortalityOutcome.md)
+ * [PathologicalProcess](PathologicalProcess.md)
  * [Pathway](Pathway.md)
  * [PhysiologicalProcess](PhysiologicalProcess.md)
+ * [SocioeconomicExposure](SocioeconomicExposure.md)
+ * [SocioeconomicOutcome](SocioeconomicOutcome.md)
 
 ## Other properties
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | RO:0002234 |
 | **In Subsets:** | | translator_minimal |
+| **Exact Mappings:** | | RO:0002234 |
+| **Close Mappings:** | | RO:0002353 |
+|  | | RO:0002354 |
+|  | | RTXKG1:output_of |
+| **Narrow Mappings:** | | NCIT:biological_process_has_result_anatomy |
+|  | | OBI:0000299 |
+|  | | PathWhiz:has_right_element |
+|  | | RO:0002296 |
+|  | | RO:0002297 |
+|  | | RO:0002298 |
+|  | | RO:0002299 |
+|  | | RO:0002588 |
+|  | | RO:0004008 |
 

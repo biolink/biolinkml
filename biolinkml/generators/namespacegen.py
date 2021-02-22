@@ -25,7 +25,7 @@ class NamespaceGenerator(PythonGenerator):
         head = f'''# Auto generated from {self.schema.source_file} by {self.generatorname} version: {self.generatorversion}
 # Generation date: {self.schema.generation_date}
 # Schema: {self.schema.name}
-#''' if self.emit_metadata else ''
+#''' if self.schema.generation_date else ''
 
         return f'''{head}
 # id: {self.schema.id}
@@ -189,3 +189,7 @@ def curie(identifier) -> str:
 def cli(yamlfile, **args):
     """ Generate a namespace manager for all of the prefixes represented in a biolink model """
     print(NamespaceGenerator(yamlfile,**args).serialize(**args))
+
+
+if __name__ == '__main__':
+    cli()

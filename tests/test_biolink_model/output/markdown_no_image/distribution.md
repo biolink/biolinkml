@@ -1,5 +1,5 @@
 
-# Type: distribution
+# Slot: distribution
 
 
 
@@ -28,5 +28,7 @@ URI: [biolink:distribution](https://w3id.org/biolink/vocab/distribution)
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | void:Dataset |
+| **Aliases:** | | dataset |
+| **Exact Mappings:** | | void:Dataset |
+|  | | dctypes:Dataset |
 

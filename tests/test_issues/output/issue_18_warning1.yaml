@@ -107,8 +107,8 @@ classes:
     slots:
     - s6
     class_uri: http://example.org/tests/issue18/C4
-metamodel_version: 1.5.3
+metamodel_version: 1.7.0
 source_file: issue_18_warning1.yaml
-source_file_date: Friday Sep 27 12:00:00 2003
-source_file_size:  23600
-generation_date: Friday Sep 27 12:00:00 2003
+source_file_date: Mon Jan  4 21:51:20 2021
+source_file_size: 698
+generation_date: 2021-01-04 21:53

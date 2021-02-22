@@ -1,5 +1,5 @@
 
-# Type: typeof
+# Slot: typeof
 
 
 Names a parent type

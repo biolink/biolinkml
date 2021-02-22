@@ -46,8 +46,8 @@ class GenJSONLDTestCase(ClickTestCase):
         self.do_test(f'-f xsv --context {meta_context}', 'meta_error',
                      expected_error=click.exceptions.BadParameter)
 
-    def check_size(self, g: Graph, g2: Graph, root: URIRef, expected_classes: int,
-                   expected_slots: int, expected_types: int, model: str) -> None:
+    def check_size(self, g: Graph, g2: Graph, root: URIRef, expected_classes: int, expected_slots: int,
+                   expected_types: int, expected_subsets: int, expected_enums: int, model: str) -> None:
         """
         Check
         :param g:
@@ -56,6 +56,8 @@ class GenJSONLDTestCase(ClickTestCase):
         :param expected_classes:
         :param expected_slots:
         :param expected_types:
+        :param expected_subsets:
+        :param expected_enums:
         :param model:
         :return:
         """
@@ -63,9 +65,13 @@ class GenJSONLDTestCase(ClickTestCase):
             n_classes = len(list(graph.objects(root, METAMODEL_NAMESPACE.classes)))
             n_slots = len(list(graph.objects(root, METAMODEL_NAMESPACE.slots)))
             n_types = len(list(graph.objects(root, METAMODEL_NAMESPACE.types)))
+            n_subsets = len(list(graph.objects(root, METAMODEL_NAMESPACE.subsets)))
+            n_enums = len(list(graph.objects(root, METAMODEL_NAMESPACE.enums)))
             self.assertEqual(expected_classes, n_classes, f"Expected {expected_classes} classes in {model}")
             self.assertEqual(expected_slots, n_slots, f"Expected {expected_slots} slots in {model}")
             self.assertEqual(expected_types, n_types, f"Expected {expected_types} types in {model}")
+            self.assertEqual(expected_subsets, n_subsets, f"Expected {expected_subsets} subsets in {model}")
+            self.assertEqual(expected_enums, n_enums, f"Expected {expected_enums} enums in {model}")
 
     def test_meta_output(self):
         """ Generate a context AND a jsonld for the metamodel and make sure it parses as RDF """
@@ -102,7 +108,7 @@ class GenJSONLDTestCase(ClickTestCase):
         new_g.parse(data=new_ttl, format="turtle")
 
         # Make sure that both match the expected size (classes, slots, types, and model name for error reporting)
-        self.check_size(g, new_g, URIRef(base), 15, 109, 13, "meta")
+        self.check_size(g, new_g, URIRef(base), 17, 122, 14, 1, 1, "meta")
 
 
 if __name__ == '__main__':

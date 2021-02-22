@@ -9,7 +9,7 @@ URI: [biolink:enabled_by](https://w3id.org/biolink/vocab/enabled_by)
 
 ## Domain and Range
 
-[Occurrent](Occurrent.md) ->  <sub>0..*</sub> [BiologicalProcessOrActivity](BiologicalProcessOrActivity.md)
+[BiologicalProcessOrActivity](BiologicalProcessOrActivity.md) ->  <sub>0..*</sub> [NamedThing](NamedThing.md)
 
 ## Parents
 
@@ -31,6 +31,6 @@ URI: [biolink:enabled_by](https://w3id.org/biolink/vocab/enabled_by)
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | RO:0002333 |
 | **In Subsets:** | | translator_minimal |
+| **Exact Mappings:** | | RO:0002333 |
 

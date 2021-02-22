@@ -11,6 +11,7 @@ A metamodel for defining biolink related schemas
     * definition
        * class_definition
        * slot_definition
+    * enum_definition
     * schema_definition
     * subset_definition
     * type_definition
@@ -29,6 +30,7 @@ A metamodel for defining biolink related schemas
 #### Built in
 
  * **Bool**
+ * **Decimal**
  * **ElementIdentifier**
  * **NCName**
  * **NodeIdentifier**

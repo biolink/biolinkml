@@ -14,6 +14,8 @@ metatype:Float xsd:float
 
 metatype:Double xsd:double
 
+metatype:Decimal xsd:decimal
+
 metatype:Time xsd:dateTime
 
 metatype:Date xsd:date
@@ -31,10 +33,10 @@ metatype:Objectidentifier IRI
 metatype:Nodeidentifier NONLITERAL
 
 <AltDescription> CLOSED {
-    (  $<AltDescription_tes> (  <source> @metatype:Ncname ;
+    (  $<AltDescription_tes> (  <source> @metatype:String ;
           <description> @metatype:String
        ) ;
-       rdf:type [ <AltDescription> ] ?
+       rdf:type [ <AltDescription> ]
     )
 }
 
@@ -47,8 +49,9 @@ metatype:Nodeidentifier NONLITERAL
 <Annotation> CLOSED {
     (  $<Annotation_tes> (  &<Extension_tes> ;
           rdf:type [ <Extension> ] ? ;
-          <annotations> @<Annotation> * ;
-          <value> @metatype:Boolean
+          &<Annotatable_tes> ;
+          rdf:type [ <Annotatable> ] ? ;
+          <annotations> @<Annotation> *
        ) ;
        rdf:type [ <Annotation> ] ?
     )
@@ -59,6 +62,7 @@ metatype:Nodeidentifier NONLITERAL
           rdf:type [ <Definition> ] ? ;
           <slots> @<SlotDefinition> * ;
           <slot_usage> @<SlotDefinition> * ;
+          <attributes> @<SlotDefinition> * ;
           <class_uri> @metatype:Uriorcurie ? ;
           <subclass_of> @metatype:Uriorcurie ? ;
           <union_of> @<ClassDefinition> * ;
@@ -95,7 +99,7 @@ metatype:Nodeidentifier NONLITERAL
 }
 
 <Element>  (
-    @<Definition> OR @<SchemaDefinition> OR @<SubsetDefinition> OR @<TypeDefinition>
+    @<Definition> OR @<EnumDefinition> OR @<SchemaDefinition> OR @<SubsetDefinition> OR @<TypeDefinition>
 )
 
 <Element_struct> {
@@ -122,12 +126,27 @@ metatype:Nodeidentifier NONLITERAL
           <exact_mappings> @metatype:Uriorcurie * ;
           <close_mappings> @metatype:Uriorcurie * ;
           <related_mappings> @metatype:Uriorcurie * ;
+          <narrow_mappings> @metatype:Uriorcurie * ;
+          <broad_mappings> @metatype:Uriorcurie * ;
           <deprecated_element_has_exact_replacement> @metatype:Uriorcurie ? ;
           <deprecated_element_has_possible_replacement> @metatype:Uriorcurie ? ;
           <extensions> @<Extension> * ;
           <annotations> @<Annotation> *
        ) ;
        rdf:type [ <Element> ]
+    )
+}
+
+<EnumDefinition> CLOSED {
+    (  $<EnumDefinition_tes> (  &<Element_tes> ;
+          rdf:type [ <Element> ] ? ;
+          <code_set> @metatype:Uriorcurie ? ;
+          <code_set_tag> @metatype:String ? ;
+          <code_set_version> @metatype:String ? ;
+          <pv_formula> @<PvFormulaOptions> ? ;
+          <permissible_values> @<PermissibleValue> *
+       ) ;
+       rdf:type [ <EnumDefinition> ]
     )
 }
 
@@ -160,7 +179,35 @@ metatype:Nodeidentifier NONLITERAL
     (  $<LocalName_tes> (  <local_name_source> @metatype:Ncname ;
           <local_name_value> @metatype:String
        ) ;
-       rdf:type [ <LocalName> ] ?
+       rdf:type [ <LocalName> ]
+    )
+}
+
+<PermissibleValue> CLOSED {
+    (  $<PermissibleValue_tes> (  &<Extensible_tes> ;
+          rdf:type [ <Extensible> ] ? ;
+          &<Annotatable_tes> ;
+          rdf:type [ <Annotatable> ] ? ;
+          <description> @metatype:String ? ;
+          <meaning> @metatype:Uriorcurie ? ;
+          <alt_descriptions> @<AltDescription> * ;
+          <deprecated> @metatype:String ? ;
+          <todos> @metatype:String * ;
+          <notes> @metatype:String * ;
+          <comments> @metatype:String * ;
+          <examples> @<Example> * ;
+          <in_subset> @<SubsetDefinition> * ;
+          <from_schema> @metatype:Uri ? ;
+          <imported_from> @metatype:String ? ;
+          <see_also> @metatype:Uriorcurie * ;
+          <deprecated_element_has_exact_replacement> @metatype:Uriorcurie ? ;
+          <deprecated_element_has_possible_replacement> @metatype:Uriorcurie ? ;
+          <is_a> @<PermissibleValue> ? ;
+          <mixins> @<PermissibleValue> * ;
+          <extensions> @<Extension> * ;
+          <annotations> @<Annotation> *
+       ) ;
+       rdf:type [ <PermissibleValue> ]
     )
 }
 
@@ -168,7 +215,7 @@ metatype:Nodeidentifier NONLITERAL
     (  $<Prefix_tes> (  <prefix_prefix> @metatype:Ncname ;
           <prefix_reference> @metatype:Uri
        ) ;
-       rdf:type [ <Prefix> ] ?
+       rdf:type [ <Prefix> ]
     )
 }
 
@@ -187,6 +234,7 @@ metatype:Nodeidentifier NONLITERAL
           <default_range> @<TypeDefinition> ? ;
           <subsets> @<SubsetDefinition> * ;
           <types> @<TypeDefinition> * ;
+          <enums> @<EnumDefinition> * ;
           <slots> @<SlotDefinition> * ;
           <classes> @<ClassDefinition> * ;
           <metamodel_version> @metatype:String ? ;
@@ -212,12 +260,13 @@ metatype:Nodeidentifier NONLITERAL
           <ifabsent> @metatype:String ? ;
           <required> @metatype:Boolean ? ;
           <inlined> @metatype:Boolean ? ;
+          <inlined_as_list> @metatype:Boolean ? ;
           <key> @metatype:Boolean ? ;
           <identifier> @metatype:Boolean ? ;
           <alias> @metatype:String ? ;
           <owner> @<Definition> ? ;
           <domain_of> @<ClassDefinition> * ;
-          <subproperty_of> @metatype:Uriorcurie ? ;
+          <subproperty_of> @<SlotDefinition> ? ;
           <symmetric> @metatype:Boolean ? ;
           <inverse> @<SlotDefinition> ? ;
           <is_class_field> @metatype:Boolean ? ;

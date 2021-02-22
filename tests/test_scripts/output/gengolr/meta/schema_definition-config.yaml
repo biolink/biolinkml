@@ -83,6 +83,16 @@ fields:
     have related meaning.
   display_name: related mappings
   cardinality: multi
+- id: narrow_mappings
+  description: A list of terms from different schemas or terminology systems that
+    have narrower meaning.
+  display_name: narrow mappings
+  cardinality: multi
+- id: broad_mappings
+  description: A list of terms from different schemas or terminology systems that
+    have broader meaning.
+  display_name: broad mappings
+  cardinality: multi
 - id: deprecated_element_has_exact_replacement
   description: When an element is deprecated, it can be automatically replaced by
     this uri or curie
@@ -145,6 +155,10 @@ fields:
 - id: types
   description: data types used in the model
   display_name: types
+  cardinality: multi
+- id: enums
+  description: enumerated ranges
+  display_name: enums
   cardinality: multi
 - id: slots
   description: slot definitions

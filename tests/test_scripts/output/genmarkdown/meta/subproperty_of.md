@@ -1,5 +1,5 @@
 
-# Type: subproperty_of
+# Slot: subproperty_of
 
 
 Ontology property which this slot is a subproperty of
@@ -9,7 +9,7 @@ URI: [meta:subproperty_of](https://w3id.org/biolink/biolinkml/meta/subproperty_o
 
 ## Domain and Range
 
-[SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [Uriorcurie](types/Uriorcurie.md)
+[SlotDefinition](SlotDefinition.md) ->  <sub>OPT</sub> [SlotDefinition](SlotDefinition.md)
 
 ## Parents
 

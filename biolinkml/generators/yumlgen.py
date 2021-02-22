@@ -1,4 +1,4 @@
-"""Generate yuml 
+"""Generate yuml
 
 https://yuml.me/diagram/scruffy/class/samples
 
@@ -235,3 +235,7 @@ class YumlGenerator(Generator):
 def cli(yamlfile, **args):
     """ Generate a UML representation of a biolink model """
     print(YumlGenerator(yamlfile, **args).serialize(**args), end="")
+
+
+if __name__ == '__main__':
+    cli()

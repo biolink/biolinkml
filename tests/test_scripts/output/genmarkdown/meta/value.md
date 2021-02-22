@@ -1,5 +1,5 @@
 
-# Type: value
+# Slot: value
 
 
 example value

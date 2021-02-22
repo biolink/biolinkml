@@ -435,12 +435,11 @@ classes:
     class c1:
 """
         gen = GeneratorTest(model)
+        gentext = gen.logstream.getvalue().strip()
 
-        self.assertEqual("""Shared type and slot names: dup name
-Shared slot and subset names: dup name
-Shared type and subset names: dup name""", gen.logstream.getvalue().strip())
-        gen.logstream.truncate(0)
-        gen.logstream.seek(0)
+        self.assertIn("Overlapping type and slot names: dup name", gentext)
+        self.assertIn("Overlapping subset and slot names: dup name", gentext)
+        self.assertIn("Overlapping subset and type names: dup name", gentext)
 
         self.assertEqual('dup_name', gen.formatted_element_name(cast(ElementName, 'dup name'), False))
         self.assertEqual('int', gen.formatted_element_name(cast(ElementName, 'dup name'), True))
@@ -495,13 +494,13 @@ Shared type and subset names: dup name""", gen.logstream.getvalue().strip())
                                                                                                    'c3'))])
         self.assertEqual(['s5', 's6', 's2', 's4', 's1', 's3'],
                          [s.name for s in gen.all_slots(cast(ClassDefinitionName, 'c3'), cls_slots_first=True)])
-        
+
         self.assertEqual(['c4_s1', 'c4_s5', 'c4_s6'], [s.name for s in gen.own_slots(cast(ClassDefinitionName, 'c4'))])
         self.assertEqual(['c4_s1', 'c4_s5', 'c4_s6', 's2', 's3', 's4'],
                          [s.name for s in gen.all_slots(cast(ClassDefinitionName, 'c4'))])
         self.assertEqual(['c4_s1', 'c4_s5', 'c4_s6', 's2', 's4', 's3'],
                          [s.name for s in gen.all_slots(cast(ClassDefinitionName, 'c4'), cls_slots_first=True)])
-        
+
         self.assertEqual(['c5_s1', 'c5_s6'], [s.name for s in gen.own_slots(cast(ClassDefinitionName, 'c5'))])
         self.assertEqual(['c4_s5', 'c5_s1', 'c5_s6', 's2', 's3', 's4'],
                          [s.name for s in gen.all_slots(cast(ClassDefinitionName, 'c5'))])
@@ -522,16 +521,16 @@ Shared type and subset names: dup name""", gen.logstream.getvalue().strip())
             'c4_s6': ['int', 'C1S1', 'C2S1', 'C3S1', 'C4S1'],
             's2': ['int', 'C1S1'],
             's3': ['int', 'T2', 'T3'],
-            's4': ['Bool']}, {s.name: gen.slot_type_path(s) for s in gen.all_slots(cast(ClassDefinitionName, 'c4'))})
+            's4': ['Bool']}, {s.name: gen.slot_range_path(s) for s in gen.all_slots(cast(ClassDefinitionName, 'c4'))})
         self.assertEqual({
             'c4_s5': ['Bool', 'T5'],
             'c5_s1': ['int'],
             'c5_s6': ['str'],
             's2': ['int', 'C1S1'],
             's3': ['int', 'T2', 'T3'],
-            's4': ['Bool']}, {s.name: gen.slot_type_path(s) for s in gen.all_slots(cast(ClassDefinitionName, 'c5'))})
+            's4': ['Bool']}, {s.name: gen.slot_range_path(s) for s in gen.all_slots(cast(ClassDefinitionName, 'c5'))})
         self.assertEqual({'s1': ['int'], 's3': ['int', 'T2', 'T3']},
-                         {s.name: gen.slot_type_path(s) for s in gen.all_slots(cast(ClassDefinitionName, 'c1'))})
+                         {s.name: gen.slot_range_path(s) for s in gen.all_slots(cast(ClassDefinitionName, 'c1'))})
 
     def test_ancestors(self):
         """ Test ancestors function and duplicate name detection """
@@ -570,7 +569,7 @@ classes:
 """
 
         gen = GeneratorTest(model)
-        self.assertEqual("Shared class and slot names: slot s1", gen.logstream.getvalue().strip())
+        self.assertIn("Overlapping slot and class names: slot s1", gen.logstream.getvalue().strip())
         gen.logstream.truncate(0)
         gen.logstream.seek(0)
 
@@ -636,7 +635,7 @@ classes:
 """
         gen = GeneratorTest(model)
         self.assertEqual({'s1': ['dict', 'C2'], 's2': ['str']},
-                         {s.name: gen.slot_type_path(s) for s in gen.schema.slots.values()})
+                         {s.name: gen.slot_range_path(s) for s in gen.schema.slots.values()})
 
     def test_meta_neighborhood(self):
         """ Test the neighborhood function in the metamodel """

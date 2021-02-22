@@ -69,6 +69,24 @@ slots:
       A list of terms from different schemas or terminology systems that have related meaning.
     slot_uri: skos:relatedMatch
 
+  narrow mappings:
+    is_a: mappings
+    range: uriorcurie
+    multivalued: true
+    inherited: false
+    description: >-
+      A list of terms from different schemas or terminology systems that have narrower meaning.
+    slot_uri: skos:narrowMatch
+
+  broad mappings:
+    is_a: mappings
+    range: uriorcurie
+    multivalued: true
+    inherited: false
+    description: >-
+      A list of terms from different schemas or terminology systems that have broader meaning.
+    slot_uri: skos:broadMatch
+
   deprecated element has exact replacement:
     range: uriorcurie
     description: >-

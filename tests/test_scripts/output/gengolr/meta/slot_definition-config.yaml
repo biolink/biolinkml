@@ -5,16 +5,16 @@ display_name: slot_definition
 document_category: slot_definition
 weight: 20
 fields:
-- id: id_prefixes
-  description: the identifier of this class or slot must begin with one of the URIs
-    referenced by this prefix
-  display_name: id_prefixes
-  cardinality: multi
 - id: name
   description: the unique name of the element within the context of the schema.  Name
     is combined with the default prefix to form the globally unique subject of the
     target class.
   display_name: name
+- id: id_prefixes
+  description: the identifier of this class or slot must begin with one of the URIs
+    referenced by this prefix
+  display_name: id_prefixes
+  cardinality: multi
 - id: definition_uri
   description: the "native" URI of the element
   display_name: definition_uri
@@ -87,6 +87,16 @@ fields:
   description: A list of terms from different schemas or terminology systems that
     have related meaning.
   display_name: related mappings
+  cardinality: multi
+- id: narrow_mappings
+  description: A list of terms from different schemas or terminology systems that
+    have narrower meaning.
+  display_name: narrow mappings
+  cardinality: multi
+- id: broad_mappings
+  description: A list of terms from different schemas or terminology systems that
+    have broader meaning.
+  display_name: broad mappings
   cardinality: multi
 - id: deprecated_element_has_exact_replacement
   description: When an element is deprecated, it can be automatically replaced by
@@ -169,17 +179,23 @@ fields:
   description: true means that the slot must be present in the loaded definition
   display_name: required
 - id: inlined
-  description: an inlined definition a list of actual values rather than references.  Only
-    applies to slots whose range is a class.
+  description: True means that keyed or identified slot appears in an outer structure
+    by value.  False means that only the key or identifier for the slot appears within
+    the domain, referencing a structure that appears elsewhere.
   display_name: inlined
+- id: inlined_as_list
+  description: True means that an inlined slot is represented as a list of range instances.  False
+    means that an inlined slot is represented as a dictionary, whose key is the slot
+    key or identifier and whose value is the range instance.
+  display_name: inlined_as_list
 - id: key
-  description: true means that the slot uniquely identifies the element within the
-    context of its container.  Key slots are NOT identifiers - they do not serve as
-    subjects
+  description: True means that the key slot(s) uniquely identify the container. In
+    future releases, it will be possible for there to be compound keys, where several
+    slots combine to produce a unique identifier
   display_name: key
 - id: identifier
-  description: true means that this slot is the subject of a set of assertions.  Identifiers
-    do not appear as predicates in the model
+  description: True means that the key slot(s) uniquely identify the container. There
+    can be at most one identifier or key per container
   display_name: identifier
 - id: alias
   description: the name used for a slot in the context of its owning class.  If present,

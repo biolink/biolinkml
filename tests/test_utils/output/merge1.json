@@ -71,9 +71,9 @@
          "class_uri": "http://example.org/schema2/C2"
       }
    ],
-   "metamodel_version": "1.5.3",
+   "metamodel_version": "1.7.0",
    "source_file": "merge1.yaml",
-   "source_file_date": "Friday Sep 27 12:00:00 2003",
+   "source_file_date": "Mon Jan  4 21:51:21 2021",
    "source_file_size": 485,
-   "generation_date": "Friday Sep 27 12:00:00 2003"
+   "generation_date": "2021-01-04 21:54"
 }

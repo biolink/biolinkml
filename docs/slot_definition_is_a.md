@@ -1,5 +1,5 @@
 
-# Type: slot_definition_is_a
+# Slot: slot_definition_is_a
 
 
 

@@ -1,5 +1,5 @@
 
-# Type: unit
+# Type: Unit
 
 
 
@@ -15,5 +15,5 @@ URI: [biolink:Unit](https://w3id.org/biolink/vocab/Unit)
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | qud:Unit |
+| **Exact Mappings:** | | qud:Unit |
 

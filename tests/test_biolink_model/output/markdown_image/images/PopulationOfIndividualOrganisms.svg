@@ -38,7 +38,7 @@
 <polyline fill='none' points='228,-174 444,-174 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='336' y='-162.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='336' y='-147.8'>name(i):label_type</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='336' y='-132.8'>category(i):iri_type +</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='336' y='-132.8'>category(i):category_type +</text>
 </g><g class='edge' id='edge3'><title>VariantToPopulationAssociation-&gt;PopulationOfIndividualOrganisms</title>
 <path d='M132.039,-280.801C168.368,-259.284 231.44,-221.928 277.853,-194.439' fill='none' stroke='black'/>
 <polygon fill='black' points='286.608,-189.254 280.297,-198.222 282.306,-191.802 278.004,-194.35 278.004,-194.35 278.004,-194.35 282.306,-191.802 275.71,-190.478 286.608,-189.254 286.608,-189.254' stroke='black'/>

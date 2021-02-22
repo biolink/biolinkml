@@ -21,10 +21,11 @@ from tests.utils.compare_rdf import compare_rdf
 class URIAndCurieTestCase(GeneratorTestCase):
     model_name: str = 'uriandcurie'
     env = env
-    
+
     def test_uri_and_curie(self):
         """ Compile a model of URI's and Curies and then test the various types """
-        self.single_file_generator('py', PythonGenerator, filtr=metadata_filter, comparator=compare_python)
+        self.single_file_generator('py', PythonGenerator, filtr=metadata_filter,
+                                   comparator=lambda exp, act: compare_python(exp, act, self.env.expected_path('foo.py')))
 
         # Check that the interpretations are correct
         self.single_file_generator('jsonld', ContextGenerator, filtr=ldcontext_metadata_filter,

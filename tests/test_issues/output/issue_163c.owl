@@ -36,10 +36,10 @@
 <http://example.org/sample/example163c> a owl:Ontology ;
     rdfs:label "example163c" ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
-    meta:generation_date "2020-07-31 13:12" ;
-    meta:metamodel_version "1.5.3" ;
+    meta:generation_date "2021-01-05 21:36" ;
+    meta:metamodel_version "1.7.0" ;
     meta:source_file "issue_163c.yaml" ;
-    meta:source_file_date "Tue Jul 28 12:58:11 2020" ;
+    meta:source_file_date "Tue Jan  5 21:34:30 2021" ;
     meta:source_file_size 671 .
 
 meta:SubsetDefinition a owl:Class ;
@@ -73,6 +73,15 @@ meta:SubsetDefinition a owl:Class ;
             owl:onProperty meta:topValue ;
             owl:qualifiedCardinality 1 ] ;
     skos:definition "The combination of a date and time" .
+
+<https://w3id.org/biolink/biolinkml/meta/types/Decimal> a owl:Class,
+        meta:TypeDefinition ;
+    rdfs:label "decimal" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:decimal ;
+            owl:onProperty meta:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A real number with arbitrary precision that conforms to the xsd:decimal specification" .
 
 <https://w3id.org/biolink/biolinkml/meta/types/Double> a owl:Class,
         meta:TypeDefinition ;

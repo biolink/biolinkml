@@ -1,16 +1,18 @@
 import logging
-from collections import OrderedDict
 from typing import Any, Tuple, Optional, Union
 
 from prefixcommons import curie_util
 from rdflib import Namespace, URIRef, Graph, BNode
 from rdflib.namespace import is_ncname
+from requests.structures import CaseInsensitiveDict
+
+from biolinkml.utils.yamlutils import TypedNode
 
 META_NS = "meta"
 META_URI = "https://w3id.org/biolink/biolinkml/meta"
 
 
-class Namespaces(OrderedDict):
+class Namespaces(CaseInsensitiveDict):
     """ Namespace manager.  Functions as both a dictionary and a python
      namespace.
 
@@ -66,6 +68,10 @@ class Namespaces(OrderedDict):
         else:
             self[key] = value
 
+    def _cased_key(self, key: str) -> str:
+        # Return the case sensitive key for key if in the namespace else just the key itself
+        return self._store.get(key.lower(), (key,))[0] if key else key
+
     @property
     def _default(self) -> Optional[URIRef]:
         return self.get(self._default_key, None)
@@ -109,6 +115,9 @@ class Namespaces(OrderedDict):
         @param default_ok: True means the default prefix is ok. Otherwise we have to have a reql prefix
         @param pythonform: True means take the python/rdflib uppercase format
         """
+        if ':' in uri and ':/' not in uri:
+            raise ValueError(f"{TypedNode.yaml_loc(uri)}Not a valid URI: {uri}")
+
         if pythonform:
             default_ok = False
         match: Tuple[str, Optional[Namespace]] = ('', None)     # match string / prefix
@@ -136,15 +145,20 @@ class Namespaces(OrderedDict):
                                  '' if match[1] == Namespaces._base_key else match[1] + ':')
         return None
 
-    def prefix_for(self, uri_or_curie: Any) -> Optional[str]:
-        return self.prefix_suffix(uri_or_curie)[0]
+    def prefix_for(self, uri_or_curie: Any, case_shift: bool = True) -> Optional[str]:
+        return self.prefix_suffix(uri_or_curie, case_shift)[0]
 
-    def prefix_suffix(self, uri_or_curie: Any) -> Tuple[Optional[str], Optional[str]]:
+    def prefix_suffix(self, uri_or_curie: Any, case_shift: bool = True) -> Tuple[Optional[str], Optional[str]]:
         uri_or_curie = str(uri_or_curie)
         if ':/' in uri_or_curie:
             uri_or_curie = self.curie_for(uri_or_curie)
-        return uri_or_curie.split(':') if uri_or_curie else (None, None)
-
+            if not uri_or_curie:
+                return None, None
+        if ':' in uri_or_curie:
+            pfx, sfx = uri_or_curie.split(':')
+        else:
+            pfx, sfx = uri_or_curie, ''
+        return self._cased_key(pfx) if case_shift else pfx, sfx
 
     def uri_for(self, uri_or_curie: Any) -> URIRef:
         """
@@ -153,20 +167,20 @@ class Namespaces(OrderedDict):
         :param uri_or_curie: "NCNAME ':' suffix" or plain URI
         :return: Corresponding URI
         """
-        uri_or_curie = str(uri_or_curie)
-        if '://' in uri_or_curie:
-            return URIRef(uri_or_curie)
-        if ':' in uri_or_curie:
-            prefix, local = str(uri_or_curie).split(':', 1)
+        uri_or_curie_str = str(uri_or_curie)
+        if '://' in uri_or_curie_str:
+            return URIRef(uri_or_curie_str)
+        if ':' in uri_or_curie_str:
+            prefix, local = str(uri_or_curie_str).split(':', 1)
             if not prefix:
                 prefix = self._default_key
             elif not is_ncname(prefix):
-                raise ValueError(f"Not a valid CURIE: {uri_or_curie}")
+                raise ValueError(f"{TypedNode.yaml_loc(uri_or_curie)}Not a valid CURIE: {uri_or_curie_str}")
         else:
-            prefix, local = self._base_key, uri_or_curie
+            prefix, local = self._base_key, uri_or_curie_str
 
         if prefix not in self:
-            raise ValueError(f"Unknown CURIE prefix: {prefix}")
+            raise ValueError(f"{TypedNode.yaml_loc(uri_or_curie)}Unknown CURIE prefix: {prefix}")
         return URIRef(self.join(self[prefix], local))
 
     def uri_or_curie_for(self, prefix: Union[str, URIRef], suffix: str) -> str:

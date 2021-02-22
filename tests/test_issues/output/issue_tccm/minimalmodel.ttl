@@ -1,0 +1,11 @@
+@prefix : <https://w3id.org/biolink/biolinkml/meta/> .
+@prefix meta: <https://w3id.org/biolink/biolinkml/meta/> .
+
+<https://hotecosystem.org/tccm/prefixes/prefixes> a meta:SchemaDefinition ;
+    meta:default_prefix "https://hotecosystem.org/tccm/prefixes/" ;
+    meta:default_range <https://hotecosystem.org/tccm/prefixes/string> ;
+    meta:id <https://hotecosystem.org/tccm/prefixes> ;
+    meta:metamodel_version "1.7.0" ;
+    meta:source_file "minimalmodel.yaml" .
+
+

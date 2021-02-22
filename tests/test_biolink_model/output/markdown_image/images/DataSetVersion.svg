@@ -33,14 +33,14 @@
 <polygon fill='white' points='-0.5,-311 -0.5,-347 124.5,-347 124.5,-311 -0.5,-311' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='62' y='-325.3'>DistributionLevel</text>
 </g><g class='node' id='node2'><title>DataSetVersion</title>
-<polygon fill='white' points='105,-129 105,-219 251,-219 251,-129 105,-129' stroke='black'/>
+<polygon fill='white' points='88,-129 88,-219 268,-219 268,-129 88,-129' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='178' y='-207.8'>DataSetVersion</text>
-<polyline fill='none' points='105,-204 251,-204 ' stroke='black'/>
+<polyline fill='none' points='88,-204 268,-204 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='178' y='-192.8'>title:string ?</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='178' y='-177.8'>type:string ?</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='178' y='-162.8'>id(i):string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='178' y='-147.8'>name(i):label_type</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='178' y='-132.8'>category(i):iri_type +</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='178' y='-132.8'>category(i):category_type +</text>
 </g><g class='edge' id='edge1'><title>DistributionLevel-&gt;DataSetVersion</title>
 <path d='M76.2572,-302.343C91.7659,-279.696 116.842,-246.187 138.284,-219.227' fill='none' stroke='black'/>
 <polygon fill='black' points='70.6178,-310.746 72.4535,-299.935 73.404,-306.595 76.1902,-302.443 76.1902,-302.443 76.1902,-302.443 73.404,-306.595 79.9268,-304.95 70.6178,-310.746 70.6178,-310.746' stroke='black'/>

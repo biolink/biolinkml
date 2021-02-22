@@ -50,3 +50,7 @@ class RDFGenerator(Generator):
 def cli(yamlfile, **kwargs):
     """ Generate an RDF representation of a biolink model """
     print(RDFGenerator(yamlfile, **kwargs).serialize(**kwargs))
+
+
+if __name__ == '__main__':
+    cli()

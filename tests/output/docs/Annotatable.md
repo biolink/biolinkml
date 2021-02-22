@@ -1,5 +1,5 @@
 
-# Type: annotatable
+# Class: Annotatable
 
 
 mixin for classes that support annotations
@@ -11,7 +11,9 @@ URI: [meta:Annotatable](https://w3id.org/biolink/biolinkml/meta/Annotatable)
 
 ## Mixin for
 
+ * [Annotation](Annotation.md) (mixin)  - a tag/value pair with the semantics of OWL Annotation
  * [Element](Element.md) (mixin)  - a named element in the model
+ * [PermissibleValue](PermissibleValue.md) (mixin)  - a permissible value, accompanied by intended text and an optional mapping to a concept URI
 
 ## Referenced by class
 

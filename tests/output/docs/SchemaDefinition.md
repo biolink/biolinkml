@@ -1,5 +1,5 @@
 
-# Type: schema_definition
+# Class: SchemaDefinition
 
 
 a collection of subset, type, slot and class definitions
@@ -36,6 +36,9 @@ URI: [meta:SchemaDefinition](https://w3id.org/biolink/biolinkml/meta/SchemaDefin
  * [emit_prefixes](emit_prefixes.md)  <sub>0..*</sub>
     * Description: a list of Curie prefixes that are used in the representation of instances of the model.  All prefixes in this list are added to the prefix sections of the target models.
     * range: [Ncname](types/Ncname.md)
+ * [enums](enums.md)  <sub>0..*</sub>
+    * Description: enumerated ranges
+    * range: [EnumDefinition](EnumDefinition.md)
  * [generation_date](generation_date.md)  <sub>OPT</sub>
     * Description: date and time that the schema was loaded/generated
     * range: [Datetime](types/Datetime.md)
@@ -94,6 +97,9 @@ URI: [meta:SchemaDefinition](https://w3id.org/biolink/biolinkml/meta/SchemaDefin
     * range: [String](types/String.md)
  * [alt_descriptions](alt_descriptions.md)  <sub>0..*</sub>
     * range: [AltDescription](AltDescription.md)
+ * [broad mappings](broad_mappings.md)  <sub>0..*</sub>
+    * Description: A list of terms from different schemas or terminology systems that have broader meaning.
+    * range: [Uriorcurie](types/Uriorcurie.md)
  * [close mappings](close_mappings.md)  <sub>0..*</sub>
     * Description: A list of terms from different schemas or terminology systems that have close meaning.
     * range: [Uriorcurie](types/Uriorcurie.md)
@@ -141,6 +147,9 @@ URI: [meta:SchemaDefinition](https://w3id.org/biolink/biolinkml/meta/SchemaDefin
  * [mappings](mappings.md)  <sub>0..*</sub>
     * Description: A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective.
     * range: [Uriorcurie](types/Uriorcurie.md)
+ * [narrow mappings](narrow_mappings.md)  <sub>0..*</sub>
+    * Description: A list of terms from different schemas or terminology systems that have narrower meaning.
+    * range: [Uriorcurie](types/Uriorcurie.md)
  * [notes](notes.md)  <sub>0..*</sub>
     * Description: editorial notes about an element intended for internal consumption
     * range: [String](types/String.md)
@@ -155,3 +164,11 @@ URI: [meta:SchemaDefinition](https://w3id.org/biolink/biolinkml/meta/SchemaDefin
  * [todos](todos.md)  <sub>0..*</sub>
     * Description: Outstanding issue that needs resolution
     * range: [String](types/String.md)
+
+## Other properties
+
+|  |  |  |
+| --- | --- | --- |
+| **Aliases:** | | data dictionary |
+| **See also:** | | https://en.wikipedia.org/wiki/Data_dictionary |
+
