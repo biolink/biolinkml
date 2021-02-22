@@ -3,6 +3,7 @@
     "termci_namespaces.context.jsonld",
     {
       "@vocab": "https://hotecosystem.org/termci/",
+      "type": "@type",
       "system": {
         "@type": "@id",
         "@id": "termci:system",

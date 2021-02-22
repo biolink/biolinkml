@@ -19,5 +19,6 @@
         <http://purl.obolibrary.org/obo/NCI_C147796> ;
     ns3:prefix "OBO" .
 
-[] ns2:system <http://purl.obolibrary.org/obo/> .
+[] ns2:system <http://purl.obolibrary.org/obo/> ;
+    a ns2:Package.
 

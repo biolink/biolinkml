@@ -48,10 +48,13 @@ def load(source: Union[str, TextIO, Graph], base_dir: Optional[str], target_clas
             # TODO: Add a context processor to the source w/ CONTEXTS_PARAM_TYPE
             # TODO: figure out what to do base options below
             # TODO: determine whether jsonld.frame can handle something other than string input
-            data_as_dict = jsonld.frame(data, contexts, options=dict(base="http://localhost:8000/jsonld_11/context/"))
+            data_as_dict = jsonld.frame(data, contexts)
         else:
             data_as_dict = data
         typ = data_as_dict.pop('@type', None)
+        # TODO: remove this when we get the Biolinkml issue fixed
+        if not typ:
+            typ = data_as_dict.pop('type', None)
         if typ and typ != target_class.class_name:
             # TODO: connect this up with the logging facility or warning?
             print(f"Warning: input type mismatch. Expected: {target_class.__name__}, Actual: {typ}")
@@ -59,8 +62,8 @@ def load(source: Union[str, TextIO, Graph], base_dir: Optional[str], target_clas
 
     if not metadata:
         metadata = FileInfo()
-    if base_dir and not metadata.base_dir:
-        metadata.base_dir = base_dir
+    if base_dir and not metadata.base_path:
+        metadata.base_path = base_dir
 
     # If the inpute is a graph, convert it to JSON-LD
     if isinstance(source, Graph):
@@ -75,5 +78,5 @@ def load(source: Union[str, TextIO, Graph], base_dir: Optional[str], target_clas
 
 
 def loads(source: Union[str, TextIO, Graph], target_class: Type[YAMLRoot],
-          contexts: CONTEXTS_PARAM_TYPE, fmt: Optional[str] = 'turtle', metadata: Optional[Metadata] = None) -> YAMLRoot:
+          contexts: CONTEXTS_PARAM_TYPE, fmt: Optional[str] = 'turtle', metadata: Optional[FileInfo] = None) -> YAMLRoot:
     return load(source, None, target_class, contexts, fmt, metadata)

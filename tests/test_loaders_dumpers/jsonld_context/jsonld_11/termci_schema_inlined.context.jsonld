@@ -1,6 +1,7 @@
 {
   "@context": [
     {
+      "type": "@type",
       "biolinkml": "https://w3id.org/biolink/biolinkml/",
       "dc": "http://purl.org/dc/elements/1.1/",
       "sct": "http://snomed.info/id/",

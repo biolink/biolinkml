@@ -51,7 +51,8 @@ class LDTestCase(TestEnvironmentTestCase):
         :param loader: package that contains 'load' and 'loads' operations
         """
         metadata = FileInfo()
-        expected_yaml = self.env.input_path(filename.rsplit('.', 1)[0] + ".yaml")
+        name, typ = filename.rsplit('.', 1)
+        expected_yaml = self.env.expected_path(name + '_' + typ + ".yaml")
         python_obj: YAMLRoot = loader.load(filename, self.env.indir, model, metadata)
         self.env.eval_single_file(expected_yaml, yaml_dumper.dumps(python_obj))
 
@@ -59,10 +60,12 @@ class LDTestCase(TestEnvironmentTestCase):
         rel_path = os.path.abspath(os.path.join(test_base.env.cwd, '..'))
         self.assertEqual('tests/test_loaders_dumpers/input', os.path.relpath(metadata.base_path, rel_path))
         self.assertEqual(f'tests/test_loaders_dumpers/input/{filename}', os.path.relpath(metadata.source_file, rel_path))
-        self.assertIsNotNone(metadata.source_file_date)
-        self.assertEqual(899, metadata.source_file_size)
+
+        fileinfo = FileInfo()
+        hbread(filename, fileinfo, self.env.indir)
+        self.assertEqual(fileinfo, metadata)
 
         # Load from a string
-        expected_yaml_str = hbread(expected_yaml, base_path=self.env.indir)
-        python_obj: YAMLRoot = loader.loads(expected_yaml_str, model, metadata)
+        expected = hbread(filename, base_path=self.env.indir)
+        python_obj: YAMLRoot = loader.loads(expected, model, metadata.clear())
         self.env.eval_single_file(expected_yaml, yaml_dumper.dumps(python_obj))
