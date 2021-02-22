@@ -16,8 +16,8 @@ def load(source: Union[str, dict, TextIO], base_dir: Optional[str], target_class
 
     if not metadata:
         metadata = FileInfo()
-    if base_dir and not metadata.base_dir:
-        metadata.base_dir = base_dir
+    if base_dir and not metadata.base_path:
+        metadata.base_path = base_dir
     return load_source(source, loader, target_class, accept_header="text/yaml, application/yaml;q=0.9",
                        metadata=metadata)
 

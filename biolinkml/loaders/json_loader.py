@@ -1,9 +1,10 @@
 import json
 from typing import Union, TextIO, Optional, Dict, Type, Any
 
-from biolinkml.utils.yamlutils import YAMLRoot
+from hbreader import FileInfo
 
-from loaders.loader_root import Metadata, load_source
+from biolinkml.loaders.loader_root import load_source
+from biolinkml.utils.yamlutils import YAMLRoot
 
 
 def json_clean(inp: Any) -> Any:
@@ -30,8 +31,8 @@ def json_clean(inp: Any) -> Any:
 
 
 def load(source: Union[str, dict, TextIO], base_dir: Optional[str], target_class: Type[YAMLRoot],
-         metadata: Optional[Metadata]) -> YAMLRoot:
-    def loader(data: Union[str, dict], _: Metadata) -> Optional[Dict]:
+         metadata: Optional[FileInfo]) -> YAMLRoot:
+    def loader(data: Union[str, dict], _: FileInfo) -> Optional[Dict]:
         data_as_dict = json.loads(data) if isinstance(data, str) else data
         typ = data_as_dict.pop('@type', None)
         if typ and typ != target_class.__name__:
@@ -40,12 +41,12 @@ def load(source: Union[str, dict, TextIO], base_dir: Optional[str], target_class
         return json_clean(data_as_dict)
 
     if not metadata:
-        metadata = Metadata()
-    if base_dir and not metadata.base_dir:
-        metadata.base_dir = base_dir
+        metadata = FileInfo()
+    if base_dir and not metadata.base_path:
+        metadata.base_path = base_dir
     return load_source(source, loader, target_class, accept_header="application/ld+json, application/json, text/json",
                        metadata=metadata)
 
 
-def loads(source: str, target_class: Type[YAMLRoot], metadata: Optional[Metadata] = None) -> YAMLRoot:
+def loads(source: str, target_class: Type[YAMLRoot], metadata: Optional[FileInfo] = None) -> YAMLRoot:
     return load(source, None, target_class, metadata)
