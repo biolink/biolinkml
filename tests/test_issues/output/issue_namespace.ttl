@@ -1,4 +1,5 @@
 @prefix : <https://w3id.org/biolink/biolinkml/meta/types/> .
+@prefix biolink: <https://w3id.org/biolink/vocab/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix metatype: <https://w3id.org/biolink/biolinkml/meta/types/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -17,13 +18,13 @@
                 "name" ],
         [ a metatype:ClassDefinition ;
             rdfs:label "AnatomicalEntity" ;
-            rdfs:subClassOf <http://purl.obolibrary.org/obo/UBERON_0001062> ;
             metatype:class_uri "https://w3id.org/biolink/vocab/AnatomicalEntity" ;
             metatype:definition_uri "https://w3id.org/biolink/vocab/AnatomicalEntity" ;
             metatype:from_schema "https://w3id.org/biolink/biolink-model" ;
             metatype:is_a "NamedThing" ;
             metatype:slots "id",
-                "name" ] ;
+                "name" ;
+            biolink:subclass_of <http://purl.obolibrary.org/obo/UBERON_0001062> ] ;
     metatype:default_curi_maps "idot_context",
         "monarch_context",
         "obo_context",
@@ -36,30 +37,30 @@
         "rdfs",
         "skos",
         "xsd" ;
-    metatype:generation_date "2021-01-26 20:26" ;
+    metatype:generation_date "2021-02-22 18:46" ;
     metatype:imports "biolinkml:types" ;
     metatype:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     metatype:metamodel_version "1.7.0" ;
-    metatype:prefixes [ metatype:prefix_prefix "wgs" ;
-            metatype:prefix_reference "http://www.w3.org/2003/01/geo/wgs84_pos" ],
-        [ metatype:prefix_prefix "biolink" ;
-            metatype:prefix_reference "https://w3id.org/biolink/vocab/" ],
-        [ metatype:prefix_prefix "UMLSSC" ;
-            metatype:prefix_reference "https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/TUI/" ],
-        [ metatype:prefix_prefix "OBAN" ;
-            metatype:prefix_reference "http://purl.org/oban/" ],
-        [ metatype:prefix_prefix "UMLSST" ;
-            metatype:prefix_reference "https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/STY/" ],
+    metatype:prefixes [ metatype:prefix_prefix "UMLSSG" ;
+            metatype:prefix_reference "https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/GROUP/" ],
         [ metatype:prefix_prefix "qud" ;
             metatype:prefix_reference "http://qudt.org/1.1/schema/qudt#" ],
+        [ metatype:prefix_prefix "UMLSSC" ;
+            metatype:prefix_reference "https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/TUI/" ],
+        [ metatype:prefix_prefix "biolink" ;
+            metatype:prefix_reference "https://w3id.org/biolink/vocab/" ],
+        [ metatype:prefix_prefix "UMLSST" ;
+            metatype:prefix_reference "https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/STY/" ],
+        [ metatype:prefix_prefix "biolinkml" ;
+            metatype:prefix_reference "https://w3id.org/biolink/biolinkml/" ],
         [ metatype:prefix_prefix "skos" ;
             metatype:prefix_reference "http://www.w3.org/2004/02/skos/core#" ],
         [ metatype:prefix_prefix "SIO" ;
             metatype:prefix_reference "http://semanticscience.org/resource/SIO_" ],
-        [ metatype:prefix_prefix "UMLSSG" ;
-            metatype:prefix_reference "https://uts-ws.nlm.nih.gov/rest/semantic-network/semantic-network/current/GROUP/" ],
-        [ metatype:prefix_prefix "biolinkml" ;
-            metatype:prefix_reference "https://w3id.org/biolink/biolinkml/" ] ;
+        [ metatype:prefix_prefix "OBAN" ;
+            metatype:prefix_reference "http://purl.org/oban/" ],
+        [ metatype:prefix_prefix "wgs" ;
+            metatype:prefix_reference "http://www.w3.org/2003/01/geo/wgs84_pos" ] ;
     metatype:slots [ a metatype:SlotDefinition ;
             rdfs:label "name" ;
             metatype:definition_uri "https://w3id.org/biolink/vocab/name" ;
@@ -82,42 +83,36 @@
             metatype:required true ;
             metatype:slot_uri "https://w3id.org/biolink/vocab/id" ] ;
     metatype:source_file "issue_namespace.yaml" ;
-    metatype:source_file_date "Tue Jan 26 20:23:51 2021" ;
+    metatype:source_file_date "Mon Feb 22 18:44:26 2021" ;
     metatype:source_file_size 1600 ;
     metatype:types [ a metatype:TypeDefinition ;
-            rdfs:label "identifier_type" ;
-            dct:description "A string that is intended to uniquely identify a thing May be URI in full or compact (CURIE) form" ;
+            rdfs:label "objectidentifier" ;
+            dct:description "A URI or CURIE that represents an object in the model." ;
             metatype:base "ElementIdentifier" ;
-            metatype:definition_uri "https://w3id.org/biolink/vocab/IdentifierType" ;
-            metatype:from_schema "https://w3id.org/biolink/biolink-model" ;
-            metatype:uri "http://www.w3.org/2001/XMLSchema#anyURI" ],
-        [ a metatype:TypeDefinition ;
-            rdfs:label "string" ;
-            dct:description "A character string" ;
-            metatype:base "str" ;
-            metatype:definition_uri "https://w3id.org/biolink/biolinkml/meta/types/String" ;
+            metatype:comments "Used for inheritence and type checking" ;
+            metatype:definition_uri "https://w3id.org/biolink/biolinkml/meta/types/Objectidentifier" ;
             metatype:from_schema "https://w3id.org/biolink/biolinkml/types" ;
             metatype:imported_from "biolinkml:types" ;
-            metatype:uri "http://www.w3.org/2001/XMLSchema#string" ],
+            metatype:repr "str" ;
+            metatype:uri "http://www.w3.org/ns/shex#iri" ],
         [ a metatype:TypeDefinition ;
-            rdfs:label "uri" ;
-            dct:description "a complete URI" ;
-            metatype:base "URI" ;
-            metatype:definition_uri "https://w3id.org/biolink/biolinkml/meta/types/Uri" ;
+            rdfs:label "uriorcurie" ;
+            dct:description "a URI or a CURIE" ;
+            metatype:base "URIorCURIE" ;
+            metatype:definition_uri "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie" ;
             metatype:from_schema "https://w3id.org/biolink/biolinkml/types" ;
             metatype:imported_from "biolinkml:types" ;
             metatype:repr "str" ;
             metatype:uri "http://www.w3.org/2001/XMLSchema#anyURI" ],
         [ a metatype:TypeDefinition ;
-            rdfs:label "time" ;
-            dct:description "A time object represents a (local) time of day, independent of any particular day" ;
-            metatype:base "XSDTime" ;
-            metatype:definition_uri "https://w3id.org/biolink/biolinkml/meta/types/Time" ;
+            rdfs:label "nodeidentifier" ;
+            dct:description "A URI, CURIE or BNODE that represents a node in a model." ;
+            metatype:base "NodeIdentifier" ;
+            metatype:definition_uri "https://w3id.org/biolink/biolinkml/meta/types/Nodeidentifier" ;
             metatype:from_schema "https://w3id.org/biolink/biolinkml/types" ;
             metatype:imported_from "biolinkml:types" ;
-            metatype:notes "URI is dateTime because OWL reasoners don't work with straight date or time" ;
             metatype:repr "str" ;
-            metatype:uri "http://www.w3.org/2001/XMLSchema#dateTime" ],
+            metatype:uri "http://www.w3.org/ns/shex#nonLiteral" ],
         [ a metatype:TypeDefinition ;
             rdfs:label "double" ;
             dct:description "A real number that conforms to the xsd:double specification" ;
@@ -136,50 +131,14 @@
             metatype:repr "bool" ;
             metatype:uri "http://www.w3.org/2001/XMLSchema#boolean" ],
         [ a metatype:TypeDefinition ;
-            rdfs:label "decimal" ;
-            dct:description "A real number with arbitrary precision that conforms to the xsd:decimal specification" ;
-            metatype:base "Decimal" ;
-            metatype:definition_uri "https://w3id.org/biolink/biolinkml/meta/types/Decimal" ;
-            metatype:from_schema "https://w3id.org/biolink/biolinkml/types" ;
-            metatype:imported_from "biolinkml:types" ;
-            metatype:uri "http://www.w3.org/2001/XMLSchema#decimal" ],
-        [ a metatype:TypeDefinition ;
-            rdfs:label "objectidentifier" ;
-            dct:description "A URI or CURIE that represents an object in the model." ;
-            metatype:base "ElementIdentifier" ;
-            metatype:comments "Used for inheritence and type checking" ;
-            metatype:definition_uri "https://w3id.org/biolink/biolinkml/meta/types/Objectidentifier" ;
-            metatype:from_schema "https://w3id.org/biolink/biolinkml/types" ;
-            metatype:imported_from "biolinkml:types" ;
-            metatype:repr "str" ;
-            metatype:uri "http://www.w3.org/ns/shex#iri" ],
-        [ a metatype:TypeDefinition ;
-            rdfs:label "nodeidentifier" ;
-            dct:description "A URI, CURIE or BNODE that represents a node in a model." ;
-            metatype:base "NodeIdentifier" ;
-            metatype:definition_uri "https://w3id.org/biolink/biolinkml/meta/types/Nodeidentifier" ;
-            metatype:from_schema "https://w3id.org/biolink/biolinkml/types" ;
-            metatype:imported_from "biolinkml:types" ;
-            metatype:repr "str" ;
-            metatype:uri "http://www.w3.org/ns/shex#nonLiteral" ],
-        [ a metatype:TypeDefinition ;
-            rdfs:label "uriorcurie" ;
-            dct:description "a URI or a CURIE" ;
-            metatype:base "URIorCURIE" ;
-            metatype:definition_uri "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie" ;
+            rdfs:label "uri" ;
+            dct:description "a complete URI" ;
+            metatype:base "URI" ;
+            metatype:definition_uri "https://w3id.org/biolink/biolinkml/meta/types/Uri" ;
             metatype:from_schema "https://w3id.org/biolink/biolinkml/types" ;
             metatype:imported_from "biolinkml:types" ;
             metatype:repr "str" ;
             metatype:uri "http://www.w3.org/2001/XMLSchema#anyURI" ],
-        [ a metatype:TypeDefinition ;
-            rdfs:label "ncname" ;
-            dct:description "Prefix part of CURIE" ;
-            metatype:base "NCName" ;
-            metatype:definition_uri "https://w3id.org/biolink/biolinkml/meta/types/Ncname" ;
-            metatype:from_schema "https://w3id.org/biolink/biolinkml/types" ;
-            metatype:imported_from "biolinkml:types" ;
-            metatype:repr "str" ;
-            metatype:uri "http://www.w3.org/2001/XMLSchema#string" ],
         [ a metatype:TypeDefinition ;
             rdfs:label "date" ;
             dct:description "a date (year, month and day) in an idealized calendar" ;
@@ -190,6 +149,14 @@
             metatype:notes "URI is dateTime because OWL reasoners don't work with straight date or time" ;
             metatype:repr "str" ;
             metatype:uri "http://www.w3.org/2001/XMLSchema#date" ],
+        [ a metatype:TypeDefinition ;
+            rdfs:label "string" ;
+            dct:description "A character string" ;
+            metatype:base "str" ;
+            metatype:definition_uri "https://w3id.org/biolink/biolinkml/meta/types/String" ;
+            metatype:from_schema "https://w3id.org/biolink/biolinkml/types" ;
+            metatype:imported_from "biolinkml:types" ;
+            metatype:uri "http://www.w3.org/2001/XMLSchema#string" ],
         [ a metatype:TypeDefinition ;
             rdfs:label "float" ;
             dct:description "A real number that conforms to the xsd:float specification" ;
@@ -214,6 +181,40 @@
             metatype:definition_uri "https://w3id.org/biolink/biolinkml/meta/types/Integer" ;
             metatype:from_schema "https://w3id.org/biolink/biolinkml/types" ;
             metatype:imported_from "biolinkml:types" ;
-            metatype:uri "http://www.w3.org/2001/XMLSchema#integer" ] .
+            metatype:uri "http://www.w3.org/2001/XMLSchema#integer" ],
+        [ a metatype:TypeDefinition ;
+            rdfs:label "decimal" ;
+            dct:description "A real number with arbitrary precision that conforms to the xsd:decimal specification" ;
+            metatype:base "Decimal" ;
+            metatype:definition_uri "https://w3id.org/biolink/biolinkml/meta/types/Decimal" ;
+            metatype:from_schema "https://w3id.org/biolink/biolinkml/types" ;
+            metatype:imported_from "biolinkml:types" ;
+            metatype:uri "http://www.w3.org/2001/XMLSchema#decimal" ],
+        [ a metatype:TypeDefinition ;
+            rdfs:label "identifier_type" ;
+            dct:description "A string that is intended to uniquely identify a thing May be URI in full or compact (CURIE) form" ;
+            metatype:base "ElementIdentifier" ;
+            metatype:definition_uri "https://w3id.org/biolink/vocab/IdentifierType" ;
+            metatype:from_schema "https://w3id.org/biolink/biolink-model" ;
+            metatype:uri "http://www.w3.org/2001/XMLSchema#anyURI" ],
+        [ a metatype:TypeDefinition ;
+            rdfs:label "time" ;
+            dct:description "A time object represents a (local) time of day, independent of any particular day" ;
+            metatype:base "XSDTime" ;
+            metatype:definition_uri "https://w3id.org/biolink/biolinkml/meta/types/Time" ;
+            metatype:from_schema "https://w3id.org/biolink/biolinkml/types" ;
+            metatype:imported_from "biolinkml:types" ;
+            metatype:notes "URI is dateTime because OWL reasoners don't work with straight date or time" ;
+            metatype:repr "str" ;
+            metatype:uri "http://www.w3.org/2001/XMLSchema#dateTime" ],
+        [ a metatype:TypeDefinition ;
+            rdfs:label "ncname" ;
+            dct:description "Prefix part of CURIE" ;
+            metatype:base "NCName" ;
+            metatype:definition_uri "https://w3id.org/biolink/biolinkml/meta/types/Ncname" ;
+            metatype:from_schema "https://w3id.org/biolink/biolinkml/types" ;
+            metatype:imported_from "biolinkml:types" ;
+            metatype:repr "str" ;
+            metatype:uri "http://www.w3.org/2001/XMLSchema#string" ] .
 
 
