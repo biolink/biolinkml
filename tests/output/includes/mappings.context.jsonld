@@ -1,8 +1,11 @@
 {
-   "_comments": "Auto generated from mappings.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2020-08-25 16:38\nSchema: mappings\n\nid: https://w3id.org/biolink/biolinkml/mappings\ndescription: Biolink model for mappings\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
+   "_comments": "Auto generated from mappings.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2021-02-22 18:45\nSchema: mappings\n\nid: https://w3id.org/biolink/biolinkml/mappings\ndescription: Biolink model for mappings\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
    "@context": {
       "type": "@type",
-      "IAO": "http://purl.obolibrary.org/obo/IAO_",
+      "IAO": {
+         "@id": "http://purl.obolibrary.org/obo/IAO_",
+         "@prefix": true
+      },
       "OIO": "http://www.geneontology.org/formats/oboInOwl#",
       "biolinkml": "https://w3id.org/biolink/biolinkml/",
       "meta": "https://w3id.org/biolink/biolinkml/meta/",

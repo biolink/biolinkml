@@ -1,8 +1,11 @@
 {
-   "_comments": "Auto generated from meta.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2021-01-04 21:51\nSchema: metamodel\n\nid: https://w3id.org/biolink/biolinkml/meta\ndescription: A metamodel for defining biolink related schemas\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
+   "_comments": "Auto generated from meta.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2021-02-22 18:45\nSchema: metamodel\n\nid: https://w3id.org/biolink/biolinkml/meta\ndescription: A metamodel for defining biolink related schemas\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
    "@context": {
       "type": "@type",
-      "IAO": "http://purl.obolibrary.org/obo/IAO_",
+      "IAO": {
+         "@id": "http://purl.obolibrary.org/obo/IAO_",
+         "@prefix": true
+      },
       "OIO": "http://www.geneontology.org/formats/oboInOwl#",
       "bibo": "http://purl.org/ontology/bibo/",
       "biolinkml": "https://w3id.org/biolink/biolinkml/",
