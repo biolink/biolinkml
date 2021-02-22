@@ -1,0 +1,55 @@
+id: http://example.org/sample/sql
+
+prefixes:
+  ex: http://example.org/
+  biolinkml: https://w3id.org/biolink/biolinkml/
+
+imports:
+  - biolinkml:types
+
+default_prefix: ex
+
+subsets:
+  mysubset: {}
+
+types:
+  unitcode:
+    base: str
+    uri: xsd:string
+
+classes:
+  person:
+    slots:
+      - id
+      - name
+      - aliases
+    slot_usage:
+      id:
+        identifier: true
+        required: true
+      name:
+        required: true
+      aliases:
+        multivalued: true
+
+  employee:
+    is_a: person
+    attributes:
+      start date: string
+      is current: boolean
+
+  organization:
+    slot_usage:
+      has employees:
+        range: employee
+        multivalued: true
+
+slots:
+  id:
+    identifier
+  name: {}
+  aliases: {}
+  employees: {}
+
+
+

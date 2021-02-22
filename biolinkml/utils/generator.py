@@ -85,6 +85,8 @@ class Generator(metaclass=abc.ABCMeta):
             self.schema_location = gen.schema_location
             self.schema_defaults = gen.schema_defaults
             self.logger = gen.logger
+        elif isinstance(schema, SchemaDefinition):
+            self.schema = schema
         else:
             loader = SchemaLoader(schema, self.base_dir, useuris=useuris, importmap=importmap, logger=self.logger,
                                   mergeimports=mergeimports, emit_metadata=emit_metadata,
