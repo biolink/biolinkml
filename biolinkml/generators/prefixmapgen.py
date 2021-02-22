@@ -47,8 +47,8 @@ class PrefixGenerator(Generator):
             dflt = self.namespaces.prefix_for(self.schema.default_prefix)
             if dflt:
                 self.default_ns = dflt
-            default_uri = self.namespaces[self.default_ns]
-            self.emit_prefixes.add(self.default_ns)
+            if self.default_ns:
+                self.emit_prefixes.add(self.default_ns)
 
     def end_schema(self, base: Optional[str] = None, output: Optional[str] = None, **_) -> None:
         
