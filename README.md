@@ -392,3 +392,4 @@ If the Pypi release failed, make fixes, [delete the GitHub release](https://help
  * https://github.com/diatomsRcool/collections-attribution-model
  * https://github.com/cmungall/dasher/tree/master/src/schema
  * CCDH (todo: add link)
+ * [HOT Ecocystem termCI model](https://github.com/HOT-Ecosystem/TermCI-model)
