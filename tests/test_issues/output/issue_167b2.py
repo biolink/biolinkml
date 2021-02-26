@@ -31,7 +31,6 @@ dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 # Namespaces
 BIOLINKML = CurieNamespace('biolinkml', 'https://w3id.org/biolink/biolinkml/')
 EX = CurieNamespace('ex', 'http://example.org/')
-META = CurieNamespace('meta', 'https://w3id.org/biolink/biolinkml/meta/')
 DEFAULT_ = EX
 
 

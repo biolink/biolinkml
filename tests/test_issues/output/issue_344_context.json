@@ -1,5 +1,5 @@
 {
-   "_comments": "Auto generated from issue_344.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2021-02-25 00:02\nSchema: annotations_test\n\nid: http://example.org/tests/issue344\ndescription: \nlicense: \n",
+   "_comments": "Auto generated from issue_344.yaml by jsonldcontextgen.py version: 0.1.1\nid: http://example.org/tests/issue344\ndescription: \nlicense: \n",
    "@context": {
       "type": "@type",
       "GO": {
