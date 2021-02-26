@@ -5,6 +5,7 @@ Generate a JSON LD representation of the model
 
 """
 import os
+import urllib.parse as urlparse
 from typing import Union, TextIO, Optional
 
 import click
@@ -32,7 +33,12 @@ class RDFGenerator(Generator):
     def end_schema(self, output: Optional[str] = None, context: str = METAMODEL_CONTEXT_URI, **_) -> None:
         gen = JSONLDGenerator(self, fmt=JSONLDGenerator.valid_formats[0], emit_metadata=self.emit_metadata,
                               importmap=self.importmap)
+        # Iterate over permissible text strings making them URI compatible
+        for e in gen.schema.enums.values():
+            for pv in e.permissible_values.values():
+                pv.text = urlparse.quote(pv.text)
         jsonld_str = gen.serialize(context=context)
+
         graph = Graph()
         graph.parse(data=jsonld_str, format="json-ld", base=self.namespaces._base, prefix=True)
         if output:

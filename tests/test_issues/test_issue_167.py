@@ -33,12 +33,12 @@ class Issue167TestCase(TestEnvironmentTestCase):
         """ Annotations python example """
         env.generate_single_file('issue_167b.py',
                                  lambda: PythonGenerator(env.input_path('issue_167b.yaml'),
-                                                         importmap=env.import_map).serialize(),
+                                                         importmap=env.import_map, emit_metadata=False).serialize(),
                                  comparator=lambda exp, act: compare_python(exp, act, self.env.expected_path('issue_167b.py')),
                                  value_is_returned=True)
-        env.generate_single_file('issue_167b.py',
+        env.generate_single_file('issue_167b2.py',
                                  lambda: PythonGenerator(env.input_path('issue_167b.yaml'),
-                                                         importmap=env.import_map, mergeimports=False).serialize(),
+                                                         importmap=env.import_map, mergeimports=False, emit_metadata=False).serialize(),
                                  comparator=lambda exp, act: compare_python(exp, act, self.env.expected_path('issue_167b_nomerged.py')),
                                  value_is_returned=True)
 
