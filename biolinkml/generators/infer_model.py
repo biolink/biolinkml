@@ -17,9 +17,12 @@ import time
 from biolinkml.meta import SchemaDefinition
 from biolinkml.utils.generator import Generator, shared_arguments
 from biolinkml.utils.yamlutils import as_yaml
+from dateutil.parser import parse
 
-
-def infer_model(tsvfile: str, sep="\t", class_name='example', enum_threshold=0.1,
+def infer_model(tsvfile: str, sep="\t", class_name='example',
+                schema_name: str = 'example',
+                enum_columns=[],
+                enum_threshold=0.1,
                 max_enum_size=50) -> dict:
     with open(tsvfile, newline='') as tsvfile:
         rr = csv.DictReader(tsvfile, delimiter=sep)
@@ -30,19 +33,25 @@ def infer_model(tsvfile: str, sep="\t", class_name='example', enum_threshold=0.1
         for row in rr:
             n += 1
             for k,v in row.items():
+                vs = v.split('|')
                 if k not in slots:
                     slots[k] = {'range': None}
                     slot_values[k] = set()
                 if v is not None and v != "":
                     slots[k]['examples'] = {'value': v}
-                    slot_values[k].add(v)
-                slots[k]['range'] = intersect_ranges(slots[k]['range'], v)
+                    slot_values[k].update(vs)
+                #slots[k]['range'] = intersect_ranges(slots[k]['range'], v[0])
+                if len(vs) > 1:
+                    slots[k]['multivalued'] = True
+        types = {}
         for sn,s in slots.items():
-            if s['range'] == 'string':
-                vals = slot_values[sn]
+            vals = slot_values[sn]
+            s['range'] = infer_range(s, vals, types)
+            if s['range'] == 'string' or sn in enum_columns:
                 n_distinct = len(vals)
-                if (n_distinct / n) < enum_threshold and n_distinct <= max_enum_size:
-                    enum_name = sn.replace(' ', '_')
+                if sn in enum_columns or \
+                        ((n_distinct / n) < enum_threshold and n_distinct <= max_enum_size):
+                    enum_name = sn.replace(' ', '_').replace('(s)', '')
                     enum_name = f'{enum_name}_enum'
                     s['range'] = enum_name
                     enums[enum_name] = {
@@ -51,6 +60,16 @@ def infer_model(tsvfile: str, sep="\t", class_name='example', enum_threshold=0.1
 
 
     schema = {
+        'id': f'https://w3id.org/{schema_name}',
+        'name': schema_name,
+        'description': schema_name,
+        'imports': ['biolinkml:types'],
+        'prefixes': {
+            'biolinkml': 'https://w3id.org/biolink/biolinkml/',
+            schema_name: f'https://w3id.org/{schema_name}'
+        },
+        'default_prefix': schema_name,
+        'types': types,
         'classes': {
             class_name: {
                 'slots': list(slots.keys()),
@@ -60,6 +79,48 @@ def infer_model(tsvfile: str, sep="\t", class_name='example', enum_threshold=0.1
         'enums': enums
     }
     return schema
+
+def infer_range(slot: dict, vals: set, types: dict) -> str:
+    nn_vals = [v for v in vals if v is not None and v != ""]
+    if len(nn_vals) == 0:
+        return 'string'
+    if all(v.isdigit() for v in nn_vals):
+        return 'integer'
+    if all(is_date(v) for v in nn_vals):
+        return 'datetime'
+    v0 = nn_vals[0]
+    db = get_db(v0)
+    if db is not None:
+        if all(get_db(v) == db for v in nn_vals):
+            t = f'{db} identifier'
+            types[t] = {'typeof': 'string'}
+            return t
+        if all(get_db(v) is not None for v in nn_vals):
+            t = 'identifier'
+            types[t] = {'typeof': 'string'}
+            return t
+    return 'string'
+
+def get_db(id: str) -> str:
+    parts = id.split(':')
+    if len(parts) > 1:
+        return parts[0]
+    else:
+        return None
+
+def is_date(string, fuzzy=False):
+    """
+    Return whether the string can be interpreted as a date.
+
+    :param string: str, string to check for date
+    :param fuzzy: bool, ignore unknown tokens in string if True
+    """
+    try:
+        parse(string, fuzzy=fuzzy)
+        return True
+
+    except ValueError:
+        return False
 
 @dataclass
 class Hit():
@@ -129,22 +190,6 @@ def get_pv_element(v: str, zooma_confidence: str, cache: dict = {}) -> Hit:
         return None
 
 
-def intersect_ranges(current: str, v: str) -> str:
-    t = None
-    if v == "":
-        t = None
-    elif v.isdigit():
-        t = 'integer'
-    else:
-        t = 'string'
-    if current is None:
-        return t
-    elif current == t:
-        return t
-    elif t == None:
-        return current
-    else:
-        return 'string'
 
 
 
@@ -178,7 +223,9 @@ def main():
 @main.command()
 @click.argument('tsvfile') ## input TSV (must have column headers
 @click.option('--class_name', '-c', default='example', help='Core class name in schema')
+@click.option('--schema_name', '-n', default='example', help='Schema name')
 @click.option('--sep', '-s', default='\t', help='separator')
+@click.option('--enum-columns', '-E', multiple=True, help='column that is forced to be an enum')
 def tsv2model(tsvfile, **args):
     """ Infer a model from a TSV """
     yamlobj = infer_model(tsvfile, **args)
