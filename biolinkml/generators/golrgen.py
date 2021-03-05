@@ -71,8 +71,9 @@ class GolrSchemaGenerator(Generator):
 
     def end_class(self, cls: ClassDefinition) -> None:
         fn = os.path.join(self.dirname, underscore(cls.name + '-config.yaml'))
-        with open(fn, 'w') as f:
-            f.write(as_yaml(self.class_obj))
+        if len(self.class_obj.fields) > 1:
+            with open(fn, 'w') as f:
+                f.write(as_yaml(self.class_obj))
 
     def visit_class_slot(self, cls: ClassDefinition, aliased_slot_name: str, slot: SlotDefinition) -> None:
         field = GOLRField(id=underscore(aliased_slot_name), description=slot.description, display_name=slot.name)
