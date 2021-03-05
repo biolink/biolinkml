@@ -389,7 +389,7 @@ class MarkdownGenerator(Generator):
 
     @staticmethod
     def bullet(txt: str, level=0) -> None:
-        print(f'{"   " * level} * {txt}')
+        print(f'{"    " * level} * {txt}')
 
     def frontmatter(self, thingtype: str, layout='default') -> None:
         self.header(1, thingtype)
