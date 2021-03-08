@@ -709,6 +709,12 @@ slots:
     description: indicates that any instance of d s r implies that there is also an instance of r s' d
     slot_uri: owl:inverseOf
 
+  antonymy:
+    domain: slot_definition
+    range: slot_definition
+    description: >-
+      the state or phenomenon in which the words have the sense relation which involve the opposite of meaning.
+
   is_class_field:
     domain: slot_definition
     range: boolean
