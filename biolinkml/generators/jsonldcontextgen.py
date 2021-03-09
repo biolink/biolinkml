@@ -52,24 +52,28 @@ class ContextGenerator(Generator):
                 self.emit_prefixes.add(self.default_ns)
             else:
                 default_uri=self.schema.default_prefix
+                if self.schema.name:
+                    self.namespaces[self.schema.name] = default_uri
+                    self.emit_prefixes.add(self.schema.name)
             self.context_body['@vocab'] = default_uri
             # self.context_body['@base'] = self.base_dir
 
     def end_schema(self, base: Optional[str] = None, output: Optional[str] = None, **_) -> None:
-        comments = f'''Auto generated from {self.schema.source_file} by {self.generatorname} version: {self.generatorversion}'''
-        if self.schema.generation_date:
-            comments += f'''
-Generation date: {self.schema.generation_date}
-Schema: {self.schema.name}
-'''
-        comments += f'''
-id: {self.schema.id}
-description: {be(self.schema.description)}
-license: {be(self.schema.license)}
-'''
         context = JsonObj()
-        context["_comments"] = comments
-        context_content = {"type": "@type"}
+        if self.emit_metadata:
+            comments = f'''Auto generated from {self.schema.source_file} by {self.generatorname} version: {self.generatorversion}'''
+            if self.schema.generation_date:
+                comments += f'''
+    Generation date: {self.schema.generation_date}
+    Schema: {self.schema.name}
+    '''
+            comments += f'''
+    id: {self.schema.id}
+    description: {be(self.schema.description)}
+    license: {be(self.schema.license)}
+    '''
+            context["_comments"] = comments
+        context_content = {}
         if base:
             if '://' not in base:
                 self.context_body['@base'] = os.path.relpath(base, os.path.dirname(self.schema.source_file))

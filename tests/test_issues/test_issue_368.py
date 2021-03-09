@@ -60,10 +60,10 @@ class Issue368TestCase(TestEnvironmentTestCase):
         dump_and_load(json_dumper.dump, 'json')
         dump_and_load(yaml_dumper.dump, 'yaml')
 
-        # env.generate_single_file('issue_368.context.jsonld',
-        #                          lambda: ContextGenerator(env.input_path('issue_368.yaml')).serialize(),
-        #                          filtr=ldcontext_metadata_filter,
-        #                          value_is_returned=True)
+        env.generate_single_file('issue_368X.context.jsonld',
+                                 lambda: ContextGenerator(env.input_path('issue_368.yaml')).serialize(),
+                                 filtr=ldcontext_metadata_filter,
+                                 value_is_returned=True)
         dump_and_load(lambda obj, fname: rdf_dumper.dump(obj, fname, env.expected_path("issue_368.context.jsonld")), 'ttl')
 
 
