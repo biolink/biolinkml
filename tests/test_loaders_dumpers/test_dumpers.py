@@ -72,10 +72,11 @@ class DumpersTestCase(LDTestCase):
                         comparator=ClickTestCase.rdf_comparator)
 
         # Build a vanilla jsonld image for subsequent testing
-        fname = 'obo_sample_d.jsonld'
+        fname = 'obo_sample.jsonld'
+        dumped_fname = 'obo_sample_d.jsonld'   # Dump_test appends the "_d"
         self.dump_test(fname, lambda out_file: rdf_dumper.dump(self.test_package, out_file, contexts, fmt='json-ld'),
                        comparator=lambda e, a: ClickTestCase.rdf_comparator(e, a, fmt='json-ld'))
-        with open(self.env.expected_path(fname)) as f:
+        with open(self.env.expected_path(dumped_fname)) as f:
             txt = f.read()
         with open(self.env.input_path('obo_sample.jsonld'), 'w') as f:
             f.write(txt)

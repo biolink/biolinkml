@@ -1,5 +1,21 @@
 [
   {
+    "@id": "http://purl.obolibrary.org/obo/",
+    "http://www.w3.org/2004/02/skos/core#hasConcept": [
+      {
+        "@id": "http://purl.obolibrary.org/obo/NCI_C147796"
+      },
+      {
+        "@id": "http://purl.obolibrary.org/obo/NCI_C147557"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#prefix": [
+      {
+        "@value": "OBO"
+      }
+    ]
+  },
+  {
     "@id": "_:_:b0",
     "https://hotecosystem.org/termci/system": [
       {
@@ -65,22 +81,6 @@
     "http://www.w3.org/2004/02/skos/core#seeAlso": [
       {
         "@value": "http://purl.obolibrary.org/obo/NCI_C147796"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.obolibrary.org/obo/",
-    "http://www.w3.org/2004/02/skos/core#hasConcept": [
-      {
-        "@id": "http://purl.obolibrary.org/obo/NCI_C147557"
-      },
-      {
-        "@id": "http://purl.obolibrary.org/obo/NCI_C147796"
-      }
-    ],
-    "http://www.w3.org/ns/shacl#prefix": [
-      {
-        "@value": "OBO"
       }
     ]
   }
