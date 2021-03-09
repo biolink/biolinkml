@@ -1,19 +1,16 @@
-import os
 import unittest
 from typing import Callable
-
-from jsonasobj import as_json
 
 from biolinkml.dumpers import json_dumper, yaml_dumper, rdf_dumper
 from biolinkml.generators.jsonldcontextgen import ContextGenerator
 from biolinkml.generators.pythongen import PythonGenerator
 from tests.test_issues.environment import env
+from tests.test_loaders_dumpers.ldtestcase import LDTestCase
 from tests.utils.filters import ldcontext_metadata_filter
 from tests.utils.python_comparator import compare_python, compile_python
-from tests.utils.test_environment import TestEnvironmentTestCase
 
 
-class Issue368TestCase(TestEnvironmentTestCase):
+class Issue368TestCase(LDTestCase):
     env = env
 
     def header(self, txt: str) -> str:
@@ -60,8 +57,9 @@ class Issue368TestCase(TestEnvironmentTestCase):
         dump_and_load(json_dumper.dump, 'json')
         dump_and_load(yaml_dumper.dump, 'yaml')
 
-        env.generate_single_file('issue_368X.context.jsonld',
-                                 lambda: ContextGenerator(env.input_path('issue_368.yaml')).serialize(),
+        env.generate_single_file('issue_368.context.jsonld',
+                                 lambda: ContextGenerator(env.input_path('issue_368.yaml'),
+                                                          emit_metadata=False).serialize(),
                                  filtr=ldcontext_metadata_filter,
                                  value_is_returned=True)
         dump_and_load(lambda obj, fname: rdf_dumper.dump(obj, fname, env.expected_path("issue_368.context.jsonld")), 'ttl')

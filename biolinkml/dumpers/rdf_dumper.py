@@ -42,14 +42,20 @@ def as_rdf_graph(element: YAMLRoot, contexts: CONTEXTS_PARAM_TYPE, namespaces: C
         ns_source = inp_contexts
 
     # TODO: make a utility out of this or add it to prefixcommons
-    for pfx, ns in ns_source['@context'].items():
-        if isinstance(ns, dict):
-            if '@id' in ns and ns.get('@prefix', False):
-                ns = ns['@id']
-            else:
-                continue
-        if not pfx.startswith('@'):
-            g.bind(pfx, ns)
+    if ns_source and hasattr(ns_source, '@context'):
+        ns_contexts = ns_source['@context']
+        if isinstance(ns_contexts, dict):
+            ns_contexts = [ns_contexts]
+        for ns_context in ns_contexts:
+            if isinstance(ns_context, dict):
+                for pfx, ns in ns_context.items():
+                    if isinstance(ns, dict):
+                        if '@id' in ns and ns.get('@prefix', False):
+                            ns = ns['@id']
+                        else:
+                            continue
+                    if not pfx.startswith('@'):
+                        g.bind(pfx, ns)
 
     return g
 

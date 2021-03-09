@@ -10,12 +10,19 @@ import click
 from jsonasobj import JsonObj, as_json
 from rdflib import XSD
 
-from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, Definition, Element
+from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, Definition, Element, EnumDefinition
 from biolinkml.utils.formatutils import camelcase, underscore, be
 from biolinkml.utils.generator import Generator, shared_arguments
 from includes.types import SHEX
 
 URI_RANGES = (XSD.anyURI, SHEX.nonliteral, SHEX.bnode, SHEX.iri)
+
+ENUM_CONTEXT = {
+    "@vocab": "@null",
+    "text": "skos:notation",
+    "description": "skos:prefLabel",
+    "meaning": "@id"
+}
 
 
 class ContextGenerator(Generator):
@@ -123,8 +130,7 @@ class ContextGenerator(Generator):
                 if slot.range in self.schema.classes:
                     slot_def['@type'] = '@id'
                 elif slot.range in self.schema.enums:
-                    # TODO: enums - fill this in
-                    pass
+                    slot_def['@context'] = ENUM_CONTEXT
                 else:
                     range_type = self.schema.types[slot.range]
                     if self.namespaces.uri_for(range_type.uri) == XSD.string:
