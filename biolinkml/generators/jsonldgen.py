@@ -23,7 +23,7 @@ class JSONLDGenerator(Generator):
     def _add_type(self, node: YAMLRoot) -> dict:
         typ = node.__class__.__name__
         node = node.__dict__
-        node['type'] = typ
+        node['@type'] = typ
         return node
 
     def _visit(self, node: Any) -> Optional[Any]:

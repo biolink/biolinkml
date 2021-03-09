@@ -1,4 +1,5 @@
-from typing import Union, Any, List, Optional, Type
+from copy import copy
+from typing import Union, Any, List, Optional, Type, Callable
 
 import yaml
 from jsonasobj import JsonObj, as_json
@@ -31,23 +32,26 @@ class YAMLRoot(JsonObj):
                 messages.append(f"{TypedNode.yaml_loc(k)} Unknown argument: {k} = {v}")
             raise ValueError('\n'.join(messages))
 
-    def _default(self, obj):
+    def _default(self, obj, filtr: Callable[[dict], dict] = None):
         """ JSON serializer callback.
         1) Filter out empty values (None, {}, [] and False) and mangle the names
         2) Add ID entries for dictionary entries
 
         :param obj: YAMLRoot object to serialize
+        :param filtr: Filter to remove elements
         :return: Serialized version of obj
         """
 
         if isinstance(obj, JsonObj):
             rval = dict()
-            for k, v in obj.__dict__.items():
+            for k, v in (filtr(obj.__dict__) if filtr else obj.__dict__).items():
                 is_classvar = k.startswith("type_") and hasattr(type(obj), k)
                 if is_classvar:
                     print(f"***** {k} is classvar ")
                 if not is_classvar and not k.startswith('_') and v is not None and\
                         (not isinstance(v, (dict, list, bool)) or v):
+
+                    from biolinkml.utils.enumerations import EnumDefinitionImpl
                     if isinstance(v, dict):
                         itemslist = []
                         for vk, vv in v.items():
@@ -58,6 +62,10 @@ class YAMLRoot(JsonObj):
                             #         vv['@id'] = underscore(vk)
                             itemslist.append(vv)
                         rval[k] = itemslist
+                    # TODO: Figure out how to make EnumDefinitionImpl a subclass of EnumDefinition
+                    # elif isinstance(v, EnumDefinition):
+                    elif isinstance(v, EnumDefinitionImpl):
+                        rval[k] = v.code
                     else:
                         rval[k] = v
             return rval
@@ -145,6 +153,11 @@ def root_representer(dumper: yaml.Dumper, data: YAMLRoot):
     @param data: data to be dumped
     @return:
     """
+    # TODO: Figure out how to import EnumDefinition here
+    # elif isinstance(v, EnumDefinition):
+    from biolinkml.utils.enumerations import EnumDefinitionImpl
+    if isinstance(data, EnumDefinitionImpl):
+        data = data.code
     rval = dict()
     for k, v in data.__dict__.items():
         if not k.startswith('_') and v is not None and (not isinstance(v, (dict, list)) or v):
@@ -173,8 +186,8 @@ def as_json_object(element: YAMLRoot, contexts: CONTEXTS_PARAM_TYPE = None) -> J
     :param contexts: context(s) to include in the output
     :return: JsonObj representation of element
     """
-    rval = JsonObj(**element.__dict__)
-    rval['type'] = element.__class__.__name__
+    rval = copy(element)
+    rval['@type'] = element.__class__.__name__
     context_element = merge_contexts(contexts)
     if context_element:
         rval['@context'] = context_element['@context']

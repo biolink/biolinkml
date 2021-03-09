@@ -37,7 +37,7 @@ def load(source: Union[str, dict, TextIO], base_dir: Optional[str], target_class
         typ = data_as_dict.pop('@type', None)
         # TODO: Remove this when https://github.com/biolink/biolinkml/issues/364 gets fixed
         if not typ:
-            typ = data_as_dict.pop('type', None)
+            typ = data_as_dict.pop('@type', None)
         if typ and typ != target_class.__name__:
             # TODO: connect this up with the logging facility or warning?
             print(f"Warning: input type mismatch. Expected: {target_class.__name__}, Actual: {typ}")
