@@ -19,8 +19,8 @@ URI: [meta:LocalName](https://w3id.org/biolink/biolinkml/meta/LocalName)
 ### Own
 
  * [local_name_source](local_name_source.md)  <sub>REQ</sub>
-    * Description: the ncname of the source of the name
-    * range: [Ncname](types/Ncname.md)
+     * Description: the ncname of the source of the name
+     * range: [Ncname](types/Ncname.md)
  * [local_name_value](local_name_value.md)  <sub>REQ</sub>
-    * Description: a name assigned to an element in a given ontology
-    * range: [String](types/String.md)
+     * Description: a name assigned to an element in a given ontology
+     * range: [String](types/String.md)

@@ -23,5 +23,5 @@ URI: [meta:Extensible](https://w3id.org/biolink/biolinkml/meta/Extensible)
 ### Own
 
  * [extensions](extensions.md)  <sub>0..*</sub>
-    * Description: a tag/text tuple attached to an arbitrary element
-    * range: [Extension](Extension.md)
+     * Description: a tag/text tuple attached to an arbitrary element
+     * range: [Extension](Extension.md)

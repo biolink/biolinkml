@@ -19,8 +19,8 @@ URI: [meta:Example](https://w3id.org/biolink/biolinkml/meta/Example)
 ### Own
 
  * value  <sub>OPT</sub>
-    * Description: example value
-    * range: [String](types/String.md)
+     * Description: example value
+     * range: [String](types/String.md)
  * value_description  <sub>OPT</sub>
-    * Description: description of what the value is doing
-    * range: [String](types/String.md)
+     * Description: description of what the value is doing
+     * range: [String](types/String.md)

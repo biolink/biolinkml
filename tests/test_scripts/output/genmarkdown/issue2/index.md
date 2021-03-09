@@ -8,13 +8,13 @@ A metamodel for defining biolink related schemas
 ### Classes
 
  * [Element](Element.md) - a named element in the model
-    * definition
-       * class_definition
-       * slot_definition
-    * enum_definition
-    * schema_definition
-    * subset_definition
-    * type_definition
+     * definition
+         * class_definition
+         * slot_definition
+     * enum_definition
+     * schema_definition
+     * subset_definition
+     * type_definition
  * [Example](Example.md) - usage example and description
 
 ### Mixins
