@@ -2,8 +2,8 @@ import contextlib
 import filecmp
 import logging
 import os
-import sys
 import shutil
+import sys
 import unittest
 from enum import Enum
 from importlib import import_module
@@ -13,7 +13,6 @@ from typing import Optional, Callable, Union, List
 
 from biolinkml import TYPES_FILE_NAME, LOCAL_METAMODEL_YAML_FILE, LOCAL_TYPES_YAML_FILE, \
     MAPPING_FILE_NAME, LOCAL_MAPPING_YAML_FILE
-
 from tests.utils.dirutils import are_dir_trees_equal
 from tests.utils.mismatchlog import MismatchLog
 
@@ -234,11 +233,13 @@ class TestEnvironment:
                     actualf.write(actual)
         return actual
 
-    def eval_single_file(self, expected_file_path: str, actual_text: str, filtr: Callable[[str], str],
+    def eval_single_file(self, expected_file_path: str, actual_text: str, filtr: Callable[[str], str] = None,
                          comparator: Callable[[str, str], str] = None) -> bool:
         """ Compare actual_text to the contents of the expected file.  Log a message if there is a mismatch and
             overwrite the expected file if we're not in the fail on error mode
         """
+        if filtr is None:
+            filtr = lambda s: s
         if comparator is None:
             comparator = self.string_comparator
         if os.path.exists(expected_file_path):
