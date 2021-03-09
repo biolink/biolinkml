@@ -1,5 +1,6 @@
 import os
-from typing import Callable, Type, Union, TextIO, Optional
+import urllib
+from typing import Callable, Type, Union, TextIO, Optional, List
 
 from hbreader import FileInfo, hbread
 
@@ -69,3 +70,22 @@ class LDTestCase(TestEnvironmentTestCase):
         expected = hbread(filename, base_path=self.env.indir)
         python_obj: YAMLRoot = loader.loads(expected, model, metadata.clear())
         self.env.eval_single_file(expected_yaml, yaml_dumper.dumps(python_obj))
+
+    @staticmethod
+    def check_context_servers(possible_server: List[str]) -> Optional[str]:
+        """
+        Work down possible servers to see whether any of them are actually available
+        :param possible_server: Ordered list of servers to check
+
+        :return: Particular server to use
+        """
+        def is_listening(svr: str) -> bool:
+            components = urllib.parse.urlparse(svr)
+            import socket
+            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+                return s.connect_ex((components.hostname, components.port)) == 0
+
+        for svr in possible_server:
+            if is_listening(svr):
+                return svr
+        return None

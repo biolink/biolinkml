@@ -83,21 +83,16 @@ class DumpersTestCase(LDTestCase):
     @unittest.skip("Waiting until PyLD learns to handle relative context URI's")
     def test_nested_contexts(self):
         """ Test JSON-LD with fully nested contexts """
-        def is_listening(port):
-            import socket
-            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-                return s.connect_ex(('localhost', port)) == 0
 
-        use_http = is_listening(HTTP_TEST_PORT)
-        use_https = is_listening(HTTPS_TEST_PORT)
-        if not (use_http or use_https):
-            print(f"*****> Nested contexts test skipped - no servers found on sockets {HTTP_TEST_PORT} or"
-                  f" {HTTPS_TEST_PORT}")
-            return
-        context_servers = [LD_11_SVR] if use_http else []
-        # TODO: Fix the certificate issue in hbreader
-        if use_https and False:
-            context_servers.append(LD_11_SSL_SVR)
+        context_servers = []
+        for possible_server in [LD_11_SVR, LD_11_SSL_SVR]:
+            svr = self.check_context_servers([possible_server])
+            if svr:
+                context_servers.append(svr)
+
+        if not context_servers:
+            raise unittest.SkipTest(f"*****> Nested contexts test skipped - no servers found on sockets "
+                                    f"{HTTP_TEST_PORT} or {HTTPS_TEST_PORT}")
 
         for context_base in context_servers:
             nested_context = context_base + 'Package.context.jsonld'

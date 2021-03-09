@@ -15,9 +15,17 @@ This directory contains a variety of contexts for use with the JSON-LD module
   
 ## Starting the docker web server
 ```bash
-> cd tests/test_loaders/dumpers/jsonld-context
-> docker image build . -t context_server
-> docker run -it --rm -d -p 8000:80 -p 8443:443 --name context_server -v `pwd`/:/usr/share/nginx/html context_server 
+> cd tests/test_loaders_dumpers/jsonld-context
+> ./db.sh
+    ...
+Step 9/9 : EXPOSE 80 443
+ ---> Using cache
+ ---> 19c5600029ca
+Successfully built 19c5600029ca
+Successfully tagged context_server:latest   
+> ./dr.sh 
+e98f7b5bf6cfa8f2d937724aec0723aa074e3d844a25933e0ba2692e9a3e5058
+>
 ```
 To test that the server is running:
 ```bash
@@ -43,6 +51,12 @@ To test that the server is running:
    "_comments": "Auto generated from termci_schema.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2021-02-12 11:24\nSchema: termci_schema\n\nid: https://w3id.org/termci_schema\ndescription: Terminology Code Index model\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
    "@context": {
     ...
+>
+```
+After the testing is complete, the server can be stopped with
+```bash
+> ./ds.sh 
+context_server
 >
 ```
 The ports that you select for `http:` and `https:` can be assigned however you wish, but if you pick something the
