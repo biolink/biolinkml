@@ -23,11 +23,11 @@ URI: [meta:Extension](https://w3id.org/biolink/biolinkml/meta/Extension)
 ### Own
 
  * [extension➞tag](extension_tag.md)  <sub>REQ</sub>
-    * Description: a tag associated with an extension
-    * range: [Uriorcurie](types/Uriorcurie.md)
+     * Description: a tag associated with an extension
+     * range: [Uriorcurie](types/Uriorcurie.md)
  * [extension➞value](extension_value.md)  <sub>REQ</sub>
-    * Description: the actual annotation
-    * range: [String](types/String.md)
+     * Description: the actual annotation
+     * range: [String](types/String.md)
  * [extensions](extensions.md)  <sub>0..*</sub>
-    * Description: a tag/text tuple attached to an arbitrary element
-    * range: [Extension](Extension.md)
+     * Description: a tag/text tuple attached to an arbitrary element
+     * range: [Extension](Extension.md)
