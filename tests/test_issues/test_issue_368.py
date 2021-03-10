@@ -52,6 +52,7 @@ class Issue368TestCase(LDTestCase):
             fname = env.actual_path(f'issue_368_1.{sfx}')
             dumper(example, fname)
             with open(fname) as f:
+                print(f'\n----- {sfx} -----')
                 print(f.read())
 
         dump_and_load(json_dumper.dump, 'json')

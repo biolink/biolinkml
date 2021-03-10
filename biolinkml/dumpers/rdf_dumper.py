@@ -42,7 +42,7 @@ def as_rdf_graph(element: YAMLRoot, contexts: CONTEXTS_PARAM_TYPE, namespaces: C
         ns_source = inp_contexts
 
     # TODO: make a utility out of this or add it to prefixcommons
-    if ns_source and hasattr(ns_source, '@context'):
+    if ns_source and '@context' in ns_source:
         ns_contexts = ns_source['@context']
         if isinstance(ns_contexts, dict):
             ns_contexts = [ns_contexts]
