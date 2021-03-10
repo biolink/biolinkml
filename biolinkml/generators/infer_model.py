@@ -3,9 +3,10 @@
 """
 import os
 import re
+import copy
 import requests
 from dataclasses import dataclass
-from typing import Union
+from typing import Union, List
 from typing.io import TextIO
 
 import logging
@@ -21,7 +22,8 @@ from dateutil.parser import parse
 
 def infer_model(tsvfile: str, sep="\t", class_name='example',
                 schema_name: str = 'example',
-                enum_columns=[],
+                robot:bool = False,
+                enum_columns: List[str]=[],
                 enum_threshold=0.1,
                 max_enum_size=50) -> dict:
     with open(tsvfile, newline='') as tsvfile:
@@ -30,8 +32,14 @@ def infer_model(tsvfile: str, sep="\t", class_name='example',
         slot_values = {}
         n = 0
         enums = {}
+        robot_defs = {}
+        slot_usage = {}
         for row in rr:
             n += 1
+            if n == 1 and robot:
+                for k,v in row.items():
+                    robot_defs[k] = v
+                continue
             for k,v in row.items():
                 vs = v.split('|')
                 if k not in slots:
@@ -40,10 +48,10 @@ def infer_model(tsvfile: str, sep="\t", class_name='example',
                 if v is not None and v != "":
                     slots[k]['examples'] = {'value': v}
                     slot_values[k].update(vs)
-                #slots[k]['range'] = intersect_ranges(slots[k]['range'], v[0])
                 if len(vs) > 1:
                     slots[k]['multivalued'] = True
         types = {}
+        equiv_str = None
         for sn,s in slots.items():
             vals = slot_values[sn]
             s['range'] = infer_range(s, vals, types)
@@ -57,7 +65,19 @@ def infer_model(tsvfile: str, sep="\t", class_name='example',
                     enums[enum_name] = {
                         'permissible_values': {v:{'description': v} for v in vals}
                     }
+            if k in robot_defs:
+                rd = robot_defs[sn]
+                if 'SPLIT' in rd:
+                    rd = re.sub(' SPLIT.*', '', rd)
+                if rd.startswith("EC"):
+                    equiv_str = rd.replace('EC ', '').replace('%', '{' + k + '}')
+                elif rd == 'TYPE':
+                    s['slot_uri'] = 'rdf:type'
+                elif rd.startswith("A "):
+                    s['slot_uri'] = rd.replace('A ', '')
 
+        if equiv_str is not None:
+            slot_usage['equivalence axiom'] = { 'string_serialization': equiv_str }
 
     schema = {
         'id': f'https://w3id.org/{schema_name}',
@@ -73,6 +93,7 @@ def infer_model(tsvfile: str, sep="\t", class_name='example',
         'classes': {
             class_name: {
                 'slots': list(slots.keys()),
+                'slot_usage': slot_usage
             }
         },
         'slots': slots,
@@ -216,6 +237,31 @@ def infer_enum_meanings(schema: dict,
                         pv['description'] = hit.name
 
 
+def merge_schemas(schemas):
+    schema = copy.deepcopy(schemas[0])
+    for s in schemas:
+        for n,x in s['classes'].items():
+            if n not in schema['classes']:
+                schema['classes'][n] = x
+        for n,x in s['slots'].items():
+            if n not in schema['slots']:
+                schema['slots'][n] = x
+            else:
+                None # TODO
+        for n,x in s['types'].items():
+            if n not in schema['types']:
+                schema['types'][n] = x
+            else:
+                None # TODO
+        for n,x in s['enums'].items():
+            if n not in schema['enums']:
+                schema['enums'][n] = x
+            else:
+                None # TODO
+    return schema
+
+
+
 @click.group()
 def main():
     pass
@@ -226,9 +272,25 @@ def main():
 @click.option('--schema_name', '-n', default='example', help='Schema name')
 @click.option('--sep', '-s', default='\t', help='separator')
 @click.option('--enum-columns', '-E', multiple=True, help='column that is forced to be an enum')
+@click.option('--robot/--no-robot', default=False, help='set if the TSV is a ROBOT template')
 def tsv2model(tsvfile, **args):
     """ Infer a model from a TSV """
     yamlobj = infer_model(tsvfile, **args)
+    print(yaml.dump(yamlobj, default_flow_style=False, sort_keys=False))
+
+@main.command()
+@click.argument('tsvfiles', nargs=-1) ## input TSV (must have column headers
+@click.option('--schema_name', '-n', default='example', help='Schema name')
+@click.option('--sep', '-s', default='\t', help='separator')
+@click.option('--enum-columns', '-E', multiple=True, help='column that is forced to be an enum')
+@click.option('--robot/--no-robot', default=False, help='set if the TSV is a ROBOT template')
+def tsvs2model(tsvfiles, **args):
+    """ Infer a model from a TSV """
+    yamlobjs = []
+    for tsvfile in tsvfiles:
+        c = os.path.splitext(os.path.basename(tsvfile))[0]
+        yamlobjs.append(infer_model(tsvfile, class_name=c, **args))
+    yamlobj = merge_schemas(yamlobjs)
     print(yaml.dump(yamlobj, default_flow_style=False, sort_keys=False))
 
 @main.command()
