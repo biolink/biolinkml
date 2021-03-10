@@ -16,11 +16,11 @@ Biolink model for mappings
  * [deprecated element has exact replacement](deprecated_element_has_exact_replacement.md) - When an element is deprecated, it can be automatically replaced by this uri or curie
  * [deprecated element has possible replacement](deprecated_element_has_possible_replacement.md) - When an element is deprecated, it can be potentially replaced by this uri or curie
  * [mappings](mappings.md) - A list of terms from different schemas or terminology systems that have comparable meaning. These may include terms that are precisely equivalent, broader or narrower in meaning, or otherwise semantically related but not equivalent from a strict ontological perspective.
-    * [broad mappings](broad_mappings.md) - A list of terms from different schemas or terminology systems that have broader meaning.
-    * [close mappings](close_mappings.md) - A list of terms from different schemas or terminology systems that have close meaning.
-    * [exact mappings](exact_mappings.md) - A list of terms from different schemas or terminology systems that have identical meaning.
-    * [narrow mappings](narrow_mappings.md) - A list of terms from different schemas or terminology systems that have narrower meaning.
-    * [related mappings](related_mappings.md) - A list of terms from different schemas or terminology systems that have related meaning.
+     * [broad mappings](broad_mappings.md) - A list of terms from different schemas or terminology systems that have broader meaning.
+     * [close mappings](close_mappings.md) - A list of terms from different schemas or terminology systems that have close meaning.
+     * [exact mappings](exact_mappings.md) - A list of terms from different schemas or terminology systems that have identical meaning.
+     * [narrow mappings](narrow_mappings.md) - A list of terms from different schemas or terminology systems that have narrower meaning.
+     * [related mappings](related_mappings.md) - A list of terms from different schemas or terminology systems that have related meaning.
 
 ### Types
 

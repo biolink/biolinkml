@@ -8,11 +8,11 @@
 ### Classes
 
  * [HasMessagesClass](HasMessagesClass.md)
-    * [HasMessagesChild](HasMessagesChild.md)
+     * [HasMessagesChild](HasMessagesChild.md)
  * [MetricResult](MetricResult.md) - Result of executing a metric on a KS
-    * [MetricResultChild](MetricResultChild.md)
+     * [MetricResultChild](MetricResultChild.md)
  * [Problem](Problem.md) - An object representing an error or problem encountered
-    * [DownloadProblem](DownloadProblem.md) - A problem in downloading a knowledge source
+     * [DownloadProblem](DownloadProblem.md) - A problem in downloading a knowledge source
 
 ### Mixins
 

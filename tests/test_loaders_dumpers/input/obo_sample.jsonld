@@ -1,17 +1,14 @@
 [
   {
-    "@id": "http://purl.obolibrary.org/obo/",
-    "http://www.w3.org/2004/02/skos/core#hasConcept": [
-      {
-        "@id": "http://purl.obolibrary.org/obo/NCI_C147796"
-      },
+    "@id": "http://purl.obolibrary.org/obo/NCI_C147796",
+    "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "http://purl.obolibrary.org/obo/NCI_C147557"
       }
     ],
-    "http://www.w3.org/ns/shacl#prefix": [
+    "http://www.w3.org/2004/02/skos/core#definition": [
       {
-        "@value": "OBO"
+        "@value": "Trauma Symptom Checklist for Young Children (TSCYC) Please indicate how often the child has done, felt, or experienced each of the following things in the last month: Being frightened of men."
       }
     ]
   },
@@ -23,6 +20,21 @@
     "https://hotecosystem.org/termci/system": [
       {
         "@id": "http://purl.obolibrary.org/obo/"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "C147796"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@value": "TSCYC - Being Frightened of Men"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#seeAlso": [
+      {
+        "@value": "http://purl.obolibrary.org/obo/NCI_C147796"
       }
     ]
   },
@@ -81,7 +93,7 @@
         "@value": "C147557"
       }
     ],
-    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+    "http://www.w3.org/ns/shacl#prefix": [
       {
         "@value": "TSCYC Questionnaire Question"
       }
