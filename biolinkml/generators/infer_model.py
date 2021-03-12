@@ -51,7 +51,7 @@ def infer_model(tsvfile: str, sep="\t", class_name='example',
                 if len(vs) > 1:
                     slots[k]['multivalued'] = True
         types = {}
-        equiv_str = None
+        new_slots = {}
         for sn,s in slots.items():
             vals = slot_values[sn]
             s['range'] = infer_range(s, vals, types)
@@ -65,20 +65,54 @@ def infer_model(tsvfile: str, sep="\t", class_name='example',
                     enums[enum_name] = {
                         'permissible_values': {v:{'description': v} for v in vals}
                     }
+            # ROBOT template hints. See http://robot.obolibrary.org/template
             if k in robot_defs:
                 rd = robot_defs[sn]
                 if 'SPLIT' in rd:
                     rd = re.sub(' SPLIT.*', '', rd)
                 if rd.startswith("EC"):
-                    equiv_str = rd.replace('EC ', '').replace('%', '{' + k + '}')
+                    rd = rd.replace('EC ', '')
+                    rel = capture_robot_some(rd)
+                    ss = rd.replace('%', '{' + k + '}')
+                    slot_usage['equivalence axiom'] = {'string_serialization': ss}
+                    if rel is not None:
+                        s['is_a'] = rel
+                        new_slots[rel] = {}
+                elif rd.startswith("SC"):
+                    rd = rd.replace('SC ', '')
+                    rel = capture_robot_some(rd)
+                    ss = rd.replace('%', '{' + k + '}')
+                    slot_usage['subclass axiom'] = {'string_serialization': ss}
+                    if rel is not None:
+                        s['is_a'] = rel
+                        new_slots[rel] = {}
+                elif rd.startswith("C"):
+                    rd = rd.replace('C ', '')
+                    if rd == '%':
+                        s['broad_mappings'] = ['rdfs:subClassOf']
+                    rel = capture_robot_some(rd)
+                    if rel is not None:
+                        s['is_a'] = rel
+                        new_slots[rel] = {}
+                elif rd.startswith("I"):
+                    rd = rd.replace('I ', '')
+                    # TODO
                 elif rd == 'TYPE':
                     s['slot_uri'] = 'rdf:type'
+                elif rd == 'ID':
+                    s['identifier'] = True
+                elif rd == 'LABEL':
+                    s['slot_uri'] = 'rdfs:label'
                 elif rd.startswith("A "):
                     s['slot_uri'] = rd.replace('A ', '')
-
-        if equiv_str is not None:
-            slot_usage['equivalence axiom'] = { 'string_serialization': equiv_str }
-
+                elif rd.startswith("AT "):
+                    s['slot_uri'] = re.sub('^^.*', '', rd.replace('AT ', ''))
+                elif rd.startswith(">A "):
+                    logging.warning('Axiom annotations not supported')
+    class_slots = list(slots.keys())
+    for sn,s in new_slots.items():
+        if sn not in slots:
+            slots[sn] = s
     schema = {
         'id': f'https://w3id.org/{schema_name}',
         'name': schema_name,
@@ -92,7 +126,7 @@ def infer_model(tsvfile: str, sep="\t", class_name='example',
         'types': types,
         'classes': {
             class_name: {
-                'slots': list(slots.keys()),
+                'slots': class_slots,
                 'slot_usage': slot_usage
             }
         },
@@ -100,6 +134,23 @@ def infer_model(tsvfile: str, sep="\t", class_name='example',
         'enums': enums
     }
     return schema
+
+def capture_robot_some(s: str) -> str:
+    """
+    parses an OWL some values from from a robot template
+    :param s:
+    :return:
+    """
+    results = re.findall('(\S+) some %',s)
+    if len(results) == 0:
+        return None
+    else:
+        r = results[0]
+        if ':' in r:
+            # only use named properties
+            return None
+        else:
+            return r
 
 def infer_range(slot: dict, vals: set, types: dict) -> str:
     nn_vals = [v for v in vals if v is not None and v != ""]
