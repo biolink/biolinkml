@@ -23,6 +23,7 @@ class LoadersUnitTest(LDTestCase):
     def test_json_loader(self):
         self.loader_test('obo_sample.json', Package, json_loader)
 
+    @unittest.skip("This needs an enhanced (https://github.com/hsolbrig/pyld) version of pyld")
     def test_rdf_loader(self):
         if self.context_server == LD_10_DIR:
             raise unittest.SkipTest("*****> Loading skipped until JSON-LD processor can handle non-http files")

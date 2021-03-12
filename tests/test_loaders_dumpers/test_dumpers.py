@@ -57,6 +57,7 @@ class DumpersTestCase(LDTestCase):
                         lambda: json_dumper.dumps(self.test_package,
                                                   GITHUB_LD11_CONTEXT + 'termci_schema_inlined.context.jsonld'))
 
+    @unittest.skip("This needs an enhanced (https://github.com/hsolbrig/pyld) version of pyld")
     def test_rdf_dumper(self):
         """ Test the rdf dumper """
         contexts = os.path.join(LD_11_DIR, 'termci_schema_inlined.context.jsonld')
