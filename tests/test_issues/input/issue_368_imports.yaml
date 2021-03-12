@@ -4,7 +4,7 @@ classes:
   parent_class: {}
 
 enums:
-  e:
+  sample_enum:
     permissible_values:
-      a: A
-      b: B
+      pva: PVA description
+      pvb: PVB description

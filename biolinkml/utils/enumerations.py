@@ -2,6 +2,7 @@ from dataclasses import fields
 from typing import Union, Optional
 
 from biolinkml.utils.metamodelcore import Curie
+from biolinkml.utils.yamlutils import YAMLRoot
 
 
 class EnumDefinitionMeta(type):
@@ -27,7 +28,7 @@ class EnumDefinitionMeta(type):
         return item in cls.__dict__
 
 
-class EnumDefinitionImpl(metaclass=EnumDefinitionMeta):
+class EnumDefinitionImpl(YAMLRoot, metaclass=EnumDefinitionMeta):
     _defn: "EnumDefinition" = None         # Overridden by implementation
 
     def __init__(self, code: Union[str, Curie, "PermissibleValue"]) -> None:

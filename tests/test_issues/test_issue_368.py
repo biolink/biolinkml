@@ -1,15 +1,16 @@
-import os
 import unittest
+from typing import Callable
 
-from jsonasobj import as_json
-
+from biolinkml.dumpers import json_dumper, yaml_dumper, rdf_dumper
+from biolinkml.generators.jsonldcontextgen import ContextGenerator
 from biolinkml.generators.pythongen import PythonGenerator
 from tests.test_issues.environment import env
+from tests.test_loaders_dumpers.ldtestcase import LDTestCase
+from tests.utils.filters import ldcontext_metadata_filter
 from tests.utils.python_comparator import compare_python, compile_python
-from tests.utils.test_environment import TestEnvironmentTestCase
 
 
-class Issue368TestCase(TestEnvironmentTestCase):
+class Issue368TestCase(LDTestCase):
     env = env
 
     def header(self, txt: str) -> str:
@@ -17,40 +18,52 @@ class Issue368TestCase(TestEnvironmentTestCase):
 
     def test_issue_368(self):
         """ Make sure that types are generated as part of the output """
-        env.generate_single_file('issues_368_imports.py',
-                                lambda: PythonGenerator(env.input_path('issues_368_imports.yaml'),
+        env.generate_single_file('issue_368_imports.py',
+                                lambda: PythonGenerator(env.input_path('issue_368_imports.yaml'),
                                                      mergeimports=False).serialize(),
-                                comparator=lambda exp, act: compare_python(exp, act, self.env.expected_path('issues_368_imports.py')),
+                                comparator=lambda exp, act: compare_python(exp, act, self.env.expected_path('issue_368_imports.py')),
                                 value_is_returned=True)
         env.generate_single_file('issue_368.py',
                                  lambda: PythonGenerator(env.input_path('issue_368.yaml'),
                                                          mergeimports=False).serialize(),
                                  comparator=lambda exp, act: compare_python(exp, act, self.env.expected_path('issue_368.py')),
                                  value_is_returned=True)
+
         with open(env.expected_path('issue_368.py')) as f:
             python= f.read()
 
         has_imports = False
         for line in python.split("\n"):
-            if line.startswith("from . issues_368_imports"):
-                imps = line.replace("from . issues_368_imports import ","").split(", ")
-                assert 'E' in imps
+            if line.startswith("from . issue_368_imports"):
+                imps = line.replace("from . issue_368_imports import ","").split(", ")
+                assert 'SampleEnum' in imps
                 assert 'ParentClass' in imps
                 has_imports = True
         assert has_imports
         module = compile_python(env.expected_path('issue_368.py'))
 
-        enum_inst = module.E("a") # EnumInstanceImpl
-        example = module.C(s="a")
-        assert hasattr(example, "s")
-        assert example.s.code.text == enum_inst.code.text
-        assert str(example.s) == "a: A"
-        def output_generator(dirname) -> None:
-            with open(os.path.join(dirname, 'issue_368_1.json'), 'w') as f:
-                f.write(as_json(example))
+        enum_inst = module.SampleEnum("pva") # EnumInstanceImpl
+        example = module.SampleClass(slot_1="pva")
+        assert hasattr(example, "slot_1")
+        assert example.slot_1.code.text == enum_inst.code.text
+        assert str(example.slot_1) == "pva: PVA description"
 
-        # TODO: fix this
-        # env.generate_directory('issue_368', lambda dirname: output_generator(dirname))
+        def dump_and_load(dumper: Callable, sfx: str) -> None:
+            fname = env.actual_path(f'issue_368_1.{sfx}')
+            dumper(example, fname)
+            with open(fname) as f:
+                print(f'\n----- {sfx} -----')
+                print(f.read())
+
+        dump_and_load(json_dumper.dump, 'json')
+        dump_and_load(yaml_dumper.dump, 'yaml')
+
+        env.generate_single_file('issue_368.context.jsonld',
+                                 lambda: ContextGenerator(env.input_path('issue_368.yaml'),
+                                                          emit_metadata=False).serialize(),
+                                 filtr=ldcontext_metadata_filter,
+                                 value_is_returned=True)
+        dump_and_load(lambda obj, fname: rdf_dumper.dump(obj, fname, env.expected_path("issue_368.context.jsonld")), 'ttl')
 
 
 if __name__ == '__main__':

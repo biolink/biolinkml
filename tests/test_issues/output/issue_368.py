@@ -1,6 +1,6 @@
 # Auto generated from issue_368.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-02-16 19:05
-# Schema: schema
+# Generation date: 2021-03-09 15:29
+# Schema: bms
 #
 # id: https://microbiomedata/schema
 # description:
@@ -24,7 +24,7 @@ from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from biolinkml.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
-from . issues_368_imports import E, ParentClass
+from . issue_368_imports import ParentClass, SampleEnum
 
 metamodel_version = "1.7.0"
 
@@ -43,19 +43,19 @@ DEFAULT_ = CurieNamespace('', 'https://microbiomedata/schema/')
 
 
 @dataclass
-class C(ParentClass):
+class SampleClass(ParentClass):
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = URIRef("https://microbiomedata/schema/C")
+    class_class_uri: ClassVar[URIRef] = URIRef("https://microbiomedata/schema/SampleClass")
     class_class_curie: ClassVar[str] = None
-    class_name: ClassVar[str] = "c"
-    class_model_uri: ClassVar[URIRef] = URIRef("https://microbiomedata/schema/C")
+    class_name: ClassVar[str] = "SampleClass"
+    class_model_uri: ClassVar[URIRef] = URIRef("https://microbiomedata/schema/SampleClass")
 
-    s: Optional[Union[str, "E"]] = None
+    slot_1: Optional[Union[str, "SampleEnum"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.s is not None and not isinstance(self.s, E):
-            self.s = E(self.s)
+        if self.slot_1 is not None and not isinstance(self.slot_1, SampleEnum):
+            self.slot_1 = SampleEnum(self.slot_1)
 
         super().__post_init__(**kwargs)
 
@@ -67,5 +67,5 @@ class C(ParentClass):
 class slots:
     pass
 
-slots.s = Slot(uri=DEFAULT_.s, name="s", curie=DEFAULT_.curie('s'),
-                   model_uri=DEFAULT_.s, domain=None, range=Optional[Union[str, "E"]])
+slots.slot_1 = Slot(uri=DEFAULT_.slot_1, name="slot_1", curie=DEFAULT_.curie('slot_1'),
+                   model_uri=DEFAULT_.slot_1, domain=None, range=Optional[Union[str, "SampleEnum"]])

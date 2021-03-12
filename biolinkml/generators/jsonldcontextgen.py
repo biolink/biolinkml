@@ -8,14 +8,23 @@ from typing import Union, TextIO, Set, Optional
 
 import click
 from jsonasobj import JsonObj, as_json
-from rdflib import XSD
+from rdflib import XSD, SKOS
 
-from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, Definition, Element
+from biolinkml.meta import SchemaDefinition, ClassDefinition, SlotDefinition, Definition, Element, EnumDefinition
 from biolinkml.utils.formatutils import camelcase, underscore, be
 from biolinkml.utils.generator import Generator, shared_arguments
 from includes.types import SHEX
 
+
 URI_RANGES = (XSD.anyURI, SHEX.nonliteral, SHEX.bnode, SHEX.iri)
+
+
+ENUM_CONTEXT = {
+    "@vocab": "@null",
+    "text": "skos:notation",
+    "description": "skos:prefLabel",
+    "meaning": "@id"
+}
 
 
 class ContextGenerator(Generator):
@@ -52,24 +61,28 @@ class ContextGenerator(Generator):
                 self.emit_prefixes.add(self.default_ns)
             else:
                 default_uri=self.schema.default_prefix
+                if self.schema.name:
+                    self.namespaces[self.schema.name] = default_uri
+                    self.emit_prefixes.add(self.schema.name)
             self.context_body['@vocab'] = default_uri
             # self.context_body['@base'] = self.base_dir
 
     def end_schema(self, base: Optional[str] = None, output: Optional[str] = None, **_) -> None:
-        comments = f'''Auto generated from {self.schema.source_file} by {self.generatorname} version: {self.generatorversion}'''
-        if self.schema.generation_date:
-            comments += f'''
-Generation date: {self.schema.generation_date}
-Schema: {self.schema.name}
-'''
-        comments += f'''
-id: {self.schema.id}
-description: {be(self.schema.description)}
-license: {be(self.schema.license)}
-'''
         context = JsonObj()
-        context["_comments"] = comments
-        context_content = {"type": "@type"}
+        if self.emit_metadata:
+            comments = f'''Auto generated from {self.schema.source_file} by {self.generatorname} version: {self.generatorversion}'''
+            if self.schema.generation_date:
+                comments += f'''
+    Generation date: {self.schema.generation_date}
+    Schema: {self.schema.name}
+    '''
+            comments += f'''
+    id: {self.schema.id}
+    description: {be(self.schema.description)}
+    license: {be(self.schema.license)}
+    '''
+            context["_comments"] = comments
+        context_content = {}
         if base:
             if '://' not in base:
                 self.context_body['@base'] = os.path.relpath(base, os.path.dirname(self.schema.source_file))
@@ -119,8 +132,13 @@ license: {be(self.schema.license)}
                 if slot.range in self.schema.classes:
                     slot_def['@type'] = '@id'
                 elif slot.range in self.schema.enums:
-                    # TODO: enums - fill this in
-                    pass
+                    slot_def['@context'] = ENUM_CONTEXT
+                    # Add the necessary prefixes to the namespace
+                    skos = self.namespaces.prefix_for(SKOS)
+                    if not skos:
+                        self.namespaces['skos'] = SKOS
+                        skos = 'skos'
+                    self.emit_prefixes.add(skos)
                 else:
                     range_type = self.schema.types[slot.range]
                     if self.namespaces.uri_for(range_type.uri) == XSD.string:

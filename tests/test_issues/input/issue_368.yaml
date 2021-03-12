@@ -1,19 +1,20 @@
 id: https://microbiomedata/schema
+name: bms
 
 prefixes:
   biolinkml: https://w3id.org/biolink/biolinkml/
 
 imports:
   - biolinkml:types
-  - issues_368_imports
+  - issue_368_imports
 
 classes:
 
-  c:
+  SampleClass:
     is_a: parent_class
     slots:
-      - s
+      - slot_1
 
 slots:
-  s:
-    range: e
+  slot_1:
+    range: sample_enum

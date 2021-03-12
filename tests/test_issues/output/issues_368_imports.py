@@ -1,5 +1,5 @@
-# Auto generated from issues_368_imports.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-02-16 19:05
+# Auto generated from issue_368_imports.yaml by pythongen.py version: 0.9.0
+# Generation date: 2021-03-09 13:45
 # Schema: mixs
 #
 # id: https://microbiomedata/schema/mixs
@@ -51,15 +51,15 @@ class ParentClass(YAMLRoot):
 
 
 # Enumerations
-class E(EnumDefinitionImpl):
+class SampleEnum(EnumDefinitionImpl):
 
-    a = PermissibleValue(text="a",
-                         description="A")
-    b = PermissibleValue(text="b",
-                         description="B")
+    pva = PermissibleValue(text="pva",
+                             description="PVA description")
+    pvb = PermissibleValue(text="pvb",
+                             description="PVB description")
 
     _defn = EnumDefinition(
-        name="E",
+        name="SampleEnum",
     )
 
 # Slots
