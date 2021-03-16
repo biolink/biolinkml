@@ -881,7 +881,7 @@ class {enum_name}(EnumDefinitionImpl):
 @click.option("--slots/--no-slots", default=True, help="Generate Slot information")
 def cli(yamlfile, head=True, genmeta=False, classvars=True, slots=True, **args):
     """ Generate python classes to represent a biolink model """
-    print(PythonGenerator(yamlfile, emit_metadata=head, gen_meta=genmeta, gen_classvars=classvars, gen_slots=slots,  **args).serialize(emit_metadata=head, **args))
+    print(PythonGenerator(yamlfile, emit_metadata=head, genmeta=genmeta, gen_classvars=classvars, gen_slots=slots,  **args).serialize(emit_metadata=head, **args))
 
 
 if __name__ == '__main__':
