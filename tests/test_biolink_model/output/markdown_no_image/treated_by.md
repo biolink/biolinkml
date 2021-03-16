@@ -17,6 +17,7 @@ URI: [biolink:treated_by](https://w3id.org/biolink/vocab/treated_by)
 
 ## Children
 
+ *  [approved for treatment by](approved_for_treatment_by.md)
 
 ## Used by
 

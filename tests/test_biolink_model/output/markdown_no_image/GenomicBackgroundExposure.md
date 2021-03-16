@@ -61,7 +61,7 @@ URI: [biolink:GenomicBackgroundExposure](https://w3id.org/biolink/vocab/GenomicB
 ### Mixed in from gene grouping mixin:
 
  * [has gene or gene product](has_gene_or_gene_product.md)  <sub>0..*</sub>
-     * Description: connects an entity with one or more gene products
+     * Description: connects an entity with one or more gene or gene products
      * range: [Gene](Gene.md)
 
 ### Mixed in from exposure event:

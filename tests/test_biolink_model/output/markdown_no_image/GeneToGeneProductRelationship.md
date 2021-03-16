@@ -7,7 +7,7 @@ A gene is transcribed and potentially translated to a gene product
 URI: [biolink:GeneToGeneProductRelationship](https://w3id.org/biolink/vocab/GeneToGeneProductRelationship)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SequenceFeatureRelationship],[Publication],[OntologyClass],[GeneProduct]<object%201..1-%20[GeneToGeneProductRelationship&#124;predicate:predicate_type;relation(i):uriorcurie;negated(i):boolean%20%3F;type(i):string%20%3F;id(i):string;iri(i):iri_type%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[Gene]<subject%201..1-%20[GeneToGeneProductRelationship],[SequenceFeatureRelationship]^-[GeneToGeneProductRelationship],[GeneProduct],[Gene],[Attribute],[Association],[Agent])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SequenceFeatureRelationship],[Publication],[OntologyClass],[GeneProductMixin]<object%201..1-++[GeneToGeneProductRelationship&#124;predicate:predicate_type;relation(i):uriorcurie;negated(i):boolean%20%3F;type(i):string%20%3F;category(i):category_type%20*;id(i):string;iri(i):iri_type%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[Gene]<subject%201..1-%20[GeneToGeneProductRelationship],[SequenceFeatureRelationship]^-[GeneToGeneProductRelationship],[GeneProductMixin],[Gene],[Attribute],[Agent])
 
 ## Parents
 
@@ -22,7 +22,7 @@ URI: [biolink:GeneToGeneProductRelationship](https://w3id.org/biolink/vocab/Gene
 ### Own
 
  * [gene to gene product relationship➞object](gene_to_gene_product_relationship_object.md)  <sub>REQ</sub>
-     * range: [GeneProduct](GeneProduct.md)
+     * range: [GeneProductMixin](GeneProductMixin.md)
  * [gene to gene product relationship➞predicate](gene_to_gene_product_relationship_predicate.md)  <sub>REQ</sub>
      * range: [PredicateType](types/PredicateType.md)
  * [gene to gene product relationship➞subject](gene_to_gene_product_relationship_subject.md)  <sub>REQ</sub>
@@ -30,8 +30,8 @@ URI: [biolink:GeneToGeneProductRelationship](https://w3id.org/biolink/vocab/Gene
 
 ### Inherited from sequence feature relationship:
 
- * [association➞category](association_category.md)  <sub>1..*</sub>
-     * range: [Association](Association.md)
+ * [association➞category](association_category.md)  <sub>0..*</sub>
+     * range: [CategoryType](types/CategoryType.md)
  * [association➞type](association_type.md)  <sub>OPT</sub>
      * Description: rdf:type of biolink:Association should be fixed at rdf:Statement
      * range: [String](types/String.md)

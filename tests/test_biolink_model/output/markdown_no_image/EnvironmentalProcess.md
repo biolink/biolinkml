@@ -15,11 +15,11 @@ URI: [biolink:EnvironmentalProcess](https://w3id.org/biolink/vocab/Environmental
 
 ## Uses Mixins
 
- *  mixin: [Occurrent](Occurrent.md) - A processual entity
+ *  mixin: [Occurrent](Occurrent.md) - A processual entity.
 
 ## Children
 
- * [EnvironmentalExposure](EnvironmentalExposure.md) - A environmental exposure is a factor relating to abiotic processes in the environment including atmospheric (heat, cold, general pollution) and water-born contaminants
+ * [EnvironmentalExposure](EnvironmentalExposure.md) - A environmental exposure is a factor relating to abiotic processes in the environment including sunlight (UV-B), atmospheric (heat, cold, general pollution) and water-born contaminants.
 
 ## Referenced by class
 

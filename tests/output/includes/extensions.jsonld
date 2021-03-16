@@ -32,7 +32,7 @@
       "imported_from": "biolinkml:types",
       "base": "str",
       "uri": "http://www.w3.org/2001/XMLSchema#string",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "integer",
@@ -42,7 +42,7 @@
       "imported_from": "biolinkml:types",
       "base": "int",
       "uri": "http://www.w3.org/2001/XMLSchema#integer",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "boolean",
@@ -53,7 +53,7 @@
       "base": "Bool",
       "uri": "http://www.w3.org/2001/XMLSchema#boolean",
       "repr": "bool",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "float",
@@ -63,7 +63,7 @@
       "imported_from": "biolinkml:types",
       "base": "float",
       "uri": "http://www.w3.org/2001/XMLSchema#float",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "double",
@@ -73,7 +73,7 @@
       "imported_from": "biolinkml:types",
       "base": "float",
       "uri": "http://www.w3.org/2001/XMLSchema#double",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "decimal",
@@ -83,7 +83,7 @@
       "imported_from": "biolinkml:types",
       "base": "Decimal",
       "uri": "http://www.w3.org/2001/XMLSchema#decimal",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "time",
@@ -97,7 +97,7 @@
       "base": "XSDTime",
       "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "date",
@@ -111,7 +111,7 @@
       "base": "XSDDate",
       "uri": "http://www.w3.org/2001/XMLSchema#date",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "datetime",
@@ -122,7 +122,7 @@
       "base": "XSDDateTime",
       "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "uriorcurie",
@@ -133,7 +133,7 @@
       "base": "URIorCURIE",
       "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "uri",
@@ -144,7 +144,7 @@
       "base": "URI",
       "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "ncname",
@@ -155,7 +155,7 @@
       "base": "NCName",
       "uri": "http://www.w3.org/2001/XMLSchema#string",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "objectidentifier",
@@ -169,7 +169,7 @@
       "base": "ElementIdentifier",
       "uri": "http://www.w3.org/ns/shex#iri",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "nodeidentifier",
@@ -180,7 +180,7 @@
       "base": "NodeIdentifier",
       "uri": "http://www.w3.org/ns/shex#nonLiteral",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     }
   ],
   "slots": [
@@ -199,7 +199,7 @@
         "Extension",
         "Extensible"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "extension_tag",
@@ -215,7 +215,7 @@
       "domain_of": [
         "Extension"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "extension_value",
@@ -231,7 +231,7 @@
       "domain_of": [
         "Extension"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     }
   ],
   "classes": [
@@ -246,7 +246,7 @@
         "extensions"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/Extension",
-      "type": "ClassDefinition"
+      "@type": "ClassDefinition"
     },
     {
       "name": "Extensible",
@@ -258,15 +258,15 @@
         "extensions"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/Extensible",
-      "type": "ClassDefinition"
+      "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.7.0",
   "source_file": "extensions.yaml",
-  "source_file_date": "Tue Jan 26 20:23:51 2021",
+  "source_file_date": "Tue Mar 16 16:33:33 2021",
   "source_file_size": 1127,
-  "generation_date": "2021-01-26 20:24",
-  "type": "SchemaDefinition",
+  "generation_date": "2021-03-16 16:34",
+  "@type": "SchemaDefinition",
   "@context": [
     [
       "https://w3id.org/biolink/biolinkml/context.jsonld",

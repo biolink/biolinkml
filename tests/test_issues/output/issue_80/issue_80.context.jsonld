@@ -1,7 +1,6 @@
 {
-   "_comments": "Auto generated from issue_80.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2020-08-25 16:45\nSchema: Issue_80_test_case\n\nid: http://example.org/issues/80\ndescription: Example identifier\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
+   "_comments": "Auto generated from issue_80.yaml by jsonldcontextgen.py version: 0.1.1\n    Generation date: 2021-03-16 16:36\n    Schema: Issue_80_test_case\n    \n    id: http://example.org/issues/80\n    description: Example identifier\n    license: https://creativecommons.org/publicdomain/zero/1.0/\n    ",
    "@context": {
-      "type": "@type",
       "biolink": "https://w3id.org/biolink/vocab/",
       "biolinkml": "https://w3id.org/biolink/biolinkml/",
       "ex": "http://example.org/",

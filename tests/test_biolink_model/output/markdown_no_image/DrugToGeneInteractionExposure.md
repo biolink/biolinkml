@@ -26,16 +26,10 @@ URI: [biolink:DrugToGeneInteractionExposure](https://w3id.org/biolink/vocab/Drug
      * Description: a human-readable description of an entity
      * range: [NarrativeText](types/NarrativeText.md)
      * in subsets: (translator_minimal)
- * [has active ingredient](has_active_ingredient.md)  <sub>0..*</sub>
-     * Description: one or more chemical substance which are the active ingredient(s) of a drug
-     * range: [ChemicalSubstance](ChemicalSubstance.md)
  * [has attribute](has_attribute.md)  <sub>0..*</sub>
      * Description: connects any entity to an attribute
      * range: [Attribute](Attribute.md)
      * in subsets: (samples)
- * [has excipient](has_excipient.md)  <sub>0..*</sub>
-     * Description: one or more (generally inert) chemical substances which are formulated alongside the active ingredient of a drug
-     * range: [ChemicalSubstance](ChemicalSubstance.md)
  * [id](id.md)  <sub>REQ</sub>
      * Description: A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI
      * range: [String](types/String.md)
@@ -63,5 +57,5 @@ URI: [biolink:DrugToGeneInteractionExposure](https://w3id.org/biolink/vocab/Drug
 ### Mixed in from gene grouping mixin:
 
  * [has gene or gene product](has_gene_or_gene_product.md)  <sub>0..*</sub>
-     * Description: connects an entity with one or more gene products
+     * Description: connects an entity with one or more gene or gene products
      * range: [Gene](Gene.md)

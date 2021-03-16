@@ -13,12 +13,27 @@ URI: [biolink:GeneFamily](https://w3id.org/biolink/vocab/GeneFamily)
 
  * PANTHER.FAMILY
  * HGNC.FAMILY
- * FlyBase
+ * FB
  * interpro
+ * CATH
+ * CDD
+ * HAMAP
+ * PFAM
+ * PIRSF
+ * PRINTS
+ * PRODOM
+ * PROSITE
+ * SMART
+ * SUPFAM
+ * TIGRFAM
+ * CATH.SUPERFAMILY
+ * RFAM
+ * KEGG.ORTHOLOGY
+ * EGGNOG
 
 ## Parents
 
- *  is_a: [MolecularEntity](MolecularEntity.md) - A gene, gene product, small molecule or macromolecule (including protein complex)
+ *  is_a: [MolecularEntity](MolecularEntity.md) - A gene, gene product, small molecule or macromolecule (including protein complex)"
 
 ## Uses Mixins
 
@@ -64,13 +79,15 @@ URI: [biolink:GeneFamily](https://w3id.org/biolink/vocab/GeneFamily)
 ### Mixed in from gene grouping mixin:
 
  * [has gene or gene product](has_gene_or_gene_product.md)  <sub>0..*</sub>
-     * Description: connects an entity with one or more gene products
+     * Description: connects an entity with one or more gene or gene products
      * range: [Gene](Gene.md)
 
 ## Other properties
 
 |  |  |  |
 | --- | --- | --- |
+| **Aliases:** | | orthogroup |
+|  | | protein family |
 | **In Subsets:** | | model_organism_database |
 | **Exact Mappings:** | | NCIT:C26004 |
 |  | | WIKIDATA:Q2278983 |

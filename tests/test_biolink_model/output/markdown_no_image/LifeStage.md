@@ -71,4 +71,5 @@ URI: [biolink:LifeStage](https://w3id.org/biolink/vocab/LifeStage)
 | --- | --- | --- |
 | **In Subsets:** | | model_organism_database |
 | **Exact Mappings:** | | UBERON:0000105 |
+| **Narrow Mappings:** | | HsapDv:0000000 |
 

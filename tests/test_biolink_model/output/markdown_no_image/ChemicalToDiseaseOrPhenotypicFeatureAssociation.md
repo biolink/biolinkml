@@ -7,7 +7,7 @@ An interaction between a chemical entity and a phenotype or disease, where the p
 URI: [biolink:ChemicalToDiseaseOrPhenotypicFeatureAssociation](https://w3id.org/biolink/vocab/ChemicalToDiseaseOrPhenotypicFeatureAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[OntologyClass],[NamedThing],[EntityToDiseaseOrPhenotypicFeatureAssociationMixin],[DiseaseOrPhenotypicFeature],[ChemicalToEntityAssociationMixin],[DiseaseOrPhenotypicFeature]<object%201..1-%20[ChemicalToDiseaseOrPhenotypicFeatureAssociation&#124;predicate(i):predicate_type;relation(i):uriorcurie;negated(i):boolean%20%3F;type(i):string%20%3F;id(i):string;iri(i):iri_type%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[ChemicalToDiseaseOrPhenotypicFeatureAssociation]uses%20-.->[ChemicalToEntityAssociationMixin],[ChemicalToDiseaseOrPhenotypicFeatureAssociation]uses%20-.->[EntityToDiseaseOrPhenotypicFeatureAssociationMixin],[Association]^-[ChemicalToDiseaseOrPhenotypicFeatureAssociation],[Attribute],[Association],[Agent])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[OntologyClass],[NamedThing],[EntityToDiseaseOrPhenotypicFeatureAssociationMixin],[DiseaseOrPhenotypicFeature],[ChemicalToEntityAssociationMixin],[DiseaseOrPhenotypicFeature]<object%201..1-%20[ChemicalToDiseaseOrPhenotypicFeatureAssociation&#124;predicate(i):predicate_type;relation(i):uriorcurie;negated(i):boolean%20%3F;type(i):string%20%3F;category(i):category_type%20*;id(i):string;iri(i):iri_type%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[ChemicalToDiseaseOrPhenotypicFeatureAssociation]uses%20-.->[ChemicalToEntityAssociationMixin],[ChemicalToDiseaseOrPhenotypicFeatureAssociation]uses%20-.->[EntityToDiseaseOrPhenotypicFeatureAssociationMixin],[Association]^-[ChemicalToDiseaseOrPhenotypicFeatureAssociation],[Attribute],[Association],[Agent])
 
 ## Parents
 
@@ -32,8 +32,8 @@ URI: [biolink:ChemicalToDiseaseOrPhenotypicFeatureAssociation](https://w3id.org/
 
 ### Inherited from association:
 
- * [association➞category](association_category.md)  <sub>1..*</sub>
-     * range: [Association](Association.md)
+ * [association➞category](association_category.md)  <sub>0..*</sub>
+     * range: [CategoryType](types/CategoryType.md)
  * [association➞type](association_type.md)  <sub>OPT</sub>
      * Description: rdf:type of biolink:Association should be fixed at rdf:Statement
      * range: [String](types/String.md)

@@ -7,7 +7,7 @@ A chemical substance (often a mixture) processed for consumption for nutritional
 URI: [biolink:ProcessedMaterial](https://w3id.org/biolink/vocab/ProcessedMaterial)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[ProcessedMaterial&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F]uses%20-.->[Mixture],[ChemicalSubstance]^-[ProcessedMaterial],[OrganismTaxon],[NamedThing],[Mixture],[ChemicalSubstance],[Attribute],[Agent])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[ProcessedMaterial&#124;is_metabolite(i):boolean%20%3F;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F]uses%20-.->[Mixture],[ProcessedMaterial]uses%20-.->[OntologyClass],[ChemicalSubstance]^-[ProcessedMaterial],[OrganismTaxon],[OntologyClass],[NamedThing],[Mixture],[ChemicalSubstance],[Attribute],[Agent])
 
 ## Parents
 
@@ -16,6 +16,7 @@ URI: [biolink:ProcessedMaterial](https://w3id.org/biolink/vocab/ProcessedMateria
 ## Uses Mixins
 
  *  mixin: [Mixture](Mixture.md) - The physical combination of two or more molecular entities in which the identities are retained and are mixed in the form of solutions, suspensions and colloids.
+ *  mixin: [OntologyClass](OntologyClass.md) - a concept or class in an ontology, vocabulary or thesaurus. Note that nodes in a biolink compatible KG can be considered both instances of biolink classes, and OWL classes in their own right. In general you should not need to use this class directly. Instead, use the appropriate biolink class. For example, for the GO concept of endocytosis (GO:0006897), use bl:BiologicalProcess as the type.
 
 ## Attributes
 
@@ -38,6 +39,9 @@ URI: [biolink:ProcessedMaterial](https://w3id.org/biolink/vocab/ProcessedMateria
      * Description: An IRI for an entity. This is determined by the id using expansion rules.
      * range: [IriType](types/IriType.md)
      * in subsets: (translator_minimal,samples)
+ * [is metabolite](is_metabolite.md)  <sub>OPT</sub>
+     * Description: indicates whether a chemical substance is a metabolite
+     * range: [Boolean](types/Boolean.md)
  * [name](name.md)  <sub>OPT</sub>
      * Description: A human-readable name for an attribute or entity.
      * range: [LabelType](types/LabelType.md)

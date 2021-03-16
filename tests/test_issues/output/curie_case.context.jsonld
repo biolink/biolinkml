@@ -1,8 +1,8 @@
 {
-   "_comments": "Auto generated from curie_case.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2020-11-03 17:20\nSchema: curiecase\n\nid: http://example.org/tests/curiecase\ndescription: \nlicense: \n",
+   "_comments": "Auto generated from curie_case.yaml by jsonldcontextgen.py version: 0.1.1\n    Generation date: 2021-03-16 16:35\n    Schema: curiecase\n    \n    id: http://example.org/tests/curiecase\n    description: \n    license: \n    ",
    "@context": {
-      "type": "@type",
       "aBC": "http://example.org/abc#",
+      "curiecase": "http://example.org/tests/curiecase/",
       "@vocab": "http://example.org/tests/curiecase/",
       "C1": {
          "@id": "aBC:c1"

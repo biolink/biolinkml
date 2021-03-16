@@ -7,7 +7,7 @@
 URI: [biolink:RNAProduct](https://w3id.org/biolink/vocab/RNAProduct)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon],[NoncodingRNAProduct],[NamedThing],[GeneProduct],[Attribute],[Agent],[RNAProductIsoform],[RNAProduct&#124;synonym(i):label_type%20*;xref(i):iri_type%20*;name(i):symbol_type%20%3F;has_biological_sequence(i):biological_sequence%20%3F;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F]^-[NoncodingRNAProduct],[RNAProduct]^-[RNAProductIsoform],[GeneProduct]^-[RNAProduct])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Transcript],[OrganismTaxon],[NoncodingRNAProduct],[NamedThing],[GeneProductMixin],[Attribute],[Agent],[RNAProductIsoform],[RNAProduct&#124;synonym:label_type%20*;xref:iri_type%20*;has_biological_sequence(i):biological_sequence%20%3F;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F]uses%20-.->[GeneProductMixin],[RNAProduct]^-[NoncodingRNAProduct],[RNAProduct]^-[RNAProductIsoform],[Transcript]^-[RNAProduct])
 
 ## Identifier prefixes
 
@@ -15,7 +15,11 @@ URI: [biolink:RNAProduct](https://w3id.org/biolink/vocab/RNAProduct)
 
 ## Parents
 
- *  is_a: [GeneProduct](GeneProduct.md) - The functional molecular product of a single gene. Gene products are either proteins or functional RNA molecules
+ *  is_a: [Transcript](Transcript.md) - An RNA synthesized on a DNA or RNA template by an RNA polymerase.
+
+## Uses Mixins
+
+ *  mixin: [GeneProductMixin](GeneProductMixin.md) - The functional molecular product of a single gene locus. Gene products are either proteins or functional RNA molecules.
 
 ## Children
 
@@ -28,7 +32,7 @@ URI: [biolink:RNAProduct](https://w3id.org/biolink/vocab/RNAProduct)
 ## Attributes
 
 
-### Inherited from gene product:
+### Inherited from transcript:
 
  * [description](description.md)  <sub>OPT</sub>
      * Description: a human-readable description of an entity
@@ -49,9 +53,10 @@ URI: [biolink:RNAProduct](https://w3id.org/biolink/vocab/RNAProduct)
      * Description: An IRI for an entity. This is determined by the id using expansion rules.
      * range: [IriType](types/IriType.md)
      * in subsets: (translator_minimal,samples)
- * [macromolecular machine➞name](macromolecular_machine_name.md)  <sub>OPT</sub>
-     * Description: genes are typically designated by a short symbol and a full name. We map the symbol to the default display name and use an additional slot for full name
-     * range: [SymbolType](types/SymbolType.md)
+ * [name](name.md)  <sub>OPT</sub>
+     * Description: A human-readable name for an attribute or entity.
+     * range: [LabelType](types/LabelType.md)
+     * in subsets: (translator_minimal,samples)
  * [named thing➞category](named_thing_category.md)  <sub>1..*</sub>
      * range: [NamedThing](NamedThing.md)
  * [provided by](provided_by.md)  <sub>0..*</sub>
@@ -61,12 +66,18 @@ URI: [biolink:RNAProduct](https://w3id.org/biolink/vocab/RNAProduct)
      * Description: a lightweight analog to the association class 'has provider' slot, which is the string name, or the authoritative (i.e. database) namespace, designating the origin of the entity to which the slot belongs.
      * range: [LabelType](types/LabelType.md)
      * in subsets: (translator_minimal)
+ * [type](type.md)  <sub>OPT</sub>
+     * range: [String](types/String.md)
+
+### Mixed in from gene product mixin:
+
  * [synonym](synonym.md)  <sub>0..*</sub>
      * Description: Alternate human-readable names for a thing
      * range: [LabelType](types/LabelType.md)
      * in subsets: (translator_minimal)
- * [type](type.md)  <sub>OPT</sub>
-     * range: [String](types/String.md)
+
+### Mixed in from gene product mixin:
+
  * [xref](xref.md)  <sub>0..*</sub>
      * Description: Alternate CURIEs for a thing
      * range: [IriType](types/IriType.md)

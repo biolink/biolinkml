@@ -7,7 +7,7 @@ A substance consumed by a living organism as a source of nutrition
 URI: [biolink:Food](https://w3id.org/biolink/vocab/Food)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon],[NamedThing],[MolecularEntity],[Mixture],[ChemicalSubstance]<has%20nutrient%200..*-%20[Food&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[Food]uses%20-.->[Mixture],[MolecularEntity]^-[Food],[ChemicalSubstance],[Attribute],[Agent])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon],[NamedThing],[MolecularEntity],[Mixture],[Food&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F]uses%20-.->[Mixture],[MolecularEntity]^-[Food],[ChemicalSubstance],[Attribute],[Agent])
 
 ## Identifier prefixes
 
@@ -15,23 +15,14 @@ URI: [biolink:Food](https://w3id.org/biolink/vocab/Food)
 
 ## Parents
 
- *  is_a: [MolecularEntity](MolecularEntity.md) - A gene, gene product, small molecule or macromolecule (including protein complex)
+ *  is_a: [MolecularEntity](MolecularEntity.md) - A gene, gene product, small molecule or macromolecule (including protein complex)"
 
 ## Uses Mixins
 
  *  mixin: [Mixture](Mixture.md) - The physical combination of two or more molecular entities in which the identities are retained and are mixed in the form of solutions, suspensions and colloids.
 
-## Referenced by class
-
-
 ## Attributes
 
-
-### Own
-
- * [has nutrient](has_nutrient.md)  <sub>0..*</sub>
-     * Description: one or more chemical substance which are growth factors for a living organism
-     * range: [ChemicalSubstance](ChemicalSubstance.md)
 
 ### Inherited from molecular entity:
 
@@ -79,6 +70,4 @@ URI: [biolink:Food](https://w3id.org/biolink/vocab/Food)
 | --- | --- | --- |
 | **Exact Mappings:** | | UMLSSC:T168 |
 |  | | UMLSST:food |
-| **Narrow Mappings:** | | UMLSSC:T127 |
-|  | | UMLSST:vita |
 

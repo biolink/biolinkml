@@ -9,7 +9,7 @@ URI: [biolink:download_url](https://w3id.org/biolink/vocab/download_url)
 
 ## Domain and Range
 
-[DistributionLevel](DistributionLevel.md) ->  <sub>OPT</sub> [String](types/String.md)
+[InformationContentEntity](InformationContentEntity.md) ->  <sub>OPT</sub> [String](types/String.md)
 
 ## Parents
 
@@ -20,11 +20,10 @@ URI: [biolink:download_url](https://w3id.org/biolink/vocab/download_url)
 
 ## Used by
 
- * [DistributionLevel](DistributionLevel.md)
 
 ## Other properties
 
 |  |  |  |
 | --- | --- | --- |
-| **Exact Mappings:** | | dcterms:downloadURL |
+| **Mappings:** | | dcat:downloadURL |
 

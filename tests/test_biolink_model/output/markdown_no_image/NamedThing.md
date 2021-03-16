@@ -7,7 +7,7 @@ a databased entity or concept/class
 URI: [biolink:NamedThing](https://w3id.org/biolink/vocab/NamedThing)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[VariantToDiseaseAssociation],[Treatment],[Procedure],[PlanetaryEntity],[PhysicalEntity],[Phenomenon],[OntologyClass],[Occurrent],[NamedThing]<category%201..*-%20[NamedThing&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[GenotypeToDiseaseAssociation]-%20object%201..1>[NamedThing],[GenotypeToDiseaseAssociation]-%20subject%201..1>[NamedThing],[BiologicalProcessOrActivity]-%20has%20input%200..*>[NamedThing],[BiologicalProcessOrActivity]-%20has%20output%200..*>[NamedThing],[Attribute]-%20has%20qualitative%20value%200..1>[NamedThing],[MaterialSampleDerivationAssociation]-%20object%201..1>[NamedThing],[ModelToDiseaseAssociationMixin]-%20subject%201..1>[NamedThing],[Association]-%20object%201..1>[NamedThing],[Association]-%20subject%201..1>[NamedThing],[VariantToDiseaseAssociation]-%20object%201..1>[NamedThing],[VariantToDiseaseAssociation]-%20subject%201..1>[NamedThing],[NamedThing]^-[Treatment],[NamedThing]^-[Procedure],[NamedThing]^-[PlanetaryEntity],[NamedThing]^-[PhysicalEntity],[NamedThing]^-[Phenomenon],[NamedThing]^-[OntologyClass],[NamedThing]^-[InformationContentEntity],[NamedThing]^-[Device],[NamedThing]^-[ClinicalEntity],[NamedThing]^-[BiologicalEntity],[NamedThing]^-[AdministrativeEntity],[Entity]^-[NamedThing],[ModelToDiseaseAssociationMixin],[MaterialSampleDerivationAssociation],[InformationContentEntity],[GenotypeToDiseaseAssociation],[Entity],[Device],[ClinicalEntity],[BiologicalProcessOrActivity],[BiologicalEntity],[Attribute],[Association],[Agent],[AdministrativeEntity])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[VariantToDiseaseAssociation],[Treatment],[Procedure],[PlanetaryEntity],[PhysicalEntity],[Phenomenon],[OrganismTaxonToEnvironmentAssociation],[Occurrent],[NamedThing]<category%201..*-%20[NamedThing&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[GenotypeToDiseaseAssociation]-%20object%201..1>[NamedThing],[GenotypeToDiseaseAssociation]-%20subject%201..1>[NamedThing],[BiologicalProcessOrActivity]-%20has%20input%200..*>[NamedThing],[BiologicalProcessOrActivity]-%20has%20output%200..*>[NamedThing],[Attribute]-%20has%20qualitative%20value%200..1>[NamedThing],[MacromolecularMachineToEntityAssociationMixin]-%20subject%201..1>[NamedThing],[MaterialSampleDerivationAssociation]-%20object%201..1>[NamedThing],[ModelToDiseaseAssociationMixin]-%20subject%201..1>[NamedThing],[Association]-%20object%201..1>[NamedThing],[OrganismTaxonToEnvironmentAssociation]-%20object%201..1>[NamedThing],[Association]-%20subject%201..1>[NamedThing],[VariantToDiseaseAssociation]-%20object%201..1>[NamedThing],[VariantToDiseaseAssociation]-%20subject%201..1>[NamedThing],[NamedThing]^-[Treatment],[NamedThing]^-[Procedure],[NamedThing]^-[PlanetaryEntity],[NamedThing]^-[PhysicalEntity],[NamedThing]^-[Phenomenon],[NamedThing]^-[InformationContentEntity],[NamedThing]^-[Device],[NamedThing]^-[ClinicalEntity],[NamedThing]^-[BiologicalEntity],[NamedThing]^-[AdministrativeEntity],[NamedThing]^-[Activity],[Entity]^-[NamedThing],[ModelToDiseaseAssociationMixin],[MaterialSampleDerivationAssociation],[MacromolecularMachineToEntityAssociationMixin],[InformationContentEntity],[GenotypeToDiseaseAssociation],[Entity],[Device],[ClinicalEntity],[BiologicalProcessOrActivity],[BiologicalEntity],[Attribute],[Association],[Agent],[AdministrativeEntity],[Activity])
 
 ## Parents
 
@@ -15,12 +15,12 @@ URI: [biolink:NamedThing](https://w3id.org/biolink/vocab/NamedThing)
 
 ## Children
 
+ * [Activity](Activity.md) - An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.
  * [AdministrativeEntity](AdministrativeEntity.md)
  * [BiologicalEntity](BiologicalEntity.md)
  * [ClinicalEntity](ClinicalEntity.md) - Any entity or process that exists in the clinical domain and outside the biological realm. Diseases are placed under biological entities
  * [Device](Device.md) - A thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment
  * [InformationContentEntity](InformationContentEntity.md) - a piece of information that typically describes some topic of discourse or is used as support.
- * [OntologyClass](OntologyClass.md) - a concept or class in an ontology, vocabulary or thesaurus
  * [Phenomenon](Phenomenon.md) - a fact or situation that is observed to exist or happen, especially one whose cause or explanation is in question
  * [PhysicalEntity](PhysicalEntity.md) - An entity that has material reality (a.k.a. physical essence).
  * [PlanetaryEntity](PlanetaryEntity.md) - Any entity or process that exists at the level of the whole planet
@@ -29,9 +29,11 @@ URI: [biolink:NamedThing](https://w3id.org/biolink/vocab/NamedThing)
 
 ## Referenced by class
 
+ *  **[NamedThing](NamedThing.md)** *[affected by](affected_by.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[affects](affects.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[affects expression in](affects_expression_in.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[affects risk for](affects_risk_for.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
+ *  **[NamedThing](NamedThing.md)** *[broad match](broad_match.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[caused by](caused_by.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[causes](causes.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[chemically similar to](chemically_similar_to.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
@@ -45,6 +47,7 @@ URI: [biolink:NamedThing](https://w3id.org/biolink/vocab/NamedThing)
  *  **[NamedThing](NamedThing.md)** *[develops from](develops_from.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[directly interacts with](directly_interacts_with.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[disease has basis in](disease_has_basis_in.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
+ *  **[NamedThing](NamedThing.md)** *[disrupted by](disrupted_by.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[disrupts](disrupts.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[exact match](exact_match.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[filler](filler.md)*  <sub>OPT</sub>  **[NamedThing](NamedThing.md)**
@@ -67,13 +70,16 @@ URI: [biolink:NamedThing](https://w3id.org/biolink/vocab/NamedThing)
  *  **[NamedThing](NamedThing.md)** *[lacks part](lacks_part.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[located in](located_in.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[location of](location_of.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
+ *  **[MacromolecularMachineToEntityAssociationMixin](MacromolecularMachineToEntityAssociationMixin.md)** *[macromolecular machine to entity association mixin➞subject](macromolecular_machine_to_entity_association_mixin_subject.md)*  <sub>REQ</sub>  **[NamedThing](NamedThing.md)**
  *  **[MaterialSampleDerivationAssociation](MaterialSampleDerivationAssociation.md)** *[material sample derivation association➞object](material_sample_derivation_association_object.md)*  <sub>REQ</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[model of](model_of.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[ModelToDiseaseAssociationMixin](ModelToDiseaseAssociationMixin.md)** *[model to disease association mixin➞subject](model_to_disease_association_mixin_subject.md)*  <sub>REQ</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[named thing➞category](named_thing_category.md)*  <sub>1..*</sub>  **[NamedThing](NamedThing.md)**
+ *  **[NamedThing](NamedThing.md)** *[narrow match](narrow_match.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[negatively correlated with](negatively_correlated_with.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[Association](Association.md)** *[object](object.md)*  <sub>REQ</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[occurs in](occurs_in.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
+ *  **[OrganismTaxonToEnvironmentAssociation](OrganismTaxonToEnvironmentAssociation.md)** *[organism taxon to environment association➞object](organism_taxon_to_environment_association_object.md)*  <sub>REQ</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[orthologous to](orthologous_to.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[overlaps](overlaps.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[paralogous to](paralogous_to.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
@@ -81,6 +87,7 @@ URI: [biolink:NamedThing](https://w3id.org/biolink/vocab/NamedThing)
  *  **[NamedThing](NamedThing.md)** *[physically interacts with](physically_interacts_with.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[positively correlated with](positively_correlated_with.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[predisposes](predisposes.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
+ *  **[NamedThing](NamedThing.md)** *[prevented by](prevented_by.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[prevents](prevents.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[produced by](produced_by.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**
  *  **[NamedThing](NamedThing.md)** *[produces](produces.md)*  <sub>0..*</sub>  **[NamedThing](NamedThing.md)**

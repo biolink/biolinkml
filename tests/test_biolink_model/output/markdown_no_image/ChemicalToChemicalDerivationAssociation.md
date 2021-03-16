@@ -14,7 +14,7 @@ A causal relationship between two chemical entities, where the subject represent
 URI: [biolink:ChemicalToChemicalDerivationAssociation](https://w3id.org/biolink/vocab/ChemicalToChemicalDerivationAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[OntologyClass],[MacromolecularMachine],[ChemicalSubstance]<object%201..1-%20[ChemicalToChemicalDerivationAssociation&#124;predicate:predicate_type;relation(i):uriorcurie;negated(i):boolean%20%3F;type(i):string%20%3F;id(i):string;iri(i):iri_type%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[ChemicalSubstance]<subject%201..1-%20[ChemicalToChemicalDerivationAssociation],[MacromolecularMachine]<catalyst%20qualifier%200..*-%20[ChemicalToChemicalDerivationAssociation],[ChemicalToChemicalAssociation]^-[ChemicalToChemicalDerivationAssociation],[ChemicalToChemicalAssociation],[ChemicalSubstance],[Attribute],[Association],[Agent])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[OntologyClass],[MacromolecularMachineMixin],[ChemicalSubstance]<object%201..1-%20[ChemicalToChemicalDerivationAssociation&#124;predicate:predicate_type;relation(i):uriorcurie;negated(i):boolean%20%3F;type(i):string%20%3F;category(i):category_type%20*;id(i):string;iri(i):iri_type%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[ChemicalSubstance]<subject%201..1-%20[ChemicalToChemicalDerivationAssociation],[MacromolecularMachineMixin]<catalyst%20qualifier%200..*-++[ChemicalToChemicalDerivationAssociation],[ChemicalToChemicalAssociation]^-[ChemicalToChemicalDerivationAssociation],[ChemicalToChemicalAssociation],[ChemicalSubstance],[Attribute],[Agent])
 
 ## Parents
 
@@ -30,7 +30,7 @@ URI: [biolink:ChemicalToChemicalDerivationAssociation](https://w3id.org/biolink/
 
  * [chemical to chemical derivation association➞catalyst qualifier](chemical_to_chemical_derivation_association_catalyst_qualifier.md)  <sub>0..*</sub>
      * Description: this connects the derivation edge to the molecular entity that catalyzes the reaction that causes the subject chemical to transform into the object chemical.
-     * range: [MacromolecularMachine](MacromolecularMachine.md)
+     * range: [MacromolecularMachineMixin](MacromolecularMachineMixin.md)
  * [chemical to chemical derivation association➞object](chemical_to_chemical_derivation_association_object.md)  <sub>REQ</sub>
      * Description: the downstream chemical entity
      * range: [ChemicalSubstance](ChemicalSubstance.md)
@@ -42,8 +42,8 @@ URI: [biolink:ChemicalToChemicalDerivationAssociation](https://w3id.org/biolink/
 
 ### Inherited from chemical to chemical association:
 
- * [association➞category](association_category.md)  <sub>1..*</sub>
-     * range: [Association](Association.md)
+ * [association➞category](association_category.md)  <sub>0..*</sub>
+     * range: [CategoryType](types/CategoryType.md)
  * [association➞type](association_type.md)  <sub>OPT</sub>
      * Description: rdf:type of biolink:Association should be fixed at rdf:Statement
      * range: [String](types/String.md)

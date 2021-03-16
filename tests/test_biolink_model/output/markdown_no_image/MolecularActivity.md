@@ -7,7 +7,7 @@ An execution of a molecular function carried out by a gene product or macromolec
 URI: [biolink:MolecularActivity](https://w3id.org/biolink/vocab/MolecularActivity)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Occurrent],[NamedThing],[MacromolecularMachine]<enabled%20by%200..*-%20[MolecularActivity&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[ChemicalSubstance]<has%20output%200..*-%20[MolecularActivity],[ChemicalSubstance]<has%20input%200..*-%20[MolecularActivity],[MacromolecularMachineToMolecularActivityAssociation]-%20object%201..1>[MolecularActivity],[MolecularActivity]uses%20-.->[Occurrent],[BiologicalProcessOrActivity]^-[MolecularActivity],[MacromolecularMachineToMolecularActivityAssociation],[MacromolecularMachine],[ChemicalSubstance],[BiologicalProcessOrActivity],[Attribute],[Agent])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OntologyClass],[Occurrent],[NamedThing],[MacromolecularMachineMixin]<enabled%20by%200..*-++[MolecularActivity&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[ChemicalSubstance]<has%20output%200..*-%20[MolecularActivity],[ChemicalSubstance]<has%20input%200..*-%20[MolecularActivity],[MacromolecularMachineToMolecularActivityAssociation]-%20object%201..1>[MolecularActivity],[MolecularActivity]uses%20-.->[Occurrent],[MolecularActivity]uses%20-.->[OntologyClass],[BiologicalProcessOrActivity]^-[MolecularActivity],[MacromolecularMachineToMolecularActivityAssociation],[MacromolecularMachineMixin],[ChemicalSubstance],[BiologicalProcessOrActivity],[Attribute],[Agent])
 
 ## Identifier prefixes
 
@@ -16,15 +16,19 @@ URI: [biolink:MolecularActivity](https://w3id.org/biolink/vocab/MolecularActivit
  * RHEA
  * MetaCyc
  * EC
- * KEGG
+ * TCDB
+ * KEGG.REACTION
+ * KEGG.RCLASS
+ * KEGG.ENZYME
 
 ## Parents
 
- *  is_a: [BiologicalProcessOrActivity](BiologicalProcessOrActivity.md) - Either an individual molecular activity, or a collection of causally connected molecular activities
+ *  is_a: [BiologicalProcessOrActivity](BiologicalProcessOrActivity.md) - Either an individual molecular activity, or a collection of causally connected molecular activities in a biological system.
 
 ## Uses Mixins
 
- *  mixin: [Occurrent](Occurrent.md) - A processual entity
+ *  mixin: [Occurrent](Occurrent.md) - A processual entity.
+ *  mixin: [OntologyClass](OntologyClass.md) - a concept or class in an ontology, vocabulary or thesaurus. Note that nodes in a biolink compatible KG can be considered both instances of biolink classes, and OWL classes in their own right. In general you should not need to use this class directly. Instead, use the appropriate biolink class. For example, for the GO concept of endocytosis (GO:0006897), use bl:BiologicalProcess as the type.
 
 ## Referenced by class
 
@@ -37,7 +41,7 @@ URI: [biolink:MolecularActivity](https://w3id.org/biolink/vocab/MolecularActivit
 
  * [molecular activity➞enabled by](molecular_activity_enabled_by.md)  <sub>0..*</sub>
      * Description: The gene product, gene, or complex that catalyzes the reaction
-     * range: [MacromolecularMachine](MacromolecularMachine.md)
+     * range: [MacromolecularMachineMixin](MacromolecularMachineMixin.md)
  * [molecular activity➞has input](molecular_activity_has_input.md)  <sub>0..*</sub>
      * Description: A chemical entity that is the input for the reaction
      * range: [ChemicalSubstance](ChemicalSubstance.md)

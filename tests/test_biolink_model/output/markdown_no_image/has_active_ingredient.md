@@ -2,7 +2,7 @@
 # Slot: has_active_ingredient
 
 
-one or more chemical substance which are the active ingredient(s) of a drug
+holds between a drug and a chemical substance in which the latter is a part of the former, and is a biologically active component
 
 URI: [biolink:has_active_ingredient](https://w3id.org/biolink/vocab/has_active_ingredient)
 
@@ -13,20 +13,18 @@ URI: [biolink:has_active_ingredient](https://w3id.org/biolink/vocab/has_active_i
 
 ## Parents
 
- *  is_a: [node property](node_property.md)
+ *  is_a: [has part](has_part.md)
 
 ## Children
 
 
 ## Used by
 
- * [Drug](Drug.md)
- * [DrugExposure](DrugExposure.md)
- * [DrugToGeneInteractionExposure](DrugToGeneInteractionExposure.md)
 
 ## Other properties
 
 |  |  |  |
 | --- | --- | --- |
-| **Exact Mappings:** | | WIKIDATA:Q912807 |
+| **Mappings:** | | RO:0002248 |
+| **In Subsets:** | | translator_minimal |
 

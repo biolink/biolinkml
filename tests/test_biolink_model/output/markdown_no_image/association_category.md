@@ -9,7 +9,7 @@ URI: [biolink:association_category](https://w3id.org/biolink/vocab/association_c
 
 ## Domain and Range
 
-[Association](Association.md) ->  <sub>1..*</sub> [Association](Association.md)
+[Association](Association.md) ->  <sub>0..*</sub> [CategoryType](types/CategoryType.md)
 
 ## Parents
 
@@ -24,6 +24,7 @@ URI: [biolink:association_category](https://w3id.org/biolink/vocab/association_c
  * [AnatomicalEntityToAnatomicalEntityOntogenicAssociation](AnatomicalEntityToAnatomicalEntityOntogenicAssociation.md)
  * [AnatomicalEntityToAnatomicalEntityPartOfAssociation](AnatomicalEntityToAnatomicalEntityPartOfAssociation.md)
  * [Association](Association.md)
+ * [BehaviorToBehavioralFeatureAssociation](BehaviorToBehavioralFeatureAssociation.md)
  * [CaseToPhenotypicFeatureAssociation](CaseToPhenotypicFeatureAssociation.md)
  * [CellLineAsAModelOfDiseaseAssociation](CellLineAsAModelOfDiseaseAssociation.md)
  * [CellLineToDiseaseOrPhenotypicFeatureAssociation](CellLineToDiseaseOrPhenotypicFeatureAssociation.md)
@@ -65,6 +66,10 @@ URI: [biolink:association_category](https://w3id.org/biolink/vocab/association_c
  * [MacromolecularMachineToMolecularActivityAssociation](MacromolecularMachineToMolecularActivityAssociation.md)
  * [MaterialSampleDerivationAssociation](MaterialSampleDerivationAssociation.md)
  * [MaterialSampleToDiseaseOrPhenotypicFeatureAssociation](MaterialSampleToDiseaseOrPhenotypicFeatureAssociation.md)
+ * [OrganismTaxonToEnvironmentAssociation](OrganismTaxonToEnvironmentAssociation.md)
+ * [OrganismTaxonToOrganismTaxonAssociation](OrganismTaxonToOrganismTaxonAssociation.md)
+ * [OrganismTaxonToOrganismTaxonInteraction](OrganismTaxonToOrganismTaxonInteraction.md)
+ * [OrganismTaxonToOrganismTaxonSpecialization](OrganismTaxonToOrganismTaxonSpecialization.md)
  * [OrganismalEntityAsAModelOfDiseaseAssociation](OrganismalEntityAsAModelOfDiseaseAssociation.md)
  * [PairwiseGeneToGeneInteraction](PairwiseGeneToGeneInteraction.md)
  * [PairwiseMolecularInteraction](PairwiseMolecularInteraction.md)

@@ -30,5 +30,8 @@ URI: [biolink:organismal_entity_has_attribute](https://w3id.org/biolink/vocab/or
  * [IndividualOrganism](IndividualOrganism.md)
  * [LifeStage](LifeStage.md)
  * [OrganismalEntity](OrganismalEntity.md)
+ * [PathologicalAnatomicalExposure](PathologicalAnatomicalExposure.md)
+ * [PathologicalAnatomicalOutcome](PathologicalAnatomicalOutcome.md)
+ * [PathologicalAnatomicalStructure](PathologicalAnatomicalStructure.md)
  * [PopulationOfIndividualOrganisms](PopulationOfIndividualOrganisms.md)
  * [StudyPopulation](StudyPopulation.md)

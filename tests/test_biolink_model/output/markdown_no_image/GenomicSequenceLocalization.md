@@ -2,12 +2,12 @@
 # Class: GenomicSequenceLocalization
 
 
-A relationship between a sequence feature and a genomic entity it is localized to. The reference entity may be a chromosome, chromosome region or information entity such as a contig
+A relationship between a sequence feature and a genomic entity it is localized to. The reference entity may be a chromosome, chromosome region or information entity such as a contig.
 
 URI: [biolink:GenomicSequenceLocalization](https://w3id.org/biolink/vocab/GenomicSequenceLocalization)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SequenceAssociation],[Publication],[OntologyClass],[GenomicEntity]<object%201..1-%20[GenomicSequenceLocalization&#124;start_interbase_coordinate:integer%20%3F;end_interbase_coordinate:integer%20%3F;genome_build:string%20%3F;strand:string%20%3F;phase:string%20%3F;predicate:predicate_type;relation(i):uriorcurie;negated(i):boolean%20%3F;type(i):string%20%3F;id(i):string;iri(i):iri_type%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[GenomicEntity]<subject%201..1-%20[GenomicSequenceLocalization],[SequenceAssociation]^-[GenomicSequenceLocalization],[GenomicEntity],[Attribute],[Association],[Agent])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SequenceAssociation],[Publication],[OntologyClass],[GenomicEntity]<object%201..1-%20[GenomicSequenceLocalization&#124;start_interbase_coordinate:integer%20%3F;end_interbase_coordinate:integer%20%3F;genome_build:string%20%3F;strand:string%20%3F;phase:string%20%3F;predicate:predicate_type;relation(i):uriorcurie;negated(i):boolean%20%3F;type(i):string%20%3F;category(i):category_type%20*;id(i):string;iri(i):iri_type%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[GenomicEntity]<subject%201..1-%20[GenomicSequenceLocalization],[SequenceAssociation]^-[GenomicSequenceLocalization],[GenomicEntity],[Attribute],[Agent])
 
 ## Parents
 
@@ -45,8 +45,8 @@ URI: [biolink:GenomicSequenceLocalization](https://w3id.org/biolink/vocab/Genomi
 
 ### Inherited from sequence association:
 
- * [association➞category](association_category.md)  <sub>1..*</sub>
-     * range: [Association](Association.md)
+ * [association➞category](association_category.md)  <sub>0..*</sub>
+     * range: [CategoryType](types/CategoryType.md)
  * [association➞type](association_type.md)  <sub>OPT</sub>
      * Description: rdf:type of biolink:Association should be fixed at rdf:Statement
      * range: [String](types/String.md)

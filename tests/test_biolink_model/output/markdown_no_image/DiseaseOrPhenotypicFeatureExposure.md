@@ -2,12 +2,12 @@
 # Class: DiseaseOrPhenotypicFeatureExposure
 
 
-A disease or phenotypic feature exposure is where a disease state is manifested which represents an precondition, leading to or influencing an outcome, e.g. hypertension leading to a related disease outcome such as cardiovascular disease.
+A disease or phenotypic feature state, when viewed as an exposure, represents an precondition, leading to or influencing an outcome, e.g. HIV predisposing an individual to infections; a relative deficiency of skin pigmentation predisposing an individual to skin cancer.
 
 URI: [biolink:DiseaseOrPhenotypicFeatureExposure](https://w3id.org/biolink/vocab/DiseaseOrPhenotypicFeatureExposure)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon],[NamedThing],[ExposureEvent],[DiseaseOrPhenotypicFeatureExposure&#124;timepoint:time_type%20%3F;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F]uses%20-.->[ExposureEvent],[DiseaseOrPhenotypicFeature]^-[DiseaseOrPhenotypicFeatureExposure],[DiseaseOrPhenotypicFeature],[Attribute],[Agent])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[PathologicalEntityMixin],[OrganismTaxon],[NamedThing],[ExposureEvent],[DiseaseOrPhenotypicFeatureExposure&#124;timepoint:time_type%20%3F;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F]uses%20-.->[ExposureEvent],[DiseaseOrPhenotypicFeatureExposure]uses%20-.->[PathologicalEntityMixin],[DiseaseOrPhenotypicFeature]^-[DiseaseOrPhenotypicFeatureExposure],[DiseaseOrPhenotypicFeature],[Attribute],[Agent])
 
 ## Parents
 
@@ -16,6 +16,7 @@ URI: [biolink:DiseaseOrPhenotypicFeatureExposure](https://w3id.org/biolink/vocab
 ## Uses Mixins
 
  *  mixin: [ExposureEvent](ExposureEvent.md) - A (possibly time bounded) incidence of a feature of the environment of an organism that influences one or more phenotypic features of that organism, potentially mediated by genes
+ *  mixin: [PathologicalEntityMixin](PathologicalEntityMixin.md) - A pathological (abnormal) structure or process.
 
 ## Attributes
 

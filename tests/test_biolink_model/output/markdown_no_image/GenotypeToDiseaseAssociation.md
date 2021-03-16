@@ -7,7 +7,7 @@
 URI: [biolink:GenotypeToDiseaseAssociation](https://w3id.org/biolink/vocab/GenotypeToDiseaseAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SeverityValue],[Publication],[OntologyClass],[Onset],[NamedThing],[GenotypeToEntityAssociationMixin],[NamedThing]<object%201..1-%20[GenotypeToDiseaseAssociation&#124;predicate:predicate_type;relation(i):uriorcurie;negated(i):boolean%20%3F;type(i):string%20%3F;id(i):string;iri(i):iri_type%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[NamedThing]<subject%201..1-%20[GenotypeToDiseaseAssociation],[GenotypeToDiseaseAssociation]uses%20-.->[GenotypeToEntityAssociationMixin],[GenotypeToDiseaseAssociation]uses%20-.->[EntityToDiseaseAssociationMixin],[GenotypeToDiseaseAssociation]^-[GenotypeAsAModelOfDiseaseAssociation],[Association]^-[GenotypeToDiseaseAssociation],[GenotypeAsAModelOfDiseaseAssociation],[FrequencyValue],[EntityToDiseaseAssociationMixin],[Attribute],[Association],[Agent])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SeverityValue],[Publication],[OntologyClass],[Onset],[NamedThing],[GenotypeToEntityAssociationMixin],[NamedThing]<object%201..1-%20[GenotypeToDiseaseAssociation&#124;predicate:predicate_type;frequency_qualifier:frequency_value%20%3F;relation(i):uriorcurie;negated(i):boolean%20%3F;type(i):string%20%3F;category(i):category_type%20*;id(i):string;iri(i):iri_type%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[NamedThing]<subject%201..1-%20[GenotypeToDiseaseAssociation],[GenotypeToDiseaseAssociation]uses%20-.->[GenotypeToEntityAssociationMixin],[GenotypeToDiseaseAssociation]uses%20-.->[EntityToDiseaseAssociationMixin],[GenotypeToDiseaseAssociation]^-[GenotypeAsAModelOfDiseaseAssociation],[Association]^-[GenotypeToDiseaseAssociation],[GenotypeAsAModelOfDiseaseAssociation],[EntityToDiseaseAssociationMixin],[Attribute],[Association],[Agent])
 
 ## Parents
 
@@ -43,8 +43,8 @@ URI: [biolink:GenotypeToDiseaseAssociation](https://w3id.org/biolink/vocab/Genot
 
 ### Inherited from association:
 
- * [association➞category](association_category.md)  <sub>1..*</sub>
-     * range: [Association](Association.md)
+ * [association➞category](association_category.md)  <sub>0..*</sub>
+     * range: [CategoryType](types/CategoryType.md)
  * [association➞type](association_type.md)  <sub>OPT</sub>
      * Description: rdf:type of biolink:Association should be fixed at rdf:Statement
      * range: [String](types/String.md)
@@ -92,7 +92,7 @@ URI: [biolink:GenotypeToDiseaseAssociation](https://w3id.org/biolink/vocab/Genot
 
  * [frequency qualifier](frequency_qualifier.md)  <sub>OPT</sub>
      * Description: a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject
-     * range: [FrequencyValue](FrequencyValue.md)
+     * range: [FrequencyValue](types/FrequencyValue.md)
 
 ### Mixed in from entity to feature or disease qualifiers mixin:
 

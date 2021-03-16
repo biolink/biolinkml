@@ -7,7 +7,7 @@ Observed gene expression intensity, context (site, stage) and associated phenoty
 URI: [biolink:GeneExpressionMixin](https://w3id.org/biolink/vocab/GeneExpressionMixin)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OntologyClass],[LifeStage],[DiseaseOrPhenotypicFeature]<phenotypic%20state%200..1-%20[GeneExpressionMixin],[LifeStage]<stage%20qualifier%200..1-%20[GeneExpressionMixin],[AnatomicalEntity]<expression%20site%200..1-%20[GeneExpressionMixin],[OntologyClass]<quantifier%20qualifier%200..1-%20[GeneExpressionMixin],[VariantToGeneExpressionAssociation]uses%20-.->[GeneExpressionMixin],[GeneToGeneCoexpressionAssociation]uses%20-.->[GeneExpressionMixin],[VariantToGeneExpressionAssociation],[GeneToGeneCoexpressionAssociation],[DiseaseOrPhenotypicFeature],[AnatomicalEntity])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OntologyClass],[LifeStage],[DiseaseOrPhenotypicFeature]<phenotypic%20state%200..1-%20[GeneExpressionMixin],[LifeStage]<stage%20qualifier%200..1-%20[GeneExpressionMixin],[AnatomicalEntity]<expression%20site%200..1-%20[GeneExpressionMixin],[OntologyClass]<quantifier%20qualifier%200..1-++[GeneExpressionMixin],[VariantToGeneExpressionAssociation]uses%20-.->[GeneExpressionMixin],[GeneToGeneCoexpressionAssociation]uses%20-.->[GeneExpressionMixin],[VariantToGeneExpressionAssociation],[GeneToGeneCoexpressionAssociation],[DiseaseOrPhenotypicFeature],[AnatomicalEntity])
 
 ## Mixin for
 

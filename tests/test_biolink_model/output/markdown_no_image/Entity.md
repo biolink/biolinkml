@@ -7,7 +7,7 @@ Root Biolink Model class for all things and informational relationships, real or
 URI: [biolink:Entity](https://w3id.org/biolink/vocab/Entity)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[NamedThing],[Attribute]<has%20attribute%200..*-++[Entity&#124;id:string;iri:iri_type%20%3F;category:category_type%20%2B;type:string%20%3F;name:label_type%20%3F;description:narrative_text%20%3F;source:label_type%20%3F],[Agent]<provided%20by%200..*-%20[Entity],[Entity]^-[NamedThing],[Entity]^-[Association],[Attribute],[Association],[Agent])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[NamedThing],[Attribute]<has%20attribute%200..*-++[Entity&#124;id:string;iri:iri_type%20%3F;category:category_type%20*;type:string%20%3F;name:label_type%20%3F;description:narrative_text%20%3F;source:label_type%20%3F],[Agent]<provided%20by%200..*-%20[Entity],[Entity]^-[NamedThing],[Entity]^-[Association],[Attribute],[Association],[Agent])
 
 ## Children
 
@@ -22,12 +22,12 @@ URI: [biolink:Entity](https://w3id.org/biolink/vocab/Entity)
 
 ### Own
 
- * [category](category.md)  <sub>1..*</sub>
+ * [category](category.md)  <sub>0..*</sub>
      * Description: Name of the high level ontology class in which this entity is categorized. Corresponds to the label for the biolink entity type class.
  * In a neo4j database this MAY correspond to the neo4j label tag.
  * In an RDF database it should be a biolink model class URI.
-This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `bl:Protein`, `bl:GeneProduct`, `bl:MolecularEntity`, ...
-In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {bl:GenomicEntity, bl:MolecularEntity, bl:NamedThing}
+This field is multi-valued. It should include values for ancestors of the biolink class; for example, a protein such as Shh would have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`, ...
+In an RDF database, nodes will typically have an rdf:type triples. This can be to the most specific biolink class, or potentially to a class more specific than something in biolink. For example, a sequence feature `f` may have a rdf:type assertion to a SO class such as TF_binding_site, which is more specific than anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity, biolink:NamedThing}
      * range: [CategoryType](types/CategoryType.md)
      * in subsets: (translator_minimal)
  * [description](description.md)  <sub>OPT</sub>

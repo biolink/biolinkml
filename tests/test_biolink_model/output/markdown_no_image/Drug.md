@@ -7,19 +7,22 @@ A substance intended for use in the diagnosis, cure, mitigation, treatment, or p
 URI: [biolink:Drug](https://w3id.org/biolink/vocab/Drug)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon],[NamedThing],[MolecularEntity],[Mixture],[DrugToEntityAssociationMixin],[DrugExposure],[ChemicalSubstance]<has%20excipient%200..*-%20[Drug&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[ChemicalSubstance]<has%20active%20ingredient%200..*-%20[Drug],[DrugToEntityAssociationMixin]-%20subject%201..1>[Drug],[Treatment]-%20has%20drug%200..*>[Drug],[Drug]uses%20-.->[Mixture],[Drug]^-[DrugExposure],[MolecularEntity]^-[Drug],[Treatment],[ChemicalSubstance],[Attribute],[Agent])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon],[OntologyClass],[NamedThing],[MolecularEntity],[Mixture],[DrugToEntityAssociationMixin],[DrugExposure],[DrugToEntityAssociationMixin]-%20subject%201..1>[Drug&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[Treatment]-%20has%20drug%200..*>[Drug],[Drug]uses%20-.->[Mixture],[Drug]uses%20-.->[OntologyClass],[Drug]^-[DrugExposure],[MolecularEntity]^-[Drug],[Treatment],[ChemicalSubstance],[Attribute],[Agent])
 
 ## Identifier prefixes
 
+ * RXCUI
+ * NDC
  * PHARMGKB.DRUG
 
 ## Parents
 
- *  is_a: [MolecularEntity](MolecularEntity.md) - A gene, gene product, small molecule or macromolecule (including protein complex)
+ *  is_a: [MolecularEntity](MolecularEntity.md) - A gene, gene product, small molecule or macromolecule (including protein complex)"
 
 ## Uses Mixins
 
  *  mixin: [Mixture](Mixture.md) - The physical combination of two or more molecular entities in which the identities are retained and are mixed in the form of solutions, suspensions and colloids.
+ *  mixin: [OntologyClass](OntologyClass.md) - a concept or class in an ontology, vocabulary or thesaurus. Note that nodes in a biolink compatible KG can be considered both instances of biolink classes, and OWL classes in their own right. In general you should not need to use this class directly. Instead, use the appropriate biolink class. For example, for the GO concept of endocytosis (GO:0006897), use bl:BiologicalProcess as the type.
 
 ## Children
 
@@ -29,18 +32,11 @@ URI: [biolink:Drug](https://w3id.org/biolink/vocab/Drug)
 
  *  **[DrugToEntityAssociationMixin](DrugToEntityAssociationMixin.md)** *[drug to entity association mixin➞subject](drug_to_entity_association_mixin_subject.md)*  <sub>REQ</sub>  **[Drug](Drug.md)**
  *  **[NamedThing](NamedThing.md)** *[has drug](has_drug.md)*  <sub>0..*</sub>  **[Drug](Drug.md)**
+ *  **[ChemicalSubstance](ChemicalSubstance.md)** *[is active ingredient of](is_active_ingredient_of.md)*  <sub>0..*</sub>  **[Drug](Drug.md)**
+ *  **[ChemicalSubstance](ChemicalSubstance.md)** *[is excipient of](is_excipient_of.md)*  <sub>0..*</sub>  **[Drug](Drug.md)**
 
 ## Attributes
 
-
-### Own
-
- * [has active ingredient](has_active_ingredient.md)  <sub>0..*</sub>
-     * Description: one or more chemical substance which are the active ingredient(s) of a drug
-     * range: [ChemicalSubstance](ChemicalSubstance.md)
- * [has excipient](has_excipient.md)  <sub>0..*</sub>
-     * Description: one or more (generally inert) chemical substances which are formulated alongside the active ingredient of a drug
-     * range: [ChemicalSubstance](ChemicalSubstance.md)
 
 ### Inherited from molecular entity:
 

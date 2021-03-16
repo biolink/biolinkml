@@ -12,7 +12,7 @@ URI: [biolink:Genotype](https://w3id.org/biolink/vocab/Genotype)
 ## Identifier prefixes
 
  * ZFIN
- * FlyBase
+ * FB
 
 ## Parents
 

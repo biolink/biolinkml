@@ -7,11 +7,23 @@ A biologic function or a process having an abnormal or deleterious effect at the
 URI: [biolink:PathologicalProcess](https://w3id.org/biolink/vocab/PathologicalProcess)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[PhysicalEntity],[BiologicalProcess]^-[PathologicalProcess&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[NamedThing],[BiologicalProcess],[Attribute],[Agent])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[PhysicalEntity],[PathologicalProcessOutcome],[PathologicalProcessExposure],[PathologicalProcess&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F]uses%20-.->[PathologicalEntityMixin],[PathologicalProcess]^-[PathologicalProcessOutcome],[PathologicalProcess]^-[PathologicalProcessExposure],[BiologicalProcess]^-[PathologicalProcess],[PathologicalEntityMixin],[NamedThing],[BiologicalProcess],[Attribute],[Agent])
 
 ## Parents
 
  *  is_a: [BiologicalProcess](BiologicalProcess.md) - One or more causally connected executions of molecular functions
+
+## Uses Mixins
+
+ *  mixin: [PathologicalEntityMixin](PathologicalEntityMixin.md) - A pathological (abnormal) structure or process.
+
+## Children
+
+ * [PathologicalProcessExposure](PathologicalProcessExposure.md) - A pathological process, when viewed as an exposure, representing an precondition, leading to or influencing an outcome, e.g. autoimmunity leading to disease.
+ * [PathologicalProcessOutcome](PathologicalProcessOutcome.md) - An outcome resulting from an exposure event which is the manifestation of a pathological process.
+
+## Referenced by class
+
 
 ## Attributes
 

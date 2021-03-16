@@ -1,5 +1,5 @@
 
-# Class: Metabolite
+# Class: Metabolite _(deprecated)_
 
 
 Any intermediate or product resulting from metabolism. Includes primary and secondary metabolites.
@@ -7,7 +7,7 @@ Any intermediate or product resulting from metabolism. Includes primary and seco
 URI: [biolink:Metabolite](https://w3id.org/biolink/vocab/Metabolite)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon],[NamedThing],[ChemicalSubstance]^-[Metabolite&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[ChemicalSubstance],[Attribute],[Agent])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[OrganismTaxon],[NamedThing],[ChemicalSubstance]^-[Metabolite&#124;is_metabolite(i):boolean%20%3F;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[ChemicalSubstance],[Attribute],[Agent])
 
 ## Parents
 
@@ -34,6 +34,9 @@ URI: [biolink:Metabolite](https://w3id.org/biolink/vocab/Metabolite)
      * Description: An IRI for an entity. This is determined by the id using expansion rules.
      * range: [IriType](types/IriType.md)
      * in subsets: (translator_minimal,samples)
+ * [is metabolite](is_metabolite.md)  <sub>OPT</sub>
+     * Description: indicates whether a chemical substance is a metabolite
+     * range: [Boolean](types/Boolean.md)
  * [name](name.md)  <sub>OPT</sub>
      * Description: A human-readable name for an attribute or entity.
      * range: [LabelType](types/LabelType.md)

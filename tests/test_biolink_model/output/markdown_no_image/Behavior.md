@@ -7,11 +7,15 @@
 URI: [biolink:Behavior](https://w3id.org/biolink/vocab/Behavior)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SocioeconomicOutcome],[SocioeconomicExposure],[PhysicalEntity],[NamedThing],[BiologicalProcess],[BehavioralOutcome],[BehavioralExposure],[Behavior&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F]^-[SocioeconomicOutcome],[Behavior]^-[SocioeconomicExposure],[Behavior]^-[BehavioralOutcome],[Behavior]^-[BehavioralExposure],[BiologicalProcess]^-[Behavior],[Attribute],[Agent])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SocioeconomicOutcome],[SocioeconomicExposure],[PhysicalEntity],[OntologyClass],[NamedThing],[BiologicalProcess],[BehavioralOutcome],[BehavioralExposure],[BehaviorToBehavioralFeatureAssociation],[BehaviorToBehavioralFeatureAssociation]-%20subject%201..1>[Behavior&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[Behavior]uses%20-.->[OntologyClass],[Behavior]^-[SocioeconomicOutcome],[Behavior]^-[SocioeconomicExposure],[Behavior]^-[BehavioralOutcome],[Behavior]^-[BehavioralExposure],[BiologicalProcess]^-[Behavior],[Attribute],[Agent])
 
 ## Parents
 
  *  is_a: [BiologicalProcess](BiologicalProcess.md) - One or more causally connected executions of molecular functions
+
+## Uses Mixins
+
+ *  mixin: [OntologyClass](OntologyClass.md) - a concept or class in an ontology, vocabulary or thesaurus. Note that nodes in a biolink compatible KG can be considered both instances of biolink classes, and OWL classes in their own right. In general you should not need to use this class directly. Instead, use the appropriate biolink class. For example, for the GO concept of endocytosis (GO:0006897), use bl:BiologicalProcess as the type.
 
 ## Children
 
@@ -22,6 +26,7 @@ URI: [biolink:Behavior](https://w3id.org/biolink/vocab/Behavior)
 
 ## Referenced by class
 
+ *  **[BehaviorToBehavioralFeatureAssociation](BehaviorToBehavioralFeatureAssociation.md)** *[behavior to behavioral feature association➞subject](behavior_to_behavioral_feature_association_subject.md)*  <sub>REQ</sub>  **[Behavior](Behavior.md)**
 
 ## Attributes
 

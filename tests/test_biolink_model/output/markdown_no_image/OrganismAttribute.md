@@ -7,7 +7,7 @@ describes a characteristic of an organismal entity.
 URI: [biolink:OrganismAttribute](https://w3id.org/biolink/vocab/OrganismAttribute)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[QuantityValue],[OrganismAttribute&#124;name(i):label_type%20%3F;iri(i):iri_type%20%3F;source(i):label_type%20%3F]^-[Inheritance],[Attribute]^-[OrganismAttribute],[OntologyClass],[NamedThing],[Inheritance],[Attribute])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[QuantityValue],[PhenotypicQuality],[OrganismAttribute&#124;name(i):label_type%20%3F;iri(i):iri_type%20%3F;source(i):label_type%20%3F]^-[PhenotypicQuality],[OrganismAttribute]^-[Inheritance],[Attribute]^-[OrganismAttribute],[OntologyClass],[NamedThing],[Inheritance],[Attribute])
 
 ## Parents
 
@@ -16,6 +16,7 @@ URI: [biolink:OrganismAttribute](https://w3id.org/biolink/vocab/OrganismAttribut
 ## Children
 
  * [Inheritance](Inheritance.md) - The pattern or 'mode' in which a particular genetic trait or disorder is passed from one generation to the next, e.g. autosomal dominant, autosomal recessive, etc.
+ * [PhenotypicQuality](PhenotypicQuality.md) - A property of a phenotype
 
 ## Referenced by class
 

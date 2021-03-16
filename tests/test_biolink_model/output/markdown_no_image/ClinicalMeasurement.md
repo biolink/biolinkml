@@ -7,7 +7,7 @@ A clinical measurement is a special kind of attribute which results from a labor
 URI: [biolink:ClinicalMeasurement](https://w3id.org/biolink/vocab/ClinicalMeasurement)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[QuantityValue],[OntologyClass],[NamedThing],[OntologyClass]<has%20attribute%20type%201..1-%20[ClinicalMeasurement&#124;name(i):label_type%20%3F;iri(i):iri_type%20%3F;source(i):label_type%20%3F],[ClinicalAttribute]^-[ClinicalMeasurement],[ClinicalAttribute])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[QuantityValue],[OntologyClass],[NamedThing],[OntologyClass]<has%20attribute%20type%201..1-++[ClinicalMeasurement&#124;name(i):label_type%20%3F;iri(i):iri_type%20%3F;source(i):label_type%20%3F],[ClinicalAttribute]^-[ClinicalMeasurement],[ClinicalAttribute])
 
 ## Parents
 

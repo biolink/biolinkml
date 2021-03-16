@@ -2,21 +2,25 @@
 # Class: Transcript
 
 
-An RNA synthesized on a DNA or RNA template by an RNA polymerase
+An RNA synthesized on a DNA or RNA template by an RNA polymerase.
 
 URI: [biolink:Transcript](https://w3id.org/biolink/vocab/Transcript)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[TranscriptToGeneRelationship],[ExonToTranscriptRelationship]-%20object%201..1>[Transcript&#124;synonym(i):label_type%20*;xref(i):iri_type%20*;name(i):symbol_type%20%3F;has_biological_sequence(i):biological_sequence%20%3F;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[TranscriptToGeneRelationship]-%20subject%201..1>[Transcript],[GeneProduct]^-[Transcript],[OrganismTaxon],[NamedThing],[MolecularEntity],[GeneProduct],[ExonToTranscriptRelationship],[Attribute],[Agent])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[TranscriptToGeneRelationship],[ExonToTranscriptRelationship]-%20object%201..1>[Transcript&#124;has_biological_sequence(i):biological_sequence%20%3F;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[TranscriptToGeneRelationship]-%20subject%201..1>[Transcript],[Transcript]^-[RNAProduct],[GenomicEntity]^-[Transcript],[OrganismTaxon],[NamedThing],[MolecularEntity],[GenomicEntity],[ExonToTranscriptRelationship],[Attribute],[Agent],[RNAProduct])
 
 ## Identifier prefixes
 
  * ENSEMBL
- * FlyBase
+ * FB
 
 ## Parents
 
- *  is_a: [GeneProduct](GeneProduct.md) - The functional molecular product of a single gene. Gene products are either proteins or functional RNA molecules
+ *  is_a: [GenomicEntity](GenomicEntity.md) - an entity that can either be directly located on a genome (gene, transcript, exon, regulatory region) or is encoded in a genome (protein)
+
+## Children
+
+ * [RNAProduct](RNAProduct.md)
 
 ## Referenced by class
 
@@ -29,7 +33,7 @@ URI: [biolink:Transcript](https://w3id.org/biolink/vocab/Transcript)
 ## Attributes
 
 
-### Inherited from gene product:
+### Inherited from genomic entity:
 
  * [description](description.md)  <sub>OPT</sub>
      * Description: a human-readable description of an entity
@@ -50,9 +54,10 @@ URI: [biolink:Transcript](https://w3id.org/biolink/vocab/Transcript)
      * Description: An IRI for an entity. This is determined by the id using expansion rules.
      * range: [IriType](types/IriType.md)
      * in subsets: (translator_minimal,samples)
- * [macromolecular machine➞name](macromolecular_machine_name.md)  <sub>OPT</sub>
-     * Description: genes are typically designated by a short symbol and a full name. We map the symbol to the default display name and use an additional slot for full name
-     * range: [SymbolType](types/SymbolType.md)
+ * [name](name.md)  <sub>OPT</sub>
+     * Description: A human-readable name for an attribute or entity.
+     * range: [LabelType](types/LabelType.md)
+     * in subsets: (translator_minimal,samples)
  * [named thing➞category](named_thing_category.md)  <sub>1..*</sub>
      * range: [NamedThing](NamedThing.md)
  * [provided by](provided_by.md)  <sub>0..*</sub>
@@ -62,16 +67,8 @@ URI: [biolink:Transcript](https://w3id.org/biolink/vocab/Transcript)
      * Description: a lightweight analog to the association class 'has provider' slot, which is the string name, or the authoritative (i.e. database) namespace, designating the origin of the entity to which the slot belongs.
      * range: [LabelType](types/LabelType.md)
      * in subsets: (translator_minimal)
- * [synonym](synonym.md)  <sub>0..*</sub>
-     * Description: Alternate human-readable names for a thing
-     * range: [LabelType](types/LabelType.md)
-     * in subsets: (translator_minimal)
  * [type](type.md)  <sub>OPT</sub>
      * range: [String](types/String.md)
- * [xref](xref.md)  <sub>0..*</sub>
-     * Description: Alternate CURIEs for a thing
-     * range: [IriType](types/IriType.md)
-     * in subsets: (translator_minimal)
 
 ## Other properties
 

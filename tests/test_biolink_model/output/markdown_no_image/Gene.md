@@ -2,12 +2,12 @@
 # Class: Gene
 
 
-
+A region (or regions) that includes all of the sequence elements necessary to encode a functional transcript. A gene locus may include regulatory regions, transcribed regions and/or other functional sequence regions.
 
 URI: [biolink:Gene](https://w3id.org/biolink/vocab/Gene)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[VariantToGeneAssociation],[TranscriptToGeneRelationship],[SequenceVariant],[OrganismTaxon],[NamedThing],[GenotypeToGeneAssociation],[GeneToGeneProductRelationship],[GeneOrGeneProduct],[GeneToGeneProductRelationship]-%20subject%201..1>[Gene&#124;symbol:string%20%3F;synonym:label_type%20*;xref:iri_type%20*;name(i):symbol_type%20%3F;has_biological_sequence(i):biological_sequence%20%3F;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[GenotypeToGeneAssociation]-%20object%201..1>[Gene],[SequenceVariant]-%20has%20gene(i)%200..*>[Gene],[GeneGroupingMixin]-%20has%20gene%20or%20gene%20product%200..*>[Gene],[SequenceVariant]-%20has%20gene%200..*>[Gene],[TranscriptToGeneRelationship]-%20object%201..1>[Gene],[VariantToGeneAssociation]-%20object%201..1>[Gene],[GeneOrGeneProduct]^-[Gene],[GeneGroupingMixin],[DiseaseOrPhenotypicFeature],[Attribute],[Agent])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[VariantToGeneAssociation],[TranscriptToGeneRelationship],[SequenceVariant],[OrganismTaxon],[NamedThing],[GenotypeToGeneAssociation],[GenomicEntity],[GeneToGeneProductRelationship],[GeneOrGeneProduct],[GeneToGeneProductRelationship]-%20subject%201..1>[Gene&#124;symbol:string%20%3F;synonym:label_type%20*;xref:iri_type%20*;has_biological_sequence(i):biological_sequence%20%3F;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[GenotypeToGeneAssociation]-%20object%201..1>[Gene],[SequenceVariant]-%20has%20gene(i)%200..*>[Gene],[GeneGroupingMixin]-%20has%20gene%20or%20gene%20product%200..*>[Gene],[SequenceVariant]-%20has%20gene%200..*>[Gene],[TranscriptToGeneRelationship]-%20object%201..1>[Gene],[VariantToGeneAssociation]-%20object%201..1>[Gene],[Gene]uses%20-.->[GeneOrGeneProduct],[GenomicEntity]^-[Gene],[GeneGroupingMixin],[DiseaseOrPhenotypicFeature],[Attribute],[Agent])
 
 ## Identifier prefixes
 
@@ -20,15 +20,20 @@ URI: [biolink:Gene](https://w3id.org/biolink/vocab/Gene)
  * dictyBase
  * WB
  * WormBase
- * FlyBase
+ * FB
  * FB
  * RGD
  * SGD
  * POMBASE
+ * KEGG.GENE
 
 ## Parents
 
- *  is_a: [GeneOrGeneProduct](GeneOrGeneProduct.md) - a union of genes or gene products. Frequently an identifier for one will be used as proxy for another
+ *  is_a: [GenomicEntity](GenomicEntity.md) - an entity that can either be directly located on a genome (gene, transcript, exon, regulatory region) or is encoded in a genome (protein)
+
+## Uses Mixins
+
+ *  mixin: [GeneOrGeneProduct](GeneOrGeneProduct.md) - A union of gene loci or gene products. Frequently an identifier for one will be used as proxy for another
 
 ## Referenced by class
 
@@ -66,7 +71,7 @@ URI: [biolink:Gene](https://w3id.org/biolink/vocab/Gene)
      * range: [IriType](types/IriType.md)
      * in subsets: (translator_minimal)
 
-### Inherited from gene or gene product:
+### Inherited from genomic entity:
 
  * [description](description.md)  <sub>OPT</sub>
      * Description: a human-readable description of an entity
@@ -87,9 +92,10 @@ URI: [biolink:Gene](https://w3id.org/biolink/vocab/Gene)
      * Description: An IRI for an entity. This is determined by the id using expansion rules.
      * range: [IriType](types/IriType.md)
      * in subsets: (translator_minimal,samples)
- * [macromolecular machine➞name](macromolecular_machine_name.md)  <sub>OPT</sub>
-     * Description: genes are typically designated by a short symbol and a full name. We map the symbol to the default display name and use an additional slot for full name
-     * range: [SymbolType](types/SymbolType.md)
+ * [name](name.md)  <sub>OPT</sub>
+     * Description: A human-readable name for an attribute or entity.
+     * range: [LabelType](types/LabelType.md)
+     * in subsets: (translator_minimal,samples)
  * [named thing➞category](named_thing_category.md)  <sub>1..*</sub>
      * range: [NamedThing](NamedThing.md)
  * [provided by](provided_by.md)  <sub>0..*</sub>

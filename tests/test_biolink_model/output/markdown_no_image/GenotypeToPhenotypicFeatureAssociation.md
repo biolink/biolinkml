@@ -7,7 +7,7 @@ Any association between one genotype and a phenotypic feature, where having the 
 URI: [biolink:GenotypeToPhenotypicFeatureAssociation](https://w3id.org/biolink/vocab/GenotypeToPhenotypicFeatureAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SeverityValue],[Publication],[OntologyClass],[Onset],[NamedThing],[Genotype]<subject%201..1-%20[GenotypeToPhenotypicFeatureAssociation&#124;predicate:predicate_type;relation(i):uriorcurie;negated(i):boolean%20%3F;type(i):string%20%3F;id(i):string;iri(i):iri_type%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[GenotypeToPhenotypicFeatureAssociation]uses%20-.->[EntityToPhenotypicFeatureAssociationMixin],[GenotypeToPhenotypicFeatureAssociation]uses%20-.->[GenotypeToEntityAssociationMixin],[Association]^-[GenotypeToPhenotypicFeatureAssociation],[GenotypeToEntityAssociationMixin],[Genotype],[FrequencyValue],[EntityToPhenotypicFeatureAssociationMixin],[BiologicalSex],[Attribute],[Association],[Agent])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SeverityValue],[Publication],[OntologyClass],[Onset],[NamedThing],[Genotype]<subject%201..1-%20[GenotypeToPhenotypicFeatureAssociation&#124;predicate:predicate_type;frequency_qualifier:frequency_value%20%3F;relation(i):uriorcurie;negated(i):boolean%20%3F;type(i):string%20%3F;category(i):category_type%20*;id(i):string;iri(i):iri_type%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[GenotypeToPhenotypicFeatureAssociation]uses%20-.->[EntityToPhenotypicFeatureAssociationMixin],[GenotypeToPhenotypicFeatureAssociation]uses%20-.->[GenotypeToEntityAssociationMixin],[Association]^-[GenotypeToPhenotypicFeatureAssociation],[GenotypeToEntityAssociationMixin],[Genotype],[EntityToPhenotypicFeatureAssociationMixin],[BiologicalSex],[Attribute],[Association],[Agent])
 
 ## Parents
 
@@ -34,8 +34,8 @@ URI: [biolink:GenotypeToPhenotypicFeatureAssociation](https://w3id.org/biolink/v
 
 ### Inherited from association:
 
- * [association➞category](association_category.md)  <sub>1..*</sub>
-     * range: [Association](Association.md)
+ * [association➞category](association_category.md)  <sub>0..*</sub>
+     * range: [CategoryType](types/CategoryType.md)
  * [association➞type](association_type.md)  <sub>OPT</sub>
      * Description: rdf:type of biolink:Association should be fixed at rdf:Statement
      * range: [String](types/String.md)
@@ -86,7 +86,7 @@ URI: [biolink:GenotypeToPhenotypicFeatureAssociation](https://w3id.org/biolink/v
 
  * [frequency qualifier](frequency_qualifier.md)  <sub>OPT</sub>
      * Description: a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject
-     * range: [FrequencyValue](FrequencyValue.md)
+     * range: [FrequencyValue](types/FrequencyValue.md)
 
 ### Mixed in from entity to feature or disease qualifiers mixin:
 

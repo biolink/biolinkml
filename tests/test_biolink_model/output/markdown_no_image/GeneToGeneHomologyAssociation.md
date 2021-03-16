@@ -7,7 +7,7 @@ A homology association between two genes. May be orthology (in which case the sp
 URI: [biolink:GeneToGeneHomologyAssociation](https://w3id.org/biolink/vocab/GeneToGeneHomologyAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[OntologyClass],[GeneToGeneAssociation]^-[GeneToGeneHomologyAssociation&#124;predicate:predicate_type;relation(i):uriorcurie;negated(i):boolean%20%3F;type(i):string%20%3F;id(i):string;iri(i):iri_type%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[GeneToGeneAssociation],[GeneOrGeneProduct],[Attribute],[Association],[Agent])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[OntologyClass],[GeneToGeneAssociation]^-[GeneToGeneHomologyAssociation&#124;predicate:predicate_type;relation(i):uriorcurie;negated(i):boolean%20%3F;type(i):string%20%3F;category(i):category_type%20*;id(i):string;iri(i):iri_type%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[GeneToGeneAssociation],[GeneOrGeneProduct],[Attribute],[Agent])
 
 ## Parents
 
@@ -27,8 +27,8 @@ URI: [biolink:GeneToGeneHomologyAssociation](https://w3id.org/biolink/vocab/Gene
 
 ### Inherited from gene to gene association:
 
- * [association➞category](association_category.md)  <sub>1..*</sub>
-     * range: [Association](Association.md)
+ * [association➞category](association_category.md)  <sub>0..*</sub>
+     * range: [CategoryType](types/CategoryType.md)
  * [association➞type](association_type.md)  <sub>OPT</sub>
      * Description: rdf:type of biolink:Association should be fixed at rdf:Statement
      * range: [String](types/String.md)

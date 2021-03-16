@@ -7,7 +7,7 @@ Qualifier for frequency type associations
 URI: [biolink:FrequencyQualifierMixin](https://w3id.org/biolink/vocab/FrequencyQualifierMixin)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[FrequencyValue],[FrequencyValue]<frequency%20qualifier%200..1-++[FrequencyQualifierMixin],[VariantToPopulationAssociation]uses%20-.->[FrequencyQualifierMixin],[FrequencyQualifierMixin]^-[EntityToFeatureOrDiseaseQualifiersMixin],[VariantToPopulationAssociation],[EntityToFeatureOrDiseaseQualifiersMixin])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[VariantToPopulationAssociation]uses%20-.->[FrequencyQualifierMixin&#124;frequency_qualifier:frequency_value%20%3F],[FrequencyQualifierMixin]^-[EntityToFeatureOrDiseaseQualifiersMixin],[VariantToPopulationAssociation],[EntityToFeatureOrDiseaseQualifiersMixin])
 
 ## Children
 
@@ -27,4 +27,4 @@ URI: [biolink:FrequencyQualifierMixin](https://w3id.org/biolink/vocab/FrequencyQ
 
  * [frequency qualifier](frequency_qualifier.md)  <sub>OPT</sub>
      * Description: a qualifier used in a phenotypic association to state how frequent the phenotype is observed in the subject
-     * range: [FrequencyValue](FrequencyValue.md)
+     * range: [FrequencyValue](types/FrequencyValue.md)

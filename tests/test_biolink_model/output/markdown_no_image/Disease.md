@@ -25,6 +25,7 @@ URI: [biolink:Disease](https://w3id.org/biolink/vocab/Disease)
  * ICD10
  * ICD9
  * ICD0
+ * KEGG.DISEASE
  * HP
  * MP
 
@@ -85,6 +86,7 @@ URI: [biolink:Disease](https://w3id.org/biolink/vocab/Disease)
 | **In Subsets:** | | model_organism_database |
 | **Exact Mappings:** | | MONDO:0000001 |
 |  | | DOID:4 |
+|  | | NCIT:C2991 |
 |  | | WIKIDATA:Q12136 |
 |  | | SIO:010299 |
 |  | | UMLSSG:DISO |

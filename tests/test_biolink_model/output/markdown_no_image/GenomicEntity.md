@@ -7,23 +7,25 @@ an entity that can either be directly located on a genome (gene, transcript, exo
 URI: [biolink:GenomicEntity](https://w3id.org/biolink/vocab/GenomicEntity)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[SequenceVariant],[SequenceFeatureRelationship],[ReagentTargetedGene],[OrganismTaxon],[NamedThing],[MolecularEntity],[MacromolecularMachine],[Haplotype],[Genotype],[GenomicSequenceLocalization],[GenomicSequenceLocalization]-%20object%201..1>[GenomicEntity&#124;has_biological_sequence:biological_sequence%20%3F;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[GenomicSequenceLocalization]-%20subject%201..1>[GenomicEntity],[SequenceFeatureRelationship]-%20object%201..1>[GenomicEntity],[SequenceFeatureRelationship]-%20subject%201..1>[GenomicEntity],[GenomicEntity]^-[SequenceVariant],[GenomicEntity]^-[ReagentTargetedGene],[GenomicEntity]^-[MacromolecularMachine],[GenomicEntity]^-[Haplotype],[GenomicEntity]^-[Genotype],[GenomicEntity]^-[GenomicBackgroundExposure],[GenomicEntity]^-[Genome],[GenomicEntity]^-[Exon],[GenomicEntity]^-[CodingSequence],[MolecularEntity]^-[GenomicEntity],[GenomicBackgroundExposure],[Genome],[Exon],[CodingSequence],[Attribute],[Agent])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Transcript],[SequenceVariant],[SequenceFeatureRelationship],[ReagentTargetedGene],[Protein],[OrganismTaxon],[NamedThing],[MolecularEntity],[Haplotype],[Genotype],[GenomicSequenceLocalization],[GenomicSequenceLocalization]-%20object%201..1>[GenomicEntity&#124;has_biological_sequence:biological_sequence%20%3F;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[GenomicSequenceLocalization]-%20subject%201..1>[GenomicEntity],[SequenceFeatureRelationship]-%20object%201..1>[GenomicEntity],[SequenceFeatureRelationship]-%20subject%201..1>[GenomicEntity],[GenomicEntity]^-[Transcript],[GenomicEntity]^-[SequenceVariant],[GenomicEntity]^-[ReagentTargetedGene],[GenomicEntity]^-[Protein],[GenomicEntity]^-[Haplotype],[GenomicEntity]^-[Genotype],[GenomicEntity]^-[GenomicBackgroundExposure],[GenomicEntity]^-[Genome],[GenomicEntity]^-[Gene],[GenomicEntity]^-[Exon],[GenomicEntity]^-[CodingSequence],[MolecularEntity]^-[GenomicEntity],[GenomicBackgroundExposure],[Genome],[Gene],[Exon],[CodingSequence],[Attribute],[Agent])
 
 ## Parents
 
- *  is_a: [MolecularEntity](MolecularEntity.md) - A gene, gene product, small molecule or macromolecule (including protein complex)
+ *  is_a: [MolecularEntity](MolecularEntity.md) - A gene, gene product, small molecule or macromolecule (including protein complex)"
 
 ## Children
 
  * [CodingSequence](CodingSequence.md)
- * [Exon](Exon.md) - A region of the transcript sequence within a gene which is not removed from the primary RNA transcript by RNA splicing
+ * [Exon](Exon.md) - A region of the transcript sequence within a gene which is not removed from the primary RNA transcript by RNA splicing.
+ * [Gene](Gene.md) - A region (or regions) that includes all of the sequence elements necessary to encode a functional transcript. A gene locus may include regulatory regions, transcribed regions and/or other functional sequence regions.
  * [Genome](Genome.md) - A genome is the sum of genetic material within a cell or virion.
  * [GenomicBackgroundExposure](GenomicBackgroundExposure.md) - A genomic background exposure is where an individual's specific genomic background of genes, sequence variants or other pre-existing genomic conditions constitute a kind of 'exposure' to the organism, leading to or influencing an outcome.
  * [Genotype](Genotype.md) - An information content entity that describes a genome by specifying the total variation in genomic sequence and/or gene expression, relative to some established background
  * [Haplotype](Haplotype.md) - A set of zero or more Alleles on a single instance of a Sequence[VMC]
- * [MacromolecularMachine](MacromolecularMachine.md) - A union of gene, gene product, and macromolecular complex. These are the basic units of function in a cell. They either carry out individual biological activities, or they encode molecules which do this.
+ * [Protein](Protein.md) - A gene product that is composed of a chain of amino acid sequences and is produced by ribosome-mediated translation of mRNA
  * [ReagentTargetedGene](ReagentTargetedGene.md) - A gene altered in its expression level in the context of some experiment as a result of being targeted by gene-knockdown reagent(s) such as a morpholino or RNAi.
  * [SequenceVariant](SequenceVariant.md) - An allele that varies in its sequence from what is considered the reference allele at that locus.
+ * [Transcript](Transcript.md) - An RNA synthesized on a DNA or RNA template by an RNA polymerase.
 
 ## Referenced by class
 

@@ -1,7 +1,6 @@
 {
-   "_comments": "Auto generated from types.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2020-08-25 16:38\nSchema: types\n\nid: https://w3id.org/biolink/biolinkml/types\ndescription: Shared type definitions for the core biolink mode and metamodel\nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
+   "_comments": "Auto generated from types.yaml by jsonldcontextgen.py version: 0.1.1\n    Generation date: 2021-03-16 16:34\n    Schema: types\n    \n    id: https://w3id.org/biolink/biolinkml/types\n    description: Shared type definitions for the core biolink mode and metamodel\n    license: https://creativecommons.org/publicdomain/zero/1.0/\n    ",
    "@context": {
-      "type": "@type",
       "metatype": "https://w3id.org/biolink/biolinkml/meta/types/",
       "shex": "http://www.w3.org/ns/shex#",
       "xsd": "http://www.w3.org/2001/XMLSchema#",

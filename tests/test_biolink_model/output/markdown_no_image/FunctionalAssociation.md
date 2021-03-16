@@ -2,12 +2,12 @@
 # Class: FunctionalAssociation
 
 
-An association between a macromolecular machine (gene, gene product or complex of gene products) and either a molecular activity, a biological process or a cellular location in which a function is executed
+An association between a macromolecular machine mixin (gene, gene product or complex of gene products) and either a molecular activity, a biological process or a cellular location in which a function is executed.
 
 URI: [biolink:FunctionalAssociation](https://w3id.org/biolink/vocab/FunctionalAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[OntologyClass],[MacromolecularMachineToMolecularActivityAssociation],[MacromolecularMachineToCellularComponentAssociation],[MacromolecularMachineToBiologicalProcessAssociation],[MacromolecularMachine],[GeneToGoTermAssociation],[GeneOntologyClass],[GeneOntologyClass]<object%201..1-%20[FunctionalAssociation&#124;predicate(i):predicate_type;relation(i):uriorcurie;negated(i):boolean%20%3F;type(i):string%20%3F;id(i):string;iri(i):iri_type%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[MacromolecularMachine]<subject%201..1-%20[FunctionalAssociation],[FunctionalAssociation]^-[MacromolecularMachineToMolecularActivityAssociation],[FunctionalAssociation]^-[MacromolecularMachineToCellularComponentAssociation],[FunctionalAssociation]^-[MacromolecularMachineToBiologicalProcessAssociation],[FunctionalAssociation]^-[GeneToGoTermAssociation],[Association]^-[FunctionalAssociation],[Attribute],[Association],[Agent])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[OntologyClass],[MacromolecularMachineToMolecularActivityAssociation],[MacromolecularMachineToCellularComponentAssociation],[MacromolecularMachineToBiologicalProcessAssociation],[MacromolecularMachineMixin],[GeneToGoTermAssociation],[GeneOntologyClass],[GeneOntologyClass]<object%201..1-++[FunctionalAssociation&#124;predicate(i):predicate_type;relation(i):uriorcurie;negated(i):boolean%20%3F;type(i):string%20%3F;category(i):category_type%20*;id(i):string;iri(i):iri_type%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[MacromolecularMachineMixin]<subject%201..1-++[FunctionalAssociation],[FunctionalAssociation]^-[MacromolecularMachineToMolecularActivityAssociation],[FunctionalAssociation]^-[MacromolecularMachineToCellularComponentAssociation],[FunctionalAssociation]^-[MacromolecularMachineToBiologicalProcessAssociation],[FunctionalAssociation]^-[GeneToGoTermAssociation],[Association]^-[FunctionalAssociation],[Attribute],[Association],[Agent])
 
 ## Parents
 
@@ -16,9 +16,9 @@ URI: [biolink:FunctionalAssociation](https://w3id.org/biolink/vocab/FunctionalAs
 ## Children
 
  * [GeneToGoTermAssociation](GeneToGoTermAssociation.md)
- * [MacromolecularMachineToBiologicalProcessAssociation](MacromolecularMachineToBiologicalProcessAssociation.md) - A functional association between a macromolecular machine (gene, gene product or complex) and a biological process or pathway (as represented in the GO biological process branch), where the entity carries out some part of the process, regulates it, or acts upstream of it
- * [MacromolecularMachineToCellularComponentAssociation](MacromolecularMachineToCellularComponentAssociation.md) - A functional association between a macromolecular machine (gene, gene product or complex) and a cellular component (as represented in the GO cellular component branch), where the entity carries out its function in the cellular component
- * [MacromolecularMachineToMolecularActivityAssociation](MacromolecularMachineToMolecularActivityAssociation.md) - A functional association between a macromolecular machine (gene, gene product or complex) and a molecular activity (as represented in the GO molecular function branch), where the entity carries out the activity, or contributes to its execution
+ * [MacromolecularMachineToBiologicalProcessAssociation](MacromolecularMachineToBiologicalProcessAssociation.md) - A functional association between a macromolecular machine (gene, gene product or complex) and a biological process or pathway (as represented in the GO biological process branch), where the entity carries out some part of the process, regulates it, or acts upstream of it.
+ * [MacromolecularMachineToCellularComponentAssociation](MacromolecularMachineToCellularComponentAssociation.md) - A functional association between a macromolecular machine (gene, gene product or complex) and a cellular component (as represented in the GO cellular component branch), where the entity carries out its function in the cellular component.
+ * [MacromolecularMachineToMolecularActivityAssociation](MacromolecularMachineToMolecularActivityAssociation.md) - A functional association between a macromolecular machine (gene, gene product or complex) and a molecular activity (as represented in the GO molecular function branch), where the entity carries out the activity, or contributes to its execution.
 
 ## Referenced by class
 
@@ -34,14 +34,14 @@ URI: [biolink:FunctionalAssociation](https://w3id.org/biolink/vocab/FunctionalAs
      * Example:    
      * Example:    
  * [functional association➞subject](functional_association_subject.md)  <sub>REQ</sub>
-     * Description: gene, product or macromolecular complex that has the function associated with the GO term
-     * range: [MacromolecularMachine](MacromolecularMachine.md)
+     * Description: gene, product or macromolecular complex mixin that has the function associated with the GO term
+     * range: [MacromolecularMachineMixin](MacromolecularMachineMixin.md)
      * Example:    
 
 ### Inherited from association:
 
- * [association➞category](association_category.md)  <sub>1..*</sub>
-     * range: [Association](Association.md)
+ * [association➞category](association_category.md)  <sub>0..*</sub>
+     * range: [CategoryType](types/CategoryType.md)
  * [association➞type](association_type.md)  <sub>OPT</sub>
      * Description: rdf:type of biolink:Association should be fixed at rdf:Statement
      * range: [String](types/String.md)

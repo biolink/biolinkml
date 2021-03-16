@@ -7,7 +7,7 @@ A property or characteristic of an entity. For example, an apple may have proper
 URI: [biolink:Attribute](https://w3id.org/biolink/vocab/Attribute)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Zygosity],[SocioeconomicAttribute],[SeverityValue],[QuantityValue],[OrganismalEntity],[OrganismAttribute],[OntologyClass],[NamedThing],[FrequencyValue],[ClinicalAttribute],[BiologicalSex],[NamedThing]<has%20qualitative%20value%200..1-%20[Attribute&#124;name:label_type%20%3F;iri:iri_type%20%3F;source:label_type%20%3F],[QuantityValue]<has%20quantitative%20value%200..*-++[Attribute],[OntologyClass]<has%20attribute%20type%201..1-%20[Attribute],[Entity]++-%20has%20attribute%200..*>[Attribute],[OrganismalEntity]++-%20has%20attribute%200..*>[Attribute],[Attribute]^-[Zygosity],[Attribute]^-[SocioeconomicAttribute],[Attribute]^-[SeverityValue],[Attribute]^-[OrganismAttribute],[Attribute]^-[FrequencyValue],[Attribute]^-[ClinicalAttribute],[Attribute]^-[BiologicalSex],[Annotation]^-[Attribute],[Entity],[Annotation])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Zygosity],[SocioeconomicAttribute],[SeverityValue],[QuantityValue],[OrganismalEntity],[OrganismAttribute],[OntologyClass],[NamedThing],[Entity],[ClinicalAttribute],[BiologicalSex],[NamedThing]<has%20qualitative%20value%200..1-%20[Attribute&#124;name:label_type%20%3F;iri:iri_type%20%3F;source:label_type%20%3F],[QuantityValue]<has%20quantitative%20value%200..*-++[Attribute],[OntologyClass]<has%20attribute%20type%201..1-++[Attribute],[Entity]++-%20has%20attribute%200..*>[Attribute],[OrganismalEntity]++-%20has%20attribute%200..*>[Attribute],[Attribute]uses%20-.->[OntologyClass],[Attribute]^-[Zygosity],[Attribute]^-[SocioeconomicAttribute],[Attribute]^-[SeverityValue],[Attribute]^-[OrganismAttribute],[Attribute]^-[ClinicalAttribute],[Attribute]^-[BiologicalSex],[Annotation]^-[Attribute],[Annotation])
 
 ## Identifier prefixes
 
@@ -20,11 +20,14 @@ URI: [biolink:Attribute](https://w3id.org/biolink/vocab/Attribute)
 
  *  is_a: [Annotation](Annotation.md) - Biolink Model root class for entity annotations.
 
+## Uses Mixins
+
+ *  mixin: [OntologyClass](OntologyClass.md) - a concept or class in an ontology, vocabulary or thesaurus. Note that nodes in a biolink compatible KG can be considered both instances of biolink classes, and OWL classes in their own right. In general you should not need to use this class directly. Instead, use the appropriate biolink class. For example, for the GO concept of endocytosis (GO:0006897), use bl:BiologicalProcess as the type.
+
 ## Children
 
  * [BiologicalSex](BiologicalSex.md)
  * [ClinicalAttribute](ClinicalAttribute.md) - Attributes relating to a clinical manifestation
- * [FrequencyValue](FrequencyValue.md) - describes the frequency of occurrence of an event or condition
  * [OrganismAttribute](OrganismAttribute.md) - describes a characteristic of an organismal entity.
  * [SeverityValue](SeverityValue.md) - describes the severity of a phenotypic feature or disease
  * [SocioeconomicAttribute](SocioeconomicAttribute.md) - Attributes relating to a socioeconomic manifestation
@@ -32,7 +35,7 @@ URI: [biolink:Attribute](https://w3id.org/biolink/vocab/Attribute)
 
 ## Referenced by class
 
- *  **None** *[has attribute](has_attribute.md)*  <sub>0..*</sub>  **[Attribute](Attribute.md)**
+ *  **[Entity](Entity.md)** *[has attribute](has_attribute.md)*  <sub>0..*</sub>  **[Attribute](Attribute.md)**
  *  **[OrganismalEntity](OrganismalEntity.md)** *[organismal entity➞has attribute](organismal_entity_has_attribute.md)*  <sub>0..*</sub>  **[Attribute](Attribute.md)**
 
 ## Attributes
@@ -70,5 +73,4 @@ URI: [biolink:Attribute](https://w3id.org/biolink/vocab/Attribute)
 | --- | --- | --- |
 | **In Subsets:** | | samples |
 | **Exact Mappings:** | | SIO:000614 |
-| **Narrow Mappings:** | | PATO:0000001 |
 

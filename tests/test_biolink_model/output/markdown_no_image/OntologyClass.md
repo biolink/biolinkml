@@ -2,16 +2,18 @@
 # Class: OntologyClass
 
 
-a concept or class in an ontology, vocabulary or thesaurus
+a concept or class in an ontology, vocabulary or thesaurus. Note that nodes in a biolink compatible KG can be considered both instances of biolink classes, and OWL classes in their own right. In general you should not need to use this class directly. Instead, use the appropriate biolink class. For example, for the GO concept of endocytosis (GO:0006897), use bl:BiologicalProcess as the type.
 
 URI: [biolink:OntologyClass](https://w3id.org/biolink/vocab/OntologyClass)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[TaxonomicRank],[RelationshipType],[OrganismTaxon],[ClinicalMeasurement]-%20has%20attribute%20type%201..1>[OntologyClass&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[ContributorAssociation]-%20qualifiers%200..*>[OntologyClass],[GeneExpressionMixin]-%20quantifier%20qualifier%200..1>[OntologyClass],[GeneToExpressionSiteAssociation]-%20quantifier%20qualifier%200..1>[OntologyClass],[Attribute]-%20has%20attribute%20type%201..1>[OntologyClass],[PairwiseMolecularInteraction]-%20interacting%20molecules%20category%200..1>[OntologyClass],[Association]-%20qualifiers%200..*>[OntologyClass],[GeneExpressionMixin]-%20quantifier%20qualifier(i)%200..1>[OntologyClass],[GeneToExpressionSiteAssociation]-%20quantifier%20qualifier(i)%200..1>[OntologyClass],[OntologyClass]^-[TaxonomicRank],[OntologyClass]^-[RelationshipType],[OntologyClass]^-[OrganismTaxon],[OntologyClass]^-[GeneOntologyClass],[NamedThing]^-[OntologyClass],[PairwiseMolecularInteraction],[NamedThing],[GeneToExpressionSiteAssociation],[GeneOntologyClass],[GeneExpressionMixin],[ContributorAssociation],[ClinicalMeasurement],[Attribute],[Association],[Agent])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[UnclassifiedOntologyClass],[TaxonomicRank],[RelationshipType],[OrganismTaxon],[ClinicalMeasurement]++-%20has%20attribute%20type%201..1>[OntologyClass],[ContributorAssociation]++-%20qualifiers%200..*>[OntologyClass],[GeneExpressionMixin]++-%20quantifier%20qualifier%200..1>[OntologyClass],[GeneToExpressionSiteAssociation]++-%20quantifier%20qualifier%200..1>[OntologyClass],[Attribute]++-%20has%20attribute%20type%201..1>[OntologyClass],[PairwiseMolecularInteraction]++-%20interacting%20molecules%20category%200..1>[OntologyClass],[Association]++-%20qualifiers%200..*>[OntologyClass],[GeneExpressionMixin]++-%20quantifier%20qualifier(i)%200..1>[OntologyClass],[GeneToExpressionSiteAssociation]++-%20quantifier%20qualifier(i)%200..1>[OntologyClass],[ProcessedMaterial]uses%20-.->[OntologyClass],[PhysiologicalProcess]uses%20-.->[OntologyClass],[Pathway]uses%20-.->[OntologyClass],[MolecularEntity]uses%20-.->[OntologyClass],[MolecularActivity]uses%20-.->[OntologyClass],[Drug]uses%20-.->[OntologyClass],[ChemicalSubstance]uses%20-.->[OntologyClass],[BiologicalProcessOrActivity]uses%20-.->[OntologyClass],[BiologicalProcess]uses%20-.->[OntologyClass],[Behavior]uses%20-.->[OntologyClass],[Attribute]uses%20-.->[OntologyClass],[OntologyClass]^-[UnclassifiedOntologyClass],[OntologyClass]^-[TaxonomicRank],[OntologyClass]^-[RelationshipType],[OntologyClass]^-[OrganismTaxon],[OntologyClass]^-[GeneOntologyClass],[ProcessedMaterial],[PhysiologicalProcess],[Pathway],[PairwiseMolecularInteraction],[NamedThing],[MolecularEntity],[MolecularActivity],[GeneToExpressionSiteAssociation],[GeneOntologyClass],[GeneExpressionMixin],[Drug],[ContributorAssociation],[ClinicalMeasurement],[ChemicalSubstance],[BiologicalProcessOrActivity],[BiologicalProcess],[Behavior],[Attribute],[Association])
 
-## Parents
+## Identifier prefixes
 
- *  is_a: [NamedThing](NamedThing.md) - a databased entity or concept/class
+ * MESH
+ * UMLS
+ * KEGG.BRITE
 
 ## Children
 
@@ -19,10 +21,24 @@ URI: [biolink:OntologyClass](https://w3id.org/biolink/vocab/OntologyClass)
  * [OrganismTaxon](OrganismTaxon.md) - A classification of a set of organisms. Example instances: NCBITaxon:9606 (Homo sapiens), NCBITaxon:2 (Bacteria). Can also be used to represent strains or subspecies.
  * [RelationshipType](RelationshipType.md) - An OWL property used as an edge label
  * [TaxonomicRank](TaxonomicRank.md) - A descriptor for the rank within a taxonomic classification. Example instance: TAXRANK:0000017 (kingdom)
+ * [UnclassifiedOntologyClass](UnclassifiedOntologyClass.md) - this is used for nodes that are taken from an ontology but are not typed using an existing biolink class
+
+## Mixin for
+
+ * [Attribute](Attribute.md) (mixin)  - A property or characteristic of an entity. For example, an apple may have properties such as color, shape, age, crispiness. An environmental sample may have attributes such as depth, lat, long, material.
+ * [Behavior](Behavior.md) (mixin) 
+ * [BiologicalProcess](BiologicalProcess.md) (mixin)  - One or more causally connected executions of molecular functions
+ * [BiologicalProcessOrActivity](BiologicalProcessOrActivity.md) (mixin)  - Either an individual molecular activity, or a collection of causally connected molecular activities in a biological system.
+ * [ChemicalSubstance](ChemicalSubstance.md) (mixin)  - May be a chemical entity or a formulation with a chemical entity as active ingredient, or a complex material with multiple chemical entities as part
+ * [Drug](Drug.md) (mixin)  - A substance intended for use in the diagnosis, cure, mitigation, treatment, or prevention of disease
+ * [MolecularActivity](MolecularActivity.md) (mixin)  - An execution of a molecular function carried out by a gene product or macromolecular complex.
+ * [MolecularEntity](MolecularEntity.md) (mixin)  - A gene, gene product, small molecule or macromolecule (including protein complex)"
+ * [Pathway](Pathway.md) (mixin) 
+ * [PhysiologicalProcess](PhysiologicalProcess.md) (mixin) 
+ * [ProcessedMaterial](ProcessedMaterial.md) (mixin)  - A chemical substance (often a mixture) processed for consumption for nutritional, medical or technical use.
 
 ## Referenced by class
 
- *  **[Association](Association.md)** *[association type](association_type.md)*  <sub>OPT</sub>  **[OntologyClass](OntologyClass.md)**
  *  **[ClinicalMeasurement](ClinicalMeasurement.md)** *[clinical measurement➞has attribute type](clinical_measurement_has_attribute_type.md)*  <sub>REQ</sub>  **[OntologyClass](OntologyClass.md)**
  *  **[ContributorAssociation](ContributorAssociation.md)** *[contributor association➞qualifiers](contributor_association_qualifiers.md)*  <sub>0..*</sub>  **[OntologyClass](OntologyClass.md)**
  *  **[GeneExpressionMixin](GeneExpressionMixin.md)** *[gene expression mixin➞quantifier qualifier](gene_expression_mixin_quantifier_qualifier.md)*  <sub>OPT</sub>  **[OntologyClass](OntologyClass.md)**
@@ -39,36 +55,14 @@ URI: [biolink:OntologyClass](https://w3id.org/biolink/vocab/OntologyClass)
 ## Attributes
 
 
-### Inherited from named thing:
+## Other properties
 
- * [description](description.md)  <sub>OPT</sub>
-     * Description: a human-readable description of an entity
-     * range: [NarrativeText](types/NarrativeText.md)
-     * in subsets: (translator_minimal)
- * [has attribute](has_attribute.md)  <sub>0..*</sub>
-     * Description: connects any entity to an attribute
-     * range: [Attribute](Attribute.md)
-     * in subsets: (samples)
- * [id](id.md)  <sub>REQ</sub>
-     * Description: A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI
-     * range: [String](types/String.md)
-     * in subsets: (translator_minimal)
- * [iri](iri.md)  <sub>OPT</sub>
-     * Description: An IRI for an entity. This is determined by the id using expansion rules.
-     * range: [IriType](types/IriType.md)
-     * in subsets: (translator_minimal,samples)
- * [name](name.md)  <sub>OPT</sub>
-     * Description: A human-readable name for an attribute or entity.
-     * range: [LabelType](types/LabelType.md)
-     * in subsets: (translator_minimal,samples)
- * [named thing➞category](named_thing_category.md)  <sub>1..*</sub>
-     * range: [NamedThing](NamedThing.md)
- * [provided by](provided_by.md)  <sub>0..*</sub>
-     * Description: connects an association to the agent (person, organization or group) that provided it
-     * range: [Agent](Agent.md)
- * [source](source.md)  <sub>OPT</sub>
-     * Description: a lightweight analog to the association class 'has provider' slot, which is the string name, or the authoritative (i.e. database) namespace, designating the origin of the entity to which the slot belongs.
-     * range: [LabelType](types/LabelType.md)
-     * in subsets: (translator_minimal)
- * [type](type.md)  <sub>OPT</sub>
-     * range: [String](types/String.md)
+|  |  |  |
+| --- | --- | --- |
+| **Comments:** | | This is modeled as a mixin. 'ontology class' should not be the primary type of a node in the KG. Instead you should use an informative bioloink category, such as AnatomicalEntity (for Uberon classes), ChemicalSubstance (for CHEBI or CHEMBL), etc |
+|  | | Note that formally this is a metaclass. Instances of this class are instances in the graph, but can be the object of 'type' edges. For example, if we had a node in the graph representing a specific brain of a specific patient (e.g brain001), this could have  a category of bl:Sample, and by typed more specifically with an ontology class UBERON:nnn, which has as category bl:AnatomicalEntity |
+| **Examples:** | | Example(value='UBERON:0000955', description="the class 'brain' from the Uberon anatomy ontology") |
+| **See also:** | | https://github.com/biolink/biolink-model/issues/486 |
+| **Exact Mappings:** | | owl:Class |
+|  | | schema:Class |
+

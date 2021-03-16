@@ -7,7 +7,7 @@ An interaction at the molecular level between two physical entities
 URI: [biolink:PairwiseMolecularInteraction](https://w3id.org/biolink/vocab/PairwiseMolecularInteraction)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[MolecularEntity]<object%201..1-%20[PairwiseMolecularInteraction&#124;id:string;predicate:predicate_type;relation:uriorcurie;negated(i):boolean%20%3F;type(i):string%20%3F;iri(i):iri_type%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[MolecularEntity]<subject%201..1-%20[PairwiseMolecularInteraction],[OntologyClass]<interacting%20molecules%20category%200..1-%20[PairwiseMolecularInteraction],[PairwiseGeneToGeneInteraction]^-[PairwiseMolecularInteraction],[PairwiseGeneToGeneInteraction],[OntologyClass],[MolecularEntity],[Attribute],[Association],[Agent])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[MolecularEntity]<object%201..1-%20[PairwiseMolecularInteraction&#124;id:string;predicate:predicate_type;relation:uriorcurie;negated(i):boolean%20%3F;type(i):string%20%3F;category(i):category_type%20*;iri(i):iri_type%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[MolecularEntity]<subject%201..1-%20[PairwiseMolecularInteraction],[OntologyClass]<interacting%20molecules%20category%200..1-++[PairwiseMolecularInteraction],[PairwiseGeneToGeneInteraction]^-[PairwiseMolecularInteraction],[PairwiseGeneToGeneInteraction],[OntologyClass],[MolecularEntity],[Attribute],[Agent])
 
 ## Parents
 
@@ -41,8 +41,8 @@ URI: [biolink:PairwiseMolecularInteraction](https://w3id.org/biolink/vocab/Pairw
 
 ### Inherited from pairwise gene to gene interaction:
 
- * [association➞category](association_category.md)  <sub>1..*</sub>
-     * range: [Association](Association.md)
+ * [association➞category](association_category.md)  <sub>0..*</sub>
+     * range: [CategoryType](types/CategoryType.md)
  * [association➞type](association_type.md)  <sub>OPT</sub>
      * Description: rdf:type of biolink:Association should be fixed at rdf:Statement
      * range: [String](types/String.md)

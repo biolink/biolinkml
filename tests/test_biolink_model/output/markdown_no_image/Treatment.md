@@ -19,6 +19,7 @@ URI: [biolink:Treatment](https://w3id.org/biolink/vocab/Treatment)
 
 ## Referenced by class
 
+ *  **[DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md)** *[approved for treatment by](approved_for_treatment_by.md)*  <sub>0..*</sub>  **[Treatment](Treatment.md)**
  *  **[SequenceVariantModulatesTreatmentAssociation](SequenceVariantModulatesTreatmentAssociation.md)** *[sequence variant modulates treatment association➞object](sequence_variant_modulates_treatment_association_object.md)*  <sub>REQ</sub>  **[Treatment](Treatment.md)**
  *  **[DiseaseOrPhenotypicFeature](DiseaseOrPhenotypicFeature.md)** *[treated by](treated_by.md)*  <sub>0..*</sub>  **[Treatment](Treatment.md)**
 

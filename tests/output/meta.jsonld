@@ -69,7 +69,7 @@
       "definition_uri": "https://w3id.org/biolink/biolinkml/meta/Owl",
       "description": "Set of slots that appear in the OWL representation of a model",
       "from_schema": "https://w3id.org/biolink/biolinkml/meta",
-      "type": "SubsetDefinition"
+      "@type": "SubsetDefinition"
     }
   ],
   "types": [
@@ -81,7 +81,7 @@
       "imported_from": "biolinkml:types",
       "base": "str",
       "uri": "http://www.w3.org/2001/XMLSchema#string",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "integer",
@@ -91,7 +91,7 @@
       "imported_from": "biolinkml:types",
       "base": "int",
       "uri": "http://www.w3.org/2001/XMLSchema#integer",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "boolean",
@@ -102,7 +102,7 @@
       "base": "Bool",
       "uri": "http://www.w3.org/2001/XMLSchema#boolean",
       "repr": "bool",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "float",
@@ -112,7 +112,7 @@
       "imported_from": "biolinkml:types",
       "base": "float",
       "uri": "http://www.w3.org/2001/XMLSchema#float",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "double",
@@ -122,7 +122,7 @@
       "imported_from": "biolinkml:types",
       "base": "float",
       "uri": "http://www.w3.org/2001/XMLSchema#double",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "decimal",
@@ -132,7 +132,7 @@
       "imported_from": "biolinkml:types",
       "base": "Decimal",
       "uri": "http://www.w3.org/2001/XMLSchema#decimal",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "time",
@@ -146,7 +146,7 @@
       "base": "XSDTime",
       "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "date",
@@ -160,7 +160,7 @@
       "base": "XSDDate",
       "uri": "http://www.w3.org/2001/XMLSchema#date",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "datetime",
@@ -171,7 +171,7 @@
       "base": "XSDDateTime",
       "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "uriorcurie",
@@ -182,7 +182,7 @@
       "base": "URIorCURIE",
       "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "uri",
@@ -193,7 +193,7 @@
       "base": "URI",
       "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "ncname",
@@ -204,7 +204,7 @@
       "base": "NCName",
       "uri": "http://www.w3.org/2001/XMLSchema#string",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "objectidentifier",
@@ -218,7 +218,7 @@
       "base": "ElementIdentifier",
       "uri": "http://www.w3.org/ns/shex#iri",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "nodeidentifier",
@@ -229,7 +229,7 @@
       "base": "NodeIdentifier",
       "uri": "http://www.w3.org/ns/shex#nonLiteral",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     }
   ],
   "enums": [
@@ -287,7 +287,7 @@
       "domain_of": [
         "Element"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "definition_uri",
@@ -305,7 +305,7 @@
       "domain_of": [
         "Element"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "id_prefixes",
@@ -320,7 +320,7 @@
       "domain_of": [
         "Element"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "description",
@@ -341,7 +341,7 @@
         "Element",
         "PermissibleValue"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "aliases",
@@ -358,7 +358,7 @@
       "domain_of": [
         "Element"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "deprecated",
@@ -373,7 +373,7 @@
         "Element",
         "PermissibleValue"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "todos",
@@ -389,7 +389,7 @@
         "Element",
         "PermissibleValue"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "notes",
@@ -411,7 +411,7 @@
         "Element",
         "PermissibleValue"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "comments",
@@ -433,7 +433,7 @@
         "Element",
         "PermissibleValue"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "in_subset",
@@ -452,7 +452,7 @@
         "Element",
         "PermissibleValue"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "from_schema",
@@ -474,7 +474,7 @@
         "Element",
         "PermissibleValue"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "imported_from",
@@ -490,7 +490,7 @@
         "Element",
         "PermissibleValue"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "see_also",
@@ -512,7 +512,7 @@
         "Element",
         "PermissibleValue"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "created_by",
@@ -529,7 +529,7 @@
       "domain_of": [
         "Definition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "created_on",
@@ -546,7 +546,7 @@
       "domain_of": [
         "Definition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "last_updated_on",
@@ -563,7 +563,7 @@
       "domain_of": [
         "Definition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "modified_by",
@@ -580,7 +580,7 @@
       "domain_of": [
         "Definition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "status",
@@ -592,7 +592,7 @@
       "examples": [
         {
           "value": "bibo:draft",
-          "type": "Example"
+          "@type": "Example"
         }
       ],
       "from_schema": "https://w3id.org/biolink/biolinkml/meta",
@@ -603,7 +603,7 @@
       "domain_of": [
         "Definition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "is_a",
@@ -618,7 +618,7 @@
       "domain_of": [
         "Definition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "abstract",
@@ -632,7 +632,7 @@
       "domain_of": [
         "Definition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "mixin",
@@ -646,7 +646,7 @@
       "domain_of": [
         "Definition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "mixins",
@@ -661,7 +661,7 @@
       "domain_of": [
         "Definition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "apply_to",
@@ -676,7 +676,7 @@
       "domain_of": [
         "Definition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "values_from",
@@ -691,7 +691,7 @@
       "domain_of": [
         "Definition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "code_set",
@@ -708,7 +708,7 @@
       "domain_of": [
         "EnumDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "code_set_version",
@@ -725,7 +725,7 @@
       "domain_of": [
         "EnumDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "code_set_tag",
@@ -742,7 +742,7 @@
       "domain_of": [
         "EnumDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "pv_formula",
@@ -760,7 +760,7 @@
       "domain_of": [
         "EnumDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "permissible_values",
@@ -776,7 +776,7 @@
       "domain_of": [
         "EnumDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "text",
@@ -791,7 +791,7 @@
       "domain_of": [
         "PermissibleValue"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "meaning",
@@ -808,7 +808,7 @@
       "domain_of": [
         "PermissibleValue"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "id",
@@ -823,7 +823,7 @@
       "domain_of": [
         "SchemaDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "emit_prefixes",
@@ -838,7 +838,7 @@
       "domain_of": [
         "SchemaDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "title",
@@ -858,7 +858,7 @@
       "domain_of": [
         "SchemaDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "version",
@@ -876,7 +876,7 @@
       "domain_of": [
         "SchemaDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "imports",
@@ -891,7 +891,7 @@
       "domain_of": [
         "SchemaDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "license",
@@ -911,7 +911,7 @@
       "domain_of": [
         "SchemaDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "default_curi_maps",
@@ -926,7 +926,7 @@
       "domain_of": [
         "SchemaDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "default_prefix",
@@ -941,7 +941,7 @@
       "domain_of": [
         "SchemaDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "default_range",
@@ -958,7 +958,7 @@
       "domain_of": [
         "SchemaDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "subsets",
@@ -974,7 +974,7 @@
       "domain_of": [
         "SchemaDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "types",
@@ -990,7 +990,7 @@
       "domain_of": [
         "SchemaDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "enums",
@@ -1006,7 +1006,7 @@
       "domain_of": [
         "SchemaDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "slot_definitions",
@@ -1023,7 +1023,7 @@
       "domain_of": [
         "SchemaDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "classes",
@@ -1039,7 +1039,7 @@
       "domain_of": [
         "SchemaDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "metamodel_version",
@@ -1057,7 +1057,7 @@
       "domain_of": [
         "SchemaDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "source_file",
@@ -1075,7 +1075,7 @@
       "domain_of": [
         "SchemaDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "source_file_date",
@@ -1093,7 +1093,7 @@
       "domain_of": [
         "SchemaDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "source_file_size",
@@ -1111,7 +1111,7 @@
       "domain_of": [
         "SchemaDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "generation_date",
@@ -1129,7 +1129,7 @@
       "domain_of": [
         "SchemaDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "slots",
@@ -1147,7 +1147,7 @@
       "domain_of": [
         "ClassDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "slot_usage",
@@ -1166,7 +1166,7 @@
       "domain_of": [
         "ClassDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "attributes",
@@ -1185,7 +1185,7 @@
       "domain_of": [
         "ClassDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "class_uri",
@@ -1200,7 +1200,7 @@
       "domain_of": [
         "ClassDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "subclass_of",
@@ -1217,7 +1217,7 @@
       "domain_of": [
         "ClassDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "defining_slots",
@@ -1233,7 +1233,7 @@
       "domain_of": [
         "ClassDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "union_of",
@@ -1251,7 +1251,7 @@
       "domain_of": [
         "ClassDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "tree_root",
@@ -1265,7 +1265,7 @@
       "domain_of": [
         "ClassDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "domain",
@@ -1280,7 +1280,7 @@
       "domain_of": [
         "SlotDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "range",
@@ -1299,7 +1299,7 @@
       "domain_of": [
         "SlotDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "slot_uri",
@@ -1314,7 +1314,7 @@
       "domain_of": [
         "SlotDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "multivalued",
@@ -1329,7 +1329,7 @@
       "domain_of": [
         "SlotDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "inherited",
@@ -1347,7 +1347,7 @@
       "domain_of": [
         "SlotDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "readonly",
@@ -1362,7 +1362,7 @@
       "domain_of": [
         "SlotDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "ifabsent",
@@ -1377,7 +1377,7 @@
       "domain_of": [
         "SlotDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "singular_name",
@@ -1394,7 +1394,7 @@
       "domain_of": [
         "SlotDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "required",
@@ -1409,7 +1409,7 @@
       "domain_of": [
         "SlotDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "inlined",
@@ -1427,7 +1427,7 @@
       "domain_of": [
         "SlotDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "inlined_as_list",
@@ -1446,7 +1446,7 @@
       "domain_of": [
         "SlotDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "key",
@@ -1467,7 +1467,7 @@
       "domain_of": [
         "SlotDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "identifier",
@@ -1497,7 +1497,7 @@
       "domain_of": [
         "SlotDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "alias",
@@ -1511,7 +1511,7 @@
       "domain_of": [
         "SlotDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "owner",
@@ -1527,7 +1527,7 @@
       "domain_of": [
         "SlotDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "domain_of",
@@ -1543,7 +1543,7 @@
       "domain_of": [
         "SlotDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "is_usage_slot",
@@ -1559,7 +1559,7 @@
       "domain_of": [
         "SlotDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "usage_slot_name",
@@ -1574,7 +1574,7 @@
       "domain_of": [
         "SlotDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "subproperty_of",
@@ -1591,7 +1591,7 @@
       "domain_of": [
         "SlotDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "symmetric",
@@ -1605,7 +1605,7 @@
       "domain_of": [
         "SlotDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "inverse",
@@ -1622,7 +1622,7 @@
       "domain_of": [
         "SlotDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "is_class_field",
@@ -1636,7 +1636,7 @@
       "domain_of": [
         "SlotDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "role",
@@ -1651,7 +1651,7 @@
       "domain_of": [
         "SlotDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "minimum_value",
@@ -1666,7 +1666,7 @@
       "domain_of": [
         "SlotDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "maximum_value",
@@ -1681,7 +1681,7 @@
       "domain_of": [
         "SlotDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "pattern",
@@ -1696,7 +1696,7 @@
       "domain_of": [
         "SlotDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "string_serialization",
@@ -1713,7 +1713,7 @@
       "domain_of": [
         "SlotDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "typeof",
@@ -1732,7 +1732,7 @@
       "domain_of": [
         "TypeDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "base",
@@ -1751,7 +1751,7 @@
       "domain_of": [
         "TypeDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "type_uri",
@@ -1771,7 +1771,7 @@
       "domain_of": [
         "TypeDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "repr",
@@ -1786,7 +1786,7 @@
       "domain_of": [
         "TypeDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "alt_description_text",
@@ -1802,7 +1802,7 @@
       "domain_of": [
         "AltDescription"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "alt_description_source",
@@ -1819,7 +1819,7 @@
       "domain_of": [
         "AltDescription"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "alt_descriptions",
@@ -1835,7 +1835,7 @@
         "Element",
         "PermissibleValue"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "value",
@@ -1852,7 +1852,7 @@
       "domain_of": [
         "Example"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "value_description",
@@ -1867,7 +1867,7 @@
       "domain_of": [
         "Example"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "examples",
@@ -1887,7 +1887,7 @@
         "Element",
         "PermissibleValue"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "prefix_prefix",
@@ -1903,7 +1903,7 @@
       "domain_of": [
         "Prefix"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "prefix_reference",
@@ -1918,7 +1918,7 @@
       "domain_of": [
         "Prefix"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "prefixes",
@@ -1934,7 +1934,7 @@
       "domain_of": [
         "SchemaDefinition"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "local_name_source",
@@ -1950,7 +1950,7 @@
       "domain_of": [
         "LocalName"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "local_name_value",
@@ -1968,7 +1968,7 @@
       "domain_of": [
         "LocalName"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "local_names",
@@ -1983,7 +1983,7 @@
       "domain_of": [
         "Element"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "mappings",
@@ -2001,7 +2001,7 @@
       "domain_of": [
         "Element"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "exact_mappings",
@@ -2020,7 +2020,7 @@
       "domain_of": [
         "Element"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "close_mappings",
@@ -2039,7 +2039,7 @@
       "domain_of": [
         "Element"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "related_mappings",
@@ -2058,7 +2058,7 @@
       "domain_of": [
         "Element"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "narrow_mappings",
@@ -2077,7 +2077,7 @@
       "domain_of": [
         "Element"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "broad_mappings",
@@ -2096,7 +2096,7 @@
       "domain_of": [
         "Element"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "deprecated_element_has_exact_replacement",
@@ -2114,7 +2114,7 @@
         "Element",
         "PermissibleValue"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "deprecated_element_has_possible_replacement",
@@ -2132,7 +2132,7 @@
         "Element",
         "PermissibleValue"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "extensions",
@@ -2150,7 +2150,7 @@
         "Extension",
         "Extensible"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "extension_tag",
@@ -2167,7 +2167,7 @@
       "domain_of": [
         "Extension"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "extension_value",
@@ -2184,7 +2184,7 @@
       "domain_of": [
         "Extension"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "annotations",
@@ -2203,7 +2203,7 @@
         "Annotatable",
         "Annotation"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "schema_definition_name",
@@ -2221,7 +2221,7 @@
       ],
       "is_usage_slot": true,
       "usage_slot_name": "name",
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "slot_definition_is_a",
@@ -2237,7 +2237,7 @@
       ],
       "is_usage_slot": true,
       "usage_slot_name": "is_a",
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "slot_definition_mixins",
@@ -2254,7 +2254,7 @@
       ],
       "is_usage_slot": true,
       "usage_slot_name": "mixins",
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "slot_definition_apply_to",
@@ -2271,7 +2271,7 @@
       ],
       "is_usage_slot": true,
       "usage_slot_name": "apply_to",
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "class_definition_is_a",
@@ -2287,7 +2287,7 @@
       ],
       "is_usage_slot": true,
       "usage_slot_name": "is_a",
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "class_definition_mixins",
@@ -2304,7 +2304,7 @@
       ],
       "is_usage_slot": true,
       "usage_slot_name": "mixins",
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "class_definition_apply_to",
@@ -2321,7 +2321,7 @@
       ],
       "is_usage_slot": true,
       "usage_slot_name": "apply_to",
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "permissible_value_is_a",
@@ -2337,7 +2337,7 @@
       ],
       "is_usage_slot": true,
       "usage_slot_name": "is_a",
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "permissible_value_mixins",
@@ -2354,7 +2354,7 @@
       ],
       "is_usage_slot": true,
       "usage_slot_name": "mixins",
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     }
   ],
   "classes": [
@@ -2400,7 +2400,7 @@
         "annotations"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/Element",
-      "type": "ClassDefinition"
+      "@type": "ClassDefinition"
     },
     {
       "name": "SchemaDefinition",
@@ -2463,7 +2463,7 @@
         "schema_definition_name"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/SchemaDefinition",
-      "type": "ClassDefinition"
+      "@type": "ClassDefinition"
     },
     {
       "name": "TypeDefinition",
@@ -2504,7 +2504,7 @@
         "repr"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/TypeDefinition",
-      "type": "ClassDefinition"
+      "@type": "ClassDefinition"
     },
     {
       "name": "SubsetDefinition",
@@ -2541,7 +2541,7 @@
         "annotations"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/SubsetDefinition",
-      "type": "ClassDefinition"
+      "@type": "ClassDefinition"
     },
     {
       "name": "Definition",
@@ -2593,7 +2593,7 @@
         "status"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/Definition",
-      "type": "ClassDefinition"
+      "@type": "ClassDefinition"
     },
     {
       "name": "EnumDefinition",
@@ -2635,7 +2635,7 @@
         "permissible_values"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/EnumDefinition",
-      "type": "ClassDefinition"
+      "@type": "ClassDefinition"
     },
     {
       "name": "SlotDefinition",
@@ -2716,7 +2716,7 @@
         "slot_definition_apply_to"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/SlotDefinition",
-      "type": "ClassDefinition"
+      "@type": "ClassDefinition"
     },
     {
       "name": "ClassDefinition",
@@ -2777,7 +2777,7 @@
         "class_definition_apply_to"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/ClassDefinition",
-      "type": "ClassDefinition"
+      "@type": "ClassDefinition"
     },
     {
       "name": "Prefix",
@@ -2789,7 +2789,7 @@
         "prefix_reference"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/Prefix",
-      "type": "ClassDefinition"
+      "@type": "ClassDefinition"
     },
     {
       "name": "LocalName",
@@ -2801,7 +2801,7 @@
         "local_name_value"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/LocalName",
-      "type": "ClassDefinition"
+      "@type": "ClassDefinition"
     },
     {
       "name": "Example",
@@ -2813,7 +2813,7 @@
         "value_description"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/Example",
-      "type": "ClassDefinition"
+      "@type": "ClassDefinition"
     },
     {
       "name": "AltDescription",
@@ -2825,7 +2825,7 @@
         "alt_description_text"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/AltDescription",
-      "type": "ClassDefinition"
+      "@type": "ClassDefinition"
     },
     {
       "name": "PermissibleValue",
@@ -2858,7 +2858,7 @@
         "annotations"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/PermissibleValue",
-      "type": "ClassDefinition"
+      "@type": "ClassDefinition"
     },
     {
       "name": "Extension",
@@ -2872,7 +2872,7 @@
         "extensions"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/Extension",
-      "type": "ClassDefinition"
+      "@type": "ClassDefinition"
     },
     {
       "name": "Extensible",
@@ -2885,7 +2885,7 @@
         "extensions"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/Extensible",
-      "type": "ClassDefinition"
+      "@type": "ClassDefinition"
     },
     {
       "name": "Annotatable",
@@ -2898,7 +2898,7 @@
         "annotations"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/Annotatable",
-      "type": "ClassDefinition"
+      "@type": "ClassDefinition"
     },
     {
       "name": "Annotation",
@@ -2917,15 +2917,15 @@
         "annotations"
       ],
       "class_uri": "https://w3id.org/biolink/biolinkml/meta/Annotation",
-      "type": "ClassDefinition"
+      "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.7.0",
   "source_file": "meta.yaml",
-  "source_file_date": "Tue Jan 26 20:23:51 2021",
+  "source_file_date": "Tue Mar 16 16:33:33 2021",
   "source_file_size": 32547,
-  "generation_date": "2021-01-26 20:24",
-  "type": "SchemaDefinition",
+  "generation_date": "2021-03-16 16:34",
+  "@type": "SchemaDefinition",
   "@context": [
     [
       "https://w3id.org/biolink/biolinkml/context.jsonld",

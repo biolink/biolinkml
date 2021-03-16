@@ -25,7 +25,7 @@
       "from_schema": "http://example.org/test/uriandcurie",
       "base": "str",
       "uri": "http://www.w3.org/2001/XMLSchema#string",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "uriorcurie",
@@ -35,7 +35,7 @@
       "base": "URIorCURIE",
       "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "uri",
@@ -45,7 +45,7 @@
       "base": "URI",
       "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "curie",
@@ -55,7 +55,7 @@
       "base": "Curie",
       "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "ncname",
@@ -65,7 +65,7 @@
       "base": "NCName",
       "uri": "http://www.w3.org/2001/XMLSchema#string",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "objectidentifier",
@@ -78,7 +78,7 @@
       "base": "ElementIdentifier",
       "uri": "http://www.w3.org/ns/shex#iri",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "nodeidentifier",
@@ -88,7 +88,7 @@
       "base": "NodeIdentifier",
       "uri": "http://www.w3.org/ns/shex#nonliteral",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     }
   ],
   "slots": [
@@ -104,7 +104,7 @@
       "domain_of": [
         "C1"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "hasCurie",
@@ -116,7 +116,7 @@
       "domain_of": [
         "C1"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "hasURI",
@@ -128,7 +128,7 @@
       "domain_of": [
         "C1"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "hasNcName",
@@ -140,7 +140,7 @@
       "domain_of": [
         "C1"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "id2",
@@ -152,7 +152,7 @@
       "domain_of": [
         "C1"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     }
   ],
   "classes": [
@@ -168,15 +168,15 @@
         "id2"
       ],
       "class_uri": "http://example.org/test/uriandcurieC1",
-      "type": "ClassDefinition"
+      "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.7.0",
   "source_file": "uriandcurie.yaml",
-  "source_file_date": "Thu Jan 14 22:56:47 2021",
+  "source_file_date": "Tue Mar 16 16:33:33 2021",
   "source_file_size": 1427,
-  "generation_date": "2021-01-14 23:00",
-  "type": "SchemaDefinition",
+  "generation_date": "2021-03-16 16:37",
+  "@type": "SchemaDefinition",
   "@context": [
     [
       "https://w3id.org/biolink/biolinkml/context.jsonld"

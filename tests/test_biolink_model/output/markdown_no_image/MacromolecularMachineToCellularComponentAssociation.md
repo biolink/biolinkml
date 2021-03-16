@@ -2,16 +2,20 @@
 # Class: MacromolecularMachineToCellularComponentAssociation
 
 
-A functional association between a macromolecular machine (gene, gene product or complex) and a cellular component (as represented in the GO cellular component branch), where the entity carries out its function in the cellular component
+A functional association between a macromolecular machine (gene, gene product or complex) and a cellular component (as represented in the GO cellular component branch), where the entity carries out its function in the cellular component.
 
 URI: [biolink:MacromolecularMachineToCellularComponentAssociation](https://w3id.org/biolink/vocab/MacromolecularMachineToCellularComponentAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[OntologyClass],[CellularComponent]<object%201..1-%20[MacromolecularMachineToCellularComponentAssociation&#124;predicate(i):predicate_type;relation(i):uriorcurie;negated(i):boolean%20%3F;type(i):string%20%3F;id(i):string;iri(i):iri_type%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[FunctionalAssociation]^-[MacromolecularMachineToCellularComponentAssociation],[MacromolecularMachine],[FunctionalAssociation],[CellularComponent],[Attribute],[Association],[Agent])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[OntologyClass],[MacromolecularMachineToEntityAssociationMixin],[CellularComponent]<object%201..1-%20[MacromolecularMachineToCellularComponentAssociation&#124;predicate(i):predicate_type;relation(i):uriorcurie;negated(i):boolean%20%3F;type(i):string%20%3F;category(i):category_type%20*;id(i):string;iri(i):iri_type%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[MacromolecularMachineToCellularComponentAssociation]uses%20-.->[MacromolecularMachineToEntityAssociationMixin],[FunctionalAssociation]^-[MacromolecularMachineToCellularComponentAssociation],[MacromolecularMachineMixin],[FunctionalAssociation],[CellularComponent],[Attribute],[Agent])
 
 ## Parents
 
- *  is_a: [FunctionalAssociation](FunctionalAssociation.md) - An association between a macromolecular machine (gene, gene product or complex of gene products) and either a molecular activity, a biological process or a cellular location in which a function is executed
+ *  is_a: [FunctionalAssociation](FunctionalAssociation.md) - An association between a macromolecular machine mixin (gene, gene product or complex of gene products) and either a molecular activity, a biological process or a cellular location in which a function is executed.
+
+## Uses Mixins
+
+ *  mixin: [MacromolecularMachineToEntityAssociationMixin](MacromolecularMachineToEntityAssociationMixin.md) - an association which has a macromolecular machine mixin as a subject
 
 ## Referenced by class
 
@@ -26,8 +30,8 @@ URI: [biolink:MacromolecularMachineToCellularComponentAssociation](https://w3id.
 
 ### Inherited from functional association:
 
- * [association➞category](association_category.md)  <sub>1..*</sub>
-     * range: [Association](Association.md)
+ * [association➞category](association_category.md)  <sub>0..*</sub>
+     * range: [CategoryType](types/CategoryType.md)
  * [association➞type](association_type.md)  <sub>OPT</sub>
      * Description: rdf:type of biolink:Association should be fixed at rdf:Statement
      * range: [String](types/String.md)
@@ -36,8 +40,8 @@ URI: [biolink:MacromolecularMachineToCellularComponentAssociation](https://w3id.
      * range: [NarrativeText](types/NarrativeText.md)
      * in subsets: (translator_minimal)
  * [functional association➞subject](functional_association_subject.md)  <sub>REQ</sub>
-     * Description: gene, product or macromolecular complex that has the function associated with the GO term
-     * range: [MacromolecularMachine](MacromolecularMachine.md)
+     * Description: gene, product or macromolecular complex mixin that has the function associated with the GO term
+     * range: [MacromolecularMachineMixin](MacromolecularMachineMixin.md)
      * Example:    
  * [has attribute](has_attribute.md)  <sub>0..*</sub>
      * Description: connects any entity to an attribute

@@ -7,7 +7,7 @@ a piece of information that typically describes some topic of discourse or is us
 URI: [biolink:InformationContentEntity](https://w3id.org/biolink/vocab/InformationContentEntity)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[NamedThing],[ContributorAssociation]-%20subject%201..1>[InformationContentEntity&#124;license:string%20%3F;rights:string%20%3F;format:string%20%3F;creation_date:date%20%3F;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[InformationContentEntity]^-[Publication],[InformationContentEntity]^-[EvidenceType],[InformationContentEntity]^-[DataSet],[InformationContentEntity]^-[DataFile],[InformationContentEntity]^-[ConfidenceLevel],[NamedThing]^-[InformationContentEntity],[EvidenceType],[DataSet],[DataFile],[ContributorAssociation],[ConfidenceLevel],[Attribute],[Agent])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[NamedThing],[ContributorAssociation]-%20subject%201..1>[InformationContentEntity&#124;license:string%20%3F;rights:string%20%3F;format:string%20%3F;creation_date:date%20%3F;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[InformationContentEntity]^-[Publication],[InformationContentEntity]^-[EvidenceType],[InformationContentEntity]^-[DatasetVersion],[InformationContentEntity]^-[DatasetSummary],[InformationContentEntity]^-[DatasetDistribution],[InformationContentEntity]^-[Dataset],[InformationContentEntity]^-[ConfidenceLevel],[NamedThing]^-[InformationContentEntity],[EvidenceType],[DatasetVersion],[DatasetSummary],[DatasetDistribution],[Dataset],[ContributorAssociation],[ConfidenceLevel],[Attribute],[Agent])
 
 ## Identifier prefixes
 
@@ -20,8 +20,10 @@ URI: [biolink:InformationContentEntity](https://w3id.org/biolink/vocab/Informati
 ## Children
 
  * [ConfidenceLevel](ConfidenceLevel.md) - Level of confidence in a statement
- * [DataFile](DataFile.md)
- * [DataSet](DataSet.md)
+ * [Dataset](Dataset.md) - an item that refers to a collection of data from a data source.
+ * [DatasetDistribution](DatasetDistribution.md) - an item that holds distribution level information about a dataset.
+ * [DatasetSummary](DatasetSummary.md) - an item that holds summary level information about a dataset.
+ * [DatasetVersion](DatasetVersion.md) - an item that holds version level information about a dataset.
  * [EvidenceType](EvidenceType.md) - Class of evidence that supports an association
  * [Publication](Publication.md) - Any published piece of information. Can refer to a whole publication, its encompassing publication (i.e. journal or book) or to a part of a publication, if of significant knowledge scope (e.g. a figure, figure legend, or section highlighted by NLP). The scope is intended to be general and include information published on the web, as well as printed materials, either directly or in one of the Publication Biolink category subclasses.
 

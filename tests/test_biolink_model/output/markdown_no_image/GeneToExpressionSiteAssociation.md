@@ -7,7 +7,7 @@ An association between a gene and an expression site, possibly qualified by stag
 URI: [biolink:GeneToExpressionSiteAssociation](https://w3id.org/biolink/vocab/GeneToExpressionSiteAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[OntologyClass],[LifeStage],[AnatomicalEntity]<object%201..1-%20[GeneToExpressionSiteAssociation&#124;predicate:predicate_type;relation(i):uriorcurie;negated(i):boolean%20%3F;type(i):string%20%3F;id(i):string;iri(i):iri_type%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[GeneOrGeneProduct]<subject%201..1-%20[GeneToExpressionSiteAssociation],[OntologyClass]<quantifier%20qualifier%200..1-%20[GeneToExpressionSiteAssociation],[LifeStage]<stage%20qualifier%200..1-%20[GeneToExpressionSiteAssociation],[Association]^-[GeneToExpressionSiteAssociation],[GeneOrGeneProduct],[Attribute],[Association],[AnatomicalEntity],[Agent])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[OntologyClass],[LifeStage],[AnatomicalEntity]<object%201..1-%20[GeneToExpressionSiteAssociation&#124;predicate:predicate_type;relation(i):uriorcurie;negated(i):boolean%20%3F;type(i):string%20%3F;category(i):category_type%20*;id(i):string;iri(i):iri_type%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[GeneOrGeneProduct]<subject%201..1-++[GeneToExpressionSiteAssociation],[OntologyClass]<quantifier%20qualifier%200..1-++[GeneToExpressionSiteAssociation],[LifeStage]<stage%20qualifier%200..1-%20[GeneToExpressionSiteAssociation],[Association]^-[GeneToExpressionSiteAssociation],[GeneOrGeneProduct],[Attribute],[Association],[AnatomicalEntity],[Agent])
 
 ## Parents
 
@@ -41,8 +41,8 @@ URI: [biolink:GeneToExpressionSiteAssociation](https://w3id.org/biolink/vocab/Ge
 
 ### Inherited from association:
 
- * [association➞category](association_category.md)  <sub>1..*</sub>
-     * range: [Association](Association.md)
+ * [association➞category](association_category.md)  <sub>0..*</sub>
+     * range: [CategoryType](types/CategoryType.md)
  * [association➞type](association_type.md)  <sub>OPT</sub>
      * Description: rdf:type of biolink:Association should be fixed at rdf:Statement
      * range: [String](types/String.md)

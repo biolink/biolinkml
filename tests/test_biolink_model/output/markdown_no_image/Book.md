@@ -69,7 +69,7 @@ URI: [biolink:Book](https://w3id.org/biolink/vocab/Book)
      * Description: connects an association to the agent (person, organization or group) that provided it
      * range: [Agent](Agent.md)
  * [publication➞name](publication_name.md)  <sub>OPT</sub>
-     * Description: the 'title' of the publication is generally recorded in the 'name' property (inherited from NamedThing) The field name 'title' is now also tagged as an acceptable alias for the node property 'name' (just in case).
+     * Description: the 'title' of the publication is generally recorded in the 'name' property (inherited from NamedThing). The field name 'title' is now also tagged as an acceptable alias for the node property 'name' (just in case).
      * range: [LabelType](types/LabelType.md)
  * [publication➞pages](publication_pages.md)  <sub>0..*</sub>
      * Description: When a 2-tuple of page numbers are provided, they represent the start and end page of the publication within its parent publication context. For books, this may be set to the total number of pages of the book.

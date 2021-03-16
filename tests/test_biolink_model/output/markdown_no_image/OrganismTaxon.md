@@ -7,7 +7,7 @@ A classification of a set of organisms. Example instances: NCBITaxon:9606 (Homo 
 URI: [biolink:OrganismTaxon](https://w3id.org/biolink/vocab/OrganismTaxon)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[ThingWithTaxon],[TaxonomicRank],[OrganismTaxon]<subclass%20of%200..*-%20[OrganismTaxon&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[TaxonomicRank]<has%20taxonomic%20rank%200..1-%20[OrganismTaxon],[ThingWithTaxon]-%20in%20taxon%200..*>[OrganismTaxon],[OrganismTaxon]^-[BioticExposure],[OntologyClass]^-[OrganismTaxon],[OntologyClass],[NamedThing],[BioticExposure],[Attribute],[Agent])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[ThingWithTaxon],[TaxonomicRank],[OrganismTaxonToOrganismTaxonSpecialization],[OrganismTaxonToOrganismTaxonInteraction],[OrganismTaxonToOrganismTaxonAssociation],[OrganismTaxonToEnvironmentAssociation],[OrganismTaxonToEntityAssociation],[OrganismTaxon]<subclass%20of%200..*-++[OrganismTaxon],[TaxonomicRank]<has%20taxonomic%20rank%200..1-++[OrganismTaxon],[ThingWithTaxon]++-%20in%20taxon%200..*>[OrganismTaxon],[OrganismTaxonToEntityAssociation]++-%20subject%201..1>[OrganismTaxon],[OrganismTaxonToEnvironmentAssociation]++-%20subject%201..1>[OrganismTaxon],[OrganismTaxonToOrganismTaxonAssociation]++-%20object%201..1>[OrganismTaxon],[OrganismTaxonToOrganismTaxonAssociation]++-%20subject%201..1>[OrganismTaxon],[OrganismTaxonToOrganismTaxonInteraction]++-%20object%201..1>[OrganismTaxon],[OrganismTaxonToOrganismTaxonInteraction]++-%20subject%201..1>[OrganismTaxon],[OrganismTaxonToOrganismTaxonSpecialization]++-%20object%201..1>[OrganismTaxon],[OrganismTaxonToOrganismTaxonSpecialization]++-%20subject%201..1>[OrganismTaxon],[OrganismTaxon]^-[BioticExposure],[OntologyClass]^-[OrganismTaxon],[OntologyClass],[BioticExposure])
 
 ## Identifier prefixes
 
@@ -16,15 +16,23 @@ URI: [biolink:OrganismTaxon](https://w3id.org/biolink/vocab/OrganismTaxon)
 
 ## Parents
 
- *  is_a: [OntologyClass](OntologyClass.md) - a concept or class in an ontology, vocabulary or thesaurus
+ *  is_a: [OntologyClass](OntologyClass.md) - a concept or class in an ontology, vocabulary or thesaurus. Note that nodes in a biolink compatible KG can be considered both instances of biolink classes, and OWL classes in their own right. In general you should not need to use this class directly. Instead, use the appropriate biolink class. For example, for the GO concept of endocytosis (GO:0006897), use bl:BiologicalProcess as the type.
 
 ## Children
 
- * [BioticExposure](BioticExposure.md) - A biotic exposure is an intake of (sometimes pathological) biological organisms (including viruses)
+ * [BioticExposure](BioticExposure.md) - An external biotic exposure is an intake of (sometimes pathological) biological organisms (including viruses).
 
 ## Referenced by class
 
  *  **[ThingWithTaxon](ThingWithTaxon.md)** *[in taxon](in_taxon.md)*  <sub>0..*</sub>  **[OrganismTaxon](OrganismTaxon.md)**
+ *  **[OrganismTaxonToEntityAssociation](OrganismTaxonToEntityAssociation.md)** *[organism taxon to entity association➞subject](organism_taxon_to_entity_association_subject.md)*  <sub>REQ</sub>  **[OrganismTaxon](OrganismTaxon.md)**
+ *  **[OrganismTaxonToEnvironmentAssociation](OrganismTaxonToEnvironmentAssociation.md)** *[organism taxon to environment association➞subject](organism_taxon_to_environment_association_subject.md)*  <sub>REQ</sub>  **[OrganismTaxon](OrganismTaxon.md)**
+ *  **[OrganismTaxonToOrganismTaxonAssociation](OrganismTaxonToOrganismTaxonAssociation.md)** *[organism taxon to organism taxon association➞object](organism_taxon_to_organism_taxon_association_object.md)*  <sub>REQ</sub>  **[OrganismTaxon](OrganismTaxon.md)**
+ *  **[OrganismTaxonToOrganismTaxonAssociation](OrganismTaxonToOrganismTaxonAssociation.md)** *[organism taxon to organism taxon association➞subject](organism_taxon_to_organism_taxon_association_subject.md)*  <sub>REQ</sub>  **[OrganismTaxon](OrganismTaxon.md)**
+ *  **[OrganismTaxonToOrganismTaxonInteraction](OrganismTaxonToOrganismTaxonInteraction.md)** *[organism taxon to organism taxon interaction➞object](organism_taxon_to_organism_taxon_interaction_object.md)*  <sub>REQ</sub>  **[OrganismTaxon](OrganismTaxon.md)**
+ *  **[OrganismTaxonToOrganismTaxonInteraction](OrganismTaxonToOrganismTaxonInteraction.md)** *[organism taxon to organism taxon interaction➞subject](organism_taxon_to_organism_taxon_interaction_subject.md)*  <sub>REQ</sub>  **[OrganismTaxon](OrganismTaxon.md)**
+ *  **[OrganismTaxonToOrganismTaxonSpecialization](OrganismTaxonToOrganismTaxonSpecialization.md)** *[organism taxon to organism taxon specialization➞object](organism_taxon_to_organism_taxon_specialization_object.md)*  <sub>REQ</sub>  **[OrganismTaxon](OrganismTaxon.md)**
+ *  **[OrganismTaxonToOrganismTaxonSpecialization](OrganismTaxonToOrganismTaxonSpecialization.md)** *[organism taxon to organism taxon specialization➞subject](organism_taxon_to_organism_taxon_specialization_subject.md)*  <sub>REQ</sub>  **[OrganismTaxon](OrganismTaxon.md)**
  *  **[OrganismTaxon](OrganismTaxon.md)** *[organism taxon➞subclass of](organism_taxon_subclass_of.md)*  <sub>0..*</sub>  **[OrganismTaxon](OrganismTaxon.md)**
 
 ## Attributes
@@ -37,40 +45,6 @@ URI: [biolink:OrganismTaxon](https://w3id.org/biolink/vocab/OrganismTaxon)
  * [organism taxon➞subclass of](organism_taxon_subclass_of.md)  <sub>0..*</sub>
      * Description: subclass of holds between two taxa, e.g. human subclass of mammal
      * range: [OrganismTaxon](OrganismTaxon.md)
-
-### Inherited from ontology class:
-
- * [description](description.md)  <sub>OPT</sub>
-     * Description: a human-readable description of an entity
-     * range: [NarrativeText](types/NarrativeText.md)
-     * in subsets: (translator_minimal)
- * [has attribute](has_attribute.md)  <sub>0..*</sub>
-     * Description: connects any entity to an attribute
-     * range: [Attribute](Attribute.md)
-     * in subsets: (samples)
- * [id](id.md)  <sub>REQ</sub>
-     * Description: A unique identifier for an entity. Must be either a CURIE shorthand for a URI or a complete URI
-     * range: [String](types/String.md)
-     * in subsets: (translator_minimal)
- * [iri](iri.md)  <sub>OPT</sub>
-     * Description: An IRI for an entity. This is determined by the id using expansion rules.
-     * range: [IriType](types/IriType.md)
-     * in subsets: (translator_minimal,samples)
- * [name](name.md)  <sub>OPT</sub>
-     * Description: A human-readable name for an attribute or entity.
-     * range: [LabelType](types/LabelType.md)
-     * in subsets: (translator_minimal,samples)
- * [named thing➞category](named_thing_category.md)  <sub>1..*</sub>
-     * range: [NamedThing](NamedThing.md)
- * [provided by](provided_by.md)  <sub>0..*</sub>
-     * Description: connects an association to the agent (person, organization or group) that provided it
-     * range: [Agent](Agent.md)
- * [source](source.md)  <sub>OPT</sub>
-     * Description: a lightweight analog to the association class 'has provider' slot, which is the string name, or the authoritative (i.e. database) namespace, designating the origin of the entity to which the slot belongs.
-     * range: [LabelType](types/LabelType.md)
-     * in subsets: (translator_minimal)
- * [type](type.md)  <sub>OPT</sub>
-     * range: [String](types/String.md)
 
 ## Other properties
 

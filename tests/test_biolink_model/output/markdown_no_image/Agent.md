@@ -82,7 +82,7 @@ URI: [biolink:Agent](https://w3id.org/biolink/vocab/Agent)
 | --- | --- | --- |
 | **Aliases:** | | group |
 | **Exact Mappings:** | | prov:Agent |
-|  | | dcterms:Agent |
+|  | | dct:Agent |
 | **Narrow Mappings:** | | UMLSSG:ORGA |
 |  | | UMLSSC:T092 |
 |  | | UMLSST:orgt |

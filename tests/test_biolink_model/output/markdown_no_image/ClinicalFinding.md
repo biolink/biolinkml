@@ -9,6 +9,12 @@ URI: [biolink:ClinicalFinding](https://w3id.org/biolink/vocab/ClinicalFinding)
 
 ![img](http://yuml.me/diagram/nofunky;dir:TB/class/[PhenotypicFeature],[OrganismTaxon],[NamedThing],[ClinicalAttribute]<has%20attribute%200..*-++[ClinicalFinding&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[PhenotypicFeature]^-[ClinicalFinding],[ClinicalAttribute],[Agent])
 
+## Identifier prefixes
+
+ * LOINC
+ * NCIT
+ * EFO
+
 ## Parents
 
  *  is_a: [PhenotypicFeature](PhenotypicFeature.md)

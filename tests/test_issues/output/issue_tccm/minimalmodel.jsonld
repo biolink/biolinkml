@@ -5,7 +5,7 @@
   "default_range": "string",
   "metamodel_version": "1.7.0",
   "source_file": "minimalmodel.yaml",
-  "type": "SchemaDefinition",
+  "@type": "SchemaDefinition",
   "@context": [
     [
       "https://w3id.org/biolink/biolinkml/context.jsonld"

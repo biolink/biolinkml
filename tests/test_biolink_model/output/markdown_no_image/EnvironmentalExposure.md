@@ -2,7 +2,7 @@
 # Class: EnvironmentalExposure
 
 
-A environmental exposure is a factor relating to abiotic processes in the environment including atmospheric (heat, cold, general pollution) and water-born contaminants
+A environmental exposure is a factor relating to abiotic processes in the environment including sunlight (UV-B), atmospheric (heat, cold, general pollution) and water-born contaminants.
 
 URI: [biolink:EnvironmentalExposure](https://w3id.org/biolink/vocab/EnvironmentalExposure)
 

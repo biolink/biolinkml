@@ -7,11 +7,11 @@
 URI: [biolink:GeneToGoTermAssociation](https://w3id.org/biolink/vocab/GeneToGoTermAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[OntologyClass],[MolecularEntity],[GeneOntologyClass]<object%201..1-%20[GeneToGoTermAssociation&#124;predicate(i):predicate_type;relation(i):uriorcurie;negated(i):boolean%20%3F;type(i):string%20%3F;id(i):string;iri(i):iri_type%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[MolecularEntity]<subject%201..1-%20[GeneToGoTermAssociation],[FunctionalAssociation]^-[GeneToGoTermAssociation],[GeneOntologyClass],[FunctionalAssociation],[Attribute],[Association],[Agent])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[OntologyClass],[MolecularEntity],[GeneOntologyClass]<object%201..1-++[GeneToGoTermAssociation&#124;predicate(i):predicate_type;relation(i):uriorcurie;negated(i):boolean%20%3F;type(i):string%20%3F;category(i):category_type%20*;id(i):string;iri(i):iri_type%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[MolecularEntity]<subject%201..1-%20[GeneToGoTermAssociation],[FunctionalAssociation]^-[GeneToGoTermAssociation],[GeneOntologyClass],[FunctionalAssociation],[Attribute],[Agent])
 
 ## Parents
 
- *  is_a: [FunctionalAssociation](FunctionalAssociation.md) - An association between a macromolecular machine (gene, gene product or complex of gene products) and either a molecular activity, a biological process or a cellular location in which a function is executed
+ *  is_a: [FunctionalAssociation](FunctionalAssociation.md) - An association between a macromolecular machine mixin (gene, gene product or complex of gene products) and either a molecular activity, a biological process or a cellular location in which a function is executed.
 
 ## Referenced by class
 
@@ -32,8 +32,8 @@ URI: [biolink:GeneToGoTermAssociation](https://w3id.org/biolink/vocab/GeneToGoTe
 
 ### Inherited from functional association:
 
- * [association➞category](association_category.md)  <sub>1..*</sub>
-     * range: [Association](Association.md)
+ * [association➞category](association_category.md)  <sub>0..*</sub>
+     * range: [CategoryType](types/CategoryType.md)
  * [association➞type](association_type.md)  <sub>OPT</sub>
      * Description: rdf:type of biolink:Association should be fixed at rdf:Statement
      * range: [String](types/String.md)

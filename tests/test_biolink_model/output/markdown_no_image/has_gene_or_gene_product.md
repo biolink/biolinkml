@@ -2,7 +2,7 @@
 # Slot: has_gene_or_gene_product
 
 
-connects an entity with one or more gene products
+connects an entity with one or more gene or gene products
 
 URI: [biolink:has_gene_or_gene_product](https://w3id.org/biolink/vocab/has_gene_or_gene_product)
 

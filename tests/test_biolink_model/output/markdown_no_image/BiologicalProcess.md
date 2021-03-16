@@ -7,22 +7,23 @@ One or more causally connected executions of molecular functions
 URI: [biolink:BiologicalProcess](https://w3id.org/biolink/vocab/BiologicalProcess)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[PhysiologicalProcess],[PhysicalEntity],[Pathway],[PathologicalProcess],[Occurrent],[NamedThing],[MacromolecularMachineToBiologicalProcessAssociation],[Death],[BiologicalProcessOrActivity],[MacromolecularMachineToBiologicalProcessAssociation]-%20object%201..1>[BiologicalProcess&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[BiologicalProcess]uses%20-.->[Occurrent],[BiologicalProcess]^-[PhysiologicalProcess],[BiologicalProcess]^-[Pathway],[BiologicalProcess]^-[PathologicalProcess],[BiologicalProcess]^-[Death],[BiologicalProcess]^-[Behavior],[BiologicalProcessOrActivity]^-[BiologicalProcess],[Behavior],[Attribute],[Agent])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[PhysiologicalProcess],[PhysicalEntity],[Pathway],[PathologicalProcess],[OntologyClass],[Occurrent],[NamedThing],[MacromolecularMachineToBiologicalProcessAssociation],[Death],[BiologicalProcessOrActivity],[MacromolecularMachineToBiologicalProcessAssociation]-%20object%201..1>[BiologicalProcess&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[BiologicalProcess]uses%20-.->[Occurrent],[BiologicalProcess]uses%20-.->[OntologyClass],[BiologicalProcess]^-[PhysiologicalProcess],[BiologicalProcess]^-[Pathway],[BiologicalProcess]^-[PathologicalProcess],[BiologicalProcess]^-[Death],[BiologicalProcess]^-[Behavior],[BiologicalProcessOrActivity]^-[BiologicalProcess],[Behavior],[Attribute],[Agent])
 
 ## Identifier prefixes
 
  * GO
  * REACT
  * MetaCyc
- * KEGG
+ * KEGG.MODULE
 
 ## Parents
 
- *  is_a: [BiologicalProcessOrActivity](BiologicalProcessOrActivity.md) - Either an individual molecular activity, or a collection of causally connected molecular activities
+ *  is_a: [BiologicalProcessOrActivity](BiologicalProcessOrActivity.md) - Either an individual molecular activity, or a collection of causally connected molecular activities in a biological system.
 
 ## Uses Mixins
 
- *  mixin: [Occurrent](Occurrent.md) - A processual entity
+ *  mixin: [Occurrent](Occurrent.md) - A processual entity.
+ *  mixin: [OntologyClass](OntologyClass.md) - a concept or class in an ontology, vocabulary or thesaurus. Note that nodes in a biolink compatible KG can be considered both instances of biolink classes, and OWL classes in their own right. In general you should not need to use this class directly. Instead, use the appropriate biolink class. For example, for the GO concept of endocytosis (GO:0006897), use bl:BiologicalProcess as the type.
 
 ## Children
 

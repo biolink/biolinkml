@@ -7,7 +7,7 @@
 URI: [biolink:PhenotypicFeature](https://w3id.org/biolink/vocab/PhenotypicFeature)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[EntityToPhenotypicFeatureAssociationMixin]-%20object%201..1>[PhenotypicFeature&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[PhenotypicFeature]^-[ClinicalFinding],[DiseaseOrPhenotypicFeature]^-[PhenotypicFeature],[OrganismTaxon],[NamedThing],[EntityToPhenotypicFeatureAssociationMixin],[DiseaseOrPhenotypicFeature],[ClinicalFinding],[BiologicalEntity],[Attribute],[Agent])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[EntityToPhenotypicFeatureAssociationMixin]-%20object%201..1>[PhenotypicFeature&#124;id(i):string;iri(i):iri_type%20%3F;type(i):string%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[PhenotypicFeature]^-[ClinicalFinding],[PhenotypicFeature]^-[BehavioralFeature],[DiseaseOrPhenotypicFeature]^-[PhenotypicFeature],[OrganismTaxon],[NamedThing],[EntityToPhenotypicFeatureAssociationMixin],[DiseaseOrPhenotypicFeature],[ClinicalFinding],[BiologicalEntity],[BehavioralFeature],[Attribute],[Agent])
 
 ## Identifier prefixes
 
@@ -31,6 +31,7 @@ URI: [biolink:PhenotypicFeature](https://w3id.org/biolink/vocab/PhenotypicFeatur
 
 ## Children
 
+ * [BehavioralFeature](BehavioralFeature.md) - A phenotypic feature which is behavioral in nature.
  * [ClinicalFinding](ClinicalFinding.md) - this category is currently considered broad enough to tag clinical lab measurements and other biological attributes taken as 'clinical traits' with some statistical score, for example, a p value in genetic associations.
 
 ## Referenced by class
@@ -92,5 +93,4 @@ URI: [biolink:PhenotypicFeature](https://w3id.org/biolink/vocab/PhenotypicFeatur
 |  | | UMLSST:sosy |
 |  | | WIKIDATA:Q169872 |
 |  | | WIKIDATA:Q25203551 |
-|  | | HP:0000118 |
 

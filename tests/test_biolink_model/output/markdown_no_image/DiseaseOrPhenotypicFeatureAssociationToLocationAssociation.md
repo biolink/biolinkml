@@ -7,7 +7,7 @@
 URI: [biolink:DiseaseOrPhenotypicFeatureAssociationToLocationAssociation](https://w3id.org/biolink/vocab/DiseaseOrPhenotypicFeatureAssociationToLocationAssociation)
 
 
-![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[OntologyClass],[NamedThing],[DiseaseOrPhenotypicFeatureToEntityAssociationMixin],[AnatomicalEntity]<object%201..1-%20[DiseaseOrPhenotypicFeatureAssociationToLocationAssociation&#124;predicate(i):predicate_type;relation(i):uriorcurie;negated(i):boolean%20%3F;type(i):string%20%3F;id(i):string;iri(i):iri_type%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[DiseaseOrPhenotypicFeatureAssociationToLocationAssociation]uses%20-.->[DiseaseOrPhenotypicFeatureToEntityAssociationMixin],[Association]^-[DiseaseOrPhenotypicFeatureAssociationToLocationAssociation],[Attribute],[Association],[AnatomicalEntity],[Agent])
+![img](http://yuml.me/diagram/nofunky;dir:TB/class/[Publication],[OntologyClass],[NamedThing],[DiseaseOrPhenotypicFeatureToEntityAssociationMixin],[AnatomicalEntity]<object%201..1-%20[DiseaseOrPhenotypicFeatureAssociationToLocationAssociation&#124;predicate(i):predicate_type;relation(i):uriorcurie;negated(i):boolean%20%3F;type(i):string%20%3F;category(i):category_type%20*;id(i):string;iri(i):iri_type%20%3F;name(i):label_type%20%3F;description(i):narrative_text%20%3F;source(i):label_type%20%3F],[DiseaseOrPhenotypicFeatureAssociationToLocationAssociation]uses%20-.->[DiseaseOrPhenotypicFeatureToEntityAssociationMixin],[Association]^-[DiseaseOrPhenotypicFeatureAssociationToLocationAssociation],[Attribute],[Association],[AnatomicalEntity],[Agent])
 
 ## Parents
 
@@ -30,8 +30,8 @@ URI: [biolink:DiseaseOrPhenotypicFeatureAssociationToLocationAssociation](https:
 
 ### Inherited from association:
 
- * [association➞category](association_category.md)  <sub>1..*</sub>
-     * range: [Association](Association.md)
+ * [association➞category](association_category.md)  <sub>0..*</sub>
+     * range: [CategoryType](types/CategoryType.md)
  * [association➞type](association_type.md)  <sub>OPT</sub>
      * Description: rdf:type of biolink:Association should be fixed at rdf:Statement
      * range: [String](types/String.md)

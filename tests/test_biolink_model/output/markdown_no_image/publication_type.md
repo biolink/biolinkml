@@ -30,5 +30,5 @@ URI: [biolink:publication_type](https://w3id.org/biolink/vocab/publication_type)
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | dcterms:type |
+| **Mappings:** | | dct:type |
 

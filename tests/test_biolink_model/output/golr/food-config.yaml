@@ -43,11 +43,6 @@ fields:
     of entities can be taxonomically classified; see 'thing with taxon'
   display_name: in taxon
   cardinality: multi
-- id: has_nutrient
-  description: one or more chemical substance which are growth factors for a living
-    organism
-  display_name: has nutrient
-  cardinality: multi
 - id: has_constituent
   description: one or more chemical substances within a mixture
   display_name: has constituent
