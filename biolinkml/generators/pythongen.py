@@ -173,6 +173,8 @@ dataclasses._init_fn = dataclasses_init_fn_with_kwargs
                 path = str(self.namespaces.uri_for(path) if ':' in path else path)
                 if path.startswith(biolinkml.META_BASE_URI):
                     innerself.v.setdefault('includes.' + path[len(biolinkml.META_BASE_URI):], set()).add(name)
+                elif path.startswith("https://w3id.org/linkml/"):
+                    innerself.v.setdefault(path[len(biolinkml.META_BASE_URI):], set()).add(name)
                 elif path == biolinkml.BIOLINK_MODEL_URI:
                     innerself.v.setdefault(biolinkml.BIOLINK_MODEL_PYTHON_LOC, set()).add(name)
                 elif '://' in path:
